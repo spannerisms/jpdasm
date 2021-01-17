@@ -1,0 +1,504 @@
+00       あ		a
+01       い		i
+02       う		u
+03       え		e
+04       お		o
+05       や		ya
+06       ゆ		yu
+07       よ		yo
+08       か		ka
+09       き		ki
+0A       く		ku
+0B       け		ke
+0C       こ		ko
+0D       わ		wa
+0E       を		wo
+0F       ん		nn
+10       さ		sa
+11       し		si
+12       す		su
+13       せ		se
+14       そ		so
+15       が		ga
+16       ぎ		gi
+17       ぐ		gu
+18       た		ta
+19       ち		ti
+1A       つ		tu
+1B       て		te
+1C       と		to
+1D       げ		ge
+1E       ご		go
+1F       ざ		za
+20       な		na
+21       に		ni
+22       ぬ		nu
+23       ね		ne
+24       の		no
+25       じ		zi
+26       ず		zu
+27       ぜ		ze
+28       は		ha
+29       ひ		hi
+2A       ふ		hu
+2B       へ		he
+2C       ほ		ho
+2D       ぞ		zo
+2E       だ		da
+2F       ぢ		di
+30       ま		ma
+31       み		mi
+32       む		mu
+33       め		me
+34       も		mo
+35       づ		du
+36       で		de
+37       ど		do
+38       ら		ra
+39       り		ri
+3A       る		ru
+3B       れ		re
+3C       ろ		ro
+3D       ば		ba
+3E       び		bi
+3F       ぶ		bu
+40       べ		be
+41       ぼ		bo
+42       ぱ		pa
+43       ぴ		pi
+44       ぷ		pu
+45       ぺ		pe
+46       ぽ		po
+47       ゃ		ya
+48       ゅ		yu
+49       ょ		yo
+4A       っ		tu
+4B       ぁ		a
+4C       ぃ		i
+4D       ぅ		u
+4E       ぇ		e
+4F       ぉ		o
+50       ア		a
+51       イ		i
+52       ウ		u
+53       エ		e
+54       オ		o
+55       ヤ		ya
+56       ユ		yu
+57       ヨ		yo
+58       カ		ka
+59       キ		ki
+5A       ク		ku
+5B       ケ		ke
+5C       コ		ko
+5D       ワ		wa
+5E       ヲ		wo
+5F       ン		nn
+60       サ		sa
+61       シ		si
+62       ス		su
+63       セ		se
+64       ソ		so
+65       ガ		ga
+66       ギ		gi
+67       グ		gu
+68       タ		ta
+69       チ		ti
+6A       ツ		tu
+6B       テ		te
+6C       ト		to
+6D       ゲ		ge
+6E       ゴ		go
+6F       ザ		za
+70       ナ		na
+71       ニ		ni
+72       ヌ		nu
+73       ネ		ne
+74       ノ		no
+75       ジ		zi
+76       ズ		zu
+77       ゼ		ze
+78       ハ		ha
+79       ヒ		hi
+7A       フ		hu
+7B       ヘ		he
+7C       ホ		ho
+7D       ゾ		zo
+7E       ダ		da
+7F       ヂ		di
+80       マ		ma
+81       ミ		mi
+82       ム		mu
+83       メ		me
+84       モ		mo
+85       ヅ		du
+86       デ		de
+87       ド		do
+88       ラ		ra
+89       リ		ri
+8A       ル		ru
+8B       レ		re
+8C       ロ		ro
+8D       バ		ba
+8E       ビ		bi
+8F       ブ		bu
+90       ベ		be
+91       ボ		bo
+92       パ		pa
+93       ピ		pi
+94       プ		pu
+95       ペ		pe
+96       ポ		po
+97       ャ		ya
+98       ュ		yu
+99       ョ		yo
+9A       ッ		tsu
+9B       ァ		a
+9C       ィ		i
+9D       ゥ		u
+9E       ェ		r
+9F       ォ		o
+A0       0
+A1       1
+A2       2
+A3       3
+A4       4
+A5       5
+A6       6
+A7       7
+A8       8
+A9       9
+AA       A
+AB       B
+AC       C
+AD       D
+AE       E
+AF       F
+B0       G
+B1       H
+B2       I
+B3       J
+B4       K
+B5       L
+B6       M
+B7       N
+B8       O
+B9       P
+BA       Q
+BB       R
+BC       S
+BD       T
+BE       U
+BF       V
+C0       W
+C1       X
+C2       Y
+C3       Z
+C4       『
+C5       』
+C6       ?
+C7       !
+C8       ,
+C9       －
+CA       🡸
+CB       🡺
+CC       ⋯
+CD       。
+CE       〜
+CF       a
+D0       b
+D1       c
+D2       😬		Link face left
+D3       😬		Link face right
+D4       d
+D5       e
+D6       f
+D7       g
+D8       '
+D9       '		red
+DA       －		red
+DB       。		red
+DC       •		red
+DD       𓄿
+DE       ☥
+DF       ≈
+E0       🡅
+E1       🡇
+E2       🡆
+E3       🡄
+E4       ▶
+E5       ♥		1/4 left
+E6       ♥		2/4 left
+E7       ♥		empty right
+E8       ♥		3/4 left
+E9       ♥		3/4 right
+EA       ♥		4/4 left
+EB       ♥		4/4 right
+EC       h
+ED       i
+EE       j
+EF       k
+F0       l
+F1       m
+F2       n
+F3       o
+F4       p
+F5       q
+FF       ⎵		space
+
+FD 00    娘		Daughter/Maiden
+FD 01    城		shiro - Castle
+FD 02    行		行く - iku - Move/Walk/Act
+FD 03    教		教会 - kyoukai - Church
+FD 04    会		教会 - kyoukai - Church
+FD 05    神		kami - God
+FD 06    父		chichi - Father
+FD 07    訪		
+FD 08    頼		
+FD 09    通		
+FD 0A    願		
+FD 0B    平		
+FD 0C    和		
+FD 0D    司		
+FD 0E    書		
+FD 0F    戻		
+FD 10    様		
+FD 11    子		
+FD 12    湖		
+FD 13    達		
+FD 14    彼		
+FD 15    女		
+FD 16    言		
+FD 17    祭		
+FD 18    早		
+FD 19    雨		
+FD 1A    剣		
+FD 1B    盾		
+FD 1C    解		
+FD 1D    抜		
+FD 1E    者		
+FD 1F    味		
+FD 20    方		
+FD 21    無		
+FD 22    事		
+FD 23    出		
+FD 24    本		
+FD 25    当		
+FD 26    私		
+FD 27    他		
+FD 28    救		
+FD 29    倒		
+FD 2A    度		
+FD 2B    国		
+FD 2C    退		
+FD 2D    魔		
+FD 2E    伝		
+FD 2F    説		
+FD 30    必		
+FD 31    要		
+FD 32    良		
+FD 33    地		
+FD 34    図		
+FD 35    印		
+FD 36    思		
+FD 37    気		
+FD 38    人		
+FD 39    間		
+FD 3A    兵		
+FD 3B    病		
+FD 3C    法		
+FD 3D    屋		
+FD 3E    手		
+FD 3F    住		
+FD 40    連		
+FD 41    恵		
+FD 42    表		
+FD 43    金		
+FD 44    王		
+FD 45    信		
+FD 46    裏		
+FD 47    取		
+FD 48    引		
+FD 49    入		
+FD 4A    口		
+FD 4B    開		
+FD 4C    見		
+FD 4D    正		
+FD 4E    幸		
+FD 4F    運		
+FD 50    呼		
+FD 51    物		
+FD 52    付		
+FD 53    紋		
+FD 54    章		
+FD 55    所		
+FD 56    家		
+FD 57    闇		
+FD 58    読		
+FD 59    左		
+FD 5A    側		
+FD 5B    札		
+FD 5C    穴		
+FD 5D    道		
+FD 5E    男		
+FD 5F    大		
+FD 60    声		
+FD 61    下		
+FD 62    犯		
+FD 63    花		
+FD 64    深		
+FD 65    森		
+FD 66    水		
+FD 67    若		
+FD 68    美		
+FD 69    探		
+FD 6A    今		
+FD 6B    士		
+FD 6C    店		
+FD 6D    好		
+FD 6E    代		
+FD 6F    名		
+FD 70    迷		
+FD 71    立		
+FD 72    上		
+FD 73    光		
+FD 74    点		
+FD 75    目		
+FD 76    的		
+FD 77    押		
+FD 78    前		
+FD 79    夜		
+FD 7A    十		
+FD 7B    字		
+FD 7C    北		
+FD 7D    急		
+FD 7E    昔		
+FD 7F    果		
+FD 80    奥		
+FD 81    選		
+FD 82    続		
+FD 83    結		
+FD 84    定		
+FD 85    悪		
+FD 86    向		
+FD 87    歩		
+FD 88    時		
+FD 89    使		
+FD 8A    古		
+FD 8B    何		
+FD 8C    村		
+FD 8D    長		
+FD 8E    配		
+FD 8F    匹		
+FD 90    殿		
+FD 91    守		
+FD 92    精		
+FD 93    知		
+FD 94    山		
+FD 95    誰		
+FD 96    足		
+FD 97    冷		
+FD 98    黄		
+FD 99    力		
+FD 9A    宝		
+FD 9B    求		
+FD 9C    先		
+FD 9D    消		
+FD 9E    封		
+FD 9F    捕		
+FD A0    勇		
+FD A1    年		
+FD A2    姿		
+FD A3    話		
+FD A4    色		
+FD A5    々		
+FD A6    真		
+FD A7    紅		
+FD A8    場		
+FD A9    炎		
+FD AA    空		
+FD AB    面		
+FD AC    音		
+FD AD    吹		
+FD AE    中		
+FD AF    祈		
+FD B0    起		
+FD B1    右		
+FD B2    念		
+FD B3    再		
+FD B4    生		
+FD B5    庭		
+FD B6    路		
+FD B7    部		
+FD B8    川		
+FD B9    血		
+FD BA    完		
+FD BB    矢		
+FD BC    現		
+FD BD    在		
+FD BE    全		
+FD BF    体		
+FD C0    文		
+FD C1    秘		
+FD C2    密		
+FD C3    感		
+FD C4    賢		
+FD C5    陣		
+FD C6    残		
+FD C7    百		
+FD C8    近		
+FD C9    朝		
+FD CA    助		
+FD CB    術		
+FD CC    粉		
+FD CD    火		
+FD CE    注		
+FD CF    意		
+FD D0    走		
+FD D1    敵		
+FD D2    玉		
+FD D3    復		
+FD D4    活		
+FD D5    塔		
+FD D6    来		
+FD D7    帰		
+FD D8    忘		
+FD D9    東		
+FD DA    青		
+FD DB    持		
+FD DC    込		
+FD DD    逃		
+FD DE    銀		
+FD DF    勝		
+FD E0    集		
+FD E1    始		
+FD E2    攻		
+FD E3    撃		
+FD E4    命		
+FD E5    老		
+FD E6    心		
+FD E7    新		
+FD E8    世		
+FD E9    界		
+FD EA    箱		
+FD EB    木		
+FD EC    対		
+FD ED    特		
+FD EE    賊		
+FD EF    洞		
+FD F0    支		
+FD F1    盗		
+FD F2    族		
+FD F3    能		
+FD F4    力		
+FD F5    多		
+FD F6    聖		
+FD F7    両		
+FD F8    民		
+FD F9    予		
+FD FA    小		
+FD FB    強		
+FD FC    投		
+FD FD    服		
+FD FE    月		
+FD FF    姫		

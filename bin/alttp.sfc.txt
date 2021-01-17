@@ -1,0 +1,8 @@
+Required ROM file for asset extraction: alttp.sfc
+
+===Details===
+Original filename: Zelda no Densetsu - Kamigami no Triforce (Japan).sfc
+Size: 1,048,576 bytes
+Header: None
+CRC32: 3322EFFC
+SHA-256: 794E040B02C7591B59AD8843B51E7C619B88F87CDDC6083A8E7A4027B96A2271

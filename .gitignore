@@ -1,0 +1,9 @@
+*.sfc
+*.lnk
+*.jar
+*.zip
+test/*
+bin/gfx/*.3bpp
+bin/gfx/*.4bpp
+bin/brr/*.brr
+resources/music/*.log

@@ -1,0 +1,5010 @@
+;===================================================================================================
+; Using this symbols map:
+;
+; Except for larger blocks of data, every address will be given at least one symbol
+; Symbols are each given a unique name with focus on hierarchy by nature of usage
+;
+; Low bytes are indicated with an "L" suffix
+; High bytes are indicated with an "H" suffix
+;
+; Bitfields, full or partial, will name each field with a unique letter
+; If multiple bits share a letter, they are part of the same field
+; and form a larger number that is only part of the address
+; All unused bits are marked with a period (.) and no mention of them is made
+;
+; Unused addresses will be named "UNUSED_AAAAAA"
+; Unused addresses will be grouped together and include a comment:
+; "FREE RAM: <size>" to make finding free space easier
+; Larger blocks will say "BIG FREE RAM"
+;
+; For details on register, see "registers.asm"
+; For documentation on save game data, see "symbols_sram.sym"
+;---------------------------------------------------------------------------------------------------
+;===================================================================================================
+;---------------------------------------------------------------------------------------------------
+; DIRECT PAGE
+; Reminder that direct page is always an address in Bank00.
+; For ALTTP's mapping and functionality this will always be a mirror of Bank7E page 00 or page 1F.
+; For the most part, ALTTP leaves the direct page register (D) at $0000.
+; The polyhedral code that draws the triforce and crystals will change this register during IRQ.
+; The symbols here mirror page 00 of Bank7E.
+;---------------------------------------------------------------------------------------------------
+;===================================================================================================
+[labels]
+; Any use of these addresses should be considered incredibly volatile.
+; Note that due to the location of the BRK vector $0000 and $0001 form the operand of its BRL.
+; LENGTH: 0x10
+7E:0000 SCRAP00
+7E:0001 SCRAP01
+7E:0002 SCRAP02
+7E:0003 SCRAP03
+7E:0004 SCRAP04
+7E:0005 SCRAP05
+7E:0006 SCRAP06
+7E:0007 SCRAP07
+7E:0008 SCRAP08
+7E:0009 SCRAP09
+;---------------------------------------------------------------------------------------------------
+; SCRAP0A is used as a direction bitfield during tile act routines.
+;---------------------------------------------------------------------------------------------------
+; TILE ACT NOTES
+;---------------------------------------------------------------------------------------------------
+; For tile act bitfields, each property is flagged with 4 bits.
+; These bits indicate which tile relative Link the tile was found
+;
+;  a b
+;   L
+;  c d
+;
+; abcd
+;   a - found to the north west
+;   b - found to the north east
+;   c - found to the south west
+;   d - found to the south east
+;
+;   L - Link
+;---------------------------------------------------------------------------------------------------
+7E:000A SCRAP0A
+7E:000B SCRAP0B
+7E:000C SCRAP0C
+7E:000D SCRAP0D
+7E:000E SCRAP0E
+7E:000F SCRAP0F
+; Game mode and submode
+7E:0010 MODE
+7E:0011 SUBMODE
+; Before the main loop starts again, $12 is cleared with an STZ
+; While 0, it sits in a loop, waiting for interrupts.
+; When NMI triggers, it checks this flag to decide if the bulk updates should be performed.
+; If NMI reads this flag as zero, it knows the main loop has completed and bulk
+; If NMI triggers before the main game code is finished, this flag will be nonzero
+; then this flag will still be nonzero, and NMI will skip most updates
+; NMI will set this flag to non zero, allowing the loop to exit after NMI
+7E:0012 RUNNMI
+; Queue for INIDISP updates; written to during NMI
+7E:0013 INIDISPQ
+; NMI update flags
+; when non zero, these will trigger a specific graphics update during NMI
+; TODO double check
+7E:0014 NMISTRIPES
+7E:0015 NMICGRAM
+7E:0016 NMIHUD
+7E:0017 NMIINCR
+7E:0018 NMIUP1100
+; Incremental upload VRAM high byte
+7E:0019 UPINCVH
+; This counter is incremented every time the main loop runs.
+; In other words, every frame that the game is not lagging
+7E:001A FRAME
+; Used to flag indoors/outdoors
+;   0x00 - outdoors
+;   0x01 - indoors
+7E:001B INDOORS
+; PPU register queues written during NMI
+7E:001C MAINDESQ
+7E:001D SUBDESQ
+7E:001E TMWQ
+7E:001F TSWQ
+; Link's absolute coordinates
+; TODO also used during attract (up through around $34)
+7E:0020 POSYL
+7E:0021 POSYH
+7E:0022 POSXL
+7E:0023 POSXH
+; Takes the value $FFFF when on the ground
+7E:0024 POSZL
+7E:0025 POSZH
+; Direction Link is pushing
+; .... udlr
+;   u - up
+;   d - down
+;   l - left
+;   r - right
+7E:0026 PUSHDIR
+; Link's recoil
+; By themselves, these do not do much
+; They will be reset every frame Link is not in recoil state
+7E:0027 KNOCKBY
+7E:0028 KNOCKBX
+7E:0029 KNOCKBZ
+; Link's subpixel velocity
+; when this value overflows, Link's main velocity gains an extra pixel
+; reset on direction change, so not really a positional subpixel
+7E:002A SUBVY
+7E:002B SUBVX
+; Handles fading in attract mode.
+; Zeroed in one location during gameplay, but otherwise unused.
+7E:002C ATRFADE
+; Acts as a timer for certain animations to advance ANIMSTEP.
+7E:002D ANIMTIME
+; Link's animation step
+7E:002E ANIMSTEP
+; Link's direction; always a multiple of 2
+;   0x00 - up
+;   0x02 - down
+;   0x04 - left
+;   0x06 - right
+7E:002F DIRECTION
+; Link's speed, added directly to his coordinates
+7E:0030 SPEEDY
+7E:0031 SPEEDX
+; Used for temporary calculations/caching with Link's coordinates when hopping a ledge.
+7E:0032 HOPCALCY
+7E:0033 HOPCALCX
+; Used as a delay timer for Agahnim during attract mode.
+7E:0034 ATRAGATIME
+; FREE RAM: 0x03
+7E:0035 UNUSED_35
+7E:0036 UNUSED_36
+7E:0037 UNUSED_37
+; Tile act bitfield used by outer slopes.
+; The high byte is technically written when the bitfield is flagged,
+; but it's always ORing in 0x00. It is otherwise unused. TODO verify
+; SEE TILE ACT NOTES
+; .... ssss
+7E:0038 TACTSLOPEO
+7E:0039 TACTSLOPEU
+; Bitfield for B and Y
+; hyu. .d.b
+;   h - B button held
+;   y - Y button held
+;   u - tested for but never set
+;   d - set from $F0 (so holding down)
+;   b - new B press? TODO
+7E:003A BYFLAG
+; Bitfield for A
+; a..d ....
+;   a - A button held
+;   d - only set by unused routine
+7E:003B AFLAG
+; Timer for B button
+; ssss tttt
+;   s - TODO spin attack related
+;   t - timer? TODO
+7E:003C BFLAG
+; Used as an animation timer for items, sword, zap, etc.
+7E:003D ANIMTIME2
+; Caches Link's coordinates for calculations during movement routines.
+7E:003E CALCYL
+7E:003F CALCXL
+7E:0040 CALCYH
+7E:0041 CALCXH
+; Appears to flag directions for freedom for vertical and diagonal, respectively.
+; Flags are set when there's no obstruction. (0: obstructed | 1: unobstructed)
+; .... udlr
+;   u - upwards
+;   d - downwards
+;   l - leftwards
+;   r - rightwards
+7E:0042 OBSTRUCTV
+7E:0043 OBSTRUCTD
+; Offsets for OAM also used in calculation of sword/hammer hitboxes
+7E:0044 OAMOFFAY
+7E:0045 OAMOFFAX
+; Countdown timer used when Link takes damage
+7E:0046 INPAIN
+; Repulse spark timer
+7E:0047 REPULSET
+; Bitfield for push actions
+; s... dbpt
+;   s - statue/somaria
+;   d - pushing door
+;   b - push block
+;   p - pushing
+;   t - harder push
+7E:0048 DOGRAB
+; Forces dpad inputs when written to.
+; High byte is never used, but incidentally cleared by tile detection routines.
+7E:0049 FORCEMOVE
+7E:004A FORCEMOVEU
+; If set to 0x0C, Link will not be visible.
+7E:004B VISIBLE
+; Countdown timer for cape sapping magic when in use.
+7E:004C CAPETIME
+; Indicates various types of recoil.
+;   0x00 - no recoil
+;   0x01 - bonking/damage/jumping in or out of water
+;   0x02 - ledge hop
+7E:004D JUMPING
+; Indicates the tile type landed on after a dungeon transition.
+;   0x00 - Shallow water/Nothing
+;   0x01 - Normal door
+;   0x02 - Shutter doors/All others - zeros DOORWAY
+;   0x03 - Layer doors? TODO
+;   0x04 - Lower layer shutters - zeros DOORWAY
+7E:004E TRANSLAND
+; Dash SFX timer
+7E:004F FSHFSH
+; When 0, Link will change the direction he's facing based on his movement
+; When nonzero, he will strafe around
+; .... .bps
+;   s - generally the bit flagged
+;   p - flagged during rupee pull and 07BABE 07C212 07CBC6 TODO
+;   b - flagged during push blocks
+;
+; Used during attract for the escorted maiden's flinch
+7E:0050 STRAFE
+; Target Y coordinate Link should fall to
+; TODO other stuff too???
+7E:0051 TARGETYL
+7E:0052 TARGETYH
+7E:0053 TARGETXL
+7E:0054 TARGETXH
+; When set, Link is invisible and untouchable.
+7E:0055 CAPEON
+; Flags for bunny.
+; Usually kept in sync with BUNFLAG2, but one of these is honestly redundant.
+;   0x00 - Link
+;   0x01 - bunny
+7E:0056 BUNFLAG
+; Timer that counts up to 0x10 to induce slower speed on stairs.
+; Famously uncleared after spiral stairs.
+7E:0057 STAIRDRAG
+; Tile act bitfield used by manual stairs
+; .... ssss
+; SEE TILE ACT NOTES
+7E:0058 TACTSTAIR
+; Tile act bitfield used by pits
+; .... ssss
+; SEE TILE ACT NOTES
+7E:0059 TACTPIT
+; Pose when landing from a pit fall in underworld
+7E:005A FALLPOSE
+; Represents Link's "slipping into a pit" status
+;   0x00 - Nothing
+;   0x01 - Near pit
+;   0x02 - Falling
+;   0x03 - Falling more
+7E:005B SLIP
+; Timer for the falling animation
+7E:005C FALLTIMER
+; Link's main state handler
+7E:005D LINKDO
+; Link's main speed handler
+7E:005E SPEEDMOD
+; Bitfield used by manipulable tiles
+7E:005F MANIPIDL
+7E:0060 MANIPIDH
+; Push timer for blocks, graves, etc.; shared by all
+7E:0061 FRICTION
+; Seems to only act as a flag for horizontal doors.
+; .... ..h.
+;   h - on horizontal door tile
+7E:0062 HDOOR
+; Used for spell timer for Agahnim in attract mode.
+; Zerod by HDOOR during normal gameplay.
+7E:0063 ATRAGASP
+; Used to ORA in OAM priority, but only high byte seems used for that.
+; Low byte used as a timer for Agahnim text display in attract mode.
+7E:0064 ATRAGSTEP
+7E:0065 OAMPROPOR
+; Last direction Link moved
+;   0x00 - up
+;   0x01 - down
+;   0x02 - left
+;   0x03 - right
+7E:0066 LASTDIDR
+; Direction Link is walking
+; .... udlr
+7E:0067 WALKDIR
+; Difference of coordinate high bytes for movement calculations.
+7E:0068 HDIFFY
+7E:0069 HDIFFX
+; Set when moving diagonally to flag the direction link is facing
+; .... .hv
+;   h - facing horizontally
+;   v - facing vertically
+7E:006A DIAGFACE
+;         ..hv udrl
+;   0x15  ...1 .1.1  ◣ down
+;   0x16  ...1 .11.  ◢ down
+;   0x19  ...1 1..1  ◤ up
+;   0x1A  ...1 1.1.  ◥ up
+;   0x25  ..1. .1.1  ◥ right
+;   0x26  ..1. .11.  ◤ left
+;   0x29  ..1. 1..1  ◢ right
+;   0x2A  ..1. 1.1.  ◣ left
+;     h - moving horizontally
+;     v - moving vertically
+;     u - change of direction into the slope has an up vector
+;     d - change of direction into the slope has an down vector
+;     l - change of direction into the slope has an left vector
+;     r - change of direction into the slope has an right vector
+7E:006B SLOPEPUSH
+; .... ..hv
+;   h - in horizontal door
+;   v - in vertical door
+7E:006C DOORWAY
+; Holds the value of SLOPEPUSH when you can't actually move.
+7E:006D SLOPEFAIL
+; Tile act bitfield used by slopes.
+; High byte has an explicit STZ as well, but never used.
+; .... ssss
+; SEE TILE ACT NOTES
+7E:006E TACTSLOPI
+7E:006F TACTSLOPIH
+; FREE RAM: 0x02
+7E:0070 UNUSED_70
+7E:0071 UNUSED_71
+; Very volatile memory used similarly to $00-$0F
+; Anything written here should be considered very temporary
+7E:0072 SCRAP72
+7E:0073 SCRAP73
+7E:0074 SCRAP74
+7E:0075 SCRAP75
+7E:0076 SCRAP76
+; Never really used, but zeroed by some uses of SCRAP76.
+7E:0077 SCRAP77
+; TODO
+; Seems to flag non-north hops in the overworld.
+; Messes with camera scroll.
+; Kept in sync with NOHURT
+7E:0078 JUMPSCROLL
+; Spin attack timer
+; at 48 (0x30), the spin is fully charged
+; hardcapped at 64 (0x40)
+7E:0079 SPINTIME
+; FREE RAM: 0x01
+7E:007A UNUSED_7A
+; Used to cache light world versus dark world for comparisons.
+; .w.. ....
+;   w - world (0: light world | 1: dark world)
+7E:007B WORLDCACHE
+; FREE RAM: 0x08
+7E:007C UNUSED_7C
+7E:007D UNUSED_7D
+7E:007E UNUSED_7E
+7E:007F UNUSED_7F
+7E:0080 UNUSED_80
+7E:0081 UNUSED_81
+7E:0082 UNUSED_82
+7E:0083 UNUSED_83
+; Index for overworld map16 buffer to load new graphics when scrolling
+7E:0084 OWTMAPIL
+7E:0085 OWTMAPIH
+; Used to index $0500 and tilemap
+; TODO look at 02E9F7
+7E:0086 OWMAPDIXL
+7E:0087 OWMAPDIXH
+7E:0088 OWMAPDIYL
+7E:0089 OWMAPDIYH
+; Overworld screen ID
+; In practice bit 6 indicates a Dark World screen, and bit 7 indicates special overworld
+; As the highest screen ID is 0x7F, $8B is essentially unused in the overworld.
+; However, reads and writes for screen ID are often 16-bit
+; Occasionally 8A is used to read underworld screens.
+; Thus, this address should be considered used.
+7E:008A OWSCREEN
+7E:008B OWSCREENH
+; Overlay ID
+7E:008C OWOVERLAY
+; Used to index sloshing animations for thick grass and shallow water.
+7E:008D FEETANIM
+; FREE RAM: 0x02
+7E:008E UNUSED_8E
+7E:008F UNUSED_8F
+; Used during draw routines to indirectly address the OAM buffer.
+7E:0090 OAMLBFRL
+7E:0091 OAMLBFRH
+7E:0092 OAMHBFRL
+7E:0093 OAMHBFRH
+; Various PPU queues handled during NMI
+7E:0094 BGMODEQ
+7E:0095 MOSAICQ
+7E:0096 W12SELQ
+7E:0097 W34SELQ
+7E:0098 WOBJSELQ
+7E:0099 CGWSELQ
+7E:009A CGADSUBQ
+; HDMA enable flags
+7E:009B HDMAENQ
+; These are just written to COLDATA successively
+; The color defininition bit is not ORA'd in
+; So generally expect to see the same top 3 bits for each address
+; There's nothing preventing these being used for any COLDATA writes, though
+; e.g. the following line of code will produce a pure white
+;      STZ $9C : STZ $9D : LDA.b #$FF : STA.b $9E
+7E:009C COLDATAR
+7E:009D COLDATAG
+7E:009E COLDATAB
+; FREE RAM: 0x01
+7E:009F UNUSED_9F
+; Room ID for underworld
+; Copied to $0483
+; There are only 2 "maps", so $A1 is only expected to be 0 or 1
+; However, there are various references to room in the 0x03.. range
+7E:00A0 ROOM
+7E:00A1 ROOMMAP
+; Value of $A0 for previous room
+; TODO what about when overworld
+7E:00A2 PREVROOML
+7E:00A3 PREVROOMH
+; Current floor of dungeon.
+;   0x00 - Floor 1
+;   Negative values indicate basement floors.
+7E:00A4 DNGFLOOR
+; Technically never used, but read by DNGFLOOR sometimes (never rewritten).
+; Seems to expect 0x00 always for various comparisons.
+; Not safe to consider this free.
+7E:00A5 DNGFLOORH
+; TODO
+7E:00A6 QUADH
+7E:00A7 QUADV
+; TODO
+7E:00A8 ROOMLAYOUT
+; TODO
+7E:00A9 QUADLR
+7E:00AA QUADTB
+; FREE RAM: 0x02
+7E:00AB UNUSED_AB
+7E:00AC UNUSED_AC
+; Holds layer floor effect index
+7E:00AD FLOORFX
+; Room effects; e.g. kill room, shutter switch, etc.
+7E:00AE ROOMTAG1
+7E:00AF ROOMTAG2
+; Often used as a submodule, such as for transitions
+7E:00B0 SUBSUB
+; FREE RAM: 0x01
+7E:00B1 UNUSED_B1
+; Used as scrap space when building rooms.
+7E:00B2 SCRAPB2
+7E:00B3 SCRAPB3
+7E:00B4 SCRAPB4
+7E:00B5 SCRAPB5
+; FREE RAM: 0x01
+7E:00B6 UNUSED_B6
+; Used as a pointer when drawing room objects.
+; TODO something with palettes
+7E:00B7 OBJPTRL
+7E:00B8 OBJPTRH
+7E:00B9 OBJPTRB
+; Used as an offset for OBJPTR
+; TODO other uses?
+7E:00BA OBJINDEXL
+7E:00BB OBJINDEXH
+; TODO
+7E:00BC UNKNOWN_BC
+; TODO
+7E:00BD UNKNOWN_BD
+; TODO
+7E:00BE UNKNOWN_BE
+; TODO
+7E:00BF UNKNOWN_BF
+; Frequently used as scratch space
+7E:00C0 SCRAPC0
+7E:00C1 SCRAPC1
+7E:00C2 SCRAPC2
+7E:00C3 SCRAPC3
+7E:00C4 SCRAPC4
+7E:00C5 SCRAPC5
+7E:00C6 SCRAPC6
+7E:00C7 SCRAPC7
+7E:00C8 SCRAPC8
+7E:00C9 SCRAPC9
+7E:00CA SCRAPCA
+7E:00CB SCRAPCB
+7E:00CC SCRAPCC
+7E:00CD SCRAPCD
+7E:00CE SCRAPCE
+7E:00CF SCRAPCF
+7E:00D0 SCRAPD0
+7E:00D1 SCRAPD1
+7E:00D2 SCRAPD2
+7E:00D3 SCRAPD3
+7E:00D4 SCRAPD4
+7E:00D5 SCRAPD5
+7E:00D6 SCRAPD6
+7E:00D7 SCRAPD7
+7E:00D8 SCRAPD8
+7E:00D9 SCRAPD9
+7E:00DA SCRAPDA
+7E:00DB SCRAPDB
+7E:00DC SCRAPDC
+7E:00DD SCRAPDD
+7E:00DE SCRAPDE
+7E:00DF SCRAPDF
+; Background scroll registers
+; For BG1 and BG2, these registers are used for calculations later for different writes to PPU.
+; For BG3, these mirrors are written to PPU during NMI
+; Since BG1 and BG2 are not written directly to PPU they are given different names from BG3.
+7E:00E0 BG1HORZL
+7E:00E1 BG1HORZH
+7E:00E2 BG2HORZL
+7E:00E3 BG2HORZH
+7E:00E4 BG3HOFSQL
+7E:00E5 BG3HOFSQH
+7E:00E6 BG1VERTL
+7E:00E7 BG1VERTH
+7E:00E8 BG2VERTL
+7E:00E9 BG2VERTH
+7E:00EA BG3VOFSQL
+7E:00EB BG3VOFSQH
+; Used for tilemap calculations
+; OW: 0x01F8 TODO VERIFY
+; UW: 0xFFF8 
+7E:00EC COLTYPEL
+7E:00ED COLTYPEH
+; Mostly behaves as an indicator of which layer Link is on
+;   0x00 - Upper layer (BG2)
+;   0x01 - Lower layer (BG1)
+;   TODO other values
+7E:00EE LAYER
+; .... ..sl
+; l - layer (0: ignore | 1: swap)
+; s - dungeon id (0: ignore | 1: id^=2)
+; This address is cleared every movement frame in the underworld
+; But it's also set by certain door tiles
+; The effects of the address don't occur until an UW-UW transition
+7E:00EF TRANTOG
+; Joypad input
+; ALL input includes the input from the previous frame
+; NEW input is only the current frame
+; OLD input is unfiltered from the previous frame
+; Joypad 2 code exists but is unreachable
+7E:00F0 JOY1A_ALL
+7E:00F1 JOY2A_ALL
+7E:00F2 JOY1B_ALL
+7E:00F3 JOY2B_ALL
+7E:00F4 JOY1A_NEW
+7E:00F5 JOY2A_NEW
+7E:00F6 JOY1A_NEW
+7E:00F7 JOY2A_NEW
+7E:00F8 JOY1A_OLD
+7E:00F9 JOY2A_OLD
+7E:00FA JOY1A_OLD
+7E:00FB JOY2A_OLD
+; TODO
+7E:00FC UNKNOWN_FC
+7E:00FD UNKNOWN_FD
+; FREE RAM: 0x01
+7E:00FE UNUSED_FE
+; Vertical scanline trigger for IRQ
+7E:00FF NMIVTIME
+;===================================================================================================
+;---------------------------------------------------------------------------------------------------
+; WRAM MIRROR
+;---------------------------------------------------------------------------------------------------
+; Pages 0x00–0x1F of Bank7E are mirrored to every ROM bank ALTTP uses.
+; These addresses can be accessed with absolute addressing, as long as the data bank is not 0x7F.
+;---------------------------------------------------------------------------------------------------
+;===================================================================================================
+7E:0100 POSECHRL
+7E:0101 POSECHRH
+7E:0102 AUXACHRL
+7E:0103 AUXACHRH
+7E:0104 AUXBCHRL
+7E:0105 AUXBCHRH
+; FREE RAM: 0x01
+7E:0106 UNUSED_7E0106
+7E:0107 SWORDCHR
+7E:0108 SHIELDCHR
+7E:0109 ITEMCHR
+; Flag set on death for use by dungeon reload.
+7E:010A DEADLOAD
+; FREE RAM: 0x01
+7E:010B UNUSED_7E010B
+; Used to cache MODE and SUBMODE during interface modules
+7E:010C MODECACHE
+7E:010D SUBCACHE
+; Last entrance ID used.
+; Referenced by mirror and wallmasters.
+7E:010E ENTRANCE
+7E:010F ENTRANCEH
+; Contains the current room ID * 3
+7E:0110 ROOMX3L
+7E:0111 ROOMX3H
+; Flag used for medallion cutscenes.
+7E:0112 MDLSCENE
+; FREE RAM: 0x01
+7E:0113 UNUSED_7E0113
+; Current tile type Link is standing on in the underworld.
+; High byte is always 0x00.
+7E:0114 TILEUWL
+7E:0115 TILEUWH
+; Index for high bytes for VRAM tile map uploads.
+; Also used for VRAM address for various other uploads.
+7E:0116 ARBTMAPL
+7E:0117 ARBTMAPH
+; Incremental VRAM upload buffer address
+; Low byte is always set to 0x00.
+7E:0118 UPINCBL
+7E:0119 UPINCBH
+; Applied to BG scroll
+7E:011A BG1SHAKEVL
+7E:011B BG1SHAKEVH
+7E:011C BG1SHAKEHL
+7E:011D BG1SHAKEHH
+; Written to registers during NMI
+7E:011E BG2HOFSQL
+7E:011F BG2HOFSQH
+7E:0120 BG1HOFSQL
+7E:0121 BG1HOFSQH
+7E:0122 BG2VOFSQL
+7E:0123 BG2VOFSQH
+7E:0124 BG1VOFSQL
+7E:0125 BG1VOFSQH
+; Used as a counter for scrolling in the underworld.
+7E:0126 UWTRANSCR
+; FREE RAM: 0x01
+7E:0127 UNUSED_7E0127
+; Flags IRQ enabling during NMI
+;   0x00      - Don't update BG3 scroll
+;   0x01–0x7F - Enable IRQ
+;   0x80–0xFF - Disable IRQ
+7E:0128 IRQSET
+; FREE RAM: 0x01
+7E:0129 UNUSED_7E0129
+; Flags whether IRQ is handling polyhedral text or credits
+7E:012A IRQTHREAD
+; FREE RAM: 0x01
+7E:012B UNUSED_7E012B
+; APU I/O queues handled during NMI
+; See sfx.txt and music.txt for expected values
+7E:012C SONG
+7E:012D SFX1
+7E:012E SFX2
+7E:012F SFX3
+; Stores the last nonzero song given to the SPC
+7E:0130 SONGLAST
+; Stores the last nonzero SFX1 given to the SPC
+7E:0131 SFX1LAST
+; Used to queue up writes to SONG
+7E:0132 SONGQ
+; Stores the last anything written to SONG
+7E:0133 LASTAPU0
+; Target VRAM address for animated tiles
+7E:0134 ANIMVRAML
+7E:0135 ANIMVRAMH
+; Effectively flags which song bank was last loaded to APU.
+;   0x00 - overworld
+;   0x01 - underworld
+7E:0136 LOADMUSIC
+; $00:0137–$00:01FF are essentially reserved for the stack.
+; Explicitly read to save a return address after memory is cleared on reset.
+7E:01FE RESETRET
+; Top of stack
+7E:01FF STACK
+;---------------------------------------------------------------------------------------------------
+; High byte is never written, but always expected to be 0x00.
+; Used by interfaces as a submodule ID.
+7E:0200 INTSUBSUB
+7E:0201 INTSUBSUBH
+; Index of currently selected item in the item menu.
+7E:0202 YSEL
+; Zeroed in item menu but never read.
+7E:0203 JUNK_7E0203
+; Zeroed in item menu and set to 0x80 during file save. Never read.
+7E:0204 JUNK_7E0204
+; Used as a step counter for opening/closing the bottle submenu.
+; Also referenced in unused dungeon map module.
+7E:0205 BOTSUBGROW
+; Incremented every frame of the item menu, but never read.
+7E:0206 MENUFRAME
+; Incremented every frame and masked with 0x10 to blink the menu cursor.
+; If bit 4 is set, the cursor is visible; otherwise, it is not.
+; Reset to 0x10 when moving cursor.
+7E:0207 MENUBLINK
+; Timer for the flipping animation when health is restored.
+7E:0208 HRTFLIPT
+; Animation step of health restoration heart flip.
+7E:0209 HRTFLIPI
+; Flags heart refilling.
+7E:020A HEARTFILL
+; Appears to be a flag related to the menu and rod items.
+; Zeroed in several places, but never any other value.
+7E:020B DEBUG_7E020B
+; Never really used. Scares MoN for some reason - "oh hells naw".
+; Some unreachable debug code reads this when reading $020B.
+; FREE RAM: 0x01
+7E:020C UNUSED_7E020C
+; Used as a module index for dungeon map.
+7E:020D DNGMAPSUBSUBSUB
+; Holds the currently selected floor when using the dungeon map.
+7E:020E MAPFLOOR
+; Zeroed when scrolling dungeon map, but never read.
+7E:020F JUNK_7E020F
+; Flag to prevent input when scrolling the dungeon map.
+7E:0210 CANMAPSCROLL
+; Of the two floors shown on a dungeon map, this indicates which one is of
+; the floor Link is currently on.
+; High byte isn't relevant and is zeroed during drawing.
+;   0x00 - top map
+;   0x02 - bottom map
+7E:0211 MAPCURFLOOR
+7E:0212 MAPCURFLOORH
+; Velocity of background scroll for dungeon map.
+7E:0213 MAPSCROLLVL
+7E:0214 MAPSCROLLVH
+; Offset used for positioning the Link dot and crosshair sprites on dungeon maps.
+7E:0215 URHEREXL
+7E:0216 URHEREXH
+7E:0217 URHEREYL
+7E:0218 URHEREYH
+; Location of HUD tile map in VRAM.
+; Written when loading a file and called upon during NMI.
+7E:0219 HUDLOCL
+7E:021A HUDLOCH
+; Unused but referenced in an unused table indicating this address would have
+; been used for stripes data of some sort...?
+7E:021B UNUSED_7E021B
+7E:021C UNUSED_7E021C
+; Unused pointer written to with the value $007F4841.
+7E:021D WEIRDPTRL
+7E:021E WEIRDPTRM
+7E:021F WEIRDPTRH
+7E:0220 WEIRDPTRU
+; Written to with the value 0xFFFF; never read.
+7E:0221 JUNK_7E0221
+7E:0222 JUNK_7E0222
+; Zeroed during message routines, but never used.
+7E:0223 JUNK_7E0223
+; BIG FREE RAM: 0x5C
+7E:0224 UNUSED_7E0224
+; TODO these ancilla things
+; Forces ancilla priority higher during checks.
+; TODO also collision related
+; LENGTH: 0x0A
+7E:0280 ANCFPRI
+; Something to do with collision
+; LENGTH: 0x0A
+7E:028A ANC28A
+; Ancilla Z velocity
+; LENGTH: 0x0A
+7E:0294 ANCVZ
+; Ancilla Z coordinate
+; LENGTH: 0x0A
+7E:029E ANCZ
+; Ancilla Z subpixel velocity
+; LENGTH: 0x0A
+7E:02A8 ANCSUBZ
+; FREE RAM: 0x0E
+7E:02B2 UNUSED_7E02B2
+7E:02B3 UNUSED_7E02B3
+7E:02B4 UNUSED_7E02B4
+7E:02B5 UNUSED_7E02B5
+7E:02B6 UNUSED_7E02B6
+7E:02B7 UNUSED_7E02B7
+7E:02B8 UNUSED_7E02B8
+7E:02B9 UNUSED_7E02B9
+7E:02BA UNUSED_7E02BA
+7E:02BB UNUSED_7E02BB
+7E:02BC UNUSED_7E02BC
+7E:02BD UNUSED_7E02BD
+7E:02BE UNUSED_7E02BE
+7E:02BF UNUSED_7E02BF
+; Tile act bitfield used by intraroom stairs
+; High byte unused but written.
+; ssss nnnn
+;   n - north
+;   s - south
+; SEE TILE ACT NOTES
+7E:02C0 TACTAUTOSTAIRS
+7E:02C1 TACTAUTOSTAIRSH
+; Caches TACTMANIPL in a couple locations, but never read.
+7E:02C2 TACTMCACHE
+; Push block falling step and timer
+7E:02C3 BLKFALLS
+7E:02C4 BLKFALLT
+; Some weird timer/flag when doing very long jumps or recoils.
+; Seems to cause Link to hesitate briefly before actually jumping.
+7E:02C5 JUMPDELAY
+; Seems to be a counter for Link's bouncing and how many shifts right to perform.
+7E:02C6 BOUNCESHIFT
+; Link's recoil controlled by above before writing to KNOCKBZ.
+7E:02C7 REBOUNCE
+; FREE RAM: 0x01
+7E:02C8 UNUSED_7E02C8
+; Used for indexing the fall animation.
+7E:02C9 PITANIMI
+; Timer that counts up to 0x1F when pushing a wall into falling.
+; TODO unsure of what it accomplishes.
+7E:02CA PUSHFALL
+; TODO swim stroke timer?
+7E:02CB STROKETIME
+; Acts a step offset for swimming.
+; 0, 1, 2
+7E:02CC SWIMANIMOFF
+; Countdown timer for follower messages.
+7E:02CD YELLTIMEL
+7E:02CE YELLTIMEH
+; Index from 0x00 to 0x13 for follower animation step index. Used for reading data.
+7E:02CF FLWANIMIR
+; Flag set when using hookshot with a follower. Forces game mode check.
+7E:02D0 FLWHOOK
+; Caches FLWANIMIW when hookshotting is finished.
+7E:02D1 FLWHOOKI
+; Countdown timer preventing followers from being regrabbed after dropping for a brief period.
+7E:02D2 FLWGRABTIME
+; Index from 0x00 to 0x13 for follower animation step index. Used for writing data.
+7E:02D3 FLWANIMIW
+; Zeroed in one location; never read.
+7E:02D4 JUNK_7E02D4
+; FREE RAM: 0x01
+7E:02D5 UNUSED_7E02D5
+; Zeroed by followers; never read.
+7E:02D6 JUNK_7E02D6
+; TODO
+; Seems to be something with overriding properties.
+7E:02D7 FLWREPRI
+; Holds ID of item receipt items.
+7E:02D8 ITEMGETID
+; Written to with a value of 0x60 when receiving an item, but never read.
+7E:02D9 JUNK_7E02D9
+; Pose for item receipt.
+;   0x00 - No pose
+;   0x01 - 1 hand up
+;   0x02 - 2 hands up
+7E:02DA GETPOSE
+; Flag that prevents warp tiles from activating.
+; Is set by world changes, but always seems cleared before it can be read.
+7E:02DB NOWARP
+; Cache of Link's coordinates used during slope kickback routine.
+7E:02DC SKICKXL
+7E:02DD SKICKXH
+7E:02DE SKICKYL
+7E:02DF SKICKYH
+; Should Link use bunny graphics?
+;   0x00 - Link
+;   0x01 - Bunny
+7E:02E0 BUNFLAG2
+; Flag set when Link is poofing from cape or bunny.
+7E:02E1 POOFING
+; Countdown timer for poofing.
+7E:02E2 POOFTIME
+; Cooldown timer for the sword after dashing through an enemy
+; Is set on hits in general, but often irrelevant.
+7E:02E3 SWORDCOOL
+; Flags cutscenes.
+7E:02E4 CUTSCENE
+; Tile act bitfield used by chests
+; High byte unused but written.
+; .... cccc
+; SEE TILE ACT NOTES
+7E:02E5 TACTCHEST
+7E:02E6 TACTCHESTH
+; Tile act bitfield used by chests, etc.
+; cccc gggg
+;   g - graves
+;   c - big chests
+; SEE TILE ACT NOTES
+7E:02E7 TACTCHEST2
+; Tile act bitfield used by spikes and pegs
+; pppp ssss
+;   s - spikes
+;   p - pegs
+; SEE TILE ACT NOTES
+7E:02E8 TACTSPIKE
+; TODO
+; Item receipt method
+7E:02E9 RECEIPTID
+; Tile type of chests referenced when opening a chest.
+; High byte unused but written.
+7E:02EA CHESTTILE
+7E:02EB CHESTTILEH
+; When near a liftable ancilla, this holds its slot+1.
+7E:02EC LIFTIDX
+; Flag for being near a plaque.
+7E:02ED PLAQUED
+; Tile act bitfield used by spike floors and hylian plaques
+; ssss pppp
+;   s - spike floor
+;   p - plaques
+; SEE TILE ACT NOTES
+7E:02EE TACTSPLQ
+; Tile act bitfield used by breakables and entrances
+; bbbb dddd
+;   d - entrance
+;   b - breakables
+; SEE TILE ACT NOTES
+7E:02EF TACTBRK
+; When set, the Desert Palace barriers can activate.
+7E:02F0 DSRTACT
+; Starts at 0x40 and counts down to 0x20
+; If it could reach 0x0F (which it can't), Link would stop moving
+7E:02F1 DASHSTOP
+; Flags messages as already received from a follower via dynamic bitfield.
+7E:02F2 FLWTALKED
+; Zeroed in one location, but otherwise unused.
+7E:02F3 JUNK_7E02F3
+; Used to temporarily cache SPRLIFT.
+7E:02F4 LIFTCACHE
+; Indicates somaria platform status.
+;   0x00 - Not on platform
+;   0x01 - On platform
+;   0x02 - On platform and moving
+7E:02F5 SOMPLAT
+; Tile act bitfield used by hookshottables and flaggable doors
+; dddd hhhh
+;   d - flaggable doors
+;   h - hookshottable tiles
+; SEE TILE ACT NOTES
+7E:02F6 TACTHOOK
+; Tile act bitfield used by  rupees
+; bbbb rrrr
+;   b - rupee tiles (low)
+;   r - rupee tiles (high)
+; SEE TILE ACT NOTES
+7E:02F7 TACTRUPEE
+; When set, guarantees a thud on landing.
+7E:02F8 THUD
+; When set, prevents follower from drawing and forces a game mode check.
+7E:02F9 FLWNODRAW
+; Set when near a draggable statue. Causes Link to drag.
+7E:02FA STATUEDRAG
+; FREE RAM: 0x05
+7E:02FB UNUSED_7E02FB
+7E:02FC UNUSED_7E02FC
+7E:02FD UNUSED_7E02FD
+7E:02FE UNUSED_7E02FE
+7E:02FF UNUSED_7E02FF
+;---------------------------------------------------------------------------------------------------
+; Step counter for Y-item animations. Also used for zap.
+7E:0300 ITEMSTEP
+; Bitfield for Y-item usage. See also USEY2.
+; bp.a xzhr
+;   b - boomerang
+;   p - powder
+;   a - bow
+;   x - tested with hammer, but never set
+;   z - tested with rods, but never set
+;   h - hammer
+;   r - rods
+7E:0301 USEY1
+; Seems to be a flag for intraframe wall collisions, indicating pushback.
+7E:0302 COLLIDE
+; Currently equipped Y item. See: MenuID_to_EquipID
+7E:0303 CURY
+; Indicates the actively used Y item; copied from CURY
+7E:0304 ACTY
+; Only read in one location, never written.
+; If equal to 0x01, tossing ancillae will clear TMWQ and TSWQ.
+7E:0305 NOWINDOW
+; Written to with the value of AINDEX in one location. Never read.
+7E:0306 AINDEX2
+; Contains ACTY minus 4 to get rod type.
+;   0x01 - Fire rod
+;   0x02 - Ice rod
+; Any other value will crash the game on use.
+7E:0307 RODTYPE
+; Bitfield for certain A button pressed.
+; h... ..dt
+;   h - carrying/tossing item (including wishing wells)
+;   d - Desert prayer
+;   t - tree pull
+7E:0308 ACTA
+; Bitfield for carry-related actions.
+; .... ..tl
+;   t - tossing object
+;   l - lifting object
+7E:0309 CARRY
+; Indexes Link's grab animation, but all nonzero values seem to behave the same way.
+7E:030A STRAIN
+; Timer that handles Link's pull animation
+7E:030B STRAINTIME
+; FREE RAM: 0x01
+7E:030C UNUSED_7E030C
+; Indexes Link's sweat drops animation
+7E:030D SWEAT
+; Only ever zeroed in bank07. ADC in bank0D for some reason.
+7E:030E DEBUG_7E030E
+; FREE RAM: 0x01
+7E:030F UNUSED_7E030F
+; Moving floor velocity like Mothula or Ice Place
+7E:0310 FLOORVYL
+7E:0311 FLOORVYH
+7E:0312 FLOORVXL
+7E:0313 FLOORVXH
+; When near a liftable sprite, this holds its slot +1.
+7E:0314 SPRLIFT
+; TODO
+; Some type of flag set for collision checks
+7E:0315 COLFLAG
+; TODO
+7E:0316 UNKNOWN_7E0316
+; TODO
+7E:0317 UNKNOWN_7E0317
+; Scratch spaced used for caching Link's coordinates during moving floor routines.
+7E:0318 FLSCRAPYL
+7E:0319 FLSCRAPYH
+7E:031A FLSCRAPXL
+7E:031B FLSCRAPXH
+; Animation step/graphics for spin attack animations; including medallions.
+7E:031C SPINGFX
+7E:031D SPINSTEP
+; Data offset based on diretion for SPINSTEP.
+7E:031E SPINOFF
+; Countdown timer for invulnerability frames. Induces blinking.
+7E:031F IFRAMES
+; Tile act bitfield used by overlay masks
+; High byte unused but written.
+; .... cccc
+;   c - Mask 0C
+; SEE TILE ACT NOTES
+7E:0320 TACTMASK0C
+7E:0321 TACTMASK0CH
+; TODO some bitfield
+7E:0322 UNKNOWN_7E0322
+; Copies DIRECTION for use during Link's OAM routines.
+; Explicitly set to down (0x02) for Desert prayer.
+7E:0323 OAMDIR
+; When nonzero, prevents medallion spell ancillae from being added.
+; Flagged by medallion use routines to prevent multiple from being added.
+7E:0324 ADDSPELL
+; Zeroed by medallion ancillae, but never read.
+7E:0325 JUNK_7E0325
+; Momentum for ice/swimming
+; When a direction is released, these count down to 0.
+7E:0326 MOMENTUMYL
+7E:0327 MOMENTUMYH
+7E:0328 MOMENTUMXL
+7E:0329 MOMENTUMXH
+; Number of times the stroke timer has counted down (stops at 4)
+7E:032A STROKETIMECNT
+; TODO
+7E:032B UNKNOWN_7E032B
+; TODO
+7E:032C UNKNOWN_7E032C
+; TODO
+7E:032D UNKNOWN_7E032D
+; TODO
+7E:032E UNKNOWN_7E032E
+; TODO
+7E:032F UNKNOWN_7E032F
+; TODO
+7E:0330 UNKNOWN_7E0330
+; TODO
+7E:0331 UNKNOWN_7E0331
+; TODO
+7E:0332 UNKNOWN_7E0332
+; TODO
+7E:0333 UNKNOWN_7E0333
+; TODO
+7E:0334 UNKNOWN_7E0334
+; TODO
+7E:0335 UNKNOWN_7E0335
+; TODO
+7E:0336 UNKNOWN_7E0336
+; TODO
+7E:0337 UNKNOWN_7E0337
+; Seems to flag acceleration to have on each axis; high byte unused.
+7E:0338 AFLAGY
+7E:0339 AFLAGYH
+7E:033A AFLAGX
+7E:033B AFLAGXH
+; Swim acceleration and thrust, related to gaining speed in the water.
+7E:033C SWIMACCELY
+7E:033D SWIMTHRUSTY
+7E:033E SWIMACCELX
+7E:033F SWIMTHRUSTX
+; TODO
+; Something with swimming direction.
+7E:0340 UNKNOWN_7E0340
+; Tile act bitfield used by water
+; High byte unused but written.
+; bbbb dddd
+;   d - deep water
+;   b - tile 0B TODO
+; SEE TILE ACT NOTES
+7E:0341 TACTDEEPW
+7E:0342 TACTDEEPWH
+; Tile act bitfield used by tile 0A and another nothing
+; High byte unused but written.
+; .... aaaa
+; SEE TILE ACT NOTES
+7E:0343 TACTATTR0A
+7E:0344 TACTATTR0AH
+; Set when on deep water.
+7E:0345 DEEPWATER
+; Used to swap Link's palette between 0 and 7.
+; Takes on the values of 0x0E00 or 0x0000, depending on COLROOM.
+7E:0346 LINKPALIL
+7E:0347 LINKPALIH
+; Tile act bitfield used by ice.
+; High byte unused but written.
+; iiii gggg
+;   i - ice palace ice
+;   g - gt ice
+; SEE TILE ACT NOTES
+7E:0348 TACTICE
+7E:0349 TACTICEH
+; Appears to flag what type of ice floor Link is walking on
+; .... ..ig
+;   i - ice palace ice
+;   g - gt ice
+7E:034A ICEFLOOR
+; Debug flag related to the rods and item menu scrolling.
+; Written, but never read.
+7E:034B DEBUGROD
+; Tile act bitfield used by overlay mask 1C
+; High byte unused but written.
+; .... mmmm
+; SEE TILE ACT NOTES
+7E:034C TACTMASK1C
+7E:034D TACTMASK1CH
+; TODO
+; Something with Link's OAM priority and somaria platform.
+7E:034E SOMPRI
+; Non zero when stroking while swimming
+7E:034F STROKE
+; Written to in various places, but never read.
+7E:0350 DEBUG_7E0350
+; Controls the graphical effect around Link's feet
+;   0x00 - shadow handler
+;   0x01 - water ripple
+;   0x02 - grass
+7E:0351 FEETEFFECT
+; Used to index an offset into OAM buffer for Link's draw routines.
+7E:0352 LOAMXL
+7E:0353 LOAMXH
+; Index of animation for Link's auxiliary sprite objects.
+7E:0354 AUXDRAW
+; Animation step and timer for water ripples and tall grass at Link's feet.
+7E:0355 SLOSHSTEP
+7E:0356 SLOSHTIME
+; Tile act bitfield used by thick grass and warps
+; High byte unused but written.
+; wwww tttt
+;   t - thick grass
+;   w - warp
+; SEE TILE ACT NOTES
+7E:0357 TACTTHICK
+7E:0358 TACTTHICKH
+; Tile act bitfield used by shallow water
+; High byte unused but written.
+; .... ssss
+; SEE TILE ACT NOTES
+7E:0359 TACTSHALLOW
+7E:035A TACTSHALLOWH
+; Tile act bitfield used by diggable ground.
+; High byte unused but written.
+; .... dddd
+; SEE TILE ACT NOTES
+7E:035B TACTDIG
+7E:035C TACTDIGH
+; OAM properties of Link's shadow.
+7E:035D SHDWPROPL
+7E:035E SHDWPROPH
+; Flags whether the boomerang is already active.
+; Also used by GAME OVER text for indexing.
+7E:035F BOOMOUT
+; When set, recoils will cause Link to feel electricity
+7E:0360 ZAP
+; FREE RAM: 0x01
+7E:0361 UNUSED_7E0361
+; Something with hopping; often takes value of SPEEDZ
+; TODO
+7E:0362 HOPVZ2
+7E:0363 HOPVZ2
+; Acts as a Z-coordinate sort of when jumping ledges
+7E:0364 HOPZ
+7E:0365 HOPZH
+; Tile act bitfield used by liftables in some weird way?? TODO
+; High byte unused but written.
+; .... llll
+; SEE TILE ACT NOTES
+7E:0366 TACTLIFTC
+7E:0367 TACTLIFTCH
+; Tile type of liftables, usually obtained from LIFTIDX>>1
+; Also contains values checked for underworld tile replacement.
+7E:0368 LIFTX
+; Same as LIFTX, but never read.
+7E:0369 LIFTX2
+; Liftable index set during TileBehavior_Liftable
+; high byte always 00
+7E:036A LIFTIDX
+7E:036B LIFTIDXH
+; Index for which action to perform when A is pressed.
+;   0x00 - Prayer (unused)
+;   0x01 - Lift/Carry/Throw
+;   0x02 - Dash
+;   0x03 - Grab
+;   0x04 - Read
+;   0x05 - Open chest
+;   0x06 - Drag statue
+;   0x07 - Rupee pull (not actually set)
+7E:036C AINDEX
+; Tile act bitfield used by ledges
+; ssss nnnn
+;   n - north
+;   s - south
+; SEE TILE ACT NOTES
+7E:036D TACTHOPNS
+; Tile act bitfield used by horizontal and diagonal north ledges
+; dddd hhhh
+;   h - east/west ledge
+;   d - diagonal north
+; SEE TILE ACT NOTES
+7E:036E TACTHOPHD
+; Tile act bitfield used by diagonal south ledges
+; .... ssss
+7E:036F TACTSD
+; Tile act bitfield used by weird things in EP
+; dddd cccc
+; SEE TILE ACT NOTES
+7E:0370 TACTEP
+; Timer used to start and restart Link's pushing animation.
+7E:0371 PUSHTIME
+; Flags dashing; known for spinspeed.
+7E:0372 DASHING
+; Damage to deal to Link
+7E:0373 HURTME
+; Dash charge timer
+7E:0374 DASHTIME
+; Countdown timer for hopping a ledge. Default start at 0x13.
+7E:0375 HOPTIME
+; .... ..sw
+; s - grabbing statue
+; w - grabbing wall
+7E:0376 GRABBING
+; Frame of grabbing?
+7E:0377 GRABFRAME
+; Timer related to changing directions on inter-room spiral stairs.
+7E:0378 STAIRDIRT
+; When set, the A press routine is short circuited.
+7E:0379 NOA
+; Bitfield for Y-item usage. See also USEY1.
+; ..bn ch.s
+;   b - book
+;   n - net
+;   c - canes
+;   h - hookshot
+;   s - shovel
+7E:037A USEY2
+; Prevents Link from recieving damage.
+7E:037B NOHURT
+; Sleep submode for link state 0x16
+7E:037C SLEEPMODE
+; Used by OAM for how exactly Link is in bed:
+;   0x00 - sleep
+;   0x01 - awake
+;   0x02 - jumping out
+7E:037D SLEEPSTAGE
+; Bitfield for hookshot drag stuff.
+; .... ..ld
+;   l - set when Link crossing a hop tile; seems to flag which layer to read from.
+;   d - hookshot drag in effect
+7E:037E HOOKDRAG
+; When nonzero, Link can walk through walls and use a 2-way mirror.
+7E:037F CHEAT
+; General use variable for ancillae. Only intended for front slots.
+; LENGTH: 0x05
+7E:0380 ANCMISCA
+; General use variable for ancillae.
+; LENGTH: 0x0A
+7E:0385 ANCMISCB
+; General use variable for ancillae. Only intended for front slots.
+; Only used by hammer stars and gravestones.
+; LENGTH: 0x05
+7E:038F ANCMISCC
+; General use variable for ancillae. Only intended for front slots.
+; Often used as a timer.
+; LENGTH: 0x05
+7E:0394 ANCMISCD
+; Temporary cache of boomerang coordinates used for placing the wall hit spark.
+7E:0399 BOOMHITL
+7E:039A BOOMHITH
+7E:039B BOOMHITL
+7E:039C BOOMHITH
+; Slot index of active hookshot.
+; Also used by boomerang to flag directions when first thrown.
+7E:039D HOOKSLOT
+; FREE RAM: 0x01
+7E:039E UNUSED_7E039E
+; General use variable for ancillae. Only intended for front slots.
+; Mainly used as a timer.
+; LENGTH: 0x05
+7E:039F ANCMISCE
+; General use variable for ancillae. Only intended for front slots.
+; LENGTH: 0x05
+7E:03A4 ANCMISCF
+; General use variable for ancillae. Only intended for front slots.
+; LENGTH: 0x05
+7E:03A9 ANCMISCG
+; Technically unreferenced but misslotting...
+; FREE RAM: 0x03
+7E:03AE UNUSED_7E03AE
+7E:03AF UNUSED_7E03AF
+7E:03B0 UNUSED_7E03B0
+; General use variable for ancillae. Only intended for front slots.
+; LENGTH: 0x05
+7E:03B1 ANCMISCH
+; TODO bomb door stuff
+; needs more looking w/ slots
+7E:03B6 UNKNOWN_7E03B6
+; TODO
+7E:03B7 UNKNOWN_7E03B7
+; TODO
+7E:03B8 UNKNOWN_7E03B8
+; TODO
+7E:03B9 UNKNOWN_7E03B9
+; TODO
+7E:03BA UNKNOWN_7E03BA
+; TODO
+7E:03BB UNKNOWN_7E03BB
+; TODO
+7E:03BC UNKNOWN_7E03BC
+; TODO
+7E:03BD UNKNOWN_7E03BD
+; TODO
+7E:03BE UNKNOWN_7E03BE
+; TODO
+7E:03BF UNKNOWN_7E03BF
+; TODO
+7E:03C0 UNKNOWN_7E03C0
+; TODO
+7E:03C1 UNKNOWN_7E03C1
+; TODO
+7E:03C2 UNKNOWN_7E03C2
+; TODO
+7E:03C3 UNKNOWN_7E03C3
+; TODO
+7E:03C4 UNKNOWN_7E03C4
+; General use variable for ancillae. Only intended for front slots.
+; LENGTH: 0x05
+7E:03C5 ANCMISCI
+; General use variable for ancillae. Only intended for front slots.
+; LENGTH: 0x05
+7E:03CA ANCMISCJ
+; General use variable for ancillae. Only intended for front slots.
+; LENGTH: 0x05
+7E:03CF ANCMISCK
+; Technically unused, but misslotting...
+7E:03D4 UNUSED_7E03D4
+; General use variable for ancillae. Only intended for front slots.
+; Used by the carry routine? TODO
+; LENGTH: 0x05
+7E:03D5 ANCMISCL
+; Technically unused, but misslotting...
+7E:03DA UNUSED_7E03DA
+; Used by somaria to count the number of button tiles it's on.
+; Only intended for front slots.
+; LENGTH: 0x05
+7E:03DB SOMBTNCOUN
+; Technically unused, but misslotting...
+7E:03E0 UNUSED_7E03E0
+7E:03E1 UNUSED_7E03E1
+7E:03E2 UNUSED_7E03E2
+7E:03E3 UNUSED_7E03E3
+; Tile type ID for ancilla. Only intended for front slots.
+; LENGTH: 0x05
+7E:03E4 ANCTILE
+; Flag indicating a gravestone is active.
+7E:03E9 GRAVEON
+; Flag that prevents lifting ancilla. Only intended for front slots.
+; LENGTH: 0x05
+7E:03EA ANCNOLIFT
+; Forces Link into a sword-up pose
+7E:03EF SWORDUP
+; Countdown timer for being allowed to use the flute.
+7E:03F0 WHISTLE
+; Tile act bitfield used by conveyors
+; rrrrllll dddduuuu
+;   u - upwards
+;   d - downwards
+;   l - leftwards
+;   r - rightwards
+; SEE TILE ACT NOTES
+7E:03F1 TACTCONVEYORUD
+7E:03F2 TACTCONVEYORLR
+; Conveyor type
+;   0x00 - none
+;   0x01 - up
+;   0x02 - down
+;   0x03 - left
+;   0x04 - right
+7E:03F3 CONVEYOR
+; Counts the number of transit tiles in a room; checked by somaria.
+; Technically 2 bytes, but you shouldn't have that many of these objects in a room...
+7E:03F4 LINECOUNT
+; Timer for temporary bunny.
+7E:03F5 TEMPBUNTIMEL
+7E:03F6 TEMPBUNTIMEH
+; Flag for ticking TEMPBUNTIME
+7E:03F7 TEMPBUN
+; Flag for being near a rupee pull.
+7E:03F8 ATPULL
+; Countsdown from 4 to prevent toggling bit 1 of HOOKDRAG.
+; Only seems to be that way to prevent toggling every frame.
+7E:03F9 HOOKLWAIT
+; Bit 8 of OAM X coordinate for drawing Link's sword and shield
+7E:03FA EQUOFFXL
+7E:03FB EQUOFFXH
+; Y-item override for minigames.
+;   0x00 - Selected item
+;   0x01 - Shovel
+;   0x02 - Bow
+7E:03FC YOVERRIDE
+; Flags flute ducks summoned inside.
+7E:03FD INBIRD
+; FREE RAM: 0x02
+7E:03FE UNUSED_7E03FE
+7E:03FF UNUSED_7E03FF
+;---------------------------------------------------------------------------------------------------
+; Doors unlocked in a given room
+; High byte is the main one used and sent to SRAM.
+; It is copied to the low byte for no reason when loading a room.
+7E:0400 UNLOCKED2
+7E:0401 UNLOCKED
+; Doors opened (not necessarily unlocked) in a given room
+; Not a very consistent reference.
+; Definitely flags the TR eye door and some shutters
+7E:0402 OPENED
+; Items taken in a room
+; Bit 7 prevents damage from bombs and spikes
+; bkut sehc
+;   b - boss kill / heart piece
+;   k - key / crystal (unused for crystals, but prevents them from dropping)
+;   u - 2nd key
+;   t - chest 4 / rupee floor / swamp drains
+;   s - chest 3 / bomable floor / pod or desert wall
+;   e - chest 2
+;   h - chest 1
+;   c - chest 0
+7E:0403 TAKEN
+; FREE RAM: 0x01
+7E:0404 UNUSED_7E0404
+; Read by water flooding, but never written.
+7E:0405 JUNK_7E0405
+; FREE RAM: 0x02
+7E:0406 UNUSED_7E0406
+7E:0407 UNUSED_7E0407
+; Quadrant visits
+; High byte unused
+; .... abcd
+;   a - north west
+;   b - north east
+;   c - south west
+;   d - south east
+7E:0408 VISITED
+7E:0409 VISITEDH
+; Copy of OWSCREEN
+; High byte has an explicit STZ
+7E:040A OWSCREEN2L
+7E:040B OWSCREEN2H
+; Dungeon IDs, multiples of 2.
+; High byte most unused but sometimes read.
+7E:040C DUNGEON
+7E:040D DUNGEONH
+; Dungeon room layout
+; High byte zeroed but unused
+7E:040E LAYOUT
+7E:040F LAYOUTH
+; Transition direction on overworld.
+; High byte unused
+; .... udlr
+;   u - north
+;   d - south
+;   l - west
+;   r - east
+7E:0410 OWTDIR
+7E:0411 OWTDIRH
+; Incremental VRAM upload step
+7E:0412 UPINCSTEP
+; FREE RAM: 0x01
+7E:0413 UNUSED_7E0413
+; TODO
+; Background stuff
+7E:0414 BGACT
+7E:0415 BGACTH
+; Designates which vector to use when updating the overworld tilemap
+; High byte seems unused
+7E:0416 MAPPANVCT
+7E:0417 MAPPANVCTH
+; Transition direction
+; For some reason, parity is flipped between overworld and underworld
+; High byte is zeroed but not read
+;          Overworld   Underworld
+;   0x00 - North       South
+;   0x01 - South       North
+;   0x02 - West        East
+;   0x03 - East        West
+7E:0418 TRANDIR
+7E:0419 TRANDIRH
+; TODO
+7E:041A UNKNOWN_7E041A
+7E:041B UNKNOWN_7E041B
+; Seems to be a subpixel for moving walls and floors
+7E:041C MWSUBL
+7E:041D MWSUBH
+; Used to saved an index value for moving walls
+7E:041E MWDRAWXL
+7E:041F MWDRAWXH
+; Zeroed once, but never read.
+7E:0420 JUNK_7E0420
+7E:0421 JUNK_7E0421
+; BG1 relative offset from BG2 when $0428 is flagged
+7E:0422 BG1OFFHL
+7E:0423 BG1OFFHH
+7E:0424 BG1OFFVL
+7E:0425 BG1OFFVH
+; FREE RAM: 0x02
+7E:0426 UNUSED_7E0426
+7E:0427 UNUSED_7E0427
+; TODO something with scrolling bg1
+7E:0428 UNKNOWN_7E0428
+; FREE RAM: 0x01
+7E:0429 UNUSED_7E0429
+; Tilemap address of moving wall
+7E:042A MWALLTMAPL
+7E:042B MWALLTMAPH
+; Used to index manipulable objects when building rooms; pots, blocks, etc.
+7E:042C MANIPINDEX
+7E:042D MANIPINDEXH
+; Used to index torches when building rooms
+7E:042E TORCHINDEX
+7E:042F TORCHINDEXH
+; Flags whether Link is standing on a toggle switch (not hold switch).
+7E:0430 ONSWITCH
+7E:0431 ONSWITCHH
+; Used to index star tile arrays when building rooms
+7E:0432 STARINDEX
+7E:0433 STARINDEXH
+; FREE RAM: 0x02
+7E:0434 UNUSED_7E0434
+7E:0435 UNUSED_7E0435
+; Seems to flag the eye door to Turtle Rock compass.
+; Defaults to 0xFFFF.
+7E:0436 EYEDOORL
+7E:0437 EYEDOORH
+; Indexes north-up intraroom stairs when building rooms.
+; TODO kept in sync with a lot of others...
+7E:0438 STAIRSNIDXL
+7E:0439 STAIRSNIDXH
+; TODO
+; A bunch of object indexers, but these are all over the place and inconsistent
+7E:043A UNKNOWN_7E043A
+7E:043B UNKNOWN_7E043B
+; TODO
+7E:043C UNKNOWN_7E043C
+7E:043D UNKNOWN_7E043D
+; TODO
+7E:043E UNKNOWN_7E043E
+7E:043F UNKNOWN_7E043F
+; TODO
+7E:0440 UNKNOWN_7E0440
+7E:0441 UNKNOWN_7E0441
+; TODO
+7E:0442 UNKNOWN_7E0442
+7E:0443 UNKNOWN_7E0443
+; TODO
+7E:0444 UNKNOWN_7E0444
+7E:0445 UNKNOWN_7E0445
+; TODO
+7E:0446 UNKNOWN_7E0446
+7E:0447 UNKNOWN_7E0447
+; TODO
+7E:0448 UNKNOWN_7E0448
+7E:0449 UNKNOWN_7E0449
+; TODO
+7E:044A UNKNOWN_7E044A
+7E:044B UNKNOWN_7E044B
+; FREE RAM: 0x02
+7E:044C UNUSED_7E044C
+7E:044D UNUSED_7E044D
+; TODO
+7E:044E UNKNOWN_7E044E
+7E:044F UNKNOWN_7E044F
+; TODO
+7E:0450 UNKNOWN_7E0450
+7E:0451 UNKNOWN_7E0451
+; TODO
+7E:0452 UNKNOWN_7E0452
+7E:0453 UNKNOWN_7E0453
+; TODO Seems to flag active blast walls
+7E:0454 BLASTWALL
+7E:0455 UNKNOWN_7E0455
+; TODO
+7E:0456 UNKNOWN_7E0456
+7E:0457 UNKNOWN_7E0457
+; Flags having lamp while in a dark room
+; High byte always expected to be 0x00.
+7E:0458 DARKLAMP
+7E:0459 DARKLAMPH
+; Number of torches lit in a room
+; High byte always expected to be 0x00.
+7E:045A TORCHES
+7E:045B TORCHESH
+; Used in increments of 0x04 to draw quadrants.
+; TODO is high byte used?
+7E:045C QUADOFF
+7E:045D QUADOFFH
+; Indexes a room object with an unreachable routine.
+7E:045E UNINDEX
+7E:045F UNINDEXH
+; Indexes doors when building rooms
+7E:0460 DOORX
+7E:0461 DOORXH
+; Stair tile type when using inter room stairs
+;   0x04 - upwards?
+;         this bit is checked for being reset for incrementing floor counter on transitions
+7E:0462 STAIRATTR
+; Gets a value from above, but this appears useless.
+7E:0463 JUNK_7E0463
+; Countdown timer used when climbing stairs.
+7E:0464 STAIRSTEP
+; FREE RAM: 0x01
+7E:0465 UNUSED_7E0465
+; Takes on SHUTTER ^ 0x0001 when a push block covers a switch.
+7E:0466 BLKSWITCH
+7E:0467 BLKSWITCHH
+; Flags shutter doors being down.
+7E:0468 SHUTTER
+7E:0469 SHUTTERH
+; Used in room draw routines to index floor tiles
+7E:046A FLOORX2L
+7E:046B FLOORX2H
+; TODO
+7E:046C UNKNOWN_7E046C
+; FREE RAM: 0x03
+7E:046D UNUSED_7E046D
+7E:046E UNUSED_7E046E
+7E:046F UNUSED_7E046F
+; Used for timing and indexing the dam flood. Counts up to 0x40
+7E:0470 DAMTIME
+7E:0471 DAMTIMEH
+; Tilemap location of watergate in the dam.
+7E:0472 DAMTMAPL
+7E:0473 DAMTMAPH
+; Direction a push block was pushed.
+; High byte always 0x00.
+;   0x00 - up
+;   0x02 - down
+;   0x04 - left
+;   0x06 - right
+7E:0474 BLOCKDIR
+7E:0475 BLOCKDIRH
+; More layer, similar to LAYER, but different. Sometimes kept in sync.
+7E:0476 DLAYER
+; FREE RAM: 0x01
+7E:0477 UNUSED_7E0477
+; Number of manipulable objects in a room, x2.
+; Kept in sync with MANIPINDEX and TORCHINDEX.
+7E:0478 MANIPCOUNT
+7E:0479 MANIPCOUNTH
+; Flags layer adjustments occuring.
+; Famous for arming EG.
+7E:047A ARMEG
+; FREE RAM: 0x01
+7E:047B UNUSED_7E047B
+; Flag to adjust the offset of water vomit face drawing.
+7E:047C H20VOMIT
+7E:047D H20VOMITH
+; TODO
+7E:047E UNKNOWN_7E047E
+7E:047F UNKNOWN_7E047F
+; TODO
+7E:0480 UNKNOWN_7E0480
+7E:0481 UNKNOWN_7E0481
+; TODO
+7E:0482 UNKNOWN_7E0482
+7E:0483 UNKNOWN_7E0483
+; TODO
+7E:0484 UNKNOWN_7E0484
+7E:0485 UNKNOWN_7E0485
+; TODO
+7E:0486 UNKNOWN_7E0486
+7E:0487 UNKNOWN_7E0487
+; TODO
+7E:0488 UNKNOWN_7E0488
+7E:0489 UNKNOWN_7E0489
+; TODO
+7E:048A UNKNOWN_7E048A
+7E:048B UNKNOWN_7E048B
+; TODO
+7E:048C UNKNOWN_7E048C
+7E:048D UNKNOWN_7E048D
+; Mirrors ROOMID
+7E:048E ROOMIDCOPYL
+7E:048F ROOMIDCOPYH
+; TODO
+7E:0490 UNKNOWN_7E0490
+; TODO
+7E:0491 UNKNOWN_7E0491
+; TODO
+7E:0492 UNKNOWN_7E0492
+; TODO
+7E:0493 UNKNOWN_7E0493
+; TODO
+7E:0494 UNKNOWN_7E0494
+; TODO
+7E:0495 UNKNOWN_7E0495
+; Used to index chests when building rooms.
+7E:0496 CHESTINDEX
+7E:0497 CHESTINDEXH
+7E:0498 CHESTINDEX2
+7E:0499 CHESTINDEX2H
+; TODO
+7E:049A UNKNOWN_7E049A
+; TODO
+7E:049B UNKNOWN_7E049B
+; TODO
+7E:049C UNKNOWN_7E049C
+; TODO
+7E:049D UNKNOWN_7E049D
+; TODO
+7E:049E UNKNOWN_7E049E
+; TODO
+7E:049F UNKNOWN_7E049F
+; TODO
+7E:04A0 UNKNOWN_7E04A0
+; TODO
+7E:04A1 UNKNOWN_7E04A1
+; TODO
+7E:04A2 UNKNOWN_7E04A2
+7E:04A3 UNKNOWN_7E04A3
+; TODO
+7E:04A4 UNKNOWN_7E04A4
+7E:04A5 UNKNOWN_7E04A5
+; TODO
+7E:04A6 UNKNOWN_7E04A6
+7E:04A7 UNKNOWN_7E04A7
+; TODO
+7E:04A8 UNKNOWN_7E04A8
+7E:04A9 UNKNOWN_7E04A9
+; TODO
+7E:04AA UNKNOWN_7E04AA
+; TODO
+7E:04AB UNKNOWN_7E04AB
+; Index for map16 tile change buffes on overworld
+7E:04AC M16CHINDXL
+7E:04AD M16CHINDXH
+; TODO
+7E:04AE UNKNOWN_7E04AE
+7E:04AF UNKNOWN_7E04AF
+; TODO
+; Tilemap thing with unused object.
+7E:04B0 UTMAPL
+7E:04B1 UTMAPH
+; Written to with 0x0492 if the flute spot is dug up. Otherwise zeroed.
+; Nonzero values let the flute spawn. 
+7E:04B2 FLUTEXL
+7E:04B3 FLUTEXH
+; Timer used by minigames and big bomb.
+7E:04B4 HUDTIMER
+; Counts down from 60 to tick HUDTIMER
+7E:04B5 HUDTIMERSUB
+; Tilemap position of triggers when stood on.
+7E:04B6 TRIGGERTL
+7E:04B7 TRIGGERTH
+; Set nonzero when you've triggered a message on a door/entrance
+; Cleared when you've stepped away.
+; High byte always 0.
+7E:04B8 DOORMSG
+7E:04B9 DOORMSGH
+; Hole overlay ID for star switches.
+; High byte always 0.
+7E:04BA HOLES
+7E:04BB HOLESH
+; Current state of star switches.
+7E:04BC STARON
+; FREE RAM: 0x01
+7E:04BD UNUSED_7E04BD
+; Timers for Trinexx shell palette filtering
+7E:04BE PTIMEFIRE
+7E:04BF PTIMEICE
+; Step counters for Trinexx shell palette filtering
+7E:04C0 SHELLFIRE
+7E:04C1 SHELLICE
+; Timer used by milestone items.
+7E:04C2 MFALLTIME
+; FREE RAM: 0x01
+7E:04C3 UNUSED_7E04C3
+; Number of chances left for minigames.
+7E:04C4 CREDITS
+; TODO
+; Control's Ganon's vulnerability.
+7E:04C5 HITPIG
+; Overworld entrance cutscene to play
+7E:04C6 OWENTSC
+; When set, dungeon room tags are not executed.
+7E:04C7 NOTAG
+; TODO - explain TR
+; Counts number of pegs hammered in the stake field.
+7E:04C8 PEGCOUNTL
+7E:04C9 PEGCOUNTH
+; Countdown timer for heart beep. Starts at 32 frames.
+7E:04CA BEEP
+; FREE RAM: 0x25
+7E:04CB UNUSED_7E04CA
+; Countdown timers for torches.
+7E:04F0 TORCHTIME0
+7E:04F1 TORCHTIME1
+7E:04F2 TORCHTIME2
+7E:04F3 TORCHTIME3
+7E:04F4 TORCHTIME4
+7E:04F5 TORCHTIME5
+7E:04F6 TORCHTIME6
+7E:04F7 TORCHTIME7
+7E:04F8 TORCHTIME8
+7E:04F9 TORCHTIME9
+7E:04FA TORCHTIMEA
+7E:04FB TORCHTIMEB
+7E:04FC TORCHTIMEC
+7E:04FD TORCHTIMED
+7E:04FE TORCHTIMEE
+7E:04FF TORCHTIMEF
+;---------------------------------------------------------------------------------------------------
+; Used in the overworld as a buffer for tile16
+;---------------------------------------------------------------------------------------------------
+7E:0500 M16BUFF500
+7E:0520 M16BUFF520
+; Properties for manipulable objects. 2 bytes allotted for each.
+;   0x0000 - Nothing / stationary push block
+;   0x0001 - Triggered push block
+;   0x0002 - Moving push block
+;   0x0003 - Done moving push block
+;   0x0004 - Falling push block
+;   0x0005 - Push block on switch
+;   0x1010 - Pot requiring lift 1
+;   0x1111 - Normal pot
+;   0x1212 - Ugly pot
+;   0x2020 - Big gray rock
+;   0x2121 - Big gray rock
+;   0x2222 - Big gray rock
+;   0x2323 - Big gray rock
+;   0x3030 - Bombable floor
+;   0x3131 - Bombable floor
+;   0x3232 - Bombable floor
+;   0x3333 - Bombable floor
+;   0x4040 - Hammer peg
+7E:0500 MANIPPROPS
+; Data offset into ROM data of the object
+7E:0520 MANIPOBJX
+; Tile map position
+7E:0540 MANIPTMAPX
+; Replacement tiles for push blocks
+7E:0560 MANIPRTNW
+7E:0580 MANIPRTSW
+7E:05A0 MANIPRTNE
+7E:05C0 MANIPRTSE
+; Push block properties
+; Coordinates take 2 bytes, but only the lower byte is used.
+; Marked with U for unused
+; X high
+7E:05E0 PBLOCK0XH
+7E:05E1 PBLOCK0XHU
+7E:05E2 PBLOCK1XH
+7E:05E3 PBLOCK1XHU
+; X low
+7E:05E4 PBLOCK0XL
+7E:05E5 PBLOCK0XLU
+7E:05E6 PBLOCK1XL
+7E:05E7 PBLOCK1XLU
+; Target coordinate in directionm masked with 0x0F
+7E:05E8 PBLOCK0TARG
+7E:05E9 PBLOCK0TARGU
+7E:05EA PBLOCK1TARG
+7E:05EB PBLOCK1TARGU
+; Y high
+7E:05EC PBLOCK0YH
+7E:05ED PBLOCK0YHU
+7E:05EE PBLOCK1YH
+7E:05EF PBLOCK1YHU
+; Y low
+7E:05F0 PBLOCK0YL
+7E:05F1 PBLOCK0YLU
+7E:05F2 PBLOCK1YL
+7E:05F3 PBLOCK1YLU
+; 
+7E:05F4 UNKNOWN_7E05F4
+7E:05F5 UNKNOWN_7E05F5
+7E:05F6 UNKNOWN_7E05F6
+7E:05F7 UNKNOWN_7E05F7
+; direction
+7E:05F8 PBLOCK0DIR
+7E:05F9 PBLOCK0DIRU
+7E:05FA PBLOCK1DIR
+7E:05FB PBLOCK1DIRU
+; Block indices
+7E:05FC PBLOCK0X
+7E:05FD PBLOCK1X
+; FREE RAM: 0x02
+7E:05FE UNUSED_7E05FE
+7E:05FF UNUSED_7E05FF
+;---------------------------------------------------------------------------------------------------
+; Camera scroll boundaries for big (B) and small (A) rooms in directions NSEW
+7E:0600 SCROLLANL
+7E:0601 SCROLLANH
+7E:0602 SCROLLBNL
+7E:0603 SCROLLBNH
+7E:0604 SCROLLASL
+7E:0605 SCROLLASH
+7E:0606 SCROLLBSL
+7E:0607 SCROLLBSH
+7E:0608 SCROLLAWL
+7E:0609 SCROLLAWH
+7E:060A SCROLLBWL
+7E:060B SCROLLBWH
+7E:060C SCROLLAEL
+7E:060D SCROLLAEH
+7E:060E SCROLLBEL
+7E:060F SCROLLBEH
+; Seems to be target positions of movement for overworld transitions
+7E:0610 OWTARGNL
+7E:0611 OWTARGNH
+7E:0612 OWTARGSL
+7E:0613 OWTARGSH
+7E:0614 OWTARGWL
+7E:0615 OWTARGWH
+7E:0616 OWTARGEL
+7E:0617 OWTARGEH
+; Camera scroll trigger areas for directions NSEW
+; The higher boundary should always be +2 from the lower in underworld and -2 in overworld
+7E:0618 SCROLLATNL
+7E:0619 SCROLLATNH
+7E:061A SCROLLATSL
+7E:061B SCROLLATSH
+7E:061C SCROLLATWL
+7E:061D SCROLLATWH
+7E:061E SCROLLATEL
+7E:061F SCROLLATEH
+; Behaves as a subpixel for background 1 overlay scroll on overworld
+7E:0620 OWBG1SUBPXL
+7E:0621 OWBG1SUBPXH
+7E:0622 OWBG1SUBPYL
+7E:0623 OWBG1SUBPYH
+; TODO analyze
+; Seems to track overworld camera stuff
+; The B variables are always the additive inverse of the A variables
+7E:0624 SCRMODYAL
+7E:0625 SCRMODYAH
+7E:0626 SCRMODYBL
+7E:0627 SCRMODYBH
+7E:0628 SCRMODXAL
+7E:0629 SCRMODXAH
+7E:062A SCRMODXBL
+7E:062B SCRMODXBH
+; TODO takes on camera/room values in a way
+7E:062C UNKNOWN_7E062C
+7E:062D UNKNOWN_7E062D
+7E:062E UNKNOWN_7E062E
+7E:062F UNKNOWN_7E062F
+; BG3 horizontal scroll during credits
+; Handled by IRQ
+7E:0630 CREDITBG3L
+7E:0631 CREDITBG3H
+; FREE RAM: 0x03
+7E:0632 UNUSED_7E0632
+7E:0633 UNUSED_7E0633
+7E:0634 UNUSED_7E0634
+; Written to with 0x04 in overworld map, but never used.
+7E:0635 JUNK_7E0635
+; Controls map zoom level.
+;   0 - zoomed out
+;   1 - zoomed in
+7E:0636 MAPZOOM
+; Appears to just handle zoom control of the mode 7 map in attract mode.
+7E:0637 AMAPZOOM
+; Mode7 queues written to during NMI.
+7E:0638 M7XQL
+7E:0639 M7XQH
+7E:063A M7YQL
+7E:063B M7YQH
+; Target layers for warps/pits and spiral/fat stairs
+7E:063C TGTLAYERWP
+7E:063D TGTLAYERS1
+7E:063E TGTLAYERS2
+7E:063F TGTLAYERS3
+7E:0640 TGTLAYERS4
+; Flips bit 0 every time a push block is pushed, except on lower layer
+7E:0641 PUSHFLIP
+; Set high by sprites triggering room tags
+7E:0642 SPRTAG
+; FREE RAM: 0x03
+7E:0643 UNSUED_7E0643
+7E:0644 UNSUED_7E0644
+7E:0645 UNSUED_7E0645
+; Set by somaria when on a switch
+7E:0646 SOMBUTTON
+; If set, mosaic from electrocution decreases; otherwise, increases.
+7E:0647 MOSAICDIR
+; FREE RAM: 0x28
+7E:0648 UNUSED_7E0648
+; Used for calculating water HDMA properties
+7E:0670 WCALCLEFTL
+7E:0671 WCALCLEFTH
+; FREE RAM: 0x02
+7E:0672 UNUSED_7E0672
+7E:0673 UNUSED_7E0673
+7E:0674 WCALCSIZEYL
+7E:0675 WCALCSIZEYH
+7E:0676 WCALCSIZEXL
+7E:0677 WCALCSIZEXH
+7E:0678 WCALCMAXXL
+7E:0679 WCALCMAXXH
+7E:067A WCALCMAXYL
+7E:067B WCALCMAXYH
+; Used for spotlight HDMA
+7E:067C IRISTOPL
+7E:067D IRISTOPH
+7E:067E IRISTYPE
+7E:067F IRISTYPEH
+; Water HDMA properties for swamp
+7E:0680 WTRLEFTL
+7E:0681 WTRLEFTH
+7E:0682 WTRTOPL
+7E:0683 WTRTOPH
+7E:0684 WTRSIZEYL
+7E:0685 WTRSIZEYH
+7E:0686 WTRSIZEXL
+7E:0687 WTRSIZEXH
+7E:0688 WTRMAXXL
+7E:0689 WTRMAXXH
+7E:068A WTRMAXYL
+7E:068B WTRMAXYH
+; Flags opened doors during transitions
+7E:068C DOOROPEN2
+7E:068D DOOROPEN
+; Tile map position of door
+7E:068E DOORTML
+7E:068F DOORTMH
+; Timer for opening doors
+7E:0690 DOORTIMEL
+7E:0691 DOORTIMEH
+; Used as an index for updating doors in the underworld or tile32 on the overworld.
+7E:0692 UPDATE32IDL
+7E:0693 UPDATE32IDH
+; Cache of door type (tile_attribute & 0x000F)
+7E:0694 DOORINDEXL
+7E:0695 DOORINDEXH
+; Tilemap location of entrance doors
+7E:0696 ENTRTMAPL
+7E:0697 ENTRTMAPH
+; Tilemap location of new tile32 objects, such as from graves/rocks
+7E:0698 REPLTMAPL
+7E:0699 REPLTMAPH
+; Countdown timer for walking out when exiting to overworld.
+7E:069A WALKOUT
+; FREE RAM: 0x01
+7E:069B UNUSED_7E069B
+; Another address for transition direction.
+; High byte written but unused.
+7E:069C OWTRANDIR
+7E:069D OWTRANDIRH
+; TODO
+; Something with extra camera scroll values
+7E:069E SCROLLHUHY
+7E:069F SCROLLHUHX
+; TODO
+; Mirror warp variables that can be figured out later
+7E:06A0 WARP_7E06A0
+7E:06A1 WARP_7E06A1
+7E:06A2 WARP_7E06A2
+7E:06A3 WARP_7E06A3
+7E:06A4 WARP_7E06A4
+7E:06A5 WARP_7E06A5
+7E:06A6 WARP_7E06A6
+7E:06A7 WARP_7E06A7
+7E:06A8 WARP_7E06A8
+7E:06A9 WARP_7E06A9
+7E:06AA WARP_7E06AA
+7E:06AB WARP_7E06AB
+7E:06AC WARP_7E06AC
+7E:06AD WARP_7E06AD
+7E:06AE WARP_7E06AE
+7E:06AF WARP_7E06AF
+; Tilemap positions of interroom stairs
+7E:06B0 ISTAIR0SATL
+7E:06B1 ISTAIR0SATH
+7E:06B2 ISTAIR1SATL
+7E:06B3 ISTAIR1SATH
+7E:06B4 ISTAIR2SATL
+7E:06B5 ISTAIR2SATH
+7E:06B6 ISTAIRS3ATL
+7E:06B7 ISTAIRS3ATH
+; Tilemap positions of north stairs
+7E:06B8 NSTAIR0SATL
+7E:06B9 NSTAIR0SATH
+7E:06BA NSTAIR1SATL
+7E:06BB NSTAIR1SATH
+7E:06BC NSTAIR2SATL
+7E:06BD NSTAIR2SATH
+7E:06BE NSTAIRS3ATL
+7E:06BF NSTAIRS3ATH
+; Tilemap positions of layer toggle doors
+7E:06C0 BGTOGGLEAT
+; Tilemap positions of dungeon toggle doors
+7E:06D0 DTOGGLEAT
+; Tilemap positions of locked chests and cell doors
+7E:06E0 CHEST0ATL
+7E:06E1 CHEST0ATH
+7E:06E2 CHEST1ATL
+7E:06E3 CHEST1ATH
+7E:06E4 CHEST2ATL
+7E:06E5 CHEST2ATH
+7E:06E6 CHEST3ATL
+7E:06E7 CHEST3ATH
+7E:06E8 CHEST4ATL
+7E:06E9 CHEST4ATH
+7E:06EA CHEST5ATL
+7E:06EB CHEST5ATH
+; Tilemap positions of south stairs
+7E:06EC SSTAIRAT
+; FREE RAM: 0x08
+7E:06F8 UNUSED_7E06F8
+;---------------------------------------------------------------------------------------------------
+; ........ yyyzxxx.
+; Caclulated as:
+; POSYH - ...yyya.
+; POSXH - ...xxxb.
+;      z = a|b
+7E:0700 OWPOSM
+7E:0701 OWPOSMH
+; FREE RAM: 0x06
+7E:0702 UNUSED_7E0702
+7E:0703 UNUSED_7E0703
+7E:0704 UNUSED_7E0704
+7E:0705 UNUSED_7E0705
+7E:0706 UNUSED_7E0706
+7E:0707 UNUSED_7E0707
+; Overworld camera boundaries
+; Y edge
+7E:0708 OWBGSYL
+7E:0709 OWBGSYH
+; Y size
+; 0x01F0 on small screens
+; 0x03F0 on big screens
+7E:070A OWBGSYOL
+7E:070B OWBGSYOH
+; X edge
+7E:070C OWBGSXL
+7E:070D OWBGSXH
+; X size
+; 0x003E on small screens
+; 0x007E on big screens
+7E:070E OWBGSXOL
+7E:070F OWBGSXOH
+; Set this flag high to skip OAM char data updates
+7E:0710 SKIPSPRGFX
+; TODO
+7E:0711 UNKNOWN_7E0711
+; Flags overworld screen size
+7E:0712 OWSCRSIZE
+7E:0713 OWSCRSIZEH
+; Screen size of previos screen
+7E:0714 PREVOWSCRSIZE
+7E:0715 PREVOWSCRSIZEH
+; Forms east and south triggers for overworld scrolling
+; High byte written separately
+7E:0716 OWSCROLLL
+7E:0717 OWSCROLLH
+; These addresses may be read during erroneous map16 reads for overworld scrolling.
+; But the values are written to an area completely off screen.
+; This block of memory is otherwise completely unused.
+; It can safely be considered free RAM.
+; BIG FREE RAM: 0xE8
+7E:0718 MAP16OVERFLOW
+;---------------------------------------------------------------------------------------------------
+; OAM buffers
+; Main buffer sent to OAM
+7E:0800 OAMBUFFER
+7E:0A00 OAMBUFFER2
+; Holds bit 8 of object's X coordinate.
+; ORA'd in every frame.
+7E:0A20 OAMXBIT8
+; GFX sheets
+7E:0AA0 SHEETAA0
+7E:0AA1 BGSET1
+7E:0AA2 BGSET2
+7E:0AA3 SPRSET1
+7E:0AA4 SPRSET2
+; FREE RAM: 0x01
+7E:0AA5 UNUSED_7E0AA5
+; Only ever zeroed
+7E:0AA6 JUNK_7E0AA6
+7E:0AA7 JUNK_7E0AA7
+; Used to choose between palette buffers when writing
+7E:0AA8 PALBUFNL
+7E:0AA9 PALBUFNH
+; Used to choose different graphics temporarily, such as medallion spells
+7E:0AAA GFXSTEAL
+; FREE RAM: 0x01
+7E:0AAB UNUSED_7E0AAB
+; TODO
+; Palette loading stuff
+7E:0AAC PALSPR0
+7E:0AAD PALSPR1
+7E:0AAE PALSPR2
+; FREE RAM: 0x01
+7E:0AAF UNUSED_7E0AAF
+; Only referenced in an unreachable palette routine.
+7E:0AB0 PALUNU
+; TODO
+7E:0AB1 PALAB1
+; Used for loading BG3 colors
+7E:0AB2 PALHUD
+7E:0AB3 PALAB3
+7E:0AB4 PALAB4
+7E:0AB5 PALAB5
+7E:0AB6 PALAB6
+; Read in one place but never used
+7E:0AB7 PAL0AB7
+; TODO
+7E:0AB8 PALAB8
+; FREE RAM: 0x04
+7E:0AB9 UNUSED_7E0AB9
+7E:0ABA UNUSED_7E0ABA
+7E:0ABB UNUSED_7E0ABB
+7E:0ABC UNUSED_7E0ABC
+; Set when in a room that utilizes color math for sprites.
+; High byte unused, but read in 16-bit a couple times
+7E:0ABD COLROOM
+7E:0ABE COLROOMH
+; Flagged during certain types of overworld transitions
+; Used for events such as smithy and witch
+; TODO more
+7E:0ABF OWTRAN
+; These are OAM addresses in various banks for DMA transfers
+; Link parts come from Bank10
+; Other parts come from decompressed 4bpp caches in bank 7E
+; a couple of these in here are actually unused
+; T = Top
+; B = Bottom
+;
+; Sword
+7E:0AC0 SWDGFXTL
+7E:0AC1 SWDGFXTH
+7E:0AC2 SWDGFXBL
+7E:0AC3 SWDGFXBH
+; Shield
+7E:0AC4 SHDGFXTL
+7E:0AC5 SHDGFXTH
+7E:0AC6 SHDGFXBL
+7E:0AC7 SHDGFXBH
+; Y-items
+7E:0AC8 ITEMGFXTL
+7E:0AC9 ITEMGFXTH
+7E:0ACA ITEMGFXBL
+7E:0ACB ITEMGFXBH
+; Link's head
+7E:0ACC HEADGFXTL
+7E:0ACD HEADGFXTH
+7E:0ACE HEADGFXBL
+7E:0ACF HEADGFXBH
+; Link's body
+7E:0AD0 BODYGFXTL
+7E:0AD1 BODYGFXTH
+7E:0AD2 BODYGFXBL
+7E:0AD3 BODYGFXBH
+; Link's auxiliary parts
+7E:0AD4 AUXGFX1L
+7E:0AD5 AUXGFX1H
+7E:0AD6 AUXGFX2L
+7E:0AD7 AUXGFX2H
+; Pushable blocks
+7E:0AD8 BLKGFXTL
+7E:0AD9 BLKGFXTH
+7E:0ADA BLKGFXBL
+7E:0ADB BLKGFXBH
+; Background
+7E:0ADC BGANIMGFXL
+7E:0ADD BGANIMGFXH
+; FREE RAM: 0x02
+7E:0ADE UNUSED_7E0ADE
+7E:0ADF UNUSED_7E0ADF
+; Rupee sprites
+7E:0AE0 RUPGFXTL
+7E:0AE1 RUPGFXTH
+7E:0AE2 RUPGFXBL
+7E:0AE3 RUPGFXBH
+; FREE RAM: 0x04
+7E:0AE4 UNUSED_7E0AE4
+7E:0AE5 UNUSED_7E0AE5
+7E:0AE6 UNUSED_7E0AE6
+7E:0AE7 UNUSED_7E0AE7
+; Follower head/body gfx offsets
+7E:0AE8 FLWHOL
+7E:0AE9 FLWHOH
+7E:0AEA FLWBOL
+7E:0AEB FLWBOH
+; Follower head
+7E:0AEC FLWHGFXTL
+7E:0AED FLWHGFXTH
+7E:0AEE FLWHGFXBL
+7E:0AEF FLWHGFXBH
+; Follower body
+7E:0AF0 FLWBGFXTL
+7E:0AF1 FLWBGFXTH
+7E:0AF2 FLWBGFXBL
+7E:0AF3 FLWBGFXBH
+; Duck
+7E:0AF4 DUCKGFXTL
+7E:0AF5 DUCKGFXTH
+7E:0AF6 DUCKGFXBL
+7E:0AF7 DUCKGFXBH
+; TODO something with the duck
+7E:0AF8 DUCKGFX3L
+7E:0AF9 DUCKGFX3H
+; FREE RAM: 0x06
+7E:0AFA UNUSED_7E0AFA
+7E:0AFB UNUSED_7E0AFB
+7E:0AFC UNUSED_7E0AFC
+7E:0AFD UNUSED_7E0AFD
+7E:0AFE UNUSED_7E0AFE
+7E:0AFF UNUSED_7E0AFF
+;---------------------------------------------------------------------------------------------------
+; Overlord IDs
+7E:0B00 OL0_ID
+7E:0B01 OL1_ID
+7E:0B02 OL2_ID
+7E:0B03 OL3_ID
+7E:0B04 OL4_ID
+7E:0B05 OL5_ID
+7E:0B06 OL6_ID
+7E:0B07 OL7_ID
+; Overlord coordinates
+; x low
+7E:0B08 OL0_XL
+7E:0B09 OL1_XL
+7E:0B0A OL2_XL
+7E:0B0B OL3_XL
+7E:0B0C OL4_XL
+7E:0B0D OL5_XL
+7E:0B0E OL6_XL
+7E:0B0F OL7_XL
+; x high
+7E:0B10 OL0_XH
+7E:0B11 OL1_XH
+7E:0B12 OL2_XH
+7E:0B13 OL3_XH
+7E:0B14 OL4_XH
+7E:0B15 OL5_XH
+7E:0B16 OL6_XH
+7E:0B17 OL7_XH
+; y low
+7E:0B18 OL0_YL
+7E:0B19 OL1_YL
+7E:0B1A OL2_YL
+7E:0B1B OL3_YL
+7E:0B1C OL4_YL
+7E:0B1D OL5_YL
+7E:0B1E OL6_YL
+7E:0B1F OL7_YL
+; y high
+7E:0B20 OL0_YH
+7E:0B21 OL1_YH
+7E:0B22 OL2_YH
+7E:0B23 OL3_YH
+7E:0B24 OL4_YH
+7E:0B25 OL5_YH
+7E:0B26 OL6_YH
+7E:0B27 OL7_YH
+; General purpose timers
+; None of these are automated
+7E:0B28 OL0_TIMER_A
+7E:0B29 OL1_TIMER_A
+7E:0B2A OL2_TIMER_A
+7E:0B2B OL3_TIMER_A
+7E:0B2C OL4_TIMER_A
+7E:0B2D OL5_TIMER_A
+7E:0B2E OL6_TIMER_A
+7E:0B2F OL7_TIMER_A
+; TODO
+7E:0B30 OL0_TIMER_B
+7E:0B31 OL1_TIMER_B
+7E:0B32 OL2_TIMER_B
+7E:0B33 OL3_TIMER_B
+7E:0B34 OL4_TIMER_B
+7E:0B35 OL5_TIMER_B
+7E:0B36 OL6_TIMER_B
+7E:0B37 OL7_TIMER_B
+; TODO
+7E:0B38 OL0_TIMER_C
+7E:0B39 OL1_TIMER_C
+7E:0B3A OL2_TIMER_C
+7E:0B3B OL3_TIMER_C
+7E:0B3C OL4_TIMER_C
+7E:0B3D OL5_TIMER_C
+7E:0B3E OL6_TIMER_C
+7E:0B3F OL7_TIMER_C
+; Layer, as always: (0: upper | 1: lower)
+7E:0B40 OL0_LAYER
+7E:0B41 OL1_LAYER
+7E:0B42 OL2_LAYER
+7E:0B43 OL3_LAYER
+7E:0B44 OL4_LAYER
+7E:0B45 OL5_LAYER
+7E:0B46 OL6_LAYER
+7E:0B47 OL7_LAYER
+; TODO
+7E:0B48 OL0_OWBUFFERL
+7E:0B49 OL0_OWBUFFERH
+7E:0B4A OL1_OWBUFFERL
+7E:0B4B OL1_OWBUFFERH
+7E:0B4C OL2_OWBUFFERL
+7E:0B4D OL2_OWBUFFERH
+7E:0B4E OL3_OWBUFFERL
+7E:0B4F OL3_OWBUFFERH
+7E:0B50 OL4_OWBUFFERL
+7E:0B51 OL4_OWBUFFERH
+7E:0B52 OL5_OWBUFFERL
+7E:0B53 OL5_OWBUFFERH
+7E:0B54 OL6_OWBUFFERL
+7E:0B55 OL6_OWBUFFERH
+7E:0B56 OL7_OWBUFFERL
+7E:0B57 OL7_OWBUFFERH
+; Auto-decrementing timer for stunned enemies
+7E:0B58 SPR_STUN
+; TODO
+7E:0B68 UNKNOWN_7E0B68
+; TODO
+7E:0B69 UNKNOWN_7E0B69
+; TODO
+7E:0B6A UNKNOWN_7E0B6A
+; tttt a.bp
+;   t - tile hitbox TODO ???
+;   a - deflect arrows TODO VERIFY
+;   b - boss death
+;   p - idk
+7E:0B6B SPR_TILEDIE
+; Prevents Link from physically moving when non zero
+; cleared every frame under normal circumstances
+; only used by debirando pits
+7E:0B7B SANDPIT
+; Drag velocities used by sandpits and somaria
+7E:0B7C DRAGYL
+7E:0B7D DRAGYH
+7E:0B7E DRAGXL
+7E:0B7F DRAGXH
+; TODO
+7E:0B80 UNKNOWN_7E0B80
+; TODO
+7E:0B81 UNKNOWN_7E0B81
+; TODO
+7E:0B82 UNKNOWN_7E0B82
+; TODO
+7E:0B83 UNKNOWN_7E0B83
+; TODO
+7E:0B84 UNKNOWN_7E0B84
+; TODO
+7E:0B85 UNKNOWN_7E0B85
+; TODO
+7E:0B86 UNKNOWN_7E0B86
+; TODO
+7E:0B87 UNKNOWN_7E0B87
+; TODO
+7E:0B88 UNKNOWN_7E0B88
+; TODO
+7E:0B89 UNKNOWN_7E0B89
+; TODO
+7E:0B8A UNKNOWN_7E0B8A
+; TODO
+7E:0B8B UNKNOWN_7E0B8B
+; TODO
+7E:0B8C UNKNOWN_7E0B8C
+; TODO
+7E:0B8D UNKNOWN_7E0B8D
+; TODO
+7E:0B8E UNKNOWN_7E0B8E
+; TODO
+7E:0B8F UNKNOWN_7E0B8F
+; TODO
+7E:0B90 UNKNOWN_7E0B90
+; TODO
+7E:0B91 UNKNOWN_7E0B91
+; TODO
+7E:0B92 UNKNOWN_7E0B92
+; TODO
+7E:0B93 UNKNOWN_7E0B93
+; TODO
+7E:0B94 UNKNOWN_7E0B94
+; TODO
+7E:0B95 UNKNOWN_7E0B95
+; TODO
+7E:0B96 UNKNOWN_7E0B96
+; TODO
+7E:0B97 UNKNOWN_7E0B97
+; TODO
+7E:0B98 UNKNOWN_7E0B98
+; TODO
+7E:0B99 UNKNOWN_7E0B99
+; TODO
+7E:0B9A UNKNOWN_7E0B9A
+; TODO
+7E:0B9B UNKNOWN_7E0B9B
+; Controls the secret spawned from bushes, pots, rots, etc
+; See Sprite_SpawnSecret ($06:8264)
+7E:0B9C SECRETID
+; TODO
+7E:0B9D UNKNOWN_7E0B9D
+; TODO
+7E:0B9E UNKNOWN_7E0B9E
+; TODO
+7E:0B9F UNKNOWN_7E0B9F
+; If nonzero, ancillae do not interact with the sprite
+7E:0BA0 SPR_BULLETPROOF
+; TODO
+7E:0BB0 SPR_ANCSAVE
+; TODO
+7E:0BC0 UNKNOWN_7E0BC0
+; TODO
+7E:0BC1 UNKNOWN_7E0BC1
+; TODO
+7E:0BC2 UNKNOWN_7E0BC2
+; TODO
+7E:0BC3 UNKNOWN_7E0BC3
+; TODO
+7E:0BC4 UNKNOWN_7E0BC4
+; TODO
+7E:0BC5 UNKNOWN_7E0BC5
+; TODO
+7E:0BC6 UNKNOWN_7E0BC6
+; TODO
+7E:0BC7 UNKNOWN_7E0BC7
+; TODO
+7E:0BC8 UNKNOWN_7E0BC8
+; TODO
+7E:0BC9 UNKNOWN_7E0BC9
+; TODO
+7E:0BCA UNKNOWN_7E0BCA
+; TODO
+7E:0BCB UNKNOWN_7E0BCB
+; TODO
+7E:0BCC UNKNOWN_7E0BCC
+; TODO
+7E:0BCD UNKNOWN_7E0BCD
+; TODO
+7E:0BCE UNKNOWN_7E0BCE
+; TODO
+7E:0BCF UNKNOWN_7E0BCF
+; TODO
+7E:0BD0 UNKNOWN_7E0BD0
+; TODO
+7E:0BD1 UNKNOWN_7E0BD1
+; TODO
+7E:0BD2 UNKNOWN_7E0BD2
+; TODO
+7E:0BD3 UNKNOWN_7E0BD3
+; TODO
+7E:0BD4 UNKNOWN_7E0BD4
+; TODO
+7E:0BD5 UNKNOWN_7E0BD5
+; TODO
+7E:0BD6 UNKNOWN_7E0BD6
+; TODO
+7E:0BD7 UNKNOWN_7E0BD7
+; TODO
+7E:0BD8 UNKNOWN_7E0BD8
+; TODO
+7E:0BD9 UNKNOWN_7E0BD9
+; TODO
+7E:0BDA UNKNOWN_7E0BDA
+; TODO
+7E:0BDB UNKNOWN_7E0BDB
+; TODO
+7E:0BDC UNKNOWN_7E0BDC
+; TODO
+7E:0BDD UNKNOWN_7E0BDD
+; TODO
+7E:0BDE UNKNOWN_7E0BDE
+; TODO
+7E:0BDF UNKNOWN_7E0BDF
+; TODO
+; iwbs pppp
+;   i - disable tile interaction
+;   w - something water
+;   b - sprite is blocked by shield
+;   s - taking damage sfx to use TODO name
+;   p - prize pack
+7E:0BE0 SPR_PRIZE
+; TODO
+7E:0BF0 ANCMISC_0BF0
+;---------------------------------------------------------------------------------------------------
+; Ancilla coordinates
+; y low
+7E:0BFA ANCYL
+; x low
+7E:0C04 ANCXL
+; y high
+7E:0C0E ANCYH
+; x high
+7E:0C18 ANCXH
+; Ancilla velocities
+; y axis
+7E:0C22 ANCVY
+; x axis
+7E:0C2C ANCVX
+; Ancilla subpixel velocities
+; y axis
+7E:0C36 ANCSUBY
+; x axis
+7E:0C40 ANCSUBX
+; Ancilla ID
+; See ANCExecuteObject for values
+7E:0C4A ANCID
+; TODO
+7E:0C54 ANCMISC_0C54
+; TODO
+7E:0C5E ANCUNKNOWN_0C5E
+; TODO
+7E:0C68 ANCTIMER_A
+; TODO
+7E:0C72 ANCUNKNOWN_0C72
+; TODO
+7E:0C7C ANCLAYER
+; TODO
+7E:0C86 ANCUNKNOWN_0C86
+; TODO
+7E:0C90 ANCOAMALLO
+; TODO
+7E:0C9A SPR_ROOM_ID
+; aixd tspr
+;   a - TODO
+;   i - 
+;   x - 
+;   d - 
+;   t - 
+;   s - 
+;   p - 
+;   r - Handles behavior with previous deaths flagged in $7F:DF80 (0: default | 1: ignore)
+7E:0CAA SPR_DEFL
+; TODO
+7E:0CBA SPR_FORCEDDROP
+; TODO
+7E:0CCA OL0_ROOM
+7E:0CCB OL1_ROOM
+7E:0CCC OL2_ROOM
+7E:0CCD OL3_ROOM
+7E:0CCE OL4_ROOM
+7E:0CCF OL5_ROOM
+7E:0CD0 OL6_ROOM
+7E:0CD1 OL7_ROOM
+; Primarily deals with bump damage
+; tzpd bbbb
+;   t - TODO
+;   z - BEES TODO
+;   p - Powder interaction (0: normal | 1: ignore)
+;   d - Behavior when a boss spawns (0: die | 1: live)
+;   b - bump damage class
+;   Bump damage classes are read from a table at $06F42D
+;   Each table entry has 3 values, for green, blue, and red mails
+;   TODO verify
+;   class    g    b    r
+;   0x00    2    1    1
+;   0x01    4    4    4
+;   0x02    0    0    0
+;   0x03    8    4    2
+;   0x04    8    8    8
+;   0x05   16    8    4
+;   0x06   32   16    8
+;   0x07   32   24   16
+;   0x08   24   16    8
+;   0x09   64   48   24
+;   0x0A    
+;   0x0B    
+;   0x0C    
+;   0x0D    
+;   0x0E    
+;   0x0F    
+7E:0CD2 SPR_DMG
+; TODO
+7E:0CE2 SPR_DAMAGE
+; Damage class of a particular hit against a sprite
+7E:0CF2 DMGCLASS
+; Zeroed but never read.
+7E:0CF3 JUNK_7E0CF3
+; Flags snake and bomb ambushes from bad pull switches.
+7E:0CF4 DROPTRAP
+; Y offset for drawing the dungeon map squares.
+7E:0CF5 DMAPROWL
+7E:0CF6 DMAPROWH
+; Prize pack counter for bush prizes on the overworld.
+7E:0CF7 BUSHPACKX
+; Used for calculating SFX panning.
+7E:0CF8 PANTEMP
+; Drop luck
+;   0x00 - None
+;   0x01 - Good luck
+;   0x02 - Bad luck
+7E:0CF9 DROPLUCK
+; Kills of luck remaining
+7E:0CFA LUCKKILL
+; Number of kills for rupee pulls
+7E:0CFB PULLKILL
+; Number of times hit for rupee pull prize calculation
+7E:0CFC PULLHITS
+; Rupee refill sound effect timer
+7E:0CFD CHACHING
+; Override palette
+; High byte always to be 0
+7E:0CFE PAL2F
+7E:0CFF PAL2FH
+;---------------------------------------------------------------------------------------------------
+; Sprite coordinates
+; y low
+7E:0D00 SPR_YL
+; x low
+7E:0D10 SPR_XL
+; y high
+7E:0D20 SPR_YH
+; x high
+7E:0D30 SPR_XH
+; Sprite velocity
+; y-axis
+7E:0D40 SPR_VY
+; x-axis
+7E:0D50 SPR_VX
+; TODO
+7E:0D60 SPR_0D60
+; TODO
+7E:0D70 SPR_0D70
+; TODO
+7E:0D80 SPR_0D80
+; TODO
+7E:0D90 SPR_0D90
+; TODO
+7E:0DA0 SPR_0DA0
+; TODO
+7E:0DB0 SPR
+; Mostly used as graphics control
+7E:0DC0 SPR_GFXSTEP
+; Main AI state of the sprite
+7E:0DD0 SPR_AIMODE
+; TODO
+7E:0DE0 SPR_0DE0
+; Auto-decremented timers
+7E:0DF0 SPR_TIMER_A
+; TODO
+7E:0E00 SPR_TIMER_B
+; TODO
+7E:0E10 SPR_TIMER_C
+; Which sprite is it?
+7E:0E20 SPR_ID
+; TODO
+7E:0E30 SPR_SUBTYPE
+; Controls OAM allocation and a couple other properties
+; set from $0D:B080
+; hmwo oooo
+;   h - harmless sprite
+;   m - something with mastersword TODO
+;   w - something with walls? TODO
+;   o - oam allocation
+7E:0E40 SPR_OAMHARM
+; Sprite's hitpoints | set from $0D:B173
+7E:0E50 SPR_HP
+; Mostly controls graphics
+; nios pppt
+;   n - death anim stuff? TODO
+;   i - impervious to attacks and collision? TODO
+;   o - shadow (0: no shadow | 1: shadow)
+;   p - palette used for OAM props
+;   t - name table used for OAM props
+7E:0E60 SPR_GFXPROPS
+; TODO
+7E:0E70 SPR_COLLIDE
+; TODO
+7E:0E80 SPR_0E80
+; TODO
+7E:0E90 SPR_0E90
+; TODO
+7E:0EA0 SPR_0EA0
+; TODO
+7E:0EB0 SPR_0EB0
+; TODO
+7E:0EC0 SPR_0EC0
+; TODO
+7E:0ED0 SPR_0ED0
+; TODO
+7E:0EE0 SPR_TIMER_D
+; TODO
+7E:0EF0 SPR_DMGTIMER
+; TODO
+7E:0F00 SPR_HALT
+; TODO
+7E:0F10 SPR_TIMER_E
+; TODO
+7E:0F20 SPR_LAYER
+; TODO
+; y-axis
+7E:0F30 SPR_RECOILV_Y
+; x-axis
+7E:0F40 SPR_RECOILV_X
+; TODO
+7E:0F50 SPR_OAMPROP
+; Mostly controls collision related stuff
+; isph hhhh
+;   i - ignore collision stuff? TODO
+;   s - "statis"; sprite doesn't count for kill rooms if set
+;   p - activeness? TODO
+;   h - hitbox ID
+; TODO HITBOXES
+7E:0F60 SPR_COLPROP
+; Z coordinate
+7E:0F70 SPR_Z
+; TODO
+7E:0F80 SPR_VZ
+; TODO
+7E:0F90 SPR_SUBZ
+; TODO
+7E:0FA0 UNKNOWN_7E0FA0
+; Used to hold last RNG value for "seeding"
+7E:0FA1 RNG
+; FREE RAM: 0x03
+7E:0FA2 UNUSED_7E0FA2
+7E:0FA3 UNUSED_7E0FA3
+7E:0FA4 UNUSED_7E0FA4
+; Stores the tile type for sprites and ancillae.
+7E:0FA5 SPRTILE
+; FREE RAM: 0x02
+7E:0FA6 UNUSED_7E0FA6
+7E:0FA7 UNUSED_7E0FA7
+; TODO
+7E:0FA8 UNKNOWN_7E0FA8
+; TODO
+7E:0FA9 UNKNOWN_7E0FA9
+; TODO
+7E:0FAA UNKNOWN_7E0FAA
+; TODO
+7E:0FAB UNKNOWN_7E0FAB
+; Repulse spark animation state
+7E:0FAC REPULSE
+; Repulse spark coordinates
+7E:0FAD REPULSEX
+7E:0FAE REPULSEY
+; Repulse spark animation timer
+7E:0FAF REPULSET
+; TODO
+7E:0FB0 UNKNOWN_7E0FB0
+7E:0FB1 UNKNOWN_7E0FB1
+; Some debug variable? Never used productively, but seems to be kept in sync with SPRLIFT.
+7E:0FB2 DEBUG_7E0FB2
+; Often called "sort sprites", which is a dumb name.
+; This address seems to force sprites and ancillae to begin OAM allocation in region A
+; TODO other effects
+7E:0FB3 FRGNA
+; When nonzero, garnish are handled.
+7E:0FB4 GARNISH
+; Used for looping through sprites in various routines.
+7E:0FB5 SPRXTEMP
+; Used as scratch space for various sprite routines.
+7E:0FB6 SPRSCRAP
+; Counts up every frame in the overworld.
+; Bit 0 is checked to alternate the behavior of proximity based sprite activation.
+7E:0FB7 OWLOADSWAP
+; TODO
+7E:0FB8 UNKNOWN_7E0FB8
+7E:0FB9 UNKNOWN_7E0FB9
+7E:0FBA UNKNOWN_7E0FBA
+7E:0FBB UNKNOWN_7E0FBB
+; TODO
+7E:0FBC UNKNOWN_7E0FBC
+7E:0FBD UNKNOWN_7E0FBD
+7E:0FBE UNKNOWN_7E0FBE
+7E:0FBF UNKNOWN_7E0FBF
+; FREE RAM: 0x01
+7E:0FC0 UNUSED_7E0FC0
+; Seems to freeze sprites
+; TODO: usage
+7E:0FC1 FREEZESPR
+; Cache of Link's coordinates
+; Done at the beginning of Link_Main every frame
+; In X,Y order instead of Y,X for some reason
+7E:0FC2 POSX2L
+7E:0FC3 POSX2H
+7E:0FC4 POSY2L
+7E:0FC5 POSY2H
+; Mirrors $0AAA in some cases
+; Used by sprites to verify the graphics loaded
+; TODO verify
+7E:0FC6 GFXHSLOT
+; Prize pack indices
+7E:0FC7 PRIZEX0
+7E:0FC8 PRIZEX1
+7E:0FC9 PRIZEX2
+7E:0FCA PRIZEX3
+7E:0FCB PRIZEX4
+7E:0FCC PRIZEX5
+7E:0FCD PRIZEX6
+7E:0FCE PRIZEX7
+; FREE RAM: 0x08
+; Space was probably allotted for more prize packs, but it goes unused.
+7E:0FCF UNUSED_7E0FCF
+7E:0FD0 UNUSED_7E0FD0
+7E:0FD1 UNUSED_7E0FD1
+7E:0FD2 UNUSED_7E0FD2
+7E:0FD3 UNUSED_7E0FD3
+7E:0FD4 UNUSED_7E0FD4
+7E:0FD5 UNUSED_7E0FD5
+7E:0FD6 UNUSED_7E0FD6
+; Unreachable debug flag for skipping frames when L but not R pressed.
+7E:0FD7 SKIPFRAME
+; Caches sprite coordinates for calculations
+; Triggers noise to call guards.
+7E:0FDC ALERT
+; Flags whether the animals in the haunted grove should disperse yet.
+7E:0FDD ANIMALRUN
+; Overlord index of active "home target" overlords (ID: 0x01)
+7E:0FDE HOMESLOT
+; FREE RAM: 0x01
+7E:0FDF UNUSED_7E0FDF
+; OAM region pointers
+7E:0FEC OAMAH
+7E:0FED OAMAL
+7E:0FEE OAMBH
+7E:0FEF OAMBL
+7E:0FF0 OAMCH
+7E:0FF1 OAMCL
+7E:0FF2 OAMDH
+7E:0FF3 OAMDL
+7E:0FF4 OAMEH
+7E:0FF5 OAMEL
+7E:0FF6 OAMFH
+7E:0FF7 OAMFL
+; Used to find backup regions for OAM regions
+; High byte unused but always written 0
+7E:0FEC OAMBKAH
+7E:0FED OAMBKAL
+7E:0FEE OAMBKBH
+7E:0FEF OAMBKBL
+7E:0FF0 OAMBKCH
+7E:0FF1 OAMBKCL
+7E:0FF2 OAMBKDH
+7E:0FF3 OAMBKDL
+7E:0FF4 OAMBKEH
+7E:0FF5 OAMBKEL
+7E:0FF6 OAMBKFH
+7E:0FF7 OAMBKFL
+; Used as a fallback search index for garnish creation.
+; Also counts the number of armos knights left alive.
+7E:0FF8 GARNFIND
+; Used as a timer that counts down and flashes the screen while running.
+; Flags whether or not to execute cached sprites on transition.
+7E:0FFA DOCACHE
+; Zeroed in one location, but never read.
+7E:0FFB JUNK_7E0FFB
+; When set, prevents:
+;   menuing
+;   mirroring
+;   medallions
+7E:0FFC NOMENU
+; Set nonzero when the boulder spawner overlord is loaded on the overworld.
+7E:0FFD AVALANCHE
+; Increments if AVALANCHE is set.
+; Boulders spawn when the bottom 4 bits are all reset.
+; ..aa aaaa
+7E:0FFE BOULDER
+; Light world or dark world
+7E:0FFF WORLD_FLAG
+;---------------------------------------------------------------------------------------------------
+; Used by stripes for arbitrary VRAM transfers.
+7E:1000 GFXSTRIPES
+; Used for room drawing
+7E:1100 ROOMSTRIPES
+;---------------------------------------------------------------------------------------------------
+; Door types TODO
+7E:1980 DOOR0TYPE
+7E:1981 DOOR0DIRT
+7E:1982 DOOR1TYPE
+7E:1983 DOOR1DIRT
+7E:1984 DOOR2TYPE
+7E:1985 DOOR2DIRT
+7E:1986 DOOR3TYPE
+7E:1987 DOOR3DIRT
+7E:1988 DOOR4TYPE
+7E:1989 DOOR4DIRT
+7E:198A DOOR5TYPE
+7E:198B DOOR5DIRT
+7E:198C DOOR6TYPE
+7E:198D DOOR6DIRT
+7E:198E DOOR7TYPE
+7E:198F DOOR7DIRT
+7E:1990 DOOR8TYPE
+7E:1991 DOOR8DIRT
+7E:1992 DOOR9TYPE
+7E:1993 DOOR9DIRT
+7E:1994 DOORATYPE
+7E:1995 DOORADIRT
+7E:1996 DOORBTYPE
+7E:1997 DOORBDIRT
+7E:1998 DOORCTYPE
+7E:1999 DOORCDIRT
+7E:199A DOORDTYPE
+7E:199B DOORDDIRT
+7E:199C DOORETYPE
+7E:199D DOOREDIRT
+7E:199E DOORFTYPE
+7E:199F DOORFDIRT
+; Door tile map location
+7E:19A0 DOOR0TMAPL
+7E:19A1 DOOR0TMAPH
+7E:19A2 DOOR1TMAPL
+7E:19A3 DOOR1TMAPH
+7E:19A4 DOOR2TMAPL
+7E:19A5 DOOR2TMAPH
+7E:19A6 DOOR3TMAPL
+7E:19A7 DOOR3TMAPH
+7E:19A8 DOOR4TMAPL
+7E:19A9 DOOR4TMAPH
+7E:19AA DOOR5TMAPL
+7E:19AB DOOR5TMAPH
+7E:19AC DOOR6TMAPL
+7E:19AD DOOR6TMAPH
+7E:19AE DOOR7TMAPL
+7E:19AF DOOR7TMAPH
+7E:19B0 DOOR8TMAPL
+7E:19B1 DOOR8TMAPH
+7E:19B2 DOOR9TMAPL
+7E:19B3 DOOR9TMAPH
+7E:19B4 DOORATMAPL
+7E:19B5 DOORATMAPH
+7E:19B6 DOORBTMAPL
+7E:19B7 DOORBTMAPH
+7E:19B8 DOORCTMAPL
+7E:19B9 DOORCTMAPH
+7E:19BA DOORDTMAPL
+7E:19BB DOORDTMAPH
+7E:19BC DOORETMAPL
+7E:19BD DOORETMAPH
+7E:19BE DOORFTMAPL
+7E:19BF DOORFTMAPH
+; Door direction
+;   0x00 - North
+;   0x01 - South
+;   0x02 - West
+;   0x03 - East
+7E:19C0 DOOR0DIR
+7E:19C1 DOOR0DIRH
+7E:19C2 DOOR1DIR
+7E:19C3 DOOR1DIRH
+7E:19C4 DOOR2DIR
+7E:19C5 DOOR2DIRH
+7E:19C6 DOOR3DIR
+7E:19C7 DOOR3DIRH
+7E:19C8 DOOR4DIR
+7E:19C9 DOOR4DIRH
+7E:19CA DOOR5DIR
+7E:19CB DOOR5DIRH
+7E:19CC DOOR6DIR
+7E:19CD DOOR6DIRH
+7E:19CE DOOR7DIR
+7E:19CF DOOR7DIRH
+7E:19D0 DOOR8DIR
+7E:19D1 DOOR8DIRH
+7E:19D2 DOOR9DIR
+7E:19D3 DOOR9DIRH
+7E:19D4 DOORADIR
+7E:19D5 DOORADIRH
+7E:19D6 DOORBDIR
+7E:19D7 DOORBDIRH
+7E:19D8 DOORCDIR
+7E:19D9 DOORCDIRH
+7E:19DA DOORDDIR
+7E:19DB DOORDDIRH
+7E:19DC DOOREDIR
+7E:19DD DOOREDIRH
+7E:19DE DOORFDIR
+7E:19DF DOORFDIRH
+; TODO
+7E:19E0 UNKNOWN_7E19E0
+; TODO
+7E:19E1 UNKNOWN_7E19E1
+; TODO
+7E:19E2 UNKNOWN_7E19E2
+; TODO
+7E:19E3 UNKNOWN_7E19E3
+; TODO
+7E:19E4 UNKNOWN_7E19E4
+; TODO
+7E:19E5 UNKNOWN_7E19E5
+; TODO
+7E:19E6 UNKNOWN_7E19E6
+; TODO
+7E:19E7 UNKNOWN_7E19E7
+; TODO
+7E:19E8 UNKNOWN_7E19E8
+; TODO
+7E:19E9 UNKNOWN_7E19E9
+; FREE RAM: 0x16
+7E:19EA UNUSED_7E19EA
+;---------------------------------------------------------------------------------------------------
+; 20 steps of animation and movement caching for followers
+7E:1A00 FOLLOWERYL
+7E:1A14 FOLLOWERYH
+7E:1A28 FOLLOWERXL
+7E:1A3C FOLLOWERXH
+7E:1A50 FOLLOWERZ
+7E:1A64 FOLLOWERLAYER
+; BIG FREE RAM: 0x38
+7E:1A78 UNUSED_7E1A78
+; X- and Y- coordinates of mirror portal; also flute numbers during flute menu.
+; X low
+7E:1AB0 FLUTENUMXL
+; FREE RAM: 0x07
+7E:1AB8 UNUSED_7E1AB8
+7E:1ABF MIRRORXL
+; X high
+7E:1AC0 FLUTENUMXH
+; FREE RAM: 0x07
+7E:1AC8 UNUSED_7E1AC8
+7E:1ACF MIRRORXL
+; Y low
+7E:1AD0 FLUTENUMYL
+; FREE RAM: 0x07
+7E:1AD8 UNUSED_7E1AD8
+7E:1ADF MIRRORYL
+; Y high
+7E:1AE0 FLUTENUMYH
+; FREE RAM: 0x07
+7E:1AE8 UNUSED_7E1AE8
+7E:1AEF MIRRORYH
+; Currently selected flute number. Zero-indexed, unlike the actual icons.
+7E:1AF0 FLUTESEL
+; Zeroed when initializing bat crash, but never read.
+7E:1AF1 JUNK_7E1AF1
+; FREE RAM: 0x0D
+7E:1AF2 UNUSED_7E1AF2
+7E:1AF3 UNUSED_7E1AF3
+7E:1AF4 UNUSED_7E1AF4
+7E:1AF5 UNUSED_7E1AF5
+7E:1AF6 UNUSED_7E1AF6
+7E:1AF7 UNUSED_7E1AF7
+7E:1AF8 UNUSED_7E1AF8
+7E:1AF9 UNUSED_7E1AF9
+7E:1AFA UNUSED_7E1AFA
+7E:1AFB UNUSED_7E1AFB
+7E:1AFC UNUSED_7E1AFC
+7E:1AFD UNUSED_7E1AFD
+7E:1AFE UNUSED_7E1AFE
+; Slowly counts up while in the world map if mirror is active.
+; Zeroed when loading a file.
+; Not used for anything.
+7E:1AFF MIRRORCOUNT
+;---------------------------------------------------------------------------------------------------
+; Spotlight pointers for HDMA
+7E:1B00 IRISPTR
+;---------------------------------------------------------------------------------------------------
+; FREE RAM: 0x10
+7E:1CC0 UNUSED_7E1CC0
+7E:1CC1 UNUSED_7E1CC1
+7E:1CC2 UNUSED_7E1CC2
+7E:1CC3 UNUSED_7E1CC3
+7E:1CC4 UNUSED_7E1CC4
+7E:1CC5 UNUSED_7E1CC5
+7E:1CC6 UNUSED_7E1CC6
+7E:1CC7 UNUSED_7E1CC7
+7E:1CC8 UNUSED_7E1CC8
+7E:1CC9 UNUSED_7E1CC9
+7E:1CCA UNUSED_7E1CCA
+7E:1CCB UNUSED_7E1CCB
+7E:1CCC UNUSED_7E1CCC
+7E:1CCD UNUSED_7E1CCD
+7E:1CCE UNUSED_7E1CCE
+7E:1CCF UNUSED_7E1CCF
+; TODO
+7E:1CD0 UNKNOWN_7E1CD0
+; TODO
+7E:1CD1 UNKNOWN_7E1CD1
+; VRAM address>>1 of dialog window
+7E:1CD2 MSGWINDOWPOSL
+7E:1CD3 MSGWINDOWPOSH
+; Sort of a subsubmodule on what to draw
+7E:1CD4 MSGSUBSUB
+; TODO how exactly this is used?
+7E:1CD5 MSGSPEEDB
+7E:1CD6 MSGSPEEDA
+; Used as a counter to render border window
+7E:1CD7 MSGBRDCNT
+; TODO
+7E:1CD8 UNKNOWN_7E1CD8
+; Offset into message buffer at $7F:1200
+7E:1CD9 MSGBFROFFL
+7E:1CDA MSGBFROFFH
+; FREE RAM: 0x01
+7E:1CDB UNUSED_7E1CDB
+; TODO
+7E:1CDC UNKNOWN_7E1CDC
+; Offset into message data
+7E:1CDD MSGDATAOFFL
+7E:1CDE MSGDATAOFFH
+; TODO
+7E:1CDF UNKNOWN_7E1CDF
+; TODO
+7E:1CE0 UNKNOWN_7E1CE0
+; TODO
+7E:1CE1 UNKNOWN_7E1CE1
+; TODO
+7E:1CE2 UNKNOWN_7E1CE2
+; TODO
+7E:1CE3 UNKNOWN_7E1CE3
+; FREE RAM: 0x02
+7E:1CE4 UNUSED_1CE4
+7E:1CE5 UNUSED_1CE5
+; TODO
+7E:1CE6 UNKNOWN_7E1CE6
+; TODO
+7E:1CE7 UNKNOWN_7E1CE7
+; Choice when 
+7E:1CE8 UNKNOWN_7E1CE8
+; Delay timer for various actions
+7E:1CE9 MSGDELAY
+; TODO
+7E:1CEA UNKNOWN_7E1CEA
+; TODO
+7E:1CEB UNKNOWN_7E1CEB
+; TODO
+7E:1CEC UNKNOWN_7E1CEC
+; TODO
+7E:1CED UNKNOWN_7E1CED
+; TODO
+7E:1CEE UNKNOWN_7E1CEE
+; TODO
+7E:1CEF UNKNOWN_7E1CEF
+; Message ID and page
+7E:1CF0 MESSAGEIDL
+7E:1CF1 MESSAGEIDH
+; Message BCD values as nibbles
+; 1CF2: bbbb aaaa
+; 1CF3: dddd cccc
+7E:1CF2 MSGBCD12
+7E:1CF3 MSGBCD34
+; TODO
+7E:1CF4 UNKNOWN_7E1CF4
+; FREE RAM: 0x0B
+7E:1CF5 UNUSED_7E1CF5
+7E:1CF6 UNUSED_7E1CF6
+7E:1CF7 UNUSED_7E1CF7
+7E:1CF8 UNUSED_7E1CF8
+7E:1CF9 UNUSED_7E1CF9
+7E:1CFA UNUSED_7E1CFA
+7E:1CFB UNUSED_7E1CFB
+7E:1CFC UNUSED_7E1CFC
+7E:1CFD UNUSED_7E1CFD
+7E:1CFE UNUSED_7E1CFE
+7E:1CFF UNUSED_7E1CFF
+;---------------------------------------------------------------------------------------------------
+; Kinda self-explanatory sprite caching
+;---------------------------------------------------------------------------------------------------
+7E:1D00 SPR_CACHE_0DD0
+7E:1D10 SPR_CACHE_0E20
+7E:1D20 SPR_CACHE_0D10
+7E:1D30 SPR_CACHE_0D30
+7E:1D40 SPR_CACHE_0D00
+7E:1D50 SPR_CACHE_0D20
+7E:1D60 SPR_CACHE_0DC0
+7E:1D70 SPR_CACHE_0D90
+7E:1D80 SPR_CACHE_0EB0
+7E:1D90 SPR_CACHE_0F50
+7E:1DA0 SPR_CACHE_0B89
+7E:1DB0 SPR_CACHE_0DE0
+7E:1DC0 SPR_CACHE_0E40
+7E:1DD0 SPR_CACHE_0F20
+7E:1DE0 SPR_CACHE_0D80
+7E:1DF0 SPR_CACHE_0E60
+;---------------------------------------------------------------------------------------------------
+; Polyhedral variables used by the intro and ending sequence.
+;---------------------------------------------------------------------------------------------------
+; Cutscene act
+7E:1E00 SCENESTEP
+; Timer for changing acts
+7E:1E01 SCENETIME
+; When set, triforce room triangles don't move.
+7E:1E02 SCENESTOP
+; FREE RAM: 0x05
+7E:1E03 UNUSED_7E1E03
+7E:1E04 UNUSED_7E1E04
+7E:1E05 UNUSED_7E1E05
+7E:1E06 UNUSED_7E1E06
+7E:1E07 UNUSED_7E1E07
+; Used for indexing in OAM routines
+7E:1E08 SCENEOAMXL
+7E:1E09 SCENEOAMXH
+; Frame counter
+7E:1E0A SCENEFRAME
+; FREE RAM: 0x01
+7E:1E0B UNUSED_7E1E0B
+; Countdown timer for the triangles to snap into their final position in the triforce room.
+7E:1E0C SCENESNAPTL
+7E:1E0D SCENESNAPTH
+; FREE RAM: 0x02
+7E:1E0E UNUSED_7E1E0E
+7E:1E0F UNUSED_7E1E0F
+; Mode for sprite
+;   0x00 - nothing
+;   0x01 - initialize
+;   0x02 - animate
+7E:1E10 SCSPRMODE
+; Sprite type
+7E:1E18 SCSPRID
+; Step counter
+7E:1E20 SCSPRSTEP
+; Seems to be a subpixel for triforce triangle x speeds
+7E:1E28 SCSPRSUBX
+; X position
+7E:1E30 SCSPRXL
+7E:1E38 SCSPRXH
+; Seems to be a subpixel for triforce triangle y speeds
+7E:1E40 SCSPRSUBY
+; Y position
+7E:1E48 SCSPRYL
+7E:1E50 SCSPRYH
+; Speed
+7E:1E58 SCSPRVX
+7E:1E60 SCSPRVY
+; BIG FREE RAM: 0x98
+7E:1E68 UNUSED_7E1E68
+;===================================================================================================
+;---------------------------------------------------------------------------------------------------
+; IRQ DIRECT PAGE
+;---------------------------------------------------------------------------------------------------
+;===================================================================================================
+;---------------------------------------------------------------------------------------------------
+; The polyhedral code is the only instance of direct page juggling in ALTTP
+; most addresses here will be accessed with direct page addressing
+;---------------------------------------------------------------------------------------------------
+; Be wary of FREE RAM listed here, as it will be zeroed whenever the polyhedral thread initializes.
+;---------------------------------------------------------------------------------------------------
+;===================================================================================================
+; Tells the polyhedral thread to wait for IRQ.
+7E:1F00 POLYWAIT
+; Seems to control opacity
+7E:1F01 POLYOPAC
+; Polyhedral distance. Larger numbers = further distance.
+7E:1F02 POLYZOOM
+; Polyhedral shape ID
+;   0x00 - Crystal
+;   0x01 - Triforce triangle
+7E:1F03 POLYSHAPE
+; Rotation of polyhedral about its axes
+7E:1F04 POLYROTX
+7E:1F05 POLYROTY
+; Offset of the drawn polyhedral
+7E:1F06 POLYOFFH
+7E:1F07 POLYOFFV
+; Seems to be size in some way. Larger numbers = smaller object.
+7E:1F08 POLYSIZEL
+7E:1F09 POLYSIZEH
+; Stack pointer for polyhedral threads
+7E:1F0A POLYSTACKL
+7E:1F0B POLYSTACKH
+; Flag for updating sprites during NMI
+7E:1F0C POLYSPRUP
+; Polyhedral stack space. 0x32 bytes
+; $1F32-$1F3E are initialized with the necessary values of registers to be pulled from IRQ's RTI.
+; To access these values, POLYSTACKL is initialized with $1F31.
+7E:1F0D POLYSTACKBOT
+7E:1F3E POLYSTACKTOP
+; Number of vertices
+7E:1F3F POLYVERTS
+; Number of faces
+7E:1F40 POLYFACES
+; Pointer to vertices data
+7E:1F41 POLYPTRVERTL
+7E:1F42 POLYPTRVERTH
+; Pointer to faces data
+7E:1F43 POLYPTRFACEL
+7E:1F44 POLYPTRFACEH
+; Math scratch space
+7E:1F45 POLYSCRAP45
+7E:1F46 POLYSCRAP46
+7E:1F47 POLYSCRAP47
+7E:1F48 POLYSCRAP48
+7E:1F49 POLYSCRAP49
+7E:1F4A POLYSCRAP4A
+7E:1F4B POLYSCRAP4B
+7E:1F4C POLYSCRAP4C
+7E:1F4D POLYSCRAP4D
+7E:1F4E POLYSCRAP4E
+7E:1F4F POLYSCRAP4F
+7E:1F50 POLYSCRAP50
+7E:1F51 POLYSCRAP51
+7E:1F52 POLYSCRAP52
+7E:1F53 POLYSCRAP53
+7E:1F54 POLYSCRAP54
+7E:1F55 POLYSCRAP55
+7E:1F56 POLYSCRAP56
+7E:1F57 POLYSCRAP57
+7E:1F58 POLYSCRAP58
+7E:1F59 POLYSCRAP59
+7E:1F5A POLYSCRAP5A
+7E:1F5B POLYSCRAP5B
+7E:1F5C POLYSCRAP5C
+7E:1F5D POLYSCRAP5D
+7E:1F5E POLYSCRAP5E
+7E:1F5F POLYSCRAP5F
+; TODO
+7E:1F60 UNKNOWN_7E1F60
+; TODO
+7E:1F88 UNKNOWN_7E1F88
+; TODO
+7E:1FB0 UNKNOWN_7E1FB0
+7E:1FB1 UNKNOWN_7E1FB1
+7E:1FB2 UNKNOWN_7E1FB2
+7E:1FB3 UNKNOWN_7E1FB3
+; FREE RAM: 0x01
+7E:1FB4 UNUSED_7E1FB4
+; TODO
+7E:1FB5 UNKNOWN_7E1FB5
+7E:1FB6 UNKNOWN_7E1FB6
+7E:1FB7 UNKNOWN_7E1FB7
+7E:1FB8 UNKNOWN_7E1FB8
+7E:1FB9 UNKNOWN_7E1FB9
+7E:1FBA UNKNOWN_7E1FBA
+; FREE RAM: 0x01
+7E:1FBB UNUSED_7E1FBB
+; TODO
+7E:1FBC UNKNOWN_7E1FBC
+; FREE RAM: 0x03
+7E:1FBD UNUSED_7E1FBD
+7E:1FBE UNUSED_7E1FBE
+7E:1FBE UNUSED_7E1FBF
+; TODO
+7E:1FC0 UNKNOWN_7E1FC0
+; TODO
+7E:1FC1 UNKNOWN_7E1FC1
+; TODO
+7E:1FC2 UNKNOWN_7E1FC2
+; TODO
+7E:1FC3 UNKNOWN_7E1FC3
+; TODO
+7E:1FC4 UNKNOWN_7E1FC4
+; TODO
+7E:1FC5 UNKNOWN_7E1FC5
+; TODO
+7E:1FC6 UNKNOWN_7E1FC6
+; TODO
+7E:1FC7 UNKNOWN_7E1FC7
+; TODO
+7E:1FE0 UNKNOWN_7E1FE0
+; TODO
+7E:1FE1 UNKNOWN_7E1FE1
+; TODO
+7E:1FE2 UNKNOWN_7E1FE2
+; TODO
+7E:1FE3 UNKNOWN_7E1FE3
+; TODO
+7E:1FE4 UNKNOWN_7E1FE4
+; TODO
+7E:1FE5 UNKNOWN_7E1FE5
+; TODO
+7E:1FE6 UNKNOWN_7E1FE6
+; TODO
+7E:1FE7 UNKNOWN_7E1FE7
+; TODO
+7E:1FE8 UNKNOWN_7E1FE8
+; TODO
+7E:1FE9 UNKNOWN_7E1FE9
+; TODO
+7E:1FEA UNKNOWN_7E1FEA
+; TODO
+7E:1FEB UNKNOWN_7E1FEB
+; TODO
+7E:1FEC UNKNOWN_7E1FEC
+; TODO
+7E:1FED UNKNOWN_7E1FED
+; TODO
+7E:1FEE UNKNOWN_7E1FEE
+; TODO
+7E:1FEF UNKNOWN_7E1FEF
+; TODO
+7E:1FF0 UNKNOWN_7E1FF0
+; TODO
+7E:1FF1 UNKNOWN_7E1FF1
+; TODO
+7E:1FF2 UNKNOWN_7E1FF2
+; FREE RAM: 0x07
+7E:1FF3 UNUSED_7E1FF3
+7E:1FF4 UNUSED_7E1FF4
+7E:1FF5 UNUSED_7E1FF5
+7E:1FF6 UNUSED_7E1FF6
+7E:1FF7 UNUSED_7E1FF7
+7E:1FF8 UNUSED_7E1FF8
+7E:1FF9 UNUSED_7E1FF9
+; TODO
+7E:1FFA UNKNOWN_7E1FFA
+; TODO
+7E:1FFB UNKNOWN_7E1FFB
+; FREE RAM: 0x04
+7E:1FFC UNUSED_7E1FFC
+7E:1FFD UNUSED_7E1FFD
+7E:1FFE UNUSED_7E1FFE
+7E:1FFF UNUSED_7E1FFF
+;===================================================================================================
+;---------------------------------------------------------------------------------------------------
+; UNMIRRORED WRAM
+; Addresses from here on can only be accessed with long addressing
+; or absolute addressing with the appropriate data bank set
+;---------------------------------------------------------------------------------------------------
+;===================================================================================================
+; Tile map stuff TODO EXPLAIN MORE
+7E:2000 TILEMAP_7E2000
+7E:4000 TILEMAP_7E4000
+;---------------------------------------------------------------------------------------------------
+; Decompression scratch space
+7E:6000 DECOMPBUFFER_7E6000
+;---------------------------------------------------------------------------------------------------
+; Fully decompressed 4BPP buffer for common graphics
+7E:9000 GFX_SWORD
+7E:9300 GFX_SHIELD
+7E:9480 GFX_ROD
+7E:9640 GFX_HAMMER
+7E:9800 GFX_BOW
+7E:98C0 GFX_SHOVEL
+7E:99C0 GFX_ZZZ
+7E:9A20 GFX_QUAVER
+7E:9A80 GFX_POWDER
+7E:9AC0 GFX_HOOK
+7E:9BC0 GFX_NET
+7E:9F40 GFX_CANE
+7E:A100 GFX_BOOK
+7E:A180 GFX_NULL
+7E:A480 GFX_BLOCK
+7E:A680 GFX_TILEF1
+7E:AA80 GFX_TILEF2
+7E:AE80 GFX_TILEF3
+7E:B280 GFX_RUPEES
+7E:B340 GFX_PEGS
+7E:B540 GFX_DUCK
+7E:B600 GFX_CHEST
+7E:B940 GFX_FOLLOWER
+7E:BD40 GFX_ITEMGET
+7E:BDC0 GFX_STARS
+;---------------------------------------------------------------------------------------------------
+; BIG FREE RAM: 0x0200
+7E:BE00 UNUSED_7EBE00
+;---------------------------------------------------------------------------------------------------
+; Target room ID of pits/warps and stairs
+7E:C000 WARPTO
+7E:C001 STAIRS1TO
+7E:C002 STAIRS2TO
+7E:C003 STAIRS3TO
+7E:C004 STAIRS4TO
+; Flags fade to black on room transitions
+7E:C006 RMFADE
+7E:C005 RMFADE2
+; Timer for transition fading and mosaics
+7E:C007 FADETIME
+7E:C008 FADETIMEH
+; Flags direction of fade
+7E:C009 RMFADEDIR
+7E:C00A RMFADEDIRH
+; Target fade level
+7E:C00B FADETGT
+7E:C00C FADETGTH
+; Timer used for animating the background.
+7E:C00D BGANMTIMEL
+7E:C00E BGANMTIMEH
+; Index for animated rupee tiles.
+7E:C00F BGRUPSTEPL
+7E:C010 BGRUPSTEPH
+; Mosaic level copied to MOSAICQ.
+; High byte zeroed but unused.
+7E:C011 MOSAICLEVEL
+7E:C012 MOSAICLEVELH
+; Timer for animated rupee sprites
+7E:C013 RUPTIMERL
+7E:C014 RUPTIMERH
+; Index for animated rupee sprites.
+7E:C015 OBJRUPSTEPL
+7E:C016 OBJRUPSTEPH
+; Darkness level of a room when using torches.
+; High byte zeroed but unused.
+7E:C017 DARKNESS
+7E:C018 DARKNESSH
+; Used for filtering Aga's shadow
+7E:C019 AGAFADETIME
+7E:C01F AGAFADEDIR
+; BIG FREE RAM: 0xDB
+7E:C025 UNUSED_7EC025
+;---------------------------------------------------------------------------------------------------
+; Variable caching for special overworld
+7E:C100 SOWRET_OWSCREEN2L
+7E:C101 SOWRET_OWSCREEN2H
+7E:C102 SOWRET_MAINDESQ
+7E:C103 SOWRET_SUBDESQ
+7E:C104 SOWRET_BG2VERTL
+7E:C105 SOWRET_BG2VERTH
+7E:C106 SOWRET_BG2HORZL
+7E:C107 SOWRET_BG2HORZH
+7E:C108 SOWRET_POSYL
+7E:C109 SOWRET_POSYH
+7E:C10A SOWRET_POSXL
+7E:C10B SOWRET_POSXH
+7E:C10C SOWRET_OWSCREENL
+7E:C10D SOWRET_OWSCREENH
+7E:C10E SOWRET_OWTMAPIL
+7E:C10F SOWRET_OWTMAPIH
+7E:C110 SOWRET_SCROLLATNL
+7E:C111 SOWRET_SCROLLATNH
+7E:C112 SOWRET_SCROLLATWL
+7E:C113 SOWRET_SCROLLATWH
+7E:C114 SOWRET_SCROLLANL
+7E:C115 SOWRET_SCROLLANH
+7E:C116 SOWRET_SCROLLBNL
+7E:C117 SOWRET_SCROLLBNH
+7E:C118 SOWRET_SCROLLASL
+7E:C119 SOWRET_SCROLLASH
+7E:C11A SOWRET_SCROLLBSL
+7E:C11B SOWRET_SCROLLBSH
+7E:C11C SOWRET_OWTARGNL
+7E:C11D SOWRET_OWTARGNH
+7E:C11E SOWRET_OWTARGSL
+7E:C11F SOWRET_OWTARGSH
+7E:C120 SOWRET_OWTARGWL
+7E:C121 SOWRET_OWTARGWH
+7E:C122 SOWRET_OWTARGEL
+7E:C123 SOWRET_OWTARGEH
+; TODO take name from 0AA0
+7E:C124 SOWRET_
+7E:C125 SOWRET_BGSET1
+7E:C126 SOWRET_BGSET2
+7E:C127 SOWRET_SPRSET1
+; FREE RAM: 0x02
+7E:C128 UNUSED_7EC128
+7E:C129 UNUSED_7EC129
+7E:C12A SOWRET_SCRMODYAL
+7E:C12B SOWRET_SCRMODYAH
+7E:C12C SOWRET_SCRMODYBL
+7E:C12D SOWRET_SCRMODYBH
+7E:C12E SOWRET_SCRMODXAL
+7E:C12F SOWRET_SCRMODXAH
+7E:C130 SOWRET_SCRMODXBL
+7E:C131 SOWRET_SCRMODXBH
+; FREE RAM: 0x0E
+7E:C132 UNUSED_7EC132
+7E:C133 UNUSED_7EC133
+7E:C134 UNUSED_7EC134
+7E:C135 UNUSED_7EC135
+7E:C136 UNUSED_7EC136
+7E:C137 UNUSED_7EC137
+7E:C138 UNUSED_7EC138
+7E:C139 UNUSED_7EC139
+7E:C13A UNUSED_7EC13A
+7E:C13B UNUSED_7EC13B
+7E:C13C UNUSED_7EC13C
+7E:C13D UNUSED_7EC13D
+7E:C13E UNUSED_7EC13E
+7E:C13F UNUSED_7EC13F
+; Used for caching with entrances
+7E:C140 ECACHE_OWSCREEN2L
+7E:C141 ECACHE_OWSCREEN2H
+7E:C142 ECACHE_MAINDESQ
+7E:C143 ECACHE_SUBDESQ
+7E:C144 ECACHE_BG2VERTL
+7E:C145 ECACHE_BG2VERTH
+7E:C146 ECACHE_BG2HORZL
+7E:C147 ECACHE_BG2HORZH
+7E:C148 ECACHE_POSYL
+7E:C149 ECACHE_POSYH
+7E:C14A ECACHE_POSXL
+7E:C14B ECACHE_POSXH
+7E:C14C ECACHE_OWSCREEN
+7E:C14D ECACHE_OWSCREENH
+7E:C14E ECACHE_OWTMAPIL
+7E:C14F ECACHE_OWTMAPIH
+7E:C150 ECACHE_SCROLLATNL
+7E:C151 ECACHE_SCROLLATNH
+7E:C152 ECACHE_SCROLLATWL
+7E:C153 ECACHE_SCROLLATWH
+7E:C154 ECACHE_SCROLLANL
+7E:C155 ECACHE_SCROLLANH
+7E:C156 ECACHE_SCROLLBNL
+7E:C157 ECACHE_SCROLLBNH
+7E:C158 ECACHE_SCROLLASL
+7E:C159 ECACHE_SCROLLASH
+7E:C15A ECACHE_SCROLLBSL
+7E:C15B ECACHE_SCROLLBSH
+7E:C15C ECACHE_OWTARGNL
+7E:C15D ECACHE_OWTARGNH
+7E:C15E ECACHE_OWTARGSL
+7E:C15F ECACHE_OWTARGSH
+7E:C160 ECACHE_OWTARGWL
+7E:C161 ECACHE_OWTARGWH
+7E:C162 ECACHE_OWTARGEL
+7E:C163 ECACHE_OWTARGEH
+; TODO take name from 0AA0
+7E:C164 ECACHE_
+7E:C165 ECACHE_BGSET1
+7E:C166 ECACHE_BGSET2
+7E:C167 ECACHE_SPRSET1
+; FREE RAM: 0x02
+7E:C168 UNUSED_7EC168
+7E:C169 UNUSED_7EC169
+7E:C16A ECACHE_SCRMODYAL
+7E:C16B ECACHE_SCRMODYAH
+7E:C16C ECACHE_SCRMODYBL
+7E:C16D ECACHE_SCRMODYBH
+7E:C16E ECACHE_SCRMODXAL
+7E:C16F ECACHE_SCRMODXAH
+7E:C170 ECACHE_SCRMODXBL
+7E:C171 ECACHE_SCRMODXBH
+; Peg colors
+; Also used wiith tilemap calculations on overworld
+7E:C172 PEGCOLOR
+7E:C173 OWCALC84H
+7E:C174 OWCALC86L
+7E:C175 OWCALC86H
+7E:C176 OWCALC88L
+7E:C177 OWCALC88H
+; FREE RAM: 0x08
+7E:C178 UNUSED_7EC178
+7E:C179 UNUSED_7EC179
+7E:C17A UNUSED_7EC17A
+7E:C17B UNUSED_7EC17B
+7E:C17C UNUSED_7EC17C
+7E:C17D UNUSED_7EC17D
+7E:C17E UNUSED_7EC17E
+7E:C17F UNUSED_7EC17F
+; Cache for various properties
+7E:C180 CACHE_BG2HORZL
+7E:C181 CACHE_BG2HORZH
+7E:C182 CACHE_BG2VERTL
+7E:C183 CACHE_BG2VERTH
+7E:C184 CACHE_POSYL
+7E:C185 CACHE_POSYH
+7E:C186 CACHE_POSXL
+7E:C187 CACHE_POSXH
+7E:C188 CACHE_SCROLLANL
+7E:C189 CACHE_SCROLLANH
+7E:C18A CACHE_SCROLLASL
+7E:C18B CACHE_SCROLLASH
+7E:C18C CACHE_SCROLLAWL
+7E:C18D CACHE_SCROLLAWH
+7E:C18E CACHE_SCROLLAEL
+7E:C18F CACHE_SCROLLAEH
+7E:C190 CACHE_OWTARGNL
+7E:C191 CACHE_OWTARGNH
+7E:C192 CACHE_OWTARGSL
+7E:C193 CACHE_OWTARGSH
+7E:C194 CACHE_OWTARGWL
+7E:C195 CACHE_OWTARGWH
+7E:C196 CACHE_OWTARGEL
+7E:C197 CACHE_OWTARGEH
+7E:C198 CACHE_SCROLLATNL
+7E:C199 CACHE_SCROLLATNH
+7E:C19A CACHE_SCROLLATWL
+7E:C19B CACHE_SCROLLATWH
+7E:C19C CACHE_QUADH
+7E:C19D CACHE_QUADV
+7E:C19E CACHE_QUADLR
+7E:C19F CACHE_QUADTB
+; FREE RAM: 0x06
+7E:C1A0 UNUSED_7EC1A0
+7E:C1A1 UNUSED_7EC1A1
+7E:C1A2 UNUSED_7EC1A2
+7E:C1A3 UNUSED_7EC1A3
+7E:C1A4 UNUSED_7EC1A4
+7E:C1A5 UNUSED_7EC1A5
+7E:C1A6 CACHE_DIRECTION
+7E:C1A7 CACHE_LAYER
+; TODO take name from 0476
+7E:C1A8 CACHE_
+7E:C1A9 CACHE_DOORWAY
+7E:C1AA CACHE_DNGFLOOR
+; FREE RAM: 0x55
+7E:C1AB UNUSED_7EC1AB
+;---------------------------------------------------------------------------------------------------
+; Overworld map caching
+7E:C200 OMAPCACHE_BG1HORZL
+7E:C201 OMAPCACHE_BG1HORZH
+7E:C202 OMAPCACHE_BG2HORZL
+7E:C203 OMAPCACHE_BG2HORZH
+7E:C204 OMAPCACHE_BG1VERTL
+7E:C205 OMAPCACHE_BG1VERTH
+7E:C206 OMAPCACHE_BG2VERTL
+7E:C207 OMAPCACHE_BG2VERTH
+; Copies BGACT but never used
+7E:C208 CACHE_BGACT
+; FREE RAM: 0x01
+7E:C209 UNUSED_7EC209
+; TODO update with names
+; Caches variables, but never used
+7E:C20A CACHE_AB6
+7E:C20B CACHE_AB8
+7E:C20C CACHE_AB7
+; FREE RAM: 0x01
+7E:C20D UNUSED_7EC20D
+7E:C20E UMAPCACHE_BGSET1
+7E:C20F UMAPCACHE_SPRSET1
+7E:C210 UMAPCACHE_BGSET2
+; Caches $1C and $1D, for TM and TS
+7E:C211 TMCACHE
+7E:C212 TSCACHE
+; OW caching
+7E:C213 OWCACHE_OWSCREENL
+7E:C214 OWCACHE_OWSCREENH
+7E:C215 OWCACHE_OWTMAPIL
+7E:C216 OWCACHE_OWTMAPIH
+7E:C217 OWCACHE_OWMAPDIYL
+7E:C218 OWCACHE_OWMAPDIYH
+7E:C219 OWCACHE_OWMAPDIXL
+7E:C21A OWCACHE_OWMAPDIXH
+7E:C21B OWCACHE_TRANDIRL
+7E:C21C OWCACHE_TRANDIRH
+7E:C21D OWCACHE_OWTDIRL
+7E:C21E OWCACHE_OWTDIRH
+7E:C21F OWCACHE_MAPPANVCTL
+7E:C220 OWCACHE_MAPPANVCTH
+; Game over caching
+7E:C221 GOCACHE_FADETIMEL
+7E:C222 GOCACHE_FADETIMEH
+7E:C223 GOCACHE_RMFADEDIRL
+7E:C224 GOCACHE_RMFADEDIRH
+7E:C225 GOCACHE_CGWSELQ
+7E:C226 GOCACHE_CGADSUBQ
+7E:C227 GOCACHE_SONG
+7E:C228 GOCACHE_SFX1
+; Cache for HDMA enable for various things
+7E:C229 CACHE_HDMAENQ
+; BIG FREE RAM: 0xCE
+7E:C22A UNUSED_7EC22A
+; Lists the currently loaded sheets to check against for decompression.
+7E:C2F8 LASTBGSET0
+7E:C2F9 LASTBGSET1
+7E:C2FA LASTBGSET2
+7E:C2FB LASTBGSET3
+7E:C2FC LASTSPRSET0
+7E:C2FD LASTSPRSET1
+7E:C2FE LASTSPRSET2
+7E:C2FF LASTSPRSET3
+;---------------------------------------------------------------------------------------------------
+; Background palettes
+;---------------------------------------------------------------------------------------------------
+7E:C300 PALETTES_A_HUD0
+7E:C308 PALETTES_A_HUD1
+7E:C310 PALETTES_A_HUD2
+7E:C318 PALETTES_A_HUD3
+7E:C320 PALETTES_A_HUD4
+7E:C328 PALETTES_A_HUD5
+7E:C330 PALETTES_A_HUD6
+7E:C338 PALETTES_A_HUD7
+7E:C340 PALETTES_A_BG2A
+7E:C350 PALETTES_A_BG2B
+7E:C360 PALETTES_A_BG3A
+7E:C370 PALETTES_A_BG3B
+7E:C380 PALETTES_A_BG4A
+7E:C390 PALETTES_A_BG4B
+7E:C3A0 PALETTES_A_BG5A
+7E:C3B0 PALETTES_A_BG5B
+7E:C3C0 PALETTES_A_BG6A
+7E:C3D0 PALETTES_A_BG6B
+7E:C3E0 PALETTES_A_BG7A
+7E:C3F0 PALETTES_A_BG7B
+;---------------------------------------------------------------------------------------------------
+; Sprite palettes
+;---------------------------------------------------------------------------------------------------
+7E:C400 PALETTES_A_SPRA
+7E:C410 PALETTES_A_SPRB
+7E:C420 PALETTES_A_SPR1A
+7E:C430 PALETTES_A_SPR1B
+7E:C440 PALETTES_A_SPR2A
+7E:C450 PALETTES_A_SPR2B
+7E:C460 PALETTES_A_SPR3A
+7E:C470 PALETTES_A_SPR3B
+7E:C480 PALETTES_A_SPR4A
+7E:C490 PALETTES_A_SPR4B
+7E:C4A0 PALETTES_A_SPR5A
+7E:C4B0 PALETTES_A_SPR5B
+7E:C4C0 PALETTES_A_SPR6A
+7E:C4D0 PALETTES_A_SPR6B
+7E:C4E0 PALETTES_A_SPR7A
+7E:C4F0 PALETTES_A_SPR7B
+;---------------------------------------------------------------------------------------------------
+; Main palette written to CGRAM
+;---------------------------------------------------------------------------------------------------
+; Background palettes
+;---------------------------------------------------------------------------------------------------
+7E:C500 PALETTES_B_HUD0
+7E:C508 PALETTES_B_HUD1
+7E:C510 PALETTES_B_HUD2
+7E:C518 PALETTES_B_HUD3
+7E:C520 PALETTES_B_HUD4
+7E:C528 PALETTES_B_HUD5
+7E:C530 PALETTES_B_HUD6
+7E:C538 PALETTES_B_HUD7
+7E:C540 PALETTES_B_BG2A
+7E:C550 PALETTES_B_BG2B
+7E:C560 PALETTES_B_BG3A
+7E:C570 PALETTES_B_BG3B
+7E:C580 PALETTES_B_BG4A
+7E:C590 PALETTES_B_BG4B
+7E:C5A0 PALETTES_B_BG5A
+7E:C5B0 PALETTES_B_BG5B
+7E:C5C0 PALETTES_B_BG6A
+7E:C5D0 PALETTES_B_BG6B
+7E:C5E0 PALETTES_B_BG7A
+7E:C5F0 PALETTES_B_BG7B
+;---------------------------------------------------------------------------------------------------
+; Sprite palettes
+;---------------------------------------------------------------------------------------------------
+7E:C600 PALETTES_B_SPRA
+7E:C610 PALETTES_B_SPRB
+7E:C620 PALETTES_B_SPR1A
+7E:C630 PALETTES_B_SPR1B
+7E:C640 PALETTES_B_SPR2A
+7E:C650 PALETTES_B_SPR2B
+7E:C660 PALETTES_B_SPR3A
+7E:C670 PALETTES_B_SPR3B
+7E:C680 PALETTES_B_SPR4A
+7E:C690 PALETTES_B_SPR4B
+7E:C6A0 PALETTES_B_SPR5A
+7E:C6B0 PALETTES_B_SPR5B
+7E:C6C0 PALETTES_B_SPR6A
+7E:C6D0 PALETTES_B_SPR6B
+7E:C6E0 PALETTES_B_SPR7A
+7E:C6F0 PALETTES_B_SPR7B
+; TODO MORE
+; Tilemap buffer for the HUD
+7E:C700 HUDMAP
+; FREE RAM: 0x36
+7E:C84A UNUSED_7EC84A
+; Tilemap buffer for moving wall animation.
+7E:C880 MVWALLBUFFER
+; TODO supposedly big free ram
+; BIG FREE RAM: 0x1F00
+7E:C900 UNUSED_7EC900
+; TODO
+7E:E800 POLYBUFFER
+; SRAM mirror for current file
+; see symbols_sram.asm
+7E:F000 WRAMSAVEFILE
+; FREE RAM: 0x80
+7E:F500 UNUSED_7EF500
+; Tracks lifted pot items
+7E:F580 TRACKPOT
+; Caches the tilemap location of changed map16 tiles on the overworld
+7E:F800 M16CHTMAPX
+; Locations of push blocks in underworld
+7E:F940 PUSHBLOCKS
+; Caches the tile of changed map16 tiles on the overworld
+7E:FA00 M16CHTILES
+; Locations of torches in underworld
+7E:FB40 TORCHES_BUFFER
+; Caches sh
+7E:FCC0 SHEETLISTA
+7E:FD40 SHEETLISTB
+; FREE RAM: 0x40
+7E:FDC0 UNUSED_7EFDC0
+; Table of tile properties for interaction
+7E:FE00 TILEPROPS
+;===================================================================================================
+;---------------------------------------------------------------------------------------------------
+; Bank7F
+;---------------------------------------------------------------------------------------------------
+;===================================================================================================
+; Decompression buffer
+7F:0000 DECOMP7F0000
+; TODO analyze more
+7F:2000 TILEMAP_7F2000
+7F:3000 TILEMAP_7F3000
+; Decompression buffer
+7F:4000 DECOMP7F4000
+; BIG FREE RAM: 0x0800
+7F:5000 UNUSED_7F5000
+; Used by medallions, sword beams, gt crystals, and rupee pond rupees
+; Not worth documenting them all right now
+7F:5800 ANCILLA_7F5800
+7F:5801 ANCILLA_7F5801
+7F:5802 ANCILLA_7F5802
+7F:5803 ANCILLA_7F5803
+7F:5804 ANCILLA_7F5804
+7F:5805 ANCILLA_7F5805
+7F:5806 ANCILLA_7F5806
+7F:5807 ANCILLA_7F5807
+7F:5808 ANCILLA_7F5808
+7F:5809 ANCILLA_7F5809
+7F:580A ANCILLA_7F580A
+7F:580B ANCILLA_7F580B
+7F:580C ANCILLA_7F580C
+7F:580D ANCILLA_7F580D
+7F:580E ANCILLA_7F580E
+7F:580F ANCILLA_7F580F
+7F:5810 ANCILLA_7F5810
+7F:5811 ANCILLA_7F5811
+7F:5812 ANCILLA_7F5812
+7F:5813 ANCILLA_7F5813
+7F:5814 ANCILLA_7F5814
+7F:5815 ANCILLA_7F5815
+7F:5816 ANCILLA_7F5816
+7F:5817 ANCILLA_7F5817
+7F:5818 ANCILLA_7F5818
+7F:5819 ANCILLA_7F5819
+7F:581E ANCILLA_7F581E
+7F:581F ANCILLA_7F581F
+7F:5820 ANCILLA_7F5820
+7F:5824 ANCILLA_7F5824
+7F:5826 ANCILLA_7F5826
+7F:5827 ANCILLA_7F5827
+7F:582E ANCILLA_7F582E
+7F:582F ANCILLA_7F582F
+7F:5830 ANCILLA_7F5830
+7F:5836 ANCILLA_7F5836
+7F:5837 ANCILLA_7F5837
+7F:583C ANCILLA_7F583C
+7F:5848 ANCILLA_7F5848
+7F:584F ANCILLA_7F584F
+7F:5854 ANCILLA_7F5854
+7F:5860 ANCILLA_7F5860
+7F:5864 ANCILLA_7F5864
+7F:5867 ANCILLA_7F5867
+7F:586C ANCILLA_7F586C
+7F:5878 ANCILLA_7F5878
+7F:5879 ANCILLA_7F5879
+7F:587A ANCILLA_7F587A
+7F:587F ANCILLA_7F587F
+7F:5886 ANCILLA_7F5886
+7F:5892 ANCILLA_7F5892
+7F:5897 ANCILLA_7F5897
+7F:589E ANCILLA_7F589E
+7F:58A4 ANCILLA_7F58A4
+7F:58AA ANCILLA_7F58AA
+7F:58AF ANCILLA_7F58AF
+7F:58B6 ANCILLA_7F58B6
+7F:58B8 ANCILLA_7F58B8
+7F:58E4 ANCILLA_7F58E4
+; TODO at least this much
+; FREE RAM: 0x024
+7F:5900 UNUSED_7F5900
+; TODO
+7F:5924 BOMBOS_7F5924
+7F:5925 BOMBOS_7F5925
+; FREE RAM: 0x06
+7F:5926 UNUSED_7F5926
+; TODO
+7F:592C BOMBOS_7F592C
+7F:592D BOMBOS_7F592D
+; FREE RAM: 0x06
+7F:592E UNUSED_7F592E
+; TODO
+7F:5934 BOMBOS_7F5934
+7F:5935 BOMBOS_7F5935
+7F:5945 BOMBOS_7F5945
+7F:5955 BOMBOS_7F5955
+; BIG FREE RAM: 0x60
+7F:5975 UNUSED_7F5975
+; TODO
+7F:59D5 BOMBOS_7F59D5
+; BIG FREE RAM: 0x60
+7F:59F5 UNUSED_7F59F5
+; TODO
+7F:5A55 BOMBOS_7F5A55
+7F:5A56 BOMBOS_7F5A56
+7F:5A57 BOMBOS_7F5A57
+; BIG FREE RAM: 0xA8
+7F:5A58 UNUSED_7F5A58
+; Used when decompressing text characters
+7F:5B00 TEXTDECOMP
+; BIG FREE RAM: 0xFE
+7F:5F02 UNUSED_7F5F02
+; TODO make a file of uncompressed data
+7F:6000 DAMAGECLASS
+; TODO
+7F:7000 IRISHDMA
+; Text pointers in bank1C, built procedurally.
+; Vanilla value: $1C:8000
+7F:71C0 TEXTPOINTERS_MESSAGE_0000
+; Vanilla value: $1C:8001
+7F:71C2 TEXTPOINTERS_MESSAGE_0001
+; Vanilla value: $1C:800E
+7F:71C4 TEXTPOINTERS_MESSAGE_0002
+; Vanilla value: $1C:801B
+7F:71C6 TEXTPOINTERS_MESSAGE_0003
+; Vanilla value: $1C:803C
+7F:71C8 TEXTPOINTERS_MESSAGE_0004
+; Vanilla value: $1C:805C
+7F:71CA TEXTPOINTERS_MESSAGE_0005
+; Vanilla value: $1C:806D
+7F:71CC TEXTPOINTERS_MESSAGE_0006
+; Vanilla value: $1C:8078
+7F:71CE TEXTPOINTERS_MESSAGE_0007
+; Vanilla value: $1C:8083
+7F:71D0 TEXTPOINTERS_MESSAGE_0008
+; Vanilla value: $1C:808E
+7F:71D2 TEXTPOINTERS_MESSAGE_0009
+; Vanilla value: $1C:8097
+7F:71D4 TEXTPOINTERS_MESSAGE_000A
+; Vanilla value: $1C:80A0
+7F:71D6 TEXTPOINTERS_MESSAGE_000B
+; Vanilla value: $1C:80DF
+7F:71D8 TEXTPOINTERS_MESSAGE_000C
+; Vanilla value: $1C:818F
+7F:71DA TEXTPOINTERS_MESSAGE_000D
+; Vanilla value: $1C:81B7
+7F:71DC TEXTPOINTERS_MESSAGE_000E
+; Vanilla value: $1C:81E4
+7F:71DE TEXTPOINTERS_MESSAGE_000F
+; Vanilla value: $1C:8211
+7F:71E0 TEXTPOINTERS_MESSAGE_0010
+; Vanilla value: $1C:823E
+7F:71E2 TEXTPOINTERS_MESSAGE_0011
+; Vanilla value: $1C:826A
+7F:71E4 TEXTPOINTERS_MESSAGE_0012
+; Vanilla value: $1C:8297
+7F:71E6 TEXTPOINTERS_MESSAGE_0013
+; Vanilla value: $1C:82C0
+7F:71E8 TEXTPOINTERS_MESSAGE_0014
+; Vanilla value: $1C:82E9
+7F:71EA TEXTPOINTERS_MESSAGE_0015
+; Vanilla value: $1C:8313
+7F:71EC TEXTPOINTERS_MESSAGE_0016
+; Vanilla value: $1C:8457
+7F:71EE TEXTPOINTERS_MESSAGE_0017
+; Vanilla value: $1C:848D
+7F:71F0 TEXTPOINTERS_MESSAGE_0018
+; Vanilla value: $1C:84B6
+7F:71F2 TEXTPOINTERS_MESSAGE_0019
+; Vanilla value: $1C:853E
+7F:71F4 TEXTPOINTERS_MESSAGE_001A
+; Vanilla value: $1C:855F
+7F:71F6 TEXTPOINTERS_MESSAGE_001B
+; Vanilla value: $1C:8648
+7F:71F8 TEXTPOINTERS_MESSAGE_001C
+; Vanilla value: $1C:866E
+7F:71FA TEXTPOINTERS_MESSAGE_001D
+; Vanilla value: $1C:8728
+7F:71FC TEXTPOINTERS_MESSAGE_001E
+; Vanilla value: $1C:8775
+7F:71FE TEXTPOINTERS_MESSAGE_001F
+; Vanilla value: $1C:87B0
+7F:7200 TEXTPOINTERS_MESSAGE_0020
+; Vanilla value: $1C:8809
+7F:7202 TEXTPOINTERS_MESSAGE_0021
+; Vanilla value: $1C:8837
+7F:7204 TEXTPOINTERS_MESSAGE_0022
+; Vanilla value: $1C:8892
+7F:7206 TEXTPOINTERS_MESSAGE_0023
+; Vanilla value: $1C:8929
+7F:7208 TEXTPOINTERS_MESSAGE_0024
+; Vanilla value: $1C:895E
+7F:720A TEXTPOINTERS_MESSAGE_0025
+; Vanilla value: $1C:89BC
+7F:720C TEXTPOINTERS_MESSAGE_0026
+; Vanilla value: $1C:89EA
+7F:720E TEXTPOINTERS_MESSAGE_0027
+; Vanilla value: $1C:8A18
+7F:7210 TEXTPOINTERS_MESSAGE_0028
+; Vanilla value: $1C:8A3F
+7F:7212 TEXTPOINTERS_MESSAGE_0029
+; Vanilla value: $1C:8AAF
+7F:7214 TEXTPOINTERS_MESSAGE_002A
+; Vanilla value: $1C:8B89
+7F:7216 TEXTPOINTERS_MESSAGE_002B
+; Vanilla value: $1C:8BE5
+7F:7218 TEXTPOINTERS_MESSAGE_002C
+; Vanilla value: $1C:8C0E
+7F:721A TEXTPOINTERS_MESSAGE_002D
+; Vanilla value: $1C:8C2C
+7F:721C TEXTPOINTERS_MESSAGE_002E
+; Vanilla value: $1C:8C8B
+7F:721E TEXTPOINTERS_MESSAGE_002F
+; Vanilla value: $1C:8CB0
+7F:7220 TEXTPOINTERS_MESSAGE_0030
+; Vanilla value: $1C:8D86
+7F:7222 TEXTPOINTERS_MESSAGE_0031
+; Vanilla value: $1C:8DF0
+7F:7224 TEXTPOINTERS_MESSAGE_0032
+; Vanilla value: $1C:8E27
+7F:7226 TEXTPOINTERS_MESSAGE_0033
+; Vanilla value: $1C:8F97
+7F:7228 TEXTPOINTERS_MESSAGE_0034
+; Vanilla value: $1C:9003
+7F:722A TEXTPOINTERS_MESSAGE_0035
+; Vanilla value: $1C:9039
+7F:722C TEXTPOINTERS_MESSAGE_0036
+; Vanilla value: $1C:916B
+7F:722E TEXTPOINTERS_MESSAGE_0037
+; Vanilla value: $1C:935A
+7F:7230 TEXTPOINTERS_MESSAGE_0038
+; Vanilla value: $1C:9389
+7F:7232 TEXTPOINTERS_MESSAGE_0039
+; Vanilla value: $1C:93B9
+7F:7234 TEXTPOINTERS_MESSAGE_003A
+; Vanilla value: $1C:93D8
+7F:7236 TEXTPOINTERS_MESSAGE_003B
+; Vanilla value: $1C:93E7
+7F:7238 TEXTPOINTERS_MESSAGE_003C
+; Vanilla value: $1C:93FA
+7F:723A TEXTPOINTERS_MESSAGE_003D
+; Vanilla value: $1C:9415
+7F:723C TEXTPOINTERS_MESSAGE_003E
+; Vanilla value: $1C:942E
+7F:723E TEXTPOINTERS_MESSAGE_003F
+; Vanilla value: $1C:944B
+7F:7240 TEXTPOINTERS_MESSAGE_0040
+; Vanilla value: $1C:945C
+7F:7242 TEXTPOINTERS_MESSAGE_0041
+; Vanilla value: $1C:947A
+7F:7244 TEXTPOINTERS_MESSAGE_0042
+; Vanilla value: $1C:9495
+7F:7246 TEXTPOINTERS_MESSAGE_0043
+; Vanilla value: $1C:94B4
+7F:7248 TEXTPOINTERS_MESSAGE_0044
+; Vanilla value: $1C:94BF
+7F:724A TEXTPOINTERS_MESSAGE_0045
+; Vanilla value: $1C:94EE
+7F:724C TEXTPOINTERS_MESSAGE_0046
+; Vanilla value: $1C:94FE
+7F:724E TEXTPOINTERS_MESSAGE_0047
+; Vanilla value: $1C:950F
+7F:7250 TEXTPOINTERS_MESSAGE_0048
+; Vanilla value: $1C:9533
+7F:7252 TEXTPOINTERS_MESSAGE_0049
+; Vanilla value: $1C:955E
+7F:7254 TEXTPOINTERS_MESSAGE_004A
+; Vanilla value: $1C:958C
+7F:7256 TEXTPOINTERS_MESSAGE_004B
+; Vanilla value: $1C:95B7
+7F:7258 TEXTPOINTERS_MESSAGE_004C
+; Vanilla value: $1C:9616
+7F:725A TEXTPOINTERS_MESSAGE_004D
+; Vanilla value: $1C:9631
+7F:725C TEXTPOINTERS_MESSAGE_004E
+; Vanilla value: $1C:9650
+7F:725E TEXTPOINTERS_MESSAGE_004F
+; Vanilla value: $1C:9673
+7F:7260 TEXTPOINTERS_MESSAGE_0050
+; Vanilla value: $1C:9693
+7F:7262 TEXTPOINTERS_MESSAGE_0051
+; Vanilla value: $1C:96B8
+7F:7264 TEXTPOINTERS_MESSAGE_0052
+; Vanilla value: $1C:96DE
+7F:7266 TEXTPOINTERS_MESSAGE_0053
+; Vanilla value: $1C:970C
+7F:7268 TEXTPOINTERS_MESSAGE_0054
+; Vanilla value: $1C:9731
+7F:726A TEXTPOINTERS_MESSAGE_0055
+; Vanilla value: $1C:975B
+7F:726C TEXTPOINTERS_MESSAGE_0056
+; Vanilla value: $1C:9787
+7F:726E TEXTPOINTERS_MESSAGE_0057
+; Vanilla value: $1C:97BF
+7F:7270 TEXTPOINTERS_MESSAGE_0058
+; Vanilla value: $1C:97F3
+7F:7272 TEXTPOINTERS_MESSAGE_0059
+; Vanilla value: $1C:982A
+7F:7274 TEXTPOINTERS_MESSAGE_005A
+; Vanilla value: $1C:9857
+7F:7276 TEXTPOINTERS_MESSAGE_005B
+; Vanilla value: $1C:9886
+7F:7278 TEXTPOINTERS_MESSAGE_005C
+; Vanilla value: $1C:98BB
+7F:727A TEXTPOINTERS_MESSAGE_005D
+; Vanilla value: $1C:98DD
+7F:727C TEXTPOINTERS_MESSAGE_005E
+; Vanilla value: $1C:990C
+7F:727E TEXTPOINTERS_MESSAGE_005F
+; Vanilla value: $1C:9940
+7F:7280 TEXTPOINTERS_MESSAGE_0060
+; Vanilla value: $1C:9972
+7F:7282 TEXTPOINTERS_MESSAGE_0061
+; Vanilla value: $1C:99AB
+7F:7284 TEXTPOINTERS_MESSAGE_0062
+; Vanilla value: $1C:99E2
+7F:7286 TEXTPOINTERS_MESSAGE_0063
+; Vanilla value: $1C:9A18
+7F:7288 TEXTPOINTERS_MESSAGE_0064
+; Vanilla value: $1C:9A48
+7F:728A TEXTPOINTERS_MESSAGE_0065
+; Vanilla value: $1C:9A72
+7F:728C TEXTPOINTERS_MESSAGE_0066
+; Vanilla value: $1C:9A9E
+7F:728E TEXTPOINTERS_MESSAGE_0067
+; Vanilla value: $1C:9ACD
+7F:7290 TEXTPOINTERS_MESSAGE_0068
+; Vanilla value: $1C:9AFA
+7F:7292 TEXTPOINTERS_MESSAGE_0069
+; Vanilla value: $1C:9B27
+7F:7294 TEXTPOINTERS_MESSAGE_006A
+; Vanilla value: $1C:9B59
+7F:7296 TEXTPOINTERS_MESSAGE_006B
+; Vanilla value: $1C:9B85
+7F:7298 TEXTPOINTERS_MESSAGE_006C
+; Vanilla value: $1C:9BB6
+7F:729A TEXTPOINTERS_MESSAGE_006D
+; Vanilla value: $1C:9BDA
+7F:729C TEXTPOINTERS_MESSAGE_006E
+; Vanilla value: $1C:9C81
+7F:729E TEXTPOINTERS_MESSAGE_006F
+; Vanilla value: $1C:9CAA
+7F:72A0 TEXTPOINTERS_MESSAGE_0070
+; Vanilla value: $1C:9CD7
+7F:72A2 TEXTPOINTERS_MESSAGE_0071
+; Vanilla value: $1C:9D05
+7F:72A4 TEXTPOINTERS_MESSAGE_0072
+; Vanilla value: $1C:9D39
+7F:72A6 TEXTPOINTERS_MESSAGE_0073
+; Vanilla value: $1C:9D61
+7F:72A8 TEXTPOINTERS_MESSAGE_0074
+; Vanilla value: $1C:9D8D
+7F:72AA TEXTPOINTERS_MESSAGE_0075
+; Vanilla value: $1C:9DB5
+7F:72AC TEXTPOINTERS_MESSAGE_0076
+; Vanilla value: $1C:9DE5
+7F:72AE TEXTPOINTERS_MESSAGE_0077
+; Vanilla value: $1C:9E13
+7F:72B0 TEXTPOINTERS_MESSAGE_0078
+; Vanilla value: $1C:9E38
+7F:72B2 TEXTPOINTERS_MESSAGE_0079
+; Vanilla value: $1C:9E60
+7F:72B4 TEXTPOINTERS_MESSAGE_007A
+; Vanilla value: $1C:9E97
+7F:72B6 TEXTPOINTERS_MESSAGE_007B
+; Vanilla value: $1C:9EF1
+7F:72B8 TEXTPOINTERS_MESSAGE_007C
+; Vanilla value: $1C:9F47
+7F:72BA TEXTPOINTERS_MESSAGE_007D
+; Vanilla value: $1C:9FAF
+7F:72BC TEXTPOINTERS_MESSAGE_007E
+; Vanilla value: $1C:A018
+7F:72BE TEXTPOINTERS_MESSAGE_007F
+; Vanilla value: $1C:A054
+7F:72C0 TEXTPOINTERS_MESSAGE_0080
+; Vanilla value: $1C:A066
+7F:72C2 TEXTPOINTERS_MESSAGE_0081
+; Vanilla value: $1C:A09B
+7F:72C4 TEXTPOINTERS_MESSAGE_0082
+; Vanilla value: $1C:A0D1
+7F:72C6 TEXTPOINTERS_MESSAGE_0083
+; Vanilla value: $1C:A123
+7F:72C8 TEXTPOINTERS_MESSAGE_0084
+; Vanilla value: $1C:A138
+7F:72CA TEXTPOINTERS_MESSAGE_0085
+; Vanilla value: $1C:A161
+7F:72CC TEXTPOINTERS_MESSAGE_0086
+; Vanilla value: $1C:A185
+7F:72CE TEXTPOINTERS_MESSAGE_0087
+; Vanilla value: $1C:A1CA
+7F:72D0 TEXTPOINTERS_MESSAGE_0088
+; Vanilla value: $1C:A1E5
+7F:72D2 TEXTPOINTERS_MESSAGE_0089
+; Vanilla value: $1C:A207
+7F:72D4 TEXTPOINTERS_MESSAGE_008A
+; Vanilla value: $1C:A237
+7F:72D6 TEXTPOINTERS_MESSAGE_008B
+; Vanilla value: $1C:A261
+7F:72D8 TEXTPOINTERS_MESSAGE_008C
+; Vanilla value: $1C:A27B
+7F:72DA TEXTPOINTERS_MESSAGE_008D
+; Vanilla value: $1C:A2A5
+7F:72DC TEXTPOINTERS_MESSAGE_008E
+; Vanilla value: $1C:A2C6
+7F:72DE TEXTPOINTERS_MESSAGE_008F
+; Vanilla value: $1C:A2E1
+7F:72E0 TEXTPOINTERS_MESSAGE_0090
+; Vanilla value: $1C:A302
+7F:72E2 TEXTPOINTERS_MESSAGE_0091
+; Vanilla value: $1C:A322
+7F:72E4 TEXTPOINTERS_MESSAGE_0092
+; Vanilla value: $1C:A352
+7F:72E6 TEXTPOINTERS_MESSAGE_0093
+; Vanilla value: $1C:A382
+7F:72E8 TEXTPOINTERS_MESSAGE_0094
+; Vanilla value: $1C:A3B2
+7F:72EA TEXTPOINTERS_MESSAGE_0095
+; Vanilla value: $1C:A3E1
+7F:72EC TEXTPOINTERS_MESSAGE_0096
+; Vanilla value: $1C:A454
+7F:72EE TEXTPOINTERS_MESSAGE_0097
+; Vanilla value: $1C:A508
+7F:72F0 TEXTPOINTERS_MESSAGE_0098
+; Vanilla value: $1C:A524
+7F:72F2 TEXTPOINTERS_MESSAGE_0099
+; Vanilla value: $1C:A5B8
+7F:72F4 TEXTPOINTERS_MESSAGE_009A
+; Vanilla value: $1C:A5E9
+7F:72F6 TEXTPOINTERS_MESSAGE_009B
+; Vanilla value: $1C:A680
+7F:72F8 TEXTPOINTERS_MESSAGE_009C
+; Vanilla value: $1C:A70E
+7F:72FA TEXTPOINTERS_MESSAGE_009D
+; Vanilla value: $1C:A7A3
+7F:72FC TEXTPOINTERS_MESSAGE_009E
+; Vanilla value: $1C:A81B
+7F:72FE TEXTPOINTERS_MESSAGE_009F
+; Vanilla value: $1C:A876
+7F:7300 TEXTPOINTERS_MESSAGE_00A0
+; Vanilla value: $1C:A96D
+7F:7302 TEXTPOINTERS_MESSAGE_00A1
+; Vanilla value: $1C:A9F2
+7F:7304 TEXTPOINTERS_MESSAGE_00A2
+; Vanilla value: $1C:AA0F
+7F:7306 TEXTPOINTERS_MESSAGE_00A3
+; Vanilla value: $1C:AA3E
+7F:7308 TEXTPOINTERS_MESSAGE_00A4
+; Vanilla value: $1C:AAD3
+7F:730A TEXTPOINTERS_MESSAGE_00A5
+; Vanilla value: $1C:AAFE
+7F:730C TEXTPOINTERS_MESSAGE_00A6
+; Vanilla value: $1C:AB19
+7F:730E TEXTPOINTERS_MESSAGE_00A7
+; Vanilla value: $1C:AB34
+7F:7310 TEXTPOINTERS_MESSAGE_00A8
+; Vanilla value: $1C:AB52
+7F:7312 TEXTPOINTERS_MESSAGE_00A9
+; Vanilla value: $1C:AB61
+7F:7314 TEXTPOINTERS_MESSAGE_00AA
+; Vanilla value: $1C:AB71
+7F:7316 TEXTPOINTERS_MESSAGE_00AB
+; Vanilla value: $1C:AB80
+7F:7318 TEXTPOINTERS_MESSAGE_00AC
+; Vanilla value: $1C:ABB0
+7F:731A TEXTPOINTERS_MESSAGE_00AD
+; Vanilla value: $1C:ABCB
+7F:731C TEXTPOINTERS_MESSAGE_00AE
+; Vanilla value: $1C:ABDB
+7F:731E TEXTPOINTERS_MESSAGE_00AF
+; Vanilla value: $1C:ABED
+7F:7320 TEXTPOINTERS_MESSAGE_00B0
+; Vanilla value: $1C:AC1D
+7F:7322 TEXTPOINTERS_MESSAGE_00B1
+; Vanilla value: $1C:AC41
+7F:7324 TEXTPOINTERS_MESSAGE_00B2
+; Vanilla value: $1C:ACA1
+7F:7326 TEXTPOINTERS_MESSAGE_00B3
+; Vanilla value: $1C:AD23
+7F:7328 TEXTPOINTERS_MESSAGE_00B4
+; Vanilla value: $1C:AD47
+7F:732A TEXTPOINTERS_MESSAGE_00B5
+; Vanilla value: $1C:ADA6
+7F:732C TEXTPOINTERS_MESSAGE_00B6
+; Vanilla value: $1C:AE01
+7F:732E TEXTPOINTERS_MESSAGE_00B7
+; Vanilla value: $1C:AE61
+7F:7330 TEXTPOINTERS_MESSAGE_00B8
+; Vanilla value: $1C:AE95
+7F:7332 TEXTPOINTERS_MESSAGE_00B9
+; Vanilla value: $1C:AEC2
+7F:7334 TEXTPOINTERS_MESSAGE_00BA
+; Vanilla value: $1C:AEE4
+7F:7336 TEXTPOINTERS_MESSAGE_00BB
+; Vanilla value: $1C:AF13
+7F:7338 TEXTPOINTERS_MESSAGE_00BC
+; Vanilla value: $1C:AF41
+7F:733A TEXTPOINTERS_MESSAGE_00BD
+; Vanilla value: $1C:AF9F
+7F:733C TEXTPOINTERS_MESSAGE_00BE
+; Vanilla value: $1C:AFD3
+7F:733E TEXTPOINTERS_MESSAGE_00BF
+; Vanilla value: $1C:B019
+7F:7340 TEXTPOINTERS_MESSAGE_00C0
+; Vanilla value: $1C:B068
+7F:7342 TEXTPOINTERS_MESSAGE_00C1
+; Vanilla value: $1C:B099
+7F:7344 TEXTPOINTERS_MESSAGE_00C2
+; Vanilla value: $1C:B0C2
+7F:7346 TEXTPOINTERS_MESSAGE_00C3
+; Vanilla value: $1C:B0F4
+7F:7348 TEXTPOINTERS_MESSAGE_00C4
+; Vanilla value: $1C:B154
+7F:734A TEXTPOINTERS_MESSAGE_00C5
+; Vanilla value: $1C:B176
+7F:734C TEXTPOINTERS_MESSAGE_00C6
+; Vanilla value: $1C:B1A3
+7F:734E TEXTPOINTERS_MESSAGE_00C7
+; Vanilla value: $1C:B1CD
+7F:7350 TEXTPOINTERS_MESSAGE_00C8
+; Vanilla value: $1C:B1ED
+7F:7352 TEXTPOINTERS_MESSAGE_00C9
+; Vanilla value: $1C:B212
+7F:7354 TEXTPOINTERS_MESSAGE_00CA
+; Vanilla value: $1C:B23E
+7F:7356 TEXTPOINTERS_MESSAGE_00CB
+; Vanilla value: $1C:B261
+7F:7358 TEXTPOINTERS_MESSAGE_00CC
+; Vanilla value: $1C:B280
+7F:735A TEXTPOINTERS_MESSAGE_00CD
+; Vanilla value: $1C:B29A
+7F:735C TEXTPOINTERS_MESSAGE_00CE
+; Vanilla value: $1C:B2C6
+7F:735E TEXTPOINTERS_MESSAGE_00CF
+; Vanilla value: $1C:B30C
+7F:7360 TEXTPOINTERS_MESSAGE_00D0
+; Vanilla value: $1C:B330
+7F:7362 TEXTPOINTERS_MESSAGE_00D1
+; Vanilla value: $1C:B352
+7F:7364 TEXTPOINTERS_MESSAGE_00D2
+; Vanilla value: $1C:B373
+7F:7366 TEXTPOINTERS_MESSAGE_00D3
+; Vanilla value: $1C:B397
+7F:7368 TEXTPOINTERS_MESSAGE_00D4
+; Vanilla value: $1C:B3BE
+7F:736A TEXTPOINTERS_MESSAGE_00D5
+; Vanilla value: $1C:B3E6
+7F:736C TEXTPOINTERS_MESSAGE_00D6
+; Vanilla value: $1C:B425
+7F:736E TEXTPOINTERS_MESSAGE_00D7
+; Vanilla value: $1C:B44F
+7F:7370 TEXTPOINTERS_MESSAGE_00D8
+; Vanilla value: $1C:B473
+7F:7372 TEXTPOINTERS_MESSAGE_00D9
+; Vanilla value: $1C:B491
+7F:7374 TEXTPOINTERS_MESSAGE_00DA
+; Vanilla value: $1C:B4B4
+7F:7376 TEXTPOINTERS_MESSAGE_00DB
+; Vanilla value: $1C:B4D1
+7F:7378 TEXTPOINTERS_MESSAGE_00DC
+; Vanilla value: $1C:B4ED
+7F:737A TEXTPOINTERS_MESSAGE_00DD
+; Vanilla value: $1C:B51A
+7F:737C TEXTPOINTERS_MESSAGE_00DE
+; Vanilla value: $1C:B56F
+7F:737E TEXTPOINTERS_MESSAGE_00DF
+; Vanilla value: $1C:B5EF
+7F:7380 TEXTPOINTERS_MESSAGE_00E0
+; Vanilla value: $1C:B60D
+7F:7382 TEXTPOINTERS_MESSAGE_00E1
+; Vanilla value: $1C:B622
+7F:7384 TEXTPOINTERS_MESSAGE_00E2
+; Vanilla value: $1C:B64B
+7F:7386 TEXTPOINTERS_MESSAGE_00E3
+; Vanilla value: $1C:B6F9
+7F:7388 TEXTPOINTERS_MESSAGE_00E4
+; Vanilla value: $1C:B71B
+7F:738A TEXTPOINTERS_MESSAGE_00E5
+; Vanilla value: $1C:B738
+7F:738C TEXTPOINTERS_MESSAGE_00E6
+; Vanilla value: $1C:B75A
+7F:738E TEXTPOINTERS_MESSAGE_00E7
+; Vanilla value: $1C:B801
+7F:7390 TEXTPOINTERS_MESSAGE_00E8
+; Vanilla value: $1C:B82A
+7F:7392 TEXTPOINTERS_MESSAGE_00E9
+; Vanilla value: $1C:B85F
+7F:7394 TEXTPOINTERS_MESSAGE_00EA
+; Vanilla value: $1C:B889
+7F:7396 TEXTPOINTERS_MESSAGE_00EB
+; Vanilla value: $1C:B8BB
+7F:7398 TEXTPOINTERS_MESSAGE_00EC
+; Vanilla value: $1C:B8EC
+7F:739A TEXTPOINTERS_MESSAGE_00ED
+; Vanilla value: $1C:B91E
+7F:739C TEXTPOINTERS_MESSAGE_00EE
+; Vanilla value: $1C:B951
+7F:739E TEXTPOINTERS_MESSAGE_00EF
+; Vanilla value: $1C:B97F
+7F:73A0 TEXTPOINTERS_MESSAGE_00F0
+; Vanilla value: $1C:B9AD
+7F:73A2 TEXTPOINTERS_MESSAGE_00F1
+; Vanilla value: $1C:BA04
+7F:73A4 TEXTPOINTERS_MESSAGE_00F2
+; Vanilla value: $1C:BA38
+7F:73A6 TEXTPOINTERS_MESSAGE_00F3
+; Vanilla value: $1C:BA58
+7F:73A8 TEXTPOINTERS_MESSAGE_00F4
+; Vanilla value: $1C:BA81
+7F:73AA TEXTPOINTERS_MESSAGE_00F5
+; Vanilla value: $1C:BAB8
+7F:73AC TEXTPOINTERS_MESSAGE_00F6
+; Vanilla value: $1C:BAE5
+7F:73AE TEXTPOINTERS_MESSAGE_00F7
+; Vanilla value: $1C:BB14
+7F:73B0 TEXTPOINTERS_MESSAGE_00F8
+; Vanilla value: $1C:BB41
+7F:73B2 TEXTPOINTERS_MESSAGE_00F9
+; Vanilla value: $1C:BB6D
+7F:73B4 TEXTPOINTERS_MESSAGE_00FA
+; Vanilla value: $1C:BB9E
+7F:73B6 TEXTPOINTERS_MESSAGE_00FB
+; Vanilla value: $1C:BBD0
+7F:73B8 TEXTPOINTERS_MESSAGE_00FC
+; Vanilla value: $1C:BC17
+7F:73BA TEXTPOINTERS_MESSAGE_00FD
+; Vanilla value: $1C:BC8D
+7F:73BC TEXTPOINTERS_MESSAGE_00FE
+; Vanilla value: $1C:BCB6
+7F:73BE TEXTPOINTERS_MESSAGE_00FF
+; Vanilla value: $1C:BD53
+7F:73C0 TEXTPOINTERS_MESSAGE_0100
+; Vanilla value: $1C:BDC6
+7F:73C2 TEXTPOINTERS_MESSAGE_0101
+; Vanilla value: $1C:BE1D
+7F:73C4 TEXTPOINTERS_MESSAGE_0102
+; Vanilla value: $1C:BE4C
+7F:73C6 TEXTPOINTERS_MESSAGE_0103
+; Vanilla value: $1C:BED4
+7F:73C8 TEXTPOINTERS_MESSAGE_0104
+; Vanilla value: $1C:BEF4
+7F:73CA TEXTPOINTERS_MESSAGE_0105
+; Vanilla value: $1C:BEFF
+7F:73CC TEXTPOINTERS_MESSAGE_0106
+; Vanilla value: $1C:BF0A
+7F:73CE TEXTPOINTERS_MESSAGE_0107
+; Vanilla value: $1C:BF73
+7F:73D0 TEXTPOINTERS_MESSAGE_0108
+; Vanilla value: $1C:BF8F
+7F:73D2 TEXTPOINTERS_MESSAGE_0109
+; Vanilla value: $1C:BFA2
+7F:73D4 TEXTPOINTERS_MESSAGE_010A
+; Vanilla value: $1C:BFCF
+7F:73D6 TEXTPOINTERS_MESSAGE_010B
+; Vanilla value: $1C:BFF2
+7F:73D8 TEXTPOINTERS_MESSAGE_010C
+; Vanilla value: $1C:C015
+7F:73DA TEXTPOINTERS_MESSAGE_010D
+; Vanilla value: $1C:C038
+7F:73DC TEXTPOINTERS_MESSAGE_010E
+; Vanilla value: $1C:C08D
+7F:73DE TEXTPOINTERS_MESSAGE_010F
+; Vanilla value: $1C:C0DD
+7F:73E0 TEXTPOINTERS_MESSAGE_0110
+; Vanilla value: $1C:C2AB
+7F:73E2 TEXTPOINTERS_MESSAGE_0111
+; Vanilla value: $1C:C2EB
+7F:73E4 TEXTPOINTERS_MESSAGE_0112
+; Vanilla value: $1C:C32C
+7F:73E6 TEXTPOINTERS_MESSAGE_0113
+; Vanilla value: $1C:C36A
+7F:73E8 TEXTPOINTERS_MESSAGE_0114
+; Vanilla value: $1C:C38F
+7F:73EA TEXTPOINTERS_MESSAGE_0115
+; Vanilla value: $1C:C3BD
+7F:73EC TEXTPOINTERS_MESSAGE_0116
+; Vanilla value: $1C:C3EA
+7F:73EE TEXTPOINTERS_MESSAGE_0117
+; Vanilla value: $1C:C404
+7F:73F0 TEXTPOINTERS_MESSAGE_0118
+; Vanilla value: $1C:C42F
+7F:73F2 TEXTPOINTERS_MESSAGE_0119
+; Vanilla value: $1C:C47F
+7F:73F4 TEXTPOINTERS_MESSAGE_011A
+; Vanilla value: $1C:C49F
+7F:73F6 TEXTPOINTERS_MESSAGE_011B
+; Vanilla value: $1C:C4CC
+7F:73F8 TEXTPOINTERS_MESSAGE_011C
+; Vanilla value: $1C:C51A
+7F:73FA TEXTPOINTERS_MESSAGE_011D
+; Vanilla value: $1C:C545
+7F:73FC TEXTPOINTERS_MESSAGE_011E
+; Vanilla value: $1C:C56B
+7F:73FE TEXTPOINTERS_MESSAGE_011F
+; Vanilla value: $1C:C588
+7F:7400 TEXTPOINTERS_MESSAGE_0120
+; Vanilla value: $1C:C5B4
+7F:7402 TEXTPOINTERS_MESSAGE_0121
+; Vanilla value: $1C:C5C7
+7F:7404 TEXTPOINTERS_MESSAGE_0122
+; Vanilla value: $1C:C5E2
+7F:7406 TEXTPOINTERS_MESSAGE_0123
+; Vanilla value: $1C:C6F2
+7F:7408 TEXTPOINTERS_MESSAGE_0124
+; Vanilla value: $1C:C750
+7F:740A TEXTPOINTERS_MESSAGE_0125
+; Vanilla value: $1C:C77D
+7F:740C TEXTPOINTERS_MESSAGE_0126
+; Vanilla value: $1C:C7B0
+7F:740E TEXTPOINTERS_MESSAGE_0127
+; Vanilla value: $1C:C7DA
+7F:7410 TEXTPOINTERS_MESSAGE_0128
+; Vanilla value: $1C:C807
+7F:7412 TEXTPOINTERS_MESSAGE_0129
+; Vanilla value: $1C:C820
+7F:7414 TEXTPOINTERS_MESSAGE_012A
+; Vanilla value: $1C:C84B
+7F:7416 TEXTPOINTERS_MESSAGE_012B
+; Vanilla value: $1C:C875
+7F:7418 TEXTPOINTERS_MESSAGE_012C
+; Vanilla value: $1C:C8A4
+7F:741A TEXTPOINTERS_MESSAGE_012D
+; Vanilla value: $1C:C8CF
+7F:741C TEXTPOINTERS_MESSAGE_012E
+; Vanilla value: $1C:C8F1
+7F:741E TEXTPOINTERS_MESSAGE_012F
+; Vanilla value: $1C:C91C
+7F:7420 TEXTPOINTERS_MESSAGE_0130
+; Vanilla value: $1C:CC51
+7F:7422 TEXTPOINTERS_MESSAGE_0131
+; Vanilla value: $1C:CF83
+7F:7424 TEXTPOINTERS_MESSAGE_0132
+; Vanilla value: $1C:D1D9
+7F:7426 TEXTPOINTERS_MESSAGE_0133
+; Vanilla value: $1C:D3C4
+7F:7428 TEXTPOINTERS_MESSAGE_0134
+; Vanilla value: $1C:D643
+7F:742A TEXTPOINTERS_MESSAGE_0135
+; Vanilla value: $1C:D85D
+7F:742C TEXTPOINTERS_MESSAGE_0136
+; Vanilla value: $1C:DAB2
+7F:742E TEXTPOINTERS_MESSAGE_0137
+; Vanilla value: $1C:DADC
+7F:7430 TEXTPOINTERS_MESSAGE_0138
+; Vanilla value: $1C:DB05
+7F:7432 TEXTPOINTERS_MESSAGE_0139
+; Vanilla value: $1C:DB27
+7F:7434 TEXTPOINTERS_MESSAGE_013A
+; Vanilla value: $1C:DDD0
+7F:7436 TEXTPOINTERS_MESSAGE_013B
+; Vanilla value: $1C:DE21
+7F:7438 TEXTPOINTERS_MESSAGE_013C
+; Vanilla value: $1C:DEB5
+7F:743A TEXTPOINTERS_MESSAGE_013D
+; Vanilla value: $1C:DEE2
+7F:743C TEXTPOINTERS_MESSAGE_013E
+; Vanilla value: $1C:DF14
+7F:743E TEXTPOINTERS_MESSAGE_013F
+; Vanilla value: $1C:DF72
+7F:7440 TEXTPOINTERS_MESSAGE_0140
+; Vanilla value: $1C:DF9D
+7F:7442 TEXTPOINTERS_MESSAGE_0141
+; Vanilla value: $1C:DFE8
+7F:7444 TEXTPOINTERS_MESSAGE_0142
+; Vanilla value: $1C:E06D
+7F:7446 TEXTPOINTERS_MESSAGE_0143
+; Vanilla value: $1C:E096
+7F:7448 TEXTPOINTERS_MESSAGE_0144
+; Vanilla value: $1C:E0C3
+7F:744A TEXTPOINTERS_MESSAGE_0145
+; Vanilla value: $1C:E126
+7F:744C TEXTPOINTERS_MESSAGE_0146
+; Vanilla value: $1C:E158
+7F:744E TEXTPOINTERS_MESSAGE_0147
+; Vanilla value: $1C:E2C3
+7F:7450 TEXTPOINTERS_MESSAGE_0148
+; Vanilla value: $1C:E305
+7F:7452 TEXTPOINTERS_MESSAGE_0149
+; Vanilla value: $1C:E30C
+7F:7454 TEXTPOINTERS_MESSAGE_014A
+; Vanilla value: $1C:E313
+7F:7456 TEXTPOINTERS_MESSAGE_014B
+; Vanilla value: $1C:E33A
+7F:7458 TEXTPOINTERS_MESSAGE_014C
+; Vanilla value: $1C:E367
+7F:745A TEXTPOINTERS_MESSAGE_014D
+; Vanilla value: $1C:E3F5
+7F:745C TEXTPOINTERS_MESSAGE_014E
+; Vanilla value: $1C:E404
+7F:745E TEXTPOINTERS_MESSAGE_014F
+; Vanilla value: $1C:E413
+7F:7460 TEXTPOINTERS_MESSAGE_0150
+; Vanilla value: $1C:E422
+7F:7462 TEXTPOINTERS_MESSAGE_0151
+; Vanilla value: $1C:E432
+7F:7464 TEXTPOINTERS_MESSAGE_0152
+; Vanilla value: $1C:E446
+7F:7466 TEXTPOINTERS_MESSAGE_0153
+; Vanilla value: $1C:E45E
+7F:7468 TEXTPOINTERS_MESSAGE_0154
+; Vanilla value: $1C:E476
+7F:746A TEXTPOINTERS_MESSAGE_0155
+; Vanilla value: $1C:E48E
+7F:746C TEXTPOINTERS_MESSAGE_0156
+; Vanilla value: $1C:E4B5
+7F:746E TEXTPOINTERS_MESSAGE_0157
+; Vanilla value: $1C:E4DC
+7F:7470 TEXTPOINTERS_MESSAGE_0158
+; Vanilla value: $1C:E4FA
+7F:7472 TEXTPOINTERS_MESSAGE_0159
+; Vanilla value: $1C:E5DC
+7F:7474 TEXTPOINTERS_MESSAGE_015A
+; Vanilla value: $1C:E608
+7F:7476 TEXTPOINTERS_MESSAGE_015B
+; Vanilla value: $1C:E6BD
+7F:7478 TEXTPOINTERS_MESSAGE_015C
+; Vanilla value: $1C:E6ED
+7F:747A TEXTPOINTERS_MESSAGE_015D
+; Vanilla value: $1C:E71F
+7F:747C TEXTPOINTERS_MESSAGE_015E
+; Vanilla value: $1C:E76E
+7F:747E TEXTPOINTERS_MESSAGE_015F
+; Vanilla value: $1C:E792
+7F:7480 TEXTPOINTERS_MESSAGE_0160
+; Vanilla value: $1C:E7B9
+7F:7482 TEXTPOINTERS_MESSAGE_0161
+; Vanilla value: $1C:E7DE
+7F:7484 TEXTPOINTERS_MESSAGE_0162
+; Vanilla value: $1C:E7F5
+7F:7486 TEXTPOINTERS_MESSAGE_0163
+; Vanilla value: $1C:E81F
+7F:7488 TEXTPOINTERS_MESSAGE_0164
+; Vanilla value: $1C:E848
+7F:748A TEXTPOINTERS_MESSAGE_0165
+; Vanilla value: $1C:E868
+7F:748C TEXTPOINTERS_MESSAGE_0166
+; Vanilla value: $1C:E891
+7F:748E TEXTPOINTERS_MESSAGE_0167
+; Vanilla value: $1C:E8B5
+7F:7490 TEXTPOINTERS_MESSAGE_0168
+; Vanilla value: $1C:E8D7
+7F:7492 TEXTPOINTERS_MESSAGE_0169
+; Vanilla value: $1C:E901
+7F:7494 TEXTPOINTERS_MESSAGE_016A
+; Vanilla value: $1C:E91B
+7F:7496 TEXTPOINTERS_MESSAGE_016B
+; Vanilla value: $1C:E948
+7F:7498 TEXTPOINTERS_MESSAGE_016C
+; Vanilla value: $1C:E970
+7F:749A TEXTPOINTERS_MESSAGE_016D
+; Vanilla value: $1C:E9F8
+7F:749C TEXTPOINTERS_MESSAGE_016E
+; Vanilla value: $1C:EA25
+7F:749E TEXTPOINTERS_MESSAGE_016F
+; Vanilla value: $1C:EA8C
+7F:74A0 TEXTPOINTERS_MESSAGE_0170
+; Vanilla value: $1C:EAEA
+7F:74A2 TEXTPOINTERS_MESSAGE_0171
+; Vanilla value: $1C:EE1A
+7F:74A4 TEXTPOINTERS_MESSAGE_0172
+; Vanilla value: $1C:EE29
+7F:74A6 TEXTPOINTERS_MESSAGE_0173
+; Vanilla value: $1C:EE7A
+7F:74A8 TEXTPOINTERS_MESSAGE_0174
+; Vanilla value: $1C:EE88
+7F:74AA TEXTPOINTERS_MESSAGE_0175
+; Vanilla value: $1C:EEB3
+7F:74AC TEXTPOINTERS_MESSAGE_0176
+; Vanilla value: $1C:EEDA
+7F:74AE TEXTPOINTERS_MESSAGE_0177
+; Vanilla value: $1C:EF09
+7F:74B0 TEXTPOINTERS_MESSAGE_0178
+; Vanilla value: $1C:EF25
+7F:74B2 TEXTPOINTERS_MESSAGE_0179
+; Vanilla value: $1C:EF45
+7F:74B4 TEXTPOINTERS_MESSAGE_017A
+; Vanilla value: $1C:EF62
+7F:74B6 TEXTPOINTERS_MESSAGE_017B
+; Vanilla value: $1C:EFEA
+7F:74B8 TEXTPOINTERS_MESSAGE_017C
+; Vanilla value: $1C:F039
+7F:74BA TEXTPOINTERS_MESSAGE_017D
+; Vanilla value: $1C:F050
+7F:74BC TEXTPOINTERS_MESSAGE_017E
+; Vanilla value: $1C:F072
+7F:74BE TEXTPOINTERS_MESSAGE_017F
+; Vanilla value: $1C:F0C1
+7F:74C0 TEXTPOINTERS_MESSAGE_0180
+; Vanilla value: $1C:F157
+7F:74C2 TEXTPOINTERS_MESSAGE_0181
+; Vanilla value: $1C:F1E4
+7F:74C4 TEXTPOINTERS_MESSAGE_0182
+; Vanilla value: $1C:F204
+7F:74C6 TEXTPOINTERS_MESSAGE_0183
+; Vanilla value: $1C:F233
+7F:74C8 TEXTPOINTERS_MESSAGE_0184
+; Vanilla value: $1C:F24E
+7F:74CA TEXTPOINTERS_MESSAGE_0185
+; Vanilla value: $1C:F29E
+7F:74CC TEXTPOINTERS_MESSAGE_0186
+; Vanilla value: $1C:F2C8
+7F:74CE TEXTPOINTERS_MESSAGE_0187
+; Vanilla value: $1C:F2EC
+7F:74D0 TEXTPOINTERS_MESSAGE_0188
+; Vanilla value: $1C:F310
+7F:74D2 TEXTPOINTERS_MESSAGE_0189
+; Vanilla value: $1C:F325
+7F:74D4 TEXTPOINTERS_MESSAGE_018A
+; Vanilla value: $1C:F356
+7F:74D6 TEXTPOINTERS_MESSAGE_018B
+; MASSIVE FREE RAM: 0x68A8
+7F:7667 UNUSED_7F74D8
+; TODO
+7F:DD80 PALETTE_CACHE
+7F:DE00 AUX_PALETTE_CACHE
+; TODO sprite flagging
+7F:DF80 UNKNOWN_7FDF80
+; Flags overworld sprite deaths
+7F:EF80 DEADONOW
+; FREE RAM: 0x680
+7F:F180 UNUSED_7FF180
+; Garnish IDs
+7F:F800 GARNISH_ID
+; Garnish positions
+7F:F81E GARNISH_YL
+7F:F83C GARNISH_XL
+7F:F85A GARNISH_YH
+7F:F878 GARNISH_XH
+; Garnish speed
+7F:F896 GARNISH_VY
+7F:F8B4 GARNISH_VX
+; TODO
+7F:F8D2 GARNISH_UNKNOWN_8D2
+; TODO
+7F:F8F0 GARNISH_UNKNOWN_8F0
+; TODO
+7F:F90E GARNISH_TIMER_A
+; Slot of spawning sprite
+7F:F92C GARNISH_PARENTX
+; TODO
+7F:F94A GARNISH_UNKNOWN_94A
+; TODO
+7F:F968 GARNISH_LAYER
+; TODO
+7F:F986 GARNISH_UNKNOWN_986
+; TODO
+7F:F9A4 GARNISH_UNKNOWN_9A4
+; Holds tile type sprite is currently on.
+7F:F9C2 SPR_TILE
+; FREE RAM: 0x2C
+7F:F9D2 UNUSED_7FF9D2
+; TODO
+7F:F9FE GARNISH_UNKNOWN_9FE
+; TODO
+7F:FA1C SPR_UNKNOWN_7FFA1C
+; TODO
+7F:FA2C SPR_UNKNOWN_7FFA2C
+; TODO
+7F:FA3C SPR_UNKNOWN_7FFA3C
+; TODO
+7F:FA4C SPR_UNKNOWN_7FFA4C
+; TODO
+7F:FA5C SPR_UNKNOWN_7FFA5C
+; TODO
+7F:FA6C SPR_UNKNOWN_7FFA6C
+; TODO
+7F:FA7C SPR_UNKNOWN_7FFA7C
+; TODO
+7F:FA8C SPR_UNKNOWN_7FFA8C
+; TODO
+7F:FA9C SPR_UNKNOWN_7FFA9C
+; TODO
+7F:FAAC SPR_UNKNOWN_7FFAAC
+; TODO
+7F:FABC SPR_UNKNOWN_7FFABC
+; TODO
+7F:FACC SPR_UNKNOWN_7FFACC
+; TODO
+7F:FADC SPR_UNKNOWN_7FFADC
+; TODO
+7F:FAEC SPR_UNKNOWN_7FFAEC
+; TODO
+7F:FAFC SPR_UNKNOWN_7FFAFC
+; TODO
+7F:FB0C SPR_UNKNOWN_7FFB0C
+; TODO
+7F:FB1C SWAMOLA_7FFB1C_A
+7F:FB3C SWAMOLA_7FFB1C_B
+7F:FB5C SWAMOLA_7FFB1C_C
+7F:FB7C SWAMOLA_7FFB1C_D
+7F:FB9C SWAMOLA_7FFB1C_E
+7F:FBBC SWAMOLA_7FFB1C_F
+; TODO
+7F:FBDC SWAMOLA_7FFBDC_A
+7F:FBFC SWAMOLA_7FFBDC_B
+7F:FC1C SWAMOLA_7FFBDC_C
+7F:FC3C SWAMOLA_7FFBDC_D
+7F:FC5C SWAMOLA_7FFBDC_E
+7F:FC7C SWAMOLA_7FFBDC_F
+; Used with drawing segmented enemies
+7F:FC00 SEGMENTS_7FFC00
+7F:FC00 SEGMENTS_7FFC80
+7F:FC00 SWAMOLA_7FFC9C
+7F:FC00 SEGMENTS_7FFD00
+; Used to calculate Ganon's warp location
+; Seems to have space for multiple slots
+; even though Ganon only uses 1 slot himself
+; In fact, the trident catch only uses the 1 slot
+7F:FD5C GANONWARPXLOW
+7F:FD62 GANONWARPXHIGH
+7F:FD68 GANONWARPYLOW
+7F:FD6E GANONWARPYHIGH
+; TODO
+7F:FD80 UNKNOWN_7FFD80
+; Number of digs in digging game
+7F:FE00 DIGSL
+7F:FE00 DIGSH
+; Used as a dialog counter for the Zelda rescue dialogs
+7F:FE01 RESCUETALK
+; Time spent in race game.
+; The first four (G) hold a 32-bit frame count that continues running.
+; The next four (D) hold the frame count when you finish and stops updating.
+; Despite being 32-bit, only the lower 16-bits are checked.
+7F:FE00 RACETIMEGA
+7F:FE01 RACETIMEGB
+7F:FE02 RACETIMEGC
+7F:FE03 RACETIMEGD
+7F:FE04 RACETIMEDA
+7F:FE05 RACETIMEDB
+7F:FE06 RACETIMEDC
+7F:FE07 RACETIMEDD
+; Used for drawing beamos lasers/lanmo rubble
+7F:FE00 UNKNOWN_7FFE00
+7F:FE00 UNKNOWN_7FFE80
+7F:FF00 UNKNOWN_7FFF00

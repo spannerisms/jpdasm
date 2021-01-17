@@ -1,0 +1,245 @@
+SFX instruments
+    ARAM : $3E00 [0x200]
+    ROM  : $1A9C04
+
+SFX instruments can define a volume for Left and Right, as well as a pitch.
+But these values are $70, $70, $1000, respectively, for all instruments.
+
+ID     SRCN      ADSR     Gain    Mult
+----------------------------------------------------------------------------------------------------
+$00    $00      $F6 $6A   $B8     $03
+$01    $01      $8E $E0   $B8     $02
+$02    $14      $FE $6A   $B8     $02
+$03    $03      $FE $F8   $B8     $0D
+$04    $04      $FE $6A   $7F     $03
+$05    $02      $FE $6A   $7F     $03
+$06    $05      $FE $6A   $70     $03
+$07    $06      $FE $6A   $70     $03
+$08    $08      $FA $6A   $70     $03
+$09    $06      $FE $6A   $70     $01
+$0A    $07      $FE $6A   $70     $05
+$0B    $0B      $FE $6A   $B8     $03
+$0C    $0C      $FE $E0   $B8     $02
+$0D    $0D      $F9 $6E   $B8     $03
+$0E    $0E      $FE $F5   $B8     $07
+$0F    $0F      $FE $F5   $B8     $06
+$10    $01      $FE $FC   $B8     $03
+$11    $10      $8E $E0   $B8     $03
+$12    $08      $8E $E0   $B8     $02
+$13    $14      $8E $E0   $B8     $02
+$14    $0A      $88 $E0   $B8     $02
+$15    $17      $8E $E0   $B8     $02
+$16    $15      $FF $E0   $B8     $04
+$17    $03      $DF $11   $B8     $0F
+$18    $01      $88 $E0   $B8     $01
+
+====================================================================================================
+
+SFX1 (WRAM $012D)
+	ARAM : $17C0 [0x40]
+	ROM  : $1A8B70
+
+ID       ADDR  INSTR (SRCN) Name
+----------------------------------------------------------------------------------------------------
+$01     $2652   $01 $01     Rain/Zora area
+$02     $2662   $01 $01     Rain/Zora area (packaged with $01)
+$03     $2677   $01 $01     Rain
+$04     $2687   $01 $01     Rain (packaged with $03)
+$05     $284F   --- ---     Silence (OW ambience)
+$06     $284F   --- ---     Silence (packaged with $05)
+$07     $2739   $13 $14     Rumbling (Catfish/Turtle Rock)
+$08     $2736   $13 $14     Rumbling (packaged with $08)
+$09     $1C8E   $18 $01     Wind/Telepathy/Mirror??? (OW ambience)
+$0A     $1CBC   $18 $01     Wind (packaged with $09 by APU)
+$0B     $1BA3   $0D $0D     Flute song (flute boy)
+$0C     $1B62   $0D $0D     Flute song (packaged with $0B by APU)
+$0D     $1B0E   $0E $0E     Magic jingle (Magic bat/Witch shroom)
+$0E     $1B1D   $0E $0E     Magic jingle (packaged with $0D by APU)
+$0F     $1B2C   $0E $0E     Crystal get/Save and quit
+$10     $1B3E   $0E $0E     Crystal get/Save and quit (packaged with $0F by APU)
+$11     $1EAC   $16 $15     Choir melody (Desert tablets)
+$12     $1EC8   $16 $15     Choir countermelody (packaged with $11 by APU)
+$13     $1AD2   $00 $00     Swoosh (Lanmo/Blind)
+$14     $1AE1   $00 $00     Swoosh (packaged with $13 by APU)
+$15     $1AF0   $0A $07     Triforce door/Pyramid hole opening
+$16     $1AFF   $0A $07     VOMP (packaged with $15 by APU)
+$17     $1C24   $0D $0D     Flute (weathervane/dw)
+$18     $1BE3   $0D $0D     Why is there so much flute (packaged with $17)
+$19     $0000   --- ---     Nothing (seems unused)
+$1A     $0000   --- ---     Nothing (packaged with $19)
+$1B     $1BA3   $0D $0D     Flute (seems unused)
+$1C     $1B62   $0D $0D     Flute (packaged with $1B)
+$1D     $1B0E   $0E $0E     Unused jingle (seems unused)
+$1E     $1B1D   $0E $0E     Unused jingle (packaged with $1D)
+$1F     $1B2C   $0E $0E     Unused jingle (seems unused)
+$20     $1B3E   $0E $0E     Unused jingle (packaged with $1F)
+
+====================================================================================================
+
+SFX2 (WRAM $012E)
+	ARAM : $1820 [0x80]
+	ROM  : $1A:8BD0
+
+ID       ADDR  INSTR (SRCN) Name
+----------------------------------------------------------------------------------------------------
+$01     $2614   $01 $01     Slash
+$02     $2625   $01 $01     Slash
+$03     $2634   $02 $14     Slash
+$04     $2643   $02 $14     Slash
+$05     $25DD   $06 $05     Clink
+$06     $25D7   $03 $03     Bombable door clink
+$07     $25B7   $00 $00     Fwoosh
+$08     $25E3   $02 $14     Arrow smash
+$09     $25AD   $00 $00     Boomerang fwish
+$0A     $25C7   $06 $05     Hookshot clink
+$0B     $2478   $02 $14     Placing bomb
+$0C     $269C   $13 $14     Explosion
+$0D     $2414   $00 $00     Powder (paired $0D→$3F)
+$0E     $2404   $00 $00     Fire rod shot
+$0F     $24C3   $06 $05     Ice rod shot
+$10     $23FA   $05 $02     Hammer use
+$11     $23F0   $05 $02     Hammering peg
+$12     $23CD   $02 $14     Digging
+$13     $23A0   $0D $0D     Flute (paired $13→$3E)
+$14     $2380   $07 $06     Cape on
+$15     $2390   $07 $06     Cape off/Wallmaster grab
+$16     $232C   $10 $01     Staircase
+$17     $2344   $10 $01     Staircase
+$18     $2356   $10 $01     Staircase
+$19     $236E   $10 $01     Staircase
+$1A     $2316   $01 $01     Tall grass/Hammer hitting bush
+$1B     $2307   $11 $10     Mire shallow water
+$1C     $2301   $11 $10     Shallow water
+$1D     $22BB   $16 $15     Lifting object
+$1E     $2577   $01 $01     Cutting grass
+$1F     $22E9   $02 $14     Item breaking
+$20     $22DA   $0D $0D     Item falling in pit
+$21     $22CF   $02 $14     Bomb hitting ground/General bang
+$22     $2107   $05 $02     Pushing object/Armos bounce
+$23     $22B1   $01 $01     Boots dust
+$24     $22A5   $11 $10     Splashing (paired $24→$3D)
+$25     $2296   $11 $10     Mire shallow water again?
+$26     $2844   $15 $17     Link taking damage
+$27     $2252   $0B $0B     Fainting
+$28     $2287   $11 $10     Item splash
+$29     $243F   $01 $01     Rupee refill (paired $29→$3B)
+$2A     $2033   $0C $0C     Fire splash/Bombos spell
+$2B     $1FF2   $0E $0E     Heart beep/Text box
+$2C     $1FD9   $00 $00     Sword up (paired $2C→$3A)
+$2D     $20A6   $0F $0F     Magic drain
+$2E     $1FCA   $11 $10     GT opening (paired $2E→$39)
+$2F     $1F47   $01 $01     GT opening/Water drain (paired $2F→$38)
+$30     $1EF1   $15 $17     Cucco
+$31     $20CE   $0D $0D     Fairy
+$32     $1D47   $01 $01     Bug net
+$33     $1CDC   $07 $06     Teleport (paired $34→$33)
+$34     $1F6F   $11 $10     Teleport (paired $34→$33)
+$35     $1C67   $13 $14     Shaking
+$36     $1C64   $13 $14     Mire entrance (extends above; paired $35→$36)
+$37     $1A43   $0E $0E     Spin charged
+$38     $1F6F   $11 $10     Water sound (paired $2F→$38)
+$39     $1F9C   $01 $01     Thunder (paired $2E→$39)
+$3A     $1FE7   $00 $00     Sword up (paired $2C→$3A)
+$3B     $2462   $06 $05     Rupee refill (paired $29→$3B)
+$3C     $1A37   $04 $04     Error beep
+$3D     $22AB   $11 $10     Big splash (paired $24→$3D)
+$3E     $23B5   $0D $0D     Flute (paired $13→$3E)
+$3F     $2435   $0D $0D     Powder (paired $0D→$3F)
+$00     $0020   --- ---     Undefined behavior; if passed a value of $40, $C0, $80
+
+====================================================================================================
+
+SFX3 (WRAM $012F)
+	ARAM : $191C [0x80]
+	ROM  : $1A8CCC
+
+ID      ADDR  INSTR (SRCN) Name
+----------------------------------------------------------------------------------------------------
+$01     $1A18   $07 $06     Sword beam
+$02     $254E   $01 $01     TR opening
+$03     $224A   $13 $14     Pyramid hole
+$04     $220E   $12 $08     Angry soldier
+$05     $25B7   $00 $00     Lynel shot/Javelin toss
+$06     $21F5   $02 $14     Swoosh
+$07     $223D   $0C $0C     Cannon fire
+$08     $21E6   $0C $0C     Damage to enemy; $0BEX.4=1
+$09     $21C1   $0C $0C     Enemy death
+$0A     $21A9   $03 $03     Collecting rupee
+$0B     $2198   $0B $0B     Collecting heart
+$0C     $218E   $0D $0D     Non-blank text character
+$0D     $21B5   $0E $0E     HUD heart
+$0E     $2182   $02 $14     Opening chest
+$0F     $24B9   $0B $0B     ♪Do do do doooooo♫ (paired $0F→$3C→$3D→$3E→$3F)
+$10     $216D   $0E $0E     Map (paired $10→$3B)
+$11     $214F   $07 $06     Opening item menu/Bomb shop guy breathing
+$12     $215E   $07 $06     Closing item menu/Bomb shop guy breathing
+$13     $213B   $0D $0D     Throwing object/Stalfos jump
+$14     $246C   $06 $05     Key door
+$15     $212F   $13 $14     Door/Chest (w/ $29 in $012E)
+$16     $2123   $13 $14     Armos Knight thud
+$17     $25A6   $08 $08     Rat squeak
+$18     $20DD   $05 $02     Dragging
+$19     $250A   $07 $06     Fireball/Laser shot
+$1A     $1E8A   $0F $0F     Chest reveal jingle (paired $1A→$38)
+$1B     $20B6   $0E $0E     Puzzle jingle (paired $1B→$3A)
+$1C     $1A62   $0A $07     Damage to enemy
+$1D     $20A6   $0F $0F     Magic meter
+$1E     $2091   $01 $01     Wing flapping
+$1F     $204B   $16 $15     Link falling
+$20     $276C   $0F $0F     Menu/Text cursor moved
+$21     $27E2   $14 $0A     Damage to boss
+$22     $26CF   $14 $0A     Boss dying/Deleting file
+$23     $2001   $01 $01     Spin attack/Medallion swoosh (paired $23→$39)
+$24     $2043   $0D $0D     OW map perspective change
+$25     $1E9D   $13 $14     Pressure switch
+$26     $1E7B   $00 $00     Lightning/Game over/Laser/Ganon bat/Trinexx lunge
+$27     $1E40   $07 $06     Agahnim charge
+$28     $26F7   $07 $06     Agahnim/Ganon teleport
+$29     $1E21   $07 $06     Agahnim shot
+$2A     $1E12   $0A $07     Somaria/Byrna/Ether spell/Helma fire ball
+$2B     $1DF3   $0A $07     Electrocution
+$2C     $1DC0   $0A $07     Bees
+$2D     $1DA9   $0F $0F     Milestone jingle (paired $2D→$37)
+$2E     $1D5D   $0B $0B     Heart container jingle (paired $2E→$35→$34)
+$2F     $1D80   $0E $0E     Key jingle (paired $2F→$33)
+$30     $1B53   $03 $03     Magic zap/Plop
+$31     $1ACA   $01 $01     Sprite falling/Moldorm shuffle
+$32     $1A78   $04 $04     BOING
+$33     $1D93   $0E $0E     Key jingle (paired $2F→$33)
+$34     $1D66   $0B $0B     Heart container jingle (paired $2E→$35→$34)
+$35     $1D73   $0B $0B     Heart container jingle (paired $2E→$35→$34)
+$36     $1AA7   $07 $06     Magic attack
+$37     $1DB4   $0F $0F     Milestone jingle (paired $2D→$37)
+$38     $1E93   $13 $14     Chest reveal jingle (paired $1A→$38)
+$39     $2017   $07 $06     Swish (paired $23→$39)
+$3A     $20C0   $0E $0E     Puzzle jingle (paired $1B→$3A)
+$3B     $2176   $0E $0E     Map (paired $10→$3B)
+$3C     $248A   $0B $0B     Item jingle (paired $0F→$3C→$3D→$3E→$3F)
+$3D     $2494   $0B $0B     Item jingle ($0F→$3C→$3D→$3E→$3F)
+$3E     $249E   $05 $02     Item jingle (paired $0F→$3C→$3D→$3E→$3F)
+$3F     $2480   $0B $0B     Item jingle (paired $0F→$3C→$3D→$3E→$3F)
+$00     $003C   --- ---     Undefined behavior; if passed a value of $40, $C0, $80
+
+====================================================================================================
+
+Unused SFXs
+
+ADDR   INSTR (SRCN) Description
+----------------------------------------------------------------------------------------------------
+$1A5B   --- ---     Noisy fsssh; bleeds into SFX3.1C
+$1D1C   $0F $0F     Radar ping
+$1EE2   $0D $0D     Slide whistle/Chirp
+$1F13   $15 $17     Cucco clucking
+$252D   $05 $02     Brighter hammer peg
+$2533   $00 $00     Bat wings flapping
+$2657   --- ---     Broken static
+$267C   --- ---     Static; Loops(?) or bleeds into SFX1.04
+$26A2   $07 $06     Tuba jingle followed by a roar
+$277E   $14 $0A     UFO winding up
+$279D   $0D $0D     Distant whistling
+$27C9   $12 $08     Bwuuuoow
+$27F6   $0D $0D     Cat call
+$2807   $0D $0D     Higher pitched cat call
+$2818   $0D $0D     Reverse cat call
+$2829   --- ---     Dial-up
+$2831   $04 $04     Bumper peg
