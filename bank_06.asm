@@ -919,7 +919,7 @@ Sprite_SetupHitbox_long:
 
 ;===================================================================================================
 ; Allocates OAM for the sprite to one of regions A, D, or F
-; If sprites aren't paused, 
+; If sprites aren't paused, TODO
 ;===================================================================================================
 Sprite_TimersAndOAM:
 #_0683F2: JSR Sprite_Get16BitCoords
@@ -1366,7 +1366,7 @@ Drowning_DrawSprite:
 #_06861B: JSR Sprite_CheckIfActivePermissive_Bank06
 
 #_06861E: LDA.b $1A
-#_068620: AND.b #$01 ; increment the timer every other frame 
+#_068620: AND.b #$01 ; increment the timer every other frame
 #_068622: BNE .timer_parity
 
 #_068624: INC.w $0DF0,X
@@ -1432,7 +1432,7 @@ SpriteModule_Initialize:
 #_068685: dw SpritePrep_Antifairy                     ; 0x15 - ANTIFAIRY
 #_068687: dw SpritePrep_Sage                          ; 0x16 - SAHASRAHLA / AGINAH
 #_068689: dw SpritePrep_DoNothingA                    ; 0x17 - HOARDER
-#_06868B: dw SpritePep_MiniMoldorm_bounce             ; 0x18 - MINI MOLDORM
+#_06868B: dw SpritePrep_MiniMoldorm_bounce            ; 0x18 - MINI MOLDORM
 #_06868D: dw SpritePrep_Poe                           ; 0x19 - POE
 #_06868F: dw SpritePrep_Smithy                        ; 0x1A - SMITHY
 #_068691: dw SpritePrep_DoNothingA                    ; 0x1B - ARROW
@@ -1501,10 +1501,10 @@ SpriteModule_Initialize:
 #_06870F: dw SpritePrep_LostWoodsSquirrel             ; 0x5A - LOST WOODS SQUIRREL
 #_068711: dw SpritePrep_Spark                         ; 0x5B - SPARK
 #_068713: dw SpritePrep_Spark                         ; 0x5C - SPARK
-#_068715: dw SpritePrep_Roller_LongVertical           ; 0x5D - ROLLER LONG VERTICAL
-#_068717: dw SpritePrep_Roller_ShortVertical          ; 0x5E - ROLLER SHORT VERTICAL
-#_068719: dw SpritePrep_Roller_LongHorizontal         ; 0x5F - ROLLER LONG HORIZONTAL
-#_06871B: dw SpritePrep_Roller_ShortHorizontal        ; 0x60 - ROLLER SHORT HORIZONTAL
+#_068715: dw SpritePrep_Roller_VerticalStartUp        ; 0x5D - ROLLER VERTICAL UP
+#_068717: dw SpritePrep_Roller_VerticalStartDown      ; 0x5E - ROLLER VERTICAL DOWN
+#_068719: dw SpritePrep_Roller_HorizontalStartLeft    ; 0x5F - ROLLER HORIZONTAL LEFT
+#_06871B: dw SpritePrep_Roller_HorizontalStartRight   ; 0x60 - ROLLER HORIZONTAL RIGHT
 #_06871D: dw SpritePrep_DoNothingA                    ; 0x61 - BEAMOS
 #_06871F: dw SpritePrep_MasterSword                   ; 0x62 - MASTERSWORD
 #_068721: dw SpritePrep_DebirandoPit                  ; 0x63 - DEBIRANDO PIT
@@ -1589,11 +1589,11 @@ SpriteModule_Initialize:
 #_0687BF: dw SpritePrep_NiceBee                       ; 0xB2 - GOOD BEE
 #_0687C1: dw SpritePrep_PedestalPlaque                ; 0xB3 - PEDESTAL PLAQUE
 #_0687C3: dw SpritePrep_PurpleChest                   ; 0xB4 - PURPLE CHEST
-#_0687C5: dw SpritePrep_BombShoppe                    ; 0xB5 - BOMBSHOP GUY
+#_0687C5: dw SpritePrep_BombShoppe                    ; 0xB5 - BOMB SHOP GUY
 #_0687C7: dw SpritePrep_Kiki                          ; 0xB6 - KIKI
 #_0687C9: dw SpritePrep_BlindMaiden                   ; 0xB7 - BLIND MAIDEN
 #_0687CB: dw SpritePrep_DoNothingA                    ; 0xB8 - DIALOGUE TESTER
-#_0687CD: dw SpritePrep_BullyAndVictim                ; 0xB9 - BULLY AND PINK BALL
+#_0687CD: dw SpritePrep_BullyAndVictim                ; 0xB9 - BULLY / PINK BALL
 #_0687CF: dw SpritePrep_Whirlpool                     ; 0xBA - WHIRLPOOL
 #_0687D1: dw SpritePrep_Shopkeeper                    ; 0xBB - SHOPKEEPER / CHEST GAME GUY
 #_0687D3: dw SpritePrep_IgnoreProjectiles             ; 0xBC - DRUNKARD
@@ -1646,7 +1646,7 @@ SpriteModule_Initialize:
 #_068831: dw SpritePrep_HeartPiece                    ; 0xEB - HEART PIECE
 #_068833: dw SpritePrep_DoNothingI                    ; 0xEC - THROWN ITEM
 #_068835: dw SpritePrep_DoNothingA                    ; 0xED - SOMARIA PLATFORM
-#_068837: dw SpritePrep_Throne                        ; 0xEE - CASTLE THRONE
+#_068837: dw SpritePrep_Mantle                        ; 0xEE - CASTLE MANTLE
 #_068839: dw SpritePrep_DoNothingA                    ; 0xEF - UNUSED SOMARIA PLATFORM
 #_06883B: dw SpritePrep_DoNothingA                    ; 0xF0 - UNUSED SOMARIA PLATFORM
 #_06883D: dw SpritePrep_DoNothingA                    ; 0xF1 - UNUSED SOMARIA PLATFORM
@@ -1655,7 +1655,7 @@ SpriteModule_Initialize:
 ;===================================================================================================
 ; Moves 3 pixels down and 8 pixels right
 ;===================================================================================================
-SpritePrep_Throne:
+SpritePrep_Mantle:
 #_068841: LDA.w $0D00,X
 #_068844: CLC
 #_068845: ADC.b #$03
@@ -1898,7 +1898,7 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 SpritePrep_Octoballoon:
-#_068910: TXA ; why?
+#_068910: TXA ; why...?
 #_068911: AND.b #$03
 #_068913: TAY
 
@@ -1916,6 +1916,7 @@ SpritePrep_AgahnimsBarrier:
 #_06891B: PHX
 
 #_06891C: LDX.b $8A
+
 #_06891E: LDA.l $7EF280,X
 
 #_068922: PLX
@@ -2017,7 +2018,7 @@ SpritePrep_Vulture:
 #_06898B: LSR A
 #_06898C: STA.w $0D90,X
 
-#_06898F: BRA SpritePrep_SetSubtypeFE
+#_06898F: BRA SpritePrep_SetAuxToFE
 
 ;===================================================================================================
 
@@ -2027,7 +2028,7 @@ SpritePrep_Poe:
 
 ;===================================================================================================
 
-SpritePrep_SetSubtypeFE:
+SpritePrep_SetAuxToFE:
 #_068996: LDA.b #$FE
 #_068998: STA.w $0E30,X
 
@@ -2075,8 +2076,8 @@ SpritePrep_BlindMaiden:
 
 ;===================================================================================================
 
-SpritePep_MiniMoldorm_bounce:
-#_0689CD: JSL SpritePep_MiniMoldorm
+SpritePrep_MiniMoldorm_bounce:
+#_0689CD: JSL SpritePrep_MiniMoldorm
 
 #_0689D1: RTS
 
@@ -2087,7 +2088,7 @@ SpritePrep_Zirro:
 #_0689D2: LDA.b #$10
 #_0689D4: STA.w $0F70,X
 
-#_0689D7: BRA SpritePrep_SetSubtypeFE
+#_0689D7: BRA SpritePrep_SetAuxToFE
 
 ;===================================================================================================
 
@@ -2379,8 +2380,9 @@ SpritePrep_WaterLever:
 #_068B37: RTS
 
 ;===================================================================================================
-; Wait, what? It's forced to become this?
-; Does ever actually change anything?
+; Sprite 63 becomes a blue debirando
+; Sprite 64 becomes a red debirando
+; Both are changed to 63 then spawn sprite 64
 ;===================================================================================================
 SpritePrep_Debirando:
 #_068B38: LDA.b #!SPRITE_63
@@ -3158,13 +3160,13 @@ SpritePrep_MasterSword:
 
 ;===================================================================================================
 
-SpritePrep_Roller_LongHorizontal:
+SpritePrep_Roller_HorizontalStartLeft:
 #_068E49: LDY.b #$00
 #_068E4B: BRA .get_x_position
 
 ;---------------------------------------------------------------------------------------------------
 
-#SpritePrep_Roller_ShortHorizontal:
+#SpritePrep_Roller_HorizontalStartRight:
 #_068E4D: LDY.b #$01
 
 .get_x_position
@@ -3175,13 +3177,13 @@ SpritePrep_Roller_LongHorizontal:
 
 ;===================================================================================================
 
-SpritePrep_Roller_LongVertical:
+SpritePrep_Roller_VerticalStartUp:
 #_068E56: LDY.b #$02
 #_068E58: BRA .get_y_position
 
 ;---------------------------------------------------------------------------------------------------
 
-#SpritePrep_Roller_ShortVertical:
+#SpritePrep_Roller_VerticalStartDown:
 #_068E5A: LDY.b #$03
 
 .get_y_position
@@ -3547,7 +3549,7 @@ SpritePrep_StandardGuard:
 
 #_068FE4: AND.b #$07
 #_068FE6: CMP.b #$05
-#_068FE8: BCS .special_subtype
+#_068FE8: BCS .special_turn
 
 #_068FEA: DEC A
 #_068FEB: EOR.b #$01
@@ -3575,7 +3577,7 @@ SpritePrep_StandardGuard:
 #SpritePrep_CoolerGuard:
 #_069008: BRA SpritePrep_CoolestGuardEver
 
-.special_subtype
+.special_turn
 #_06900A: BEQ .not_five
 
 #_06900C: LDY.b #$04
@@ -4282,10 +4284,10 @@ SpriteModule_Active:
 #_06933E: dw SpriteModule_Active_Bank05_bounce        ; 0x5A - LOST WOODS SQUIRREL
 #_069340: dw SpriteModule_Active_Bank05_bounce        ; 0x5B - SPARK
 #_069342: dw SpriteModule_Active_Bank05_bounce        ; 0x5C - SPARK
-#_069344: dw SpriteModule_Active_Bank05_bounce        ; 0x5D - ROLLER LONG VERTICAL
-#_069346: dw SpriteModule_Active_Bank05_bounce        ; 0x5E - ROLLER SHORT VERTICAL
-#_069348: dw SpriteModule_Active_Bank05_bounce        ; 0x5F - ROLLER LONG HORIZONTAL
-#_06934A: dw SpriteModule_Active_Bank05_bounce        ; 0x60 - ROLLER SHORT HORIZONTAL
+#_069344: dw SpriteModule_Active_Bank05_bounce        ; 0x5D - ROLLER VERTICAL UP
+#_069346: dw SpriteModule_Active_Bank05_bounce        ; 0x5E - ROLLER VERTICAL DOWN
+#_069348: dw SpriteModule_Active_Bank05_bounce        ; 0x5F - ROLLER HORIZONTAL LEFT
+#_06934A: dw SpriteModule_Active_Bank05_bounce        ; 0x60 - ROLLER HORIZONTAL RIGHT
 #_06934C: dw SpriteModule_Active_Bank05_bounce        ; 0x61 - BEAMOS
 #_06934E: dw SpriteModule_Active_Bank05_bounce        ; 0x62 - MASTERSWORD
 #_069350: dw SpriteModule_Active_Bank05_bounce        ; 0x63 - DEBIRANDO PIT
@@ -4370,11 +4372,11 @@ SpriteModule_Active:
 #_0693EE: dw SpriteModule_Active_Bank1E_bounce        ; 0xB2 - GOOD BEE
 #_0693F0: dw SpriteModule_Active_Bank1E_bounce        ; 0xB3 - PEDESTAL PLAQUE
 #_0693F2: dw SpriteModule_Active_Bank1E_bounce        ; 0xB4 - PURPLE CHEST
-#_0693F4: dw SpriteModule_Active_Bank1E_bounce        ; 0xB5 - BOMBSHOP GUY
+#_0693F4: dw SpriteModule_Active_Bank1E_bounce        ; 0xB5 - BOMB SHOP GUY
 #_0693F6: dw SpriteModule_Active_Bank1E_bounce        ; 0xB6 - KIKI
 #_0693F8: dw SpriteModule_Active_Bank1E_bounce        ; 0xB7 - BLIND MAIDEN
 #_0693FA: dw SpriteModule_Active_Bank1E_bounce        ; 0xB8 - DIALOGUE TESTER
-#_0693FC: dw SpriteModule_Active_Bank1E_bounce        ; 0xB9 - BULLY AND PINK BALL
+#_0693FC: dw SpriteModule_Active_Bank1E_bounce        ; 0xB9 - BULLY / PINK BALL
 #_0693FE: dw SpriteModule_Active_Bank1E_bounce        ; 0xBA - WHIRLPOOL
 #_069400: dw SpriteModule_Active_Bank1E_bounce        ; 0xBB - SHOPKEEPER / CHEST GAME GUY
 #_069402: dw SpriteModule_Active_Bank1E_bounce        ; 0xBC - DRUNKARD
@@ -4427,7 +4429,7 @@ SpriteModule_Active:
 #_069460: dw Sprite_EB_HeartPiece_bounce              ; 0xEB - HEART PIECE
 #_069462: dw Sprite_EC_ThrownItem                     ; 0xEC - THROWN ITEM
 #_069464: dw SomariaPlatformAndPipe_bounce            ; 0xED - SOMARIA PLATFORM
-#_069466: dw Sprite_EE_CastleThrone_bounce            ; 0xEE - CASTLE THRONE
+#_069466: dw Sprite_EE_CastleMantle_bounce            ; 0xEE - CASTLE MANTLE
 #_069468: dw SomariaPlatformAndPipe_bounce            ; 0xEF - UNUSED SOMARIA PLATFORM
 #_06946A: dw SomariaPlatformAndPipe_bounce            ; 0xF0 - UNUSED SOMARIA PLATFORM
 #_06946C: dw SomariaPlatformAndPipe_bounce            ; 0xF1 - UNUSED SOMARIA PLATFORM
@@ -5143,7 +5145,7 @@ Sprite_18_MiniMoldorm:
 #_069816: LDA.w $0EA0,X
 #_069819: BEQ .not_recoiling
 
-#_06981B: JSR SpritePep_MiniMoldorm_bounce
+#_06981B: JSR SpritePrep_MiniMoldorm_bounce
 
 .not_recoiling
 #_06981E: JSR Sprite_CheckIfRecoiling_Bank06
@@ -7703,8 +7705,8 @@ BawkBawk:
 
 ;===================================================================================================
 
-Sprite_EE_CastleThrone_bounce:
-#_06A85B: JSL Sprite_EE_CastleThrone
+Sprite_EE_CastleMantle_bounce:
+#_06A85B: JSL Sprite_EE_CastleMantle
 
 #_06A85F: RTS
 
@@ -7747,7 +7749,7 @@ Sprite_3E_Hoarder:
 ;===================================================================================================
 
 Hoarder_Covered:
-#_06A87C: JSR SpriteDraw_RupeeCrab
+#_06A87C: JSR SpriteDraw_Hoarder
 #_06A87F: JSR Sprite_CheckIfActive_Bank06
 
 #_06A882: STZ.w $0DC0,X
@@ -8052,7 +8054,7 @@ Sprite_CheckIfLifted_permissive_long:
 
 ;===================================================================================================
 
-pool SpriteDraw_RupeeCrab
+pool SpriteDraw_Hoarder
 
 .offset_y
 #_06AA20: dw   0,   0,   0,  -3
@@ -8073,7 +8075,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-SpriteDraw_RupeeCrab:
+SpriteDraw_Hoarder:
 #_06AA50: JSR Sprite_PrepOAMCoord
 
 #_06AA53: LDA.w $0FC6
@@ -11309,7 +11311,7 @@ WaterSwitch_Main:
 #_06BB63: INC.b $92
 
 #_06BB65: LDA.w #$0013
-#_06BB68: %MVN($06, $00)
+#_06BB68: %MVN(WaterSwitch_OAMDataPointer>>16, $00) ; MVN $06, $00
 
 #_06BB6B: PLB
 
@@ -17375,7 +17377,7 @@ Sprite_CheckIfActive_Bank06:
 ;===================================================================================================
 SpriteDraw_IDtoClass:
 
-; 0x00 - 
+; 0x00 - TODO
 #_06DA11: db $A0, $A2, $A0, $A2
 #_06DA15: db $80, $82, $80, $82
 
@@ -17638,7 +17640,7 @@ SpriteDraw_IDtoClass:
 ; 0xE3 - Trinexx
 #_06DAF4: db $2C, $28, $06
 
-; 0xE6 - Bombshop guy
+; 0xE6 - Bomb shop guy
 #_06DAF7: db $DF, $CF, $A9
 
 ; 0xE9 - Shopkeeper
@@ -17759,10 +17761,10 @@ SpriteDraw_ClassToChar:
 #_06DB66: db $4A ; LOST WOODS SQUIRREL
 #_06DB67: db $65 ; SPARK
 #_06DB68: db $65 ; SPARK
-#_06DB69: db $00 ; ROLLER LONG VERTICAL
-#_06DB6A: db $00 ; ROLLER SHORT VERTICAL
-#_06DB6B: db $00 ; ROLLER LONG HORIZONTAL
-#_06DB6C: db $00 ; ROLLER SHORT HORIZONTAL
+#_06DB69: db $00 ; ROLLER VERTICAL UP
+#_06DB6A: db $00 ; ROLLER VERTICAL DOWN
+#_06DB6B: db $00 ; ROLLER HORIZONTAL LEFT
+#_06DB6C: db $00 ; ROLLER HORIZONTAL RIGHT
 #_06DB6D: db $00 ; BEAMOS
 #_06DB6E: db $8F ; MASTERSWORD
 #_06DB6F: db $00 ; DEBIRANDO PIT
@@ -17847,11 +17849,11 @@ SpriteDraw_ClassToChar:
 #_06DBBE: db $5C ; GOOD BEE
 #_06DBBF: db $00 ; PEDESTAL PLAQUE
 #_06DBC0: db $D6 ; PURPLE CHEST
-#_06DBC1: db $E6 ; BOMBSHOP GUY
+#_06DBC1: db $E6 ; BOMB SHOP GUY
 #_06DBC2: db $00 ; KIKI
 #_06DBC3: db $00 ; BLIND MAIDEN
 #_06DBC4: db $00 ; DIALOGUE TESTER
-#_06DBC5: db $DB ; BULLY AND PINK BALL
+#_06DBC5: db $DB ; BULLY / PINK BALL
 #_06DBC6: db $DA ; WHIRLPOOL
 #_06DBC7: db $E9 ; SHOPKEEPER / CHEST GAME GUY
 #_06DBC8: db $00 ; DRUNKARD
@@ -18456,7 +18458,7 @@ SpriteModule_Carried:
 
 #_06DE91: LDA.l $7FFA1C,X
 #_06DE95: CMP.b #$03
-#_06DE97: BEQ .frozen
+#_06DE97: BEQ .lifted
 
 #_06DE99: LDA.w $0DF0,X
 #_06DE9C: BNE .wait_for_timer
@@ -18479,7 +18481,7 @@ SpriteModule_Carried:
 .wait_for_timer
 #_06DEB5: BRA .continue
 
-.frozen
+.lifted
 #_06DEB7: LDA.w $0E60,X
 #_06DEBA: AND.b #$EF
 #_06DEBC: STA.w $0E60,X
@@ -18878,7 +18880,7 @@ SpriteModule_Stunned:
 
 #_06E0C4: RTS
 
-;===================================================================================================
+;---------------------------------------------------------------------------------------------------
 
 .not_pit_or_too_high
 #_06E0C5: CMP.b #$09
@@ -18992,18 +18994,18 @@ SpriteModule_Stunned:
 #_06E154: BNE .not_even_stunned
 
 #_06E156: LDA.l $7FFA3C,X
-#_06E15A: BEQ .leave_ok
+#_06E15A: BEQ .exit
 
 .not_even_stunned
 #_06E15C: JSR Sprite_CheckIfLifted
 
 #_06E15F: LDA.w $0E20,X
 #_06E162: CMP.b #!SPRITE_4A
-#_06E164: BEQ .leave_ok
+#_06E164: BEQ .exit
 
 #_06E166: JSR ThrownSprite_CheckDamageToSprites
 
-.leave_ok
+.exit
 #_06E169: RTS
 
 ;===================================================================================================
@@ -19479,7 +19481,7 @@ SpriteModule_Poof:
 #_06E3C7: BNE .no_forced_drop
 
 #_06E3C9: LDY.b #$02
-#_06E3CB: JMP.w ForceEnemySpawn
+#_06E3CB: JMP.w ForcePrizeDrop
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -22510,15 +22512,18 @@ Sprite_CheckDamageToLink:
 #_06F197: STZ.w $0DD0,X ; kill the sprite
 
 #_06F19A: LDA.b $2F ; get Link's direction
+
 #_06F19C: LDY.b $3C ; is sword out?
 #_06F19E: BEQ .sword_in
 
 #_06F1A0: LSR A
 #_06F1A1: TAY
+
 #_06F1A2: LDA.w Sprite_ToLink_Directions_standing,Y
 
 .sword_in
 #_06F1A5: LDY.w $0DE0,X ; sprite's direction
+
 #_06F1A8: CMP.w Sprite_ToLink_Directions_opposing2,Y
 #_06F1AB: BNE .definitely_getting_hit
 
@@ -24375,7 +24380,7 @@ Sprite_DoTheDeath:
 
 #_06F943: JSR PrepareEnemyDrop
 
-; TODO something with properties
+; saves shield level
 #_06F946: PLA
 #_06F947: STA.w $0E30,X
 
@@ -24477,9 +24482,8 @@ Sprite_DoTheDeath:
 #_06F9C0: BNE .you_dont_get_a_drop
 
 ;===================================================================================================
-; TODO may need more investigation?
-;===================================================================================================
-#ForceEnemySpawn:
+
+#ForcePrizeDrop:
 #_06F9C2: TYA
 
 ; Handle the prize pack
@@ -24496,6 +24500,7 @@ Sprite_DoTheDeath:
 #_06F9D0: STA.w $0FC7,Y
 
 #_06F9D3: PLY
+
 #_06F9D4: LDA.w PrizePackPrizes,Y
 
 ;===================================================================================================
@@ -24583,7 +24588,7 @@ Sprite_DoTheDeath:
 #_06FA48: CMP.b #!SPRITE_40
 #_06FA4A: BNE .not_kyameron
 
-#_06FA4C: LDA.b #$09 ; keep it alive 
+#_06FA4C: LDA.b #$09 ; keep it alive
 #_06FA4E: STA.w $0DD0,X
 
 #_06FA51: LDA.b #$04
@@ -24595,12 +24600,13 @@ Sprite_DoTheDeath:
 #_06FA59: RTS
 
 ;===================================================================================================
-ForceEnemySpawn_long:
+
+ForcePrizeDrop_long:
 #_06FA5A: PHB
 #_06FA5B: PHK
 #_06FA5C: PLB
 
-#_06FA5D: JSR ForceEnemySpawn
+#_06FA5D: JSR ForcePrizeDrop
 
 #_06FA60: PLB
 

@@ -11,179 +11,10 @@ SONG_POINTERS_AUX   = $2B00
 CREDITS_AUX_POINTER = $2900
 
 ;===================================================================================================
-; SPC registers
-;===================================================================================================
-TEST = $F0
-CONTROL = $F1
-DSPADDR = $F2
-DSPDATA = $F3
-CPUIO0 = $F4
-CPUIO1 = $F5
-CPUIO2 = $F6
-CPUIO3 = $F7
-AUXIO4 = $F8
-AUXIO5 = $F9
-T0DIV = $FA
-T1DIV = $FB
-T2DIV = $FC
-T0OUT = $FD
-T1OUT = $FE
-T2OUT = $FF
 
-;===================================================================================================
-; DSP registers
-;===================================================================================================
-VxVOLL = $00
-VxVOLR = $01
-VxPITCHL = $02
-VxPITCHH = $03
-VxSRCN = $04
-VxADSR1 = $05
-VxADSR2 = $06
-VxGAIN = $07
-VxENVX = $08
-VxOUTX = $09
+!CMD_00_PART_END = $00
 
-;---------------------------------------------------------------------------------------------------
-
-V0VOLL = $00
-V0VOLR = $01
-V0PITCHL = $02
-V0PITCHH = $03
-V0SRCN = $04
-V0ADSR1 = $05
-V0ADSR2 = $06
-V0GAIN = $07
-V0ENVX = $08
-V0OUTX = $09
-
-V1VOLL = $10
-V1VOLR = $11
-V1PITCHL = $12
-V1PITCHH = $13
-V1SRCN = $14
-V1ADSR1 = $15
-V1ADSR2 = $16
-V1GAIN = $17
-V1ENVX = $18
-V1OUTX = $19
-
-V2VOLL = $20
-V2VOLR = $21
-V2PITCHL = $22
-V2PITCHH = $23
-V2SRCN = $24
-V2ADSR1 = $25
-V2ADSR2 = $26
-V2GAIN = $27
-V2ENVX = $28
-V2OUTX = $29
-
-V3VOLL = $30
-V3VOLR = $31
-V3PITCHL = $32
-V3PITCHH = $33
-V3SRCN = $34
-V3ADSR1 = $35
-V3ADSR2 = $36
-V3GAIN = $37
-V3ENVX = $38
-V3OUTX = $39
-
-V4VOLL = $40
-V4VOLR = $41
-V4PITCHL = $42
-V4PITCHH = $43
-V4SRCN = $44
-V4ADSR1 = $45
-V4ADSR2 = $46
-V4GAIN = $47
-V4ENVX = $48
-V4OUTX = $49
-
-V5VOLL = $50
-V5VOLR = $51
-V5PITCHL = $52
-V5PITCHH = $53
-V5SRCN = $54
-V5ADSR1 = $55
-V5ADSR2 = $56
-V5GAIN = $57
-V5ENVX = $58
-V5OUTX = $59
-
-V6VOLL = $60
-V6VOLR = $61
-V6PITCHL = $62
-V6PITCHH = $63
-V6SRCN = $64
-V6ADSR1 = $65
-V6ADSR2 = $66
-V6GAIN = $67
-V6ENVX = $68
-V6OUTX = $69
-
-V7VOLL = $70
-V7VOLR = $71
-V7PITCHL = $72
-V7PITCHH = $73
-V7SRCN = $74
-V7ADSR1 = $75
-V7ADSR2 = $76
-V7GAIN = $77
-V7ENVX = $78
-V7OUTX = $79
-
-;---------------------------------------------------------------------------------------------------
-
-MVOLL = $0C ; main volume
-MVOLR = $1C
-EVOLL = $2C ; echo volume
-EVOLR = $3C
-KON = $4C ; key on bitfield - not an anime
-KOFF = $5C ; key off
-FLG = $6C ; flags for mute, echo, reset, noise
-	!DSP_FLG_RESET = $80
-	!DSP_FLG_MUTE = $40
-	!DSP_FLG_ECEN = $20
-ENDX = $7C ; bitfield
-EFB = $0D ; echo feedback
-PMON = $2D ; pitch modulation
-NON = $3D ; noise enable
-EON = $4D ; echo enable
-DIR = $5D ; $xx00 for SRCN directory
-ESA = $6D ; $xx00 for echo buffer
-EDL = $7D ; $0x echo delay
-FIR = $0F
-	!DSP_FIR_0 = $0F
-	!DSP_FIR_1 = $1F
-	!DSP_FIR_2 = $2F
-	!DSP_FIR_3 = $3F
-	!DSP_FIR_4 = $4F
-	!DSP_FIR_5 = $5F
-	!DSP_FIR_6 = $6F
-	!DSP_FIR_7 = $7F
-
-!DSP_CTRL_PORT_CLEAR_23 = $20
-!DSP_CTRL_PORT_CLEAR_01 = $10
-!DSP_CTRL_PORT_CLEAR_0123 #= !DSP_CTRL_PORT_CLEAR_23|!DSP_CTRL_PORT_CLEAR_01
-!DSP_CTRL_START_TIMER_2 = $04
-!DSP_CTRL_START_TIMER_1 = $02
-!DSP_CTRL_START_TIMER_0 = $01
-
-; $FFC0-$FFFF writes are always RAM
-!DSP_CTRL_ROM = $80 ; Reading $FFC0-$FFFF is ROM
-!DSP_CTRL_RAM = $00 ; Reading $FFC0-$FFFF is RAM
-
-;===================================================================================================
-
-!PART_END = $00
-!SONG_END = $0000
-!SONG_LOOP = $00FF
-!END_TRANSFER = $0000
-
-!TIE           = $C8
-!REST          = $C9
+!CMD_C8_TIE           = $C8
 
 !PERC_CA       = $CA
 !PERC_CB       = $CB
@@ -208,64 +39,34 @@ FIR = $0F
 !PERC_DE       = $DE
 !PERC_DF       = $DF
 
-!INSTR         = $E0
-!PAN           = $E1
-!PAN_GRAD      = $E2
-!VIBRATO       = $E3
-!VIBRATO_OFF   = $E4
-!MASTER_VOLUME = $E5
-!MVOL_GRAD     = $E6
-!TEMPO         = $E7
-!TEMPO_GRAD    = $E8
-!GLOBAL_TRANS  = $E9
-!TRANSPOSE     = $EA
-!TREMOLO       = $EB
-!TREMOLO_OFF   = $EC
-!VOLUME        = $ED
-!VOLUME_GRAD   = $EE
-!CALL_PART     = $EF
-!VIBRATO_GRAD  = $F0
-!SLIDE_TO      = $F1
-!SLIDE_FROM    = $F2
-!SLIDE_OFF     = $F3
-!TUNE          = $F4
-!ECHO_CONFIG   = $F5
-!ECHO_OFF      = $F6
-!ECHO_FILTER   = $F7
-!ECHO_GRAD     = $F8
-!SLIDE_ONCE    = $F9
-!SET_PERC      = $FA
-!SFX_LOOP      = $FF
-
-; instruments
-!NOISE = $00
-!RAIN = $01
-!TIMPANI = $02
-!SQUARE = $03
-!SAW = $04
-!CLINK = $05
-!2SAW_A = $06
-!2SAW_B = $07
-!TWEET = $08
-!STRINGS = $09
-!STRINGS2 = $0A
-!TROMBONE = $0B
-!CYMBAL = $0C
-!OCARINA = $0D
-!CHIMES = $0E
-!HARP = $0F
-!SPLASH = $10
-!TRUMPET = $11
-!HORN = $12
-!SNARE = $13
-!SNARE2 = $14
-!CHOIR = $15
-!FLUTE = $16
-!OOF = $17
-!GUITAR = $18
-!PIANO = !GUITAR
-
-function bpm(m) = 36864*m/60000
+!CMD_E0_INSTR         = $E0
+!CMD_E1_PAN           = $E1
+!CMD_E2_PAN_GRAD      = $E2
+!CMD_E3_VIBRATO       = $E3
+!CMD_E4_VIBRATO_OFF   = $E4
+!CMD_E5_MVOL          = $E5
+!CMD_E6_MVOL_GRAD     = $E6
+!CMD_E7_TEMPO         = $E7
+!CMD_E8_TEMPO_GRAD    = $E8
+!CMD_E9_GLOBAL_TRANS  = $E9
+!CMD_EA_TRANSPOSE     = $EA
+!CMD_EB_TREMOLO       = $EB
+!CMD_EC_TREMOLO_OFF   = $EC
+!CMD_ED_VOLUME        = $ED
+!CMD_EE_VOL_GRAD      = $EE
+!CMD_EF_CALL_PART     = $EF
+!CMD_F0_VIBRATO_GRAD  = $F0
+!CMD_F1_SLIDE_TO      = $F1
+!CMD_F2_SLIDE_FROM    = $F2
+!CMD_F3_SLIDE_OFF     = $F3
+!CMD_F4_TUNE          = $F4
+!CMD_F5_ECHO_CONFIG   = $F5
+!CMD_F6_ECHO_OFF      = $F6
+!CMD_F7_ECHO_CONFIG   = $F7
+!CMD_F8_ECHO_GRAD     = $F8
+!CMD_F9_SLIDE_ONCE    = $F9
+!CMD_FA_SET_PERC      = $FA
+!CMD_FF_SFX_LOOP      = $FF
 
 ;===================================================================================================
 ; notes

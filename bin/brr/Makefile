@@ -3,16 +3,15 @@ ROMFILE:=	../alttp.sfc
 BRRBINS:=	chime.brr		\
 			choir.brr		\
 			clink.brr		\
+			compoundsaw.brr	\
 			cymbal.brr		\
-			doublesawA.brr	\
-			doublesawB.brr	\
 			flute.brr		\
-			guitar.brr		\
 			harp.brr		\
 			horn.brr		\
 			noise.brr		\
 			ocarina.brr		\
 			oof.brr			\
+			piano.brr		\
 			rain.brr		\
 			saw.brr			\
 			snare.brr		\
@@ -22,7 +21,8 @@ BRRBINS:=	chime.brr		\
 			timpani.brr		\
 			trombone.brr	\
 			trumpet.brr		\
-			tweet.brr
+			tweet.brr		\
+			wobblylead.brr
 
 .PHONY: clean
 
@@ -48,11 +48,11 @@ cymbal.brr: $(ROMFILE)
 	@dd if=$< of=$@ bs=4096 skip=830795 count=3474 iflag=skip_bytes,count_bytes status=none
 
 # 0x0C94EE-0x0C9586
-doublesawA.brr: $(ROMFILE)
+wobblylead.brr: $(ROMFILE)
 	@dd if=$< of=$@ bs=4096 skip=824558 count=153 iflag=skip_bytes,count_bytes status=none
 
 # 0x0C9587-0x0C9628
-doublesawB.brr: $(ROMFILE)
+compoundsaw.brr: $(ROMFILE)
 	@dd if=$< of=$@ bs=4096 skip=824711 count=162 iflag=skip_bytes,count_bytes status=none
 
 # 0x0CEF2D-0x0CF163
@@ -60,7 +60,7 @@ flute.brr: $(ROMFILE)
 	@dd if=$< of=$@ bs=4096 skip=847661 count=567 iflag=skip_bytes,count_bytes status=none
 
 # 0x0CF3A4-0X0CFB17
-guitar.brr: $(ROMFILE)
+piano.brr: $(ROMFILE)
 	@dd if=$< of=$@ bs=4096 skip=848804 count=1908 iflag=skip_bytes,count_bytes status=none
 
 # 0x0CBD53-0x0CBF38

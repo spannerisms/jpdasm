@@ -1296,7 +1296,7 @@ JumpTableLocal:
 #_00878E: STA.b $01
 
 ; increment Y since return address was -1
-#_008790: INY 
+#_008790: INY
 
 ; read the 16-bit vector and save it over the first vector
 #_008791: LDA.b [$00],Y
@@ -1719,6 +1719,7 @@ SaveGameFile:
 #_008958: TAY
 
 #_008959: PHY
+
 #_00895A: LDX.w #$0000
 
 ;---------------------------------------------------------------------------------------------------
@@ -2115,6 +2116,7 @@ NMI_DoUpdates:
 #_008BAC: SEP #$10
 
 #_008BAE: STZ.b $15
+
 #_008BB0: STZ.w OAMADDR
 
 #_008BB3: LDA.w #$0400
@@ -3389,7 +3391,7 @@ WaterFlood_BuildOneQuadrantForVRAM_not_triggered:
 ; Usually seen used by the large block of memory at $7E:1000 or $7E:1100.
 ; $1000 is often used to preserve the current index of the block when writing arbitrary stripes.
 ; So the stripes may actually start at $1002.
-; 
+;
 ; Each stripe starts with a 16-bit header:
 ; DRLLLLLL LLLLLLLL
 ;   D - direction of stripe (0: horizontal | 1: vertical)
@@ -8760,21 +8762,63 @@ LoadFollowerGraphics:
 pool WriteTo4BPPBuffer
 
 .offsets
-#_00D4A9: dw $09C0, $0030, $0060, $0090
-#_00D4B1: dw $00C0, $0300, $0318, $0330
-#_00D4B9: dw $0348, $0360, $0378, $0390
-#_00D4C1: dw $0930, $03F0, $0420, $0450
-#_00D4C9: dw $0468, $0600, $0630, $0660
-#_00D4D1: dw $0690, $06C0, $06F0, $0720
-#_00D4D9: dw $0750, $0768, $0900, $0930
-#_00D4E1: dw $0960, $0990, $09F0, $0000
-#_00D4E9: dw $00F0, $0A20, $0A50, $0660
-#_00D4F1: dw $0600, $0618, $0630, $0648
-#_00D4F9: dw $0678, $06D8, $06A8, $0708
-#_00D501: dw $0738, $0768, $0960, $0900
-#_00D509: dw $03C0, $0990, $09A8, $09C0
-#_00D511: dw $09D8, $0A08, $0A38, $0600
-#_00D519: dw $0630
+#_00D4A9: dw $09C0 ; 0x00 - Full bottle
+#_00D4AB: dw $0030 ; 0x01 - 3 bombs
+#_00D4AD: dw $0060 ; 0x02 - 10 arrows
+#_00D4AF: dw $0090 ; 0x03 - Heart container
+#_00D4B1: dw $00C0 ; 0x04 - Mail
+#_00D4B3: dw $0300 ; 0x05 - Bow
+#_00D4B5: dw $0318 ; 0x06 - Fighter sword
+#_00D4B7: dw $0330 ; 0x07 - Cane
+#_00D4B9: dw $0348 ; 0x08 - Hookshot
+#_00D4BB: dw $0360 ; 0x09 - Rod
+#_00D4BD: dw $0378 ; 0x0A - Hammer
+#_00D4BF: dw $0390 ; 0x0B - Powder
+#_00D4C1: dw $0930 ; 0x0C - Flute
+#_00D4C3: dw $03F0 ; 0x0D - Glove
+#_00D4C5: dw $0420 ; 0x0E - Book
+#_00D4C7: dw $0450 ; 0x0F - Small key
+#_00D4C9: dw $0468 ; 0x10 - Boomerang
+#_00D4CB: dw $0600 ; 0x11 - Flippers
+#_00D4CD: dw $0630 ; 0x12 - Mirror
+#_00D4CF: dw $0660 ; 0x13 - Bomb
+#_00D4D1: dw $0690 ; 0x14 - Lamp
+#_00D4D3: dw $06C0 ; 0x15 - Cape
+#_00D4D5: dw $06F0 ; 0x16 - Compass
+#_00D4D7: dw $0720 ; 0x17 - Pearl
+#_00D4D9: dw $0750 ; 0x18 - Master sword
+#_00D4DB: dw $0768 ; 0x19 - Shovel
+#_00D4DD: dw $0900 ; 0x1A - Ether
+#_00D4DF: dw $0930 ; 0x1B - Bombos
+#_00D4E1: dw $0960 ; 0x1C - Quake
+#_00D4E3: dw $0990 ; 0x1D - Empty bottle
+#_00D4E5: dw $09F0 ; 0x1E - Mushroom
+#_00D4E7: dw $0000 ; 0x1F - Cauldron
+#_00D4E9: dw $00F0 ; 0x20 - Fire shield
+#_00D4EB: dw $0A20 ; 0x21 - Map
+#_00D4ED: dw $0A50 ; 0x22 - Big key
+#_00D4EF: dw $0660 ; 0x23 - Pendant
+#_00D4F1: dw $0600 ; 0x24 - Animated rupee
+#_00D4F3: dw $0618 ; 0x25 - Animated rupee
+#_00D4F5: dw $0630 ; 0x26 - Animated rupee
+#_00D4F7: dw $0648 ; 0x27 - Net
+#_00D4F9: dw $0678 ; 0x28 - Crystal
+#_00D4FB: dw $06D8 ; 0x29 - Tossed bow
+#_00D4FD: dw $06A8 ; 0x2A - Silvers
+#_00D4FF: dw $0708 ; 0x2B - Bottle with fairy
+#_00D501: dw $0738 ; 0x2C - Bottle with bee
+#_00D503: dw $0768 ; 0x2D - Fighter shield
+#_00D505: dw $0960 ; 0x2E - Mirror shield
+#_00D507: dw $0900 ; 0x2F - Heart piece
+#_00D509: dw $03C0 ; 0x30 - 10 bombs
+#_00D50B: dw $0990 ; 0x31 - Small heart
+#_00D50D: dw $09A8 ; 0x32 - Small magic
+#_00D50F: dw $09C0 ; 0x33 - 1 arrow
+#_00D511: dw $09D8 ; 0x34 - 100 rupees
+#_00D513: dw $0A08 ; 0x35 - 50 rupees
+#_00D515: dw $0A38 ; 0x36 - 300 rupees
+#_00D517: dw $0600 ; 0x37 - 20 rupees
+#_00D519: dw $0630 ; 0x38 - Boots
 
 pool off
 
@@ -15592,10 +15636,10 @@ Module0E_0B_SaveMenu:
 
 ;===================================================================================================
 ; TODO split by screen
-
+; TODO verify
 pool Sprite_LoadGraphicsProperties
 
-.chunk_a
+.sprite_set
 #_00FA41: db $00, $00, $00, $00, $00, $00, $00, $00
 #_00FA49: db $00, $00, $00, $00, $00, $00, $00, $00
 #_00FA51: db $00, $00, $00, $00, $00, $00, $00, $00
@@ -15604,6 +15648,7 @@ pool Sprite_LoadGraphicsProperties
 #_00FA69: db $00, $00, $00, $02, $02, $00, $00, $00
 #_00FA71: db $00, $00, $00, $00, $00, $00, $00, $00
 #_00FA79: db $00, $00, $00, $00, $00, $00, $00, $00
+
 #_00FA81: db $07, $07, $07, $10, $10, $10, $10, $10
 #_00FA89: db $07, $07, $07, $10, $10, $10, $10, $04
 #_00FA91: db $06, $06, $00, $03, $03, $00, $0D, $0A
@@ -15612,6 +15657,7 @@ pool Sprite_LoadGraphicsProperties
 #_00FAA9: db $06, $09, $0F, $00, $00, $0B, $0B, $05
 #_00FAB1: db $08, $08, $0A, $04, $04, $04, $04, $04
 #_00FAB9: db $08, $08, $0A, $04, $04, $04, $04, $04
+
 #_00FAC1: db $07, $07, $1A, $10, $10, $10, $10, $10
 #_00FAC9: db $07, $07, $1A, $10, $10, $10, $10, $04
 #_00FAD1: db $06, $06, $00, $03, $03, $00, $0D, $0A
@@ -15620,6 +15666,7 @@ pool Sprite_LoadGraphicsProperties
 #_00FAE9: db $06, $00, $0F, $00, $00, $23, $23, $05
 #_00FAF1: db $1F, $1F, $0A, $20, $20, $20, $20, $20
 #_00FAF9: db $1F, $1F, $0A, $20, $20, $20, $20, $20
+
 #_00FB01: db $13, $13, $17, $14, $14, $14, $14, $14
 #_00FB09: db $13, $13, $17, $14, $14, $14, $14, $16
 #_00FB11: db $15, $15, $12, $13, $13, $18, $16, $16
@@ -15629,7 +15676,7 @@ pool Sprite_LoadGraphicsProperties
 #_00FB31: db $16, $16, $13, $13, $13, $19, $19, $19
 #_00FB39: db $16, $16, $18, $13, $18, $19, $19, $19
 
-.chunk_b
+.palette
 #_00FB41: db $01, $01, $01, $01, $01, $01, $01, $01
 #_00FB49: db $01, $01, $01, $01, $01, $01, $01, $01
 #_00FB51: db $01, $01, $01, $01, $01, $01, $01, $01
@@ -15638,6 +15685,7 @@ pool Sprite_LoadGraphicsProperties
 #_00FB69: db $01, $01, $01, $01, $01, $01, $01, $01
 #_00FB71: db $01, $01, $01, $01, $01, $01, $01, $01
 #_00FB79: db $01, $01, $01, $01, $01, $01, $01, $01
+
 #_00FB81: db $05, $05, $06, $09, $09, $09, $09, $09
 #_00FB89: db $05, $05, $06, $09, $09, $09, $09, $03
 #_00FB91: db $01, $01, $00, $02, $02, $00, $06, $03
@@ -15646,6 +15694,7 @@ pool Sprite_LoadGraphicsProperties
 #_00FBA9: db $01, $00, $01, $00, $00, $03, $03, $07
 #_00FBB1: db $04, $04, $00, $03, $03, $03, $03, $03
 #_00FBB9: db $04, $04, $00, $03, $03, $03, $03, $03
+
 #_00FBC1: db $05, $05, $06, $09, $09, $09, $09, $09
 #_00FBC9: db $05, $05, $06, $09, $09, $09, $09, $03
 #_00FBD1: db $01, $01, $00, $02, $02, $00, $06, $03
@@ -15654,6 +15703,7 @@ pool Sprite_LoadGraphicsProperties
 #_00FBE9: db $01, $00, $01, $00, $00, $03, $03, $07
 #_00FBF1: db $04, $04, $00, $03, $03, $03, $03, $03
 #_00FBF9: db $04, $04, $00, $03, $03, $03, $03, $03
+
 #_00FC01: db $0E, $0E, $10, $0C, $0C, $0C, $0C, $0C
 #_00FC09: db $0E, $0E, $10, $0C, $0C, $0C, $0C, $0A
 #_00FC11: db $10, $10, $00, $0E, $0E, $00, $0D, $0A
@@ -15678,10 +15728,10 @@ Sprite_LoadGraphicsProperties:
 #_00FC49: LDX.w #$003E
 
 .next_a
-#_00FC4C: LDA.w .chunk_a,Y
+#_00FC4C: LDA.w .sprite_set,Y
 #_00FC4F: STA.l $7EFD00,X
 
-#_00FC53: LDA.w .chunk_b,Y
+#_00FC53: LDA.w .palette,Y
 #_00FC56: STA.l $7EFD80,X
 
 #_00FC5A: DEY
@@ -15722,10 +15772,10 @@ Sprite_LoadGraphicsProperties:
 #_00FC81: LDX.w #$003E
 
 .next_b
-#_00FC84: LDA.w .chunk_a,Y
+#_00FC84: LDA.w .sprite_set,Y
 #_00FC87: STA.l $7EFCC0,X
 
-#_00FC8B: LDA.w .chunk_b,Y
+#_00FC8B: LDA.w .palette,Y
 #_00FC8E: STA.l $7EFD40,X
 
 #_00FC92: DEY

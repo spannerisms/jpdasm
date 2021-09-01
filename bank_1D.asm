@@ -2341,7 +2341,7 @@ Ganon_HandleFireBatCircle:
 #_1D8D94: AND.w #$01FF
 #_1D8D97: STA.b $00
 
-#_1D8D99: LSR A ; x32
+#_1D8D99: LSR A ; /32
 #_1D8D9A: LSR A
 #_1D8D9B: LSR A
 #_1D8D9C: LSR A
@@ -3886,7 +3886,7 @@ Ganon_SelectWarpLocation:
 ;===================================================================================================
 
 Ganon_ShakeHead:
-#_1D94BA: LSR A ; x8
+#_1D94BA: LSR A ; /8
 #_1D94BB: LSR A
 #_1D94BC: LSR A
 #_1D94BD: TAY
@@ -8037,7 +8037,7 @@ Trinexx_RockHead_Phase1:
 #_1DB1F3: JSR Trinexx_HandleShellCollision
 #_1DB1F6: JSR Sprite_CheckDamageToAndFromLink_Bank1D
 
-; Look towards Link every 
+; Look towards Link every 64 frames
 #_1DB1F9: LDA.b $1A
 #_1DB1FB: AND.b #$3F
 #_1DB1FD: BNE .dont_track_link
@@ -19569,14 +19569,13 @@ SpriteDraw_LightningGate:
 
 ;===================================================================================================
 
-SpritePep_MiniMoldorm:
+SpritePrep_MiniMoldorm:
 #_1DF277: PHX
+
 #_1DF278: TXY
 
 #_1DF279: LDA.l SpriteSlotToSegmentOffset,X
 #_1DF27D: TAX
-
-;---------------------------------------------------------------------------------------------------
 
 #_1DF27E: LDA.b #$1F
 #_1DF280: STA.b $00
@@ -19598,8 +19597,6 @@ SpritePep_MiniMoldorm:
 
 #_1DF29F: DEC.b $00
 #_1DF2A1: BPL .next_segment
-
-;---------------------------------------------------------------------------------------------------
 
 #_1DF2A3: PLX
 
@@ -19669,8 +19666,6 @@ SpriteDraw_Antfairy:
 #_1DF3A3: ORA.w $0FC1
 #_1DF3A6: BNE .continue
 
-;---------------------------------------------------------------------------------------------------
-
 #_1DF3A8: INC.w $0DC0,X
 
 #_1DF3AB: LDA.w $0DC0,X
@@ -19679,8 +19674,6 @@ SpriteDraw_Antfairy:
 
 ; reset animation step
 #_1DF3B2: STZ.w $0DC0,X
-
-;---------------------------------------------------------------------------------------------------
 
 .continue
 #_1DF3B5: LDA.b #$00
@@ -19778,10 +19771,11 @@ Toppo_Flustered:
 #_1DF42C: JSL Sprite_SetSpawnedCoordinates
 
 #_1DF430: PHX
+
 #_1DF431: TYX
 
 #_1DF432: LDY.b #$06
-#_1DF434: JSL ForceEnemySpawn_long
+#_1DF434: JSL ForcePrizeDrop_long
 
 #_1DF438: PLX
 

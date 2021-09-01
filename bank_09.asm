@@ -6544,6 +6544,7 @@ Follower_CheckBlindTrigger:
 #_099EDA: SEP #$20
 
 #_099EDC: PLB
+
 #_099EDD: SEC
 
 #_099EDE: RTL
@@ -6554,6 +6555,7 @@ Follower_CheckBlindTrigger:
 #_099EDF: SEP #$20
 
 #_099EE1: PLB
+
 #_099EE2: CLC
 
 #_099EE3: RTL
@@ -9993,9 +9995,8 @@ Garnish_ExecuteSingle:
 ;---------------------------------------------------------------------------------------------------
 
 .dont_terminate
-; TODO terrible label name
 #_09B0DD: LDY.w $0FB3
-#_09B0E0: BEQ .not_sorted
+#_09B0E0: BEQ .ignore_layer
 
 #_09B0E2: LDA.l $7FF968,X
 #_09B0E6: BEQ .lower_layer
@@ -10023,7 +10024,7 @@ Garnish_ExecuteSingle:
 
 ;---------------------------------------------------------------------------------------------------
 
-.not_sorted
+.ignore_layer
 #_09B104: LDA.l $7FF800,X
 #_09B108: TAY
 
@@ -13259,7 +13260,7 @@ Overlord_CheckIfActive:
 #_09C0F6: LSR A
 #_09C0F7: LSR A
 #_09C0F8: CLC
-#_09C0F9: ADC.w #$EF80
+#_09C0F9: ADC.w #$7FEF80
 #_09C0FC: STA.b $01
 
 #_09C0FE: PLP
@@ -13316,7 +13317,7 @@ Underworld_ResetSprites:
 #_09C13D: BCC .next_overlord
 
 ;---------------------------------------------------------------------------------------------------
-
+; Shift visited rooms around. Delete last 4 rooms of sprite deaths.
 #_09C13F: LDA.w $0B86
 #_09C142: STA.b $00
 
@@ -13331,8 +13332,6 @@ Underworld_ResetSprites:
 
 #_09C156: LDA.w $048E
 #_09C159: STA.w $0B80
-
-;---------------------------------------------------------------------------------------------------
 
 #_09C15C: REP #$10
 
@@ -13580,12 +13579,12 @@ Underworld_LoadSprites:
 #_09C2A4: AND.b #$FE
 #_09C2A6: STA.w $0FB1
 
-#_09C2A9: LDA.w $048E ; Room%16 for coords
+#_09C2A9: LDA.w $048E ; Room mod16 for coords
 #_09C2AC: AND.b #$0F
 #_09C2AE: ASL A
 #_09C2AF: STA.w $0FB0
 
-#_09C2B2: LDA.b ($00) ; first byte is "sorted"
+#_09C2B2: LDA.b ($00) ; first byte is OAM layering
 #_09C2B4: STA.w $0FB3
 
 #_09C2B7: LDA.b #$01
@@ -13672,7 +13671,7 @@ Sprite_ManuallySetDeathFlagUW:
 #_09C326: RTL
 
 ;===================================================================================================
-; After the initial byte for "sort" TODO bad name
+; After the initial byte for OAM layering
 ;===================================================================================================
 Underworld_LoadSingleSprite:
 #_09C327: INY ; Get sprite ID
@@ -14558,7 +14557,7 @@ Overworld_LoadSingleSprite:
 #_09C784: BEQ .check_slot
 
 ; Checked twice - this condition is never satisfied
-#_09C786: LDX.b #$0D 
+#_09C786: LDX.b #$0D
 #_09C788: CMP.b #!SPRITE_57+1
 #_09C78A: BEQ .slot14
 
@@ -14760,7 +14759,7 @@ InitSpawnedOevrlord:
 
 ;===================================================================================================
 ; Each sprite has 3 bytes of data
-; The list is terminated when byte 1 is 0xFF
+; The list is terminated when byte 0 is 0xFF
 ;
 ; db Y, X, I
 ;   Y and X are coordinates from the top-left of the screen
@@ -14907,8 +14906,8 @@ Overworld_SpritePointers:
 #_09C983: dw Overworld_Sprites_Screen42     ; 41 - Skull Woods
 #_09C985: dw Overworld_Sprites_Screen42     ; 42 - Dark Lumberjacks
 #_09C987: dw Overworld_Sprites_Screen43     ; 43 - West Dark Death Mountain
-#_09C989: dw Overworld_Sprites_Screen44     ; 44 - West Dark Death Mountain
-#_09C98B: dw Overworld_Sprites_Screen44     ; 45 - East Dark Death Mountain
+#_09C989: dw Overworld_Sprites_Screen45     ; 44 - West Dark Death Mountain
+#_09C98B: dw Overworld_Sprites_Screen45     ; 45 - East Dark Death Mountain
 #_09C98D: dw Overworld_Sprites_EMPTY        ; 46 - East Dark Death Mountain
 #_09C98F: dw Overworld_Sprites_Screen47     ; 47 - Turtle Rock
 #_09C991: dw Overworld_Sprites_EMPTY        ; 48 - Skull Woods
@@ -15055,8 +15054,8 @@ Overworld_SpritePointers:
 #_09CAA3: dw Overworld_Sprites_Screen42     ; 41 - Skull Woods
 #_09CAA5: dw Overworld_Sprites_Screen42     ; 42 - Dark Lumberjacks
 #_09CAA7: dw Overworld_Sprites_Screen43     ; 43 - West Dark Death Mountain
-#_09CAA9: dw Overworld_Sprites_Screen44     ; 44 - West Dark Death Mountain
-#_09CAAB: dw Overworld_Sprites_Screen44     ; 45 - East Dark Death Mountain
+#_09CAA9: dw Overworld_Sprites_Screen45     ; 44 - West Dark Death Mountain
+#_09CAAB: dw Overworld_Sprites_Screen45     ; 45 - East Dark Death Mountain
 #_09CAAD: dw Overworld_Sprites_EMPTY        ; 46 - East Dark Death Mountain
 #_09CAAF: dw Overworld_Sprites_Screen47     ; 47 - Turtle Rock
 #_09CAB1: dw Overworld_Sprites_EMPTY        ; 48 - Skull Woods
@@ -15222,7 +15221,7 @@ Overworld_Sprites_Screen43:
 
 ;===================================================================================================
 
-Overworld_Sprites_Screen44:
+Overworld_Sprites_Screen45:
 #_09CBCB: db $0C, $06, !SPRITE_D0 ; yx:{ 0x0C0, 0x060 }
 #_09CBCE: db $0E, $1D, !SPRITE_D0 ; yx:{ 0x0E0, 0x1D0 }
 #_09CBD1: db $0B, $20, !SPRITE_D0 ; yx:{ 0x0B0, 0x200 }
@@ -16658,8 +16657,8 @@ Overworld_Sprites_Screen3F_2:
 #_09D62D: db $FF ; END
 
 ;===================================================================================================
-; Each room begins with 1 byte to designate "sort" TODO DUMB RENAME
-; following that, each sprite has 3 bytes of data
+; Each room begins with 1 byte to designate the layering of OAM allocation.
+; Following that, each sprite has 3 bytes of data
 ; The list is terminated when byte 1 is 0xFF
 ;
 ; lssyyyyy
@@ -16669,11 +16668,11 @@ Overworld_Sprites_Screen3F_2:
 ;   y - y coordinate of sprite, in multiples of 16
 ;   l - sprite layer ( 0: upper | 1: lower )
 ;   i - sprite ID
-;   s - subtype part 1
-;   t - subtype part 2
+;   s - aux part 1
+;   t - aux part 2
 ;       if every bit of t is set, then the entry corresponds to an overlord
 ;
-;   s and t form a 5 bit subtype written to $0E30,X
+;   s and t form a 5 bit auxiliary value written to $0E30,X
 ;     ...ssttt
 ;
 ; For entries with ID 0xE4, byte 1 doubles as a flag
@@ -16686,7 +16685,7 @@ Overworld_Sprites_Screen3F_2:
 ; where:
 ;   X and Y are pixel coordinates relative to the room's top-left corner
 ;   Z is the layer ( U: upper layer | L: lower layer)
-;   S is the subtype
+;   S is the auxiliary value
 ;===================================================================================================
 RoomData_SpritePointers:
 #_09D62E: dw RoomData_Sprites_Room0000
@@ -17077,14 +17076,14 @@ RoomData_SpritePointers:
 ;===================================================================================================
 
 RoomData_Sprites_Room0000:
-#_09D92E: db $00 ; Unsorted
+#_09D92E: db $00 ; Unlayered OAM
 #_09D92F: db $05, $17, !SPRITE_D6   ; xyz:{ 0x170, 0x050, U } | s: 0x00
 #_09D932: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0002:
-#_09D933: db $00 ; Unsorted
+#_09D933: db $00 ; Unlayered OAM
 #_09D934: db $85, $12, !SPRITE_6D   ; xyz:{ 0x120, 0x050, L } | s: 0x00
 #_09D937: db $86, $15, !SPRITE_6D   ; xyz:{ 0x150, 0x060, L } | s: 0x00
 #_09D93A: db $88, $0F, !SPRITE_6D   ; xyz:{ 0x0F0, 0x080, L } | s: 0x00
@@ -17106,7 +17105,7 @@ RoomData_Sprites_Room0002:
 ;===================================================================================================
 
 RoomData_Sprites_Room0004:
-#_09D965: db $00 ; Unsorted
+#_09D965: db $00 ; Unlayered OAM
 #_09D966: db $04, $09, !SPRITE_1E   ; xyz:{ 0x090, 0x040, U } | s: 0x00
 #_09D969: db $04, $14, !SPRITE_5D   ; xyz:{ 0x140, 0x040, U } | s: 0x00
 #_09D96C: db $04, $1B, !SPRITE_60   ; xyz:{ 0x1B0, 0x040, U } | s: 0x00
@@ -17128,7 +17127,7 @@ RoomData_Sprites_Room0004:
 ;===================================================================================================
 
 RoomData_Sprites_Room0006:
-#_09D997: db $00 ; Unsorted
+#_09D997: db $00 ; Unlayered OAM
 #_09D998: db $17, $07, !SPRITE_8C   ; xyz:{ 0x070, 0x170, U } | s: 0x00
 #_09D99B: db $17, $07, !SPRITE_8D   ; xyz:{ 0x070, 0x170, U } | s: 0x00
 #_09D99E: db $17, $07, !SPRITE_8D   ; xyz:{ 0x070, 0x170, U } | s: 0x00
@@ -17148,21 +17147,21 @@ RoomData_Sprites_Room0006:
 ;===================================================================================================
 
 RoomData_Sprites_Room0007:
-#_09D9C3: db $00 ; Unsorted
+#_09D9C3: db $00 ; Unlayered OAM
 #_09D9C4: db $0E, $12, !SPRITE_09   ; xyz:{ 0x120, 0x0E0, U } | s: 0x00
 #_09D9C7: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0008:
-#_09D9C8: db $00 ; Unsorted
+#_09D9C8: db $00 ; Unlayered OAM
 #_09D9C9: db $16, $07, !SPRITE_C8   ; xyz:{ 0x070, 0x160, U } | s: 0x00
 #_09D9CC: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0009:
-#_09D9CD: db $00 ; Unsorted
+#_09D9CD: db $00 ; Unlayered OAM
 #_09D9CE: db $08, $07, !SPRITE_C5   ; xyz:{ 0x070, 0x080, U } | s: 0x00
 #_09D9D1: db $08, $08, !SPRITE_C5   ; xyz:{ 0x080, 0x080, U } | s: 0x00
 #_09D9D4: db $0B, $17, !SPRITE_15   ; xyz:{ 0x170, 0x0B0, U } | s: 0x00
@@ -17171,7 +17170,7 @@ RoomData_Sprites_Room0009:
 ;===================================================================================================
 
 RoomData_Sprites_Room000A:
-#_09D9D8: db $00 ; Unsorted
+#_09D9D8: db $00 ; Unlayered OAM
 #_09D9D9: db $08, $17, !SPRITE_8E   ; xyz:{ 0x170, 0x080, U } | s: 0x00
 #_09D9DC: db $09, $17, !SPRITE_8E   ; xyz:{ 0x170, 0x090, U } | s: 0x00
 #_09D9DF: db $09, $ED, !OVERLORD_05 ; xyz:{ 0x0D0, 0x090, U }
@@ -17184,7 +17183,7 @@ RoomData_Sprites_Room000A:
 ;===================================================================================================
 
 RoomData_Sprites_Room000B:
-#_09D9EF: db $00 ; Unsorted
+#_09D9EF: db $00 ; Unlayered OAM
 #_09D9F0: db $04, $1C, !SPRITE_1E   ; xyz:{ 0x1C0, 0x040, U } | s: 0x00
 #_09D9F3: db $08, $07, !SPRITE_8E   ; xyz:{ 0x070, 0x080, U } | s: 0x00
 #_09D9F6: db $0B, $16, !SPRITE_8E   ; xyz:{ 0x160, 0x0B0, U } | s: 0x00
@@ -17200,14 +17199,14 @@ RoomData_Sprites_Room000B:
 ;===================================================================================================
 
 RoomData_Sprites_Room000D:
-#_09DA0F: db $00 ; Unsorted
+#_09DA0F: db $00 ; Unlayered OAM
 #_09DA10: db $15, $07, !SPRITE_7A   ; xyz:{ 0x070, 0x150, U } | s: 0x00
 #_09DA13: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room000E:
-#_09DA14: db $00 ; Unsorted
+#_09DA14: db $00 ; Unlayered OAM
 #_09DA15: db $12, $16, !SPRITE_A1   ; xyz:{ 0x160, 0x120, U } | s: 0x00
 #_09DA18: db $16, $05, !SPRITE_24   ; xyz:{ 0x050, 0x160, U } | s: 0x00
 #_09DA1B: db $18, $05, !SPRITE_24   ; xyz:{ 0x050, 0x180, U } | s: 0x00
@@ -17218,7 +17217,7 @@ RoomData_Sprites_Room000E:
 ;===================================================================================================
 
 RoomData_Sprites_Room0011:
-#_09DA25: db $00 ; Unsorted
+#_09DA25: db $00 ; Unlayered OAM
 #_09DA26: db $0A, $17, !SPRITE_6D   ; xyz:{ 0x170, 0x0A0, U } | s: 0x00
 #_09DA29: db $0A, $18, !SPRITE_6D   ; xyz:{ 0x180, 0x0A0, U } | s: 0x00
 #_09DA2C: db $0C, $17, !SPRITE_6F   ; xyz:{ 0x170, 0x0C0, U } | s: 0x00
@@ -17232,7 +17231,7 @@ RoomData_Sprites_Room0011:
 ;===================================================================================================
 
 RoomData_Sprites_Room0012:
-#_09DA3F: db $00 ; Unsorted
+#_09DA3F: db $00 ; Unlayered OAM
 #_09DA40: db $07, $0F, !SPRITE_73   ; xyz:{ 0x0F0, 0x070, U } | s: 0x00
 #_09DA43: db $06, $10, !SPRITE_76   ; xyz:{ 0x100, 0x060, U } | s: 0x00
 #_09DA46: db $FF ; END
@@ -17240,7 +17239,7 @@ RoomData_Sprites_Room0012:
 ;===================================================================================================
 
 RoomData_Sprites_Room0013:
-#_09DA47: db $00 ; Unsorted
+#_09DA47: db $00 ; Unlayered OAM
 #_09DA48: db $11, $14, !SPRITE_1E   ; xyz:{ 0x140, 0x110, U } | s: 0x00
 #_09DA4B: db $04, $18, !SPRITE_15   ; xyz:{ 0x180, 0x040, U } | s: 0x00
 #_09DA4E: db $04, $1A, !SPRITE_15   ; xyz:{ 0x1A0, 0x040, U } | s: 0x00
@@ -17257,7 +17256,7 @@ RoomData_Sprites_Room0013:
 ;===================================================================================================
 
 RoomData_Sprites_Room0014:
-#_09DA6A: db $01 ; Sorted
+#_09DA6A: db $01 ; Layered OAM
 #_09DA6B: db $84, $0C, !SPRITE_B0   ; xyz:{ 0x0C0, 0x040, L } | s: 0x00
 #_09DA6E: db $8A, $0F, !SPRITE_AF   ; xyz:{ 0x0F0, 0x0A0, L } | s: 0x00
 #_09DA71: db $8A, $19, !SPRITE_AE   ; xyz:{ 0x190, 0x0A0, L } | s: 0x00
@@ -17273,7 +17272,7 @@ RoomData_Sprites_Room0014:
 ;===================================================================================================
 
 RoomData_Sprites_Room0015:
-#_09DA8A: db $01 ; Sorted
+#_09DA8A: db $01 ; Layered OAM
 #_09DA8B: db $8C, $04, !SPRITE_AE   ; xyz:{ 0x040, 0x0C0, L } | s: 0x00
 #_09DA8E: db $91, $11, !SPRITE_AE   ; xyz:{ 0x110, 0x110, L } | s: 0x00
 #_09DA91: db $97, $04, !SPRITE_AF   ; xyz:{ 0x040, 0x170, L } | s: 0x00
@@ -17289,7 +17288,7 @@ RoomData_Sprites_Room0015:
 ;===================================================================================================
 
 RoomData_Sprites_Room0016:
-#_09DAAA: db $00 ; Unsorted
+#_09DAAA: db $00 ; Unlayered OAM
 #_09DAAB: db $07, $15, !SPRITE_8F   ; xyz:{ 0x150, 0x070, U } | s: 0x00
 #_09DAAE: db $08, $15, !SPRITE_8F   ; xyz:{ 0x150, 0x080, U } | s: 0x00
 #_09DAB1: db $09, $15, !SPRITE_24   ; xyz:{ 0x150, 0x090, U } | s: 0x00
@@ -17302,7 +17301,7 @@ RoomData_Sprites_Room0016:
 ;===================================================================================================
 
 RoomData_Sprites_Room0017:
-#_09DAC1: db $00 ; Unsorted
+#_09DAC1: db $00 ; Unlayered OAM
 #_09DAC2: db $0B, $07, !SPRITE_93   ; xyz:{ 0x070, 0x0B0, U } | s: 0x00
 #_09DAC5: db $0E, $10, !SPRITE_93   ; xyz:{ 0x100, 0x0E0, U } | s: 0x00
 #_09DAC8: db $16, $07, !SPRITE_93   ; xyz:{ 0x070, 0x160, U } | s: 0x00
@@ -17317,7 +17316,7 @@ RoomData_Sprites_Room0017:
 ;===================================================================================================
 
 RoomData_Sprites_Room0019:
-#_09DADE: db $00 ; Unsorted
+#_09DADE: db $00 ; Unlayered OAM
 #_09DADF: db $0A, $16, !SPRITE_86   ; xyz:{ 0x160, 0x0A0, U } | s: 0x00
 #_09DAE2: db $0E, $1A, !SPRITE_86   ; xyz:{ 0x1A0, 0x0E0, U } | s: 0x00
 #_09DAE5: db $10, $16, !SPRITE_86   ; xyz:{ 0x160, 0x100, U } | s: 0x00
@@ -17327,7 +17326,7 @@ RoomData_Sprites_Room0019:
 ;===================================================================================================
 
 RoomData_Sprites_Room001A:
-#_09DAEC: db $00 ; Unsorted
+#_09DAEC: db $00 ; Unlayered OAM
 #_09DAED: db $06, $08, !SPRITE_13   ; xyz:{ 0x080, 0x060, U } | s: 0x00
 #_09DAF0: db $06, $16, !SPRITE_8E   ; xyz:{ 0x160, 0x060, U } | s: 0x00
 #_09DAF3: db $06, $19, !SPRITE_8E   ; xyz:{ 0x190, 0x060, U } | s: 0x00
@@ -17344,7 +17343,7 @@ RoomData_Sprites_Room001A:
 ;===================================================================================================
 
 RoomData_Sprites_Room001B:
-#_09DB0F: db $00 ; Unsorted
+#_09DB0F: db $00 ; Unlayered OAM
 #_09DB10: db $04, $07, !SPRITE_1E   ; xyz:{ 0x070, 0x040, U } | s: 0x00
 #_09DB13: db $04, $10, !SPRITE_38   ; xyz:{ 0x100, 0x040, U } | s: 0x00
 #_09DB16: db $0C, $03, !SPRITE_8A   ; xyz:{ 0x030, 0x0C0, U } | s: 0x00
@@ -17356,7 +17355,7 @@ RoomData_Sprites_Room001B:
 ;===================================================================================================
 
 RoomData_Sprites_Room001C:
-#_09DB23: db $00 ; Unsorted
+#_09DB23: db $00 ; Unlayered OAM
 #_09DB24: db $15, $14, !SPRITE_53   ; xyz:{ 0x140, 0x150, U } | s: 0x00
 #_09DB27: db $15, $17, !SPRITE_53   ; xyz:{ 0x170, 0x150, U } | s: 0x00
 #_09DB2A: db $15, $1A, !SPRITE_53   ; xyz:{ 0x1A0, 0x150, U } | s: 0x00
@@ -17373,7 +17372,7 @@ RoomData_Sprites_Room001C:
 ;===================================================================================================
 
 RoomData_Sprites_Room001E:
-#_09DB46: db $00 ; Unsorted
+#_09DB46: db $00 ; Unlayered OAM
 #_09DB47: db $09, $1A, !SPRITE_1E   ; xyz:{ 0x1A0, 0x090, U } | s: 0x00
 #_09DB4A: db $05, $16, !SPRITE_23   ; xyz:{ 0x160, 0x050, U } | s: 0x00
 #_09DB4D: db $05, $19, !SPRITE_23   ; xyz:{ 0x190, 0x050, U } | s: 0x00
@@ -17386,7 +17385,7 @@ RoomData_Sprites_Room001E:
 ;===================================================================================================
 
 RoomData_Sprites_Room001F:
-#_09DB5D: db $00 ; Unsorted
+#_09DB5D: db $00 ; Unlayered OAM
 #_09DB5E: db $15, $04, !SPRITE_99   ; xyz:{ 0x040, 0x150, U } | s: 0x00
 #_09DB61: db $15, $09, !SPRITE_99   ; xyz:{ 0x090, 0x150, U } | s: 0x00
 #_09DB64: db $16, $06, !SPRITE_15   ; xyz:{ 0x060, 0x160, U } | s: 0x00
@@ -17400,14 +17399,14 @@ RoomData_Sprites_Room001F:
 ;===================================================================================================
 
 RoomData_Sprites_Room0020:
-#_09DB77: db $00 ; Unsorted
+#_09DB77: db $00 ; Unlayered OAM
 #_09DB78: db $15, $07, !SPRITE_7A   ; xyz:{ 0x070, 0x150, U } | s: 0x00
 #_09DB7B: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0021:
-#_09DB7C: db $00 ; Unsorted
+#_09DB7C: db $00 ; Unlayered OAM
 #_09DB7D: db $06, $05, !SPRITE_6D   ; xyz:{ 0x050, 0x060, U } | s: 0x00
 #_09DB80: db $FE, $00, !SPRITE_E4   ; small key on above sprite
 #_09DB83: db $06, $17, !SPRITE_6F   ; xyz:{ 0x170, 0x060, U } | s: 0x00
@@ -17425,7 +17424,7 @@ RoomData_Sprites_Room0021:
 ;===================================================================================================
 
 RoomData_Sprites_Room0022:
-#_09DBA2: db $00 ; Unsorted
+#_09DBA2: db $00 ; Unlayered OAM
 #_09DBA3: db $14, $06, !SPRITE_6D   ; xyz:{ 0x060, 0x140, U } | s: 0x00
 #_09DBA6: db $14, $08, !SPRITE_6D   ; xyz:{ 0x080, 0x140, U } | s: 0x00
 #_09DBA9: db $14, $11, !SPRITE_6D   ; xyz:{ 0x110, 0x140, U } | s: 0x00
@@ -17438,7 +17437,7 @@ RoomData_Sprites_Room0022:
 ;===================================================================================================
 
 RoomData_Sprites_Room0023:
-#_09DBB9: db $00 ; Unsorted
+#_09DBB9: db $00 ; Unlayered OAM
 #_09DBBA: db $14, $15, !SPRITE_97   ; xyz:{ 0x150, 0x140, U } | s: 0x00
 #_09DBBD: db $14, $16, !SPRITE_97   ; xyz:{ 0x160, 0x140, U } | s: 0x00
 #_09DBC0: db $14, $17, !SPRITE_97   ; xyz:{ 0x170, 0x140, U } | s: 0x00
@@ -17449,7 +17448,7 @@ RoomData_Sprites_Room0023:
 ;===================================================================================================
 
 RoomData_Sprites_Room0024:
-#_09DBCA: db $00 ; Unsorted
+#_09DBCA: db $00 ; Unlayered OAM
 #_09DBCB: db $04, $13, !SPRITE_C5   ; xyz:{ 0x130, 0x040, U } | s: 0x00
 #_09DBCE: db $04, $1C, !SPRITE_C5   ; xyz:{ 0x1C0, 0x040, U } | s: 0x00
 #_09DBD1: db $06, $1B, !SPRITE_60   ; xyz:{ 0x1B0, 0x060, U } | s: 0x00
@@ -17462,13 +17461,13 @@ RoomData_Sprites_Room0024:
 ;===================================================================================================
 
 RoomData_Sprites_Room0025:
-#_09DBE1: db $00 ; Unsorted
+#_09DBE1: db $00 ; Unlayered OAM
 #_09DBE2: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0026:
-#_09DBE3: db $00 ; Unsorted
+#_09DBE3: db $00 ; Unlayered OAM
 #_09DBE4: db $04, $03, !SPRITE_C5   ; xyz:{ 0x030, 0x040, U } | s: 0x00
 #_09DBE7: db $05, $1A, !SPRITE_23   ; xyz:{ 0x1A0, 0x050, U } | s: 0x00
 #_09DBEA: db $06, $05, !SPRITE_23   ; xyz:{ 0x050, 0x060, U } | s: 0x00
@@ -17486,7 +17485,7 @@ RoomData_Sprites_Room0026:
 ;===================================================================================================
 
 RoomData_Sprites_Room0027:
-#_09DC09: db $00 ; Unsorted
+#_09DC09: db $00 ; Unlayered OAM
 #_09DC0A: db $09, $17, !SPRITE_18   ; xyz:{ 0x170, 0x090, U } | s: 0x00
 #_09DC0D: db $13, $18, !SPRITE_18   ; xyz:{ 0x180, 0x130, U } | s: 0x00
 #_09DC10: db $13, $1B, !SPRITE_18   ; xyz:{ 0x1B0, 0x130, U } | s: 0x00
@@ -17499,7 +17498,7 @@ RoomData_Sprites_Room0027:
 ;===================================================================================================
 
 RoomData_Sprites_Room0028:
-#_09DC20: db $00 ; Unsorted
+#_09DC20: db $00 ; Unlayered OAM
 #_09DC21: db $06, $0A, !SPRITE_9A   ; xyz:{ 0x0A0, 0x060, U } | s: 0x00
 #_09DC24: db $08, $08, !SPRITE_81   ; xyz:{ 0x080, 0x080, U } | s: 0x00
 #_09DC27: db $0A, $0B, !SPRITE_81   ; xyz:{ 0x0B0, 0x0A0, U } | s: 0x00
@@ -17510,7 +17509,7 @@ RoomData_Sprites_Room0028:
 ;===================================================================================================
 
 RoomData_Sprites_Room0029:
-#_09DC31: db $00 ; Unsorted
+#_09DC31: db $00 ; Unlayered OAM
 #_09DC32: db $16, $18, !SPRITE_88   ; xyz:{ 0x180, 0x160, U } | s: 0x00
 #_09DC35: db $16, $E7, !OVERLORD_07 ; xyz:{ 0x070, 0x160, U }
 #_09DC38: db $FF ; END
@@ -17518,7 +17517,7 @@ RoomData_Sprites_Room0029:
 ;===================================================================================================
 
 RoomData_Sprites_Room002A:
-#_09DC39: db $00 ; Unsorted
+#_09DC39: db $00 ; Unlayered OAM
 #_09DC3A: db $17, $10, !SPRITE_1E   ; xyz:{ 0x100, 0x170, U } | s: 0x00
 #_09DC3D: db $0F, $0F, !SPRITE_93   ; xyz:{ 0x0F0, 0x0F0, U } | s: 0x00
 #_09DC40: db $08, $0D, !SPRITE_26   ; xyz:{ 0x0D0, 0x080, U } | s: 0x00
@@ -17532,7 +17531,7 @@ RoomData_Sprites_Room002A:
 ;===================================================================================================
 
 RoomData_Sprites_Room002B:
-#_09DC53: db $00 ; Unsorted
+#_09DC53: db $00 ; Unlayered OAM
 #_09DC54: db $11, $0A, !SPRITE_1E   ; xyz:{ 0x0A0, 0x110, U } | s: 0x00
 #_09DC57: db $0A, $0A, !SPRITE_1C   ; xyz:{ 0x0A0, 0x0A0, U } | s: 0x00
 #_09DC5A: db $17, $07, !SPRITE_23   ; xyz:{ 0x070, 0x170, U } | s: 0x00
@@ -17546,7 +17545,7 @@ RoomData_Sprites_Room002B:
 ;===================================================================================================
 
 RoomData_Sprites_Room002C:
-#_09DC6D: db $00 ; Unsorted
+#_09DC6D: db $00 ; Unlayered OAM
 #_09DC6E: db $05, $17, !SPRITE_C8   ; xyz:{ 0x170, 0x050, U } | s: 0x00
 #_09DC71: db $04, $09, !SPRITE_E3   ; xyz:{ 0x090, 0x040, U } | s: 0x00
 #_09DC74: db $05, $06, !SPRITE_E3   ; xyz:{ 0x060, 0x050, U } | s: 0x00
@@ -17556,7 +17555,7 @@ RoomData_Sprites_Room002C:
 ;===================================================================================================
 
 RoomData_Sprites_Room002E:
-#_09DC7B: db $00 ; Unsorted
+#_09DC7B: db $00 ; Unlayered OAM
 #_09DC7C: db $06, $14, !SPRITE_99   ; xyz:{ 0x140, 0x060, U } | s: 0x00
 #_09DC7F: db $06, $1C, !SPRITE_99   ; xyz:{ 0x1C0, 0x060, U } | s: 0x00
 #_09DC82: db $08, $16, !SPRITE_99   ; xyz:{ 0x160, 0x080, U } | s: 0x00
@@ -17568,14 +17567,14 @@ RoomData_Sprites_Room002E:
 ;===================================================================================================
 
 RoomData_Sprites_Room0030:
-#_09DC8F: db $00 ; Unsorted
+#_09DC8F: db $00 ; Unlayered OAM
 #_09DC90: db $05, $07, !SPRITE_C1   ; xyz:{ 0x070, 0x050, U } | s: 0x00
 #_09DC93: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0031:
-#_09DC94: db $00 ; Unsorted
+#_09DC94: db $00 ; Unlayered OAM
 #_09DC95: db $1A, $18, !SPRITE_1E   ; xyz:{ 0x180, 0x1A0, U } | s: 0x00
 #_09DC98: db $0B, $16, !SPRITE_1E   ; xyz:{ 0x160, 0x0B0, U } | s: 0x00
 #_09DC9B: db $05, $15, !SPRITE_26   ; xyz:{ 0x150, 0x050, U } | s: 0x00
@@ -17593,7 +17592,7 @@ RoomData_Sprites_Room0031:
 ;===================================================================================================
 
 RoomData_Sprites_Room0032:
-#_09DCBA: db $00 ; Unsorted
+#_09DCBA: db $00 ; Unlayered OAM
 #_09DCBB: db $0D, $0B, !SPRITE_6F   ; xyz:{ 0x0B0, 0x0D0, U } | s: 0x00
 #_09DCBE: db $0D, $0F, !SPRITE_6E   ; xyz:{ 0x0F0, 0x0D0, U } | s: 0x00
 #_09DCC1: db $0D, $13, !SPRITE_6F   ; xyz:{ 0x130, 0x0D0, U } | s: 0x00
@@ -17604,7 +17603,7 @@ RoomData_Sprites_Room0032:
 ;===================================================================================================
 
 RoomData_Sprites_Room0033:
-#_09DCCB: db $00 ; Unsorted
+#_09DCCB: db $00 ; Unlayered OAM
 #_09DCCC: db $17, $06, !SPRITE_54   ; xyz:{ 0x060, 0x170, U } | s: 0x00
 #_09DCCF: db $17, $09, !SPRITE_54   ; xyz:{ 0x090, 0x170, U } | s: 0x00
 #_09DCD2: db $19, $07, !SPRITE_54   ; xyz:{ 0x070, 0x190, U } | s: 0x00
@@ -17613,7 +17612,7 @@ RoomData_Sprites_Room0033:
 ;===================================================================================================
 
 RoomData_Sprites_Room0034:
-#_09DCD6: db $00 ; Unsorted
+#_09DCD6: db $00 ; Unlayered OAM
 #_09DCD7: db $0B, $0F, !SPRITE_81   ; xyz:{ 0x0F0, 0x0B0, U } | s: 0x00
 #_09DCDA: db $12, $10, !SPRITE_81   ; xyz:{ 0x100, 0x120, U } | s: 0x00
 #_09DCDD: db $15, $0F, !SPRITE_9A   ; xyz:{ 0x0F0, 0x150, U } | s: 0x00
@@ -17626,7 +17625,7 @@ RoomData_Sprites_Room0034:
 ;===================================================================================================
 
 RoomData_Sprites_Room0035:
-#_09DCED: db $00 ; Unsorted
+#_09DCED: db $00 ; Unlayered OAM
 #_09DCEE: db $06, $16, !SPRITE_1E   ; xyz:{ 0x160, 0x060, U } | s: 0x00
 #_09DCF1: db $05, $14, !SPRITE_21   ; xyz:{ 0x140, 0x050, U } | s: 0x00
 #_09DCF4: db $05, $18, !SPRITE_23   ; xyz:{ 0x180, 0x050, U } | s: 0x00
@@ -17643,7 +17642,7 @@ RoomData_Sprites_Room0035:
 ;===================================================================================================
 
 RoomData_Sprites_Room0036:
-#_09DD10: db $00 ; Unsorted
+#_09DD10: db $00 ; Unlayered OAM
 #_09DD11: db $02, $F7, !OVERLORD_12 ; xyz:{ 0x170, 0x020, U }
 #_09DD14: db $0A, $0B, !SPRITE_81   ; xyz:{ 0x0B0, 0x0A0, U } | s: 0x00
 #_09DD17: db $0A, $14, !SPRITE_81   ; xyz:{ 0x140, 0x0A0, U } | s: 0x00
@@ -17660,7 +17659,7 @@ RoomData_Sprites_Room0036:
 ;===================================================================================================
 
 RoomData_Sprites_Room0037:
-#_09DD33: db $00 ; Unsorted
+#_09DD33: db $00 ; Unlayered OAM
 #_09DD34: db $04, $0B, !SPRITE_21   ; xyz:{ 0x0B0, 0x040, U } | s: 0x00
 #_09DD37: db $06, $05, !SPRITE_A7   ; xyz:{ 0x050, 0x060, U } | s: 0x00
 #_09DD3A: db $08, $17, !SPRITE_8F   ; xyz:{ 0x170, 0x080, U } | s: 0x00
@@ -17676,7 +17675,7 @@ RoomData_Sprites_Room0037:
 ;===================================================================================================
 
 RoomData_Sprites_Room0038:
-#_09DD53: db $00 ; Unsorted
+#_09DD53: db $00 ; Unlayered OAM
 #_09DD54: db $06, $0C, !SPRITE_81   ; xyz:{ 0x0C0, 0x060, U } | s: 0x00
 #_09DD57: db $0A, $07, !SPRITE_81   ; xyz:{ 0x070, 0x0A0, U } | s: 0x00
 #_09DD5A: db $0C, $0C, !SPRITE_9A   ; xyz:{ 0x0C0, 0x0C0, U } | s: 0x00
@@ -17689,7 +17688,7 @@ RoomData_Sprites_Room0038:
 ;===================================================================================================
 
 RoomData_Sprites_Room0039:
-#_09DD6A: db $00 ; Unsorted
+#_09DD6A: db $00 ; Unlayered OAM
 #_09DD6B: db $18, $04, !SPRITE_18   ; xyz:{ 0x040, 0x180, U } | s: 0x00
 #_09DD6E: db $0F, $EF, !OVERLORD_09 ; xyz:{ 0x0F0, 0x0F0, U }
 #_09DD71: db $15, $05, !SPRITE_8B   ; xyz:{ 0x050, 0x150, U } | s: 0x00
@@ -17703,7 +17702,7 @@ RoomData_Sprites_Room0039:
 ;===================================================================================================
 
 RoomData_Sprites_Room003A:
-#_09DD84: db $00 ; Unsorted
+#_09DD84: db $00 ; Unlayered OAM
 #_09DD85: db $11, $0E, !SPRITE_8E   ; xyz:{ 0x0E0, 0x110, U } | s: 0x00
 #_09DD88: db $11, $11, !SPRITE_8E   ; xyz:{ 0x110, 0x110, U } | s: 0x00
 #_09DD8B: db $14, $04, !SPRITE_C5   ; xyz:{ 0x040, 0x140, U } | s: 0x00
@@ -17715,7 +17714,7 @@ RoomData_Sprites_Room003A:
 ;===================================================================================================
 
 RoomData_Sprites_Room003B:
-#_09DD98: db $00 ; Unsorted
+#_09DD98: db $00 ; Unlayered OAM
 #_09DD99: db $06, $03, !SPRITE_8A   ; xyz:{ 0x030, 0x060, U } | s: 0x00
 #_09DD9C: db $09, $07, !SPRITE_23   ; xyz:{ 0x070, 0x090, U } | s: 0x00
 #_09DD9F: db $0D, $0C, !SPRITE_8A   ; xyz:{ 0x0C0, 0x0D0, U } | s: 0x00
@@ -17728,7 +17727,7 @@ RoomData_Sprites_Room003B:
 ;===================================================================================================
 
 RoomData_Sprites_Room003C:
-#_09DDAF: db $00 ; Unsorted
+#_09DDAF: db $00 ; Unlayered OAM
 #_09DDB0: db $08, $09, !SPRITE_26   ; xyz:{ 0x090, 0x080, U } | s: 0x00
 #_09DDB3: db $14, $0A, !SPRITE_24   ; xyz:{ 0x0A0, 0x140, U } | s: 0x00
 #_09DDB6: db $14, $12, !SPRITE_24   ; xyz:{ 0x120, 0x140, U } | s: 0x00
@@ -17737,7 +17736,7 @@ RoomData_Sprites_Room003C:
 ;===================================================================================================
 
 RoomData_Sprites_Room003D:
-#_09DDBA: db $00 ; Unsorted
+#_09DDBA: db $00 ; Unlayered OAM
 #_09DDBB: db $17, $05, !SPRITE_1E   ; xyz:{ 0x050, 0x170, U } | s: 0x00
 #_09DDBE: db $19, $0A, !SPRITE_1E   ; xyz:{ 0x0A0, 0x190, U } | s: 0x00
 #_09DDC1: db $07, $17, !SPRITE_13   ; xyz:{ 0x170, 0x070, U } | s: 0x00
@@ -17758,7 +17757,7 @@ RoomData_Sprites_Room003D:
 ;===================================================================================================
 
 RoomData_Sprites_Room003E:
-#_09DDE9: db $00 ; Unsorted
+#_09DDE9: db $00 ; Unlayered OAM
 #_09DDEA: db $15, $06, !SPRITE_1E   ; xyz:{ 0x060, 0x150, U } | s: 0x00
 #_09DDED: db $04, $19, !SPRITE_91   ; xyz:{ 0x190, 0x040, U } | s: 0x00
 #_09DDF0: db $0B, $16, !SPRITE_91   ; xyz:{ 0x160, 0x0B0, U } | s: 0x00
@@ -17777,7 +17776,7 @@ RoomData_Sprites_Room003E:
 ;===================================================================================================
 
 RoomData_Sprites_Room003F:
-#_09DE12: db $00 ; Unsorted
+#_09DE12: db $00 ; Unlayered OAM
 #_09DE13: db $15, $04, !SPRITE_04   ; xyz:{ 0x040, 0x150, U } | s: 0x00
 #_09DE16: db $16, $0C, !SPRITE_91   ; xyz:{ 0x0C0, 0x160, U } | s: 0x00
 #_09DE19: db $15, $13, !SPRITE_04   ; xyz:{ 0x130, 0x150, U } | s: 0x00
@@ -17788,7 +17787,7 @@ RoomData_Sprites_Room003F:
 ;===================================================================================================
 
 RoomData_Sprites_Room0040:
-#_09DE23: db $00 ; Unsorted
+#_09DE23: db $00 ; Unlayered OAM
 #_09DE24: db $88, $09, !SPRITE_41   ; xyz:{ 0x090, 0x080, L } | s: 0x00
 #_09DE27: db $EF, $69, !SPRITE_41   ; xyz:{ 0x090, 0x0F0, L } | s: 0x1B
 #_09DE2A: db $95, $18, !SPRITE_1C   ; xyz:{ 0x180, 0x150, L } | s: 0x00
@@ -17799,13 +17798,14 @@ RoomData_Sprites_Room0040:
 
 ;===================================================================================================
 
-#_09DE37: db $00 ; Unsorted
+UNREACHABLE_09DE37:
+#_09DE37: db $00 ; Unlayered OAM
 #_09DE38: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0041:
-#_09DE39: db $00 ; Unsorted
+#_09DE39: db $00 ; Unlayered OAM
 #_09DE3A: db $0A, $11, !SPRITE_6D   ; xyz:{ 0x110, 0x0A0, U } | s: 0x00
 #_09DE3D: db $0B, $1B, !SPRITE_6D   ; xyz:{ 0x1B0, 0x0B0, U } | s: 0x00
 #_09DE40: db $0D, $0F, !SPRITE_6D   ; xyz:{ 0x0F0, 0x0D0, U } | s: 0x00
@@ -17815,7 +17815,7 @@ RoomData_Sprites_Room0041:
 ;===================================================================================================
 
 RoomData_Sprites_Room0042:
-#_09DE47: db $00 ; Unsorted
+#_09DE47: db $00 ; Unlayered OAM
 #_09DE48: db $06, $12, !SPRITE_6E   ; xyz:{ 0x120, 0x060, U } | s: 0x00
 #_09DE4B: db $06, $13, !SPRITE_6E   ; xyz:{ 0x130, 0x060, U } | s: 0x00
 #_09DE4E: db $06, $14, !SPRITE_6E   ; xyz:{ 0x140, 0x060, U } | s: 0x00
@@ -17827,7 +17827,7 @@ RoomData_Sprites_Room0042:
 ;===================================================================================================
 
 RoomData_Sprites_Room0043:
-#_09DE5B: db $00 ; Unsorted
+#_09DE5B: db $00 ; Unlayered OAM
 #_09DE5C: db $06, $0C, !SPRITE_84   ; xyz:{ 0x0C0, 0x060, U } | s: 0x00
 #_09DE5F: db $18, $F7, !OVERLORD_14 ; xyz:{ 0x170, 0x180, U }
 #_09DE62: db $FF ; END
@@ -17835,7 +17835,7 @@ RoomData_Sprites_Room0043:
 ;===================================================================================================
 
 RoomData_Sprites_Room0044:
-#_09DE63: db $00 ; Unsorted
+#_09DE63: db $00 ; Unlayered OAM
 #_09DE64: db $06, $09, !SPRITE_93   ; xyz:{ 0x090, 0x060, U } | s: 0x00
 #_09DE67: db $08, $05, !SPRITE_93   ; xyz:{ 0x050, 0x080, U } | s: 0x00
 #_09DE6A: db $04, $08, !SPRITE_24   ; xyz:{ 0x080, 0x040, U } | s: 0x00
@@ -17850,7 +17850,7 @@ RoomData_Sprites_Room0044:
 ;===================================================================================================
 
 RoomData_Sprites_Room0045:
-#_09DE80: db $00 ; Unsorted
+#_09DE80: db $00 ; Unlayered OAM
 #_09DE81: db $06, $19, !SPRITE_B7   ; xyz:{ 0x190, 0x060, U } | s: 0x00
 #_09DE84: db $06, $06, !SPRITE_A6   ; xyz:{ 0x060, 0x060, U } | s: 0x00
 #_09DE87: db $0B, $04, !SPRITE_A5   ; xyz:{ 0x040, 0x0B0, U } | s: 0x00
@@ -17867,7 +17867,7 @@ RoomData_Sprites_Room0045:
 ;===================================================================================================
 
 RoomData_Sprites_Room0046:
-#_09DEA3: db $00 ; Unsorted
+#_09DEA3: db $00 ; Unlayered OAM
 #_09DEA4: db $05, $16, !SPRITE_81   ; xyz:{ 0x160, 0x050, U } | s: 0x00
 #_09DEA7: db $06, $FB, !OVERLORD_11 ; xyz:{ 0x1B0, 0x060, U }
 #_09DEAA: db $1A, $09, !SPRITE_81   ; xyz:{ 0x090, 0x1A0, U } | s: 0x00
@@ -17878,13 +17878,13 @@ RoomData_Sprites_Room0046:
 ;===================================================================================================
 
 RoomData_Sprites_Room0047:
-#_09DEB4: db $00 ; Unsorted
+#_09DEB4: db $00 ; Unlayered OAM
 #_09DEB5: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0049:
-#_09DEB6: db $00 ; Unsorted
+#_09DEB6: db $00 ; Unlayered OAM
 #_09DEB7: db $05, $0B, !SPRITE_18   ; xyz:{ 0x0B0, 0x050, U } | s: 0x00
 #_09DEBA: db $0B, $04, !SPRITE_18   ; xyz:{ 0x040, 0x0B0, U } | s: 0x00
 #_09DEBD: db $0C, $09, !SPRITE_18   ; xyz:{ 0x090, 0x0C0, U } | s: 0x00
@@ -17903,7 +17903,7 @@ RoomData_Sprites_Room0049:
 ;===================================================================================================
 
 RoomData_Sprites_Room004A:
-#_09DEDF: db $00 ; Unsorted
+#_09DEDF: db $00 ; Unlayered OAM
 #_09DEE0: db $07, $14, !SPRITE_1C   ; xyz:{ 0x140, 0x070, U } | s: 0x00
 #_09DEE3: db $08, $08, !SPRITE_13   ; xyz:{ 0x080, 0x080, U } | s: 0x00
 #_09DEE6: db $08, $18, !SPRITE_13   ; xyz:{ 0x180, 0x080, U } | s: 0x00
@@ -17912,7 +17912,7 @@ RoomData_Sprites_Room004A:
 ;===================================================================================================
 
 RoomData_Sprites_Room004B:
-#_09DEEA: db $00 ; Unsorted
+#_09DEEA: db $00 ; Unlayered OAM
 #_09DEEB: db $04, $07, !SPRITE_84   ; xyz:{ 0x070, 0x040, U } | s: 0x00
 #_09DEEE: db $05, $17, !SPRITE_15   ; xyz:{ 0x170, 0x050, U } | s: 0x00
 #_09DEF1: db $06, $18, !SPRITE_15   ; xyz:{ 0x180, 0x060, U } | s: 0x00
@@ -17926,7 +17926,7 @@ RoomData_Sprites_Room004B:
 ;===================================================================================================
 
 RoomData_Sprites_Room004C:
-#_09DF04: db $00 ; Unsorted
+#_09DF04: db $00 ; Unlayered OAM
 #_09DF05: db $11, $15, !SPRITE_93   ; xyz:{ 0x150, 0x110, U } | s: 0x00
 #_09DF08: db $12, $19, !SPRITE_93   ; xyz:{ 0x190, 0x120, U } | s: 0x00
 #_09DF0B: db $05, $15, !SPRITE_13   ; xyz:{ 0x150, 0x050, U } | s: 0x00
@@ -17940,14 +17940,14 @@ RoomData_Sprites_Room004C:
 ;===================================================================================================
 
 RoomData_Sprites_Room004D:
-#_09DF1E: db $00 ; Unsorted
+#_09DF1E: db $00 ; Unlayered OAM
 #_09DF1F: db $0E, $0E, !SPRITE_09   ; xyz:{ 0x0E0, 0x0E0, U } | s: 0x00
 #_09DF22: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room004E:
-#_09DF23: db $00 ; Unsorted
+#_09DF23: db $00 ; Unlayered OAM
 #_09DF24: db $08, $14, !SPRITE_8F   ; xyz:{ 0x140, 0x080, U } | s: 0x00
 #_09DF27: db $08, $16, !SPRITE_8F   ; xyz:{ 0x160, 0x080, U } | s: 0x00
 #_09DF2A: db $08, $18, !SPRITE_8F   ; xyz:{ 0x180, 0x080, U } | s: 0x00
@@ -17957,7 +17957,7 @@ RoomData_Sprites_Room004E:
 ;===================================================================================================
 
 RoomData_Sprites_Room004F:
-#_09DF31: db $00 ; Unsorted
+#_09DF31: db $00 ; Unlayered OAM
 #_09DF32: db $06, $17, !SPRITE_E3   ; xyz:{ 0x170, 0x060, U } | s: 0x00
 #_09DF35: db $08, $14, !SPRITE_E3   ; xyz:{ 0x140, 0x080, U } | s: 0x00
 #_09DF38: db $08, $1A, !SPRITE_E3   ; xyz:{ 0x1A0, 0x080, U } | s: 0x00
@@ -17966,7 +17966,7 @@ RoomData_Sprites_Room004F:
 ;===================================================================================================
 
 RoomData_Sprites_Room0050:
-#_09DF3C: db $00 ; Unsorted
+#_09DF3C: db $00 ; Unlayered OAM
 #_09DF3D: db $8E, $17, !SPRITE_42   ; xyz:{ 0x170, 0x0E0, L } | s: 0x00
 #_09DF40: db $90, $18, !SPRITE_4B   ; xyz:{ 0x180, 0x100, L } | s: 0x00
 #_09DF43: db $92, $17, !SPRITE_4B   ; xyz:{ 0x170, 0x120, L } | s: 0x00
@@ -17975,7 +17975,7 @@ RoomData_Sprites_Room0050:
 ;===================================================================================================
 
 RoomData_Sprites_Room0051:
-#_09DF47: db $01 ; Sorted
+#_09DF47: db $01 ; Layered OAM
 #_09DF48: db $02, $0E, !SPRITE_EE   ; xyz:{ 0x0E0, 0x020, U } | s: 0x00
 #_09DF4B: db $97, $29, !SPRITE_41   ; xyz:{ 0x090, 0x170, L } | s: 0x01
 #_09DF4E: db $97, $56, !SPRITE_41   ; xyz:{ 0x160, 0x170, L } | s: 0x02
@@ -17984,7 +17984,7 @@ RoomData_Sprites_Room0051:
 ;===================================================================================================
 
 RoomData_Sprites_Room0052:
-#_09DF52: db $00 ; Unsorted
+#_09DF52: db $00 ; Unlayered OAM
 #_09DF53: db $8D, $07, !SPRITE_42   ; xyz:{ 0x070, 0x0D0, L } | s: 0x00
 #_09DF56: db $8F, $08, !SPRITE_4B   ; xyz:{ 0x080, 0x0F0, L } | s: 0x00
 #_09DF59: db $92, $07, !SPRITE_4B   ; xyz:{ 0x070, 0x120, L } | s: 0x00
@@ -17993,7 +17993,7 @@ RoomData_Sprites_Room0052:
 ;===================================================================================================
 
 RoomData_Sprites_Room0053:
-#_09DF5D: db $00 ; Unsorted
+#_09DF5D: db $00 ; Unlayered OAM
 #_09DF5E: db $07, $17, !SPRITE_4E   ; xyz:{ 0x170, 0x070, U } | s: 0x00
 #_09DF61: db $09, $1C, !SPRITE_61   ; xyz:{ 0x1C0, 0x090, U } | s: 0x00
 #_09DF64: db $0C, $17, !SPRITE_4F   ; xyz:{ 0x170, 0x0C0, U } | s: 0x00
@@ -18012,7 +18012,7 @@ RoomData_Sprites_Room0053:
 ;===================================================================================================
 
 RoomData_Sprites_Room0054:
-#_09DF86: db $00 ; Unsorted
+#_09DF86: db $00 ; Unlayered OAM
 #_09DF87: db $05, $0E, !SPRITE_9A   ; xyz:{ 0x0E0, 0x050, U } | s: 0x00
 #_09DF8A: db $0B, $0C, !SPRITE_81   ; xyz:{ 0x0C0, 0x0B0, U } | s: 0x00
 #_09DF8D: db $0E, $0B, !SPRITE_C5   ; xyz:{ 0x0B0, 0x0E0, U } | s: 0x00
@@ -18026,7 +18026,7 @@ RoomData_Sprites_Room0054:
 ;===================================================================================================
 
 RoomData_Sprites_Room0055:
-#_09DFA0: db $00 ; Unsorted
+#_09DFA0: db $00 ; Unlayered OAM
 #_09DFA1: db $08, $0E, !SPRITE_73   ; xyz:{ 0x0E0, 0x080, U } | s: 0x00
 #_09DFA4: db $15, $14, !SPRITE_4B   ; xyz:{ 0x140, 0x150, U } | s: 0x00
 #_09DFA7: db $16, $0D, !SPRITE_4B   ; xyz:{ 0x0D0, 0x160, U } | s: 0x00
@@ -18035,7 +18035,7 @@ RoomData_Sprites_Room0055:
 ;===================================================================================================
 
 RoomData_Sprites_Room0056:
-#_09DFAB: db $00 ; Unsorted
+#_09DFAB: db $00 ; Unlayered OAM
 #_09DFAC: db $05, $EB, !OVERLORD_0A ; xyz:{ 0x0B0, 0x050, U }
 #_09DFAF: db $19, $07, !SPRITE_93   ; xyz:{ 0x070, 0x190, U } | s: 0x00
 #_09DFB2: db $19, $17, !SPRITE_93   ; xyz:{ 0x170, 0x190, U } | s: 0x00
@@ -18054,7 +18054,7 @@ RoomData_Sprites_Room0056:
 ;===================================================================================================
 
 RoomData_Sprites_Room0057:
-#_09DFD4: db $00 ; Unsorted
+#_09DFD4: db $00 ; Unlayered OAM
 #_09DFD5: db $04, $08, !SPRITE_D1   ; xyz:{ 0x080, 0x040, U } | s: 0x00
 #_09DFD8: db $04, $0C, !SPRITE_23   ; xyz:{ 0x0C0, 0x040, U } | s: 0x00
 #_09DFDB: db $05, $08, !SPRITE_8A   ; xyz:{ 0x080, 0x050, U } | s: 0x00
@@ -18076,7 +18076,7 @@ RoomData_Sprites_Room0057:
 ;===================================================================================================
 
 RoomData_Sprites_Room0058:
-#_09E006: db $00 ; Unsorted
+#_09E006: db $00 ; Unlayered OAM
 #_09E007: db $14, $0C, !SPRITE_18   ; xyz:{ 0x0C0, 0x140, U } | s: 0x00
 #_09E00A: db $16, $06, !SPRITE_18   ; xyz:{ 0x060, 0x160, U } | s: 0x00
 #_09E00D: db $16, $16, !SPRITE_93   ; xyz:{ 0x160, 0x160, U } | s: 0x00
@@ -18091,7 +18091,7 @@ RoomData_Sprites_Room0058:
 ;===================================================================================================
 
 RoomData_Sprites_Room0059:
-#_09E023: db $01 ; Sorted
+#_09E023: db $01 ; Layered OAM
 #_09E024: db $10, $07, !SPRITE_18   ; xyz:{ 0x070, 0x100, U } | s: 0x00
 #_09E027: db $16, $08, !SPRITE_18   ; xyz:{ 0x080, 0x160, U } | s: 0x00
 #_09E02A: db $8F, $14, !SPRITE_93   ; xyz:{ 0x140, 0x0F0, L } | s: 0x00
@@ -18109,14 +18109,14 @@ RoomData_Sprites_Room0059:
 ;===================================================================================================
 
 RoomData_Sprites_Room005A:
-#_09E049: db $00 ; Unsorted
+#_09E049: db $00 ; Unlayered OAM
 #_09E04A: db $16, $17, !SPRITE_92   ; xyz:{ 0x170, 0x160, U } | s: 0x00
 #_09E04D: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room005B:
-#_09E04E: db $01 ; Sorted
+#_09E04E: db $01 ; Layered OAM
 #_09E04F: db $8C, $17, !SPRITE_1E   ; xyz:{ 0x170, 0x0C0, L } | s: 0x00
 #_09E052: db $93, $18, !SPRITE_1E   ; xyz:{ 0x180, 0x130, L } | s: 0x00
 #_09E055: db $95, $17, !SPRITE_8A   ; xyz:{ 0x170, 0x150, L } | s: 0x00
@@ -18131,7 +18131,7 @@ RoomData_Sprites_Room005B:
 ;===================================================================================================
 
 RoomData_Sprites_Room005C:
-#_09E06B: db $00 ; Unsorted
+#_09E06B: db $00 ; Unlayered OAM
 #_09E06C: db $02, $0B, !SPRITE_68   ; xyz:{ 0x0B0, 0x020, U } | s: 0x00
 #_09E06F: db $0E, $05, !SPRITE_69   ; xyz:{ 0x050, 0x0E0, U } | s: 0x00
 #_09E072: db $0E, $0E, !SPRITE_69   ; xyz:{ 0x0E0, 0x0E0, U } | s: 0x00
@@ -18142,7 +18142,7 @@ RoomData_Sprites_Room005C:
 ;===================================================================================================
 
 RoomData_Sprites_Room005D:
-#_09E07C: db $00 ; Unsorted
+#_09E07C: db $00 ; Unlayered OAM
 #_09E07D: db $05, $07, !SPRITE_A7   ; xyz:{ 0x070, 0x050, U } | s: 0x00
 #_09E080: db $06, $08, !SPRITE_61   ; xyz:{ 0x080, 0x060, U } | s: 0x00
 #_09E083: db $08, $03, !SPRITE_A7   ; xyz:{ 0x030, 0x080, U } | s: 0x00
@@ -18161,7 +18161,7 @@ RoomData_Sprites_Room005D:
 ;===================================================================================================
 
 RoomData_Sprites_Room005E:
-#_09E0A5: db $00 ; Unsorted
+#_09E0A5: db $00 ; Unlayered OAM
 #_09E0A6: db $05, $FB, !OVERLORD_0A ; xyz:{ 0x1B0, 0x050, U }
 #_09E0A9: db $05, $1C, !SPRITE_C5   ; xyz:{ 0x1C0, 0x050, U } | s: 0x00
 #_09E0AC: db $0B, $13, !SPRITE_C5   ; xyz:{ 0x130, 0x0B0, U } | s: 0x00
@@ -18172,7 +18172,7 @@ RoomData_Sprites_Room005E:
 ;===================================================================================================
 
 RoomData_Sprites_Room005F:
-#_09E0B6: db $00 ; Unsorted
+#_09E0B6: db $00 ; Unlayered OAM
 #_09E0B7: db $18, $04, !SPRITE_24   ; xyz:{ 0x040, 0x180, U } | s: 0x00
 #_09E0BA: db $18, $0B, !SPRITE_24   ; xyz:{ 0x0B0, 0x180, U } | s: 0x00
 #_09E0BD: db $1B, $08, !SPRITE_24   ; xyz:{ 0x080, 0x1B0, U } | s: 0x00
@@ -18181,14 +18181,14 @@ RoomData_Sprites_Room005F:
 ;===================================================================================================
 
 RoomData_Sprites_Room0060:
-#_09E0C1: db $01 ; Sorted
+#_09E0C1: db $01 ; Layered OAM
 #_09E0C2: db $48, $73, !SPRITE_41   ; xyz:{ 0x130, 0x080, U } | s: 0x13
 #_09E0C5: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0061:
-#_09E0C6: db $00 ; Unsorted
+#_09E0C6: db $00 ; Unlayered OAM
 #_09E0C7: db $0E, $2C, !SPRITE_42   ; xyz:{ 0x0C0, 0x0E0, U } | s: 0x01
 #_09E0CA: db $12, $0D, !SPRITE_4B   ; xyz:{ 0x0D0, 0x120, U } | s: 0x00
 #_09E0CD: db $12, $12, !SPRITE_4B   ; xyz:{ 0x120, 0x120, U } | s: 0x00
@@ -18197,7 +18197,7 @@ RoomData_Sprites_Room0061:
 ;===================================================================================================
 
 RoomData_Sprites_Room0062:
-#_09E0D1: db $01 ; Sorted
+#_09E0D1: db $01 ; Layered OAM
 #_09E0D2: db $48, $6C, !SPRITE_41   ; xyz:{ 0x0C0, 0x080, U } | s: 0x13
 #_09E0D5: db $8D, $0A, !SPRITE_42   ; xyz:{ 0x0A0, 0x0D0, L } | s: 0x00
 #_09E0D8: db $8E, $11, !SPRITE_42   ; xyz:{ 0x110, 0x0E0, L } | s: 0x00
@@ -18206,7 +18206,7 @@ RoomData_Sprites_Room0062:
 ;===================================================================================================
 
 RoomData_Sprites_Room0063:
-#_09E0DC: db $00 ; Unsorted
+#_09E0DC: db $00 ; Unlayered OAM
 #_09E0DD: db $08, $E7, !OVERLORD_14 ; xyz:{ 0x070, 0x080, U }
 #_09E0E0: db $18, $07, !SPRITE_61   ; xyz:{ 0x070, 0x180, U } | s: 0x00
 #_09E0E3: db $FF ; END
@@ -18214,7 +18214,7 @@ RoomData_Sprites_Room0063:
 ;===================================================================================================
 
 RoomData_Sprites_Room0064:
-#_09E0E4: db $00 ; Unsorted
+#_09E0E4: db $00 ; Unlayered OAM
 #_09E0E5: db $12, $05, !SPRITE_6F   ; xyz:{ 0x050, 0x120, U } | s: 0x00
 #_09E0E8: db $13, $0B, !SPRITE_06   ; xyz:{ 0x0B0, 0x130, U } | s: 0x00
 #_09E0EB: db $13, $05, !SPRITE_6F   ; xyz:{ 0x050, 0x130, U } | s: 0x00
@@ -18233,7 +18233,7 @@ RoomData_Sprites_Room0064:
 ;===================================================================================================
 
 RoomData_Sprites_Room0065:
-#_09E10D: db $00 ; Unsorted
+#_09E10D: db $00 ; Unlayered OAM
 #_09E10E: db $15, $13, !SPRITE_6D   ; xyz:{ 0x130, 0x150, U } | s: 0x00
 #_09E111: db $17, $09, !SPRITE_6D   ; xyz:{ 0x090, 0x170, U } | s: 0x00
 #_09E114: db $18, $06, !SPRITE_6D   ; xyz:{ 0x060, 0x180, U } | s: 0x00
@@ -18244,7 +18244,7 @@ RoomData_Sprites_Room0065:
 ;===================================================================================================
 
 RoomData_Sprites_Room0066:
-#_09E11E: db $00 ; Unsorted
+#_09E11E: db $00 ; Unlayered OAM
 #_09E11F: db $85, $0B, !SPRITE_81   ; xyz:{ 0x0B0, 0x050, L } | s: 0x00
 #_09E122: db $86, $E4, !OVERLORD_10 ; xyz:{ 0x040, 0x060, L }
 #_09E125: db $06, $16, !SPRITE_24   ; xyz:{ 0x160, 0x060, U } | s: 0x00
@@ -18262,7 +18262,7 @@ RoomData_Sprites_Room0066:
 ;===================================================================================================
 
 RoomData_Sprites_Room0067:
-#_09E144: db $00 ; Unsorted
+#_09E144: db $00 ; Unlayered OAM
 #_09E145: db $0C, $07, !SPRITE_93   ; xyz:{ 0x070, 0x0C0, U } | s: 0x00
 #_09E148: db $06, $04, !SPRITE_24   ; xyz:{ 0x040, 0x060, U } | s: 0x00
 #_09E14B: db $06, $0B, !SPRITE_24   ; xyz:{ 0x0B0, 0x060, U } | s: 0x00
@@ -18278,7 +18278,7 @@ RoomData_Sprites_Room0067:
 ;===================================================================================================
 
 RoomData_Sprites_Room0068:
-#_09E164: db $00 ; Unsorted
+#_09E164: db $00 ; Unlayered OAM
 #_09E165: db $07, $0E, !SPRITE_93   ; xyz:{ 0x0E0, 0x070, U } | s: 0x00
 #_09E168: db $07, $11, !SPRITE_93   ; xyz:{ 0x110, 0x070, U } | s: 0x00
 #_09E16B: db $0B, $0C, !SPRITE_93   ; xyz:{ 0x0C0, 0x0B0, U } | s: 0x00
@@ -18292,7 +18292,7 @@ RoomData_Sprites_Room0068:
 ;===================================================================================================
 
 RoomData_Sprites_Room006A:
-#_09E17E: db $00 ; Unsorted
+#_09E17E: db $00 ; Unlayered OAM
 #_09E17F: db $0A, $17, !SPRITE_8E   ; xyz:{ 0x170, 0x0A0, U } | s: 0x00
 #_09E182: db $0A, $18, !SPRITE_8E   ; xyz:{ 0x180, 0x0A0, U } | s: 0x00
 #_09E185: db $0B, $14, !SPRITE_15   ; xyz:{ 0x140, 0x0B0, U } | s: 0x00
@@ -18304,7 +18304,7 @@ RoomData_Sprites_Room006A:
 ;===================================================================================================
 
 RoomData_Sprites_Room006B:
-#_09E192: db $00 ; Unsorted
+#_09E192: db $00 ; Unlayered OAM
 #_09E193: db $04, $07, !SPRITE_1E   ; xyz:{ 0x070, 0x040, U } | s: 0x00
 #_09E196: db $04, $0B, !SPRITE_1E   ; xyz:{ 0x0B0, 0x040, U } | s: 0x00
 #_09E199: db $06, $0A, !SPRITE_83   ; xyz:{ 0x0A0, 0x060, U } | s: 0x00
@@ -18324,7 +18324,7 @@ RoomData_Sprites_Room006B:
 ;===================================================================================================
 
 RoomData_Sprites_Room006C:
-#_09E1BE: db $00 ; Unsorted
+#_09E1BE: db $00 ; Unlayered OAM
 #_09E1BF: db $17, $06, !SPRITE_54   ; xyz:{ 0x060, 0x170, U } | s: 0x00
 #_09E1C2: db $17, $09, !SPRITE_54   ; xyz:{ 0x090, 0x170, U } | s: 0x00
 #_09E1C5: db $19, $07, !SPRITE_54   ; xyz:{ 0x070, 0x190, U } | s: 0x00
@@ -18335,7 +18335,7 @@ RoomData_Sprites_Room006C:
 ;===================================================================================================
 
 RoomData_Sprites_Room006D:
-#_09E1CF: db $00 ; Unsorted
+#_09E1CF: db $00 ; Unlayered OAM
 #_09E1D0: db $06, $05, !SPRITE_A6   ; xyz:{ 0x050, 0x060, U } | s: 0x00
 #_09E1D3: db $06, $0B, !SPRITE_61   ; xyz:{ 0x0B0, 0x060, U } | s: 0x00
 #_09E1D6: db $09, $04, !SPRITE_61   ; xyz:{ 0x040, 0x090, U } | s: 0x00
@@ -18350,7 +18350,7 @@ RoomData_Sprites_Room006D:
 ;===================================================================================================
 
 RoomData_Sprites_Room006E:
-#_09E1EC: db $00 ; Unsorted
+#_09E1EC: db $00 ; Unlayered OAM
 #_09E1ED: db $08, $13, !SPRITE_99   ; xyz:{ 0x130, 0x080, U } | s: 0x00
 #_09E1F0: db $09, $13, !SPRITE_99   ; xyz:{ 0x130, 0x090, U } | s: 0x00
 #_09E1F3: db $0A, $13, !SPRITE_99   ; xyz:{ 0x130, 0x0A0, U } | s: 0x00
@@ -18361,7 +18361,7 @@ RoomData_Sprites_Room006E:
 ;===================================================================================================
 
 RoomData_Sprites_Room0071:
-#_09E1FD: db $00 ; Unsorted
+#_09E1FD: db $00 ; Unlayered OAM
 #_09E1FE: db $98, $06, !SPRITE_42   ; xyz:{ 0x060, 0x180, L } | s: 0x00
 #_09E201: db $D8, $BA, !SPRITE_41   ; xyz:{ 0x1A0, 0x180, L } | s: 0x15
 #_09E204: db $FE, $00, !SPRITE_E4   ; small key on above sprite
@@ -18370,7 +18370,7 @@ RoomData_Sprites_Room0071:
 ;===================================================================================================
 
 RoomData_Sprites_Room0072:
-#_09E208: db $00 ; Unsorted
+#_09E208: db $00 ; Unlayered OAM
 #_09E209: db $06, $B1, !SPRITE_41   ; xyz:{ 0x110, 0x060, U } | s: 0x05
 #_09E20C: db $FE, $00, !SPRITE_E4   ; small key on above sprite
 #_09E20F: db $99, $2A, !SPRITE_41   ; xyz:{ 0x0A0, 0x190, L } | s: 0x01
@@ -18379,7 +18379,7 @@ RoomData_Sprites_Room0072:
 ;===================================================================================================
 
 RoomData_Sprites_Room0073:
-#_09E213: db $00 ; Unsorted
+#_09E213: db $00 ; Unlayered OAM
 #_09E214: db $18, $18, !SPRITE_64   ; xyz:{ 0x180, 0x180, U } | s: 0x00
 #_09E217: db $09, $17, !SPRITE_61   ; xyz:{ 0x170, 0x090, U } | s: 0x00
 #_09E21A: db $15, $15, !SPRITE_71   ; xyz:{ 0x150, 0x150, U } | s: 0x00
@@ -18392,7 +18392,7 @@ RoomData_Sprites_Room0073:
 ;===================================================================================================
 
 RoomData_Sprites_Room0074:
-#_09E22A: db $00 ; Unsorted
+#_09E22A: db $00 ; Unlayered OAM
 #_09E22B: db $18, $08, !SPRITE_64   ; xyz:{ 0x080, 0x180, U } | s: 0x00
 #_09E22E: db $18, $17, !SPRITE_64   ; xyz:{ 0x170, 0x180, U } | s: 0x00
 #_09E231: db $05, $0C, !SPRITE_83   ; xyz:{ 0x0C0, 0x050, U } | s: 0x00
@@ -18406,7 +18406,7 @@ RoomData_Sprites_Room0074:
 ;===================================================================================================
 
 RoomData_Sprites_Room0075:
-#_09E244: db $00 ; Unsorted
+#_09E244: db $00 ; Unlayered OAM
 #_09E245: db $07, $08, !SPRITE_64   ; xyz:{ 0x080, 0x070, U } | s: 0x00
 #_09E248: db $1B, $04, !SPRITE_64   ; xyz:{ 0x040, 0x1B0, U } | s: 0x00
 #_09E24B: db $05, $06, !SPRITE_71   ; xyz:{ 0x060, 0x050, U } | s: 0x00
@@ -18422,7 +18422,7 @@ RoomData_Sprites_Room0075:
 ;===================================================================================================
 
 RoomData_Sprites_Room0076:
-#_09E264: db $00 ; Unsorted
+#_09E264: db $00 ; Unlayered OAM
 #_09E265: db $03, $19, !SPRITE_21   ; xyz:{ 0x190, 0x030, U } | s: 0x00
 #_09E268: db $0A, $07, !SPRITE_81   ; xyz:{ 0x070, 0x0A0, U } | s: 0x00
 #_09E26B: db $0F, $07, !SPRITE_9A   ; xyz:{ 0x070, 0x0F0, U } | s: 0x00
@@ -18435,7 +18435,7 @@ RoomData_Sprites_Room0076:
 ;===================================================================================================
 
 RoomData_Sprites_Room0077:
-#_09E27B: db $00 ; Unsorted
+#_09E27B: db $00 ; Unlayered OAM
 #_09E27C: db $89, $0B, !SPRITE_18   ; xyz:{ 0x0B0, 0x090, L } | s: 0x00
 #_09E27F: db $98, $10, !SPRITE_1E   ; xyz:{ 0x100, 0x180, L } | s: 0x00
 #_09E282: db $9A, $09, !SPRITE_1E   ; xyz:{ 0x090, 0x1A0, L } | s: 0x00
@@ -18447,7 +18447,7 @@ RoomData_Sprites_Room0077:
 ;===================================================================================================
 
 RoomData_Sprites_Room007B:
-#_09E28F: db $00 ; Unsorted
+#_09E28F: db $00 ; Unlayered OAM
 #_09E290: db $07, $0B, !SPRITE_24   ; xyz:{ 0x0B0, 0x070, U } | s: 0x00
 #_09E293: db $09, $16, !SPRITE_24   ; xyz:{ 0x160, 0x090, U } | s: 0x00
 #_09E296: db $15, $04, !SPRITE_C6   ; xyz:{ 0x040, 0x150, U } | s: 0x00
@@ -18464,7 +18464,7 @@ RoomData_Sprites_Room007B:
 ;===================================================================================================
 
 RoomData_Sprites_Room007C:
-#_09E2B2: db $00 ; Unsorted
+#_09E2B2: db $00 ; Unlayered OAM
 #_09E2B3: db $1C, $19, !SPRITE_18   ; xyz:{ 0x190, 0x1C0, U } | s: 0x00
 #_09E2B6: db $0C, $06, !SPRITE_7F   ; xyz:{ 0x060, 0x0C0, U } | s: 0x00
 #_09E2B9: db $10, $07, !SPRITE_8A   ; xyz:{ 0x070, 0x100, U } | s: 0x00
@@ -18477,7 +18477,7 @@ RoomData_Sprites_Room007C:
 ;===================================================================================================
 
 RoomData_Sprites_Room007D:
-#_09E2C9: db $00 ; Unsorted
+#_09E2C9: db $00 ; Unlayered OAM
 #_09E2CA: db $06, $11, !SPRITE_80   ; xyz:{ 0x110, 0x060, U } | s: 0x00
 #_09E2CD: db $08, $11, !SPRITE_80   ; xyz:{ 0x110, 0x080, U } | s: 0x00
 #_09E2D0: db $0A, $11, !SPRITE_80   ; xyz:{ 0x110, 0x0A0, U } | s: 0x00
@@ -18494,7 +18494,7 @@ RoomData_Sprites_Room007D:
 ;===================================================================================================
 
 RoomData_Sprites_Room007E:
-#_09E2EC: db $00 ; Unsorted
+#_09E2EC: db $00 ; Unlayered OAM
 #_09E2ED: db $11, $17, !SPRITE_93   ; xyz:{ 0x170, 0x110, U } | s: 0x00
 #_09E2F0: db $0E, $18, !SPRITE_7F   ; xyz:{ 0x180, 0x0E0, U } | s: 0x00
 #_09E2F3: db $0F, $14, !SPRITE_99   ; xyz:{ 0x140, 0x0F0, U } | s: 0x00
@@ -18507,7 +18507,7 @@ RoomData_Sprites_Room007E:
 ;===================================================================================================
 
 RoomData_Sprites_Room007F:
-#_09E303: db $00 ; Unsorted
+#_09E303: db $00 ; Unlayered OAM
 #_09E304: db $07, $06, !SPRITE_23   ; xyz:{ 0x060, 0x070, U } | s: 0x00
 #_09E307: db $07, $08, !SPRITE_23   ; xyz:{ 0x080, 0x070, U } | s: 0x00
 #_09E30A: db $08, $0A, !SPRITE_23   ; xyz:{ 0x0A0, 0x080, U } | s: 0x00
@@ -18521,7 +18521,7 @@ RoomData_Sprites_Room007F:
 ;===================================================================================================
 
 RoomData_Sprites_Room0080:
-#_09E31D: db $00 ; Unsorted
+#_09E31D: db $00 ; Unlayered OAM
 #_09E31E: db $03, $16, !SPRITE_76   ; xyz:{ 0x160, 0x030, U } | s: 0x00
 #_09E321: db $09, $07, !SPRITE_42   ; xyz:{ 0x070, 0x090, U } | s: 0x00
 #_09E324: db $09, $1A, !SPRITE_6A   ; xyz:{ 0x1A0, 0x090, U } | s: 0x00
@@ -18531,7 +18531,7 @@ RoomData_Sprites_Room0080:
 ;===================================================================================================
 
 RoomData_Sprites_Room0081:
-#_09E32B: db $01 ; Sorted
+#_09E32B: db $01 ; Layered OAM
 #_09E32C: db $EB, $6B, !SPRITE_42   ; xyz:{ 0x0B0, 0x0B0, L } | s: 0x1B
 #_09E32F: db $8B, $6E, !SPRITE_42   ; xyz:{ 0x0E0, 0x0B0, L } | s: 0x03
 #_09E332: db $FF ; END
@@ -18539,7 +18539,7 @@ RoomData_Sprites_Room0081:
 ;===================================================================================================
 
 RoomData_Sprites_Room0082:
-#_09E333: db $00 ; Unsorted
+#_09E333: db $00 ; Unlayered OAM
 #_09E334: db $E5, $69, !SPRITE_41   ; xyz:{ 0x090, 0x050, L } | s: 0x1B
 #_09E337: db $86, $70, !SPRITE_41   ; xyz:{ 0x100, 0x060, L } | s: 0x03
 #_09E33A: db $91, $75, !SPRITE_41   ; xyz:{ 0x150, 0x110, L } | s: 0x03
@@ -18548,7 +18548,7 @@ RoomData_Sprites_Room0082:
 ;===================================================================================================
 
 RoomData_Sprites_Room0083:
-#_09E33E: db $00 ; Unsorted
+#_09E33E: db $00 ; Unlayered OAM
 #_09E33F: db $08, $1B, !SPRITE_63   ; xyz:{ 0x1B0, 0x080, U } | s: 0x00
 #_09E342: db $10, $14, !SPRITE_63   ; xyz:{ 0x140, 0x100, U } | s: 0x00
 #_09E345: db $05, $14, !SPRITE_71   ; xyz:{ 0x140, 0x050, U } | s: 0x00
@@ -18564,7 +18564,7 @@ RoomData_Sprites_Room0083:
 ;===================================================================================================
 
 RoomData_Sprites_Room0084:
-#_09E35E: db $00 ; Unsorted
+#_09E35E: db $00 ; Unlayered OAM
 #_09E35F: db $05, $03, !SPRITE_71   ; xyz:{ 0x030, 0x050, U } | s: 0x00
 #_09E362: db $05, $1B, !SPRITE_71   ; xyz:{ 0x1B0, 0x050, U } | s: 0x00
 #_09E365: db $07, $0F, !SPRITE_61   ; xyz:{ 0x0F0, 0x070, U } | s: 0x00
@@ -18577,7 +18577,7 @@ RoomData_Sprites_Room0084:
 ;===================================================================================================
 
 RoomData_Sprites_Room0085:
-#_09E375: db $00 ; Unsorted
+#_09E375: db $00 ; Unlayered OAM
 #_09E376: db $0E, $07, !SPRITE_63   ; xyz:{ 0x070, 0x0E0, U } | s: 0x00
 #_09E379: db $1B, $09, !SPRITE_64   ; xyz:{ 0x090, 0x1B0, U } | s: 0x00
 #_09E37C: db $05, $14, !SPRITE_4F   ; xyz:{ 0x140, 0x050, U } | s: 0x00
@@ -18593,13 +18593,13 @@ RoomData_Sprites_Room0085:
 ;===================================================================================================
 
 RoomData_Sprites_Room0086:
-#_09E395: db $01 ; Sorted
+#_09E395: db $01 ; Layered OAM
 #_09E396: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0087:
-#_09E397: db $00 ; Unsorted
+#_09E397: db $00 ; Unlayered OAM
 #_09E398: db $05, $14, !SPRITE_18   ; xyz:{ 0x140, 0x050, U } | s: 0x00
 #_09E39B: db $07, $1A, !SPRITE_18   ; xyz:{ 0x1A0, 0x070, U } | s: 0x00
 #_09E39E: db $0B, $13, !SPRITE_18   ; xyz:{ 0x130, 0x0B0, U } | s: 0x00
@@ -18618,7 +18618,7 @@ RoomData_Sprites_Room0087:
 ;===================================================================================================
 
 RoomData_Sprites_Room0089:
-#_09E3C0: db $00 ; Unsorted
+#_09E3C0: db $00 ; Unlayered OAM
 #_09E3C1: db $0A, $10, !SPRITE_E3   ; xyz:{ 0x100, 0x0A0, U } | s: 0x00
 #_09E3C4: db $0B, $0F, !SPRITE_E3   ; xyz:{ 0x0F0, 0x0B0, U } | s: 0x00
 #_09E3C7: db $FF ; END
@@ -18626,7 +18626,7 @@ RoomData_Sprites_Room0089:
 ;===================================================================================================
 
 RoomData_Sprites_Room008B:
-#_09E3C8: db $00 ; Unsorted
+#_09E3C8: db $00 ; Unlayered OAM
 #_09E3C9: db $07, $15, !SPRITE_93   ; xyz:{ 0x150, 0x070, U } | s: 0x00
 #_09E3CC: db $18, $04, !SPRITE_1E   ; xyz:{ 0x040, 0x180, U } | s: 0x00
 #_09E3CF: db $18, $0B, !SPRITE_1E   ; xyz:{ 0x0B0, 0x180, U } | s: 0x00
@@ -18640,7 +18640,7 @@ RoomData_Sprites_Room008B:
 ;===================================================================================================
 
 RoomData_Sprites_Room008C:
-#_09E3E2: db $00 ; Unsorted
+#_09E3E2: db $00 ; Unlayered OAM
 #_09E3E3: db $03, $1A, !SPRITE_06   ; xyz:{ 0x1A0, 0x030, U } | s: 0x00
 #_09E3E6: db $05, $F8, !OVERLORD_1A ; xyz:{ 0x180, 0x050, U }
 #_09E3E9: db $06, $F5, !OVERLORD_1A ; xyz:{ 0x150, 0x060, U }
@@ -18662,7 +18662,7 @@ RoomData_Sprites_Room008C:
 ;===================================================================================================
 
 RoomData_Sprites_Room008D:
-#_09E414: db $00 ; Unsorted
+#_09E414: db $00 ; Unlayered OAM
 #_09E415: db $08, $E7, !OVERLORD_14 ; xyz:{ 0x070, 0x080, U }
 #_09E418: db $04, $07, !SPRITE_C6   ; xyz:{ 0x070, 0x040, U } | s: 0x00
 #_09E41B: db $08, $09, !SPRITE_15   ; xyz:{ 0x090, 0x080, U } | s: 0x00
@@ -18681,7 +18681,7 @@ RoomData_Sprites_Room008D:
 ;===================================================================================================
 
 RoomData_Sprites_Room008E:
-#_09E43D: db $00 ; Unsorted
+#_09E43D: db $00 ; Unlayered OAM
 #_09E43E: db $02, $1B, !SPRITE_A1   ; xyz:{ 0x1B0, 0x020, U } | s: 0x00
 #_09E441: db $05, $18, !SPRITE_8F   ; xyz:{ 0x180, 0x050, U } | s: 0x00
 #_09E444: db $06, $14, !SPRITE_D1   ; xyz:{ 0x140, 0x060, U } | s: 0x00
@@ -18695,14 +18695,14 @@ RoomData_Sprites_Room008E:
 ;===================================================================================================
 
 RoomData_Sprites_Room0090:
-#_09E457: db $00 ; Unsorted
+#_09E457: db $00 ; Unlayered OAM
 #_09E458: db $15, $07, !SPRITE_BD   ; xyz:{ 0x070, 0x150, U } | s: 0x00
 #_09E45B: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0091:
-#_09E45C: db $00 ; Unsorted
+#_09E45C: db $00 ; Unlayered OAM
 #_09E45D: db $04, $18, !SPRITE_1E   ; xyz:{ 0x180, 0x040, U } | s: 0x00
 #_09E460: db $0E, $1B, !SPRITE_8A   ; xyz:{ 0x1B0, 0x0E0, U } | s: 0x00
 #_09E463: db $0F, $F7, !OVERLORD_08 ; xyz:{ 0x170, 0x0F0, U }
@@ -18715,7 +18715,7 @@ RoomData_Sprites_Room0091:
 ;===================================================================================================
 
 RoomData_Sprites_Room0092:
-#_09E473: db $00 ; Unsorted
+#_09E473: db $00 ; Unlayered OAM
 #_09E474: db $09, $18, !SPRITE_1E   ; xyz:{ 0x180, 0x090, U } | s: 0x00
 #_09E477: db $0C, $03, !SPRITE_1E   ; xyz:{ 0x030, 0x0C0, U } | s: 0x00
 #_09E47A: db $04, $18, !SPRITE_15   ; xyz:{ 0x180, 0x040, U } | s: 0x00
@@ -18733,7 +18733,7 @@ RoomData_Sprites_Room0092:
 ;===================================================================================================
 
 RoomData_Sprites_Room0093:
-#_09E499: db $00 ; Unsorted
+#_09E499: db $00 ; Unlayered OAM
 #_09E49A: db $09, $09, !SPRITE_C5   ; xyz:{ 0x090, 0x090, U } | s: 0x00
 #_09E49D: db $09, $16, !SPRITE_C5   ; xyz:{ 0x160, 0x090, U } | s: 0x00
 #_09E4A0: db $0C, $0C, !SPRITE_C5   ; xyz:{ 0x0C0, 0x0C0, U } | s: 0x00
@@ -18747,7 +18747,7 @@ RoomData_Sprites_Room0093:
 ;===================================================================================================
 
 RoomData_Sprites_Room0095:
-#_09E4B3: db $00 ; Unsorted
+#_09E4B3: db $00 ; Unlayered OAM
 #_09E4B4: db $0C, $16, !SPRITE_43   ; xyz:{ 0x160, 0x0C0, U } | s: 0x00
 #_09E4B7: db $0C, $17, !SPRITE_43   ; xyz:{ 0x170, 0x0C0, U } | s: 0x00
 #_09E4BA: db $0C, $18, !SPRITE_43   ; xyz:{ 0x180, 0x0C0, U } | s: 0x00
@@ -18758,7 +18758,7 @@ RoomData_Sprites_Room0095:
 ;===================================================================================================
 
 RoomData_Sprites_Room0096:
-#_09E4C4: db $00 ; Unsorted
+#_09E4C4: db $00 ; Unlayered OAM
 #_09E4C5: db $0B, $08, !SPRITE_7E   ; xyz:{ 0x080, 0x0B0, U } | s: 0x00
 #_09E4C8: db $15, $1E, !SPRITE_96   ; xyz:{ 0x1E0, 0x150, U } | s: 0x00
 #_09E4CB: db $17, $1E, !SPRITE_96   ; xyz:{ 0x1E0, 0x170, U } | s: 0x00
@@ -18769,14 +18769,14 @@ RoomData_Sprites_Room0096:
 ;===================================================================================================
 
 RoomData_Sprites_Room0097:
-#_09E4D5: db $00 ; Unsorted
+#_09E4D5: db $00 ; Unlayered OAM
 #_09E4D6: db $0F, $EF, !OVERLORD_15 ; xyz:{ 0x0F0, 0x0F0, U }
 #_09E4D9: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0098:
-#_09E4DA: db $00 ; Unsorted
+#_09E4DA: db $00 ; Unlayered OAM
 #_09E4DB: db $13, $10, !SPRITE_8F   ; xyz:{ 0x100, 0x130, U } | s: 0x00
 #_09E4DE: db $14, $09, !SPRITE_8F   ; xyz:{ 0x090, 0x140, U } | s: 0x00
 #_09E4E1: db $14, $0C, !SPRITE_8F   ; xyz:{ 0x0C0, 0x140, U } | s: 0x00
@@ -18787,7 +18787,7 @@ RoomData_Sprites_Room0098:
 ;===================================================================================================
 
 RoomData_Sprites_Room0099:
-#_09E4EB: db $00 ; Unsorted
+#_09E4EB: db $00 ; Unlayered OAM
 #_09E4EC: db $06, $15, !SPRITE_15   ; xyz:{ 0x150, 0x060, U } | s: 0x00
 #_09E4EF: db $08, $1A, !SPRITE_15   ; xyz:{ 0x1A0, 0x080, U } | s: 0x00
 #_09E4F2: db $17, $0E, !SPRITE_83   ; xyz:{ 0x0E0, 0x170, U } | s: 0x00
@@ -18804,7 +18804,7 @@ RoomData_Sprites_Room0099:
 ;===================================================================================================
 
 RoomData_Sprites_Room009B:
-#_09E50E: db $00 ; Unsorted
+#_09E50E: db $00 ; Unlayered OAM
 #_09E50F: db $08, $06, !SPRITE_1E   ; xyz:{ 0x060, 0x080, U } | s: 0x00
 #_09E512: db $08, $07, !SPRITE_1E   ; xyz:{ 0x070, 0x080, U } | s: 0x00
 #_09E515: db $08, $14, !SPRITE_1E   ; xyz:{ 0x140, 0x080, U } | s: 0x00
@@ -18823,7 +18823,7 @@ RoomData_Sprites_Room009B:
 ;===================================================================================================
 
 RoomData_Sprites_Room009C:
-#_09E537: db $00 ; Unsorted
+#_09E537: db $00 ; Unlayered OAM
 #_09E538: db $09, $13, !SPRITE_26   ; xyz:{ 0x130, 0x090, U } | s: 0x00
 #_09E53B: db $0A, $0B, !SPRITE_13   ; xyz:{ 0x0B0, 0x0A0, U } | s: 0x00
 #_09E53E: db $0F, $11, !SPRITE_26   ; xyz:{ 0x110, 0x0F0, U } | s: 0x00
@@ -18836,7 +18836,7 @@ RoomData_Sprites_Room009C:
 ;===================================================================================================
 
 RoomData_Sprites_Room009D:
-#_09E54E: db $00 ; Unsorted
+#_09E54E: db $00 ; Unlayered OAM
 #_09E54F: db $06, $1C, !SPRITE_1E   ; xyz:{ 0x1C0, 0x060, U } | s: 0x00
 #_09E552: db $04, $06, !SPRITE_26   ; xyz:{ 0x060, 0x040, U } | s: 0x00
 #_09E555: db $04, $14, !SPRITE_8B   ; xyz:{ 0x140, 0x040, U } | s: 0x00
@@ -18851,7 +18851,7 @@ RoomData_Sprites_Room009D:
 ;===================================================================================================
 
 RoomData_Sprites_Room009E:
-#_09E56B: db $00 ; Unsorted
+#_09E56B: db $00 ; Unlayered OAM
 #_09E56C: db $05, $18, !SPRITE_23   ; xyz:{ 0x180, 0x050, U } | s: 0x00
 #_09E56F: db $08, $16, !SPRITE_23   ; xyz:{ 0x160, 0x080, U } | s: 0x00
 #_09E572: db $08, $18, !SPRITE_91   ; xyz:{ 0x180, 0x080, U } | s: 0x00
@@ -18862,7 +18862,7 @@ RoomData_Sprites_Room009E:
 ;===================================================================================================
 
 RoomData_Sprites_Room009F:
-#_09E57C: db $00 ; Unsorted
+#_09E57C: db $00 ; Unlayered OAM
 #_09E57D: db $12, $04, !SPRITE_9D   ; xyz:{ 0x040, 0x120, U } | s: 0x00
 #_09E580: db $12, $06, !SPRITE_9D   ; xyz:{ 0x060, 0x120, U } | s: 0x00
 #_09E583: db $12, $09, !SPRITE_9D   ; xyz:{ 0x090, 0x120, U } | s: 0x00
@@ -18874,7 +18874,7 @@ RoomData_Sprites_Room009F:
 ;===================================================================================================
 
 RoomData_Sprites_Room00A0:
-#_09E590: db $00 ; Unsorted
+#_09E590: db $00 ; Unlayered OAM
 #_09E591: db $08, $03, !SPRITE_C5   ; xyz:{ 0x030, 0x080, U } | s: 0x00
 #_09E594: db $08, $0E, !SPRITE_15   ; xyz:{ 0x0E0, 0x080, U } | s: 0x00
 #_09E597: db $0C, $14, !SPRITE_80   ; xyz:{ 0x140, 0x0C0, U } | s: 0x00
@@ -18883,7 +18883,7 @@ RoomData_Sprites_Room00A0:
 ;===================================================================================================
 
 RoomData_Sprites_Room00A1:
-#_09E59B: db $00 ; Unsorted
+#_09E59B: db $00 ; Unlayered OAM
 #_09E59C: db $08, $0A, !SPRITE_1E   ; xyz:{ 0x0A0, 0x080, U } | s: 0x00
 #_09E59F: db $07, $18, !SPRITE_5B   ; xyz:{ 0x180, 0x070, U } | s: 0x00
 #_09E5A2: db $0B, $16, !SPRITE_5B   ; xyz:{ 0x160, 0x0B0, U } | s: 0x00
@@ -18898,13 +18898,13 @@ RoomData_Sprites_Room00A1:
 ;===================================================================================================
 
 RoomData_Sprites_Room00A3:
-#_09E5B8: db $00 ; Unsorted
+#_09E5B8: db $00 ; Unlayered OAM
 #_09E5B9: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00A4:
-#_09E5BA: db $00 ; Unsorted
+#_09E5BA: db $00 ; Unlayered OAM
 #_09E5BB: db $15, $07, !SPRITE_CB   ; xyz:{ 0x070, 0x150, U } | s: 0x00
 #_09E5BE: db $15, $07, !SPRITE_CC   ; xyz:{ 0x070, 0x150, U } | s: 0x00
 #_09E5C1: db $15, $07, !SPRITE_CD   ; xyz:{ 0x070, 0x150, U } | s: 0x00
@@ -18913,7 +18913,7 @@ RoomData_Sprites_Room00A4:
 ;===================================================================================================
 
 RoomData_Sprites_Room00A5:
-#_09E5C5: db $00 ; Unsorted
+#_09E5C5: db $00 ; Unlayered OAM
 #_09E5C6: db $05, $16, !SPRITE_9B   ; xyz:{ 0x160, 0x050, U } | s: 0x00
 #_09E5C9: db $05, $19, !SPRITE_9B   ; xyz:{ 0x190, 0x050, U } | s: 0x00
 #_09E5CC: db $07, $04, !SPRITE_9B   ; xyz:{ 0x040, 0x070, U } | s: 0x00
@@ -18931,7 +18931,7 @@ RoomData_Sprites_Room00A5:
 ;===================================================================================================
 
 RoomData_Sprites_Room00A6:
-#_09E5EB: db $00 ; Unsorted
+#_09E5EB: db $00 ; Unlayered OAM
 #_09E5EC: db $0F, $EF, !OVERLORD_15 ; xyz:{ 0x0F0, 0x0F0, U }
 #_09E5EF: db $0E, $0C, !SPRITE_15   ; xyz:{ 0x0C0, 0x0E0, U } | s: 0x00
 #_09E5F2: db $FF ; END
@@ -18939,7 +18939,7 @@ RoomData_Sprites_Room00A6:
 ;===================================================================================================
 
 RoomData_Sprites_Room00A7:
-#_09E5F3: db $00 ; Unsorted
+#_09E5F3: db $00 ; Unlayered OAM
 #_09E5F4: db $08, $06, !SPRITE_E3   ; xyz:{ 0x060, 0x080, U } | s: 0x00
 #_09E5F7: db $09, $06, !SPRITE_E3   ; xyz:{ 0x060, 0x090, U } | s: 0x00
 #_09E5FA: db $FF ; END
@@ -18947,7 +18947,7 @@ RoomData_Sprites_Room00A7:
 ;===================================================================================================
 
 RoomData_Sprites_Room00A8:
-#_09E5FB: db $01 ; Sorted
+#_09E5FB: db $01 ; Layered OAM
 #_09E5FC: db $0E, $16, !SPRITE_A7   ; xyz:{ 0x160, 0x0E0, U } | s: 0x00
 #_09E5FF: db $0E, $1A, !SPRITE_A7   ; xyz:{ 0x1A0, 0x0E0, U } | s: 0x00
 #_09E602: db $12, $16, !SPRITE_A7   ; xyz:{ 0x160, 0x120, U } | s: 0x00
@@ -18958,7 +18958,7 @@ RoomData_Sprites_Room00A8:
 ;===================================================================================================
 
 RoomData_Sprites_Room00A9:
-#_09E60C: db $00 ; Unsorted
+#_09E60C: db $00 ; Unlayered OAM
 #_09E60D: db $85, $09, !SPRITE_83   ; xyz:{ 0x090, 0x050, L } | s: 0x00
 #_09E610: db $85, $16, !SPRITE_83   ; xyz:{ 0x160, 0x050, L } | s: 0x00
 #_09E613: db $8C, $ED, !OVERLORD_05 ; xyz:{ 0x0D0, 0x0C0, L }
@@ -18972,7 +18972,7 @@ RoomData_Sprites_Room00A9:
 ;===================================================================================================
 
 RoomData_Sprites_Room00AA:
-#_09E626: db $01 ; Sorted
+#_09E626: db $01 ; Layered OAM
 #_09E627: db $06, $18, !SPRITE_15   ; xyz:{ 0x180, 0x060, U } | s: 0x00
 #_09E62A: db $07, $0A, !SPRITE_4F   ; xyz:{ 0x0A0, 0x070, U } | s: 0x00
 #_09E62D: db $0B, $06, !SPRITE_A7   ; xyz:{ 0x060, 0x0B0, U } | s: 0x00
@@ -18984,7 +18984,7 @@ RoomData_Sprites_Room00AA:
 ;===================================================================================================
 
 RoomData_Sprites_Room00AB:
-#_09E63A: db $00 ; Unsorted
+#_09E63A: db $00 ; Unlayered OAM
 #_09E63B: db $18, $04, !SPRITE_1E   ; xyz:{ 0x040, 0x180, U } | s: 0x00
 #_09E63E: db $15, $03, !SPRITE_8A   ; xyz:{ 0x030, 0x150, U } | s: 0x00
 #_09E641: db $16, $0C, !SPRITE_8A   ; xyz:{ 0x0C0, 0x160, U } | s: 0x00
@@ -18998,14 +18998,14 @@ RoomData_Sprites_Room00AB:
 ;===================================================================================================
 
 RoomData_Sprites_Room00AC:
-#_09E654: db $00 ; Unsorted
+#_09E654: db $00 ; Unlayered OAM
 #_09E655: db $15, $19, !SPRITE_CE   ; xyz:{ 0x190, 0x150, U } | s: 0x00
 #_09E658: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00AE:
-#_09E659: db $00 ; Unsorted
+#_09E659: db $00 ; Unlayered OAM
 #_09E65A: db $07, $13, !SPRITE_24   ; xyz:{ 0x130, 0x070, U } | s: 0x00
 #_09E65D: db $07, $15, !SPRITE_24   ; xyz:{ 0x150, 0x070, U } | s: 0x00
 #_09E660: db $FF ; END
@@ -19013,14 +19013,14 @@ RoomData_Sprites_Room00AE:
 ;===================================================================================================
 
 RoomData_Sprites_Room00AF:
-#_09E661: db $00 ; Unsorted
+#_09E661: db $00 ; Unlayered OAM
 #_09E662: db $08, $0A, !SPRITE_7E   ; xyz:{ 0x0A0, 0x080, U } | s: 0x00
 #_09E665: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00B0:
-#_09E666: db $00 ; Unsorted
+#_09E666: db $00 ; Unlayered OAM
 #_09E667: db $07, $07, !SPRITE_43   ; xyz:{ 0x070, 0x070, U } | s: 0x00
 #_09E66A: db $07, $17, !SPRITE_6F   ; xyz:{ 0x170, 0x070, U } | s: 0x00
 #_09E66D: db $07, $18, !SPRITE_6F   ; xyz:{ 0x180, 0x070, U } | s: 0x00
@@ -19040,7 +19040,7 @@ RoomData_Sprites_Room00B0:
 ;===================================================================================================
 
 RoomData_Sprites_Room00B1:
-#_09E692: db $00 ; Unsorted
+#_09E692: db $00 ; Unlayered OAM
 #_09E693: db $07, $15, !SPRITE_C5   ; xyz:{ 0x150, 0x070, U } | s: 0x00
 #_09E696: db $07, $1A, !SPRITE_C5   ; xyz:{ 0x1A0, 0x070, U } | s: 0x00
 #_09E699: db $0E, $16, !SPRITE_8A   ; xyz:{ 0x160, 0x0E0, U } | s: 0x00
@@ -19056,7 +19056,7 @@ RoomData_Sprites_Room00B1:
 ;===================================================================================================
 
 RoomData_Sprites_Room00B2:
-#_09E6B2: db $01 ; Sorted
+#_09E6B2: db $01 ; Layered OAM
 #_09E6B3: db $88, $14, !SPRITE_9B   ; xyz:{ 0x140, 0x080, L } | s: 0x00
 #_09E6B6: db $8A, $0C, !SPRITE_D1   ; xyz:{ 0x0C0, 0x0A0, L } | s: 0x00
 #_09E6B9: db $8A, $12, !SPRITE_15   ; xyz:{ 0x120, 0x0A0, L } | s: 0x00
@@ -19076,7 +19076,7 @@ RoomData_Sprites_Room00B2:
 ;===================================================================================================
 
 RoomData_Sprites_Room00B3:
-#_09E6DE: db $00 ; Unsorted
+#_09E6DE: db $00 ; Unlayered OAM
 #_09E6DF: db $15, $03, !SPRITE_A7   ; xyz:{ 0x030, 0x150, U } | s: 0x00
 #_09E6E2: db $15, $0B, !SPRITE_A7   ; xyz:{ 0x0B0, 0x150, U } | s: 0x00
 #_09E6E5: db $18, $06, !SPRITE_61   ; xyz:{ 0x060, 0x180, U } | s: 0x00
@@ -19087,7 +19087,7 @@ RoomData_Sprites_Room00B3:
 ;===================================================================================================
 
 RoomData_Sprites_Room00B5:
-#_09E6EF: db $00 ; Unsorted
+#_09E6EF: db $00 ; Unlayered OAM
 #_09E6F0: db $0A, $16, !SPRITE_7E   ; xyz:{ 0x160, 0x0A0, U } | s: 0x00
 #_09E6F3: db $0F, $09, !SPRITE_7E   ; xyz:{ 0x090, 0x0F0, U } | s: 0x00
 #_09E6F6: db $16, $16, !SPRITE_7E   ; xyz:{ 0x160, 0x160, U } | s: 0x00
@@ -19096,7 +19096,7 @@ RoomData_Sprites_Room00B5:
 ;===================================================================================================
 
 RoomData_Sprites_Room00B6:
-#_09E6FA: db $00 ; Unsorted
+#_09E6FA: db $00 ; Unlayered OAM
 #_09E6FB: db $07, $06, !SPRITE_CA   ; xyz:{ 0x060, 0x070, U } | s: 0x00
 #_09E6FE: db $07, $0A, !SPRITE_CA   ; xyz:{ 0x0A0, 0x070, U } | s: 0x00
 #_09E701: db $04, $03, !SPRITE_1E   ; xyz:{ 0x030, 0x040, U } | s: 0x00
@@ -19112,7 +19112,7 @@ RoomData_Sprites_Room00B6:
 ;===================================================================================================
 
 RoomData_Sprites_Room00B7:
-#_09E71A: db $00 ; Unsorted
+#_09E71A: db $00 ; Unlayered OAM
 #_09E71B: db $09, $04, !SPRITE_5F   ; xyz:{ 0x040, 0x090, U } | s: 0x00
 #_09E71E: db $11, $04, !SPRITE_5D   ; xyz:{ 0x040, 0x110, U } | s: 0x00
 #_09E721: db $FF ; END
@@ -19120,7 +19120,7 @@ RoomData_Sprites_Room00B7:
 ;===================================================================================================
 
 RoomData_Sprites_Room00B8:
-#_09E722: db $00 ; Unsorted
+#_09E722: db $00 ; Unlayered OAM
 #_09E723: db $0B, $15, !SPRITE_4E   ; xyz:{ 0x150, 0x0B0, U } | s: 0x00
 #_09E726: db $0B, $1B, !SPRITE_4E   ; xyz:{ 0x1B0, 0x0B0, U } | s: 0x00
 #_09E729: db $0D, $18, !SPRITE_82   ; xyz:{ 0x180, 0x0D0, U } | s: 0x00
@@ -19132,14 +19132,14 @@ RoomData_Sprites_Room00B8:
 ;===================================================================================================
 
 RoomData_Sprites_Room00B9:
-#_09E736: db $01 ; Sorted
+#_09E736: db $01 ; Layered OAM
 #_09E737: db $85, $F1, !OVERLORD_03 ; xyz:{ 0x110, 0x050, L }
 #_09E73A: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00BA:
-#_09E73B: db $00 ; Unsorted
+#_09E73B: db $00 ; Unlayered OAM
 #_09E73C: db $04, $14, !SPRITE_A7   ; xyz:{ 0x140, 0x040, U } | s: 0x00
 #_09E73F: db $06, $03, !SPRITE_15   ; xyz:{ 0x030, 0x060, U } | s: 0x00
 #_09E742: db $06, $18, !SPRITE_A7   ; xyz:{ 0x180, 0x060, U } | s: 0x00
@@ -19152,7 +19152,7 @@ RoomData_Sprites_Room00BA:
 ;===================================================================================================
 
 RoomData_Sprites_Room00BB:
-#_09E752: db $00 ; Unsorted
+#_09E752: db $00 ; Unlayered OAM
 #_09E753: db $04, $1B, !SPRITE_A6   ; xyz:{ 0x1B0, 0x040, U } | s: 0x00
 #_09E756: db $0A, $06, !SPRITE_C3   ; xyz:{ 0x060, 0x0A0, U } | s: 0x00
 #_09E759: db $0A, $16, !SPRITE_A6   ; xyz:{ 0x160, 0x0A0, U } | s: 0x00
@@ -19169,7 +19169,7 @@ RoomData_Sprites_Room00BB:
 ;===================================================================================================
 
 RoomData_Sprites_Room00BC:
-#_09E775: db $00 ; Unsorted
+#_09E775: db $00 ; Unlayered OAM
 #_09E776: db $05, $06, !SPRITE_A5   ; xyz:{ 0x060, 0x050, U } | s: 0x00
 #_09E779: db $05, $0C, !SPRITE_A7   ; xyz:{ 0x0C0, 0x050, U } | s: 0x00
 #_09E77C: db $06, $08, !SPRITE_8A   ; xyz:{ 0x080, 0x060, U } | s: 0x00
@@ -19187,13 +19187,13 @@ RoomData_Sprites_Room00BC:
 ;===================================================================================================
 
 RoomData_Sprites_Room00BD:
-#_09E79B: db $00 ; Unsorted
+#_09E79B: db $00 ; Unlayered OAM
 #_09E79C: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00BE:
-#_09E79D: db $00 ; Unsorted
+#_09E79D: db $00 ; Unlayered OAM
 #_09E79E: db $08, $17, !SPRITE_15   ; xyz:{ 0x170, 0x080, U } | s: 0x00
 #_09E7A1: db $12, $14, !SPRITE_A1   ; xyz:{ 0x140, 0x120, U } | s: 0x00
 #_09E7A4: db $15, $14, !SPRITE_24   ; xyz:{ 0x140, 0x150, U } | s: 0x00
@@ -19206,7 +19206,7 @@ RoomData_Sprites_Room00BE:
 ;===================================================================================================
 
 RoomData_Sprites_Room00BF:
-#_09E7B4: db $00 ; Unsorted
+#_09E7B4: db $00 ; Unlayered OAM
 #_09E7B5: db $18, $0B, !SPRITE_1E   ; xyz:{ 0x0B0, 0x180, U } | s: 0x00
 #_09E7B8: db $15, $0C, !SPRITE_D1   ; xyz:{ 0x0C0, 0x150, U } | s: 0x00
 #_09E7BB: db $FF ; END
@@ -19214,7 +19214,7 @@ RoomData_Sprites_Room00BF:
 ;===================================================================================================
 
 RoomData_Sprites_Room00C0:
-#_09E7BC: db $00 ; Unsorted
+#_09E7BC: db $00 ; Unlayered OAM
 #_09E7BD: db $05, $17, !SPRITE_41   ; xyz:{ 0x170, 0x050, U } | s: 0x00
 #_09E7C0: db $07, $1A, !SPRITE_46   ; xyz:{ 0x1A0, 0x070, U } | s: 0x00
 #_09E7C3: db $09, $0B, !SPRITE_41   ; xyz:{ 0x0B0, 0x090, U } | s: 0x00
@@ -19229,7 +19229,7 @@ RoomData_Sprites_Room00C0:
 ;===================================================================================================
 
 RoomData_Sprites_Room00C1:
-#_09E7D9: db $00 ; Unsorted
+#_09E7D9: db $00 ; Unlayered OAM
 #_09E7DA: db $17, $15, !SPRITE_1E   ; xyz:{ 0x150, 0x170, U } | s: 0x00
 #_09E7DD: db $05, $14, !SPRITE_C5   ; xyz:{ 0x140, 0x050, U } | s: 0x00
 #_09E7E0: db $05, $1B, !SPRITE_C5   ; xyz:{ 0x1B0, 0x050, U } | s: 0x00
@@ -19248,7 +19248,7 @@ RoomData_Sprites_Room00C1:
 ;===================================================================================================
 
 RoomData_Sprites_Room00C2:
-#_09E802: db $01 ; Sorted
+#_09E802: db $01 ; Layered OAM
 #_09E803: db $8B, $15, !SPRITE_80   ; xyz:{ 0x150, 0x0B0, L } | s: 0x00
 #_09E806: db $0C, $0B, !SPRITE_80   ; xyz:{ 0x0B0, 0x0C0, U } | s: 0x00
 #_09E809: db $10, $08, !SPRITE_C5   ; xyz:{ 0x080, 0x100, U } | s: 0x00
@@ -19262,7 +19262,7 @@ RoomData_Sprites_Room00C2:
 ;===================================================================================================
 
 RoomData_Sprites_Room00C3:
-#_09E81C: db $00 ; Unsorted
+#_09E81C: db $00 ; Unlayered OAM
 #_09E81D: db $06, $05, !SPRITE_C5   ; xyz:{ 0x050, 0x060, U } | s: 0x00
 #_09E820: db $09, $1E, !SPRITE_96   ; xyz:{ 0x1E0, 0x090, U } | s: 0x00
 #_09E823: db $0D, $11, !SPRITE_95   ; xyz:{ 0x110, 0x0D0, U } | s: 0x00
@@ -19276,7 +19276,7 @@ RoomData_Sprites_Room00C3:
 ;===================================================================================================
 
 RoomData_Sprites_Room00C4:
-#_09E836: db $00 ; Unsorted
+#_09E836: db $00 ; Unlayered OAM
 #_09E837: db $0A, $0B, !SPRITE_1E   ; xyz:{ 0x0B0, 0x0A0, U } | s: 0x00
 #_09E83A: db $0F, $18, !SPRITE_1E   ; xyz:{ 0x180, 0x0F0, U } | s: 0x00
 #_09E83D: db $1B, $1C, !SPRITE_1E   ; xyz:{ 0x1C0, 0x1B0, U } | s: 0x00
@@ -19292,7 +19292,7 @@ RoomData_Sprites_Room00C4:
 ;===================================================================================================
 
 RoomData_Sprites_Room00C5:
-#_09E856: db $00 ; Unsorted
+#_09E856: db $00 ; Unlayered OAM
 #_09E857: db $09, $0E, !SPRITE_96   ; xyz:{ 0x0E0, 0x090, U } | s: 0x00
 #_09E85A: db $0B, $01, !SPRITE_95   ; xyz:{ 0x010, 0x0B0, U } | s: 0x00
 #_09E85D: db $0D, $0E, !SPRITE_96   ; xyz:{ 0x0E0, 0x0D0, U } | s: 0x00
@@ -19306,7 +19306,7 @@ RoomData_Sprites_Room00C5:
 ;===================================================================================================
 
 RoomData_Sprites_Room00C6:
-#_09E870: db $00 ; Unsorted
+#_09E870: db $00 ; Unlayered OAM
 #_09E871: db $04, $0B, !SPRITE_A7   ; xyz:{ 0x0B0, 0x040, U } | s: 0x00
 #_09E874: db $04, $15, !SPRITE_A7   ; xyz:{ 0x150, 0x040, U } | s: 0x00
 #_09E877: db $09, $08, !SPRITE_24   ; xyz:{ 0x080, 0x090, U } | s: 0x00
@@ -19319,7 +19319,7 @@ RoomData_Sprites_Room00C6:
 ;===================================================================================================
 
 RoomData_Sprites_Room00C8:
-#_09E887: db $00 ; Unsorted
+#_09E887: db $00 ; Unlayered OAM
 #_09E888: db $15, $14, !SPRITE_53   ; xyz:{ 0x140, 0x150, U } | s: 0x00
 #_09E88B: db $15, $17, !SPRITE_53   ; xyz:{ 0x170, 0x150, U } | s: 0x00
 #_09E88E: db $15, $1A, !SPRITE_53   ; xyz:{ 0x1A0, 0x150, U } | s: 0x00
@@ -19332,7 +19332,7 @@ RoomData_Sprites_Room00C8:
 ;===================================================================================================
 
 RoomData_Sprites_Room00C9:
-#_09E89E: db $00 ; Unsorted
+#_09E89E: db $00 ; Unlayered OAM
 #_09E89F: db $05, $10, !SPRITE_4F   ; xyz:{ 0x100, 0x050, U } | s: 0x00
 #_09E8A2: db $06, $0F, !SPRITE_4F   ; xyz:{ 0x0F0, 0x060, U } | s: 0x00
 #_09E8A5: db $07, $10, !SPRITE_4F   ; xyz:{ 0x100, 0x070, U } | s: 0x00
@@ -19341,7 +19341,7 @@ RoomData_Sprites_Room00C9:
 ;===================================================================================================
 
 RoomData_Sprites_Room00CB:
-#_09E8A9: db $01 ; Sorted
+#_09E8A9: db $01 ; Layered OAM
 #_09E8AA: db $04, $14, !SPRITE_D1   ; xyz:{ 0x140, 0x040, U } | s: 0x00
 #_09E8AD: db $89, $08, !SPRITE_80   ; xyz:{ 0x080, 0x090, L } | s: 0x00
 #_09E8B0: db $8A, $10, !SPRITE_A5   ; xyz:{ 0x100, 0x0A0, L } | s: 0x00
@@ -19359,7 +19359,7 @@ RoomData_Sprites_Room00CB:
 ;===================================================================================================
 
 RoomData_Sprites_Room00CC:
-#_09E8CF: db $01 ; Sorted
+#_09E8CF: db $01 ; Layered OAM
 #_09E8D0: db $04, $13, !SPRITE_80   ; xyz:{ 0x130, 0x040, U } | s: 0x00
 #_09E8D3: db $89, $0B, !SPRITE_D1   ; xyz:{ 0x0B0, 0x090, L } | s: 0x00
 #_09E8D6: db $8A, $08, !SPRITE_A5   ; xyz:{ 0x080, 0x0A0, L } | s: 0x00
@@ -19379,7 +19379,7 @@ RoomData_Sprites_Room00CC:
 ;===================================================================================================
 
 RoomData_Sprites_Room00CE:
-#_09E8FB: db $00 ; Unsorted
+#_09E8FB: db $00 ; Unlayered OAM
 #_09E8FC: db $05, $16, !SPRITE_23   ; xyz:{ 0x160, 0x050, U } | s: 0x00
 #_09E8FF: db $05, $19, !SPRITE_23   ; xyz:{ 0x190, 0x050, U } | s: 0x00
 #_09E902: db $05, $1C, !SPRITE_04   ; xyz:{ 0x1C0, 0x050, U } | s: 0x00
@@ -19393,7 +19393,7 @@ RoomData_Sprites_Room00CE:
 ;===================================================================================================
 
 RoomData_Sprites_Room00D0:
-#_09E915: db $00 ; Unsorted
+#_09E915: db $00 ; Unlayered OAM
 #_09E916: db $05, $0B, !SPRITE_6F   ; xyz:{ 0x0B0, 0x050, U } | s: 0x00
 #_09E919: db $07, $09, !SPRITE_41   ; xyz:{ 0x090, 0x070, U } | s: 0x00
 #_09E91C: db $07, $17, !SPRITE_6F   ; xyz:{ 0x170, 0x070, U } | s: 0x00
@@ -19410,7 +19410,7 @@ RoomData_Sprites_Room00D0:
 ;===================================================================================================
 
 RoomData_Sprites_Room00D1:
-#_09E938: db $00 ; Unsorted
+#_09E938: db $00 ; Unlayered OAM
 #_09E939: db $06, $14, !SPRITE_61   ; xyz:{ 0x140, 0x060, U } | s: 0x00
 #_09E93C: db $06, $1B, !SPRITE_61   ; xyz:{ 0x1B0, 0x060, U } | s: 0x00
 #_09E93F: db $07, $04, !SPRITE_9B   ; xyz:{ 0x040, 0x070, U } | s: 0x00
@@ -19424,7 +19424,7 @@ RoomData_Sprites_Room00D1:
 ;===================================================================================================
 
 RoomData_Sprites_Room00D2:
-#_09E952: db $00 ; Unsorted
+#_09E952: db $00 ; Unlayered OAM
 #_09E953: db $06, $18, !SPRITE_9B   ; xyz:{ 0x180, 0x060, U } | s: 0x00
 #_09E956: db $07, $1A, !SPRITE_4E   ; xyz:{ 0x1A0, 0x070, U } | s: 0x00
 #_09E959: db $08, $13, !SPRITE_9B   ; xyz:{ 0x130, 0x080, U } | s: 0x00
@@ -19440,7 +19440,7 @@ RoomData_Sprites_Room00D2:
 ;===================================================================================================
 
 RoomData_Sprites_Room00D5:
-#_09E972: db $00 ; Unsorted
+#_09E972: db $00 ; Unlayered OAM
 #_09E973: db $09, $0E, !SPRITE_96   ; xyz:{ 0x0E0, 0x090, U } | s: 0x00
 #_09E976: db $0D, $01, !SPRITE_95   ; xyz:{ 0x010, 0x0D0, U } | s: 0x00
 #_09E979: db $11, $0E, !SPRITE_96   ; xyz:{ 0x0E0, 0x110, U } | s: 0x00
@@ -19451,7 +19451,7 @@ RoomData_Sprites_Room00D5:
 ;===================================================================================================
 
 RoomData_Sprites_Room00D6:
-#_09E983: db $00 ; Unsorted
+#_09E983: db $00 ; Unlayered OAM
 #_09E984: db $02, $07, !SPRITE_97   ; xyz:{ 0x070, 0x020, U } | s: 0x00
 #_09E987: db $16, $03, !SPRITE_C5   ; xyz:{ 0x030, 0x160, U } | s: 0x00
 #_09E98A: db $16, $0C, !SPRITE_C5   ; xyz:{ 0x0C0, 0x160, U } | s: 0x00
@@ -19460,7 +19460,7 @@ RoomData_Sprites_Room00D6:
 ;===================================================================================================
 
 RoomData_Sprites_Room00D8:
-#_09E98E: db $00 ; Unsorted
+#_09E98E: db $00 ; Unlayered OAM
 #_09E98F: db $05, $17, !SPRITE_84   ; xyz:{ 0x170, 0x050, U } | s: 0x00
 #_09E992: db $05, $18, !SPRITE_84   ; xyz:{ 0x180, 0x050, U } | s: 0x00
 #_09E995: db $09, $17, !SPRITE_4F   ; xyz:{ 0x170, 0x090, U } | s: 0x00
@@ -19477,7 +19477,7 @@ RoomData_Sprites_Room00D8:
 ;===================================================================================================
 
 RoomData_Sprites_Room00D9:
-#_09E9B1: db $00 ; Unsorted
+#_09E9B1: db $00 ; Unlayered OAM
 #_09E9B2: db $14, $EC, !OVERLORD_02 ; xyz:{ 0x0C0, 0x140, U }
 #_09E9B5: db $15, $18, !SPRITE_83   ; xyz:{ 0x180, 0x150, U } | s: 0x00
 #_09E9B8: db $18, $18, !SPRITE_83   ; xyz:{ 0x180, 0x180, U } | s: 0x00
@@ -19487,7 +19487,7 @@ RoomData_Sprites_Room00D9:
 ;===================================================================================================
 
 RoomData_Sprites_Room00DA:
-#_09E9BF: db $00 ; Unsorted
+#_09E9BF: db $00 ; Unlayered OAM
 #_09E9C0: db $18, $07, !SPRITE_15   ; xyz:{ 0x070, 0x180, U } | s: 0x00
 #_09E9C3: db $18, $08, !SPRITE_15   ; xyz:{ 0x080, 0x180, U } | s: 0x00
 #_09E9C6: db $FF ; END
@@ -19495,7 +19495,7 @@ RoomData_Sprites_Room00DA:
 ;===================================================================================================
 
 RoomData_Sprites_Room00DB:
-#_09E9C7: db $01 ; Sorted
+#_09E9C7: db $01 ; Layered OAM
 #_09E9C8: db $04, $03, !SPRITE_D1   ; xyz:{ 0x030, 0x040, U } | s: 0x00
 #_09E9CB: db $8A, $0E, !SPRITE_5B   ; xyz:{ 0x0E0, 0x0A0, L } | s: 0x00
 #_09E9CE: db $8B, $17, !SPRITE_A6   ; xyz:{ 0x170, 0x0B0, L } | s: 0x00
@@ -19508,7 +19508,7 @@ RoomData_Sprites_Room00DB:
 ;===================================================================================================
 
 RoomData_Sprites_Room00DC:
-#_09E9DE: db $01 ; Sorted
+#_09E9DE: db $01 ; Layered OAM
 #_09E9DF: db $8A, $09, !SPRITE_A5   ; xyz:{ 0x090, 0x0A0, L } | s: 0x00
 #_09E9E2: db $8A, $0E, !SPRITE_5C   ; xyz:{ 0x0E0, 0x0A0, L } | s: 0x00
 #_09E9E5: db $8C, $0F, !SPRITE_A6   ; xyz:{ 0x0F0, 0x0C0, L } | s: 0x00
@@ -19525,7 +19525,7 @@ RoomData_Sprites_Room00DC:
 ;===================================================================================================
 
 RoomData_Sprites_Room00DE:
-#_09EA01: db $00 ; Unsorted
+#_09EA01: db $00 ; Unlayered OAM
 #_09EA02: db $05, $17, !SPRITE_A3   ; xyz:{ 0x170, 0x050, U } | s: 0x00
 #_09EA05: db $05, $17, !SPRITE_A4   ; xyz:{ 0x170, 0x050, U } | s: 0x00
 #_09EA08: db $05, $17, !SPRITE_A2   ; xyz:{ 0x170, 0x050, U } | s: 0x00
@@ -19534,7 +19534,7 @@ RoomData_Sprites_Room00DE:
 ;===================================================================================================
 
 RoomData_Sprites_Room00DF:
-#_09EA0C: db $00 ; Unsorted
+#_09EA0C: db $00 ; Unlayered OAM
 #_09EA0D: db $95, $0C, !SPRITE_18   ; xyz:{ 0x0C0, 0x150, L } | s: 0x00
 #_09EA10: db $96, $0C, !SPRITE_18   ; xyz:{ 0x0C0, 0x160, L } | s: 0x00
 #_09EA13: db $FF ; END
@@ -19542,7 +19542,7 @@ RoomData_Sprites_Room00DF:
 ;===================================================================================================
 
 RoomData_Sprites_Room00E0:
-#_09EA14: db $00 ; Unsorted
+#_09EA14: db $00 ; Unlayered OAM
 #_09EA15: db $06, $04, !SPRITE_6A   ; xyz:{ 0x040, 0x060, U } | s: 0x00
 #_09EA18: db $06, $0B, !SPRITE_6A   ; xyz:{ 0x0B0, 0x060, U } | s: 0x00
 #_09EA1B: db $06, $1A, !SPRITE_44   ; xyz:{ 0x1A0, 0x060, U } | s: 0x00
@@ -19552,7 +19552,7 @@ RoomData_Sprites_Room00E0:
 ;===================================================================================================
 
 RoomData_Sprites_Room00E1:
-#_09EA22: db $00 ; Unsorted
+#_09EA22: db $00 ; Unlayered OAM
 #_09EA23: db $0D, $17, !SPRITE_EB   ; xyz:{ 0x170, 0x0D0, U } | s: 0x00
 #_09EA26: db $92, $07, !SPRITE_29   ; xyz:{ 0x070, 0x120, L } | s: 0x00
 #_09EA29: db $FF ; END
@@ -19560,7 +19560,7 @@ RoomData_Sprites_Room00E1:
 ;===================================================================================================
 
 RoomData_Sprites_Room00E2:
-#_09EA2A: db $00 ; Unsorted
+#_09EA2A: db $00 ; Unlayered OAM
 #_09EA2B: db $06, $07, !SPRITE_E3   ; xyz:{ 0x070, 0x060, U } | s: 0x00
 #_09EA2E: db $06, $08, !SPRITE_E3   ; xyz:{ 0x080, 0x060, U } | s: 0x00
 #_09EA31: db $07, $07, !SPRITE_E3   ; xyz:{ 0x070, 0x070, U } | s: 0x00
@@ -19571,14 +19571,14 @@ RoomData_Sprites_Room00E2:
 ;===================================================================================================
 
 RoomData_Sprites_Room00E3:
-#_09EA3B: db $00 ; Unsorted
+#_09EA3B: db $00 ; Unlayered OAM
 #_09EA3C: db $85, $17, !SPRITE_3A   ; xyz:{ 0x170, 0x050, L } | s: 0x00
 #_09EA3F: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00E4:
-#_09EA40: db $00 ; Unsorted
+#_09EA40: db $00 ; Unlayered OAM
 #_09EA41: db $07, $19, !SPRITE_6F   ; xyz:{ 0x190, 0x070, U } | s: 0x00
 #_09EA44: db $08, $18, !SPRITE_6F   ; xyz:{ 0x180, 0x080, U } | s: 0x00
 #_09EA47: db $09, $17, !SPRITE_6F   ; xyz:{ 0x170, 0x090, U } | s: 0x00
@@ -19588,7 +19588,7 @@ RoomData_Sprites_Room00E4:
 ;===================================================================================================
 
 RoomData_Sprites_Room00E5:
-#_09EA4E: db $00 ; Unsorted
+#_09EA4E: db $00 ; Unlayered OAM
 #_09EA4F: db $09, $0F, !SPRITE_6F   ; xyz:{ 0x0F0, 0x090, U } | s: 0x00
 #_09EA52: db $09, $10, !SPRITE_6F   ; xyz:{ 0x100, 0x090, U } | s: 0x00
 #_09EA55: db $09, $11, !SPRITE_6F   ; xyz:{ 0x110, 0x090, U } | s: 0x00
@@ -19600,7 +19600,7 @@ RoomData_Sprites_Room00E5:
 ;===================================================================================================
 
 RoomData_Sprites_Room00E6:
-#_09EA62: db $00 ; Unsorted
+#_09EA62: db $00 ; Unlayered OAM
 #_09EA63: db $0B, $1B, !SPRITE_6F   ; xyz:{ 0x1B0, 0x0B0, U } | s: 0x00
 #_09EA66: db $0F, $17, !SPRITE_6F   ; xyz:{ 0x170, 0x0F0, U } | s: 0x00
 #_09EA69: db $13, $13, !SPRITE_6F   ; xyz:{ 0x130, 0x130, U } | s: 0x00
@@ -19611,7 +19611,7 @@ RoomData_Sprites_Room00E6:
 ;===================================================================================================
 
 RoomData_Sprites_Room00E7:
-#_09EA73: db $00 ; Unsorted
+#_09EA73: db $00 ; Unlayered OAM
 #_09EA74: db $04, $10, !SPRITE_6F   ; xyz:{ 0x100, 0x040, U } | s: 0x00
 #_09EA77: db $04, $13, !SPRITE_6F   ; xyz:{ 0x130, 0x040, U } | s: 0x00
 #_09EA7A: db $0B, $15, !SPRITE_6F   ; xyz:{ 0x150, 0x0B0, U } | s: 0x00
@@ -19624,7 +19624,7 @@ RoomData_Sprites_Room00E7:
 ;===================================================================================================
 
 RoomData_Sprites_Room00E8:
-#_09EA8A: db $00 ; Unsorted
+#_09EA8A: db $00 ; Unlayered OAM
 #_09EA8B: db $05, $07, !SPRITE_26   ; xyz:{ 0x070, 0x050, U } | s: 0x00
 #_09EA8E: db $08, $17, !SPRITE_26   ; xyz:{ 0x170, 0x080, U } | s: 0x00
 #_09EA91: db $0C, $07, !SPRITE_26   ; xyz:{ 0x070, 0x0C0, U } | s: 0x00
@@ -19634,21 +19634,21 @@ RoomData_Sprites_Room00E8:
 ;===================================================================================================
 
 RoomData_Sprites_Room00EA:
-#_09EA98: db $00 ; Unsorted
+#_09EA98: db $00 ; Unlayered OAM
 #_09EA99: db $0B, $0B, !SPRITE_EB   ; xyz:{ 0x0B0, 0x0B0, U } | s: 0x00
 #_09EA9C: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00EB:
-#_09EA9D: db $00 ; Unsorted
+#_09EA9D: db $00 ; Unlayered OAM
 #_09EA9E: db $14, $17, !SPRITE_93   ; xyz:{ 0x170, 0x140, U } | s: 0x00
 #_09EAA1: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00EE:
-#_09EAA2: db $00 ; Unsorted
+#_09EAA2: db $00 ; Unlayered OAM
 #_09EAA3: db $04, $10, !SPRITE_18   ; xyz:{ 0x100, 0x040, U } | s: 0x00
 #_09EAA6: db $0E, $0B, !SPRITE_18   ; xyz:{ 0x0B0, 0x0E0, U } | s: 0x00
 #_09EAA9: db $1C, $09, !SPRITE_18   ; xyz:{ 0x090, 0x1C0, U } | s: 0x00
@@ -19659,7 +19659,7 @@ RoomData_Sprites_Room00EE:
 ;===================================================================================================
 
 RoomData_Sprites_Room00EF:
-#_09EAB3: db $00 ; Unsorted
+#_09EAB3: db $00 ; Unlayered OAM
 #_09EAB4: db $09, $17, !SPRITE_18   ; xyz:{ 0x170, 0x090, U } | s: 0x00
 #_09EAB7: db $0A, $14, !SPRITE_18   ; xyz:{ 0x140, 0x0A0, U } | s: 0x00
 #_09EABA: db $0A, $1B, !SPRITE_18   ; xyz:{ 0x1B0, 0x0A0, U } | s: 0x00
@@ -19669,7 +19669,7 @@ RoomData_Sprites_Room00EF:
 ;===================================================================================================
 
 RoomData_Sprites_Room00F0:
-#_09EAC1: db $00 ; Unsorted
+#_09EAC1: db $00 ; Unlayered OAM
 #_09EAC2: db $03, $09, !SPRITE_6F   ; xyz:{ 0x090, 0x030, U } | s: 0x00
 #_09EAC5: db $03, $10, !SPRITE_6F   ; xyz:{ 0x100, 0x030, U } | s: 0x00
 #_09EAC8: db $04, $08, !SPRITE_6F   ; xyz:{ 0x080, 0x040, U } | s: 0x00
@@ -19685,7 +19685,7 @@ RoomData_Sprites_Room00F0:
 ;===================================================================================================
 
 RoomData_Sprites_Room00F1:
-#_09EAE1: db $00 ; Unsorted
+#_09EAE1: db $00 ; Unlayered OAM
 #_09EAE2: db $10, $19, !SPRITE_6F   ; xyz:{ 0x190, 0x100, U } | s: 0x00
 #_09EAE5: db $10, $1C, !SPRITE_6F   ; xyz:{ 0x1C0, 0x100, U } | s: 0x00
 #_09EAE8: db $11, $18, !SPRITE_6F   ; xyz:{ 0x180, 0x110, U } | s: 0x00
@@ -19701,28 +19701,28 @@ RoomData_Sprites_Room00F1:
 ;===================================================================================================
 
 RoomData_Sprites_Room00F3:
-#_09EB01: db $00 ; Unsorted
+#_09EB01: db $00 ; Unlayered OAM
 #_09EB02: db $14, $06, !SPRITE_78   ; xyz:{ 0x060, 0x140, U } | s: 0x00
 #_09EB05: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00F4:
-#_09EB06: db $00 ; Unsorted
+#_09EB06: db $00 ; Unlayered OAM
 #_09EB07: db $14, $17, !SPRITE_32   ; xyz:{ 0x170, 0x140, U } | s: 0x00
 #_09EB0A: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00F5:
-#_09EB0B: db $00 ; Unsorted
+#_09EB0B: db $00 ; Unlayered OAM
 #_09EB0C: db $14, $08, !SPRITE_32   ; xyz:{ 0x080, 0x140, U } | s: 0x00
 #_09EB0F: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00F9:
-#_09EB10: db $00 ; Unsorted
+#_09EB10: db $00 ; Unlayered OAM
 #_09EB11: db $05, $1A, !SPRITE_18   ; xyz:{ 0x1A0, 0x050, U } | s: 0x00
 #_09EB14: db $0F, $15, !SPRITE_18   ; xyz:{ 0x150, 0x0F0, U } | s: 0x00
 #_09EB17: db $13, $11, !SPRITE_18   ; xyz:{ 0x110, 0x130, U } | s: 0x00
@@ -19732,7 +19732,7 @@ RoomData_Sprites_Room00F9:
 ;===================================================================================================
 
 RoomData_Sprites_Room00FA:
-#_09EB1E: db $00 ; Unsorted
+#_09EB1E: db $00 ; Unlayered OAM
 #_09EB1F: db $0E, $17, !SPRITE_E3   ; xyz:{ 0x170, 0x0E0, U } | s: 0x00
 #_09EB22: db $10, $18, !SPRITE_E3   ; xyz:{ 0x180, 0x100, U } | s: 0x00
 #_09EB25: db $11, $15, !SPRITE_E3   ; xyz:{ 0x150, 0x110, U } | s: 0x00
@@ -19741,7 +19741,7 @@ RoomData_Sprites_Room00FA:
 ;===================================================================================================
 
 RoomData_Sprites_Room00FB:
-#_09EB29: db $00 ; Unsorted
+#_09EB29: db $00 ; Unlayered OAM
 #_09EB2A: db $0D, $17, !SPRITE_93   ; xyz:{ 0x170, 0x0D0, U } | s: 0x00
 #_09EB2D: db $0A, $19, !SPRITE_26   ; xyz:{ 0x190, 0x0A0, U } | s: 0x00
 #_09EB30: db $12, $15, !SPRITE_26   ; xyz:{ 0x150, 0x120, U } | s: 0x00
@@ -19750,13 +19750,13 @@ RoomData_Sprites_Room00FB:
 ;===================================================================================================
 
 RoomData_Sprites_Room00FC:
-#_09EB34: db $00 ; Unsorted
+#_09EB34: db $00 ; Unlayered OAM
 #_09EB35: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room00FD:
-#_09EB36: db $00 ; Unsorted
+#_09EB36: db $00 ; Unlayered OAM
 #_09EB37: db $0E, $09, !SPRITE_18   ; xyz:{ 0x090, 0x0E0, U } | s: 0x00
 #_09EB3A: db $08, $05, !SPRITE_24   ; xyz:{ 0x050, 0x080, U } | s: 0x00
 #_09EB3D: db $08, $16, !SPRITE_E3   ; xyz:{ 0x160, 0x080, U } | s: 0x00
@@ -19767,7 +19767,7 @@ RoomData_Sprites_Room00FD:
 ;===================================================================================================
 
 RoomData_Sprites_Room00FE:
-#_09EB47: db $00 ; Unsorted
+#_09EB47: db $00 ; Unlayered OAM
 #_09EB48: db $12, $16, !SPRITE_18   ; xyz:{ 0x160, 0x120, U } | s: 0x00
 #_09EB4B: db $16, $14, !SPRITE_18   ; xyz:{ 0x140, 0x160, U } | s: 0x00
 #_09EB4E: db $16, $1A, !SPRITE_18   ; xyz:{ 0x1A0, 0x160, U } | s: 0x00
@@ -19778,35 +19778,35 @@ RoomData_Sprites_Room00FE:
 ;===================================================================================================
 
 RoomData_Sprites_Room00FF:
-#_09EB58: db $00 ; Unsorted
+#_09EB58: db $00 ; Unlayered OAM
 #_09EB59: db $04, $07, !SPRITE_BB   ; xyz:{ 0x070, 0x040, U } | s: 0x00
 #_09EB5C: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0100:
-#_09EB5D: db $00 ; Unsorted
+#_09EB5D: db $00 ; Unlayered OAM
 #_09EB5E: db $1B, $0B, !SPRITE_BB   ; xyz:{ 0x0B0, 0x1B0, U } | s: 0x00
 #_09EB61: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0101:
-#_09EB62: db $00 ; Unsorted
+#_09EB62: db $00 ; Unlayered OAM
 #_09EB63: db $13, $08, !SPRITE_33   ; xyz:{ 0x080, 0x130, U } | s: 0x00
 #_09EB66: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0102:
-#_09EB67: db $00 ; Unsorted
+#_09EB67: db $00 ; Unlayered OAM
 #_09EB68: db $18, $03, !SPRITE_1F   ; xyz:{ 0x030, 0x180, U } | s: 0x00
 #_09EB6B: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0103:
-#_09EB6C: db $00 ; Unsorted
+#_09EB6C: db $00 ; Unlayered OAM
 #_09EB6D: db $15, $06, !SPRITE_BC   ; xyz:{ 0x060, 0x150, U } | s: 0x00
 #_09EB70: db $1B, $0A, !SPRITE_29   ; xyz:{ 0x0A0, 0x1B0, U } | s: 0x00
 #_09EB73: db $17, $17, !SPRITE_35   ; xyz:{ 0x170, 0x170, U } | s: 0x00
@@ -19815,28 +19815,28 @@ RoomData_Sprites_Room0103:
 ;===================================================================================================
 
 RoomData_Sprites_Room0104:
-#_09EB77: db $00 ; Unsorted
+#_09EB77: db $00 ; Unlayered OAM
 #_09EB78: db $17, $1A, !SPRITE_73   ; xyz:{ 0x1A0, 0x170, U } | s: 0x00
 #_09EB7B: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0105:
-#_09EB7C: db $00 ; Unsorted
+#_09EB7C: db $00 ; Unlayered OAM
 #_09EB7D: db $18, $07, !SPRITE_16   ; xyz:{ 0x070, 0x180, U } | s: 0x00
 #_09EB80: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0106:
-#_09EB81: db $00 ; Unsorted
+#_09EB81: db $00 ; Unlayered OAM
 #_09EB82: db $1B, $08, !SPRITE_BB   ; xyz:{ 0x080, 0x1B0, U } | s: 0x00
 #_09EB85: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0107:
-#_09EB86: db $00 ; Unsorted
+#_09EB86: db $00 ; Unlayered OAM
 #_09EB87: db $15, $03, !SPRITE_3B   ; xyz:{ 0x030, 0x150, U } | s: 0x00
 #_09EB8A: db $1B, $17, !SPRITE_6D   ; xyz:{ 0x170, 0x1B0, U } | s: 0x00
 #_09EB8D: db $1B, $18, !SPRITE_6D   ; xyz:{ 0x180, 0x1B0, U } | s: 0x00
@@ -19845,7 +19845,7 @@ RoomData_Sprites_Room0107:
 ;===================================================================================================
 
 RoomData_Sprites_Room0108:
-#_09EB91: db $00 ; Unsorted
+#_09EB91: db $00 ; Unlayered OAM
 #_09EB92: db $16, $09, !SPRITE_0B   ; xyz:{ 0x090, 0x160, U } | s: 0x00
 #_09EB95: db $16, $0C, !SPRITE_0B   ; xyz:{ 0x0C0, 0x160, U } | s: 0x00
 #_09EB98: db $19, $09, !SPRITE_0B   ; xyz:{ 0x090, 0x190, U } | s: 0x00
@@ -19855,21 +19855,21 @@ RoomData_Sprites_Room0108:
 ;===================================================================================================
 
 RoomData_Sprites_Room0109:
-#_09EB9F: db $00 ; Unsorted
+#_09EB9F: db $00 ; Unlayered OAM
 #_09EBA0: db $1B, $0A, !SPRITE_E9   ; xyz:{ 0x0A0, 0x1B0, U } | s: 0x00
 #_09EBA3: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room010A:
-#_09EBA4: db $00 ; Unsorted
+#_09EBA4: db $00 ; Unlayered OAM
 #_09EBA5: db $04, $19, !SPRITE_16   ; xyz:{ 0x190, 0x040, U } | s: 0x00
 #_09EBA8: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room010B:
-#_09EBA9: db $00 ; Unsorted
+#_09EBA9: db $00 ; Unlayered OAM
 #_09EBAA: db $03, $0F, !SPRITE_06   ; xyz:{ 0x0F0, 0x030, U } | s: 0x00
 #_09EBAD: db $06, $ED, !OVERLORD_1A ; xyz:{ 0x0D0, 0x060, U }
 #_09EBB0: db $06, $F0, !OVERLORD_1A ; xyz:{ 0x100, 0x060, U }
@@ -19882,7 +19882,7 @@ RoomData_Sprites_Room010B:
 ;===================================================================================================
 
 RoomData_Sprites_Room010C:
-#_09EBC0: db $00 ; Unsorted
+#_09EBC0: db $00 ; Unlayered OAM
 #_09EBC1: db $07, $17, !SPRITE_E3   ; xyz:{ 0x170, 0x070, U } | s: 0x00
 #_09EBC4: db $07, $18, !SPRITE_E3   ; xyz:{ 0x180, 0x070, U } | s: 0x00
 #_09EBC7: db $08, $17, !SPRITE_E3   ; xyz:{ 0x170, 0x080, U } | s: 0x00
@@ -19896,7 +19896,7 @@ RoomData_Sprites_Room010C:
 ;===================================================================================================
 
 RoomData_Sprites_Room010D:
-#_09EBDA: db $00 ; Unsorted
+#_09EBDA: db $00 ; Unlayered OAM
 #_09EBDB: db $16, $05, !SPRITE_5B   ; xyz:{ 0x050, 0x160, U } | s: 0x00
 #_09EBDE: db $16, $0A, !SPRITE_5C   ; xyz:{ 0x0A0, 0x160, U } | s: 0x00
 #_09EBE1: db $FF ; END
@@ -19904,7 +19904,7 @@ RoomData_Sprites_Room010D:
 ;===================================================================================================
 
 RoomData_Sprites_Room010E:
-#_09EBE2: db $00 ; Unsorted
+#_09EBE2: db $00 ; Unlayered OAM
 #_09EBE3: db $06, $06, !SPRITE_28   ; xyz:{ 0x060, 0x060, U } | s: 0x00
 #_09EBE6: db $06, $18, !SPRITE_28   ; xyz:{ 0x180, 0x060, U } | s: 0x00
 #_09EBE9: db $FF ; END
@@ -19912,28 +19912,28 @@ RoomData_Sprites_Room010E:
 ;===================================================================================================
 
 RoomData_Sprites_Room010F:
-#_09EBEA: db $00 ; Unsorted
+#_09EBEA: db $00 ; Unlayered OAM
 #_09EBEB: db $15, $07, !SPRITE_BB   ; xyz:{ 0x070, 0x150, U } | s: 0x00
 #_09EBEE: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0110:
-#_09EBEF: db $00 ; Unsorted
+#_09EBEF: db $00 ; Unlayered OAM
 #_09EBF0: db $15, $07, !SPRITE_BB   ; xyz:{ 0x070, 0x150, U } | s: 0x00
 #_09EBF3: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0111:
-#_09EBF4: db $00 ; Unsorted
+#_09EBF4: db $00 ; Unlayered OAM
 #_09EBF5: db $1B, $0B, !SPRITE_65   ; xyz:{ 0x0B0, 0x1B0, U } | s: 0x00
 #_09EBF8: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0112:
-#_09EBF9: db $00 ; Unsorted
+#_09EBF9: db $00 ; Unlayered OAM
 #_09EBFA: db $0A, $07, !SPRITE_28   ; xyz:{ 0x070, 0x0A0, U } | s: 0x00
 #_09EBFD: db $14, $17, !SPRITE_BB   ; xyz:{ 0x170, 0x140, U } | s: 0x00
 #_09EC00: db $FF ; END
@@ -19941,7 +19941,7 @@ RoomData_Sprites_Room0112:
 ;===================================================================================================
 
 RoomData_Sprites_Room0114:
-#_09EC01: db $00 ; Unsorted
+#_09EC01: db $00 ; Unlayered OAM
 #_09EC02: db $18, $07, !SPRITE_72   ; xyz:{ 0x070, 0x180, U } | s: 0x00
 #_09EC05: db $14, $19, !SPRITE_28   ; xyz:{ 0x190, 0x140, U } | s: 0x00
 #_09EC08: db $FF ; END
@@ -19949,7 +19949,7 @@ RoomData_Sprites_Room0114:
 ;===================================================================================================
 
 RoomData_Sprites_Room0115:
-#_09EC09: db $00 ; Unsorted
+#_09EC09: db $00 ; Unlayered OAM
 #_09EC0A: db $16, $17, !SPRITE_C8   ; xyz:{ 0x170, 0x160, U } | s: 0x00
 #_09EC0D: db $07, $17, !SPRITE_E3   ; xyz:{ 0x170, 0x070, U } | s: 0x00
 #_09EC10: db $07, $18, !SPRITE_E3   ; xyz:{ 0x180, 0x070, U } | s: 0x00
@@ -19961,35 +19961,35 @@ RoomData_Sprites_Room0115:
 ;===================================================================================================
 
 RoomData_Sprites_Room0116:
-#_09EC1D: db $00 ; Unsorted
+#_09EC1D: db $00 ; Unlayered OAM
 #_09EC1E: db $18, $17, !SPRITE_72   ; xyz:{ 0x170, 0x180, U } | s: 0x00
 #_09EC21: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0118:
-#_09EC22: db $00 ; Unsorted
+#_09EC22: db $00 ; Unlayered OAM
 #_09EC23: db $1B, $19, !SPRITE_BB   ; xyz:{ 0x190, 0x1B0, U } | s: 0x00
 #_09EC26: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0119:
-#_09EC27: db $00 ; Unsorted
+#_09EC27: db $00 ; Unlayered OAM
 #_09EC28: db $18, $0E, !SPRITE_29   ; xyz:{ 0x0E0, 0x180, U } | s: 0x00
 #_09EC2B: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room011A:
-#_09EC2C: db $00 ; Unsorted
+#_09EC2C: db $00 ; Unlayered OAM
 #_09EC2D: db $17, $18, !SPRITE_28   ; xyz:{ 0x180, 0x170, U } | s: 0x00
 #_09EC30: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room011B:
-#_09EC31: db $00 ; Unsorted
+#_09EC31: db $00 ; Unlayered OAM
 #_09EC32: db $09, $18, !SPRITE_EB   ; xyz:{ 0x180, 0x090, U } | s: 0x00
 #_09EC35: db $96, $05, !SPRITE_EB   ; xyz:{ 0x050, 0x160, L } | s: 0x00
 #_09EC38: db $FF ; END
@@ -19997,14 +19997,14 @@ RoomData_Sprites_Room011B:
 ;===================================================================================================
 
 RoomData_Sprites_Room011C:
-#_09EC39: db $00 ; Unsorted
+#_09EC39: db $00 ; Unlayered OAM
 #_09EC3A: db $19, $09, !SPRITE_B5   ; xyz:{ 0x090, 0x190, U } | s: 0x00
 #_09EC3D: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room011E:
-#_09EC3E: db $00 ; Unsorted
+#_09EC3E: db $00 ; Unlayered OAM
 #_09EC3F: db $07, $05, !SPRITE_E3   ; xyz:{ 0x050, 0x070, U } | s: 0x00
 #_09EC42: db $07, $06, !SPRITE_E3   ; xyz:{ 0x060, 0x070, U } | s: 0x00
 #_09EC45: db $08, $05, !SPRITE_E3   ; xyz:{ 0x050, 0x080, U } | s: 0x00
@@ -20015,14 +20015,14 @@ RoomData_Sprites_Room011E:
 ;===================================================================================================
 
 RoomData_Sprites_Room011F:
-#_09EC4F: db $00 ; Unsorted
+#_09EC4F: db $00 ; Unlayered OAM
 #_09EC50: db $16, $17, !SPRITE_BB   ; xyz:{ 0x170, 0x160, U } | s: 0x00
 #_09EC53: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0120:
-#_09EC54: db $00 ; Unsorted
+#_09EC54: db $00 ; Unlayered OAM
 #_09EC55: db $07, $17, !SPRITE_B2   ; xyz:{ 0x170, 0x070, U } | s: 0x00
 #_09EC58: db $08, $1B, !SPRITE_E3   ; xyz:{ 0x1B0, 0x080, U } | s: 0x00
 #_09EC5B: db $09, $1A, !SPRITE_E3   ; xyz:{ 0x1A0, 0x090, U } | s: 0x00
@@ -20031,14 +20031,14 @@ RoomData_Sprites_Room0120:
 ;===================================================================================================
 
 RoomData_Sprites_Room0121:
-#_09EC5F: db $00 ; Unsorted
+#_09EC5F: db $00 ; Unlayered OAM
 #_09EC60: db $17, $04, !SPRITE_1A   ; xyz:{ 0x040, 0x170, U } | s: 0x00
 #_09EC63: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0122:
-#_09EC64: db $00 ; Unsorted
+#_09EC64: db $00 ; Unlayered OAM
 #_09EC65: db $18, $07, !SPRITE_31   ; xyz:{ 0x070, 0x180, U } | s: 0x00
 #_09EC68: db $18, $17, !SPRITE_31   ; xyz:{ 0x170, 0x180, U } | s: 0x00
 #_09EC6B: db $FF ; END
@@ -20046,7 +20046,7 @@ RoomData_Sprites_Room0122:
 ;===================================================================================================
 
 RoomData_Sprites_Room0123:
-#_09EC6C: db $00 ; Unsorted
+#_09EC6C: db $00 ; Unlayered OAM
 #_09EC6D: db $16, $03, !SPRITE_18   ; xyz:{ 0x030, 0x160, U } | s: 0x00
 #_09EC70: db $16, $0C, !SPRITE_18   ; xyz:{ 0x0C0, 0x160, U } | s: 0x00
 #_09EC73: db $17, $08, !SPRITE_18   ; xyz:{ 0x080, 0x170, U } | s: 0x00
@@ -20057,21 +20057,21 @@ RoomData_Sprites_Room0123:
 ;===================================================================================================
 
 RoomData_Sprites_Room0124:
-#_09EC7D: db $00 ; Unsorted
+#_09EC7D: db $00 ; Unlayered OAM
 #_09EC7E: db $16, $08, !SPRITE_BB   ; xyz:{ 0x080, 0x160, U } | s: 0x00
 #_09EC81: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0125:
-#_09EC82: db $00 ; Unsorted
+#_09EC82: db $00 ; Unlayered OAM
 #_09EC83: db $16, $08, !SPRITE_BB   ; xyz:{ 0x080, 0x160, U } | s: 0x00
 #_09EC86: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Room0126:
-#_09EC87: db $00 ; Unsorted
+#_09EC87: db $00 ; Unlayered OAM
 #_09EC88: db $15, $07, !SPRITE_E3   ; xyz:{ 0x070, 0x150, U } | s: 0x00
 #_09EC8B: db $15, $08, !SPRITE_E3   ; xyz:{ 0x080, 0x150, U } | s: 0x00
 #_09EC8E: db $16, $07, !SPRITE_E3   ; xyz:{ 0x070, 0x160, U } | s: 0x00
@@ -20082,14 +20082,14 @@ RoomData_Sprites_Room0126:
 ;===================================================================================================
 
 RoomData_Sprites_Room0127:
-#_09EC98: db $00 ; Unsorted
+#_09EC98: db $00 ; Unlayered OAM
 #_09EC99: db $16, $07, !SPRITE_EB   ; xyz:{ 0x070, 0x160, U } | s: 0x00
 #_09EC9C: db $FF ; END
 
 ;===================================================================================================
 
 RoomData_Sprites_Empty:
-#_09EC9D: db $00 ; Unsorted
+#_09EC9D: db $00 ; Unlayered OAM
 #_09EC9E: db $FF ; END
 
 ;===================================================================================================
@@ -20905,7 +20905,7 @@ Sprite_KillSelf:
 #_09F216: LSR A
 
 #_09F217: CLC
-#_09F218: ADC.w #$EF80
+#_09F218: ADC.w #$7FEF80
 #_09F21B: STA.b $01
 
 #_09F21D: PLP
@@ -22010,7 +22010,7 @@ Polyhedral_InitializeThread:
 #_09F7FE: LDA.w #$000C
 #_09F801: LDX.w #.registers
 #_09F804: LDY.w #$001F32
-#_09F807: %MVN($09, $00)
+#_09F807: %MVN(Polyhedral_InitializeThread>>16, $00) ; MVN $09, $00
 
 #_09F80A: PLY
 #_09F80B: PLX

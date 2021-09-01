@@ -12040,7 +12040,7 @@ InitializeSaveFile:
 
 #_0CDB40: PHB
 
-#_0CDB41: LDA.b #$04
+#_0CDB41: LDA.b #DefaultSaveFileItems>>16
 #_0CDB43: PHA
 #_0CDB44: PLB
 
@@ -12091,7 +12091,7 @@ InitializeSaveFile:
 #_0CDB8E: CMP.w #$00AF
 #_0CDB91: BNE .copy_next
 
-#_0CDB93: LDA.w #$00F0
+#_0CDB93: LDA.w #$00F0 ; mushroom received
 #_0CDB96: STA.l $700212,X
 
 #_0CDB9A: LDA.w #$1502
@@ -13789,39 +13789,39 @@ pool AttractDramatize_ThroneRoom
 
 .pointer_size
 #_0CF105: dw AttractOAMData_king_size
-#_0CF107: dw AttractOAMData_throne_size
+#_0CF107: dw AttractOAMData_mantle_size
 
 .pointer_offset_x
 #_0CF109: dw AttractOAMData_king_offset_x
-#_0CF10B: dw AttractOAMData_throne_offset_x
+#_0CF10B: dw AttractOAMData_mantle_offset_x
 
 .pointer_offset_y
 #_0CF10D: dw AttractOAMData_king_offset_y
-#_0CF10F: dw AttractOAMData_throne_offset_y
+#_0CF10F: dw AttractOAMData_mantle_offset_y
 
 .pointer_char
 #_0CF111: dw AttractOAMData_king_char
-#_0CF113: dw AttractOAMData_throne_char
+#_0CF113: dw AttractOAMData_mantle_char
 
 .pointer_prop
 #_0CF115: dw AttractOAMData_king_prop
-#_0CF117: dw AttractOAMData_throne_prop
+#_0CF117: dw AttractOAMData_mantle_prop
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_x
 #_0CF119: db $50 ; king
-#_0CF11A: db $68 ; throne
+#_0CF11A: db $68 ; mantle
 
 .offset_y
 #_0CF11B: db $58 ; king
-#_0CF11C: db $20 ; throne
+#_0CF11C: db $20 ; mantle
 
 ;---------------------------------------------------------------------------------------------------
 
 .oam_count
 #_0CF11D: db $03 ; king
-#_0CF11E: db $05 ; throne
+#_0CF11E: db $05 ; mantle
 
 pool off
 
@@ -15014,19 +15014,21 @@ Attract_SkipToFileSelect:
 
 ;===================================================================================================
 
-Attract_BuildNextImageTileMap_stripes:
+pool Attract_BuildNextImageTileMap
 
-.pointers
+.stripes_pointers
 #_0CF67D: dw AttractImage0Stripes
 #_0CF67F: dw AttractImage1Stripes
 #_0CF681: dw AttractImage2Stripes
 #_0CF683: dw AttractImage3Stripes
 
-.sizes
+.stripes_sizes
 #_0CF685: dw $009C
 #_0CF687: dw $00EC
 #_0CF689: dw $00C6
 #_0CF68B: dw $0108
+
+pool off
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -15041,7 +15043,7 @@ Attract_BuildNextImageTileMap:
 #_0CF697: LDA.l .stripes_pointers,X
 #_0CF69B: STA.b $02
 
-#_0CF69D: LDX.b #$0C
+#_0CF69D: LDX.b #Attract_BuildNextImageTileMap>>16
 #_0CF69F: STX.b $04
 
 #_0CF6A1: REP #$10
@@ -15323,19 +15325,19 @@ AttractOAMData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.throne_size
+.mantle_size
 #_0CF806: db $02, $02, $02, $02, $02, $02
 
-.throne_offset_x
+.mantle_offset_x
 #_0CF80C: db   0,  16,  32,   0,  16,  32
 
-.throne_offset_y
+.mantle_offset_y
 #_0CF812: db   0,   0,   0,  16,  16,  16
 
-.throne_char
+.mantle_char
 #_0CF818: db $0C, $0E, $0C, $2C, $2E, $2C
 
-.throne_prop
+.mantle_prop
 #_0CF81E: db $31, $31, $71, $31, $31, $71
 
 ;---------------------------------------------------------------------------------------------------

@@ -2816,7 +2816,7 @@ SpriteDraw_StalfosBone:
 #_1E9042: XBA
 #_1E9043: LDA.w $0E80,X
 
-#_1E9046: LSR A ; x4
+#_1E9046: LSR A ; /4
 #_1E9047: LSR A
 #_1E9048: AND.b #$03
 
@@ -11853,7 +11853,7 @@ YellowStalfos_TrackLink:
 #_1EC438: STA.w $0EB0,X
 
 #_1EC43B: LDA.w $0DF0,X
-#_1EC43E: BNE YellowStalfos_Something
+#_1EC43E: BNE YellowStalfos_MakeVulnerable
 
 #_1EC440: INC.w $0D80,X
 
@@ -11862,7 +11862,7 @@ YellowStalfos_TrackLink:
 
 ;===================================================================================================
 
-YellowStalfos_Something:
+YellowStalfos_MakeVulnerable:
 #_1EC448: LDA.w $0E60,X
 #_1EC44B: AND.b #$BF
 #_1EC44D: STA.w $0E60,X
@@ -11945,7 +11945,7 @@ YellowStalfos_DecapitateSelf:
 #_1EC4E8: LDA.w .head_offset_y,Y
 #_1EC4EB: STA.w $0DB0,X
 
-#_1EC4EE: JMP.w YellowStalfos_Something
+#_1EC4EE: JMP.w YellowStalfos_MakeVulnerable
 
 ;===================================================================================================
 
@@ -11976,7 +11976,7 @@ YellowStalfos_Animate:
 #_1EC506: LDA.w .step,Y
 #_1EC509: STA.w $0DC0,X
 
-#_1EC50C: JMP.w YellowStalfos_Something
+#_1EC50C: JMP.w YellowStalfos_MakeVulnerable
 
 ;===================================================================================================
 
@@ -22430,6 +22430,7 @@ Sprite_CheckIfRecoiling_Bank1E:
 .stop_horizontal_movement
 #_1EFEE9: STZ.w $0F40,X
 #_1EFEEC: STZ.w $0D50,X
+
 #_1EFEEF: BRA .movement_stopped
 
 .stop_vertical_movement

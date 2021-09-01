@@ -1491,7 +1491,7 @@ Module07_00_PlayerControl:
 #_0287FD: AND.b #$40
 #_0287FF: BEQ .no_mapping
 
-#_028801: LDA.w $040C ; no mappingg in caves
+#_028801: LDA.w $040C ; no mapping in caves
 #_028804: CMP.b #$FF
 #_028806: BEQ .no_mapping
 
@@ -3933,7 +3933,7 @@ Module07_14_RecoverFromFall:
 #_029422: LDA.b $B0
 #_029424: JSL JumpTableLocal
 #_029428: dw Module07_14_00_ScrollCamera
-#_02942A: dw OverworldRecoverCachedProperties
+#_02942A: dw RecoverPositionAfterDrowning
 
 ;===================================================================================================
 
@@ -4008,7 +4008,7 @@ Module07_14_00_ScrollCamera:
 
 ;===================================================================================================
 
-OverworldRecoverCachedProperties:
+RecoverPositionAfterDrowning:
 #_029485: REP #$20
 
 #_029487: LDA.l $7EC184
@@ -7316,6 +7316,7 @@ Module09_00_PlayerControl:
 
 ;===================================================================================================
 ; The actual screen ID of a screen, to account for large screens.
+;===================================================================================================
 Overworld_ActualScreenID:
 #_02A4E3: db $00, $00, $02, $03, $03, $05, $05, $07
 #_02A4EB: db $00, $00, $0A, $03, $03, $05, $05, $0F
@@ -7548,6 +7549,7 @@ OverworldHandleTransitions:
 ; Transition triggers for south
 #_02A919: LDY.b #$00
 #_02A91B: LDX.b #$01
+
 #_02A91D: CMP.b $02
 #_02A91F: BCC .check_special_triggers
 
@@ -7962,6 +7964,7 @@ Overworld_StartScrollTransition:
 
 Overworld_EaseOffScrollTransition:
 #_02AB39: LDX.b $8A
+
 #_02AB3B: LDA.l OverworldScreenSize,X
 #_02AB3F: BEQ .dont_scroll_map
 
@@ -7969,6 +7972,7 @@ Overworld_EaseOffScrollTransition:
 #_02AB44: STX.w $0416
 
 #_02AB47: JSR OverworldTransitionScrollAndLoadMap
+
 #_02AB4A: STZ.w $0416
 
 .dont_scroll_map
@@ -8098,9 +8102,9 @@ Map32UpdateTiles:
 #_02ABF9: dw $0DB4, $0DB5, $0DB6, $0DB7 ; castle doors fully open
 #_02AC01: dw $0DC7, $0DC8, $0DC9, $0DCA ; big rock imprint
 #_02AC09: dw $0DCD, $0DCE, $0DCF, $0DD0 ; open grave with corpse bottom half
-#_02AC11: dw $0DD1, $0DD2, $0DD3, $0DD4 ; open grave with stairs bottom half 
-#_02AC19: dw $0DCB, $0DCC, $0DCD, $0DCE ; open grave with corpse top half 
-#_02AC21: dw $0DCB, $0DCC, $0DD1, $0DD2 ; open grave with stairs top half 
+#_02AC11: dw $0DD1, $0DD2, $0DD3, $0DD4 ; open grave with stairs bottom half
+#_02AC19: dw $0DCB, $0DCC, $0DCD, $0DCE ; open grave with corpse top half
+#_02AC21: dw $0DCB, $0DCC, $0DD1, $0DD2 ; open grave with stairs top half
 #_02AC29: dw $0912, $0913, $0914, $0915 ; stairs to cave
 #_02AC31: dw $0DD5, $0DD6, $0DD7, $0DD8 ; open grave with pit bottom half
 #_02AC39: dw $0DCB, $0DCC, $0DD5, $0DD6 ; open grave with pit top half
@@ -9712,7 +9716,7 @@ Module09_2A_RecoverFromDrowning:
 #_02B460: LDA.b $B0
 #_02B462: JSL JumpTableLocal
 #_02B466: dw Module09_2A_00_ScrollToLand
-#_02B468: dw OverworldRecoverCachedProperties
+#_02B468: dw RecoverPositionAfterDrowning
 
 ;===================================================================================================
 
@@ -9798,6 +9802,7 @@ Module09_2A_00_ScrollToLand:
 #_02B4C8: BNE .delay_advance
 
 #_02B4CA: INC.b $B0
+
 #_02B4CC: STZ.b $46
 
 .delay_advance
@@ -15588,7 +15593,7 @@ Underworld_LoadEntrance:
 #_02D7EC: CMP.b #$02
 #_02D7EE: BCC .no_song_override
 
-#_02D7F0: LDA.b #!SONG_12 ; change it to kak theme
+#_02D7F0: LDA.b #!SONG_12 ; change it to caves theme
 #_02D7F2: STA.w $0132
 
 .no_song_override
@@ -17449,7 +17454,6 @@ LoadCachedEntranceProperties:
 
 #_02E347: LDA.l $7EC144
 #_02E34B: STA.b $E8
-
 #_02E34D: STA.w $0122
 #_02E350: STA.b $E6
 #_02E352: STA.w $0124
@@ -21093,7 +21097,7 @@ LoadOverworldOverlay:
 BuildBGOverlayFromMap16:
 #_02FA8A: PHB
 
-#_02FA8B: LDA.b #$0F
+#_02FA8B: LDA.b #Map16Definitions>>16
 #_02FA8D: PHA
 #_02FA8E: PLB
 
@@ -21111,7 +21115,7 @@ BuildBGOverlayFromMap16:
 #BuildOverworldMapFromMap16:
 #_02FA9B: PHB
 
-#_02FA9C: LDA.b #$0F
+#_02FA9C: LDA.b #Map16Definitions>>16
 #_02FA9E: PHA
 #_02FA9F: PLB
 

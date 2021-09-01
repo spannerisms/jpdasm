@@ -348,13 +348,14 @@ segCtrackG = {
 
 music =
 <<
-	\new Staff \absolute { \segAtrackA \repeat volta 3 { \segBtrackA \segCtrackA } }
-	\new Staff \absolute { \segAtrackA \repeat volta 3 { \segBtrackB \segCtrackB } }
-	\new Staff \absolute { \segAtrackA \repeat volta 3 { \segBtrackC \segCtrackC } }
-	\new Staff \absolute { \segAtrackA \repeat volta 3 { \segBtrackD \segCtrackD } }
-	\new Staff \absolute { \segAtrackB \repeat volta 3 { \segBtrackE \segCtrackE } }
-	\new Staff \absolute { \segAtrackB \repeat volta 3 { \segBtrackF \segCtrackF } }
-	\new Staff \absolute { \segAtrackB \repeat volta 3 { \segBtrackG \segCtrackG } }
+	
+	\new Staff \absolute { \new Voice \with { \remove "Note_heads_engraver" \consists "Completion_heads_engraver" \remove "Rest_engraver" \consists "Completion_rest_engraver" } \segAtrackA \repeat volta 3 { \segBtrackA \segCtrackA } }
+	\new Staff \absolute { \new Voice \with { \remove "Note_heads_engraver" \consists "Completion_heads_engraver" \remove "Rest_engraver" \consists "Completion_rest_engraver" } \segAtrackA \repeat volta 3 { \segBtrackB \segCtrackB } }
+	\new Staff \absolute { \new Voice \with { \remove "Note_heads_engraver" \consists "Completion_heads_engraver" \remove "Rest_engraver" \consists "Completion_rest_engraver" } \segAtrackA \repeat volta 3 { \segBtrackC \segCtrackC } }
+	\new Staff \absolute { \new Voice \with { \remove "Note_heads_engraver" \consists "Completion_heads_engraver" \remove "Rest_engraver" \consists "Completion_rest_engraver" } \segAtrackA \repeat volta 3 { \segBtrackD \segCtrackD } }
+	\new Staff \absolute { \new Voice \with { \remove "Note_heads_engraver" \consists "Completion_heads_engraver" \remove "Rest_engraver" \consists "Completion_rest_engraver" } \segAtrackB \repeat volta 3 { \segBtrackE \segCtrackE } }
+	\new Staff \absolute { \new Voice \with { \remove "Note_heads_engraver" \consists "Completion_heads_engraver" \remove "Rest_engraver" \consists "Completion_rest_engraver" } \segAtrackB \repeat volta 3 { \segBtrackF \segCtrackF } }
+	\new Staff \absolute { \new Voice \with { \remove "Note_heads_engraver" \consists "Completion_heads_engraver" \remove "Rest_engraver" \consists "Completion_rest_engraver" } \segAtrackB \repeat volta 3 { \segBtrackG \segCtrackG } }
 >>
 
 

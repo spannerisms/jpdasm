@@ -1,4 +1,6 @@
-; key
+;===================================================================================================
+; KEY
+;===================================================================================================
 ; w - writeable
 ; r - readable
 ; 1 - single write
@@ -8,16 +10,22 @@
 ; v - accessible during vblank
 ; h - accessible during hblank
 ; a - accessible anytime
-; . - unused bit (probably open bus)
+; . - unused bit (open bus)
 
 ;===================================================================================================
+;===================================================================================================
+; PPU REGISTERS
+;===================================================================================================
+;===================================================================================================
 
+; SCREEN SETTINGS
 ; $2100 w1 fvha
-; f...bbbb
+; f... bbbb
 ; f - force blank (0: disabled | 1: enabled)
-; b - screen brightness 0-F
+; b - screen brightness 0–F
 INIDISP = $002100
 
+; OAM CHARACTER ADDRESSES AND OBJECT SIZE
 ; $2101 w1 fv
 ; sssnnbbb
 ; s - object sizes
@@ -35,6 +43,7 @@ INIDISP = $002100
 ; b - obj tile address - $2000 word steps
 OBSEL = $002101
 
+; OAM ADDRESS ACCESS
 ; $2102 w1 fv
 ; $2103 w1 fv
 ;  OAMADDH  OAMADDL
@@ -45,23 +54,35 @@ OAMADDR = $002102
 OAMADDL = $002102
 OAMADDH = $002103
 
+; OAM DATA WRITE
 ; $2104 w1 fv
 ; xxxxxxxx
 ; x - OAM data
 OAMDATA = $002104
 
+; BACKGROUND MODE AND CHARACTER SIZE
 ; $2105 w1 fvh
-; dcbapmmm
+; dcba pmmm
 ; a - tile size for BG1 (0: 8x8 | 1: 16x16)
 ; b - tile size for BG2 (0: 8x8 | 1: 16x16)
 ; c - tile size for BG3 (0: 8x8 | 1: 16x16)
 ; d - tile size for BG4 (0: 8x8 | 1: 16x16)
-; e - BG3 priority in mode 1 (0: normal | 1: highest)
-; m - BG mode (0-7)
+; p - BG3 priority in mode 1 (0: normal | 1: highest)
+; m - BG mode (0–7)
+;           BG1    BG2    BG3    BG4   Features
+;     00 - 2bpp   2bpp   2bpp   2bpp   None
+;     01 - 4bpp   4bpp   2bpp   ----   None
+;     02 - 4bpp   4bpp   offs   ----   Offset per tile
+;     03 - 8bpp   4bpp   ----   ----   None
+;     04 - 8bpp   2bpp   offs   ----   Offset per tile
+;     05 - 4bpp   2bpp   ----   ----   Hires
+;     06 - 4bpp   ----   offs   ----   Hires / Offset per tile
+;     07 - 8bpp   EXT    ----   ----   Affine transformation
 BGMODE = $002105
 
+; MOSAIC SIZE AND DESIGNATION
 ; $2106 w1 fvh
-; ssssdcba
+; ssss dcba
 ; a - mosaic to BG1 (0: disabled | 1: enabled)
 ; b - mosaic to BG2 (0: disabled | 1: enabled)
 ; c - mosaic to BG3 (0: disabled | 1: enabled)
@@ -69,11 +90,12 @@ BGMODE = $002105
 ; s - pixelation size
 MOSAIC = $002106
 
+; BACKGROUND TILEMAP ADDRESS AND TILEMAP SIZE
 ; $2107 w1 fv
 ; $2108 w1 fv
 ; $2109 w1 fv
 ; $210A w1 fv
-; aaaaaavh
+; aaaa aavh
 ; a - tilemap address in $400 word steps
 ; v - tilemap height (0: 32 tiles | 1: 64 tiles)
 ; h - tilemap width (0: 32 tiles | 1: 64 tiles)
@@ -82,6 +104,7 @@ BG2SC = $002108
 BG3SC = $002109
 BG4SC = $00210A
 
+; BACKGROUND CHARACTER ADDRESS
 ; $210B w1 fv
 ; $210C w1 fv
 ;  BG12NBA  BG34NBA
@@ -92,12 +115,13 @@ BG4SC = $00210A
 ; d - base address for BG4 tiles in $1000 word steps
 ;     Just look at the nibbles
 ;     0   0000    $0000
-;     1   0001    $1000
-;     2   0010    $2000
-;       etc...
+;     1   0001    $2000
+;     2   0010    $4000
+;     etc...
 BG12NBA = $00210B
 BG34NBA = $00210C
 
+; BACKGROUND HORIZONTAL AND VERTICAL SCROLL
 ; $210D w2 fvh
 ; $210E w2 fvh
 ; $210F w2 fvh
@@ -107,7 +131,7 @@ BG34NBA = $00210C
 ; $2113 w2 fvh
 ; $2114 w2 fvh
 ;
-; modes 0-6: oooooooo ......oo
+; modes 0–6: oooooooo ......oo
 ; o - bg offset
 ;
 ; mode 7:   mmmmmmmm ...mmmmm
@@ -123,8 +147,9 @@ BG4VOFS = $002114
 M7HOFS = $00210D
 M7VOFS = $00210E
 
+; VRAM ADDRESS INCREMENT AND REMAPPING
 ; $2115 w1 fv
-; a...mmii
+; a... mmii
 ; a - increment $2116[2] after (0: $2118 | 1 : $2119)
 ; m - remap addressing
 ;     00 = aaaaaaaabbbccccc => aaaaaaaabbbccccc (no remapping)
@@ -139,6 +164,7 @@ M7VOFS = $00210E
 ;     11 - increment by 128
 VMAIN = $002115
 
+; VRAM ADDRESS ACCESS
 ; $2116 w1 fv
 ; $2117 w1 fv
 ;  VMADDL   VMADDH
@@ -148,6 +174,7 @@ VMADDR = $002116
 VMADDL = $002116
 VMADDH = $002117
 
+; VRAM WRITE DATA
 ; $2118 w1 fv
 ; $2119 w1 fv
 ;  VMDATAL  VMDATAH
@@ -157,14 +184,16 @@ VMDATA = $002118
 VMDATAL = $002118
 VMDATAH = $002119
 
+; MODE 7 SETTINGS
 ; $211A w1 fv
-; we....vh
+; we.. ..vh
 ; w - tilemap wrapping (0: wrap | 1: no wrap)
 ; e - empty space filler w/ no wrap (0: transparent | 1: tile 0)
 ; v - mirror tilemap vertically
 ; h - mirror tilemap horizontally
 M7SEL = $00211A
 
+; MODE 7 TRANSFORMATION PARAMETERS
 ; $211B w2 fvh
 ; $211C w2 fvh
 ; $211D w2 fvh
@@ -177,9 +206,10 @@ M7C = $00211D
 M7D = $00211E
 
 ; #PPUMATH
+; SIGNED MULTIPLICATION ARGUMENTS
 ; $211B w2 fvha
 ; $211C w1 fvha
-; Can also be used for signed multiplication in mode 0-6
+; Can also be used for signed multiplication in mode 0–6
 ; apparently 0 delay with these
 ;
 ; PPUMULT16: llllllll hhhhhhhh
@@ -191,6 +221,7 @@ M7D = $00211E
 PPUMULT16 = $00211B
 PPUMULT8 = $00211C
 
+; MODE 7 CENTER OF TRANSFORMATION COORDINATES
 ; $211F w2 fvh
 ; $2120 w2 fvh
 ; oooooooo ...ooooo
@@ -198,11 +229,13 @@ PPUMULT8 = $00211C
 M7X = $00211F
 M7Y = $002120
 
+; CGRAM ADDRESS ACCESS
 ; $2121 w1 fvh
 ; aaaaaaaa
 ; a - CGRAM address indexing words
 CGADD = $002121
 
+; CGRAM WRITE DATA
 ; $2122 w2 fvh
 ; gggrrrrr .bbbbbgg
 ; r - red component of color
@@ -210,6 +243,7 @@ CGADD = $002121
 ; b - blue component of color
 CGDATA = $002122
 
+; WINDOW MASK SETTINGS
 ; $2123 w1 fvh
 ; $2124 w1 fvh
 ; $2125 w1 fvh
@@ -230,6 +264,7 @@ W12SEL = $002123
 W34SEL = $002124
 WOBJSEL = $002125
 
+; WINDOW POSITION DESIGNATION
 ; $2126 w1 fvh
 ; $2127 w1 fvh
 ; $2128 w1 fvh
@@ -253,6 +288,7 @@ WINDOW1R = $002127
 WINDOW2L = $002128
 WINDOW2R = $002129
 
+; WINDOW MASK LOGIC
 ; $212A w1 fvh
 ; $212B w1 fvh
 ;  WBGLOG   WOBJLOG
@@ -272,9 +308,10 @@ WINDOW2R = $002129
 WBGLOG = $00212A
 WOBJLOG = $00212B
 
+; MAIN AND SUB SCREEN DESIGNATION
 ; $212C w1 fvh
 ; $212D w1 fvh
-; ....odcba
+; ...odcba
 ; a - BG1 (0: disabled | 1: enabled on main/subscreen)
 ; b - BG2 (0: disabled | 1: enabled on main/subscreen)
 ; c - BG3 (0: disabled | 1: enabled on main/subscreen)
@@ -285,9 +322,10 @@ TS = $00212D
 MAINDES = $00212C
 SUBDES = $00212D
 
+; MAIN AND SUB SCREEN WINDOW MASK DESIGNATION
 ; $212E w1 fvh
 ; $212F w1 fvh
-; ....odcba
+; ...odcba
 ; a - window mask for BG1 (0: disabled | 1: enabled)
 ; b - window mask for BG2 (0: disabled | 1: enabled)
 ; c - window mask for BG3 (0: disabled | 1: enabled)
@@ -298,8 +336,9 @@ TSW = $00212F
 THRUMAIN = $00212E
 THRUSUB = $00212F
 
+; COLOR MATH SETTINGS
 ; $2130 w1 fvh
-; bbmm..sd
+; bbmm ..sd
 ; b - clip to black (same logic as m)
 ; m - prevent color math
 ;     00 - never
@@ -311,8 +350,9 @@ THRUSUB = $00212F
 ; d - direct color mode (0: enabled | 1: disabled)
 CGWSEL = $002130
 
+; COLOR MATH DESIGNATION AND OPERATION
 ; $2131 w1 fvh
-; shzodcba
+; shzo dcba
 ; s - color operation (0: addition | 1: subtraction)
 ; h - half color math (0: nothing | 1: final result divided by 2)
 ; z - color math on CGRAM0 (0: disabled | 1: enabled)
@@ -323,6 +363,7 @@ CGWSEL = $002130
 ; o - color math on OBJ (0: disabled | 1: enabled)
 CGADSUB = $002131
 
+; COLOR MATH FIXED COLOR DATA
 ; $2132 w1 fvh
 ; bgrccccc
 ; r - red component of fixed color (0: unchanged | 1: change w/ write)
@@ -331,8 +372,9 @@ CGADSUB = $002131
 ; c - fixed color component value
 COLDATA = $002132
 
+; SCREEN INTERLACE AND SYNC SETTINGS
 ; $2133 w1 fvh
-; se..pvoi
+; se.. pvoi
 ; s - external sync (0: normal | 1: super impose)
 ; e - mode 7 EXTBG (0: disabled | 1: enabled)
 ; p - pseudo h512 (0: disabled | 1: enabled - shifts subscreen half dot left)
@@ -341,6 +383,7 @@ COLDATA = $002132
 ; i - screen interlace (0: disabled | 1: enabled - interlace to source)
 SETINI = $002133
 
+; MULTIPLICATION RESULT
 ; $2134 r1 fvh
 ; $2135 r1 fvh
 ; $2136 r1 fvh
@@ -357,16 +400,19 @@ PPUPRODUCTL = $002134
 PPUPRODUCTM = $002135
 PPUPRODUCTH = $002136
 
+; SOFTWARE LATCH FOR h/V COUNTER
 ; $2137 r1 fvha
 ; ........
-; Contains no data; just a latch
+; Contains no data; just a latch to update OPHCT and OPVCT
 SLVH = $002137
 
+; OAM READ DATA
 ; $2138 r1 fv
 ; xxxxxxxx
 ; x - OAM data read
 OAMDATAREAD = $002138
 
+; VRAM READ DATA
 ; $2139 r1 fv
 ; $213A r1 fv
 ; VMDATALR VMDATAHR
@@ -376,6 +422,7 @@ OAMDATAREAD = $002138
 VMDATALREAD = $002139
 VMDATAHREAD = $00213A
 
+; CHRAM READ DATA
 ; $213B r2 fv
 ; gggrrrrr .bbbbbgg
 ; r - red component of color
@@ -383,32 +430,39 @@ VMDATAHREAD = $00213A
 ; b - blue component of color
 CGDATAREAD = $00213B
 
+; HORIZONTAL COUNTER FROM LAST LATCH
 ; $213C r2 fvha
 ; hhhhhhhh .......h
 ; h - horizontal dot position
+; 0 to 339
 OPHCT = $00213C
 
+; VERTICAL COUNTER FROM LAST LATCH
 ; $213D r2 fvha
 ; vvvvvvvv .......v
 ; v - vertical scanline position
+; 0 to 261
 OPVCT = $00213D
 
+; PPU STATUS AND PPU1 VERSION NUMBER
 ; $213E r1 fvha
-; trm.vvvv
+; trm. vvvv
 ; t - OBJ time overflow (0: fine | 1: too many pixels on scanline - 8*34=292)
 ; r - OBJ range overflow (0: fine | 1: too many objects on scanline - 32)
 ; m - mode (0: master | 1: slave)
 ; v - PPU1 5C77 version
 STAT77 = $00213E
 
+; PPU STATUS AND PPU2 VERSION NUMBER
 ; $213F r1 fvha
-; il.pvvvv
+; il.p vvvv
 ; i - current interlace field (0: odd | 1: even)
 ; l - external latch (0: no data | 1: new data)
 ; p - region (0: NTSC 60hz | 1: PAL 50hz)
 ; v - PPU2 5C78 version
 STAT78 = $00213F
 
+; AUDIO PROCESSING UNIT COMMUNICATION PORTS
 ; $2140 rw1 fvha
 ; $2141 rw1 fvha
 ; $2142 rw1 fvha
@@ -423,28 +477,37 @@ APUIO3 = $002143
 
 ; APUIO is mirrored up to $217F
 
+; WRAM DATA READ/WRITE
 ; $2180 rw1 fvha
 ; xxxxxxxx
 ; x - WRAM data
 WMDATA = $002180
 
+; WRAM ADDRESS ACCESS
 ; $2181 rw1 fvha
 ; $2182 rw1 fvha
 ; $2183 rw1 fvha
-;  WMADDL   WMADDM   WMADDH
+;  WMADDL   WMADDH   WMADDB
 ; llllllll hhhhhhhh .......b
 ; l - low byte of WRAM address
 ; h - high byte of WRAM address
 ; b - bank of WRAM address (0: bank7E | 1: bank7F)
 WMADDR = $002181
 WMADDL = $002181
-WMADDM = $002182
-WMADDH = $002183
+WMADDH = $002182
+WMADDB = $002183
 
 ;===================================================================================================
+;===================================================================================================
+; CPU REGISTERS
+;===================================================================================================
+;===================================================================================================
+
+; JOYPAD STROBE AND COMMUNICATION PORT
 ; $4016 rw1 fvha
 ; write: .......s
 ; s - strobe joypads
+;
 ; read:  ......ca
 ; a - port 1 data 1
 ; c - port 1 data 2
@@ -457,9 +520,11 @@ JOYPADA = $004016
 ; b - port 2 data 2
 JOYPADB = $004017
 
-;===================================================================================================
+;---------------------------------------------------------------------------------------------------
+
+; INTERRUPT AND AUTO JOYPAD READ ENABLE
 ; $4200 w1 fvha
-; n.vh...j
+; n.vh ...j
 ; n - NMI enable (0: disabled | 1: enabled)
 ; vh - IRQ trigger time
 ;      00 - No IRQ
@@ -469,13 +534,15 @@ JOYPADB = $004017
 ; j - auto joypad read (0: disabled | 1: enabled)
 NMITIMEN = $004200
 
+; PROGRAMMABLE I/O PORT (WRITE)
 ; $4201 w1 fvha
-; ab......
+; ab.. ....
 ; a - controller port 2 pin 6 (0: no ppu latching | 1: ppu can be latched)
 ; b - controller port 1 pin 6
-JOYPADIO = $004201
 WRIO = $004201
+JOYPADIO = $004201
 
+; MULTIPLIER AND MULTIPLICAND
 ; $4202 w1 fvha
 ; $4203 w1 fvha
 ;  WRMPYA   WRMPYB
@@ -489,6 +556,7 @@ WRMPYB = $004203
 CPUMULTA = $004202
 CPUMULTB = $004203
 
+; DIVISOR AND DIVIDEND
 ; $4204 w1 fvha
 ; $4205 w1 fvha
 ; $4206 w1 fvha
@@ -509,6 +577,7 @@ CPUDIVIDENDL = $004204
 CPUDIVIDENDH = $004205
 CPUDIVISOR = $004206
 
+; H-COUNT TIMER SETTINGS
 ; $4207 w1 fvha
 ; $4208 w1 fvha
 ; hhhhhhhh .......h
@@ -517,6 +586,7 @@ HTIME = $004207
 HTIMEL = $004207
 HTIMEH = $004208
 
+; V-COUNT TIMER SETTINGS
 ; $4209 w1 fvha
 ; $420A w1 fvha
 ; vvvvvvvv .......v
@@ -525,6 +595,7 @@ VTIME = $004209
 VTIMEL = $004209
 VTIMEH = $00420A
 
+; DIRECT MEMORY ACCESS CHANNEL DESIGNATION
 ; $420B w1 fvha
 ; hgfedcba
 ; a - DMA channel 0 (0: disabled | 1: enabled)
@@ -538,6 +609,7 @@ VTIMEH = $00420A
 MDMAEN = $00420B
 DMAENABLE = $00420B
 
+; H-BLANK DIRECT MEMORY ACCESS CHANNEL DESIGNATION
 ; $420C w1 fvha
 ; hgfedcba
 ; a - HDMA channel 0 (0: disabled | 1: enabled)
@@ -551,13 +623,16 @@ DMAENABLE = $00420B
 HDMAEN = $00420C
 HDMAENABLE = $00420C
 
+; ACCESS CYCLE DESIGNATION
 ; $420D w1 fvha
 ; .......f
 ; f - fast rom (0: disabled | 1: enabled)
+; Works with SA1, but pauses the SA1.
 MEMSEL = $00420D
 
+; V-BLANK NMI FLAG AND SNES CPU VERSION NUMBER
 ; $4210 r1 fvha
-; n...vvvv
+; n... vvvv
 ; n - vblank NMI trigger (0: not in vblank | 1: in vblank)
 ;     reading $4210 will clear this flag
 ;     read this during NMI for safety
@@ -565,16 +640,18 @@ MEMSEL = $00420D
 ; v - Ricoh5A22 version
 RDNMI = $004210
 
+; H/V TIMER IRQ FLAG
 ; $4211 r1 fvha
-; i.......
+; i... ....
 ; i - IRQ trigger (0: no request | 1: IRQ requested)
 ;     reading $4211 will clear this flag
 ;     read this during IRQ or else
 ;     IRQ will trigger immediately when the current one ends
 TIMEUP = $004211
 
+; H/V BLANK FLAG AND AUTO JOYPAD READ STATUS
 ; $4212 r1 fvha
-; vh.....j
+; vh.. ...j
 ; v - vertical blanking period (0: not vblank | 1: vblank)
 ; h - horizontal blanking period (0: not hblank | 1: hblank)
 ;     blanking flags are toggled even during fblank
@@ -583,12 +660,14 @@ TIMEUP = $004211
 ; j - auto joypad read flag (0: fine | 1: busy with ajpr)
 HVBJOY = $004212
 
+; PROGRAMMABLE I/O PORT (READ)
 ; $4213 r1 fvha
 ; ab......
 ; a - pin 6 of controller port 2
 ; b - pin 6 of controller port 1
 RDIO = $004213
 
+; QUOTIENT OF DIVISION
 ; $4214 r1 fvha
 ; $4215 r1 fvha
 ;  RDDIVL   RDDIVH
@@ -602,6 +681,7 @@ CPUQUOTIENT = $004214
 CPUQUOTIENTL = $004214
 CPUQUOTIENTH = $004215
 
+; PRODUCT OF MULTIPLICATION AND REMAINDER OF DIVISION
 ; $4216 r1 fvha
 ; $4217 r1 fvha
 ;  RDMPYL   RDMPYH
@@ -621,6 +701,7 @@ CPUREMAINDER = $004216
 CPUREMAINDERL = $004216
 CPUREMAINDERH = $004217
 
+; CONTROLLER DATA
 ; $4218 r1 fvha
 ; $4219 r1 fvha
 ; $421A r1 fvha
@@ -687,6 +768,12 @@ JOY2DATA2L = $00421E
 JOY2DATA2H = $00421F
 
 ;===================================================================================================
+;===================================================================================================
+; DMA REGISTERS
+;===================================================================================================
+;===================================================================================================
+
+; DMA TRANSFER PARAMETERS
 ; $4300 rw1 fvha
 ; $4310 rw1 fvha
 ; $4320 rw1 fvha
@@ -696,7 +783,7 @@ JOY2DATA2H = $00421F
 ; $4360 rw1 fvha
 ; $4370 rw1 fvha
 ;
-; dh.ifmmm
+; dh.i fmmm
 ; d - transfer direction (0: A bus to B bus | 1: B bus to A bus)
 ; h - HDMA addressing (0: direct table | 1: indirect table)
 ; i - address direction (0: increment address | 1: decrement address)
@@ -745,6 +832,7 @@ HDMA5MODE = $004350
 HDMA6MODE = $004360
 HDMA7MODE = $004370
 
+; DMA B-BUS ADDRESS ACCESS
 ; $4301 rw1 fvha
 ; $4311 rw1 fvha
 ; $4321 rw1 fvha
@@ -776,6 +864,7 @@ DMA5PORT = $004351
 DMA6PORT = $004361
 DMA7PORT = $004371
 
+; DMA A-BUS TABLE ADDRESS
 ; $4302 rw1 fvha
 ; $4303 rw1 fvha
 ; $4304 rw1 fvha
@@ -918,6 +1007,7 @@ HDMA5ADDRB = $004354
 HDMA6ADDRB = $004364
 HDMA7ADDRB = $004374
 
+; DMA SIZE, HDMA WORKING TABLE ADDRESS, AND HDMA INDIRECT TABLE BANK
 ; $4305 rw1 fvha
 ; $4306 rw1 fvha
 ; $4307 rw1 fvha
@@ -952,8 +1042,9 @@ HDMA7ADDRB = $004374
 ;
 ;         DASxL    DASxH    DASBx
 ; HDMA: llllllll hhhhhhhh bbbbbbbb
-; l - low byte of transfer size
-; h - high byte of transfer size
+; l - low byte of table
+; h - high byte of table
+; b - high byte of table
 ;
 ; Not used during direct HDMA
 ;--------------------------------
@@ -1067,6 +1158,7 @@ HDMA5INDIRECTB = $004357
 HDMA6INDIRECTB = $004367
 HDMA7INDIRECTB = $004377
 
+; HDMA TABLE ADDRESS
 ; $4308 rw1 fvha
 ; $4309 rw1 fvha
 ; $4318 rw1 fvha
@@ -1142,6 +1234,7 @@ HDMA5TABLEADDRH = $004359
 HDMA6TABLEADDRH = $004369
 HDMA7TABLEADDRH = $004379
 
+; HDMA LINE TRANSFER WORKSPACE
 ; $430A rw1 fvha
 ; $431A rw1 fvha
 ; $432A rw1 fvha
@@ -1150,7 +1243,7 @@ HDMA7TABLEADDRH = $004379
 ; $435A rw1 fvha
 ; $436A rw1 fvha
 ; $437A rw1 fvha
-; csssssss
+; csss ssss
 ; c - continue flag (0: 1 line for s scanlines | 1: s lines, 1 per scanline)
 ; s - scanline count
 ;

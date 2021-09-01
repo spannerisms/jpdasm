@@ -61,7 +61,7 @@ Song10_Loop:
 #_1B805E: #_D05Au: dw Song10_Segment8
 #_1B8060: #_D05Cu: dw Song10_Segment9
 #_1B8062: #_D05Eu: dw Song10_SegmentA
-#_1B8064: #_D060u: dw !SONG_LOOP, Song10_Loop
+#_1B8064: #_D060u: dw $00FF, Song10_Loop ; Loop point
 #_1B8068: #_D064u: dw $0000
 
 Song10_Segment1:
@@ -177,2401 +177,2401 @@ Song10_SegmentA:
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment1_Track0:
-#_1B811A: #_D116u: db !TEMPO, $1B
-#_1B811C: #_D118u: db !VOLUME, $C8
-#_1B811E: #_D11Au: db !INSTR, $0B
-#_1B8120: #_D11Cu: db !VIBRATO, $14, $1E, $14
+#_1B811A: #_D116u: db $E7, $1B ; set song tempo
+#_1B811C: #_D118u: db $ED, $C8 ; set channel volume
+#_1B811E: #_D11Au: db $E0, $0B ; set instrument - trombone
+#_1B8120: #_D11Cu: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B8124: #_D120u: db $60 ; duration
-#_1B8125: #_D121u: db R
-#_1B8126: #_D122u: db R
-#_1B8127: #_D123u: db !CALL_PART : dw Song10_Sub_D90C : db 1
-#_1B812B: #_D127u: db !PART_END
+#_1B8125: #_D121u: db $C9 ; rest
+#_1B8126: #_D122u: db $C9 ; rest
+#_1B8127: #_D123u: db $EF : dw Song10_Sub_D90C : db $01 ; call segment subroutine
+#_1B812B: #_D127u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment1_Track1:
-#_1B812C: #_D128u: db !CALL_PART : dw Song10_Sub_D925 : db 1
+#_1B812C: #_D128u: db $EF : dw Song10_Sub_D925 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment1_Track2:
-#_1B8130: #_D12Cu: db !CALL_PART : dw Song10_Sub_D93F : db 1
-#_1B8134: #_D130u: db !CALL_PART : dw Song10_Sub_D960 : db 1
+#_1B8130: #_D12Cu: db $EF : dw Song10_Sub_D93F : db $01 ; call segment subroutine
+#_1B8134: #_D130u: db $EF : dw Song10_Sub_D960 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment1_Track3:
-#_1B8138: #_D134u: db !VOLUME, $C8
-#_1B813A: #_D136u: db !INSTR, $0A
-#_1B813C: #_D138u: db !VIBRATO, $1D, $14, $1E
-#_1B8140: #_D13Cu: db !PAN, $0F
+#_1B8138: #_D134u: db $ED, $C8 ; set channel volume
+#_1B813A: #_D136u: db $E0, $0A ; set instrument - strings B
+#_1B813C: #_D138u: db $E3, $1D, $14, $1E ; enable vibrato
+#_1B8140: #_D13Cu: db $E1, $0F ; set panning - leaning left
 #_1B8142: #_D13Eu: db $60 ; duration
-#_1B8143: #_D13Fu: db R
-#_1B8144: #_D140u: db R
-#_1B8145: #_D141u: db R
-#_1B8146: #_D142u: db R
+#_1B8143: #_D13Fu: db $C9 ; rest
+#_1B8144: #_D140u: db $C9 ; rest
+#_1B8145: #_D141u: db $C9 ; rest
+#_1B8146: #_D142u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment1_Track4:
-#_1B8147: #_D143u: db !CALL_PART : dw Song10_Sub_D976 : db 1
+#_1B8147: #_D143u: db $EF : dw Song10_Sub_D976 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment1_Track5:
-#_1B814B: #_D147u: db !VOLUME, $8C
-#_1B814D: #_D149u: db !INSTR, $0A
-#_1B814F: #_D14Bu: db !VIBRATO, $1D, $14, $1E
+#_1B814B: #_D147u: db $ED, $8C ; set channel volume
+#_1B814D: #_D149u: db $E0, $0A ; set instrument - strings B
+#_1B814F: #_D14Bu: db $E3, $1D, $14, $1E ; enable vibrato
 #_1B8153: #_D14Fu: db $60 ; duration
-#_1B8154: #_D150u: db R
-#_1B8155: #_D151u: db R
-#_1B8156: #_D152u: db R
-#_1B8157: #_D153u: db R
+#_1B8154: #_D150u: db $C9 ; rest
+#_1B8155: #_D151u: db $C9 ; rest
+#_1B8156: #_D152u: db $C9 ; rest
+#_1B8157: #_D153u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment0_Track0:
-#_1B8158: #_D154u: db !SET_PERC, $17
-#_1B815A: #_D156u: db !MASTER_VOLUME, $C8
-#_1B815C: #_D158u: db !TEMPO, $15
-#_1B815E: #_D15Au: db !ECHO_CONFIG, $FF, $00, $00
-#_1B8162: #_D15Eu: db !ECHO_FILTER, $02, $1E, $02
-#_1B8166: #_D162u: db !ECHO_GRAD, $1E, $1E, $1E
-#_1B816A: #_D166u: db !VOLUME, $C8
-#_1B816C: #_D168u: db !INSTR, $0B
-#_1B816E: #_D16Au: db !VIBRATO, $14, $1E, $14
+#_1B8158: #_D154u: db $FA, $17 ; set base percussion sample
+#_1B815A: #_D156u: db $E5, $C8 ; set song volume
+#_1B815C: #_D158u: db $E7, $15 ; set song tempo
+#_1B815E: #_D15Au: db $F5, $FF, $00, $00 ; configure EON, EVOLL, EVOLR
+#_1B8162: #_D15Eu: db $F7, $02, $1E, $02 ; configure EDL, EFB, FIR
+#_1B8166: #_D162u: db $F8, $1E, $1E, $1E ; initiate gradual echo volume change
+#_1B816A: #_D166u: db $ED, $C8 ; set channel volume
+#_1B816C: #_D168u: db $E0, $0B ; set instrument - trombone
+#_1B816E: #_D16Au: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B8172: #_D16Eu: db $08 ; duration
-#_1B8173: #_D16Fu: db R
+#_1B8173: #_D16Fu: db $C9 ; rest
 #_1B8174: #_D170u: db $10 ; duration
-#_1B8175: #_D171u: db R
+#_1B8175: #_D171u: db $C9 ; rest
 #_1B8176: #_D172u: db $04, $3D ; duration, params
-#_1B8178: #_D174u: db G4
-#_1B8179: #_D175u: db G4
+#_1B8178: #_D174u: db $AB ; play note G4
+#_1B8179: #_D175u: db $AB ; play note G4
 #_1B817A: #_D176u: db $0C ; duration
-#_1B817B: #_D177u: db G4
-#_1B817C: #_D178u: db F4
+#_1B817B: #_D177u: db $AB ; play note G4
+#_1B817C: #_D178u: db $A9 ; play note F4
 #_1B817D: #_D179u: db $18, $6D ; duration, params
-#_1B817F: #_D17Bu: db G4
+#_1B817F: #_D17Bu: db $AB ; play note G4
 #_1B8180: #_D17Cu: db $12 ; duration
-#_1B8181: #_D17Du: db Gs4
+#_1B8181: #_D17Du: db $AC ; play note Gs4
 #_1B8182: #_D17Eu: db $06, $3D ; duration, params
-#_1B8184: #_D180u: db B4
+#_1B8184: #_D180u: db $AF ; play note B4
 #_1B8185: #_D181u: db $60, $6D ; duration, params
-#_1B8187: #_D183u: db G4
-#_1B8188: #_D184u: db !PART_END
+#_1B8187: #_D183u: db $AB ; play note G4
+#_1B8188: #_D184u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment0_Track1:
-#_1B8189: #_D185u: db !VOLUME, $C8
-#_1B818B: #_D187u: db !INSTR, $11
-#_1B818D: #_D189u: db !VIBRATO, $14, $1E, $14
-#_1B8191: #_D18Du: db !PAN, $05
+#_1B8189: #_D185u: db $ED, $C8 ; set channel volume
+#_1B818B: #_D187u: db $E0, $11 ; set instrument - trumpet
+#_1B818D: #_D189u: db $E3, $14, $1E, $14 ; enable vibrato
+#_1B8191: #_D18Du: db $E1, $05 ; set panning - leaning right
 #_1B8193: #_D18Fu: db $08 ; duration
-#_1B8194: #_D190u: db R
+#_1B8194: #_D190u: db $C9 ; rest
 #_1B8195: #_D191u: db $48, $7F ; duration, params
-#_1B8197: #_D193u: db G2
+#_1B8197: #_D193u: db $93 ; play note G2
 #_1B8198: #_D194u: db $18, $6D ; duration, params
-#_1B819A: #_D196u: db Gs2
+#_1B819A: #_D196u: db $94 ; play note Gs2
 #_1B819B: #_D197u: db $60 ; duration
-#_1B819C: #_D198u: db G2
+#_1B819C: #_D198u: db $93 ; play note G2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment0_Track2:
-#_1B819D: #_D199u: db !VOLUME, $C8
-#_1B819F: #_D19Bu: db !INSTR, $0B
-#_1B81A1: #_D19Du: db !VIBRATO, $14, $1E, $14
-#_1B81A5: #_D1A1u: db !PAN, $08
+#_1B819D: #_D199u: db $ED, $C8 ; set channel volume
+#_1B819F: #_D19Bu: db $E0, $0B ; set instrument - trombone
+#_1B81A1: #_D19Du: db $E3, $14, $1E, $14 ; enable vibrato
+#_1B81A5: #_D1A1u: db $E1, $08 ; set panning - leaning right
 #_1B81A7: #_D1A3u: db $08 ; duration
-#_1B81A8: #_D1A4u: db R
+#_1B81A8: #_D1A4u: db $C9 ; rest
 #_1B81A9: #_D1A5u: db $10 ; duration
-#_1B81AA: #_D1A6u: db R
+#_1B81AA: #_D1A6u: db $C9 ; rest
 #_1B81AB: #_D1A7u: db $04, $3D ; duration, params
-#_1B81AD: #_D1A9u: db D4
-#_1B81AE: #_D1AAu: db D4
+#_1B81AD: #_D1A9u: db $A6 ; play note D4
+#_1B81AE: #_D1AAu: db $A6 ; play note D4
 #_1B81AF: #_D1ABu: db $0C ; duration
-#_1B81B0: #_D1ACu: db D4
-#_1B81B1: #_D1ADu: db C4
+#_1B81B0: #_D1ACu: db $A6 ; play note D4
+#_1B81B1: #_D1ADu: db $A4 ; play note C4
 #_1B81B2: #_D1AEu: db $18, $6D ; duration, params
-#_1B81B4: #_D1B0u: db D4
+#_1B81B4: #_D1B0u: db $A6 ; play note D4
 #_1B81B5: #_D1B1u: db $12 ; duration
-#_1B81B6: #_D1B2u: db Ds4
+#_1B81B6: #_D1B2u: db $A7 ; play note Ds4
 #_1B81B7: #_D1B3u: db $06, $3D ; duration, params
-#_1B81B9: #_D1B5u: db Fs4
+#_1B81B9: #_D1B5u: db $AA ; play note Fs4
 #_1B81BA: #_D1B6u: db $60, $6D ; duration, params
-#_1B81BC: #_D1B8u: db D4
+#_1B81BC: #_D1B8u: db $A6 ; play note D4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment0_Track3:
-#_1B81BD: #_D1B9u: db !VOLUME, $C8
-#_1B81BF: #_D1BBu: db !INSTR, $0B
-#_1B81C1: #_D1BDu: db !VIBRATO, $14, $1E, $14
-#_1B81C5: #_D1C1u: db !PAN, $0C
+#_1B81BD: #_D1B9u: db $ED, $C8 ; set channel volume
+#_1B81BF: #_D1BBu: db $E0, $0B ; set instrument - trombone
+#_1B81C1: #_D1BDu: db $E3, $14, $1E, $14 ; enable vibrato
+#_1B81C5: #_D1C1u: db $E1, $0C ; set panning - leaning left
 #_1B81C7: #_D1C3u: db $08 ; duration
-#_1B81C8: #_D1C4u: db R
+#_1B81C8: #_D1C4u: db $C9 ; rest
 #_1B81C9: #_D1C5u: db $10 ; duration
-#_1B81CA: #_D1C6u: db R
+#_1B81CA: #_D1C6u: db $C9 ; rest
 #_1B81CB: #_D1C7u: db $04, $3D ; duration, params
-#_1B81CD: #_D1C9u: db A3
-#_1B81CE: #_D1CAu: db A3
+#_1B81CD: #_D1C9u: db $A1 ; play note A3
+#_1B81CE: #_D1CAu: db $A1 ; play note A3
 #_1B81CF: #_D1CBu: db $0C ; duration
-#_1B81D0: #_D1CCu: db A3
-#_1B81D1: #_D1CDu: db G3
+#_1B81D0: #_D1CCu: db $A1 ; play note A3
+#_1B81D1: #_D1CDu: db $9F ; play note G3
 #_1B81D2: #_D1CEu: db $18, $6D ; duration, params
-#_1B81D4: #_D1D0u: db A3
+#_1B81D4: #_D1D0u: db $A1 ; play note A3
 #_1B81D5: #_D1D1u: db $12 ; duration
-#_1B81D6: #_D1D2u: db As3
+#_1B81D6: #_D1D2u: db $A2 ; play note As3
 #_1B81D7: #_D1D3u: db $06, $3D ; duration, params
-#_1B81D9: #_D1D5u: db Cs4
+#_1B81D9: #_D1D5u: db $A5 ; play note Cs4
 #_1B81DA: #_D1D6u: db $60, $6D ; duration, params
-#_1B81DC: #_D1D8u: db A3
+#_1B81DC: #_D1D8u: db $A1 ; play note A3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment0_Track4:
-#_1B81DD: #_D1D9u: db !VOLUME, $FA
-#_1B81DF: #_D1DBu: db !INSTR, $02
+#_1B81DD: #_D1D9u: db $ED, $FA ; set channel volume
+#_1B81DF: #_D1DBu: db $E0, $02 ; set instrument - timpani
 #_1B81E1: #_D1DDu: db $04, $7D ; duration, params
-#_1B81E3: #_D1DFu: db G1
-#_1B81E4: #_D1E0u: db G1
+#_1B81E3: #_D1DFu: db $87 ; play note G1
+#_1B81E4: #_D1E0u: db $87 ; play note G1
 #_1B81E5: #_D1E1u: db $48, $7F ; duration, params
-#_1B81E7: #_D1E3u: db G1
+#_1B81E7: #_D1E3u: db $87 ; play note G1
 #_1B81E8: #_D1E4u: db $06, $7D ; duration, params
-#_1B81EA: #_D1E6u: db Gs1
+#_1B81EA: #_D1E6u: db $88 ; play note Gs1
 #_1B81EB: #_D1E7u: db $06, $7B ; duration, params
-#_1B81ED: #_D1E9u: db Gs1
+#_1B81ED: #_D1E9u: db $88 ; play note Gs1
 #_1B81EE: #_D1EAu: db $09, $7C ; duration, params
-#_1B81F0: #_D1ECu: db Gs1
+#_1B81F0: #_D1ECu: db $88 ; play note Gs1
 #_1B81F1: #_D1EDu: db $03 ; duration
-#_1B81F2: #_D1EEu: db R
+#_1B81F2: #_D1EEu: db $C9 ; rest
 #_1B81F3: #_D1EFu: db $06, $7E ; duration, params
-#_1B81F5: #_D1F1u: db G1
+#_1B81F5: #_D1F1u: db $87 ; play note G1
 #_1B81F6: #_D1F2u: db $06, $7A ; duration, params
-#_1B81F8: #_D1F4u: db G1
+#_1B81F8: #_D1F4u: db $87 ; play note G1
 #_1B81F9: #_D1F5u: db $06, $78 ; duration, params
-#_1B81FB: #_D1F7u: db G1
+#_1B81FB: #_D1F7u: db $87 ; play note G1
 #_1B81FC: #_D1F8u: db $06, $76 ; duration, params
-#_1B81FE: #_D1FAu: db G1
+#_1B81FE: #_D1FAu: db $87 ; play note G1
 #_1B81FF: #_D1FBu: db $06, $77 ; duration, params
-#_1B8201: #_D1FDu: db G1
+#_1B8201: #_D1FDu: db $87 ; play note G1
 #_1B8202: #_D1FEu: db $06, $78 ; duration, params
-#_1B8204: #_D200u: db G1
+#_1B8204: #_D200u: db $87 ; play note G1
 #_1B8205: #_D201u: db $06, $79 ; duration, params
-#_1B8207: #_D203u: db G1
+#_1B8207: #_D203u: db $87 ; play note G1
 #_1B8208: #_D204u: db $06, $7A ; duration, params
-#_1B820A: #_D206u: db G1
+#_1B820A: #_D206u: db $87 ; play note G1
 #_1B820B: #_D207u: db $06, $7B ; duration, params
-#_1B820D: #_D209u: db G1
+#_1B820D: #_D209u: db $87 ; play note G1
 #_1B820E: #_D20Au: db $06, $7C ; duration, params
-#_1B8210: #_D20Cu: db G1
+#_1B8210: #_D20Cu: db $87 ; play note G1
 #_1B8211: #_D20Du: db $06, $7D ; duration, params
-#_1B8213: #_D20Fu: db G1
+#_1B8213: #_D20Fu: db $87 ; play note G1
 #_1B8214: #_D210u: db $06, $7E ; duration, params
-#_1B8216: #_D212u: db G1
+#_1B8216: #_D212u: db $87 ; play note G1
 #_1B8217: #_D213u: db $06, $7F ; duration, params
-#_1B8219: #_D215u: db G1
-#_1B821A: #_D216u: db G1
+#_1B8219: #_D215u: db $87 ; play note G1
+#_1B821A: #_D216u: db $87 ; play note G1
 #_1B821B: #_D217u: db $0C ; duration
-#_1B821C: #_D218u: db G1
+#_1B821C: #_D218u: db $87 ; play note G1
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment0_Track5:
-#_1B821D: #_D219u: db !VOLUME, $FA
-#_1B821F: #_D21Bu: db !INSTR, $02
+#_1B821D: #_D219u: db $ED, $FA ; set channel volume
+#_1B821F: #_D21Bu: db $E0, $02 ; set instrument - timpani
 #_1B8221: #_D21Du: db $08 ; duration
-#_1B8222: #_D21Eu: db R
-#_1B8223: #_D21Fu: db !INSTR, $0C
+#_1B8222: #_D21Eu: db $C9 ; rest
+#_1B8223: #_D21Fu: db $E0, $0C ; set instrument - cymbal
 #_1B8225: #_D221u: db $4B, $7F ; duration, params
-#_1B8227: #_D223u: db A2
-#_1B8228: #_D224u: db !INSTR, $02
+#_1B8227: #_D223u: db $95 ; play note A2
+#_1B8228: #_D224u: db $E0, $02 ; set instrument - timpani
 #_1B822A: #_D226u: db $06, $7B ; duration, params
-#_1B822C: #_D228u: db Gs1
+#_1B822C: #_D228u: db $88 ; play note Gs1
 #_1B822D: #_D229u: db $06, $7C ; duration, params
-#_1B822F: #_D22Bu: db Gs1
+#_1B822F: #_D22Bu: db $88 ; play note Gs1
 #_1B8230: #_D22Cu: db $03 ; duration
-#_1B8231: #_D22Du: db R
-#_1B8232: #_D22Eu: db R
+#_1B8231: #_D22Du: db $C9 ; rest
+#_1B8232: #_D22Eu: db $C9 ; rest
 #_1B8233: #_D22Fu: db $06, $7E ; duration, params
-#_1B8235: #_D231u: db G1
+#_1B8235: #_D231u: db $87 ; play note G1
 #_1B8236: #_D232u: db $06, $7A ; duration, params
-#_1B8238: #_D234u: db G1
+#_1B8238: #_D234u: db $87 ; play note G1
 #_1B8239: #_D235u: db $06, $78 ; duration, params
-#_1B823B: #_D237u: db G1
+#_1B823B: #_D237u: db $87 ; play note G1
 #_1B823C: #_D238u: db $06, $76 ; duration, params
-#_1B823E: #_D23Au: db G1
+#_1B823E: #_D23Au: db $87 ; play note G1
 #_1B823F: #_D23Bu: db $06, $77 ; duration, params
-#_1B8241: #_D23Du: db G1
+#_1B8241: #_D23Du: db $87 ; play note G1
 #_1B8242: #_D23Eu: db $06, $78 ; duration, params
-#_1B8244: #_D240u: db G1
+#_1B8244: #_D240u: db $87 ; play note G1
 #_1B8245: #_D241u: db $06, $79 ; duration, params
-#_1B8247: #_D243u: db G1
+#_1B8247: #_D243u: db $87 ; play note G1
 #_1B8248: #_D244u: db $06, $7A ; duration, params
-#_1B824A: #_D246u: db G1
+#_1B824A: #_D246u: db $87 ; play note G1
 #_1B824B: #_D247u: db $06, $7B ; duration, params
-#_1B824D: #_D249u: db G1
+#_1B824D: #_D249u: db $87 ; play note G1
 #_1B824E: #_D24Au: db $06, $7C ; duration, params
-#_1B8250: #_D24Cu: db G1
+#_1B8250: #_D24Cu: db $87 ; play note G1
 #_1B8251: #_D24Du: db $06, $7D ; duration, params
-#_1B8253: #_D24Fu: db G1
+#_1B8253: #_D24Fu: db $87 ; play note G1
 #_1B8254: #_D250u: db $06, $7E ; duration, params
-#_1B8256: #_D252u: db G1
+#_1B8256: #_D252u: db $87 ; play note G1
 #_1B8257: #_D253u: db $15, $7F ; duration, params
-#_1B8259: #_D255u: db G1
+#_1B8259: #_D255u: db $87 ; play note G1
 #_1B825A: #_D256u: db $06 ; duration
-#_1B825B: #_D257u: db R
+#_1B825B: #_D257u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment0_Track6:
-#_1B825C: #_D258u: db !VOLUME, $8C
-#_1B825E: #_D25Au: db !INSTR, $16
-#_1B8260: #_D25Cu: db !VIBRATO, $14, $1E, $14
-#_1B8264: #_D260u: db !PAN, $07
+#_1B825C: #_D258u: db $ED, $8C ; set channel volume
+#_1B825E: #_D25Au: db $E0, $16 ; set instrument - flute
+#_1B8260: #_D25Cu: db $E3, $14, $1E, $14 ; enable vibrato
+#_1B8264: #_D260u: db $E1, $07 ; set panning - leaning right
 #_1B8266: #_D262u: db $08 ; duration
-#_1B8267: #_D263u: db R
+#_1B8267: #_D263u: db $C9 ; rest
 #_1B8268: #_D264u: db $10 ; duration
-#_1B8269: #_D265u: db R
+#_1B8269: #_D265u: db $C9 ; rest
 #_1B826A: #_D266u: db $04, $3D ; duration, params
-#_1B826C: #_D268u: db D5
-#_1B826D: #_D269u: db D5
+#_1B826C: #_D268u: db $B2 ; play note D5
+#_1B826D: #_D269u: db $B2 ; play note D5
 #_1B826E: #_D26Au: db $0C ; duration
-#_1B826F: #_D26Bu: db D5
-#_1B8270: #_D26Cu: db C5
+#_1B826F: #_D26Bu: db $B2 ; play note D5
+#_1B8270: #_D26Cu: db $B0 ; play note C5
 #_1B8271: #_D26Du: db $18, $6D ; duration, params
-#_1B8273: #_D26Fu: db D5
+#_1B8273: #_D26Fu: db $B2 ; play note D5
 #_1B8274: #_D270u: db $12 ; duration
-#_1B8275: #_D271u: db Ds5
+#_1B8275: #_D271u: db $B3 ; play note Ds5
 #_1B8276: #_D272u: db $06, $3D ; duration, params
-#_1B8278: #_D274u: db Fs5
+#_1B8278: #_D274u: db $B6 ; play note Fs5
 #_1B8279: #_D275u: db $60, $6D ; duration, params
-#_1B827B: #_D277u: db D5
+#_1B827B: #_D277u: db $B2 ; play note D5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment0_Track7:
-#_1B827C: #_D278u: db !VOLUME, $A0
-#_1B827E: #_D27Au: db !INSTR, $0B
-#_1B8280: #_D27Cu: db !VIBRATO, $17, $1E, $12
-#_1B8284: #_D280u: db !PAN, $09
+#_1B827C: #_D278u: db $ED, $A0 ; set channel volume
+#_1B827E: #_D27Au: db $E0, $0B ; set instrument - trombone
+#_1B8280: #_D27Cu: db $E3, $17, $1E, $12 ; enable vibrato
+#_1B8284: #_D280u: db $E1, $09 ; set panning - leaning right
 #_1B8286: #_D282u: db $10 ; duration
-#_1B8287: #_D283u: db R
-#_1B8288: #_D284u: db R
+#_1B8287: #_D283u: db $C9 ; rest
+#_1B8288: #_D284u: db $C9 ; rest
 #_1B8289: #_D285u: db $04, $3D ; duration, params
-#_1B828B: #_D287u: db G4
-#_1B828C: #_D288u: db G4
+#_1B828B: #_D287u: db $AB ; play note G4
+#_1B828C: #_D288u: db $AB ; play note G4
 #_1B828D: #_D289u: db $0C ; duration
-#_1B828E: #_D28Au: db G4
-#_1B828F: #_D28Bu: db F4
+#_1B828E: #_D28Au: db $AB ; play note G4
+#_1B828F: #_D28Bu: db $A9 ; play note F4
 #_1B8290: #_D28Cu: db $18, $6D ; duration, params
-#_1B8292: #_D28Eu: db G4
+#_1B8292: #_D28Eu: db $AB ; play note G4
 #_1B8293: #_D28Fu: db $12 ; duration
-#_1B8294: #_D290u: db Gs4
+#_1B8294: #_D290u: db $AC ; play note Gs4
 #_1B8295: #_D291u: db $06, $3D ; duration, params
-#_1B8297: #_D293u: db B4
+#_1B8297: #_D293u: db $AF ; play note B4
 #_1B8298: #_D294u: db $58, $6D ; duration, params
-#_1B829A: #_D296u: db G4
+#_1B829A: #_D296u: db $AB ; play note G4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment2_Track0:
-#_1B829B: #_D297u: db !VOLUME, $C8
-#_1B829D: #_D299u: db !INSTR, $0B
-#_1B829F: #_D29Bu: db !VIBRATO, $14, $1E, $14
-#_1B82A3: #_D29Fu: db !CALL_PART : dw Song10_Sub_D90C : db 1
-#_1B82A7: #_D2A3u: db R
-#_1B82A8: #_D2A4u: db G4
-#_1B82A9: #_D2A5u: db R
-#_1B82AA: #_D2A6u: db G4
-#_1B82AB: #_D2A7u: db F4
-#_1B82AC: #_D2A8u: db R
-#_1B82AD: #_D2A9u: db F4
-#_1B82AE: #_D2AAu: db G4
-#_1B82AF: #_D2ABu: db R
-#_1B82B0: #_D2ACu: db G4
-#_1B82B1: #_D2ADu: db G4
+#_1B829B: #_D297u: db $ED, $C8 ; set channel volume
+#_1B829D: #_D299u: db $E0, $0B ; set instrument - trombone
+#_1B829F: #_D29Bu: db $E3, $14, $1E, $14 ; enable vibrato
+#_1B82A3: #_D29Fu: db $EF : dw Song10_Sub_D90C : db $01 ; call segment subroutine
+#_1B82A7: #_D2A3u: db $C9 ; rest
+#_1B82A8: #_D2A4u: db $AB ; play note G4
+#_1B82A9: #_D2A5u: db $C9 ; rest
+#_1B82AA: #_D2A6u: db $AB ; play note G4
+#_1B82AB: #_D2A7u: db $A9 ; play note F4
+#_1B82AC: #_D2A8u: db $C9 ; rest
+#_1B82AD: #_D2A9u: db $A9 ; play note F4
+#_1B82AE: #_D2AAu: db $AB ; play note G4
+#_1B82AF: #_D2ABu: db $C9 ; rest
+#_1B82B0: #_D2ACu: db $AB ; play note G4
+#_1B82B1: #_D2ADu: db $AB ; play note G4
 #_1B82B2: #_D2AEu: db $06, $4D ; duration, params
-#_1B82B4: #_D2B0u: db G4
-#_1B82B5: #_D2B1u: db G4
+#_1B82B4: #_D2B0u: db $AB ; play note G4
+#_1B82B5: #_D2B1u: db $AB ; play note G4
 #_1B82B6: #_D2B2u: db $0C, $2D ; duration, params
-#_1B82B8: #_D2B4u: db G4
-#_1B82B9: #_D2B5u: db G4
-#_1B82BA: #_D2B6u: db Gs4
-#_1B82BB: #_D2B7u: db Fs4
-#_1B82BC: #_D2B8u: db !PART_END
+#_1B82B8: #_D2B4u: db $AB ; play note G4
+#_1B82B9: #_D2B5u: db $AB ; play note G4
+#_1B82BA: #_D2B6u: db $AC ; play note Gs4
+#_1B82BB: #_D2B7u: db $AA ; play note Fs4
+#_1B82BC: #_D2B8u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment2_Track1:
-#_1B82BD: #_D2B9u: db !VOLUME, $8C
-#_1B82BF: #_D2BBu: db !INSTR, $0A
-#_1B82C1: #_D2BDu: db !VIBRATO, $14, $1E, $14
-#_1B82C5: #_D2C1u: db !CALL_PART : dw Song10_Sub_D9A7 : db 1
+#_1B82BD: #_D2B9u: db $ED, $8C ; set channel volume
+#_1B82BF: #_D2BBu: db $E0, $0A ; set instrument - strings B
+#_1B82C1: #_D2BDu: db $E3, $14, $1E, $14 ; enable vibrato
+#_1B82C5: #_D2C1u: db $EF : dw Song10_Sub_D9A7 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment2_Track2:
-#_1B82C9: #_D2C5u: db !CALL_PART : dw Song10_Sub_D93F : db 1
-#_1B82CD: #_D2C9u: db R
-#_1B82CE: #_D2CAu: db D4
-#_1B82CF: #_D2CBu: db R
-#_1B82D0: #_D2CCu: db D4
-#_1B82D1: #_D2CDu: db C4
-#_1B82D2: #_D2CEu: db R
-#_1B82D3: #_D2CFu: db C4
-#_1B82D4: #_D2D0u: db D4
-#_1B82D5: #_D2D1u: db R
-#_1B82D6: #_D2D2u: db D4
-#_1B82D7: #_D2D3u: db D4
+#_1B82C9: #_D2C5u: db $EF : dw Song10_Sub_D93F : db $01 ; call segment subroutine
+#_1B82CD: #_D2C9u: db $C9 ; rest
+#_1B82CE: #_D2CAu: db $A6 ; play note D4
+#_1B82CF: #_D2CBu: db $C9 ; rest
+#_1B82D0: #_D2CCu: db $A6 ; play note D4
+#_1B82D1: #_D2CDu: db $A4 ; play note C4
+#_1B82D2: #_D2CEu: db $C9 ; rest
+#_1B82D3: #_D2CFu: db $A4 ; play note C4
+#_1B82D4: #_D2D0u: db $A6 ; play note D4
+#_1B82D5: #_D2D1u: db $C9 ; rest
+#_1B82D6: #_D2D2u: db $A6 ; play note D4
+#_1B82D7: #_D2D3u: db $A6 ; play note D4
 #_1B82D8: #_D2D4u: db $06 ; duration
-#_1B82D9: #_D2D5u: db D4
-#_1B82DA: #_D2D6u: db D4
+#_1B82D9: #_D2D5u: db $A6 ; play note D4
+#_1B82DA: #_D2D6u: db $A6 ; play note D4
 #_1B82DB: #_D2D7u: db $0C ; duration
-#_1B82DC: #_D2D8u: db D4
-#_1B82DD: #_D2D9u: db D4
-#_1B82DE: #_D2DAu: db Ds4
-#_1B82DF: #_D2DBu: db Cs4
+#_1B82DC: #_D2D8u: db $A6 ; play note D4
+#_1B82DD: #_D2D9u: db $A6 ; play note D4
+#_1B82DE: #_D2DAu: db $A7 ; play note Ds4
+#_1B82DF: #_D2DBu: db $A5 ; play note Cs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment2_Track3:
-#_1B82E0: #_D2DCu: db !VOLUME, $C8
-#_1B82E2: #_D2DEu: db !INSTR, $0A
-#_1B82E4: #_D2E0u: db !VIBRATO, $1D, $14, $1E
+#_1B82E0: #_D2DCu: db $ED, $C8 ; set channel volume
+#_1B82E2: #_D2DEu: db $E0, $0A ; set instrument - strings B
+#_1B82E4: #_D2E0u: db $E3, $1D, $14, $1E ; enable vibrato
 #_1B82E8: #_D2E4u: db $60, $7D ; duration, params
-#_1B82EA: #_D2E6u: db G4
-#_1B82EB: #_D2E7u: db !SLIDE_ONCE, $24, $0C, $A6
+#_1B82EA: #_D2E6u: db $AB ; play note G4
+#_1B82EB: #_D2E7u: db $F9, $24, $0C, $A6 ; slide to note
 #_1B82EF: #_D2EBu: db $24, $6D ; duration, params
-#_1B82F1: #_D2EDu: db !TIE
+#_1B82F1: #_D2EDu: db $C8 ; sustain current note
 #_1B82F2: #_D2EEu: db $0C ; duration
-#_1B82F3: #_D2EFu: db G4
-#_1B82F4: #_D2F0u: db Gs4
-#_1B82F5: #_D2F1u: db As4
+#_1B82F3: #_D2EFu: db $AB ; play note G4
+#_1B82F4: #_D2F0u: db $AC ; play note Gs4
+#_1B82F5: #_D2F1u: db $AE ; play note As4
 #_1B82F6: #_D2F2u: db $08 ; duration
-#_1B82F7: #_D2F3u: db !TIE
-#_1B82F8: #_D2F4u: db Fs4
-#_1B82F9: #_D2F5u: db As4
+#_1B82F7: #_D2F3u: db $C8 ; sustain current note
+#_1B82F8: #_D2F4u: db $AA ; play note Fs4
+#_1B82F9: #_D2F5u: db $AE ; play note As4
 #_1B82FA: #_D2F6u: db $60, $7D ; duration, params
-#_1B82FC: #_D2F8u: db G4
-#_1B82FD: #_D2F9u: db !SLIDE_ONCE, $24, $0C, $A6
+#_1B82FC: #_D2F8u: db $AB ; play note G4
+#_1B82FD: #_D2F9u: db $F9, $24, $0C, $A6 ; slide to note
 #_1B8301: #_D2FDu: db $30, $68 ; duration, params
-#_1B8303: #_D2FFu: db !TIE
-#_1B8304: #_D300u: db R
+#_1B8303: #_D2FFu: db $C8 ; sustain current note
+#_1B8304: #_D300u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment2_Track4:
-#_1B8305: #_D301u: db !VOLUME, $C8
-#_1B8307: #_D303u: db !INSTR, $02
-#_1B8309: #_D305u: db !CALL_PART : dw Song10_Sub_D9B7 : db 2
+#_1B8305: #_D301u: db $ED, $C8 ; set channel volume
+#_1B8307: #_D303u: db $E0, $02 ; set instrument - timpani
+#_1B8309: #_D305u: db $EF : dw Song10_Sub_D9B7 : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment2_Track5:
-#_1B830D: #_D309u: db !VOLUME, $C8
-#_1B830F: #_D30Bu: db !INSTR, $0B
-#_1B8311: #_D30Du: db !VIBRATO, $19, $1E, $17
-#_1B8315: #_D311u: db !PAN, $07
+#_1B830D: #_D309u: db $ED, $C8 ; set channel volume
+#_1B830F: #_D30Bu: db $E0, $0B ; set instrument - trombone
+#_1B8311: #_D30Du: db $E3, $19, $1E, $17 ; enable vibrato
+#_1B8315: #_D311u: db $E1, $07 ; set panning - leaning right
 #_1B8317: #_D313u: db $60 ; duration
-#_1B8318: #_D314u: db R
-#_1B8319: #_D315u: db R
+#_1B8318: #_D314u: db $C9 ; rest
+#_1B8319: #_D315u: db $C9 ; rest
 #_1B831A: #_D316u: db $40 ; duration
-#_1B831B: #_D317u: db R
+#_1B831B: #_D317u: db $C9 ; rest
 #_1B831C: #_D318u: db $04, $79 ; duration, params
-#_1B831E: #_D31Au: db G4
+#_1B831E: #_D31Au: db $AB ; play note G4
 #_1B831F: #_D31Bu: db $04, $7A ; duration, params
-#_1B8321: #_D31Du: db A4
+#_1B8321: #_D31Du: db $AD ; play note A4
 #_1B8322: #_D31Eu: db $04, $7B ; duration, params
-#_1B8324: #_D320u: db As4
+#_1B8324: #_D320u: db $AE ; play note As4
 #_1B8325: #_D321u: db $04, $7C ; duration, params
-#_1B8327: #_D323u: db B4
+#_1B8327: #_D323u: db $AF ; play note B4
 #_1B8328: #_D324u: db $04, $7D ; duration, params
-#_1B832A: #_D326u: db Cs5
+#_1B832A: #_D326u: db $B1 ; play note Cs5
 #_1B832B: #_D327u: db $0C, $2D ; duration, params
-#_1B832D: #_D329u: db D5
-#_1B832E: #_D32Au: db R
-#_1B832F: #_D32Bu: db D5
-#_1B8330: #_D32Cu: db D5
+#_1B832D: #_D329u: db $B2 ; play note D5
+#_1B832E: #_D32Au: db $C9 ; rest
+#_1B832F: #_D32Bu: db $B2 ; play note D5
+#_1B8330: #_D32Cu: db $B2 ; play note D5
 #_1B8331: #_D32Du: db $06 ; duration
-#_1B8332: #_D32Eu: db D5
-#_1B8333: #_D32Fu: db D5
+#_1B8332: #_D32Eu: db $B2 ; play note D5
+#_1B8333: #_D32Fu: db $B2 ; play note D5
 #_1B8334: #_D330u: db $0C ; duration
-#_1B8335: #_D331u: db F5
-#_1B8336: #_D332u: db F5
+#_1B8335: #_D331u: db $B5 ; play note F5
+#_1B8336: #_D332u: db $B5 ; play note F5
 #_1B8337: #_D333u: db $06, $7B ; duration, params
-#_1B8339: #_D335u: db Ds5
-#_1B833A: #_D336u: db D5
-#_1B833B: #_D337u: db Cs5
+#_1B8339: #_D335u: db $B3 ; play note Ds5
+#_1B833A: #_D336u: db $B2 ; play note D5
+#_1B833B: #_D337u: db $B1 ; play note Cs5
 #_1B833C: #_D338u: db $06, $2B ; duration, params
-#_1B833E: #_D33Au: db C5
+#_1B833E: #_D33Au: db $B0 ; play note C5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment2_Track6:
-#_1B833F: #_D33Bu: db !VOLUME, $8C
-#_1B8341: #_D33Du: db !INSTR, $0A
-#_1B8343: #_D33Fu: db !VIBRATO, $1D, $14, $1E
+#_1B833F: #_D33Bu: db $ED, $8C ; set channel volume
+#_1B8341: #_D33Du: db $E0, $0A ; set instrument - strings B
+#_1B8343: #_D33Fu: db $E3, $1D, $14, $1E ; enable vibrato
 #_1B8347: #_D343u: db $08 ; duration
-#_1B8348: #_D344u: db R
+#_1B8348: #_D344u: db $C9 ; rest
 #_1B8349: #_D345u: db $30, $6D ; duration, params
-#_1B834B: #_D347u: db G4
-#_1B834C: #_D348u: db D4
+#_1B834B: #_D347u: db $AB ; play note G4
+#_1B834C: #_D348u: db $A6 ; play note D4
 #_1B834D: #_D349u: db $24 ; duration
-#_1B834E: #_D34Au: db !TIE
+#_1B834E: #_D34Au: db $C8 ; sustain current note
 #_1B834F: #_D34Bu: db $0C ; duration
-#_1B8350: #_D34Cu: db G4
-#_1B8351: #_D34Du: db Gs4
-#_1B8352: #_D34Eu: db As4
+#_1B8350: #_D34Cu: db $AB ; play note G4
+#_1B8351: #_D34Du: db $AC ; play note Gs4
+#_1B8352: #_D34Eu: db $AE ; play note As4
 #_1B8353: #_D34Fu: db $08 ; duration
-#_1B8354: #_D350u: db !TIE
-#_1B8355: #_D351u: db Fs4
-#_1B8356: #_D352u: db As4
+#_1B8354: #_D350u: db $C8 ; sustain current note
+#_1B8355: #_D351u: db $AA ; play note Fs4
+#_1B8356: #_D352u: db $AE ; play note As4
 #_1B8357: #_D353u: db $30 ; duration
-#_1B8358: #_D354u: db G4
-#_1B8359: #_D355u: db D4
-#_1B835A: #_D356u: db !TIE
+#_1B8358: #_D354u: db $AB ; play note G4
+#_1B8359: #_D355u: db $A6 ; play note D4
+#_1B835A: #_D356u: db $C8 ; sustain current note
 #_1B835B: #_D357u: db $28 ; duration
-#_1B835C: #_D358u: db R
+#_1B835C: #_D358u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment3_Track0:
-#_1B835D: #_D359u: db !VOLUME, $C8
-#_1B835F: #_D35Bu: db !INSTR, $0B
-#_1B8361: #_D35Du: db !VIBRATO, $14, $1E, $14
+#_1B835D: #_D359u: db $ED, $C8 ; set channel volume
+#_1B835F: #_D35Bu: db $E0, $0B ; set instrument - trombone
+#_1B8361: #_D35Du: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B8365: #_D361u: db $0C ; duration
-#_1B8366: #_D362u: db R
+#_1B8366: #_D362u: db $C9 ; rest
 #_1B8367: #_D363u: db $0C, $2D ; duration, params
-#_1B8369: #_D365u: db C5
-#_1B836A: #_D366u: db R
-#_1B836B: #_D367u: db C5
-#_1B836C: #_D368u: db As4
-#_1B836D: #_D369u: db R
-#_1B836E: #_D36Au: db As4
-#_1B836F: #_D36Bu: db C5
-#_1B8370: #_D36Cu: db R
-#_1B8371: #_D36Du: db C5
-#_1B8372: #_D36Eu: db C5
+#_1B8369: #_D365u: db $B0 ; play note C5
+#_1B836A: #_D366u: db $C9 ; rest
+#_1B836B: #_D367u: db $B0 ; play note C5
+#_1B836C: #_D368u: db $AE ; play note As4
+#_1B836D: #_D369u: db $C9 ; rest
+#_1B836E: #_D36Au: db $AE ; play note As4
+#_1B836F: #_D36Bu: db $B0 ; play note C5
+#_1B8370: #_D36Cu: db $C9 ; rest
+#_1B8371: #_D36Du: db $B0 ; play note C5
+#_1B8372: #_D36Eu: db $B0 ; play note C5
 #_1B8373: #_D36Fu: db $06, $4D ; duration, params
-#_1B8375: #_D371u: db C5
-#_1B8376: #_D372u: db C5
+#_1B8375: #_D371u: db $B0 ; play note C5
+#_1B8376: #_D372u: db $B0 ; play note C5
 #_1B8377: #_D373u: db $0C, $2D ; duration, params
-#_1B8379: #_D375u: db C5
-#_1B837A: #_D376u: db C5
-#_1B837B: #_D377u: db Cs5
-#_1B837C: #_D378u: db B4
-#_1B837D: #_D379u: db R
-#_1B837E: #_D37Au: db C5
-#_1B837F: #_D37Bu: db R
-#_1B8380: #_D37Cu: db C5
-#_1B8381: #_D37Du: db As4
-#_1B8382: #_D37Eu: db R
-#_1B8383: #_D37Fu: db As4
-#_1B8384: #_D380u: db C5
-#_1B8385: #_D381u: db R
-#_1B8386: #_D382u: db C5
-#_1B8387: #_D383u: db C5
+#_1B8379: #_D375u: db $B0 ; play note C5
+#_1B837A: #_D376u: db $B0 ; play note C5
+#_1B837B: #_D377u: db $B1 ; play note Cs5
+#_1B837C: #_D378u: db $AF ; play note B4
+#_1B837D: #_D379u: db $C9 ; rest
+#_1B837E: #_D37Au: db $B0 ; play note C5
+#_1B837F: #_D37Bu: db $C9 ; rest
+#_1B8380: #_D37Cu: db $B0 ; play note C5
+#_1B8381: #_D37Du: db $AE ; play note As4
+#_1B8382: #_D37Eu: db $C9 ; rest
+#_1B8383: #_D37Fu: db $AE ; play note As4
+#_1B8384: #_D380u: db $B0 ; play note C5
+#_1B8385: #_D381u: db $C9 ; rest
+#_1B8386: #_D382u: db $B0 ; play note C5
+#_1B8387: #_D383u: db $B0 ; play note C5
 #_1B8388: #_D384u: db $06, $4D ; duration, params
-#_1B838A: #_D386u: db C5
-#_1B838B: #_D387u: db C5
+#_1B838A: #_D386u: db $B0 ; play note C5
+#_1B838B: #_D387u: db $B0 ; play note C5
 #_1B838C: #_D388u: db $0C, $2D ; duration, params
-#_1B838E: #_D38Au: db C5
-#_1B838F: #_D38Bu: db C5
-#_1B8390: #_D38Cu: db Cs5
-#_1B8391: #_D38Du: db B4
-#_1B8392: #_D38Eu: db !PART_END
+#_1B838E: #_D38Au: db $B0 ; play note C5
+#_1B838F: #_D38Bu: db $B0 ; play note C5
+#_1B8390: #_D38Cu: db $B1 ; play note Cs5
+#_1B8391: #_D38Du: db $AF ; play note B4
+#_1B8392: #_D38Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment3_Track1:
-#_1B8393: #_D38Fu: db !VOLUME, $8C
-#_1B8395: #_D391u: db !INSTR, $0A
-#_1B8397: #_D393u: db !VIBRATO, $14, $1E, $14
+#_1B8393: #_D38Fu: db $ED, $8C ; set channel volume
+#_1B8395: #_D391u: db $E0, $0A ; set instrument - strings B
+#_1B8397: #_D393u: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B839B: #_D397u: db $30, $7D ; duration, params
-#_1B839D: #_D399u: db C4
-#_1B839E: #_D39Au: db As3
-#_1B839F: #_D39Bu: db C4
+#_1B839D: #_D399u: db $A4 ; play note C4
+#_1B839E: #_D39Au: db $A2 ; play note As3
+#_1B839F: #_D39Bu: db $A4 ; play note C4
 #_1B83A0: #_D39Cu: db $18 ; duration
-#_1B83A1: #_D39Du: db Cs4
-#_1B83A2: #_D39Eu: db B3
+#_1B83A1: #_D39Du: db $A5 ; play note Cs4
+#_1B83A2: #_D39Eu: db $A3 ; play note B3
 #_1B83A3: #_D39Fu: db $30 ; duration
-#_1B83A4: #_D3A0u: db C4
-#_1B83A5: #_D3A1u: db As3
-#_1B83A6: #_D3A2u: db C4
+#_1B83A4: #_D3A0u: db $A4 ; play note C4
+#_1B83A5: #_D3A1u: db $A2 ; play note As3
+#_1B83A6: #_D3A2u: db $A4 ; play note C4
 #_1B83A7: #_D3A3u: db $18 ; duration
-#_1B83A8: #_D3A4u: db Cs4
-#_1B83A9: #_D3A5u: db B3
+#_1B83A8: #_D3A4u: db $A5 ; play note Cs4
+#_1B83A9: #_D3A5u: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment3_Track2:
-#_1B83AA: #_D3A6u: db !VOLUME, $C8
-#_1B83AC: #_D3A8u: db !INSTR, $0B
-#_1B83AE: #_D3AAu: db !VIBRATO, $19, $1E, $17
-#_1B83B2: #_D3AEu: db !CALL_PART : dw Song10_Sub_D90C : db 1
-#_1B83B6: #_D3B2u: db R
-#_1B83B7: #_D3B3u: db G4
-#_1B83B8: #_D3B4u: db R
-#_1B83B9: #_D3B5u: db G4
-#_1B83BA: #_D3B6u: db F4
-#_1B83BB: #_D3B7u: db R
-#_1B83BC: #_D3B8u: db F4
-#_1B83BD: #_D3B9u: db G4
-#_1B83BE: #_D3BAu: db R
-#_1B83BF: #_D3BBu: db G4
-#_1B83C0: #_D3BCu: db G4
+#_1B83AA: #_D3A6u: db $ED, $C8 ; set channel volume
+#_1B83AC: #_D3A8u: db $E0, $0B ; set instrument - trombone
+#_1B83AE: #_D3AAu: db $E3, $19, $1E, $17 ; enable vibrato
+#_1B83B2: #_D3AEu: db $EF : dw Song10_Sub_D90C : db $01 ; call segment subroutine
+#_1B83B6: #_D3B2u: db $C9 ; rest
+#_1B83B7: #_D3B3u: db $AB ; play note G4
+#_1B83B8: #_D3B4u: db $C9 ; rest
+#_1B83B9: #_D3B5u: db $AB ; play note G4
+#_1B83BA: #_D3B6u: db $A9 ; play note F4
+#_1B83BB: #_D3B7u: db $C9 ; rest
+#_1B83BC: #_D3B8u: db $A9 ; play note F4
+#_1B83BD: #_D3B9u: db $AB ; play note G4
+#_1B83BE: #_D3BAu: db $C9 ; rest
+#_1B83BF: #_D3BBu: db $AB ; play note G4
+#_1B83C0: #_D3BCu: db $AB ; play note G4
 #_1B83C1: #_D3BDu: db $06 ; duration
-#_1B83C2: #_D3BEu: db G4
-#_1B83C3: #_D3BFu: db G4
+#_1B83C2: #_D3BEu: db $AB ; play note G4
+#_1B83C3: #_D3BFu: db $AB ; play note G4
 #_1B83C4: #_D3C0u: db $0C ; duration
-#_1B83C5: #_D3C1u: db G4
-#_1B83C6: #_D3C2u: db G4
-#_1B83C7: #_D3C3u: db Gs4
-#_1B83C8: #_D3C4u: db Fs4
+#_1B83C5: #_D3C1u: db $AB ; play note G4
+#_1B83C6: #_D3C2u: db $AB ; play note G4
+#_1B83C7: #_D3C3u: db $AC ; play note Gs4
+#_1B83C8: #_D3C4u: db $AA ; play note Fs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment3_Track3:
-#_1B83C9: #_D3C5u: db !VOLUME, $C8
-#_1B83CB: #_D3C7u: db !INSTR, $0A
-#_1B83CD: #_D3C9u: db !VIBRATO, $1D, $14, $1E
+#_1B83C9: #_D3C5u: db $ED, $C8 ; set channel volume
+#_1B83CB: #_D3C7u: db $E0, $0A ; set instrument - strings B
+#_1B83CD: #_D3C9u: db $E3, $1D, $14, $1E ; enable vibrato
 #_1B83D1: #_D3CDu: db $60, $7D ; duration, params
-#_1B83D3: #_D3CFu: db C5
-#_1B83D4: #_D3D0u: db !SLIDE_ONCE, $24, $0C, $AB
+#_1B83D3: #_D3CFu: db $B0 ; play note C5
+#_1B83D4: #_D3D0u: db $F9, $24, $0C, $AB ; slide to note
 #_1B83D8: #_D3D4u: db $24, $6D ; duration, params
-#_1B83DA: #_D3D6u: db !TIE
+#_1B83DA: #_D3D6u: db $C8 ; sustain current note
 #_1B83DB: #_D3D7u: db $0C ; duration
-#_1B83DC: #_D3D8u: db C5
+#_1B83DC: #_D3D8u: db $B0 ; play note C5
 #_1B83DD: #_D3D9u: db $10 ; duration
-#_1B83DE: #_D3DAu: db F5
+#_1B83DE: #_D3DAu: db $B5 ; play note F5
 #_1B83DF: #_D3DBu: db $08 ; duration
-#_1B83E0: #_D3DCu: db Ds5
-#_1B83E1: #_D3DDu: db !TIE
-#_1B83E2: #_D3DEu: db Cs5
-#_1B83E3: #_D3DFu: db B4
+#_1B83E0: #_D3DCu: db $B3 ; play note Ds5
+#_1B83E1: #_D3DDu: db $C8 ; sustain current note
+#_1B83E2: #_D3DEu: db $B1 ; play note Cs5
+#_1B83E3: #_D3DFu: db $AF ; play note B4
 #_1B83E4: #_D3E0u: db $60, $7D ; duration, params
-#_1B83E6: #_D3E2u: db C5
-#_1B83E7: #_D3E3u: db !SLIDE_ONCE, $24, $0C, $AB
+#_1B83E6: #_D3E2u: db $B0 ; play note C5
+#_1B83E7: #_D3E3u: db $F9, $24, $0C, $AB ; slide to note
 #_1B83EB: #_D3E7u: db $30, $68 ; duration, params
-#_1B83ED: #_D3E9u: db !TIE
-#_1B83EE: #_D3EAu: db R
+#_1B83ED: #_D3E9u: db $C8 ; sustain current note
+#_1B83EE: #_D3EAu: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment3_Track4:
-#_1B83EF: #_D3EBu: db !VOLUME, $C8
-#_1B83F1: #_D3EDu: db !INSTR, $02
-#_1B83F3: #_D3EFu: db !CALL_PART : dw Song10_Sub_D9CF : db 2
+#_1B83EF: #_D3EBu: db $ED, $C8 ; set channel volume
+#_1B83F1: #_D3EDu: db $E0, $02 ; set instrument - timpani
+#_1B83F3: #_D3EFu: db $EF : dw Song10_Sub_D9CF : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment3_Track5:
-#_1B83F7: #_D3F3u: db !VOLUME, $C8
-#_1B83F9: #_D3F5u: db !INSTR, $0B
-#_1B83FB: #_D3F7u: db !VIBRATO, $19, $1E, $17
+#_1B83F7: #_D3F3u: db $ED, $C8 ; set channel volume
+#_1B83F9: #_D3F5u: db $E0, $0B ; set instrument - trombone
+#_1B83FB: #_D3F7u: db $E3, $19, $1E, $17 ; enable vibrato
 #_1B83FF: #_D3FBu: db $60 ; duration
-#_1B8400: #_D3FCu: db R
-#_1B8401: #_D3FDu: db R
+#_1B8400: #_D3FCu: db $C9 ; rest
+#_1B8401: #_D3FDu: db $C9 ; rest
 #_1B8402: #_D3FEu: db $40 ; duration
-#_1B8403: #_D3FFu: db R
+#_1B8403: #_D3FFu: db $C9 ; rest
 #_1B8404: #_D400u: db $04, $79 ; duration, params
-#_1B8406: #_D402u: db C5
+#_1B8406: #_D402u: db $B0 ; play note C5
 #_1B8407: #_D403u: db $04, $7A ; duration, params
-#_1B8409: #_D405u: db D5
+#_1B8409: #_D405u: db $B2 ; play note D5
 #_1B840A: #_D406u: db $04, $7B ; duration, params
-#_1B840C: #_D408u: db Ds5
+#_1B840C: #_D408u: db $B3 ; play note Ds5
 #_1B840D: #_D409u: db $04, $7C ; duration, params
-#_1B840F: #_D40Bu: db E5
+#_1B840F: #_D40Bu: db $B4 ; play note E5
 #_1B8410: #_D40Cu: db $04, $7D ; duration, params
-#_1B8412: #_D40Eu: db Fs5
+#_1B8412: #_D40Eu: db $B6 ; play note Fs5
 #_1B8413: #_D40Fu: db $0C ; duration
-#_1B8414: #_D410u: db G5
+#_1B8414: #_D410u: db $B7 ; play note G5
 #_1B8415: #_D411u: db $24, $4D ; duration, params
-#_1B8417: #_D413u: db !TIE
+#_1B8417: #_D413u: db $C8 ; sustain current note
 #_1B8418: #_D414u: db $06, $2D ; duration, params
-#_1B841A: #_D416u: db G5
-#_1B841B: #_D417u: db G5
+#_1B841A: #_D416u: db $B7 ; play note G5
+#_1B841B: #_D417u: db $B7 ; play note G5
 #_1B841C: #_D418u: db $0C ; duration
-#_1B841D: #_D419u: db As5
-#_1B841E: #_D41Au: db As5
+#_1B841D: #_D419u: db $BA ; play note As5
+#_1B841E: #_D41Au: db $BA ; play note As5
 #_1B841F: #_D41Bu: db $06, $7D ; duration, params
-#_1B8421: #_D41Du: db Gs5
+#_1B8421: #_D41Du: db $B8 ; play note Gs5
 #_1B8422: #_D41Eu: db $06, $6D ; duration, params
-#_1B8424: #_D420u: db G5
+#_1B8424: #_D420u: db $B7 ; play note G5
 #_1B8425: #_D421u: db $06, $7D ; duration, params
-#_1B8427: #_D423u: db Fs5
+#_1B8427: #_D423u: db $B6 ; play note Fs5
 #_1B8428: #_D424u: db $06, $2D ; duration, params
-#_1B842A: #_D426u: db F5
+#_1B842A: #_D426u: db $B5 ; play note F5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment3_Track6:
-#_1B842B: #_D427u: db !VOLUME, $8C
-#_1B842D: #_D429u: db !INSTR, $0A
-#_1B842F: #_D42Bu: db !VIBRATO, $1D, $14, $1E
+#_1B842B: #_D427u: db $ED, $8C ; set channel volume
+#_1B842D: #_D429u: db $E0, $0A ; set instrument - strings B
+#_1B842F: #_D42Bu: db $E3, $1D, $14, $1E ; enable vibrato
 #_1B8433: #_D42Fu: db $08 ; duration
-#_1B8434: #_D430u: db R
+#_1B8434: #_D430u: db $C9 ; rest
 #_1B8435: #_D431u: db $30, $6D ; duration, params
-#_1B8437: #_D433u: db C5
-#_1B8438: #_D434u: db G4
+#_1B8437: #_D433u: db $B0 ; play note C5
+#_1B8438: #_D434u: db $AB ; play note G4
 #_1B8439: #_D435u: db $24 ; duration
-#_1B843A: #_D436u: db !TIE
+#_1B843A: #_D436u: db $C8 ; sustain current note
 #_1B843B: #_D437u: db $0C ; duration
-#_1B843C: #_D438u: db C5
+#_1B843C: #_D438u: db $B0 ; play note C5
 #_1B843D: #_D439u: db $10 ; duration
-#_1B843E: #_D43Au: db F5
+#_1B843E: #_D43Au: db $B5 ; play note F5
 #_1B843F: #_D43Bu: db $08 ; duration
-#_1B8440: #_D43Cu: db Ds5
-#_1B8441: #_D43Du: db !TIE
-#_1B8442: #_D43Eu: db Cs5
-#_1B8443: #_D43Fu: db B4
+#_1B8440: #_D43Cu: db $B3 ; play note Ds5
+#_1B8441: #_D43Du: db $C8 ; sustain current note
+#_1B8442: #_D43Eu: db $B1 ; play note Cs5
+#_1B8443: #_D43Fu: db $AF ; play note B4
 #_1B8444: #_D440u: db $30 ; duration
-#_1B8445: #_D441u: db C5
-#_1B8446: #_D442u: db G4
-#_1B8447: #_D443u: db !TIE
+#_1B8445: #_D441u: db $B0 ; play note C5
+#_1B8446: #_D442u: db $AB ; play note G4
+#_1B8447: #_D443u: db $C8 ; sustain current note
 #_1B8448: #_D444u: db $28 ; duration
-#_1B8449: #_D445u: db R
+#_1B8449: #_D445u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment4_Track0:
-#_1B844A: #_D446u: db !VOLUME, $C8
-#_1B844C: #_D448u: db !INSTR, $0B
-#_1B844E: #_D44Au: db !VIBRATO, $19, $1E, $17
-#_1B8452: #_D44Eu: db !PAN, $08
+#_1B844A: #_D446u: db $ED, $C8 ; set channel volume
+#_1B844C: #_D448u: db $E0, $0B ; set instrument - trombone
+#_1B844E: #_D44Au: db $E3, $19, $1E, $17 ; enable vibrato
+#_1B8452: #_D44Eu: db $E1, $08 ; set panning - leaning right
 #_1B8454: #_D450u: db $60 ; duration
-#_1B8455: #_D451u: db R
+#_1B8455: #_D451u: db $C9 ; rest
 #_1B8456: #_D452u: db $18 ; duration
-#_1B8457: #_D453u: db R
+#_1B8457: #_D453u: db $C9 ; rest
 #_1B8458: #_D454u: db $04, $2D ; duration, params
-#_1B845A: #_D456u: db D5
-#_1B845B: #_D457u: db D5
+#_1B845A: #_D456u: db $B2 ; play note D5
+#_1B845B: #_D457u: db $B2 ; play note D5
 #_1B845C: #_D458u: db $08 ; duration
-#_1B845D: #_D459u: db D5
-#_1B845E: #_D45Au: db D5
+#_1B845D: #_D459u: db $B2 ; play note D5
+#_1B845E: #_D45Au: db $B2 ; play note D5
 #_1B845F: #_D45Bu: db $0C ; duration
-#_1B8460: #_D45Cu: db D5
-#_1B8461: #_D45Du: db Ds5
+#_1B8460: #_D45Cu: db $B2 ; play note D5
+#_1B8461: #_D45Du: db $B3 ; play note Ds5
 #_1B8462: #_D45Eu: db $08 ; duration
-#_1B8463: #_D45Fu: db F5
-#_1B8464: #_D460u: db Ds5
-#_1B8465: #_D461u: db D5
+#_1B8463: #_D45Fu: db $B5 ; play note F5
+#_1B8464: #_D460u: db $B3 ; play note Ds5
+#_1B8465: #_D461u: db $B2 ; play note D5
 #_1B8466: #_D462u: db $60 ; duration
-#_1B8467: #_D463u: db R
+#_1B8467: #_D463u: db $C9 ; rest
 #_1B8468: #_D464u: db $18 ; duration
-#_1B8469: #_D465u: db R
+#_1B8469: #_D465u: db $C9 ; rest
 #_1B846A: #_D466u: db $04 ; duration
-#_1B846B: #_D467u: db D5
-#_1B846C: #_D468u: db D5
+#_1B846B: #_D467u: db $B2 ; play note D5
+#_1B846C: #_D468u: db $B2 ; play note D5
 #_1B846D: #_D469u: db $08 ; duration
-#_1B846E: #_D46Au: db D5
-#_1B846F: #_D46Bu: db D5
+#_1B846E: #_D46Au: db $B2 ; play note D5
+#_1B846F: #_D46Bu: db $B2 ; play note D5
 #_1B8470: #_D46Cu: db $0C ; duration
-#_1B8471: #_D46Du: db D5
-#_1B8472: #_D46Eu: db Ds5
+#_1B8471: #_D46Du: db $B2 ; play note D5
+#_1B8472: #_D46Eu: db $B3 ; play note Ds5
 #_1B8473: #_D46Fu: db $08 ; duration
-#_1B8474: #_D470u: db F5
-#_1B8475: #_D471u: db Ds5
-#_1B8476: #_D472u: db D5
-#_1B8477: #_D473u: db !PART_END
+#_1B8474: #_D470u: db $B5 ; play note F5
+#_1B8475: #_D471u: db $B3 ; play note Ds5
+#_1B8476: #_D472u: db $B2 ; play note D5
+#_1B8477: #_D473u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment4_Track1:
-#_1B8478: #_D474u: db !VOLUME, $C8
-#_1B847A: #_D476u: db !INSTR, $0A
-#_1B847C: #_D478u: db !VIBRATO, $14, $1E, $14
+#_1B8478: #_D474u: db $ED, $C8 ; set channel volume
+#_1B847A: #_D476u: db $E0, $0A ; set instrument - strings B
+#_1B847C: #_D478u: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B8480: #_D47Cu: db $20, $7D ; duration, params
-#_1B8482: #_D47Eu: db Gs2
+#_1B8482: #_D47Eu: db $94 ; play note Gs2
 #_1B8483: #_D47Fu: db $08 ; duration
-#_1B8484: #_D480u: db Ds3
-#_1B8485: #_D481u: db Gs3
+#_1B8484: #_D480u: db $9B ; play note Ds3
+#_1B8485: #_D481u: db $A0 ; play note Gs3
 #_1B8486: #_D482u: db $30 ; duration
-#_1B8487: #_D483u: db Ds4
+#_1B8487: #_D483u: db $A7 ; play note Ds4
 #_1B8488: #_D484u: db $20 ; duration
-#_1B8489: #_D485u: db G2
+#_1B8489: #_D485u: db $93 ; play note G2
 #_1B848A: #_D486u: db $08 ; duration
-#_1B848B: #_D487u: db D3
-#_1B848C: #_D488u: db G3
+#_1B848B: #_D487u: db $9A ; play note D3
+#_1B848C: #_D488u: db $9F ; play note G3
 #_1B848D: #_D489u: db $30 ; duration
-#_1B848E: #_D48Au: db D4
+#_1B848E: #_D48Au: db $A6 ; play note D4
 #_1B848F: #_D48Bu: db $20 ; duration
-#_1B8490: #_D48Cu: db Gs2
+#_1B8490: #_D48Cu: db $94 ; play note Gs2
 #_1B8491: #_D48Du: db $08 ; duration
-#_1B8492: #_D48Eu: db Ds3
-#_1B8493: #_D48Fu: db Gs3
+#_1B8492: #_D48Eu: db $9B ; play note Ds3
+#_1B8493: #_D48Fu: db $A0 ; play note Gs3
 #_1B8494: #_D490u: db $30 ; duration
-#_1B8495: #_D491u: db Ds4
+#_1B8495: #_D491u: db $A7 ; play note Ds4
 #_1B8496: #_D492u: db $20 ; duration
-#_1B8497: #_D493u: db G2
+#_1B8497: #_D493u: db $93 ; play note G2
 #_1B8498: #_D494u: db $08 ; duration
-#_1B8499: #_D495u: db D3
-#_1B849A: #_D496u: db G3
+#_1B8499: #_D495u: db $9A ; play note D3
+#_1B849A: #_D496u: db $9F ; play note G3
 #_1B849B: #_D497u: db $30 ; duration
-#_1B849C: #_D498u: db D4
+#_1B849C: #_D498u: db $A6 ; play note D4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment4_Track2:
-#_1B849D: #_D499u: db !VOLUME, $C8
-#_1B849F: #_D49Bu: db !INSTR, $0B
-#_1B84A1: #_D49Du: db !VIBRATO, $19, $1E, $17
-#_1B84A5: #_D4A1u: db !PAN, $06
+#_1B849D: #_D499u: db $ED, $C8 ; set channel volume
+#_1B849F: #_D49Bu: db $E0, $0B ; set instrument - trombone
+#_1B84A1: #_D49Du: db $E3, $19, $1E, $17 ; enable vibrato
+#_1B84A5: #_D4A1u: db $E1, $06 ; set panning - leaning right
 #_1B84A7: #_D4A3u: db $60 ; duration
-#_1B84A8: #_D4A4u: db R
+#_1B84A8: #_D4A4u: db $C9 ; rest
 #_1B84A9: #_D4A5u: db $18 ; duration
-#_1B84AA: #_D4A6u: db R
+#_1B84AA: #_D4A6u: db $C9 ; rest
 #_1B84AB: #_D4A7u: db $04, $2D ; duration, params
-#_1B84AD: #_D4A9u: db B4
-#_1B84AE: #_D4AAu: db B4
+#_1B84AD: #_D4A9u: db $AF ; play note B4
+#_1B84AE: #_D4AAu: db $AF ; play note B4
 #_1B84AF: #_D4ABu: db $08 ; duration
-#_1B84B0: #_D4ACu: db B4
-#_1B84B1: #_D4ADu: db B4
+#_1B84B0: #_D4ACu: db $AF ; play note B4
+#_1B84B1: #_D4ADu: db $AF ; play note B4
 #_1B84B2: #_D4AEu: db $0C ; duration
-#_1B84B3: #_D4AFu: db B4
-#_1B84B4: #_D4B0u: db C5
+#_1B84B3: #_D4AFu: db $AF ; play note B4
+#_1B84B4: #_D4B0u: db $B0 ; play note C5
 #_1B84B5: #_D4B1u: db $08 ; duration
-#_1B84B6: #_D4B2u: db D5
-#_1B84B7: #_D4B3u: db C5
-#_1B84B8: #_D4B4u: db B4
+#_1B84B6: #_D4B2u: db $B2 ; play note D5
+#_1B84B7: #_D4B3u: db $B0 ; play note C5
+#_1B84B8: #_D4B4u: db $AF ; play note B4
 #_1B84B9: #_D4B5u: db $60 ; duration
-#_1B84BA: #_D4B6u: db R
+#_1B84BA: #_D4B6u: db $C9 ; rest
 #_1B84BB: #_D4B7u: db $18 ; duration
-#_1B84BC: #_D4B8u: db R
+#_1B84BC: #_D4B8u: db $C9 ; rest
 #_1B84BD: #_D4B9u: db $04 ; duration
-#_1B84BE: #_D4BAu: db B4
-#_1B84BF: #_D4BBu: db B4
+#_1B84BE: #_D4BAu: db $AF ; play note B4
+#_1B84BF: #_D4BBu: db $AF ; play note B4
 #_1B84C0: #_D4BCu: db $08 ; duration
-#_1B84C1: #_D4BDu: db B4
-#_1B84C2: #_D4BEu: db B4
+#_1B84C1: #_D4BDu: db $AF ; play note B4
+#_1B84C2: #_D4BEu: db $AF ; play note B4
 #_1B84C3: #_D4BFu: db $0C ; duration
-#_1B84C4: #_D4C0u: db B4
-#_1B84C5: #_D4C1u: db C5
+#_1B84C4: #_D4C0u: db $AF ; play note B4
+#_1B84C5: #_D4C1u: db $B0 ; play note C5
 #_1B84C6: #_D4C2u: db $08 ; duration
-#_1B84C7: #_D4C3u: db D5
-#_1B84C8: #_D4C4u: db C5
-#_1B84C9: #_D4C5u: db B4
+#_1B84C7: #_D4C3u: db $B2 ; play note D5
+#_1B84C8: #_D4C4u: db $B0 ; play note C5
+#_1B84C9: #_D4C5u: db $AF ; play note B4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment4_Track3:
-#_1B84CA: #_D4C6u: db !VOLUME, $C8
-#_1B84CC: #_D4C8u: db !INSTR, $0A
-#_1B84CE: #_D4CAu: db !VIBRATO, $1D, $14, $1E
-#_1B84D2: #_D4CEu: db !PAN, $0F
+#_1B84CA: #_D4C6u: db $ED, $C8 ; set channel volume
+#_1B84CC: #_D4C8u: db $E0, $0A ; set instrument - strings B
+#_1B84CE: #_D4CAu: db $E3, $1D, $14, $1E ; enable vibrato
+#_1B84D2: #_D4CEu: db $E1, $0F ; set panning - leaning left
 #_1B84D4: #_D4D0u: db $20, $6D ; duration, params
-#_1B84D6: #_D4D2u: db F4
+#_1B84D6: #_D4D2u: db $A9 ; play note F4
 #_1B84D7: #_D4D3u: db $08 ; duration
-#_1B84D8: #_D4D4u: db Ds4
-#_1B84D9: #_D4D5u: db D4
+#_1B84D8: #_D4D4u: db $A7 ; play note Ds4
+#_1B84D9: #_D4D5u: db $A6 ; play note D4
 #_1B84DA: #_D4D6u: db $0C ; duration
-#_1B84DB: #_D4D7u: db C4
+#_1B84DB: #_D4D7u: db $A4 ; play note C4
 #_1B84DC: #_D4D8u: db $0C, $4D ; duration, params
-#_1B84DE: #_D4DAu: db D4
+#_1B84DE: #_D4DAu: db $A6 ; play note D4
 #_1B84DF: #_D4DBu: db $0C, $3D ; duration, params
-#_1B84E1: #_D4DDu: db F4
-#_1B84E2: #_D4DEu: db C5
-#_1B84E3: #_D4DFu: db !CALL_PART : dw Song10_Sub_D9E7 : db 1
+#_1B84E1: #_D4DDu: db $A9 ; play note F4
+#_1B84E2: #_D4DEu: db $B0 ; play note C5
+#_1B84E3: #_D4DFu: db $EF : dw Song10_Sub_D9E7 : db $01 ; call segment subroutine
 #_1B84E7: #_D4E3u: db $60, $5D ; duration, params
-#_1B84E9: #_D4E5u: db G4
+#_1B84E9: #_D4E5u: db $AB ; play note G4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment4_Track4:
-#_1B84EA: #_D4E6u: db !VOLUME, $C8
-#_1B84EC: #_D4E8u: db !INSTR, $02
-#_1B84EE: #_D4EAu: db !CALL_PART : dw Song10_Sub_D9FA : db 2
+#_1B84EA: #_D4E6u: db $ED, $C8 ; set channel volume
+#_1B84EC: #_D4E8u: db $E0, $02 ; set instrument - timpani
+#_1B84EE: #_D4EAu: db $EF : dw Song10_Sub_D9FA : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment4_Track5:
-#_1B84F2: #_D4EEu: db !VOLUME, $C8
-#_1B84F4: #_D4F0u: db !INSTR, $02
-#_1B84F6: #_D4F2u: db !PAN, $0A
+#_1B84F2: #_D4EEu: db $ED, $C8 ; set channel volume
+#_1B84F4: #_D4F0u: db $E0, $02 ; set instrument - timpani
+#_1B84F6: #_D4F2u: db $E1, $0A ; set panning - balanced
 #_1B84F8: #_D4F4u: db $03, $6D ; duration, params
-#_1B84FA: #_D4F6u: db Gs1
+#_1B84FA: #_D4F6u: db $88 ; play note Gs1
 #_1B84FB: #_D4F7u: db $06, $6B ; duration, params
-#_1B84FD: #_D4F9u: db Gs1
+#_1B84FD: #_D4F9u: db $88 ; play note Gs1
 #_1B84FE: #_D4FAu: db $06, $68 ; duration, params
-#_1B8500: #_D4FCu: db Gs1
+#_1B8500: #_D4FCu: db $88 ; play note Gs1
 #_1B8501: #_D4FDu: db $06, $69 ; duration, params
-#_1B8503: #_D4FFu: db Gs1
+#_1B8503: #_D4FFu: db $88 ; play note Gs1
 #_1B8504: #_D500u: db $06, $6A ; duration, params
-#_1B8506: #_D502u: db Gs1
+#_1B8506: #_D502u: db $88 ; play note Gs1
 #_1B8507: #_D503u: db $06, $6B ; duration, params
-#_1B8509: #_D505u: db Gs1
+#_1B8509: #_D505u: db $88 ; play note Gs1
 #_1B850A: #_D506u: db $06, $6C ; duration, params
-#_1B850C: #_D508u: db Gs1
+#_1B850C: #_D508u: db $88 ; play note Gs1
 #_1B850D: #_D509u: db $06, $6D ; duration, params
-#_1B850F: #_D50Bu: db Gs1
+#_1B850F: #_D50Bu: db $88 ; play note Gs1
 #_1B8510: #_D50Cu: db $33 ; duration
-#_1B8511: #_D50Du: db R
+#_1B8511: #_D50Du: db $C9 ; rest
 #_1B8512: #_D50Eu: db $60 ; duration
-#_1B8513: #_D50Fu: db R
+#_1B8513: #_D50Fu: db $C9 ; rest
 #_1B8514: #_D510u: db $03 ; duration
-#_1B8515: #_D511u: db Gs1
+#_1B8515: #_D511u: db $88 ; play note Gs1
 #_1B8516: #_D512u: db $06, $6B ; duration, params
-#_1B8518: #_D514u: db Gs1
+#_1B8518: #_D514u: db $88 ; play note Gs1
 #_1B8519: #_D515u: db $06, $68 ; duration, params
-#_1B851B: #_D517u: db Gs1
+#_1B851B: #_D517u: db $88 ; play note Gs1
 #_1B851C: #_D518u: db $06, $69 ; duration, params
-#_1B851E: #_D51Au: db Gs1
+#_1B851E: #_D51Au: db $88 ; play note Gs1
 #_1B851F: #_D51Bu: db $06, $6A ; duration, params
-#_1B8521: #_D51Du: db Gs1
+#_1B8521: #_D51Du: db $88 ; play note Gs1
 #_1B8522: #_D51Eu: db $06, $6B ; duration, params
-#_1B8524: #_D520u: db Gs1
+#_1B8524: #_D520u: db $88 ; play note Gs1
 #_1B8525: #_D521u: db $06, $6C ; duration, params
-#_1B8527: #_D523u: db Gs1
+#_1B8527: #_D523u: db $88 ; play note Gs1
 #_1B8528: #_D524u: db $06, $6D ; duration, params
-#_1B852A: #_D526u: db Gs1
+#_1B852A: #_D526u: db $88 ; play note Gs1
 #_1B852B: #_D527u: db $33 ; duration
-#_1B852C: #_D528u: db R
+#_1B852C: #_D528u: db $C9 ; rest
 #_1B852D: #_D529u: db $60 ; duration
-#_1B852E: #_D52Au: db R
+#_1B852E: #_D52Au: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment4_Track6:
 #_1B852F: #_D52Bu: db $08 ; duration
-#_1B8530: #_D52Cu: db R
+#_1B8530: #_D52Cu: db $C9 ; rest
 #_1B8531: #_D52Du: db $20, $6D ; duration, params
-#_1B8533: #_D52Fu: db F4
+#_1B8533: #_D52Fu: db $A9 ; play note F4
 #_1B8534: #_D530u: db $08 ; duration
-#_1B8535: #_D531u: db Ds4
-#_1B8536: #_D532u: db D4
+#_1B8535: #_D531u: db $A7 ; play note Ds4
+#_1B8536: #_D532u: db $A6 ; play note D4
 #_1B8537: #_D533u: db $0C ; duration
-#_1B8538: #_D534u: db C4
+#_1B8538: #_D534u: db $A4 ; play note C4
 #_1B8539: #_D535u: db $0C, $4D ; duration, params
-#_1B853B: #_D537u: db D4
+#_1B853B: #_D537u: db $A6 ; play note D4
 #_1B853C: #_D538u: db $0C, $3D ; duration, params
-#_1B853E: #_D53Au: db F4
-#_1B853F: #_D53Bu: db C5
-#_1B8540: #_D53Cu: db !CALL_PART : dw Song10_Sub_D9E7 : db 1
+#_1B853E: #_D53Au: db $A9 ; play note F4
+#_1B853F: #_D53Bu: db $B0 ; play note C5
+#_1B8540: #_D53Cu: db $EF : dw Song10_Sub_D9E7 : db $01 ; call segment subroutine
 #_1B8544: #_D540u: db $58, $5D ; duration, params
-#_1B8546: #_D542u: db G4
+#_1B8546: #_D542u: db $AB ; play note G4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment5_Track0:
-#_1B8547: #_D543u: db !INSTR, $0A
-#_1B8549: #_D545u: db !VOLUME, $C8
-#_1B854B: #_D547u: db !PAN, $0C
+#_1B8547: #_D543u: db $E0, $0A ; set instrument - strings B
+#_1B8549: #_D545u: db $ED, $C8 ; set channel volume
+#_1B854B: #_D547u: db $E1, $0C ; set panning - leaning left
 #_1B854D: #_D549u: db $60 ; duration
-#_1B854E: #_D54Au: db R
+#_1B854E: #_D54Au: db $C9 ; rest
 #_1B854F: #_D54Bu: db $20, $6D ; duration, params
-#_1B8551: #_D54Du: db D4
+#_1B8551: #_D54Du: db $A6 ; play note D4
 #_1B8552: #_D54Eu: db $08 ; duration
-#_1B8553: #_D54Fu: db C4
-#_1B8554: #_D550u: db As3
+#_1B8553: #_D54Fu: db $A4 ; play note C4
+#_1B8554: #_D550u: db $A2 ; play note As3
 #_1B8555: #_D551u: db $0C ; duration
-#_1B8556: #_D552u: db Gs3
+#_1B8556: #_D552u: db $A0 ; play note Gs3
 #_1B8557: #_D553u: db $0C, $4D ; duration, params
-#_1B8559: #_D555u: db As3
+#_1B8559: #_D555u: db $A2 ; play note As3
 #_1B855A: #_D556u: db $0C, $3D ; duration, params
-#_1B855C: #_D558u: db C4
-#_1B855D: #_D559u: db D4
+#_1B855C: #_D558u: db $A4 ; play note C4
+#_1B855D: #_D559u: db $A6 ; play note D4
 #_1B855E: #_D55Au: db $20, $6D ; duration, params
-#_1B8560: #_D55Cu: db Ds4
+#_1B8560: #_D55Cu: db $A7 ; play note Ds4
 #_1B8561: #_D55Du: db $08 ; duration
-#_1B8562: #_D55Eu: db D4
-#_1B8563: #_D55Fu: db C4
+#_1B8562: #_D55Eu: db $A6 ; play note D4
+#_1B8563: #_D55Fu: db $A4 ; play note C4
 #_1B8564: #_D560u: db $0C ; duration
-#_1B8565: #_D561u: db As3
+#_1B8565: #_D561u: db $A2 ; play note As3
 #_1B8566: #_D562u: db $0C, $4D ; duration, params
-#_1B8568: #_D564u: db C4
+#_1B8568: #_D564u: db $A4 ; play note C4
 #_1B8569: #_D565u: db $0C, $3D ; duration, params
-#_1B856B: #_D567u: db D4
-#_1B856C: #_D568u: db Ds4
+#_1B856B: #_D567u: db $A6 ; play note D4
+#_1B856C: #_D568u: db $A7 ; play note Ds4
 #_1B856D: #_D569u: db $30, $6D ; duration, params
-#_1B856F: #_D56Bu: db G4
-#_1B8570: #_D56Cu: db Fs4
-#_1B8571: #_D56Du: db !PART_END
+#_1B856F: #_D56Bu: db $AB ; play note G4
+#_1B8570: #_D56Cu: db $AA ; play note Fs4
+#_1B8571: #_D56Du: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment5_Track1:
-#_1B8572: #_D56Eu: db !VOLUME, $C8
-#_1B8574: #_D570u: db !INSTR, $0A
-#_1B8576: #_D572u: db !VIBRATO, $14, $1E, $14
+#_1B8572: #_D56Eu: db $ED, $C8 ; set channel volume
+#_1B8574: #_D570u: db $E0, $0A ; set instrument - strings B
+#_1B8576: #_D572u: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B857A: #_D576u: db $28, $7D ; duration, params
-#_1B857C: #_D578u: db As2
+#_1B857C: #_D578u: db $96 ; play note As2
 #_1B857D: #_D579u: db $08 ; duration
-#_1B857E: #_D57Au: db F3
+#_1B857E: #_D57Au: db $9D ; play note F3
 #_1B857F: #_D57Bu: db $30, $78 ; duration, params
-#_1B8581: #_D57Du: db As3
+#_1B8581: #_D57Du: db $A2 ; play note As3
 #_1B8582: #_D57Eu: db $28, $7D ; duration, params
-#_1B8584: #_D580u: db Gs2
+#_1B8584: #_D580u: db $94 ; play note Gs2
 #_1B8585: #_D581u: db $08 ; duration
-#_1B8586: #_D582u: db Ds3
+#_1B8586: #_D582u: db $9B ; play note Ds3
 #_1B8587: #_D583u: db $30, $78 ; duration, params
-#_1B8589: #_D585u: db Gs3
+#_1B8589: #_D585u: db $A0 ; play note Gs3
 #_1B858A: #_D586u: db $28, $7D ; duration, params
-#_1B858C: #_D588u: db A2
+#_1B858C: #_D588u: db $95 ; play note A2
 #_1B858D: #_D589u: db $08 ; duration
-#_1B858E: #_D58Au: db Ds3
+#_1B858E: #_D58Au: db $9B ; play note Ds3
 #_1B858F: #_D58Bu: db $30, $78 ; duration, params
-#_1B8591: #_D58Du: db A3
+#_1B8591: #_D58Du: db $A1 ; play note A3
 #_1B8592: #_D58Eu: db $28, $7D ; duration, params
-#_1B8594: #_D590u: db D3
+#_1B8594: #_D590u: db $9A ; play note D3
 #_1B8595: #_D591u: db $08 ; duration
-#_1B8596: #_D592u: db A3
+#_1B8596: #_D592u: db $A1 ; play note A3
 #_1B8597: #_D593u: db $30, $78 ; duration, params
-#_1B8599: #_D595u: db D4
+#_1B8599: #_D595u: db $A6 ; play note D4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment5_Track2:
-#_1B859A: #_D596u: db !INSTR, $0B
-#_1B859C: #_D598u: db !VOLUME, $C8
-#_1B859E: #_D59Au: db !PAN, $09
+#_1B859A: #_D596u: db $E0, $0B ; set instrument - trombone
+#_1B859C: #_D598u: db $ED, $C8 ; set channel volume
+#_1B859E: #_D59Au: db $E1, $09 ; set panning - leaning right
 #_1B85A0: #_D59Cu: db $40 ; duration
-#_1B85A1: #_D59Du: db R
+#_1B85A1: #_D59Du: db $C9 ; rest
 #_1B85A2: #_D59Eu: db $04, $5D ; duration, params
-#_1B85A4: #_D5A0u: db F5
+#_1B85A4: #_D5A0u: db $B5 ; play note F5
 #_1B85A5: #_D5A1u: db $04, $3D ; duration, params
-#_1B85A7: #_D5A3u: db F5
+#_1B85A7: #_D5A3u: db $B5 ; play note F5
 #_1B85A8: #_D5A4u: db $08 ; duration
-#_1B85A9: #_D5A5u: db F5
-#_1B85AA: #_D5A6u: db F5
-#_1B85AB: #_D5A7u: db F5
-#_1B85AC: #_D5A8u: db !CALL_PART : dw Song10_Sub_DA27 : db 2
+#_1B85A9: #_D5A5u: db $B5 ; play note F5
+#_1B85AA: #_D5A6u: db $B5 ; play note F5
+#_1B85AB: #_D5A7u: db $B5 ; play note F5
+#_1B85AC: #_D5A8u: db $EF : dw Song10_Sub_DA27 : db $02 ; call segment subroutine
 #_1B85B0: #_D5ACu: db $60, $5D ; duration, params
-#_1B85B2: #_D5AEu: db A5
+#_1B85B2: #_D5AEu: db $B9 ; play note A5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment5_Track3:
-#_1B85B3: #_D5AFu: db !VOLUME, $C8
-#_1B85B5: #_D5B1u: db !INSTR, $0A
+#_1B85B3: #_D5AFu: db $ED, $C8 ; set channel volume
+#_1B85B5: #_D5B1u: db $E0, $0A ; set instrument - strings B
 #_1B85B7: #_D5B3u: db $20, $6D ; duration, params
-#_1B85B9: #_D5B5u: db F4
+#_1B85B9: #_D5B5u: db $A9 ; play note F4
 #_1B85BA: #_D5B6u: db $08 ; duration
-#_1B85BB: #_D5B7u: db Ds4
-#_1B85BC: #_D5B8u: db D4
+#_1B85BB: #_D5B7u: db $A7 ; play note Ds4
+#_1B85BC: #_D5B8u: db $A6 ; play note D4
 #_1B85BD: #_D5B9u: db $0C ; duration
-#_1B85BE: #_D5BAu: db C4
+#_1B85BE: #_D5BAu: db $A4 ; play note C4
 #_1B85BF: #_D5BBu: db $0C, $4D ; duration, params
-#_1B85C1: #_D5BDu: db D4
+#_1B85C1: #_D5BDu: db $A6 ; play note D4
 #_1B85C2: #_D5BEu: db $0C, $3D ; duration, params
-#_1B85C4: #_D5C0u: db F4
-#_1B85C5: #_D5C1u: db G4
-#_1B85C6: #_D5C2u: db !CALL_PART : dw Song10_Sub_DA33 : db 1
+#_1B85C4: #_D5C0u: db $A9 ; play note F4
+#_1B85C5: #_D5C1u: db $AB ; play note G4
+#_1B85C6: #_D5C2u: db $EF : dw Song10_Sub_DA33 : db $01 ; call segment subroutine
 #_1B85CA: #_D5C6u: db $60, $6D ; duration, params
-#_1B85CC: #_D5C8u: db D5
+#_1B85CC: #_D5C8u: db $B2 ; play note D5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment5_Track4:
-#_1B85CD: #_D5C9u: db !VOLUME, $C8
-#_1B85CF: #_D5CBu: db !INSTR, $02
+#_1B85CD: #_D5C9u: db $ED, $C8 ; set channel volume
+#_1B85CF: #_D5CBu: db $E0, $02 ; set instrument - timpani
 #_1B85D1: #_D5CDu: db $06, $6D ; duration, params
-#_1B85D3: #_D5CFu: db As1
+#_1B85D3: #_D5CFu: db $8A ; play note As1
 #_1B85D4: #_D5D0u: db $06, $6B ; duration, params
-#_1B85D6: #_D5D2u: db As1
+#_1B85D6: #_D5D2u: db $8A ; play note As1
 #_1B85D7: #_D5D3u: db $06, $68 ; duration, params
-#_1B85D9: #_D5D5u: db As1
+#_1B85D9: #_D5D5u: db $8A ; play note As1
 #_1B85DA: #_D5D6u: db $06, $69 ; duration, params
-#_1B85DC: #_D5D8u: db As1
+#_1B85DC: #_D5D8u: db $8A ; play note As1
 #_1B85DD: #_D5D9u: db $06, $6A ; duration, params
-#_1B85DF: #_D5DBu: db As1
+#_1B85DF: #_D5DBu: db $8A ; play note As1
 #_1B85E0: #_D5DCu: db $06, $6B ; duration, params
-#_1B85E2: #_D5DEu: db As1
+#_1B85E2: #_D5DEu: db $8A ; play note As1
 #_1B85E3: #_D5DFu: db $06, $6C ; duration, params
-#_1B85E5: #_D5E1u: db As1
+#_1B85E5: #_D5E1u: db $8A ; play note As1
 #_1B85E6: #_D5E2u: db $06, $6D ; duration, params
-#_1B85E8: #_D5E4u: db As1
+#_1B85E8: #_D5E4u: db $8A ; play note As1
 #_1B85E9: #_D5E5u: db $0C ; duration
-#_1B85EA: #_D5E6u: db As1
-#_1B85EB: #_D5E7u: db As1
+#_1B85EA: #_D5E6u: db $8A ; play note As1
+#_1B85EB: #_D5E7u: db $8A ; play note As1
 #_1B85EC: #_D5E8u: db $0C, $2D ; duration, params
-#_1B85EE: #_D5EAu: db As1
-#_1B85EF: #_D5EBu: db As1
+#_1B85EE: #_D5EAu: db $8A ; play note As1
+#_1B85EF: #_D5EBu: db $8A ; play note As1
 #_1B85F0: #_D5ECu: db $20, $5D ; duration, params
-#_1B85F2: #_D5EEu: db Gs1
+#_1B85F2: #_D5EEu: db $88 ; play note Gs1
 #_1B85F3: #_D5EFu: db $08 ; duration
-#_1B85F4: #_D5F0u: db Gs1
-#_1B85F5: #_D5F1u: db Gs1
+#_1B85F4: #_D5F0u: db $88 ; play note Gs1
+#_1B85F5: #_D5F1u: db $88 ; play note Gs1
 #_1B85F6: #_D5F2u: db $0C ; duration
-#_1B85F7: #_D5F3u: db Gs1
-#_1B85F8: #_D5F4u: db Gs1
+#_1B85F7: #_D5F3u: db $88 ; play note Gs1
+#_1B85F8: #_D5F4u: db $88 ; play note Gs1
 #_1B85F9: #_D5F5u: db $08 ; duration
-#_1B85FA: #_D5F6u: db Gs1
-#_1B85FB: #_D5F7u: db Gs1
-#_1B85FC: #_D5F8u: db Gs1
+#_1B85FA: #_D5F6u: db $88 ; play note Gs1
+#_1B85FB: #_D5F7u: db $88 ; play note Gs1
+#_1B85FC: #_D5F8u: db $88 ; play note Gs1
 #_1B85FD: #_D5F9u: db $06, $6D ; duration, params
-#_1B85FF: #_D5FBu: db A1
+#_1B85FF: #_D5FBu: db $89 ; play note A1
 #_1B8600: #_D5FCu: db $06, $6B ; duration, params
-#_1B8602: #_D5FEu: db A1
+#_1B8602: #_D5FEu: db $89 ; play note A1
 #_1B8603: #_D5FFu: db $06, $68 ; duration, params
-#_1B8605: #_D601u: db A1
+#_1B8605: #_D601u: db $89 ; play note A1
 #_1B8606: #_D602u: db $06, $69 ; duration, params
-#_1B8608: #_D604u: db A1
+#_1B8608: #_D604u: db $89 ; play note A1
 #_1B8609: #_D605u: db $06, $6A ; duration, params
-#_1B860B: #_D607u: db A1
+#_1B860B: #_D607u: db $89 ; play note A1
 #_1B860C: #_D608u: db $06, $6B ; duration, params
-#_1B860E: #_D60Au: db A1
+#_1B860E: #_D60Au: db $89 ; play note A1
 #_1B860F: #_D60Bu: db $06, $6C ; duration, params
-#_1B8611: #_D60Du: db A1
+#_1B8611: #_D60Du: db $89 ; play note A1
 #_1B8612: #_D60Eu: db $06, $6D ; duration, params
-#_1B8614: #_D610u: db A1
+#_1B8614: #_D610u: db $89 ; play note A1
 #_1B8615: #_D611u: db $0C ; duration
-#_1B8616: #_D612u: db A1
-#_1B8617: #_D613u: db A1
+#_1B8616: #_D612u: db $89 ; play note A1
+#_1B8617: #_D613u: db $89 ; play note A1
 #_1B8618: #_D614u: db $0C, $2D ; duration, params
-#_1B861A: #_D616u: db A1
-#_1B861B: #_D617u: db A1
+#_1B861A: #_D616u: db $89 ; play note A1
+#_1B861B: #_D617u: db $89 ; play note A1
 #_1B861C: #_D618u: db $20, $5D ; duration, params
-#_1B861E: #_D61Au: db D2
+#_1B861E: #_D61Au: db $8E ; play note D2
 #_1B861F: #_D61Bu: db $08 ; duration
-#_1B8620: #_D61Cu: db D2
-#_1B8621: #_D61Du: db D2
+#_1B8620: #_D61Cu: db $8E ; play note D2
+#_1B8621: #_D61Du: db $8E ; play note D2
 #_1B8622: #_D61Eu: db $0C ; duration
-#_1B8623: #_D61Fu: db D2
-#_1B8624: #_D620u: db D2
+#_1B8623: #_D61Fu: db $8E ; play note D2
+#_1B8624: #_D620u: db $8E ; play note D2
 #_1B8625: #_D621u: db $08 ; duration
-#_1B8626: #_D622u: db D2
-#_1B8627: #_D623u: db D2
-#_1B8628: #_D624u: db D2
+#_1B8626: #_D622u: db $8E ; play note D2
+#_1B8627: #_D623u: db $8E ; play note D2
+#_1B8628: #_D624u: db $8E ; play note D2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment5_Track5:
-#_1B8629: #_D625u: db !VOLUME, $C8
-#_1B862B: #_D627u: db !INSTR, $02
-#_1B862D: #_D629u: db !PAN, $0A
+#_1B8629: #_D625u: db $ED, $C8 ; set channel volume
+#_1B862B: #_D627u: db $E0, $02 ; set instrument - timpani
+#_1B862D: #_D629u: db $E1, $0A ; set panning - balanced
 #_1B862F: #_D62Bu: db $03, $6D ; duration, params
-#_1B8631: #_D62Du: db As1
+#_1B8631: #_D62Du: db $8A ; play note As1
 #_1B8632: #_D62Eu: db $06, $6B ; duration, params
-#_1B8634: #_D630u: db As1
+#_1B8634: #_D630u: db $8A ; play note As1
 #_1B8635: #_D631u: db $06, $68 ; duration, params
-#_1B8637: #_D633u: db As1
+#_1B8637: #_D633u: db $8A ; play note As1
 #_1B8638: #_D634u: db $06, $69 ; duration, params
-#_1B863A: #_D636u: db As1
+#_1B863A: #_D636u: db $8A ; play note As1
 #_1B863B: #_D637u: db $06, $6A ; duration, params
-#_1B863D: #_D639u: db As1
+#_1B863D: #_D639u: db $8A ; play note As1
 #_1B863E: #_D63Au: db $06, $6B ; duration, params
-#_1B8640: #_D63Cu: db As1
+#_1B8640: #_D63Cu: db $8A ; play note As1
 #_1B8641: #_D63Du: db $06, $6C ; duration, params
-#_1B8643: #_D63Fu: db As1
+#_1B8643: #_D63Fu: db $8A ; play note As1
 #_1B8644: #_D640u: db $06, $6D ; duration, params
-#_1B8646: #_D642u: db As1
+#_1B8646: #_D642u: db $8A ; play note As1
 #_1B8647: #_D643u: db $33 ; duration
-#_1B8648: #_D644u: db R
+#_1B8648: #_D644u: db $C9 ; rest
 #_1B8649: #_D645u: db $60 ; duration
-#_1B864A: #_D646u: db R
+#_1B864A: #_D646u: db $C9 ; rest
 #_1B864B: #_D647u: db $03 ; duration
-#_1B864C: #_D648u: db A1
+#_1B864C: #_D648u: db $89 ; play note A1
 #_1B864D: #_D649u: db $06, $6B ; duration, params
-#_1B864F: #_D64Bu: db A1
+#_1B864F: #_D64Bu: db $89 ; play note A1
 #_1B8650: #_D64Cu: db $06, $68 ; duration, params
-#_1B8652: #_D64Eu: db A1
+#_1B8652: #_D64Eu: db $89 ; play note A1
 #_1B8653: #_D64Fu: db $06, $69 ; duration, params
-#_1B8655: #_D651u: db A1
+#_1B8655: #_D651u: db $89 ; play note A1
 #_1B8656: #_D652u: db $06, $6A ; duration, params
-#_1B8658: #_D654u: db A1
+#_1B8658: #_D654u: db $89 ; play note A1
 #_1B8659: #_D655u: db $06, $6B ; duration, params
-#_1B865B: #_D657u: db A1
+#_1B865B: #_D657u: db $89 ; play note A1
 #_1B865C: #_D658u: db $06, $6C ; duration, params
-#_1B865E: #_D65Au: db A1
+#_1B865E: #_D65Au: db $89 ; play note A1
 #_1B865F: #_D65Bu: db $06, $6D ; duration, params
-#_1B8661: #_D65Du: db A1
+#_1B8661: #_D65Du: db $89 ; play note A1
 #_1B8662: #_D65Eu: db $33 ; duration
-#_1B8663: #_D65Fu: db R
+#_1B8663: #_D65Fu: db $C9 ; rest
 #_1B8664: #_D660u: db $60 ; duration
-#_1B8665: #_D661u: db R
+#_1B8665: #_D661u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment5_Track6:
 #_1B8666: #_D662u: db $08 ; duration
-#_1B8667: #_D663u: db R
+#_1B8667: #_D663u: db $C9 ; rest
 #_1B8668: #_D664u: db $20, $6D ; duration, params
-#_1B866A: #_D666u: db F4
+#_1B866A: #_D666u: db $A9 ; play note F4
 #_1B866B: #_D667u: db $08 ; duration
-#_1B866C: #_D668u: db Ds4
-#_1B866D: #_D669u: db D4
+#_1B866C: #_D668u: db $A7 ; play note Ds4
+#_1B866D: #_D669u: db $A6 ; play note D4
 #_1B866E: #_D66Au: db $0C ; duration
-#_1B866F: #_D66Bu: db C4
+#_1B866F: #_D66Bu: db $A4 ; play note C4
 #_1B8670: #_D66Cu: db $0C, $4D ; duration, params
-#_1B8672: #_D66Eu: db D4
+#_1B8672: #_D66Eu: db $A6 ; play note D4
 #_1B8673: #_D66Fu: db $0C, $3D ; duration, params
-#_1B8675: #_D671u: db F4
-#_1B8676: #_D672u: db G4
-#_1B8677: #_D673u: db !CALL_PART : dw Song10_Sub_DA33 : db 1
+#_1B8675: #_D671u: db $A9 ; play note F4
+#_1B8676: #_D672u: db $AB ; play note G4
+#_1B8677: #_D673u: db $EF : dw Song10_Sub_DA33 : db $01 ; call segment subroutine
 #_1B867B: #_D677u: db $58, $6D ; duration, params
-#_1B867D: #_D679u: db D5
+#_1B867D: #_D679u: db $B2 ; play note D5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment5_Track7:
-#_1B867E: #_D67Au: db !INSTR, $0B
-#_1B8680: #_D67Cu: db !VOLUME, $C8
-#_1B8682: #_D67Eu: db !PAN, $07
+#_1B867E: #_D67Au: db $E0, $0B ; set instrument - trombone
+#_1B8680: #_D67Cu: db $ED, $C8 ; set channel volume
+#_1B8682: #_D67Eu: db $E1, $07 ; set panning - leaning right
 #_1B8684: #_D680u: db $40 ; duration
-#_1B8685: #_D681u: db R
+#_1B8685: #_D681u: db $C9 ; rest
 #_1B8686: #_D682u: db $04, $5D ; duration, params
-#_1B8688: #_D684u: db D5
+#_1B8688: #_D684u: db $B2 ; play note D5
 #_1B8689: #_D685u: db $04, $3D ; duration, params
-#_1B868B: #_D687u: db D5
+#_1B868B: #_D687u: db $B2 ; play note D5
 #_1B868C: #_D688u: db $08 ; duration
-#_1B868D: #_D689u: db D5
-#_1B868E: #_D68Au: db D5
-#_1B868F: #_D68Bu: db D5
-#_1B8690: #_D68Cu: db !CALL_PART : dw Song10_Sub_DA52 : db 2
+#_1B868D: #_D689u: db $B2 ; play note D5
+#_1B868E: #_D68Au: db $B2 ; play note D5
+#_1B868F: #_D68Bu: db $B2 ; play note D5
+#_1B8690: #_D68Cu: db $EF : dw Song10_Sub_DA52 : db $02 ; call segment subroutine
 #_1B8694: #_D690u: db $60, $5D ; duration, params
-#_1B8696: #_D692u: db C5
+#_1B8696: #_D692u: db $B0 ; play note C5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment8_Track0:
-#_1B8697: #_D693u: db !CALL_PART : dw Song10_Sub_DA5E : db 1
-#_1B869B: #_D697u: db !CALL_PART : dw Song10_Sub_DA73 : db 1
+#_1B8697: #_D693u: db $EF : dw Song10_Sub_DA5E : db $01 ; call segment subroutine
+#_1B869B: #_D697u: db $EF : dw Song10_Sub_DA73 : db $01 ; call segment subroutine
 #_1B869F: #_D69Bu: db $60, $6D ; duration, params
-#_1B86A1: #_D69Du: db As4
-#_1B86A2: #_D69Eu: db !PART_END
+#_1B86A1: #_D69Du: db $AE ; play note As4
+#_1B86A2: #_D69Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment8_Track1:
-#_1B86A3: #_D69Fu: db !CALL_PART : dw Song10_Sub_DA82 : db 1
+#_1B86A3: #_D69Fu: db $EF : dw Song10_Sub_DA82 : db $01 ; call segment subroutine
 #_1B86A7: #_D6A3u: db $0C ; duration
-#_1B86A8: #_D6A4u: db G2
-#_1B86A9: #_D6A5u: db G2
-#_1B86AA: #_D6A6u: db G2
-#_1B86AB: #_D6A7u: db G2
-#_1B86AC: #_D6A8u: db G2
-#_1B86AD: #_D6A9u: db G2
+#_1B86A8: #_D6A4u: db $93 ; play note G2
+#_1B86A9: #_D6A5u: db $93 ; play note G2
+#_1B86AA: #_D6A6u: db $93 ; play note G2
+#_1B86AB: #_D6A7u: db $93 ; play note G2
+#_1B86AC: #_D6A8u: db $93 ; play note G2
+#_1B86AD: #_D6A9u: db $93 ; play note G2
 #_1B86AE: #_D6AAu: db $08 ; duration
-#_1B86AF: #_D6ABu: db G2
-#_1B86B0: #_D6ACu: db G2
-#_1B86B1: #_D6ADu: db G2
+#_1B86AF: #_D6ABu: db $93 ; play note G2
+#_1B86B0: #_D6ACu: db $93 ; play note G2
+#_1B86B1: #_D6ADu: db $93 ; play note G2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment8_Track2:
-#_1B86B2: #_D6AEu: db !INSTR, $0A
-#_1B86B4: #_D6B0u: db !PAN, $0F
-#_1B86B6: #_D6B2u: db !CALL_PART : dw Song10_Sub_DAA7 : db 3
+#_1B86B2: #_D6AEu: db $E0, $0A ; set instrument - strings B
+#_1B86B4: #_D6B0u: db $E1, $0F ; set panning - leaning left
+#_1B86B6: #_D6B2u: db $EF : dw Song10_Sub_DAA7 : db $03 ; call segment subroutine
 #_1B86BA: #_D6B6u: db $0C, $59 ; duration, params
-#_1B86BC: #_D6B8u: db G4
-#_1B86BD: #_D6B9u: db R
+#_1B86BC: #_D6B8u: db $AB ; play note G4
+#_1B86BD: #_D6B9u: db $C9 ; rest
 #_1B86BE: #_D6BAu: db $08, $49 ; duration, params
-#_1B86C0: #_D6BCu: db G4
-#_1B86C1: #_D6BDu: db G4
-#_1B86C2: #_D6BEu: db G4
+#_1B86C0: #_D6BCu: db $AB ; play note G4
+#_1B86C1: #_D6BDu: db $AB ; play note G4
+#_1B86C2: #_D6BEu: db $AB ; play note G4
 #_1B86C3: #_D6BFu: db $0C, $69 ; duration, params
-#_1B86C5: #_D6C1u: db G4
-#_1B86C6: #_D6C2u: db R
+#_1B86C5: #_D6C1u: db $AB ; play note G4
+#_1B86C6: #_D6C2u: db $C9 ; rest
 #_1B86C7: #_D6C3u: db $0C, $49 ; duration, params
-#_1B86C9: #_D6C5u: db G4
-#_1B86CA: #_D6C6u: db R
+#_1B86C9: #_D6C5u: db $AB ; play note G4
+#_1B86CA: #_D6C6u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment8_Track3:
-#_1B86CB: #_D6C7u: db !PAN, $0C
-#_1B86CD: #_D6C9u: db !CALL_PART : dw Song10_Sub_DAB9 : db 2
+#_1B86CB: #_D6C7u: db $E1, $0C ; set panning - leaning left
+#_1B86CD: #_D6C9u: db $EF : dw Song10_Sub_DAB9 : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment8_Track4:
 #_1B86D1: #_D6CDu: db $18, $6F ; duration, params
-#_1B86D3: #_D6CFu: db C2
+#_1B86D3: #_D6CFu: db $8C ; play note C2
 #_1B86D4: #_D6D0u: db $08 ; duration
-#_1B86D5: #_D6D1u: db C2
-#_1B86D6: #_D6D2u: db C2
-#_1B86D7: #_D6D3u: db C2
+#_1B86D5: #_D6D1u: db $8C ; play note C2
+#_1B86D6: #_D6D2u: db $8C ; play note C2
+#_1B86D7: #_D6D3u: db $8C ; play note C2
 #_1B86D8: #_D6D4u: db $24 ; duration
-#_1B86D9: #_D6D5u: db C2
+#_1B86D9: #_D6D5u: db $8C ; play note C2
 #_1B86DA: #_D6D6u: db $06, $4D ; duration, params
-#_1B86DC: #_D6D8u: db As1
-#_1B86DD: #_D6D9u: db As1
+#_1B86DC: #_D6D8u: db $8A ; play note As1
+#_1B86DD: #_D6D9u: db $8A ; play note As1
 #_1B86DE: #_D6DAu: db $18, $6F ; duration, params
-#_1B86E0: #_D6DCu: db As1
+#_1B86E0: #_D6DCu: db $8A ; play note As1
 #_1B86E1: #_D6DDu: db $08 ; duration
-#_1B86E2: #_D6DEu: db As1
-#_1B86E3: #_D6DFu: db As1
-#_1B86E4: #_D6E0u: db As1
+#_1B86E2: #_D6DEu: db $8A ; play note As1
+#_1B86E3: #_D6DFu: db $8A ; play note As1
+#_1B86E4: #_D6E0u: db $8A ; play note As1
 #_1B86E5: #_D6E1u: db $24 ; duration
-#_1B86E6: #_D6E2u: db As1
+#_1B86E6: #_D6E2u: db $8A ; play note As1
 #_1B86E7: #_D6E3u: db $06, $4D ; duration, params
-#_1B86E9: #_D6E5u: db A1
-#_1B86EA: #_D6E6u: db A1
+#_1B86E9: #_D6E5u: db $89 ; play note A1
+#_1B86EA: #_D6E6u: db $89 ; play note A1
 #_1B86EB: #_D6E7u: db $18, $6F ; duration, params
-#_1B86ED: #_D6E9u: db A1
+#_1B86ED: #_D6E9u: db $89 ; play note A1
 #_1B86EE: #_D6EAu: db $08 ; duration
-#_1B86EF: #_D6EBu: db A1
-#_1B86F0: #_D6ECu: db A1
-#_1B86F1: #_D6EDu: db A1
+#_1B86EF: #_D6EBu: db $89 ; play note A1
+#_1B86F0: #_D6ECu: db $89 ; play note A1
+#_1B86F1: #_D6EDu: db $89 ; play note A1
 #_1B86F2: #_D6EEu: db $24 ; duration
-#_1B86F3: #_D6EFu: db A1
+#_1B86F3: #_D6EFu: db $89 ; play note A1
 #_1B86F4: #_D6F0u: db $06, $4D ; duration, params
-#_1B86F6: #_D6F2u: db G1
-#_1B86F7: #_D6F3u: db G1
+#_1B86F6: #_D6F2u: db $87 ; play note G1
+#_1B86F7: #_D6F3u: db $87 ; play note G1
 #_1B86F8: #_D6F4u: db $18, $6F ; duration, params
-#_1B86FA: #_D6F6u: db G1
+#_1B86FA: #_D6F6u: db $87 ; play note G1
 #_1B86FB: #_D6F7u: db $08 ; duration
-#_1B86FC: #_D6F8u: db G1
-#_1B86FD: #_D6F9u: db G1
-#_1B86FE: #_D6FAu: db G1
+#_1B86FC: #_D6F8u: db $87 ; play note G1
+#_1B86FD: #_D6F9u: db $87 ; play note G1
+#_1B86FE: #_D6FAu: db $87 ; play note G1
 #_1B86FF: #_D6FBu: db $24 ; duration
-#_1B8700: #_D6FCu: db G1
+#_1B8700: #_D6FCu: db $87 ; play note G1
 #_1B8701: #_D6FDu: db $06, $4D ; duration, params
-#_1B8703: #_D6FFu: db C2
-#_1B8704: #_D700u: db C2
+#_1B8703: #_D6FFu: db $8C ; play note C2
+#_1B8704: #_D700u: db $8C ; play note C2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment8_Track6:
-#_1B8705: #_D701u: db !CALL_PART : dw Song10_Sub_DAE8 : db 1
-#_1B8709: #_D705u: db !CALL_PART : dw Song10_Sub_DA73 : db 1
+#_1B8705: #_D701u: db $EF : dw Song10_Sub_DAE8 : db $01 ; call segment subroutine
+#_1B8709: #_D705u: db $EF : dw Song10_Sub_DA73 : db $01 ; call segment subroutine
 #_1B870D: #_D709u: db $5A, $6D ; duration, params
-#_1B870F: #_D70Bu: db As4
+#_1B870F: #_D70Bu: db $AE ; play note As4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment6_Track0:
-#_1B8710: #_D70Cu: db !CALL_PART : dw Song10_Sub_DAFF : db 1
+#_1B8710: #_D70Cu: db $EF : dw Song10_Sub_DAFF : db $01 ; call segment subroutine
 #_1B8714: #_D710u: db $30 ; duration
-#_1B8715: #_D711u: db Cs4
-#_1B8716: #_D712u: db A3
-#_1B8717: #_D713u: db C4
+#_1B8715: #_D711u: db $A5 ; play note Cs4
+#_1B8716: #_D712u: db $A1 ; play note A3
+#_1B8717: #_D713u: db $A4 ; play note C4
 #_1B8718: #_D714u: db $10 ; duration
-#_1B8719: #_D715u: db As3
-#_1B871A: #_D716u: db Fs3
-#_1B871B: #_D717u: db As3
+#_1B8719: #_D715u: db $A2 ; play note As3
+#_1B871A: #_D716u: db $9E ; play note Fs3
+#_1B871B: #_D717u: db $A2 ; play note As3
 #_1B871C: #_D718u: db $60 ; duration
-#_1B871D: #_D719u: db G3
-#_1B871E: #_D71Au: db !PART_END
+#_1B871D: #_D719u: db $9F ; play note G3
+#_1B871E: #_D71Au: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment6_Track1:
-#_1B871F: #_D71Bu: db !CALL_PART : dw Song10_Sub_DB0B : db 1
+#_1B871F: #_D71Bu: db $EF : dw Song10_Sub_DB0B : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment6_Track2:
-#_1B8723: #_D71Fu: db !VOLUME, $B4
-#_1B8725: #_D721u: db !INSTR, $0A
-#_1B8727: #_D723u: db !PAN, $0F
-#_1B8729: #_D725u: db !CALL_PART : dw Song10_Sub_DAA7 : db 2
-#_1B872D: #_D729u: db !CALL_PART : dw Song10_Sub_DB3B : db 1
+#_1B8723: #_D71Fu: db $ED, $B4 ; set channel volume
+#_1B8725: #_D721u: db $E0, $0A ; set instrument - strings B
+#_1B8727: #_D723u: db $E1, $0F ; set panning - leaning left
+#_1B8729: #_D725u: db $EF : dw Song10_Sub_DAA7 : db $02 ; call segment subroutine
+#_1B872D: #_D729u: db $EF : dw Song10_Sub_DB3B : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment6_Track3:
-#_1B8731: #_D72Du: db !VOLUME, $B4
-#_1B8733: #_D72Fu: db !PAN, $0C
-#_1B8735: #_D731u: db !CALL_PART : dw Song10_Sub_DB5E : db 1
+#_1B8731: #_D72Du: db $ED, $B4 ; set channel volume
+#_1B8733: #_D72Fu: db $E1, $0C ; set panning - leaning left
+#_1B8735: #_D731u: db $EF : dw Song10_Sub_DB5E : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment6_Track4:
-#_1B8739: #_D735u: db !CALL_PART : dw Song10_Sub_DBC3 : db 1
+#_1B8739: #_D735u: db $EF : dw Song10_Sub_DBC3 : db $01 ; call segment subroutine
 #_1B873D: #_D739u: db $54, $6F ; duration, params
-#_1B873F: #_D73Bu: db G1
+#_1B873F: #_D73Bu: db $87 ; play note G1
 #_1B8740: #_D73Cu: db $06, $4D ; duration, params
-#_1B8742: #_D73Eu: db D1
-#_1B8743: #_D73Fu: db D1
+#_1B8742: #_D73Eu: db $82 ; play note D1
+#_1B8743: #_D73Fu: db $82 ; play note D1
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment6_Track6:
-#_1B8744: #_D740u: db !INSTR, $0A
+#_1B8744: #_D740u: db $E0, $0A ; set instrument - strings B
 #_1B8746: #_D742u: db $08 ; duration
-#_1B8747: #_D743u: db R
+#_1B8747: #_D743u: db $C9 ; rest
 #_1B8748: #_D744u: db $3C, $6D ; duration, params
-#_1B874A: #_D746u: db G3
+#_1B874A: #_D746u: db $9F ; play note G3
 #_1B874B: #_D747u: db $0C ; duration
-#_1B874C: #_D748u: db A3
-#_1B874D: #_D749u: db As3
-#_1B874E: #_D74Au: db D4
+#_1B874C: #_D748u: db $A1 ; play note A3
+#_1B874D: #_D749u: db $A2 ; play note As3
+#_1B874E: #_D74Au: db $A6 ; play note D4
 #_1B874F: #_D74Bu: db $30 ; duration
-#_1B8750: #_D74Cu: db Cs4
-#_1B8751: #_D74Du: db A3
+#_1B8750: #_D74Cu: db $A5 ; play note Cs4
+#_1B8751: #_D74Du: db $A1 ; play note A3
 #_1B8752: #_D74Eu: db $48 ; duration
-#_1B8753: #_D74Fu: db C4
+#_1B8753: #_D74Fu: db $A4 ; play note C4
 #_1B8754: #_D750u: db $0C ; duration
-#_1B8755: #_D751u: db Fs3
-#_1B8756: #_D752u: db A3
+#_1B8755: #_D751u: db $9E ; play note Fs3
+#_1B8756: #_D752u: db $A1 ; play note A3
 #_1B8757: #_D753u: db $58 ; duration
-#_1B8758: #_D754u: db G3
+#_1B8758: #_D754u: db $9F ; play note G3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment7_Track0:
-#_1B8759: #_D755u: db !CALL_PART : dw Song10_Sub_DAFF : db 1
+#_1B8759: #_D755u: db $EF : dw Song10_Sub_DAFF : db $01 ; call segment subroutine
 #_1B875D: #_D759u: db $30 ; duration
-#_1B875E: #_D75Au: db Cs4
-#_1B875F: #_D75Bu: db A3
-#_1B8760: #_D75Cu: db C4
+#_1B875E: #_D75Au: db $A5 ; play note Cs4
+#_1B875F: #_D75Bu: db $A1 ; play note A3
+#_1B8760: #_D75Cu: db $A4 ; play note C4
 #_1B8761: #_D75Du: db $10 ; duration
-#_1B8762: #_D75Eu: db As3
-#_1B8763: #_D75Fu: db Fs3
-#_1B8764: #_D760u: db As3
+#_1B8762: #_D75Eu: db $A2 ; play note As3
+#_1B8763: #_D75Fu: db $9E ; play note Fs3
+#_1B8764: #_D760u: db $A2 ; play note As3
 #_1B8765: #_D761u: db $42 ; duration
-#_1B8766: #_D762u: db G3
-#_1B8767: #_D763u: db !INSTR, $0B
+#_1B8766: #_D762u: db $9F ; play note G3
+#_1B8767: #_D763u: db $E0, $0B ; set instrument - trombone
 #_1B8769: #_D765u: db $06 ; duration
-#_1B876A: #_D766u: db G4
-#_1B876B: #_D767u: db A4
-#_1B876C: #_D768u: db As4
-#_1B876D: #_D769u: db C5
-#_1B876E: #_D76Au: db D5
-#_1B876F: #_D76Bu: db !PART_END
+#_1B876A: #_D766u: db $AB ; play note G4
+#_1B876B: #_D767u: db $AD ; play note A4
+#_1B876C: #_D768u: db $AE ; play note As4
+#_1B876D: #_D769u: db $B0 ; play note C5
+#_1B876E: #_D76Au: db $B2 ; play note D5
+#_1B876F: #_D76Bu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment7_Track1:
-#_1B8770: #_D76Cu: db !CALL_PART : dw Song10_Sub_DB0B : db 1
+#_1B8770: #_D76Cu: db $EF : dw Song10_Sub_DB0B : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment7_Track2:
-#_1B8774: #_D770u: db !INSTR, $0A
-#_1B8776: #_D772u: db !PAN, $0F
-#_1B8778: #_D774u: db !CALL_PART : dw Song10_Sub_DAA7 : db 2
-#_1B877C: #_D778u: db !CALL_PART : dw Song10_Sub_DB3B : db 1
+#_1B8774: #_D770u: db $E0, $0A ; set instrument - strings B
+#_1B8776: #_D772u: db $E1, $0F ; set panning - leaning left
+#_1B8778: #_D774u: db $EF : dw Song10_Sub_DAA7 : db $02 ; call segment subroutine
+#_1B877C: #_D778u: db $EF : dw Song10_Sub_DB3B : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment7_Track3:
-#_1B8780: #_D77Cu: db !PAN, $0C
-#_1B8782: #_D77Eu: db !CALL_PART : dw Song10_Sub_DB5E : db 1
+#_1B8780: #_D77Cu: db $E1, $0C ; set panning - leaning left
+#_1B8782: #_D77Eu: db $EF : dw Song10_Sub_DB5E : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment7_Track4:
-#_1B8786: #_D782u: db !CALL_PART : dw Song10_Sub_DBC3 : db 1
+#_1B8786: #_D782u: db $EF : dw Song10_Sub_DBC3 : db $01 ; call segment subroutine
 #_1B878A: #_D786u: db $54, $6F ; duration, params
-#_1B878C: #_D788u: db G1
+#_1B878C: #_D788u: db $87 ; play note G1
 #_1B878D: #_D789u: db $06, $4D ; duration, params
-#_1B878F: #_D78Bu: db C2
-#_1B8790: #_D78Cu: db C2
+#_1B878F: #_D78Bu: db $8C ; play note C2
+#_1B8790: #_D78Cu: db $8C ; play note C2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment7_Track5:
-#_1B8791: #_D78Du: db !INSTR, $16
-#_1B8793: #_D78Fu: db !PAN, $0B
-#_1B8795: #_D791u: db !VOLUME, $8C
-#_1B8797: #_D793u: db !VIBRATO, $1E, $14, $14
+#_1B8791: #_D78Du: db $E0, $16 ; set instrument - flute
+#_1B8793: #_D78Fu: db $E1, $0B ; set panning - leaning left
+#_1B8795: #_D791u: db $ED, $8C ; set channel volume
+#_1B8797: #_D793u: db $E3, $1E, $14, $14 ; enable vibrato
 #_1B879B: #_D797u: db $3C, $6D ; duration, params
-#_1B879D: #_D799u: db G4
+#_1B879D: #_D799u: db $AB ; play note G4
 #_1B879E: #_D79Au: db $0C ; duration
-#_1B879F: #_D79Bu: db A4
-#_1B87A0: #_D79Cu: db As4
-#_1B87A1: #_D79Du: db D5
+#_1B879F: #_D79Bu: db $AD ; play note A4
+#_1B87A0: #_D79Cu: db $AE ; play note As4
+#_1B87A1: #_D79Du: db $B2 ; play note D5
 #_1B87A2: #_D79Eu: db $30 ; duration
-#_1B87A3: #_D79Fu: db Cs5
-#_1B87A4: #_D7A0u: db A4
-#_1B87A5: #_D7A1u: db C5
+#_1B87A3: #_D79Fu: db $B1 ; play note Cs5
+#_1B87A4: #_D7A0u: db $AD ; play note A4
+#_1B87A5: #_D7A1u: db $B0 ; play note C5
 #_1B87A6: #_D7A2u: db $10 ; duration
-#_1B87A7: #_D7A3u: db As4
-#_1B87A8: #_D7A4u: db Fs4
-#_1B87A9: #_D7A5u: db As4
+#_1B87A7: #_D7A3u: db $AE ; play note As4
+#_1B87A8: #_D7A4u: db $AA ; play note Fs4
+#_1B87A9: #_D7A5u: db $AE ; play note As4
 #_1B87AA: #_D7A6u: db $60 ; duration
-#_1B87AB: #_D7A7u: db G4
+#_1B87AB: #_D7A7u: db $AB ; play note G4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment7_Track6:
-#_1B87AC: #_D7A8u: db !INSTR, $0A
+#_1B87AC: #_D7A8u: db $E0, $0A ; set instrument - strings B
 #_1B87AE: #_D7AAu: db $08 ; duration
-#_1B87AF: #_D7ABu: db R
+#_1B87AF: #_D7ABu: db $C9 ; rest
 #_1B87B0: #_D7ACu: db $3C, $6D ; duration, params
-#_1B87B2: #_D7AEu: db G3
+#_1B87B2: #_D7AEu: db $9F ; play note G3
 #_1B87B3: #_D7AFu: db $0C ; duration
-#_1B87B4: #_D7B0u: db A3
-#_1B87B5: #_D7B1u: db As3
-#_1B87B6: #_D7B2u: db D4
+#_1B87B4: #_D7B0u: db $A1 ; play note A3
+#_1B87B5: #_D7B1u: db $A2 ; play note As3
+#_1B87B6: #_D7B2u: db $A6 ; play note D4
 #_1B87B7: #_D7B3u: db $30 ; duration
-#_1B87B8: #_D7B4u: db Cs4
-#_1B87B9: #_D7B5u: db A3
+#_1B87B8: #_D7B4u: db $A5 ; play note Cs4
+#_1B87B9: #_D7B5u: db $A1 ; play note A3
 #_1B87BA: #_D7B6u: db $48 ; duration
-#_1B87BB: #_D7B7u: db C4
+#_1B87BB: #_D7B7u: db $A4 ; play note C4
 #_1B87BC: #_D7B8u: db $0C ; duration
-#_1B87BD: #_D7B9u: db Fs3
-#_1B87BE: #_D7BAu: db A3
+#_1B87BD: #_D7B9u: db $9E ; play note Fs3
+#_1B87BE: #_D7BAu: db $A1 ; play note A3
 #_1B87BF: #_D7BBu: db $58 ; duration
-#_1B87C0: #_D7BCu: db G3
+#_1B87C0: #_D7BCu: db $9F ; play note G3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment9_Track0:
-#_1B87C1: #_D7BDu: db !CALL_PART : dw Song10_Sub_DA5E : db 1
+#_1B87C1: #_D7BDu: db $EF : dw Song10_Sub_DA5E : db $01 ; call segment subroutine
 #_1B87C5: #_D7C1u: db $24, $6D ; duration, params
-#_1B87C7: #_D7C3u: db D5
+#_1B87C7: #_D7C3u: db $B2 ; play note D5
 #_1B87C8: #_D7C4u: db $06, $2D ; duration, params
-#_1B87CA: #_D7C6u: db D5
-#_1B87CB: #_D7C7u: db D5
+#_1B87CA: #_D7C6u: db $B2 ; play note D5
+#_1B87CB: #_D7C7u: db $B2 ; play note D5
 #_1B87CC: #_D7C8u: db $0C ; duration
-#_1B87CD: #_D7C9u: db D5
-#_1B87CE: #_D7CAu: db As4
-#_1B87CF: #_D7CBu: db G4
-#_1B87D0: #_D7CCu: db D5
+#_1B87CD: #_D7C9u: db $B2 ; play note D5
+#_1B87CE: #_D7CAu: db $AE ; play note As4
+#_1B87CF: #_D7CBu: db $AB ; play note G4
+#_1B87D0: #_D7CCu: db $B2 ; play note D5
 #_1B87D1: #_D7CDu: db $24, $6D ; duration, params
-#_1B87D3: #_D7CFu: db C5
+#_1B87D3: #_D7CFu: db $B0 ; play note C5
 #_1B87D4: #_D7D0u: db $06, $2D ; duration, params
-#_1B87D6: #_D7D2u: db C5
-#_1B87D7: #_D7D3u: db C5
+#_1B87D6: #_D7D2u: db $B0 ; play note C5
+#_1B87D7: #_D7D3u: db $B0 ; play note C5
 #_1B87D8: #_D7D4u: db $0C ; duration
-#_1B87D9: #_D7D5u: db C5
-#_1B87DA: #_D7D6u: db Fs4
-#_1B87DB: #_D7D7u: db Ds4
-#_1B87DC: #_D7D8u: db C5
-#_1B87DD: #_D7D9u: db !PART_END
+#_1B87D9: #_D7D5u: db $B0 ; play note C5
+#_1B87DA: #_D7D6u: db $AA ; play note Fs4
+#_1B87DB: #_D7D7u: db $A7 ; play note Ds4
+#_1B87DC: #_D7D8u: db $B0 ; play note C5
+#_1B87DD: #_D7D9u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment9_Track1:
-#_1B87DE: #_D7DAu: db !CALL_PART : dw Song10_Sub_DA82 : db 1
+#_1B87DE: #_D7DAu: db $EF : dw Song10_Sub_DA82 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment9_Track2:
-#_1B87E2: #_D7DEu: db !VOLUME, $C8
-#_1B87E4: #_D7E0u: db !INSTR, $0A
-#_1B87E6: #_D7E2u: db !PAN, $0F
-#_1B87E8: #_D7E4u: db !CALL_PART : dw Song10_Sub_DBD9 : db 2
+#_1B87E2: #_D7DEu: db $ED, $C8 ; set channel volume
+#_1B87E4: #_D7E0u: db $E0, $0A ; set instrument - strings B
+#_1B87E6: #_D7E2u: db $E1, $0F ; set panning - leaning left
+#_1B87E8: #_D7E4u: db $EF : dw Song10_Sub_DBD9 : db $02 ; call segment subroutine
 #_1B87EC: #_D7E8u: db $0C, $59 ; duration, params
-#_1B87EE: #_D7EAu: db Fs4
-#_1B87EF: #_D7EBu: db R
+#_1B87EE: #_D7EAu: db $AA ; play note Fs4
+#_1B87EF: #_D7EBu: db $C9 ; rest
 #_1B87F0: #_D7ECu: db $08, $49 ; duration, params
-#_1B87F2: #_D7EEu: db Fs4
-#_1B87F3: #_D7EFu: db Fs4
-#_1B87F4: #_D7F0u: db Fs4
+#_1B87F2: #_D7EEu: db $AA ; play note Fs4
+#_1B87F3: #_D7EFu: db $AA ; play note Fs4
+#_1B87F4: #_D7F0u: db $AA ; play note Fs4
 #_1B87F5: #_D7F1u: db $0C, $59 ; duration, params
-#_1B87F7: #_D7F3u: db Fs4
-#_1B87F8: #_D7F4u: db R
+#_1B87F7: #_D7F3u: db $AA ; play note Fs4
+#_1B87F8: #_D7F4u: db $C9 ; rest
 #_1B87F9: #_D7F5u: db $08, $49 ; duration, params
-#_1B87FB: #_D7F7u: db Fs4
-#_1B87FC: #_D7F8u: db Fs4
-#_1B87FD: #_D7F9u: db Fs4
+#_1B87FB: #_D7F7u: db $AA ; play note Fs4
+#_1B87FC: #_D7F8u: db $AA ; play note Fs4
+#_1B87FD: #_D7F9u: db $AA ; play note Fs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment9_Track3:
-#_1B87FE: #_D7FAu: db !VOLUME, $C8
-#_1B8800: #_D7FCu: db !PAN, $0C
+#_1B87FE: #_D7FAu: db $ED, $C8 ; set channel volume
+#_1B8800: #_D7FCu: db $E1, $0C ; set panning - leaning left
 #_1B8802: #_D7FEu: db $0C, $5D ; duration, params
-#_1B8804: #_D800u: db C5
+#_1B8804: #_D800u: db $B0 ; play note C5
 #_1B8805: #_D801u: db $0C, $39 ; duration, params
-#_1B8807: #_D803u: db Ds4
+#_1B8807: #_D803u: db $A7 ; play note Ds4
 #_1B8808: #_D804u: db $08, $4B ; duration, params
-#_1B880A: #_D806u: db C5
-#_1B880B: #_D807u: db C5
-#_1B880C: #_D808u: db C5
+#_1B880A: #_D806u: db $B0 ; play note C5
+#_1B880B: #_D807u: db $B0 ; play note C5
+#_1B880C: #_D808u: db $B0 ; play note C5
 #_1B880D: #_D809u: db $0C, $5C ; duration, params
-#_1B880F: #_D80Bu: db C5
+#_1B880F: #_D80Bu: db $B0 ; play note C5
 #_1B8810: #_D80Cu: db $0C, $39 ; duration, params
-#_1B8812: #_D80Eu: db Ds4
+#_1B8812: #_D80Eu: db $A7 ; play note Ds4
 #_1B8813: #_D80Fu: db $08, $4B ; duration, params
-#_1B8815: #_D811u: db C5
+#_1B8815: #_D811u: db $B0 ; play note C5
 #_1B8816: #_D812u: db $08, $39 ; duration, params
-#_1B8818: #_D814u: db C5
-#_1B8819: #_D815u: db C5
+#_1B8818: #_D814u: db $B0 ; play note C5
+#_1B8819: #_D815u: db $B0 ; play note C5
 #_1B881A: #_D816u: db $0C, $5D ; duration, params
-#_1B881C: #_D818u: db As4
+#_1B881C: #_D818u: db $AE ; play note As4
 #_1B881D: #_D819u: db $0C, $39 ; duration, params
-#_1B881F: #_D81Bu: db D4
+#_1B881F: #_D81Bu: db $A6 ; play note D4
 #_1B8820: #_D81Cu: db $08, $4B ; duration, params
-#_1B8822: #_D81Eu: db As4
-#_1B8823: #_D81Fu: db As4
-#_1B8824: #_D820u: db As4
+#_1B8822: #_D81Eu: db $AE ; play note As4
+#_1B8823: #_D81Fu: db $AE ; play note As4
+#_1B8824: #_D820u: db $AE ; play note As4
 #_1B8825: #_D821u: db $0C, $5C ; duration, params
-#_1B8827: #_D823u: db As4
+#_1B8827: #_D823u: db $AE ; play note As4
 #_1B8828: #_D824u: db $0C, $39 ; duration, params
-#_1B882A: #_D826u: db D4
+#_1B882A: #_D826u: db $A6 ; play note D4
 #_1B882B: #_D827u: db $08, $4B ; duration, params
-#_1B882D: #_D829u: db As4
+#_1B882D: #_D829u: db $AE ; play note As4
 #_1B882E: #_D82Au: db $08, $39 ; duration, params
-#_1B8830: #_D82Cu: db As4
-#_1B8831: #_D82Du: db As4
+#_1B8830: #_D82Cu: db $AE ; play note As4
+#_1B8831: #_D82Du: db $AE ; play note As4
 #_1B8832: #_D82Eu: db $0C, $5D ; duration, params
-#_1B8834: #_D830u: db A4
+#_1B8834: #_D830u: db $AD ; play note A4
 #_1B8835: #_D831u: db $0C, $39 ; duration, params
-#_1B8837: #_D833u: db Ds4
+#_1B8837: #_D833u: db $A7 ; play note Ds4
 #_1B8838: #_D834u: db $08, $4B ; duration, params
-#_1B883A: #_D836u: db A4
-#_1B883B: #_D837u: db A4
-#_1B883C: #_D838u: db A4
+#_1B883A: #_D836u: db $AD ; play note A4
+#_1B883B: #_D837u: db $AD ; play note A4
+#_1B883C: #_D838u: db $AD ; play note A4
 #_1B883D: #_D839u: db $0C, $5C ; duration, params
-#_1B883F: #_D83Bu: db A4
+#_1B883F: #_D83Bu: db $AD ; play note A4
 #_1B8840: #_D83Cu: db $0C, $39 ; duration, params
-#_1B8842: #_D83Eu: db Ds4
+#_1B8842: #_D83Eu: db $A7 ; play note Ds4
 #_1B8843: #_D83Fu: db $08, $4B ; duration, params
-#_1B8845: #_D841u: db A4
+#_1B8845: #_D841u: db $AD ; play note A4
 #_1B8846: #_D842u: db $08, $39 ; duration, params
-#_1B8848: #_D844u: db A4
-#_1B8849: #_D845u: db A4
+#_1B8848: #_D844u: db $AD ; play note A4
+#_1B8849: #_D845u: db $AD ; play note A4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment9_Track4:
 #_1B884A: #_D846u: db $20, $6F ; duration, params
-#_1B884C: #_D848u: db C2
+#_1B884C: #_D848u: db $8C ; play note C2
 #_1B884D: #_D849u: db $08, $4F ; duration, params
-#_1B884F: #_D84Bu: db C2
-#_1B8850: #_D84Cu: db C2
+#_1B884F: #_D84Bu: db $8C ; play note C2
+#_1B8850: #_D84Cu: db $8C ; play note C2
 #_1B8851: #_D84Du: db $0C, $6F ; duration, params
-#_1B8853: #_D84Fu: db C2
-#_1B8854: #_D850u: db C2
+#_1B8853: #_D84Fu: db $8C ; play note C2
+#_1B8854: #_D850u: db $8C ; play note C2
 #_1B8855: #_D851u: db $08, $4D ; duration, params
-#_1B8857: #_D853u: db C2
-#_1B8858: #_D854u: db C2
-#_1B8859: #_D855u: db C2
+#_1B8857: #_D853u: db $8C ; play note C2
+#_1B8858: #_D854u: db $8C ; play note C2
+#_1B8859: #_D855u: db $8C ; play note C2
 #_1B885A: #_D856u: db $20, $6F ; duration, params
-#_1B885C: #_D858u: db As1
+#_1B885C: #_D858u: db $8A ; play note As1
 #_1B885D: #_D859u: db $08, $4F ; duration, params
-#_1B885F: #_D85Bu: db As1
-#_1B8860: #_D85Cu: db As1
+#_1B885F: #_D85Bu: db $8A ; play note As1
+#_1B8860: #_D85Cu: db $8A ; play note As1
 #_1B8861: #_D85Du: db $0C, $6F ; duration, params
-#_1B8863: #_D85Fu: db As1
-#_1B8864: #_D860u: db As1
+#_1B8863: #_D85Fu: db $8A ; play note As1
+#_1B8864: #_D860u: db $8A ; play note As1
 #_1B8865: #_D861u: db $08, $4D ; duration, params
-#_1B8867: #_D863u: db As1
-#_1B8868: #_D864u: db As1
-#_1B8869: #_D865u: db As1
+#_1B8867: #_D863u: db $8A ; play note As1
+#_1B8868: #_D864u: db $8A ; play note As1
+#_1B8869: #_D865u: db $8A ; play note As1
 #_1B886A: #_D866u: db $20, $6F ; duration, params
-#_1B886C: #_D868u: db A1
+#_1B886C: #_D868u: db $89 ; play note A1
 #_1B886D: #_D869u: db $08 ; duration
-#_1B886E: #_D86Au: db A1
-#_1B886F: #_D86Bu: db A1
+#_1B886E: #_D86Au: db $89 ; play note A1
+#_1B886F: #_D86Bu: db $89 ; play note A1
 #_1B8870: #_D86Cu: db $0C ; duration
-#_1B8871: #_D86Du: db A1
-#_1B8872: #_D86Eu: db A1
+#_1B8871: #_D86Du: db $89 ; play note A1
+#_1B8872: #_D86Eu: db $89 ; play note A1
 #_1B8873: #_D86Fu: db $08, $4D ; duration, params
-#_1B8875: #_D871u: db G1
-#_1B8876: #_D872u: db G1
-#_1B8877: #_D873u: db G1
+#_1B8875: #_D871u: db $87 ; play note G1
+#_1B8876: #_D872u: db $87 ; play note G1
+#_1B8877: #_D873u: db $87 ; play note G1
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment9_Track5:
-#_1B8878: #_D874u: db !INSTR, $0B
-#_1B887A: #_D876u: db !VOLUME, $C8
-#_1B887C: #_D878u: db !PAN, $09
-#_1B887E: #_D87Au: db !VIBRATO, $1D, $1B, $18
+#_1B8878: #_D874u: db $E0, $0B ; set instrument - trombone
+#_1B887A: #_D876u: db $ED, $C8 ; set channel volume
+#_1B887C: #_D878u: db $E1, $09 ; set panning - leaning right
+#_1B887E: #_D87Au: db $E3, $1D, $1B, $18 ; enable vibrato
 #_1B8882: #_D87Eu: db $24, $6D ; duration, params
-#_1B8884: #_D880u: db G4
+#_1B8884: #_D880u: db $AB ; play note G4
 #_1B8885: #_D881u: db $06, $2D ; duration, params
-#_1B8887: #_D883u: db G4
-#_1B8888: #_D884u: db G4
+#_1B8887: #_D883u: db $AB ; play note G4
+#_1B8888: #_D884u: db $AB ; play note G4
 #_1B8889: #_D885u: db $0C ; duration
-#_1B888A: #_D886u: db G4
-#_1B888B: #_D887u: db E4
-#_1B888C: #_D888u: db B3
-#_1B888D: #_D889u: db G4
+#_1B888A: #_D886u: db $AB ; play note G4
+#_1B888B: #_D887u: db $A8 ; play note E4
+#_1B888C: #_D888u: db $A3 ; play note B3
+#_1B888D: #_D889u: db $AB ; play note G4
 #_1B888E: #_D88Au: db $24, $6D ; duration, params
-#_1B8890: #_D88Cu: db F4
+#_1B8890: #_D88Cu: db $A9 ; play note F4
 #_1B8891: #_D88Du: db $06, $2D ; duration, params
-#_1B8893: #_D88Fu: db F4
-#_1B8894: #_D890u: db F4
+#_1B8893: #_D88Fu: db $A9 ; play note F4
+#_1B8894: #_D890u: db $A9 ; play note F4
 #_1B8895: #_D891u: db $0C ; duration
-#_1B8896: #_D892u: db F4
-#_1B8897: #_D893u: db D4
-#_1B8898: #_D894u: db As3
-#_1B8899: #_D895u: db F4
+#_1B8896: #_D892u: db $A9 ; play note F4
+#_1B8897: #_D893u: db $A6 ; play note D4
+#_1B8898: #_D894u: db $A2 ; play note As3
+#_1B8899: #_D895u: db $A9 ; play note F4
 #_1B889A: #_D896u: db $24, $6D ; duration, params
-#_1B889C: #_D898u: db Ds4
+#_1B889C: #_D898u: db $A7 ; play note Ds4
 #_1B889D: #_D899u: db $06, $2D ; duration, params
-#_1B889F: #_D89Bu: db Ds4
-#_1B88A0: #_D89Cu: db Ds4
+#_1B889F: #_D89Bu: db $A7 ; play note Ds4
+#_1B88A0: #_D89Cu: db $A7 ; play note Ds4
 #_1B88A1: #_D89Du: db $0C ; duration
-#_1B88A2: #_D89Eu: db Ds4
-#_1B88A3: #_D89Fu: db C4
-#_1B88A4: #_D8A0u: db As3
-#_1B88A5: #_D8A1u: db Ds4
+#_1B88A2: #_D89Eu: db $A7 ; play note Ds4
+#_1B88A3: #_D89Fu: db $A4 ; play note C4
+#_1B88A4: #_D8A0u: db $A2 ; play note As3
+#_1B88A5: #_D8A1u: db $A7 ; play note Ds4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Segment9_Track6:
-#_1B88A6: #_D8A2u: db !CALL_PART : dw Song10_Sub_DAE8 : db 1
+#_1B88A6: #_D8A2u: db $EF : dw Song10_Sub_DAE8 : db $01 ; call segment subroutine
 #_1B88AA: #_D8A6u: db $24, $6D ; duration, params
-#_1B88AC: #_D8A8u: db D5
+#_1B88AC: #_D8A8u: db $B2 ; play note D5
 #_1B88AD: #_D8A9u: db $06, $2D ; duration, params
-#_1B88AF: #_D8ABu: db D5
-#_1B88B0: #_D8ACu: db D5
+#_1B88AF: #_D8ABu: db $B2 ; play note D5
+#_1B88B0: #_D8ACu: db $B2 ; play note D5
 #_1B88B1: #_D8ADu: db $0C ; duration
-#_1B88B2: #_D8AEu: db D5
-#_1B88B3: #_D8AFu: db As4
-#_1B88B4: #_D8B0u: db G4
-#_1B88B5: #_D8B1u: db D5
+#_1B88B2: #_D8AEu: db $B2 ; play note D5
+#_1B88B3: #_D8AFu: db $AE ; play note As4
+#_1B88B4: #_D8B0u: db $AB ; play note G4
+#_1B88B5: #_D8B1u: db $B2 ; play note D5
 #_1B88B6: #_D8B2u: db $24, $6D ; duration, params
-#_1B88B8: #_D8B4u: db C5
+#_1B88B8: #_D8B4u: db $B0 ; play note C5
 #_1B88B9: #_D8B5u: db $06, $2D ; duration, params
-#_1B88BB: #_D8B7u: db C5
-#_1B88BC: #_D8B8u: db C5
+#_1B88BB: #_D8B7u: db $B0 ; play note C5
+#_1B88BC: #_D8B8u: db $B0 ; play note C5
 #_1B88BD: #_D8B9u: db $0C ; duration
-#_1B88BE: #_D8BAu: db C5
-#_1B88BF: #_D8BBu: db Fs4
-#_1B88C0: #_D8BCu: db Ds4
+#_1B88BE: #_D8BAu: db $B0 ; play note C5
+#_1B88BF: #_D8BBu: db $AA ; play note Fs4
+#_1B88C0: #_D8BCu: db $A7 ; play note Ds4
 #_1B88C1: #_D8BDu: db $06 ; duration
-#_1B88C2: #_D8BEu: db C5
+#_1B88C2: #_D8BEu: db $B0 ; play note C5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_SegmentA_Track0:
-#_1B88C3: #_D8BFu: db !TEMPO, $1B
-#_1B88C5: #_D8C1u: db !VOLUME, $C8
-#_1B88C7: #_D8C3u: db !INSTR, $0B
-#_1B88C9: #_D8C5u: db !VIBRATO, $14, $1E, $14
+#_1B88C3: #_D8BFu: db $E7, $1B ; set song tempo
+#_1B88C5: #_D8C1u: db $ED, $C8 ; set channel volume
+#_1B88C7: #_D8C3u: db $E0, $0B ; set instrument - trombone
+#_1B88C9: #_D8C5u: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B88CD: #_D8C9u: db $60, $6D ; duration, params
-#_1B88CF: #_D8CBu: db D4
-#_1B88D0: #_D8CCu: db R
-#_1B88D1: #_D8CDu: db !CALL_PART : dw Song10_Sub_D90C : db 1
-#_1B88D5: #_D8D1u: db !PART_END
+#_1B88CF: #_D8CBu: db $A6 ; play note D4
+#_1B88D0: #_D8CCu: db $C9 ; rest
+#_1B88D1: #_D8CDu: db $EF : dw Song10_Sub_D90C : db $01 ; call segment subroutine
+#_1B88D5: #_D8D1u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_SegmentA_Track1:
-#_1B88D6: #_D8D2u: db !CALL_PART : dw Song10_Sub_D925 : db 1
+#_1B88D6: #_D8D2u: db $EF : dw Song10_Sub_D925 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_SegmentA_Track2:
-#_1B88DA: #_D8D6u: db !CALL_PART : dw Song10_Sub_D93F : db 1
-#_1B88DE: #_D8DAu: db !CALL_PART : dw Song10_Sub_D960 : db 1
+#_1B88DA: #_D8D6u: db $EF : dw Song10_Sub_D93F : db $01 ; call segment subroutine
+#_1B88DE: #_D8DAu: db $EF : dw Song10_Sub_D960 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_SegmentA_Track3:
-#_1B88E2: #_D8DEu: db !VOLUME, $C8
-#_1B88E4: #_D8E0u: db !INSTR, $0B
-#_1B88E6: #_D8E2u: db !VIBRATO, $1D, $14, $1E
-#_1B88EA: #_D8E6u: db !PAN, $07
+#_1B88E2: #_D8DEu: db $ED, $C8 ; set channel volume
+#_1B88E4: #_D8E0u: db $E0, $0B ; set instrument - trombone
+#_1B88E6: #_D8E2u: db $E3, $1D, $14, $1E ; enable vibrato
+#_1B88EA: #_D8E6u: db $E1, $07 ; set panning - leaning right
 #_1B88EC: #_D8E8u: db $60, $6D ; duration, params
-#_1B88EE: #_D8EAu: db As4
-#_1B88EF: #_D8EBu: db !PAN, $0F
-#_1B88F1: #_D8EDu: db R
-#_1B88F2: #_D8EEu: db R
-#_1B88F3: #_D8EFu: db R
+#_1B88EE: #_D8EAu: db $AE ; play note As4
+#_1B88EF: #_D8EBu: db $E1, $0F ; set panning - leaning left
+#_1B88F1: #_D8EDu: db $C9 ; rest
+#_1B88F2: #_D8EEu: db $C9 ; rest
+#_1B88F3: #_D8EFu: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_SegmentA_Track4:
-#_1B88F4: #_D8F0u: db !CALL_PART : dw Song10_Sub_D976 : db 1
+#_1B88F4: #_D8F0u: db $EF : dw Song10_Sub_D976 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_SegmentA_Track6:
 #_1B88F8: #_D8F4u: db $06 ; duration
-#_1B88F9: #_D8F5u: db R
+#_1B88F9: #_D8F5u: db $C9 ; rest
 #_1B88FA: #_D8F6u: db $60, $6D ; duration, params
-#_1B88FC: #_D8F8u: db As4
+#_1B88FC: #_D8F8u: db $AE ; play note As4
 #_1B88FD: #_D8F9u: db $5A ; duration
-#_1B88FE: #_D8FAu: db R
+#_1B88FE: #_D8FAu: db $C9 ; rest
 #_1B88FF: #_D8FBu: db $60 ; duration
-#_1B8900: #_D8FCu: db R
-#_1B8901: #_D8FDu: db R
+#_1B8900: #_D8FCu: db $C9 ; rest
+#_1B8901: #_D8FDu: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_SegmentA_Track7:
-#_1B8902: #_D8FEu: db !VOLUME, $8C
-#_1B8904: #_D900u: db !INSTR, $0A
-#_1B8906: #_D902u: db !VIBRATO, $1D, $14, $1E
+#_1B8902: #_D8FEu: db $ED, $8C ; set channel volume
+#_1B8904: #_D900u: db $E0, $0A ; set instrument - strings B
+#_1B8906: #_D902u: db $E3, $1D, $14, $1E ; enable vibrato
 #_1B890A: #_D906u: db $60 ; duration
-#_1B890B: #_D907u: db R
-#_1B890C: #_D908u: db R
-#_1B890D: #_D909u: db R
-#_1B890E: #_D90Au: db R
-#_1B890F: #_D90Bu: db !PART_END
+#_1B890B: #_D907u: db $C9 ; rest
+#_1B890C: #_D908u: db $C9 ; rest
+#_1B890D: #_D909u: db $C9 ; rest
+#_1B890E: #_D90Au: db $C9 ; rest
+#_1B890F: #_D90Bu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_D90C:
 #_1B8910: #_D90Cu: db $0C ; duration
-#_1B8911: #_D90Du: db R
+#_1B8911: #_D90Du: db $C9 ; rest
 #_1B8912: #_D90Eu: db $0C, $2D ; duration, params
-#_1B8914: #_D910u: db G4
-#_1B8915: #_D911u: db R
-#_1B8916: #_D912u: db G4
-#_1B8917: #_D913u: db F4
-#_1B8918: #_D914u: db R
-#_1B8919: #_D915u: db F4
-#_1B891A: #_D916u: db G4
-#_1B891B: #_D917u: db R
-#_1B891C: #_D918u: db G4
-#_1B891D: #_D919u: db G4
+#_1B8914: #_D910u: db $AB ; play note G4
+#_1B8915: #_D911u: db $C9 ; rest
+#_1B8916: #_D912u: db $AB ; play note G4
+#_1B8917: #_D913u: db $A9 ; play note F4
+#_1B8918: #_D914u: db $C9 ; rest
+#_1B8919: #_D915u: db $A9 ; play note F4
+#_1B891A: #_D916u: db $AB ; play note G4
+#_1B891B: #_D917u: db $C9 ; rest
+#_1B891C: #_D918u: db $AB ; play note G4
+#_1B891D: #_D919u: db $AB ; play note G4
 #_1B891E: #_D91Au: db $06, $4D ; duration, params
-#_1B8920: #_D91Cu: db G4
-#_1B8921: #_D91Du: db G4
+#_1B8920: #_D91Cu: db $AB ; play note G4
+#_1B8921: #_D91Du: db $AB ; play note G4
 #_1B8922: #_D91Eu: db $0C, $2D ; duration, params
-#_1B8924: #_D920u: db G4
-#_1B8925: #_D921u: db G4
-#_1B8926: #_D922u: db Gs4
-#_1B8927: #_D923u: db Fs4
-#_1B8928: #_D924u: db !PART_END
+#_1B8924: #_D920u: db $AB ; play note G4
+#_1B8925: #_D921u: db $AB ; play note G4
+#_1B8926: #_D922u: db $AC ; play note Gs4
+#_1B8927: #_D923u: db $AA ; play note Fs4
+#_1B8928: #_D924u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_D925:
-#_1B8929: #_D925u: db !VOLUME, $8C
-#_1B892B: #_D927u: db !INSTR, $0A
-#_1B892D: #_D929u: db !VIBRATO, $14, $1E, $14
-#_1B8931: #_D92Du: db !PAN, $05
+#_1B8929: #_D925u: db $ED, $8C ; set channel volume
+#_1B892B: #_D927u: db $E0, $0A ; set instrument - strings B
+#_1B892D: #_D929u: db $E3, $14, $1E, $14 ; enable vibrato
+#_1B8931: #_D92Du: db $E1, $05 ; set panning - leaning right
 #_1B8933: #_D92Fu: db $30, $7D ; duration, params
-#_1B8935: #_D931u: db G3
-#_1B8936: #_D932u: db F3
-#_1B8937: #_D933u: db G3
+#_1B8935: #_D931u: db $9F ; play note G3
+#_1B8936: #_D932u: db $9D ; play note F3
+#_1B8937: #_D933u: db $9F ; play note G3
 #_1B8938: #_D934u: db $18 ; duration
-#_1B8939: #_D935u: db Gs3
-#_1B893A: #_D936u: db Fs3
+#_1B8939: #_D935u: db $A0 ; play note Gs3
+#_1B893A: #_D936u: db $9E ; play note Fs3
 #_1B893B: #_D937u: db $30 ; duration
-#_1B893C: #_D938u: db G3
-#_1B893D: #_D939u: db F3
-#_1B893E: #_D93Au: db G3
+#_1B893C: #_D938u: db $9F ; play note G3
+#_1B893D: #_D939u: db $9D ; play note F3
+#_1B893E: #_D93Au: db $9F ; play note G3
 #_1B893F: #_D93Bu: db $18 ; duration
-#_1B8940: #_D93Cu: db Gs3
-#_1B8941: #_D93Du: db Fs3
-#_1B8942: #_D93Eu: db !PART_END
+#_1B8940: #_D93Cu: db $A0 ; play note Gs3
+#_1B8941: #_D93Du: db $9E ; play note Fs3
+#_1B8942: #_D93Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_D93F:
-#_1B8943: #_D93Fu: db !VOLUME, $C8
-#_1B8945: #_D941u: db !INSTR, $0B
-#_1B8947: #_D943u: db !VIBRATO, $19, $1E, $17
+#_1B8943: #_D93Fu: db $ED, $C8 ; set channel volume
+#_1B8945: #_D941u: db $E0, $0B ; set instrument - trombone
+#_1B8947: #_D943u: db $E3, $19, $1E, $17 ; enable vibrato
 #_1B894B: #_D947u: db $0C ; duration
-#_1B894C: #_D948u: db R
+#_1B894C: #_D948u: db $C9 ; rest
 #_1B894D: #_D949u: db $0C, $2D ; duration, params
-#_1B894F: #_D94Bu: db D4
-#_1B8950: #_D94Cu: db R
-#_1B8951: #_D94Du: db D4
-#_1B8952: #_D94Eu: db C4
-#_1B8953: #_D94Fu: db R
-#_1B8954: #_D950u: db C4
-#_1B8955: #_D951u: db D4
-#_1B8956: #_D952u: db R
-#_1B8957: #_D953u: db D4
-#_1B8958: #_D954u: db D4
+#_1B894F: #_D94Bu: db $A6 ; play note D4
+#_1B8950: #_D94Cu: db $C9 ; rest
+#_1B8951: #_D94Du: db $A6 ; play note D4
+#_1B8952: #_D94Eu: db $A4 ; play note C4
+#_1B8953: #_D94Fu: db $C9 ; rest
+#_1B8954: #_D950u: db $A4 ; play note C4
+#_1B8955: #_D951u: db $A6 ; play note D4
+#_1B8956: #_D952u: db $C9 ; rest
+#_1B8957: #_D953u: db $A6 ; play note D4
+#_1B8958: #_D954u: db $A6 ; play note D4
 #_1B8959: #_D955u: db $06, $4D ; duration, params
-#_1B895B: #_D957u: db D4
-#_1B895C: #_D958u: db D4
+#_1B895B: #_D957u: db $A6 ; play note D4
+#_1B895C: #_D958u: db $A6 ; play note D4
 #_1B895D: #_D959u: db $0C, $2D ; duration, params
-#_1B895F: #_D95Bu: db D4
-#_1B8960: #_D95Cu: db D4
-#_1B8961: #_D95Du: db Ds4
-#_1B8962: #_D95Eu: db Cs4
-#_1B8963: #_D95Fu: db !PART_END
+#_1B895F: #_D95Bu: db $A6 ; play note D4
+#_1B8960: #_D95Cu: db $A6 ; play note D4
+#_1B8961: #_D95Du: db $A7 ; play note Ds4
+#_1B8962: #_D95Eu: db $A5 ; play note Cs4
+#_1B8963: #_D95Fu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_D960:
-#_1B8964: #_D960u: db R
-#_1B8965: #_D961u: db D4
-#_1B8966: #_D962u: db R
-#_1B8967: #_D963u: db D4
-#_1B8968: #_D964u: db C4
-#_1B8969: #_D965u: db R
-#_1B896A: #_D966u: db C4
-#_1B896B: #_D967u: db D4
-#_1B896C: #_D968u: db R
-#_1B896D: #_D969u: db D4
-#_1B896E: #_D96Au: db D4
+#_1B8964: #_D960u: db $C9 ; rest
+#_1B8965: #_D961u: db $A6 ; play note D4
+#_1B8966: #_D962u: db $C9 ; rest
+#_1B8967: #_D963u: db $A6 ; play note D4
+#_1B8968: #_D964u: db $A4 ; play note C4
+#_1B8969: #_D965u: db $C9 ; rest
+#_1B896A: #_D966u: db $A4 ; play note C4
+#_1B896B: #_D967u: db $A6 ; play note D4
+#_1B896C: #_D968u: db $C9 ; rest
+#_1B896D: #_D969u: db $A6 ; play note D4
+#_1B896E: #_D96Au: db $A6 ; play note D4
 #_1B896F: #_D96Bu: db $06, $4D ; duration, params
-#_1B8971: #_D96Du: db D4
-#_1B8972: #_D96Eu: db D4
+#_1B8971: #_D96Du: db $A6 ; play note D4
+#_1B8972: #_D96Eu: db $A6 ; play note D4
 #_1B8973: #_D96Fu: db $0C, $2D ; duration, params
-#_1B8975: #_D971u: db D4
-#_1B8976: #_D972u: db D4
-#_1B8977: #_D973u: db Ds4
-#_1B8978: #_D974u: db Cs4
-#_1B8979: #_D975u: db !PART_END
+#_1B8975: #_D971u: db $A6 ; play note D4
+#_1B8976: #_D972u: db $A6 ; play note D4
+#_1B8977: #_D973u: db $A7 ; play note Ds4
+#_1B8978: #_D974u: db $A5 ; play note Cs4
+#_1B8979: #_D975u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_D976:
-#_1B897A: #_D976u: db !VOLUME, $C8
-#_1B897C: #_D978u: db !INSTR, $02
+#_1B897A: #_D976u: db $ED, $C8 ; set channel volume
+#_1B897C: #_D978u: db $E0, $02 ; set instrument - timpani
 #_1B897E: #_D97Au: db $0C, $6D ; duration, params
-#_1B8980: #_D97Cu: db G1
+#_1B8980: #_D97Cu: db $87 ; play note G1
 #_1B8981: #_D97Du: db $18 ; duration
-#_1B8982: #_D97Eu: db G1
+#_1B8982: #_D97Eu: db $87 ; play note G1
 #_1B8983: #_D97Fu: db $0C ; duration
-#_1B8984: #_D980u: db G1
+#_1B8984: #_D980u: db $87 ; play note G1
 #_1B8985: #_D981u: db $24 ; duration
-#_1B8986: #_D982u: db F1
+#_1B8986: #_D982u: db $85 ; play note F1
 #_1B8987: #_D983u: db $0C ; duration
-#_1B8988: #_D984u: db G1
-#_1B8989: #_D985u: db R
-#_1B898A: #_D986u: db G1
-#_1B898B: #_D987u: db G1
+#_1B8988: #_D984u: db $87 ; play note G1
+#_1B8989: #_D985u: db $C9 ; rest
+#_1B898A: #_D986u: db $87 ; play note G1
+#_1B898B: #_D987u: db $87 ; play note G1
 #_1B898C: #_D988u: db $06 ; duration
-#_1B898D: #_D989u: db G1
-#_1B898E: #_D98Au: db G1
+#_1B898D: #_D989u: db $87 ; play note G1
+#_1B898E: #_D98Au: db $87 ; play note G1
 #_1B898F: #_D98Bu: db $0C ; duration
-#_1B8990: #_D98Cu: db G1
-#_1B8991: #_D98Du: db G1
-#_1B8992: #_D98Eu: db Gs1
-#_1B8993: #_D98Fu: db Fs1
-#_1B8994: #_D990u: db G1
+#_1B8990: #_D98Cu: db $87 ; play note G1
+#_1B8991: #_D98Du: db $87 ; play note G1
+#_1B8992: #_D98Eu: db $88 ; play note Gs1
+#_1B8993: #_D98Fu: db $86 ; play note Fs1
+#_1B8994: #_D990u: db $87 ; play note G1
 #_1B8995: #_D991u: db $18, $3D ; duration, params
-#_1B8997: #_D993u: db G1
+#_1B8997: #_D993u: db $87 ; play note G1
 #_1B8998: #_D994u: db $0C ; duration
-#_1B8999: #_D995u: db G1
+#_1B8999: #_D995u: db $87 ; play note G1
 #_1B899A: #_D996u: db $24 ; duration
-#_1B899B: #_D997u: db F1
+#_1B899B: #_D997u: db $85 ; play note F1
 #_1B899C: #_D998u: db $0C, $6D ; duration, params
-#_1B899E: #_D99Au: db G1
-#_1B899F: #_D99Bu: db R
-#_1B89A0: #_D99Cu: db G1
-#_1B89A1: #_D99Du: db G1
+#_1B899E: #_D99Au: db $87 ; play note G1
+#_1B899F: #_D99Bu: db $C9 ; rest
+#_1B89A0: #_D99Cu: db $87 ; play note G1
+#_1B89A1: #_D99Du: db $87 ; play note G1
 #_1B89A2: #_D99Eu: db $06 ; duration
-#_1B89A3: #_D99Fu: db G1
-#_1B89A4: #_D9A0u: db G1
+#_1B89A3: #_D99Fu: db $87 ; play note G1
+#_1B89A4: #_D9A0u: db $87 ; play note G1
 #_1B89A5: #_D9A1u: db $0C ; duration
-#_1B89A6: #_D9A2u: db G1
-#_1B89A7: #_D9A3u: db G1
-#_1B89A8: #_D9A4u: db Gs1
-#_1B89A9: #_D9A5u: db Fs1
-#_1B89AA: #_D9A6u: db !PART_END
+#_1B89A6: #_D9A2u: db $87 ; play note G1
+#_1B89A7: #_D9A3u: db $87 ; play note G1
+#_1B89A8: #_D9A4u: db $88 ; play note Gs1
+#_1B89A9: #_D9A5u: db $86 ; play note Fs1
+#_1B89AA: #_D9A6u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_D9A7:
 #_1B89AB: #_D9A7u: db $30, $7D ; duration, params
-#_1B89AD: #_D9A9u: db G3
-#_1B89AE: #_D9AAu: db F3
-#_1B89AF: #_D9ABu: db G3
+#_1B89AD: #_D9A9u: db $9F ; play note G3
+#_1B89AE: #_D9AAu: db $9D ; play note F3
+#_1B89AF: #_D9ABu: db $9F ; play note G3
 #_1B89B0: #_D9ACu: db $18 ; duration
-#_1B89B1: #_D9ADu: db Gs3
-#_1B89B2: #_D9AEu: db Fs3
+#_1B89B1: #_D9ADu: db $A0 ; play note Gs3
+#_1B89B2: #_D9AEu: db $9E ; play note Fs3
 #_1B89B3: #_D9AFu: db $30 ; duration
-#_1B89B4: #_D9B0u: db G3
-#_1B89B5: #_D9B1u: db F3
-#_1B89B6: #_D9B2u: db G3
+#_1B89B4: #_D9B0u: db $9F ; play note G3
+#_1B89B5: #_D9B1u: db $9D ; play note F3
+#_1B89B6: #_D9B2u: db $9F ; play note G3
 #_1B89B7: #_D9B3u: db $18 ; duration
-#_1B89B8: #_D9B4u: db Gs3
-#_1B89B9: #_D9B5u: db Fs3
-#_1B89BA: #_D9B6u: db !PART_END
+#_1B89B8: #_D9B4u: db $A0 ; play note Gs3
+#_1B89B9: #_D9B5u: db $9E ; play note Fs3
+#_1B89BA: #_D9B6u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_D9B7:
 #_1B89BB: #_D9B7u: db $0C, $3D ; duration, params
-#_1B89BD: #_D9B9u: db G1
+#_1B89BD: #_D9B9u: db $87 ; play note G1
 #_1B89BE: #_D9BAu: db $18 ; duration
-#_1B89BF: #_D9BBu: db G1
+#_1B89BF: #_D9BBu: db $87 ; play note G1
 #_1B89C0: #_D9BCu: db $0C ; duration
-#_1B89C1: #_D9BDu: db G1
+#_1B89C1: #_D9BDu: db $87 ; play note G1
 #_1B89C2: #_D9BEu: db $24 ; duration
-#_1B89C3: #_D9BFu: db F1
+#_1B89C3: #_D9BFu: db $85 ; play note F1
 #_1B89C4: #_D9C0u: db $0C, $6D ; duration, params
-#_1B89C6: #_D9C2u: db G1
-#_1B89C7: #_D9C3u: db R
-#_1B89C8: #_D9C4u: db G1
-#_1B89C9: #_D9C5u: db G1
+#_1B89C6: #_D9C2u: db $87 ; play note G1
+#_1B89C7: #_D9C3u: db $C9 ; rest
+#_1B89C8: #_D9C4u: db $87 ; play note G1
+#_1B89C9: #_D9C5u: db $87 ; play note G1
 #_1B89CA: #_D9C6u: db $06 ; duration
-#_1B89CB: #_D9C7u: db G1
-#_1B89CC: #_D9C8u: db G1
+#_1B89CB: #_D9C7u: db $87 ; play note G1
+#_1B89CC: #_D9C8u: db $87 ; play note G1
 #_1B89CD: #_D9C9u: db $0C ; duration
-#_1B89CE: #_D9CAu: db G1
-#_1B89CF: #_D9CBu: db G1
-#_1B89D0: #_D9CCu: db Gs1
-#_1B89D1: #_D9CDu: db Fs1
-#_1B89D2: #_D9CEu: db !PART_END
+#_1B89CE: #_D9CAu: db $87 ; play note G1
+#_1B89CF: #_D9CBu: db $87 ; play note G1
+#_1B89D0: #_D9CCu: db $88 ; play note Gs1
+#_1B89D1: #_D9CDu: db $86 ; play note Fs1
+#_1B89D2: #_D9CEu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_D9CF:
 #_1B89D3: #_D9CFu: db $0C, $3D ; duration, params
-#_1B89D5: #_D9D1u: db C2
+#_1B89D5: #_D9D1u: db $8C ; play note C2
 #_1B89D6: #_D9D2u: db $18 ; duration
-#_1B89D7: #_D9D3u: db C2
+#_1B89D7: #_D9D3u: db $8C ; play note C2
 #_1B89D8: #_D9D4u: db $0C ; duration
-#_1B89D9: #_D9D5u: db C2
+#_1B89D9: #_D9D5u: db $8C ; play note C2
 #_1B89DA: #_D9D6u: db $24 ; duration
-#_1B89DB: #_D9D7u: db As1
+#_1B89DB: #_D9D7u: db $8A ; play note As1
 #_1B89DC: #_D9D8u: db $0C, $6D ; duration, params
-#_1B89DE: #_D9DAu: db C2
-#_1B89DF: #_D9DBu: db R
-#_1B89E0: #_D9DCu: db C2
-#_1B89E1: #_D9DDu: db C2
+#_1B89DE: #_D9DAu: db $8C ; play note C2
+#_1B89DF: #_D9DBu: db $C9 ; rest
+#_1B89E0: #_D9DCu: db $8C ; play note C2
+#_1B89E1: #_D9DDu: db $8C ; play note C2
 #_1B89E2: #_D9DEu: db $06 ; duration
-#_1B89E3: #_D9DFu: db C2
-#_1B89E4: #_D9E0u: db C2
+#_1B89E3: #_D9DFu: db $8C ; play note C2
+#_1B89E4: #_D9E0u: db $8C ; play note C2
 #_1B89E5: #_D9E1u: db $0C ; duration
-#_1B89E6: #_D9E2u: db C2
-#_1B89E7: #_D9E3u: db C2
-#_1B89E8: #_D9E4u: db Cs2
-#_1B89E9: #_D9E5u: db B1
-#_1B89EA: #_D9E6u: db !PART_END
+#_1B89E6: #_D9E2u: db $8C ; play note C2
+#_1B89E7: #_D9E3u: db $8C ; play note C2
+#_1B89E8: #_D9E4u: db $8D ; play note Cs2
+#_1B89E9: #_D9E5u: db $8B ; play note B1
+#_1B89EA: #_D9E6u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_D9E7:
 #_1B89EB: #_D9E7u: db $60, $5D ; duration, params
-#_1B89ED: #_D9E9u: db G4
+#_1B89ED: #_D9E9u: db $AB ; play note G4
 #_1B89EE: #_D9EAu: db $20, $6D ; duration, params
-#_1B89F0: #_D9ECu: db F4
+#_1B89F0: #_D9ECu: db $A9 ; play note F4
 #_1B89F1: #_D9EDu: db $08 ; duration
-#_1B89F2: #_D9EEu: db Ds4
-#_1B89F3: #_D9EFu: db D4
+#_1B89F2: #_D9EEu: db $A7 ; play note Ds4
+#_1B89F3: #_D9EFu: db $A6 ; play note D4
 #_1B89F4: #_D9F0u: db $0C ; duration
-#_1B89F5: #_D9F1u: db C4
+#_1B89F5: #_D9F1u: db $A4 ; play note C4
 #_1B89F6: #_D9F2u: db $0C, $4D ; duration, params
-#_1B89F8: #_D9F4u: db D4
+#_1B89F8: #_D9F4u: db $A6 ; play note D4
 #_1B89F9: #_D9F5u: db $0C, $3D ; duration, params
-#_1B89FB: #_D9F7u: db F4
-#_1B89FC: #_D9F8u: db C5
-#_1B89FD: #_D9F9u: db !PART_END
+#_1B89FB: #_D9F7u: db $A9 ; play note F4
+#_1B89FC: #_D9F8u: db $B0 ; play note C5
+#_1B89FD: #_D9F9u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_D9FA:
 #_1B89FE: #_D9FAu: db $06, $6D ; duration, params
-#_1B8A00: #_D9FCu: db Gs1
+#_1B8A00: #_D9FCu: db $88 ; play note Gs1
 #_1B8A01: #_D9FDu: db $06, $6B ; duration, params
-#_1B8A03: #_D9FFu: db Gs1
+#_1B8A03: #_D9FFu: db $88 ; play note Gs1
 #_1B8A04: #_DA00u: db $06, $68 ; duration, params
-#_1B8A06: #_DA02u: db Gs1
+#_1B8A06: #_DA02u: db $88 ; play note Gs1
 #_1B8A07: #_DA03u: db $06, $69 ; duration, params
-#_1B8A09: #_DA05u: db Gs1
+#_1B8A09: #_DA05u: db $88 ; play note Gs1
 #_1B8A0A: #_DA06u: db $06, $6A ; duration, params
-#_1B8A0C: #_DA08u: db Gs1
+#_1B8A0C: #_DA08u: db $88 ; play note Gs1
 #_1B8A0D: #_DA09u: db $06, $6B ; duration, params
-#_1B8A0F: #_DA0Bu: db Gs1
+#_1B8A0F: #_DA0Bu: db $88 ; play note Gs1
 #_1B8A10: #_DA0Cu: db $06, $6C ; duration, params
-#_1B8A12: #_DA0Eu: db Gs1
+#_1B8A12: #_DA0Eu: db $88 ; play note Gs1
 #_1B8A13: #_DA0Fu: db $06, $6D ; duration, params
-#_1B8A15: #_DA11u: db Gs1
+#_1B8A15: #_DA11u: db $88 ; play note Gs1
 #_1B8A16: #_DA12u: db $0C ; duration
-#_1B8A17: #_DA13u: db Gs1
-#_1B8A18: #_DA14u: db Gs1
+#_1B8A17: #_DA13u: db $88 ; play note Gs1
+#_1B8A18: #_DA14u: db $88 ; play note Gs1
 #_1B8A19: #_DA15u: db $0C, $2D ; duration, params
-#_1B8A1B: #_DA17u: db Gs1
-#_1B8A1C: #_DA18u: db Gs1
+#_1B8A1B: #_DA17u: db $88 ; play note Gs1
+#_1B8A1C: #_DA18u: db $88 ; play note Gs1
 #_1B8A1D: #_DA19u: db $20, $5D ; duration, params
-#_1B8A1F: #_DA1Bu: db G1
+#_1B8A1F: #_DA1Bu: db $87 ; play note G1
 #_1B8A20: #_DA1Cu: db $08 ; duration
-#_1B8A21: #_DA1Du: db G1
-#_1B8A22: #_DA1Eu: db G1
+#_1B8A21: #_DA1Du: db $87 ; play note G1
+#_1B8A22: #_DA1Eu: db $87 ; play note G1
 #_1B8A23: #_DA1Fu: db $0C ; duration
-#_1B8A24: #_DA20u: db G1
-#_1B8A25: #_DA21u: db G1
+#_1B8A24: #_DA20u: db $87 ; play note G1
+#_1B8A25: #_DA21u: db $87 ; play note G1
 #_1B8A26: #_DA22u: db $08 ; duration
-#_1B8A27: #_DA23u: db G1
-#_1B8A28: #_DA24u: db G1
-#_1B8A29: #_DA25u: db G1
-#_1B8A2A: #_DA26u: db !PART_END
+#_1B8A27: #_DA23u: db $87 ; play note G1
+#_1B8A28: #_DA24u: db $87 ; play note G1
+#_1B8A29: #_DA25u: db $87 ; play note G1
+#_1B8A2A: #_DA26u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DA27:
 #_1B8A2B: #_DA27u: db $40, $5D ; duration, params
-#_1B8A2D: #_DA29u: db G5
+#_1B8A2D: #_DA29u: db $B7 ; play note G5
 #_1B8A2E: #_DA2Au: db $04, $3D ; duration, params
-#_1B8A30: #_DA2Cu: db G5
-#_1B8A31: #_DA2Du: db G5
+#_1B8A30: #_DA2Cu: db $B7 ; play note G5
+#_1B8A31: #_DA2Du: db $B7 ; play note G5
 #_1B8A32: #_DA2Eu: db $08 ; duration
-#_1B8A33: #_DA2Fu: db G5
-#_1B8A34: #_DA30u: db G5
-#_1B8A35: #_DA31u: db G5
-#_1B8A36: #_DA32u: db !PART_END
+#_1B8A33: #_DA2Fu: db $B7 ; play note G5
+#_1B8A34: #_DA30u: db $B7 ; play note G5
+#_1B8A35: #_DA31u: db $B7 ; play note G5
+#_1B8A36: #_DA32u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DA33:
 #_1B8A37: #_DA33u: db $20, $6D ; duration, params
-#_1B8A39: #_DA35u: db As4
+#_1B8A39: #_DA35u: db $AE ; play note As4
 #_1B8A3A: #_DA36u: db $08 ; duration
-#_1B8A3B: #_DA37u: db Gs4
-#_1B8A3C: #_DA38u: db G4
+#_1B8A3B: #_DA37u: db $AC ; play note Gs4
+#_1B8A3C: #_DA38u: db $AB ; play note G4
 #_1B8A3D: #_DA39u: db $0C ; duration
-#_1B8A3E: #_DA3Au: db F4
+#_1B8A3E: #_DA3Au: db $A9 ; play note F4
 #_1B8A3F: #_DA3Bu: db $0C, $4D ; duration, params
-#_1B8A41: #_DA3Du: db G4
+#_1B8A41: #_DA3Du: db $AB ; play note G4
 #_1B8A42: #_DA3Eu: db $0C, $3D ; duration, params
-#_1B8A44: #_DA40u: db Gs4
-#_1B8A45: #_DA41u: db As4
+#_1B8A44: #_DA40u: db $AC ; play note Gs4
+#_1B8A45: #_DA41u: db $AE ; play note As4
 #_1B8A46: #_DA42u: db $20, $6D ; duration, params
-#_1B8A48: #_DA44u: db C5
+#_1B8A48: #_DA44u: db $B0 ; play note C5
 #_1B8A49: #_DA45u: db $08 ; duration
-#_1B8A4A: #_DA46u: db As4
-#_1B8A4B: #_DA47u: db A4
+#_1B8A4A: #_DA46u: db $AE ; play note As4
+#_1B8A4B: #_DA47u: db $AD ; play note A4
 #_1B8A4C: #_DA48u: db $0C ; duration
-#_1B8A4D: #_DA49u: db G4
+#_1B8A4D: #_DA49u: db $AB ; play note G4
 #_1B8A4E: #_DA4Au: db $0C, $4D ; duration, params
-#_1B8A50: #_DA4Cu: db A4
+#_1B8A50: #_DA4Cu: db $AD ; play note A4
 #_1B8A51: #_DA4Du: db $0C, $3D ; duration, params
-#_1B8A53: #_DA4Fu: db As4
-#_1B8A54: #_DA50u: db C5
-#_1B8A55: #_DA51u: db !PART_END
+#_1B8A53: #_DA4Fu: db $AE ; play note As4
+#_1B8A54: #_DA50u: db $B0 ; play note C5
+#_1B8A55: #_DA51u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DA52:
 #_1B8A56: #_DA52u: db $40, $5D ; duration, params
-#_1B8A58: #_DA54u: db C5
+#_1B8A58: #_DA54u: db $B0 ; play note C5
 #_1B8A59: #_DA55u: db $04, $3D ; duration, params
-#_1B8A5B: #_DA57u: db C5
-#_1B8A5C: #_DA58u: db C5
+#_1B8A5B: #_DA57u: db $B0 ; play note C5
+#_1B8A5C: #_DA58u: db $B0 ; play note C5
 #_1B8A5D: #_DA59u: db $08 ; duration
-#_1B8A5E: #_DA5Au: db C5
-#_1B8A5F: #_DA5Bu: db C5
-#_1B8A60: #_DA5Cu: db C5
-#_1B8A61: #_DA5Du: db !PART_END
+#_1B8A5E: #_DA5Au: db $B0 ; play note C5
+#_1B8A5F: #_DA5Bu: db $B0 ; play note C5
+#_1B8A60: #_DA5Cu: db $B0 ; play note C5
+#_1B8A61: #_DA5Du: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DA5E:
-#_1B8A62: #_DA5Eu: db !INSTR, $0B
-#_1B8A64: #_DA60u: db !PAN, $07
-#_1B8A66: #_DA62u: db !VIBRATO, $1E, $1A, $14
+#_1B8A62: #_DA5Eu: db $E0, $0B ; set instrument - trombone
+#_1B8A64: #_DA60u: db $E1, $07 ; set panning - leaning right
+#_1B8A66: #_DA62u: db $E3, $1E, $1A, $14 ; enable vibrato
 #_1B8A6A: #_DA66u: db $24, $6D ; duration, params
-#_1B8A6C: #_DA68u: db Ds5
+#_1B8A6C: #_DA68u: db $B3 ; play note Ds5
 #_1B8A6D: #_DA69u: db $06, $2D ; duration, params
-#_1B8A6F: #_DA6Bu: db Ds5
-#_1B8A70: #_DA6Cu: db Ds5
+#_1B8A6F: #_DA6Bu: db $B3 ; play note Ds5
+#_1B8A70: #_DA6Cu: db $B3 ; play note Ds5
 #_1B8A71: #_DA6Du: db $0C ; duration
-#_1B8A72: #_DA6Eu: db Ds5
-#_1B8A73: #_DA6Fu: db C5
-#_1B8A74: #_DA70u: db G4
-#_1B8A75: #_DA71u: db Ds5
-#_1B8A76: #_DA72u: db !PART_END
+#_1B8A72: #_DA6Eu: db $B3 ; play note Ds5
+#_1B8A73: #_DA6Fu: db $B0 ; play note C5
+#_1B8A74: #_DA70u: db $AB ; play note G4
+#_1B8A75: #_DA71u: db $B3 ; play note Ds5
+#_1B8A76: #_DA72u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DA73:
 #_1B8A77: #_DA73u: db $60, $6D ; duration, params
-#_1B8A79: #_DA75u: db D5
+#_1B8A79: #_DA75u: db $B2 ; play note D5
 #_1B8A7A: #_DA76u: db $24 ; duration
-#_1B8A7B: #_DA77u: db C5
+#_1B8A7B: #_DA77u: db $B0 ; play note C5
 #_1B8A7C: #_DA78u: db $06, $2D ; duration, params
-#_1B8A7E: #_DA7Au: db C5
-#_1B8A7F: #_DA7Bu: db C5
+#_1B8A7E: #_DA7Au: db $B0 ; play note C5
+#_1B8A7F: #_DA7Bu: db $B0 ; play note C5
 #_1B8A80: #_DA7Cu: db $0C ; duration
-#_1B8A81: #_DA7Du: db C5
-#_1B8A82: #_DA7Eu: db G4
-#_1B8A83: #_DA7Fu: db Ds4
-#_1B8A84: #_DA80u: db C5
-#_1B8A85: #_DA81u: db !PART_END
+#_1B8A81: #_DA7Du: db $B0 ; play note C5
+#_1B8A82: #_DA7Eu: db $AB ; play note G4
+#_1B8A83: #_DA7Fu: db $A7 ; play note Ds4
+#_1B8A84: #_DA80u: db $B0 ; play note C5
+#_1B8A85: #_DA81u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DA82:
-#_1B8A86: #_DA82u: db !INSTR, $0A
+#_1B8A86: #_DA82u: db $E0, $0A ; set instrument - strings B
 #_1B8A88: #_DA84u: db $0C, $6D ; duration, params
-#_1B8A8A: #_DA86u: db C3
-#_1B8A8B: #_DA87u: db C3
-#_1B8A8C: #_DA88u: db C3
-#_1B8A8D: #_DA89u: db C3
-#_1B8A8E: #_DA8Au: db C3
-#_1B8A8F: #_DA8Bu: db C3
+#_1B8A8A: #_DA86u: db $98 ; play note C3
+#_1B8A8B: #_DA87u: db $98 ; play note C3
+#_1B8A8C: #_DA88u: db $98 ; play note C3
+#_1B8A8D: #_DA89u: db $98 ; play note C3
+#_1B8A8E: #_DA8Au: db $98 ; play note C3
+#_1B8A8F: #_DA8Bu: db $98 ; play note C3
 #_1B8A90: #_DA8Cu: db $08 ; duration
-#_1B8A91: #_DA8Du: db C3
-#_1B8A92: #_DA8Eu: db C3
-#_1B8A93: #_DA8Fu: db C3
+#_1B8A91: #_DA8Du: db $98 ; play note C3
+#_1B8A92: #_DA8Eu: db $98 ; play note C3
+#_1B8A93: #_DA8Fu: db $98 ; play note C3
 #_1B8A94: #_DA90u: db $0C ; duration
-#_1B8A95: #_DA91u: db As2
-#_1B8A96: #_DA92u: db As2
-#_1B8A97: #_DA93u: db As2
-#_1B8A98: #_DA94u: db As2
-#_1B8A99: #_DA95u: db As2
-#_1B8A9A: #_DA96u: db As2
+#_1B8A95: #_DA91u: db $96 ; play note As2
+#_1B8A96: #_DA92u: db $96 ; play note As2
+#_1B8A97: #_DA93u: db $96 ; play note As2
+#_1B8A98: #_DA94u: db $96 ; play note As2
+#_1B8A99: #_DA95u: db $96 ; play note As2
+#_1B8A9A: #_DA96u: db $96 ; play note As2
 #_1B8A9B: #_DA97u: db $08 ; duration
-#_1B8A9C: #_DA98u: db As2
-#_1B8A9D: #_DA99u: db As2
-#_1B8A9E: #_DA9Au: db As2
+#_1B8A9C: #_DA98u: db $96 ; play note As2
+#_1B8A9D: #_DA99u: db $96 ; play note As2
+#_1B8A9E: #_DA9Au: db $96 ; play note As2
 #_1B8A9F: #_DA9Bu: db $0C ; duration
-#_1B8AA0: #_DA9Cu: db A2
-#_1B8AA1: #_DA9Du: db A2
-#_1B8AA2: #_DA9Eu: db A2
-#_1B8AA3: #_DA9Fu: db A2
-#_1B8AA4: #_DAA0u: db A2
-#_1B8AA5: #_DAA1u: db A2
+#_1B8AA0: #_DA9Cu: db $95 ; play note A2
+#_1B8AA1: #_DA9Du: db $95 ; play note A2
+#_1B8AA2: #_DA9Eu: db $95 ; play note A2
+#_1B8AA3: #_DA9Fu: db $95 ; play note A2
+#_1B8AA4: #_DAA0u: db $95 ; play note A2
+#_1B8AA5: #_DAA1u: db $95 ; play note A2
 #_1B8AA6: #_DAA2u: db $08 ; duration
-#_1B8AA7: #_DAA3u: db A2
-#_1B8AA8: #_DAA4u: db A2
-#_1B8AA9: #_DAA5u: db A2
-#_1B8AAA: #_DAA6u: db !PART_END
+#_1B8AA7: #_DAA3u: db $95 ; play note A2
+#_1B8AA8: #_DAA4u: db $95 ; play note A2
+#_1B8AA9: #_DAA5u: db $95 ; play note A2
+#_1B8AAA: #_DAA6u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DAA7:
 #_1B8AAB: #_DAA7u: db $0C, $59 ; duration, params
-#_1B8AAD: #_DAA9u: db G4
-#_1B8AAE: #_DAAAu: db R
+#_1B8AAD: #_DAA9u: db $AB ; play note G4
+#_1B8AAE: #_DAAAu: db $C9 ; rest
 #_1B8AAF: #_DAABu: db $08, $49 ; duration, params
-#_1B8AB1: #_DAADu: db G4
-#_1B8AB2: #_DAAEu: db G4
-#_1B8AB3: #_DAAFu: db G4
+#_1B8AB1: #_DAADu: db $AB ; play note G4
+#_1B8AB2: #_DAAEu: db $AB ; play note G4
+#_1B8AB3: #_DAAFu: db $AB ; play note G4
 #_1B8AB4: #_DAB0u: db $0C, $59 ; duration, params
-#_1B8AB6: #_DAB2u: db G4
-#_1B8AB7: #_DAB3u: db R
+#_1B8AB6: #_DAB2u: db $AB ; play note G4
+#_1B8AB7: #_DAB3u: db $C9 ; rest
 #_1B8AB8: #_DAB4u: db $0C, $49 ; duration, params
-#_1B8ABA: #_DAB6u: db G4
-#_1B8ABB: #_DAB7u: db R
-#_1B8ABC: #_DAB8u: db !PART_END
+#_1B8ABA: #_DAB6u: db $AB ; play note G4
+#_1B8ABB: #_DAB7u: db $C9 ; rest
+#_1B8ABC: #_DAB8u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DAB9:
 #_1B8ABD: #_DAB9u: db $0C, $5D ; duration, params
-#_1B8ABF: #_DABBu: db C5
+#_1B8ABF: #_DABBu: db $B0 ; play note C5
 #_1B8AC0: #_DABCu: db $0C, $39 ; duration, params
-#_1B8AC2: #_DABEu: db Ds4
+#_1B8AC2: #_DABEu: db $A7 ; play note Ds4
 #_1B8AC3: #_DABFu: db $08, $4B ; duration, params
-#_1B8AC5: #_DAC1u: db C5
-#_1B8AC6: #_DAC2u: db C5
-#_1B8AC7: #_DAC3u: db C5
+#_1B8AC5: #_DAC1u: db $B0 ; play note C5
+#_1B8AC6: #_DAC2u: db $B0 ; play note C5
+#_1B8AC7: #_DAC3u: db $B0 ; play note C5
 #_1B8AC8: #_DAC4u: db $0C, $5C ; duration, params
-#_1B8ACA: #_DAC6u: db C5
+#_1B8ACA: #_DAC6u: db $B0 ; play note C5
 #_1B8ACB: #_DAC7u: db $0C, $39 ; duration, params
-#_1B8ACD: #_DAC9u: db Ds4
+#_1B8ACD: #_DAC9u: db $A7 ; play note Ds4
 #_1B8ACE: #_DACAu: db $0C, $4B ; duration, params
-#_1B8AD0: #_DACCu: db C5
+#_1B8AD0: #_DACCu: db $B0 ; play note C5
 #_1B8AD1: #_DACDu: db $0C, $39 ; duration, params
-#_1B8AD3: #_DACFu: db Ds4
+#_1B8AD3: #_DACFu: db $A7 ; play note Ds4
 #_1B8AD4: #_DAD0u: db $0C, $5D ; duration, params
-#_1B8AD6: #_DAD2u: db As4
+#_1B8AD6: #_DAD2u: db $AE ; play note As4
 #_1B8AD7: #_DAD3u: db $0C, $39 ; duration, params
-#_1B8AD9: #_DAD5u: db D4
+#_1B8AD9: #_DAD5u: db $A6 ; play note D4
 #_1B8ADA: #_DAD6u: db $08, $4B ; duration, params
-#_1B8ADC: #_DAD8u: db As4
-#_1B8ADD: #_DAD9u: db As4
-#_1B8ADE: #_DADAu: db As4
+#_1B8ADC: #_DAD8u: db $AE ; play note As4
+#_1B8ADD: #_DAD9u: db $AE ; play note As4
+#_1B8ADE: #_DADAu: db $AE ; play note As4
 #_1B8ADF: #_DADBu: db $0C, $5C ; duration, params
-#_1B8AE1: #_DADDu: db As4
+#_1B8AE1: #_DADDu: db $AE ; play note As4
 #_1B8AE2: #_DADEu: db $0C, $39 ; duration, params
-#_1B8AE4: #_DAE0u: db D4
+#_1B8AE4: #_DAE0u: db $A6 ; play note D4
 #_1B8AE5: #_DAE1u: db $0C, $4B ; duration, params
-#_1B8AE7: #_DAE3u: db As4
+#_1B8AE7: #_DAE3u: db $AE ; play note As4
 #_1B8AE8: #_DAE4u: db $0C, $39 ; duration, params
-#_1B8AEA: #_DAE6u: db D4
-#_1B8AEB: #_DAE7u: db !PART_END
+#_1B8AEA: #_DAE6u: db $A6 ; play note D4
+#_1B8AEB: #_DAE7u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DAE8:
-#_1B8AEC: #_DAE8u: db !INSTR, $0B
-#_1B8AEE: #_DAEAu: db !PAN, $0E
-#_1B8AF0: #_DAECu: db !VIBRATO, $1E, $14, $14
+#_1B8AEC: #_DAE8u: db $E0, $0B ; set instrument - trombone
+#_1B8AEE: #_DAEAu: db $E1, $0E ; set panning - leaning left
+#_1B8AF0: #_DAECu: db $E3, $1E, $14, $14 ; enable vibrato
 #_1B8AF4: #_DAF0u: db $06 ; duration
-#_1B8AF5: #_DAF1u: db R
+#_1B8AF5: #_DAF1u: db $C9 ; rest
 #_1B8AF6: #_DAF2u: db $24, $6D ; duration, params
-#_1B8AF8: #_DAF4u: db Ds5
+#_1B8AF8: #_DAF4u: db $B3 ; play note Ds5
 #_1B8AF9: #_DAF5u: db $06, $2D ; duration, params
-#_1B8AFB: #_DAF7u: db Ds5
-#_1B8AFC: #_DAF8u: db Ds5
+#_1B8AFB: #_DAF7u: db $B3 ; play note Ds5
+#_1B8AFC: #_DAF8u: db $B3 ; play note Ds5
 #_1B8AFD: #_DAF9u: db $0C ; duration
-#_1B8AFE: #_DAFAu: db Ds5
-#_1B8AFF: #_DAFBu: db C5
-#_1B8B00: #_DAFCu: db G4
-#_1B8B01: #_DAFDu: db Ds5
-#_1B8B02: #_DAFEu: db !PART_END
+#_1B8AFE: #_DAFAu: db $B3 ; play note Ds5
+#_1B8AFF: #_DAFBu: db $B0 ; play note C5
+#_1B8B00: #_DAFCu: db $AB ; play note G4
+#_1B8B01: #_DAFDu: db $B3 ; play note Ds5
+#_1B8B02: #_DAFEu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DAFF:
-#_1B8B03: #_DAFFu: db !INSTR, $0A
-#_1B8B05: #_DB01u: db !PAN, $07
+#_1B8B03: #_DAFFu: db $E0, $0A ; set instrument - strings B
+#_1B8B05: #_DB01u: db $E1, $07 ; set panning - leaning right
 #_1B8B07: #_DB03u: db $3C, $6D ; duration, params
-#_1B8B09: #_DB05u: db G3
+#_1B8B09: #_DB05u: db $9F ; play note G3
 #_1B8B0A: #_DB06u: db $0C ; duration
-#_1B8B0B: #_DB07u: db A3
-#_1B8B0C: #_DB08u: db As3
-#_1B8B0D: #_DB09u: db D4
-#_1B8B0E: #_DB0Au: db !PART_END
+#_1B8B0B: #_DB07u: db $A1 ; play note A3
+#_1B8B0C: #_DB08u: db $A2 ; play note As3
+#_1B8B0D: #_DB09u: db $A6 ; play note D4
+#_1B8B0E: #_DB0Au: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DB0B:
-#_1B8B0F: #_DB0Bu: db !INSTR, $0A
+#_1B8B0F: #_DB0Bu: db $E0, $0A ; set instrument - strings B
 #_1B8B11: #_DB0Du: db $0C, $6D ; duration, params
-#_1B8B13: #_DB0Fu: db G2
-#_1B8B14: #_DB10u: db G2
-#_1B8B15: #_DB11u: db G2
-#_1B8B16: #_DB12u: db G2
-#_1B8B17: #_DB13u: db G2
-#_1B8B18: #_DB14u: db G2
+#_1B8B13: #_DB0Fu: db $93 ; play note G2
+#_1B8B14: #_DB10u: db $93 ; play note G2
+#_1B8B15: #_DB11u: db $93 ; play note G2
+#_1B8B16: #_DB12u: db $93 ; play note G2
+#_1B8B17: #_DB13u: db $93 ; play note G2
+#_1B8B18: #_DB14u: db $93 ; play note G2
 #_1B8B19: #_DB15u: db $08 ; duration
-#_1B8B1A: #_DB16u: db G2
-#_1B8B1B: #_DB17u: db G2
-#_1B8B1C: #_DB18u: db G2
+#_1B8B1A: #_DB16u: db $93 ; play note G2
+#_1B8B1B: #_DB17u: db $93 ; play note G2
+#_1B8B1C: #_DB18u: db $93 ; play note G2
 #_1B8B1D: #_DB19u: db $0C ; duration
-#_1B8B1E: #_DB1Au: db A2
-#_1B8B1F: #_DB1Bu: db A2
-#_1B8B20: #_DB1Cu: db A2
-#_1B8B21: #_DB1Du: db A2
-#_1B8B22: #_DB1Eu: db A2
-#_1B8B23: #_DB1Fu: db A2
+#_1B8B1E: #_DB1Au: db $95 ; play note A2
+#_1B8B1F: #_DB1Bu: db $95 ; play note A2
+#_1B8B20: #_DB1Cu: db $95 ; play note A2
+#_1B8B21: #_DB1Du: db $95 ; play note A2
+#_1B8B22: #_DB1Eu: db $95 ; play note A2
+#_1B8B23: #_DB1Fu: db $95 ; play note A2
 #_1B8B24: #_DB20u: db $08 ; duration
-#_1B8B25: #_DB21u: db A2
-#_1B8B26: #_DB22u: db A2
-#_1B8B27: #_DB23u: db A2
+#_1B8B25: #_DB21u: db $95 ; play note A2
+#_1B8B26: #_DB22u: db $95 ; play note A2
+#_1B8B27: #_DB23u: db $95 ; play note A2
 #_1B8B28: #_DB24u: db $0C ; duration
-#_1B8B29: #_DB25u: db Fs2
-#_1B8B2A: #_DB26u: db Fs2
-#_1B8B2B: #_DB27u: db Fs2
-#_1B8B2C: #_DB28u: db Fs2
-#_1B8B2D: #_DB29u: db Fs2
-#_1B8B2E: #_DB2Au: db Fs2
+#_1B8B29: #_DB25u: db $92 ; play note Fs2
+#_1B8B2A: #_DB26u: db $92 ; play note Fs2
+#_1B8B2B: #_DB27u: db $92 ; play note Fs2
+#_1B8B2C: #_DB28u: db $92 ; play note Fs2
+#_1B8B2D: #_DB29u: db $92 ; play note Fs2
+#_1B8B2E: #_DB2Au: db $92 ; play note Fs2
 #_1B8B2F: #_DB2Bu: db $08 ; duration
-#_1B8B30: #_DB2Cu: db Fs2
-#_1B8B31: #_DB2Du: db Fs2
-#_1B8B32: #_DB2Eu: db Fs2
+#_1B8B30: #_DB2Cu: db $92 ; play note Fs2
+#_1B8B31: #_DB2Du: db $92 ; play note Fs2
+#_1B8B32: #_DB2Eu: db $92 ; play note Fs2
 #_1B8B33: #_DB2Fu: db $0C ; duration
-#_1B8B34: #_DB30u: db G2
-#_1B8B35: #_DB31u: db G2
-#_1B8B36: #_DB32u: db G2
-#_1B8B37: #_DB33u: db G2
-#_1B8B38: #_DB34u: db G2
-#_1B8B39: #_DB35u: db G2
+#_1B8B34: #_DB30u: db $93 ; play note G2
+#_1B8B35: #_DB31u: db $93 ; play note G2
+#_1B8B36: #_DB32u: db $93 ; play note G2
+#_1B8B37: #_DB33u: db $93 ; play note G2
+#_1B8B38: #_DB34u: db $93 ; play note G2
+#_1B8B39: #_DB35u: db $93 ; play note G2
 #_1B8B3A: #_DB36u: db $08 ; duration
-#_1B8B3B: #_DB37u: db G2
-#_1B8B3C: #_DB38u: db G2
-#_1B8B3D: #_DB39u: db G2
-#_1B8B3E: #_DB3Au: db !PART_END
+#_1B8B3B: #_DB37u: db $93 ; play note G2
+#_1B8B3C: #_DB38u: db $93 ; play note G2
+#_1B8B3D: #_DB39u: db $93 ; play note G2
+#_1B8B3E: #_DB3Au: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DB3B:
 #_1B8B3F: #_DB3Bu: db $0C, $59 ; duration, params
-#_1B8B41: #_DB3Du: db A4
-#_1B8B42: #_DB3Eu: db R
+#_1B8B41: #_DB3Du: db $AD ; play note A4
+#_1B8B42: #_DB3Eu: db $C9 ; rest
 #_1B8B43: #_DB3Fu: db $08, $49 ; duration, params
-#_1B8B45: #_DB41u: db A4
-#_1B8B46: #_DB42u: db A4
-#_1B8B47: #_DB43u: db A4
+#_1B8B45: #_DB41u: db $AD ; play note A4
+#_1B8B46: #_DB42u: db $AD ; play note A4
+#_1B8B47: #_DB43u: db $AD ; play note A4
 #_1B8B48: #_DB44u: db $0C, $59 ; duration, params
-#_1B8B4A: #_DB46u: db A4
-#_1B8B4B: #_DB47u: db R
+#_1B8B4A: #_DB46u: db $AD ; play note A4
+#_1B8B4B: #_DB47u: db $C9 ; rest
 #_1B8B4C: #_DB48u: db $0C, $49 ; duration, params
-#_1B8B4E: #_DB4Au: db A4
-#_1B8B4F: #_DB4Bu: db R
+#_1B8B4E: #_DB4Au: db $AD ; play note A4
+#_1B8B4F: #_DB4Bu: db $C9 ; rest
 #_1B8B50: #_DB4Cu: db $0C, $59 ; duration, params
-#_1B8B52: #_DB4Eu: db G4
-#_1B8B53: #_DB4Fu: db R
+#_1B8B52: #_DB4Eu: db $AB ; play note G4
+#_1B8B53: #_DB4Fu: db $C9 ; rest
 #_1B8B54: #_DB50u: db $08, $49 ; duration, params
-#_1B8B56: #_DB52u: db G4
-#_1B8B57: #_DB53u: db G4
-#_1B8B58: #_DB54u: db G4
+#_1B8B56: #_DB52u: db $AB ; play note G4
+#_1B8B57: #_DB53u: db $AB ; play note G4
+#_1B8B58: #_DB54u: db $AB ; play note G4
 #_1B8B59: #_DB55u: db $0C, $59 ; duration, params
-#_1B8B5B: #_DB57u: db G4
-#_1B8B5C: #_DB58u: db R
+#_1B8B5B: #_DB57u: db $AB ; play note G4
+#_1B8B5C: #_DB58u: db $C9 ; rest
 #_1B8B5D: #_DB59u: db $0C, $49 ; duration, params
-#_1B8B5F: #_DB5Bu: db G4
-#_1B8B60: #_DB5Cu: db R
-#_1B8B61: #_DB5Du: db !PART_END
+#_1B8B5F: #_DB5Bu: db $AB ; play note G4
+#_1B8B60: #_DB5Cu: db $C9 ; rest
+#_1B8B61: #_DB5Du: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DB5E:
 #_1B8B62: #_DB5Eu: db $0C, $5D ; duration, params
-#_1B8B64: #_DB60u: db As4
+#_1B8B64: #_DB60u: db $AE ; play note As4
 #_1B8B65: #_DB61u: db $0C, $39 ; duration, params
-#_1B8B67: #_DB63u: db D4
+#_1B8B67: #_DB63u: db $A6 ; play note D4
 #_1B8B68: #_DB64u: db $08, $4B ; duration, params
-#_1B8B6A: #_DB66u: db As4
+#_1B8B6A: #_DB66u: db $AE ; play note As4
 #_1B8B6B: #_DB67u: db $08, $39 ; duration, params
-#_1B8B6D: #_DB69u: db As4
-#_1B8B6E: #_DB6Au: db As4
+#_1B8B6D: #_DB69u: db $AE ; play note As4
+#_1B8B6E: #_DB6Au: db $AE ; play note As4
 #_1B8B6F: #_DB6Bu: db $0C, $5C ; duration, params
-#_1B8B71: #_DB6Du: db As4
+#_1B8B71: #_DB6Du: db $AE ; play note As4
 #_1B8B72: #_DB6Eu: db $0C, $39 ; duration, params
-#_1B8B74: #_DB70u: db D4
+#_1B8B74: #_DB70u: db $A6 ; play note D4
 #_1B8B75: #_DB71u: db $0C, $4B ; duration, params
-#_1B8B77: #_DB73u: db As4
+#_1B8B77: #_DB73u: db $AE ; play note As4
 #_1B8B78: #_DB74u: db $0C, $39 ; duration, params
-#_1B8B7A: #_DB76u: db D4
+#_1B8B7A: #_DB76u: db $A6 ; play note D4
 #_1B8B7B: #_DB77u: db $0C, $5D ; duration, params
-#_1B8B7D: #_DB79u: db Cs5
+#_1B8B7D: #_DB79u: db $B1 ; play note Cs5
 #_1B8B7E: #_DB7Au: db $0C, $39 ; duration, params
-#_1B8B80: #_DB7Cu: db E4
+#_1B8B80: #_DB7Cu: db $A8 ; play note E4
 #_1B8B81: #_DB7Du: db $08, $4B ; duration, params
-#_1B8B83: #_DB7Fu: db Cs5
+#_1B8B83: #_DB7Fu: db $B1 ; play note Cs5
 #_1B8B84: #_DB80u: db $08, $39 ; duration, params
-#_1B8B86: #_DB82u: db Cs5
-#_1B8B87: #_DB83u: db Cs5
+#_1B8B86: #_DB82u: db $B1 ; play note Cs5
+#_1B8B87: #_DB83u: db $B1 ; play note Cs5
 #_1B8B88: #_DB84u: db $0C, $5C ; duration, params
-#_1B8B8A: #_DB86u: db Cs5
+#_1B8B8A: #_DB86u: db $B1 ; play note Cs5
 #_1B8B8B: #_DB87u: db $0C, $39 ; duration, params
-#_1B8B8D: #_DB89u: db E4
+#_1B8B8D: #_DB89u: db $A8 ; play note E4
 #_1B8B8E: #_DB8Au: db $0C, $4B ; duration, params
-#_1B8B90: #_DB8Cu: db Cs5
+#_1B8B90: #_DB8Cu: db $B1 ; play note Cs5
 #_1B8B91: #_DB8Du: db $0C, $39 ; duration, params
-#_1B8B93: #_DB8Fu: db E4
+#_1B8B93: #_DB8Fu: db $A8 ; play note E4
 #_1B8B94: #_DB90u: db $0C, $5D ; duration, params
-#_1B8B96: #_DB92u: db C5
+#_1B8B96: #_DB92u: db $B0 ; play note C5
 #_1B8B97: #_DB93u: db $0C, $39 ; duration, params
-#_1B8B99: #_DB95u: db Ds4
+#_1B8B99: #_DB95u: db $A7 ; play note Ds4
 #_1B8B9A: #_DB96u: db $08, $4B ; duration, params
-#_1B8B9C: #_DB98u: db C5
+#_1B8B9C: #_DB98u: db $B0 ; play note C5
 #_1B8B9D: #_DB99u: db $08, $39 ; duration, params
-#_1B8B9F: #_DB9Bu: db C5
-#_1B8BA0: #_DB9Cu: db C5
+#_1B8B9F: #_DB9Bu: db $B0 ; play note C5
+#_1B8BA0: #_DB9Cu: db $B0 ; play note C5
 #_1B8BA1: #_DB9Du: db $0C, $5C ; duration, params
-#_1B8BA3: #_DB9Fu: db C5
+#_1B8BA3: #_DB9Fu: db $B0 ; play note C5
 #_1B8BA4: #_DBA0u: db $0C, $39 ; duration, params
-#_1B8BA6: #_DBA2u: db Ds4
+#_1B8BA6: #_DBA2u: db $A7 ; play note Ds4
 #_1B8BA7: #_DBA3u: db $0C, $4B ; duration, params
-#_1B8BA9: #_DBA5u: db C5
+#_1B8BA9: #_DBA5u: db $B0 ; play note C5
 #_1B8BAA: #_DBA6u: db $0C, $39 ; duration, params
-#_1B8BAC: #_DBA8u: db Ds4
+#_1B8BAC: #_DBA8u: db $A7 ; play note Ds4
 #_1B8BAD: #_DBA9u: db $0C, $5D ; duration, params
-#_1B8BAF: #_DBABu: db As4
+#_1B8BAF: #_DBABu: db $AE ; play note As4
 #_1B8BB0: #_DBACu: db $0C, $39 ; duration, params
-#_1B8BB2: #_DBAEu: db D4
+#_1B8BB2: #_DBAEu: db $A6 ; play note D4
 #_1B8BB3: #_DBAFu: db $08, $4B ; duration, params
-#_1B8BB5: #_DBB1u: db As4
+#_1B8BB5: #_DBB1u: db $AE ; play note As4
 #_1B8BB6: #_DBB2u: db $08, $39 ; duration, params
-#_1B8BB8: #_DBB4u: db As4
-#_1B8BB9: #_DBB5u: db As4
+#_1B8BB8: #_DBB4u: db $AE ; play note As4
+#_1B8BB9: #_DBB5u: db $AE ; play note As4
 #_1B8BBA: #_DBB6u: db $0C, $5C ; duration, params
-#_1B8BBC: #_DBB8u: db As4
+#_1B8BBC: #_DBB8u: db $AE ; play note As4
 #_1B8BBD: #_DBB9u: db $0C, $39 ; duration, params
-#_1B8BBF: #_DBBBu: db D4
+#_1B8BBF: #_DBBBu: db $A6 ; play note D4
 #_1B8BC0: #_DBBCu: db $0C, $4B ; duration, params
-#_1B8BC2: #_DBBEu: db As4
+#_1B8BC2: #_DBBEu: db $AE ; play note As4
 #_1B8BC3: #_DBBFu: db $0C, $39 ; duration, params
-#_1B8BC5: #_DBC1u: db D4
-#_1B8BC6: #_DBC2u: db !PART_END
+#_1B8BC5: #_DBC1u: db $A6 ; play note D4
+#_1B8BC6: #_DBC2u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DBC3:
 #_1B8BC7: #_DBC3u: db $54, $6F ; duration, params
-#_1B8BC9: #_DBC5u: db G1
+#_1B8BC9: #_DBC5u: db $87 ; play note G1
 #_1B8BCA: #_DBC6u: db $06, $4D ; duration, params
-#_1B8BCC: #_DBC8u: db A1
-#_1B8BCD: #_DBC9u: db A1
+#_1B8BCC: #_DBC8u: db $89 ; play note A1
+#_1B8BCD: #_DBC9u: db $89 ; play note A1
 #_1B8BCE: #_DBCAu: db $54, $6F ; duration, params
-#_1B8BD0: #_DBCCu: db A1
+#_1B8BD0: #_DBCCu: db $89 ; play note A1
 #_1B8BD1: #_DBCDu: db $06, $4D ; duration, params
-#_1B8BD3: #_DBCFu: db Fs1
-#_1B8BD4: #_DBD0u: db Fs1
+#_1B8BD3: #_DBCFu: db $86 ; play note Fs1
+#_1B8BD4: #_DBD0u: db $86 ; play note Fs1
 #_1B8BD5: #_DBD1u: db $54, $6F ; duration, params
-#_1B8BD7: #_DBD3u: db Fs1
+#_1B8BD7: #_DBD3u: db $86 ; play note Fs1
 #_1B8BD8: #_DBD4u: db $06, $4D ; duration, params
-#_1B8BDA: #_DBD6u: db G1
-#_1B8BDB: #_DBD7u: db G1
-#_1B8BDC: #_DBD8u: db !PART_END
+#_1B8BDA: #_DBD6u: db $87 ; play note G1
+#_1B8BDB: #_DBD7u: db $87 ; play note G1
+#_1B8BDC: #_DBD8u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song10_Sub_DBD9:
 #_1B8BDD: #_DBD9u: db $0C, $59 ; duration, params
-#_1B8BDF: #_DBDBu: db G4
-#_1B8BE0: #_DBDCu: db R
+#_1B8BDF: #_DBDBu: db $AB ; play note G4
+#_1B8BE0: #_DBDCu: db $C9 ; rest
 #_1B8BE1: #_DBDDu: db $08, $49 ; duration, params
-#_1B8BE3: #_DBDFu: db G4
-#_1B8BE4: #_DBE0u: db G4
-#_1B8BE5: #_DBE1u: db G4
+#_1B8BE3: #_DBDFu: db $AB ; play note G4
+#_1B8BE4: #_DBE0u: db $AB ; play note G4
+#_1B8BE5: #_DBE1u: db $AB ; play note G4
 #_1B8BE6: #_DBE2u: db $0C, $59 ; duration, params
-#_1B8BE8: #_DBE4u: db G4
-#_1B8BE9: #_DBE5u: db R
+#_1B8BE8: #_DBE4u: db $AB ; play note G4
+#_1B8BE9: #_DBE5u: db $C9 ; rest
 #_1B8BEA: #_DBE6u: db $08, $49 ; duration, params
-#_1B8BEC: #_DBE8u: db G4
-#_1B8BED: #_DBE9u: db G4
-#_1B8BEE: #_DBEAu: db G4
-#_1B8BEF: #_DBEBu: db !PART_END
+#_1B8BEC: #_DBE8u: db $AB ; play note G4
+#_1B8BED: #_DBE9u: db $AB ; play note G4
+#_1B8BEE: #_DBEAu: db $AB ; play note G4
+#_1B8BEF: #_DBEBu: db $00 ; End
 
 ;===================================================================================================
 
@@ -2584,7 +2584,7 @@ Song11_Loop:
 #_1B8BF6: #_DBF2u: dw Song11_Segment3
 #_1B8BF8: #_DBF4u: dw Song11_Segment4
 #_1B8BFA: #_DBF6u: dw Song11_Segment5
-#_1B8BFC: #_DBF8u: dw !SONG_LOOP, Song11_Loop
+#_1B8BFC: #_DBF8u: dw $00FF, Song11_Loop ; Loop point
 #_1B8C00: #_DBFCu: dw $0000
 
 Song11_Segment0:
@@ -2670,1163 +2670,1163 @@ Song11_Unused1:
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment0_Track0:
-#_1B8C82: #_DC7Eu: db !SET_PERC, $17
-#_1B8C84: #_DC80u: db !MASTER_VOLUME, $C8
-#_1B8C86: #_DC82u: db !TEMPO, $0E
-#_1B8C88: #_DC84u: db !ECHO_CONFIG, $FF, $00, $00
-#_1B8C8C: #_DC88u: db !ECHO_FILTER, $02, $1E, $02
-#_1B8C90: #_DC8Cu: db !ECHO_GRAD, $1E, $28, $28
-#_1B8C94: #_DC90u: db !INSTR, $0A
-#_1B8C96: #_DC92u: db !VOLUME, $C8
-#_1B8C98: #_DC94u: db !VIBRATO, $14, $18, $1E
+#_1B8C82: #_DC7Eu: db $FA, $17 ; set base percussion sample
+#_1B8C84: #_DC80u: db $E5, $C8 ; set song volume
+#_1B8C86: #_DC82u: db $E7, $0E ; set song tempo
+#_1B8C88: #_DC84u: db $F5, $FF, $00, $00 ; configure EON, EVOLL, EVOLR
+#_1B8C8C: #_DC88u: db $F7, $02, $1E, $02 ; configure EDL, EFB, FIR
+#_1B8C90: #_DC8Cu: db $F8, $1E, $28, $28 ; initiate gradual echo volume change
+#_1B8C94: #_DC90u: db $E0, $0A ; set instrument - strings B
+#_1B8C96: #_DC92u: db $ED, $C8 ; set channel volume
+#_1B8C98: #_DC94u: db $E3, $14, $18, $1E ; enable vibrato
 #_1B8C9C: #_DC98u: db $60, $7D ; duration, params
-#_1B8C9E: #_DC9Au: db Cs3
-#_1B8C9F: #_DC9Bu: db !TIE
-#_1B8CA0: #_DC9Cu: db !PART_END
+#_1B8C9E: #_DC9Au: db $99 ; play note Cs3
+#_1B8C9F: #_DC9Bu: db $C8 ; sustain current note
+#_1B8CA0: #_DC9Cu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment0_Track1:
-#_1B8CA1: #_DC9Du: db !INSTR, $0A
-#_1B8CA3: #_DC9Fu: db !VOLUME, $C8
-#_1B8CA5: #_DCA1u: db !VIBRATO, $14, $18, $1E
+#_1B8CA1: #_DC9Du: db $E0, $0A ; set instrument - strings B
+#_1B8CA3: #_DC9Fu: db $ED, $C8 ; set channel volume
+#_1B8CA5: #_DCA1u: db $E3, $14, $18, $1E ; enable vibrato
 #_1B8CA9: #_DCA5u: db $0C ; duration
-#_1B8CAA: #_DCA6u: db R
+#_1B8CAA: #_DCA6u: db $C9 ; rest
 #_1B8CAB: #_DCA7u: db $54, $7D ; duration, params
-#_1B8CAD: #_DCA9u: db G2
+#_1B8CAD: #_DCA9u: db $93 ; play note G2
 #_1B8CAE: #_DCAAu: db $60 ; duration
-#_1B8CAF: #_DCABu: db !TIE
+#_1B8CAF: #_DCABu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment0_Track2:
-#_1B8CB0: #_DCACu: db !INSTR, $0A
-#_1B8CB2: #_DCAEu: db !VOLUME, $C8
-#_1B8CB4: #_DCB0u: db !VIBRATO, $14, $18, $1E
+#_1B8CB0: #_DCACu: db $E0, $0A ; set instrument - strings B
+#_1B8CB2: #_DCAEu: db $ED, $C8 ; set channel volume
+#_1B8CB4: #_DCB0u: db $E3, $14, $18, $1E ; enable vibrato
 #_1B8CB8: #_DCB4u: db $18 ; duration
-#_1B8CB9: #_DCB5u: db R
+#_1B8CB9: #_DCB5u: db $C9 ; rest
 #_1B8CBA: #_DCB6u: db $48, $7D ; duration, params
-#_1B8CBC: #_DCB8u: db Fs2
+#_1B8CBC: #_DCB8u: db $92 ; play note Fs2
 #_1B8CBD: #_DCB9u: db $60 ; duration
-#_1B8CBE: #_DCBAu: db !TIE
+#_1B8CBE: #_DCBAu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment0_Track3:
-#_1B8CBF: #_DCBBu: db !INSTR, $0A
-#_1B8CC1: #_DCBDu: db !VOLUME, $C8
-#_1B8CC3: #_DCBFu: db !VIBRATO, $14, $18, $1E
+#_1B8CBF: #_DCBBu: db $E0, $0A ; set instrument - strings B
+#_1B8CC1: #_DCBDu: db $ED, $C8 ; set channel volume
+#_1B8CC3: #_DCBFu: db $E3, $14, $18, $1E ; enable vibrato
 #_1B8CC7: #_DCC3u: db $24 ; duration
-#_1B8CC8: #_DCC4u: db R
+#_1B8CC8: #_DCC4u: db $C9 ; rest
 #_1B8CC9: #_DCC5u: db $3C, $7D ; duration, params
-#_1B8CCB: #_DCC7u: db Fs3
+#_1B8CCB: #_DCC7u: db $9E ; play note Fs3
 #_1B8CCC: #_DCC8u: db $60 ; duration
-#_1B8CCD: #_DCC9u: db !TIE
+#_1B8CCD: #_DCC9u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment0_Track4:
-#_1B8CCE: #_DCCAu: db !INSTR, $0A
-#_1B8CD0: #_DCCCu: db !VOLUME, $C8
-#_1B8CD2: #_DCCEu: db !VIBRATO, $14, $18, $1E
+#_1B8CCE: #_DCCAu: db $E0, $0A ; set instrument - strings B
+#_1B8CD0: #_DCCCu: db $ED, $C8 ; set channel volume
+#_1B8CD2: #_DCCEu: db $E3, $14, $18, $1E ; enable vibrato
 #_1B8CD6: #_DCD2u: db $30 ; duration
-#_1B8CD7: #_DCD3u: db R
+#_1B8CD7: #_DCD3u: db $C9 ; rest
 #_1B8CD8: #_DCD4u: db $30, $7D ; duration, params
-#_1B8CDA: #_DCD6u: db C3
+#_1B8CDA: #_DCD6u: db $98 ; play note C3
 #_1B8CDB: #_DCD7u: db $60 ; duration
-#_1B8CDC: #_DCD8u: db !TIE
+#_1B8CDC: #_DCD8u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment1_Track0:
 #_1B8CDD: #_DCD9u: db $60, $7D ; duration, params
-#_1B8CDF: #_DCDBu: db Cs3
-#_1B8CE0: #_DCDCu: db !TIE
-#_1B8CE1: #_DCDDu: db !PART_END
+#_1B8CDF: #_DCDBu: db $99 ; play note Cs3
+#_1B8CE0: #_DCDCu: db $C8 ; sustain current note
+#_1B8CE1: #_DCDDu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment1_Track1:
 #_1B8CE2: #_DCDEu: db $0C ; duration
-#_1B8CE3: #_DCDFu: db R
+#_1B8CE3: #_DCDFu: db $C9 ; rest
 #_1B8CE4: #_DCE0u: db $54, $7D ; duration, params
-#_1B8CE6: #_DCE2u: db G2
+#_1B8CE6: #_DCE2u: db $93 ; play note G2
 #_1B8CE7: #_DCE3u: db $60 ; duration
-#_1B8CE8: #_DCE4u: db !TIE
+#_1B8CE8: #_DCE4u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment1_Track2:
 #_1B8CE9: #_DCE5u: db $18 ; duration
-#_1B8CEA: #_DCE6u: db R
+#_1B8CEA: #_DCE6u: db $C9 ; rest
 #_1B8CEB: #_DCE7u: db $48, $7D ; duration, params
-#_1B8CED: #_DCE9u: db Fs2
+#_1B8CED: #_DCE9u: db $92 ; play note Fs2
 #_1B8CEE: #_DCEAu: db $60 ; duration
-#_1B8CEF: #_DCEBu: db !TIE
+#_1B8CEF: #_DCEBu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment1_Track3:
 #_1B8CF0: #_DCECu: db $24 ; duration
-#_1B8CF1: #_DCEDu: db R
+#_1B8CF1: #_DCEDu: db $C9 ; rest
 #_1B8CF2: #_DCEEu: db $3C, $7D ; duration, params
-#_1B8CF4: #_DCF0u: db Fs3
+#_1B8CF4: #_DCF0u: db $9E ; play note Fs3
 #_1B8CF5: #_DCF1u: db $60 ; duration
-#_1B8CF6: #_DCF2u: db !TIE
+#_1B8CF6: #_DCF2u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment1_Track4:
 #_1B8CF7: #_DCF3u: db $30 ; duration
-#_1B8CF8: #_DCF4u: db R
+#_1B8CF8: #_DCF4u: db $C9 ; rest
 #_1B8CF9: #_DCF5u: db $30, $7D ; duration, params
-#_1B8CFB: #_DCF7u: db C3
+#_1B8CFB: #_DCF7u: db $98 ; play note C3
 #_1B8CFC: #_DCF8u: db $60 ; duration
-#_1B8CFD: #_DCF9u: db !TIE
+#_1B8CFD: #_DCF9u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment1_Track5:
-#_1B8CFE: #_DCFAu: db !INSTR, $0A
-#_1B8D00: #_DCFCu: db !VOLUME, $C8
-#_1B8D02: #_DCFEu: db !VIBRATO, $14, $19, $1E
+#_1B8CFE: #_DCFAu: db $E0, $0A ; set instrument - strings B
+#_1B8D00: #_DCFCu: db $ED, $C8 ; set channel volume
+#_1B8D02: #_DCFEu: db $E3, $14, $19, $1E ; enable vibrato
 #_1B8D06: #_DD02u: db $3C ; duration
-#_1B8D07: #_DD03u: db R
+#_1B8D07: #_DD03u: db $C9 ; rest
 #_1B8D08: #_DD04u: db $24, $7D ; duration, params
-#_1B8D0A: #_DD06u: db D3
+#_1B8D0A: #_DD06u: db $9A ; play note D3
 #_1B8D0B: #_DD07u: db $60 ; duration
-#_1B8D0C: #_DD08u: db !TIE
+#_1B8D0C: #_DD08u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment2_Track0:
 #_1B8D0D: #_DD09u: db $48, $7D ; duration, params
-#_1B8D0F: #_DD0Bu: db Ds3
+#_1B8D0F: #_DD0Bu: db $9B ; play note Ds3
 #_1B8D10: #_DD0Cu: db $18 ; duration
-#_1B8D11: #_DD0Du: db B2
+#_1B8D11: #_DD0Du: db $97 ; play note B2
 #_1B8D12: #_DD0Eu: db $30 ; duration
-#_1B8D13: #_DD0Fu: db !TIE
+#_1B8D13: #_DD0Fu: db $C8 ; sustain current note
 #_1B8D14: #_DD10u: db $18 ; duration
-#_1B8D15: #_DD11u: db !TIE
+#_1B8D15: #_DD11u: db $C8 ; sustain current note
 #_1B8D16: #_DD12u: db $48 ; duration
-#_1B8D17: #_DD13u: db G3
+#_1B8D17: #_DD13u: db $9F ; play note G3
 #_1B8D18: #_DD14u: db $0C ; duration
-#_1B8D19: #_DD15u: db !TIE
+#_1B8D19: #_DD15u: db $C8 ; sustain current note
 #_1B8D1A: #_DD16u: db $54 ; duration
-#_1B8D1B: #_DD17u: db Gs2
-#_1B8D1C: #_DD18u: db !TEMPO_GRAD, $60, $1D
+#_1B8D1B: #_DD17u: db $94 ; play note Gs2
+#_1B8D1C: #_DD18u: db $E8, $60, $1D ; initiate gradual tempo change
 #_1B8D1F: #_DD1Bu: db $48 ; duration
-#_1B8D20: #_DD1Cu: db G2
+#_1B8D20: #_DD1Cu: db $93 ; play note G2
 #_1B8D21: #_DD1Du: db $18 ; duration
-#_1B8D22: #_DD1Eu: db As3
+#_1B8D22: #_DD1Eu: db $A2 ; play note As3
 #_1B8D23: #_DD1Fu: db $60 ; duration
-#_1B8D24: #_DD20u: db As3
+#_1B8D24: #_DD20u: db $A2 ; play note As3
 #_1B8D25: #_DD21u: db $60, $58 ; duration, params
-#_1B8D27: #_DD23u: db !TIE
-#_1B8D28: #_DD24u: db !PART_END
+#_1B8D27: #_DD23u: db $C8 ; sustain current note
+#_1B8D28: #_DD24u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment2_Track1:
 #_1B8D29: #_DD25u: db $0C ; duration
-#_1B8D2A: #_DD26u: db R
+#_1B8D2A: #_DD26u: db $C9 ; rest
 #_1B8D2B: #_DD27u: db $54, $7D ; duration, params
-#_1B8D2D: #_DD29u: db E3
+#_1B8D2D: #_DD29u: db $9C ; play note E3
 #_1B8D2E: #_DD2Au: db $30 ; duration
-#_1B8D2F: #_DD2Bu: db !TIE
+#_1B8D2F: #_DD2Bu: db $C8 ; sustain current note
 #_1B8D30: #_DD2Cu: db $24 ; duration
-#_1B8D31: #_DD2Du: db !TIE
+#_1B8D31: #_DD2Du: db $C8 ; sustain current note
 #_1B8D32: #_DD2Eu: db $3C ; duration
-#_1B8D33: #_DD2Fu: db Fs3
+#_1B8D33: #_DD2Fu: db $9E ; play note Fs3
 #_1B8D34: #_DD30u: db $18 ; duration
-#_1B8D35: #_DD31u: db !TIE
+#_1B8D35: #_DD31u: db $C8 ; sustain current note
 #_1B8D36: #_DD32u: db $48 ; duration
-#_1B8D37: #_DD33u: db G2
+#_1B8D37: #_DD33u: db $93 ; play note G2
 #_1B8D38: #_DD34u: db $0C ; duration
-#_1B8D39: #_DD35u: db !TIE
+#_1B8D39: #_DD35u: db $C8 ; sustain current note
 #_1B8D3A: #_DD36u: db $48 ; duration
-#_1B8D3B: #_DD37u: db Fs2
+#_1B8D3B: #_DD37u: db $92 ; play note Fs2
 #_1B8D3C: #_DD38u: db $0C ; duration
-#_1B8D3D: #_DD39u: db A3
+#_1B8D3D: #_DD39u: db $A1 ; play note A3
 #_1B8D3E: #_DD3Au: db $60 ; duration
-#_1B8D3F: #_DD3Bu: db A3
+#_1B8D3F: #_DD3Bu: db $A1 ; play note A3
 #_1B8D40: #_DD3Cu: db $60, $58 ; duration, params
-#_1B8D42: #_DD3Eu: db !TIE
+#_1B8D42: #_DD3Eu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment2_Track2:
 #_1B8D43: #_DD3Fu: db $18 ; duration
-#_1B8D44: #_DD40u: db R
+#_1B8D44: #_DD40u: db $C9 ; rest
 #_1B8D45: #_DD41u: db $48, $7D ; duration, params
-#_1B8D47: #_DD43u: db F3
+#_1B8D47: #_DD43u: db $9D ; play note F3
 #_1B8D48: #_DD44u: db $30 ; duration
-#_1B8D49: #_DD45u: db !TIE
-#_1B8D4A: #_DD46u: db !TIE
-#_1B8D4B: #_DD47u: db As2
+#_1B8D49: #_DD45u: db $C8 ; sustain current note
+#_1B8D4A: #_DD46u: db $C8 ; sustain current note
+#_1B8D4B: #_DD47u: db $96 ; play note As2
 #_1B8D4C: #_DD48u: db $60 ; duration
-#_1B8D4D: #_DD49u: db !TIE
+#_1B8D4D: #_DD49u: db $C8 ; sustain current note
 #_1B8D4E: #_DD4Au: db $18 ; duration
-#_1B8D4F: #_DD4Bu: db !TIE
+#_1B8D4F: #_DD4Bu: db $C8 ; sustain current note
 #_1B8D50: #_DD4Cu: db $48 ; duration
-#_1B8D51: #_DD4Du: db C3
+#_1B8D51: #_DD4Du: db $98 ; play note C3
 #_1B8D52: #_DD4Eu: db $60 ; duration
-#_1B8D53: #_DD4Fu: db Ds4
+#_1B8D53: #_DD4Fu: db $A7 ; play note Ds4
 #_1B8D54: #_DD50u: db $60, $58 ; duration, params
-#_1B8D56: #_DD52u: db !TIE
+#_1B8D56: #_DD52u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment2_Track3:
 #_1B8D57: #_DD53u: db $24 ; duration
-#_1B8D58: #_DD54u: db R
+#_1B8D58: #_DD54u: db $C9 ; rest
 #_1B8D59: #_DD55u: db $3C, $7D ; duration, params
-#_1B8D5B: #_DD57u: db A3
+#_1B8D5B: #_DD57u: db $A1 ; play note A3
 #_1B8D5C: #_DD58u: db $30 ; duration
-#_1B8D5D: #_DD59u: db !TIE
+#_1B8D5D: #_DD59u: db $C8 ; sustain current note
 #_1B8D5E: #_DD5Au: db $3C ; duration
-#_1B8D5F: #_DD5Bu: db !TIE
+#_1B8D5F: #_DD5Bu: db $C8 ; sustain current note
 #_1B8D60: #_DD5Cu: db $24 ; duration
-#_1B8D61: #_DD5Du: db A2
+#_1B8D61: #_DD5Du: db $95 ; play note A2
 #_1B8D62: #_DD5Eu: db $60 ; duration
-#_1B8D63: #_DD5Fu: db !TIE
+#_1B8D63: #_DD5Fu: db $C8 ; sustain current note
 #_1B8D64: #_DD60u: db $24 ; duration
-#_1B8D65: #_DD61u: db !TIE
+#_1B8D65: #_DD61u: db $C8 ; sustain current note
 #_1B8D66: #_DD62u: db $3C ; duration
-#_1B8D67: #_DD63u: db B2
+#_1B8D67: #_DD63u: db $97 ; play note B2
 #_1B8D68: #_DD64u: db $60 ; duration
-#_1B8D69: #_DD65u: db B2
-#_1B8D6A: #_DD66u: db !INSTR, $09
+#_1B8D69: #_DD65u: db $97 ; play note B2
+#_1B8D6A: #_DD66u: db $E0, $09 ; set instrument - strings A
 #_1B8D6C: #_DD68u: db $0C, $7F ; duration, params
-#_1B8D6E: #_DD6Au: db B2
+#_1B8D6E: #_DD6Au: db $97 ; play note B2
 #_1B8D6F: #_DD6Bu: db $0C, $7D ; duration, params
-#_1B8D71: #_DD6Du: db B2
-#_1B8D72: #_DD6Eu: db B2
-#_1B8D73: #_DD6Fu: db B2
+#_1B8D71: #_DD6Du: db $97 ; play note B2
+#_1B8D72: #_DD6Eu: db $97 ; play note B2
+#_1B8D73: #_DD6Fu: db $97 ; play note B2
 #_1B8D74: #_DD70u: db $0C, $7F ; duration, params
-#_1B8D76: #_DD72u: db B2
+#_1B8D76: #_DD72u: db $97 ; play note B2
 #_1B8D77: #_DD73u: db $0C, $7D ; duration, params
-#_1B8D79: #_DD75u: db B2
-#_1B8D7A: #_DD76u: db B2
-#_1B8D7B: #_DD77u: db B2
+#_1B8D79: #_DD75u: db $97 ; play note B2
+#_1B8D7A: #_DD76u: db $97 ; play note B2
+#_1B8D7B: #_DD77u: db $97 ; play note B2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment2_Track4:
 #_1B8D7C: #_DD78u: db $30 ; duration
-#_1B8D7D: #_DD79u: db R
+#_1B8D7D: #_DD79u: db $C9 ; rest
 #_1B8D7E: #_DD7Au: db $30, $7D ; duration, params
-#_1B8D80: #_DD7Cu: db Gs3
-#_1B8D81: #_DD7Du: db !TIE
+#_1B8D80: #_DD7Cu: db $A0 ; play note Gs3
+#_1B8D81: #_DD7Du: db $C8 ; sustain current note
 #_1B8D82: #_DD7Eu: db $54 ; duration
-#_1B8D83: #_DD7Fu: db !TIE
+#_1B8D83: #_DD7Fu: db $C8 ; sustain current note
 #_1B8D84: #_DD80u: db $0C ; duration
-#_1B8D85: #_DD81u: db F3
+#_1B8D85: #_DD81u: db $9D ; play note F3
 #_1B8D86: #_DD82u: db $60 ; duration
-#_1B8D87: #_DD83u: db !TIE
+#_1B8D87: #_DD83u: db $C8 ; sustain current note
 #_1B8D88: #_DD84u: db $30 ; duration
-#_1B8D89: #_DD85u: db !TIE
-#_1B8D8A: #_DD86u: db F3
+#_1B8D89: #_DD85u: db $C8 ; sustain current note
+#_1B8D8A: #_DD86u: db $9D ; play note F3
 #_1B8D8B: #_DD87u: db $60 ; duration
-#_1B8D8C: #_DD88u: db F3
+#_1B8D8C: #_DD88u: db $9D ; play note F3
 #_1B8D8D: #_DD89u: db $60, $58 ; duration, params
-#_1B8D8F: #_DD8Bu: db !TIE
+#_1B8D8F: #_DD8Bu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment2_Track5:
 #_1B8D90: #_DD8Cu: db $3C ; duration
-#_1B8D91: #_DD8Du: db R
+#_1B8D91: #_DD8Du: db $C9 ; rest
 #_1B8D92: #_DD8Eu: db $24, $7D ; duration, params
-#_1B8D94: #_DD90u: db C3
+#_1B8D94: #_DD90u: db $98 ; play note C3
 #_1B8D95: #_DD91u: db $30 ; duration
-#_1B8D96: #_DD92u: db !TIE
+#_1B8D96: #_DD92u: db $C8 ; sustain current note
 #_1B8D97: #_DD93u: db $60 ; duration
-#_1B8D98: #_DD94u: db !TIE
-#_1B8D99: #_DD95u: db E3
+#_1B8D98: #_DD94u: db $C8 ; sustain current note
+#_1B8D99: #_DD95u: db $9C ; play note E3
 #_1B8D9A: #_DD96u: db $3C ; duration
-#_1B8D9B: #_DD97u: db !TIE
+#_1B8D9B: #_DD97u: db $C8 ; sustain current note
 #_1B8D9C: #_DD98u: db $24 ; duration
-#_1B8D9D: #_DD99u: db E3
+#_1B8D9D: #_DD99u: db $9C ; play note E3
 #_1B8D9E: #_DD9Au: db $60 ; duration
-#_1B8D9F: #_DD9Bu: db E3
+#_1B8D9F: #_DD9Bu: db $9C ; play note E3
 #_1B8DA0: #_DD9Cu: db $60, $58 ; duration, params
-#_1B8DA2: #_DD9Eu: db !TIE
+#_1B8DA2: #_DD9Eu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment3_Track0:
-#_1B8DA3: #_DD9Fu: db !CALL_PART : dw Song11_Sub_E015 : db 1
-#_1B8DA7: #_DDA3u: db !CALL_PART : dw Song11_Sub_E021 : db 1
-#_1B8DAB: #_DDA7u: db !CALL_PART : dw Song11_Sub_E02C : db 1
-#_1B8DAF: #_DDABu: db !CALL_PART : dw Song11_Sub_E021 : db 1
-#_1B8DB3: #_DDAFu: db !PART_END
+#_1B8DA3: #_DD9Fu: db $EF : dw Song11_Sub_E015 : db $01 ; call segment subroutine
+#_1B8DA7: #_DDA3u: db $EF : dw Song11_Sub_E021 : db $01 ; call segment subroutine
+#_1B8DAB: #_DDA7u: db $EF : dw Song11_Sub_E02C : db $01 ; call segment subroutine
+#_1B8DAF: #_DDABu: db $EF : dw Song11_Sub_E021 : db $01 ; call segment subroutine
+#_1B8DB3: #_DDAFu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment3_Track1:
-#_1B8DB4: #_DDB0u: db !CALL_PART : dw Song11_Sub_E037 : db 1
-#_1B8DB8: #_DDB4u: db !CALL_PART : dw Song11_Sub_E042 : db 1
-#_1B8DBC: #_DDB8u: db !CALL_PART : dw Song11_Sub_E04C : db 1
-#_1B8DC0: #_DDBCu: db !CALL_PART : dw Song11_Sub_E042 : db 1
+#_1B8DB4: #_DDB0u: db $EF : dw Song11_Sub_E037 : db $01 ; call segment subroutine
+#_1B8DB8: #_DDB4u: db $EF : dw Song11_Sub_E042 : db $01 ; call segment subroutine
+#_1B8DBC: #_DDB8u: db $EF : dw Song11_Sub_E04C : db $01 ; call segment subroutine
+#_1B8DC0: #_DDBCu: db $EF : dw Song11_Sub_E042 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment3_Track2:
-#_1B8DC4: #_DDC0u: db !CALL_PART : dw Song11_Sub_E056 : db 1
-#_1B8DC8: #_DDC4u: db !CALL_PART : dw Song11_Sub_E062 : db 1
-#_1B8DCC: #_DDC8u: db !CALL_PART : dw Song11_Sub_E06D : db 1
-#_1B8DD0: #_DDCCu: db !CALL_PART : dw Song11_Sub_E062 : db 1
+#_1B8DC4: #_DDC0u: db $EF : dw Song11_Sub_E056 : db $01 ; call segment subroutine
+#_1B8DC8: #_DDC4u: db $EF : dw Song11_Sub_E062 : db $01 ; call segment subroutine
+#_1B8DCC: #_DDC8u: db $EF : dw Song11_Sub_E06D : db $01 ; call segment subroutine
+#_1B8DD0: #_DDCCu: db $EF : dw Song11_Sub_E062 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment3_Track3:
-#_1B8DD4: #_DDD0u: db !CALL_PART : dw Song11_Sub_E078 : db 2
-#_1B8DD8: #_DDD4u: db !CALL_PART : dw Song11_Sub_E085 : db 2
-#_1B8DDC: #_DDD8u: db !CALL_PART : dw Song11_Sub_E092 : db 2
-#_1B8DE0: #_DDDCu: db !CALL_PART : dw Song11_Sub_E085 : db 2
+#_1B8DD4: #_DDD0u: db $EF : dw Song11_Sub_E078 : db $02 ; call segment subroutine
+#_1B8DD8: #_DDD4u: db $EF : dw Song11_Sub_E085 : db $02 ; call segment subroutine
+#_1B8DDC: #_DDD8u: db $EF : dw Song11_Sub_E092 : db $02 ; call segment subroutine
+#_1B8DE0: #_DDDCu: db $EF : dw Song11_Sub_E085 : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment4_Track0:
-#_1B8DE4: #_DDE0u: db !CALL_PART : dw Song11_Sub_E015 : db 1
-#_1B8DE8: #_DDE4u: db !CALL_PART : dw Song11_Sub_E021 : db 1
-#_1B8DEC: #_DDE8u: db !CALL_PART : dw Song11_Sub_E02C : db 1
-#_1B8DF0: #_DDECu: db !CALL_PART : dw Song11_Sub_E09F : db 1
-#_1B8DF4: #_DDF0u: db !PART_END
+#_1B8DE4: #_DDE0u: db $EF : dw Song11_Sub_E015 : db $01 ; call segment subroutine
+#_1B8DE8: #_DDE4u: db $EF : dw Song11_Sub_E021 : db $01 ; call segment subroutine
+#_1B8DEC: #_DDE8u: db $EF : dw Song11_Sub_E02C : db $01 ; call segment subroutine
+#_1B8DF0: #_DDECu: db $EF : dw Song11_Sub_E09F : db $01 ; call segment subroutine
+#_1B8DF4: #_DDF0u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment4_Track1:
-#_1B8DF5: #_DDF1u: db !CALL_PART : dw Song11_Sub_E037 : db 1
-#_1B8DF9: #_DDF5u: db !CALL_PART : dw Song11_Sub_E042 : db 1
-#_1B8DFD: #_DDF9u: db !CALL_PART : dw Song11_Sub_E04C : db 1
+#_1B8DF5: #_DDF1u: db $EF : dw Song11_Sub_E037 : db $01 ; call segment subroutine
+#_1B8DF9: #_DDF5u: db $EF : dw Song11_Sub_E042 : db $01 ; call segment subroutine
+#_1B8DFD: #_DDF9u: db $EF : dw Song11_Sub_E04C : db $01 ; call segment subroutine
 #_1B8E01: #_DDFDu: db $18 ; duration
-#_1B8E02: #_DDFEu: db R
+#_1B8E02: #_DDFEu: db $C9 ; rest
 #_1B8E03: #_DDFFu: db $30 ; duration
-#_1B8E04: #_DE00u: db B3
+#_1B8E04: #_DE00u: db $A3 ; play note B3
 #_1B8E05: #_DE01u: db $18 ; duration
-#_1B8E06: #_DE02u: db B3
-#_1B8E07: #_DE03u: db !TIE
+#_1B8E06: #_DE02u: db $A3 ; play note B3
+#_1B8E07: #_DE03u: db $C8 ; sustain current note
 #_1B8E08: #_DE04u: db $48 ; duration
-#_1B8E09: #_DE05u: db B3
+#_1B8E09: #_DE05u: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment4_Track2:
-#_1B8E0A: #_DE06u: db !CALL_PART : dw Song11_Sub_E056 : db 1
-#_1B8E0E: #_DE0Au: db !CALL_PART : dw Song11_Sub_E062 : db 1
-#_1B8E12: #_DE0Eu: db !CALL_PART : dw Song11_Sub_E06D : db 1
-#_1B8E16: #_DE12u: db !CALL_PART : dw Song11_Sub_E0AA : db 1
+#_1B8E0A: #_DE06u: db $EF : dw Song11_Sub_E056 : db $01 ; call segment subroutine
+#_1B8E0E: #_DE0Au: db $EF : dw Song11_Sub_E062 : db $01 ; call segment subroutine
+#_1B8E12: #_DE0Eu: db $EF : dw Song11_Sub_E06D : db $01 ; call segment subroutine
+#_1B8E16: #_DE12u: db $EF : dw Song11_Sub_E0AA : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment4_Track3:
-#_1B8E1A: #_DE16u: db !CALL_PART : dw Song11_Sub_E078 : db 2
-#_1B8E1E: #_DE1Au: db !CALL_PART : dw Song11_Sub_E085 : db 2
-#_1B8E22: #_DE1Eu: db !CALL_PART : dw Song11_Sub_E092 : db 2
-#_1B8E26: #_DE22u: db !CALL_PART : dw Song11_Sub_E0B5 : db 2
+#_1B8E1A: #_DE16u: db $EF : dw Song11_Sub_E078 : db $02 ; call segment subroutine
+#_1B8E1E: #_DE1Au: db $EF : dw Song11_Sub_E085 : db $02 ; call segment subroutine
+#_1B8E22: #_DE1Eu: db $EF : dw Song11_Sub_E092 : db $02 ; call segment subroutine
+#_1B8E26: #_DE22u: db $EF : dw Song11_Sub_E0B5 : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment4_Track4:
-#_1B8E2A: #_DE26u: db !INSTR, $11
-#_1B8E2C: #_DE28u: db !VOLUME, $DC
+#_1B8E2A: #_DE26u: db $E0, $11 ; set instrument - trumpet
+#_1B8E2C: #_DE28u: db $ED, $DC ; set channel volume
 #_1B8E2E: #_DE2Au: db $48, $7D ; duration, params
-#_1B8E30: #_DE2Cu: db A4
+#_1B8E30: #_DE2Cu: db $AD ; play note A4
 #_1B8E31: #_DE2Du: db $0C ; duration
-#_1B8E32: #_DE2Eu: db Gs4
-#_1B8E33: #_DE2Fu: db A4
+#_1B8E32: #_DE2Eu: db $AC ; play note Gs4
+#_1B8E33: #_DE2Fu: db $AD ; play note A4
 #_1B8E34: #_DE30u: db $48 ; duration
-#_1B8E35: #_DE31u: db B4
+#_1B8E35: #_DE31u: db $AF ; play note B4
 #_1B8E36: #_DE32u: db $0C ; duration
-#_1B8E37: #_DE33u: db A4
-#_1B8E38: #_DE34u: db Gs4
+#_1B8E37: #_DE33u: db $AD ; play note A4
+#_1B8E38: #_DE34u: db $AC ; play note Gs4
 #_1B8E39: #_DE35u: db $60 ; duration
-#_1B8E3A: #_DE36u: db Cs4
+#_1B8E3A: #_DE36u: db $A5 ; play note Cs4
 #_1B8E3B: #_DE37u: db $48 ; duration
-#_1B8E3C: #_DE38u: db !TIE
+#_1B8E3C: #_DE38u: db $C8 ; sustain current note
 #_1B8E3D: #_DE39u: db $08 ; duration
-#_1B8E3E: #_DE3Au: db Cs4
-#_1B8E3F: #_DE3Bu: db C4
+#_1B8E3E: #_DE3Au: db $A5 ; play note Cs4
+#_1B8E3F: #_DE3Bu: db $A4 ; play note C4
 #_1B8E40: #_DE3Cu: db $08, $78 ; duration, params
-#_1B8E42: #_DE3Eu: db Cs4
+#_1B8E42: #_DE3Eu: db $A5 ; play note Cs4
 #_1B8E43: #_DE3Fu: db $48, $7D ; duration, params
-#_1B8E45: #_DE41u: db G4
+#_1B8E45: #_DE41u: db $AB ; play note G4
 #_1B8E46: #_DE42u: db $0C ; duration
-#_1B8E47: #_DE43u: db Fs4
-#_1B8E48: #_DE44u: db G4
+#_1B8E47: #_DE43u: db $AA ; play note Fs4
+#_1B8E48: #_DE44u: db $AB ; play note G4
 #_1B8E49: #_DE45u: db $48 ; duration
-#_1B8E4A: #_DE46u: db A4
+#_1B8E4A: #_DE46u: db $AD ; play note A4
 #_1B8E4B: #_DE47u: db $0C ; duration
-#_1B8E4C: #_DE48u: db G4
-#_1B8E4D: #_DE49u: db Fs4
+#_1B8E4C: #_DE48u: db $AB ; play note G4
+#_1B8E4D: #_DE49u: db $AA ; play note Fs4
 #_1B8E4E: #_DE4Au: db $60 ; duration
-#_1B8E4F: #_DE4Bu: db B3
+#_1B8E4F: #_DE4Bu: db $A3 ; play note B3
 #_1B8E50: #_DE4Cu: db $48 ; duration
-#_1B8E51: #_DE4Du: db !TIE
+#_1B8E51: #_DE4Du: db $C8 ; sustain current note
 #_1B8E52: #_DE4Eu: db $08 ; duration
-#_1B8E53: #_DE4Fu: db B3
-#_1B8E54: #_DE50u: db As3
+#_1B8E53: #_DE4Fu: db $A3 ; play note B3
+#_1B8E54: #_DE50u: db $A2 ; play note As3
 #_1B8E55: #_DE51u: db $08, $78 ; duration, params
-#_1B8E57: #_DE53u: db B3
+#_1B8E57: #_DE53u: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment5_Track0:
 #_1B8E58: #_DE54u: db $0C ; duration
-#_1B8E59: #_DE55u: db R
+#_1B8E59: #_DE55u: db $C9 ; rest
 #_1B8E5A: #_DE56u: db $30, $7D ; duration, params
-#_1B8E5C: #_DE58u: db F4
+#_1B8E5C: #_DE58u: db $A9 ; play note F4
 #_1B8E5D: #_DE59u: db $24 ; duration
-#_1B8E5E: #_DE5Au: db F4
+#_1B8E5E: #_DE5Au: db $A9 ; play note F4
 #_1B8E5F: #_DE5Bu: db $0C, $6D ; duration, params
-#_1B8E61: #_DE5Du: db !TIE
+#_1B8E61: #_DE5Du: db $C8 ; sustain current note
 #_1B8E62: #_DE5Eu: db $54, $7D ; duration, params
-#_1B8E64: #_DE60u: db F4
+#_1B8E64: #_DE60u: db $A9 ; play note F4
 #_1B8E65: #_DE61u: db $0C ; duration
-#_1B8E66: #_DE62u: db R
+#_1B8E66: #_DE62u: db $C9 ; rest
 #_1B8E67: #_DE63u: db $30 ; duration
-#_1B8E68: #_DE64u: db E4
+#_1B8E68: #_DE64u: db $A8 ; play note E4
 #_1B8E69: #_DE65u: db $24 ; duration
-#_1B8E6A: #_DE66u: db E4
+#_1B8E6A: #_DE66u: db $A8 ; play note E4
 #_1B8E6B: #_DE67u: db $0C, $6D ; duration, params
-#_1B8E6D: #_DE69u: db !TIE
+#_1B8E6D: #_DE69u: db $C8 ; sustain current note
 #_1B8E6E: #_DE6Au: db $54, $7D ; duration, params
-#_1B8E70: #_DE6Cu: db E4
+#_1B8E70: #_DE6Cu: db $A8 ; play note E4
 #_1B8E71: #_DE6Du: db $0C ; duration
-#_1B8E72: #_DE6Eu: db R
+#_1B8E72: #_DE6Eu: db $C9 ; rest
 #_1B8E73: #_DE6Fu: db $30 ; duration
-#_1B8E74: #_DE70u: db G4
+#_1B8E74: #_DE70u: db $AB ; play note G4
 #_1B8E75: #_DE71u: db $24 ; duration
-#_1B8E76: #_DE72u: db G4
+#_1B8E76: #_DE72u: db $AB ; play note G4
 #_1B8E77: #_DE73u: db $0C, $6D ; duration, params
-#_1B8E79: #_DE75u: db !TIE
+#_1B8E79: #_DE75u: db $C8 ; sustain current note
 #_1B8E7A: #_DE76u: db $54, $7D ; duration, params
-#_1B8E7C: #_DE78u: db G4
+#_1B8E7C: #_DE78u: db $AB ; play note G4
 #_1B8E7D: #_DE79u: db $0C ; duration
-#_1B8E7E: #_DE7Au: db R
+#_1B8E7E: #_DE7Au: db $C9 ; rest
 #_1B8E7F: #_DE7Bu: db $30 ; duration
-#_1B8E80: #_DE7Cu: db Gs4
+#_1B8E80: #_DE7Cu: db $AC ; play note Gs4
 #_1B8E81: #_DE7Du: db $24 ; duration
-#_1B8E82: #_DE7Eu: db Gs4
+#_1B8E82: #_DE7Eu: db $AC ; play note Gs4
 #_1B8E83: #_DE7Fu: db $0C, $6D ; duration, params
-#_1B8E85: #_DE81u: db !TIE
+#_1B8E85: #_DE81u: db $C8 ; sustain current note
 #_1B8E86: #_DE82u: db $54, $7D ; duration, params
-#_1B8E88: #_DE84u: db Gs4
-#_1B8E89: #_DE85u: db !PART_END
+#_1B8E88: #_DE84u: db $AC ; play note Gs4
+#_1B8E89: #_DE85u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment5_Track1:
 #_1B8E8A: #_DE86u: db $18 ; duration
-#_1B8E8B: #_DE87u: db R
+#_1B8E8B: #_DE87u: db $C9 ; rest
 #_1B8E8C: #_DE88u: db $30, $7D ; duration, params
-#_1B8E8E: #_DE8Au: db Fs4
+#_1B8E8E: #_DE8Au: db $AA ; play note Fs4
 #_1B8E8F: #_DE8Bu: db $18 ; duration
-#_1B8E90: #_DE8Cu: db Fs4
+#_1B8E90: #_DE8Cu: db $AA ; play note Fs4
 #_1B8E91: #_DE8Du: db $18, $6D ; duration, params
-#_1B8E93: #_DE8Fu: db !TIE
+#_1B8E93: #_DE8Fu: db $C8 ; sustain current note
 #_1B8E94: #_DE90u: db $48, $7D ; duration, params
-#_1B8E96: #_DE92u: db Fs4
+#_1B8E96: #_DE92u: db $AA ; play note Fs4
 #_1B8E97: #_DE93u: db $18 ; duration
-#_1B8E98: #_DE94u: db R
+#_1B8E98: #_DE94u: db $C9 ; rest
 #_1B8E99: #_DE95u: db $30 ; duration
-#_1B8E9A: #_DE96u: db F4
+#_1B8E9A: #_DE96u: db $A9 ; play note F4
 #_1B8E9B: #_DE97u: db $18 ; duration
-#_1B8E9C: #_DE98u: db F4
+#_1B8E9C: #_DE98u: db $A9 ; play note F4
 #_1B8E9D: #_DE99u: db $18, $6D ; duration, params
-#_1B8E9F: #_DE9Bu: db !TIE
+#_1B8E9F: #_DE9Bu: db $C8 ; sustain current note
 #_1B8EA0: #_DE9Cu: db $48, $7D ; duration, params
-#_1B8EA2: #_DE9Eu: db F4
+#_1B8EA2: #_DE9Eu: db $A9 ; play note F4
 #_1B8EA3: #_DE9Fu: db $18 ; duration
-#_1B8EA4: #_DEA0u: db R
+#_1B8EA4: #_DEA0u: db $C9 ; rest
 #_1B8EA5: #_DEA1u: db $30 ; duration
-#_1B8EA6: #_DEA2u: db Gs4
+#_1B8EA6: #_DEA2u: db $AC ; play note Gs4
 #_1B8EA7: #_DEA3u: db $18 ; duration
-#_1B8EA8: #_DEA4u: db Gs4
+#_1B8EA8: #_DEA4u: db $AC ; play note Gs4
 #_1B8EA9: #_DEA5u: db $18, $6D ; duration, params
-#_1B8EAB: #_DEA7u: db !TIE
+#_1B8EAB: #_DEA7u: db $C8 ; sustain current note
 #_1B8EAC: #_DEA8u: db $48, $7D ; duration, params
-#_1B8EAE: #_DEAAu: db Gs4
+#_1B8EAE: #_DEAAu: db $AC ; play note Gs4
 #_1B8EAF: #_DEABu: db $18 ; duration
-#_1B8EB0: #_DEACu: db R
+#_1B8EB0: #_DEACu: db $C9 ; rest
 #_1B8EB1: #_DEADu: db $30 ; duration
-#_1B8EB2: #_DEAEu: db A4
+#_1B8EB2: #_DEAEu: db $AD ; play note A4
 #_1B8EB3: #_DEAFu: db $18 ; duration
-#_1B8EB4: #_DEB0u: db A4
+#_1B8EB4: #_DEB0u: db $AD ; play note A4
 #_1B8EB5: #_DEB1u: db $18, $6D ; duration, params
-#_1B8EB7: #_DEB3u: db !TIE
+#_1B8EB7: #_DEB3u: db $C8 ; sustain current note
 #_1B8EB8: #_DEB4u: db $48, $7D ; duration, params
-#_1B8EBA: #_DEB6u: db A4
+#_1B8EBA: #_DEB6u: db $AD ; play note A4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment5_Track2:
 #_1B8EBB: #_DEB7u: db $24 ; duration
-#_1B8EBC: #_DEB8u: db R
+#_1B8EBC: #_DEB8u: db $C9 ; rest
 #_1B8EBD: #_DEB9u: db $30, $7D ; duration, params
-#_1B8EBF: #_DEBBu: db Cs5
+#_1B8EBF: #_DEBBu: db $B1 ; play note Cs5
 #_1B8EC0: #_DEBCu: db $0C ; duration
-#_1B8EC1: #_DEBDu: db Cs5
+#_1B8EC1: #_DEBDu: db $B1 ; play note Cs5
 #_1B8EC2: #_DEBEu: db $24, $6D ; duration, params
-#_1B8EC4: #_DEC0u: db !TIE
+#_1B8EC4: #_DEC0u: db $C8 ; sustain current note
 #_1B8EC5: #_DEC1u: db $3C, $7D ; duration, params
-#_1B8EC7: #_DEC3u: db Cs5
+#_1B8EC7: #_DEC3u: db $B1 ; play note Cs5
 #_1B8EC8: #_DEC4u: db $24 ; duration
-#_1B8EC9: #_DEC5u: db R
+#_1B8EC9: #_DEC5u: db $C9 ; rest
 #_1B8ECA: #_DEC6u: db $30 ; duration
-#_1B8ECB: #_DEC7u: db C5
+#_1B8ECB: #_DEC7u: db $B0 ; play note C5
 #_1B8ECC: #_DEC8u: db $0C ; duration
-#_1B8ECD: #_DEC9u: db C5
+#_1B8ECD: #_DEC9u: db $B0 ; play note C5
 #_1B8ECE: #_DECAu: db $24, $6D ; duration, params
-#_1B8ED0: #_DECCu: db !TIE
+#_1B8ED0: #_DECCu: db $C8 ; sustain current note
 #_1B8ED1: #_DECDu: db $3C, $7D ; duration, params
-#_1B8ED3: #_DECFu: db C5
+#_1B8ED3: #_DECFu: db $B0 ; play note C5
 #_1B8ED4: #_DED0u: db $24 ; duration
-#_1B8ED5: #_DED1u: db R
+#_1B8ED5: #_DED1u: db $C9 ; rest
 #_1B8ED6: #_DED2u: db $30 ; duration
-#_1B8ED7: #_DED3u: db Ds5
+#_1B8ED7: #_DED3u: db $B3 ; play note Ds5
 #_1B8ED8: #_DED4u: db $0C ; duration
-#_1B8ED9: #_DED5u: db Ds5
+#_1B8ED9: #_DED5u: db $B3 ; play note Ds5
 #_1B8EDA: #_DED6u: db $24, $6D ; duration, params
-#_1B8EDC: #_DED8u: db !TIE
+#_1B8EDC: #_DED8u: db $C8 ; sustain current note
 #_1B8EDD: #_DED9u: db $3C, $7D ; duration, params
-#_1B8EDF: #_DEDBu: db Ds5
+#_1B8EDF: #_DEDBu: db $B3 ; play note Ds5
 #_1B8EE0: #_DEDCu: db $24 ; duration
-#_1B8EE1: #_DEDDu: db R
+#_1B8EE1: #_DEDDu: db $C9 ; rest
 #_1B8EE2: #_DEDEu: db $30 ; duration
-#_1B8EE3: #_DEDFu: db E5
+#_1B8EE3: #_DEDFu: db $B4 ; play note E5
 #_1B8EE4: #_DEE0u: db $0C ; duration
-#_1B8EE5: #_DEE1u: db E5
+#_1B8EE5: #_DEE1u: db $B4 ; play note E5
 #_1B8EE6: #_DEE2u: db $24, $6D ; duration, params
-#_1B8EE8: #_DEE4u: db !TIE
+#_1B8EE8: #_DEE4u: db $C8 ; sustain current note
 #_1B8EE9: #_DEE5u: db $3C, $7D ; duration, params
-#_1B8EEB: #_DEE7u: db E5
+#_1B8EEB: #_DEE7u: db $B4 ; play note E5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment5_Track3:
-#_1B8EEC: #_DEE8u: db !CALL_PART : dw Song11_Sub_E0C2 : db 2
-#_1B8EF0: #_DEECu: db !CALL_PART : dw Song11_Sub_E0CF : db 2
+#_1B8EEC: #_DEE8u: db $EF : dw Song11_Sub_E0C2 : db $02 ; call segment subroutine
+#_1B8EF0: #_DEECu: db $EF : dw Song11_Sub_E0CF : db $02 ; call segment subroutine
 #_1B8EF4: #_DEF0u: db $0C, $5F ; duration, params
-#_1B8EF6: #_DEF2u: db F3
+#_1B8EF6: #_DEF2u: db $9D ; play note F3
 #_1B8EF7: #_DEF3u: db $0C, $5D ; duration, params
-#_1B8EF9: #_DEF5u: db F3
-#_1B8EFA: #_DEF6u: db F3
-#_1B8EFB: #_DEF7u: db F3
-#_1B8EFC: #_DEF8u: db F3
-#_1B8EFD: #_DEF9u: db F3
-#_1B8EFE: #_DEFAu: db F3
-#_1B8EFF: #_DEFBu: db F3
-#_1B8F00: #_DEFCu: db F3
-#_1B8F01: #_DEFDu: db F3
-#_1B8F02: #_DEFEu: db F3
-#_1B8F03: #_DEFFu: db F3
-#_1B8F04: #_DF00u: db F3
-#_1B8F05: #_DF01u: db F3
-#_1B8F06: #_DF02u: db F3
-#_1B8F07: #_DF03u: db F3
-#_1B8F08: #_DF04u: db !CALL_PART : dw Song11_Sub_E0DC : db 2
+#_1B8EF9: #_DEF5u: db $9D ; play note F3
+#_1B8EFA: #_DEF6u: db $9D ; play note F3
+#_1B8EFB: #_DEF7u: db $9D ; play note F3
+#_1B8EFC: #_DEF8u: db $9D ; play note F3
+#_1B8EFD: #_DEF9u: db $9D ; play note F3
+#_1B8EFE: #_DEFAu: db $9D ; play note F3
+#_1B8EFF: #_DEFBu: db $9D ; play note F3
+#_1B8F00: #_DEFCu: db $9D ; play note F3
+#_1B8F01: #_DEFDu: db $9D ; play note F3
+#_1B8F02: #_DEFEu: db $9D ; play note F3
+#_1B8F03: #_DEFFu: db $9D ; play note F3
+#_1B8F04: #_DF00u: db $9D ; play note F3
+#_1B8F05: #_DF01u: db $9D ; play note F3
+#_1B8F06: #_DF02u: db $9D ; play note F3
+#_1B8F07: #_DF03u: db $9D ; play note F3
+#_1B8F08: #_DF04u: db $EF : dw Song11_Sub_E0DC : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment5_Track4:
-#_1B8F0C: #_DF08u: db !VOLUME, $DC
-#_1B8F0E: #_DF0Au: db !CALL_PART : dw Song11_Sub_E0E5 : db 1
+#_1B8F0C: #_DF08u: db $ED, $DC ; set channel volume
+#_1B8F0E: #_DF0Au: db $EF : dw Song11_Sub_E0E5 : db $01 ; call segment subroutine
 #_1B8F12: #_DF0Eu: db $0C ; duration
-#_1B8F13: #_DF0Fu: db C5
+#_1B8F13: #_DF0Fu: db $B0 ; play note C5
 #_1B8F14: #_DF10u: db $3C ; duration
-#_1B8F15: #_DF11u: db B4
+#_1B8F15: #_DF11u: db $AF ; play note B4
 #_1B8F16: #_DF12u: db $0C ; duration
-#_1B8F17: #_DF13u: db F4
-#_1B8F18: #_DF14u: db E4
+#_1B8F17: #_DF13u: db $A9 ; play note F4
+#_1B8F18: #_DF14u: db $A8 ; play note E4
 #_1B8F19: #_DF15u: db $60 ; duration
-#_1B8F1A: #_DF16u: db !TIE
+#_1B8F1A: #_DF16u: db $C8 ; sustain current note
 #_1B8F1B: #_DF17u: db $3C ; duration
-#_1B8F1C: #_DF18u: db Ds4
+#_1B8F1C: #_DF18u: db $A7 ; play note Ds4
 #_1B8F1D: #_DF19u: db $0C ; duration
-#_1B8F1E: #_DF1Au: db D4
-#_1B8F1F: #_DF1Bu: db Ds4
-#_1B8F20: #_DF1Cu: db Gs4
+#_1B8F1E: #_DF1Au: db $A6 ; play note D4
+#_1B8F1F: #_DF1Bu: db $A7 ; play note Ds4
+#_1B8F20: #_DF1Cu: db $AC ; play note Gs4
 #_1B8F21: #_DF1Du: db $48 ; duration
-#_1B8F22: #_DF1Eu: db D5
+#_1B8F22: #_DF1Eu: db $B2 ; play note D5
 #_1B8F23: #_DF1Fu: db $18 ; duration
-#_1B8F24: #_DF20u: db As4
+#_1B8F24: #_DF20u: db $AE ; play note As4
 #_1B8F25: #_DF21u: db $60 ; duration
-#_1B8F26: #_DF22u: db A4
-#_1B8F27: #_DF23u: db !TIE
+#_1B8F26: #_DF22u: db $AD ; play note A4
+#_1B8F27: #_DF23u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Segment5_Track5:
-#_1B8F28: #_DF24u: db !CALL_PART : dw Song11_Sub_E0F1 : db 1
+#_1B8F28: #_DF24u: db $EF : dw Song11_Sub_E0F1 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Unused0_Track0:
 #_1B8F2C: #_DF28u: db $0C ; duration
-#_1B8F2D: #_DF29u: db R
+#_1B8F2D: #_DF29u: db $C9 ; rest
 #_1B8F2E: #_DF2Au: db $30, $7D ; duration, params
-#_1B8F30: #_DF2Cu: db F4
+#_1B8F30: #_DF2Cu: db $A9 ; play note F4
 #_1B8F31: #_DF2Du: db $24 ; duration
-#_1B8F32: #_DF2Eu: db F4
+#_1B8F32: #_DF2Eu: db $A9 ; play note F4
 #_1B8F33: #_DF2Fu: db $0C ; duration
-#_1B8F34: #_DF30u: db !TIE
+#_1B8F34: #_DF30u: db $C8 ; sustain current note
 #_1B8F35: #_DF31u: db $54 ; duration
-#_1B8F36: #_DF32u: db F4
+#_1B8F36: #_DF32u: db $A9 ; play note F4
 #_1B8F37: #_DF33u: db $0C ; duration
-#_1B8F38: #_DF34u: db R
+#_1B8F38: #_DF34u: db $C9 ; rest
 #_1B8F39: #_DF35u: db $30 ; duration
-#_1B8F3A: #_DF36u: db E4
+#_1B8F3A: #_DF36u: db $A8 ; play note E4
 #_1B8F3B: #_DF37u: db $24 ; duration
-#_1B8F3C: #_DF38u: db E4
+#_1B8F3C: #_DF38u: db $A8 ; play note E4
 #_1B8F3D: #_DF39u: db $0C ; duration
-#_1B8F3E: #_DF3Au: db !TIE
+#_1B8F3E: #_DF3Au: db $C8 ; sustain current note
 #_1B8F3F: #_DF3Bu: db $54 ; duration
-#_1B8F40: #_DF3Cu: db E4
+#_1B8F40: #_DF3Cu: db $A8 ; play note E4
 #_1B8F41: #_DF3Du: db $0C ; duration
-#_1B8F42: #_DF3Eu: db R
+#_1B8F42: #_DF3Eu: db $C9 ; rest
 #_1B8F43: #_DF3Fu: db $30 ; duration
-#_1B8F44: #_DF40u: db Ds4
+#_1B8F44: #_DF40u: db $A7 ; play note Ds4
 #_1B8F45: #_DF41u: db $24 ; duration
-#_1B8F46: #_DF42u: db Ds4
+#_1B8F46: #_DF42u: db $A7 ; play note Ds4
 #_1B8F47: #_DF43u: db $0C ; duration
-#_1B8F48: #_DF44u: db !TIE
+#_1B8F48: #_DF44u: db $C8 ; sustain current note
 #_1B8F49: #_DF45u: db $54 ; duration
-#_1B8F4A: #_DF46u: db Ds4
+#_1B8F4A: #_DF46u: db $A7 ; play note Ds4
 #_1B8F4B: #_DF47u: db $0C ; duration
-#_1B8F4C: #_DF48u: db R
+#_1B8F4C: #_DF48u: db $C9 ; rest
 #_1B8F4D: #_DF49u: db $30 ; duration
-#_1B8F4E: #_DF4Au: db D4
+#_1B8F4E: #_DF4Au: db $A6 ; play note D4
 #_1B8F4F: #_DF4Bu: db $24 ; duration
-#_1B8F50: #_DF4Cu: db D4
+#_1B8F50: #_DF4Cu: db $A6 ; play note D4
 #_1B8F51: #_DF4Du: db $0C ; duration
-#_1B8F52: #_DF4Eu: db !TIE
+#_1B8F52: #_DF4Eu: db $C8 ; sustain current note
 #_1B8F53: #_DF4Fu: db $54 ; duration
-#_1B8F54: #_DF50u: db D4
-#_1B8F55: #_DF51u: db !PART_END
+#_1B8F54: #_DF50u: db $A6 ; play note D4
+#_1B8F55: #_DF51u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Unused0_Track1:
 #_1B8F56: #_DF52u: db $18 ; duration
-#_1B8F57: #_DF53u: db R
+#_1B8F57: #_DF53u: db $C9 ; rest
 #_1B8F58: #_DF54u: db $30, $7D ; duration, params
-#_1B8F5A: #_DF56u: db Fs4
+#_1B8F5A: #_DF56u: db $AA ; play note Fs4
 #_1B8F5B: #_DF57u: db $18 ; duration
-#_1B8F5C: #_DF58u: db Fs4
-#_1B8F5D: #_DF59u: db !TIE
+#_1B8F5C: #_DF58u: db $AA ; play note Fs4
+#_1B8F5D: #_DF59u: db $C8 ; sustain current note
 #_1B8F5E: #_DF5Au: db $48 ; duration
-#_1B8F5F: #_DF5Bu: db Fs4
+#_1B8F5F: #_DF5Bu: db $AA ; play note Fs4
 #_1B8F60: #_DF5Cu: db $18 ; duration
-#_1B8F61: #_DF5Du: db R
+#_1B8F61: #_DF5Du: db $C9 ; rest
 #_1B8F62: #_DF5Eu: db $30 ; duration
-#_1B8F63: #_DF5Fu: db F4
+#_1B8F63: #_DF5Fu: db $A9 ; play note F4
 #_1B8F64: #_DF60u: db $18 ; duration
-#_1B8F65: #_DF61u: db F4
-#_1B8F66: #_DF62u: db !TIE
+#_1B8F65: #_DF61u: db $A9 ; play note F4
+#_1B8F66: #_DF62u: db $C8 ; sustain current note
 #_1B8F67: #_DF63u: db $48 ; duration
-#_1B8F68: #_DF64u: db F4
+#_1B8F68: #_DF64u: db $A9 ; play note F4
 #_1B8F69: #_DF65u: db $18 ; duration
-#_1B8F6A: #_DF66u: db R
+#_1B8F6A: #_DF66u: db $C9 ; rest
 #_1B8F6B: #_DF67u: db $30 ; duration
-#_1B8F6C: #_DF68u: db E4
+#_1B8F6C: #_DF68u: db $A8 ; play note E4
 #_1B8F6D: #_DF69u: db $18 ; duration
-#_1B8F6E: #_DF6Au: db E4
-#_1B8F6F: #_DF6Bu: db !TIE
+#_1B8F6E: #_DF6Au: db $A8 ; play note E4
+#_1B8F6F: #_DF6Bu: db $C8 ; sustain current note
 #_1B8F70: #_DF6Cu: db $48 ; duration
-#_1B8F71: #_DF6Du: db E4
+#_1B8F71: #_DF6Du: db $A8 ; play note E4
 #_1B8F72: #_DF6Eu: db $18 ; duration
-#_1B8F73: #_DF6Fu: db R
+#_1B8F73: #_DF6Fu: db $C9 ; rest
 #_1B8F74: #_DF70u: db $30 ; duration
-#_1B8F75: #_DF71u: db Ds4
+#_1B8F75: #_DF71u: db $A7 ; play note Ds4
 #_1B8F76: #_DF72u: db $18 ; duration
-#_1B8F77: #_DF73u: db Ds4
-#_1B8F78: #_DF74u: db !TIE
+#_1B8F77: #_DF73u: db $A7 ; play note Ds4
+#_1B8F78: #_DF74u: db $C8 ; sustain current note
 #_1B8F79: #_DF75u: db $48 ; duration
-#_1B8F7A: #_DF76u: db Ds4
+#_1B8F7A: #_DF76u: db $A7 ; play note Ds4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Unused0_Track2:
 #_1B8F7B: #_DF77u: db $24 ; duration
-#_1B8F7C: #_DF78u: db R
+#_1B8F7C: #_DF78u: db $C9 ; rest
 #_1B8F7D: #_DF79u: db $30, $7D ; duration, params
-#_1B8F7F: #_DF7Bu: db Cs5
+#_1B8F7F: #_DF7Bu: db $B1 ; play note Cs5
 #_1B8F80: #_DF7Cu: db $0C ; duration
-#_1B8F81: #_DF7Du: db Cs5
+#_1B8F81: #_DF7Du: db $B1 ; play note Cs5
 #_1B8F82: #_DF7Eu: db $24 ; duration
-#_1B8F83: #_DF7Fu: db !TIE
+#_1B8F83: #_DF7Fu: db $C8 ; sustain current note
 #_1B8F84: #_DF80u: db $3C ; duration
-#_1B8F85: #_DF81u: db Cs5
+#_1B8F85: #_DF81u: db $B1 ; play note Cs5
 #_1B8F86: #_DF82u: db $24 ; duration
-#_1B8F87: #_DF83u: db R
+#_1B8F87: #_DF83u: db $C9 ; rest
 #_1B8F88: #_DF84u: db $30 ; duration
-#_1B8F89: #_DF85u: db C5
+#_1B8F89: #_DF85u: db $B0 ; play note C5
 #_1B8F8A: #_DF86u: db $0C ; duration
-#_1B8F8B: #_DF87u: db C5
+#_1B8F8B: #_DF87u: db $B0 ; play note C5
 #_1B8F8C: #_DF88u: db $24 ; duration
-#_1B8F8D: #_DF89u: db !TIE
+#_1B8F8D: #_DF89u: db $C8 ; sustain current note
 #_1B8F8E: #_DF8Au: db $3C ; duration
-#_1B8F8F: #_DF8Bu: db C5
+#_1B8F8F: #_DF8Bu: db $B0 ; play note C5
 #_1B8F90: #_DF8Cu: db $24 ; duration
-#_1B8F91: #_DF8Du: db R
+#_1B8F91: #_DF8Du: db $C9 ; rest
 #_1B8F92: #_DF8Eu: db $30 ; duration
-#_1B8F93: #_DF8Fu: db B4
+#_1B8F93: #_DF8Fu: db $AF ; play note B4
 #_1B8F94: #_DF90u: db $0C ; duration
-#_1B8F95: #_DF91u: db B4
+#_1B8F95: #_DF91u: db $AF ; play note B4
 #_1B8F96: #_DF92u: db $24 ; duration
-#_1B8F97: #_DF93u: db !TIE
+#_1B8F97: #_DF93u: db $C8 ; sustain current note
 #_1B8F98: #_DF94u: db $3C ; duration
-#_1B8F99: #_DF95u: db B4
+#_1B8F99: #_DF95u: db $AF ; play note B4
 #_1B8F9A: #_DF96u: db $24 ; duration
-#_1B8F9B: #_DF97u: db R
+#_1B8F9B: #_DF97u: db $C9 ; rest
 #_1B8F9C: #_DF98u: db $30 ; duration
-#_1B8F9D: #_DF99u: db As4
+#_1B8F9D: #_DF99u: db $AE ; play note As4
 #_1B8F9E: #_DF9Au: db $0C ; duration
-#_1B8F9F: #_DF9Bu: db As4
+#_1B8F9F: #_DF9Bu: db $AE ; play note As4
 #_1B8FA0: #_DF9Cu: db $24 ; duration
-#_1B8FA1: #_DF9Du: db !TIE
+#_1B8FA1: #_DF9Du: db $C8 ; sustain current note
 #_1B8FA2: #_DF9Eu: db $3C ; duration
-#_1B8FA3: #_DF9Fu: db As4
+#_1B8FA3: #_DF9Fu: db $AE ; play note As4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Unused0_Track3:
-#_1B8FA4: #_DFA0u: db !CALL_PART : dw Song11_Sub_E0C2 : db 2
-#_1B8FA8: #_DFA4u: db !CALL_PART : dw Song11_Sub_E0CF : db 2
-#_1B8FAC: #_DFA8u: db !CALL_PART : dw Song11_Sub_E120 : db 2
-#_1B8FB0: #_DFACu: db !CALL_PART : dw Song11_Sub_E12D : db 2
+#_1B8FA4: #_DFA0u: db $EF : dw Song11_Sub_E0C2 : db $02 ; call segment subroutine
+#_1B8FA8: #_DFA4u: db $EF : dw Song11_Sub_E0CF : db $02 ; call segment subroutine
+#_1B8FAC: #_DFA8u: db $EF : dw Song11_Sub_E120 : db $02 ; call segment subroutine
+#_1B8FB0: #_DFACu: db $EF : dw Song11_Sub_E12D : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Unused0_Track4:
-#_1B8FB4: #_DFB0u: db !CALL_PART : dw Song11_Sub_E0E5 : db 1
+#_1B8FB4: #_DFB0u: db $EF : dw Song11_Sub_E0E5 : db $01 ; call segment subroutine
 #_1B8FB8: #_DFB4u: db $0C ; duration
-#_1B8FB9: #_DFB5u: db B4
+#_1B8FB9: #_DFB5u: db $AF ; play note B4
 #_1B8FBA: #_DFB6u: db $3C ; duration
-#_1B8FBB: #_DFB7u: db As4
+#_1B8FBB: #_DFB7u: db $AE ; play note As4
 #_1B8FBC: #_DFB8u: db $0C ; duration
-#_1B8FBD: #_DFB9u: db F4
-#_1B8FBE: #_DFBAu: db E4
+#_1B8FBD: #_DFB9u: db $A9 ; play note F4
+#_1B8FBE: #_DFBAu: db $A8 ; play note E4
 #_1B8FBF: #_DFBBu: db $60 ; duration
-#_1B8FC0: #_DFBCu: db !TIE
+#_1B8FC0: #_DFBCu: db $C8 ; sustain current note
 #_1B8FC1: #_DFBDu: db $3C ; duration
-#_1B8FC2: #_DFBEu: db Ds4
+#_1B8FC2: #_DFBEu: db $A7 ; play note Ds4
 #_1B8FC3: #_DFBFu: db $0C ; duration
-#_1B8FC4: #_DFC0u: db D4
-#_1B8FC5: #_DFC1u: db Ds4
-#_1B8FC6: #_DFC2u: db As4
+#_1B8FC4: #_DFC0u: db $A6 ; play note D4
+#_1B8FC5: #_DFC1u: db $A7 ; play note Ds4
+#_1B8FC6: #_DFC2u: db $AE ; play note As4
 #_1B8FC7: #_DFC3u: db $48 ; duration
-#_1B8FC8: #_DFC4u: db B4
+#_1B8FC8: #_DFC4u: db $AF ; play note B4
 #_1B8FC9: #_DFC5u: db $18 ; duration
-#_1B8FCA: #_DFC6u: db Cs5
+#_1B8FCA: #_DFC6u: db $B1 ; play note Cs5
 #_1B8FCB: #_DFC7u: db $60 ; duration
-#_1B8FCC: #_DFC8u: db C5
-#_1B8FCD: #_DFC9u: db As4
+#_1B8FCC: #_DFC8u: db $B0 ; play note C5
+#_1B8FCD: #_DFC9u: db $AE ; play note As4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Unused0_Track5:
-#_1B8FCE: #_DFCAu: db !CALL_PART : dw Song11_Sub_E0F1 : db 1
+#_1B8FCE: #_DFCAu: db $EF : dw Song11_Sub_E0F1 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Unused1_Track0:
-#_1B8FD2: #_DFCEu: db !CALL_PART : dw Song11_Sub_E015 : db 1
-#_1B8FD6: #_DFD2u: db !CALL_PART : dw Song11_Sub_E021 : db 1
-#_1B8FDA: #_DFD6u: db !CALL_PART : dw Song11_Sub_E02C : db 1
-#_1B8FDE: #_DFDAu: db !CALL_PART : dw Song11_Sub_E09F : db 1
-#_1B8FE2: #_DFDEu: db !PART_END
+#_1B8FD2: #_DFCEu: db $EF : dw Song11_Sub_E015 : db $01 ; call segment subroutine
+#_1B8FD6: #_DFD2u: db $EF : dw Song11_Sub_E021 : db $01 ; call segment subroutine
+#_1B8FDA: #_DFD6u: db $EF : dw Song11_Sub_E02C : db $01 ; call segment subroutine
+#_1B8FDE: #_DFDAu: db $EF : dw Song11_Sub_E09F : db $01 ; call segment subroutine
+#_1B8FE2: #_DFDEu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Unused1_Track1:
-#_1B8FE3: #_DFDFu: db !CALL_PART : dw Song11_Sub_E037 : db 1
-#_1B8FE7: #_DFE3u: db !CALL_PART : dw Song11_Sub_E042 : db 1
-#_1B8FEB: #_DFE7u: db !CALL_PART : dw Song11_Sub_E04C : db 1
+#_1B8FE3: #_DFDFu: db $EF : dw Song11_Sub_E037 : db $01 ; call segment subroutine
+#_1B8FE7: #_DFE3u: db $EF : dw Song11_Sub_E042 : db $01 ; call segment subroutine
+#_1B8FEB: #_DFE7u: db $EF : dw Song11_Sub_E04C : db $01 ; call segment subroutine
 #_1B8FEF: #_DFEBu: db $18 ; duration
-#_1B8FF0: #_DFECu: db R
+#_1B8FF0: #_DFECu: db $C9 ; rest
 #_1B8FF1: #_DFEDu: db $30 ; duration
-#_1B8FF2: #_DFEEu: db B3
+#_1B8FF2: #_DFEEu: db $A3 ; play note B3
 #_1B8FF3: #_DFEFu: db $18 ; duration
-#_1B8FF4: #_DFF0u: db B3
-#_1B8FF5: #_DFF1u: db !TIE
+#_1B8FF4: #_DFF0u: db $A3 ; play note B3
+#_1B8FF5: #_DFF1u: db $C8 ; sustain current note
 #_1B8FF6: #_DFF2u: db $48 ; duration
-#_1B8FF7: #_DFF3u: db B3
+#_1B8FF7: #_DFF3u: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Unused1_Track2:
-#_1B8FF8: #_DFF4u: db !CALL_PART : dw Song11_Sub_E056 : db 1
-#_1B8FFC: #_DFF8u: db !CALL_PART : dw Song11_Sub_E062 : db 1
-#_1B9000: #_DFFCu: db !CALL_PART : dw Song11_Sub_E06D : db 1
-#_1B9004: #_E000u: db !CALL_PART : dw Song11_Sub_E0AA : db 1
+#_1B8FF8: #_DFF4u: db $EF : dw Song11_Sub_E056 : db $01 ; call segment subroutine
+#_1B8FFC: #_DFF8u: db $EF : dw Song11_Sub_E062 : db $01 ; call segment subroutine
+#_1B9000: #_DFFCu: db $EF : dw Song11_Sub_E06D : db $01 ; call segment subroutine
+#_1B9004: #_E000u: db $EF : dw Song11_Sub_E0AA : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Unused1_Track3:
-#_1B9008: #_E004u: db !CALL_PART : dw Song11_Sub_E078 : db 2
-#_1B900C: #_E008u: db !CALL_PART : dw Song11_Sub_E085 : db 2
-#_1B9010: #_E00Cu: db !CALL_PART : dw Song11_Sub_E092 : db 2
-#_1B9014: #_E010u: db !CALL_PART : dw Song11_Sub_E0B5 : db 2
-#_1B9018: #_E014u: db !PART_END
+#_1B9008: #_E004u: db $EF : dw Song11_Sub_E078 : db $02 ; call segment subroutine
+#_1B900C: #_E008u: db $EF : dw Song11_Sub_E085 : db $02 ; call segment subroutine
+#_1B9010: #_E00Cu: db $EF : dw Song11_Sub_E092 : db $02 ; call segment subroutine
+#_1B9014: #_E010u: db $EF : dw Song11_Sub_E0B5 : db $02 ; call segment subroutine
+#_1B9018: #_E014u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E015:
 #_1B9019: #_E015u: db $0C ; duration
-#_1B901A: #_E016u: db R
+#_1B901A: #_E016u: db $C9 ; rest
 #_1B901B: #_E017u: db $30, $7D ; duration, params
-#_1B901D: #_E019u: db Cs4
+#_1B901D: #_E019u: db $A5 ; play note Cs4
 #_1B901E: #_E01Au: db $24 ; duration
-#_1B901F: #_E01Bu: db Cs4
+#_1B901F: #_E01Bu: db $A5 ; play note Cs4
 #_1B9020: #_E01Cu: db $0C ; duration
-#_1B9021: #_E01Du: db !TIE
+#_1B9021: #_E01Du: db $C8 ; sustain current note
 #_1B9022: #_E01Eu: db $54 ; duration
-#_1B9023: #_E01Fu: db Cs4
-#_1B9024: #_E020u: db !PART_END
+#_1B9023: #_E01Fu: db $A5 ; play note Cs4
+#_1B9024: #_E020u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E021:
 #_1B9025: #_E021u: db $0C ; duration
-#_1B9026: #_E022u: db R
+#_1B9026: #_E022u: db $C9 ; rest
 #_1B9027: #_E023u: db $30 ; duration
-#_1B9028: #_E024u: db C4
+#_1B9028: #_E024u: db $A4 ; play note C4
 #_1B9029: #_E025u: db $24 ; duration
-#_1B902A: #_E026u: db C4
+#_1B902A: #_E026u: db $A4 ; play note C4
 #_1B902B: #_E027u: db $0C ; duration
-#_1B902C: #_E028u: db !TIE
+#_1B902C: #_E028u: db $C8 ; sustain current note
 #_1B902D: #_E029u: db $54 ; duration
-#_1B902E: #_E02Au: db C4
-#_1B902F: #_E02Bu: db !PART_END
+#_1B902E: #_E02Au: db $A4 ; play note C4
+#_1B902F: #_E02Bu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E02C:
 #_1B9030: #_E02Cu: db $0C ; duration
-#_1B9031: #_E02Du: db R
+#_1B9031: #_E02Du: db $C9 ; rest
 #_1B9032: #_E02Eu: db $30 ; duration
-#_1B9033: #_E02Fu: db B3
+#_1B9033: #_E02Fu: db $A3 ; play note B3
 #_1B9034: #_E030u: db $24 ; duration
-#_1B9035: #_E031u: db B3
+#_1B9035: #_E031u: db $A3 ; play note B3
 #_1B9036: #_E032u: db $0C ; duration
-#_1B9037: #_E033u: db !TIE
+#_1B9037: #_E033u: db $C8 ; sustain current note
 #_1B9038: #_E034u: db $54 ; duration
-#_1B9039: #_E035u: db B3
-#_1B903A: #_E036u: db !PART_END
+#_1B9039: #_E035u: db $A3 ; play note B3
+#_1B903A: #_E036u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E037:
 #_1B903B: #_E037u: db $18 ; duration
-#_1B903C: #_E038u: db R
+#_1B903C: #_E038u: db $C9 ; rest
 #_1B903D: #_E039u: db $30, $7D ; duration, params
-#_1B903F: #_E03Bu: db D4
+#_1B903F: #_E03Bu: db $A6 ; play note D4
 #_1B9040: #_E03Cu: db $18 ; duration
-#_1B9041: #_E03Du: db D4
-#_1B9042: #_E03Eu: db !TIE
+#_1B9041: #_E03Du: db $A6 ; play note D4
+#_1B9042: #_E03Eu: db $C8 ; sustain current note
 #_1B9043: #_E03Fu: db $48 ; duration
-#_1B9044: #_E040u: db D4
-#_1B9045: #_E041u: db !PART_END
+#_1B9044: #_E040u: db $A6 ; play note D4
+#_1B9045: #_E041u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E042:
 #_1B9046: #_E042u: db $18 ; duration
-#_1B9047: #_E043u: db R
+#_1B9047: #_E043u: db $C9 ; rest
 #_1B9048: #_E044u: db $30 ; duration
-#_1B9049: #_E045u: db Cs4
+#_1B9049: #_E045u: db $A5 ; play note Cs4
 #_1B904A: #_E046u: db $18 ; duration
-#_1B904B: #_E047u: db Cs4
-#_1B904C: #_E048u: db !TIE
+#_1B904B: #_E047u: db $A5 ; play note Cs4
+#_1B904C: #_E048u: db $C8 ; sustain current note
 #_1B904D: #_E049u: db $48 ; duration
-#_1B904E: #_E04Au: db Cs4
-#_1B904F: #_E04Bu: db !PART_END
+#_1B904E: #_E04Au: db $A5 ; play note Cs4
+#_1B904F: #_E04Bu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E04C:
 #_1B9050: #_E04Cu: db $18 ; duration
-#_1B9051: #_E04Du: db R
+#_1B9051: #_E04Du: db $C9 ; rest
 #_1B9052: #_E04Eu: db $30 ; duration
-#_1B9053: #_E04Fu: db C4
+#_1B9053: #_E04Fu: db $A4 ; play note C4
 #_1B9054: #_E050u: db $18 ; duration
-#_1B9055: #_E051u: db C4
-#_1B9056: #_E052u: db !TIE
+#_1B9055: #_E051u: db $A4 ; play note C4
+#_1B9056: #_E052u: db $C8 ; sustain current note
 #_1B9057: #_E053u: db $48 ; duration
-#_1B9058: #_E054u: db C4
-#_1B9059: #_E055u: db !PART_END
+#_1B9058: #_E054u: db $A4 ; play note C4
+#_1B9059: #_E055u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E056:
 #_1B905A: #_E056u: db $24 ; duration
-#_1B905B: #_E057u: db R
+#_1B905B: #_E057u: db $C9 ; rest
 #_1B905C: #_E058u: db $30, $7D ; duration, params
-#_1B905E: #_E05Au: db A4
+#_1B905E: #_E05Au: db $AD ; play note A4
 #_1B905F: #_E05Bu: db $0C ; duration
-#_1B9060: #_E05Cu: db A4
+#_1B9060: #_E05Cu: db $AD ; play note A4
 #_1B9061: #_E05Du: db $24 ; duration
-#_1B9062: #_E05Eu: db !TIE
+#_1B9062: #_E05Eu: db $C8 ; sustain current note
 #_1B9063: #_E05Fu: db $3C ; duration
-#_1B9064: #_E060u: db A4
-#_1B9065: #_E061u: db !PART_END
+#_1B9064: #_E060u: db $AD ; play note A4
+#_1B9065: #_E061u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E062:
 #_1B9066: #_E062u: db $24 ; duration
-#_1B9067: #_E063u: db R
+#_1B9067: #_E063u: db $C9 ; rest
 #_1B9068: #_E064u: db $30 ; duration
-#_1B9069: #_E065u: db Gs4
+#_1B9069: #_E065u: db $AC ; play note Gs4
 #_1B906A: #_E066u: db $0C ; duration
-#_1B906B: #_E067u: db Gs4
+#_1B906B: #_E067u: db $AC ; play note Gs4
 #_1B906C: #_E068u: db $24 ; duration
-#_1B906D: #_E069u: db !TIE
+#_1B906D: #_E069u: db $C8 ; sustain current note
 #_1B906E: #_E06Au: db $3C ; duration
-#_1B906F: #_E06Bu: db Gs4
-#_1B9070: #_E06Cu: db !PART_END
+#_1B906F: #_E06Bu: db $AC ; play note Gs4
+#_1B9070: #_E06Cu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E06D:
 #_1B9071: #_E06Du: db $24 ; duration
-#_1B9072: #_E06Eu: db R
+#_1B9072: #_E06Eu: db $C9 ; rest
 #_1B9073: #_E06Fu: db $30 ; duration
-#_1B9074: #_E070u: db G4
+#_1B9074: #_E070u: db $AB ; play note G4
 #_1B9075: #_E071u: db $0C ; duration
-#_1B9076: #_E072u: db G4
+#_1B9076: #_E072u: db $AB ; play note G4
 #_1B9077: #_E073u: db $24 ; duration
-#_1B9078: #_E074u: db !TIE
+#_1B9078: #_E074u: db $C8 ; sustain current note
 #_1B9079: #_E075u: db $3C ; duration
-#_1B907A: #_E076u: db G4
-#_1B907B: #_E077u: db !PART_END
+#_1B907A: #_E076u: db $AB ; play note G4
+#_1B907B: #_E077u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E078:
 #_1B907C: #_E078u: db $0C, $5F ; duration, params
-#_1B907E: #_E07Au: db B2
+#_1B907E: #_E07Au: db $97 ; play note B2
 #_1B907F: #_E07Bu: db $0C, $5D ; duration, params
-#_1B9081: #_E07Du: db B2
-#_1B9082: #_E07Eu: db B2
-#_1B9083: #_E07Fu: db B2
-#_1B9084: #_E080u: db B2
-#_1B9085: #_E081u: db B2
-#_1B9086: #_E082u: db B2
-#_1B9087: #_E083u: db B2
-#_1B9088: #_E084u: db !PART_END
+#_1B9081: #_E07Du: db $97 ; play note B2
+#_1B9082: #_E07Eu: db $97 ; play note B2
+#_1B9083: #_E07Fu: db $97 ; play note B2
+#_1B9084: #_E080u: db $97 ; play note B2
+#_1B9085: #_E081u: db $97 ; play note B2
+#_1B9086: #_E082u: db $97 ; play note B2
+#_1B9087: #_E083u: db $97 ; play note B2
+#_1B9088: #_E084u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E085:
 #_1B9089: #_E085u: db $0C, $5F ; duration, params
-#_1B908B: #_E087u: db As2
+#_1B908B: #_E087u: db $96 ; play note As2
 #_1B908C: #_E088u: db $0C, $5D ; duration, params
-#_1B908E: #_E08Au: db As2
-#_1B908F: #_E08Bu: db As2
-#_1B9090: #_E08Cu: db As2
-#_1B9091: #_E08Du: db As2
-#_1B9092: #_E08Eu: db As2
-#_1B9093: #_E08Fu: db As2
-#_1B9094: #_E090u: db As2
-#_1B9095: #_E091u: db !PART_END
+#_1B908E: #_E08Au: db $96 ; play note As2
+#_1B908F: #_E08Bu: db $96 ; play note As2
+#_1B9090: #_E08Cu: db $96 ; play note As2
+#_1B9091: #_E08Du: db $96 ; play note As2
+#_1B9092: #_E08Eu: db $96 ; play note As2
+#_1B9093: #_E08Fu: db $96 ; play note As2
+#_1B9094: #_E090u: db $96 ; play note As2
+#_1B9095: #_E091u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E092:
 #_1B9096: #_E092u: db $0C, $5F ; duration, params
-#_1B9098: #_E094u: db A2
+#_1B9098: #_E094u: db $95 ; play note A2
 #_1B9099: #_E095u: db $0C, $5D ; duration, params
-#_1B909B: #_E097u: db A2
-#_1B909C: #_E098u: db A2
-#_1B909D: #_E099u: db A2
-#_1B909E: #_E09Au: db A2
-#_1B909F: #_E09Bu: db A2
-#_1B90A0: #_E09Cu: db A2
-#_1B90A1: #_E09Du: db A2
-#_1B90A2: #_E09Eu: db !PART_END
+#_1B909B: #_E097u: db $95 ; play note A2
+#_1B909C: #_E098u: db $95 ; play note A2
+#_1B909D: #_E099u: db $95 ; play note A2
+#_1B909E: #_E09Au: db $95 ; play note A2
+#_1B909F: #_E09Bu: db $95 ; play note A2
+#_1B90A0: #_E09Cu: db $95 ; play note A2
+#_1B90A1: #_E09Du: db $95 ; play note A2
+#_1B90A2: #_E09Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E09F:
 #_1B90A3: #_E09Fu: db $0C ; duration
-#_1B90A4: #_E0A0u: db R
+#_1B90A4: #_E0A0u: db $C9 ; rest
 #_1B90A5: #_E0A1u: db $30 ; duration
-#_1B90A6: #_E0A2u: db As3
+#_1B90A6: #_E0A2u: db $A2 ; play note As3
 #_1B90A7: #_E0A3u: db $24 ; duration
-#_1B90A8: #_E0A4u: db As3
+#_1B90A8: #_E0A4u: db $A2 ; play note As3
 #_1B90A9: #_E0A5u: db $0C ; duration
-#_1B90AA: #_E0A6u: db !TIE
+#_1B90AA: #_E0A6u: db $C8 ; sustain current note
 #_1B90AB: #_E0A7u: db $54 ; duration
-#_1B90AC: #_E0A8u: db As3
-#_1B90AD: #_E0A9u: db !PART_END
+#_1B90AC: #_E0A8u: db $A2 ; play note As3
+#_1B90AD: #_E0A9u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E0AA:
 #_1B90AE: #_E0AAu: db $24 ; duration
-#_1B90AF: #_E0ABu: db R
+#_1B90AF: #_E0ABu: db $C9 ; rest
 #_1B90B0: #_E0ACu: db $30 ; duration
-#_1B90B1: #_E0ADu: db Fs4
+#_1B90B1: #_E0ADu: db $AA ; play note Fs4
 #_1B90B2: #_E0AEu: db $0C ; duration
-#_1B90B3: #_E0AFu: db Fs4
+#_1B90B3: #_E0AFu: db $AA ; play note Fs4
 #_1B90B4: #_E0B0u: db $24 ; duration
-#_1B90B5: #_E0B1u: db !TIE
+#_1B90B5: #_E0B1u: db $C8 ; sustain current note
 #_1B90B6: #_E0B2u: db $3C ; duration
-#_1B90B7: #_E0B3u: db Fs4
-#_1B90B8: #_E0B4u: db !PART_END
+#_1B90B7: #_E0B3u: db $AA ; play note Fs4
+#_1B90B8: #_E0B4u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E0B5:
 #_1B90B9: #_E0B5u: db $0C, $5F ; duration, params
-#_1B90BB: #_E0B7u: db Gs2
+#_1B90BB: #_E0B7u: db $94 ; play note Gs2
 #_1B90BC: #_E0B8u: db $0C, $5D ; duration, params
-#_1B90BE: #_E0BAu: db Gs2
-#_1B90BF: #_E0BBu: db Gs2
-#_1B90C0: #_E0BCu: db Gs2
-#_1B90C1: #_E0BDu: db Gs2
-#_1B90C2: #_E0BEu: db Gs2
-#_1B90C3: #_E0BFu: db Gs2
-#_1B90C4: #_E0C0u: db Gs2
-#_1B90C5: #_E0C1u: db !PART_END
+#_1B90BE: #_E0BAu: db $94 ; play note Gs2
+#_1B90BF: #_E0BBu: db $94 ; play note Gs2
+#_1B90C0: #_E0BCu: db $94 ; play note Gs2
+#_1B90C1: #_E0BDu: db $94 ; play note Gs2
+#_1B90C2: #_E0BEu: db $94 ; play note Gs2
+#_1B90C3: #_E0BFu: db $94 ; play note Gs2
+#_1B90C4: #_E0C0u: db $94 ; play note Gs2
+#_1B90C5: #_E0C1u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E0C2:
 #_1B90C6: #_E0C2u: db $0C, $5F ; duration, params
-#_1B90C8: #_E0C4u: db Ds3
+#_1B90C8: #_E0C4u: db $9B ; play note Ds3
 #_1B90C9: #_E0C5u: db $0C, $5D ; duration, params
-#_1B90CB: #_E0C7u: db Ds3
-#_1B90CC: #_E0C8u: db Ds3
-#_1B90CD: #_E0C9u: db Ds3
-#_1B90CE: #_E0CAu: db Ds3
-#_1B90CF: #_E0CBu: db Ds3
-#_1B90D0: #_E0CCu: db Ds3
-#_1B90D1: #_E0CDu: db Ds3
-#_1B90D2: #_E0CEu: db !PART_END
+#_1B90CB: #_E0C7u: db $9B ; play note Ds3
+#_1B90CC: #_E0C8u: db $9B ; play note Ds3
+#_1B90CD: #_E0C9u: db $9B ; play note Ds3
+#_1B90CE: #_E0CAu: db $9B ; play note Ds3
+#_1B90CF: #_E0CBu: db $9B ; play note Ds3
+#_1B90D0: #_E0CCu: db $9B ; play note Ds3
+#_1B90D1: #_E0CDu: db $9B ; play note Ds3
+#_1B90D2: #_E0CEu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E0CF:
 #_1B90D3: #_E0CFu: db $0C, $5F ; duration, params
-#_1B90D5: #_E0D1u: db D3
+#_1B90D5: #_E0D1u: db $9A ; play note D3
 #_1B90D6: #_E0D2u: db $0C, $5D ; duration, params
-#_1B90D8: #_E0D4u: db D3
-#_1B90D9: #_E0D5u: db D3
-#_1B90DA: #_E0D6u: db D3
-#_1B90DB: #_E0D7u: db D3
-#_1B90DC: #_E0D8u: db D3
-#_1B90DD: #_E0D9u: db D3
-#_1B90DE: #_E0DAu: db D3
-#_1B90DF: #_E0DBu: db !PART_END
+#_1B90D8: #_E0D4u: db $9A ; play note D3
+#_1B90D9: #_E0D5u: db $9A ; play note D3
+#_1B90DA: #_E0D6u: db $9A ; play note D3
+#_1B90DB: #_E0D7u: db $9A ; play note D3
+#_1B90DC: #_E0D8u: db $9A ; play note D3
+#_1B90DD: #_E0D9u: db $9A ; play note D3
+#_1B90DE: #_E0DAu: db $9A ; play note D3
+#_1B90DF: #_E0DBu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E0DC:
-#_1B90E0: #_E0DCu: db Fs3
-#_1B90E1: #_E0DDu: db Fs3
-#_1B90E2: #_E0DEu: db Fs3
-#_1B90E3: #_E0DFu: db Fs3
-#_1B90E4: #_E0E0u: db Fs3
-#_1B90E5: #_E0E1u: db Fs3
-#_1B90E6: #_E0E2u: db Fs3
-#_1B90E7: #_E0E3u: db Fs3
-#_1B90E8: #_E0E4u: db !PART_END
+#_1B90E0: #_E0DCu: db $9E ; play note Fs3
+#_1B90E1: #_E0DDu: db $9E ; play note Fs3
+#_1B90E2: #_E0DEu: db $9E ; play note Fs3
+#_1B90E3: #_E0DFu: db $9E ; play note Fs3
+#_1B90E4: #_E0E0u: db $9E ; play note Fs3
+#_1B90E5: #_E0E1u: db $9E ; play note Fs3
+#_1B90E6: #_E0E2u: db $9E ; play note Fs3
+#_1B90E7: #_E0E3u: db $9E ; play note Fs3
+#_1B90E8: #_E0E4u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E0E5:
 #_1B90E9: #_E0E5u: db $3C, $7D ; duration, params
-#_1B90EB: #_E0E7u: db As3
+#_1B90EB: #_E0E7u: db $A2 ; play note As3
 #_1B90EC: #_E0E8u: db $0C ; duration
-#_1B90ED: #_E0E9u: db Cs4
-#_1B90EE: #_E0EAu: db F4
-#_1B90EF: #_E0EBu: db Cs5
+#_1B90ED: #_E0E9u: db $A5 ; play note Cs4
+#_1B90EE: #_E0EAu: db $A9 ; play note F4
+#_1B90EF: #_E0EBu: db $B1 ; play note Cs5
 #_1B90F0: #_E0ECu: db $48 ; duration
-#_1B90F1: #_E0EDu: db C5
+#_1B90F1: #_E0EDu: db $B0 ; play note C5
 #_1B90F2: #_E0EEu: db $18 ; duration
-#_1B90F3: #_E0EFu: db Gs4
-#_1B90F4: #_E0F0u: db !PART_END
+#_1B90F3: #_E0EFu: db $AC ; play note Gs4
+#_1B90F4: #_E0F0u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E0F1:
-#_1B90F5: #_E0F1u: db !INSTR, $11
-#_1B90F7: #_E0F3u: db !VOLUME, $00
+#_1B90F5: #_E0F1u: db $E0, $11 ; set instrument - trumpet
+#_1B90F7: #_E0F3u: db $ED, $00 ; set channel volume
 #_1B90F9: #_E0F5u: db $48, $7D ; duration, params
-#_1B90FB: #_E0F7u: db Cs5
+#_1B90FB: #_E0F7u: db $B1 ; play note Cs5
 #_1B90FC: #_E0F8u: db $0C ; duration
-#_1B90FD: #_E0F9u: db C5
-#_1B90FE: #_E0FAu: db Cs5
+#_1B90FD: #_E0F9u: db $B0 ; play note C5
+#_1B90FE: #_E0FAu: db $B1 ; play note Cs5
 #_1B90FF: #_E0FBu: db $48 ; duration
-#_1B9100: #_E0FCu: db Ds5
+#_1B9100: #_E0FCu: db $B3 ; play note Ds5
 #_1B9101: #_E0FDu: db $0C ; duration
-#_1B9102: #_E0FEu: db Cs5
-#_1B9103: #_E0FFu: db C5
+#_1B9102: #_E0FEu: db $B1 ; play note Cs5
+#_1B9103: #_E0FFu: db $B0 ; play note C5
 #_1B9104: #_E100u: db $60 ; duration
-#_1B9105: #_E101u: db F4
+#_1B9105: #_E101u: db $A9 ; play note F4
 #_1B9106: #_E102u: db $48 ; duration
-#_1B9107: #_E103u: db !TIE
+#_1B9107: #_E103u: db $C8 ; sustain current note
 #_1B9108: #_E104u: db $08 ; duration
-#_1B9109: #_E105u: db F4
-#_1B910A: #_E106u: db E4
+#_1B9109: #_E105u: db $A9 ; play note F4
+#_1B910A: #_E106u: db $A8 ; play note E4
 #_1B910B: #_E107u: db $08, $78 ; duration, params
-#_1B910D: #_E109u: db F4
+#_1B910D: #_E109u: db $A9 ; play note F4
 #_1B910E: #_E10Au: db $48, $7D ; duration, params
-#_1B9110: #_E10Cu: db B4
+#_1B9110: #_E10Cu: db $AF ; play note B4
 #_1B9111: #_E10Du: db $0C ; duration
-#_1B9112: #_E10Eu: db As4
-#_1B9113: #_E10Fu: db B4
+#_1B9112: #_E10Eu: db $AE ; play note As4
+#_1B9113: #_E10Fu: db $AF ; play note B4
 #_1B9114: #_E110u: db $48 ; duration
-#_1B9115: #_E111u: db Cs5
+#_1B9115: #_E111u: db $B1 ; play note Cs5
 #_1B9116: #_E112u: db $0C ; duration
-#_1B9117: #_E113u: db B4
-#_1B9118: #_E114u: db As4
+#_1B9117: #_E113u: db $AF ; play note B4
+#_1B9118: #_E114u: db $AE ; play note As4
 #_1B9119: #_E115u: db $60 ; duration
-#_1B911A: #_E116u: db Ds4
+#_1B911A: #_E116u: db $A7 ; play note Ds4
 #_1B911B: #_E117u: db $48 ; duration
-#_1B911C: #_E118u: db !TIE
+#_1B911C: #_E118u: db $C8 ; sustain current note
 #_1B911D: #_E119u: db $08 ; duration
-#_1B911E: #_E11Au: db Ds4
-#_1B911F: #_E11Bu: db D4
+#_1B911E: #_E11Au: db $A7 ; play note Ds4
+#_1B911F: #_E11Bu: db $A6 ; play note D4
 #_1B9120: #_E11Cu: db $08, $78 ; duration, params
-#_1B9122: #_E11Eu: db Ds4
-#_1B9123: #_E11Fu: db !PART_END
+#_1B9122: #_E11Eu: db $A7 ; play note Ds4
+#_1B9123: #_E11Fu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E120:
 #_1B9124: #_E120u: db $0C, $5F ; duration, params
-#_1B9126: #_E122u: db Cs3
+#_1B9126: #_E122u: db $99 ; play note Cs3
 #_1B9127: #_E123u: db $0C, $5D ; duration, params
-#_1B9129: #_E125u: db Cs3
-#_1B912A: #_E126u: db Cs3
-#_1B912B: #_E127u: db Cs3
-#_1B912C: #_E128u: db Cs3
-#_1B912D: #_E129u: db Cs3
-#_1B912E: #_E12Au: db Cs3
-#_1B912F: #_E12Bu: db Cs3
-#_1B9130: #_E12Cu: db !PART_END
+#_1B9129: #_E125u: db $99 ; play note Cs3
+#_1B912A: #_E126u: db $99 ; play note Cs3
+#_1B912B: #_E127u: db $99 ; play note Cs3
+#_1B912C: #_E128u: db $99 ; play note Cs3
+#_1B912D: #_E129u: db $99 ; play note Cs3
+#_1B912E: #_E12Au: db $99 ; play note Cs3
+#_1B912F: #_E12Bu: db $99 ; play note Cs3
+#_1B9130: #_E12Cu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song11_Sub_E12D:
 #_1B9131: #_E12Du: db $0C, $5F ; duration, params
-#_1B9133: #_E12Fu: db C3
+#_1B9133: #_E12Fu: db $98 ; play note C3
 #_1B9134: #_E130u: db $0C, $5D ; duration, params
-#_1B9136: #_E132u: db C3
-#_1B9137: #_E133u: db C3
-#_1B9138: #_E134u: db C3
-#_1B9139: #_E135u: db C3
-#_1B913A: #_E136u: db C3
-#_1B913B: #_E137u: db C3
-#_1B913C: #_E138u: db C3
-#_1B913D: #_E139u: db !PART_END
+#_1B9136: #_E132u: db $98 ; play note C3
+#_1B9137: #_E133u: db $98 ; play note C3
+#_1B9138: #_E134u: db $98 ; play note C3
+#_1B9139: #_E135u: db $98 ; play note C3
+#_1B913A: #_E136u: db $98 ; play note C3
+#_1B913B: #_E137u: db $98 ; play note C3
+#_1B913C: #_E138u: db $98 ; play note C3
+#_1B913D: #_E139u: db $00 ; End
 
 ;===================================================================================================
 
@@ -3836,7 +3836,7 @@ Song12_Cave:
 Song12_Loop:
 #_1B9140: #_E13Cu: dw Song12_Segment1
 #_1B9142: #_E13Eu: dw Song12_Segment2
-#_1B9144: #_E140u: dw !SONG_LOOP, Song12_Loop
+#_1B9144: #_E140u: dw $00FF, Song12_Loop ; Loop point
 #_1B9148: #_E144u: dw $0000
 
 Song12_Segment1:
@@ -3872,571 +3872,571 @@ Song12_Segment2:
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment1_Track0:
-#_1B917A: #_E176u: db !VOLUME, $C8
-#_1B917C: #_E178u: db !INSTR, $0A
-#_1B917E: #_E17Au: db !PAN, $07
-#_1B9180: #_E17Cu: db !VIBRATO, $14, $19, $1E
-#_1B9184: #_E180u: db !CALL_PART : dw Song12_Sub_E3F3 : db 4
-#_1B9188: #_E184u: db !PART_END
+#_1B917A: #_E176u: db $ED, $C8 ; set channel volume
+#_1B917C: #_E178u: db $E0, $0A ; set instrument - strings B
+#_1B917E: #_E17Au: db $E1, $07 ; set panning - leaning right
+#_1B9180: #_E17Cu: db $E3, $14, $19, $1E ; enable vibrato
+#_1B9184: #_E180u: db $EF : dw Song12_Sub_E3F3 : db $04 ; call segment subroutine
+#_1B9188: #_E184u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment1_Track1:
-#_1B9189: #_E185u: db !INSTR, $0A
-#_1B918B: #_E187u: db !VOLUME, $C8
-#_1B918D: #_E189u: db !PAN, $05
-#_1B918F: #_E18Bu: db !VIBRATO, $14, $19, $1E
-#_1B9193: #_E18Fu: db !CALL_PART : dw Song12_Sub_E400 : db 4
+#_1B9189: #_E185u: db $E0, $0A ; set instrument - strings B
+#_1B918B: #_E187u: db $ED, $C8 ; set channel volume
+#_1B918D: #_E189u: db $E1, $05 ; set panning - leaning right
+#_1B918F: #_E18Bu: db $E3, $14, $19, $1E ; enable vibrato
+#_1B9193: #_E18Fu: db $EF : dw Song12_Sub_E400 : db $04 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment1_Track2:
-#_1B9197: #_E193u: db !INSTR, $11
-#_1B9199: #_E195u: db !VOLUME, $C8
-#_1B919B: #_E197u: db !PAN, $09
-#_1B919D: #_E199u: db !VIBRATO, $14, $19, $1E
+#_1B9197: #_E193u: db $E0, $11 ; set instrument - trumpet
+#_1B9199: #_E195u: db $ED, $C8 ; set channel volume
+#_1B919B: #_E197u: db $E1, $09 ; set panning - leaning right
+#_1B919D: #_E199u: db $E3, $14, $19, $1E ; enable vibrato
 #_1B91A1: #_E19Du: db $60 ; duration
-#_1B91A2: #_E19Eu: db R
-#_1B91A3: #_E19Fu: db R
+#_1B91A2: #_E19Eu: db $C9 ; rest
+#_1B91A3: #_E19Fu: db $C9 ; rest
 #_1B91A4: #_E1A0u: db $06, $2D ; duration, params
-#_1B91A6: #_E1A2u: db G4
-#_1B91A7: #_E1A3u: db G4
-#_1B91A8: #_E1A4u: db Fs4
-#_1B91A9: #_E1A5u: db Fs4
-#_1B91AA: #_E1A6u: db A4
-#_1B91AB: #_E1A7u: db A4
-#_1B91AC: #_E1A8u: db Gs4
-#_1B91AD: #_E1A9u: db Gs4
+#_1B91A6: #_E1A2u: db $AB ; play note G4
+#_1B91A7: #_E1A3u: db $AB ; play note G4
+#_1B91A8: #_E1A4u: db $AA ; play note Fs4
+#_1B91A9: #_E1A5u: db $AA ; play note Fs4
+#_1B91AA: #_E1A6u: db $AD ; play note A4
+#_1B91AB: #_E1A7u: db $AD ; play note A4
+#_1B91AC: #_E1A8u: db $AC ; play note Gs4
+#_1B91AD: #_E1A9u: db $AC ; play note Gs4
 #_1B91AE: #_E1AAu: db $30 ; duration
-#_1B91AF: #_E1ABu: db R
+#_1B91AF: #_E1ABu: db $C9 ; rest
 #_1B91B0: #_E1ACu: db $60 ; duration
-#_1B91B1: #_E1ADu: db R
+#_1B91B1: #_E1ADu: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment1_Track3:
-#_1B91B2: #_E1AEu: db !INSTR, $11
-#_1B91B4: #_E1B0u: db !VOLUME, $C8
-#_1B91B6: #_E1B2u: db !PAN, $0B
-#_1B91B8: #_E1B4u: db !VIBRATO, $14, $19, $1E
+#_1B91B2: #_E1AEu: db $E0, $11 ; set instrument - trumpet
+#_1B91B4: #_E1B0u: db $ED, $C8 ; set channel volume
+#_1B91B6: #_E1B2u: db $E1, $0B ; set panning - leaning left
+#_1B91B8: #_E1B4u: db $E3, $14, $19, $1E ; enable vibrato
 #_1B91BC: #_E1B8u: db $60 ; duration
-#_1B91BD: #_E1B9u: db R
-#_1B91BE: #_E1BAu: db R
+#_1B91BD: #_E1B9u: db $C9 ; rest
+#_1B91BE: #_E1BAu: db $C9 ; rest
 #_1B91BF: #_E1BBu: db $06, $2D ; duration, params
-#_1B91C1: #_E1BDu: db D4
-#_1B91C2: #_E1BEu: db D4
-#_1B91C3: #_E1BFu: db Cs4
-#_1B91C4: #_E1C0u: db Cs4
-#_1B91C5: #_E1C1u: db E4
-#_1B91C6: #_E1C2u: db E4
-#_1B91C7: #_E1C3u: db Ds4
-#_1B91C8: #_E1C4u: db Ds4
+#_1B91C1: #_E1BDu: db $A6 ; play note D4
+#_1B91C2: #_E1BEu: db $A6 ; play note D4
+#_1B91C3: #_E1BFu: db $A5 ; play note Cs4
+#_1B91C4: #_E1C0u: db $A5 ; play note Cs4
+#_1B91C5: #_E1C1u: db $A8 ; play note E4
+#_1B91C6: #_E1C2u: db $A8 ; play note E4
+#_1B91C7: #_E1C3u: db $A7 ; play note Ds4
+#_1B91C8: #_E1C4u: db $A7 ; play note Ds4
 #_1B91C9: #_E1C5u: db $30 ; duration
-#_1B91CA: #_E1C6u: db R
+#_1B91CA: #_E1C6u: db $C9 ; rest
 #_1B91CB: #_E1C7u: db $60 ; duration
-#_1B91CC: #_E1C8u: db R
+#_1B91CC: #_E1C8u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment1_Track4:
-#_1B91CD: #_E1C9u: db !INSTR, $02
-#_1B91CF: #_E1CBu: db !VOLUME, $C8
+#_1B91CD: #_E1C9u: db $E0, $02 ; set instrument - timpani
+#_1B91CF: #_E1CBu: db $ED, $C8 ; set channel volume
 #_1B91D1: #_E1CDu: db $54, $7D ; duration, params
-#_1B91D3: #_E1CFu: db F1
+#_1B91D3: #_E1CFu: db $85 ; play note F1
 #_1B91D4: #_E1D0u: db $0C ; duration
-#_1B91D5: #_E1D1u: db F1
-#_1B91D6: #_E1D2u: db !CALL_PART : dw Song12_Sub_E40D : db 3
+#_1B91D5: #_E1D1u: db $85 ; play note F1
+#_1B91D6: #_E1D2u: db $EF : dw Song12_Sub_E40D : db $03 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment1_Track5:
-#_1B91DA: #_E1D6u: db !INSTR, $10
-#_1B91DC: #_E1D8u: db !VOLUME, $C8
+#_1B91DA: #_E1D6u: db $E0, $10 ; set instrument - splash
+#_1B91DC: #_E1D8u: db $ED, $C8 ; set channel volume
 #_1B91DE: #_E1DAu: db $60 ; duration
-#_1B91DF: #_E1DBu: db R
+#_1B91DF: #_E1DBu: db $C9 ; rest
 #_1B91E0: #_E1DCu: db $30 ; duration
-#_1B91E1: #_E1DDu: db R
+#_1B91E1: #_E1DDu: db $C9 ; rest
 #_1B91E2: #_E1DEu: db $30, $7D ; duration, params
-#_1B91E4: #_E1E0u: db G5
-#_1B91E5: #_E1E1u: db !INSTR, $0A
-#_1B91E7: #_E1E3u: db !VOLUME, $8C
+#_1B91E4: #_E1E0u: db $B7 ; play note G5
+#_1B91E5: #_E1E1u: db $E0, $0A ; set instrument - strings B
+#_1B91E7: #_E1E3u: db $ED, $8C ; set channel volume
 #_1B91E9: #_E1E5u: db $12, $1D ; duration, params
-#_1B91EB: #_E1E7u: db As5
+#_1B91EB: #_E1E7u: db $BA ; play note As5
 #_1B91EC: #_E1E8u: db $03, $7D ; duration, params
-#_1B91EE: #_E1EAu: db Gs5
-#_1B91EF: #_E1EBu: db A5
+#_1B91EE: #_E1EAu: db $B8 ; play note Gs5
+#_1B91EF: #_E1EBu: db $B9 ; play note A5
 #_1B91F0: #_E1ECu: db $12, $1D ; duration, params
-#_1B91F2: #_E1EEu: db As5
+#_1B91F2: #_E1EEu: db $BA ; play note As5
 #_1B91F3: #_E1EFu: db $03, $7D ; duration, params
-#_1B91F5: #_E1F1u: db Gs5
-#_1B91F6: #_E1F2u: db A5
+#_1B91F5: #_E1F1u: db $B8 ; play note Gs5
+#_1B91F6: #_E1F2u: db $B9 ; play note A5
 #_1B91F7: #_E1F3u: db $12, $1D ; duration, params
-#_1B91F9: #_E1F5u: db As5
+#_1B91F9: #_E1F5u: db $BA ; play note As5
 #_1B91FA: #_E1F6u: db $03, $7D ; duration, params
-#_1B91FC: #_E1F8u: db Gs5
-#_1B91FD: #_E1F9u: db A5
+#_1B91FC: #_E1F8u: db $B8 ; play note Gs5
+#_1B91FD: #_E1F9u: db $B9 ; play note A5
 #_1B91FE: #_E1FAu: db $12, $1D ; duration, params
-#_1B9200: #_E1FCu: db As5
+#_1B9200: #_E1FCu: db $BA ; play note As5
 #_1B9201: #_E1FDu: db $03, $7D ; duration, params
-#_1B9203: #_E1FFu: db G5
-#_1B9204: #_E200u: db Gs5
+#_1B9203: #_E1FFu: db $B7 ; play note G5
+#_1B9204: #_E200u: db $B8 ; play note Gs5
 #_1B9205: #_E201u: db $12, $1D ; duration, params
-#_1B9207: #_E203u: db As5
+#_1B9207: #_E203u: db $BA ; play note As5
 #_1B9208: #_E204u: db $03, $7D ; duration, params
-#_1B920A: #_E206u: db Gs5
-#_1B920B: #_E207u: db A5
+#_1B920A: #_E206u: db $B8 ; play note Gs5
+#_1B920B: #_E207u: db $B9 ; play note A5
 #_1B920C: #_E208u: db $12, $1D ; duration, params
-#_1B920E: #_E20Au: db As5
+#_1B920E: #_E20Au: db $BA ; play note As5
 #_1B920F: #_E20Bu: db $03, $7D ; duration, params
-#_1B9211: #_E20Du: db Gs5
-#_1B9212: #_E20Eu: db A5
+#_1B9211: #_E20Du: db $B8 ; play note Gs5
+#_1B9212: #_E20Eu: db $B9 ; play note A5
 #_1B9213: #_E20Fu: db $12, $1D ; duration, params
-#_1B9215: #_E211u: db As5
+#_1B9215: #_E211u: db $BA ; play note As5
 #_1B9216: #_E212u: db $03, $7D ; duration, params
-#_1B9218: #_E214u: db Gs5
-#_1B9219: #_E215u: db A5
+#_1B9218: #_E214u: db $B8 ; play note Gs5
+#_1B9219: #_E215u: db $B9 ; play note A5
 #_1B921A: #_E216u: db $18, $1D ; duration, params
-#_1B921C: #_E218u: db As5
+#_1B921C: #_E218u: db $BA ; play note As5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment1_Track6:
-#_1B921D: #_E219u: db !INSTR, $10
-#_1B921F: #_E21Bu: db !VOLUME, $C8
+#_1B921D: #_E219u: db $E0, $10 ; set instrument - splash
+#_1B921F: #_E21Bu: db $ED, $C8 ; set channel volume
 #_1B9221: #_E21Du: db $60 ; duration
-#_1B9222: #_E21Eu: db R
+#_1B9222: #_E21Eu: db $C9 ; rest
 #_1B9223: #_E21Fu: db $3C ; duration
-#_1B9224: #_E220u: db R
+#_1B9224: #_E220u: db $C9 ; rest
 #_1B9225: #_E221u: db $24, $7D ; duration, params
-#_1B9227: #_E223u: db B5
-#_1B9228: #_E224u: db !INSTR, $0A
-#_1B922A: #_E226u: db !VOLUME, $8C
+#_1B9227: #_E223u: db $BB ; play note B5
+#_1B9228: #_E224u: db $E0, $0A ; set instrument - strings B
+#_1B922A: #_E226u: db $ED, $8C ; set channel volume
 #_1B922C: #_E228u: db $12, $1D ; duration, params
-#_1B922E: #_E22Au: db Gs5
+#_1B922E: #_E22Au: db $B8 ; play note Gs5
 #_1B922F: #_E22Bu: db $03, $7D ; duration, params
-#_1B9231: #_E22Du: db Fs5
-#_1B9232: #_E22Eu: db G5
+#_1B9231: #_E22Du: db $B6 ; play note Fs5
+#_1B9232: #_E22Eu: db $B7 ; play note G5
 #_1B9233: #_E22Fu: db $12, $1D ; duration, params
-#_1B9235: #_E231u: db Gs5
+#_1B9235: #_E231u: db $B8 ; play note Gs5
 #_1B9236: #_E232u: db $03, $7D ; duration, params
-#_1B9238: #_E234u: db Fs5
-#_1B9239: #_E235u: db G5
+#_1B9238: #_E234u: db $B6 ; play note Fs5
+#_1B9239: #_E235u: db $B7 ; play note G5
 #_1B923A: #_E236u: db $12, $1D ; duration, params
-#_1B923C: #_E238u: db Gs5
+#_1B923C: #_E238u: db $B8 ; play note Gs5
 #_1B923D: #_E239u: db $03, $7D ; duration, params
-#_1B923F: #_E23Bu: db Fs5
-#_1B9240: #_E23Cu: db G5
+#_1B923F: #_E23Bu: db $B6 ; play note Fs5
+#_1B9240: #_E23Cu: db $B7 ; play note G5
 #_1B9241: #_E23Du: db $12, $1D ; duration, params
-#_1B9243: #_E23Fu: db Gs5
+#_1B9243: #_E23Fu: db $B8 ; play note Gs5
 #_1B9244: #_E240u: db $03, $7D ; duration, params
-#_1B9246: #_E242u: db Fs5
-#_1B9247: #_E243u: db G5
+#_1B9246: #_E242u: db $B6 ; play note Fs5
+#_1B9247: #_E243u: db $B7 ; play note G5
 #_1B9248: #_E244u: db $12, $1D ; duration, params
-#_1B924A: #_E246u: db Gs5
+#_1B924A: #_E246u: db $B8 ; play note Gs5
 #_1B924B: #_E247u: db $03, $7D ; duration, params
-#_1B924D: #_E249u: db Fs5
-#_1B924E: #_E24Au: db G5
+#_1B924D: #_E249u: db $B6 ; play note Fs5
+#_1B924E: #_E24Au: db $B7 ; play note G5
 #_1B924F: #_E24Bu: db $12, $1D ; duration, params
-#_1B9251: #_E24Du: db Gs5
+#_1B9251: #_E24Du: db $B8 ; play note Gs5
 #_1B9252: #_E24Eu: db $03, $7D ; duration, params
-#_1B9254: #_E250u: db Fs5
-#_1B9255: #_E251u: db G5
+#_1B9254: #_E250u: db $B6 ; play note Fs5
+#_1B9255: #_E251u: db $B7 ; play note G5
 #_1B9256: #_E252u: db $12, $1D ; duration, params
-#_1B9258: #_E254u: db Gs5
+#_1B9258: #_E254u: db $B8 ; play note Gs5
 #_1B9259: #_E255u: db $03, $7D ; duration, params
-#_1B925B: #_E257u: db Fs5
-#_1B925C: #_E258u: db G5
+#_1B925B: #_E257u: db $B6 ; play note Fs5
+#_1B925C: #_E258u: db $B7 ; play note G5
 #_1B925D: #_E259u: db $18, $1D ; duration, params
-#_1B925F: #_E25Bu: db Gs5
+#_1B925F: #_E25Bu: db $B8 ; play note Gs5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment0_Track0:
-#_1B9260: #_E25Cu: db !SET_PERC, $19
-#_1B9262: #_E25Eu: db !MASTER_VOLUME, $C8
-#_1B9264: #_E260u: db !TEMPO, $19
-#_1B9266: #_E262u: db !ECHO_CONFIG, $FF, $00, $00
-#_1B926A: #_E266u: db !ECHO_FILTER, $02, $5F, $02
-#_1B926E: #_E26Au: db !ECHO_GRAD, $14, $1E, $1E
-#_1B9272: #_E26Eu: db !VOLUME, $C8
-#_1B9274: #_E270u: db !INSTR, $0A
-#_1B9276: #_E272u: db !PAN, $07
-#_1B9278: #_E274u: db !VIBRATO, $14, $19, $1E
-#_1B927C: #_E278u: db !CALL_PART : dw Song12_Sub_E3F3 : db 4
-#_1B9280: #_E27Cu: db !PART_END
+#_1B9260: #_E25Cu: db $FA, $19 ; set base percussion sample
+#_1B9262: #_E25Eu: db $E5, $C8 ; set song volume
+#_1B9264: #_E260u: db $E7, $19 ; set song tempo
+#_1B9266: #_E262u: db $F5, $FF, $00, $00 ; configure EON, EVOLL, EVOLR
+#_1B926A: #_E266u: db $F7, $02, $5F, $02 ; configure EDL, EFB, FIR
+#_1B926E: #_E26Au: db $F8, $14, $1E, $1E ; initiate gradual echo volume change
+#_1B9272: #_E26Eu: db $ED, $C8 ; set channel volume
+#_1B9274: #_E270u: db $E0, $0A ; set instrument - strings B
+#_1B9276: #_E272u: db $E1, $07 ; set panning - leaning right
+#_1B9278: #_E274u: db $E3, $14, $19, $1E ; enable vibrato
+#_1B927C: #_E278u: db $EF : dw Song12_Sub_E3F3 : db $04 ; call segment subroutine
+#_1B9280: #_E27Cu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment0_Track1:
-#_1B9281: #_E27Du: db !INSTR, $0A
-#_1B9283: #_E27Fu: db !VOLUME, $C8
-#_1B9285: #_E281u: db !PAN, $05
-#_1B9287: #_E283u: db !VIBRATO, $14, $19, $1E
-#_1B928B: #_E287u: db !CALL_PART : dw Song12_Sub_E400 : db 4
+#_1B9281: #_E27Du: db $E0, $0A ; set instrument - strings B
+#_1B9283: #_E27Fu: db $ED, $C8 ; set channel volume
+#_1B9285: #_E281u: db $E1, $05 ; set panning - leaning right
+#_1B9287: #_E283u: db $E3, $14, $19, $1E ; enable vibrato
+#_1B928B: #_E287u: db $EF : dw Song12_Sub_E400 : db $04 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment0_Track2:
-#_1B928F: #_E28Bu: db !INSTR, $11
-#_1B9291: #_E28Du: db !VOLUME, $C8
-#_1B9293: #_E28Fu: db !PAN, $09
-#_1B9295: #_E291u: db !VIBRATO, $14, $19, $1E
+#_1B928F: #_E28Bu: db $E0, $11 ; set instrument - trumpet
+#_1B9291: #_E28Du: db $ED, $C8 ; set channel volume
+#_1B9293: #_E28Fu: db $E1, $09 ; set panning - leaning right
+#_1B9295: #_E291u: db $E3, $14, $19, $1E ; enable vibrato
 #_1B9299: #_E295u: db $60 ; duration
-#_1B929A: #_E296u: db R
-#_1B929B: #_E297u: db R
+#_1B929A: #_E296u: db $C9 ; rest
+#_1B929B: #_E297u: db $C9 ; rest
 #_1B929C: #_E298u: db $06, $2D ; duration, params
-#_1B929E: #_E29Au: db G4
-#_1B929F: #_E29Bu: db G4
-#_1B92A0: #_E29Cu: db Fs4
-#_1B92A1: #_E29Du: db Fs4
-#_1B92A2: #_E29Eu: db A4
-#_1B92A3: #_E29Fu: db A4
-#_1B92A4: #_E2A0u: db Gs4
-#_1B92A5: #_E2A1u: db Gs4
+#_1B929E: #_E29Au: db $AB ; play note G4
+#_1B929F: #_E29Bu: db $AB ; play note G4
+#_1B92A0: #_E29Cu: db $AA ; play note Fs4
+#_1B92A1: #_E29Du: db $AA ; play note Fs4
+#_1B92A2: #_E29Eu: db $AD ; play note A4
+#_1B92A3: #_E29Fu: db $AD ; play note A4
+#_1B92A4: #_E2A0u: db $AC ; play note Gs4
+#_1B92A5: #_E2A1u: db $AC ; play note Gs4
 #_1B92A6: #_E2A2u: db $30 ; duration
-#_1B92A7: #_E2A3u: db R
+#_1B92A7: #_E2A3u: db $C9 ; rest
 #_1B92A8: #_E2A4u: db $60 ; duration
-#_1B92A9: #_E2A5u: db R
+#_1B92A9: #_E2A5u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment0_Track3:
-#_1B92AA: #_E2A6u: db !INSTR, $11
-#_1B92AC: #_E2A8u: db !VOLUME, $C8
-#_1B92AE: #_E2AAu: db !PAN, $0B
-#_1B92B0: #_E2ACu: db !VIBRATO, $14, $19, $1E
+#_1B92AA: #_E2A6u: db $E0, $11 ; set instrument - trumpet
+#_1B92AC: #_E2A8u: db $ED, $C8 ; set channel volume
+#_1B92AE: #_E2AAu: db $E1, $0B ; set panning - leaning left
+#_1B92B0: #_E2ACu: db $E3, $14, $19, $1E ; enable vibrato
 #_1B92B4: #_E2B0u: db $60 ; duration
-#_1B92B5: #_E2B1u: db R
-#_1B92B6: #_E2B2u: db R
+#_1B92B5: #_E2B1u: db $C9 ; rest
+#_1B92B6: #_E2B2u: db $C9 ; rest
 #_1B92B7: #_E2B3u: db $06, $2D ; duration, params
-#_1B92B9: #_E2B5u: db D4
-#_1B92BA: #_E2B6u: db D4
-#_1B92BB: #_E2B7u: db Cs4
-#_1B92BC: #_E2B8u: db Cs4
-#_1B92BD: #_E2B9u: db E4
-#_1B92BE: #_E2BAu: db E4
-#_1B92BF: #_E2BBu: db Ds4
-#_1B92C0: #_E2BCu: db Ds4
+#_1B92B9: #_E2B5u: db $A6 ; play note D4
+#_1B92BA: #_E2B6u: db $A6 ; play note D4
+#_1B92BB: #_E2B7u: db $A5 ; play note Cs4
+#_1B92BC: #_E2B8u: db $A5 ; play note Cs4
+#_1B92BD: #_E2B9u: db $A8 ; play note E4
+#_1B92BE: #_E2BAu: db $A8 ; play note E4
+#_1B92BF: #_E2BBu: db $A7 ; play note Ds4
+#_1B92C0: #_E2BCu: db $A7 ; play note Ds4
 #_1B92C1: #_E2BDu: db $30 ; duration
-#_1B92C2: #_E2BEu: db R
+#_1B92C2: #_E2BEu: db $C9 ; rest
 #_1B92C3: #_E2BFu: db $60 ; duration
-#_1B92C4: #_E2C0u: db R
+#_1B92C4: #_E2C0u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment0_Track4:
-#_1B92C5: #_E2C1u: db !INSTR, $02
-#_1B92C7: #_E2C3u: db !VOLUME, $C8
+#_1B92C5: #_E2C1u: db $E0, $02 ; set instrument - timpani
+#_1B92C7: #_E2C3u: db $ED, $C8 ; set channel volume
 #_1B92C9: #_E2C5u: db $54 ; duration
-#_1B92CA: #_E2C6u: db R
+#_1B92CA: #_E2C6u: db $C9 ; rest
 #_1B92CB: #_E2C7u: db $0C, $7D ; duration, params
-#_1B92CD: #_E2C9u: db F1
-#_1B92CE: #_E2CAu: db !CALL_PART : dw Song12_Sub_E40D : db 3
+#_1B92CD: #_E2C9u: db $85 ; play note F1
+#_1B92CE: #_E2CAu: db $EF : dw Song12_Sub_E40D : db $03 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment0_Track5:
-#_1B92D2: #_E2CEu: db !INSTR, $10
-#_1B92D4: #_E2D0u: db !VOLUME, $C8
+#_1B92D2: #_E2CEu: db $E0, $10 ; set instrument - splash
+#_1B92D4: #_E2D0u: db $ED, $C8 ; set channel volume
 #_1B92D6: #_E2D2u: db $60 ; duration
-#_1B92D7: #_E2D3u: db R
+#_1B92D7: #_E2D3u: db $C9 ; rest
 #_1B92D8: #_E2D4u: db $30 ; duration
-#_1B92D9: #_E2D5u: db R
+#_1B92D9: #_E2D5u: db $C9 ; rest
 #_1B92DA: #_E2D6u: db $30, $7D ; duration, params
-#_1B92DC: #_E2D8u: db G5
-#_1B92DD: #_E2D9u: db !INSTR, $0A
-#_1B92DF: #_E2DBu: db !VOLUME, $8C
+#_1B92DC: #_E2D8u: db $B7 ; play note G5
+#_1B92DD: #_E2D9u: db $E0, $0A ; set instrument - strings B
+#_1B92DF: #_E2DBu: db $ED, $8C ; set channel volume
 #_1B92E1: #_E2DDu: db $12, $1D ; duration, params
-#_1B92E3: #_E2DFu: db As5
+#_1B92E3: #_E2DFu: db $BA ; play note As5
 #_1B92E4: #_E2E0u: db $03, $7D ; duration, params
-#_1B92E6: #_E2E2u: db Gs5
-#_1B92E7: #_E2E3u: db A5
+#_1B92E6: #_E2E2u: db $B8 ; play note Gs5
+#_1B92E7: #_E2E3u: db $B9 ; play note A5
 #_1B92E8: #_E2E4u: db $12, $1D ; duration, params
-#_1B92EA: #_E2E6u: db As5
+#_1B92EA: #_E2E6u: db $BA ; play note As5
 #_1B92EB: #_E2E7u: db $03, $7D ; duration, params
-#_1B92ED: #_E2E9u: db Gs5
-#_1B92EE: #_E2EAu: db A5
+#_1B92ED: #_E2E9u: db $B8 ; play note Gs5
+#_1B92EE: #_E2EAu: db $B9 ; play note A5
 #_1B92EF: #_E2EBu: db $12, $1D ; duration, params
-#_1B92F1: #_E2EDu: db As5
+#_1B92F1: #_E2EDu: db $BA ; play note As5
 #_1B92F2: #_E2EEu: db $03, $7D ; duration, params
-#_1B92F4: #_E2F0u: db Gs5
-#_1B92F5: #_E2F1u: db A5
+#_1B92F4: #_E2F0u: db $B8 ; play note Gs5
+#_1B92F5: #_E2F1u: db $B9 ; play note A5
 #_1B92F6: #_E2F2u: db $18, $1D ; duration, params
-#_1B92F8: #_E2F4u: db As5
+#_1B92F8: #_E2F4u: db $BA ; play note As5
 #_1B92F9: #_E2F5u: db $12 ; duration
-#_1B92FA: #_E2F6u: db As5
+#_1B92FA: #_E2F6u: db $BA ; play note As5
 #_1B92FB: #_E2F7u: db $03, $7D ; duration, params
-#_1B92FD: #_E2F9u: db Gs5
-#_1B92FE: #_E2FAu: db A5
+#_1B92FD: #_E2F9u: db $B8 ; play note Gs5
+#_1B92FE: #_E2FAu: db $B9 ; play note A5
 #_1B92FF: #_E2FBu: db $12, $1D ; duration, params
-#_1B9301: #_E2FDu: db As5
+#_1B9301: #_E2FDu: db $BA ; play note As5
 #_1B9302: #_E2FEu: db $03, $7D ; duration, params
-#_1B9304: #_E300u: db Gs5
-#_1B9305: #_E301u: db A5
+#_1B9304: #_E300u: db $B8 ; play note Gs5
+#_1B9305: #_E301u: db $B9 ; play note A5
 #_1B9306: #_E302u: db $12, $1D ; duration, params
-#_1B9308: #_E304u: db As5
+#_1B9308: #_E304u: db $BA ; play note As5
 #_1B9309: #_E305u: db $03, $7D ; duration, params
-#_1B930B: #_E307u: db Gs5
-#_1B930C: #_E308u: db A5
+#_1B930B: #_E307u: db $B8 ; play note Gs5
+#_1B930C: #_E308u: db $B9 ; play note A5
 #_1B930D: #_E309u: db $18, $1D ; duration, params
-#_1B930F: #_E30Bu: db As5
+#_1B930F: #_E30Bu: db $BA ; play note As5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment2_Track0:
-#_1B9310: #_E30Cu: db !VOLUME, $C8
-#_1B9312: #_E30Eu: db !INSTR, $0A
-#_1B9314: #_E310u: db !PAN, $07
-#_1B9316: #_E312u: db !VIBRATO, $14, $19, $1E
-#_1B931A: #_E316u: db !CALL_PART : dw Song12_Sub_E412 : db 4
-#_1B931E: #_E31Au: db !PART_END
+#_1B9310: #_E30Cu: db $ED, $C8 ; set channel volume
+#_1B9312: #_E30Eu: db $E0, $0A ; set instrument - strings B
+#_1B9314: #_E310u: db $E1, $07 ; set panning - leaning right
+#_1B9316: #_E312u: db $E3, $14, $19, $1E ; enable vibrato
+#_1B931A: #_E316u: db $EF : dw Song12_Sub_E412 : db $04 ; call segment subroutine
+#_1B931E: #_E31Au: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment2_Track1:
-#_1B931F: #_E31Bu: db !INSTR, $0A
-#_1B9321: #_E31Du: db !VOLUME, $C8
-#_1B9323: #_E31Fu: db !PAN, $05
-#_1B9325: #_E321u: db !VIBRATO, $14, $19, $1E
-#_1B9329: #_E325u: db !CALL_PART : dw Song12_Sub_E41F : db 4
+#_1B931F: #_E31Bu: db $E0, $0A ; set instrument - strings B
+#_1B9321: #_E31Du: db $ED, $C8 ; set channel volume
+#_1B9323: #_E31Fu: db $E1, $05 ; set panning - leaning right
+#_1B9325: #_E321u: db $E3, $14, $19, $1E ; enable vibrato
+#_1B9329: #_E325u: db $EF : dw Song12_Sub_E41F : db $04 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment2_Track2:
-#_1B932D: #_E329u: db !INSTR, $11
-#_1B932F: #_E32Bu: db !VOLUME, $C8
-#_1B9331: #_E32Du: db !PAN, $09
-#_1B9333: #_E32Fu: db !VIBRATO, $14, $19, $1E
+#_1B932D: #_E329u: db $E0, $11 ; set instrument - trumpet
+#_1B932F: #_E32Bu: db $ED, $C8 ; set channel volume
+#_1B9331: #_E32Du: db $E1, $09 ; set panning - leaning right
+#_1B9333: #_E32Fu: db $E3, $14, $19, $1E ; enable vibrato
 #_1B9337: #_E333u: db $60 ; duration
-#_1B9338: #_E334u: db R
-#_1B9339: #_E335u: db R
+#_1B9338: #_E334u: db $C9 ; rest
+#_1B9339: #_E335u: db $C9 ; rest
 #_1B933A: #_E336u: db $06, $2D ; duration, params
-#_1B933C: #_E338u: db Gs4
-#_1B933D: #_E339u: db Gs4
-#_1B933E: #_E33Au: db G4
-#_1B933F: #_E33Bu: db G4
-#_1B9340: #_E33Cu: db As4
-#_1B9341: #_E33Du: db As4
-#_1B9342: #_E33Eu: db A4
-#_1B9343: #_E33Fu: db A4
+#_1B933C: #_E338u: db $AC ; play note Gs4
+#_1B933D: #_E339u: db $AC ; play note Gs4
+#_1B933E: #_E33Au: db $AB ; play note G4
+#_1B933F: #_E33Bu: db $AB ; play note G4
+#_1B9340: #_E33Cu: db $AE ; play note As4
+#_1B9341: #_E33Du: db $AE ; play note As4
+#_1B9342: #_E33Eu: db $AD ; play note A4
+#_1B9343: #_E33Fu: db $AD ; play note A4
 #_1B9344: #_E340u: db $30 ; duration
-#_1B9345: #_E341u: db R
+#_1B9345: #_E341u: db $C9 ; rest
 #_1B9346: #_E342u: db $60 ; duration
-#_1B9347: #_E343u: db R
+#_1B9347: #_E343u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment2_Track3:
-#_1B9348: #_E344u: db !INSTR, $11
-#_1B934A: #_E346u: db !VOLUME, $C8
-#_1B934C: #_E348u: db !PAN, $0B
-#_1B934E: #_E34Au: db !VIBRATO, $14, $19, $1E
+#_1B9348: #_E344u: db $E0, $11 ; set instrument - trumpet
+#_1B934A: #_E346u: db $ED, $C8 ; set channel volume
+#_1B934C: #_E348u: db $E1, $0B ; set panning - leaning left
+#_1B934E: #_E34Au: db $E3, $14, $19, $1E ; enable vibrato
 #_1B9352: #_E34Eu: db $60 ; duration
-#_1B9353: #_E34Fu: db R
-#_1B9354: #_E350u: db R
+#_1B9353: #_E34Fu: db $C9 ; rest
+#_1B9354: #_E350u: db $C9 ; rest
 #_1B9355: #_E351u: db $06, $2D ; duration, params
-#_1B9357: #_E353u: db Ds4
-#_1B9358: #_E354u: db Ds4
-#_1B9359: #_E355u: db D4
-#_1B935A: #_E356u: db D4
-#_1B935B: #_E357u: db F4
-#_1B935C: #_E358u: db F4
-#_1B935D: #_E359u: db E4
-#_1B935E: #_E35Au: db E4
+#_1B9357: #_E353u: db $A7 ; play note Ds4
+#_1B9358: #_E354u: db $A7 ; play note Ds4
+#_1B9359: #_E355u: db $A6 ; play note D4
+#_1B935A: #_E356u: db $A6 ; play note D4
+#_1B935B: #_E357u: db $A9 ; play note F4
+#_1B935C: #_E358u: db $A9 ; play note F4
+#_1B935D: #_E359u: db $A8 ; play note E4
+#_1B935E: #_E35Au: db $A8 ; play note E4
 #_1B935F: #_E35Bu: db $30 ; duration
-#_1B9360: #_E35Cu: db R
+#_1B9360: #_E35Cu: db $C9 ; rest
 #_1B9361: #_E35Du: db $60 ; duration
-#_1B9362: #_E35Eu: db R
+#_1B9362: #_E35Eu: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment2_Track4:
-#_1B9363: #_E35Fu: db !INSTR, $02
-#_1B9365: #_E361u: db !VOLUME, $C8
+#_1B9363: #_E35Fu: db $E0, $02 ; set instrument - timpani
+#_1B9365: #_E361u: db $ED, $C8 ; set channel volume
 #_1B9367: #_E363u: db $54, $7D ; duration, params
-#_1B9369: #_E365u: db Fs1
+#_1B9369: #_E365u: db $86 ; play note Fs1
 #_1B936A: #_E366u: db $0C ; duration
-#_1B936B: #_E367u: db Fs1
-#_1B936C: #_E368u: db !CALL_PART : dw Song12_Sub_E42C : db 3
+#_1B936B: #_E367u: db $86 ; play note Fs1
+#_1B936C: #_E368u: db $EF : dw Song12_Sub_E42C : db $03 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment2_Track5:
-#_1B9370: #_E36Cu: db !INSTR, $10
-#_1B9372: #_E36Eu: db !VOLUME, $C8
+#_1B9370: #_E36Cu: db $E0, $10 ; set instrument - splash
+#_1B9372: #_E36Eu: db $ED, $C8 ; set channel volume
 #_1B9374: #_E370u: db $60 ; duration
-#_1B9375: #_E371u: db R
+#_1B9375: #_E371u: db $C9 ; rest
 #_1B9376: #_E372u: db $30 ; duration
-#_1B9377: #_E373u: db R
+#_1B9377: #_E373u: db $C9 ; rest
 #_1B9378: #_E374u: db $30, $7D ; duration, params
-#_1B937A: #_E376u: db Gs5
-#_1B937B: #_E377u: db !INSTR, $0A
-#_1B937D: #_E379u: db !VOLUME, $8C
+#_1B937A: #_E376u: db $B8 ; play note Gs5
+#_1B937B: #_E377u: db $E0, $0A ; set instrument - strings B
+#_1B937D: #_E379u: db $ED, $8C ; set channel volume
 #_1B937F: #_E37Bu: db $12, $1D ; duration, params
-#_1B9381: #_E37Du: db B5
+#_1B9381: #_E37Du: db $BB ; play note B5
 #_1B9382: #_E37Eu: db $03, $7D ; duration, params
-#_1B9384: #_E380u: db A5
-#_1B9385: #_E381u: db As5
+#_1B9384: #_E380u: db $B9 ; play note A5
+#_1B9385: #_E381u: db $BA ; play note As5
 #_1B9386: #_E382u: db $12, $1D ; duration, params
-#_1B9388: #_E384u: db B5
+#_1B9388: #_E384u: db $BB ; play note B5
 #_1B9389: #_E385u: db $03, $7D ; duration, params
-#_1B938B: #_E387u: db A5
-#_1B938C: #_E388u: db As5
+#_1B938B: #_E387u: db $B9 ; play note A5
+#_1B938C: #_E388u: db $BA ; play note As5
 #_1B938D: #_E389u: db $12, $1D ; duration, params
-#_1B938F: #_E38Bu: db B5
+#_1B938F: #_E38Bu: db $BB ; play note B5
 #_1B9390: #_E38Cu: db $03, $7D ; duration, params
-#_1B9392: #_E38Eu: db A5
-#_1B9393: #_E38Fu: db As5
+#_1B9392: #_E38Eu: db $B9 ; play note A5
+#_1B9393: #_E38Fu: db $BA ; play note As5
 #_1B9394: #_E390u: db $12, $1D ; duration, params
-#_1B9396: #_E392u: db B5
+#_1B9396: #_E392u: db $BB ; play note B5
 #_1B9397: #_E393u: db $03, $7D ; duration, params
-#_1B9399: #_E395u: db Gs5
-#_1B939A: #_E396u: db A5
+#_1B9399: #_E395u: db $B8 ; play note Gs5
+#_1B939A: #_E396u: db $B9 ; play note A5
 #_1B939B: #_E397u: db $12, $1D ; duration, params
-#_1B939D: #_E399u: db B5
+#_1B939D: #_E399u: db $BB ; play note B5
 #_1B939E: #_E39Au: db $03, $7D ; duration, params
-#_1B93A0: #_E39Cu: db A5
-#_1B93A1: #_E39Du: db As5
+#_1B93A0: #_E39Cu: db $B9 ; play note A5
+#_1B93A1: #_E39Du: db $BA ; play note As5
 #_1B93A2: #_E39Eu: db $12, $1D ; duration, params
-#_1B93A4: #_E3A0u: db B5
+#_1B93A4: #_E3A0u: db $BB ; play note B5
 #_1B93A5: #_E3A1u: db $03, $7D ; duration, params
-#_1B93A7: #_E3A3u: db A5
-#_1B93A8: #_E3A4u: db As5
+#_1B93A7: #_E3A3u: db $B9 ; play note A5
+#_1B93A8: #_E3A4u: db $BA ; play note As5
 #_1B93A9: #_E3A5u: db $12, $1D ; duration, params
-#_1B93AB: #_E3A7u: db B5
+#_1B93AB: #_E3A7u: db $BB ; play note B5
 #_1B93AC: #_E3A8u: db $03, $7D ; duration, params
-#_1B93AE: #_E3AAu: db A5
-#_1B93AF: #_E3ABu: db As5
+#_1B93AE: #_E3AAu: db $B9 ; play note A5
+#_1B93AF: #_E3ABu: db $BA ; play note As5
 #_1B93B0: #_E3ACu: db $18, $1D ; duration, params
-#_1B93B2: #_E3AEu: db B5
+#_1B93B2: #_E3AEu: db $BB ; play note B5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Segment2_Track6:
-#_1B93B3: #_E3AFu: db !INSTR, $10
-#_1B93B5: #_E3B1u: db !VOLUME, $C8
+#_1B93B3: #_E3AFu: db $E0, $10 ; set instrument - splash
+#_1B93B5: #_E3B1u: db $ED, $C8 ; set channel volume
 #_1B93B7: #_E3B3u: db $60 ; duration
-#_1B93B8: #_E3B4u: db R
+#_1B93B8: #_E3B4u: db $C9 ; rest
 #_1B93B9: #_E3B5u: db $3C ; duration
-#_1B93BA: #_E3B6u: db R
+#_1B93BA: #_E3B6u: db $C9 ; rest
 #_1B93BB: #_E3B7u: db $24, $7D ; duration, params
-#_1B93BD: #_E3B9u: db C6
-#_1B93BE: #_E3BAu: db !INSTR, $0A
-#_1B93C0: #_E3BCu: db !VOLUME, $8C
+#_1B93BD: #_E3B9u: db $BC ; play note C6
+#_1B93BE: #_E3BAu: db $E0, $0A ; set instrument - strings B
+#_1B93C0: #_E3BCu: db $ED, $8C ; set channel volume
 #_1B93C2: #_E3BEu: db $12, $1D ; duration, params
-#_1B93C4: #_E3C0u: db A5
+#_1B93C4: #_E3C0u: db $B9 ; play note A5
 #_1B93C5: #_E3C1u: db $03, $7D ; duration, params
-#_1B93C7: #_E3C3u: db G5
-#_1B93C8: #_E3C4u: db Gs5
+#_1B93C7: #_E3C3u: db $B7 ; play note G5
+#_1B93C8: #_E3C4u: db $B8 ; play note Gs5
 #_1B93C9: #_E3C5u: db $12, $1D ; duration, params
-#_1B93CB: #_E3C7u: db A5
+#_1B93CB: #_E3C7u: db $B9 ; play note A5
 #_1B93CC: #_E3C8u: db $03, $7D ; duration, params
-#_1B93CE: #_E3CAu: db G5
-#_1B93CF: #_E3CBu: db Gs5
+#_1B93CE: #_E3CAu: db $B7 ; play note G5
+#_1B93CF: #_E3CBu: db $B8 ; play note Gs5
 #_1B93D0: #_E3CCu: db $12, $1D ; duration, params
-#_1B93D2: #_E3CEu: db A5
+#_1B93D2: #_E3CEu: db $B9 ; play note A5
 #_1B93D3: #_E3CFu: db $03, $7D ; duration, params
-#_1B93D5: #_E3D1u: db G5
-#_1B93D6: #_E3D2u: db Gs5
+#_1B93D5: #_E3D1u: db $B7 ; play note G5
+#_1B93D6: #_E3D2u: db $B8 ; play note Gs5
 #_1B93D7: #_E3D3u: db $12, $1D ; duration, params
-#_1B93D9: #_E3D5u: db A5
+#_1B93D9: #_E3D5u: db $B9 ; play note A5
 #_1B93DA: #_E3D6u: db $03, $7D ; duration, params
-#_1B93DC: #_E3D8u: db G5
-#_1B93DD: #_E3D9u: db Gs5
+#_1B93DC: #_E3D8u: db $B7 ; play note G5
+#_1B93DD: #_E3D9u: db $B8 ; play note Gs5
 #_1B93DE: #_E3DAu: db $12, $1D ; duration, params
-#_1B93E0: #_E3DCu: db A5
+#_1B93E0: #_E3DCu: db $B9 ; play note A5
 #_1B93E1: #_E3DDu: db $03, $7D ; duration, params
-#_1B93E3: #_E3DFu: db G5
-#_1B93E4: #_E3E0u: db Gs5
+#_1B93E3: #_E3DFu: db $B7 ; play note G5
+#_1B93E4: #_E3E0u: db $B8 ; play note Gs5
 #_1B93E5: #_E3E1u: db $12, $1D ; duration, params
-#_1B93E7: #_E3E3u: db A5
+#_1B93E7: #_E3E3u: db $B9 ; play note A5
 #_1B93E8: #_E3E4u: db $03, $7D ; duration, params
-#_1B93EA: #_E3E6u: db G5
-#_1B93EB: #_E3E7u: db Gs5
+#_1B93EA: #_E3E6u: db $B7 ; play note G5
+#_1B93EB: #_E3E7u: db $B8 ; play note Gs5
 #_1B93EC: #_E3E8u: db $12, $1D ; duration, params
-#_1B93EE: #_E3EAu: db A5
+#_1B93EE: #_E3EAu: db $B9 ; play note A5
 #_1B93EF: #_E3EBu: db $03, $7D ; duration, params
-#_1B93F1: #_E3EDu: db G5
-#_1B93F2: #_E3EEu: db Gs5
+#_1B93F1: #_E3EDu: db $B7 ; play note G5
+#_1B93F2: #_E3EEu: db $B8 ; play note Gs5
 #_1B93F3: #_E3EFu: db $18, $1D ; duration, params
-#_1B93F5: #_E3F1u: db A5
-#_1B93F6: #_E3F2u: db !PART_END
+#_1B93F5: #_E3F1u: db $B9 ; play note A5
+#_1B93F6: #_E3F2u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Sub_E3F3:
 #_1B93F7: #_E3F3u: db $18, $1D ; duration, params
-#_1B93F9: #_E3F5u: db C3
+#_1B93F9: #_E3F5u: db $98 ; play note C3
 #_1B93FA: #_E3F6u: db $18, $19 ; duration, params
-#_1B93FC: #_E3F8u: db C3
+#_1B93FC: #_E3F8u: db $98 ; play note C3
 #_1B93FD: #_E3F9u: db $18, $18 ; duration, params
-#_1B93FF: #_E3FBu: db C3
+#_1B93FF: #_E3FBu: db $98 ; play note C3
 #_1B9400: #_E3FCu: db $18, $17 ; duration, params
-#_1B9402: #_E3FEu: db C3
-#_1B9403: #_E3FFu: db !PART_END
+#_1B9402: #_E3FEu: db $98 ; play note C3
+#_1B9403: #_E3FFu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Sub_E400:
 #_1B9404: #_E400u: db $18, $1D ; duration, params
-#_1B9406: #_E402u: db F2
+#_1B9406: #_E402u: db $91 ; play note F2
 #_1B9407: #_E403u: db $18, $19 ; duration, params
-#_1B9409: #_E405u: db F2
+#_1B9409: #_E405u: db $91 ; play note F2
 #_1B940A: #_E406u: db $18, $18 ; duration, params
-#_1B940C: #_E408u: db F2
+#_1B940C: #_E408u: db $91 ; play note F2
 #_1B940D: #_E409u: db $18, $17 ; duration, params
-#_1B940F: #_E40Bu: db F2
-#_1B9410: #_E40Cu: db !PART_END
+#_1B940F: #_E40Bu: db $91 ; play note F2
+#_1B9410: #_E40Cu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Sub_E40D:
 #_1B9411: #_E40Du: db $54 ; duration
-#_1B9412: #_E40Eu: db F1
+#_1B9412: #_E40Eu: db $85 ; play note F1
 #_1B9413: #_E40Fu: db $0C ; duration
-#_1B9414: #_E410u: db F1
-#_1B9415: #_E411u: db !PART_END
+#_1B9414: #_E410u: db $85 ; play note F1
+#_1B9415: #_E411u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Sub_E412:
 #_1B9416: #_E412u: db $18, $1D ; duration, params
-#_1B9418: #_E414u: db Cs3
+#_1B9418: #_E414u: db $99 ; play note Cs3
 #_1B9419: #_E415u: db $18, $19 ; duration, params
-#_1B941B: #_E417u: db Cs3
+#_1B941B: #_E417u: db $99 ; play note Cs3
 #_1B941C: #_E418u: db $18, $18 ; duration, params
-#_1B941E: #_E41Au: db Cs3
+#_1B941E: #_E41Au: db $99 ; play note Cs3
 #_1B941F: #_E41Bu: db $18, $17 ; duration, params
-#_1B9421: #_E41Du: db Cs3
-#_1B9422: #_E41Eu: db !PART_END
+#_1B9421: #_E41Du: db $99 ; play note Cs3
+#_1B9422: #_E41Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Sub_E41F:
 #_1B9423: #_E41Fu: db $18, $1D ; duration, params
-#_1B9425: #_E421u: db Fs2
+#_1B9425: #_E421u: db $92 ; play note Fs2
 #_1B9426: #_E422u: db $18, $19 ; duration, params
-#_1B9428: #_E424u: db Fs2
+#_1B9428: #_E424u: db $92 ; play note Fs2
 #_1B9429: #_E425u: db $18, $18 ; duration, params
-#_1B942B: #_E427u: db Fs2
+#_1B942B: #_E427u: db $92 ; play note Fs2
 #_1B942C: #_E428u: db $18, $17 ; duration, params
-#_1B942E: #_E42Au: db Fs2
-#_1B942F: #_E42Bu: db !PART_END
+#_1B942E: #_E42Au: db $92 ; play note Fs2
+#_1B942F: #_E42Bu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song12_Sub_E42C:
 #_1B9430: #_E42Cu: db $54 ; duration
-#_1B9431: #_E42Du: db Fs1
+#_1B9431: #_E42Du: db $86 ; play note Fs1
 #_1B9432: #_E42Eu: db $0C ; duration
-#_1B9433: #_E42Fu: db Fs1
-#_1B9434: #_E430u: db !PART_END
+#_1B9433: #_E42Fu: db $86 ; play note Fs1
+#_1B9434: #_E430u: db $00 ; End
 
 ;===================================================================================================
 
 Song13_Fanfare:
 #_1B9435: #_E431u: dw Song13_Segment0
-#_1B9437: #_E433u: dw !SONG_END
+#_1B9437: #_E433u: dw $0000 ; Song end
 
 Song13_Segment0:
 #_1B9439: #_E435u: dw Song13_Segment0_Track0
@@ -4451,528 +4451,528 @@ Song13_Segment0:
 ;---------------------------------------------------------------------------------------------------
 
 Song13_Segment0_Track0:
-#_1B9449: #_E445u: db !SET_PERC, $15
-#_1B944B: #_E447u: db !MASTER_VOLUME, $B4
-#_1B944D: #_E449u: db !TEMPO, $1F
-#_1B944F: #_E44Bu: db !ECHO_CONFIG, $FF, $28, $28
-#_1B9453: #_E44Fu: db !ECHO_FILTER, $02, $28, $02
-#_1B9457: #_E453u: db !INSTR, $0B
-#_1B9459: #_E455u: db !VIBRATO, $1E, $28, $15
-#_1B945D: #_E459u: db !VOLUME, $F0
+#_1B9449: #_E445u: db $FA, $15 ; set base percussion sample
+#_1B944B: #_E447u: db $E5, $B4 ; set song volume
+#_1B944D: #_E449u: db $E7, $1F ; set song tempo
+#_1B944F: #_E44Bu: db $F5, $FF, $28, $28 ; configure EON, EVOLL, EVOLR
+#_1B9453: #_E44Fu: db $F7, $02, $28, $02 ; configure EDL, EFB, FIR
+#_1B9457: #_E453u: db $E0, $0B ; set instrument - trombone
+#_1B9459: #_E455u: db $E3, $1E, $28, $15 ; enable vibrato
+#_1B945D: #_E459u: db $ED, $F0 ; set channel volume
 #_1B945F: #_E45Bu: db $0C ; duration
-#_1B9460: #_E45Cu: db R
+#_1B9460: #_E45Cu: db $C9 ; rest
 #_1B9461: #_E45Du: db $06, $3D ; duration, params
-#_1B9463: #_E45Fu: db D5
-#_1B9464: #_E460u: db D5
+#_1B9463: #_E45Fu: db $B2 ; play note D5
+#_1B9464: #_E460u: db $B2 ; play note D5
 #_1B9465: #_E461u: db $0C, $5D ; duration, params
-#_1B9467: #_E463u: db D5
+#_1B9467: #_E463u: db $B2 ; play note D5
 #_1B9468: #_E464u: db $06, $3D ; duration, params
-#_1B946A: #_E466u: db C5
-#_1B946B: #_E467u: db C5
+#_1B946A: #_E466u: db $B0 ; play note C5
+#_1B946B: #_E467u: db $B0 ; play note C5
 #_1B946C: #_E468u: db $0C, $5D ; duration, params
-#_1B946E: #_E46Au: db C5
+#_1B946E: #_E46Au: db $B0 ; play note C5
 #_1B946F: #_E46Bu: db $06, $3D ; duration, params
-#_1B9471: #_E46Du: db As4
-#_1B9472: #_E46Eu: db As4
+#_1B9471: #_E46Du: db $AE ; play note As4
+#_1B9472: #_E46Eu: db $AE ; play note As4
 #_1B9473: #_E46Fu: db $0C ; duration
-#_1B9474: #_E470u: db As4
+#_1B9474: #_E470u: db $AE ; play note As4
 #_1B9475: #_E471u: db $0C, $5D ; duration, params
-#_1B9477: #_E473u: db C5
-#_1B9478: #_E474u: db !CALL_PART : dw Song13_Sub_E6DC : db 1
+#_1B9477: #_E473u: db $B0 ; play note C5
+#_1B9478: #_E474u: db $EF : dw Song13_Sub_E6DC : db $01 ; call segment subroutine
 #_1B947C: #_E478u: db $48 ; duration
-#_1B947D: #_E479u: db !TIE
-#_1B947E: #_E47Au: db !TEMPO_GRAD, $48, $19
+#_1B947D: #_E479u: db $C8 ; sustain current note
+#_1B947E: #_E47Au: db $E8, $48, $19 ; initiate gradual tempo change
 #_1B9481: #_E47Du: db $0C ; duration
-#_1B9482: #_E47Eu: db R
+#_1B9482: #_E47Eu: db $C9 ; rest
 #_1B9483: #_E47Fu: db $06, $3D ; duration, params
-#_1B9485: #_E481u: db Gs5
-#_1B9486: #_E482u: db Gs5
+#_1B9485: #_E481u: db $B8 ; play note Gs5
+#_1B9486: #_E482u: db $B8 ; play note Gs5
 #_1B9487: #_E483u: db $0C, $5D ; duration, params
-#_1B9489: #_E485u: db Gs5
+#_1B9489: #_E485u: db $B8 ; play note Gs5
 #_1B948A: #_E486u: db $06, $3D ; duration, params
-#_1B948C: #_E488u: db Fs5
-#_1B948D: #_E489u: db Fs5
+#_1B948C: #_E488u: db $B6 ; play note Fs5
+#_1B948D: #_E489u: db $B6 ; play note Fs5
 #_1B948E: #_E48Au: db $0C, $5D ; duration, params
-#_1B9490: #_E48Cu: db Fs5
+#_1B9490: #_E48Cu: db $B6 ; play note Fs5
 #_1B9491: #_E48Du: db $06, $3D ; duration, params
-#_1B9493: #_E48Fu: db E5
-#_1B9494: #_E490u: db E5
+#_1B9493: #_E48Fu: db $B4 ; play note E5
+#_1B9494: #_E490u: db $B4 ; play note E5
 #_1B9495: #_E491u: db $0C ; duration
-#_1B9496: #_E492u: db E5
+#_1B9496: #_E492u: db $B4 ; play note E5
 #_1B9497: #_E493u: db $10, $5D ; duration, params
-#_1B9499: #_E495u: db Gs5
+#_1B9499: #_E495u: db $B8 ; play note Gs5
 #_1B949A: #_E496u: db $60, $6D ; duration, params
-#_1B949C: #_E498u: db As5
+#_1B949C: #_E498u: db $BA ; play note As5
 #_1B949D: #_E499u: db $18 ; duration
-#_1B949E: #_E49Au: db R
-#_1B949F: #_E49Bu: db R
+#_1B949E: #_E49Au: db $C9 ; rest
+#_1B949F: #_E49Bu: db $C9 ; rest
 #_1B94A0: #_E49Cu: db $08 ; duration
-#_1B94A1: #_E49Du: db R
-#_1B94A2: #_E49Eu: db !PART_END
+#_1B94A1: #_E49Du: db $C9 ; rest
+#_1B94A2: #_E49Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song13_Segment0_Track1:
-#_1B94A3: #_E49Fu: db !INSTR, $11
-#_1B94A5: #_E4A1u: db !VIBRATO, $1E, $1E, $1E
-#_1B94A9: #_E4A5u: db !VOLUME, $FA
+#_1B94A3: #_E49Fu: db $E0, $11 ; set instrument - trumpet
+#_1B94A5: #_E4A1u: db $E3, $1E, $1E, $1E ; enable vibrato
+#_1B94A9: #_E4A5u: db $ED, $FA ; set channel volume
 #_1B94AB: #_E4A7u: db $60, $6D ; duration, params
-#_1B94AD: #_E4A9u: db F2
+#_1B94AD: #_E4A9u: db $91 ; play note F2
 #_1B94AE: #_E4AAu: db $0C ; duration
-#_1B94AF: #_E4ABu: db R
+#_1B94AF: #_E4ABu: db $C9 ; rest
 #_1B94B0: #_E4ACu: db $06, $3D ; duration, params
-#_1B94B2: #_E4AEu: db F2
-#_1B94B3: #_E4AFu: db F2
+#_1B94B2: #_E4AEu: db $91 ; play note F2
+#_1B94B3: #_E4AFu: db $91 ; play note F2
 #_1B94B4: #_E4B0u: db $0C, $6D ; duration, params
-#_1B94B6: #_E4B2u: db F2
-#_1B94B7: #_E4B3u: db F2
+#_1B94B6: #_E4B2u: db $91 ; play note F2
+#_1B94B7: #_E4B3u: db $91 ; play note F2
 #_1B94B8: #_E4B4u: db $08, $5D ; duration, params
-#_1B94BA: #_E4B6u: db F2
-#_1B94BB: #_E4B7u: db Fs2
-#_1B94BC: #_E4B8u: db G2
+#_1B94BA: #_E4B6u: db $91 ; play note F2
+#_1B94BB: #_E4B7u: db $92 ; play note Fs2
+#_1B94BC: #_E4B8u: db $93 ; play note G2
 #_1B94BD: #_E4B9u: db $60, $6D ; duration, params
-#_1B94BF: #_E4BBu: db Gs2
+#_1B94BF: #_E4BBu: db $94 ; play note Gs2
 #_1B94C0: #_E4BCu: db $0C ; duration
-#_1B94C1: #_E4BDu: db R
+#_1B94C1: #_E4BDu: db $C9 ; rest
 #_1B94C2: #_E4BEu: db $06, $3D ; duration, params
-#_1B94C4: #_E4C0u: db Gs2
-#_1B94C5: #_E4C1u: db Gs2
+#_1B94C4: #_E4C0u: db $94 ; play note Gs2
+#_1B94C5: #_E4C1u: db $94 ; play note Gs2
 #_1B94C6: #_E4C2u: db $0C, $6D ; duration, params
-#_1B94C8: #_E4C4u: db Gs2
-#_1B94C9: #_E4C5u: db Gs2
+#_1B94C8: #_E4C4u: db $94 ; play note Gs2
+#_1B94C9: #_E4C5u: db $94 ; play note Gs2
 #_1B94CA: #_E4C6u: db $08, $5D ; duration, params
-#_1B94CC: #_E4C8u: db Gs2
-#_1B94CD: #_E4C9u: db A2
-#_1B94CE: #_E4CAu: db As2
+#_1B94CC: #_E4C8u: db $94 ; play note Gs2
+#_1B94CD: #_E4C9u: db $95 ; play note A2
+#_1B94CE: #_E4CAu: db $96 ; play note As2
 #_1B94CF: #_E4CBu: db $64, $6D ; duration, params
-#_1B94D1: #_E4CDu: db B2
+#_1B94D1: #_E4CDu: db $97 ; play note B2
 #_1B94D2: #_E4CEu: db $60 ; duration
-#_1B94D3: #_E4CFu: db As1
+#_1B94D3: #_E4CFu: db $8A ; play note As1
 #_1B94D4: #_E4D0u: db $18 ; duration
-#_1B94D5: #_E4D1u: db R
-#_1B94D6: #_E4D2u: db R
+#_1B94D5: #_E4D1u: db $C9 ; rest
+#_1B94D6: #_E4D2u: db $C9 ; rest
 #_1B94D7: #_E4D3u: db $08 ; duration
-#_1B94D8: #_E4D4u: db R
+#_1B94D8: #_E4D4u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song13_Segment0_Track2:
-#_1B94D9: #_E4D5u: db !INSTR, $0B
-#_1B94DB: #_E4D7u: db !VIBRATO, $22, $30, $0A
-#_1B94DF: #_E4DBu: db !VOLUME, $DC
-#_1B94E1: #_E4DDu: db !TUNE, $0A
-#_1B94E3: #_E4DFu: db !PAN, $08
+#_1B94D9: #_E4D5u: db $E0, $0B ; set instrument - trombone
+#_1B94DB: #_E4D7u: db $E3, $22, $30, $0A ; enable vibrato
+#_1B94DF: #_E4DBu: db $ED, $DC ; set channel volume
+#_1B94E1: #_E4DDu: db $F4, $0A ; set channel fine tuning
+#_1B94E3: #_E4DFu: db $E1, $08 ; set panning - leaning right
 #_1B94E5: #_E4E1u: db $0C ; duration
-#_1B94E6: #_E4E2u: db R
+#_1B94E6: #_E4E2u: db $C9 ; rest
 #_1B94E7: #_E4E3u: db $06, $3D ; duration, params
-#_1B94E9: #_E4E5u: db As4
-#_1B94EA: #_E4E6u: db As4
+#_1B94E9: #_E4E5u: db $AE ; play note As4
+#_1B94EA: #_E4E6u: db $AE ; play note As4
 #_1B94EB: #_E4E7u: db $0C, $5D ; duration, params
-#_1B94ED: #_E4E9u: db As4
+#_1B94ED: #_E4E9u: db $AE ; play note As4
 #_1B94EE: #_E4EAu: db $06, $3D ; duration, params
-#_1B94F0: #_E4ECu: db A4
-#_1B94F1: #_E4EDu: db A4
+#_1B94F0: #_E4ECu: db $AD ; play note A4
+#_1B94F1: #_E4EDu: db $AD ; play note A4
 #_1B94F2: #_E4EEu: db $0C, $5D ; duration, params
-#_1B94F4: #_E4F0u: db A4
+#_1B94F4: #_E4F0u: db $AD ; play note A4
 #_1B94F5: #_E4F1u: db $06, $3D ; duration, params
-#_1B94F7: #_E4F3u: db G4
-#_1B94F8: #_E4F4u: db G4
+#_1B94F7: #_E4F3u: db $AB ; play note G4
+#_1B94F8: #_E4F4u: db $AB ; play note G4
 #_1B94F9: #_E4F5u: db $0C ; duration
-#_1B94FA: #_E4F6u: db G4
+#_1B94FA: #_E4F6u: db $AB ; play note G4
 #_1B94FB: #_E4F7u: db $0C, $5D ; duration, params
-#_1B94FD: #_E4F9u: db A4
+#_1B94FD: #_E4F9u: db $AD ; play note A4
 #_1B94FE: #_E4FAu: db $48, $48 ; duration, params
-#_1B9500: #_E4FCu: db !TIE
+#_1B9500: #_E4FCu: db $C8 ; sustain current note
 #_1B9501: #_E4FDu: db $0C ; duration
-#_1B9502: #_E4FEu: db R
+#_1B9502: #_E4FEu: db $C9 ; rest
 #_1B9503: #_E4FFu: db $06, $3D ; duration, params
-#_1B9505: #_E501u: db Cs5
-#_1B9506: #_E502u: db Cs5
+#_1B9505: #_E501u: db $B1 ; play note Cs5
+#_1B9506: #_E502u: db $B1 ; play note Cs5
 #_1B9507: #_E503u: db $0C, $5D ; duration, params
-#_1B9509: #_E505u: db Cs5
+#_1B9509: #_E505u: db $B1 ; play note Cs5
 #_1B950A: #_E506u: db $06, $3D ; duration, params
-#_1B950C: #_E508u: db C5
-#_1B950D: #_E509u: db C5
+#_1B950C: #_E508u: db $B0 ; play note C5
+#_1B950D: #_E509u: db $B0 ; play note C5
 #_1B950E: #_E50Au: db $0C, $5D ; duration, params
-#_1B9510: #_E50Cu: db C5
+#_1B9510: #_E50Cu: db $B0 ; play note C5
 #_1B9511: #_E50Du: db $06, $3D ; duration, params
-#_1B9513: #_E50Fu: db As4
-#_1B9514: #_E510u: db As4
+#_1B9513: #_E50Fu: db $AE ; play note As4
+#_1B9514: #_E510u: db $AE ; play note As4
 #_1B9515: #_E511u: db $0C ; duration
-#_1B9516: #_E512u: db As4
+#_1B9516: #_E512u: db $AE ; play note As4
 #_1B9517: #_E513u: db $0C, $5D ; duration, params
-#_1B9519: #_E515u: db C5
+#_1B9519: #_E515u: db $B0 ; play note C5
 #_1B951A: #_E516u: db $48 ; duration
-#_1B951B: #_E517u: db !TIE
+#_1B951B: #_E517u: db $C8 ; sustain current note
 #_1B951C: #_E518u: db $0C ; duration
-#_1B951D: #_E519u: db R
+#_1B951D: #_E519u: db $C9 ; rest
 #_1B951E: #_E51Au: db $06, $3D ; duration, params
-#_1B9520: #_E51Cu: db E5
-#_1B9521: #_E51Du: db E5
+#_1B9520: #_E51Cu: db $B4 ; play note E5
+#_1B9521: #_E51Du: db $B4 ; play note E5
 #_1B9522: #_E51Eu: db $0C, $5D ; duration, params
-#_1B9524: #_E520u: db E5
+#_1B9524: #_E520u: db $B4 ; play note E5
 #_1B9525: #_E521u: db $06, $3D ; duration, params
-#_1B9527: #_E523u: db Ds5
-#_1B9528: #_E524u: db Ds5
+#_1B9527: #_E523u: db $B3 ; play note Ds5
+#_1B9528: #_E524u: db $B3 ; play note Ds5
 #_1B9529: #_E525u: db $0C, $5D ; duration, params
-#_1B952B: #_E527u: db Ds5
+#_1B952B: #_E527u: db $B3 ; play note Ds5
 #_1B952C: #_E528u: db $06, $3D ; duration, params
-#_1B952E: #_E52Au: db Cs5
-#_1B952F: #_E52Bu: db Cs5
+#_1B952E: #_E52Au: db $B1 ; play note Cs5
+#_1B952F: #_E52Bu: db $B1 ; play note Cs5
 #_1B9530: #_E52Cu: db $0C ; duration
-#_1B9531: #_E52Du: db Cs5
+#_1B9531: #_E52Du: db $B1 ; play note Cs5
 #_1B9532: #_E52Eu: db $10, $5D ; duration, params
-#_1B9534: #_E530u: db E5
+#_1B9534: #_E530u: db $B4 ; play note E5
 #_1B9535: #_E531u: db $60, $6D ; duration, params
-#_1B9537: #_E533u: db G5
+#_1B9537: #_E533u: db $B7 ; play note G5
 #_1B9538: #_E534u: db $18 ; duration
-#_1B9539: #_E535u: db R
-#_1B953A: #_E536u: db R
+#_1B9539: #_E535u: db $C9 ; rest
+#_1B953A: #_E536u: db $C9 ; rest
 #_1B953B: #_E537u: db $08 ; duration
-#_1B953C: #_E538u: db R
+#_1B953C: #_E538u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song13_Segment0_Track3:
-#_1B953D: #_E539u: db !INSTR, $0B
-#_1B953F: #_E53Bu: db !VIBRATO, $14, $2C, $0A
-#_1B9543: #_E53Fu: db !VOLUME, $DC
-#_1B9545: #_E541u: db !TUNE, $0F
-#_1B9547: #_E543u: db !PAN, $0C
+#_1B953D: #_E539u: db $E0, $0B ; set instrument - trombone
+#_1B953F: #_E53Bu: db $E3, $14, $2C, $0A ; enable vibrato
+#_1B9543: #_E53Fu: db $ED, $DC ; set channel volume
+#_1B9545: #_E541u: db $F4, $0F ; set channel fine tuning
+#_1B9547: #_E543u: db $E1, $0C ; set panning - leaning left
 #_1B9549: #_E545u: db $0C ; duration
-#_1B954A: #_E546u: db R
+#_1B954A: #_E546u: db $C9 ; rest
 #_1B954B: #_E547u: db $06, $3D ; duration, params
-#_1B954D: #_E549u: db G4
-#_1B954E: #_E54Au: db G4
+#_1B954D: #_E549u: db $AB ; play note G4
+#_1B954E: #_E54Au: db $AB ; play note G4
 #_1B954F: #_E54Bu: db $0C, $5D ; duration, params
-#_1B9551: #_E54Du: db G4
+#_1B9551: #_E54Du: db $AB ; play note G4
 #_1B9552: #_E54Eu: db $06, $3D ; duration, params
-#_1B9554: #_E550u: db F4
-#_1B9555: #_E551u: db F4
+#_1B9554: #_E550u: db $A9 ; play note F4
+#_1B9555: #_E551u: db $A9 ; play note F4
 #_1B9556: #_E552u: db $0C, $5D ; duration, params
-#_1B9558: #_E554u: db F4
+#_1B9558: #_E554u: db $A9 ; play note F4
 #_1B9559: #_E555u: db $06, $3D ; duration, params
-#_1B955B: #_E557u: db Ds4
-#_1B955C: #_E558u: db Ds4
+#_1B955B: #_E557u: db $A7 ; play note Ds4
+#_1B955C: #_E558u: db $A7 ; play note Ds4
 #_1B955D: #_E559u: db $0C ; duration
-#_1B955E: #_E55Au: db Ds4
+#_1B955E: #_E55Au: db $A7 ; play note Ds4
 #_1B955F: #_E55Bu: db $0C, $5D ; duration, params
-#_1B9561: #_E55Du: db F4
+#_1B9561: #_E55Du: db $A9 ; play note F4
 #_1B9562: #_E55Eu: db $48, $48 ; duration, params
-#_1B9564: #_E560u: db !TIE
+#_1B9564: #_E560u: db $C8 ; sustain current note
 #_1B9565: #_E561u: db $0C ; duration
-#_1B9566: #_E562u: db R
+#_1B9566: #_E562u: db $C9 ; rest
 #_1B9567: #_E563u: db $06, $3D ; duration, params
-#_1B9569: #_E565u: db As4
-#_1B956A: #_E566u: db As4
+#_1B9569: #_E565u: db $AE ; play note As4
+#_1B956A: #_E566u: db $AE ; play note As4
 #_1B956B: #_E567u: db $0C, $5D ; duration, params
-#_1B956D: #_E569u: db As4
+#_1B956D: #_E569u: db $AE ; play note As4
 #_1B956E: #_E56Au: db $06, $3D ; duration, params
-#_1B9570: #_E56Cu: db Gs4
-#_1B9571: #_E56Du: db Gs4
+#_1B9570: #_E56Cu: db $AC ; play note Gs4
+#_1B9571: #_E56Du: db $AC ; play note Gs4
 #_1B9572: #_E56Eu: db $0C, $5D ; duration, params
-#_1B9574: #_E570u: db Gs4
+#_1B9574: #_E570u: db $AC ; play note Gs4
 #_1B9575: #_E571u: db $06, $3D ; duration, params
-#_1B9577: #_E573u: db Fs4
-#_1B9578: #_E574u: db Fs4
+#_1B9577: #_E573u: db $AA ; play note Fs4
+#_1B9578: #_E574u: db $AA ; play note Fs4
 #_1B9579: #_E575u: db $0C ; duration
-#_1B957A: #_E576u: db Fs4
+#_1B957A: #_E576u: db $AA ; play note Fs4
 #_1B957B: #_E577u: db $0C, $5D ; duration, params
-#_1B957D: #_E579u: db Gs4
+#_1B957D: #_E579u: db $AC ; play note Gs4
 #_1B957E: #_E57Au: db $48 ; duration
-#_1B957F: #_E57Bu: db !TIE
+#_1B957F: #_E57Bu: db $C8 ; sustain current note
 #_1B9580: #_E57Cu: db $0C ; duration
-#_1B9581: #_E57Du: db R
+#_1B9581: #_E57Du: db $C9 ; rest
 #_1B9582: #_E57Eu: db $06, $3D ; duration, params
-#_1B9584: #_E580u: db Cs5
-#_1B9585: #_E581u: db Cs5
+#_1B9584: #_E580u: db $B1 ; play note Cs5
+#_1B9585: #_E581u: db $B1 ; play note Cs5
 #_1B9586: #_E582u: db $0C, $5D ; duration, params
-#_1B9588: #_E584u: db Cs5
+#_1B9588: #_E584u: db $B1 ; play note Cs5
 #_1B9589: #_E585u: db $06, $3D ; duration, params
-#_1B958B: #_E587u: db B4
-#_1B958C: #_E588u: db B4
+#_1B958B: #_E587u: db $AF ; play note B4
+#_1B958C: #_E588u: db $AF ; play note B4
 #_1B958D: #_E589u: db $0C, $5D ; duration, params
-#_1B958F: #_E58Bu: db B4
+#_1B958F: #_E58Bu: db $AF ; play note B4
 #_1B9590: #_E58Cu: db $06, $3D ; duration, params
-#_1B9592: #_E58Eu: db A4
-#_1B9593: #_E58Fu: db A4
+#_1B9592: #_E58Eu: db $AD ; play note A4
+#_1B9593: #_E58Fu: db $AD ; play note A4
 #_1B9594: #_E590u: db $0C ; duration
-#_1B9595: #_E591u: db A4
+#_1B9595: #_E591u: db $AD ; play note A4
 #_1B9596: #_E592u: db $10, $5D ; duration, params
-#_1B9598: #_E594u: db Ds5
+#_1B9598: #_E594u: db $B3 ; play note Ds5
 #_1B9599: #_E595u: db $60, $6D ; duration, params
-#_1B959B: #_E597u: db Ds5
+#_1B959B: #_E597u: db $B3 ; play note Ds5
 #_1B959C: #_E598u: db $18 ; duration
-#_1B959D: #_E599u: db R
-#_1B959E: #_E59Au: db R
+#_1B959D: #_E599u: db $C9 ; rest
+#_1B959E: #_E59Au: db $C9 ; rest
 #_1B959F: #_E59Bu: db $08 ; duration
-#_1B95A0: #_E59Cu: db R
+#_1B95A0: #_E59Cu: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song13_Segment0_Track4:
-#_1B95A1: #_E59Du: db !INSTR, $0B
-#_1B95A3: #_E59Fu: db !VIBRATO, $19, $32, $0E
-#_1B95A7: #_E5A3u: db !VOLUME, $DC
-#_1B95A9: #_E5A5u: db !TUNE, $05
-#_1B95AB: #_E5A7u: db !PAN, $0E
+#_1B95A1: #_E59Du: db $E0, $0B ; set instrument - trombone
+#_1B95A3: #_E59Fu: db $E3, $19, $32, $0E ; enable vibrato
+#_1B95A7: #_E5A3u: db $ED, $DC ; set channel volume
+#_1B95A9: #_E5A5u: db $F4, $05 ; set channel fine tuning
+#_1B95AB: #_E5A7u: db $E1, $0E ; set panning - leaning left
 #_1B95AD: #_E5A9u: db $0C ; duration
-#_1B95AE: #_E5AAu: db R
+#_1B95AE: #_E5AAu: db $C9 ; rest
 #_1B95AF: #_E5ABu: db $06, $3D ; duration, params
-#_1B95B1: #_E5ADu: db Ds4
-#_1B95B2: #_E5AEu: db Ds4
+#_1B95B1: #_E5ADu: db $A7 ; play note Ds4
+#_1B95B2: #_E5AEu: db $A7 ; play note Ds4
 #_1B95B3: #_E5AFu: db $0C, $5D ; duration, params
-#_1B95B5: #_E5B1u: db Ds4
+#_1B95B5: #_E5B1u: db $A7 ; play note Ds4
 #_1B95B6: #_E5B2u: db $06, $3D ; duration, params
-#_1B95B8: #_E5B4u: db D4
-#_1B95B9: #_E5B5u: db D4
+#_1B95B8: #_E5B4u: db $A6 ; play note D4
+#_1B95B9: #_E5B5u: db $A6 ; play note D4
 #_1B95BA: #_E5B6u: db $0C, $5D ; duration, params
-#_1B95BC: #_E5B8u: db D4
+#_1B95BC: #_E5B8u: db $A6 ; play note D4
 #_1B95BD: #_E5B9u: db $06, $3D ; duration, params
-#_1B95BF: #_E5BBu: db C4
-#_1B95C0: #_E5BCu: db C4
+#_1B95BF: #_E5BBu: db $A4 ; play note C4
+#_1B95C0: #_E5BCu: db $A4 ; play note C4
 #_1B95C1: #_E5BDu: db $0C ; duration
-#_1B95C2: #_E5BEu: db C4
+#_1B95C2: #_E5BEu: db $A4 ; play note C4
 #_1B95C3: #_E5BFu: db $0C, $5D ; duration, params
-#_1B95C5: #_E5C1u: db D4
+#_1B95C5: #_E5C1u: db $A6 ; play note D4
 #_1B95C6: #_E5C2u: db $48, $48 ; duration, params
-#_1B95C8: #_E5C4u: db !TIE
+#_1B95C8: #_E5C4u: db $C8 ; sustain current note
 #_1B95C9: #_E5C5u: db $0C ; duration
-#_1B95CA: #_E5C6u: db R
+#_1B95CA: #_E5C6u: db $C9 ; rest
 #_1B95CB: #_E5C7u: db $06, $3D ; duration, params
-#_1B95CD: #_E5C9u: db Fs4
-#_1B95CE: #_E5CAu: db Fs4
+#_1B95CD: #_E5C9u: db $AA ; play note Fs4
+#_1B95CE: #_E5CAu: db $AA ; play note Fs4
 #_1B95CF: #_E5CBu: db $0C, $5D ; duration, params
-#_1B95D1: #_E5CDu: db Fs4
+#_1B95D1: #_E5CDu: db $AA ; play note Fs4
 #_1B95D2: #_E5CEu: db $06, $3D ; duration, params
-#_1B95D4: #_E5D0u: db F4
-#_1B95D5: #_E5D1u: db F4
+#_1B95D4: #_E5D0u: db $A9 ; play note F4
+#_1B95D5: #_E5D1u: db $A9 ; play note F4
 #_1B95D6: #_E5D2u: db $0C, $5D ; duration, params
-#_1B95D8: #_E5D4u: db F4
+#_1B95D8: #_E5D4u: db $A9 ; play note F4
 #_1B95D9: #_E5D5u: db $06, $3D ; duration, params
-#_1B95DB: #_E5D7u: db Ds4
-#_1B95DC: #_E5D8u: db Ds4
+#_1B95DB: #_E5D7u: db $A7 ; play note Ds4
+#_1B95DC: #_E5D8u: db $A7 ; play note Ds4
 #_1B95DD: #_E5D9u: db $0C ; duration
-#_1B95DE: #_E5DAu: db Ds4
+#_1B95DE: #_E5DAu: db $A7 ; play note Ds4
 #_1B95DF: #_E5DBu: db $0C, $5D ; duration, params
-#_1B95E1: #_E5DDu: db F4
+#_1B95E1: #_E5DDu: db $A9 ; play note F4
 #_1B95E2: #_E5DEu: db $48 ; duration
-#_1B95E3: #_E5DFu: db !TIE
+#_1B95E3: #_E5DFu: db $C8 ; sustain current note
 #_1B95E4: #_E5E0u: db $0C ; duration
-#_1B95E5: #_E5E1u: db R
+#_1B95E5: #_E5E1u: db $C9 ; rest
 #_1B95E6: #_E5E2u: db $06, $3D ; duration, params
-#_1B95E8: #_E5E4u: db A4
-#_1B95E9: #_E5E5u: db A4
+#_1B95E8: #_E5E4u: db $AD ; play note A4
+#_1B95E9: #_E5E5u: db $AD ; play note A4
 #_1B95EA: #_E5E6u: db $0C, $5D ; duration, params
-#_1B95EC: #_E5E8u: db A4
+#_1B95EC: #_E5E8u: db $AD ; play note A4
 #_1B95ED: #_E5E9u: db $06, $3D ; duration, params
-#_1B95EF: #_E5EBu: db Gs4
-#_1B95F0: #_E5ECu: db Gs4
+#_1B95EF: #_E5EBu: db $AC ; play note Gs4
+#_1B95F0: #_E5ECu: db $AC ; play note Gs4
 #_1B95F1: #_E5EDu: db $0C, $5D ; duration, params
-#_1B95F3: #_E5EFu: db Gs4
+#_1B95F3: #_E5EFu: db $AC ; play note Gs4
 #_1B95F4: #_E5F0u: db $06, $3D ; duration, params
-#_1B95F6: #_E5F2u: db Fs4
-#_1B95F7: #_E5F3u: db Fs4
+#_1B95F6: #_E5F2u: db $AA ; play note Fs4
+#_1B95F7: #_E5F3u: db $AA ; play note Fs4
 #_1B95F8: #_E5F4u: db $0C ; duration
-#_1B95F9: #_E5F5u: db Fs4
+#_1B95F9: #_E5F5u: db $AA ; play note Fs4
 #_1B95FA: #_E5F6u: db $10, $5D ; duration, params
-#_1B95FC: #_E5F8u: db B4
+#_1B95FC: #_E5F8u: db $AF ; play note B4
 #_1B95FD: #_E5F9u: db $60, $6D ; duration, params
-#_1B95FF: #_E5FBu: db As4
+#_1B95FF: #_E5FBu: db $AE ; play note As4
 #_1B9600: #_E5FCu: db $18 ; duration
-#_1B9601: #_E5FDu: db R
-#_1B9602: #_E5FEu: db R
+#_1B9601: #_E5FDu: db $C9 ; rest
+#_1B9602: #_E5FEu: db $C9 ; rest
 #_1B9603: #_E5FFu: db $08 ; duration
-#_1B9604: #_E600u: db R
+#_1B9604: #_E600u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song13_Segment0_Track5:
-#_1B9605: #_E601u: db !INSTR, $0B
-#_1B9607: #_E603u: db !VIBRATO, $1B, $1E, $1C
-#_1B960B: #_E607u: db !VOLUME, $A0
-#_1B960D: #_E609u: db !PAN, $06
+#_1B9605: #_E601u: db $E0, $0B ; set instrument - trombone
+#_1B9607: #_E603u: db $E3, $1B, $1E, $1C ; enable vibrato
+#_1B960B: #_E607u: db $ED, $A0 ; set channel volume
+#_1B960D: #_E609u: db $E1, $06 ; set panning - leaning right
 #_1B960F: #_E60Bu: db $14 ; duration
-#_1B9610: #_E60Cu: db R
+#_1B9610: #_E60Cu: db $C9 ; rest
 #_1B9611: #_E60Du: db $06, $3D ; duration, params
-#_1B9613: #_E60Fu: db D5
-#_1B9614: #_E610u: db D5
+#_1B9613: #_E60Fu: db $B2 ; play note D5
+#_1B9614: #_E610u: db $B2 ; play note D5
 #_1B9615: #_E611u: db $0C, $5D ; duration, params
-#_1B9617: #_E613u: db D5
+#_1B9617: #_E613u: db $B2 ; play note D5
 #_1B9618: #_E614u: db $06, $3D ; duration, params
-#_1B961A: #_E616u: db C5
-#_1B961B: #_E617u: db C5
+#_1B961A: #_E616u: db $B0 ; play note C5
+#_1B961B: #_E617u: db $B0 ; play note C5
 #_1B961C: #_E618u: db $0C, $5D ; duration, params
-#_1B961E: #_E61Au: db C5
+#_1B961E: #_E61Au: db $B0 ; play note C5
 #_1B961F: #_E61Bu: db $06, $3D ; duration, params
-#_1B9621: #_E61Du: db As4
-#_1B9622: #_E61Eu: db As4
+#_1B9621: #_E61Du: db $AE ; play note As4
+#_1B9622: #_E61Eu: db $AE ; play note As4
 #_1B9623: #_E61Fu: db $0C ; duration
-#_1B9624: #_E620u: db As4
+#_1B9624: #_E620u: db $AE ; play note As4
 #_1B9625: #_E621u: db $0C, $5D ; duration, params
-#_1B9627: #_E623u: db C5
-#_1B9628: #_E624u: db !CALL_PART : dw Song13_Sub_E6DC : db 1
+#_1B9627: #_E623u: db $B0 ; play note C5
+#_1B9628: #_E624u: db $EF : dw Song13_Sub_E6DC : db $01 ; call segment subroutine
 #_1B962C: #_E628u: db $48 ; duration
-#_1B962D: #_E629u: db !TIE
+#_1B962D: #_E629u: db $C8 ; sustain current note
 #_1B962E: #_E62Au: db $0C ; duration
-#_1B962F: #_E62Bu: db R
+#_1B962F: #_E62Bu: db $C9 ; rest
 #_1B9630: #_E62Cu: db $06, $3D ; duration, params
-#_1B9632: #_E62Eu: db Gs5
-#_1B9633: #_E62Fu: db Gs5
+#_1B9632: #_E62Eu: db $B8 ; play note Gs5
+#_1B9633: #_E62Fu: db $B8 ; play note Gs5
 #_1B9634: #_E630u: db $0C, $5D ; duration, params
-#_1B9636: #_E632u: db Gs5
+#_1B9636: #_E632u: db $B8 ; play note Gs5
 #_1B9637: #_E633u: db $06, $3D ; duration, params
-#_1B9639: #_E635u: db Fs5
-#_1B963A: #_E636u: db Fs5
+#_1B9639: #_E635u: db $B6 ; play note Fs5
+#_1B963A: #_E636u: db $B6 ; play note Fs5
 #_1B963B: #_E637u: db $0C, $5D ; duration, params
-#_1B963D: #_E639u: db Fs5
+#_1B963D: #_E639u: db $B6 ; play note Fs5
 #_1B963E: #_E63Au: db $06, $3D ; duration, params
-#_1B9640: #_E63Cu: db E5
-#_1B9641: #_E63Du: db E5
+#_1B9640: #_E63Cu: db $B4 ; play note E5
+#_1B9641: #_E63Du: db $B4 ; play note E5
 #_1B9642: #_E63Eu: db $0C ; duration
-#_1B9643: #_E63Fu: db E5
+#_1B9643: #_E63Fu: db $B4 ; play note E5
 #_1B9644: #_E640u: db $10, $5D ; duration, params
-#_1B9646: #_E642u: db Gs5
+#_1B9646: #_E642u: db $B8 ; play note Gs5
 #_1B9647: #_E643u: db $5C, $6D ; duration, params
-#_1B9649: #_E645u: db As5
+#_1B9649: #_E645u: db $BA ; play note As5
 #_1B964A: #_E646u: db $18 ; duration
-#_1B964B: #_E647u: db R
-#_1B964C: #_E648u: db R
+#_1B964B: #_E647u: db $C9 ; rest
+#_1B964C: #_E648u: db $C9 ; rest
 #_1B964D: #_E649u: db $04 ; duration
-#_1B964E: #_E64Au: db R
+#_1B964E: #_E64Au: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song13_Segment0_Track6:
-#_1B964F: #_E64Bu: db !INSTR, $0F
-#_1B9651: #_E64Du: db !VOLUME, $B4
-#_1B9653: #_E64Fu: db !PAN, $14
+#_1B964F: #_E64Bu: db $E0, $0F ; set instrument - harp
+#_1B9651: #_E64Du: db $ED, $B4 ; set channel volume
+#_1B9653: #_E64Fu: db $E1, $14 ; set panning - leaning left
 #_1B9655: #_E651u: db $54 ; duration
-#_1B9656: #_E652u: db R
+#_1B9656: #_E652u: db $C9 ; rest
 #_1B9657: #_E653u: db $0C, $4D ; duration, params
-#_1B9659: #_E655u: db A3
-#_1B965A: #_E656u: db !PAN_GRAD, $60, $00
-#_1B965D: #_E659u: db D4
-#_1B965E: #_E65Au: db D4
-#_1B965F: #_E65Bu: db A4
-#_1B9660: #_E65Cu: db D5
+#_1B9659: #_E655u: db $A1 ; play note A3
+#_1B965A: #_E656u: db $E2, $60, $00 ; initiate gradual panning change
+#_1B965D: #_E659u: db $A6 ; play note D4
+#_1B965E: #_E65Au: db $A6 ; play note D4
+#_1B965F: #_E65Bu: db $AD ; play note A4
+#_1B9660: #_E65Cu: db $B2 ; play note D5
 #_1B9661: #_E65Du: db $0C, $3D ; duration, params
-#_1B9663: #_E65Fu: db C5
-#_1B9664: #_E660u: db F5
+#_1B9663: #_E65Fu: db $B0 ; play note C5
+#_1B9664: #_E660u: db $B5 ; play note F5
 #_1B9665: #_E661u: db $54, $4D ; duration, params
-#_1B9667: #_E663u: db C6
-#_1B9668: #_E664u: db !PAN, $14
-#_1B966A: #_E666u: db !PAN_GRAD, $60, $00
+#_1B9667: #_E663u: db $BC ; play note C6
+#_1B9668: #_E664u: db $E1, $14 ; set panning - leaning left
+#_1B966A: #_E666u: db $E2, $60, $00 ; initiate gradual panning change
 #_1B966D: #_E669u: db $0C ; duration
-#_1B966E: #_E66Au: db C4
-#_1B966F: #_E66Bu: db F4
-#_1B9670: #_E66Cu: db F4
-#_1B9671: #_E66Du: db C5
-#_1B9672: #_E66Eu: db F5
+#_1B966E: #_E66Au: db $A4 ; play note C4
+#_1B966F: #_E66Bu: db $A9 ; play note F4
+#_1B9670: #_E66Cu: db $A9 ; play note F4
+#_1B9671: #_E66Du: db $B0 ; play note C5
+#_1B9672: #_E66Eu: db $B5 ; play note F5
 #_1B9673: #_E66Fu: db $0C, $3D ; duration, params
-#_1B9675: #_E671u: db Ds5
-#_1B9676: #_E672u: db Gs5
+#_1B9675: #_E671u: db $B3 ; play note Ds5
+#_1B9676: #_E672u: db $B8 ; play note Gs5
 #_1B9677: #_E673u: db $64, $4D ; duration, params
-#_1B9679: #_E675u: db Ds6
-#_1B967A: #_E676u: db !INSTR, $02
-#_1B967C: #_E678u: db !VOLUME, $F0
-#_1B967E: #_E67Au: db !PAN, $0A
+#_1B9679: #_E675u: db $BF ; play note Ds6
+#_1B967A: #_E676u: db $E0, $02 ; set instrument - timpani
+#_1B967C: #_E678u: db $ED, $F0 ; set channel volume
+#_1B967E: #_E67Au: db $E1, $0A ; set panning - balanced
 #_1B9680: #_E67Cu: db $0C, $79 ; duration, params
-#_1B9682: #_E67Eu: db Ds2
+#_1B9682: #_E67Eu: db $8F ; play note Ds2
 #_1B9683: #_E67Fu: db $0C, $7A ; duration, params
-#_1B9685: #_E681u: db Ds2
+#_1B9685: #_E681u: db $8F ; play note Ds2
 #_1B9686: #_E682u: db $0C, $7B ; duration, params
-#_1B9688: #_E684u: db Ds2
+#_1B9688: #_E684u: db $8F ; play note Ds2
 #_1B9689: #_E685u: db $0C, $7C ; duration, params
-#_1B968B: #_E687u: db Ds2
+#_1B968B: #_E687u: db $8F ; play note Ds2
 #_1B968C: #_E688u: db $0C, $7D ; duration, params
-#_1B968E: #_E68Au: db Ds2
+#_1B968E: #_E68Au: db $8F ; play note Ds2
 #_1B968F: #_E68Bu: db $0C, $7E ; duration, params
-#_1B9691: #_E68Du: db Ds2
+#_1B9691: #_E68Du: db $8F ; play note Ds2
 #_1B9692: #_E68Eu: db $50, $7F ; duration, params
-#_1B9694: #_E690u: db Ds2
+#_1B9694: #_E690u: db $8F ; play note Ds2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song13_Segment0_Track7:
-#_1B9695: #_E691u: db !INSTR, $0F
-#_1B9697: #_E693u: db !VOLUME, $B4
-#_1B9699: #_E695u: db !PAN, $14
+#_1B9695: #_E691u: db $E0, $0F ; set instrument - harp
+#_1B9697: #_E693u: db $ED, $B4 ; set channel volume
+#_1B9699: #_E695u: db $E1, $14 ; set panning - leaning left
 #_1B969B: #_E697u: db $5A ; duration
-#_1B969C: #_E698u: db R
+#_1B969C: #_E698u: db $C9 ; rest
 #_1B969D: #_E699u: db $0C, $4D ; duration, params
-#_1B969F: #_E69Bu: db C4
-#_1B96A0: #_E69Cu: db !PAN_GRAD, $60, $00
-#_1B96A3: #_E69Fu: db F4
-#_1B96A4: #_E6A0u: db F4
-#_1B96A5: #_E6A1u: db C5
-#_1B96A6: #_E6A2u: db F5
+#_1B969F: #_E69Bu: db $A4 ; play note C4
+#_1B96A0: #_E69Cu: db $E2, $60, $00 ; initiate gradual panning change
+#_1B96A3: #_E69Fu: db $A9 ; play note F4
+#_1B96A4: #_E6A0u: db $A9 ; play note F4
+#_1B96A5: #_E6A1u: db $B0 ; play note C5
+#_1B96A6: #_E6A2u: db $B5 ; play note F5
 #_1B96A7: #_E6A3u: db $0C, $3D ; duration, params
-#_1B96A9: #_E6A5u: db D5
-#_1B96AA: #_E6A6u: db A5
+#_1B96A9: #_E6A5u: db $B2 ; play note D5
+#_1B96AA: #_E6A6u: db $B9 ; play note A5
 #_1B96AB: #_E6A7u: db $54 ; duration
-#_1B96AC: #_E6A8u: db R
-#_1B96AD: #_E6A9u: db !PAN, $14
-#_1B96AF: #_E6ABu: db !PAN_GRAD, $60, $00
+#_1B96AC: #_E6A8u: db $C9 ; rest
+#_1B96AD: #_E6A9u: db $E1, $14 ; set panning - leaning left
+#_1B96AF: #_E6ABu: db $E2, $60, $00 ; initiate gradual panning change
 #_1B96B2: #_E6AEu: db $0C, $4D ; duration, params
-#_1B96B4: #_E6B0u: db Ds4
-#_1B96B5: #_E6B1u: db Gs4
-#_1B96B6: #_E6B2u: db Gs4
-#_1B96B7: #_E6B3u: db Ds5
-#_1B96B8: #_E6B4u: db Gs5
+#_1B96B4: #_E6B0u: db $A7 ; play note Ds4
+#_1B96B5: #_E6B1u: db $AC ; play note Gs4
+#_1B96B6: #_E6B2u: db $AC ; play note Gs4
+#_1B96B7: #_E6B3u: db $B3 ; play note Ds5
+#_1B96B8: #_E6B4u: db $B8 ; play note Gs5
 #_1B96B9: #_E6B5u: db $0C, $3D ; duration, params
-#_1B96BB: #_E6B7u: db F5
-#_1B96BC: #_E6B8u: db C6
+#_1B96BB: #_E6B7u: db $B5 ; play note F5
+#_1B96BC: #_E6B8u: db $BC ; play note C6
 #_1B96BD: #_E6B9u: db $60 ; duration
-#_1B96BE: #_E6BAu: db R
-#_1B96BF: #_E6BBu: db !INSTR, $02
-#_1B96C1: #_E6BDu: db !VOLUME, $F0
-#_1B96C3: #_E6BFu: db !PAN, $0A
+#_1B96BE: #_E6BAu: db $C9 ; rest
+#_1B96BF: #_E6BBu: db $E0, $02 ; set instrument - timpani
+#_1B96C1: #_E6BDu: db $ED, $F0 ; set channel volume
+#_1B96C3: #_E6BFu: db $E1, $0A ; set panning - balanced
 #_1B96C5: #_E6C1u: db $06, $77 ; duration, params
-#_1B96C7: #_E6C3u: db Ds2
+#_1B96C7: #_E6C3u: db $8F ; play note Ds2
 #_1B96C8: #_E6C4u: db $0C, $78 ; duration, params
-#_1B96CA: #_E6C6u: db Ds2
+#_1B96CA: #_E6C6u: db $8F ; play note Ds2
 #_1B96CB: #_E6C7u: db $0C, $79 ; duration, params
-#_1B96CD: #_E6C9u: db Ds2
+#_1B96CD: #_E6C9u: db $8F ; play note Ds2
 #_1B96CE: #_E6CAu: db $0C, $7A ; duration, params
-#_1B96D0: #_E6CCu: db Ds2
+#_1B96D0: #_E6CCu: db $8F ; play note Ds2
 #_1B96D1: #_E6CDu: db $0C, $7B ; duration, params
-#_1B96D3: #_E6CFu: db Ds2
+#_1B96D3: #_E6CFu: db $8F ; play note Ds2
 #_1B96D4: #_E6D0u: db $0C, $7C ; duration, params
-#_1B96D6: #_E6D2u: db Ds2
+#_1B96D6: #_E6D2u: db $8F ; play note Ds2
 #_1B96D7: #_E6D3u: db $0C, $7D ; duration, params
-#_1B96D9: #_E6D5u: db Ds2
+#_1B96D9: #_E6D5u: db $8F ; play note Ds2
 #_1B96DA: #_E6D6u: db $3C, $7F ; duration, params
-#_1B96DC: #_E6D8u: db Ds2
+#_1B96DC: #_E6D8u: db $8F ; play note Ds2
 #_1B96DD: #_E6D9u: db $0C ; duration
-#_1B96DE: #_E6DAu: db R
-#_1B96DF: #_E6DBu: db !PART_END
+#_1B96DE: #_E6DAu: db $C9 ; rest
+#_1B96DF: #_E6DBu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song13_Sub_E6DC:
 #_1B96E0: #_E6DCu: db $48, $48 ; duration, params
-#_1B96E2: #_E6DEu: db !TIE
+#_1B96E2: #_E6DEu: db $C8 ; sustain current note
 #_1B96E3: #_E6DFu: db $0C ; duration
-#_1B96E4: #_E6E0u: db R
+#_1B96E4: #_E6E0u: db $C9 ; rest
 #_1B96E5: #_E6E1u: db $06, $3D ; duration, params
-#_1B96E7: #_E6E3u: db F5
-#_1B96E8: #_E6E4u: db F5
+#_1B96E7: #_E6E3u: db $B5 ; play note F5
+#_1B96E8: #_E6E4u: db $B5 ; play note F5
 #_1B96E9: #_E6E5u: db $0C, $5D ; duration, params
-#_1B96EB: #_E6E7u: db F5
+#_1B96EB: #_E6E7u: db $B5 ; play note F5
 #_1B96EC: #_E6E8u: db $06, $3D ; duration, params
-#_1B96EE: #_E6EAu: db Ds5
-#_1B96EF: #_E6EBu: db Ds5
+#_1B96EE: #_E6EAu: db $B3 ; play note Ds5
+#_1B96EF: #_E6EBu: db $B3 ; play note Ds5
 #_1B96F0: #_E6ECu: db $0C, $5D ; duration, params
-#_1B96F2: #_E6EEu: db Ds5
+#_1B96F2: #_E6EEu: db $B3 ; play note Ds5
 #_1B96F3: #_E6EFu: db $06, $3D ; duration, params
-#_1B96F5: #_E6F1u: db Cs5
-#_1B96F6: #_E6F2u: db Cs5
+#_1B96F5: #_E6F1u: db $B1 ; play note Cs5
+#_1B96F6: #_E6F2u: db $B1 ; play note Cs5
 #_1B96F7: #_E6F3u: db $0C ; duration
-#_1B96F8: #_E6F4u: db Cs5
+#_1B96F8: #_E6F4u: db $B1 ; play note Cs5
 #_1B96F9: #_E6F5u: db $0C, $5D ; duration, params
-#_1B96FB: #_E6F7u: db Ds5
-#_1B96FC: #_E6F8u: db !PART_END
+#_1B96FB: #_E6F7u: db $B3 ; play note Ds5
+#_1B96FC: #_E6F8u: db $00 ; End
 
 ;===================================================================================================
 
@@ -4984,7 +4984,7 @@ Song14_Sanctuary:
 Song14_Loop:
 #_1B9703: #_E6FFu: dw Song14_Segment3
 #_1B9705: #_E701u: dw Song14_Segment4
-#_1B9707: #_E703u: dw !SONG_LOOP, Song14_Loop
+#_1B9707: #_E703u: dw $00FF, Song14_Loop ; Loop point
 #_1B970B: #_E707u: dw $0000
 
 Song14_Segment3:
@@ -5041,456 +5041,456 @@ Song14_Segment0:
 
 Song14_Segment3_Track0:
 #_1B975D: #_E759u: db $30, $7D ; duration, params
-#_1B975F: #_E75Bu: db G4
-#_1B9760: #_E75Cu: db C4
-#_1B9761: #_E75Du: db B4
-#_1B9762: #_E75Eu: db D4
-#_1B9763: #_E75Fu: db G4
-#_1B9764: #_E760u: db C4
-#_1B9765: #_E761u: db B4
-#_1B9766: #_E762u: db D5
-#_1B9767: #_E763u: db !PART_END
+#_1B975F: #_E75Bu: db $AB ; play note G4
+#_1B9760: #_E75Cu: db $A4 ; play note C4
+#_1B9761: #_E75Du: db $AF ; play note B4
+#_1B9762: #_E75Eu: db $A6 ; play note D4
+#_1B9763: #_E75Fu: db $AB ; play note G4
+#_1B9764: #_E760u: db $A4 ; play note C4
+#_1B9765: #_E761u: db $AF ; play note B4
+#_1B9766: #_E762u: db $B2 ; play note D5
+#_1B9767: #_E763u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment3_Track1:
-#_1B9768: #_E764u: db !CALL_PART : dw Song14_Sub_E906 : db 1
-#_1B976C: #_E768u: db R
+#_1B9768: #_E764u: db $EF : dw Song14_Sub_E906 : db $01 ; call segment subroutine
+#_1B976C: #_E768u: db $C9 ; rest
 #_1B976D: #_E769u: db $30 ; duration
-#_1B976E: #_E76Au: db Ds4
+#_1B976E: #_E76Au: db $A7 ; play note Ds4
 #_1B976F: #_E76Bu: db $18 ; duration
-#_1B9770: #_E76Cu: db C5
-#_1B9771: #_E76Du: db !TIE
+#_1B9770: #_E76Cu: db $B0 ; play note C5
+#_1B9771: #_E76Du: db $C8 ; sustain current note
 #_1B9772: #_E76Eu: db $30 ; duration
-#_1B9773: #_E76Fu: db C5
+#_1B9773: #_E76Fu: db $B0 ; play note C5
 #_1B9774: #_E770u: db $18 ; duration
-#_1B9775: #_E771u: db B4
+#_1B9775: #_E771u: db $AF ; play note B4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment3_Track2:
 #_1B9776: #_E772u: db $60, $6D ; duration, params
-#_1B9778: #_E774u: db C2
-#_1B9779: #_E775u: db B1
-#_1B977A: #_E776u: db As1
-#_1B977B: #_E777u: db A1
+#_1B9778: #_E774u: db $8C ; play note C2
+#_1B9779: #_E775u: db $8B ; play note B1
+#_1B977A: #_E776u: db $8A ; play note As1
+#_1B977B: #_E777u: db $89 ; play note A1
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment3_Track3:
 #_1B977C: #_E778u: db $60 ; duration
-#_1B977D: #_E779u: db R
-#_1B977E: #_E77Au: db R
+#_1B977D: #_E779u: db $C9 ; rest
+#_1B977E: #_E77Au: db $C9 ; rest
 #_1B977F: #_E77Bu: db $18, $7D ; duration, params
-#_1B9781: #_E77Du: db G2
-#_1B9782: #_E77Eu: db Gs2
+#_1B9781: #_E77Du: db $93 ; play note G2
+#_1B9782: #_E77Eu: db $94 ; play note Gs2
 #_1B9783: #_E77Fu: db $30 ; duration
-#_1B9784: #_E780u: db G2
+#_1B9784: #_E780u: db $93 ; play note G2
 #_1B9785: #_E781u: db $18 ; duration
-#_1B9786: #_E782u: db G2
-#_1B9787: #_E783u: db Gs2
+#_1B9786: #_E782u: db $93 ; play note G2
+#_1B9787: #_E783u: db $94 ; play note Gs2
 #_1B9788: #_E784u: db $30 ; duration
-#_1B9789: #_E785u: db G2
+#_1B9789: #_E785u: db $93 ; play note G2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment3_Track4:
 #_1B978A: #_E786u: db $60, $6D ; duration, params
-#_1B978C: #_E788u: db C3
-#_1B978D: #_E789u: db B2
-#_1B978E: #_E78Au: db As2
-#_1B978F: #_E78Bu: db A2
+#_1B978C: #_E788u: db $98 ; play note C3
+#_1B978D: #_E789u: db $97 ; play note B2
+#_1B978E: #_E78Au: db $96 ; play note As2
+#_1B978F: #_E78Bu: db $95 ; play note A2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment3_Track5:
 #_1B9790: #_E78Cu: db $08 ; duration
-#_1B9791: #_E78Du: db R
+#_1B9791: #_E78Du: db $C9 ; rest
 #_1B9792: #_E78Eu: db $18, $7D ; duration, params
-#_1B9794: #_E790u: db G4
-#_1B9795: #_E791u: db Ds4
-#_1B9796: #_E792u: db C4
-#_1B9797: #_E793u: db C5
-#_1B9798: #_E794u: db B4
-#_1B9799: #_E795u: db G4
-#_1B979A: #_E796u: db D4
-#_1B979B: #_E797u: db B3
-#_1B979C: #_E798u: db G4
-#_1B979D: #_E799u: db Ds4
-#_1B979E: #_E79Au: db C4
-#_1B979F: #_E79Bu: db C5
-#_1B97A0: #_E79Cu: db B4
-#_1B97A1: #_E79Du: db C5
-#_1B97A2: #_E79Eu: db D5
+#_1B9794: #_E790u: db $AB ; play note G4
+#_1B9795: #_E791u: db $A7 ; play note Ds4
+#_1B9796: #_E792u: db $A4 ; play note C4
+#_1B9797: #_E793u: db $B0 ; play note C5
+#_1B9798: #_E794u: db $AF ; play note B4
+#_1B9799: #_E795u: db $AB ; play note G4
+#_1B979A: #_E796u: db $A6 ; play note D4
+#_1B979B: #_E797u: db $A3 ; play note B3
+#_1B979C: #_E798u: db $AB ; play note G4
+#_1B979D: #_E799u: db $A7 ; play note Ds4
+#_1B979E: #_E79Au: db $A4 ; play note C4
+#_1B979F: #_E79Bu: db $B0 ; play note C5
+#_1B97A0: #_E79Cu: db $AF ; play note B4
+#_1B97A1: #_E79Du: db $B0 ; play note C5
+#_1B97A2: #_E79Eu: db $B2 ; play note D5
 #_1B97A3: #_E79Fu: db $10 ; duration
-#_1B97A4: #_E7A0u: db B4
+#_1B97A4: #_E7A0u: db $AF ; play note B4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment1_Track0:
-#_1B97A5: #_E7A1u: db !VOLUME, $C8
-#_1B97A7: #_E7A3u: db !INSTR, $15
-#_1B97A9: #_E7A5u: db !VIBRATO, $0A, $1E, $64
+#_1B97A5: #_E7A1u: db $ED, $C8 ; set channel volume
+#_1B97A7: #_E7A3u: db $E0, $15 ; set instrument - choir
+#_1B97A9: #_E7A5u: db $E3, $0A, $1E, $64 ; enable vibrato
 #_1B97AD: #_E7A9u: db $18, $7D ; duration, params
-#_1B97AF: #_E7ABu: db Ds3
-#_1B97B0: #_E7ACu: db F3
+#_1B97AF: #_E7ABu: db $9B ; play note Ds3
+#_1B97B0: #_E7ACu: db $9D ; play note F3
 #_1B97B1: #_E7ADu: db $30 ; duration
-#_1B97B2: #_E7AEu: db D3
-#_1B97B3: #_E7AFu: db !CALL_PART : dw Song14_Sub_E913 : db 1
+#_1B97B2: #_E7AEu: db $9A ; play note D3
+#_1B97B3: #_E7AFu: db $EF : dw Song14_Sub_E913 : db $01 ; call segment subroutine
 #_1B97B7: #_E7B3u: db $18, $7D ; duration, params
-#_1B97B9: #_E7B5u: db Ds3
-#_1B97BA: #_E7B6u: db F3
+#_1B97B9: #_E7B5u: db $9B ; play note Ds3
+#_1B97BA: #_E7B6u: db $9D ; play note F3
 #_1B97BB: #_E7B7u: db $30 ; duration
-#_1B97BC: #_E7B8u: db D3
+#_1B97BC: #_E7B8u: db $9A ; play note D3
 #_1B97BD: #_E7B9u: db $60, $68 ; duration, params
-#_1B97BF: #_E7BBu: db !TIE
-#_1B97C0: #_E7BCu: db !PART_END
+#_1B97BF: #_E7BBu: db $C8 ; sustain current note
+#_1B97C0: #_E7BCu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment1_Track1:
-#_1B97C1: #_E7BDu: db !VOLUME, $C8
-#_1B97C3: #_E7BFu: db !INSTR, $15
-#_1B97C5: #_E7C1u: db !VIBRATO, $0E, $28, $50
+#_1B97C1: #_E7BDu: db $ED, $C8 ; set channel volume
+#_1B97C3: #_E7BFu: db $E0, $15 ; set instrument - choir
+#_1B97C5: #_E7C1u: db $E3, $0E, $28, $50 ; enable vibrato
 #_1B97C9: #_E7C5u: db $30, $7D ; duration, params
-#_1B97CB: #_E7C7u: db C3
-#_1B97CC: #_E7C8u: db B2
+#_1B97CB: #_E7C7u: db $98 ; play note C3
+#_1B97CC: #_E7C8u: db $97 ; play note B2
 #_1B97CD: #_E7C9u: db $30, $5D ; duration, params
-#_1B97CF: #_E7CBu: db !TIE
+#_1B97CF: #_E7CBu: db $C8 ; sustain current note
 #_1B97D0: #_E7CCu: db $30, $7D ; duration, params
-#_1B97D2: #_E7CEu: db C3
+#_1B97D2: #_E7CEu: db $98 ; play note C3
 #_1B97D3: #_E7CFu: db $60 ; duration
-#_1B97D4: #_E7D0u: db B2
+#_1B97D4: #_E7D0u: db $97 ; play note B2
 #_1B97D5: #_E7D1u: db $30 ; duration
-#_1B97D6: #_E7D2u: db C3
-#_1B97D7: #_E7D3u: db B2
+#_1B97D6: #_E7D2u: db $98 ; play note C3
+#_1B97D7: #_E7D3u: db $97 ; play note B2
 #_1B97D8: #_E7D4u: db $60, $68 ; duration, params
-#_1B97DA: #_E7D6u: db !TIE
+#_1B97DA: #_E7D6u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment1_Track2:
-#_1B97DB: #_E7D7u: db !VOLUME, $C8
-#_1B97DD: #_E7D9u: db !INSTR, $15
-#_1B97DF: #_E7DBu: db !VIBRATO, $14, $1A, $46
+#_1B97DB: #_E7D7u: db $ED, $C8 ; set channel volume
+#_1B97DD: #_E7D9u: db $E0, $15 ; set instrument - choir
+#_1B97DF: #_E7DBu: db $E3, $14, $1A, $46 ; enable vibrato
 #_1B97E3: #_E7DFu: db $60, $7D ; duration, params
-#_1B97E5: #_E7E1u: db Gs1
-#_1B97E6: #_E7E2u: db !SLIDE_ONCE, $28, $08, $87
+#_1B97E5: #_E7E1u: db $88 ; play note Gs1
+#_1B97E6: #_E7E2u: db $F9, $28, $08, $87 ; slide to note
 #_1B97EA: #_E7E6u: db $30, $6D ; duration, params
-#_1B97EC: #_E7E8u: db !TIE
+#_1B97EC: #_E7E8u: db $C8 ; sustain current note
 #_1B97ED: #_E7E9u: db $30, $7D ; duration, params
-#_1B97EF: #_E7EBu: db Gs1
+#_1B97EF: #_E7EBu: db $88 ; play note Gs1
 #_1B97F0: #_E7ECu: db $60, $6D ; duration, params
-#_1B97F2: #_E7EEu: db G1
+#_1B97F2: #_E7EEu: db $87 ; play note G1
 #_1B97F3: #_E7EFu: db $30, $7D ; duration, params
-#_1B97F5: #_E7F1u: db Gs1
-#_1B97F6: #_E7F2u: db G1
+#_1B97F5: #_E7F1u: db $88 ; play note Gs1
+#_1B97F6: #_E7F2u: db $87 ; play note G1
 #_1B97F7: #_E7F3u: db $60, $68 ; duration, params
-#_1B97F9: #_E7F5u: db !TIE
+#_1B97F9: #_E7F5u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment1_Track3:
-#_1B97FA: #_E7F6u: db !VOLUME, $C8
-#_1B97FC: #_E7F8u: db !INSTR, $15
-#_1B97FE: #_E7FAu: db !VIBRATO, $14, $1E, $5A
+#_1B97FA: #_E7F6u: db $ED, $C8 ; set channel volume
+#_1B97FC: #_E7F8u: db $E0, $15 ; set instrument - choir
+#_1B97FE: #_E7FAu: db $E3, $14, $1E, $5A ; enable vibrato
 #_1B9802: #_E7FEu: db $60 ; duration
-#_1B9803: #_E7FFu: db R
+#_1B9803: #_E7FFu: db $C9 ; rest
 #_1B9804: #_E800u: db $30 ; duration
-#_1B9805: #_E801u: db R
-#_1B9806: #_E802u: db R
+#_1B9805: #_E801u: db $C9 ; rest
+#_1B9806: #_E802u: db $C9 ; rest
 #_1B9807: #_E803u: db $60 ; duration
-#_1B9808: #_E804u: db R
+#_1B9808: #_E804u: db $C9 ; rest
 #_1B9809: #_E805u: db $30, $7D ; duration, params
-#_1B980B: #_E807u: db Fs2
-#_1B980C: #_E808u: db F2
+#_1B980B: #_E807u: db $92 ; play note Fs2
+#_1B980C: #_E808u: db $91 ; play note F2
 #_1B980D: #_E809u: db $60, $68 ; duration, params
-#_1B980F: #_E80Bu: db !TIE
+#_1B980F: #_E80Bu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment1_Track4:
-#_1B9810: #_E80Cu: db !VOLUME, $C8
-#_1B9812: #_E80Eu: db !INSTR, $15
-#_1B9814: #_E810u: db !VIBRATO, $0A, $12, $3C
+#_1B9810: #_E80Cu: db $ED, $C8 ; set channel volume
+#_1B9812: #_E80Eu: db $E0, $15 ; set instrument - choir
+#_1B9814: #_E810u: db $E3, $0A, $12, $3C ; enable vibrato
 #_1B9818: #_E814u: db $60 ; duration
-#_1B9819: #_E815u: db R
-#_1B981A: #_E816u: db R
-#_1B981B: #_E817u: db R
+#_1B9819: #_E815u: db $C9 ; rest
+#_1B981A: #_E816u: db $C9 ; rest
+#_1B981B: #_E817u: db $C9 ; rest
 #_1B981C: #_E818u: db $30, $7D ; duration, params
-#_1B981E: #_E81Au: db C4
-#_1B981F: #_E81Bu: db !SLIDE_ONCE, $16, $02, $A6
-#_1B9823: #_E81Fu: db B3
+#_1B981E: #_E81Au: db $A4 ; play note C4
+#_1B981F: #_E81Bu: db $F9, $16, $02, $A6 ; slide to note
+#_1B9823: #_E81Fu: db $A3 ; play note B3
 #_1B9824: #_E820u: db $60, $68 ; duration, params
-#_1B9826: #_E822u: db !TIE
+#_1B9826: #_E822u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment1_Track5:
-#_1B9827: #_E823u: db !VOLUME, $A0
-#_1B9829: #_E825u: db !INSTR, $15
-#_1B982B: #_E827u: db !VIBRATO, $0E, $1E, $50
+#_1B9827: #_E823u: db $ED, $A0 ; set channel volume
+#_1B9829: #_E825u: db $E0, $15 ; set instrument - choir
+#_1B982B: #_E827u: db $E3, $0E, $1E, $50 ; enable vibrato
 #_1B982F: #_E82Bu: db $08 ; duration
-#_1B9830: #_E82Cu: db R
+#_1B9830: #_E82Cu: db $C9 ; rest
 #_1B9831: #_E82Du: db $30, $7D ; duration, params
-#_1B9833: #_E82Fu: db Ds3
-#_1B9834: #_E830u: db !SLIDE_ONCE, $14, $04, $9D
-#_1B9838: #_E834u: db D3
-#_1B9839: #_E835u: db !CALL_PART : dw Song14_Sub_E913 : db 1
+#_1B9833: #_E82Fu: db $9B ; play note Ds3
+#_1B9834: #_E830u: db $F9, $14, $04, $9D ; slide to note
+#_1B9838: #_E834u: db $9A ; play note D3
+#_1B9839: #_E835u: db $EF : dw Song14_Sub_E913 : db $01 ; call segment subroutine
 #_1B983D: #_E839u: db $18, $7D ; duration, params
-#_1B983F: #_E83Bu: db Ds3
-#_1B9840: #_E83Cu: db F3
+#_1B983F: #_E83Bu: db $9B ; play note Ds3
+#_1B9840: #_E83Cu: db $9D ; play note F3
 #_1B9841: #_E83Du: db $30 ; duration
-#_1B9842: #_E83Eu: db D3
+#_1B9842: #_E83Eu: db $9A ; play note D3
 #_1B9843: #_E83Fu: db $58, $68 ; duration, params
-#_1B9845: #_E841u: db !TIE
+#_1B9845: #_E841u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment4_Track0:
 #_1B9846: #_E842u: db $30, $7D ; duration, params
-#_1B9848: #_E844u: db C5
-#_1B9849: #_E845u: db C5
-#_1B984A: #_E846u: db !TIE
-#_1B984B: #_E847u: db B4
-#_1B984C: #_E848u: db C5
-#_1B984D: #_E849u: db C5
-#_1B984E: #_E84Au: db !TIE
-#_1B984F: #_E84Bu: db B4
-#_1B9850: #_E84Cu: db C5
-#_1B9851: #_E84Du: db Ds4
-#_1B9852: #_E84Eu: db !TIE
-#_1B9853: #_E84Fu: db Fs4
+#_1B9848: #_E844u: db $B0 ; play note C5
+#_1B9849: #_E845u: db $B0 ; play note C5
+#_1B984A: #_E846u: db $C8 ; sustain current note
+#_1B984B: #_E847u: db $AF ; play note B4
+#_1B984C: #_E848u: db $B0 ; play note C5
+#_1B984D: #_E849u: db $B0 ; play note C5
+#_1B984E: #_E84Au: db $C8 ; sustain current note
+#_1B984F: #_E84Bu: db $AF ; play note B4
+#_1B9850: #_E84Cu: db $B0 ; play note C5
+#_1B9851: #_E84Du: db $A7 ; play note Ds4
+#_1B9852: #_E84Eu: db $C8 ; sustain current note
+#_1B9853: #_E84Fu: db $AA ; play note Fs4
 #_1B9854: #_E850u: db $60 ; duration
-#_1B9855: #_E851u: db B4
-#_1B9856: #_E852u: db !TIE
-#_1B9857: #_E853u: db !PART_END
+#_1B9855: #_E851u: db $AF ; play note B4
+#_1B9856: #_E852u: db $C8 ; sustain current note
+#_1B9857: #_E853u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment4_Track1:
 #_1B9858: #_E854u: db $18 ; duration
-#_1B9859: #_E855u: db R
+#_1B9859: #_E855u: db $C9 ; rest
 #_1B985A: #_E856u: db $30, $7D ; duration, params
-#_1B985C: #_E858u: db G4
+#_1B985C: #_E858u: db $AB ; play note G4
 #_1B985D: #_E859u: db $18 ; duration
-#_1B985E: #_E85Au: db G5
-#_1B985F: #_E85Bu: db !TIE
+#_1B985E: #_E85Au: db $B7 ; play note G5
+#_1B985F: #_E85Bu: db $C8 ; sustain current note
 #_1B9860: #_E85Cu: db $30 ; duration
-#_1B9861: #_E85Du: db D5
+#_1B9861: #_E85Du: db $B2 ; play note D5
 #_1B9862: #_E85Eu: db $18 ; duration
-#_1B9863: #_E85Fu: db G4
-#_1B9864: #_E860u: db !TIE
+#_1B9863: #_E85Fu: db $AB ; play note G4
+#_1B9864: #_E860u: db $C8 ; sustain current note
 #_1B9865: #_E861u: db $30 ; duration
-#_1B9866: #_E862u: db G4
+#_1B9866: #_E862u: db $AB ; play note G4
 #_1B9867: #_E863u: db $18 ; duration
-#_1B9868: #_E864u: db G5
-#_1B9869: #_E865u: db !TIE
+#_1B9868: #_E864u: db $B7 ; play note G5
+#_1B9869: #_E865u: db $C8 ; sustain current note
 #_1B986A: #_E866u: db $30 ; duration
-#_1B986B: #_E867u: db D5
+#_1B986B: #_E867u: db $B2 ; play note D5
 #_1B986C: #_E868u: db $18 ; duration
-#_1B986D: #_E869u: db G4
-#_1B986E: #_E86Au: db !TIE
+#_1B986D: #_E869u: db $AB ; play note G4
+#_1B986E: #_E86Au: db $C8 ; sustain current note
 #_1B986F: #_E86Bu: db $30 ; duration
-#_1B9870: #_E86Cu: db A4
+#_1B9870: #_E86Cu: db $AD ; play note A4
 #_1B9871: #_E86Du: db $18 ; duration
-#_1B9872: #_E86Eu: db C4
-#_1B9873: #_E86Fu: db !TIE
+#_1B9872: #_E86Eu: db $A4 ; play note C4
+#_1B9873: #_E86Fu: db $C8 ; sustain current note
 #_1B9874: #_E870u: db $30 ; duration
-#_1B9875: #_E871u: db Ds4
+#_1B9875: #_E871u: db $A7 ; play note Ds4
 #_1B9876: #_E872u: db $18 ; duration
-#_1B9877: #_E873u: db C5
+#_1B9877: #_E873u: db $B0 ; play note C5
 #_1B9878: #_E874u: db $60 ; duration
-#_1B9879: #_E875u: db G4
-#_1B987A: #_E876u: db !TIE
+#_1B9879: #_E875u: db $AB ; play note G4
+#_1B987A: #_E876u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment4_Track2:
 #_1B987B: #_E877u: db $60, $6D ; duration, params
-#_1B987D: #_E879u: db Gs1
-#_1B987E: #_E87Au: db G1
-#_1B987F: #_E87Bu: db Gs1
-#_1B9880: #_E87Cu: db G1
-#_1B9881: #_E87Du: db Fs1
-#_1B9882: #_E87Eu: db Fs1
-#_1B9883: #_E87Fu: db G1
-#_1B9884: #_E880u: db G1
+#_1B987D: #_E879u: db $88 ; play note Gs1
+#_1B987E: #_E87Au: db $87 ; play note G1
+#_1B987F: #_E87Bu: db $88 ; play note Gs1
+#_1B9880: #_E87Cu: db $87 ; play note G1
+#_1B9881: #_E87Du: db $86 ; play note Fs1
+#_1B9882: #_E87Eu: db $86 ; play note Fs1
+#_1B9883: #_E87Fu: db $87 ; play note G1
+#_1B9884: #_E880u: db $87 ; play note G1
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment4_Track3:
 #_1B9885: #_E881u: db $30 ; duration
-#_1B9886: #_E882u: db R
+#_1B9886: #_E882u: db $C9 ; rest
 #_1B9887: #_E883u: db $18, $7D ; duration, params
-#_1B9889: #_E885u: db Ds4
-#_1B988A: #_E886u: db C4
-#_1B988B: #_E887u: db B3
-#_1B988C: #_E888u: db C4
-#_1B988D: #_E889u: db D4
-#_1B988E: #_E88Au: db B3
+#_1B9889: #_E885u: db $A7 ; play note Ds4
+#_1B988A: #_E886u: db $A4 ; play note C4
+#_1B988B: #_E887u: db $A3 ; play note B3
+#_1B988C: #_E888u: db $A4 ; play note C4
+#_1B988D: #_E889u: db $A6 ; play note D4
+#_1B988E: #_E88Au: db $A3 ; play note B3
 #_1B988F: #_E88Bu: db $30 ; duration
-#_1B9890: #_E88Cu: db R
+#_1B9890: #_E88Cu: db $C9 ; rest
 #_1B9891: #_E88Du: db $18 ; duration
-#_1B9892: #_E88Eu: db Ds4
-#_1B9893: #_E88Fu: db C4
-#_1B9894: #_E890u: db B3
-#_1B9895: #_E891u: db C4
-#_1B9896: #_E892u: db D4
-#_1B9897: #_E893u: db B3
-#_1B9898: #_E894u: db C4
-#_1B9899: #_E895u: db B3
-#_1B989A: #_E896u: db C4
-#_1B989B: #_E897u: db A3
-#_1B989C: #_E898u: db Fs3
-#_1B989D: #_E899u: db A3
-#_1B989E: #_E89Au: db Ds4
-#_1B989F: #_E89Bu: db D4
-#_1B98A0: #_E89Cu: db D4
-#_1B98A1: #_E89Du: db F4
-#_1B98A2: #_E89Eu: db Gs4
-#_1B98A3: #_E89Fu: db G4
-#_1B98A4: #_E8A0u: db !TIE
-#_1B98A5: #_E8A1u: db F4
-#_1B98A6: #_E8A2u: db D4
-#_1B98A7: #_E8A3u: db B3
+#_1B9892: #_E88Eu: db $A7 ; play note Ds4
+#_1B9893: #_E88Fu: db $A4 ; play note C4
+#_1B9894: #_E890u: db $A3 ; play note B3
+#_1B9895: #_E891u: db $A4 ; play note C4
+#_1B9896: #_E892u: db $A6 ; play note D4
+#_1B9897: #_E893u: db $A3 ; play note B3
+#_1B9898: #_E894u: db $A4 ; play note C4
+#_1B9899: #_E895u: db $A3 ; play note B3
+#_1B989A: #_E896u: db $A4 ; play note C4
+#_1B989B: #_E897u: db $A1 ; play note A3
+#_1B989C: #_E898u: db $9E ; play note Fs3
+#_1B989D: #_E899u: db $A1 ; play note A3
+#_1B989E: #_E89Au: db $A7 ; play note Ds4
+#_1B989F: #_E89Bu: db $A6 ; play note D4
+#_1B98A0: #_E89Cu: db $A6 ; play note D4
+#_1B98A1: #_E89Du: db $A9 ; play note F4
+#_1B98A2: #_E89Eu: db $AC ; play note Gs4
+#_1B98A3: #_E89Fu: db $AB ; play note G4
+#_1B98A4: #_E8A0u: db $C8 ; sustain current note
+#_1B98A5: #_E8A1u: db $A9 ; play note F4
+#_1B98A6: #_E8A2u: db $A6 ; play note D4
+#_1B98A7: #_E8A3u: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment4_Track4:
 #_1B98A8: #_E8A4u: db $60, $6D ; duration, params
-#_1B98AA: #_E8A6u: db Gs2
-#_1B98AB: #_E8A7u: db G2
-#_1B98AC: #_E8A8u: db Gs2
-#_1B98AD: #_E8A9u: db G2
-#_1B98AE: #_E8AAu: db Fs2
-#_1B98AF: #_E8ABu: db Fs2
-#_1B98B0: #_E8ACu: db G2
-#_1B98B1: #_E8ADu: db G2
+#_1B98AA: #_E8A6u: db $94 ; play note Gs2
+#_1B98AB: #_E8A7u: db $93 ; play note G2
+#_1B98AC: #_E8A8u: db $94 ; play note Gs2
+#_1B98AD: #_E8A9u: db $93 ; play note G2
+#_1B98AE: #_E8AAu: db $92 ; play note Fs2
+#_1B98AF: #_E8ABu: db $92 ; play note Fs2
+#_1B98B0: #_E8ACu: db $93 ; play note G2
+#_1B98B1: #_E8ADu: db $93 ; play note G2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment4_Track5:
 #_1B98B2: #_E8AEu: db $08 ; duration
-#_1B98B3: #_E8AFu: db R
+#_1B98B3: #_E8AFu: db $C9 ; rest
 #_1B98B4: #_E8B0u: db $18, $7D ; duration, params
-#_1B98B6: #_E8B2u: db C5
-#_1B98B7: #_E8B3u: db G4
-#_1B98B8: #_E8B4u: db C5
-#_1B98B9: #_E8B5u: db G5
-#_1B98BA: #_E8B6u: db !TIE
-#_1B98BB: #_E8B7u: db D5
-#_1B98BC: #_E8B8u: db B4
-#_1B98BD: #_E8B9u: db G4
-#_1B98BE: #_E8BAu: db C5
-#_1B98BF: #_E8BBu: db G4
-#_1B98C0: #_E8BCu: db C5
-#_1B98C1: #_E8BDu: db G5
-#_1B98C2: #_E8BEu: db !TIE
-#_1B98C3: #_E8BFu: db D5
-#_1B98C4: #_E8C0u: db B4
-#_1B98C5: #_E8C1u: db G4
-#_1B98C6: #_E8C2u: db C5
-#_1B98C7: #_E8C3u: db A4
-#_1B98C8: #_E8C4u: db Ds4
-#_1B98C9: #_E8C5u: db C4
-#_1B98CA: #_E8C6u: db !TIE
-#_1B98CB: #_E8C7u: db Ds4
-#_1B98CC: #_E8C8u: db Fs4
-#_1B98CD: #_E8C9u: db C5
+#_1B98B6: #_E8B2u: db $B0 ; play note C5
+#_1B98B7: #_E8B3u: db $AB ; play note G4
+#_1B98B8: #_E8B4u: db $B0 ; play note C5
+#_1B98B9: #_E8B5u: db $B7 ; play note G5
+#_1B98BA: #_E8B6u: db $C8 ; sustain current note
+#_1B98BB: #_E8B7u: db $B2 ; play note D5
+#_1B98BC: #_E8B8u: db $AF ; play note B4
+#_1B98BD: #_E8B9u: db $AB ; play note G4
+#_1B98BE: #_E8BAu: db $B0 ; play note C5
+#_1B98BF: #_E8BBu: db $AB ; play note G4
+#_1B98C0: #_E8BCu: db $B0 ; play note C5
+#_1B98C1: #_E8BDu: db $B7 ; play note G5
+#_1B98C2: #_E8BEu: db $C8 ; sustain current note
+#_1B98C3: #_E8BFu: db $B2 ; play note D5
+#_1B98C4: #_E8C0u: db $AF ; play note B4
+#_1B98C5: #_E8C1u: db $AB ; play note G4
+#_1B98C6: #_E8C2u: db $B0 ; play note C5
+#_1B98C7: #_E8C3u: db $AD ; play note A4
+#_1B98C8: #_E8C4u: db $A7 ; play note Ds4
+#_1B98C9: #_E8C5u: db $A4 ; play note C4
+#_1B98CA: #_E8C6u: db $C8 ; sustain current note
+#_1B98CB: #_E8C7u: db $A7 ; play note Ds4
+#_1B98CC: #_E8C8u: db $AA ; play note Fs4
+#_1B98CD: #_E8C9u: db $B0 ; play note C5
 #_1B98CE: #_E8CAu: db $60 ; duration
-#_1B98CF: #_E8CBu: db B4
+#_1B98CF: #_E8CBu: db $AF ; play note B4
 #_1B98D0: #_E8CCu: db $58 ; duration
-#_1B98D1: #_E8CDu: db !TIE
+#_1B98D1: #_E8CDu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment2_Track0:
 #_1B98D2: #_E8CEu: db $30, $7D ; duration, params
-#_1B98D4: #_E8D0u: db G4
-#_1B98D5: #_E8D1u: db C4
-#_1B98D6: #_E8D2u: db B4
-#_1B98D7: #_E8D3u: db D4
-#_1B98D8: #_E8D4u: db !PART_END
+#_1B98D4: #_E8D0u: db $AB ; play note G4
+#_1B98D5: #_E8D1u: db $A4 ; play note C4
+#_1B98D6: #_E8D2u: db $AF ; play note B4
+#_1B98D7: #_E8D3u: db $A6 ; play note D4
+#_1B98D8: #_E8D4u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment2_Track1:
-#_1B98D9: #_E8D5u: db !CALL_PART : dw Song14_Sub_E906 : db 1
+#_1B98D9: #_E8D5u: db $EF : dw Song14_Sub_E906 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment2_Track2:
 #_1B98DD: #_E8D9u: db $60 ; duration
-#_1B98DE: #_E8DAu: db R
-#_1B98DF: #_E8DBu: db R
+#_1B98DE: #_E8DAu: db $C9 ; rest
+#_1B98DF: #_E8DBu: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment2_Track3:
 #_1B98E0: #_E8DCu: db $60 ; duration
-#_1B98E1: #_E8DDu: db R
-#_1B98E2: #_E8DEu: db R
+#_1B98E1: #_E8DDu: db $C9 ; rest
+#_1B98E2: #_E8DEu: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment2_Track5:
 #_1B98E3: #_E8DFu: db $08 ; duration
-#_1B98E4: #_E8E0u: db R
+#_1B98E4: #_E8E0u: db $C9 ; rest
 #_1B98E5: #_E8E1u: db $18, $7D ; duration, params
-#_1B98E7: #_E8E3u: db G4
-#_1B98E8: #_E8E4u: db Ds4
-#_1B98E9: #_E8E5u: db C4
-#_1B98EA: #_E8E6u: db C5
-#_1B98EB: #_E8E7u: db B4
-#_1B98EC: #_E8E8u: db G4
-#_1B98ED: #_E8E9u: db D4
+#_1B98E7: #_E8E3u: db $AB ; play note G4
+#_1B98E8: #_E8E4u: db $A7 ; play note Ds4
+#_1B98E9: #_E8E5u: db $A4 ; play note C4
+#_1B98EA: #_E8E6u: db $B0 ; play note C5
+#_1B98EB: #_E8E7u: db $AF ; play note B4
+#_1B98EC: #_E8E8u: db $AB ; play note G4
+#_1B98ED: #_E8E9u: db $A6 ; play note D4
 #_1B98EE: #_E8EAu: db $10 ; duration
-#_1B98EF: #_E8EBu: db B3
+#_1B98EF: #_E8EBu: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Segment0_Track0:
-#_1B98F0: #_E8ECu: db !SET_PERC, $18
-#_1B98F2: #_E8EEu: db !MASTER_VOLUME, $C8
-#_1B98F4: #_E8F0u: db !TEMPO, $19
-#_1B98F6: #_E8F2u: db !ECHO_CONFIG, $FF, $1E, $1E
-#_1B98FA: #_E8F6u: db !ECHO_FILTER, $02, $14, $02
-#_1B98FE: #_E8FAu: db !VOLUME, $C8
-#_1B9900: #_E8FCu: db !INSTR, $15
-#_1B9902: #_E8FEu: db !VIBRATO, $0A, $1E, $64
+#_1B98F0: #_E8ECu: db $FA, $18 ; set base percussion sample
+#_1B98F2: #_E8EEu: db $E5, $C8 ; set song volume
+#_1B98F4: #_E8F0u: db $E7, $19 ; set song tempo
+#_1B98F6: #_E8F2u: db $F5, $FF, $1E, $1E ; configure EON, EVOLL, EVOLR
+#_1B98FA: #_E8F6u: db $F7, $02, $14, $02 ; configure EDL, EFB, FIR
+#_1B98FE: #_E8FAu: db $ED, $C8 ; set channel volume
+#_1B9900: #_E8FCu: db $E0, $15 ; set instrument - choir
+#_1B9902: #_E8FEu: db $E3, $0A, $1E, $64 ; enable vibrato
 #_1B9906: #_E902u: db $30 ; duration
-#_1B9907: #_E903u: db R
-#_1B9908: #_E904u: db !PART_END
+#_1B9907: #_E903u: db $C9 ; rest
+#_1B9908: #_E904u: db $00 ; End
 #_1B9909: #_E905u: db $00
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Sub_E906:
 #_1B990A: #_E906u: db $18 ; duration
-#_1B990B: #_E907u: db R
+#_1B990B: #_E907u: db $C9 ; rest
 #_1B990C: #_E908u: db $30, $7D ; duration, params
-#_1B990E: #_E90Au: db Ds4
+#_1B990E: #_E90Au: db $A7 ; play note Ds4
 #_1B990F: #_E90Bu: db $18 ; duration
-#_1B9910: #_E90Cu: db C5
-#_1B9911: #_E90Du: db !TIE
+#_1B9910: #_E90Cu: db $B0 ; play note C5
+#_1B9911: #_E90Du: db $C8 ; sustain current note
 #_1B9912: #_E90Eu: db $30 ; duration
-#_1B9913: #_E90Fu: db G4
+#_1B9913: #_E90Fu: db $AB ; play note G4
 #_1B9914: #_E910u: db $18 ; duration
-#_1B9915: #_E911u: db B3
-#_1B9916: #_E912u: db !PART_END
+#_1B9915: #_E911u: db $A3 ; play note B3
+#_1B9916: #_E912u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song14_Sub_E913:
 #_1B9917: #_E913u: db $30, $5D ; duration, params
-#_1B9919: #_E915u: db !TIE
+#_1B9919: #_E915u: db $C8 ; sustain current note
 #_1B991A: #_E916u: db $18, $7D ; duration, params
-#_1B991C: #_E918u: db Ds3
-#_1B991D: #_E919u: db F3
+#_1B991C: #_E918u: db $9B ; play note Ds3
+#_1B991D: #_E919u: db $9D ; play note F3
 #_1B991E: #_E91Au: db $60, $6D ; duration, params
-#_1B9920: #_E91Cu: db D3
-#_1B9921: #_E91Du: db !PART_END
+#_1B9920: #_E91Cu: db $9A ; play note D3
+#_1B9921: #_E91Du: db $00 ; End
 
 ;===================================================================================================
 
@@ -5500,7 +5500,7 @@ Song15_Boss:
 Song15_Loop:
 #_1B9924: #_E920u: dw Song15_Segment1
 #_1B9926: #_E922u: dw Song15_Segment2
-#_1B9928: #_E924u: dw !SONG_LOOP, Song15_Loop
+#_1B9928: #_E924u: dw $00FF, Song15_Loop ; Loop point
 #_1B992C: #_E928u: dw $0000
 
 Song15_Segment1:
@@ -5546,649 +5546,649 @@ Song15_Segment2:
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment1_Track0:
-#_1B996E: #_E96Au: db !VOLUME, $C8
-#_1B9970: #_E96Cu: db !INSTR, $02
+#_1B996E: #_E96Au: db $ED, $C8 ; set channel volume
+#_1B9970: #_E96Cu: db $E0, $02 ; set instrument - timpani
 #_1B9972: #_E96Eu: db $0C, $5D ; duration, params
-#_1B9974: #_E970u: db D2
-#_1B9975: #_E971u: db A1
-#_1B9976: #_E972u: db D2
-#_1B9977: #_E973u: db A1
-#_1B9978: #_E974u: db D2
-#_1B9979: #_E975u: db A1
-#_1B997A: #_E976u: db D2
-#_1B997B: #_E977u: db A1
-#_1B997C: #_E978u: db !CALL_PART : dw Song15_Sub_EBEE : db 3
-#_1B9980: #_E97Cu: db !PART_END
+#_1B9974: #_E970u: db $8E ; play note D2
+#_1B9975: #_E971u: db $89 ; play note A1
+#_1B9976: #_E972u: db $8E ; play note D2
+#_1B9977: #_E973u: db $89 ; play note A1
+#_1B9978: #_E974u: db $8E ; play note D2
+#_1B9979: #_E975u: db $89 ; play note A1
+#_1B997A: #_E976u: db $8E ; play note D2
+#_1B997B: #_E977u: db $89 ; play note A1
+#_1B997C: #_E978u: db $EF : dw Song15_Sub_EBEE : db $03 ; call segment subroutine
+#_1B9980: #_E97Cu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment1_Track1:
-#_1B9981: #_E97Du: db !VOLUME, $DC
-#_1B9983: #_E97Fu: db !INSTR, $0B
+#_1B9981: #_E97Du: db $ED, $DC ; set channel volume
+#_1B9983: #_E97Fu: db $E0, $0B ; set instrument - trombone
 #_1B9985: #_E981u: db $0C, $6D ; duration, params
-#_1B9987: #_E983u: db A2
-#_1B9988: #_E984u: db E3
-#_1B9989: #_E985u: db A3
-#_1B998A: #_E986u: db A2
-#_1B998B: #_E987u: db E3
-#_1B998C: #_E988u: db A3
-#_1B998D: #_E989u: db As2
-#_1B998E: #_E98Au: db As3
-#_1B998F: #_E98Bu: db A2
-#_1B9990: #_E98Cu: db E3
-#_1B9991: #_E98Du: db A3
-#_1B9992: #_E98Eu: db A2
-#_1B9993: #_E98Fu: db E3
-#_1B9994: #_E990u: db A3
-#_1B9995: #_E991u: db Gs2
-#_1B9996: #_E992u: db Gs3
-#_1B9997: #_E993u: db A2
-#_1B9998: #_E994u: db E3
-#_1B9999: #_E995u: db A3
-#_1B999A: #_E996u: db A2
-#_1B999B: #_E997u: db E3
-#_1B999C: #_E998u: db A3
-#_1B999D: #_E999u: db As2
-#_1B999E: #_E99Au: db As3
-#_1B999F: #_E99Bu: db A2
-#_1B99A0: #_E99Cu: db E3
-#_1B99A1: #_E99Du: db A3
-#_1B99A2: #_E99Eu: db A2
-#_1B99A3: #_E99Fu: db E3
-#_1B99A4: #_E9A0u: db A3
-#_1B99A5: #_E9A1u: db Gs2
-#_1B99A6: #_E9A2u: db Gs3
+#_1B9987: #_E983u: db $95 ; play note A2
+#_1B9988: #_E984u: db $9C ; play note E3
+#_1B9989: #_E985u: db $A1 ; play note A3
+#_1B998A: #_E986u: db $95 ; play note A2
+#_1B998B: #_E987u: db $9C ; play note E3
+#_1B998C: #_E988u: db $A1 ; play note A3
+#_1B998D: #_E989u: db $96 ; play note As2
+#_1B998E: #_E98Au: db $A2 ; play note As3
+#_1B998F: #_E98Bu: db $95 ; play note A2
+#_1B9990: #_E98Cu: db $9C ; play note E3
+#_1B9991: #_E98Du: db $A1 ; play note A3
+#_1B9992: #_E98Eu: db $95 ; play note A2
+#_1B9993: #_E98Fu: db $9C ; play note E3
+#_1B9994: #_E990u: db $A1 ; play note A3
+#_1B9995: #_E991u: db $94 ; play note Gs2
+#_1B9996: #_E992u: db $A0 ; play note Gs3
+#_1B9997: #_E993u: db $95 ; play note A2
+#_1B9998: #_E994u: db $9C ; play note E3
+#_1B9999: #_E995u: db $A1 ; play note A3
+#_1B999A: #_E996u: db $95 ; play note A2
+#_1B999B: #_E997u: db $9C ; play note E3
+#_1B999C: #_E998u: db $A1 ; play note A3
+#_1B999D: #_E999u: db $96 ; play note As2
+#_1B999E: #_E99Au: db $A2 ; play note As3
+#_1B999F: #_E99Bu: db $95 ; play note A2
+#_1B99A0: #_E99Cu: db $9C ; play note E3
+#_1B99A1: #_E99Du: db $A1 ; play note A3
+#_1B99A2: #_E99Eu: db $95 ; play note A2
+#_1B99A3: #_E99Fu: db $9C ; play note E3
+#_1B99A4: #_E9A0u: db $A1 ; play note A3
+#_1B99A5: #_E9A1u: db $94 ; play note Gs2
+#_1B99A6: #_E9A2u: db $A0 ; play note Gs3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment1_Track2:
-#_1B99A7: #_E9A3u: db !VOLUME, $C8
-#_1B99A9: #_E9A5u: db !INSTR, $0B
+#_1B99A7: #_E9A3u: db $ED, $C8 ; set channel volume
+#_1B99A9: #_E9A5u: db $E0, $0B ; set instrument - trombone
 #_1B99AB: #_E9A7u: db $18 ; duration
-#_1B99AC: #_E9A8u: db R
+#_1B99AC: #_E9A8u: db $C9 ; rest
 #_1B99AD: #_E9A9u: db $0C, $6D ; duration, params
-#_1B99AF: #_E9ABu: db A5
+#_1B99AF: #_E9ABu: db $B9 ; play note A5
 #_1B99B0: #_E9ACu: db $18 ; duration
-#_1B99B1: #_E9ADu: db R
+#_1B99B1: #_E9ADu: db $C9 ; rest
 #_1B99B2: #_E9AEu: db $0C ; duration
-#_1B99B3: #_E9AFu: db A5
-#_1B99B4: #_E9B0u: db R
-#_1B99B5: #_E9B1u: db As5
+#_1B99B3: #_E9AFu: db $B9 ; play note A5
+#_1B99B4: #_E9B0u: db $C9 ; rest
+#_1B99B5: #_E9B1u: db $BA ; play note As5
 #_1B99B6: #_E9B2u: db $18 ; duration
-#_1B99B7: #_E9B3u: db R
+#_1B99B7: #_E9B3u: db $C9 ; rest
 #_1B99B8: #_E9B4u: db $0C ; duration
-#_1B99B9: #_E9B5u: db A5
+#_1B99B9: #_E9B5u: db $B9 ; play note A5
 #_1B99BA: #_E9B6u: db $18 ; duration
-#_1B99BB: #_E9B7u: db R
+#_1B99BB: #_E9B7u: db $C9 ; rest
 #_1B99BC: #_E9B8u: db $0C ; duration
-#_1B99BD: #_E9B9u: db A5
-#_1B99BE: #_E9BAu: db R
-#_1B99BF: #_E9BBu: db Gs5
+#_1B99BD: #_E9B9u: db $B9 ; play note A5
+#_1B99BE: #_E9BAu: db $C9 ; rest
+#_1B99BF: #_E9BBu: db $B8 ; play note Gs5
 #_1B99C0: #_E9BCu: db $18 ; duration
-#_1B99C1: #_E9BDu: db R
+#_1B99C1: #_E9BDu: db $C9 ; rest
 #_1B99C2: #_E9BEu: db $0C ; duration
-#_1B99C3: #_E9BFu: db A5
+#_1B99C3: #_E9BFu: db $B9 ; play note A5
 #_1B99C4: #_E9C0u: db $18 ; duration
-#_1B99C5: #_E9C1u: db R
+#_1B99C5: #_E9C1u: db $C9 ; rest
 #_1B99C6: #_E9C2u: db $0C ; duration
-#_1B99C7: #_E9C3u: db A5
-#_1B99C8: #_E9C4u: db R
-#_1B99C9: #_E9C5u: db As5
+#_1B99C7: #_E9C3u: db $B9 ; play note A5
+#_1B99C8: #_E9C4u: db $C9 ; rest
+#_1B99C9: #_E9C5u: db $BA ; play note As5
 #_1B99CA: #_E9C6u: db $18 ; duration
-#_1B99CB: #_E9C7u: db R
+#_1B99CB: #_E9C7u: db $C9 ; rest
 #_1B99CC: #_E9C8u: db $0C ; duration
-#_1B99CD: #_E9C9u: db A5
+#_1B99CD: #_E9C9u: db $B9 ; play note A5
 #_1B99CE: #_E9CAu: db $18 ; duration
-#_1B99CF: #_E9CBu: db R
+#_1B99CF: #_E9CBu: db $C9 ; rest
 #_1B99D0: #_E9CCu: db $0C ; duration
-#_1B99D1: #_E9CDu: db A5
-#_1B99D2: #_E9CEu: db R
-#_1B99D3: #_E9CFu: db Gs5
+#_1B99D1: #_E9CDu: db $B9 ; play note A5
+#_1B99D2: #_E9CEu: db $C9 ; rest
+#_1B99D3: #_E9CFu: db $B8 ; play note Gs5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment1_Track3:
-#_1B99D4: #_E9D0u: db !VOLUME, $C8
-#_1B99D6: #_E9D2u: db !INSTR, $0B
+#_1B99D4: #_E9D0u: db $ED, $C8 ; set channel volume
+#_1B99D6: #_E9D2u: db $E0, $0B ; set instrument - trombone
 #_1B99D8: #_E9D4u: db $18 ; duration
-#_1B99D9: #_E9D5u: db R
+#_1B99D9: #_E9D5u: db $C9 ; rest
 #_1B99DA: #_E9D6u: db $0C, $6D ; duration, params
-#_1B99DC: #_E9D8u: db E5
+#_1B99DC: #_E9D8u: db $B4 ; play note E5
 #_1B99DD: #_E9D9u: db $18 ; duration
-#_1B99DE: #_E9DAu: db R
+#_1B99DE: #_E9DAu: db $C9 ; rest
 #_1B99DF: #_E9DBu: db $0C ; duration
-#_1B99E0: #_E9DCu: db E5
-#_1B99E1: #_E9DDu: db R
-#_1B99E2: #_E9DEu: db F5
+#_1B99E0: #_E9DCu: db $B4 ; play note E5
+#_1B99E1: #_E9DDu: db $C9 ; rest
+#_1B99E2: #_E9DEu: db $B5 ; play note F5
 #_1B99E3: #_E9DFu: db $18 ; duration
-#_1B99E4: #_E9E0u: db R
+#_1B99E4: #_E9E0u: db $C9 ; rest
 #_1B99E5: #_E9E1u: db $0C ; duration
-#_1B99E6: #_E9E2u: db E5
+#_1B99E6: #_E9E2u: db $B4 ; play note E5
 #_1B99E7: #_E9E3u: db $18 ; duration
-#_1B99E8: #_E9E4u: db R
+#_1B99E8: #_E9E4u: db $C9 ; rest
 #_1B99E9: #_E9E5u: db $0C ; duration
-#_1B99EA: #_E9E6u: db E5
-#_1B99EB: #_E9E7u: db R
-#_1B99EC: #_E9E8u: db Ds5
+#_1B99EA: #_E9E6u: db $B4 ; play note E5
+#_1B99EB: #_E9E7u: db $C9 ; rest
+#_1B99EC: #_E9E8u: db $B3 ; play note Ds5
 #_1B99ED: #_E9E9u: db $18 ; duration
-#_1B99EE: #_E9EAu: db R
+#_1B99EE: #_E9EAu: db $C9 ; rest
 #_1B99EF: #_E9EBu: db $0C ; duration
-#_1B99F0: #_E9ECu: db E5
+#_1B99F0: #_E9ECu: db $B4 ; play note E5
 #_1B99F1: #_E9EDu: db $18 ; duration
-#_1B99F2: #_E9EEu: db R
+#_1B99F2: #_E9EEu: db $C9 ; rest
 #_1B99F3: #_E9EFu: db $0C ; duration
-#_1B99F4: #_E9F0u: db E5
-#_1B99F5: #_E9F1u: db R
-#_1B99F6: #_E9F2u: db F5
+#_1B99F4: #_E9F0u: db $B4 ; play note E5
+#_1B99F5: #_E9F1u: db $C9 ; rest
+#_1B99F6: #_E9F2u: db $B5 ; play note F5
 #_1B99F7: #_E9F3u: db $18 ; duration
-#_1B99F8: #_E9F4u: db R
+#_1B99F8: #_E9F4u: db $C9 ; rest
 #_1B99F9: #_E9F5u: db $0C ; duration
-#_1B99FA: #_E9F6u: db E5
+#_1B99FA: #_E9F6u: db $B4 ; play note E5
 #_1B99FB: #_E9F7u: db $18 ; duration
-#_1B99FC: #_E9F8u: db R
+#_1B99FC: #_E9F8u: db $C9 ; rest
 #_1B99FD: #_E9F9u: db $0C ; duration
-#_1B99FE: #_E9FAu: db E5
-#_1B99FF: #_E9FBu: db R
-#_1B9A00: #_E9FCu: db Ds5
+#_1B99FE: #_E9FAu: db $B4 ; play note E5
+#_1B99FF: #_E9FBu: db $C9 ; rest
+#_1B9A00: #_E9FCu: db $B3 ; play note Ds5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment1_Track4:
-#_1B9A01: #_E9FDu: db !VOLUME, $AA
-#_1B9A03: #_E9FFu: db !INSTR, $14
+#_1B9A01: #_E9FDu: db $ED, $AA ; set channel volume
+#_1B9A03: #_E9FFu: db $E0, $14 ; set instrument - snare B
 #_1B9A05: #_EA01u: db $04, $6D ; duration, params
-#_1B9A07: #_EA03u: db E4
-#_1B9A08: #_EA04u: db E4
-#_1B9A09: #_EA05u: db E4
+#_1B9A07: #_EA03u: db $A8 ; play note E4
+#_1B9A08: #_EA04u: db $A8 ; play note E4
+#_1B9A09: #_EA05u: db $A8 ; play note E4
 #_1B9A0A: #_EA06u: db $0C ; duration
-#_1B9A0B: #_EA07u: db E4
+#_1B9A0B: #_EA07u: db $A8 ; play note E4
 #_1B9A0C: #_EA08u: db $06 ; duration
-#_1B9A0D: #_EA09u: db E4
-#_1B9A0E: #_EA0Au: db E4
+#_1B9A0D: #_EA09u: db $A8 ; play note E4
+#_1B9A0E: #_EA0Au: db $A8 ; play note E4
 #_1B9A0F: #_EA0Bu: db $0C ; duration
-#_1B9A10: #_EA0Cu: db E4
-#_1B9A11: #_EA0Du: db E4
-#_1B9A12: #_EA0Eu: db E4
+#_1B9A10: #_EA0Cu: db $A8 ; play note E4
+#_1B9A11: #_EA0Du: db $A8 ; play note E4
+#_1B9A12: #_EA0Eu: db $A8 ; play note E4
 #_1B9A13: #_EA0Fu: db $04 ; duration
-#_1B9A14: #_EA10u: db E4
-#_1B9A15: #_EA11u: db E4
-#_1B9A16: #_EA12u: db E4
+#_1B9A14: #_EA10u: db $A8 ; play note E4
+#_1B9A15: #_EA11u: db $A8 ; play note E4
+#_1B9A16: #_EA12u: db $A8 ; play note E4
 #_1B9A17: #_EA13u: db $0C ; duration
-#_1B9A18: #_EA14u: db E4
-#_1B9A19: #_EA15u: db !CALL_PART : dw Song15_Sub_EBF7 : db 3
+#_1B9A18: #_EA14u: db $A8 ; play note E4
+#_1B9A19: #_EA15u: db $EF : dw Song15_Sub_EBF7 : db $03 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment0_Track0:
-#_1B9A1D: #_EA19u: db !SET_PERC, $17
-#_1B9A1F: #_EA1Bu: db !MASTER_VOLUME, $C8
-#_1B9A21: #_EA1Du: db !TEMPO, $25
-#_1B9A23: #_EA1Fu: db !ECHO_CONFIG, $FF, $00, $00
-#_1B9A27: #_EA23u: db !ECHO_FILTER, $02, $1E, $02
-#_1B9A2B: #_EA27u: db !ECHO_GRAD, $1E, $1E, $1E
-#_1B9A2F: #_EA2Bu: db !VOLUME, $C8
-#_1B9A31: #_EA2Du: db !INSTR, $0B
-#_1B9A33: #_EA2Fu: db !VIBRATO, $14, $1E, $14
+#_1B9A1D: #_EA19u: db $FA, $17 ; set base percussion sample
+#_1B9A1F: #_EA1Bu: db $E5, $C8 ; set song volume
+#_1B9A21: #_EA1Du: db $E7, $25 ; set song tempo
+#_1B9A23: #_EA1Fu: db $F5, $FF, $00, $00 ; configure EON, EVOLL, EVOLR
+#_1B9A27: #_EA23u: db $F7, $02, $1E, $02 ; configure EDL, EFB, FIR
+#_1B9A2B: #_EA27u: db $F8, $1E, $1E, $1E ; initiate gradual echo volume change
+#_1B9A2F: #_EA2Bu: db $ED, $C8 ; set channel volume
+#_1B9A31: #_EA2Du: db $E0, $0B ; set instrument - trombone
+#_1B9A33: #_EA2Fu: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B9A37: #_EA33u: db $24, $6D ; duration, params
-#_1B9A39: #_EA35u: db C6
-#_1B9A3A: #_EA36u: db B5
+#_1B9A39: #_EA35u: db $BC ; play note C6
+#_1B9A3A: #_EA36u: db $BB ; play note B5
 #_1B9A3B: #_EA37u: db $18 ; duration
-#_1B9A3C: #_EA38u: db F5
+#_1B9A3C: #_EA38u: db $B5 ; play note F5
 #_1B9A3D: #_EA39u: db $24 ; duration
-#_1B9A3E: #_EA3Au: db E5
-#_1B9A3F: #_EA3Bu: db Ds5
+#_1B9A3E: #_EA3Au: db $B4 ; play note E5
+#_1B9A3F: #_EA3Bu: db $B3 ; play note Ds5
 #_1B9A40: #_EA3Cu: db $0C ; duration
-#_1B9A41: #_EA3Du: db B4
-#_1B9A42: #_EA3Eu: db As4
+#_1B9A41: #_EA3Du: db $AF ; play note B4
+#_1B9A42: #_EA3Eu: db $AE ; play note As4
 #_1B9A43: #_EA3Fu: db $48 ; duration
-#_1B9A44: #_EA40u: db !TIE
+#_1B9A44: #_EA40u: db $C8 ; sustain current note
 #_1B9A45: #_EA41u: db $04 ; duration
-#_1B9A46: #_EA42u: db E5
-#_1B9A47: #_EA43u: db Ds5
-#_1B9A48: #_EA44u: db D5
-#_1B9A49: #_EA45u: db Cs5
-#_1B9A4A: #_EA46u: db B4
-#_1B9A4B: #_EA47u: db As4
-#_1B9A4C: #_EA48u: db !PART_END
+#_1B9A46: #_EA42u: db $B4 ; play note E5
+#_1B9A47: #_EA43u: db $B3 ; play note Ds5
+#_1B9A48: #_EA44u: db $B2 ; play note D5
+#_1B9A49: #_EA45u: db $B1 ; play note Cs5
+#_1B9A4A: #_EA46u: db $AF ; play note B4
+#_1B9A4B: #_EA47u: db $AE ; play note As4
+#_1B9A4C: #_EA48u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment0_Track1:
-#_1B9A4D: #_EA49u: db !VOLUME, $C8
-#_1B9A4F: #_EA4Bu: db !INSTR, $0B
-#_1B9A51: #_EA4Du: db !VIBRATO, $14, $1E, $14
+#_1B9A4D: #_EA49u: db $ED, $C8 ; set channel volume
+#_1B9A4F: #_EA4Bu: db $E0, $0B ; set instrument - trombone
+#_1B9A51: #_EA4Du: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B9A55: #_EA51u: db $24, $6D ; duration, params
-#_1B9A57: #_EA53u: db G5
-#_1B9A58: #_EA54u: db Fs5
+#_1B9A57: #_EA53u: db $B7 ; play note G5
+#_1B9A58: #_EA54u: db $B6 ; play note Fs5
 #_1B9A59: #_EA55u: db $18 ; duration
-#_1B9A5A: #_EA56u: db C5
+#_1B9A5A: #_EA56u: db $B0 ; play note C5
 #_1B9A5B: #_EA57u: db $24 ; duration
-#_1B9A5C: #_EA58u: db B4
-#_1B9A5D: #_EA59u: db As4
+#_1B9A5C: #_EA58u: db $AF ; play note B4
+#_1B9A5D: #_EA59u: db $AE ; play note As4
 #_1B9A5E: #_EA5Au: db $0C ; duration
-#_1B9A5F: #_EA5Bu: db Fs4
-#_1B9A60: #_EA5Cu: db F4
+#_1B9A5F: #_EA5Bu: db $AA ; play note Fs4
+#_1B9A60: #_EA5Cu: db $A9 ; play note F4
 #_1B9A61: #_EA5Du: db $48 ; duration
-#_1B9A62: #_EA5Eu: db !TIE
+#_1B9A62: #_EA5Eu: db $C8 ; sustain current note
 #_1B9A63: #_EA5Fu: db $04 ; duration
-#_1B9A64: #_EA60u: db C5
-#_1B9A65: #_EA61u: db B4
-#_1B9A66: #_EA62u: db As4
-#_1B9A67: #_EA63u: db A4
-#_1B9A68: #_EA64u: db Gs4
-#_1B9A69: #_EA65u: db F4
+#_1B9A64: #_EA60u: db $B0 ; play note C5
+#_1B9A65: #_EA61u: db $AF ; play note B4
+#_1B9A66: #_EA62u: db $AE ; play note As4
+#_1B9A67: #_EA63u: db $AD ; play note A4
+#_1B9A68: #_EA64u: db $AC ; play note Gs4
+#_1B9A69: #_EA65u: db $A9 ; play note F4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment0_Track2:
-#_1B9A6A: #_EA66u: db !VOLUME, $C8
-#_1B9A6C: #_EA68u: db !INSTR, $0B
-#_1B9A6E: #_EA6Au: db !VIBRATO, $14, $1E, $14
+#_1B9A6A: #_EA66u: db $ED, $C8 ; set channel volume
+#_1B9A6C: #_EA68u: db $E0, $0B ; set instrument - trombone
+#_1B9A6E: #_EA6Au: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B9A72: #_EA6Eu: db $24, $6D ; duration, params
-#_1B9A74: #_EA70u: db D5
-#_1B9A75: #_EA71u: db Cs5
+#_1B9A74: #_EA70u: db $B2 ; play note D5
+#_1B9A75: #_EA71u: db $B1 ; play note Cs5
 #_1B9A76: #_EA72u: db $18 ; duration
-#_1B9A77: #_EA73u: db G4
+#_1B9A77: #_EA73u: db $AB ; play note G4
 #_1B9A78: #_EA74u: db $24 ; duration
-#_1B9A79: #_EA75u: db Fs4
-#_1B9A7A: #_EA76u: db F4
+#_1B9A79: #_EA75u: db $AA ; play note Fs4
+#_1B9A7A: #_EA76u: db $A9 ; play note F4
 #_1B9A7B: #_EA77u: db $0C ; duration
-#_1B9A7C: #_EA78u: db Cs4
-#_1B9A7D: #_EA79u: db C4
+#_1B9A7C: #_EA78u: db $A5 ; play note Cs4
+#_1B9A7D: #_EA79u: db $A4 ; play note C4
 #_1B9A7E: #_EA7Au: db $48 ; duration
-#_1B9A7F: #_EA7Bu: db !TIE
+#_1B9A7F: #_EA7Bu: db $C8 ; sustain current note
 #_1B9A80: #_EA7Cu: db $04 ; duration
-#_1B9A81: #_EA7Du: db E4
-#_1B9A82: #_EA7Eu: db Ds4
-#_1B9A83: #_EA7Fu: db D4
-#_1B9A84: #_EA80u: db Cs4
-#_1B9A85: #_EA81u: db B3
-#_1B9A86: #_EA82u: db As3
+#_1B9A81: #_EA7Du: db $A8 ; play note E4
+#_1B9A82: #_EA7Eu: db $A7 ; play note Ds4
+#_1B9A83: #_EA7Fu: db $A6 ; play note D4
+#_1B9A84: #_EA80u: db $A5 ; play note Cs4
+#_1B9A85: #_EA81u: db $A3 ; play note B3
+#_1B9A86: #_EA82u: db $A2 ; play note As3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment0_Track3:
-#_1B9A87: #_EA83u: db !VOLUME, $C8
-#_1B9A89: #_EA85u: db !INSTR, $0B
-#_1B9A8B: #_EA87u: db !VIBRATO, $14, $1E, $14
+#_1B9A87: #_EA83u: db $ED, $C8 ; set channel volume
+#_1B9A89: #_EA85u: db $E0, $0B ; set instrument - trombone
+#_1B9A8B: #_EA87u: db $E3, $14, $1E, $14 ; enable vibrato
 #_1B9A8F: #_EA8Bu: db $24, $6D ; duration, params
-#_1B9A91: #_EA8Du: db Gs4
-#_1B9A92: #_EA8Eu: db G4
+#_1B9A91: #_EA8Du: db $AC ; play note Gs4
+#_1B9A92: #_EA8Eu: db $AB ; play note G4
 #_1B9A93: #_EA8Fu: db $18 ; duration
-#_1B9A94: #_EA90u: db Cs4
+#_1B9A94: #_EA90u: db $A5 ; play note Cs4
 #_1B9A95: #_EA91u: db $24 ; duration
-#_1B9A96: #_EA92u: db C4
-#_1B9A97: #_EA93u: db B3
+#_1B9A96: #_EA92u: db $A4 ; play note C4
+#_1B9A97: #_EA93u: db $A3 ; play note B3
 #_1B9A98: #_EA94u: db $0C ; duration
-#_1B9A99: #_EA95u: db G3
-#_1B9A9A: #_EA96u: db Fs3
+#_1B9A99: #_EA95u: db $9F ; play note G3
+#_1B9A9A: #_EA96u: db $9E ; play note Fs3
 #_1B9A9B: #_EA97u: db $60 ; duration
-#_1B9A9C: #_EA98u: db !TIE
+#_1B9A9C: #_EA98u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment0_Track4:
-#_1B9A9D: #_EA99u: db !VOLUME, $FA
-#_1B9A9F: #_EA9Bu: db !INSTR, $02
+#_1B9A9D: #_EA99u: db $ED, $FA ; set channel volume
+#_1B9A9F: #_EA9Bu: db $E0, $02 ; set instrument - timpani
 #_1B9AA1: #_EA9Du: db $04, $6D ; duration, params
-#_1B9AA3: #_EA9Fu: db A1
-#_1B9AA4: #_EAA0u: db A1
+#_1B9AA3: #_EA9Fu: db $89 ; play note A1
+#_1B9AA4: #_EAA0u: db $89 ; play note A1
 #_1B9AA5: #_EAA1u: db $40 ; duration
-#_1B9AA6: #_EAA2u: db A1
+#_1B9AA6: #_EAA2u: db $89 ; play note A1
 #_1B9AA7: #_EAA3u: db $18 ; duration
-#_1B9AA8: #_EAA4u: db A1
+#_1B9AA8: #_EAA4u: db $89 ; play note A1
 #_1B9AA9: #_EAA5u: db $04 ; duration
-#_1B9AAA: #_EAA6u: db G1
-#_1B9AAB: #_EAA7u: db G1
+#_1B9AAA: #_EAA6u: db $87 ; play note G1
+#_1B9AAB: #_EAA7u: db $87 ; play note G1
 #_1B9AAC: #_EAA8u: db $40 ; duration
-#_1B9AAD: #_EAA9u: db G1
+#_1B9AAD: #_EAA9u: db $87 ; play note G1
 #_1B9AAE: #_EAAAu: db $18 ; duration
-#_1B9AAF: #_EAABu: db G1
+#_1B9AAF: #_EAABu: db $87 ; play note G1
 #_1B9AB0: #_EAACu: db $04 ; duration
-#_1B9AB1: #_EAADu: db F1
-#_1B9AB2: #_EAAEu: db F1
+#_1B9AB1: #_EAADu: db $85 ; play note F1
+#_1B9AB2: #_EAAEu: db $85 ; play note F1
 #_1B9AB3: #_EAAFu: db $04, $69 ; duration, params
-#_1B9AB5: #_EAB1u: db F1
+#_1B9AB5: #_EAB1u: db $85 ; play note F1
 #_1B9AB6: #_EAB2u: db $04, $65 ; duration, params
-#_1B9AB8: #_EAB4u: db F1
+#_1B9AB8: #_EAB4u: db $85 ; play note F1
 #_1B9AB9: #_EAB5u: db $04, $66 ; duration, params
-#_1B9ABB: #_EAB7u: db F1
+#_1B9ABB: #_EAB7u: db $85 ; play note F1
 #_1B9ABC: #_EAB8u: db $04, $67 ; duration, params
-#_1B9ABE: #_EABAu: db F1
+#_1B9ABE: #_EABAu: db $85 ; play note F1
 #_1B9ABF: #_EABBu: db $04, $68 ; duration, params
-#_1B9AC1: #_EABDu: db F1
-#_1B9AC2: #_EABEu: db F1
+#_1B9AC1: #_EABDu: db $85 ; play note F1
+#_1B9AC2: #_EABEu: db $85 ; play note F1
 #_1B9AC3: #_EABFu: db $04, $69 ; duration, params
-#_1B9AC5: #_EAC1u: db F1
-#_1B9AC6: #_EAC2u: db F1
-#_1B9AC7: #_EAC3u: db F1
+#_1B9AC5: #_EAC1u: db $85 ; play note F1
+#_1B9AC6: #_EAC2u: db $85 ; play note F1
+#_1B9AC7: #_EAC3u: db $85 ; play note F1
 #_1B9AC8: #_EAC4u: db $04, $6A ; duration, params
-#_1B9ACA: #_EAC6u: db F1
-#_1B9ACB: #_EAC7u: db F1
+#_1B9ACA: #_EAC6u: db $85 ; play note F1
+#_1B9ACB: #_EAC7u: db $85 ; play note F1
 #_1B9ACC: #_EAC8u: db $04, $6B ; duration, params
-#_1B9ACE: #_EACAu: db F1
-#_1B9ACF: #_EACBu: db F1
-#_1B9AD0: #_EACCu: db F1
+#_1B9ACE: #_EACAu: db $85 ; play note F1
+#_1B9ACF: #_EACBu: db $85 ; play note F1
+#_1B9AD0: #_EACCu: db $85 ; play note F1
 #_1B9AD1: #_EACDu: db $04, $6C ; duration, params
-#_1B9AD3: #_EACFu: db F1
-#_1B9AD4: #_EAD0u: db F1
-#_1B9AD5: #_EAD1u: db F1
+#_1B9AD3: #_EACFu: db $85 ; play note F1
+#_1B9AD4: #_EAD0u: db $85 ; play note F1
+#_1B9AD5: #_EAD1u: db $85 ; play note F1
 #_1B9AD6: #_EAD2u: db $04, $6D ; duration, params
-#_1B9AD8: #_EAD4u: db F1
-#_1B9AD9: #_EAD5u: db F1
+#_1B9AD8: #_EAD4u: db $85 ; play note F1
+#_1B9AD9: #_EAD5u: db $85 ; play note F1
 #_1B9ADA: #_EAD6u: db $04, $6F ; duration, params
-#_1B9ADC: #_EAD8u: db F1
-#_1B9ADD: #_EAD9u: db F1
-#_1B9ADE: #_EADAu: db F1
+#_1B9ADC: #_EAD8u: db $85 ; play note F1
+#_1B9ADD: #_EAD9u: db $85 ; play note F1
+#_1B9ADE: #_EADAu: db $85 ; play note F1
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Unused0_Track0:
-#_1B9ADF: #_EADBu: db !MASTER_VOLUME, $C8
-#_1B9AE1: #_EADDu: db !TEMPO, $19
-#_1B9AE3: #_EADFu: db !VOLUME, $FA
-#_1B9AE5: #_EAE1u: db !INSTR, $02
+#_1B9ADF: #_EADBu: db $E5, $C8 ; set song volume
+#_1B9AE1: #_EADDu: db $E7, $19 ; set song tempo
+#_1B9AE3: #_EADFu: db $ED, $FA ; set channel volume
+#_1B9AE5: #_EAE1u: db $E0, $02 ; set instrument - timpani
 #_1B9AE7: #_EAE3u: db $0C, $5D ; duration, params
-#_1B9AE9: #_EAE5u: db D2
-#_1B9AEA: #_EAE6u: db A1
-#_1B9AEB: #_EAE7u: db D2
-#_1B9AEC: #_EAE8u: db A1
-#_1B9AED: #_EAE9u: db D2
-#_1B9AEE: #_EAEAu: db A1
-#_1B9AEF: #_EAEBu: db D2
-#_1B9AF0: #_EAECu: db A1
-#_1B9AF1: #_EAEDu: db !CALL_PART : dw Song15_Sub_EBEE : db 3
-#_1B9AF5: #_EAF1u: db !PART_END
+#_1B9AE9: #_EAE5u: db $8E ; play note D2
+#_1B9AEA: #_EAE6u: db $89 ; play note A1
+#_1B9AEB: #_EAE7u: db $8E ; play note D2
+#_1B9AEC: #_EAE8u: db $89 ; play note A1
+#_1B9AED: #_EAE9u: db $8E ; play note D2
+#_1B9AEE: #_EAEAu: db $89 ; play note A1
+#_1B9AEF: #_EAEBu: db $8E ; play note D2
+#_1B9AF0: #_EAECu: db $89 ; play note A1
+#_1B9AF1: #_EAEDu: db $EF : dw Song15_Sub_EBEE : db $03 ; call segment subroutine
+#_1B9AF5: #_EAF1u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Unused0_Track1:
-#_1B9AF6: #_EAF2u: db !VOLUME, $C8
-#_1B9AF8: #_EAF4u: db !INSTR, $0B
+#_1B9AF6: #_EAF2u: db $ED, $C8 ; set channel volume
+#_1B9AF8: #_EAF4u: db $E0, $0B ; set instrument - trombone
 #_1B9AFA: #_EAF6u: db $0C, $6D ; duration, params
-#_1B9AFC: #_EAF8u: db Fs2
-#_1B9AFD: #_EAF9u: db G2
-#_1B9AFE: #_EAFAu: db Fs2
-#_1B9AFF: #_EAFBu: db G2
-#_1B9B00: #_EAFCu: db As2
-#_1B9B01: #_EAFDu: db A2
-#_1B9B02: #_EAFEu: db As2
-#_1B9B03: #_EAFFu: db A2
-#_1B9B04: #_EB00u: db Fs2
-#_1B9B05: #_EB01u: db G2
-#_1B9B06: #_EB02u: db As2
-#_1B9B07: #_EB03u: db A2
-#_1B9B08: #_EB04u: db Gs2
-#_1B9B09: #_EB05u: db G2
-#_1B9B0A: #_EB06u: db F2
-#_1B9B0B: #_EB07u: db Fs2
-#_1B9B0C: #_EB08u: db Fs2
-#_1B9B0D: #_EB09u: db G2
-#_1B9B0E: #_EB0Au: db Fs2
-#_1B9B0F: #_EB0Bu: db G2
-#_1B9B10: #_EB0Cu: db As2
-#_1B9B11: #_EB0Du: db A2
-#_1B9B12: #_EB0Eu: db As2
-#_1B9B13: #_EB0Fu: db A2
-#_1B9B14: #_EB10u: db Fs2
-#_1B9B15: #_EB11u: db G2
-#_1B9B16: #_EB12u: db As2
-#_1B9B17: #_EB13u: db A2
-#_1B9B18: #_EB14u: db Gs2
-#_1B9B19: #_EB15u: db G2
-#_1B9B1A: #_EB16u: db F2
-#_1B9B1B: #_EB17u: db Fs2
+#_1B9AFC: #_EAF8u: db $92 ; play note Fs2
+#_1B9AFD: #_EAF9u: db $93 ; play note G2
+#_1B9AFE: #_EAFAu: db $92 ; play note Fs2
+#_1B9AFF: #_EAFBu: db $93 ; play note G2
+#_1B9B00: #_EAFCu: db $96 ; play note As2
+#_1B9B01: #_EAFDu: db $95 ; play note A2
+#_1B9B02: #_EAFEu: db $96 ; play note As2
+#_1B9B03: #_EAFFu: db $95 ; play note A2
+#_1B9B04: #_EB00u: db $92 ; play note Fs2
+#_1B9B05: #_EB01u: db $93 ; play note G2
+#_1B9B06: #_EB02u: db $96 ; play note As2
+#_1B9B07: #_EB03u: db $95 ; play note A2
+#_1B9B08: #_EB04u: db $94 ; play note Gs2
+#_1B9B09: #_EB05u: db $93 ; play note G2
+#_1B9B0A: #_EB06u: db $91 ; play note F2
+#_1B9B0B: #_EB07u: db $92 ; play note Fs2
+#_1B9B0C: #_EB08u: db $92 ; play note Fs2
+#_1B9B0D: #_EB09u: db $93 ; play note G2
+#_1B9B0E: #_EB0Au: db $92 ; play note Fs2
+#_1B9B0F: #_EB0Bu: db $93 ; play note G2
+#_1B9B10: #_EB0Cu: db $96 ; play note As2
+#_1B9B11: #_EB0Du: db $95 ; play note A2
+#_1B9B12: #_EB0Eu: db $96 ; play note As2
+#_1B9B13: #_EB0Fu: db $95 ; play note A2
+#_1B9B14: #_EB10u: db $92 ; play note Fs2
+#_1B9B15: #_EB11u: db $93 ; play note G2
+#_1B9B16: #_EB12u: db $96 ; play note As2
+#_1B9B17: #_EB13u: db $95 ; play note A2
+#_1B9B18: #_EB14u: db $94 ; play note Gs2
+#_1B9B19: #_EB15u: db $93 ; play note G2
+#_1B9B1A: #_EB16u: db $91 ; play note F2
+#_1B9B1B: #_EB17u: db $92 ; play note Fs2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Unused0_Track2:
-#_1B9B1C: #_EB18u: db !VOLUME, $C8
-#_1B9B1E: #_EB1Au: db !INSTR, $0B
+#_1B9B1C: #_EB18u: db $ED, $C8 ; set channel volume
+#_1B9B1E: #_EB1Au: db $E0, $0B ; set instrument - trombone
 #_1B9B20: #_EB1Cu: db $0C, $6D ; duration, params
-#_1B9B22: #_EB1Eu: db Fs3
-#_1B9B23: #_EB1Fu: db G3
-#_1B9B24: #_EB20u: db Fs3
-#_1B9B25: #_EB21u: db G3
-#_1B9B26: #_EB22u: db As3
-#_1B9B27: #_EB23u: db A3
-#_1B9B28: #_EB24u: db As3
-#_1B9B29: #_EB25u: db A3
-#_1B9B2A: #_EB26u: db Fs3
-#_1B9B2B: #_EB27u: db G3
-#_1B9B2C: #_EB28u: db As3
-#_1B9B2D: #_EB29u: db A3
-#_1B9B2E: #_EB2Au: db Gs3
-#_1B9B2F: #_EB2Bu: db G3
-#_1B9B30: #_EB2Cu: db F3
-#_1B9B31: #_EB2Du: db Fs3
-#_1B9B32: #_EB2Eu: db Fs3
-#_1B9B33: #_EB2Fu: db G3
-#_1B9B34: #_EB30u: db Fs3
-#_1B9B35: #_EB31u: db G3
-#_1B9B36: #_EB32u: db As3
-#_1B9B37: #_EB33u: db A3
-#_1B9B38: #_EB34u: db As3
-#_1B9B39: #_EB35u: db A3
-#_1B9B3A: #_EB36u: db Fs3
-#_1B9B3B: #_EB37u: db G3
-#_1B9B3C: #_EB38u: db As3
-#_1B9B3D: #_EB39u: db A3
-#_1B9B3E: #_EB3Au: db Gs3
-#_1B9B3F: #_EB3Bu: db G3
-#_1B9B40: #_EB3Cu: db F3
-#_1B9B41: #_EB3Du: db Fs3
+#_1B9B22: #_EB1Eu: db $9E ; play note Fs3
+#_1B9B23: #_EB1Fu: db $9F ; play note G3
+#_1B9B24: #_EB20u: db $9E ; play note Fs3
+#_1B9B25: #_EB21u: db $9F ; play note G3
+#_1B9B26: #_EB22u: db $A2 ; play note As3
+#_1B9B27: #_EB23u: db $A1 ; play note A3
+#_1B9B28: #_EB24u: db $A2 ; play note As3
+#_1B9B29: #_EB25u: db $A1 ; play note A3
+#_1B9B2A: #_EB26u: db $9E ; play note Fs3
+#_1B9B2B: #_EB27u: db $9F ; play note G3
+#_1B9B2C: #_EB28u: db $A2 ; play note As3
+#_1B9B2D: #_EB29u: db $A1 ; play note A3
+#_1B9B2E: #_EB2Au: db $A0 ; play note Gs3
+#_1B9B2F: #_EB2Bu: db $9F ; play note G3
+#_1B9B30: #_EB2Cu: db $9D ; play note F3
+#_1B9B31: #_EB2Du: db $9E ; play note Fs3
+#_1B9B32: #_EB2Eu: db $9E ; play note Fs3
+#_1B9B33: #_EB2Fu: db $9F ; play note G3
+#_1B9B34: #_EB30u: db $9E ; play note Fs3
+#_1B9B35: #_EB31u: db $9F ; play note G3
+#_1B9B36: #_EB32u: db $A2 ; play note As3
+#_1B9B37: #_EB33u: db $A1 ; play note A3
+#_1B9B38: #_EB34u: db $A2 ; play note As3
+#_1B9B39: #_EB35u: db $A1 ; play note A3
+#_1B9B3A: #_EB36u: db $9E ; play note Fs3
+#_1B9B3B: #_EB37u: db $9F ; play note G3
+#_1B9B3C: #_EB38u: db $A2 ; play note As3
+#_1B9B3D: #_EB39u: db $A1 ; play note A3
+#_1B9B3E: #_EB3Au: db $A0 ; play note Gs3
+#_1B9B3F: #_EB3Bu: db $9F ; play note G3
+#_1B9B40: #_EB3Cu: db $9D ; play note F3
+#_1B9B41: #_EB3Du: db $9E ; play note Fs3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment2_Track0:
-#_1B9B42: #_EB3Eu: db !VOLUME, $C8
-#_1B9B44: #_EB40u: db !INSTR, $02
+#_1B9B42: #_EB3Eu: db $ED, $C8 ; set channel volume
+#_1B9B44: #_EB40u: db $E0, $02 ; set instrument - timpani
 #_1B9B46: #_EB42u: db $0C, $5D ; duration, params
-#_1B9B48: #_EB44u: db D2
-#_1B9B49: #_EB45u: db A1
-#_1B9B4A: #_EB46u: db D2
-#_1B9B4B: #_EB47u: db A1
-#_1B9B4C: #_EB48u: db D2
-#_1B9B4D: #_EB49u: db A1
-#_1B9B4E: #_EB4Au: db D2
-#_1B9B4F: #_EB4Bu: db A1
-#_1B9B50: #_EB4Cu: db !CALL_PART : dw Song15_Sub_EBEE : db 3
-#_1B9B54: #_EB50u: db !PART_END
+#_1B9B48: #_EB44u: db $8E ; play note D2
+#_1B9B49: #_EB45u: db $89 ; play note A1
+#_1B9B4A: #_EB46u: db $8E ; play note D2
+#_1B9B4B: #_EB47u: db $89 ; play note A1
+#_1B9B4C: #_EB48u: db $8E ; play note D2
+#_1B9B4D: #_EB49u: db $89 ; play note A1
+#_1B9B4E: #_EB4Au: db $8E ; play note D2
+#_1B9B4F: #_EB4Bu: db $89 ; play note A1
+#_1B9B50: #_EB4Cu: db $EF : dw Song15_Sub_EBEE : db $03 ; call segment subroutine
+#_1B9B54: #_EB50u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment2_Track1:
-#_1B9B55: #_EB51u: db !VOLUME, $DC
-#_1B9B57: #_EB53u: db !INSTR, $0B
+#_1B9B55: #_EB51u: db $ED, $DC ; set channel volume
+#_1B9B57: #_EB53u: db $E0, $0B ; set instrument - trombone
 #_1B9B59: #_EB55u: db $0C, $6D ; duration, params
-#_1B9B5B: #_EB57u: db D3
-#_1B9B5C: #_EB58u: db A3
-#_1B9B5D: #_EB59u: db D4
-#_1B9B5E: #_EB5Au: db D3
-#_1B9B5F: #_EB5Bu: db A3
-#_1B9B60: #_EB5Cu: db D4
-#_1B9B61: #_EB5Du: db Ds3
-#_1B9B62: #_EB5Eu: db Ds4
-#_1B9B63: #_EB5Fu: db D3
-#_1B9B64: #_EB60u: db A3
-#_1B9B65: #_EB61u: db D4
-#_1B9B66: #_EB62u: db D3
-#_1B9B67: #_EB63u: db A3
-#_1B9B68: #_EB64u: db D4
-#_1B9B69: #_EB65u: db Cs3
-#_1B9B6A: #_EB66u: db Cs4
-#_1B9B6B: #_EB67u: db D3
-#_1B9B6C: #_EB68u: db A3
-#_1B9B6D: #_EB69u: db D4
-#_1B9B6E: #_EB6Au: db D3
-#_1B9B6F: #_EB6Bu: db A3
-#_1B9B70: #_EB6Cu: db D4
-#_1B9B71: #_EB6Du: db Ds3
-#_1B9B72: #_EB6Eu: db Ds4
-#_1B9B73: #_EB6Fu: db D3
-#_1B9B74: #_EB70u: db A3
-#_1B9B75: #_EB71u: db D4
-#_1B9B76: #_EB72u: db D3
-#_1B9B77: #_EB73u: db A3
-#_1B9B78: #_EB74u: db D4
-#_1B9B79: #_EB75u: db Cs3
-#_1B9B7A: #_EB76u: db Cs4
+#_1B9B5B: #_EB57u: db $9A ; play note D3
+#_1B9B5C: #_EB58u: db $A1 ; play note A3
+#_1B9B5D: #_EB59u: db $A6 ; play note D4
+#_1B9B5E: #_EB5Au: db $9A ; play note D3
+#_1B9B5F: #_EB5Bu: db $A1 ; play note A3
+#_1B9B60: #_EB5Cu: db $A6 ; play note D4
+#_1B9B61: #_EB5Du: db $9B ; play note Ds3
+#_1B9B62: #_EB5Eu: db $A7 ; play note Ds4
+#_1B9B63: #_EB5Fu: db $9A ; play note D3
+#_1B9B64: #_EB60u: db $A1 ; play note A3
+#_1B9B65: #_EB61u: db $A6 ; play note D4
+#_1B9B66: #_EB62u: db $9A ; play note D3
+#_1B9B67: #_EB63u: db $A1 ; play note A3
+#_1B9B68: #_EB64u: db $A6 ; play note D4
+#_1B9B69: #_EB65u: db $99 ; play note Cs3
+#_1B9B6A: #_EB66u: db $A5 ; play note Cs4
+#_1B9B6B: #_EB67u: db $9A ; play note D3
+#_1B9B6C: #_EB68u: db $A1 ; play note A3
+#_1B9B6D: #_EB69u: db $A6 ; play note D4
+#_1B9B6E: #_EB6Au: db $9A ; play note D3
+#_1B9B6F: #_EB6Bu: db $A1 ; play note A3
+#_1B9B70: #_EB6Cu: db $A6 ; play note D4
+#_1B9B71: #_EB6Du: db $9B ; play note Ds3
+#_1B9B72: #_EB6Eu: db $A7 ; play note Ds4
+#_1B9B73: #_EB6Fu: db $9A ; play note D3
+#_1B9B74: #_EB70u: db $A1 ; play note A3
+#_1B9B75: #_EB71u: db $A6 ; play note D4
+#_1B9B76: #_EB72u: db $9A ; play note D3
+#_1B9B77: #_EB73u: db $A1 ; play note A3
+#_1B9B78: #_EB74u: db $A6 ; play note D4
+#_1B9B79: #_EB75u: db $99 ; play note Cs3
+#_1B9B7A: #_EB76u: db $A5 ; play note Cs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment2_Track2:
-#_1B9B7B: #_EB77u: db !VOLUME, $C8
-#_1B9B7D: #_EB79u: db !INSTR, $0B
+#_1B9B7B: #_EB77u: db $ED, $C8 ; set channel volume
+#_1B9B7D: #_EB79u: db $E0, $0B ; set instrument - trombone
 #_1B9B7F: #_EB7Bu: db $18 ; duration
-#_1B9B80: #_EB7Cu: db R
+#_1B9B80: #_EB7Cu: db $C9 ; rest
 #_1B9B81: #_EB7Du: db $0C, $6D ; duration, params
-#_1B9B83: #_EB7Fu: db D6
+#_1B9B83: #_EB7Fu: db $BE ; play note D6
 #_1B9B84: #_EB80u: db $18 ; duration
-#_1B9B85: #_EB81u: db R
+#_1B9B85: #_EB81u: db $C9 ; rest
 #_1B9B86: #_EB82u: db $0C ; duration
-#_1B9B87: #_EB83u: db D6
-#_1B9B88: #_EB84u: db R
-#_1B9B89: #_EB85u: db Ds6
+#_1B9B87: #_EB83u: db $BE ; play note D6
+#_1B9B88: #_EB84u: db $C9 ; rest
+#_1B9B89: #_EB85u: db $BF ; play note Ds6
 #_1B9B8A: #_EB86u: db $18 ; duration
-#_1B9B8B: #_EB87u: db R
+#_1B9B8B: #_EB87u: db $C9 ; rest
 #_1B9B8C: #_EB88u: db $0C ; duration
-#_1B9B8D: #_EB89u: db D6
+#_1B9B8D: #_EB89u: db $BE ; play note D6
 #_1B9B8E: #_EB8Au: db $18 ; duration
-#_1B9B8F: #_EB8Bu: db R
+#_1B9B8F: #_EB8Bu: db $C9 ; rest
 #_1B9B90: #_EB8Cu: db $0C ; duration
-#_1B9B91: #_EB8Du: db D6
-#_1B9B92: #_EB8Eu: db R
-#_1B9B93: #_EB8Fu: db Cs6
+#_1B9B91: #_EB8Du: db $BE ; play note D6
+#_1B9B92: #_EB8Eu: db $C9 ; rest
+#_1B9B93: #_EB8Fu: db $BD ; play note Cs6
 #_1B9B94: #_EB90u: db $18 ; duration
-#_1B9B95: #_EB91u: db R
+#_1B9B95: #_EB91u: db $C9 ; rest
 #_1B9B96: #_EB92u: db $0C ; duration
-#_1B9B97: #_EB93u: db D6
+#_1B9B97: #_EB93u: db $BE ; play note D6
 #_1B9B98: #_EB94u: db $18 ; duration
-#_1B9B99: #_EB95u: db R
+#_1B9B99: #_EB95u: db $C9 ; rest
 #_1B9B9A: #_EB96u: db $0C ; duration
-#_1B9B9B: #_EB97u: db D6
-#_1B9B9C: #_EB98u: db R
-#_1B9B9D: #_EB99u: db Ds6
+#_1B9B9B: #_EB97u: db $BE ; play note D6
+#_1B9B9C: #_EB98u: db $C9 ; rest
+#_1B9B9D: #_EB99u: db $BF ; play note Ds6
 #_1B9B9E: #_EB9Au: db $18 ; duration
-#_1B9B9F: #_EB9Bu: db R
+#_1B9B9F: #_EB9Bu: db $C9 ; rest
 #_1B9BA0: #_EB9Cu: db $0C ; duration
-#_1B9BA1: #_EB9Du: db D6
+#_1B9BA1: #_EB9Du: db $BE ; play note D6
 #_1B9BA2: #_EB9Eu: db $18 ; duration
-#_1B9BA3: #_EB9Fu: db R
+#_1B9BA3: #_EB9Fu: db $C9 ; rest
 #_1B9BA4: #_EBA0u: db $0C ; duration
-#_1B9BA5: #_EBA1u: db D6
-#_1B9BA6: #_EBA2u: db R
-#_1B9BA7: #_EBA3u: db Cs6
+#_1B9BA5: #_EBA1u: db $BE ; play note D6
+#_1B9BA6: #_EBA2u: db $C9 ; rest
+#_1B9BA7: #_EBA3u: db $BD ; play note Cs6
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment2_Track3:
-#_1B9BA8: #_EBA4u: db !VOLUME, $C8
-#_1B9BAA: #_EBA6u: db !INSTR, $0B
+#_1B9BA8: #_EBA4u: db $ED, $C8 ; set channel volume
+#_1B9BAA: #_EBA6u: db $E0, $0B ; set instrument - trombone
 #_1B9BAC: #_EBA8u: db $18 ; duration
-#_1B9BAD: #_EBA9u: db R
+#_1B9BAD: #_EBA9u: db $C9 ; rest
 #_1B9BAE: #_EBAAu: db $0C, $6D ; duration, params
-#_1B9BB0: #_EBACu: db A5
+#_1B9BB0: #_EBACu: db $B9 ; play note A5
 #_1B9BB1: #_EBADu: db $18 ; duration
-#_1B9BB2: #_EBAEu: db R
+#_1B9BB2: #_EBAEu: db $C9 ; rest
 #_1B9BB3: #_EBAFu: db $0C ; duration
-#_1B9BB4: #_EBB0u: db A5
-#_1B9BB5: #_EBB1u: db R
-#_1B9BB6: #_EBB2u: db As5
+#_1B9BB4: #_EBB0u: db $B9 ; play note A5
+#_1B9BB5: #_EBB1u: db $C9 ; rest
+#_1B9BB6: #_EBB2u: db $BA ; play note As5
 #_1B9BB7: #_EBB3u: db $18 ; duration
-#_1B9BB8: #_EBB4u: db R
+#_1B9BB8: #_EBB4u: db $C9 ; rest
 #_1B9BB9: #_EBB5u: db $0C ; duration
-#_1B9BBA: #_EBB6u: db A5
+#_1B9BBA: #_EBB6u: db $B9 ; play note A5
 #_1B9BBB: #_EBB7u: db $18 ; duration
-#_1B9BBC: #_EBB8u: db R
+#_1B9BBC: #_EBB8u: db $C9 ; rest
 #_1B9BBD: #_EBB9u: db $0C ; duration
-#_1B9BBE: #_EBBAu: db A5
-#_1B9BBF: #_EBBBu: db R
-#_1B9BC0: #_EBBCu: db Gs5
+#_1B9BBE: #_EBBAu: db $B9 ; play note A5
+#_1B9BBF: #_EBBBu: db $C9 ; rest
+#_1B9BC0: #_EBBCu: db $B8 ; play note Gs5
 #_1B9BC1: #_EBBDu: db $18 ; duration
-#_1B9BC2: #_EBBEu: db R
+#_1B9BC2: #_EBBEu: db $C9 ; rest
 #_1B9BC3: #_EBBFu: db $0C ; duration
-#_1B9BC4: #_EBC0u: db A5
+#_1B9BC4: #_EBC0u: db $B9 ; play note A5
 #_1B9BC5: #_EBC1u: db $18 ; duration
-#_1B9BC6: #_EBC2u: db R
+#_1B9BC6: #_EBC2u: db $C9 ; rest
 #_1B9BC7: #_EBC3u: db $0C ; duration
-#_1B9BC8: #_EBC4u: db A5
-#_1B9BC9: #_EBC5u: db R
-#_1B9BCA: #_EBC6u: db As5
+#_1B9BC8: #_EBC4u: db $B9 ; play note A5
+#_1B9BC9: #_EBC5u: db $C9 ; rest
+#_1B9BCA: #_EBC6u: db $BA ; play note As5
 #_1B9BCB: #_EBC7u: db $18 ; duration
-#_1B9BCC: #_EBC8u: db R
+#_1B9BCC: #_EBC8u: db $C9 ; rest
 #_1B9BCD: #_EBC9u: db $0C ; duration
-#_1B9BCE: #_EBCAu: db A5
+#_1B9BCE: #_EBCAu: db $B9 ; play note A5
 #_1B9BCF: #_EBCBu: db $18 ; duration
-#_1B9BD0: #_EBCCu: db R
+#_1B9BD0: #_EBCCu: db $C9 ; rest
 #_1B9BD1: #_EBCDu: db $0C ; duration
-#_1B9BD2: #_EBCEu: db A5
-#_1B9BD3: #_EBCFu: db R
-#_1B9BD4: #_EBD0u: db Gs5
+#_1B9BD2: #_EBCEu: db $B9 ; play note A5
+#_1B9BD3: #_EBCFu: db $C9 ; rest
+#_1B9BD4: #_EBD0u: db $B8 ; play note Gs5
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Segment2_Track4:
-#_1B9BD5: #_EBD1u: db !VOLUME, $AA
-#_1B9BD7: #_EBD3u: db !INSTR, $14
+#_1B9BD5: #_EBD1u: db $ED, $AA ; set channel volume
+#_1B9BD7: #_EBD3u: db $E0, $14 ; set instrument - snare B
 #_1B9BD9: #_EBD5u: db $04, $6D ; duration, params
-#_1B9BDB: #_EBD7u: db E4
-#_1B9BDC: #_EBD8u: db E4
-#_1B9BDD: #_EBD9u: db E4
+#_1B9BDB: #_EBD7u: db $A8 ; play note E4
+#_1B9BDC: #_EBD8u: db $A8 ; play note E4
+#_1B9BDD: #_EBD9u: db $A8 ; play note E4
 #_1B9BDE: #_EBDAu: db $0C ; duration
-#_1B9BDF: #_EBDBu: db E4
+#_1B9BDF: #_EBDBu: db $A8 ; play note E4
 #_1B9BE0: #_EBDCu: db $06 ; duration
-#_1B9BE1: #_EBDDu: db E4
-#_1B9BE2: #_EBDEu: db E4
+#_1B9BE1: #_EBDDu: db $A8 ; play note E4
+#_1B9BE2: #_EBDEu: db $A8 ; play note E4
 #_1B9BE3: #_EBDFu: db $0C ; duration
-#_1B9BE4: #_EBE0u: db E4
-#_1B9BE5: #_EBE1u: db E4
-#_1B9BE6: #_EBE2u: db E4
+#_1B9BE4: #_EBE0u: db $A8 ; play note E4
+#_1B9BE5: #_EBE1u: db $A8 ; play note E4
+#_1B9BE6: #_EBE2u: db $A8 ; play note E4
 #_1B9BE7: #_EBE3u: db $04 ; duration
-#_1B9BE8: #_EBE4u: db E4
-#_1B9BE9: #_EBE5u: db E4
-#_1B9BEA: #_EBE6u: db E4
+#_1B9BE8: #_EBE4u: db $A8 ; play note E4
+#_1B9BE9: #_EBE5u: db $A8 ; play note E4
+#_1B9BEA: #_EBE6u: db $A8 ; play note E4
 #_1B9BEB: #_EBE7u: db $0C ; duration
-#_1B9BEC: #_EBE8u: db E4
-#_1B9BED: #_EBE9u: db !CALL_PART : dw Song15_Sub_EBF7 : db 3
-#_1B9BF1: #_EBEDu: db !PART_END
+#_1B9BEC: #_EBE8u: db $A8 ; play note E4
+#_1B9BED: #_EBE9u: db $EF : dw Song15_Sub_EBF7 : db $03 ; call segment subroutine
+#_1B9BF1: #_EBEDu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Sub_EBEE:
-#_1B9BF2: #_EBEEu: db D2
-#_1B9BF3: #_EBEFu: db A1
-#_1B9BF4: #_EBF0u: db D2
-#_1B9BF5: #_EBF1u: db A1
-#_1B9BF6: #_EBF2u: db D2
-#_1B9BF7: #_EBF3u: db A1
-#_1B9BF8: #_EBF4u: db D2
-#_1B9BF9: #_EBF5u: db A1
-#_1B9BFA: #_EBF6u: db !PART_END
+#_1B9BF2: #_EBEEu: db $8E ; play note D2
+#_1B9BF3: #_EBEFu: db $89 ; play note A1
+#_1B9BF4: #_EBF0u: db $8E ; play note D2
+#_1B9BF5: #_EBF1u: db $89 ; play note A1
+#_1B9BF6: #_EBF2u: db $8E ; play note D2
+#_1B9BF7: #_EBF3u: db $89 ; play note A1
+#_1B9BF8: #_EBF4u: db $8E ; play note D2
+#_1B9BF9: #_EBF5u: db $89 ; play note A1
+#_1B9BFA: #_EBF6u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song15_Sub_EBF7:
 #_1B9BFB: #_EBF7u: db $04 ; duration
-#_1B9BFC: #_EBF8u: db E4
-#_1B9BFD: #_EBF9u: db E4
-#_1B9BFE: #_EBFAu: db E4
+#_1B9BFC: #_EBF8u: db $A8 ; play note E4
+#_1B9BFD: #_EBF9u: db $A8 ; play note E4
+#_1B9BFE: #_EBFAu: db $A8 ; play note E4
 #_1B9BFF: #_EBFBu: db $0C ; duration
-#_1B9C00: #_EBFCu: db E4
+#_1B9C00: #_EBFCu: db $A8 ; play note E4
 #_1B9C01: #_EBFDu: db $06 ; duration
-#_1B9C02: #_EBFEu: db E4
-#_1B9C03: #_EBFFu: db E4
+#_1B9C02: #_EBFEu: db $A8 ; play note E4
+#_1B9C03: #_EBFFu: db $A8 ; play note E4
 #_1B9C04: #_EC00u: db $0C ; duration
-#_1B9C05: #_EC01u: db E4
-#_1B9C06: #_EC02u: db E4
-#_1B9C07: #_EC03u: db E4
+#_1B9C05: #_EC01u: db $A8 ; play note E4
+#_1B9C06: #_EC02u: db $A8 ; play note E4
+#_1B9C07: #_EC03u: db $A8 ; play note E4
 #_1B9C08: #_EC04u: db $04 ; duration
-#_1B9C09: #_EC05u: db E4
-#_1B9C0A: #_EC06u: db E4
-#_1B9C0B: #_EC07u: db E4
+#_1B9C09: #_EC05u: db $A8 ; play note E4
+#_1B9C0A: #_EC06u: db $A8 ; play note E4
+#_1B9C0B: #_EC07u: db $A8 ; play note E4
 #_1B9C0C: #_EC08u: db $0C ; duration
-#_1B9C0D: #_EC09u: db E4
-#_1B9C0E: #_EC0Au: db !PART_END
+#_1B9C0D: #_EC09u: db $A8 ; play note E4
+#_1B9C0E: #_EC0Au: db $00 ; End
 
 ;===================================================================================================
 
@@ -6201,7 +6201,7 @@ Song16_Loop:
 #_1B9C15: #_EC11u: dw Song16_Segment3
 #_1B9C17: #_EC13u: dw Song16_Segment4
 #_1B9C19: #_EC15u: dw Song16_Segment5
-#_1B9C1B: #_EC17u: dw !SONG_LOOP, Song16_Loop
+#_1B9C1B: #_EC17u: dw $00FF, Song16_Loop ; Loop point
 #_1B9C1F: #_EC1Bu: dw $0000
 
 Song16_Segment1:
@@ -6267,1207 +6267,1207 @@ Song16_Segment5:
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment1_Track0:
-#_1B9C81: #_EC7Du: db !INSTR, $09
-#_1B9C83: #_EC7Fu: db !VOLUME, $C8
-#_1B9C85: #_EC81u: db !CALL_PART : dw Song16_Sub_EFA7 : db 1
-#_1B9C89: #_EC85u: db !PART_END
+#_1B9C81: #_EC7Du: db $E0, $09 ; set instrument - strings A
+#_1B9C83: #_EC7Fu: db $ED, $C8 ; set channel volume
+#_1B9C85: #_EC81u: db $EF : dw Song16_Sub_EFA7 : db $01 ; call segment subroutine
+#_1B9C89: #_EC85u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment1_Track1:
-#_1B9C8A: #_EC86u: db !INSTR, $09
-#_1B9C8C: #_EC88u: db !VOLUME, $C8
-#_1B9C8E: #_EC8Au: db !CALL_PART : dw Song16_Sub_F028 : db 1
+#_1B9C8A: #_EC86u: db $E0, $09 ; set instrument - strings A
+#_1B9C8C: #_EC88u: db $ED, $C8 ; set channel volume
+#_1B9C8E: #_EC8Au: db $EF : dw Song16_Sub_F028 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment1_Track2:
-#_1B9C92: #_EC8Eu: db !INSTR, $09
-#_1B9C94: #_EC90u: db !VOLUME, $F0
-#_1B9C96: #_EC92u: db !PAN, $08
-#_1B9C98: #_EC94u: db !VIBRATO, $1C, $1C, $10
+#_1B9C92: #_EC8Eu: db $E0, $09 ; set instrument - strings A
+#_1B9C94: #_EC90u: db $ED, $F0 ; set channel volume
+#_1B9C96: #_EC92u: db $E1, $08 ; set panning - leaning right
+#_1B9C98: #_EC94u: db $E3, $1C, $1C, $10 ; enable vibrato
 #_1B9C9C: #_EC98u: db $30 ; duration
-#_1B9C9D: #_EC99u: db R
+#_1B9C9D: #_EC99u: db $C9 ; rest
 #_1B9C9E: #_EC9Au: db $10, $6D ; duration, params
-#_1B9CA0: #_EC9Cu: db Ds3
-#_1B9CA1: #_EC9Du: db D3
-#_1B9CA2: #_EC9Eu: db Gs3
-#_1B9CA3: #_EC9Fu: db !CALL_PART : dw Song16_Sub_F0A9 : db 1
+#_1B9CA0: #_EC9Cu: db $9B ; play note Ds3
+#_1B9CA1: #_EC9Du: db $9A ; play note D3
+#_1B9CA2: #_EC9Eu: db $A0 ; play note Gs3
+#_1B9CA3: #_EC9Fu: db $EF : dw Song16_Sub_F0A9 : db $01 ; call segment subroutine
 #_1B9CA7: #_ECA3u: db $60 ; duration
-#_1B9CA8: #_ECA4u: db !TIE
+#_1B9CA8: #_ECA4u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment1_Track3:
-#_1B9CA9: #_ECA5u: db !INSTR, $09
-#_1B9CAB: #_ECA7u: db !VOLUME, $C8
-#_1B9CAD: #_ECA9u: db !PAN, $06
-#_1B9CAF: #_ECABu: db !VIBRATO, $1A, $1D, $12
-#_1B9CB3: #_ECAFu: db !CALL_PART : dw Song16_Sub_F0B5 : db 1
+#_1B9CA9: #_ECA5u: db $E0, $09 ; set instrument - strings A
+#_1B9CAB: #_ECA7u: db $ED, $C8 ; set channel volume
+#_1B9CAD: #_ECA9u: db $E1, $06 ; set panning - leaning right
+#_1B9CAF: #_ECABu: db $E3, $1A, $1D, $12 ; enable vibrato
+#_1B9CB3: #_ECAFu: db $EF : dw Song16_Sub_F0B5 : db $01 ; call segment subroutine
 #_1B9CB7: #_ECB3u: db $60 ; duration
-#_1B9CB8: #_ECB4u: db !TIE
+#_1B9CB8: #_ECB4u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment1_Track4:
-#_1B9CB9: #_ECB5u: db !INSTR, $09
-#_1B9CBB: #_ECB7u: db !VOLUME, $B4
-#_1B9CBD: #_ECB9u: db !PAN, $0E
-#_1B9CBF: #_ECBBu: db !VIBRATO, $1C, $1C, $10
+#_1B9CB9: #_ECB5u: db $E0, $09 ; set instrument - strings A
+#_1B9CBB: #_ECB7u: db $ED, $B4 ; set channel volume
+#_1B9CBD: #_ECB9u: db $E1, $0E ; set panning - leaning left
+#_1B9CBF: #_ECBBu: db $E3, $1C, $1C, $10 ; enable vibrato
 #_1B9CC3: #_ECBFu: db $38 ; duration
-#_1B9CC4: #_ECC0u: db R
+#_1B9CC4: #_ECC0u: db $C9 ; rest
 #_1B9CC5: #_ECC1u: db $10, $6D ; duration, params
-#_1B9CC7: #_ECC3u: db Ds3
-#_1B9CC8: #_ECC4u: db D3
-#_1B9CC9: #_ECC5u: db Gs3
-#_1B9CCA: #_ECC6u: db !CALL_PART : dw Song16_Sub_F0A9 : db 1
+#_1B9CC7: #_ECC3u: db $9B ; play note Ds3
+#_1B9CC8: #_ECC4u: db $9A ; play note D3
+#_1B9CC9: #_ECC5u: db $A0 ; play note Gs3
+#_1B9CCA: #_ECC6u: db $EF : dw Song16_Sub_F0A9 : db $01 ; call segment subroutine
 #_1B9CCE: #_ECCAu: db $58 ; duration
-#_1B9CCF: #_ECCBu: db !TIE
+#_1B9CCF: #_ECCBu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment0_Track0:
-#_1B9CD0: #_ECCCu: db !SET_PERC, $19
-#_1B9CD2: #_ECCEu: db !MASTER_VOLUME, $50
-#_1B9CD4: #_ECD0u: db !MVOL_GRAD, $28, $B4
-#_1B9CD7: #_ECD3u: db !TEMPO, $1D
-#_1B9CD9: #_ECD5u: db !ECHO_CONFIG, $FF, $00, $00
-#_1B9CDD: #_ECD9u: db !ECHO_FILTER, $02, $1E, $02
-#_1B9CE1: #_ECDDu: db !ECHO_GRAD, $32, $28, $28
-#_1B9CE5: #_ECE1u: db !INSTR, $09
-#_1B9CE7: #_ECE3u: db !VOLUME, $C8
-#_1B9CE9: #_ECE5u: db !PAN, $0E
-#_1B9CEB: #_ECE7u: db !CALL_PART : dw Song16_Sub_EFA7 : db 1
-#_1B9CEF: #_ECEBu: db !PART_END
+#_1B9CD0: #_ECCCu: db $FA, $19 ; set base percussion sample
+#_1B9CD2: #_ECCEu: db $E5, $50 ; set song volume
+#_1B9CD4: #_ECD0u: db $E6, $28, $B4 ; initiate gradual song volume change
+#_1B9CD7: #_ECD3u: db $E7, $1D ; set song tempo
+#_1B9CD9: #_ECD5u: db $F5, $FF, $00, $00 ; configure EON, EVOLL, EVOLR
+#_1B9CDD: #_ECD9u: db $F7, $02, $1E, $02 ; configure EDL, EFB, FIR
+#_1B9CE1: #_ECDDu: db $F8, $32, $28, $28 ; initiate gradual echo volume change
+#_1B9CE5: #_ECE1u: db $E0, $09 ; set instrument - strings A
+#_1B9CE7: #_ECE3u: db $ED, $C8 ; set channel volume
+#_1B9CE9: #_ECE5u: db $E1, $0E ; set panning - leaning left
+#_1B9CEB: #_ECE7u: db $EF : dw Song16_Sub_EFA7 : db $01 ; call segment subroutine
+#_1B9CEF: #_ECEBu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment0_Track1:
-#_1B9CF0: #_ECECu: db !INSTR, $09
-#_1B9CF2: #_ECEEu: db !VOLUME, $C8
-#_1B9CF4: #_ECF0u: db !PAN, $0C
-#_1B9CF6: #_ECF2u: db !CALL_PART : dw Song16_Sub_F028 : db 1
+#_1B9CF0: #_ECECu: db $E0, $09 ; set instrument - strings A
+#_1B9CF2: #_ECEEu: db $ED, $C8 ; set channel volume
+#_1B9CF4: #_ECF0u: db $E1, $0C ; set panning - leaning left
+#_1B9CF6: #_ECF2u: db $EF : dw Song16_Sub_F028 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment2_Track0:
-#_1B9CFA: #_ECF6u: db !INSTR, $09
-#_1B9CFC: #_ECF8u: db !VOLUME, $C8
-#_1B9CFE: #_ECFAu: db !CALL_PART : dw Song16_Sub_EFA7 : db 1
+#_1B9CFA: #_ECF6u: db $E0, $09 ; set instrument - strings A
+#_1B9CFC: #_ECF8u: db $ED, $C8 ; set channel volume
+#_1B9CFE: #_ECFAu: db $EF : dw Song16_Sub_EFA7 : db $01 ; call segment subroutine
 #_1B9D02: #_ECFEu: db $06, $6D ; duration, params
-#_1B9D04: #_ED00u: db Ds5
+#_1B9D04: #_ED00u: db $B3 ; play note Ds5
 #_1B9D05: #_ED01u: db $06, $69 ; duration, params
-#_1B9D07: #_ED03u: db Ds5
-#_1B9D08: #_ED04u: db Ds5
-#_1B9D09: #_ED05u: db Ds5
+#_1B9D07: #_ED03u: db $B3 ; play note Ds5
+#_1B9D08: #_ED04u: db $B3 ; play note Ds5
+#_1B9D09: #_ED05u: db $B3 ; play note Ds5
 #_1B9D0A: #_ED06u: db $06, $6B ; duration, params
-#_1B9D0C: #_ED08u: db Ds5
+#_1B9D0C: #_ED08u: db $B3 ; play note Ds5
 #_1B9D0D: #_ED09u: db $06, $69 ; duration, params
-#_1B9D0F: #_ED0Bu: db Ds5
-#_1B9D10: #_ED0Cu: db Ds5
-#_1B9D11: #_ED0Du: db Ds5
+#_1B9D0F: #_ED0Bu: db $B3 ; play note Ds5
+#_1B9D10: #_ED0Cu: db $B3 ; play note Ds5
+#_1B9D11: #_ED0Du: db $B3 ; play note Ds5
 #_1B9D12: #_ED0Eu: db $06, $6C ; duration, params
-#_1B9D14: #_ED10u: db Ds5
+#_1B9D14: #_ED10u: db $B3 ; play note Ds5
 #_1B9D15: #_ED11u: db $06, $69 ; duration, params
-#_1B9D17: #_ED13u: db Ds5
-#_1B9D18: #_ED14u: db Ds5
-#_1B9D19: #_ED15u: db Ds5
+#_1B9D17: #_ED13u: db $B3 ; play note Ds5
+#_1B9D18: #_ED14u: db $B3 ; play note Ds5
+#_1B9D19: #_ED15u: db $B3 ; play note Ds5
 #_1B9D1A: #_ED16u: db $06, $6B ; duration, params
-#_1B9D1C: #_ED18u: db Ds5
+#_1B9D1C: #_ED18u: db $B3 ; play note Ds5
 #_1B9D1D: #_ED19u: db $06, $69 ; duration, params
-#_1B9D1F: #_ED1Bu: db Ds5
-#_1B9D20: #_ED1Cu: db Ds5
-#_1B9D21: #_ED1Du: db Ds5
+#_1B9D1F: #_ED1Bu: db $B3 ; play note Ds5
+#_1B9D20: #_ED1Cu: db $B3 ; play note Ds5
+#_1B9D21: #_ED1Du: db $B3 ; play note Ds5
 #_1B9D22: #_ED1Eu: db $06, $6D ; duration, params
-#_1B9D24: #_ED20u: db F5
+#_1B9D24: #_ED20u: db $B5 ; play note F5
 #_1B9D25: #_ED21u: db $06, $69 ; duration, params
-#_1B9D27: #_ED23u: db F5
-#_1B9D28: #_ED24u: db F5
-#_1B9D29: #_ED25u: db F5
+#_1B9D27: #_ED23u: db $B5 ; play note F5
+#_1B9D28: #_ED24u: db $B5 ; play note F5
+#_1B9D29: #_ED25u: db $B5 ; play note F5
 #_1B9D2A: #_ED26u: db $06, $6B ; duration, params
-#_1B9D2C: #_ED28u: db F5
+#_1B9D2C: #_ED28u: db $B5 ; play note F5
 #_1B9D2D: #_ED29u: db $06, $69 ; duration, params
-#_1B9D2F: #_ED2Bu: db F5
-#_1B9D30: #_ED2Cu: db F5
-#_1B9D31: #_ED2Du: db F5
+#_1B9D2F: #_ED2Bu: db $B5 ; play note F5
+#_1B9D30: #_ED2Cu: db $B5 ; play note F5
+#_1B9D31: #_ED2Du: db $B5 ; play note F5
 #_1B9D32: #_ED2Eu: db $06, $6C ; duration, params
-#_1B9D34: #_ED30u: db F5
+#_1B9D34: #_ED30u: db $B5 ; play note F5
 #_1B9D35: #_ED31u: db $06, $69 ; duration, params
-#_1B9D37: #_ED33u: db F5
-#_1B9D38: #_ED34u: db F5
-#_1B9D39: #_ED35u: db F5
+#_1B9D37: #_ED33u: db $B5 ; play note F5
+#_1B9D38: #_ED34u: db $B5 ; play note F5
+#_1B9D39: #_ED35u: db $B5 ; play note F5
 #_1B9D3A: #_ED36u: db $06, $6B ; duration, params
-#_1B9D3C: #_ED38u: db F5
+#_1B9D3C: #_ED38u: db $B5 ; play note F5
 #_1B9D3D: #_ED39u: db $06, $69 ; duration, params
-#_1B9D3F: #_ED3Bu: db F5
-#_1B9D40: #_ED3Cu: db F5
-#_1B9D41: #_ED3Du: db F5
-#_1B9D42: #_ED3Eu: db !PART_END
+#_1B9D3F: #_ED3Bu: db $B5 ; play note F5
+#_1B9D40: #_ED3Cu: db $B5 ; play note F5
+#_1B9D41: #_ED3Du: db $B5 ; play note F5
+#_1B9D42: #_ED3Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment2_Track1:
-#_1B9D43: #_ED3Fu: db !INSTR, $09
-#_1B9D45: #_ED41u: db !VOLUME, $C8
-#_1B9D47: #_ED43u: db !CALL_PART : dw Song16_Sub_F028 : db 1
+#_1B9D43: #_ED3Fu: db $E0, $09 ; set instrument - strings A
+#_1B9D45: #_ED41u: db $ED, $C8 ; set channel volume
+#_1B9D47: #_ED43u: db $EF : dw Song16_Sub_F028 : db $01 ; call segment subroutine
 #_1B9D4B: #_ED47u: db $06, $6D ; duration, params
-#_1B9D4D: #_ED49u: db A4
+#_1B9D4D: #_ED49u: db $AD ; play note A4
 #_1B9D4E: #_ED4Au: db $06, $69 ; duration, params
-#_1B9D50: #_ED4Cu: db A4
-#_1B9D51: #_ED4Du: db A4
-#_1B9D52: #_ED4Eu: db A4
+#_1B9D50: #_ED4Cu: db $AD ; play note A4
+#_1B9D51: #_ED4Du: db $AD ; play note A4
+#_1B9D52: #_ED4Eu: db $AD ; play note A4
 #_1B9D53: #_ED4Fu: db $06, $6B ; duration, params
-#_1B9D55: #_ED51u: db A4
+#_1B9D55: #_ED51u: db $AD ; play note A4
 #_1B9D56: #_ED52u: db $06, $69 ; duration, params
-#_1B9D58: #_ED54u: db A4
-#_1B9D59: #_ED55u: db A4
-#_1B9D5A: #_ED56u: db A4
+#_1B9D58: #_ED54u: db $AD ; play note A4
+#_1B9D59: #_ED55u: db $AD ; play note A4
+#_1B9D5A: #_ED56u: db $AD ; play note A4
 #_1B9D5B: #_ED57u: db $06, $6C ; duration, params
-#_1B9D5D: #_ED59u: db A4
+#_1B9D5D: #_ED59u: db $AD ; play note A4
 #_1B9D5E: #_ED5Au: db $06, $69 ; duration, params
-#_1B9D60: #_ED5Cu: db A4
-#_1B9D61: #_ED5Du: db A4
-#_1B9D62: #_ED5Eu: db A4
+#_1B9D60: #_ED5Cu: db $AD ; play note A4
+#_1B9D61: #_ED5Du: db $AD ; play note A4
+#_1B9D62: #_ED5Eu: db $AD ; play note A4
 #_1B9D63: #_ED5Fu: db $06, $6B ; duration, params
-#_1B9D65: #_ED61u: db A4
+#_1B9D65: #_ED61u: db $AD ; play note A4
 #_1B9D66: #_ED62u: db $06, $69 ; duration, params
-#_1B9D68: #_ED64u: db A4
-#_1B9D69: #_ED65u: db A4
-#_1B9D6A: #_ED66u: db A4
+#_1B9D68: #_ED64u: db $AD ; play note A4
+#_1B9D69: #_ED65u: db $AD ; play note A4
+#_1B9D6A: #_ED66u: db $AD ; play note A4
 #_1B9D6B: #_ED67u: db $06, $6D ; duration, params
-#_1B9D6D: #_ED69u: db B4
+#_1B9D6D: #_ED69u: db $AF ; play note B4
 #_1B9D6E: #_ED6Au: db $06, $69 ; duration, params
-#_1B9D70: #_ED6Cu: db B4
-#_1B9D71: #_ED6Du: db B4
-#_1B9D72: #_ED6Eu: db B4
+#_1B9D70: #_ED6Cu: db $AF ; play note B4
+#_1B9D71: #_ED6Du: db $AF ; play note B4
+#_1B9D72: #_ED6Eu: db $AF ; play note B4
 #_1B9D73: #_ED6Fu: db $06, $6B ; duration, params
-#_1B9D75: #_ED71u: db B4
+#_1B9D75: #_ED71u: db $AF ; play note B4
 #_1B9D76: #_ED72u: db $06, $69 ; duration, params
-#_1B9D78: #_ED74u: db B4
-#_1B9D79: #_ED75u: db B4
-#_1B9D7A: #_ED76u: db B4
+#_1B9D78: #_ED74u: db $AF ; play note B4
+#_1B9D79: #_ED75u: db $AF ; play note B4
+#_1B9D7A: #_ED76u: db $AF ; play note B4
 #_1B9D7B: #_ED77u: db $06, $6C ; duration, params
-#_1B9D7D: #_ED79u: db B4
+#_1B9D7D: #_ED79u: db $AF ; play note B4
 #_1B9D7E: #_ED7Au: db $06, $69 ; duration, params
-#_1B9D80: #_ED7Cu: db B4
-#_1B9D81: #_ED7Du: db B4
-#_1B9D82: #_ED7Eu: db B4
+#_1B9D80: #_ED7Cu: db $AF ; play note B4
+#_1B9D81: #_ED7Du: db $AF ; play note B4
+#_1B9D82: #_ED7Eu: db $AF ; play note B4
 #_1B9D83: #_ED7Fu: db $06, $6B ; duration, params
-#_1B9D85: #_ED81u: db B4
+#_1B9D85: #_ED81u: db $AF ; play note B4
 #_1B9D86: #_ED82u: db $06, $69 ; duration, params
-#_1B9D88: #_ED84u: db B4
-#_1B9D89: #_ED85u: db B4
-#_1B9D8A: #_ED86u: db B4
+#_1B9D88: #_ED84u: db $AF ; play note B4
+#_1B9D89: #_ED85u: db $AF ; play note B4
+#_1B9D8A: #_ED86u: db $AF ; play note B4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment2_Track2:
 #_1B9D8B: #_ED87u: db $30 ; duration
-#_1B9D8C: #_ED88u: db R
+#_1B9D8C: #_ED88u: db $C9 ; rest
 #_1B9D8D: #_ED89u: db $10, $6D ; duration, params
-#_1B9D8F: #_ED8Bu: db Ds3
-#_1B9D90: #_ED8Cu: db D3
-#_1B9D91: #_ED8Du: db Gs3
-#_1B9D92: #_ED8Eu: db !CALL_PART : dw Song16_Sub_F0A9 : db 1
-#_1B9D96: #_ED92u: db !CALL_PART : dw Song16_Sub_F0C8 : db 1
+#_1B9D8F: #_ED8Bu: db $9B ; play note Ds3
+#_1B9D90: #_ED8Cu: db $9A ; play note D3
+#_1B9D91: #_ED8Du: db $A0 ; play note Gs3
+#_1B9D92: #_ED8Eu: db $EF : dw Song16_Sub_F0A9 : db $01 ; call segment subroutine
+#_1B9D96: #_ED92u: db $EF : dw Song16_Sub_F0C8 : db $01 ; call segment subroutine
 #_1B9D9A: #_ED96u: db $60 ; duration
-#_1B9D9B: #_ED97u: db !TIE
+#_1B9D9B: #_ED97u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment2_Track3:
-#_1B9D9C: #_ED98u: db !CALL_PART : dw Song16_Sub_F0B5 : db 1
+#_1B9D9C: #_ED98u: db $EF : dw Song16_Sub_F0B5 : db $01 ; call segment subroutine
 #_1B9DA0: #_ED9Cu: db $48 ; duration
-#_1B9DA1: #_ED9Du: db !TIE
+#_1B9DA1: #_ED9Du: db $C8 ; sustain current note
 #_1B9DA2: #_ED9Eu: db $0C ; duration
-#_1B9DA3: #_ED9Fu: db Gs2
-#_1B9DA4: #_EDA0u: db G2
+#_1B9DA3: #_ED9Fu: db $94 ; play note Gs2
+#_1B9DA4: #_EDA0u: db $93 ; play note G2
 #_1B9DA5: #_EDA1u: db $48 ; duration
-#_1B9DA6: #_EDA2u: db !TIE
+#_1B9DA6: #_EDA2u: db $C8 ; sustain current note
 #_1B9DA7: #_EDA3u: db $0C ; duration
-#_1B9DA8: #_EDA4u: db As2
-#_1B9DA9: #_EDA5u: db A2
+#_1B9DA8: #_EDA4u: db $96 ; play note As2
+#_1B9DA9: #_EDA5u: db $95 ; play note A2
 #_1B9DAA: #_EDA6u: db $60 ; duration
-#_1B9DAB: #_EDA7u: db !TIE
+#_1B9DAB: #_EDA7u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment2_Track4:
 #_1B9DAC: #_EDA8u: db $38 ; duration
-#_1B9DAD: #_EDA9u: db R
+#_1B9DAD: #_EDA9u: db $C9 ; rest
 #_1B9DAE: #_EDAAu: db $10, $6D ; duration, params
-#_1B9DB0: #_EDACu: db Ds3
-#_1B9DB1: #_EDADu: db D3
-#_1B9DB2: #_EDAEu: db Gs3
-#_1B9DB3: #_EDAFu: db !CALL_PART : dw Song16_Sub_F0A9 : db 1
-#_1B9DB7: #_EDB3u: db !CALL_PART : dw Song16_Sub_F0C8 : db 1
+#_1B9DB0: #_EDACu: db $9B ; play note Ds3
+#_1B9DB1: #_EDADu: db $9A ; play note D3
+#_1B9DB2: #_EDAEu: db $A0 ; play note Gs3
+#_1B9DB3: #_EDAFu: db $EF : dw Song16_Sub_F0A9 : db $01 ; call segment subroutine
+#_1B9DB7: #_EDB3u: db $EF : dw Song16_Sub_F0C8 : db $01 ; call segment subroutine
 #_1B9DBB: #_EDB7u: db $58 ; duration
-#_1B9DBC: #_EDB8u: db !TIE
+#_1B9DBC: #_EDB8u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment3_Track0:
-#_1B9DBD: #_EDB9u: db !INSTR, $09
-#_1B9DBF: #_EDBBu: db !VOLUME, $B4
+#_1B9DBD: #_EDB9u: db $E0, $09 ; set instrument - strings A
+#_1B9DBF: #_EDBBu: db $ED, $B4 ; set channel volume
 #_1B9DC1: #_EDBDu: db $06, $6D ; duration, params
-#_1B9DC3: #_EDBFu: db Ds5
+#_1B9DC3: #_EDBFu: db $B3 ; play note Ds5
 #_1B9DC4: #_EDC0u: db $06, $69 ; duration, params
-#_1B9DC6: #_EDC2u: db Ds5
-#_1B9DC7: #_EDC3u: db Ds5
-#_1B9DC8: #_EDC4u: db Ds5
+#_1B9DC6: #_EDC2u: db $B3 ; play note Ds5
+#_1B9DC7: #_EDC3u: db $B3 ; play note Ds5
+#_1B9DC8: #_EDC4u: db $B3 ; play note Ds5
 #_1B9DC9: #_EDC5u: db $06, $6B ; duration, params
-#_1B9DCB: #_EDC7u: db Ds5
+#_1B9DCB: #_EDC7u: db $B3 ; play note Ds5
 #_1B9DCC: #_EDC8u: db $06, $69 ; duration, params
-#_1B9DCE: #_EDCAu: db Ds5
-#_1B9DCF: #_EDCBu: db Ds5
-#_1B9DD0: #_EDCCu: db Ds5
+#_1B9DCE: #_EDCAu: db $B3 ; play note Ds5
+#_1B9DCF: #_EDCBu: db $B3 ; play note Ds5
+#_1B9DD0: #_EDCCu: db $B3 ; play note Ds5
 #_1B9DD1: #_EDCDu: db $06, $6C ; duration, params
-#_1B9DD3: #_EDCFu: db Ds5
+#_1B9DD3: #_EDCFu: db $B3 ; play note Ds5
 #_1B9DD4: #_EDD0u: db $06, $69 ; duration, params
-#_1B9DD6: #_EDD2u: db Ds5
-#_1B9DD7: #_EDD3u: db Ds5
-#_1B9DD8: #_EDD4u: db Ds5
+#_1B9DD6: #_EDD2u: db $B3 ; play note Ds5
+#_1B9DD7: #_EDD3u: db $B3 ; play note Ds5
+#_1B9DD8: #_EDD4u: db $B3 ; play note Ds5
 #_1B9DD9: #_EDD5u: db $06, $6B ; duration, params
-#_1B9DDB: #_EDD7u: db Ds5
+#_1B9DDB: #_EDD7u: db $B3 ; play note Ds5
 #_1B9DDC: #_EDD8u: db $06, $69 ; duration, params
-#_1B9DDE: #_EDDAu: db Ds5
-#_1B9DDF: #_EDDBu: db Ds5
-#_1B9DE0: #_EDDCu: db Ds5
+#_1B9DDE: #_EDDAu: db $B3 ; play note Ds5
+#_1B9DDF: #_EDDBu: db $B3 ; play note Ds5
+#_1B9DE0: #_EDDCu: db $B3 ; play note Ds5
 #_1B9DE1: #_EDDDu: db $06, $6D ; duration, params
-#_1B9DE3: #_EDDFu: db D5
+#_1B9DE3: #_EDDFu: db $B2 ; play note D5
 #_1B9DE4: #_EDE0u: db $06, $69 ; duration, params
-#_1B9DE6: #_EDE2u: db D5
-#_1B9DE7: #_EDE3u: db D5
-#_1B9DE8: #_EDE4u: db D5
+#_1B9DE6: #_EDE2u: db $B2 ; play note D5
+#_1B9DE7: #_EDE3u: db $B2 ; play note D5
+#_1B9DE8: #_EDE4u: db $B2 ; play note D5
 #_1B9DE9: #_EDE5u: db $06, $6B ; duration, params
-#_1B9DEB: #_EDE7u: db D5
+#_1B9DEB: #_EDE7u: db $B2 ; play note D5
 #_1B9DEC: #_EDE8u: db $06, $69 ; duration, params
-#_1B9DEE: #_EDEAu: db D5
-#_1B9DEF: #_EDEBu: db D5
-#_1B9DF0: #_EDECu: db D5
+#_1B9DEE: #_EDEAu: db $B2 ; play note D5
+#_1B9DEF: #_EDEBu: db $B2 ; play note D5
+#_1B9DF0: #_EDECu: db $B2 ; play note D5
 #_1B9DF1: #_EDEDu: db $06, $6C ; duration, params
-#_1B9DF3: #_EDEFu: db D5
+#_1B9DF3: #_EDEFu: db $B2 ; play note D5
 #_1B9DF4: #_EDF0u: db $06, $69 ; duration, params
-#_1B9DF6: #_EDF2u: db D5
-#_1B9DF7: #_EDF3u: db D5
-#_1B9DF8: #_EDF4u: db D5
+#_1B9DF6: #_EDF2u: db $B2 ; play note D5
+#_1B9DF7: #_EDF3u: db $B2 ; play note D5
+#_1B9DF8: #_EDF4u: db $B2 ; play note D5
 #_1B9DF9: #_EDF5u: db $06, $6B ; duration, params
-#_1B9DFB: #_EDF7u: db D5
+#_1B9DFB: #_EDF7u: db $B2 ; play note D5
 #_1B9DFC: #_EDF8u: db $06, $69 ; duration, params
-#_1B9DFE: #_EDFAu: db D5
-#_1B9DFF: #_EDFBu: db D5
-#_1B9E00: #_EDFCu: db D5
+#_1B9DFE: #_EDFAu: db $B2 ; play note D5
+#_1B9DFF: #_EDFBu: db $B2 ; play note D5
+#_1B9E00: #_EDFCu: db $B2 ; play note D5
 #_1B9E01: #_EDFDu: db $06, $6D ; duration, params
-#_1B9E03: #_EDFFu: db Cs5
+#_1B9E03: #_EDFFu: db $B1 ; play note Cs5
 #_1B9E04: #_EE00u: db $06, $69 ; duration, params
-#_1B9E06: #_EE02u: db Cs5
-#_1B9E07: #_EE03u: db Cs5
-#_1B9E08: #_EE04u: db Cs5
+#_1B9E06: #_EE02u: db $B1 ; play note Cs5
+#_1B9E07: #_EE03u: db $B1 ; play note Cs5
+#_1B9E08: #_EE04u: db $B1 ; play note Cs5
 #_1B9E09: #_EE05u: db $06, $6B ; duration, params
-#_1B9E0B: #_EE07u: db Cs5
+#_1B9E0B: #_EE07u: db $B1 ; play note Cs5
 #_1B9E0C: #_EE08u: db $06, $69 ; duration, params
-#_1B9E0E: #_EE0Au: db Cs5
-#_1B9E0F: #_EE0Bu: db Cs5
-#_1B9E10: #_EE0Cu: db Cs5
+#_1B9E0E: #_EE0Au: db $B1 ; play note Cs5
+#_1B9E0F: #_EE0Bu: db $B1 ; play note Cs5
+#_1B9E10: #_EE0Cu: db $B1 ; play note Cs5
 #_1B9E11: #_EE0Du: db $06, $6C ; duration, params
-#_1B9E13: #_EE0Fu: db Cs5
+#_1B9E13: #_EE0Fu: db $B1 ; play note Cs5
 #_1B9E14: #_EE10u: db $06, $69 ; duration, params
-#_1B9E16: #_EE12u: db Cs5
-#_1B9E17: #_EE13u: db Cs5
-#_1B9E18: #_EE14u: db Cs5
+#_1B9E16: #_EE12u: db $B1 ; play note Cs5
+#_1B9E17: #_EE13u: db $B1 ; play note Cs5
+#_1B9E18: #_EE14u: db $B1 ; play note Cs5
 #_1B9E19: #_EE15u: db $06, $6B ; duration, params
-#_1B9E1B: #_EE17u: db Cs5
-#_1B9E1C: #_EE18u: db Cs5
-#_1B9E1D: #_EE19u: db Cs5
+#_1B9E1B: #_EE17u: db $B1 ; play note Cs5
+#_1B9E1C: #_EE18u: db $B1 ; play note Cs5
+#_1B9E1D: #_EE19u: db $B1 ; play note Cs5
 #_1B9E1E: #_EE1Au: db $06, $69 ; duration, params
-#_1B9E20: #_EE1Cu: db Cs5
+#_1B9E20: #_EE1Cu: db $B1 ; play note Cs5
 #_1B9E21: #_EE1Du: db $06, $6D ; duration, params
-#_1B9E23: #_EE1Fu: db C5
+#_1B9E23: #_EE1Fu: db $B0 ; play note C5
 #_1B9E24: #_EE20u: db $06, $69 ; duration, params
-#_1B9E26: #_EE22u: db C5
-#_1B9E27: #_EE23u: db C5
-#_1B9E28: #_EE24u: db C5
+#_1B9E26: #_EE22u: db $B0 ; play note C5
+#_1B9E27: #_EE23u: db $B0 ; play note C5
+#_1B9E28: #_EE24u: db $B0 ; play note C5
 #_1B9E29: #_EE25u: db $06, $6B ; duration, params
-#_1B9E2B: #_EE27u: db C5
+#_1B9E2B: #_EE27u: db $B0 ; play note C5
 #_1B9E2C: #_EE28u: db $06, $69 ; duration, params
-#_1B9E2E: #_EE2Au: db C5
-#_1B9E2F: #_EE2Bu: db C5
-#_1B9E30: #_EE2Cu: db C5
+#_1B9E2E: #_EE2Au: db $B0 ; play note C5
+#_1B9E2F: #_EE2Bu: db $B0 ; play note C5
+#_1B9E30: #_EE2Cu: db $B0 ; play note C5
 #_1B9E31: #_EE2Du: db $06, $6C ; duration, params
-#_1B9E33: #_EE2Fu: db C5
+#_1B9E33: #_EE2Fu: db $B0 ; play note C5
 #_1B9E34: #_EE30u: db $06, $69 ; duration, params
-#_1B9E36: #_EE32u: db C5
-#_1B9E37: #_EE33u: db C5
-#_1B9E38: #_EE34u: db C5
+#_1B9E36: #_EE32u: db $B0 ; play note C5
+#_1B9E37: #_EE33u: db $B0 ; play note C5
+#_1B9E38: #_EE34u: db $B0 ; play note C5
 #_1B9E39: #_EE35u: db $06, $6B ; duration, params
-#_1B9E3B: #_EE37u: db C5
+#_1B9E3B: #_EE37u: db $B0 ; play note C5
 #_1B9E3C: #_EE38u: db $06, $69 ; duration, params
-#_1B9E3E: #_EE3Au: db C5
-#_1B9E3F: #_EE3Bu: db C5
-#_1B9E40: #_EE3Cu: db C5
-#_1B9E41: #_EE3Du: db !CALL_PART : dw Song16_Sub_F0D3 : db 4
-#_1B9E45: #_EE41u: db !PART_END
+#_1B9E3E: #_EE3Au: db $B0 ; play note C5
+#_1B9E3F: #_EE3Bu: db $B0 ; play note C5
+#_1B9E40: #_EE3Cu: db $B0 ; play note C5
+#_1B9E41: #_EE3Du: db $EF : dw Song16_Sub_F0D3 : db $04 ; call segment subroutine
+#_1B9E45: #_EE41u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment3_Track1:
-#_1B9E46: #_EE42u: db !INSTR, $09
-#_1B9E48: #_EE44u: db !VOLUME, $B4
+#_1B9E46: #_EE42u: db $E0, $09 ; set instrument - strings A
+#_1B9E48: #_EE44u: db $ED, $B4 ; set channel volume
 #_1B9E4A: #_EE46u: db $06, $6D ; duration, params
-#_1B9E4C: #_EE48u: db A4
+#_1B9E4C: #_EE48u: db $AD ; play note A4
 #_1B9E4D: #_EE49u: db $06, $69 ; duration, params
-#_1B9E4F: #_EE4Bu: db A4
-#_1B9E50: #_EE4Cu: db A4
-#_1B9E51: #_EE4Du: db A4
+#_1B9E4F: #_EE4Bu: db $AD ; play note A4
+#_1B9E50: #_EE4Cu: db $AD ; play note A4
+#_1B9E51: #_EE4Du: db $AD ; play note A4
 #_1B9E52: #_EE4Eu: db $06, $6B ; duration, params
-#_1B9E54: #_EE50u: db A4
+#_1B9E54: #_EE50u: db $AD ; play note A4
 #_1B9E55: #_EE51u: db $06, $69 ; duration, params
-#_1B9E57: #_EE53u: db A4
-#_1B9E58: #_EE54u: db A4
-#_1B9E59: #_EE55u: db A4
+#_1B9E57: #_EE53u: db $AD ; play note A4
+#_1B9E58: #_EE54u: db $AD ; play note A4
+#_1B9E59: #_EE55u: db $AD ; play note A4
 #_1B9E5A: #_EE56u: db $06, $6C ; duration, params
-#_1B9E5C: #_EE58u: db A4
+#_1B9E5C: #_EE58u: db $AD ; play note A4
 #_1B9E5D: #_EE59u: db $06, $69 ; duration, params
-#_1B9E5F: #_EE5Bu: db A4
-#_1B9E60: #_EE5Cu: db A4
-#_1B9E61: #_EE5Du: db A4
+#_1B9E5F: #_EE5Bu: db $AD ; play note A4
+#_1B9E60: #_EE5Cu: db $AD ; play note A4
+#_1B9E61: #_EE5Du: db $AD ; play note A4
 #_1B9E62: #_EE5Eu: db $06, $6B ; duration, params
-#_1B9E64: #_EE60u: db A4
+#_1B9E64: #_EE60u: db $AD ; play note A4
 #_1B9E65: #_EE61u: db $06, $69 ; duration, params
-#_1B9E67: #_EE63u: db A4
-#_1B9E68: #_EE64u: db A4
-#_1B9E69: #_EE65u: db A4
-#_1B9E6A: #_EE66u: db !CALL_PART : dw Song16_Sub_F0E4 : db 1
+#_1B9E67: #_EE63u: db $AD ; play note A4
+#_1B9E68: #_EE64u: db $AD ; play note A4
+#_1B9E69: #_EE65u: db $AD ; play note A4
+#_1B9E6A: #_EE66u: db $EF : dw Song16_Sub_F0E4 : db $01 ; call segment subroutine
 #_1B9E6E: #_EE6Au: db $06, $6D ; duration, params
-#_1B9E70: #_EE6Cu: db Fs4
+#_1B9E70: #_EE6Cu: db $AA ; play note Fs4
 #_1B9E71: #_EE6Du: db $06, $69 ; duration, params
-#_1B9E73: #_EE6Fu: db Fs4
-#_1B9E74: #_EE70u: db Fs4
-#_1B9E75: #_EE71u: db Fs4
+#_1B9E73: #_EE6Fu: db $AA ; play note Fs4
+#_1B9E74: #_EE70u: db $AA ; play note Fs4
+#_1B9E75: #_EE71u: db $AA ; play note Fs4
 #_1B9E76: #_EE72u: db $06, $6B ; duration, params
-#_1B9E78: #_EE74u: db Fs4
+#_1B9E78: #_EE74u: db $AA ; play note Fs4
 #_1B9E79: #_EE75u: db $06, $69 ; duration, params
-#_1B9E7B: #_EE77u: db Fs4
-#_1B9E7C: #_EE78u: db Fs4
-#_1B9E7D: #_EE79u: db Fs4
-#_1B9E7E: #_EE7Au: db Fs4
-#_1B9E7F: #_EE7Bu: db Fs4
-#_1B9E80: #_EE7Cu: db Fs4
-#_1B9E81: #_EE7Du: db Fs4
+#_1B9E7B: #_EE77u: db $AA ; play note Fs4
+#_1B9E7C: #_EE78u: db $AA ; play note Fs4
+#_1B9E7D: #_EE79u: db $AA ; play note Fs4
+#_1B9E7E: #_EE7Au: db $AA ; play note Fs4
+#_1B9E7F: #_EE7Bu: db $AA ; play note Fs4
+#_1B9E80: #_EE7Cu: db $AA ; play note Fs4
+#_1B9E81: #_EE7Du: db $AA ; play note Fs4
 #_1B9E82: #_EE7Eu: db $06, $6B ; duration, params
-#_1B9E84: #_EE80u: db Fs4
+#_1B9E84: #_EE80u: db $AA ; play note Fs4
 #_1B9E85: #_EE81u: db $06, $69 ; duration, params
-#_1B9E87: #_EE83u: db Fs4
-#_1B9E88: #_EE84u: db Fs4
-#_1B9E89: #_EE85u: db Fs4
-#_1B9E8A: #_EE86u: db !CALL_PART : dw Song16_Sub_F125 : db 4
+#_1B9E87: #_EE83u: db $AA ; play note Fs4
+#_1B9E88: #_EE84u: db $AA ; play note Fs4
+#_1B9E89: #_EE85u: db $AA ; play note Fs4
+#_1B9E8A: #_EE86u: db $EF : dw Song16_Sub_F125 : db $04 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment3_Track2:
 #_1B9E8E: #_EE8Au: db $30 ; duration
-#_1B9E8F: #_EE8Bu: db R
+#_1B9E8F: #_EE8Bu: db $C9 ; rest
 #_1B9E90: #_EE8Cu: db $10, $6D ; duration, params
-#_1B9E92: #_EE8Eu: db G3
-#_1B9E93: #_EE8Fu: db Fs3
-#_1B9E94: #_EE90u: db C4
-#_1B9E95: #_EE91u: db !CALL_PART : dw Song16_Sub_F136 : db 1
+#_1B9E92: #_EE8Eu: db $9F ; play note G3
+#_1B9E93: #_EE8Fu: db $9E ; play note Fs3
+#_1B9E94: #_EE90u: db $A4 ; play note C4
+#_1B9E95: #_EE91u: db $EF : dw Song16_Sub_F136 : db $01 ; call segment subroutine
 #_1B9E99: #_EE95u: db $60 ; duration
-#_1B9E9A: #_EE96u: db !TIE
+#_1B9E9A: #_EE96u: db $C8 ; sustain current note
 #_1B9E9B: #_EE97u: db $18 ; duration
-#_1B9E9C: #_EE98u: db !TIE
+#_1B9E9C: #_EE98u: db $C8 ; sustain current note
 #_1B9E9D: #_EE99u: db $0C ; duration
-#_1B9E9E: #_EE9Au: db D4
-#_1B9E9F: #_EE9Bu: db Cs4
+#_1B9E9E: #_EE9Au: db $A6 ; play note D4
+#_1B9E9F: #_EE9Bu: db $A5 ; play note Cs4
 #_1B9EA0: #_EE9Cu: db $30 ; duration
-#_1B9EA1: #_EE9Du: db !TIE
+#_1B9EA1: #_EE9Du: db $C8 ; sustain current note
 #_1B9EA2: #_EE9Eu: db $60 ; duration
-#_1B9EA3: #_EE9Fu: db !TIE
+#_1B9EA3: #_EE9Fu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment3_Track3:
 #_1B9EA4: #_EEA0u: db $30 ; duration
-#_1B9EA5: #_EEA1u: db R
+#_1B9EA5: #_EEA1u: db $C9 ; rest
 #_1B9EA6: #_EEA2u: db $10, $6D ; duration, params
-#_1B9EA8: #_EEA4u: db G2
-#_1B9EA9: #_EEA5u: db Fs2
-#_1B9EAA: #_EEA6u: db C3
+#_1B9EA8: #_EEA4u: db $93 ; play note G2
+#_1B9EA9: #_EEA5u: db $92 ; play note Fs2
+#_1B9EAA: #_EEA6u: db $98 ; play note C3
 #_1B9EAB: #_EEA7u: db $30 ; duration
-#_1B9EAC: #_EEA8u: db B2
+#_1B9EAC: #_EEA8u: db $97 ; play note B2
 #_1B9EAD: #_EEA9u: db $24 ; duration
-#_1B9EAE: #_EEAAu: db F2
+#_1B9EAE: #_EEAAu: db $91 ; play note F2
 #_1B9EAF: #_EEABu: db $0C ; duration
-#_1B9EB0: #_EEACu: db E2
+#_1B9EB0: #_EEACu: db $90 ; play note E2
 #_1B9EB1: #_EEADu: db $30 ; duration
-#_1B9EB2: #_EEAEu: db !TIE
+#_1B9EB2: #_EEAEu: db $C8 ; sustain current note
 #_1B9EB3: #_EEAFu: db $10 ; duration
-#_1B9EB4: #_EEB0u: db E2
-#_1B9EB5: #_EEB1u: db Ds2
-#_1B9EB6: #_EEB2u: db As2
+#_1B9EB4: #_EEB0u: db $90 ; play note E2
+#_1B9EB5: #_EEB1u: db $8F ; play note Ds2
+#_1B9EB6: #_EEB2u: db $96 ; play note As2
 #_1B9EB7: #_EEB3u: db $30 ; duration
-#_1B9EB8: #_EEB4u: db A2
+#_1B9EB8: #_EEB4u: db $95 ; play note A2
 #_1B9EB9: #_EEB5u: db $24 ; duration
-#_1B9EBA: #_EEB6u: db Ds2
+#_1B9EBA: #_EEB6u: db $8F ; play note Ds2
 #_1B9EBB: #_EEB7u: db $0C ; duration
-#_1B9EBC: #_EEB8u: db D2
+#_1B9EBC: #_EEB8u: db $8E ; play note D2
 #_1B9EBD: #_EEB9u: db $60 ; duration
-#_1B9EBE: #_EEBAu: db !TIE
+#_1B9EBE: #_EEBAu: db $C8 ; sustain current note
 #_1B9EBF: #_EEBBu: db $18 ; duration
-#_1B9EC0: #_EEBCu: db !TIE
+#_1B9EC0: #_EEBCu: db $C8 ; sustain current note
 #_1B9EC1: #_EEBDu: db $0C ; duration
-#_1B9EC2: #_EEBEu: db F3
-#_1B9EC3: #_EEBFu: db E3
+#_1B9EC2: #_EEBEu: db $9D ; play note F3
+#_1B9EC3: #_EEBFu: db $9C ; play note E3
 #_1B9EC4: #_EEC0u: db $30 ; duration
-#_1B9EC5: #_EEC1u: db !TIE
+#_1B9EC5: #_EEC1u: db $C8 ; sustain current note
 #_1B9EC6: #_EEC2u: db $48 ; duration
-#_1B9EC7: #_EEC3u: db !TIE
+#_1B9EC7: #_EEC3u: db $C8 ; sustain current note
 #_1B9EC8: #_EEC4u: db $0C ; duration
-#_1B9EC9: #_EEC5u: db F4
-#_1B9ECA: #_EEC6u: db E4
+#_1B9EC9: #_EEC5u: db $A9 ; play note F4
+#_1B9ECA: #_EEC6u: db $A8 ; play note E4
 #_1B9ECB: #_EEC7u: db $60 ; duration
-#_1B9ECC: #_EEC8u: db !TIE
+#_1B9ECC: #_EEC8u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment3_Track4:
 #_1B9ECD: #_EEC9u: db $38 ; duration
-#_1B9ECE: #_EECAu: db R
+#_1B9ECE: #_EECAu: db $C9 ; rest
 #_1B9ECF: #_EECBu: db $10, $6D ; duration, params
-#_1B9ED1: #_EECDu: db G3
-#_1B9ED2: #_EECEu: db Fs3
-#_1B9ED3: #_EECFu: db C4
-#_1B9ED4: #_EED0u: db !CALL_PART : dw Song16_Sub_F136 : db 1
+#_1B9ED1: #_EECDu: db $9F ; play note G3
+#_1B9ED2: #_EECEu: db $9E ; play note Fs3
+#_1B9ED3: #_EECFu: db $A4 ; play note C4
+#_1B9ED4: #_EED0u: db $EF : dw Song16_Sub_F136 : db $01 ; call segment subroutine
 #_1B9ED8: #_EED4u: db $60 ; duration
-#_1B9ED9: #_EED5u: db !TIE
+#_1B9ED9: #_EED5u: db $C8 ; sustain current note
 #_1B9EDA: #_EED6u: db $18 ; duration
-#_1B9EDB: #_EED7u: db !TIE
+#_1B9EDB: #_EED7u: db $C8 ; sustain current note
 #_1B9EDC: #_EED8u: db $0C ; duration
-#_1B9EDD: #_EED9u: db D4
-#_1B9EDE: #_EEDAu: db Cs4
+#_1B9EDD: #_EED9u: db $A6 ; play note D4
+#_1B9EDE: #_EEDAu: db $A5 ; play note Cs4
 #_1B9EDF: #_EEDBu: db $30 ; duration
-#_1B9EE0: #_EEDCu: db !TIE
+#_1B9EE0: #_EEDCu: db $C8 ; sustain current note
 #_1B9EE1: #_EEDDu: db $58 ; duration
-#_1B9EE2: #_EEDEu: db !TIE
+#_1B9EE2: #_EEDEu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment3_Track5:
-#_1B9EE3: #_EEDFu: db !INSTR, $09
-#_1B9EE5: #_EEE1u: db !VOLUME, $F0
-#_1B9EE7: #_EEE3u: db !PAN, $08
-#_1B9EE9: #_EEE5u: db !VIBRATO, $1C, $1C, $10
+#_1B9EE3: #_EEDFu: db $E0, $09 ; set instrument - strings A
+#_1B9EE5: #_EEE1u: db $ED, $F0 ; set channel volume
+#_1B9EE7: #_EEE3u: db $E1, $08 ; set panning - leaning right
+#_1B9EE9: #_EEE5u: db $E3, $1C, $1C, $10 ; enable vibrato
 #_1B9EED: #_EEE9u: db $60 ; duration
-#_1B9EEE: #_EEEAu: db R
-#_1B9EEF: #_EEEBu: db R
-#_1B9EF0: #_EEECu: db R
-#_1B9EF1: #_EEEDu: db R
-#_1B9EF2: #_EEEEu: db R
+#_1B9EEE: #_EEEAu: db $C9 ; rest
+#_1B9EEF: #_EEEBu: db $C9 ; rest
+#_1B9EF0: #_EEECu: db $C9 ; rest
+#_1B9EF1: #_EEEDu: db $C9 ; rest
+#_1B9EF2: #_EEEEu: db $C9 ; rest
 #_1B9EF3: #_EEEFu: db $48, $6D ; duration, params
-#_1B9EF5: #_EEF1u: db !TIE
+#_1B9EF5: #_EEF1u: db $C8 ; sustain current note
 #_1B9EF6: #_EEF2u: db $0C ; duration
-#_1B9EF7: #_EEF3u: db Gs3
-#_1B9EF8: #_EEF4u: db G3
+#_1B9EF7: #_EEF3u: db $A0 ; play note Gs3
+#_1B9EF8: #_EEF4u: db $9F ; play note G3
 #_1B9EF9: #_EEF5u: db $60 ; duration
-#_1B9EFA: #_EEF6u: db !TIE
-#_1B9EFB: #_EEF7u: db !TIE
+#_1B9EFA: #_EEF6u: db $C8 ; sustain current note
+#_1B9EFB: #_EEF7u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment4_Track0:
 #_1B9EFC: #_EEF8u: db $06, $69 ; duration, params
-#_1B9EFE: #_EEFAu: db As4
-#_1B9EFF: #_EEFBu: db As4
-#_1B9F00: #_EEFCu: db As4
-#_1B9F01: #_EEFDu: db As4
-#_1B9F02: #_EEFEu: db As4
-#_1B9F03: #_EEFFu: db As4
-#_1B9F04: #_EF00u: db As4
-#_1B9F05: #_EF01u: db As4
-#_1B9F06: #_EF02u: db As4
-#_1B9F07: #_EF03u: db As4
-#_1B9F08: #_EF04u: db As4
-#_1B9F09: #_EF05u: db As4
-#_1B9F0A: #_EF06u: db As4
-#_1B9F0B: #_EF07u: db As4
-#_1B9F0C: #_EF08u: db As4
-#_1B9F0D: #_EF09u: db As4
-#_1B9F0E: #_EF0Au: db !CALL_PART : dw Song16_Sub_F14E : db 3
-#_1B9F12: #_EF0Eu: db !PART_END
+#_1B9EFE: #_EEFAu: db $AE ; play note As4
+#_1B9EFF: #_EEFBu: db $AE ; play note As4
+#_1B9F00: #_EEFCu: db $AE ; play note As4
+#_1B9F01: #_EEFDu: db $AE ; play note As4
+#_1B9F02: #_EEFEu: db $AE ; play note As4
+#_1B9F03: #_EEFFu: db $AE ; play note As4
+#_1B9F04: #_EF00u: db $AE ; play note As4
+#_1B9F05: #_EF01u: db $AE ; play note As4
+#_1B9F06: #_EF02u: db $AE ; play note As4
+#_1B9F07: #_EF03u: db $AE ; play note As4
+#_1B9F08: #_EF04u: db $AE ; play note As4
+#_1B9F09: #_EF05u: db $AE ; play note As4
+#_1B9F0A: #_EF06u: db $AE ; play note As4
+#_1B9F0B: #_EF07u: db $AE ; play note As4
+#_1B9F0C: #_EF08u: db $AE ; play note As4
+#_1B9F0D: #_EF09u: db $AE ; play note As4
+#_1B9F0E: #_EF0Au: db $EF : dw Song16_Sub_F14E : db $03 ; call segment subroutine
+#_1B9F12: #_EF0Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment4_Track1:
 #_1B9F13: #_EF0Fu: db $06, $69 ; duration, params
-#_1B9F15: #_EF11u: db E4
-#_1B9F16: #_EF12u: db E4
-#_1B9F17: #_EF13u: db E4
-#_1B9F18: #_EF14u: db E4
-#_1B9F19: #_EF15u: db E4
-#_1B9F1A: #_EF16u: db E4
-#_1B9F1B: #_EF17u: db E4
-#_1B9F1C: #_EF18u: db E4
-#_1B9F1D: #_EF19u: db E4
-#_1B9F1E: #_EF1Au: db E4
-#_1B9F1F: #_EF1Bu: db E4
-#_1B9F20: #_EF1Cu: db E4
-#_1B9F21: #_EF1Du: db E4
-#_1B9F22: #_EF1Eu: db E4
-#_1B9F23: #_EF1Fu: db E4
-#_1B9F24: #_EF20u: db E4
-#_1B9F25: #_EF21u: db !CALL_PART : dw Song16_Sub_F15F : db 3
+#_1B9F15: #_EF11u: db $A8 ; play note E4
+#_1B9F16: #_EF12u: db $A8 ; play note E4
+#_1B9F17: #_EF13u: db $A8 ; play note E4
+#_1B9F18: #_EF14u: db $A8 ; play note E4
+#_1B9F19: #_EF15u: db $A8 ; play note E4
+#_1B9F1A: #_EF16u: db $A8 ; play note E4
+#_1B9F1B: #_EF17u: db $A8 ; play note E4
+#_1B9F1C: #_EF18u: db $A8 ; play note E4
+#_1B9F1D: #_EF19u: db $A8 ; play note E4
+#_1B9F1E: #_EF1Au: db $A8 ; play note E4
+#_1B9F1F: #_EF1Bu: db $A8 ; play note E4
+#_1B9F20: #_EF1Cu: db $A8 ; play note E4
+#_1B9F21: #_EF1Du: db $A8 ; play note E4
+#_1B9F22: #_EF1Eu: db $A8 ; play note E4
+#_1B9F23: #_EF1Fu: db $A8 ; play note E4
+#_1B9F24: #_EF20u: db $A8 ; play note E4
+#_1B9F25: #_EF21u: db $EF : dw Song16_Sub_F15F : db $03 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment4_Track2:
 #_1B9F29: #_EF25u: db $30, $6D ; duration, params
-#_1B9F2B: #_EF27u: db !TIE
+#_1B9F2B: #_EF27u: db $C8 ; sustain current note
 #_1B9F2C: #_EF28u: db $0C ; duration
-#_1B9F2D: #_EF29u: db Cs3
+#_1B9F2D: #_EF29u: db $99 ; play note Cs3
 #_1B9F2E: #_EF2Au: db $24 ; duration
-#_1B9F2F: #_EF2Bu: db C3
+#_1B9F2F: #_EF2Bu: db $98 ; play note C3
 #_1B9F30: #_EF2Cu: db $60 ; duration
-#_1B9F31: #_EF2Du: db !TIE
+#_1B9F31: #_EF2Du: db $C8 ; sustain current note
 #_1B9F32: #_EF2Eu: db $0C ; duration
-#_1B9F33: #_EF2Fu: db Cs4
-#_1B9F34: #_EF30u: db C4
+#_1B9F33: #_EF2Fu: db $A5 ; play note Cs4
+#_1B9F34: #_EF30u: db $A4 ; play note C4
 #_1B9F35: #_EF31u: db $48 ; duration
-#_1B9F36: #_EF32u: db !TIE
+#_1B9F36: #_EF32u: db $C8 ; sustain current note
 #_1B9F37: #_EF33u: db $60 ; duration
-#_1B9F38: #_EF34u: db !TIE
+#_1B9F38: #_EF34u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment4_Track3:
 #_1B9F39: #_EF35u: db $60, $68 ; duration, params
-#_1B9F3B: #_EF37u: db !TIE
+#_1B9F3B: #_EF37u: db $C8 ; sustain current note
 #_1B9F3C: #_EF38u: db $0C, $6D ; duration, params
-#_1B9F3E: #_EF3Au: db E3
-#_1B9F3F: #_EF3Bu: db Ds3
+#_1B9F3E: #_EF3Au: db $9C ; play note E3
+#_1B9F3F: #_EF3Bu: db $9B ; play note Ds3
 #_1B9F40: #_EF3Cu: db $48 ; duration
-#_1B9F41: #_EF3Du: db !TIE
+#_1B9F41: #_EF3Du: db $C8 ; sustain current note
 #_1B9F42: #_EF3Eu: db $30 ; duration
-#_1B9F43: #_EF3Fu: db !TIE
+#_1B9F43: #_EF3Fu: db $C8 ; sustain current note
 #_1B9F44: #_EF40u: db $0C ; duration
-#_1B9F45: #_EF41u: db E4
-#_1B9F46: #_EF42u: db Ds4
+#_1B9F45: #_EF41u: db $A8 ; play note E4
+#_1B9F46: #_EF42u: db $A7 ; play note Ds4
 #_1B9F47: #_EF43u: db $18 ; duration
-#_1B9F48: #_EF44u: db !TIE
+#_1B9F48: #_EF44u: db $C8 ; sustain current note
 #_1B9F49: #_EF45u: db $60 ; duration
-#_1B9F4A: #_EF46u: db !TIE
+#_1B9F4A: #_EF46u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment4_Track4:
 #_1B9F4B: #_EF47u: db $38, $6D ; duration, params
-#_1B9F4D: #_EF49u: db !TIE
+#_1B9F4D: #_EF49u: db $C8 ; sustain current note
 #_1B9F4E: #_EF4Au: db $0C ; duration
-#_1B9F4F: #_EF4Bu: db Cs3
-#_1B9F50: #_EF4Cu: db C3
+#_1B9F4F: #_EF4Bu: db $99 ; play note Cs3
+#_1B9F50: #_EF4Cu: db $98 ; play note C3
 #_1B9F51: #_EF4Du: db $18 ; duration
-#_1B9F52: #_EF4Eu: db !TIE
+#_1B9F52: #_EF4Eu: db $C8 ; sustain current note
 #_1B9F53: #_EF4Fu: db $60 ; duration
-#_1B9F54: #_EF50u: db !TIE
+#_1B9F54: #_EF50u: db $C8 ; sustain current note
 #_1B9F55: #_EF51u: db $0C ; duration
-#_1B9F56: #_EF52u: db Cs4
-#_1B9F57: #_EF53u: db C4
+#_1B9F56: #_EF52u: db $A5 ; play note Cs4
+#_1B9F57: #_EF53u: db $A4 ; play note C4
 #_1B9F58: #_EF54u: db $48 ; duration
-#_1B9F59: #_EF55u: db !TIE
+#_1B9F59: #_EF55u: db $C8 ; sustain current note
 #_1B9F5A: #_EF56u: db $58 ; duration
-#_1B9F5B: #_EF57u: db !TIE
+#_1B9F5B: #_EF57u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment4_Track5:
 #_1B9F5C: #_EF58u: db $60, $68 ; duration, params
-#_1B9F5E: #_EF5Au: db !TIE
+#_1B9F5E: #_EF5Au: db $C8 ; sustain current note
 #_1B9F5F: #_EF5Bu: db $30 ; duration
-#_1B9F60: #_EF5Cu: db !TIE
+#_1B9F60: #_EF5Cu: db $C8 ; sustain current note
 #_1B9F61: #_EF5Du: db $0C, $6D ; duration, params
-#_1B9F63: #_EF5Fu: db G3
-#_1B9F64: #_EF60u: db Fs3
+#_1B9F63: #_EF5Fu: db $9F ; play note G3
+#_1B9F64: #_EF60u: db $9E ; play note Fs3
 #_1B9F65: #_EF61u: db $18 ; duration
-#_1B9F66: #_EF62u: db !TIE
+#_1B9F66: #_EF62u: db $C8 ; sustain current note
 #_1B9F67: #_EF63u: db $60 ; duration
-#_1B9F68: #_EF64u: db !TIE
-#_1B9F69: #_EF65u: db !TIE
+#_1B9F68: #_EF64u: db $C8 ; sustain current note
+#_1B9F69: #_EF65u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment5_Track0:
 #_1B9F6A: #_EF66u: db $06, $6B ; duration, params
-#_1B9F6C: #_EF68u: db B4
-#_1B9F6D: #_EF69u: db B4
-#_1B9F6E: #_EF6Au: db B4
-#_1B9F6F: #_EF6Bu: db B4
-#_1B9F70: #_EF6Cu: db B4
-#_1B9F71: #_EF6Du: db B4
+#_1B9F6C: #_EF68u: db $AF ; play note B4
+#_1B9F6D: #_EF69u: db $AF ; play note B4
+#_1B9F6E: #_EF6Au: db $AF ; play note B4
+#_1B9F6F: #_EF6Bu: db $AF ; play note B4
+#_1B9F70: #_EF6Cu: db $AF ; play note B4
+#_1B9F71: #_EF6Du: db $AF ; play note B4
 #_1B9F72: #_EF6Eu: db $06, $69 ; duration, params
-#_1B9F74: #_EF70u: db B4
-#_1B9F75: #_EF71u: db B4
+#_1B9F74: #_EF70u: db $AF ; play note B4
+#_1B9F75: #_EF71u: db $AF ; play note B4
 #_1B9F76: #_EF72u: db $06, $6C ; duration, params
-#_1B9F78: #_EF74u: db B4
+#_1B9F78: #_EF74u: db $AF ; play note B4
 #_1B9F79: #_EF75u: db $06, $69 ; duration, params
-#_1B9F7B: #_EF77u: db B4
-#_1B9F7C: #_EF78u: db B4
-#_1B9F7D: #_EF79u: db B4
+#_1B9F7B: #_EF77u: db $AF ; play note B4
+#_1B9F7C: #_EF78u: db $AF ; play note B4
+#_1B9F7D: #_EF79u: db $AF ; play note B4
 #_1B9F7E: #_EF7Au: db $06, $6B ; duration, params
-#_1B9F80: #_EF7Cu: db B4
+#_1B9F80: #_EF7Cu: db $AF ; play note B4
 #_1B9F81: #_EF7Du: db $06, $69 ; duration, params
-#_1B9F83: #_EF7Fu: db B4
-#_1B9F84: #_EF80u: db B4
-#_1B9F85: #_EF81u: db B4
-#_1B9F86: #_EF82u: db !CALL_PART : dw Song16_Sub_F170 : db 1
-#_1B9F8A: #_EF86u: db !PART_END
+#_1B9F83: #_EF7Fu: db $AF ; play note B4
+#_1B9F84: #_EF80u: db $AF ; play note B4
+#_1B9F85: #_EF81u: db $AF ; play note B4
+#_1B9F86: #_EF82u: db $EF : dw Song16_Sub_F170 : db $01 ; call segment subroutine
+#_1B9F8A: #_EF86u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment5_Track1:
-#_1B9F8B: #_EF87u: db !CALL_PART : dw Song16_Sub_F028 : db 1
+#_1B9F8B: #_EF87u: db $EF : dw Song16_Sub_F028 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment5_Track2:
 #_1B9F8F: #_EF8Bu: db $60, $7D ; duration, params
-#_1B9F91: #_EF8Du: db E4
-#_1B9F92: #_EF8Eu: db !TIE
-#_1B9F93: #_EF8Fu: db !TIE
-#_1B9F94: #_EF90u: db !TIE
+#_1B9F91: #_EF8Du: db $A8 ; play note E4
+#_1B9F92: #_EF8Eu: db $C8 ; sustain current note
+#_1B9F93: #_EF8Fu: db $C8 ; sustain current note
+#_1B9F94: #_EF90u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment5_Track3:
 #_1B9F95: #_EF91u: db $60, $6D ; duration, params
-#_1B9F97: #_EF93u: db Cs3
-#_1B9F98: #_EF94u: db !TIE
-#_1B9F99: #_EF95u: db !TIE
-#_1B9F9A: #_EF96u: db !TIE
+#_1B9F97: #_EF93u: db $99 ; play note Cs3
+#_1B9F98: #_EF94u: db $C8 ; sustain current note
+#_1B9F99: #_EF95u: db $C8 ; sustain current note
+#_1B9F9A: #_EF96u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment5_Track4:
 #_1B9F9B: #_EF97u: db $08 ; duration
-#_1B9F9C: #_EF98u: db R
+#_1B9F9C: #_EF98u: db $C9 ; rest
 #_1B9F9D: #_EF99u: db $58, $7D ; duration, params
-#_1B9F9F: #_EF9Bu: db E4
+#_1B9F9F: #_EF9Bu: db $A8 ; play note E4
 #_1B9FA0: #_EF9Cu: db $60 ; duration
-#_1B9FA1: #_EF9Du: db !TIE
-#_1B9FA2: #_EF9Eu: db !TIE
-#_1B9FA3: #_EF9Fu: db !TIE
+#_1B9FA1: #_EF9Du: db $C8 ; sustain current note
+#_1B9FA2: #_EF9Eu: db $C8 ; sustain current note
+#_1B9FA3: #_EF9Fu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Segment5_Track5:
 #_1B9FA4: #_EFA0u: db $60, $6D ; duration, params
-#_1B9FA6: #_EFA2u: db G3
-#_1B9FA7: #_EFA3u: db !TIE
-#_1B9FA8: #_EFA4u: db !TIE
-#_1B9FA9: #_EFA5u: db !TIE
-#_1B9FAA: #_EFA6u: db !PART_END
+#_1B9FA6: #_EFA2u: db $9F ; play note G3
+#_1B9FA7: #_EFA3u: db $C8 ; sustain current note
+#_1B9FA8: #_EFA4u: db $C8 ; sustain current note
+#_1B9FA9: #_EFA5u: db $C8 ; sustain current note
+#_1B9FAA: #_EFA6u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_EFA7:
 #_1B9FAB: #_EFA7u: db $06, $6D ; duration, params
-#_1B9FAD: #_EFA9u: db B4
+#_1B9FAD: #_EFA9u: db $AF ; play note B4
 #_1B9FAE: #_EFAAu: db $06, $69 ; duration, params
-#_1B9FB0: #_EFACu: db B4
-#_1B9FB1: #_EFADu: db B4
-#_1B9FB2: #_EFAEu: db B4
+#_1B9FB0: #_EFACu: db $AF ; play note B4
+#_1B9FB1: #_EFADu: db $AF ; play note B4
+#_1B9FB2: #_EFAEu: db $AF ; play note B4
 #_1B9FB3: #_EFAFu: db $06, $6B ; duration, params
-#_1B9FB5: #_EFB1u: db B4
+#_1B9FB5: #_EFB1u: db $AF ; play note B4
 #_1B9FB6: #_EFB2u: db $06, $69 ; duration, params
-#_1B9FB8: #_EFB4u: db B4
-#_1B9FB9: #_EFB5u: db B4
-#_1B9FBA: #_EFB6u: db B4
+#_1B9FB8: #_EFB4u: db $AF ; play note B4
+#_1B9FB9: #_EFB5u: db $AF ; play note B4
+#_1B9FBA: #_EFB6u: db $AF ; play note B4
 #_1B9FBB: #_EFB7u: db $06, $6C ; duration, params
-#_1B9FBD: #_EFB9u: db B4
+#_1B9FBD: #_EFB9u: db $AF ; play note B4
 #_1B9FBE: #_EFBAu: db $06, $69 ; duration, params
-#_1B9FC0: #_EFBCu: db B4
-#_1B9FC1: #_EFBDu: db B4
-#_1B9FC2: #_EFBEu: db B4
+#_1B9FC0: #_EFBCu: db $AF ; play note B4
+#_1B9FC1: #_EFBDu: db $AF ; play note B4
+#_1B9FC2: #_EFBEu: db $AF ; play note B4
 #_1B9FC3: #_EFBFu: db $06, $6B ; duration, params
-#_1B9FC5: #_EFC1u: db B4
+#_1B9FC5: #_EFC1u: db $AF ; play note B4
 #_1B9FC6: #_EFC2u: db $06, $69 ; duration, params
-#_1B9FC8: #_EFC4u: db B4
-#_1B9FC9: #_EFC5u: db B4
-#_1B9FCA: #_EFC6u: db B4
+#_1B9FC8: #_EFC4u: db $AF ; play note B4
+#_1B9FC9: #_EFC5u: db $AF ; play note B4
+#_1B9FCA: #_EFC6u: db $AF ; play note B4
 #_1B9FCB: #_EFC7u: db $06, $6D ; duration, params
-#_1B9FCD: #_EFC9u: db As4
+#_1B9FCD: #_EFC9u: db $AE ; play note As4
 #_1B9FCE: #_EFCAu: db $06, $69 ; duration, params
-#_1B9FD0: #_EFCCu: db As4
-#_1B9FD1: #_EFCDu: db As4
-#_1B9FD2: #_EFCEu: db As4
+#_1B9FD0: #_EFCCu: db $AE ; play note As4
+#_1B9FD1: #_EFCDu: db $AE ; play note As4
+#_1B9FD2: #_EFCEu: db $AE ; play note As4
 #_1B9FD3: #_EFCFu: db $06, $6B ; duration, params
-#_1B9FD5: #_EFD1u: db As4
+#_1B9FD5: #_EFD1u: db $AE ; play note As4
 #_1B9FD6: #_EFD2u: db $06, $69 ; duration, params
-#_1B9FD8: #_EFD4u: db As4
-#_1B9FD9: #_EFD5u: db As4
-#_1B9FDA: #_EFD6u: db As4
+#_1B9FD8: #_EFD4u: db $AE ; play note As4
+#_1B9FD9: #_EFD5u: db $AE ; play note As4
+#_1B9FDA: #_EFD6u: db $AE ; play note As4
 #_1B9FDB: #_EFD7u: db $06, $6C ; duration, params
-#_1B9FDD: #_EFD9u: db As4
+#_1B9FDD: #_EFD9u: db $AE ; play note As4
 #_1B9FDE: #_EFDAu: db $06, $69 ; duration, params
-#_1B9FE0: #_EFDCu: db As4
-#_1B9FE1: #_EFDDu: db As4
-#_1B9FE2: #_EFDEu: db As4
+#_1B9FE0: #_EFDCu: db $AE ; play note As4
+#_1B9FE1: #_EFDDu: db $AE ; play note As4
+#_1B9FE2: #_EFDEu: db $AE ; play note As4
 #_1B9FE3: #_EFDFu: db $06, $6B ; duration, params
-#_1B9FE5: #_EFE1u: db As4
+#_1B9FE5: #_EFE1u: db $AE ; play note As4
 #_1B9FE6: #_EFE2u: db $06, $69 ; duration, params
-#_1B9FE8: #_EFE4u: db As4
-#_1B9FE9: #_EFE5u: db As4
-#_1B9FEA: #_EFE6u: db As4
+#_1B9FE8: #_EFE4u: db $AE ; play note As4
+#_1B9FE9: #_EFE5u: db $AE ; play note As4
+#_1B9FEA: #_EFE6u: db $AE ; play note As4
 #_1B9FEB: #_EFE7u: db $06, $6D ; duration, params
-#_1B9FED: #_EFE9u: db D5
+#_1B9FED: #_EFE9u: db $B2 ; play note D5
 #_1B9FEE: #_EFEAu: db $06, $69 ; duration, params
-#_1B9FF0: #_EFECu: db D5
-#_1B9FF1: #_EFEDu: db D5
-#_1B9FF2: #_EFEEu: db D5
+#_1B9FF0: #_EFECu: db $B2 ; play note D5
+#_1B9FF1: #_EFEDu: db $B2 ; play note D5
+#_1B9FF2: #_EFEEu: db $B2 ; play note D5
 #_1B9FF3: #_EFEFu: db $06, $6B ; duration, params
-#_1B9FF5: #_EFF1u: db D5
+#_1B9FF5: #_EFF1u: db $B2 ; play note D5
 #_1B9FF6: #_EFF2u: db $06, $69 ; duration, params
-#_1B9FF8: #_EFF4u: db D5
-#_1B9FF9: #_EFF5u: db D5
-#_1B9FFA: #_EFF6u: db D5
+#_1B9FF8: #_EFF4u: db $B2 ; play note D5
+#_1B9FF9: #_EFF5u: db $B2 ; play note D5
+#_1B9FFA: #_EFF6u: db $B2 ; play note D5
 #_1B9FFB: #_EFF7u: db $06, $6C ; duration, params
-#_1B9FFD: #_EFF9u: db D5
+#_1B9FFD: #_EFF9u: db $B2 ; play note D5
 #_1B9FFE: #_EFFAu: db $06, $69 ; duration, params
-#_1BA000: #_EFFCu: db D5
-#_1BA001: #_EFFDu: db D5
-#_1BA002: #_EFFEu: db D5
+#_1BA000: #_EFFCu: db $B2 ; play note D5
+#_1BA001: #_EFFDu: db $B2 ; play note D5
+#_1BA002: #_EFFEu: db $B2 ; play note D5
 #_1BA003: #_EFFFu: db $06, $6B ; duration, params
-#_1BA005: #_F001u: db D5
+#_1BA005: #_F001u: db $B2 ; play note D5
 #_1BA006: #_F002u: db $06, $69 ; duration, params
-#_1BA008: #_F004u: db D5
-#_1BA009: #_F005u: db D5
-#_1BA00A: #_F006u: db D5
+#_1BA008: #_F004u: db $B2 ; play note D5
+#_1BA009: #_F005u: db $B2 ; play note D5
+#_1BA00A: #_F006u: db $B2 ; play note D5
 #_1BA00B: #_F007u: db $06, $6D ; duration, params
-#_1BA00D: #_F009u: db Cs5
+#_1BA00D: #_F009u: db $B1 ; play note Cs5
 #_1BA00E: #_F00Au: db $06, $69 ; duration, params
-#_1BA010: #_F00Cu: db Cs5
-#_1BA011: #_F00Du: db Cs5
-#_1BA012: #_F00Eu: db Cs5
+#_1BA010: #_F00Cu: db $B1 ; play note Cs5
+#_1BA011: #_F00Du: db $B1 ; play note Cs5
+#_1BA012: #_F00Eu: db $B1 ; play note Cs5
 #_1BA013: #_F00Fu: db $06, $6B ; duration, params
-#_1BA015: #_F011u: db Cs5
+#_1BA015: #_F011u: db $B1 ; play note Cs5
 #_1BA016: #_F012u: db $06, $69 ; duration, params
-#_1BA018: #_F014u: db Cs5
-#_1BA019: #_F015u: db Cs5
-#_1BA01A: #_F016u: db Cs5
+#_1BA018: #_F014u: db $B1 ; play note Cs5
+#_1BA019: #_F015u: db $B1 ; play note Cs5
+#_1BA01A: #_F016u: db $B1 ; play note Cs5
 #_1BA01B: #_F017u: db $06, $6C ; duration, params
-#_1BA01D: #_F019u: db Cs5
+#_1BA01D: #_F019u: db $B1 ; play note Cs5
 #_1BA01E: #_F01Au: db $06, $69 ; duration, params
-#_1BA020: #_F01Cu: db Cs5
-#_1BA021: #_F01Du: db Cs5
-#_1BA022: #_F01Eu: db Cs5
+#_1BA020: #_F01Cu: db $B1 ; play note Cs5
+#_1BA021: #_F01Du: db $B1 ; play note Cs5
+#_1BA022: #_F01Eu: db $B1 ; play note Cs5
 #_1BA023: #_F01Fu: db $06, $6B ; duration, params
-#_1BA025: #_F021u: db Cs5
+#_1BA025: #_F021u: db $B1 ; play note Cs5
 #_1BA026: #_F022u: db $06, $69 ; duration, params
-#_1BA028: #_F024u: db Cs5
-#_1BA029: #_F025u: db Cs5
-#_1BA02A: #_F026u: db Cs5
-#_1BA02B: #_F027u: db !PART_END
+#_1BA028: #_F024u: db $B1 ; play note Cs5
+#_1BA029: #_F025u: db $B1 ; play note Cs5
+#_1BA02A: #_F026u: db $B1 ; play note Cs5
+#_1BA02B: #_F027u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F028:
 #_1BA02C: #_F028u: db $06, $6D ; duration, params
-#_1BA02E: #_F02Au: db F4
+#_1BA02E: #_F02Au: db $A9 ; play note F4
 #_1BA02F: #_F02Bu: db $06, $69 ; duration, params
-#_1BA031: #_F02Du: db F4
-#_1BA032: #_F02Eu: db F4
-#_1BA033: #_F02Fu: db F4
+#_1BA031: #_F02Du: db $A9 ; play note F4
+#_1BA032: #_F02Eu: db $A9 ; play note F4
+#_1BA033: #_F02Fu: db $A9 ; play note F4
 #_1BA034: #_F030u: db $06, $6B ; duration, params
-#_1BA036: #_F032u: db F4
+#_1BA036: #_F032u: db $A9 ; play note F4
 #_1BA037: #_F033u: db $06, $69 ; duration, params
-#_1BA039: #_F035u: db F4
-#_1BA03A: #_F036u: db F4
-#_1BA03B: #_F037u: db F4
+#_1BA039: #_F035u: db $A9 ; play note F4
+#_1BA03A: #_F036u: db $A9 ; play note F4
+#_1BA03B: #_F037u: db $A9 ; play note F4
 #_1BA03C: #_F038u: db $06, $6C ; duration, params
-#_1BA03E: #_F03Au: db F4
+#_1BA03E: #_F03Au: db $A9 ; play note F4
 #_1BA03F: #_F03Bu: db $06, $69 ; duration, params
-#_1BA041: #_F03Du: db F4
-#_1BA042: #_F03Eu: db F4
-#_1BA043: #_F03Fu: db F4
+#_1BA041: #_F03Du: db $A9 ; play note F4
+#_1BA042: #_F03Eu: db $A9 ; play note F4
+#_1BA043: #_F03Fu: db $A9 ; play note F4
 #_1BA044: #_F040u: db $06, $6B ; duration, params
-#_1BA046: #_F042u: db F4
+#_1BA046: #_F042u: db $A9 ; play note F4
 #_1BA047: #_F043u: db $06, $69 ; duration, params
-#_1BA049: #_F045u: db F4
-#_1BA04A: #_F046u: db F4
-#_1BA04B: #_F047u: db F4
+#_1BA049: #_F045u: db $A9 ; play note F4
+#_1BA04A: #_F046u: db $A9 ; play note F4
+#_1BA04B: #_F047u: db $A9 ; play note F4
 #_1BA04C: #_F048u: db $06, $6D ; duration, params
-#_1BA04E: #_F04Au: db E4
+#_1BA04E: #_F04Au: db $A8 ; play note E4
 #_1BA04F: #_F04Bu: db $06, $69 ; duration, params
-#_1BA051: #_F04Du: db E4
-#_1BA052: #_F04Eu: db E4
-#_1BA053: #_F04Fu: db E4
+#_1BA051: #_F04Du: db $A8 ; play note E4
+#_1BA052: #_F04Eu: db $A8 ; play note E4
+#_1BA053: #_F04Fu: db $A8 ; play note E4
 #_1BA054: #_F050u: db $06, $6B ; duration, params
-#_1BA056: #_F052u: db E4
+#_1BA056: #_F052u: db $A8 ; play note E4
 #_1BA057: #_F053u: db $06, $69 ; duration, params
-#_1BA059: #_F055u: db E4
-#_1BA05A: #_F056u: db E4
-#_1BA05B: #_F057u: db E4
+#_1BA059: #_F055u: db $A8 ; play note E4
+#_1BA05A: #_F056u: db $A8 ; play note E4
+#_1BA05B: #_F057u: db $A8 ; play note E4
 #_1BA05C: #_F058u: db $06, $6C ; duration, params
-#_1BA05E: #_F05Au: db E4
+#_1BA05E: #_F05Au: db $A8 ; play note E4
 #_1BA05F: #_F05Bu: db $06, $69 ; duration, params
-#_1BA061: #_F05Du: db E4
-#_1BA062: #_F05Eu: db E4
-#_1BA063: #_F05Fu: db E4
+#_1BA061: #_F05Du: db $A8 ; play note E4
+#_1BA062: #_F05Eu: db $A8 ; play note E4
+#_1BA063: #_F05Fu: db $A8 ; play note E4
 #_1BA064: #_F060u: db $06, $6B ; duration, params
-#_1BA066: #_F062u: db E4
+#_1BA066: #_F062u: db $A8 ; play note E4
 #_1BA067: #_F063u: db $06, $69 ; duration, params
-#_1BA069: #_F065u: db E4
-#_1BA06A: #_F066u: db E4
-#_1BA06B: #_F067u: db E4
+#_1BA069: #_F065u: db $A8 ; play note E4
+#_1BA06A: #_F066u: db $A8 ; play note E4
+#_1BA06B: #_F067u: db $A8 ; play note E4
 #_1BA06C: #_F068u: db $06, $6D ; duration, params
-#_1BA06E: #_F06Au: db Gs4
+#_1BA06E: #_F06Au: db $AC ; play note Gs4
 #_1BA06F: #_F06Bu: db $06, $69 ; duration, params
-#_1BA071: #_F06Du: db Gs4
-#_1BA072: #_F06Eu: db Gs4
-#_1BA073: #_F06Fu: db Gs4
+#_1BA071: #_F06Du: db $AC ; play note Gs4
+#_1BA072: #_F06Eu: db $AC ; play note Gs4
+#_1BA073: #_F06Fu: db $AC ; play note Gs4
 #_1BA074: #_F070u: db $06, $6B ; duration, params
-#_1BA076: #_F072u: db Gs4
+#_1BA076: #_F072u: db $AC ; play note Gs4
 #_1BA077: #_F073u: db $06, $69 ; duration, params
-#_1BA079: #_F075u: db Gs4
-#_1BA07A: #_F076u: db Gs4
-#_1BA07B: #_F077u: db Gs4
+#_1BA079: #_F075u: db $AC ; play note Gs4
+#_1BA07A: #_F076u: db $AC ; play note Gs4
+#_1BA07B: #_F077u: db $AC ; play note Gs4
 #_1BA07C: #_F078u: db $06, $6C ; duration, params
-#_1BA07E: #_F07Au: db Gs4
+#_1BA07E: #_F07Au: db $AC ; play note Gs4
 #_1BA07F: #_F07Bu: db $06, $69 ; duration, params
-#_1BA081: #_F07Du: db Gs4
-#_1BA082: #_F07Eu: db Gs4
-#_1BA083: #_F07Fu: db Gs4
+#_1BA081: #_F07Du: db $AC ; play note Gs4
+#_1BA082: #_F07Eu: db $AC ; play note Gs4
+#_1BA083: #_F07Fu: db $AC ; play note Gs4
 #_1BA084: #_F080u: db $06, $6B ; duration, params
-#_1BA086: #_F082u: db Gs4
+#_1BA086: #_F082u: db $AC ; play note Gs4
 #_1BA087: #_F083u: db $06, $69 ; duration, params
-#_1BA089: #_F085u: db Gs4
-#_1BA08A: #_F086u: db Gs4
-#_1BA08B: #_F087u: db Gs4
+#_1BA089: #_F085u: db $AC ; play note Gs4
+#_1BA08A: #_F086u: db $AC ; play note Gs4
+#_1BA08B: #_F087u: db $AC ; play note Gs4
 #_1BA08C: #_F088u: db $06, $6D ; duration, params
-#_1BA08E: #_F08Au: db G4
+#_1BA08E: #_F08Au: db $AB ; play note G4
 #_1BA08F: #_F08Bu: db $06, $69 ; duration, params
-#_1BA091: #_F08Du: db G4
-#_1BA092: #_F08Eu: db G4
-#_1BA093: #_F08Fu: db G4
+#_1BA091: #_F08Du: db $AB ; play note G4
+#_1BA092: #_F08Eu: db $AB ; play note G4
+#_1BA093: #_F08Fu: db $AB ; play note G4
 #_1BA094: #_F090u: db $06, $6B ; duration, params
-#_1BA096: #_F092u: db G4
+#_1BA096: #_F092u: db $AB ; play note G4
 #_1BA097: #_F093u: db $06, $69 ; duration, params
-#_1BA099: #_F095u: db G4
-#_1BA09A: #_F096u: db G4
-#_1BA09B: #_F097u: db G4
+#_1BA099: #_F095u: db $AB ; play note G4
+#_1BA09A: #_F096u: db $AB ; play note G4
+#_1BA09B: #_F097u: db $AB ; play note G4
 #_1BA09C: #_F098u: db $06, $6C ; duration, params
-#_1BA09E: #_F09Au: db G4
+#_1BA09E: #_F09Au: db $AB ; play note G4
 #_1BA09F: #_F09Bu: db $06, $69 ; duration, params
-#_1BA0A1: #_F09Du: db G4
-#_1BA0A2: #_F09Eu: db G4
-#_1BA0A3: #_F09Fu: db G4
+#_1BA0A1: #_F09Du: db $AB ; play note G4
+#_1BA0A2: #_F09Eu: db $AB ; play note G4
+#_1BA0A3: #_F09Fu: db $AB ; play note G4
 #_1BA0A4: #_F0A0u: db $06, $6B ; duration, params
-#_1BA0A6: #_F0A2u: db G4
+#_1BA0A6: #_F0A2u: db $AB ; play note G4
 #_1BA0A7: #_F0A3u: db $06, $69 ; duration, params
-#_1BA0A9: #_F0A5u: db G4
-#_1BA0AA: #_F0A6u: db G4
-#_1BA0AB: #_F0A7u: db G4
-#_1BA0AC: #_F0A8u: db !PART_END
+#_1BA0A9: #_F0A5u: db $AB ; play note G4
+#_1BA0AA: #_F0A6u: db $AB ; play note G4
+#_1BA0AB: #_F0A7u: db $AB ; play note G4
+#_1BA0AC: #_F0A8u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F0A9:
 #_1BA0AD: #_F0A9u: db $30 ; duration
-#_1BA0AE: #_F0AAu: db G3
+#_1BA0AE: #_F0AAu: db $9F ; play note G3
 #_1BA0AF: #_F0ABu: db $24 ; duration
-#_1BA0B0: #_F0ACu: db As2
+#_1BA0B0: #_F0ACu: db $96 ; play note As2
 #_1BA0B1: #_F0ADu: db $0C ; duration
-#_1BA0B2: #_F0AEu: db A2
+#_1BA0B2: #_F0AEu: db $95 ; play note A2
 #_1BA0B3: #_F0AFu: db $48 ; duration
-#_1BA0B4: #_F0B0u: db !TIE
+#_1BA0B4: #_F0B0u: db $C8 ; sustain current note
 #_1BA0B5: #_F0B1u: db $0C ; duration
-#_1BA0B6: #_F0B2u: db As3
-#_1BA0B7: #_F0B3u: db A3
-#_1BA0B8: #_F0B4u: db !PART_END
+#_1BA0B6: #_F0B2u: db $A2 ; play note As3
+#_1BA0B7: #_F0B3u: db $A1 ; play note A3
+#_1BA0B8: #_F0B4u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F0B5:
 #_1BA0B9: #_F0B5u: db $30 ; duration
-#_1BA0BA: #_F0B6u: db R
+#_1BA0BA: #_F0B6u: db $C9 ; rest
 #_1BA0BB: #_F0B7u: db $10, $6D ; duration, params
-#_1BA0BD: #_F0B9u: db Ds2
-#_1BA0BE: #_F0BAu: db D2
-#_1BA0BF: #_F0BBu: db Gs2
+#_1BA0BD: #_F0B9u: db $8F ; play note Ds2
+#_1BA0BE: #_F0BAu: db $8E ; play note D2
+#_1BA0BF: #_F0BBu: db $94 ; play note Gs2
 #_1BA0C0: #_F0BCu: db $30 ; duration
-#_1BA0C1: #_F0BDu: db G2
+#_1BA0C1: #_F0BDu: db $93 ; play note G2
 #_1BA0C2: #_F0BEu: db $24 ; duration
-#_1BA0C3: #_F0BFu: db As1
+#_1BA0C3: #_F0BFu: db $8A ; play note As1
 #_1BA0C4: #_F0C0u: db $0C ; duration
-#_1BA0C5: #_F0C1u: db A1
+#_1BA0C5: #_F0C1u: db $89 ; play note A1
 #_1BA0C6: #_F0C2u: db $48 ; duration
-#_1BA0C7: #_F0C3u: db !TIE
+#_1BA0C7: #_F0C3u: db $C8 ; sustain current note
 #_1BA0C8: #_F0C4u: db $0C ; duration
-#_1BA0C9: #_F0C5u: db Fs2
-#_1BA0CA: #_F0C6u: db F2
-#_1BA0CB: #_F0C7u: db !PART_END
+#_1BA0C9: #_F0C5u: db $92 ; play note Fs2
+#_1BA0CA: #_F0C6u: db $91 ; play note F2
+#_1BA0CB: #_F0C7u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F0C8:
 #_1BA0CC: #_F0C8u: db $48 ; duration
-#_1BA0CD: #_F0C9u: db !TIE
+#_1BA0CD: #_F0C9u: db $C8 ; sustain current note
 #_1BA0CE: #_F0CAu: db $0C ; duration
-#_1BA0CF: #_F0CBu: db C4
-#_1BA0D0: #_F0CCu: db B3
+#_1BA0CF: #_F0CBu: db $A4 ; play note C4
+#_1BA0D0: #_F0CCu: db $A3 ; play note B3
 #_1BA0D1: #_F0CDu: db $48 ; duration
-#_1BA0D2: #_F0CEu: db !TIE
+#_1BA0D2: #_F0CEu: db $C8 ; sustain current note
 #_1BA0D3: #_F0CFu: db $0C ; duration
-#_1BA0D4: #_F0D0u: db D4
-#_1BA0D5: #_F0D1u: db Cs4
-#_1BA0D6: #_F0D2u: db !PART_END
+#_1BA0D4: #_F0D0u: db $A6 ; play note D4
+#_1BA0D5: #_F0D1u: db $A5 ; play note Cs4
+#_1BA0D6: #_F0D2u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F0D3:
-#_1BA0D7: #_F0D3u: db B4
-#_1BA0D8: #_F0D4u: db B4
-#_1BA0D9: #_F0D5u: db B4
-#_1BA0DA: #_F0D6u: db B4
-#_1BA0DB: #_F0D7u: db B4
-#_1BA0DC: #_F0D8u: db B4
-#_1BA0DD: #_F0D9u: db B4
-#_1BA0DE: #_F0DAu: db B4
-#_1BA0DF: #_F0DBu: db B4
-#_1BA0E0: #_F0DCu: db B4
-#_1BA0E1: #_F0DDu: db B4
-#_1BA0E2: #_F0DEu: db B4
-#_1BA0E3: #_F0DFu: db B4
-#_1BA0E4: #_F0E0u: db B4
-#_1BA0E5: #_F0E1u: db B4
-#_1BA0E6: #_F0E2u: db B4
-#_1BA0E7: #_F0E3u: db !PART_END
+#_1BA0D7: #_F0D3u: db $AF ; play note B4
+#_1BA0D8: #_F0D4u: db $AF ; play note B4
+#_1BA0D9: #_F0D5u: db $AF ; play note B4
+#_1BA0DA: #_F0D6u: db $AF ; play note B4
+#_1BA0DB: #_F0D7u: db $AF ; play note B4
+#_1BA0DC: #_F0D8u: db $AF ; play note B4
+#_1BA0DD: #_F0D9u: db $AF ; play note B4
+#_1BA0DE: #_F0DAu: db $AF ; play note B4
+#_1BA0DF: #_F0DBu: db $AF ; play note B4
+#_1BA0E0: #_F0DCu: db $AF ; play note B4
+#_1BA0E1: #_F0DDu: db $AF ; play note B4
+#_1BA0E2: #_F0DEu: db $AF ; play note B4
+#_1BA0E3: #_F0DFu: db $AF ; play note B4
+#_1BA0E4: #_F0E0u: db $AF ; play note B4
+#_1BA0E5: #_F0E1u: db $AF ; play note B4
+#_1BA0E6: #_F0E2u: db $AF ; play note B4
+#_1BA0E7: #_F0E3u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F0E4:
 #_1BA0E8: #_F0E4u: db $06, $6D ; duration, params
-#_1BA0EA: #_F0E6u: db Gs4
+#_1BA0EA: #_F0E6u: db $AC ; play note Gs4
 #_1BA0EB: #_F0E7u: db $06, $69 ; duration, params
-#_1BA0ED: #_F0E9u: db Gs4
-#_1BA0EE: #_F0EAu: db Gs4
-#_1BA0EF: #_F0EBu: db Gs4
+#_1BA0ED: #_F0E9u: db $AC ; play note Gs4
+#_1BA0EE: #_F0EAu: db $AC ; play note Gs4
+#_1BA0EF: #_F0EBu: db $AC ; play note Gs4
 #_1BA0F0: #_F0ECu: db $06, $6B ; duration, params
-#_1BA0F2: #_F0EEu: db Gs4
+#_1BA0F2: #_F0EEu: db $AC ; play note Gs4
 #_1BA0F3: #_F0EFu: db $06, $69 ; duration, params
-#_1BA0F5: #_F0F1u: db Gs4
-#_1BA0F6: #_F0F2u: db Gs4
-#_1BA0F7: #_F0F3u: db Gs4
+#_1BA0F5: #_F0F1u: db $AC ; play note Gs4
+#_1BA0F6: #_F0F2u: db $AC ; play note Gs4
+#_1BA0F7: #_F0F3u: db $AC ; play note Gs4
 #_1BA0F8: #_F0F4u: db $06, $6C ; duration, params
-#_1BA0FA: #_F0F6u: db Gs4
+#_1BA0FA: #_F0F6u: db $AC ; play note Gs4
 #_1BA0FB: #_F0F7u: db $06, $69 ; duration, params
-#_1BA0FD: #_F0F9u: db Gs4
-#_1BA0FE: #_F0FAu: db Gs4
-#_1BA0FF: #_F0FBu: db Gs4
+#_1BA0FD: #_F0F9u: db $AC ; play note Gs4
+#_1BA0FE: #_F0FAu: db $AC ; play note Gs4
+#_1BA0FF: #_F0FBu: db $AC ; play note Gs4
 #_1BA100: #_F0FCu: db $06, $6B ; duration, params
-#_1BA102: #_F0FEu: db Gs4
+#_1BA102: #_F0FEu: db $AC ; play note Gs4
 #_1BA103: #_F0FFu: db $06, $69 ; duration, params
-#_1BA105: #_F101u: db Gs4
-#_1BA106: #_F102u: db Gs4
-#_1BA107: #_F103u: db Gs4
+#_1BA105: #_F101u: db $AC ; play note Gs4
+#_1BA106: #_F102u: db $AC ; play note Gs4
+#_1BA107: #_F103u: db $AC ; play note Gs4
 #_1BA108: #_F104u: db $06, $6D ; duration, params
-#_1BA10A: #_F106u: db G4
+#_1BA10A: #_F106u: db $AB ; play note G4
 #_1BA10B: #_F107u: db $06, $69 ; duration, params
-#_1BA10D: #_F109u: db G4
-#_1BA10E: #_F10Au: db G4
-#_1BA10F: #_F10Bu: db G4
+#_1BA10D: #_F109u: db $AB ; play note G4
+#_1BA10E: #_F10Au: db $AB ; play note G4
+#_1BA10F: #_F10Bu: db $AB ; play note G4
 #_1BA110: #_F10Cu: db $06, $6B ; duration, params
-#_1BA112: #_F10Eu: db G4
+#_1BA112: #_F10Eu: db $AB ; play note G4
 #_1BA113: #_F10Fu: db $06, $69 ; duration, params
-#_1BA115: #_F111u: db G4
-#_1BA116: #_F112u: db G4
-#_1BA117: #_F113u: db G4
+#_1BA115: #_F111u: db $AB ; play note G4
+#_1BA116: #_F112u: db $AB ; play note G4
+#_1BA117: #_F113u: db $AB ; play note G4
 #_1BA118: #_F114u: db $06, $6C ; duration, params
-#_1BA11A: #_F116u: db G4
+#_1BA11A: #_F116u: db $AB ; play note G4
 #_1BA11B: #_F117u: db $06, $69 ; duration, params
-#_1BA11D: #_F119u: db G4
-#_1BA11E: #_F11Au: db G4
-#_1BA11F: #_F11Bu: db G4
+#_1BA11D: #_F119u: db $AB ; play note G4
+#_1BA11E: #_F11Au: db $AB ; play note G4
+#_1BA11F: #_F11Bu: db $AB ; play note G4
 #_1BA120: #_F11Cu: db $06, $6B ; duration, params
-#_1BA122: #_F11Eu: db G4
+#_1BA122: #_F11Eu: db $AB ; play note G4
 #_1BA123: #_F11Fu: db $06, $69 ; duration, params
-#_1BA125: #_F121u: db G4
-#_1BA126: #_F122u: db G4
-#_1BA127: #_F123u: db G4
-#_1BA128: #_F124u: db !PART_END
+#_1BA125: #_F121u: db $AB ; play note G4
+#_1BA126: #_F122u: db $AB ; play note G4
+#_1BA127: #_F123u: db $AB ; play note G4
+#_1BA128: #_F124u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F125:
-#_1BA129: #_F125u: db F4
-#_1BA12A: #_F126u: db F4
-#_1BA12B: #_F127u: db F4
-#_1BA12C: #_F128u: db F4
-#_1BA12D: #_F129u: db F4
-#_1BA12E: #_F12Au: db F4
-#_1BA12F: #_F12Bu: db F4
-#_1BA130: #_F12Cu: db F4
-#_1BA131: #_F12Du: db F4
-#_1BA132: #_F12Eu: db F4
-#_1BA133: #_F12Fu: db F4
-#_1BA134: #_F130u: db F4
-#_1BA135: #_F131u: db F4
-#_1BA136: #_F132u: db F4
-#_1BA137: #_F133u: db F4
-#_1BA138: #_F134u: db F4
-#_1BA139: #_F135u: db !PART_END
+#_1BA129: #_F125u: db $A9 ; play note F4
+#_1BA12A: #_F126u: db $A9 ; play note F4
+#_1BA12B: #_F127u: db $A9 ; play note F4
+#_1BA12C: #_F128u: db $A9 ; play note F4
+#_1BA12D: #_F129u: db $A9 ; play note F4
+#_1BA12E: #_F12Au: db $A9 ; play note F4
+#_1BA12F: #_F12Bu: db $A9 ; play note F4
+#_1BA130: #_F12Cu: db $A9 ; play note F4
+#_1BA131: #_F12Du: db $A9 ; play note F4
+#_1BA132: #_F12Eu: db $A9 ; play note F4
+#_1BA133: #_F12Fu: db $A9 ; play note F4
+#_1BA134: #_F130u: db $A9 ; play note F4
+#_1BA135: #_F131u: db $A9 ; play note F4
+#_1BA136: #_F132u: db $A9 ; play note F4
+#_1BA137: #_F133u: db $A9 ; play note F4
+#_1BA138: #_F134u: db $A9 ; play note F4
+#_1BA139: #_F135u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F136:
 #_1BA13A: #_F136u: db $30 ; duration
-#_1BA13B: #_F137u: db B3
+#_1BA13B: #_F137u: db $A3 ; play note B3
 #_1BA13C: #_F138u: db $24 ; duration
-#_1BA13D: #_F139u: db F3
+#_1BA13D: #_F139u: db $9D ; play note F3
 #_1BA13E: #_F13Au: db $0C ; duration
-#_1BA13F: #_F13Bu: db E3
+#_1BA13F: #_F13Bu: db $9C ; play note E3
 #_1BA140: #_F13Cu: db $30 ; duration
-#_1BA141: #_F13Du: db !TIE
+#_1BA141: #_F13Du: db $C8 ; sustain current note
 #_1BA142: #_F13Eu: db $10 ; duration
-#_1BA143: #_F13Fu: db E3
-#_1BA144: #_F140u: db Ds3
-#_1BA145: #_F141u: db As3
+#_1BA143: #_F13Fu: db $9C ; play note E3
+#_1BA144: #_F140u: db $9B ; play note Ds3
+#_1BA145: #_F141u: db $A2 ; play note As3
 #_1BA146: #_F142u: db $30 ; duration
-#_1BA147: #_F143u: db A3
+#_1BA147: #_F143u: db $A1 ; play note A3
 #_1BA148: #_F144u: db $24 ; duration
-#_1BA149: #_F145u: db Ds3
+#_1BA149: #_F145u: db $9B ; play note Ds3
 #_1BA14A: #_F146u: db $0C ; duration
-#_1BA14B: #_F147u: db D3
+#_1BA14B: #_F147u: db $9A ; play note D3
 #_1BA14C: #_F148u: db $48 ; duration
-#_1BA14D: #_F149u: db !TIE
+#_1BA14D: #_F149u: db $C8 ; sustain current note
 #_1BA14E: #_F14Au: db $0C ; duration
-#_1BA14F: #_F14Bu: db D3
-#_1BA150: #_F14Cu: db Cs3
-#_1BA151: #_F14Du: db !PART_END
+#_1BA14F: #_F14Bu: db $9A ; play note D3
+#_1BA150: #_F14Cu: db $99 ; play note Cs3
+#_1BA151: #_F14Du: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F14E:
-#_1BA152: #_F14Eu: db As4
-#_1BA153: #_F14Fu: db As4
-#_1BA154: #_F150u: db As4
-#_1BA155: #_F151u: db As4
-#_1BA156: #_F152u: db As4
-#_1BA157: #_F153u: db As4
-#_1BA158: #_F154u: db As4
-#_1BA159: #_F155u: db As4
-#_1BA15A: #_F156u: db As4
-#_1BA15B: #_F157u: db As4
-#_1BA15C: #_F158u: db As4
-#_1BA15D: #_F159u: db As4
-#_1BA15E: #_F15Au: db As4
-#_1BA15F: #_F15Bu: db As4
-#_1BA160: #_F15Cu: db As4
-#_1BA161: #_F15Du: db As4
-#_1BA162: #_F15Eu: db !PART_END
+#_1BA152: #_F14Eu: db $AE ; play note As4
+#_1BA153: #_F14Fu: db $AE ; play note As4
+#_1BA154: #_F150u: db $AE ; play note As4
+#_1BA155: #_F151u: db $AE ; play note As4
+#_1BA156: #_F152u: db $AE ; play note As4
+#_1BA157: #_F153u: db $AE ; play note As4
+#_1BA158: #_F154u: db $AE ; play note As4
+#_1BA159: #_F155u: db $AE ; play note As4
+#_1BA15A: #_F156u: db $AE ; play note As4
+#_1BA15B: #_F157u: db $AE ; play note As4
+#_1BA15C: #_F158u: db $AE ; play note As4
+#_1BA15D: #_F159u: db $AE ; play note As4
+#_1BA15E: #_F15Au: db $AE ; play note As4
+#_1BA15F: #_F15Bu: db $AE ; play note As4
+#_1BA160: #_F15Cu: db $AE ; play note As4
+#_1BA161: #_F15Du: db $AE ; play note As4
+#_1BA162: #_F15Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F15F:
-#_1BA163: #_F15Fu: db E4
-#_1BA164: #_F160u: db E4
-#_1BA165: #_F161u: db E4
-#_1BA166: #_F162u: db E4
-#_1BA167: #_F163u: db E4
-#_1BA168: #_F164u: db E4
-#_1BA169: #_F165u: db E4
-#_1BA16A: #_F166u: db E4
-#_1BA16B: #_F167u: db E4
-#_1BA16C: #_F168u: db E4
-#_1BA16D: #_F169u: db E4
-#_1BA16E: #_F16Au: db E4
-#_1BA16F: #_F16Bu: db E4
-#_1BA170: #_F16Cu: db E4
-#_1BA171: #_F16Du: db E4
-#_1BA172: #_F16Eu: db E4
-#_1BA173: #_F16Fu: db !PART_END
+#_1BA163: #_F15Fu: db $A8 ; play note E4
+#_1BA164: #_F160u: db $A8 ; play note E4
+#_1BA165: #_F161u: db $A8 ; play note E4
+#_1BA166: #_F162u: db $A8 ; play note E4
+#_1BA167: #_F163u: db $A8 ; play note E4
+#_1BA168: #_F164u: db $A8 ; play note E4
+#_1BA169: #_F165u: db $A8 ; play note E4
+#_1BA16A: #_F166u: db $A8 ; play note E4
+#_1BA16B: #_F167u: db $A8 ; play note E4
+#_1BA16C: #_F168u: db $A8 ; play note E4
+#_1BA16D: #_F169u: db $A8 ; play note E4
+#_1BA16E: #_F16Au: db $A8 ; play note E4
+#_1BA16F: #_F16Bu: db $A8 ; play note E4
+#_1BA170: #_F16Cu: db $A8 ; play note E4
+#_1BA171: #_F16Du: db $A8 ; play note E4
+#_1BA172: #_F16Eu: db $A8 ; play note E4
+#_1BA173: #_F16Fu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song16_Sub_F170:
 #_1BA174: #_F170u: db $06, $6D ; duration, params
-#_1BA176: #_F172u: db As4
+#_1BA176: #_F172u: db $AE ; play note As4
 #_1BA177: #_F173u: db $06, $69 ; duration, params
-#_1BA179: #_F175u: db As4
-#_1BA17A: #_F176u: db As4
-#_1BA17B: #_F177u: db As4
+#_1BA179: #_F175u: db $AE ; play note As4
+#_1BA17A: #_F176u: db $AE ; play note As4
+#_1BA17B: #_F177u: db $AE ; play note As4
 #_1BA17C: #_F178u: db $06, $6B ; duration, params
-#_1BA17E: #_F17Au: db As4
+#_1BA17E: #_F17Au: db $AE ; play note As4
 #_1BA17F: #_F17Bu: db $06, $69 ; duration, params
-#_1BA181: #_F17Du: db As4
-#_1BA182: #_F17Eu: db As4
-#_1BA183: #_F17Fu: db As4
+#_1BA181: #_F17Du: db $AE ; play note As4
+#_1BA182: #_F17Eu: db $AE ; play note As4
+#_1BA183: #_F17Fu: db $AE ; play note As4
 #_1BA184: #_F180u: db $06, $6C ; duration, params
-#_1BA186: #_F182u: db As4
+#_1BA186: #_F182u: db $AE ; play note As4
 #_1BA187: #_F183u: db $06, $69 ; duration, params
-#_1BA189: #_F185u: db As4
-#_1BA18A: #_F186u: db As4
-#_1BA18B: #_F187u: db As4
+#_1BA189: #_F185u: db $AE ; play note As4
+#_1BA18A: #_F186u: db $AE ; play note As4
+#_1BA18B: #_F187u: db $AE ; play note As4
 #_1BA18C: #_F188u: db $06, $6B ; duration, params
-#_1BA18E: #_F18Au: db As4
+#_1BA18E: #_F18Au: db $AE ; play note As4
 #_1BA18F: #_F18Bu: db $06, $69 ; duration, params
-#_1BA191: #_F18Du: db As4
-#_1BA192: #_F18Eu: db As4
-#_1BA193: #_F18Fu: db As4
+#_1BA191: #_F18Du: db $AE ; play note As4
+#_1BA192: #_F18Eu: db $AE ; play note As4
+#_1BA193: #_F18Fu: db $AE ; play note As4
 #_1BA194: #_F190u: db $06, $6D ; duration, params
-#_1BA196: #_F192u: db D5
+#_1BA196: #_F192u: db $B2 ; play note D5
 #_1BA197: #_F193u: db $06, $69 ; duration, params
-#_1BA199: #_F195u: db D5
-#_1BA19A: #_F196u: db D5
-#_1BA19B: #_F197u: db D5
+#_1BA199: #_F195u: db $B2 ; play note D5
+#_1BA19A: #_F196u: db $B2 ; play note D5
+#_1BA19B: #_F197u: db $B2 ; play note D5
 #_1BA19C: #_F198u: db $06, $6B ; duration, params
-#_1BA19E: #_F19Au: db D5
+#_1BA19E: #_F19Au: db $B2 ; play note D5
 #_1BA19F: #_F19Bu: db $06, $69 ; duration, params
-#_1BA1A1: #_F19Du: db D5
-#_1BA1A2: #_F19Eu: db D5
-#_1BA1A3: #_F19Fu: db D5
+#_1BA1A1: #_F19Du: db $B2 ; play note D5
+#_1BA1A2: #_F19Eu: db $B2 ; play note D5
+#_1BA1A3: #_F19Fu: db $B2 ; play note D5
 #_1BA1A4: #_F1A0u: db $06, $6C ; duration, params
-#_1BA1A6: #_F1A2u: db D5
+#_1BA1A6: #_F1A2u: db $B2 ; play note D5
 #_1BA1A7: #_F1A3u: db $06, $69 ; duration, params
-#_1BA1A9: #_F1A5u: db D5
-#_1BA1AA: #_F1A6u: db D5
-#_1BA1AB: #_F1A7u: db D5
+#_1BA1A9: #_F1A5u: db $B2 ; play note D5
+#_1BA1AA: #_F1A6u: db $B2 ; play note D5
+#_1BA1AB: #_F1A7u: db $B2 ; play note D5
 #_1BA1AC: #_F1A8u: db $06, $6B ; duration, params
-#_1BA1AE: #_F1AAu: db D5
+#_1BA1AE: #_F1AAu: db $B2 ; play note D5
 #_1BA1AF: #_F1ABu: db $06, $69 ; duration, params
-#_1BA1B1: #_F1ADu: db D5
-#_1BA1B2: #_F1AEu: db D5
-#_1BA1B3: #_F1AFu: db D5
+#_1BA1B1: #_F1ADu: db $B2 ; play note D5
+#_1BA1B2: #_F1AEu: db $B2 ; play note D5
+#_1BA1B3: #_F1AFu: db $B2 ; play note D5
 #_1BA1B4: #_F1B0u: db $06, $6D ; duration, params
-#_1BA1B6: #_F1B2u: db Cs5
+#_1BA1B6: #_F1B2u: db $B1 ; play note Cs5
 #_1BA1B7: #_F1B3u: db $06, $69 ; duration, params
-#_1BA1B9: #_F1B5u: db Cs5
-#_1BA1BA: #_F1B6u: db Cs5
-#_1BA1BB: #_F1B7u: db Cs5
+#_1BA1B9: #_F1B5u: db $B1 ; play note Cs5
+#_1BA1BA: #_F1B6u: db $B1 ; play note Cs5
+#_1BA1BB: #_F1B7u: db $B1 ; play note Cs5
 #_1BA1BC: #_F1B8u: db $06, $6B ; duration, params
-#_1BA1BE: #_F1BAu: db Cs5
+#_1BA1BE: #_F1BAu: db $B1 ; play note Cs5
 #_1BA1BF: #_F1BBu: db $06, $69 ; duration, params
-#_1BA1C1: #_F1BDu: db Cs5
-#_1BA1C2: #_F1BEu: db Cs5
-#_1BA1C3: #_F1BFu: db Cs5
+#_1BA1C1: #_F1BDu: db $B1 ; play note Cs5
+#_1BA1C2: #_F1BEu: db $B1 ; play note Cs5
+#_1BA1C3: #_F1BFu: db $B1 ; play note Cs5
 #_1BA1C4: #_F1C0u: db $06, $6C ; duration, params
-#_1BA1C6: #_F1C2u: db Cs5
+#_1BA1C6: #_F1C2u: db $B1 ; play note Cs5
 #_1BA1C7: #_F1C3u: db $06, $69 ; duration, params
-#_1BA1C9: #_F1C5u: db Cs5
-#_1BA1CA: #_F1C6u: db Cs5
-#_1BA1CB: #_F1C7u: db Cs5
+#_1BA1C9: #_F1C5u: db $B1 ; play note Cs5
+#_1BA1CA: #_F1C6u: db $B1 ; play note Cs5
+#_1BA1CB: #_F1C7u: db $B1 ; play note Cs5
 #_1BA1CC: #_F1C8u: db $06, $6B ; duration, params
-#_1BA1CE: #_F1CAu: db Cs5
+#_1BA1CE: #_F1CAu: db $B1 ; play note Cs5
 #_1BA1CF: #_F1CBu: db $06, $69 ; duration, params
-#_1BA1D1: #_F1CDu: db Cs5
-#_1BA1D2: #_F1CEu: db Cs5
-#_1BA1D3: #_F1CFu: db Cs5
-#_1BA1D4: #_F1D0u: db !PART_END
+#_1BA1D1: #_F1CDu: db $B1 ; play note Cs5
+#_1BA1D2: #_F1CEu: db $B1 ; play note Cs5
+#_1BA1D3: #_F1CFu: db $B1 ; play note Cs5
+#_1BA1D4: #_F1D0u: db $00 ; End
 
 ;===================================================================================================
 
 Song17_Shop:
 #_1BA1D5: #_F1D1u: dw Song17_Segment0
 #_1BA1D7: #_F1D3u: dw Song17_Segment1
-#_1BA1D9: #_F1D5u: dw !SONG_LOOP, Song17_Shop
+#_1BA1D9: #_F1D5u: dw $00FF, Song17_Shop ; Loop point
 #_1BA1DD: #_F1D9u: dw $0000
 
 Song17_Segment1:
@@ -7493,257 +7493,257 @@ Song17_Segment0:
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Segment1_Track0:
-#_1BA1FF: #_F1FBu: db !CALL_PART : dw Song17_Sub_F272 : db 1
-#_1BA203: #_F1FFu: db !TIE
-#_1BA204: #_F200u: db Fs1
+#_1BA1FF: #_F1FBu: db $EF : dw Song17_Sub_F272 : db $01 ; call segment subroutine
+#_1BA203: #_F1FFu: db $C8 ; sustain current note
+#_1BA204: #_F200u: db $86 ; play note Fs1
 #_1BA205: #_F201u: db $18 ; duration
-#_1BA206: #_F202u: db As1
-#_1BA207: #_F203u: db E1
-#_1BA208: #_F204u: db Gs1
-#_1BA209: #_F205u: db !CALL_PART : dw Song17_Sub_F28F : db 2
-#_1BA20D: #_F209u: db !PART_END
+#_1BA206: #_F202u: db $8A ; play note As1
+#_1BA207: #_F203u: db $84 ; play note E1
+#_1BA208: #_F204u: db $88 ; play note Gs1
+#_1BA209: #_F205u: db $EF : dw Song17_Sub_F28F : db $02 ; call segment subroutine
+#_1BA20D: #_F209u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Segment1_Track1:
-#_1BA20E: #_F20Au: db !INSTR, $0E
-#_1BA210: #_F20Cu: db !VOLUME, $64
+#_1BA20E: #_F20Au: db $E0, $0E ; set instrument - chimes
+#_1BA210: #_F20Cu: db $ED, $64 ; set channel volume
 #_1BA212: #_F20Eu: db $08, $2D ; duration, params
-#_1BA214: #_F210u: db Gs4
-#_1BA215: #_F211u: db Gs4
-#_1BA216: #_F212u: db Ds4
-#_1BA217: #_F213u: db Ds4
-#_1BA218: #_F214u: db Fs4
-#_1BA219: #_F215u: db Fs4
-#_1BA21A: #_F216u: db Cs4
-#_1BA21B: #_F217u: db Cs4
-#_1BA21C: #_F218u: db Gs4
-#_1BA21D: #_F219u: db Gs4
-#_1BA21E: #_F21Au: db Ds4
-#_1BA21F: #_F21Bu: db Ds4
-#_1BA220: #_F21Cu: db Fs4
-#_1BA221: #_F21Du: db Fs4
-#_1BA222: #_F21Eu: db Cs4
-#_1BA223: #_F21Fu: db Cs4
-#_1BA224: #_F220u: db Gs4
-#_1BA225: #_F221u: db Gs4
-#_1BA226: #_F222u: db Ds4
-#_1BA227: #_F223u: db Ds4
-#_1BA228: #_F224u: db Fs4
-#_1BA229: #_F225u: db Fs4
-#_1BA22A: #_F226u: db Cs4
-#_1BA22B: #_F227u: db Cs4
-#_1BA22C: #_F228u: db !CALL_PART : dw Song17_Sub_F29C : db 2
+#_1BA214: #_F210u: db $AC ; play note Gs4
+#_1BA215: #_F211u: db $AC ; play note Gs4
+#_1BA216: #_F212u: db $A7 ; play note Ds4
+#_1BA217: #_F213u: db $A7 ; play note Ds4
+#_1BA218: #_F214u: db $AA ; play note Fs4
+#_1BA219: #_F215u: db $AA ; play note Fs4
+#_1BA21A: #_F216u: db $A5 ; play note Cs4
+#_1BA21B: #_F217u: db $A5 ; play note Cs4
+#_1BA21C: #_F218u: db $AC ; play note Gs4
+#_1BA21D: #_F219u: db $AC ; play note Gs4
+#_1BA21E: #_F21Au: db $A7 ; play note Ds4
+#_1BA21F: #_F21Bu: db $A7 ; play note Ds4
+#_1BA220: #_F21Cu: db $AA ; play note Fs4
+#_1BA221: #_F21Du: db $AA ; play note Fs4
+#_1BA222: #_F21Eu: db $A5 ; play note Cs4
+#_1BA223: #_F21Fu: db $A5 ; play note Cs4
+#_1BA224: #_F220u: db $AC ; play note Gs4
+#_1BA225: #_F221u: db $AC ; play note Gs4
+#_1BA226: #_F222u: db $A7 ; play note Ds4
+#_1BA227: #_F223u: db $A7 ; play note Ds4
+#_1BA228: #_F224u: db $AA ; play note Fs4
+#_1BA229: #_F225u: db $AA ; play note Fs4
+#_1BA22A: #_F226u: db $A5 ; play note Cs4
+#_1BA22B: #_F227u: db $A5 ; play note Cs4
+#_1BA22C: #_F228u: db $EF : dw Song17_Sub_F29C : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Segment1_Track2:
-#_1BA230: #_F22Cu: db !INSTR, $0F
-#_1BA232: #_F22Eu: db !VOLUME, $A0
+#_1BA230: #_F22Cu: db $E0, $0F ; set instrument - harp
+#_1BA232: #_F22Eu: db $ED, $A0 ; set channel volume
 #_1BA234: #_F230u: db $0C, $6D ; duration, params
-#_1BA236: #_F232u: db Fs5
-#_1BA237: #_F233u: db As5
-#_1BA238: #_F234u: db E5
-#_1BA239: #_F235u: db Gs5
-#_1BA23A: #_F236u: db D5
-#_1BA23B: #_F237u: db G5
-#_1BA23C: #_F238u: db Fs5
-#_1BA23D: #_F239u: db As5
-#_1BA23E: #_F23Au: db !CALL_PART : dw Song17_Sub_F2B5 : db 1
-#_1BA242: #_F23Eu: db Fs5
-#_1BA243: #_F23Fu: db As5
-#_1BA244: #_F240u: db E5
-#_1BA245: #_F241u: db Gs5
-#_1BA246: #_F242u: db D5
-#_1BA247: #_F243u: db G5
-#_1BA248: #_F244u: db Fs5
-#_1BA249: #_F245u: db As5
-#_1BA24A: #_F246u: db !CALL_PART : dw Song17_Sub_F2B5 : db 1
+#_1BA236: #_F232u: db $B6 ; play note Fs5
+#_1BA237: #_F233u: db $BA ; play note As5
+#_1BA238: #_F234u: db $B4 ; play note E5
+#_1BA239: #_F235u: db $B8 ; play note Gs5
+#_1BA23A: #_F236u: db $B2 ; play note D5
+#_1BA23B: #_F237u: db $B7 ; play note G5
+#_1BA23C: #_F238u: db $B6 ; play note Fs5
+#_1BA23D: #_F239u: db $BA ; play note As5
+#_1BA23E: #_F23Au: db $EF : dw Song17_Sub_F2B5 : db $01 ; call segment subroutine
+#_1BA242: #_F23Eu: db $B6 ; play note Fs5
+#_1BA243: #_F23Fu: db $BA ; play note As5
+#_1BA244: #_F240u: db $B4 ; play note E5
+#_1BA245: #_F241u: db $B8 ; play note Gs5
+#_1BA246: #_F242u: db $B2 ; play note D5
+#_1BA247: #_F243u: db $B7 ; play note G5
+#_1BA248: #_F244u: db $B6 ; play note Fs5
+#_1BA249: #_F245u: db $BA ; play note As5
+#_1BA24A: #_F246u: db $EF : dw Song17_Sub_F2B5 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Segment1_Track3:
-#_1BA24E: #_F24Au: db !INSTR, $0E
-#_1BA250: #_F24Cu: db !VOLUME, $E6
-#_1BA252: #_F24Eu: db !CALL_PART : dw Song17_Sub_F2C6 : db 1
-#_1BA256: #_F252u: db !CALL_PART : dw Song17_Sub_F2E3 : db 1
+#_1BA24E: #_F24Au: db $E0, $0E ; set instrument - chimes
+#_1BA250: #_F24Cu: db $ED, $E6 ; set channel volume
+#_1BA252: #_F24Eu: db $EF : dw Song17_Sub_F2C6 : db $01 ; call segment subroutine
+#_1BA256: #_F252u: db $EF : dw Song17_Sub_F2E3 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Segment0_Track0:
-#_1BA25A: #_F256u: db !SET_PERC, $19
-#_1BA25C: #_F258u: db !CALL_PART : dw Song17_Sub_F272 : db 1
-#_1BA260: #_F25Cu: db !CALL_PART : dw Song17_Sub_F2F1 : db 1
-#_1BA264: #_F260u: db !CALL_PART : dw Song17_Sub_F28F : db 1
-#_1BA268: #_F264u: db !PART_END
+#_1BA25A: #_F256u: db $FA, $19 ; set base percussion sample
+#_1BA25C: #_F258u: db $EF : dw Song17_Sub_F272 : db $01 ; call segment subroutine
+#_1BA260: #_F25Cu: db $EF : dw Song17_Sub_F2F1 : db $01 ; call segment subroutine
+#_1BA264: #_F260u: db $EF : dw Song17_Sub_F28F : db $01 ; call segment subroutine
+#_1BA268: #_F264u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Segment0_Track3:
-#_1BA269: #_F265u: db !INSTR, $0E
-#_1BA26B: #_F267u: db !VOLUME, $E6
-#_1BA26D: #_F269u: db !CALL_PART : dw Song17_Sub_F2C6 : db 1
-#_1BA271: #_F26Du: db !CALL_PART : dw Song17_Sub_F2E3 : db 1
-#_1BA275: #_F271u: db !PART_END
+#_1BA269: #_F265u: db $E0, $0E ; set instrument - chimes
+#_1BA26B: #_F267u: db $ED, $E6 ; set channel volume
+#_1BA26D: #_F269u: db $EF : dw Song17_Sub_F2C6 : db $01 ; call segment subroutine
+#_1BA271: #_F26Du: db $EF : dw Song17_Sub_F2E3 : db $01 ; call segment subroutine
+#_1BA275: #_F271u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Sub_F272:
-#_1BA276: #_F272u: db !MASTER_VOLUME, $B4
-#_1BA278: #_F274u: db !TEMPO, $1F
-#_1BA27A: #_F276u: db !ECHO_CONFIG, $FF, $00, $00
-#_1BA27E: #_F27Au: db !ECHO_FILTER, $02, $1E, $02
-#_1BA282: #_F27Eu: db !ECHO_GRAD, $28, $50, $50
-#_1BA286: #_F282u: db !INSTR, $0E
-#_1BA288: #_F284u: db !VOLUME, $FA
+#_1BA276: #_F272u: db $E5, $B4 ; set song volume
+#_1BA278: #_F274u: db $E7, $1F ; set song tempo
+#_1BA27A: #_F276u: db $F5, $FF, $00, $00 ; configure EON, EVOLL, EVOLR
+#_1BA27E: #_F27Au: db $F7, $02, $1E, $02 ; configure EDL, EFB, FIR
+#_1BA282: #_F27Eu: db $F8, $28, $50, $50 ; initiate gradual echo volume change
+#_1BA286: #_F282u: db $E0, $0E ; set instrument - chimes
+#_1BA288: #_F284u: db $ED, $FA ; set channel volume
 #_1BA28A: #_F286u: db $18, $6D ; duration, params
-#_1BA28C: #_F288u: db Fs1
-#_1BA28D: #_F289u: db As1
-#_1BA28E: #_F28Au: db E1
+#_1BA28C: #_F288u: db $86 ; play note Fs1
+#_1BA28D: #_F289u: db $8A ; play note As1
+#_1BA28E: #_F28Au: db $84 ; play note E1
 #_1BA28F: #_F28Bu: db $0C ; duration
-#_1BA290: #_F28Cu: db Gs1
-#_1BA291: #_F28Du: db D1
-#_1BA292: #_F28Eu: db !PART_END
+#_1BA290: #_F28Cu: db $88 ; play note Gs1
+#_1BA291: #_F28Du: db $82 ; play note D1
+#_1BA292: #_F28Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Sub_F28F:
-#_1BA293: #_F28Fu: db Fs1
-#_1BA294: #_F290u: db As1
-#_1BA295: #_F291u: db E1
+#_1BA293: #_F28Fu: db $86 ; play note Fs1
+#_1BA294: #_F290u: db $8A ; play note As1
+#_1BA295: #_F291u: db $84 ; play note E1
 #_1BA296: #_F292u: db $0C ; duration
-#_1BA297: #_F293u: db Gs1
-#_1BA298: #_F294u: db D1
-#_1BA299: #_F295u: db !TIE
-#_1BA29A: #_F296u: db Fs1
+#_1BA297: #_F293u: db $88 ; play note Gs1
+#_1BA298: #_F294u: db $82 ; play note D1
+#_1BA299: #_F295u: db $C8 ; sustain current note
+#_1BA29A: #_F296u: db $86 ; play note Fs1
 #_1BA29B: #_F297u: db $18 ; duration
-#_1BA29C: #_F298u: db As1
-#_1BA29D: #_F299u: db E1
-#_1BA29E: #_F29Au: db Gs1
-#_1BA29F: #_F29Bu: db !PART_END
+#_1BA29C: #_F298u: db $8A ; play note As1
+#_1BA29D: #_F299u: db $84 ; play note E1
+#_1BA29E: #_F29Au: db $88 ; play note Gs1
+#_1BA29F: #_F29Bu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Sub_F29C:
-#_1BA2A0: #_F29Cu: db Gs4
-#_1BA2A1: #_F29Du: db Gs4
-#_1BA2A2: #_F29Eu: db Ds4
-#_1BA2A3: #_F29Fu: db Ds4
-#_1BA2A4: #_F2A0u: db Fs4
-#_1BA2A5: #_F2A1u: db Fs4
-#_1BA2A6: #_F2A2u: db Cs4
-#_1BA2A7: #_F2A3u: db Cs4
-#_1BA2A8: #_F2A4u: db Gs4
-#_1BA2A9: #_F2A5u: db Gs4
-#_1BA2AA: #_F2A6u: db Ds4
-#_1BA2AB: #_F2A7u: db Ds4
-#_1BA2AC: #_F2A8u: db Fs4
-#_1BA2AD: #_F2A9u: db Fs4
-#_1BA2AE: #_F2AAu: db Cs4
-#_1BA2AF: #_F2ABu: db Cs4
-#_1BA2B0: #_F2ACu: db Gs4
-#_1BA2B1: #_F2ADu: db Gs4
-#_1BA2B2: #_F2AEu: db Ds4
-#_1BA2B3: #_F2AFu: db Ds4
-#_1BA2B4: #_F2B0u: db Fs4
-#_1BA2B5: #_F2B1u: db Fs4
-#_1BA2B6: #_F2B2u: db Cs4
-#_1BA2B7: #_F2B3u: db Cs4
-#_1BA2B8: #_F2B4u: db !PART_END
+#_1BA2A0: #_F29Cu: db $AC ; play note Gs4
+#_1BA2A1: #_F29Du: db $AC ; play note Gs4
+#_1BA2A2: #_F29Eu: db $A7 ; play note Ds4
+#_1BA2A3: #_F29Fu: db $A7 ; play note Ds4
+#_1BA2A4: #_F2A0u: db $AA ; play note Fs4
+#_1BA2A5: #_F2A1u: db $AA ; play note Fs4
+#_1BA2A6: #_F2A2u: db $A5 ; play note Cs4
+#_1BA2A7: #_F2A3u: db $A5 ; play note Cs4
+#_1BA2A8: #_F2A4u: db $AC ; play note Gs4
+#_1BA2A9: #_F2A5u: db $AC ; play note Gs4
+#_1BA2AA: #_F2A6u: db $A7 ; play note Ds4
+#_1BA2AB: #_F2A7u: db $A7 ; play note Ds4
+#_1BA2AC: #_F2A8u: db $AA ; play note Fs4
+#_1BA2AD: #_F2A9u: db $AA ; play note Fs4
+#_1BA2AE: #_F2AAu: db $A5 ; play note Cs4
+#_1BA2AF: #_F2ABu: db $A5 ; play note Cs4
+#_1BA2B0: #_F2ACu: db $AC ; play note Gs4
+#_1BA2B1: #_F2ADu: db $AC ; play note Gs4
+#_1BA2B2: #_F2AEu: db $A7 ; play note Ds4
+#_1BA2B3: #_F2AFu: db $A7 ; play note Ds4
+#_1BA2B4: #_F2B0u: db $AA ; play note Fs4
+#_1BA2B5: #_F2B1u: db $AA ; play note Fs4
+#_1BA2B6: #_F2B2u: db $A5 ; play note Cs4
+#_1BA2B7: #_F2B3u: db $A5 ; play note Cs4
+#_1BA2B8: #_F2B4u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Sub_F2B5:
-#_1BA2B9: #_F2B5u: db E5
-#_1BA2BA: #_F2B6u: db Gs5
-#_1BA2BB: #_F2B7u: db D5
-#_1BA2BC: #_F2B8u: db G5
-#_1BA2BD: #_F2B9u: db Fs5
-#_1BA2BE: #_F2BAu: db As5
-#_1BA2BF: #_F2BBu: db E5
-#_1BA2C0: #_F2BCu: db Gs5
-#_1BA2C1: #_F2BDu: db D5
-#_1BA2C2: #_F2BEu: db G5
-#_1BA2C3: #_F2BFu: db Fs5
-#_1BA2C4: #_F2C0u: db As5
-#_1BA2C5: #_F2C1u: db E5
-#_1BA2C6: #_F2C2u: db Gs5
-#_1BA2C7: #_F2C3u: db D5
-#_1BA2C8: #_F2C4u: db G5
-#_1BA2C9: #_F2C5u: db !PART_END
+#_1BA2B9: #_F2B5u: db $B4 ; play note E5
+#_1BA2BA: #_F2B6u: db $B8 ; play note Gs5
+#_1BA2BB: #_F2B7u: db $B2 ; play note D5
+#_1BA2BC: #_F2B8u: db $B7 ; play note G5
+#_1BA2BD: #_F2B9u: db $B6 ; play note Fs5
+#_1BA2BE: #_F2BAu: db $BA ; play note As5
+#_1BA2BF: #_F2BBu: db $B4 ; play note E5
+#_1BA2C0: #_F2BCu: db $B8 ; play note Gs5
+#_1BA2C1: #_F2BDu: db $B2 ; play note D5
+#_1BA2C2: #_F2BEu: db $B7 ; play note G5
+#_1BA2C3: #_F2BFu: db $B6 ; play note Fs5
+#_1BA2C4: #_F2C0u: db $BA ; play note As5
+#_1BA2C5: #_F2C1u: db $B4 ; play note E5
+#_1BA2C6: #_F2C2u: db $B8 ; play note Gs5
+#_1BA2C7: #_F2C3u: db $B2 ; play note D5
+#_1BA2C8: #_F2C4u: db $B7 ; play note G5
+#_1BA2C9: #_F2C5u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Sub_F2C6:
 #_1BA2CA: #_F2C6u: db $06 ; duration
-#_1BA2CB: #_F2C7u: db R
+#_1BA2CB: #_F2C7u: db $C9 ; rest
 #_1BA2CC: #_F2C8u: db $18, $6D ; duration, params
-#_1BA2CE: #_F2CAu: db Fs1
-#_1BA2CF: #_F2CBu: db As1
-#_1BA2D0: #_F2CCu: db E1
+#_1BA2CE: #_F2CAu: db $86 ; play note Fs1
+#_1BA2CF: #_F2CBu: db $8A ; play note As1
+#_1BA2D0: #_F2CCu: db $84 ; play note E1
 #_1BA2D1: #_F2CDu: db $0C ; duration
-#_1BA2D2: #_F2CEu: db Gs1
-#_1BA2D3: #_F2CFu: db D1
-#_1BA2D4: #_F2D0u: db !TIE
-#_1BA2D5: #_F2D1u: db Fs1
+#_1BA2D2: #_F2CEu: db $88 ; play note Gs1
+#_1BA2D3: #_F2CFu: db $82 ; play note D1
+#_1BA2D4: #_F2D0u: db $C8 ; sustain current note
+#_1BA2D5: #_F2D1u: db $86 ; play note Fs1
 #_1BA2D6: #_F2D2u: db $18 ; duration
-#_1BA2D7: #_F2D3u: db As1
-#_1BA2D8: #_F2D4u: db E1
-#_1BA2D9: #_F2D5u: db Gs1
-#_1BA2DA: #_F2D6u: db Fs1
-#_1BA2DB: #_F2D7u: db As1
-#_1BA2DC: #_F2D8u: db E1
+#_1BA2D7: #_F2D3u: db $8A ; play note As1
+#_1BA2D8: #_F2D4u: db $84 ; play note E1
+#_1BA2D9: #_F2D5u: db $88 ; play note Gs1
+#_1BA2DA: #_F2D6u: db $86 ; play note Fs1
+#_1BA2DB: #_F2D7u: db $8A ; play note As1
+#_1BA2DC: #_F2D8u: db $84 ; play note E1
 #_1BA2DD: #_F2D9u: db $0C ; duration
-#_1BA2DE: #_F2DAu: db Gs1
-#_1BA2DF: #_F2DBu: db D1
-#_1BA2E0: #_F2DCu: db !TIE
-#_1BA2E1: #_F2DDu: db Fs1
+#_1BA2DE: #_F2DAu: db $88 ; play note Gs1
+#_1BA2DF: #_F2DBu: db $82 ; play note D1
+#_1BA2E0: #_F2DCu: db $C8 ; sustain current note
+#_1BA2E1: #_F2DDu: db $86 ; play note Fs1
 #_1BA2E2: #_F2DEu: db $18 ; duration
-#_1BA2E3: #_F2DFu: db As1
-#_1BA2E4: #_F2E0u: db E1
-#_1BA2E5: #_F2E1u: db Gs1
-#_1BA2E6: #_F2E2u: db !PART_END
+#_1BA2E3: #_F2DFu: db $8A ; play note As1
+#_1BA2E4: #_F2E0u: db $84 ; play note E1
+#_1BA2E5: #_F2E1u: db $88 ; play note Gs1
+#_1BA2E6: #_F2E2u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Sub_F2E3:
-#_1BA2E7: #_F2E3u: db Fs1
-#_1BA2E8: #_F2E4u: db As1
-#_1BA2E9: #_F2E5u: db E1
+#_1BA2E7: #_F2E3u: db $86 ; play note Fs1
+#_1BA2E8: #_F2E4u: db $8A ; play note As1
+#_1BA2E9: #_F2E5u: db $84 ; play note E1
 #_1BA2EA: #_F2E6u: db $0C ; duration
-#_1BA2EB: #_F2E7u: db Gs1
-#_1BA2EC: #_F2E8u: db D1
-#_1BA2ED: #_F2E9u: db !TIE
-#_1BA2EE: #_F2EAu: db Fs1
+#_1BA2EB: #_F2E7u: db $88 ; play note Gs1
+#_1BA2EC: #_F2E8u: db $82 ; play note D1
+#_1BA2ED: #_F2E9u: db $C8 ; sustain current note
+#_1BA2EE: #_F2EAu: db $86 ; play note Fs1
 #_1BA2EF: #_F2EBu: db $18 ; duration
-#_1BA2F0: #_F2ECu: db As1
-#_1BA2F1: #_F2EDu: db E1
+#_1BA2F0: #_F2ECu: db $8A ; play note As1
+#_1BA2F1: #_F2EDu: db $84 ; play note E1
 #_1BA2F2: #_F2EEu: db $12 ; duration
-#_1BA2F3: #_F2EFu: db Gs1
-#_1BA2F4: #_F2F0u: db !PART_END
+#_1BA2F3: #_F2EFu: db $88 ; play note Gs1
+#_1BA2F4: #_F2F0u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song17_Sub_F2F1:
-#_1BA2F5: #_F2F1u: db !TIE
-#_1BA2F6: #_F2F2u: db Fs1
+#_1BA2F5: #_F2F1u: db $C8 ; sustain current note
+#_1BA2F6: #_F2F2u: db $86 ; play note Fs1
 #_1BA2F7: #_F2F3u: db $18 ; duration
-#_1BA2F8: #_F2F4u: db As1
-#_1BA2F9: #_F2F5u: db E1
-#_1BA2FA: #_F2F6u: db Gs1
-#_1BA2FB: #_F2F7u: db Fs1
-#_1BA2FC: #_F2F8u: db As1
-#_1BA2FD: #_F2F9u: db E1
+#_1BA2F8: #_F2F4u: db $8A ; play note As1
+#_1BA2F9: #_F2F5u: db $84 ; play note E1
+#_1BA2FA: #_F2F6u: db $88 ; play note Gs1
+#_1BA2FB: #_F2F7u: db $86 ; play note Fs1
+#_1BA2FC: #_F2F8u: db $8A ; play note As1
+#_1BA2FD: #_F2F9u: db $84 ; play note E1
 #_1BA2FE: #_F2FAu: db $0C ; duration
-#_1BA2FF: #_F2FBu: db Gs1
-#_1BA300: #_F2FCu: db D1
-#_1BA301: #_F2FDu: db !TIE
-#_1BA302: #_F2FEu: db Fs1
+#_1BA2FF: #_F2FBu: db $88 ; play note Gs1
+#_1BA300: #_F2FCu: db $82 ; play note D1
+#_1BA301: #_F2FDu: db $C8 ; sustain current note
+#_1BA302: #_F2FEu: db $86 ; play note Fs1
 #_1BA303: #_F2FFu: db $18 ; duration
-#_1BA304: #_F300u: db As1
-#_1BA305: #_F301u: db E1
-#_1BA306: #_F302u: db Gs1
-#_1BA307: #_F303u: db !PART_END
+#_1BA304: #_F300u: db $8A ; play note As1
+#_1BA305: #_F301u: db $84 ; play note E1
+#_1BA306: #_F302u: db $88 ; play note Gs1
+#_1BA307: #_F303u: db $00 ; End
 
 ;===================================================================================================
 
@@ -7754,7 +7754,7 @@ Song19_Loop:
 #_1BA30A: #_F306u: dw Song19_Segment1
 #_1BA30C: #_F308u: dw Song19_Segment2
 #_1BA30E: #_F30Au: dw Song19_Segment3
-#_1BA310: #_F30Cu: dw !SONG_LOOP, Song19_Loop
+#_1BA310: #_F30Cu: dw $00FF, Song19_Loop ; Loop point
 #_1BA314: #_F310u: dw $0000
 
 Song19_Segment1:
@@ -7800,515 +7800,515 @@ Song19_Segment0:
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment1_Track0:
-#_1BA356: #_F352u: db !INSTR, $0A
-#_1BA358: #_F354u: db !TEMPO, $15
-#_1BA35A: #_F356u: db !VOLUME, $64
-#_1BA35C: #_F358u: db !VOLUME_GRAD, $3C, $C8
-#_1BA35F: #_F35Bu: db !GLOBAL_TRANS, $00
-#_1BA361: #_F35Du: db !VIBRATO, $1A, $1C, $1E
-#_1BA365: #_F361u: db !PAN, $0E
+#_1BA356: #_F352u: db $E0, $0A ; set instrument - strings B
+#_1BA358: #_F354u: db $E7, $15 ; set song tempo
+#_1BA35A: #_F356u: db $ED, $64 ; set channel volume
+#_1BA35C: #_F358u: db $EE, $3C, $C8 ; initiate gradual channel volume change
+#_1BA35F: #_F35Bu: db $E9, $00 ; set global transposition
+#_1BA361: #_F35Du: db $E3, $1A, $1C, $1E ; enable vibrato
+#_1BA365: #_F361u: db $E1, $0E ; set panning - leaning left
 #_1BA367: #_F363u: db $30, $7D ; duration, params
-#_1BA369: #_F365u: db B4
+#_1BA369: #_F365u: db $AF ; play note B4
 #_1BA36A: #_F366u: db $18 ; duration
-#_1BA36B: #_F367u: db D5
-#_1BA36C: #_F368u: db !CALL_PART : dw Song19_Sub_F523 : db 1
+#_1BA36B: #_F367u: db $B2 ; play note D5
+#_1BA36C: #_F368u: db $EF : dw Song19_Sub_F523 : db $01 ; call segment subroutine
 #_1BA370: #_F36Cu: db $30 ; duration
-#_1BA371: #_F36Du: db D5
+#_1BA371: #_F36Du: db $B2 ; play note D5
 #_1BA372: #_F36Eu: db $0C ; duration
-#_1BA373: #_F36Fu: db C5
-#_1BA374: #_F370u: db B4
+#_1BA373: #_F36Fu: db $B0 ; play note C5
+#_1BA374: #_F370u: db $AF ; play note B4
 #_1BA375: #_F371u: db $48 ; duration
-#_1BA376: #_F372u: db A4
-#_1BA377: #_F373u: db !PART_END
+#_1BA376: #_F372u: db $AD ; play note A4
+#_1BA377: #_F373u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment1_Track1:
-#_1BA378: #_F374u: db !INSTR, $0A
-#_1BA37A: #_F376u: db !VOLUME, $64
-#_1BA37C: #_F378u: db !VOLUME_GRAD, $50, $C8
-#_1BA37F: #_F37Bu: db !PAN, $06
+#_1BA378: #_F374u: db $E0, $0A ; set instrument - strings B
+#_1BA37A: #_F376u: db $ED, $64 ; set channel volume
+#_1BA37C: #_F378u: db $EE, $50, $C8 ; initiate gradual channel volume change
+#_1BA37F: #_F37Bu: db $E1, $06 ; set panning - leaning right
 #_1BA381: #_F37Du: db $48, $6D ; duration, params
-#_1BA383: #_F37Fu: db C3
-#_1BA384: #_F380u: db C3
-#_1BA385: #_F381u: db C3
-#_1BA386: #_F382u: db C3
-#_1BA387: #_F383u: db B2
-#_1BA388: #_F384u: db As2
-#_1BA389: #_F385u: db A2
-#_1BA38A: #_F386u: db D3
+#_1BA383: #_F37Fu: db $98 ; play note C3
+#_1BA384: #_F380u: db $98 ; play note C3
+#_1BA385: #_F381u: db $98 ; play note C3
+#_1BA386: #_F382u: db $98 ; play note C3
+#_1BA387: #_F383u: db $97 ; play note B2
+#_1BA388: #_F384u: db $96 ; play note As2
+#_1BA389: #_F385u: db $95 ; play note A2
+#_1BA38A: #_F386u: db $9A ; play note D3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment1_Track3:
-#_1BA38B: #_F387u: db !INSTR, $0A
-#_1BA38D: #_F389u: db !VOLUME, $64
-#_1BA38F: #_F38Bu: db !VOLUME_GRAD, $50, $C8
-#_1BA392: #_F38Eu: db !PAN, $0A
-#_1BA394: #_F390u: db !VIBRATO, $18, $1A, $18
-#_1BA398: #_F394u: db !CALL_PART : dw Song19_Sub_F537 : db 1
+#_1BA38B: #_F387u: db $E0, $0A ; set instrument - strings B
+#_1BA38D: #_F389u: db $ED, $64 ; set channel volume
+#_1BA38F: #_F38Bu: db $EE, $50, $C8 ; initiate gradual channel volume change
+#_1BA392: #_F38Eu: db $E1, $0A ; set panning - balanced
+#_1BA394: #_F390u: db $E3, $18, $1A, $18 ; enable vibrato
+#_1BA398: #_F394u: db $EF : dw Song19_Sub_F537 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment1_Track4:
-#_1BA39C: #_F398u: db !INSTR, $0A
-#_1BA39E: #_F39Au: db !VOLUME, $64
-#_1BA3A0: #_F39Cu: db !VOLUME_GRAD, $50, $A0
-#_1BA3A3: #_F39Fu: db !VIBRATO, $1A, $1C, $1E
-#_1BA3A7: #_F3A3u: db !PAN, $0B
+#_1BA39C: #_F398u: db $E0, $0A ; set instrument - strings B
+#_1BA39E: #_F39Au: db $ED, $64 ; set channel volume
+#_1BA3A0: #_F39Cu: db $EE, $50, $A0 ; initiate gradual channel volume change
+#_1BA3A3: #_F39Fu: db $E3, $1A, $1C, $1E ; enable vibrato
+#_1BA3A7: #_F3A3u: db $E1, $0B ; set panning - leaning left
 #_1BA3A9: #_F3A5u: db $08 ; duration
-#_1BA3AA: #_F3A6u: db R
+#_1BA3AA: #_F3A6u: db $C9 ; rest
 #_1BA3AB: #_F3A7u: db $30, $7D ; duration, params
-#_1BA3AD: #_F3A9u: db B4
+#_1BA3AD: #_F3A9u: db $AF ; play note B4
 #_1BA3AE: #_F3AAu: db $18 ; duration
-#_1BA3AF: #_F3ABu: db D5
-#_1BA3B0: #_F3ACu: db !CALL_PART : dw Song19_Sub_F523 : db 1
+#_1BA3AF: #_F3ABu: db $B2 ; play note D5
+#_1BA3B0: #_F3ACu: db $EF : dw Song19_Sub_F523 : db $01 ; call segment subroutine
 #_1BA3B4: #_F3B0u: db $30 ; duration
-#_1BA3B5: #_F3B1u: db D5
+#_1BA3B5: #_F3B1u: db $B2 ; play note D5
 #_1BA3B6: #_F3B2u: db $0C ; duration
-#_1BA3B7: #_F3B3u: db C5
-#_1BA3B8: #_F3B4u: db B4
+#_1BA3B7: #_F3B3u: db $B0 ; play note C5
+#_1BA3B8: #_F3B4u: db $AF ; play note B4
 #_1BA3B9: #_F3B5u: db $40 ; duration
-#_1BA3BA: #_F3B6u: db A4
+#_1BA3BA: #_F3B6u: db $AD ; play note A4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment2_Track0:
 #_1BA3BB: #_F3B7u: db $30, $7D ; duration, params
-#_1BA3BD: #_F3B9u: db B4
+#_1BA3BD: #_F3B9u: db $AF ; play note B4
 #_1BA3BE: #_F3BAu: db $18 ; duration
-#_1BA3BF: #_F3BBu: db D5
-#_1BA3C0: #_F3BCu: db !CALL_PART : dw Song19_Sub_F523 : db 1
+#_1BA3BF: #_F3BBu: db $B2 ; play note D5
+#_1BA3C0: #_F3BCu: db $EF : dw Song19_Sub_F523 : db $01 ; call segment subroutine
 #_1BA3C4: #_F3C0u: db $48 ; duration
-#_1BA3C5: #_F3C1u: db D6
-#_1BA3C6: #_F3C2u: db !TIE
-#_1BA3C7: #_F3C3u: db !PART_END
+#_1BA3C5: #_F3C1u: db $BE ; play note D6
+#_1BA3C6: #_F3C2u: db $C8 ; sustain current note
+#_1BA3C7: #_F3C3u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment2_Track1:
 #_1BA3C8: #_F3C4u: db $48, $6D ; duration, params
-#_1BA3CA: #_F3C6u: db C3
-#_1BA3CB: #_F3C7u: db C3
-#_1BA3CC: #_F3C8u: db C3
-#_1BA3CD: #_F3C9u: db C3
-#_1BA3CE: #_F3CAu: db B2
-#_1BA3CF: #_F3CBu: db As2
-#_1BA3D0: #_F3CCu: db A2
-#_1BA3D1: #_F3CDu: db D3
+#_1BA3CA: #_F3C6u: db $98 ; play note C3
+#_1BA3CB: #_F3C7u: db $98 ; play note C3
+#_1BA3CC: #_F3C8u: db $98 ; play note C3
+#_1BA3CD: #_F3C9u: db $98 ; play note C3
+#_1BA3CE: #_F3CAu: db $97 ; play note B2
+#_1BA3CF: #_F3CBu: db $96 ; play note As2
+#_1BA3D0: #_F3CCu: db $95 ; play note A2
+#_1BA3D1: #_F3CDu: db $9A ; play note D3
 
 Song19_Segment2_Track2:
-#_1BA3D2: #_F3CEu: db !INSTR, $15
-#_1BA3D4: #_F3D0u: db !VOLUME, $82
-#_1BA3D6: #_F3D2u: db !VIBRATO, $1C, $1C, $1C
+#_1BA3D2: #_F3CEu: db $E0, $15 ; set instrument - choir
+#_1BA3D4: #_F3D0u: db $ED, $82 ; set channel volume
+#_1BA3D6: #_F3D2u: db $E3, $1C, $1C, $1C ; enable vibrato
 #_1BA3DA: #_F3D6u: db $48, $7D ; duration, params
-#_1BA3DC: #_F3D8u: db E4
-#_1BA3DD: #_F3D9u: db Fs4
-#_1BA3DE: #_F3DAu: db E4
-#_1BA3DF: #_F3DBu: db Fs4
-#_1BA3E0: #_F3DCu: db Fs4
-#_1BA3E1: #_F3DDu: db F4
-#_1BA3E2: #_F3DEu: db E4
-#_1BA3E3: #_F3DFu: db D4
+#_1BA3DC: #_F3D8u: db $A8 ; play note E4
+#_1BA3DD: #_F3D9u: db $AA ; play note Fs4
+#_1BA3DE: #_F3DAu: db $A8 ; play note E4
+#_1BA3DF: #_F3DBu: db $AA ; play note Fs4
+#_1BA3E0: #_F3DCu: db $AA ; play note Fs4
+#_1BA3E1: #_F3DDu: db $A9 ; play note F4
+#_1BA3E2: #_F3DEu: db $A8 ; play note E4
+#_1BA3E3: #_F3DFu: db $A6 ; play note D4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment2_Track3:
-#_1BA3E4: #_F3E0u: db !CALL_PART : dw Song19_Sub_F537 : db 1
+#_1BA3E4: #_F3E0u: db $EF : dw Song19_Sub_F537 : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment2_Track4:
 #_1BA3E8: #_F3E4u: db $08 ; duration
-#_1BA3E9: #_F3E5u: db R
+#_1BA3E9: #_F3E5u: db $C9 ; rest
 #_1BA3EA: #_F3E6u: db $30, $7D ; duration, params
-#_1BA3EC: #_F3E8u: db B4
+#_1BA3EC: #_F3E8u: db $AF ; play note B4
 #_1BA3ED: #_F3E9u: db $18 ; duration
-#_1BA3EE: #_F3EAu: db D5
-#_1BA3EF: #_F3EBu: db !CALL_PART : dw Song19_Sub_F523 : db 1
+#_1BA3EE: #_F3EAu: db $B2 ; play note D5
+#_1BA3EF: #_F3EBu: db $EF : dw Song19_Sub_F523 : db $01 ; call segment subroutine
 #_1BA3F3: #_F3EFu: db $48 ; duration
-#_1BA3F4: #_F3F0u: db D6
+#_1BA3F4: #_F3F0u: db $BE ; play note D6
 #_1BA3F5: #_F3F1u: db $40 ; duration
-#_1BA3F6: #_F3F2u: db !TIE
+#_1BA3F6: #_F3F2u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment3_Track0:
-#_1BA3F7: #_F3F3u: db !INSTR, $16
-#_1BA3F9: #_F3F5u: db !CALL_PART : dw Song19_Sub_F562 : db 1
-#_1BA3FD: #_F3F9u: db !TIE
-#_1BA3FE: #_F3FAu: db !PART_END
+#_1BA3F7: #_F3F3u: db $E0, $16 ; set instrument - flute
+#_1BA3F9: #_F3F5u: db $EF : dw Song19_Sub_F562 : db $01 ; call segment subroutine
+#_1BA3FD: #_F3F9u: db $C8 ; sustain current note
+#_1BA3FE: #_F3FAu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment3_Track1:
 #_1BA3FF: #_F3FBu: db $48, $6D ; duration, params
-#_1BA401: #_F3FDu: db F3
-#_1BA402: #_F3FEu: db E3
-#_1BA403: #_F3FFu: db D3
-#_1BA404: #_F400u: db C3
-#_1BA405: #_F401u: db F3
-#_1BA406: #_F402u: db E3
-#_1BA407: #_F403u: db Ds3
+#_1BA401: #_F3FDu: db $9D ; play note F3
+#_1BA402: #_F3FEu: db $9C ; play note E3
+#_1BA403: #_F3FFu: db $9A ; play note D3
+#_1BA404: #_F400u: db $98 ; play note C3
+#_1BA405: #_F401u: db $9D ; play note F3
+#_1BA406: #_F402u: db $9C ; play note E3
+#_1BA407: #_F403u: db $9B ; play note Ds3
 #_1BA408: #_F404u: db $30 ; duration
-#_1BA409: #_F405u: db D3
+#_1BA409: #_F405u: db $9A ; play note D3
 #_1BA40A: #_F406u: db $18 ; duration
-#_1BA40B: #_F407u: db G2
+#_1BA40B: #_F407u: db $93 ; play note G2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment3_Track2:
-#_1BA40C: #_F408u: db !INSTR, $0A
-#_1BA40E: #_F40Au: db !VIBRATO, $1C, $1C, $1C
+#_1BA40C: #_F408u: db $E0, $0A ; set instrument - strings B
+#_1BA40E: #_F40Au: db $E3, $1C, $1C, $1C ; enable vibrato
 #_1BA412: #_F40Eu: db $18 ; duration
-#_1BA413: #_F40Fu: db R
+#_1BA413: #_F40Fu: db $C9 ; rest
 #_1BA414: #_F410u: db $30, $6D ; duration, params
-#_1BA416: #_F412u: db C4
+#_1BA416: #_F412u: db $A4 ; play note C4
 #_1BA417: #_F413u: db $18 ; duration
-#_1BA418: #_F414u: db R
+#_1BA418: #_F414u: db $C9 ; rest
 #_1BA419: #_F415u: db $30 ; duration
-#_1BA41A: #_F416u: db B3
+#_1BA41A: #_F416u: db $A3 ; play note B3
 #_1BA41B: #_F417u: db $18 ; duration
-#_1BA41C: #_F418u: db R
+#_1BA41C: #_F418u: db $C9 ; rest
 #_1BA41D: #_F419u: db $30 ; duration
-#_1BA41E: #_F41Au: db A3
+#_1BA41E: #_F41Au: db $A1 ; play note A3
 #_1BA41F: #_F41Bu: db $18 ; duration
-#_1BA420: #_F41Cu: db R
+#_1BA420: #_F41Cu: db $C9 ; rest
 #_1BA421: #_F41Du: db $30 ; duration
-#_1BA422: #_F41Eu: db G3
+#_1BA422: #_F41Eu: db $9F ; play note G3
 #_1BA423: #_F41Fu: db $18 ; duration
-#_1BA424: #_F420u: db R
+#_1BA424: #_F420u: db $C9 ; rest
 #_1BA425: #_F421u: db $30 ; duration
-#_1BA426: #_F422u: db C4
+#_1BA426: #_F422u: db $A4 ; play note C4
 #_1BA427: #_F423u: db $18 ; duration
-#_1BA428: #_F424u: db R
+#_1BA428: #_F424u: db $C9 ; rest
 #_1BA429: #_F425u: db $30 ; duration
-#_1BA42A: #_F426u: db B3
+#_1BA42A: #_F426u: db $A3 ; play note B3
 #_1BA42B: #_F427u: db $18 ; duration
-#_1BA42C: #_F428u: db R
+#_1BA42C: #_F428u: db $C9 ; rest
 #_1BA42D: #_F429u: db $30 ; duration
-#_1BA42E: #_F42Au: db As3
+#_1BA42E: #_F42Au: db $A2 ; play note As3
 #_1BA42F: #_F42Bu: db $18 ; duration
-#_1BA430: #_F42Cu: db R
-#_1BA431: #_F42Du: db A3
-#_1BA432: #_F42Eu: db F3
+#_1BA430: #_F42Cu: db $C9 ; rest
+#_1BA431: #_F42Du: db $A1 ; play note A3
+#_1BA432: #_F42Eu: db $9D ; play note F3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment3_Track3:
 #_1BA433: #_F42Fu: db $0C ; duration
-#_1BA434: #_F430u: db R
+#_1BA434: #_F430u: db $C9 ; rest
 #_1BA435: #_F431u: db $0C, $6D ; duration, params
-#_1BA437: #_F433u: db C4
+#_1BA437: #_F433u: db $A4 ; play note C4
 #_1BA438: #_F434u: db $30 ; duration
-#_1BA439: #_F435u: db E4
+#_1BA439: #_F435u: db $A8 ; play note E4
 #_1BA43A: #_F436u: db $0C ; duration
-#_1BA43B: #_F437u: db R
-#_1BA43C: #_F438u: db B3
+#_1BA43B: #_F437u: db $C9 ; rest
+#_1BA43C: #_F438u: db $A3 ; play note B3
 #_1BA43D: #_F439u: db $30 ; duration
-#_1BA43E: #_F43Au: db D4
+#_1BA43E: #_F43Au: db $A6 ; play note D4
 #_1BA43F: #_F43Bu: db $0C ; duration
-#_1BA440: #_F43Cu: db R
-#_1BA441: #_F43Du: db A3
+#_1BA440: #_F43Cu: db $C9 ; rest
+#_1BA441: #_F43Du: db $A1 ; play note A3
 #_1BA442: #_F43Eu: db $30 ; duration
-#_1BA443: #_F43Fu: db C4
+#_1BA443: #_F43Fu: db $A4 ; play note C4
 #_1BA444: #_F440u: db $0C ; duration
-#_1BA445: #_F441u: db R
-#_1BA446: #_F442u: db G3
+#_1BA445: #_F441u: db $C9 ; rest
+#_1BA446: #_F442u: db $9F ; play note G3
 #_1BA447: #_F443u: db $30 ; duration
-#_1BA448: #_F444u: db B3
+#_1BA448: #_F444u: db $A3 ; play note B3
 #_1BA449: #_F445u: db $0C ; duration
-#_1BA44A: #_F446u: db R
-#_1BA44B: #_F447u: db C4
+#_1BA44A: #_F446u: db $C9 ; rest
+#_1BA44B: #_F447u: db $A4 ; play note C4
 #_1BA44C: #_F448u: db $30 ; duration
-#_1BA44D: #_F449u: db E4
+#_1BA44D: #_F449u: db $A8 ; play note E4
 #_1BA44E: #_F44Au: db $0C ; duration
-#_1BA44F: #_F44Bu: db R
-#_1BA450: #_F44Cu: db B3
+#_1BA44F: #_F44Bu: db $C9 ; rest
+#_1BA450: #_F44Cu: db $A3 ; play note B3
 #_1BA451: #_F44Du: db $30 ; duration
-#_1BA452: #_F44Eu: db D4
+#_1BA452: #_F44Eu: db $A6 ; play note D4
 #_1BA453: #_F44Fu: db $0C ; duration
-#_1BA454: #_F450u: db R
-#_1BA455: #_F451u: db As3
+#_1BA454: #_F450u: db $C9 ; rest
+#_1BA455: #_F451u: db $A2 ; play note As3
 #_1BA456: #_F452u: db $30 ; duration
-#_1BA457: #_F453u: db Cs4
+#_1BA457: #_F453u: db $A5 ; play note Cs4
 #_1BA458: #_F454u: db $0C ; duration
-#_1BA459: #_F455u: db R
-#_1BA45A: #_F456u: db A3
+#_1BA459: #_F455u: db $C9 ; rest
+#_1BA45A: #_F456u: db $A1 ; play note A3
 #_1BA45B: #_F457u: db $18 ; duration
-#_1BA45C: #_F458u: db C4
-#_1BA45D: #_F459u: db B3
+#_1BA45C: #_F458u: db $A4 ; play note C4
+#_1BA45D: #_F459u: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment3_Track4:
-#_1BA45E: #_F45Au: db !CALL_PART : dw Song19_Sub_F562 : db 1
-#_1BA462: #_F45Eu: db !TIE
+#_1BA45E: #_F45Au: db $EF : dw Song19_Sub_F562 : db $01 ; call segment subroutine
+#_1BA462: #_F45Eu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment0_Track0:
-#_1BA463: #_F45Fu: db !SET_PERC, $18
-#_1BA465: #_F461u: db !MASTER_VOLUME, $B4
-#_1BA467: #_F463u: db !ECHO_CONFIG, $FF, $00, $00
-#_1BA46B: #_F467u: db !ECHO_FILTER, $02, $3C, $02
-#_1BA46F: #_F46Bu: db !ECHO_GRAD, $1E, $28, $28
-#_1BA473: #_F46Fu: db !TEMPO, $1D
-#_1BA475: #_F471u: db !INSTR, $0A
-#_1BA477: #_F473u: db !VOLUME, $C8
-#_1BA479: #_F475u: db !VIBRATO, $1A, $1C, $16
-#_1BA47D: #_F479u: db !PAN, $0E
+#_1BA463: #_F45Fu: db $FA, $18 ; set base percussion sample
+#_1BA465: #_F461u: db $E5, $B4 ; set song volume
+#_1BA467: #_F463u: db $F5, $FF, $00, $00 ; configure EON, EVOLL, EVOLR
+#_1BA46B: #_F467u: db $F7, $02, $3C, $02 ; configure EDL, EFB, FIR
+#_1BA46F: #_F46Bu: db $F8, $1E, $28, $28 ; initiate gradual echo volume change
+#_1BA473: #_F46Fu: db $E7, $1D ; set song tempo
+#_1BA475: #_F471u: db $E0, $0A ; set instrument - strings B
+#_1BA477: #_F473u: db $ED, $C8 ; set channel volume
+#_1BA479: #_F475u: db $E3, $1A, $1C, $16 ; enable vibrato
+#_1BA47D: #_F479u: db $E1, $0E ; set panning - leaning left
 #_1BA47F: #_F47Bu: db $0C ; duration
-#_1BA480: #_F47Cu: db R
+#_1BA480: #_F47Cu: db $C9 ; rest
 #_1BA481: #_F47Du: db $0E, $6D ; duration, params
-#_1BA483: #_F47Fu: db G4
+#_1BA483: #_F47Fu: db $AB ; play note G4
 #_1BA484: #_F480u: db $0D ; duration
-#_1BA485: #_F481u: db A4
+#_1BA485: #_F481u: db $AD ; play note A4
 #_1BA486: #_F482u: db $0C ; duration
-#_1BA487: #_F483u: db B4
+#_1BA487: #_F483u: db $AF ; play note B4
 #_1BA488: #_F484u: db $0B ; duration
-#_1BA489: #_F485u: db C5
+#_1BA489: #_F485u: db $B0 ; play note C5
 #_1BA48A: #_F486u: db $0A ; duration
-#_1BA48B: #_F487u: db D5
+#_1BA48B: #_F487u: db $B2 ; play note D5
 #_1BA48C: #_F488u: db $09 ; duration
-#_1BA48D: #_F489u: db E5
+#_1BA48D: #_F489u: db $B4 ; play note E5
 #_1BA48E: #_F48Au: db $08 ; duration
-#_1BA48F: #_F48Bu: db F5
+#_1BA48F: #_F48Bu: db $B5 ; play note F5
 #_1BA490: #_F48Cu: db $18 ; duration
-#_1BA491: #_F48Du: db G5
-#_1BA492: #_F48Eu: db F5
-#_1BA493: #_F48Fu: db C6
-#_1BA494: #_F490u: db As5
+#_1BA491: #_F48Du: db $B7 ; play note G5
+#_1BA492: #_F48Eu: db $B5 ; play note F5
+#_1BA493: #_F48Fu: db $BC ; play note C6
+#_1BA494: #_F490u: db $BA ; play note As5
 #_1BA495: #_F491u: db $60, $7D ; duration, params
-#_1BA497: #_F493u: db B5
+#_1BA497: #_F493u: db $BB ; play note B5
 #_1BA498: #_F494u: db $30 ; duration
-#_1BA499: #_F495u: db !TIE
-#_1BA49A: #_F496u: db !PART_END
+#_1BA499: #_F495u: db $C8 ; sustain current note
+#_1BA49A: #_F496u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment0_Track1:
-#_1BA49B: #_F497u: db !INSTR, $0A
-#_1BA49D: #_F499u: db !VOLUME, $A0
-#_1BA49F: #_F49Bu: db !VIBRATO, $18, $1A, $17
-#_1BA4A3: #_F49Fu: db !PAN, $0C
+#_1BA49B: #_F497u: db $E0, $0A ; set instrument - strings B
+#_1BA49D: #_F499u: db $ED, $A0 ; set channel volume
+#_1BA49F: #_F49Bu: db $E3, $18, $1A, $17 ; enable vibrato
+#_1BA4A3: #_F49Fu: db $E1, $0C ; set panning - leaning left
 #_1BA4A5: #_F4A1u: db $14 ; duration
-#_1BA4A6: #_F4A2u: db R
+#_1BA4A6: #_F4A2u: db $C9 ; rest
 #_1BA4A7: #_F4A3u: db $0E, $6D ; duration, params
-#_1BA4A9: #_F4A5u: db G4
+#_1BA4A9: #_F4A5u: db $AB ; play note G4
 #_1BA4AA: #_F4A6u: db $0D ; duration
-#_1BA4AB: #_F4A7u: db A4
+#_1BA4AB: #_F4A7u: db $AD ; play note A4
 #_1BA4AC: #_F4A8u: db $0C ; duration
-#_1BA4AD: #_F4A9u: db B4
+#_1BA4AD: #_F4A9u: db $AF ; play note B4
 #_1BA4AE: #_F4AAu: db $0B ; duration
-#_1BA4AF: #_F4ABu: db C5
+#_1BA4AF: #_F4ABu: db $B0 ; play note C5
 #_1BA4B0: #_F4ACu: db $0A ; duration
-#_1BA4B1: #_F4ADu: db D5
+#_1BA4B1: #_F4ADu: db $B2 ; play note D5
 #_1BA4B2: #_F4AEu: db $09 ; duration
-#_1BA4B3: #_F4AFu: db E5
+#_1BA4B3: #_F4AFu: db $B4 ; play note E5
 #_1BA4B4: #_F4B0u: db $08 ; duration
-#_1BA4B5: #_F4B1u: db F5
+#_1BA4B5: #_F4B1u: db $B5 ; play note F5
 #_1BA4B6: #_F4B2u: db $18 ; duration
-#_1BA4B7: #_F4B3u: db G5
-#_1BA4B8: #_F4B4u: db F5
-#_1BA4B9: #_F4B5u: db C6
-#_1BA4BA: #_F4B6u: db As5
+#_1BA4B7: #_F4B3u: db $B7 ; play note G5
+#_1BA4B8: #_F4B4u: db $B5 ; play note F5
+#_1BA4B9: #_F4B5u: db $BC ; play note C6
+#_1BA4BA: #_F4B6u: db $BA ; play note As5
 #_1BA4BB: #_F4B7u: db $60, $7D ; duration, params
-#_1BA4BD: #_F4B9u: db B5
+#_1BA4BD: #_F4B9u: db $BB ; play note B5
 #_1BA4BE: #_F4BAu: db $28 ; duration
-#_1BA4BF: #_F4BBu: db !TIE
+#_1BA4BF: #_F4BBu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment0_Track2:
-#_1BA4C0: #_F4BCu: db !INSTR, $0A
-#_1BA4C2: #_F4BEu: db !VOLUME, $C8
-#_1BA4C4: #_F4C0u: db !VIBRATO, $1C, $1A, $14
-#_1BA4C8: #_F4C4u: db !PAN, $06
+#_1BA4C0: #_F4BCu: db $E0, $0A ; set instrument - strings B
+#_1BA4C2: #_F4BEu: db $ED, $C8 ; set channel volume
+#_1BA4C4: #_F4C0u: db $E3, $1C, $1A, $14 ; enable vibrato
+#_1BA4C8: #_F4C4u: db $E1, $06 ; set panning - leaning right
 #_1BA4CA: #_F4C6u: db $59 ; duration
-#_1BA4CB: #_F4C7u: db R
+#_1BA4CB: #_F4C7u: db $C9 ; rest
 #_1BA4CC: #_F4C8u: db $30, $7D ; duration, params
-#_1BA4CE: #_F4CAu: db Gs3
-#_1BA4CF: #_F4CBu: db As3
+#_1BA4CE: #_F4CAu: db $A0 ; play note Gs3
+#_1BA4CF: #_F4CBu: db $A2 ; play note As3
 #_1BA4D0: #_F4CCu: db $60 ; duration
-#_1BA4D1: #_F4CDu: db G3
+#_1BA4D1: #_F4CDu: db $9F ; play note G3
 #_1BA4D2: #_F4CEu: db $30 ; duration
-#_1BA4D3: #_F4CFu: db !TIE
+#_1BA4D3: #_F4CFu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment0_Track3:
-#_1BA4D4: #_F4D0u: db !INSTR, $0A
-#_1BA4D6: #_F4D2u: db !VOLUME, $C8
-#_1BA4D8: #_F4D4u: db !VIBRATO, $18, $1A, $17
-#_1BA4DC: #_F4D8u: db !PAN, $0A
+#_1BA4D4: #_F4D0u: db $E0, $0A ; set instrument - strings B
+#_1BA4D6: #_F4D2u: db $ED, $C8 ; set channel volume
+#_1BA4D8: #_F4D4u: db $E3, $18, $1A, $17 ; enable vibrato
+#_1BA4DC: #_F4D8u: db $E1, $0A ; set panning - balanced
 #_1BA4DE: #_F4DAu: db $33 ; duration
-#_1BA4DF: #_F4DBu: db R
+#_1BA4DF: #_F4DBu: db $C9 ; rest
 #_1BA4E0: #_F4DCu: db $0B, $6D ; duration, params
-#_1BA4E2: #_F4DEu: db E4
+#_1BA4E2: #_F4DEu: db $A8 ; play note E4
 #_1BA4E3: #_F4DFu: db $0A ; duration
-#_1BA4E4: #_F4E0u: db F4
+#_1BA4E4: #_F4E0u: db $A9 ; play note F4
 #_1BA4E5: #_F4E1u: db $09 ; duration
-#_1BA4E6: #_F4E2u: db G4
+#_1BA4E6: #_F4E2u: db $AB ; play note G4
 #_1BA4E7: #_F4E3u: db $08 ; duration
-#_1BA4E8: #_F4E4u: db A4
+#_1BA4E8: #_F4E4u: db $AD ; play note A4
 #_1BA4E9: #_F4E5u: db $18 ; duration
-#_1BA4EA: #_F4E6u: db Ds4
-#_1BA4EB: #_F4E7u: db D4
-#_1BA4EC: #_F4E8u: db Gs4
-#_1BA4ED: #_F4E9u: db G4
+#_1BA4EA: #_F4E6u: db $A7 ; play note Ds4
+#_1BA4EB: #_F4E7u: db $A6 ; play note D4
+#_1BA4EC: #_F4E8u: db $AC ; play note Gs4
+#_1BA4ED: #_F4E9u: db $AB ; play note G4
 #_1BA4EE: #_F4EAu: db $60, $7D ; duration, params
-#_1BA4F0: #_F4ECu: db Fs4
+#_1BA4F0: #_F4ECu: db $AA ; play note Fs4
 #_1BA4F1: #_F4EDu: db $30 ; duration
-#_1BA4F2: #_F4EEu: db !TIE
+#_1BA4F2: #_F4EEu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment0_Track4:
-#_1BA4F3: #_F4EFu: db !INSTR, $0A
-#_1BA4F5: #_F4F1u: db !VOLUME, $C8
-#_1BA4F7: #_F4F3u: db !VIBRATO, $18, $1A, $17
-#_1BA4FB: #_F4F7u: db !PAN, $08
+#_1BA4F3: #_F4EFu: db $E0, $0A ; set instrument - strings B
+#_1BA4F5: #_F4F1u: db $ED, $C8 ; set channel volume
+#_1BA4F7: #_F4F3u: db $E3, $18, $1A, $17 ; enable vibrato
+#_1BA4FB: #_F4F7u: db $E1, $08 ; set panning - leaning right
 #_1BA4FD: #_F4F9u: db $33 ; duration
-#_1BA4FE: #_F4FAu: db R
+#_1BA4FE: #_F4FAu: db $C9 ; rest
 #_1BA4FF: #_F4FBu: db $0B, $6D ; duration, params
-#_1BA501: #_F4FDu: db G3
+#_1BA501: #_F4FDu: db $9F ; play note G3
 #_1BA502: #_F4FEu: db $0A ; duration
-#_1BA503: #_F4FFu: db A3
+#_1BA503: #_F4FFu: db $A1 ; play note A3
 #_1BA504: #_F500u: db $09 ; duration
-#_1BA505: #_F501u: db B3
+#_1BA505: #_F501u: db $A3 ; play note B3
 #_1BA506: #_F502u: db $08 ; duration
-#_1BA507: #_F503u: db C4
+#_1BA507: #_F503u: db $A4 ; play note C4
 #_1BA508: #_F504u: db $18 ; duration
-#_1BA509: #_F505u: db C5
-#_1BA50A: #_F506u: db As4
-#_1BA50B: #_F507u: db F5
-#_1BA50C: #_F508u: db Ds5
+#_1BA509: #_F505u: db $B0 ; play note C5
+#_1BA50A: #_F506u: db $AE ; play note As4
+#_1BA50B: #_F507u: db $B5 ; play note F5
+#_1BA50C: #_F508u: db $B3 ; play note Ds5
 #_1BA50D: #_F509u: db $60, $7D ; duration, params
-#_1BA50F: #_F50Bu: db D5
+#_1BA50F: #_F50Bu: db $B2 ; play note D5
 #_1BA510: #_F50Cu: db $30 ; duration
-#_1BA511: #_F50Du: db !TIE
+#_1BA511: #_F50Du: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Segment0_Track5:
-#_1BA512: #_F50Eu: db !INSTR, $0A
-#_1BA514: #_F510u: db !VOLUME, $C8
-#_1BA516: #_F512u: db !VIBRATO, $1C, $1A, $14
-#_1BA51A: #_F516u: db !PAN, $04
+#_1BA512: #_F50Eu: db $E0, $0A ; set instrument - strings B
+#_1BA514: #_F510u: db $ED, $C8 ; set channel volume
+#_1BA516: #_F512u: db $E3, $1C, $1A, $14 ; enable vibrato
+#_1BA51A: #_F516u: db $E1, $04 ; set panning - leaning right
 #_1BA51C: #_F518u: db $59 ; duration
-#_1BA51D: #_F519u: db R
+#_1BA51D: #_F519u: db $C9 ; rest
 #_1BA51E: #_F51Au: db $30, $7D ; duration, params
-#_1BA520: #_F51Cu: db Gs2
-#_1BA521: #_F51Du: db As2
+#_1BA520: #_F51Cu: db $94 ; play note Gs2
+#_1BA521: #_F51Du: db $96 ; play note As2
 #_1BA522: #_F51Eu: db $60 ; duration
-#_1BA523: #_F51Fu: db G2
+#_1BA523: #_F51Fu: db $93 ; play note G2
 #_1BA524: #_F520u: db $30 ; duration
-#_1BA525: #_F521u: db !TIE
-#_1BA526: #_F522u: db !PART_END
+#_1BA525: #_F521u: db $C8 ; sustain current note
+#_1BA526: #_F522u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Sub_F523:
 #_1BA527: #_F523u: db $30 ; duration
-#_1BA528: #_F524u: db A4
+#_1BA528: #_F524u: db $AD ; play note A4
 #_1BA529: #_F525u: db $0C ; duration
-#_1BA52A: #_F526u: db G4
-#_1BA52B: #_F527u: db A4
+#_1BA52A: #_F526u: db $AB ; play note G4
+#_1BA52B: #_F527u: db $AD ; play note A4
 #_1BA52C: #_F528u: db $30 ; duration
-#_1BA52D: #_F529u: db B4
+#_1BA52D: #_F529u: db $AF ; play note B4
 #_1BA52E: #_F52Au: db $18 ; duration
-#_1BA52F: #_F52Bu: db D5
+#_1BA52F: #_F52Bu: db $B2 ; play note D5
 #_1BA530: #_F52Cu: db $48 ; duration
-#_1BA531: #_F52Du: db A4
+#_1BA531: #_F52Du: db $AD ; play note A4
 #_1BA532: #_F52Eu: db $30 ; duration
-#_1BA533: #_F52Fu: db B4
+#_1BA533: #_F52Fu: db $AF ; play note B4
 #_1BA534: #_F530u: db $18 ; duration
-#_1BA535: #_F531u: db D5
+#_1BA535: #_F531u: db $B2 ; play note D5
 #_1BA536: #_F532u: db $30 ; duration
-#_1BA537: #_F533u: db A5
+#_1BA537: #_F533u: db $B9 ; play note A5
 #_1BA538: #_F534u: db $18 ; duration
-#_1BA539: #_F535u: db G5
-#_1BA53A: #_F536u: db !PART_END
+#_1BA539: #_F535u: db $B7 ; play note G5
+#_1BA53A: #_F536u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Sub_F537:
 #_1BA53B: #_F537u: db $0C ; duration
-#_1BA53C: #_F538u: db R
+#_1BA53C: #_F538u: db $C9 ; rest
 #_1BA53D: #_F539u: db $0C, $6D ; duration, params
-#_1BA53F: #_F53Bu: db G3
+#_1BA53F: #_F53Bu: db $9F ; play note G3
 #_1BA540: #_F53Cu: db $30 ; duration
-#_1BA541: #_F53Du: db E4
+#_1BA541: #_F53Du: db $A8 ; play note E4
 #_1BA542: #_F53Eu: db $0C ; duration
-#_1BA543: #_F53Fu: db R
-#_1BA544: #_F540u: db A3
+#_1BA543: #_F53Fu: db $C9 ; rest
+#_1BA544: #_F540u: db $A1 ; play note A3
 #_1BA545: #_F541u: db $30 ; duration
-#_1BA546: #_F542u: db Fs4
+#_1BA546: #_F542u: db $AA ; play note Fs4
 #_1BA547: #_F543u: db $0C ; duration
-#_1BA548: #_F544u: db R
-#_1BA549: #_F545u: db G3
+#_1BA548: #_F544u: db $C9 ; rest
+#_1BA549: #_F545u: db $9F ; play note G3
 #_1BA54A: #_F546u: db $30 ; duration
-#_1BA54B: #_F547u: db E4
+#_1BA54B: #_F547u: db $A8 ; play note E4
 #_1BA54C: #_F548u: db $0C ; duration
-#_1BA54D: #_F549u: db R
-#_1BA54E: #_F54Au: db A3
+#_1BA54D: #_F549u: db $C9 ; rest
+#_1BA54E: #_F54Au: db $A1 ; play note A3
 #_1BA54F: #_F54Bu: db $30 ; duration
-#_1BA550: #_F54Cu: db Fs4
+#_1BA550: #_F54Cu: db $AA ; play note Fs4
 #_1BA551: #_F54Du: db $0C ; duration
-#_1BA552: #_F54Eu: db R
-#_1BA553: #_F54Fu: db D4
+#_1BA552: #_F54Eu: db $C9 ; rest
+#_1BA553: #_F54Fu: db $A6 ; play note D4
 #_1BA554: #_F550u: db $30 ; duration
-#_1BA555: #_F551u: db G4
+#_1BA555: #_F551u: db $AB ; play note G4
 #_1BA556: #_F552u: db $0C ; duration
-#_1BA557: #_F553u: db R
-#_1BA558: #_F554u: db Cs4
+#_1BA557: #_F553u: db $C9 ; rest
+#_1BA558: #_F554u: db $A5 ; play note Cs4
 #_1BA559: #_F555u: db $30 ; duration
-#_1BA55A: #_F556u: db G4
+#_1BA55A: #_F556u: db $AB ; play note G4
 #_1BA55B: #_F557u: db $0C ; duration
-#_1BA55C: #_F558u: db R
-#_1BA55D: #_F559u: db C4
+#_1BA55C: #_F558u: db $C9 ; rest
+#_1BA55D: #_F559u: db $A4 ; play note C4
 #_1BA55E: #_F55Au: db $30 ; duration
-#_1BA55F: #_F55Bu: db G4
+#_1BA55F: #_F55Bu: db $AB ; play note G4
 #_1BA560: #_F55Cu: db $0C ; duration
-#_1BA561: #_F55Du: db R
-#_1BA562: #_F55Eu: db C4
+#_1BA561: #_F55Du: db $C9 ; rest
+#_1BA562: #_F55Eu: db $A4 ; play note C4
 #_1BA563: #_F55Fu: db $30 ; duration
-#_1BA564: #_F560u: db Fs4
-#_1BA565: #_F561u: db !PART_END
+#_1BA564: #_F560u: db $AA ; play note Fs4
+#_1BA565: #_F561u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song19_Sub_F562:
 #_1BA566: #_F562u: db $30, $7D ; duration, params
-#_1BA568: #_F564u: db D5
+#_1BA568: #_F564u: db $B2 ; play note D5
 #_1BA569: #_F565u: db $0C ; duration
-#_1BA56A: #_F566u: db C5
-#_1BA56B: #_F567u: db B4
-#_1BA56C: #_F568u: db C5
-#_1BA56D: #_F569u: db B4
+#_1BA56A: #_F566u: db $B0 ; play note C5
+#_1BA56B: #_F567u: db $AF ; play note B4
+#_1BA56C: #_F568u: db $B0 ; play note C5
+#_1BA56D: #_F569u: db $AF ; play note B4
 #_1BA56E: #_F56Au: db $30 ; duration
-#_1BA56F: #_F56Bu: db G4
-#_1BA570: #_F56Cu: db C5
+#_1BA56F: #_F56Bu: db $AB ; play note G4
+#_1BA570: #_F56Cu: db $B0 ; play note C5
 #_1BA571: #_F56Du: db $0C ; duration
-#_1BA572: #_F56Eu: db B4
-#_1BA573: #_F56Fu: db A4
-#_1BA574: #_F570u: db B4
-#_1BA575: #_F571u: db A4
+#_1BA572: #_F56Eu: db $AF ; play note B4
+#_1BA573: #_F56Fu: db $AD ; play note A4
+#_1BA574: #_F570u: db $AF ; play note B4
+#_1BA575: #_F571u: db $AD ; play note A4
 #_1BA576: #_F572u: db $30 ; duration
-#_1BA577: #_F573u: db E4
-#_1BA578: #_F574u: db D5
+#_1BA577: #_F573u: db $A8 ; play note E4
+#_1BA578: #_F574u: db $B2 ; play note D5
 #_1BA579: #_F575u: db $0C ; duration
-#_1BA57A: #_F576u: db C5
-#_1BA57B: #_F577u: db B4
-#_1BA57C: #_F578u: db C5
-#_1BA57D: #_F579u: db B4
+#_1BA57A: #_F576u: db $B0 ; play note C5
+#_1BA57B: #_F577u: db $AF ; play note B4
+#_1BA57C: #_F578u: db $B0 ; play note C5
+#_1BA57D: #_F579u: db $AF ; play note B4
 #_1BA57E: #_F57Au: db $18 ; duration
-#_1BA57F: #_F57Bu: db G4
-#_1BA580: #_F57Cu: db C5
+#_1BA57F: #_F57Bu: db $AB ; play note G4
+#_1BA580: #_F57Cu: db $B0 ; play note C5
 #_1BA581: #_F57Du: db $48 ; duration
-#_1BA582: #_F57Eu: db G5
-#_1BA583: #_F57Fu: db !PART_END
+#_1BA582: #_F57Eu: db $B7 ; play note G5
+#_1BA583: #_F57Fu: db $00 ; End
 
 ;===================================================================================================
 
@@ -8318,7 +8318,7 @@ Song1A_CrystalMaiden:
 Song1A_Loop:
 #_1BA586: #_F582u: dw Song1A_Segment1
 #_1BA588: #_F584u: dw Song1A_Segment2
-#_1BA58A: #_F586u: dw !SONG_LOOP, Song1A_Loop
+#_1BA58A: #_F586u: dw $00FF, Song1A_Loop ; Loop point
 #_1BA58E: #_F58Au: dw $0000
 
 Song1A_Segment1:
@@ -8354,735 +8354,735 @@ Song1A_Segment2:
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment1_Track0:
-#_1BA5C0: #_F5BCu: db !INSTR, $0A
-#_1BA5C2: #_F5BEu: db !VOLUME, $64
-#_1BA5C4: #_F5C0u: db !VOLUME_GRAD, $96, $F0
-#_1BA5C7: #_F5C3u: db !VIBRATO, $1A, $1C, $1E
-#_1BA5CB: #_F5C7u: db !PAN, $0E
-#_1BA5CD: #_F5C9u: db !CALL_PART : dw Song1A_Sub_F8D8 : db 1
-#_1BA5D1: #_F5CDu: db !CALL_PART : dw Song1A_Sub_F8E4 : db 1
+#_1BA5C0: #_F5BCu: db $E0, $0A ; set instrument - strings B
+#_1BA5C2: #_F5BEu: db $ED, $64 ; set channel volume
+#_1BA5C4: #_F5C0u: db $EE, $96, $F0 ; initiate gradual channel volume change
+#_1BA5C7: #_F5C3u: db $E3, $1A, $1C, $1E ; enable vibrato
+#_1BA5CB: #_F5C7u: db $E1, $0E ; set panning - leaning left
+#_1BA5CD: #_F5C9u: db $EF : dw Song1A_Sub_F8D8 : db $01 ; call segment subroutine
+#_1BA5D1: #_F5CDu: db $EF : dw Song1A_Sub_F8E4 : db $01 ; call segment subroutine
 #_1BA5D5: #_F5D1u: db $30 ; duration
-#_1BA5D6: #_F5D2u: db D5
+#_1BA5D6: #_F5D2u: db $B2 ; play note D5
 #_1BA5D7: #_F5D3u: db $0C ; duration
-#_1BA5D8: #_F5D4u: db C5
-#_1BA5D9: #_F5D5u: db B4
+#_1BA5D8: #_F5D4u: db $B0 ; play note C5
+#_1BA5D9: #_F5D5u: db $AF ; play note B4
 #_1BA5DA: #_F5D6u: db $48 ; duration
-#_1BA5DB: #_F5D7u: db A4
-#_1BA5DC: #_F5D8u: db !PART_END
+#_1BA5DB: #_F5D7u: db $AD ; play note A4
+#_1BA5DC: #_F5D8u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment1_Track1:
-#_1BA5DD: #_F5D9u: db !VOLUME, $78
-#_1BA5DF: #_F5DBu: db !PAN, $14
-#_1BA5E1: #_F5DDu: db !PAN_GRAD, $90, $00
+#_1BA5DD: #_F5D9u: db $ED, $78 ; set channel volume
+#_1BA5DF: #_F5DBu: db $E1, $14 ; set panning - leaning left
+#_1BA5E1: #_F5DDu: db $E2, $90, $00 ; initiate gradual panning change
 #_1BA5E4: #_F5E0u: db $18, $7D ; duration, params
-#_1BA5E6: #_F5E2u: db G4
-#_1BA5E7: #_F5E3u: db G4
-#_1BA5E8: #_F5E4u: db G4
-#_1BA5E9: #_F5E5u: db G4
-#_1BA5EA: #_F5E6u: db G4
-#_1BA5EB: #_F5E7u: db G4
-#_1BA5EC: #_F5E8u: db !PAN_GRAD, $90, $14
-#_1BA5EF: #_F5EBu: db G4
-#_1BA5F0: #_F5ECu: db G4
-#_1BA5F1: #_F5EDu: db G4
-#_1BA5F2: #_F5EEu: db G4
-#_1BA5F3: #_F5EFu: db G4
-#_1BA5F4: #_F5F0u: db G4
-#_1BA5F5: #_F5F1u: db !PAN_GRAD, $90, $00
-#_1BA5F8: #_F5F4u: db G4
-#_1BA5F9: #_F5F5u: db G4
-#_1BA5FA: #_F5F6u: db G4
-#_1BA5FB: #_F5F7u: db G4
-#_1BA5FC: #_F5F8u: db G4
-#_1BA5FD: #_F5F9u: db G4
-#_1BA5FE: #_F5FAu: db !PAN_GRAD, $90, $14
-#_1BA601: #_F5FDu: db G4
-#_1BA602: #_F5FEu: db G4
-#_1BA603: #_F5FFu: db G4
-#_1BA604: #_F600u: db G4
-#_1BA605: #_F601u: db G4
-#_1BA606: #_F602u: db G4
+#_1BA5E6: #_F5E2u: db $AB ; play note G4
+#_1BA5E7: #_F5E3u: db $AB ; play note G4
+#_1BA5E8: #_F5E4u: db $AB ; play note G4
+#_1BA5E9: #_F5E5u: db $AB ; play note G4
+#_1BA5EA: #_F5E6u: db $AB ; play note G4
+#_1BA5EB: #_F5E7u: db $AB ; play note G4
+#_1BA5EC: #_F5E8u: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA5EF: #_F5EBu: db $AB ; play note G4
+#_1BA5F0: #_F5ECu: db $AB ; play note G4
+#_1BA5F1: #_F5EDu: db $AB ; play note G4
+#_1BA5F2: #_F5EEu: db $AB ; play note G4
+#_1BA5F3: #_F5EFu: db $AB ; play note G4
+#_1BA5F4: #_F5F0u: db $AB ; play note G4
+#_1BA5F5: #_F5F1u: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA5F8: #_F5F4u: db $AB ; play note G4
+#_1BA5F9: #_F5F5u: db $AB ; play note G4
+#_1BA5FA: #_F5F6u: db $AB ; play note G4
+#_1BA5FB: #_F5F7u: db $AB ; play note G4
+#_1BA5FC: #_F5F8u: db $AB ; play note G4
+#_1BA5FD: #_F5F9u: db $AB ; play note G4
+#_1BA5FE: #_F5FAu: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA601: #_F5FDu: db $AB ; play note G4
+#_1BA602: #_F5FEu: db $AB ; play note G4
+#_1BA603: #_F5FFu: db $AB ; play note G4
+#_1BA604: #_F600u: db $AB ; play note G4
+#_1BA605: #_F601u: db $AB ; play note G4
+#_1BA606: #_F602u: db $AB ; play note G4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment1_Track2:
-#_1BA607: #_F603u: db !VOLUME, $78
-#_1BA609: #_F605u: db !PAN, $14
-#_1BA60B: #_F607u: db !PAN_GRAD, $90, $00
+#_1BA607: #_F603u: db $ED, $78 ; set channel volume
+#_1BA609: #_F605u: db $E1, $14 ; set panning - leaning left
+#_1BA60B: #_F607u: db $E2, $90, $00 ; initiate gradual panning change
 #_1BA60E: #_F60Au: db $06 ; duration
-#_1BA60F: #_F60Bu: db R
+#_1BA60F: #_F60Bu: db $C9 ; rest
 #_1BA610: #_F60Cu: db $18, $7D ; duration, params
-#_1BA612: #_F60Eu: db E4
-#_1BA613: #_F60Fu: db E4
-#_1BA614: #_F610u: db E4
-#_1BA615: #_F611u: db E4
-#_1BA616: #_F612u: db E4
-#_1BA617: #_F613u: db E4
-#_1BA618: #_F614u: db !PAN_GRAD, $90, $14
-#_1BA61B: #_F617u: db E4
-#_1BA61C: #_F618u: db E4
-#_1BA61D: #_F619u: db E4
-#_1BA61E: #_F61Au: db E4
-#_1BA61F: #_F61Bu: db E4
-#_1BA620: #_F61Cu: db E4
-#_1BA621: #_F61Du: db !PAN_GRAD, $90, $00
-#_1BA624: #_F620u: db E4
-#_1BA625: #_F621u: db E4
-#_1BA626: #_F622u: db E4
-#_1BA627: #_F623u: db E4
-#_1BA628: #_F624u: db E4
-#_1BA629: #_F625u: db E4
-#_1BA62A: #_F626u: db !PAN_GRAD, $90, $14
-#_1BA62D: #_F629u: db E4
-#_1BA62E: #_F62Au: db E4
-#_1BA62F: #_F62Bu: db E4
-#_1BA630: #_F62Cu: db D4
-#_1BA631: #_F62Du: db D4
+#_1BA612: #_F60Eu: db $A8 ; play note E4
+#_1BA613: #_F60Fu: db $A8 ; play note E4
+#_1BA614: #_F610u: db $A8 ; play note E4
+#_1BA615: #_F611u: db $A8 ; play note E4
+#_1BA616: #_F612u: db $A8 ; play note E4
+#_1BA617: #_F613u: db $A8 ; play note E4
+#_1BA618: #_F614u: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA61B: #_F617u: db $A8 ; play note E4
+#_1BA61C: #_F618u: db $A8 ; play note E4
+#_1BA61D: #_F619u: db $A8 ; play note E4
+#_1BA61E: #_F61Au: db $A8 ; play note E4
+#_1BA61F: #_F61Bu: db $A8 ; play note E4
+#_1BA620: #_F61Cu: db $A8 ; play note E4
+#_1BA621: #_F61Du: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA624: #_F620u: db $A8 ; play note E4
+#_1BA625: #_F621u: db $A8 ; play note E4
+#_1BA626: #_F622u: db $A8 ; play note E4
+#_1BA627: #_F623u: db $A8 ; play note E4
+#_1BA628: #_F624u: db $A8 ; play note E4
+#_1BA629: #_F625u: db $A8 ; play note E4
+#_1BA62A: #_F626u: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA62D: #_F629u: db $A8 ; play note E4
+#_1BA62E: #_F62Au: db $A8 ; play note E4
+#_1BA62F: #_F62Bu: db $A8 ; play note E4
+#_1BA630: #_F62Cu: db $A6 ; play note D4
+#_1BA631: #_F62Du: db $A6 ; play note D4
 #_1BA632: #_F62Eu: db $12 ; duration
-#_1BA633: #_F62Fu: db D4
+#_1BA633: #_F62Fu: db $A6 ; play note D4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment1_Track3:
-#_1BA634: #_F630u: db !VOLUME, $78
-#_1BA636: #_F632u: db !PAN, $00
-#_1BA638: #_F634u: db !PAN_GRAD, $90, $14
+#_1BA634: #_F630u: db $ED, $78 ; set channel volume
+#_1BA636: #_F632u: db $E1, $00 ; set panning - leaning right
+#_1BA638: #_F634u: db $E2, $90, $14 ; initiate gradual panning change
 #_1BA63B: #_F637u: db $0C ; duration
-#_1BA63C: #_F638u: db R
+#_1BA63C: #_F638u: db $C9 ; rest
 #_1BA63D: #_F639u: db $18, $7D ; duration, params
-#_1BA63F: #_F63Bu: db D4
-#_1BA640: #_F63Cu: db D4
-#_1BA641: #_F63Du: db D4
-#_1BA642: #_F63Eu: db D4
-#_1BA643: #_F63Fu: db D4
-#_1BA644: #_F640u: db D4
-#_1BA645: #_F641u: db !PAN_GRAD, $90, $00
-#_1BA648: #_F644u: db D4
-#_1BA649: #_F645u: db D4
-#_1BA64A: #_F646u: db D4
-#_1BA64B: #_F647u: db D4
-#_1BA64C: #_F648u: db D4
-#_1BA64D: #_F649u: db D4
-#_1BA64E: #_F64Au: db !PAN_GRAD, $90, $14
-#_1BA651: #_F64Du: db D4
-#_1BA652: #_F64Eu: db D4
-#_1BA653: #_F64Fu: db D4
-#_1BA654: #_F650u: db D4
-#_1BA655: #_F651u: db D4
-#_1BA656: #_F652u: db D4
-#_1BA657: #_F653u: db !PAN_GRAD, $90, $00
-#_1BA65A: #_F656u: db D4
-#_1BA65B: #_F657u: db D4
-#_1BA65C: #_F658u: db D4
-#_1BA65D: #_F659u: db C4
-#_1BA65E: #_F65Au: db C4
+#_1BA63F: #_F63Bu: db $A6 ; play note D4
+#_1BA640: #_F63Cu: db $A6 ; play note D4
+#_1BA641: #_F63Du: db $A6 ; play note D4
+#_1BA642: #_F63Eu: db $A6 ; play note D4
+#_1BA643: #_F63Fu: db $A6 ; play note D4
+#_1BA644: #_F640u: db $A6 ; play note D4
+#_1BA645: #_F641u: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA648: #_F644u: db $A6 ; play note D4
+#_1BA649: #_F645u: db $A6 ; play note D4
+#_1BA64A: #_F646u: db $A6 ; play note D4
+#_1BA64B: #_F647u: db $A6 ; play note D4
+#_1BA64C: #_F648u: db $A6 ; play note D4
+#_1BA64D: #_F649u: db $A6 ; play note D4
+#_1BA64E: #_F64Au: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA651: #_F64Du: db $A6 ; play note D4
+#_1BA652: #_F64Eu: db $A6 ; play note D4
+#_1BA653: #_F64Fu: db $A6 ; play note D4
+#_1BA654: #_F650u: db $A6 ; play note D4
+#_1BA655: #_F651u: db $A6 ; play note D4
+#_1BA656: #_F652u: db $A6 ; play note D4
+#_1BA657: #_F653u: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA65A: #_F656u: db $A6 ; play note D4
+#_1BA65B: #_F657u: db $A6 ; play note D4
+#_1BA65C: #_F658u: db $A6 ; play note D4
+#_1BA65D: #_F659u: db $A4 ; play note C4
+#_1BA65E: #_F65Au: db $A4 ; play note C4
 #_1BA65F: #_F65Bu: db $0C ; duration
-#_1BA660: #_F65Cu: db C4
+#_1BA660: #_F65Cu: db $A4 ; play note C4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment1_Track4:
-#_1BA661: #_F65Du: db !VOLUME, $78
-#_1BA663: #_F65Fu: db !PAN, $00
-#_1BA665: #_F661u: db !PAN_GRAD, $90, $14
+#_1BA661: #_F65Du: db $ED, $78 ; set channel volume
+#_1BA663: #_F65Fu: db $E1, $00 ; set panning - leaning right
+#_1BA665: #_F661u: db $E2, $90, $14 ; initiate gradual panning change
 #_1BA668: #_F664u: db $12 ; duration
-#_1BA669: #_F665u: db R
+#_1BA669: #_F665u: db $C9 ; rest
 #_1BA66A: #_F666u: db $18, $7D ; duration, params
-#_1BA66C: #_F668u: db B3
-#_1BA66D: #_F669u: db B3
-#_1BA66E: #_F66Au: db B3
-#_1BA66F: #_F66Bu: db B3
-#_1BA670: #_F66Cu: db B3
-#_1BA671: #_F66Du: db B3
-#_1BA672: #_F66Eu: db !PAN_GRAD, $90, $00
-#_1BA675: #_F671u: db B3
-#_1BA676: #_F672u: db B3
-#_1BA677: #_F673u: db B3
-#_1BA678: #_F674u: db B3
-#_1BA679: #_F675u: db B3
-#_1BA67A: #_F676u: db B3
-#_1BA67B: #_F677u: db !PAN_GRAD, $90, $14
-#_1BA67E: #_F67Au: db B3
-#_1BA67F: #_F67Bu: db B3
-#_1BA680: #_F67Cu: db B3
-#_1BA681: #_F67Du: db As3
-#_1BA682: #_F67Eu: db As3
-#_1BA683: #_F67Fu: db As3
-#_1BA684: #_F680u: db !PAN_GRAD, $90, $00
-#_1BA687: #_F683u: db A3
-#_1BA688: #_F684u: db A3
-#_1BA689: #_F685u: db A3
-#_1BA68A: #_F686u: db A3
-#_1BA68B: #_F687u: db A3
+#_1BA66C: #_F668u: db $A3 ; play note B3
+#_1BA66D: #_F669u: db $A3 ; play note B3
+#_1BA66E: #_F66Au: db $A3 ; play note B3
+#_1BA66F: #_F66Bu: db $A3 ; play note B3
+#_1BA670: #_F66Cu: db $A3 ; play note B3
+#_1BA671: #_F66Du: db $A3 ; play note B3
+#_1BA672: #_F66Eu: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA675: #_F671u: db $A3 ; play note B3
+#_1BA676: #_F672u: db $A3 ; play note B3
+#_1BA677: #_F673u: db $A3 ; play note B3
+#_1BA678: #_F674u: db $A3 ; play note B3
+#_1BA679: #_F675u: db $A3 ; play note B3
+#_1BA67A: #_F676u: db $A3 ; play note B3
+#_1BA67B: #_F677u: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA67E: #_F67Au: db $A3 ; play note B3
+#_1BA67F: #_F67Bu: db $A3 ; play note B3
+#_1BA680: #_F67Cu: db $A3 ; play note B3
+#_1BA681: #_F67Du: db $A2 ; play note As3
+#_1BA682: #_F67Eu: db $A2 ; play note As3
+#_1BA683: #_F67Fu: db $A2 ; play note As3
+#_1BA684: #_F680u: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA687: #_F683u: db $A1 ; play note A3
+#_1BA688: #_F684u: db $A1 ; play note A3
+#_1BA689: #_F685u: db $A1 ; play note A3
+#_1BA68A: #_F686u: db $A1 ; play note A3
+#_1BA68B: #_F687u: db $A1 ; play note A3
 #_1BA68C: #_F688u: db $06 ; duration
-#_1BA68D: #_F689u: db A3
+#_1BA68D: #_F689u: db $A1 ; play note A3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment1_Track5:
-#_1BA68E: #_F68Au: db !INSTR, $0A
-#_1BA690: #_F68Cu: db !VOLUME, $64
-#_1BA692: #_F68Eu: db !VOLUME_GRAD, $8C, $DC
-#_1BA695: #_F691u: db !PAN, $06
-#_1BA697: #_F693u: db !VIBRATO, $1A, $10, $14
-#_1BA69B: #_F697u: db !CALL_PART : dw Song1A_Sub_F8F3 : db 1
-#_1BA69F: #_F69Bu: db C4
-#_1BA6A0: #_F69Cu: db C4
-#_1BA6A1: #_F69Du: db B3
-#_1BA6A2: #_F69Eu: db As3
-#_1BA6A3: #_F69Fu: db A3
-#_1BA6A4: #_F6A0u: db D4
+#_1BA68E: #_F68Au: db $E0, $0A ; set instrument - strings B
+#_1BA690: #_F68Cu: db $ED, $64 ; set channel volume
+#_1BA692: #_F68Eu: db $EE, $8C, $DC ; initiate gradual channel volume change
+#_1BA695: #_F691u: db $E1, $06 ; set panning - leaning right
+#_1BA697: #_F693u: db $E3, $1A, $10, $14 ; enable vibrato
+#_1BA69B: #_F697u: db $EF : dw Song1A_Sub_F8F3 : db $01 ; call segment subroutine
+#_1BA69F: #_F69Bu: db $A4 ; play note C4
+#_1BA6A0: #_F69Cu: db $A4 ; play note C4
+#_1BA6A1: #_F69Du: db $A3 ; play note B3
+#_1BA6A2: #_F69Eu: db $A2 ; play note As3
+#_1BA6A3: #_F69Fu: db $A1 ; play note A3
+#_1BA6A4: #_F6A0u: db $A6 ; play note D4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment1_Track6:
-#_1BA6A5: #_F6A1u: db !INSTR, $0A
-#_1BA6A7: #_F6A3u: db !VOLUME, $64
-#_1BA6A9: #_F6A5u: db !VOLUME_GRAD, $96, $DC
-#_1BA6AC: #_F6A8u: db !PAN, $0A
-#_1BA6AE: #_F6AAu: db !VIBRATO, $14, $14, $14
+#_1BA6A5: #_F6A1u: db $E0, $0A ; set instrument - strings B
+#_1BA6A7: #_F6A3u: db $ED, $64 ; set channel volume
+#_1BA6A9: #_F6A5u: db $EE, $96, $DC ; initiate gradual channel volume change
+#_1BA6AC: #_F6A8u: db $E1, $0A ; set panning - balanced
+#_1BA6AE: #_F6AAu: db $E3, $14, $14, $14 ; enable vibrato
 #_1BA6B2: #_F6AEu: db $0C ; duration
-#_1BA6B3: #_F6AFu: db R
+#_1BA6B3: #_F6AFu: db $C9 ; rest
 #_1BA6B4: #_F6B0u: db $0C, $6D ; duration, params
-#_1BA6B6: #_F6B2u: db G3
+#_1BA6B6: #_F6B2u: db $9F ; play note G3
 #_1BA6B7: #_F6B3u: db $30 ; duration
-#_1BA6B8: #_F6B4u: db E4
+#_1BA6B8: #_F6B4u: db $A8 ; play note E4
 #_1BA6B9: #_F6B5u: db $0C ; duration
-#_1BA6BA: #_F6B6u: db R
-#_1BA6BB: #_F6B7u: db A3
+#_1BA6BA: #_F6B6u: db $C9 ; rest
+#_1BA6BB: #_F6B7u: db $A1 ; play note A3
 #_1BA6BC: #_F6B8u: db $30 ; duration
-#_1BA6BD: #_F6B9u: db Fs4
+#_1BA6BD: #_F6B9u: db $AA ; play note Fs4
 #_1BA6BE: #_F6BAu: db $0C ; duration
-#_1BA6BF: #_F6BBu: db R
-#_1BA6C0: #_F6BCu: db G3
+#_1BA6BF: #_F6BBu: db $C9 ; rest
+#_1BA6C0: #_F6BCu: db $9F ; play note G3
 #_1BA6C1: #_F6BDu: db $30 ; duration
-#_1BA6C2: #_F6BEu: db E4
+#_1BA6C2: #_F6BEu: db $A8 ; play note E4
 #_1BA6C3: #_F6BFu: db $0C ; duration
-#_1BA6C4: #_F6C0u: db R
-#_1BA6C5: #_F6C1u: db A3
+#_1BA6C4: #_F6C0u: db $C9 ; rest
+#_1BA6C5: #_F6C1u: db $A1 ; play note A3
 #_1BA6C6: #_F6C2u: db $30 ; duration
-#_1BA6C7: #_F6C3u: db Fs4
+#_1BA6C7: #_F6C3u: db $AA ; play note Fs4
 #_1BA6C8: #_F6C4u: db $0C ; duration
-#_1BA6C9: #_F6C5u: db R
-#_1BA6CA: #_F6C6u: db G3
+#_1BA6C9: #_F6C5u: db $C9 ; rest
+#_1BA6CA: #_F6C6u: db $9F ; play note G3
 #_1BA6CB: #_F6C7u: db $30 ; duration
-#_1BA6CC: #_F6C8u: db D4
+#_1BA6CC: #_F6C8u: db $A6 ; play note D4
 #_1BA6CD: #_F6C9u: db $0C ; duration
-#_1BA6CE: #_F6CAu: db R
-#_1BA6CF: #_F6CBu: db G3
+#_1BA6CE: #_F6CAu: db $C9 ; rest
+#_1BA6CF: #_F6CBu: db $9F ; play note G3
 #_1BA6D0: #_F6CCu: db $30 ; duration
-#_1BA6D1: #_F6CDu: db Cs4
+#_1BA6D1: #_F6CDu: db $A5 ; play note Cs4
 #_1BA6D2: #_F6CEu: db $0C ; duration
-#_1BA6D3: #_F6CFu: db R
-#_1BA6D4: #_F6D0u: db G3
+#_1BA6D3: #_F6CFu: db $C9 ; rest
+#_1BA6D4: #_F6D0u: db $9F ; play note G3
 #_1BA6D5: #_F6D1u: db $30 ; duration
-#_1BA6D6: #_F6D2u: db C4
+#_1BA6D6: #_F6D2u: db $A4 ; play note C4
 #_1BA6D7: #_F6D3u: db $0C ; duration
-#_1BA6D8: #_F6D4u: db R
-#_1BA6D9: #_F6D5u: db A3
+#_1BA6D8: #_F6D4u: db $C9 ; rest
+#_1BA6D9: #_F6D5u: db $A1 ; play note A3
 #_1BA6DA: #_F6D6u: db $30 ; duration
-#_1BA6DB: #_F6D7u: db Fs4
+#_1BA6DB: #_F6D7u: db $AA ; play note Fs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment1_Track7:
-#_1BA6DC: #_F6D8u: db !INSTR, $0A
-#_1BA6DE: #_F6DAu: db !VOLUME, $64
-#_1BA6E0: #_F6DCu: db !VOLUME_GRAD, $A0, $C8
-#_1BA6E3: #_F6DFu: db !VIBRATO, $1A, $1C, $1E
-#_1BA6E7: #_F6E3u: db !PAN, $0C
-#_1BA6E9: #_F6E5u: db !CALL_PART : dw Song1A_Sub_F8F8 : db 1
-#_1BA6ED: #_F6E9u: db !CALL_PART : dw Song1A_Sub_F8E4 : db 1
+#_1BA6DC: #_F6D8u: db $E0, $0A ; set instrument - strings B
+#_1BA6DE: #_F6DAu: db $ED, $64 ; set channel volume
+#_1BA6E0: #_F6DCu: db $EE, $A0, $C8 ; initiate gradual channel volume change
+#_1BA6E3: #_F6DFu: db $E3, $1A, $1C, $1E ; enable vibrato
+#_1BA6E7: #_F6E3u: db $E1, $0C ; set panning - leaning left
+#_1BA6E9: #_F6E5u: db $EF : dw Song1A_Sub_F8F8 : db $01 ; call segment subroutine
+#_1BA6ED: #_F6E9u: db $EF : dw Song1A_Sub_F8E4 : db $01 ; call segment subroutine
 #_1BA6F1: #_F6EDu: db $30 ; duration
-#_1BA6F2: #_F6EEu: db D5
+#_1BA6F2: #_F6EEu: db $B2 ; play note D5
 #_1BA6F3: #_F6EFu: db $0C ; duration
-#_1BA6F4: #_F6F0u: db C5
-#_1BA6F5: #_F6F1u: db B4
+#_1BA6F4: #_F6F0u: db $B0 ; play note C5
+#_1BA6F5: #_F6F1u: db $AF ; play note B4
 #_1BA6F6: #_F6F2u: db $40 ; duration
-#_1BA6F7: #_F6F3u: db A4
+#_1BA6F7: #_F6F3u: db $AD ; play note A4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment0_Track0:
-#_1BA6F8: #_F6F4u: db !SET_PERC, $18
-#_1BA6FA: #_F6F6u: db !MASTER_VOLUME, $B4
-#_1BA6FC: #_F6F8u: db !ECHO_CONFIG, $FF, $00, $00
-#_1BA700: #_F6FCu: db !ECHO_FILTER, $02, $3C, $02
-#_1BA704: #_F700u: db !ECHO_GRAD, $1E, $28, $28
-#_1BA708: #_F704u: db !TEMPO, $21
-#_1BA70A: #_F706u: db !TEMPO_GRAD, $B4, $3E
-#_1BA70D: #_F709u: db !INSTR, $0E
-#_1BA70F: #_F70Bu: db !VOLUME, $14
-#_1BA711: #_F70Du: db !CALL_PART : dw Song1A_Sub_F905 : db 1
-#_1BA715: #_F711u: db R
-#_1BA716: #_F712u: db R
-#_1BA717: #_F713u: db !TEMPO, $15
-#_1BA719: #_F715u: db !INSTR, $0E
-#_1BA71B: #_F717u: db !PAN, $14
-#_1BA71D: #_F719u: db !VOLUME_GRAD, $50, $78
+#_1BA6F8: #_F6F4u: db $FA, $18 ; set base percussion sample
+#_1BA6FA: #_F6F6u: db $E5, $B4 ; set song volume
+#_1BA6FC: #_F6F8u: db $F5, $FF, $00, $00 ; configure EON, EVOLL, EVOLR
+#_1BA700: #_F6FCu: db $F7, $02, $3C, $02 ; configure EDL, EFB, FIR
+#_1BA704: #_F700u: db $F8, $1E, $28, $28 ; initiate gradual echo volume change
+#_1BA708: #_F704u: db $E7, $21 ; set song tempo
+#_1BA70A: #_F706u: db $E8, $B4, $3E ; initiate gradual tempo change
+#_1BA70D: #_F709u: db $E0, $0E ; set instrument - chimes
+#_1BA70F: #_F70Bu: db $ED, $14 ; set channel volume
+#_1BA711: #_F70Du: db $EF : dw Song1A_Sub_F905 : db $01 ; call segment subroutine
+#_1BA715: #_F711u: db $C9 ; rest
+#_1BA716: #_F712u: db $C9 ; rest
+#_1BA717: #_F713u: db $E7, $15 ; set song tempo
+#_1BA719: #_F715u: db $E0, $0E ; set instrument - chimes
+#_1BA71B: #_F717u: db $E1, $14 ; set panning - leaning left
+#_1BA71D: #_F719u: db $EE, $50, $78 ; initiate gradual channel volume change
 #_1BA720: #_F71Cu: db $18 ; duration
-#_1BA721: #_F71Du: db R
+#_1BA721: #_F71Du: db $C9 ; rest
 #_1BA722: #_F71Eu: db $18, $7D ; duration, params
-#_1BA724: #_F720u: db G4
-#_1BA725: #_F721u: db G4
-#_1BA726: #_F722u: db G4
-#_1BA727: #_F723u: db !PART_END
+#_1BA724: #_F720u: db $AB ; play note G4
+#_1BA725: #_F721u: db $AB ; play note G4
+#_1BA726: #_F722u: db $AB ; play note G4
+#_1BA727: #_F723u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment0_Track1:
-#_1BA728: #_F724u: db !INSTR, $0E
-#_1BA72A: #_F726u: db !VOLUME, $A0
-#_1BA72C: #_F728u: db !PAN, $14
+#_1BA728: #_F724u: db $E0, $0E ; set instrument - chimes
+#_1BA72A: #_F726u: db $ED, $A0 ; set channel volume
+#_1BA72C: #_F728u: db $E1, $14 ; set panning - leaning left
 #_1BA72E: #_F72Au: db $30, $7D ; duration, params
-#_1BA730: #_F72Cu: db D3
-#_1BA731: #_F72Du: db F3
-#_1BA732: #_F72Eu: db B3
-#_1BA733: #_F72Fu: db D4
-#_1BA734: #_F730u: db !VOLUME_GRAD, $FA, $3C
-#_1BA737: #_F733u: db A4
-#_1BA738: #_F734u: db A4
-#_1BA739: #_F735u: db A4
-#_1BA73A: #_F736u: db A4
+#_1BA730: #_F72Cu: db $9A ; play note D3
+#_1BA731: #_F72Du: db $9D ; play note F3
+#_1BA732: #_F72Eu: db $A3 ; play note B3
+#_1BA733: #_F72Fu: db $A6 ; play note D4
+#_1BA734: #_F730u: db $EE, $FA, $3C ; initiate gradual channel volume change
+#_1BA737: #_F733u: db $AD ; play note A4
+#_1BA738: #_F734u: db $AD ; play note A4
+#_1BA739: #_F735u: db $AD ; play note A4
+#_1BA73A: #_F736u: db $AD ; play note A4
 #_1BA73B: #_F737u: db $10 ; duration
-#_1BA73C: #_F738u: db A4
-#_1BA73D: #_F739u: db A4
-#_1BA73E: #_F73Au: db A4
-#_1BA73F: #_F73Bu: db A4
-#_1BA740: #_F73Cu: db A4
-#_1BA741: #_F73Du: db A4
+#_1BA73C: #_F738u: db $AD ; play note A4
+#_1BA73D: #_F739u: db $AD ; play note A4
+#_1BA73E: #_F73Au: db $AD ; play note A4
+#_1BA73F: #_F73Bu: db $AD ; play note A4
+#_1BA740: #_F73Cu: db $AD ; play note A4
+#_1BA741: #_F73Du: db $AD ; play note A4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment0_Track2:
-#_1BA742: #_F73Eu: db !INSTR, $0E
-#_1BA744: #_F740u: db !VOLUME, $A0
-#_1BA746: #_F742u: db !PAN, $0D
+#_1BA742: #_F73Eu: db $E0, $0E ; set instrument - chimes
+#_1BA744: #_F740u: db $ED, $A0 ; set channel volume
+#_1BA746: #_F742u: db $E1, $0D ; set panning - leaning left
 #_1BA748: #_F744u: db $0C ; duration
-#_1BA749: #_F745u: db R
+#_1BA749: #_F745u: db $C9 ; rest
 #_1BA74A: #_F746u: db $30, $7D ; duration, params
-#_1BA74C: #_F748u: db F3
-#_1BA74D: #_F749u: db A3
-#_1BA74E: #_F74Au: db D4
-#_1BA74F: #_F74Bu: db F4
-#_1BA750: #_F74Cu: db !VOLUME_GRAD, $FA, $3C
-#_1BA753: #_F74Fu: db B4
-#_1BA754: #_F750u: db B4
-#_1BA755: #_F751u: db B4
+#_1BA74C: #_F748u: db $9D ; play note F3
+#_1BA74D: #_F749u: db $A1 ; play note A3
+#_1BA74E: #_F74Au: db $A6 ; play note D4
+#_1BA74F: #_F74Bu: db $A9 ; play note F4
+#_1BA750: #_F74Cu: db $EE, $FA, $3C ; initiate gradual channel volume change
+#_1BA753: #_F74Fu: db $AF ; play note B4
+#_1BA754: #_F750u: db $AF ; play note B4
+#_1BA755: #_F751u: db $AF ; play note B4
 #_1BA756: #_F752u: db $24 ; duration
-#_1BA757: #_F753u: db B4
+#_1BA757: #_F753u: db $AF ; play note B4
 #_1BA758: #_F754u: db $04 ; duration
-#_1BA759: #_F755u: db !TIE
+#_1BA759: #_F755u: db $C8 ; sustain current note
 #_1BA75A: #_F756u: db $10 ; duration
-#_1BA75B: #_F757u: db B4
-#_1BA75C: #_F758u: db B4
-#_1BA75D: #_F759u: db B4
-#_1BA75E: #_F75Au: db B4
-#_1BA75F: #_F75Bu: db B4
+#_1BA75B: #_F757u: db $AF ; play note B4
+#_1BA75C: #_F758u: db $AF ; play note B4
+#_1BA75D: #_F759u: db $AF ; play note B4
+#_1BA75E: #_F75Au: db $AF ; play note B4
+#_1BA75F: #_F75Bu: db $AF ; play note B4
 #_1BA760: #_F75Cu: db $0C ; duration
-#_1BA761: #_F75Du: db B4
+#_1BA761: #_F75Du: db $AF ; play note B4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment0_Track3:
-#_1BA762: #_F75Eu: db !INSTR, $0E
-#_1BA764: #_F760u: db !VOLUME, $A0
-#_1BA766: #_F762u: db !PAN, $08
+#_1BA762: #_F75Eu: db $E0, $0E ; set instrument - chimes
+#_1BA764: #_F760u: db $ED, $A0 ; set channel volume
+#_1BA766: #_F762u: db $E1, $08 ; set panning - leaning right
 #_1BA768: #_F764u: db $18 ; duration
-#_1BA769: #_F765u: db R
+#_1BA769: #_F765u: db $C9 ; rest
 #_1BA76A: #_F766u: db $30, $7D ; duration, params
-#_1BA76C: #_F768u: db A3
-#_1BA76D: #_F769u: db B3
-#_1BA76E: #_F76Au: db F4
-#_1BA76F: #_F76Bu: db A4
-#_1BA770: #_F76Cu: db !VOLUME_GRAD, $FA, $3C
-#_1BA773: #_F76Fu: db A4
-#_1BA774: #_F770u: db A4
-#_1BA775: #_F771u: db A4
+#_1BA76C: #_F768u: db $A1 ; play note A3
+#_1BA76D: #_F769u: db $A3 ; play note B3
+#_1BA76E: #_F76Au: db $A9 ; play note F4
+#_1BA76F: #_F76Bu: db $AD ; play note A4
+#_1BA770: #_F76Cu: db $EE, $FA, $3C ; initiate gradual channel volume change
+#_1BA773: #_F76Fu: db $AD ; play note A4
+#_1BA774: #_F770u: db $AD ; play note A4
+#_1BA775: #_F771u: db $AD ; play note A4
 #_1BA776: #_F772u: db $18 ; duration
-#_1BA777: #_F773u: db A4
+#_1BA777: #_F773u: db $AD ; play note A4
 #_1BA778: #_F774u: db $08 ; duration
-#_1BA779: #_F775u: db !TIE
+#_1BA779: #_F775u: db $C8 ; sustain current note
 #_1BA77A: #_F776u: db $10 ; duration
-#_1BA77B: #_F777u: db A4
-#_1BA77C: #_F778u: db A4
-#_1BA77D: #_F779u: db A4
-#_1BA77E: #_F77Au: db A4
-#_1BA77F: #_F77Bu: db A4
+#_1BA77B: #_F777u: db $AD ; play note A4
+#_1BA77C: #_F778u: db $AD ; play note A4
+#_1BA77D: #_F779u: db $AD ; play note A4
+#_1BA77E: #_F77Au: db $AD ; play note A4
+#_1BA77F: #_F77Bu: db $AD ; play note A4
 #_1BA780: #_F77Cu: db $08 ; duration
-#_1BA781: #_F77Du: db A4
+#_1BA781: #_F77Du: db $AD ; play note A4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment0_Track4:
-#_1BA782: #_F77Eu: db !INSTR, $0E
-#_1BA784: #_F780u: db !VOLUME, $A0
-#_1BA786: #_F782u: db !PAN, $00
+#_1BA782: #_F77Eu: db $E0, $0E ; set instrument - chimes
+#_1BA784: #_F780u: db $ED, $A0 ; set channel volume
+#_1BA786: #_F782u: db $E1, $00 ; set panning - leaning right
 #_1BA788: #_F784u: db $24 ; duration
-#_1BA789: #_F785u: db R
+#_1BA789: #_F785u: db $C9 ; rest
 #_1BA78A: #_F786u: db $30, $7D ; duration, params
-#_1BA78C: #_F788u: db B3
-#_1BA78D: #_F789u: db D4
-#_1BA78E: #_F78Au: db A4
-#_1BA78F: #_F78Bu: db B4
-#_1BA790: #_F78Cu: db !VOLUME_GRAD, $FA, $3C
-#_1BA793: #_F78Fu: db B4
-#_1BA794: #_F790u: db B4
-#_1BA795: #_F791u: db B4
+#_1BA78C: #_F788u: db $A3 ; play note B3
+#_1BA78D: #_F789u: db $A6 ; play note D4
+#_1BA78E: #_F78Au: db $AD ; play note A4
+#_1BA78F: #_F78Bu: db $AF ; play note B4
+#_1BA790: #_F78Cu: db $EE, $FA, $3C ; initiate gradual channel volume change
+#_1BA793: #_F78Fu: db $AF ; play note B4
+#_1BA794: #_F790u: db $AF ; play note B4
+#_1BA795: #_F791u: db $AF ; play note B4
 #_1BA796: #_F792u: db $0C ; duration
-#_1BA797: #_F793u: db B4
-#_1BA798: #_F794u: db !TIE
+#_1BA797: #_F793u: db $AF ; play note B4
+#_1BA798: #_F794u: db $C8 ; sustain current note
 #_1BA799: #_F795u: db $10 ; duration
-#_1BA79A: #_F796u: db B4
-#_1BA79B: #_F797u: db B4
-#_1BA79C: #_F798u: db B4
-#_1BA79D: #_F799u: db B4
-#_1BA79E: #_F79Au: db B4
+#_1BA79A: #_F796u: db $AF ; play note B4
+#_1BA79B: #_F797u: db $AF ; play note B4
+#_1BA79C: #_F798u: db $AF ; play note B4
+#_1BA79D: #_F799u: db $AF ; play note B4
+#_1BA79E: #_F79Au: db $AF ; play note B4
 #_1BA79F: #_F79Bu: db $04 ; duration
-#_1BA7A0: #_F79Cu: db B4
+#_1BA7A0: #_F79Cu: db $AF ; play note B4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment0_Track5:
-#_1BA7A1: #_F79Du: db !INSTR, $0E
-#_1BA7A3: #_F79Fu: db !VOLUME, $14
-#_1BA7A5: #_F7A1u: db !PAN, $0D
-#_1BA7A7: #_F7A3u: db !CALL_PART : dw Song1A_Sub_F905 : db 1
-#_1BA7AB: #_F7A7u: db R
-#_1BA7AC: #_F7A8u: db R
-#_1BA7AD: #_F7A9u: db !VOLUME_GRAD, $50, $78
+#_1BA7A1: #_F79Du: db $E0, $0E ; set instrument - chimes
+#_1BA7A3: #_F79Fu: db $ED, $14 ; set channel volume
+#_1BA7A5: #_F7A1u: db $E1, $0D ; set panning - leaning left
+#_1BA7A7: #_F7A3u: db $EF : dw Song1A_Sub_F905 : db $01 ; call segment subroutine
+#_1BA7AB: #_F7A7u: db $C9 ; rest
+#_1BA7AC: #_F7A8u: db $C9 ; rest
+#_1BA7AD: #_F7A9u: db $EE, $50, $78 ; initiate gradual channel volume change
 #_1BA7B0: #_F7ACu: db $1E ; duration
-#_1BA7B1: #_F7ADu: db R
+#_1BA7B1: #_F7ADu: db $C9 ; rest
 #_1BA7B2: #_F7AEu: db $18, $7D ; duration, params
-#_1BA7B4: #_F7B0u: db E4
-#_1BA7B5: #_F7B1u: db E4
+#_1BA7B4: #_F7B0u: db $A8 ; play note E4
+#_1BA7B5: #_F7B1u: db $A8 ; play note E4
 #_1BA7B6: #_F7B2u: db $12 ; duration
-#_1BA7B7: #_F7B3u: db E4
+#_1BA7B7: #_F7B3u: db $A8 ; play note E4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment0_Track6:
-#_1BA7B8: #_F7B4u: db !INSTR, $0E
-#_1BA7BA: #_F7B6u: db !VOLUME, $14
-#_1BA7BC: #_F7B8u: db !PAN, $07
-#_1BA7BE: #_F7BAu: db !CALL_PART : dw Song1A_Sub_F905 : db 1
-#_1BA7C2: #_F7BEu: db R
-#_1BA7C3: #_F7BFu: db R
-#_1BA7C4: #_F7C0u: db !VOLUME_GRAD, $50, $78
+#_1BA7B8: #_F7B4u: db $E0, $0E ; set instrument - chimes
+#_1BA7BA: #_F7B6u: db $ED, $14 ; set channel volume
+#_1BA7BC: #_F7B8u: db $E1, $07 ; set panning - leaning right
+#_1BA7BE: #_F7BAu: db $EF : dw Song1A_Sub_F905 : db $01 ; call segment subroutine
+#_1BA7C2: #_F7BEu: db $C9 ; rest
+#_1BA7C3: #_F7BFu: db $C9 ; rest
+#_1BA7C4: #_F7C0u: db $EE, $50, $78 ; initiate gradual channel volume change
 #_1BA7C7: #_F7C3u: db $24 ; duration
-#_1BA7C8: #_F7C4u: db R
+#_1BA7C8: #_F7C4u: db $C9 ; rest
 #_1BA7C9: #_F7C5u: db $18, $7D ; duration, params
-#_1BA7CB: #_F7C7u: db D4
-#_1BA7CC: #_F7C8u: db D4
+#_1BA7CB: #_F7C7u: db $A6 ; play note D4
+#_1BA7CC: #_F7C8u: db $A6 ; play note D4
 #_1BA7CD: #_F7C9u: db $0C ; duration
-#_1BA7CE: #_F7CAu: db D4
+#_1BA7CE: #_F7CAu: db $A6 ; play note D4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment0_Track7:
-#_1BA7CF: #_F7CBu: db !INSTR, $0E
-#_1BA7D1: #_F7CDu: db !VOLUME, $14
-#_1BA7D3: #_F7CFu: db !PAN, $00
-#_1BA7D5: #_F7D1u: db !CALL_PART : dw Song1A_Sub_F905 : db 1
-#_1BA7D9: #_F7D5u: db R
-#_1BA7DA: #_F7D6u: db R
-#_1BA7DB: #_F7D7u: db !VOLUME_GRAD, $50, $78
+#_1BA7CF: #_F7CBu: db $E0, $0E ; set instrument - chimes
+#_1BA7D1: #_F7CDu: db $ED, $14 ; set channel volume
+#_1BA7D3: #_F7CFu: db $E1, $00 ; set panning - leaning right
+#_1BA7D5: #_F7D1u: db $EF : dw Song1A_Sub_F905 : db $01 ; call segment subroutine
+#_1BA7D9: #_F7D5u: db $C9 ; rest
+#_1BA7DA: #_F7D6u: db $C9 ; rest
+#_1BA7DB: #_F7D7u: db $EE, $50, $78 ; initiate gradual channel volume change
 #_1BA7DE: #_F7DAu: db $2A ; duration
-#_1BA7DF: #_F7DBu: db R
+#_1BA7DF: #_F7DBu: db $C9 ; rest
 #_1BA7E0: #_F7DCu: db $18, $7D ; duration, params
-#_1BA7E2: #_F7DEu: db B3
-#_1BA7E3: #_F7DFu: db B3
+#_1BA7E2: #_F7DEu: db $A3 ; play note B3
+#_1BA7E3: #_F7DFu: db $A3 ; play note B3
 #_1BA7E4: #_F7E0u: db $06 ; duration
-#_1BA7E5: #_F7E1u: db B3
+#_1BA7E5: #_F7E1u: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment2_Track0:
-#_1BA7E6: #_F7E2u: db !CALL_PART : dw Song1A_Sub_F8D8 : db 1
-#_1BA7EA: #_F7E6u: db !CALL_PART : dw Song1A_Sub_F8E4 : db 1
+#_1BA7E6: #_F7E2u: db $EF : dw Song1A_Sub_F8D8 : db $01 ; call segment subroutine
+#_1BA7EA: #_F7E6u: db $EF : dw Song1A_Sub_F8E4 : db $01 ; call segment subroutine
 #_1BA7EE: #_F7EAu: db $48 ; duration
-#_1BA7EF: #_F7EBu: db D6
-#_1BA7F0: #_F7ECu: db !TIE
-#_1BA7F1: #_F7EDu: db !PART_END
+#_1BA7EF: #_F7EBu: db $BE ; play note D6
+#_1BA7F0: #_F7ECu: db $C8 ; sustain current note
+#_1BA7F1: #_F7EDu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment2_Track1:
-#_1BA7F2: #_F7EEu: db !PAN, $14
-#_1BA7F4: #_F7F0u: db !PAN_GRAD, $90, $00
+#_1BA7F2: #_F7EEu: db $E1, $14 ; set panning - leaning left
+#_1BA7F4: #_F7F0u: db $E2, $90, $00 ; initiate gradual panning change
 #_1BA7F7: #_F7F3u: db $18, $7D ; duration, params
-#_1BA7F9: #_F7F5u: db G4
-#_1BA7FA: #_F7F6u: db G4
-#_1BA7FB: #_F7F7u: db G4
-#_1BA7FC: #_F7F8u: db G4
-#_1BA7FD: #_F7F9u: db G4
-#_1BA7FE: #_F7FAu: db G4
-#_1BA7FF: #_F7FBu: db !PAN_GRAD, $90, $14
-#_1BA802: #_F7FEu: db G4
-#_1BA803: #_F7FFu: db G4
-#_1BA804: #_F800u: db G4
-#_1BA805: #_F801u: db G4
-#_1BA806: #_F802u: db G4
-#_1BA807: #_F803u: db G4
-#_1BA808: #_F804u: db !PAN_GRAD, $90, $00
-#_1BA80B: #_F807u: db G4
-#_1BA80C: #_F808u: db G4
-#_1BA80D: #_F809u: db G4
-#_1BA80E: #_F80Au: db G4
-#_1BA80F: #_F80Bu: db G4
-#_1BA810: #_F80Cu: db G4
-#_1BA811: #_F80Du: db !PAN_GRAD, $90, $14
-#_1BA814: #_F810u: db G4
-#_1BA815: #_F811u: db G4
-#_1BA816: #_F812u: db G4
-#_1BA817: #_F813u: db G4
-#_1BA818: #_F814u: db G4
-#_1BA819: #_F815u: db G4
+#_1BA7F9: #_F7F5u: db $AB ; play note G4
+#_1BA7FA: #_F7F6u: db $AB ; play note G4
+#_1BA7FB: #_F7F7u: db $AB ; play note G4
+#_1BA7FC: #_F7F8u: db $AB ; play note G4
+#_1BA7FD: #_F7F9u: db $AB ; play note G4
+#_1BA7FE: #_F7FAu: db $AB ; play note G4
+#_1BA7FF: #_F7FBu: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA802: #_F7FEu: db $AB ; play note G4
+#_1BA803: #_F7FFu: db $AB ; play note G4
+#_1BA804: #_F800u: db $AB ; play note G4
+#_1BA805: #_F801u: db $AB ; play note G4
+#_1BA806: #_F802u: db $AB ; play note G4
+#_1BA807: #_F803u: db $AB ; play note G4
+#_1BA808: #_F804u: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA80B: #_F807u: db $AB ; play note G4
+#_1BA80C: #_F808u: db $AB ; play note G4
+#_1BA80D: #_F809u: db $AB ; play note G4
+#_1BA80E: #_F80Au: db $AB ; play note G4
+#_1BA80F: #_F80Bu: db $AB ; play note G4
+#_1BA810: #_F80Cu: db $AB ; play note G4
+#_1BA811: #_F80Du: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA814: #_F810u: db $AB ; play note G4
+#_1BA815: #_F811u: db $AB ; play note G4
+#_1BA816: #_F812u: db $AB ; play note G4
+#_1BA817: #_F813u: db $AB ; play note G4
+#_1BA818: #_F814u: db $AB ; play note G4
+#_1BA819: #_F815u: db $AB ; play note G4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment2_Track2:
-#_1BA81A: #_F816u: db !PAN, $14
-#_1BA81C: #_F818u: db !PAN_GRAD, $90, $00
+#_1BA81A: #_F816u: db $E1, $14 ; set panning - leaning left
+#_1BA81C: #_F818u: db $E2, $90, $00 ; initiate gradual panning change
 #_1BA81F: #_F81Bu: db $06 ; duration
-#_1BA820: #_F81Cu: db R
+#_1BA820: #_F81Cu: db $C9 ; rest
 #_1BA821: #_F81Du: db $18, $7D ; duration, params
-#_1BA823: #_F81Fu: db E4
-#_1BA824: #_F820u: db E4
-#_1BA825: #_F821u: db E4
-#_1BA826: #_F822u: db Fs4
-#_1BA827: #_F823u: db Fs4
-#_1BA828: #_F824u: db Fs4
-#_1BA829: #_F825u: db !PAN_GRAD, $90, $14
-#_1BA82C: #_F828u: db E4
-#_1BA82D: #_F829u: db E4
-#_1BA82E: #_F82Au: db E4
-#_1BA82F: #_F82Bu: db Fs4
-#_1BA830: #_F82Cu: db Fs4
-#_1BA831: #_F82Du: db Fs4
-#_1BA832: #_F82Eu: db !PAN_GRAD, $90, $00
-#_1BA835: #_F831u: db E4
-#_1BA836: #_F832u: db E4
-#_1BA837: #_F833u: db E4
-#_1BA838: #_F834u: db E4
-#_1BA839: #_F835u: db E4
-#_1BA83A: #_F836u: db E4
-#_1BA83B: #_F837u: db !PAN_GRAD, $90, $14
-#_1BA83E: #_F83Au: db E4
-#_1BA83F: #_F83Bu: db E4
-#_1BA840: #_F83Cu: db E4
-#_1BA841: #_F83Du: db D4
-#_1BA842: #_F83Eu: db D4
+#_1BA823: #_F81Fu: db $A8 ; play note E4
+#_1BA824: #_F820u: db $A8 ; play note E4
+#_1BA825: #_F821u: db $A8 ; play note E4
+#_1BA826: #_F822u: db $AA ; play note Fs4
+#_1BA827: #_F823u: db $AA ; play note Fs4
+#_1BA828: #_F824u: db $AA ; play note Fs4
+#_1BA829: #_F825u: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA82C: #_F828u: db $A8 ; play note E4
+#_1BA82D: #_F829u: db $A8 ; play note E4
+#_1BA82E: #_F82Au: db $A8 ; play note E4
+#_1BA82F: #_F82Bu: db $AA ; play note Fs4
+#_1BA830: #_F82Cu: db $AA ; play note Fs4
+#_1BA831: #_F82Du: db $AA ; play note Fs4
+#_1BA832: #_F82Eu: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA835: #_F831u: db $A8 ; play note E4
+#_1BA836: #_F832u: db $A8 ; play note E4
+#_1BA837: #_F833u: db $A8 ; play note E4
+#_1BA838: #_F834u: db $A8 ; play note E4
+#_1BA839: #_F835u: db $A8 ; play note E4
+#_1BA83A: #_F836u: db $A8 ; play note E4
+#_1BA83B: #_F837u: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA83E: #_F83Au: db $A8 ; play note E4
+#_1BA83F: #_F83Bu: db $A8 ; play note E4
+#_1BA840: #_F83Cu: db $A8 ; play note E4
+#_1BA841: #_F83Du: db $A6 ; play note D4
+#_1BA842: #_F83Eu: db $A6 ; play note D4
 #_1BA843: #_F83Fu: db $12 ; duration
-#_1BA844: #_F840u: db D4
+#_1BA844: #_F840u: db $A6 ; play note D4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment2_Track3:
-#_1BA845: #_F841u: db !PAN, $00
-#_1BA847: #_F843u: db !PAN_GRAD, $90, $14
+#_1BA845: #_F841u: db $E1, $00 ; set panning - leaning right
+#_1BA847: #_F843u: db $E2, $90, $14 ; initiate gradual panning change
 #_1BA84A: #_F846u: db $0C ; duration
-#_1BA84B: #_F847u: db R
+#_1BA84B: #_F847u: db $C9 ; rest
 #_1BA84C: #_F848u: db $18, $7D ; duration, params
-#_1BA84E: #_F84Au: db D4
-#_1BA84F: #_F84Bu: db D4
-#_1BA850: #_F84Cu: db D4
-#_1BA851: #_F84Du: db D4
-#_1BA852: #_F84Eu: db D4
-#_1BA853: #_F84Fu: db D4
-#_1BA854: #_F850u: db !PAN_GRAD, $90, $00
-#_1BA857: #_F853u: db D4
-#_1BA858: #_F854u: db D4
-#_1BA859: #_F855u: db D4
-#_1BA85A: #_F856u: db D4
-#_1BA85B: #_F857u: db D4
-#_1BA85C: #_F858u: db D4
-#_1BA85D: #_F859u: db !PAN_GRAD, $90, $14
-#_1BA860: #_F85Cu: db D4
-#_1BA861: #_F85Du: db D4
-#_1BA862: #_F85Eu: db D4
-#_1BA863: #_F85Fu: db D4
-#_1BA864: #_F860u: db D4
-#_1BA865: #_F861u: db D4
-#_1BA866: #_F862u: db !PAN_GRAD, $90, $00
-#_1BA869: #_F865u: db D4
-#_1BA86A: #_F866u: db D4
-#_1BA86B: #_F867u: db D4
-#_1BA86C: #_F868u: db C4
-#_1BA86D: #_F869u: db C4
+#_1BA84E: #_F84Au: db $A6 ; play note D4
+#_1BA84F: #_F84Bu: db $A6 ; play note D4
+#_1BA850: #_F84Cu: db $A6 ; play note D4
+#_1BA851: #_F84Du: db $A6 ; play note D4
+#_1BA852: #_F84Eu: db $A6 ; play note D4
+#_1BA853: #_F84Fu: db $A6 ; play note D4
+#_1BA854: #_F850u: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA857: #_F853u: db $A6 ; play note D4
+#_1BA858: #_F854u: db $A6 ; play note D4
+#_1BA859: #_F855u: db $A6 ; play note D4
+#_1BA85A: #_F856u: db $A6 ; play note D4
+#_1BA85B: #_F857u: db $A6 ; play note D4
+#_1BA85C: #_F858u: db $A6 ; play note D4
+#_1BA85D: #_F859u: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA860: #_F85Cu: db $A6 ; play note D4
+#_1BA861: #_F85Du: db $A6 ; play note D4
+#_1BA862: #_F85Eu: db $A6 ; play note D4
+#_1BA863: #_F85Fu: db $A6 ; play note D4
+#_1BA864: #_F860u: db $A6 ; play note D4
+#_1BA865: #_F861u: db $A6 ; play note D4
+#_1BA866: #_F862u: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA869: #_F865u: db $A6 ; play note D4
+#_1BA86A: #_F866u: db $A6 ; play note D4
+#_1BA86B: #_F867u: db $A6 ; play note D4
+#_1BA86C: #_F868u: db $A4 ; play note C4
+#_1BA86D: #_F869u: db $A4 ; play note C4
 #_1BA86E: #_F86Au: db $0C ; duration
-#_1BA86F: #_F86Bu: db C4
+#_1BA86F: #_F86Bu: db $A4 ; play note C4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment2_Track4:
-#_1BA870: #_F86Cu: db !PAN, $00
-#_1BA872: #_F86Eu: db !PAN_GRAD, $90, $14
+#_1BA870: #_F86Cu: db $E1, $00 ; set panning - leaning right
+#_1BA872: #_F86Eu: db $E2, $90, $14 ; initiate gradual panning change
 #_1BA875: #_F871u: db $12 ; duration
-#_1BA876: #_F872u: db R
+#_1BA876: #_F872u: db $C9 ; rest
 #_1BA877: #_F873u: db $18, $7D ; duration, params
-#_1BA879: #_F875u: db B3
-#_1BA87A: #_F876u: db B3
-#_1BA87B: #_F877u: db B3
-#_1BA87C: #_F878u: db A3
-#_1BA87D: #_F879u: db A3
-#_1BA87E: #_F87Au: db A3
-#_1BA87F: #_F87Bu: db !PAN_GRAD, $90, $00
-#_1BA882: #_F87Eu: db B3
-#_1BA883: #_F87Fu: db B3
-#_1BA884: #_F880u: db B3
-#_1BA885: #_F881u: db A3
-#_1BA886: #_F882u: db A3
-#_1BA887: #_F883u: db A3
-#_1BA888: #_F884u: db !PAN_GRAD, $90, $14
-#_1BA88B: #_F887u: db B3
-#_1BA88C: #_F888u: db B3
-#_1BA88D: #_F889u: db B3
-#_1BA88E: #_F88Au: db As3
-#_1BA88F: #_F88Bu: db As3
-#_1BA890: #_F88Cu: db As3
-#_1BA891: #_F88Du: db !PAN_GRAD, $90, $00
-#_1BA894: #_F890u: db A3
-#_1BA895: #_F891u: db A3
-#_1BA896: #_F892u: db A3
-#_1BA897: #_F893u: db A3
-#_1BA898: #_F894u: db A3
+#_1BA879: #_F875u: db $A3 ; play note B3
+#_1BA87A: #_F876u: db $A3 ; play note B3
+#_1BA87B: #_F877u: db $A3 ; play note B3
+#_1BA87C: #_F878u: db $A1 ; play note A3
+#_1BA87D: #_F879u: db $A1 ; play note A3
+#_1BA87E: #_F87Au: db $A1 ; play note A3
+#_1BA87F: #_F87Bu: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA882: #_F87Eu: db $A3 ; play note B3
+#_1BA883: #_F87Fu: db $A3 ; play note B3
+#_1BA884: #_F880u: db $A3 ; play note B3
+#_1BA885: #_F881u: db $A1 ; play note A3
+#_1BA886: #_F882u: db $A1 ; play note A3
+#_1BA887: #_F883u: db $A1 ; play note A3
+#_1BA888: #_F884u: db $E2, $90, $14 ; initiate gradual panning change
+#_1BA88B: #_F887u: db $A3 ; play note B3
+#_1BA88C: #_F888u: db $A3 ; play note B3
+#_1BA88D: #_F889u: db $A3 ; play note B3
+#_1BA88E: #_F88Au: db $A2 ; play note As3
+#_1BA88F: #_F88Bu: db $A2 ; play note As3
+#_1BA890: #_F88Cu: db $A2 ; play note As3
+#_1BA891: #_F88Du: db $E2, $90, $00 ; initiate gradual panning change
+#_1BA894: #_F890u: db $A1 ; play note A3
+#_1BA895: #_F891u: db $A1 ; play note A3
+#_1BA896: #_F892u: db $A1 ; play note A3
+#_1BA897: #_F893u: db $A1 ; play note A3
+#_1BA898: #_F894u: db $A1 ; play note A3
 #_1BA899: #_F895u: db $06 ; duration
-#_1BA89A: #_F896u: db A3
+#_1BA89A: #_F896u: db $A1 ; play note A3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment2_Track5:
-#_1BA89B: #_F897u: db !CALL_PART : dw Song1A_Sub_F8F3 : db 1
-#_1BA89F: #_F89Bu: db C4
-#_1BA8A0: #_F89Cu: db C4
-#_1BA8A1: #_F89Du: db B3
-#_1BA8A2: #_F89Eu: db As3
-#_1BA8A3: #_F89Fu: db A3
-#_1BA8A4: #_F8A0u: db D4
+#_1BA89B: #_F897u: db $EF : dw Song1A_Sub_F8F3 : db $01 ; call segment subroutine
+#_1BA89F: #_F89Bu: db $A4 ; play note C4
+#_1BA8A0: #_F89Cu: db $A4 ; play note C4
+#_1BA8A1: #_F89Du: db $A3 ; play note B3
+#_1BA8A2: #_F89Eu: db $A2 ; play note As3
+#_1BA8A3: #_F89Fu: db $A1 ; play note A3
+#_1BA8A4: #_F8A0u: db $A6 ; play note D4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment2_Track6:
 #_1BA8A5: #_F8A1u: db $0C ; duration
-#_1BA8A6: #_F8A2u: db R
+#_1BA8A6: #_F8A2u: db $C9 ; rest
 #_1BA8A7: #_F8A3u: db $0C, $6D ; duration, params
-#_1BA8A9: #_F8A5u: db G3
+#_1BA8A9: #_F8A5u: db $9F ; play note G3
 #_1BA8AA: #_F8A6u: db $30 ; duration
-#_1BA8AB: #_F8A7u: db E4
+#_1BA8AB: #_F8A7u: db $A8 ; play note E4
 #_1BA8AC: #_F8A8u: db $0C ; duration
-#_1BA8AD: #_F8A9u: db R
-#_1BA8AE: #_F8AAu: db A3
+#_1BA8AD: #_F8A9u: db $C9 ; rest
+#_1BA8AE: #_F8AAu: db $A1 ; play note A3
 #_1BA8AF: #_F8ABu: db $30 ; duration
-#_1BA8B0: #_F8ACu: db Fs4
+#_1BA8B0: #_F8ACu: db $AA ; play note Fs4
 #_1BA8B1: #_F8ADu: db $0C ; duration
-#_1BA8B2: #_F8AEu: db R
-#_1BA8B3: #_F8AFu: db G3
+#_1BA8B2: #_F8AEu: db $C9 ; rest
+#_1BA8B3: #_F8AFu: db $9F ; play note G3
 #_1BA8B4: #_F8B0u: db $30 ; duration
-#_1BA8B5: #_F8B1u: db E4
+#_1BA8B5: #_F8B1u: db $A8 ; play note E4
 #_1BA8B6: #_F8B2u: db $0C ; duration
-#_1BA8B7: #_F8B3u: db R
-#_1BA8B8: #_F8B4u: db A3
+#_1BA8B7: #_F8B3u: db $C9 ; rest
+#_1BA8B8: #_F8B4u: db $A1 ; play note A3
 #_1BA8B9: #_F8B5u: db $30 ; duration
-#_1BA8BA: #_F8B6u: db Fs4
+#_1BA8BA: #_F8B6u: db $AA ; play note Fs4
 #_1BA8BB: #_F8B7u: db $0C ; duration
-#_1BA8BC: #_F8B8u: db R
-#_1BA8BD: #_F8B9u: db G3
+#_1BA8BC: #_F8B8u: db $C9 ; rest
+#_1BA8BD: #_F8B9u: db $9F ; play note G3
 #_1BA8BE: #_F8BAu: db $30 ; duration
-#_1BA8BF: #_F8BBu: db D4
+#_1BA8BF: #_F8BBu: db $A6 ; play note D4
 #_1BA8C0: #_F8BCu: db $0C ; duration
-#_1BA8C1: #_F8BDu: db R
-#_1BA8C2: #_F8BEu: db G3
+#_1BA8C1: #_F8BDu: db $C9 ; rest
+#_1BA8C2: #_F8BEu: db $9F ; play note G3
 #_1BA8C3: #_F8BFu: db $30 ; duration
-#_1BA8C4: #_F8C0u: db Cs4
+#_1BA8C4: #_F8C0u: db $A5 ; play note Cs4
 #_1BA8C5: #_F8C1u: db $0C ; duration
-#_1BA8C6: #_F8C2u: db R
-#_1BA8C7: #_F8C3u: db G3
+#_1BA8C6: #_F8C2u: db $C9 ; rest
+#_1BA8C7: #_F8C3u: db $9F ; play note G3
 #_1BA8C8: #_F8C4u: db $30 ; duration
-#_1BA8C9: #_F8C5u: db C4
+#_1BA8C9: #_F8C5u: db $A4 ; play note C4
 #_1BA8CA: #_F8C6u: db $0C ; duration
-#_1BA8CB: #_F8C7u: db R
-#_1BA8CC: #_F8C8u: db A3
+#_1BA8CB: #_F8C7u: db $C9 ; rest
+#_1BA8CC: #_F8C8u: db $A1 ; play note A3
 #_1BA8CD: #_F8C9u: db $30 ; duration
-#_1BA8CE: #_F8CAu: db Fs4
+#_1BA8CE: #_F8CAu: db $AA ; play note Fs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Segment2_Track7:
-#_1BA8CF: #_F8CBu: db !CALL_PART : dw Song1A_Sub_F8F8 : db 1
-#_1BA8D3: #_F8CFu: db !CALL_PART : dw Song1A_Sub_F8E4 : db 1
+#_1BA8CF: #_F8CBu: db $EF : dw Song1A_Sub_F8F8 : db $01 ; call segment subroutine
+#_1BA8D3: #_F8CFu: db $EF : dw Song1A_Sub_F8E4 : db $01 ; call segment subroutine
 #_1BA8D7: #_F8D3u: db $48 ; duration
-#_1BA8D8: #_F8D4u: db D6
+#_1BA8D8: #_F8D4u: db $BE ; play note D6
 #_1BA8D9: #_F8D5u: db $40 ; duration
-#_1BA8DA: #_F8D6u: db !TIE
-#_1BA8DB: #_F8D7u: db !PART_END
+#_1BA8DA: #_F8D6u: db $C8 ; sustain current note
+#_1BA8DB: #_F8D7u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Sub_F8D8:
 #_1BA8DC: #_F8D8u: db $30, $6D ; duration, params
-#_1BA8DE: #_F8DAu: db B4
+#_1BA8DE: #_F8DAu: db $AF ; play note B4
 #_1BA8DF: #_F8DBu: db $18 ; duration
-#_1BA8E0: #_F8DCu: db D5
+#_1BA8E0: #_F8DCu: db $B2 ; play note D5
 #_1BA8E1: #_F8DDu: db $30, $7D ; duration, params
-#_1BA8E3: #_F8DFu: db A4
+#_1BA8E3: #_F8DFu: db $AD ; play note A4
 #_1BA8E4: #_F8E0u: db $0C ; duration
-#_1BA8E5: #_F8E1u: db G4
-#_1BA8E6: #_F8E2u: db A4
-#_1BA8E7: #_F8E3u: db !PART_END
+#_1BA8E5: #_F8E1u: db $AB ; play note G4
+#_1BA8E6: #_F8E2u: db $AD ; play note A4
+#_1BA8E7: #_F8E3u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Sub_F8E4:
 #_1BA8E8: #_F8E4u: db $30 ; duration
-#_1BA8E9: #_F8E5u: db B4
+#_1BA8E9: #_F8E5u: db $AF ; play note B4
 #_1BA8EA: #_F8E6u: db $18 ; duration
-#_1BA8EB: #_F8E7u: db D5
+#_1BA8EB: #_F8E7u: db $B2 ; play note D5
 #_1BA8EC: #_F8E8u: db $48 ; duration
-#_1BA8ED: #_F8E9u: db A4
+#_1BA8ED: #_F8E9u: db $AD ; play note A4
 #_1BA8EE: #_F8EAu: db $30 ; duration
-#_1BA8EF: #_F8EBu: db B4
+#_1BA8EF: #_F8EBu: db $AF ; play note B4
 #_1BA8F0: #_F8ECu: db $18 ; duration
-#_1BA8F1: #_F8EDu: db D5
+#_1BA8F1: #_F8EDu: db $B2 ; play note D5
 #_1BA8F2: #_F8EEu: db $30 ; duration
-#_1BA8F3: #_F8EFu: db A5
+#_1BA8F3: #_F8EFu: db $B9 ; play note A5
 #_1BA8F4: #_F8F0u: db $18 ; duration
-#_1BA8F5: #_F8F1u: db G5
-#_1BA8F6: #_F8F2u: db !PART_END
+#_1BA8F5: #_F8F1u: db $B7 ; play note G5
+#_1BA8F6: #_F8F2u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Sub_F8F3:
 #_1BA8F7: #_F8F3u: db $48, $6D ; duration, params
-#_1BA8F9: #_F8F5u: db C4
-#_1BA8FA: #_F8F6u: db C4
-#_1BA8FB: #_F8F7u: db !PART_END
+#_1BA8F9: #_F8F5u: db $A4 ; play note C4
+#_1BA8FA: #_F8F6u: db $A4 ; play note C4
+#_1BA8FB: #_F8F7u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Sub_F8F8:
 #_1BA8FC: #_F8F8u: db $08 ; duration
-#_1BA8FD: #_F8F9u: db R
+#_1BA8FD: #_F8F9u: db $C9 ; rest
 #_1BA8FE: #_F8FAu: db $30, $6D ; duration, params
-#_1BA900: #_F8FCu: db B4
+#_1BA900: #_F8FCu: db $AF ; play note B4
 #_1BA901: #_F8FDu: db $18 ; duration
-#_1BA902: #_F8FEu: db D5
+#_1BA902: #_F8FEu: db $B2 ; play note D5
 #_1BA903: #_F8FFu: db $30 ; duration
-#_1BA904: #_F900u: db A4
+#_1BA904: #_F900u: db $AD ; play note A4
 #_1BA905: #_F901u: db $0C ; duration
-#_1BA906: #_F902u: db G4
-#_1BA907: #_F903u: db A4
-#_1BA908: #_F904u: db !PART_END
+#_1BA906: #_F902u: db $AB ; play note G4
+#_1BA907: #_F903u: db $AD ; play note A4
+#_1BA908: #_F904u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1A_Sub_F905:
 #_1BA909: #_F905u: db $60 ; duration
-#_1BA90A: #_F906u: db R
-#_1BA90B: #_F907u: db R
-#_1BA90C: #_F908u: db !PART_END
+#_1BA90A: #_F906u: db $C9 ; rest
+#_1BA90B: #_F907u: db $C9 ; rest
+#_1BA90C: #_F908u: db $00 ; End
 
 ;===================================================================================================
 
@@ -9092,7 +9092,7 @@ Song1B_BigFairy:
 Song1B_Loop:
 #_1BA90F: #_F90Bu: dw Song1B_Segment1
 #_1BA911: #_F90Du: dw Song1B_Segment2
-#_1BA913: #_F90Fu: dw !SONG_LOOP, Song1B_Loop
+#_1BA913: #_F90Fu: dw $00FF, Song1B_Loop ; Loop point
 #_1BA917: #_F913u: dw $0000
 
 Song1B_Segment1:
@@ -9128,553 +9128,553 @@ Song1B_Segment2:
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment1_Track0:
-#_1BA949: #_F945u: db !MASTER_VOLUME, $A0
-#_1BA94B: #_F947u: db !ECHO_CONFIG, $FF, $28, $28
-#_1BA94F: #_F94Bu: db !ECHO_FILTER, $02, $50, $02
-#_1BA953: #_F94Fu: db !TEMPO, $21
-#_1BA955: #_F951u: db !INSTR, $0F
-#_1BA957: #_F953u: db !VOLUME, $8C
-#_1BA959: #_F955u: db !PAN, $02
+#_1BA949: #_F945u: db $E5, $A0 ; set song volume
+#_1BA94B: #_F947u: db $F5, $FF, $28, $28 ; configure EON, EVOLL, EVOLR
+#_1BA94F: #_F94Bu: db $F7, $02, $50, $02 ; configure EDL, EFB, FIR
+#_1BA953: #_F94Fu: db $E7, $21 ; set song tempo
+#_1BA955: #_F951u: db $E0, $0F ; set instrument - harp
+#_1BA957: #_F953u: db $ED, $8C ; set channel volume
+#_1BA959: #_F955u: db $E1, $02 ; set panning - leaning right
 #_1BA95B: #_F957u: db $30, $7D ; duration, params
-#_1BA95D: #_F959u: db As5
-#_1BA95E: #_F95Au: db Gs5
-#_1BA95F: #_F95Bu: db G5
-#_1BA960: #_F95Cu: db Gs5
-#_1BA961: #_F95Du: db Gs5
-#_1BA962: #_F95Eu: db Fs5
-#_1BA963: #_F95Fu: db F5
-#_1BA964: #_F960u: db Fs5
-#_1BA965: #_F961u: db Fs5
-#_1BA966: #_F962u: db F5
-#_1BA967: #_F963u: db E5
-#_1BA968: #_F964u: db F5
-#_1BA969: #_F965u: db F5
-#_1BA96A: #_F966u: db Ds5
-#_1BA96B: #_F967u: db D5
-#_1BA96C: #_F968u: db Ds5
-#_1BA96D: #_F969u: db !PART_END
+#_1BA95D: #_F959u: db $BA ; play note As5
+#_1BA95E: #_F95Au: db $B8 ; play note Gs5
+#_1BA95F: #_F95Bu: db $B7 ; play note G5
+#_1BA960: #_F95Cu: db $B8 ; play note Gs5
+#_1BA961: #_F95Du: db $B8 ; play note Gs5
+#_1BA962: #_F95Eu: db $B6 ; play note Fs5
+#_1BA963: #_F95Fu: db $B5 ; play note F5
+#_1BA964: #_F960u: db $B6 ; play note Fs5
+#_1BA965: #_F961u: db $B6 ; play note Fs5
+#_1BA966: #_F962u: db $B5 ; play note F5
+#_1BA967: #_F963u: db $B4 ; play note E5
+#_1BA968: #_F964u: db $B5 ; play note F5
+#_1BA969: #_F965u: db $B5 ; play note F5
+#_1BA96A: #_F966u: db $B3 ; play note Ds5
+#_1BA96B: #_F967u: db $B2 ; play note D5
+#_1BA96C: #_F968u: db $B3 ; play note Ds5
+#_1BA96D: #_F969u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment1_Track1:
-#_1BA96E: #_F96Au: db !INSTR, $0F
-#_1BA970: #_F96Cu: db !VOLUME, $8C
-#_1BA972: #_F96Eu: db !PAN, $04
+#_1BA96E: #_F96Au: db $E0, $0F ; set instrument - harp
+#_1BA970: #_F96Cu: db $ED, $8C ; set channel volume
+#_1BA972: #_F96Eu: db $E1, $04 ; set panning - leaning right
 #_1BA974: #_F970u: db $0C ; duration
-#_1BA975: #_F971u: db R
+#_1BA975: #_F971u: db $C9 ; rest
 #_1BA976: #_F972u: db $30, $7D ; duration, params
-#_1BA978: #_F974u: db Ds5
-#_1BA979: #_F975u: db Ds5
-#_1BA97A: #_F976u: db Ds5
-#_1BA97B: #_F977u: db Ds5
-#_1BA97C: #_F978u: db Cs5
-#_1BA97D: #_F979u: db Cs5
-#_1BA97E: #_F97Au: db Cs5
-#_1BA97F: #_F97Bu: db Cs5
-#_1BA980: #_F97Cu: db B4
-#_1BA981: #_F97Du: db B4
-#_1BA982: #_F97Eu: db B4
-#_1BA983: #_F97Fu: db B4
-#_1BA984: #_F980u: db As4
-#_1BA985: #_F981u: db As4
-#_1BA986: #_F982u: db As4
+#_1BA978: #_F974u: db $B3 ; play note Ds5
+#_1BA979: #_F975u: db $B3 ; play note Ds5
+#_1BA97A: #_F976u: db $B3 ; play note Ds5
+#_1BA97B: #_F977u: db $B3 ; play note Ds5
+#_1BA97C: #_F978u: db $B1 ; play note Cs5
+#_1BA97D: #_F979u: db $B1 ; play note Cs5
+#_1BA97E: #_F97Au: db $B1 ; play note Cs5
+#_1BA97F: #_F97Bu: db $B1 ; play note Cs5
+#_1BA980: #_F97Cu: db $AF ; play note B4
+#_1BA981: #_F97Du: db $AF ; play note B4
+#_1BA982: #_F97Eu: db $AF ; play note B4
+#_1BA983: #_F97Fu: db $AF ; play note B4
+#_1BA984: #_F980u: db $AE ; play note As4
+#_1BA985: #_F981u: db $AE ; play note As4
+#_1BA986: #_F982u: db $AE ; play note As4
 #_1BA987: #_F983u: db $24 ; duration
-#_1BA988: #_F984u: db As4
+#_1BA988: #_F984u: db $AE ; play note As4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment1_Track2:
-#_1BA989: #_F985u: db !INSTR, $0F
-#_1BA98B: #_F987u: db !VOLUME, $8C
-#_1BA98D: #_F989u: db !PAN, $06
+#_1BA989: #_F985u: db $E0, $0F ; set instrument - harp
+#_1BA98B: #_F987u: db $ED, $8C ; set channel volume
+#_1BA98D: #_F989u: db $E1, $06 ; set panning - leaning right
 #_1BA98F: #_F98Bu: db $18 ; duration
-#_1BA990: #_F98Cu: db R
+#_1BA990: #_F98Cu: db $C9 ; rest
 #_1BA991: #_F98Du: db $30, $7D ; duration, params
-#_1BA993: #_F98Fu: db B4
-#_1BA994: #_F990u: db B4
-#_1BA995: #_F991u: db B4
-#_1BA996: #_F992u: db B4
-#_1BA997: #_F993u: db As4
-#_1BA998: #_F994u: db As4
-#_1BA999: #_F995u: db As4
-#_1BA99A: #_F996u: db As4
-#_1BA99B: #_F997u: db Gs4
-#_1BA99C: #_F998u: db Gs4
-#_1BA99D: #_F999u: db Gs4
-#_1BA99E: #_F99Au: db Gs4
-#_1BA99F: #_F99Bu: db Fs4
-#_1BA9A0: #_F99Cu: db Fs4
-#_1BA9A1: #_F99Du: db Fs4
+#_1BA993: #_F98Fu: db $AF ; play note B4
+#_1BA994: #_F990u: db $AF ; play note B4
+#_1BA995: #_F991u: db $AF ; play note B4
+#_1BA996: #_F992u: db $AF ; play note B4
+#_1BA997: #_F993u: db $AE ; play note As4
+#_1BA998: #_F994u: db $AE ; play note As4
+#_1BA999: #_F995u: db $AE ; play note As4
+#_1BA99A: #_F996u: db $AE ; play note As4
+#_1BA99B: #_F997u: db $AC ; play note Gs4
+#_1BA99C: #_F998u: db $AC ; play note Gs4
+#_1BA99D: #_F999u: db $AC ; play note Gs4
+#_1BA99E: #_F99Au: db $AC ; play note Gs4
+#_1BA99F: #_F99Bu: db $AA ; play note Fs4
+#_1BA9A0: #_F99Cu: db $AA ; play note Fs4
+#_1BA9A1: #_F99Du: db $AA ; play note Fs4
 #_1BA9A2: #_F99Eu: db $18 ; duration
-#_1BA9A3: #_F99Fu: db Fs4
+#_1BA9A3: #_F99Fu: db $AA ; play note Fs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment1_Track3:
-#_1BA9A4: #_F9A0u: db !INSTR, $0F
-#_1BA9A6: #_F9A2u: db !VOLUME, $8C
-#_1BA9A8: #_F9A4u: db !PAN, $08
+#_1BA9A4: #_F9A0u: db $E0, $0F ; set instrument - harp
+#_1BA9A6: #_F9A2u: db $ED, $8C ; set channel volume
+#_1BA9A8: #_F9A4u: db $E1, $08 ; set panning - leaning right
 #_1BA9AA: #_F9A6u: db $24 ; duration
-#_1BA9AB: #_F9A7u: db R
+#_1BA9AB: #_F9A7u: db $C9 ; rest
 #_1BA9AC: #_F9A8u: db $30, $7D ; duration, params
-#_1BA9AE: #_F9AAu: db Gs4
-#_1BA9AF: #_F9ABu: db Gs4
-#_1BA9B0: #_F9ACu: db Gs4
-#_1BA9B1: #_F9ADu: db Gs4
-#_1BA9B2: #_F9AEu: db Fs4
-#_1BA9B3: #_F9AFu: db Fs4
-#_1BA9B4: #_F9B0u: db Fs4
-#_1BA9B5: #_F9B1u: db Fs4
-#_1BA9B6: #_F9B2u: db F4
-#_1BA9B7: #_F9B3u: db F4
-#_1BA9B8: #_F9B4u: db F4
-#_1BA9B9: #_F9B5u: db F4
-#_1BA9BA: #_F9B6u: db Ds4
-#_1BA9BB: #_F9B7u: db Ds4
-#_1BA9BC: #_F9B8u: db Ds4
+#_1BA9AE: #_F9AAu: db $AC ; play note Gs4
+#_1BA9AF: #_F9ABu: db $AC ; play note Gs4
+#_1BA9B0: #_F9ACu: db $AC ; play note Gs4
+#_1BA9B1: #_F9ADu: db $AC ; play note Gs4
+#_1BA9B2: #_F9AEu: db $AA ; play note Fs4
+#_1BA9B3: #_F9AFu: db $AA ; play note Fs4
+#_1BA9B4: #_F9B0u: db $AA ; play note Fs4
+#_1BA9B5: #_F9B1u: db $AA ; play note Fs4
+#_1BA9B6: #_F9B2u: db $A9 ; play note F4
+#_1BA9B7: #_F9B3u: db $A9 ; play note F4
+#_1BA9B8: #_F9B4u: db $A9 ; play note F4
+#_1BA9B9: #_F9B5u: db $A9 ; play note F4
+#_1BA9BA: #_F9B6u: db $A7 ; play note Ds4
+#_1BA9BB: #_F9B7u: db $A7 ; play note Ds4
+#_1BA9BC: #_F9B8u: db $A7 ; play note Ds4
 #_1BA9BD: #_F9B9u: db $0C ; duration
-#_1BA9BE: #_F9BAu: db Ds4
+#_1BA9BE: #_F9BAu: db $A7 ; play note Ds4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment1_Track4:
-#_1BA9BF: #_F9BBu: db !INSTR, $0F
-#_1BA9C1: #_F9BDu: db !VOLUME, $C8
-#_1BA9C3: #_F9BFu: db !PAN, $0A
+#_1BA9BF: #_F9BBu: db $E0, $0F ; set instrument - harp
+#_1BA9C1: #_F9BDu: db $ED, $C8 ; set channel volume
+#_1BA9C3: #_F9BFu: db $E1, $0A ; set panning - balanced
 #_1BA9C5: #_F9C1u: db $24, $7D ; duration, params
-#_1BA9C7: #_F9C3u: db B1
+#_1BA9C7: #_F9C3u: db $8B ; play note B1
 #_1BA9C8: #_F9C4u: db $48 ; duration
-#_1BA9C9: #_F9C5u: db As3
+#_1BA9C9: #_F9C5u: db $A2 ; play note As3
 #_1BA9CA: #_F9C6u: db $24 ; duration
-#_1BA9CB: #_F9C7u: db Ds3
-#_1BA9CC: #_F9C8u: db Cs4
+#_1BA9CB: #_F9C7u: db $9B ; play note Ds3
+#_1BA9CC: #_F9C8u: db $A5 ; play note Cs4
 #_1BA9CD: #_F9C9u: db $0C ; duration
-#_1BA9CE: #_F9CAu: db Ds3
+#_1BA9CE: #_F9CAu: db $9B ; play note Ds3
 #_1BA9CF: #_F9CBu: db $24 ; duration
-#_1BA9D0: #_F9CCu: db As1
+#_1BA9D0: #_F9CCu: db $8A ; play note As1
 #_1BA9D1: #_F9CDu: db $48 ; duration
-#_1BA9D2: #_F9CEu: db Gs3
+#_1BA9D2: #_F9CEu: db $A0 ; play note Gs3
 #_1BA9D3: #_F9CFu: db $24 ; duration
-#_1BA9D4: #_F9D0u: db As1
-#_1BA9D5: #_F9D1u: db Cs4
+#_1BA9D4: #_F9D0u: db $8A ; play note As1
+#_1BA9D5: #_F9D1u: db $A5 ; play note Cs4
 #_1BA9D6: #_F9D2u: db $0C ; duration
-#_1BA9D7: #_F9D3u: db Cs3
+#_1BA9D7: #_F9D3u: db $99 ; play note Cs3
 #_1BA9D8: #_F9D4u: db $24 ; duration
-#_1BA9D9: #_F9D5u: db Gs1
+#_1BA9D9: #_F9D5u: db $88 ; play note Gs1
 #_1BA9DA: #_F9D6u: db $3C ; duration
-#_1BA9DB: #_F9D7u: db Fs3
+#_1BA9DB: #_F9D7u: db $9E ; play note Fs3
 #_1BA9DC: #_F9D8u: db $24 ; duration
-#_1BA9DD: #_F9D9u: db Gs1
-#_1BA9DE: #_F9DAu: db F3
+#_1BA9DD: #_F9D9u: db $88 ; play note Gs1
+#_1BA9DE: #_F9DAu: db $9D ; play note F3
 #_1BA9DF: #_F9DBu: db $18 ; duration
-#_1BA9E0: #_F9DCu: db Cs3
+#_1BA9E0: #_F9DCu: db $99 ; play note Cs3
 #_1BA9E1: #_F9DDu: db $24 ; duration
-#_1BA9E2: #_F9DEu: db Fs1
+#_1BA9E2: #_F9DEu: db $86 ; play note Fs1
 #_1BA9E3: #_F9DFu: db $3C ; duration
-#_1BA9E4: #_F9E0u: db F3
+#_1BA9E4: #_F9E0u: db $9D ; play note F3
 #_1BA9E5: #_F9E1u: db $24 ; duration
-#_1BA9E6: #_F9E2u: db Fs1
-#_1BA9E7: #_F9E3u: db Ds3
+#_1BA9E6: #_F9E2u: db $86 ; play note Fs1
+#_1BA9E7: #_F9E3u: db $9B ; play note Ds3
 #_1BA9E8: #_F9E4u: db $18 ; duration
-#_1BA9E9: #_F9E5u: db Cs4
+#_1BA9E9: #_F9E5u: db $A5 ; play note Cs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment1_Track5:
-#_1BA9EA: #_F9E6u: db !INSTR, $0F
-#_1BA9EC: #_F9E8u: db !VOLUME, $C8
-#_1BA9EE: #_F9EAu: db !PAN, $0E
+#_1BA9EA: #_F9E6u: db $E0, $0F ; set instrument - harp
+#_1BA9EC: #_F9E8u: db $ED, $C8 ; set channel volume
+#_1BA9EE: #_F9EAu: db $E1, $0E ; set panning - leaning left
 #_1BA9F0: #_F9ECu: db $0C ; duration
-#_1BA9F1: #_F9EDu: db R
+#_1BA9F1: #_F9EDu: db $C9 ; rest
 #_1BA9F2: #_F9EEu: db $60, $7D ; duration, params
-#_1BA9F4: #_F9F0u: db B2
+#_1BA9F4: #_F9F0u: db $97 ; play note B2
 #_1BA9F5: #_F9F1u: db $0C ; duration
-#_1BA9F6: #_F9F2u: db !TIE
+#_1BA9F6: #_F9F2u: db $C8 ; sustain current note
 #_1BA9F7: #_F9F3u: db $24 ; duration
-#_1BA9F8: #_F9F4u: db As3
-#_1BA9F9: #_F9F5u: db As3
+#_1BA9F8: #_F9F4u: db $A2 ; play note As3
+#_1BA9F9: #_F9F5u: db $A2 ; play note As3
 #_1BA9FA: #_F9F6u: db $0C ; duration
-#_1BA9FB: #_F9F7u: db !TIE
+#_1BA9FB: #_F9F7u: db $C8 ; sustain current note
 #_1BA9FC: #_F9F8u: db $60 ; duration
-#_1BA9FD: #_F9F9u: db As2
+#_1BA9FD: #_F9F9u: db $96 ; play note As2
 #_1BA9FE: #_F9FAu: db $0C ; duration
-#_1BA9FF: #_F9FBu: db !TIE
+#_1BA9FF: #_F9FBu: db $C8 ; sustain current note
 #_1BAA00: #_F9FCu: db $24 ; duration
-#_1BAA01: #_F9FDu: db Gs3
-#_1BAA02: #_F9FEu: db Gs3
+#_1BAA01: #_F9FDu: db $A0 ; play note Gs3
+#_1BAA02: #_F9FEu: db $A0 ; play note Gs3
 #_1BAA03: #_F9FFu: db $0C ; duration
-#_1BAA04: #_FA00u: db !TIE
+#_1BAA04: #_FA00u: db $C8 ; sustain current note
 #_1BAA05: #_FA01u: db $54 ; duration
-#_1BAA06: #_FA02u: db Gs2
+#_1BAA06: #_FA02u: db $94 ; play note Gs2
 #_1BAA07: #_FA03u: db $0C ; duration
-#_1BAA08: #_FA04u: db !TIE
+#_1BAA08: #_FA04u: db $C8 ; sustain current note
 #_1BAA09: #_FA05u: db $24 ; duration
-#_1BAA0A: #_FA06u: db Gs2
-#_1BAA0B: #_FA07u: db Gs3
+#_1BAA0A: #_FA06u: db $94 ; play note Gs2
+#_1BAA0B: #_FA07u: db $A0 ; play note Gs3
 #_1BAA0C: #_FA08u: db $0C ; duration
-#_1BAA0D: #_FA09u: db B2
-#_1BAA0E: #_FA0Au: db !TIE
+#_1BAA0D: #_FA09u: db $97 ; play note B2
+#_1BAA0E: #_FA0Au: db $C8 ; sustain current note
 #_1BAA0F: #_FA0Bu: db $54 ; duration
-#_1BAA10: #_FA0Cu: db Fs2
+#_1BAA10: #_FA0Cu: db $92 ; play note Fs2
 #_1BAA11: #_FA0Du: db $0C ; duration
-#_1BAA12: #_FA0Eu: db !TIE
+#_1BAA12: #_FA0Eu: db $C8 ; sustain current note
 #_1BAA13: #_FA0Fu: db $24 ; duration
-#_1BAA14: #_FA10u: db Fs2
-#_1BAA15: #_FA11u: db Gs3
+#_1BAA14: #_FA10u: db $92 ; play note Fs2
+#_1BAA15: #_FA11u: db $A0 ; play note Gs3
 #_1BAA16: #_FA12u: db $0C ; duration
-#_1BAA17: #_FA13u: db B3
+#_1BAA17: #_FA13u: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment1_Track6:
-#_1BAA18: #_FA14u: db !INSTR, $0F
-#_1BAA1A: #_FA16u: db !VOLUME, $C8
-#_1BAA1C: #_FA18u: db !PAN, $12
+#_1BAA18: #_FA14u: db $E0, $0F ; set instrument - harp
+#_1BAA1A: #_FA16u: db $ED, $C8 ; set channel volume
+#_1BAA1C: #_FA18u: db $E1, $12 ; set panning - leaning left
 #_1BAA1E: #_FA1Au: db $18 ; duration
-#_1BAA1F: #_FA1Bu: db R
+#_1BAA1F: #_FA1Bu: db $C9 ; rest
 #_1BAA20: #_FA1Cu: db $54, $7D ; duration, params
-#_1BAA22: #_FA1Eu: db Ds3
+#_1BAA22: #_FA1Eu: db $9B ; play note Ds3
 #_1BAA23: #_FA1Fu: db $18 ; duration
-#_1BAA24: #_FA20u: db !TIE
+#_1BAA24: #_FA20u: db $C8 ; sustain current note
 #_1BAA25: #_FA21u: db $24 ; duration
-#_1BAA26: #_FA22u: db Gs3
+#_1BAA26: #_FA22u: db $A0 ; play note Gs3
 #_1BAA27: #_FA23u: db $18 ; duration
-#_1BAA28: #_FA24u: db Gs3
-#_1BAA29: #_FA25u: db !TIE
+#_1BAA28: #_FA24u: db $A0 ; play note Gs3
+#_1BAA29: #_FA25u: db $C8 ; sustain current note
 #_1BAA2A: #_FA26u: db $54 ; duration
-#_1BAA2B: #_FA27u: db Cs3
+#_1BAA2B: #_FA27u: db $99 ; play note Cs3
 #_1BAA2C: #_FA28u: db $18 ; duration
-#_1BAA2D: #_FA29u: db !TIE
+#_1BAA2D: #_FA29u: db $C8 ; sustain current note
 #_1BAA2E: #_FA2Au: db $24 ; duration
-#_1BAA2F: #_FA2Bu: db Fs3
+#_1BAA2F: #_FA2Bu: db $9E ; play note Fs3
 #_1BAA30: #_FA2Cu: db $18 ; duration
-#_1BAA31: #_FA2Du: db Fs3
-#_1BAA32: #_FA2Eu: db !TIE
+#_1BAA31: #_FA2Du: db $9E ; play note Fs3
+#_1BAA32: #_FA2Eu: db $C8 ; sustain current note
 #_1BAA33: #_FA2Fu: db $48 ; duration
-#_1BAA34: #_FA30u: db B2
+#_1BAA34: #_FA30u: db $97 ; play note B2
 #_1BAA35: #_FA31u: db $18 ; duration
-#_1BAA36: #_FA32u: db !TIE
+#_1BAA36: #_FA32u: db $C8 ; sustain current note
 #_1BAA37: #_FA33u: db $24 ; duration
-#_1BAA38: #_FA34u: db Fs3
-#_1BAA39: #_FA35u: db F3
+#_1BAA38: #_FA34u: db $9E ; play note Fs3
+#_1BAA39: #_FA35u: db $9D ; play note F3
 #_1BAA3A: #_FA36u: db $18 ; duration
-#_1BAA3B: #_FA37u: db !TIE
+#_1BAA3B: #_FA37u: db $C8 ; sustain current note
 #_1BAA3C: #_FA38u: db $48 ; duration
-#_1BAA3D: #_FA39u: db As2
+#_1BAA3D: #_FA39u: db $96 ; play note As2
 #_1BAA3E: #_FA3Au: db $18 ; duration
-#_1BAA3F: #_FA3Bu: db !TIE
+#_1BAA3F: #_FA3Bu: db $C8 ; sustain current note
 #_1BAA40: #_FA3Cu: db $24 ; duration
-#_1BAA41: #_FA3Du: db F3
-#_1BAA42: #_FA3Eu: db Fs3
+#_1BAA41: #_FA3Du: db $9D ; play note F3
+#_1BAA42: #_FA3Eu: db $9E ; play note Fs3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment0_Track0:
-#_1BAA43: #_FA3Fu: db !SET_PERC, $19
-#_1BAA45: #_FA41u: db !MASTER_VOLUME, $B4
-#_1BAA47: #_FA43u: db !ECHO_CONFIG, $FF, $28, $28
-#_1BAA4B: #_FA47u: db !ECHO_FILTER, $02, $50, $02
-#_1BAA4F: #_FA4Bu: db !TEMPO, $33
-#_1BAA51: #_FA4Du: db !TEMPO_GRAD, $FA, $4E
-#_1BAA54: #_FA50u: db !INSTR, $0F
-#_1BAA56: #_FA52u: db !VOLUME, $C8
-#_1BAA58: #_FA54u: db !PAN, $02
+#_1BAA43: #_FA3Fu: db $FA, $19 ; set base percussion sample
+#_1BAA45: #_FA41u: db $E5, $B4 ; set song volume
+#_1BAA47: #_FA43u: db $F5, $FF, $28, $28 ; configure EON, EVOLL, EVOLR
+#_1BAA4B: #_FA47u: db $F7, $02, $50, $02 ; configure EDL, EFB, FIR
+#_1BAA4F: #_FA4Bu: db $E7, $33 ; set song tempo
+#_1BAA51: #_FA4Du: db $E8, $FA, $4E ; initiate gradual tempo change
+#_1BAA54: #_FA50u: db $E0, $0F ; set instrument - harp
+#_1BAA56: #_FA52u: db $ED, $C8 ; set channel volume
+#_1BAA58: #_FA54u: db $E1, $02 ; set panning - leaning right
 #_1BAA5A: #_FA56u: db $10 ; duration
-#_1BAA5B: #_FA57u: db R
+#_1BAA5B: #_FA57u: db $C9 ; rest
 #_1BAA5C: #_FA58u: db $30, $7D ; duration, params
-#_1BAA5E: #_FA5Au: db Ds3
-#_1BAA5F: #_FA5Bu: db F3
-#_1BAA60: #_FA5Cu: db Gs3
-#_1BAA61: #_FA5Du: db B3
-#_1BAA62: #_FA5Eu: db Ds4
-#_1BAA63: #_FA5Fu: db F4
-#_1BAA64: #_FA60u: db !PART_END
+#_1BAA5E: #_FA5Au: db $9B ; play note Ds3
+#_1BAA5F: #_FA5Bu: db $9D ; play note F3
+#_1BAA60: #_FA5Cu: db $A0 ; play note Gs3
+#_1BAA61: #_FA5Du: db $A3 ; play note B3
+#_1BAA62: #_FA5Eu: db $A7 ; play note Ds4
+#_1BAA63: #_FA5Fu: db $A9 ; play note F4
+#_1BAA64: #_FA60u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment0_Track1:
-#_1BAA65: #_FA61u: db !INSTR, $0F
-#_1BAA67: #_FA63u: db !VOLUME, $B4
-#_1BAA69: #_FA65u: db !PAN, $12
+#_1BAA65: #_FA61u: db $E0, $0F ; set instrument - harp
+#_1BAA67: #_FA63u: db $ED, $B4 ; set channel volume
+#_1BAA69: #_FA65u: db $E1, $12 ; set panning - leaning left
 #_1BAA6B: #_FA67u: db $30, $7D ; duration, params
-#_1BAA6D: #_FA69u: db Cs2
-#_1BAA6E: #_FA6Au: db F2
-#_1BAA6F: #_FA6Bu: db Gs2
-#_1BAA70: #_FA6Cu: db B2
-#_1BAA71: #_FA6Du: db Ds3
+#_1BAA6D: #_FA69u: db $8D ; play note Cs2
+#_1BAA6E: #_FA6Au: db $91 ; play note F2
+#_1BAA6F: #_FA6Bu: db $94 ; play note Gs2
+#_1BAA70: #_FA6Cu: db $97 ; play note B2
+#_1BAA71: #_FA6Du: db $9B ; play note Ds3
 #_1BAA72: #_FA6Eu: db $40 ; duration
-#_1BAA73: #_FA6Fu: db F3
+#_1BAA73: #_FA6Fu: db $9D ; play note F3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment0_Track2:
-#_1BAA74: #_FA70u: db !INSTR, $0F
-#_1BAA76: #_FA72u: db !VOLUME, $B4
-#_1BAA78: #_FA74u: db !PAN, $0E
+#_1BAA74: #_FA70u: db $E0, $0F ; set instrument - harp
+#_1BAA76: #_FA72u: db $ED, $B4 ; set channel volume
+#_1BAA78: #_FA74u: db $E1, $0E ; set panning - leaning left
 #_1BAA7A: #_FA76u: db $04 ; duration
-#_1BAA7B: #_FA77u: db R
+#_1BAA7B: #_FA77u: db $C9 ; rest
 #_1BAA7C: #_FA78u: db $30, $7D ; duration, params
-#_1BAA7E: #_FA7Au: db F2
-#_1BAA7F: #_FA7Bu: db Gs2
-#_1BAA80: #_FA7Cu: db B2
-#_1BAA81: #_FA7Du: db Ds3
-#_1BAA82: #_FA7Eu: db F3
+#_1BAA7E: #_FA7Au: db $91 ; play note F2
+#_1BAA7F: #_FA7Bu: db $94 ; play note Gs2
+#_1BAA80: #_FA7Cu: db $97 ; play note B2
+#_1BAA81: #_FA7Du: db $9B ; play note Ds3
+#_1BAA82: #_FA7Eu: db $9D ; play note F3
 #_1BAA83: #_FA7Fu: db $3C ; duration
-#_1BAA84: #_FA80u: db Gs3
+#_1BAA84: #_FA80u: db $A0 ; play note Gs3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment0_Track3:
-#_1BAA85: #_FA81u: db !INSTR, $0F
-#_1BAA87: #_FA83u: db !VOLUME, $B4
-#_1BAA89: #_FA85u: db !PAN, $0A
+#_1BAA85: #_FA81u: db $E0, $0F ; set instrument - harp
+#_1BAA87: #_FA83u: db $ED, $B4 ; set channel volume
+#_1BAA89: #_FA85u: db $E1, $0A ; set panning - balanced
 #_1BAA8B: #_FA87u: db $08 ; duration
-#_1BAA8C: #_FA88u: db R
+#_1BAA8C: #_FA88u: db $C9 ; rest
 #_1BAA8D: #_FA89u: db $30, $7D ; duration, params
-#_1BAA8F: #_FA8Bu: db Gs2
-#_1BAA90: #_FA8Cu: db B2
-#_1BAA91: #_FA8Du: db Ds3
-#_1BAA92: #_FA8Eu: db F3
-#_1BAA93: #_FA8Fu: db Gs3
+#_1BAA8F: #_FA8Bu: db $94 ; play note Gs2
+#_1BAA90: #_FA8Cu: db $97 ; play note B2
+#_1BAA91: #_FA8Du: db $9B ; play note Ds3
+#_1BAA92: #_FA8Eu: db $9D ; play note F3
+#_1BAA93: #_FA8Fu: db $A0 ; play note Gs3
 #_1BAA94: #_FA90u: db $38 ; duration
-#_1BAA95: #_FA91u: db B3
+#_1BAA95: #_FA91u: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment0_Track4:
-#_1BAA96: #_FA92u: db !INSTR, $0F
-#_1BAA98: #_FA94u: db !VOLUME, $B4
-#_1BAA9A: #_FA96u: db !PAN, $06
+#_1BAA96: #_FA92u: db $E0, $0F ; set instrument - harp
+#_1BAA98: #_FA94u: db $ED, $B4 ; set channel volume
+#_1BAA9A: #_FA96u: db $E1, $06 ; set panning - leaning right
 #_1BAA9C: #_FA98u: db $0C ; duration
-#_1BAA9D: #_FA99u: db R
+#_1BAA9D: #_FA99u: db $C9 ; rest
 #_1BAA9E: #_FA9Au: db $30, $7D ; duration, params
-#_1BAAA0: #_FA9Cu: db B2
-#_1BAAA1: #_FA9Du: db Ds3
-#_1BAAA2: #_FA9Eu: db F3
-#_1BAAA3: #_FA9Fu: db Gs3
-#_1BAAA4: #_FAA0u: db B3
+#_1BAAA0: #_FA9Cu: db $97 ; play note B2
+#_1BAAA1: #_FA9Du: db $9B ; play note Ds3
+#_1BAAA2: #_FA9Eu: db $9D ; play note F3
+#_1BAAA3: #_FA9Fu: db $A0 ; play note Gs3
+#_1BAAA4: #_FAA0u: db $A3 ; play note B3
 #_1BAAA5: #_FAA1u: db $34 ; duration
-#_1BAAA6: #_FAA2u: db Ds4
+#_1BAAA6: #_FAA2u: db $A7 ; play note Ds4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment2_Track0:
 #_1BAAA7: #_FAA3u: db $30, $7D ; duration, params
-#_1BAAA9: #_FAA5u: db As5
-#_1BAAAA: #_FAA6u: db Gs5
-#_1BAAAB: #_FAA7u: db G5
-#_1BAAAC: #_FAA8u: db Gs5
-#_1BAAAD: #_FAA9u: db B5
-#_1BAAAE: #_FAAAu: db As5
-#_1BAAAF: #_FAABu: db A5
-#_1BAAB0: #_FAACu: db As5
-#_1BAAB1: #_FAADu: db Cs6
-#_1BAAB2: #_FAAEu: db B5
-#_1BAAB3: #_FAAFu: db As5
-#_1BAAB4: #_FAB0u: db B5
-#_1BAAB5: #_FAB1u: db As5
-#_1BAAB6: #_FAB2u: db Gs5
-#_1BAAB7: #_FAB3u: db Fs5
-#_1BAAB8: #_FAB4u: db F5
-#_1BAAB9: #_FAB5u: db !PART_END
+#_1BAAA9: #_FAA5u: db $BA ; play note As5
+#_1BAAAA: #_FAA6u: db $B8 ; play note Gs5
+#_1BAAAB: #_FAA7u: db $B7 ; play note G5
+#_1BAAAC: #_FAA8u: db $B8 ; play note Gs5
+#_1BAAAD: #_FAA9u: db $BB ; play note B5
+#_1BAAAE: #_FAAAu: db $BA ; play note As5
+#_1BAAAF: #_FAABu: db $B9 ; play note A5
+#_1BAAB0: #_FAACu: db $BA ; play note As5
+#_1BAAB1: #_FAADu: db $BD ; play note Cs6
+#_1BAAB2: #_FAAEu: db $BB ; play note B5
+#_1BAAB3: #_FAAFu: db $BA ; play note As5
+#_1BAAB4: #_FAB0u: db $BB ; play note B5
+#_1BAAB5: #_FAB1u: db $BA ; play note As5
+#_1BAAB6: #_FAB2u: db $B8 ; play note Gs5
+#_1BAAB7: #_FAB3u: db $B6 ; play note Fs5
+#_1BAAB8: #_FAB4u: db $B5 ; play note F5
+#_1BAAB9: #_FAB5u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment2_Track1:
 #_1BAABA: #_FAB6u: db $0C ; duration
-#_1BAABB: #_FAB7u: db R
+#_1BAABB: #_FAB7u: db $C9 ; rest
 #_1BAABC: #_FAB8u: db $30, $7D ; duration, params
-#_1BAABE: #_FABAu: db Ds5
-#_1BAABF: #_FABBu: db Ds5
-#_1BAAC0: #_FABCu: db Ds5
-#_1BAAC1: #_FABDu: db Ds5
-#_1BAAC2: #_FABEu: db E5
-#_1BAAC3: #_FABFu: db E5
-#_1BAAC4: #_FAC0u: db E5
-#_1BAAC5: #_FAC1u: db E5
-#_1BAAC6: #_FAC2u: db Ds5
-#_1BAAC7: #_FAC3u: db Ds5
-#_1BAAC8: #_FAC4u: db Ds5
-#_1BAAC9: #_FAC5u: db Ds5
-#_1BAACA: #_FAC6u: db B4
-#_1BAACB: #_FAC7u: db B4
-#_1BAACC: #_FAC8u: db B4
+#_1BAABE: #_FABAu: db $B3 ; play note Ds5
+#_1BAABF: #_FABBu: db $B3 ; play note Ds5
+#_1BAAC0: #_FABCu: db $B3 ; play note Ds5
+#_1BAAC1: #_FABDu: db $B3 ; play note Ds5
+#_1BAAC2: #_FABEu: db $B4 ; play note E5
+#_1BAAC3: #_FABFu: db $B4 ; play note E5
+#_1BAAC4: #_FAC0u: db $B4 ; play note E5
+#_1BAAC5: #_FAC1u: db $B4 ; play note E5
+#_1BAAC6: #_FAC2u: db $B3 ; play note Ds5
+#_1BAAC7: #_FAC3u: db $B3 ; play note Ds5
+#_1BAAC8: #_FAC4u: db $B3 ; play note Ds5
+#_1BAAC9: #_FAC5u: db $B3 ; play note Ds5
+#_1BAACA: #_FAC6u: db $AF ; play note B4
+#_1BAACB: #_FAC7u: db $AF ; play note B4
+#_1BAACC: #_FAC8u: db $AF ; play note B4
 #_1BAACD: #_FAC9u: db $24 ; duration
-#_1BAACE: #_FACAu: db B4
+#_1BAACE: #_FACAu: db $AF ; play note B4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment2_Track2:
 #_1BAACF: #_FACBu: db $18 ; duration
-#_1BAAD0: #_FACCu: db R
+#_1BAAD0: #_FACCu: db $C9 ; rest
 #_1BAAD1: #_FACDu: db $30, $7D ; duration, params
-#_1BAAD3: #_FACFu: db B4
-#_1BAAD4: #_FAD0u: db B4
-#_1BAAD5: #_FAD1u: db B4
-#_1BAAD6: #_FAD2u: db B4
-#_1BAAD7: #_FAD3u: db Cs5
-#_1BAAD8: #_FAD4u: db Cs5
-#_1BAAD9: #_FAD5u: db Cs5
-#_1BAADA: #_FAD6u: db Cs5
-#_1BAADB: #_FAD7u: db B4
-#_1BAADC: #_FAD8u: db B4
-#_1BAADD: #_FAD9u: db B4
-#_1BAADE: #_FADAu: db B4
-#_1BAADF: #_FADBu: db Gs4
-#_1BAAE0: #_FADCu: db Gs4
-#_1BAAE1: #_FADDu: db Gs4
+#_1BAAD3: #_FACFu: db $AF ; play note B4
+#_1BAAD4: #_FAD0u: db $AF ; play note B4
+#_1BAAD5: #_FAD1u: db $AF ; play note B4
+#_1BAAD6: #_FAD2u: db $AF ; play note B4
+#_1BAAD7: #_FAD3u: db $B1 ; play note Cs5
+#_1BAAD8: #_FAD4u: db $B1 ; play note Cs5
+#_1BAAD9: #_FAD5u: db $B1 ; play note Cs5
+#_1BAADA: #_FAD6u: db $B1 ; play note Cs5
+#_1BAADB: #_FAD7u: db $AF ; play note B4
+#_1BAADC: #_FAD8u: db $AF ; play note B4
+#_1BAADD: #_FAD9u: db $AF ; play note B4
+#_1BAADE: #_FADAu: db $AF ; play note B4
+#_1BAADF: #_FADBu: db $AC ; play note Gs4
+#_1BAAE0: #_FADCu: db $AC ; play note Gs4
+#_1BAAE1: #_FADDu: db $AC ; play note Gs4
 #_1BAAE2: #_FADEu: db $18 ; duration
-#_1BAAE3: #_FADFu: db Gs4
+#_1BAAE3: #_FADFu: db $AC ; play note Gs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment2_Track3:
 #_1BAAE4: #_FAE0u: db $24 ; duration
-#_1BAAE5: #_FAE1u: db R
+#_1BAAE5: #_FAE1u: db $C9 ; rest
 #_1BAAE6: #_FAE2u: db $30, $7D ; duration, params
-#_1BAAE8: #_FAE4u: db Gs4
-#_1BAAE9: #_FAE5u: db Gs4
-#_1BAAEA: #_FAE6u: db Gs4
-#_1BAAEB: #_FAE7u: db Gs4
-#_1BAAEC: #_FAE8u: db G4
-#_1BAAED: #_FAE9u: db G4
-#_1BAAEE: #_FAEAu: db G4
-#_1BAAEF: #_FAEBu: db G4
-#_1BAAF0: #_FAECu: db Gs4
-#_1BAAF1: #_FAEDu: db Gs4
-#_1BAAF2: #_FAEEu: db Gs4
-#_1BAAF3: #_FAEFu: db Gs4
-#_1BAAF4: #_FAF0u: db F4
-#_1BAAF5: #_FAF1u: db F4
-#_1BAAF6: #_FAF2u: db F4
+#_1BAAE8: #_FAE4u: db $AC ; play note Gs4
+#_1BAAE9: #_FAE5u: db $AC ; play note Gs4
+#_1BAAEA: #_FAE6u: db $AC ; play note Gs4
+#_1BAAEB: #_FAE7u: db $AC ; play note Gs4
+#_1BAAEC: #_FAE8u: db $AB ; play note G4
+#_1BAAED: #_FAE9u: db $AB ; play note G4
+#_1BAAEE: #_FAEAu: db $AB ; play note G4
+#_1BAAEF: #_FAEBu: db $AB ; play note G4
+#_1BAAF0: #_FAECu: db $AC ; play note Gs4
+#_1BAAF1: #_FAEDu: db $AC ; play note Gs4
+#_1BAAF2: #_FAEEu: db $AC ; play note Gs4
+#_1BAAF3: #_FAEFu: db $AC ; play note Gs4
+#_1BAAF4: #_FAF0u: db $A9 ; play note F4
+#_1BAAF5: #_FAF1u: db $A9 ; play note F4
+#_1BAAF6: #_FAF2u: db $A9 ; play note F4
 #_1BAAF7: #_FAF3u: db $0C ; duration
-#_1BAAF8: #_FAF4u: db F4
+#_1BAAF8: #_FAF4u: db $A9 ; play note F4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment2_Track4:
 #_1BAAF9: #_FAF5u: db $24, $7D ; duration, params
-#_1BAAFB: #_FAF7u: db B1
+#_1BAAFB: #_FAF7u: db $8B ; play note B1
 #_1BAAFC: #_FAF8u: db $3C ; duration
-#_1BAAFD: #_FAF9u: db As3
+#_1BAAFD: #_FAF9u: db $A2 ; play note As3
 #_1BAAFE: #_FAFAu: db $24 ; duration
-#_1BAAFF: #_FAFBu: db B1
-#_1BAB00: #_FAFCu: db Gs3
+#_1BAAFF: #_FAFBu: db $8B ; play note B1
+#_1BAB00: #_FAFCu: db $A0 ; play note Gs3
 #_1BAB01: #_FAFDu: db $18 ; duration
-#_1BAB02: #_FAFEu: db Gs3
+#_1BAB02: #_FAFEu: db $A0 ; play note Gs3
 #_1BAB03: #_FAFFu: db $24 ; duration
-#_1BAB04: #_FB00u: db As1
+#_1BAB04: #_FB00u: db $8A ; play note As1
 #_1BAB05: #_FB01u: db $3C ; duration
-#_1BAB06: #_FB02u: db Cs4
+#_1BAB06: #_FB02u: db $A5 ; play note Cs4
 #_1BAB07: #_FB03u: db $24 ; duration
-#_1BAB08: #_FB04u: db Ds2
-#_1BAB09: #_FB05u: db As3
+#_1BAB08: #_FB04u: db $8F ; play note Ds2
+#_1BAB09: #_FB05u: db $A2 ; play note As3
 #_1BAB0A: #_FB06u: db $18 ; duration
-#_1BAB0B: #_FB07u: db Cs4
+#_1BAB0B: #_FB07u: db $A5 ; play note Cs4
 #_1BAB0C: #_FB08u: db $24 ; duration
-#_1BAB0D: #_FB09u: db Gs1
+#_1BAB0D: #_FB09u: db $88 ; play note Gs1
 #_1BAB0E: #_FB0Au: db $3C ; duration
-#_1BAB0F: #_FB0Bu: db B3
+#_1BAB0F: #_FB0Bu: db $A3 ; play note B3
 #_1BAB10: #_FB0Cu: db $24 ; duration
-#_1BAB11: #_FB0Du: db Gs1
-#_1BAB12: #_FB0Eu: db As3
+#_1BAB11: #_FB0Du: db $88 ; play note Gs1
+#_1BAB12: #_FB0Eu: db $A2 ; play note As3
 #_1BAB13: #_FB0Fu: db $18 ; duration
-#_1BAB14: #_FB10u: db Gs3
+#_1BAB14: #_FB10u: db $A0 ; play note Gs3
 #_1BAB15: #_FB11u: db $24 ; duration
-#_1BAB16: #_FB12u: db Cs2
+#_1BAB16: #_FB12u: db $8D ; play note Cs2
 #_1BAB17: #_FB13u: db $3C ; duration
-#_1BAB18: #_FB14u: db B3
+#_1BAB18: #_FB14u: db $A3 ; play note B3
 #_1BAB19: #_FB15u: db $24 ; duration
-#_1BAB1A: #_FB16u: db Cs2
-#_1BAB1B: #_FB17u: db Gs3
+#_1BAB1A: #_FB16u: db $8D ; play note Cs2
+#_1BAB1B: #_FB17u: db $A0 ; play note Gs3
 #_1BAB1C: #_FB18u: db $18 ; duration
-#_1BAB1D: #_FB19u: db Gs4
+#_1BAB1D: #_FB19u: db $AC ; play note Gs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment2_Track5:
 #_1BAB1E: #_FB1Au: db $0C ; duration
-#_1BAB1F: #_FB1Bu: db R
+#_1BAB1F: #_FB1Bu: db $C9 ; rest
 #_1BAB20: #_FB1Cu: db $54, $7D ; duration, params
-#_1BAB22: #_FB1Eu: db B2
+#_1BAB22: #_FB1Eu: db $97 ; play note B2
 #_1BAB23: #_FB1Fu: db $0C ; duration
-#_1BAB24: #_FB20u: db !TIE
+#_1BAB24: #_FB20u: db $C8 ; sustain current note
 #_1BAB25: #_FB21u: db $24 ; duration
-#_1BAB26: #_FB22u: db B2
-#_1BAB27: #_FB23u: db Ds4
+#_1BAB26: #_FB22u: db $97 ; play note B2
+#_1BAB27: #_FB23u: db $A7 ; play note Ds4
 #_1BAB28: #_FB24u: db $0C ; duration
-#_1BAB29: #_FB25u: db Ds3
-#_1BAB2A: #_FB26u: db !TIE
+#_1BAB29: #_FB25u: db $9B ; play note Ds3
+#_1BAB2A: #_FB26u: db $C8 ; sustain current note
 #_1BAB2B: #_FB27u: db $54 ; duration
-#_1BAB2C: #_FB28u: db As2
+#_1BAB2C: #_FB28u: db $96 ; play note As2
 #_1BAB2D: #_FB29u: db $0C ; duration
-#_1BAB2E: #_FB2Au: db !TIE
+#_1BAB2E: #_FB2Au: db $C8 ; sustain current note
 #_1BAB2F: #_FB2Bu: db $24 ; duration
-#_1BAB30: #_FB2Cu: db Ds3
-#_1BAB31: #_FB2Du: db E4
+#_1BAB30: #_FB2Cu: db $9B ; play note Ds3
+#_1BAB31: #_FB2Du: db $A8 ; play note E4
 #_1BAB32: #_FB2Eu: db $0C ; duration
-#_1BAB33: #_FB2Fu: db As3
-#_1BAB34: #_FB30u: db !TIE
+#_1BAB33: #_FB2Fu: db $A2 ; play note As3
+#_1BAB34: #_FB30u: db $C8 ; sustain current note
 #_1BAB35: #_FB31u: db $54 ; duration
-#_1BAB36: #_FB32u: db Gs2
+#_1BAB36: #_FB32u: db $94 ; play note Gs2
 #_1BAB37: #_FB33u: db $0C ; duration
-#_1BAB38: #_FB34u: db !TIE
+#_1BAB38: #_FB34u: db $C8 ; sustain current note
 #_1BAB39: #_FB35u: db $24 ; duration
-#_1BAB3A: #_FB36u: db Gs2
-#_1BAB3B: #_FB37u: db Cs4
+#_1BAB3A: #_FB36u: db $94 ; play note Gs2
+#_1BAB3B: #_FB37u: db $A5 ; play note Cs4
 #_1BAB3C: #_FB38u: db $0C ; duration
-#_1BAB3D: #_FB39u: db Ds3
-#_1BAB3E: #_FB3Au: db !TIE
+#_1BAB3D: #_FB39u: db $9B ; play note Ds3
+#_1BAB3E: #_FB3Au: db $C8 ; sustain current note
 #_1BAB3F: #_FB3Bu: db $54 ; duration
-#_1BAB40: #_FB3Cu: db Cs3
+#_1BAB40: #_FB3Cu: db $99 ; play note Cs3
 #_1BAB41: #_FB3Du: db $0C ; duration
-#_1BAB42: #_FB3Eu: db !TIE
+#_1BAB42: #_FB3Eu: db $C8 ; sustain current note
 #_1BAB43: #_FB3Fu: db $24 ; duration
-#_1BAB44: #_FB40u: db Cs3
-#_1BAB45: #_FB41u: db F4
+#_1BAB44: #_FB40u: db $99 ; play note Cs3
+#_1BAB45: #_FB41u: db $A9 ; play note F4
 #_1BAB46: #_FB42u: db $0C ; duration
-#_1BAB47: #_FB43u: db F4
+#_1BAB47: #_FB43u: db $A9 ; play note F4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1B_Segment2_Track6:
 #_1BAB48: #_FB44u: db $18 ; duration
-#_1BAB49: #_FB45u: db R
+#_1BAB49: #_FB45u: db $C9 ; rest
 #_1BAB4A: #_FB46u: db $48, $7D ; duration, params
-#_1BAB4C: #_FB48u: db Ds3
+#_1BAB4C: #_FB48u: db $9B ; play note Ds3
 #_1BAB4D: #_FB49u: db $18 ; duration
-#_1BAB4E: #_FB4Au: db !TIE
+#_1BAB4E: #_FB4Au: db $C8 ; sustain current note
 #_1BAB4F: #_FB4Bu: db $24 ; duration
-#_1BAB50: #_FB4Cu: db As3
-#_1BAB51: #_FB4Du: db As3
+#_1BAB50: #_FB4Cu: db $A2 ; play note As3
+#_1BAB51: #_FB4Du: db $A2 ; play note As3
 #_1BAB52: #_FB4Eu: db $18 ; duration
-#_1BAB53: #_FB4Fu: db !TIE
+#_1BAB53: #_FB4Fu: db $C8 ; sustain current note
 #_1BAB54: #_FB50u: db $48 ; duration
-#_1BAB55: #_FB51u: db Cs3
+#_1BAB55: #_FB51u: db $99 ; play note Cs3
 #_1BAB56: #_FB52u: db $18 ; duration
-#_1BAB57: #_FB53u: db !TIE
+#_1BAB57: #_FB53u: db $C8 ; sustain current note
 #_1BAB58: #_FB54u: db $24 ; duration
-#_1BAB59: #_FB55u: db Cs4
-#_1BAB5A: #_FB56u: db Ds4
+#_1BAB59: #_FB55u: db $A5 ; play note Cs4
+#_1BAB5A: #_FB56u: db $A7 ; play note Ds4
 #_1BAB5B: #_FB57u: db $18 ; duration
-#_1BAB5C: #_FB58u: db !TIE
+#_1BAB5C: #_FB58u: db $C8 ; sustain current note
 #_1BAB5D: #_FB59u: db $48 ; duration
-#_1BAB5E: #_FB5Au: db Ds3
+#_1BAB5E: #_FB5Au: db $9B ; play note Ds3
 #_1BAB5F: #_FB5Bu: db $18 ; duration
-#_1BAB60: #_FB5Cu: db !TIE
+#_1BAB60: #_FB5Cu: db $C8 ; sustain current note
 #_1BAB61: #_FB5Du: db $24 ; duration
-#_1BAB62: #_FB5Eu: db B3
-#_1BAB63: #_FB5Fu: db B3
+#_1BAB62: #_FB5Eu: db $A3 ; play note B3
+#_1BAB63: #_FB5Fu: db $A3 ; play note B3
 #_1BAB64: #_FB60u: db $18 ; duration
-#_1BAB65: #_FB61u: db !TIE
+#_1BAB65: #_FB61u: db $C8 ; sustain current note
 #_1BAB66: #_FB62u: db $48 ; duration
-#_1BAB67: #_FB63u: db Gs3
+#_1BAB67: #_FB63u: db $A0 ; play note Gs3
 #_1BAB68: #_FB64u: db $18 ; duration
-#_1BAB69: #_FB65u: db !TIE
+#_1BAB69: #_FB65u: db $C8 ; sustain current note
 #_1BAB6A: #_FB66u: db $24 ; duration
-#_1BAB6B: #_FB67u: db B3
-#_1BAB6C: #_FB68u: db Ds4
-#_1BAB6D: #_FB69u: db !PART_END
+#_1BAB6B: #_FB67u: db $A3 ; play note B3
+#_1BAB6C: #_FB68u: db $A7 ; play note Ds4
+#_1BAB6D: #_FB69u: db $00 ; End
 
 ;===================================================================================================
 
@@ -9685,7 +9685,7 @@ Song1C_Loop:
 #_1BAB70: #_FB6Cu: dw Song1C_Segment1
 #_1BAB72: #_FB6Eu: dw Song1C_Segment1
 #_1BAB74: #_FB70u: dw Song1C_Segment2
-#_1BAB76: #_FB72u: dw !SONG_LOOP, Song1C_Loop
+#_1BAB76: #_FB72u: dw $00FF, Song1C_Loop ; Loop point
 #_1BAB7A: #_FB76u: dw $0000
 
 Song1C_Segment1:
@@ -9721,251 +9721,251 @@ Song1C_Segment0:
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment1_Track0:
-#_1BABAC: #_FBA8u: db !INSTR, $09
-#_1BABAE: #_FBAAu: db !VOLUME, $C8
-#_1BABB0: #_FBACu: db !VIBRATO, $1A, $1C, $18
-#_1BABB4: #_FBB0u: db !PAN, $0C
+#_1BABAC: #_FBA8u: db $E0, $09 ; set instrument - strings A
+#_1BABAE: #_FBAAu: db $ED, $C8 ; set channel volume
+#_1BABB0: #_FBACu: db $E3, $1A, $1C, $18 ; enable vibrato
+#_1BABB4: #_FBB0u: db $E1, $0C ; set panning - leaning left
 #_1BABB6: #_FBB2u: db $58, $7D ; duration, params
-#_1BABB8: #_FBB4u: db As3
+#_1BABB8: #_FBB4u: db $A2 ; play note As3
 #_1BABB9: #_FBB5u: db $08 ; duration
-#_1BABBA: #_FBB6u: db A3
+#_1BABBA: #_FBB6u: db $A1 ; play note A3
 #_1BABBB: #_FBB7u: db $58 ; duration
-#_1BABBC: #_FBB8u: db B3
+#_1BABBC: #_FBB8u: db $A3 ; play note B3
 #_1BABBD: #_FBB9u: db $08 ; duration
-#_1BABBE: #_FBBAu: db As3
+#_1BABBE: #_FBBAu: db $A2 ; play note As3
 #_1BABBF: #_FBBBu: db $58 ; duration
-#_1BABC0: #_FBBCu: db D4
+#_1BABC0: #_FBBCu: db $A6 ; play note D4
 #_1BABC1: #_FBBDu: db $08 ; duration
-#_1BABC2: #_FBBEu: db Cs4
+#_1BABC2: #_FBBEu: db $A5 ; play note Cs4
 #_1BABC3: #_FBBFu: db $60 ; duration
-#_1BABC4: #_FBC0u: db E4
-#_1BABC5: #_FBC1u: db !PART_END
+#_1BABC4: #_FBC0u: db $A8 ; play note E4
+#_1BABC5: #_FBC1u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment1_Track1:
-#_1BABC6: #_FBC2u: db !INSTR, $09
-#_1BABC8: #_FBC4u: db !VOLUME, $C8
-#_1BABCA: #_FBC6u: db !VIBRATO, $1A, $1C, $18
-#_1BABCE: #_FBCAu: db !PAN, $08
+#_1BABC6: #_FBC2u: db $E0, $09 ; set instrument - strings A
+#_1BABC8: #_FBC4u: db $ED, $C8 ; set channel volume
+#_1BABCA: #_FBC6u: db $E3, $1A, $1C, $18 ; enable vibrato
+#_1BABCE: #_FBCAu: db $E1, $08 ; set panning - leaning right
 #_1BABD0: #_FBCCu: db $58, $7D ; duration, params
-#_1BABD2: #_FBCEu: db F3
+#_1BABD2: #_FBCEu: db $9D ; play note F3
 #_1BABD3: #_FBCFu: db $08 ; duration
-#_1BABD4: #_FBD0u: db E3
+#_1BABD4: #_FBD0u: db $9C ; play note E3
 #_1BABD5: #_FBD1u: db $58 ; duration
-#_1BABD6: #_FBD2u: db Fs3
+#_1BABD6: #_FBD2u: db $9E ; play note Fs3
 #_1BABD7: #_FBD3u: db $08 ; duration
-#_1BABD8: #_FBD4u: db F3
+#_1BABD8: #_FBD4u: db $9D ; play note F3
 #_1BABD9: #_FBD5u: db $58 ; duration
-#_1BABDA: #_FBD6u: db A3
+#_1BABDA: #_FBD6u: db $A1 ; play note A3
 #_1BABDB: #_FBD7u: db $08 ; duration
-#_1BABDC: #_FBD8u: db Gs3
+#_1BABDC: #_FBD8u: db $A0 ; play note Gs3
 #_1BABDD: #_FBD9u: db $60 ; duration
-#_1BABDE: #_FBDAu: db B3
+#_1BABDE: #_FBDAu: db $A3 ; play note B3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment1_Track2:
-#_1BABDF: #_FBDBu: db !INSTR, $09
-#_1BABE1: #_FBDDu: db !VOLUME, $C8
-#_1BABE3: #_FBDFu: db !VIBRATO, $1A, $1C, $18
-#_1BABE7: #_FBE3u: db !PAN, $04
+#_1BABDF: #_FBDBu: db $E0, $09 ; set instrument - strings A
+#_1BABE1: #_FBDDu: db $ED, $C8 ; set channel volume
+#_1BABE3: #_FBDFu: db $E3, $1A, $1C, $18 ; enable vibrato
+#_1BABE7: #_FBE3u: db $E1, $04 ; set panning - leaning right
 #_1BABE9: #_FBE5u: db $30, $7D ; duration, params
-#_1BABEB: #_FBE7u: db C2
-#_1BABEC: #_FBE8u: db G2
-#_1BABED: #_FBE9u: db C2
-#_1BABEE: #_FBEAu: db G2
-#_1BABEF: #_FBEBu: db C2
-#_1BABF0: #_FBECu: db G2
-#_1BABF1: #_FBEDu: db C2
-#_1BABF2: #_FBEEu: db G2
+#_1BABEB: #_FBE7u: db $8C ; play note C2
+#_1BABEC: #_FBE8u: db $93 ; play note G2
+#_1BABED: #_FBE9u: db $8C ; play note C2
+#_1BABEE: #_FBEAu: db $93 ; play note G2
+#_1BABEF: #_FBEBu: db $8C ; play note C2
+#_1BABF0: #_FBECu: db $93 ; play note G2
+#_1BABF1: #_FBEDu: db $8C ; play note C2
+#_1BABF2: #_FBEEu: db $93 ; play note G2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment1_Track3:
-#_1BABF3: #_FBEFu: db !INSTR, $09
-#_1BABF5: #_FBF1u: db !VOLUME, $A0
-#_1BABF7: #_FBF3u: db !VIBRATO, $1A, $1C, $18
-#_1BABFB: #_FBF7u: db !PAN, $02
+#_1BABF3: #_FBEFu: db $E0, $09 ; set instrument - strings A
+#_1BABF5: #_FBF1u: db $ED, $A0 ; set channel volume
+#_1BABF7: #_FBF3u: db $E3, $1A, $1C, $18 ; enable vibrato
+#_1BABFB: #_FBF7u: db $E1, $02 ; set panning - leaning right
 #_1BABFD: #_FBF9u: db $08 ; duration
-#_1BABFE: #_FBFAu: db R
+#_1BABFE: #_FBFAu: db $C9 ; rest
 #_1BABFF: #_FBFBu: db $30, $7D ; duration, params
-#_1BAC01: #_FBFDu: db C2
-#_1BAC02: #_FBFEu: db G2
-#_1BAC03: #_FBFFu: db C2
-#_1BAC04: #_FC00u: db G2
-#_1BAC05: #_FC01u: db C2
-#_1BAC06: #_FC02u: db G2
-#_1BAC07: #_FC03u: db C2
+#_1BAC01: #_FBFDu: db $8C ; play note C2
+#_1BAC02: #_FBFEu: db $93 ; play note G2
+#_1BAC03: #_FBFFu: db $8C ; play note C2
+#_1BAC04: #_FC00u: db $93 ; play note G2
+#_1BAC05: #_FC01u: db $8C ; play note C2
+#_1BAC06: #_FC02u: db $93 ; play note G2
+#_1BAC07: #_FC03u: db $8C ; play note C2
 #_1BAC08: #_FC04u: db $28 ; duration
-#_1BAC09: #_FC05u: db G2
+#_1BAC09: #_FC05u: db $93 ; play note G2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment1_Track4:
-#_1BAC0A: #_FC06u: db !INSTR, $09
-#_1BAC0C: #_FC08u: db !VOLUME, $A0
-#_1BAC0E: #_FC0Au: db !VIBRATO, $1A, $1C, $18
-#_1BAC12: #_FC0Eu: db !PAN, $0A
+#_1BAC0A: #_FC06u: db $E0, $09 ; set instrument - strings A
+#_1BAC0C: #_FC08u: db $ED, $A0 ; set channel volume
+#_1BAC0E: #_FC0Au: db $E3, $1A, $1C, $18 ; enable vibrato
+#_1BAC12: #_FC0Eu: db $E1, $0A ; set panning - balanced
 #_1BAC14: #_FC10u: db $08 ; duration
-#_1BAC15: #_FC11u: db R
+#_1BAC15: #_FC11u: db $C9 ; rest
 #_1BAC16: #_FC12u: db $58, $7D ; duration, params
-#_1BAC18: #_FC14u: db As3
+#_1BAC18: #_FC14u: db $A2 ; play note As3
 #_1BAC19: #_FC15u: db $08 ; duration
-#_1BAC1A: #_FC16u: db A3
+#_1BAC1A: #_FC16u: db $A1 ; play note A3
 #_1BAC1B: #_FC17u: db $58 ; duration
-#_1BAC1C: #_FC18u: db B3
+#_1BAC1C: #_FC18u: db $A3 ; play note B3
 #_1BAC1D: #_FC19u: db $08 ; duration
-#_1BAC1E: #_FC1Au: db As3
+#_1BAC1E: #_FC1Au: db $A2 ; play note As3
 #_1BAC1F: #_FC1Bu: db $58 ; duration
-#_1BAC20: #_FC1Cu: db D4
+#_1BAC20: #_FC1Cu: db $A6 ; play note D4
 #_1BAC21: #_FC1Du: db $08 ; duration
-#_1BAC22: #_FC1Eu: db Cs4
+#_1BAC22: #_FC1Eu: db $A5 ; play note Cs4
 #_1BAC23: #_FC1Fu: db $58 ; duration
-#_1BAC24: #_FC20u: db E4
+#_1BAC24: #_FC20u: db $A8 ; play note E4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment2_Track0:
-#_1BAC25: #_FC21u: db !INSTR, $09
-#_1BAC27: #_FC23u: db !VOLUME, $C8
-#_1BAC29: #_FC25u: db !VIBRATO, $1A, $1C, $18
-#_1BAC2D: #_FC29u: db !PAN, $0C
+#_1BAC25: #_FC21u: db $E0, $09 ; set instrument - strings A
+#_1BAC27: #_FC23u: db $ED, $C8 ; set channel volume
+#_1BAC29: #_FC25u: db $E3, $1A, $1C, $18 ; enable vibrato
+#_1BAC2D: #_FC29u: db $E1, $0C ; set panning - leaning left
 #_1BAC2F: #_FC2Bu: db $60, $7D ; duration, params
-#_1BAC31: #_FC2Du: db Ds4
+#_1BAC31: #_FC2Du: db $A7 ; play note Ds4
 #_1BAC32: #_FC2Eu: db $58 ; duration
-#_1BAC33: #_FC2Fu: db D4
+#_1BAC33: #_FC2Fu: db $A6 ; play note D4
 #_1BAC34: #_FC30u: db $50 ; duration
-#_1BAC35: #_FC31u: db F4
+#_1BAC35: #_FC31u: db $A9 ; play note F4
 #_1BAC36: #_FC32u: db $48 ; duration
-#_1BAC37: #_FC33u: db E4
+#_1BAC37: #_FC33u: db $A8 ; play note E4
 #_1BAC38: #_FC34u: db $40 ; duration
-#_1BAC39: #_FC35u: db G4
+#_1BAC39: #_FC35u: db $AB ; play note G4
 #_1BAC3A: #_FC36u: db $38 ; duration
-#_1BAC3B: #_FC37u: db Fs4
+#_1BAC3B: #_FC37u: db $AA ; play note Fs4
 #_1BAC3C: #_FC38u: db $34 ; duration
-#_1BAC3D: #_FC39u: db A4
+#_1BAC3D: #_FC39u: db $AD ; play note A4
 #_1BAC3E: #_FC3Au: db $30 ; duration
-#_1BAC3F: #_FC3Bu: db Gs4
+#_1BAC3F: #_FC3Bu: db $AC ; play note Gs4
 #_1BAC40: #_FC3Cu: db $60 ; duration
-#_1BAC41: #_FC3Du: db B4
-#_1BAC42: #_FC3Eu: db !PART_END
+#_1BAC41: #_FC3Du: db $AF ; play note B4
+#_1BAC42: #_FC3Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment2_Track1:
-#_1BAC43: #_FC3Fu: db !INSTR, $09
-#_1BAC45: #_FC41u: db !VOLUME, $C8
-#_1BAC47: #_FC43u: db !VIBRATO, $1A, $1C, $18
-#_1BAC4B: #_FC47u: db !PAN, $08
+#_1BAC43: #_FC3Fu: db $E0, $09 ; set instrument - strings A
+#_1BAC45: #_FC41u: db $ED, $C8 ; set channel volume
+#_1BAC47: #_FC43u: db $E3, $1A, $1C, $18 ; enable vibrato
+#_1BAC4B: #_FC47u: db $E1, $08 ; set panning - leaning right
 #_1BAC4D: #_FC49u: db $60, $7D ; duration, params
-#_1BAC4F: #_FC4Bu: db As3
+#_1BAC4F: #_FC4Bu: db $A2 ; play note As3
 #_1BAC50: #_FC4Cu: db $58 ; duration
-#_1BAC51: #_FC4Du: db A3
+#_1BAC51: #_FC4Du: db $A1 ; play note A3
 #_1BAC52: #_FC4Eu: db $50 ; duration
-#_1BAC53: #_FC4Fu: db C4
+#_1BAC53: #_FC4Fu: db $A4 ; play note C4
 #_1BAC54: #_FC50u: db $48 ; duration
-#_1BAC55: #_FC51u: db B3
+#_1BAC55: #_FC51u: db $A3 ; play note B3
 #_1BAC56: #_FC52u: db $40 ; duration
-#_1BAC57: #_FC53u: db D4
+#_1BAC57: #_FC53u: db $A6 ; play note D4
 #_1BAC58: #_FC54u: db $38 ; duration
-#_1BAC59: #_FC55u: db Cs4
+#_1BAC59: #_FC55u: db $A5 ; play note Cs4
 #_1BAC5A: #_FC56u: db $34 ; duration
-#_1BAC5B: #_FC57u: db E4
+#_1BAC5B: #_FC57u: db $A8 ; play note E4
 #_1BAC5C: #_FC58u: db $30 ; duration
-#_1BAC5D: #_FC59u: db Ds4
+#_1BAC5D: #_FC59u: db $A7 ; play note Ds4
 #_1BAC5E: #_FC5Au: db $60 ; duration
-#_1BAC5F: #_FC5Bu: db Fs4
+#_1BAC5F: #_FC5Bu: db $AA ; play note Fs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment2_Track2:
-#_1BAC60: #_FC5Cu: db !INSTR, $09
-#_1BAC62: #_FC5Eu: db !VOLUME, $C8
-#_1BAC64: #_FC60u: db !VIBRATO, $1A, $1C, $18
-#_1BAC68: #_FC64u: db !PAN, $04
+#_1BAC60: #_FC5Cu: db $E0, $09 ; set instrument - strings A
+#_1BAC62: #_FC5Eu: db $ED, $C8 ; set channel volume
+#_1BAC64: #_FC60u: db $E3, $1A, $1C, $18 ; enable vibrato
+#_1BAC68: #_FC64u: db $E1, $04 ; set panning - leaning right
 #_1BAC6A: #_FC66u: db $60, $7D ; duration, params
-#_1BAC6C: #_FC68u: db Fs2
+#_1BAC6C: #_FC68u: db $92 ; play note Fs2
 #_1BAC6D: #_FC69u: db $58 ; duration
-#_1BAC6E: #_FC6Au: db F2
+#_1BAC6E: #_FC6Au: db $91 ; play note F2
 #_1BAC6F: #_FC6Bu: db $50 ; duration
-#_1BAC70: #_FC6Cu: db Gs2
+#_1BAC70: #_FC6Cu: db $94 ; play note Gs2
 #_1BAC71: #_FC6Du: db $48 ; duration
-#_1BAC72: #_FC6Eu: db G2
+#_1BAC72: #_FC6Eu: db $93 ; play note G2
 #_1BAC73: #_FC6Fu: db $40 ; duration
-#_1BAC74: #_FC70u: db As2
+#_1BAC74: #_FC70u: db $96 ; play note As2
 #_1BAC75: #_FC71u: db $38 ; duration
-#_1BAC76: #_FC72u: db A2
+#_1BAC76: #_FC72u: db $95 ; play note A2
 #_1BAC77: #_FC73u: db $34 ; duration
-#_1BAC78: #_FC74u: db C3
+#_1BAC78: #_FC74u: db $98 ; play note C3
 #_1BAC79: #_FC75u: db $30 ; duration
-#_1BAC7A: #_FC76u: db B2
+#_1BAC7A: #_FC76u: db $97 ; play note B2
 #_1BAC7B: #_FC77u: db $60 ; duration
-#_1BAC7C: #_FC78u: db D3
+#_1BAC7C: #_FC78u: db $9A ; play note D3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment2_Track3:
 #_1BAC7D: #_FC79u: db $08 ; duration
-#_1BAC7E: #_FC7Au: db R
+#_1BAC7E: #_FC7Au: db $C9 ; rest
 #_1BAC7F: #_FC7Bu: db $60, $7D ; duration, params
-#_1BAC81: #_FC7Du: db Fs2
+#_1BAC81: #_FC7Du: db $92 ; play note Fs2
 #_1BAC82: #_FC7Eu: db $58 ; duration
-#_1BAC83: #_FC7Fu: db F2
+#_1BAC83: #_FC7Fu: db $91 ; play note F2
 #_1BAC84: #_FC80u: db $50 ; duration
-#_1BAC85: #_FC81u: db Gs2
+#_1BAC85: #_FC81u: db $94 ; play note Gs2
 #_1BAC86: #_FC82u: db $48 ; duration
-#_1BAC87: #_FC83u: db G2
+#_1BAC87: #_FC83u: db $93 ; play note G2
 #_1BAC88: #_FC84u: db $40 ; duration
-#_1BAC89: #_FC85u: db As2
+#_1BAC89: #_FC85u: db $96 ; play note As2
 #_1BAC8A: #_FC86u: db $38 ; duration
-#_1BAC8B: #_FC87u: db A2
+#_1BAC8B: #_FC87u: db $95 ; play note A2
 #_1BAC8C: #_FC88u: db $34 ; duration
-#_1BAC8D: #_FC89u: db C3
+#_1BAC8D: #_FC89u: db $98 ; play note C3
 #_1BAC8E: #_FC8Au: db $30 ; duration
-#_1BAC8F: #_FC8Bu: db B2
+#_1BAC8F: #_FC8Bu: db $97 ; play note B2
 #_1BAC90: #_FC8Cu: db $58 ; duration
-#_1BAC91: #_FC8Du: db D3
+#_1BAC91: #_FC8Du: db $9A ; play note D3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment2_Track4:
 #_1BAC92: #_FC8Eu: db $08 ; duration
-#_1BAC93: #_FC8Fu: db R
+#_1BAC93: #_FC8Fu: db $C9 ; rest
 #_1BAC94: #_FC90u: db $60, $7D ; duration, params
-#_1BAC96: #_FC92u: db Ds3
+#_1BAC96: #_FC92u: db $9B ; play note Ds3
 #_1BAC97: #_FC93u: db $58 ; duration
-#_1BAC98: #_FC94u: db D3
+#_1BAC98: #_FC94u: db $9A ; play note D3
 #_1BAC99: #_FC95u: db $50 ; duration
-#_1BAC9A: #_FC96u: db F4
+#_1BAC9A: #_FC96u: db $A9 ; play note F4
 #_1BAC9B: #_FC97u: db $48 ; duration
-#_1BAC9C: #_FC98u: db E4
+#_1BAC9C: #_FC98u: db $A8 ; play note E4
 #_1BAC9D: #_FC99u: db $40 ; duration
-#_1BAC9E: #_FC9Au: db G4
+#_1BAC9E: #_FC9Au: db $AB ; play note G4
 #_1BAC9F: #_FC9Bu: db $38 ; duration
-#_1BACA0: #_FC9Cu: db Fs4
+#_1BACA0: #_FC9Cu: db $AA ; play note Fs4
 #_1BACA1: #_FC9Du: db $34 ; duration
-#_1BACA2: #_FC9Eu: db A4
+#_1BACA2: #_FC9Eu: db $AD ; play note A4
 #_1BACA3: #_FC9Fu: db $30 ; duration
-#_1BACA4: #_FCA0u: db Gs4
+#_1BACA4: #_FCA0u: db $AC ; play note Gs4
 #_1BACA5: #_FCA1u: db $58 ; duration
-#_1BACA6: #_FCA2u: db B4
+#_1BACA6: #_FCA2u: db $AF ; play note B4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1C_Segment0_Track0:
-#_1BACA7: #_FCA3u: db !SET_PERC, $19
-#_1BACA9: #_FCA5u: db !MASTER_VOLUME, $B4
-#_1BACAB: #_FCA7u: db !ECHO_CONFIG, $FF, $28, $28
-#_1BACAF: #_FCABu: db !ECHO_FILTER, $02, $14, $02
-#_1BACB3: #_FCAFu: db !TEMPO, $19
-#_1BACB5: #_FCB1u: db !INSTR, $09
-#_1BACB7: #_FCB3u: db !VOLUME, $C8
-#_1BACB9: #_FCB5u: db !VIBRATO, $1A, $1C, $18
-#_1BACBD: #_FCB9u: db !PAN, $0C
+#_1BACA7: #_FCA3u: db $FA, $19 ; set base percussion sample
+#_1BACA9: #_FCA5u: db $E5, $B4 ; set song volume
+#_1BACAB: #_FCA7u: db $F5, $FF, $28, $28 ; configure EON, EVOLL, EVOLR
+#_1BACAF: #_FCABu: db $F7, $02, $14, $02 ; configure EDL, EFB, FIR
+#_1BACB3: #_FCAFu: db $E7, $19 ; set song tempo
+#_1BACB5: #_FCB1u: db $E0, $09 ; set instrument - strings A
+#_1BACB7: #_FCB3u: db $ED, $C8 ; set channel volume
+#_1BACB9: #_FCB5u: db $E3, $1A, $1C, $18 ; enable vibrato
+#_1BACBD: #_FCB9u: db $E1, $0C ; set panning - leaning left
 #_1BACBF: #_FCBBu: db $18 ; duration
-#_1BACC0: #_FCBCu: db R
-#_1BACC1: #_FCBDu: db !PART_END
+#_1BACC0: #_FCBCu: db $C9 ; rest
+#_1BACC1: #_FCBDu: db $00 ; End
 #_1BACC2: #_FCBEu: db $00
 
 base off
@@ -9981,7 +9981,7 @@ base SONG_POINTERS_AUX
 
 Song1D_AgahnimEscapes:
 #_1BACC7: #_2B00u: dw Song1D_Segment0
-#_1BACC9: #_2B02u: dw !SONG_END
+#_1BACC9: #_2B02u: dw $0000 ; Song end
 
 Song1D_Segment0:
 #_1BACCB: #_2B04u: dw Song1D_Segment0_Track0
@@ -9996,152 +9996,152 @@ Song1D_Segment0:
 ;---------------------------------------------------------------------------------------------------
 
 Song1D_Segment0_Track0:
-#_1BACDB: #_2B14u: db !SET_PERC, $19
-#_1BACDD: #_2B16u: db !MASTER_VOLUME, $C8
-#_1BACDF: #_2B18u: db !ECHO_CONFIG, $FF, $28, $28
-#_1BACE3: #_2B1Cu: db !ECHO_FILTER, $02, $14, $02
-#_1BACE7: #_2B20u: db !TEMPO, $19
-#_1BACE9: #_2B22u: db !INSTR, $0B
-#_1BACEB: #_2B24u: db !VOLUME, $C8
-#_1BACED: #_2B26u: db !PAN, $12
+#_1BACDB: #_2B14u: db $FA, $19 ; set base percussion sample
+#_1BACDD: #_2B16u: db $E5, $C8 ; set song volume
+#_1BACDF: #_2B18u: db $F5, $FF, $28, $28 ; configure EON, EVOLL, EVOLR
+#_1BACE3: #_2B1Cu: db $F7, $02, $14, $02 ; configure EDL, EFB, FIR
+#_1BACE7: #_2B20u: db $E7, $19 ; set song tempo
+#_1BACE9: #_2B22u: db $E0, $0B ; set instrument - trombone
+#_1BACEB: #_2B24u: db $ED, $C8 ; set channel volume
+#_1BACED: #_2B26u: db $E1, $12 ; set panning - leaning left
 #_1BACEF: #_2B28u: db $06, $6D ; duration, params
-#_1BACF1: #_2B2Au: db As3
-#_1BACF2: #_2B2Bu: db B3
-#_1BACF3: #_2B2Cu: db C4
-#_1BACF4: #_2B2Du: db B3
-#_1BACF5: #_2B2Eu: db C4
-#_1BACF6: #_2B2Fu: db E4
-#_1BACF7: #_2B30u: db F4
-#_1BACF8: #_2B31u: db E4
-#_1BACF9: #_2B32u: db F4
-#_1BACFA: #_2B33u: db As4
-#_1BACFB: #_2B34u: db B4
-#_1BACFC: #_2B35u: db C5
-#_1BACFD: #_2B36u: db B4
-#_1BACFE: #_2B37u: db E5
-#_1BACFF: #_2B38u: db F5
-#_1BAD00: #_2B39u: db As5
-#_1BAD01: #_2B3Au: db B5
+#_1BACF1: #_2B2Au: db $A2 ; play note As3
+#_1BACF2: #_2B2Bu: db $A3 ; play note B3
+#_1BACF3: #_2B2Cu: db $A4 ; play note C4
+#_1BACF4: #_2B2Du: db $A3 ; play note B3
+#_1BACF5: #_2B2Eu: db $A4 ; play note C4
+#_1BACF6: #_2B2Fu: db $A8 ; play note E4
+#_1BACF7: #_2B30u: db $A9 ; play note F4
+#_1BACF8: #_2B31u: db $A8 ; play note E4
+#_1BACF9: #_2B32u: db $A9 ; play note F4
+#_1BACFA: #_2B33u: db $AE ; play note As4
+#_1BACFB: #_2B34u: db $AF ; play note B4
+#_1BACFC: #_2B35u: db $B0 ; play note C5
+#_1BACFD: #_2B36u: db $AF ; play note B4
+#_1BACFE: #_2B37u: db $B4 ; play note E5
+#_1BACFF: #_2B38u: db $B5 ; play note F5
+#_1BAD00: #_2B39u: db $BA ; play note As5
+#_1BAD01: #_2B3Au: db $BB ; play note B5
 #_1BAD02: #_2B3Bu: db $5A ; duration
-#_1BAD03: #_2B3Cu: db R
-#_1BAD04: #_2B3Du: db !PART_END
+#_1BAD03: #_2B3Cu: db $C9 ; rest
+#_1BAD04: #_2B3Du: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1D_Segment0_Track1:
-#_1BAD05: #_2B3Eu: db !INSTR, $0B
-#_1BAD07: #_2B40u: db !VOLUME, $C8
-#_1BAD09: #_2B42u: db !PAN, $10
+#_1BAD05: #_2B3Eu: db $E0, $0B ; set instrument - trombone
+#_1BAD07: #_2B40u: db $ED, $C8 ; set channel volume
+#_1BAD09: #_2B42u: db $E1, $10 ; set panning - leaning left
 #_1BAD0B: #_2B44u: db $12 ; duration
-#_1BAD0C: #_2B45u: db R
+#_1BAD0C: #_2B45u: db $C9 ; rest
 #_1BAD0D: #_2B46u: db $06, $6D ; duration, params
-#_1BAD0F: #_2B48u: db As3
-#_1BAD10: #_2B49u: db B3
-#_1BAD11: #_2B4Au: db C4
-#_1BAD12: #_2B4Bu: db B3
-#_1BAD13: #_2B4Cu: db C4
-#_1BAD14: #_2B4Du: db E4
-#_1BAD15: #_2B4Eu: db F4
-#_1BAD16: #_2B4Fu: db E4
-#_1BAD17: #_2B50u: db F4
-#_1BAD18: #_2B51u: db As4
-#_1BAD19: #_2B52u: db B4
-#_1BAD1A: #_2B53u: db C5
-#_1BAD1B: #_2B54u: db B4
-#_1BAD1C: #_2B55u: db E5
-#_1BAD1D: #_2B56u: db F5
-#_1BAD1E: #_2B57u: db As5
-#_1BAD1F: #_2B58u: db B5
+#_1BAD0F: #_2B48u: db $A2 ; play note As3
+#_1BAD10: #_2B49u: db $A3 ; play note B3
+#_1BAD11: #_2B4Au: db $A4 ; play note C4
+#_1BAD12: #_2B4Bu: db $A3 ; play note B3
+#_1BAD13: #_2B4Cu: db $A4 ; play note C4
+#_1BAD14: #_2B4Du: db $A8 ; play note E4
+#_1BAD15: #_2B4Eu: db $A9 ; play note F4
+#_1BAD16: #_2B4Fu: db $A8 ; play note E4
+#_1BAD17: #_2B50u: db $A9 ; play note F4
+#_1BAD18: #_2B51u: db $AE ; play note As4
+#_1BAD19: #_2B52u: db $AF ; play note B4
+#_1BAD1A: #_2B53u: db $B0 ; play note C5
+#_1BAD1B: #_2B54u: db $AF ; play note B4
+#_1BAD1C: #_2B55u: db $B4 ; play note E5
+#_1BAD1D: #_2B56u: db $B5 ; play note F5
+#_1BAD1E: #_2B57u: db $BA ; play note As5
+#_1BAD1F: #_2B58u: db $BB ; play note B5
 #_1BAD20: #_2B59u: db $48 ; duration
-#_1BAD21: #_2B5Au: db R
+#_1BAD21: #_2B5Au: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1D_Segment0_Track2:
-#_1BAD22: #_2B5Bu: db !INSTR, $0B
-#_1BAD24: #_2B5Du: db !VOLUME, $C8
-#_1BAD26: #_2B5Fu: db !PAN, $0C
+#_1BAD22: #_2B5Bu: db $E0, $0B ; set instrument - trombone
+#_1BAD24: #_2B5Du: db $ED, $C8 ; set channel volume
+#_1BAD26: #_2B5Fu: db $E1, $0C ; set panning - leaning left
 #_1BAD28: #_2B61u: db $24 ; duration
-#_1BAD29: #_2B62u: db R
+#_1BAD29: #_2B62u: db $C9 ; rest
 #_1BAD2A: #_2B63u: db $06, $6D ; duration, params
-#_1BAD2C: #_2B65u: db As3
-#_1BAD2D: #_2B66u: db B3
-#_1BAD2E: #_2B67u: db C4
-#_1BAD2F: #_2B68u: db B3
-#_1BAD30: #_2B69u: db C4
-#_1BAD31: #_2B6Au: db E4
-#_1BAD32: #_2B6Bu: db F4
-#_1BAD33: #_2B6Cu: db E4
-#_1BAD34: #_2B6Du: db F4
-#_1BAD35: #_2B6Eu: db As4
-#_1BAD36: #_2B6Fu: db B4
-#_1BAD37: #_2B70u: db C5
-#_1BAD38: #_2B71u: db B4
-#_1BAD39: #_2B72u: db E5
-#_1BAD3A: #_2B73u: db F5
-#_1BAD3B: #_2B74u: db As5
-#_1BAD3C: #_2B75u: db B5
+#_1BAD2C: #_2B65u: db $A2 ; play note As3
+#_1BAD2D: #_2B66u: db $A3 ; play note B3
+#_1BAD2E: #_2B67u: db $A4 ; play note C4
+#_1BAD2F: #_2B68u: db $A3 ; play note B3
+#_1BAD30: #_2B69u: db $A4 ; play note C4
+#_1BAD31: #_2B6Au: db $A8 ; play note E4
+#_1BAD32: #_2B6Bu: db $A9 ; play note F4
+#_1BAD33: #_2B6Cu: db $A8 ; play note E4
+#_1BAD34: #_2B6Du: db $A9 ; play note F4
+#_1BAD35: #_2B6Eu: db $AE ; play note As4
+#_1BAD36: #_2B6Fu: db $AF ; play note B4
+#_1BAD37: #_2B70u: db $B0 ; play note C5
+#_1BAD38: #_2B71u: db $AF ; play note B4
+#_1BAD39: #_2B72u: db $B4 ; play note E5
+#_1BAD3A: #_2B73u: db $B5 ; play note F5
+#_1BAD3B: #_2B74u: db $BA ; play note As5
+#_1BAD3C: #_2B75u: db $BB ; play note B5
 #_1BAD3D: #_2B76u: db $36 ; duration
-#_1BAD3E: #_2B77u: db R
+#_1BAD3E: #_2B77u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1D_Segment0_Track3:
-#_1BAD3F: #_2B78u: db !INSTR, $0B
-#_1BAD41: #_2B7Au: db !VOLUME, $C8
-#_1BAD43: #_2B7Cu: db !PAN, $08
+#_1BAD3F: #_2B78u: db $E0, $0B ; set instrument - trombone
+#_1BAD41: #_2B7Au: db $ED, $C8 ; set channel volume
+#_1BAD43: #_2B7Cu: db $E1, $08 ; set panning - leaning right
 #_1BAD45: #_2B7Eu: db $36 ; duration
-#_1BAD46: #_2B7Fu: db R
+#_1BAD46: #_2B7Fu: db $C9 ; rest
 #_1BAD47: #_2B80u: db $06, $6D ; duration, params
-#_1BAD49: #_2B82u: db As3
-#_1BAD4A: #_2B83u: db B3
-#_1BAD4B: #_2B84u: db C4
-#_1BAD4C: #_2B85u: db B3
-#_1BAD4D: #_2B86u: db C4
-#_1BAD4E: #_2B87u: db E4
-#_1BAD4F: #_2B88u: db F4
-#_1BAD50: #_2B89u: db E4
-#_1BAD51: #_2B8Au: db F4
-#_1BAD52: #_2B8Bu: db As4
-#_1BAD53: #_2B8Cu: db B4
-#_1BAD54: #_2B8Du: db C5
-#_1BAD55: #_2B8Eu: db B4
-#_1BAD56: #_2B8Fu: db E5
-#_1BAD57: #_2B90u: db F5
-#_1BAD58: #_2B91u: db As5
-#_1BAD59: #_2B92u: db B5
+#_1BAD49: #_2B82u: db $A2 ; play note As3
+#_1BAD4A: #_2B83u: db $A3 ; play note B3
+#_1BAD4B: #_2B84u: db $A4 ; play note C4
+#_1BAD4C: #_2B85u: db $A3 ; play note B3
+#_1BAD4D: #_2B86u: db $A4 ; play note C4
+#_1BAD4E: #_2B87u: db $A8 ; play note E4
+#_1BAD4F: #_2B88u: db $A9 ; play note F4
+#_1BAD50: #_2B89u: db $A8 ; play note E4
+#_1BAD51: #_2B8Au: db $A9 ; play note F4
+#_1BAD52: #_2B8Bu: db $AE ; play note As4
+#_1BAD53: #_2B8Cu: db $AF ; play note B4
+#_1BAD54: #_2B8Du: db $B0 ; play note C5
+#_1BAD55: #_2B8Eu: db $AF ; play note B4
+#_1BAD56: #_2B8Fu: db $B4 ; play note E5
+#_1BAD57: #_2B90u: db $B5 ; play note F5
+#_1BAD58: #_2B91u: db $BA ; play note As5
+#_1BAD59: #_2B92u: db $BB ; play note B5
 #_1BAD5A: #_2B93u: db $24 ; duration
-#_1BAD5B: #_2B94u: db R
+#_1BAD5B: #_2B94u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1D_Segment0_Track4:
-#_1BAD5C: #_2B95u: db !INSTR, $0B
-#_1BAD5E: #_2B97u: db !VOLUME, $C8
-#_1BAD60: #_2B99u: db !PAN, $04
+#_1BAD5C: #_2B95u: db $E0, $0B ; set instrument - trombone
+#_1BAD5E: #_2B97u: db $ED, $C8 ; set channel volume
+#_1BAD60: #_2B99u: db $E1, $04 ; set panning - leaning right
 #_1BAD62: #_2B9Bu: db $48 ; duration
-#_1BAD63: #_2B9Cu: db R
+#_1BAD63: #_2B9Cu: db $C9 ; rest
 #_1BAD64: #_2B9Du: db $06, $6D ; duration, params
-#_1BAD66: #_2B9Fu: db As3
-#_1BAD67: #_2BA0u: db B3
-#_1BAD68: #_2BA1u: db C4
-#_1BAD69: #_2BA2u: db B3
-#_1BAD6A: #_2BA3u: db C4
-#_1BAD6B: #_2BA4u: db E4
-#_1BAD6C: #_2BA5u: db F4
-#_1BAD6D: #_2BA6u: db E4
-#_1BAD6E: #_2BA7u: db F4
-#_1BAD6F: #_2BA8u: db As4
-#_1BAD70: #_2BA9u: db B4
-#_1BAD71: #_2BAAu: db C5
-#_1BAD72: #_2BABu: db B4
-#_1BAD73: #_2BACu: db E5
-#_1BAD74: #_2BADu: db F5
-#_1BAD75: #_2BAEu: db As5
-#_1BAD76: #_2BAFu: db B5
+#_1BAD66: #_2B9Fu: db $A2 ; play note As3
+#_1BAD67: #_2BA0u: db $A3 ; play note B3
+#_1BAD68: #_2BA1u: db $A4 ; play note C4
+#_1BAD69: #_2BA2u: db $A3 ; play note B3
+#_1BAD6A: #_2BA3u: db $A4 ; play note C4
+#_1BAD6B: #_2BA4u: db $A8 ; play note E4
+#_1BAD6C: #_2BA5u: db $A9 ; play note F4
+#_1BAD6D: #_2BA6u: db $A8 ; play note E4
+#_1BAD6E: #_2BA7u: db $A9 ; play note F4
+#_1BAD6F: #_2BA8u: db $AE ; play note As4
+#_1BAD70: #_2BA9u: db $AF ; play note B4
+#_1BAD71: #_2BAAu: db $B0 ; play note C5
+#_1BAD72: #_2BABu: db $AF ; play note B4
+#_1BAD73: #_2BACu: db $B4 ; play note E5
+#_1BAD74: #_2BADu: db $B5 ; play note F5
+#_1BAD75: #_2BAEu: db $BA ; play note As5
+#_1BAD76: #_2BAFu: db $BB ; play note B5
 #_1BAD77: #_2BB0u: db $12 ; duration
-#_1BAD78: #_2BB1u: db R
-#_1BAD79: #_2BB2u: db !PART_END
+#_1BAD78: #_2BB1u: db $C9 ; rest
+#_1BAD79: #_2BB2u: db $00 ; End
 
 ;===================================================================================================
 
@@ -10153,7 +10153,7 @@ Song1F_Loop:
 #_1BAD7E: #_2BB7u: dw Song1F_Segment2
 #_1BAD80: #_2BB9u: dw Song1F_Segment3
 #_1BAD82: #_2BBBu: dw Song1F_Segment4
-#_1BAD84: #_2BBDu: dw !SONG_LOOP, Song1F_Loop
+#_1BAD84: #_2BBDu: dw $00FF, Song1F_Loop ; Loop point
 #_1BAD88: #_2BC1u: dw $0000
 
 Song1F_Segment1:
@@ -10210,876 +10210,876 @@ Song1F_Segment3:
 
 Song1F_Segment1_Track0:
 #_1BADDA: #_2C13u: db $0C, $6D ; duration, params
-#_1BADDC: #_2C15u: db C2
-#_1BADDD: #_2C16u: db G2
-#_1BADDE: #_2C17u: db C3
-#_1BADDF: #_2C18u: db Ds2
-#_1BADE0: #_2C19u: db As2
-#_1BADE1: #_2C1Au: db Ds3
-#_1BADE2: #_2C1Bu: db F2
-#_1BADE3: #_2C1Cu: db C3
-#_1BADE4: #_2C1Du: db F3
-#_1BADE5: #_2C1Eu: db Gs2
-#_1BADE6: #_2C1Fu: db Ds3
-#_1BADE7: #_2C20u: db Gs3
-#_1BADE8: #_2C21u: db G2
-#_1BADE9: #_2C22u: db G3
-#_1BADEA: #_2C23u: db !CALL_PART : dw Song1F_Sub_2EDB : db 6
-#_1BADEE: #_2C27u: db !PART_END
+#_1BADDC: #_2C15u: db $8C ; play note C2
+#_1BADDD: #_2C16u: db $93 ; play note G2
+#_1BADDE: #_2C17u: db $98 ; play note C3
+#_1BADDF: #_2C18u: db $8F ; play note Ds2
+#_1BADE0: #_2C19u: db $96 ; play note As2
+#_1BADE1: #_2C1Au: db $9B ; play note Ds3
+#_1BADE2: #_2C1Bu: db $91 ; play note F2
+#_1BADE3: #_2C1Cu: db $98 ; play note C3
+#_1BADE4: #_2C1Du: db $9D ; play note F3
+#_1BADE5: #_2C1Eu: db $94 ; play note Gs2
+#_1BADE6: #_2C1Fu: db $9B ; play note Ds3
+#_1BADE7: #_2C20u: db $A0 ; play note Gs3
+#_1BADE8: #_2C21u: db $93 ; play note G2
+#_1BADE9: #_2C22u: db $9F ; play note G3
+#_1BADEA: #_2C23u: db $EF : dw Song1F_Sub_2EDB : db $06 ; call segment subroutine
+#_1BADEE: #_2C27u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment1_Track2:
-#_1BADEF: #_2C28u: db !CALL_PART : dw Song1F_Sub_2EEA : db 6
+#_1BADEF: #_2C28u: db $EF : dw Song1F_Sub_2EEA : db $06 ; call segment subroutine
 #_1BADF3: #_2C2Cu: db $0C, $6D ; duration, params
-#_1BADF5: #_2C2Eu: db F4
+#_1BADF5: #_2C2Eu: db $A9 ; play note F4
 #_1BADF6: #_2C2Fu: db $0C, $69 ; duration, params
-#_1BADF8: #_2C31u: db F4
-#_1BADF9: #_2C32u: db F4
+#_1BADF8: #_2C31u: db $A9 ; play note F4
+#_1BADF9: #_2C32u: db $A9 ; play note F4
 #_1BADFA: #_2C33u: db $0C, $6D ; duration, params
-#_1BADFC: #_2C35u: db F4
+#_1BADFC: #_2C35u: db $A9 ; play note F4
 #_1BADFD: #_2C36u: db $0C, $69 ; duration, params
-#_1BADFF: #_2C38u: db F4
-#_1BAE00: #_2C39u: db F4
+#_1BADFF: #_2C38u: db $A9 ; play note F4
+#_1BAE00: #_2C39u: db $A9 ; play note F4
 #_1BAE01: #_2C3Au: db $0C, $6D ; duration, params
-#_1BAE03: #_2C3Cu: db F4
+#_1BAE03: #_2C3Cu: db $A9 ; play note F4
 #_1BAE04: #_2C3Du: db $0C, $69 ; duration, params
-#_1BAE06: #_2C3Fu: db F4
-#_1BAE07: #_2C40u: db F4
+#_1BAE06: #_2C3Fu: db $A9 ; play note F4
+#_1BAE07: #_2C40u: db $A9 ; play note F4
 #_1BAE08: #_2C41u: db $06, $6D ; duration, params
-#_1BAE0A: #_2C43u: db F4
-#_1BAE0B: #_2C44u: db F4
+#_1BAE0A: #_2C43u: db $A9 ; play note F4
+#_1BAE0B: #_2C44u: db $A9 ; play note F4
 #_1BAE0C: #_2C45u: db $0C ; duration
-#_1BAE0D: #_2C46u: db F4
-#_1BAE0E: #_2C47u: db F4
+#_1BAE0D: #_2C46u: db $A9 ; play note F4
+#_1BAE0E: #_2C47u: db $A9 ; play note F4
 #_1BAE0F: #_2C48u: db $06 ; duration
-#_1BAE10: #_2C49u: db F4
-#_1BAE11: #_2C4Au: db F4
+#_1BAE10: #_2C49u: db $A9 ; play note F4
+#_1BAE11: #_2C4Au: db $A9 ; play note F4
 #_1BAE12: #_2C4Bu: db $0C ; duration
-#_1BAE13: #_2C4Cu: db F4
+#_1BAE13: #_2C4Cu: db $A9 ; play note F4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment1_Track3:
-#_1BAE14: #_2C4Du: db !INSTR, $11
-#_1BAE16: #_2C4Fu: db !VOLUME, $C8
+#_1BAE14: #_2C4Du: db $E0, $11 ; set instrument - trumpet
+#_1BAE16: #_2C4Fu: db $ED, $C8 ; set channel volume
 #_1BAE18: #_2C51u: db $60, $6D ; duration, params
-#_1BAE1A: #_2C53u: db C4
+#_1BAE1A: #_2C53u: db $A4 ; play note C4
 #_1BAE1B: #_2C54u: db $48 ; duration
-#_1BAE1C: #_2C55u: db !TIE
+#_1BAE1C: #_2C55u: db $C8 ; sustain current note
 #_1BAE1D: #_2C56u: db $60 ; duration
-#_1BAE1E: #_2C57u: db Ds4
+#_1BAE1E: #_2C57u: db $A7 ; play note Ds4
 #_1BAE1F: #_2C58u: db $48 ; duration
-#_1BAE20: #_2C59u: db !TIE
-#_1BAE21: #_2C5Au: db D4
+#_1BAE20: #_2C59u: db $C8 ; sustain current note
+#_1BAE21: #_2C5Au: db $A6 ; play note D4
 #_1BAE22: #_2C5Bu: db $60 ; duration
-#_1BAE23: #_2C5Cu: db !TIE
-#_1BAE24: #_2C5Du: db Cs4
+#_1BAE23: #_2C5Cu: db $C8 ; sustain current note
+#_1BAE24: #_2C5Du: db $A5 ; play note Cs4
 #_1BAE25: #_2C5Eu: db $48 ; duration
-#_1BAE26: #_2C5Fu: db !TIE
-#_1BAE27: #_2C60u: db C4
+#_1BAE26: #_2C5Fu: db $C8 ; sustain current note
+#_1BAE27: #_2C60u: db $A4 ; play note C4
 #_1BAE28: #_2C61u: db $60 ; duration
-#_1BAE29: #_2C62u: db !TIE
-#_1BAE2A: #_2C63u: db !TIE
+#_1BAE29: #_2C62u: db $C8 ; sustain current note
+#_1BAE2A: #_2C63u: db $C8 ; sustain current note
 #_1BAE2B: #_2C64u: db $48 ; duration
-#_1BAE2C: #_2C65u: db R
+#_1BAE2C: #_2C65u: db $C9 ; rest
 #_1BAE2D: #_2C66u: db $60 ; duration
-#_1BAE2E: #_2C67u: db R
+#_1BAE2E: #_2C67u: db $C9 ; rest
 #_1BAE2F: #_2C68u: db $48 ; duration
-#_1BAE30: #_2C69u: db R
+#_1BAE30: #_2C69u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment1_Track4:
-#_1BAE31: #_2C6Au: db !INSTR, $11
-#_1BAE33: #_2C6Cu: db !VOLUME, $C8
+#_1BAE31: #_2C6Au: db $E0, $11 ; set instrument - trumpet
+#_1BAE33: #_2C6Cu: db $ED, $C8 ; set channel volume
 #_1BAE35: #_2C6Eu: db $60, $6D ; duration, params
-#_1BAE37: #_2C70u: db G3
+#_1BAE37: #_2C70u: db $9F ; play note G3
 #_1BAE38: #_2C71u: db $48 ; duration
-#_1BAE39: #_2C72u: db !TIE
+#_1BAE39: #_2C72u: db $C8 ; sustain current note
 #_1BAE3A: #_2C73u: db $60 ; duration
-#_1BAE3B: #_2C74u: db As3
+#_1BAE3B: #_2C74u: db $A2 ; play note As3
 #_1BAE3C: #_2C75u: db $48 ; duration
-#_1BAE3D: #_2C76u: db !TIE
-#_1BAE3E: #_2C77u: db A3
+#_1BAE3D: #_2C76u: db $C8 ; sustain current note
+#_1BAE3E: #_2C77u: db $A1 ; play note A3
 #_1BAE3F: #_2C78u: db $60 ; duration
-#_1BAE40: #_2C79u: db !TIE
-#_1BAE41: #_2C7Au: db Gs3
+#_1BAE40: #_2C79u: db $C8 ; sustain current note
+#_1BAE41: #_2C7Au: db $A0 ; play note Gs3
 #_1BAE42: #_2C7Bu: db $48 ; duration
-#_1BAE43: #_2C7Cu: db !TIE
-#_1BAE44: #_2C7Du: db G3
+#_1BAE43: #_2C7Cu: db $C8 ; sustain current note
+#_1BAE44: #_2C7Du: db $9F ; play note G3
 #_1BAE45: #_2C7Eu: db $60 ; duration
-#_1BAE46: #_2C7Fu: db !TIE
-#_1BAE47: #_2C80u: db !TIE
+#_1BAE46: #_2C7Fu: db $C8 ; sustain current note
+#_1BAE47: #_2C80u: db $C8 ; sustain current note
 #_1BAE48: #_2C81u: db $48 ; duration
-#_1BAE49: #_2C82u: db R
+#_1BAE49: #_2C82u: db $C9 ; rest
 #_1BAE4A: #_2C83u: db $60 ; duration
-#_1BAE4B: #_2C84u: db R
+#_1BAE4B: #_2C84u: db $C9 ; rest
 #_1BAE4C: #_2C85u: db $48 ; duration
-#_1BAE4D: #_2C86u: db R
+#_1BAE4D: #_2C86u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment1_Track5:
-#_1BAE4E: #_2C87u: db !INSTR, $11
-#_1BAE50: #_2C89u: db !VOLUME, $C8
+#_1BAE4E: #_2C87u: db $E0, $11 ; set instrument - trumpet
+#_1BAE50: #_2C89u: db $ED, $C8 ; set channel volume
 #_1BAE52: #_2C8Bu: db $60, $6D ; duration, params
-#_1BAE54: #_2C8Du: db D3
+#_1BAE54: #_2C8Du: db $9A ; play note D3
 #_1BAE55: #_2C8Eu: db $48 ; duration
-#_1BAE56: #_2C8Fu: db !TIE
+#_1BAE56: #_2C8Fu: db $C8 ; sustain current note
 #_1BAE57: #_2C90u: db $60 ; duration
-#_1BAE58: #_2C91u: db F3
+#_1BAE58: #_2C91u: db $9D ; play note F3
 #_1BAE59: #_2C92u: db $48 ; duration
-#_1BAE5A: #_2C93u: db !TIE
-#_1BAE5B: #_2C94u: db E3
+#_1BAE5A: #_2C93u: db $C8 ; sustain current note
+#_1BAE5B: #_2C94u: db $9C ; play note E3
 #_1BAE5C: #_2C95u: db $60 ; duration
-#_1BAE5D: #_2C96u: db !TIE
-#_1BAE5E: #_2C97u: db Ds3
+#_1BAE5D: #_2C96u: db $C8 ; sustain current note
+#_1BAE5E: #_2C97u: db $9B ; play note Ds3
 #_1BAE5F: #_2C98u: db $48 ; duration
-#_1BAE60: #_2C99u: db !TIE
-#_1BAE61: #_2C9Au: db D3
+#_1BAE60: #_2C99u: db $C8 ; sustain current note
+#_1BAE61: #_2C9Au: db $9A ; play note D3
 #_1BAE62: #_2C9Bu: db $60 ; duration
-#_1BAE63: #_2C9Cu: db !TIE
-#_1BAE64: #_2C9Du: db !TIE
+#_1BAE63: #_2C9Cu: db $C8 ; sustain current note
+#_1BAE64: #_2C9Du: db $C8 ; sustain current note
 #_1BAE65: #_2C9Eu: db $48 ; duration
-#_1BAE66: #_2C9Fu: db R
+#_1BAE66: #_2C9Fu: db $C9 ; rest
 #_1BAE67: #_2CA0u: db $60 ; duration
-#_1BAE68: #_2CA1u: db R
+#_1BAE68: #_2CA1u: db $C9 ; rest
 #_1BAE69: #_2CA2u: db $48 ; duration
-#_1BAE6A: #_2CA3u: db R
+#_1BAE6A: #_2CA3u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment1_Track6:
 #_1BAE6B: #_2CA4u: db $24, $7D ; duration, params
-#_1BAE6D: #_2CA6u: db C2
-#_1BAE6E: #_2CA7u: db Ds2
-#_1BAE6F: #_2CA8u: db F2
-#_1BAE70: #_2CA9u: db Gs2
+#_1BAE6D: #_2CA6u: db $8C ; play note C2
+#_1BAE6E: #_2CA7u: db $8F ; play note Ds2
+#_1BAE6F: #_2CA8u: db $91 ; play note F2
+#_1BAE70: #_2CA9u: db $94 ; play note Gs2
 #_1BAE71: #_2CAAu: db $18 ; duration
-#_1BAE72: #_2CABu: db G2
-#_1BAE73: #_2CACu: db !CALL_PART : dw Song1F_Sub_2F0D : db 6
+#_1BAE72: #_2CABu: db $93 ; play note G2
+#_1BAE73: #_2CACu: db $EF : dw Song1F_Sub_2F0D : db $06 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment0_Track0:
-#_1BAE77: #_2CB0u: db !SET_PERC, $19
-#_1BAE79: #_2CB2u: db !MASTER_VOLUME, $C8
-#_1BAE7B: #_2CB4u: db !ECHO_CONFIG, $FF, $1E, $1E
-#_1BAE7F: #_2CB8u: db !ECHO_FILTER, $02, $14, $02
-#_1BAE83: #_2CBCu: db !TEMPO, $31
-#_1BAE85: #_2CBEu: db !INSTR, $0B
-#_1BAE87: #_2CC0u: db !VOLUME, $DC
+#_1BAE77: #_2CB0u: db $FA, $19 ; set base percussion sample
+#_1BAE79: #_2CB2u: db $E5, $C8 ; set song volume
+#_1BAE7B: #_2CB4u: db $F5, $FF, $1E, $1E ; configure EON, EVOLL, EVOLR
+#_1BAE7F: #_2CB8u: db $F7, $02, $14, $02 ; configure EDL, EFB, FIR
+#_1BAE83: #_2CBCu: db $E7, $31 ; set song tempo
+#_1BAE85: #_2CBEu: db $E0, $0B ; set instrument - trombone
+#_1BAE87: #_2CC0u: db $ED, $DC ; set channel volume
 #_1BAE89: #_2CC2u: db $06, $6D ; duration, params
-#_1BAE8B: #_2CC4u: db Ds5
-#_1BAE8C: #_2CC5u: db D5
-#_1BAE8D: #_2CC6u: db Cs5
-#_1BAE8E: #_2CC7u: db C5
-#_1BAE8F: #_2CC8u: db B4
-#_1BAE90: #_2CC9u: db D5
-#_1BAE91: #_2CCAu: db Cs5
-#_1BAE92: #_2CCBu: db C5
-#_1BAE93: #_2CCCu: db B4
-#_1BAE94: #_2CCDu: db As4
-#_1BAE95: #_2CCEu: db A4
-#_1BAE96: #_2CCFu: db Gs4
-#_1BAE97: #_2CD0u: db G4
-#_1BAE98: #_2CD1u: db Fs4
-#_1BAE99: #_2CD2u: db F4
-#_1BAE9A: #_2CD3u: db E4
-#_1BAE9B: #_2CD4u: db !INSTR, $18
+#_1BAE8B: #_2CC4u: db $B3 ; play note Ds5
+#_1BAE8C: #_2CC5u: db $B2 ; play note D5
+#_1BAE8D: #_2CC6u: db $B1 ; play note Cs5
+#_1BAE8E: #_2CC7u: db $B0 ; play note C5
+#_1BAE8F: #_2CC8u: db $AF ; play note B4
+#_1BAE90: #_2CC9u: db $B2 ; play note D5
+#_1BAE91: #_2CCAu: db $B1 ; play note Cs5
+#_1BAE92: #_2CCBu: db $B0 ; play note C5
+#_1BAE93: #_2CCCu: db $AF ; play note B4
+#_1BAE94: #_2CCDu: db $AE ; play note As4
+#_1BAE95: #_2CCEu: db $AD ; play note A4
+#_1BAE96: #_2CCFu: db $AC ; play note Gs4
+#_1BAE97: #_2CD0u: db $AB ; play note G4
+#_1BAE98: #_2CD1u: db $AA ; play note Fs4
+#_1BAE99: #_2CD2u: db $A9 ; play note F4
+#_1BAE9A: #_2CD3u: db $A8 ; play note E4
+#_1BAE9B: #_2CD4u: db $E0, $18 ; set instrument - piano
 #_1BAE9D: #_2CD6u: db $0C ; duration
-#_1BAE9E: #_2CD7u: db C2
-#_1BAE9F: #_2CD8u: db G2
-#_1BAEA0: #_2CD9u: db C3
-#_1BAEA1: #_2CDAu: db Ds2
-#_1BAEA2: #_2CDBu: db As2
-#_1BAEA3: #_2CDCu: db Ds3
-#_1BAEA4: #_2CDDu: db F2
-#_1BAEA5: #_2CDEu: db C3
-#_1BAEA6: #_2CDFu: db F3
-#_1BAEA7: #_2CE0u: db Gs2
-#_1BAEA8: #_2CE1u: db Ds3
-#_1BAEA9: #_2CE2u: db Gs3
-#_1BAEAA: #_2CE3u: db G2
-#_1BAEAB: #_2CE4u: db G3
-#_1BAEAC: #_2CE5u: db C2
-#_1BAEAD: #_2CE6u: db G2
-#_1BAEAE: #_2CE7u: db C3
-#_1BAEAF: #_2CE8u: db Ds2
-#_1BAEB0: #_2CE9u: db As2
-#_1BAEB1: #_2CEAu: db Ds3
-#_1BAEB2: #_2CEBu: db F2
-#_1BAEB3: #_2CECu: db C3
-#_1BAEB4: #_2CEDu: db F3
-#_1BAEB5: #_2CEEu: db Gs2
-#_1BAEB6: #_2CEFu: db Ds3
-#_1BAEB7: #_2CF0u: db Gs3
-#_1BAEB8: #_2CF1u: db G2
-#_1BAEB9: #_2CF2u: db G3
-#_1BAEBA: #_2CF3u: db !PART_END
+#_1BAE9E: #_2CD7u: db $8C ; play note C2
+#_1BAE9F: #_2CD8u: db $93 ; play note G2
+#_1BAEA0: #_2CD9u: db $98 ; play note C3
+#_1BAEA1: #_2CDAu: db $8F ; play note Ds2
+#_1BAEA2: #_2CDBu: db $96 ; play note As2
+#_1BAEA3: #_2CDCu: db $9B ; play note Ds3
+#_1BAEA4: #_2CDDu: db $91 ; play note F2
+#_1BAEA5: #_2CDEu: db $98 ; play note C3
+#_1BAEA6: #_2CDFu: db $9D ; play note F3
+#_1BAEA7: #_2CE0u: db $94 ; play note Gs2
+#_1BAEA8: #_2CE1u: db $9B ; play note Ds3
+#_1BAEA9: #_2CE2u: db $A0 ; play note Gs3
+#_1BAEAA: #_2CE3u: db $93 ; play note G2
+#_1BAEAB: #_2CE4u: db $9F ; play note G3
+#_1BAEAC: #_2CE5u: db $8C ; play note C2
+#_1BAEAD: #_2CE6u: db $93 ; play note G2
+#_1BAEAE: #_2CE7u: db $98 ; play note C3
+#_1BAEAF: #_2CE8u: db $8F ; play note Ds2
+#_1BAEB0: #_2CE9u: db $96 ; play note As2
+#_1BAEB1: #_2CEAu: db $9B ; play note Ds3
+#_1BAEB2: #_2CEBu: db $91 ; play note F2
+#_1BAEB3: #_2CECu: db $98 ; play note C3
+#_1BAEB4: #_2CEDu: db $9D ; play note F3
+#_1BAEB5: #_2CEEu: db $94 ; play note Gs2
+#_1BAEB6: #_2CEFu: db $9B ; play note Ds3
+#_1BAEB7: #_2CF0u: db $A0 ; play note Gs3
+#_1BAEB8: #_2CF1u: db $93 ; play note G2
+#_1BAEB9: #_2CF2u: db $9F ; play note G3
+#_1BAEBA: #_2CF3u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment0_Track2:
-#_1BAEBB: #_2CF4u: db !INSTR, $13
-#_1BAEBD: #_2CF6u: db !VOLUME, $A0
+#_1BAEBB: #_2CF4u: db $E0, $13 ; set instrument - snare A
+#_1BAEBD: #_2CF6u: db $ED, $A0 ; set channel volume
 #_1BAEBF: #_2CF8u: db $60 ; duration
-#_1BAEC0: #_2CF9u: db R
-#_1BAEC1: #_2CFAu: db !CALL_PART : dw Song1F_Sub_2EEA : db 2
+#_1BAEC0: #_2CF9u: db $C9 ; rest
+#_1BAEC1: #_2CFAu: db $EF : dw Song1F_Sub_2EEA : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment0_Track3:
-#_1BAEC5: #_2CFEu: db !INSTR, $0B
-#_1BAEC7: #_2D00u: db !VOLUME, $DC
+#_1BAEC5: #_2CFEu: db $E0, $0B ; set instrument - trombone
+#_1BAEC7: #_2D00u: db $ED, $DC ; set channel volume
 #_1BAEC9: #_2D02u: db $06, $6D ; duration, params
-#_1BAECB: #_2D04u: db B4
-#_1BAECC: #_2D05u: db As4
-#_1BAECD: #_2D06u: db A4
-#_1BAECE: #_2D07u: db Gs4
-#_1BAECF: #_2D08u: db G4
-#_1BAED0: #_2D09u: db As4
-#_1BAED1: #_2D0Au: db A4
-#_1BAED2: #_2D0Bu: db Gs4
-#_1BAED3: #_2D0Cu: db G4
-#_1BAED4: #_2D0Du: db Fs4
-#_1BAED5: #_2D0Eu: db F4
-#_1BAED6: #_2D0Fu: db E4
-#_1BAED7: #_2D10u: db Ds4
-#_1BAED8: #_2D11u: db D4
-#_1BAED9: #_2D12u: db Cs4
-#_1BAEDA: #_2D13u: db C4
+#_1BAECB: #_2D04u: db $AF ; play note B4
+#_1BAECC: #_2D05u: db $AE ; play note As4
+#_1BAECD: #_2D06u: db $AD ; play note A4
+#_1BAECE: #_2D07u: db $AC ; play note Gs4
+#_1BAECF: #_2D08u: db $AB ; play note G4
+#_1BAED0: #_2D09u: db $AE ; play note As4
+#_1BAED1: #_2D0Au: db $AD ; play note A4
+#_1BAED2: #_2D0Bu: db $AC ; play note Gs4
+#_1BAED3: #_2D0Cu: db $AB ; play note G4
+#_1BAED4: #_2D0Du: db $AA ; play note Fs4
+#_1BAED5: #_2D0Eu: db $A9 ; play note F4
+#_1BAED6: #_2D0Fu: db $A8 ; play note E4
+#_1BAED7: #_2D10u: db $A7 ; play note Ds4
+#_1BAED8: #_2D11u: db $A6 ; play note D4
+#_1BAED9: #_2D12u: db $A5 ; play note Cs4
+#_1BAEDA: #_2D13u: db $A4 ; play note C4
 #_1BAEDB: #_2D14u: db $60 ; duration
-#_1BAEDC: #_2D15u: db R
+#_1BAEDC: #_2D15u: db $C9 ; rest
 #_1BAEDD: #_2D16u: db $48 ; duration
-#_1BAEDE: #_2D17u: db R
+#_1BAEDE: #_2D17u: db $C9 ; rest
 #_1BAEDF: #_2D18u: db $60 ; duration
-#_1BAEE0: #_2D19u: db R
+#_1BAEE0: #_2D19u: db $C9 ; rest
 #_1BAEE1: #_2D1Au: db $48 ; duration
-#_1BAEE2: #_2D1Bu: db R
+#_1BAEE2: #_2D1Bu: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment0_Track4:
-#_1BAEE3: #_2D1Cu: db !INSTR, $0B
-#_1BAEE5: #_2D1Eu: db !VOLUME, $DC
+#_1BAEE3: #_2D1Cu: db $E0, $0B ; set instrument - trombone
+#_1BAEE5: #_2D1Eu: db $ED, $DC ; set channel volume
 #_1BAEE7: #_2D20u: db $06, $6D ; duration, params
-#_1BAEE9: #_2D22u: db F4
-#_1BAEEA: #_2D23u: db E4
-#_1BAEEB: #_2D24u: db Ds4
-#_1BAEEC: #_2D25u: db D4
-#_1BAEED: #_2D26u: db Cs4
-#_1BAEEE: #_2D27u: db E4
-#_1BAEEF: #_2D28u: db Ds4
-#_1BAEF0: #_2D29u: db D4
-#_1BAEF1: #_2D2Au: db Cs4
-#_1BAEF2: #_2D2Bu: db C4
-#_1BAEF3: #_2D2Cu: db B3
-#_1BAEF4: #_2D2Du: db As3
-#_1BAEF5: #_2D2Eu: db A3
-#_1BAEF6: #_2D2Fu: db Gs3
-#_1BAEF7: #_2D30u: db G3
-#_1BAEF8: #_2D31u: db Fs3
+#_1BAEE9: #_2D22u: db $A9 ; play note F4
+#_1BAEEA: #_2D23u: db $A8 ; play note E4
+#_1BAEEB: #_2D24u: db $A7 ; play note Ds4
+#_1BAEEC: #_2D25u: db $A6 ; play note D4
+#_1BAEED: #_2D26u: db $A5 ; play note Cs4
+#_1BAEEE: #_2D27u: db $A8 ; play note E4
+#_1BAEEF: #_2D28u: db $A7 ; play note Ds4
+#_1BAEF0: #_2D29u: db $A6 ; play note D4
+#_1BAEF1: #_2D2Au: db $A5 ; play note Cs4
+#_1BAEF2: #_2D2Bu: db $A4 ; play note C4
+#_1BAEF3: #_2D2Cu: db $A3 ; play note B3
+#_1BAEF4: #_2D2Du: db $A2 ; play note As3
+#_1BAEF5: #_2D2Eu: db $A1 ; play note A3
+#_1BAEF6: #_2D2Fu: db $A0 ; play note Gs3
+#_1BAEF7: #_2D30u: db $9F ; play note G3
+#_1BAEF8: #_2D31u: db $9E ; play note Fs3
 #_1BAEF9: #_2D32u: db $60 ; duration
-#_1BAEFA: #_2D33u: db R
+#_1BAEFA: #_2D33u: db $C9 ; rest
 #_1BAEFB: #_2D34u: db $48 ; duration
-#_1BAEFC: #_2D35u: db R
+#_1BAEFC: #_2D35u: db $C9 ; rest
 #_1BAEFD: #_2D36u: db $60 ; duration
-#_1BAEFE: #_2D37u: db R
+#_1BAEFE: #_2D37u: db $C9 ; rest
 #_1BAEFF: #_2D38u: db $48 ; duration
-#_1BAF00: #_2D39u: db R
+#_1BAF00: #_2D39u: db $C9 ; rest
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment0_Track6:
-#_1BAF01: #_2D3Au: db !INSTR, $02
-#_1BAF03: #_2D3Cu: db !VOLUME, $B4
+#_1BAF01: #_2D3Au: db $E0, $02 ; set instrument - timpani
+#_1BAF03: #_2D3Cu: db $ED, $B4 ; set channel volume
 #_1BAF05: #_2D3Eu: db $60 ; duration
-#_1BAF06: #_2D3Fu: db R
+#_1BAF06: #_2D3Fu: db $C9 ; rest
 #_1BAF07: #_2D40u: db $24, $7D ; duration, params
-#_1BAF09: #_2D42u: db C2
-#_1BAF0A: #_2D43u: db Ds2
-#_1BAF0B: #_2D44u: db F2
-#_1BAF0C: #_2D45u: db Gs2
+#_1BAF09: #_2D42u: db $8C ; play note C2
+#_1BAF0A: #_2D43u: db $8F ; play note Ds2
+#_1BAF0B: #_2D44u: db $91 ; play note F2
+#_1BAF0C: #_2D45u: db $94 ; play note Gs2
 #_1BAF0D: #_2D46u: db $18 ; duration
-#_1BAF0E: #_2D47u: db G2
+#_1BAF0E: #_2D47u: db $93 ; play note G2
 #_1BAF0F: #_2D48u: db $24 ; duration
-#_1BAF10: #_2D49u: db C2
-#_1BAF11: #_2D4Au: db Ds2
-#_1BAF12: #_2D4Bu: db F2
-#_1BAF13: #_2D4Cu: db Gs2
+#_1BAF10: #_2D49u: db $8C ; play note C2
+#_1BAF11: #_2D4Au: db $8F ; play note Ds2
+#_1BAF12: #_2D4Bu: db $91 ; play note F2
+#_1BAF13: #_2D4Cu: db $94 ; play note Gs2
 #_1BAF14: #_2D4Du: db $18 ; duration
-#_1BAF15: #_2D4Eu: db G2
+#_1BAF15: #_2D4Eu: db $93 ; play note G2
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment2_Track0:
 #_1BAF16: #_2D4Fu: db $0C, $6D ; duration, params
-#_1BAF18: #_2D51u: db Fs2
-#_1BAF19: #_2D52u: db Cs3
-#_1BAF1A: #_2D53u: db Fs3
-#_1BAF1B: #_2D54u: db A2
-#_1BAF1C: #_2D55u: db E3
-#_1BAF1D: #_2D56u: db A3
-#_1BAF1E: #_2D57u: db B2
-#_1BAF1F: #_2D58u: db Fs3
-#_1BAF20: #_2D59u: db B3
-#_1BAF21: #_2D5Au: db D3
-#_1BAF22: #_2D5Bu: db A3
-#_1BAF23: #_2D5Cu: db D4
-#_1BAF24: #_2D5Du: db Cs3
-#_1BAF25: #_2D5Eu: db Cs4
-#_1BAF26: #_2D5Fu: db !CALL_PART : dw Song1F_Sub_2F15 : db 4
-#_1BAF2A: #_2D63u: db !PART_END
+#_1BAF18: #_2D51u: db $92 ; play note Fs2
+#_1BAF19: #_2D52u: db $99 ; play note Cs3
+#_1BAF1A: #_2D53u: db $9E ; play note Fs3
+#_1BAF1B: #_2D54u: db $95 ; play note A2
+#_1BAF1C: #_2D55u: db $9C ; play note E3
+#_1BAF1D: #_2D56u: db $A1 ; play note A3
+#_1BAF1E: #_2D57u: db $97 ; play note B2
+#_1BAF1F: #_2D58u: db $9E ; play note Fs3
+#_1BAF20: #_2D59u: db $A3 ; play note B3
+#_1BAF21: #_2D5Au: db $9A ; play note D3
+#_1BAF22: #_2D5Bu: db $A1 ; play note A3
+#_1BAF23: #_2D5Cu: db $A6 ; play note D4
+#_1BAF24: #_2D5Du: db $99 ; play note Cs3
+#_1BAF25: #_2D5Eu: db $A5 ; play note Cs4
+#_1BAF26: #_2D5Fu: db $EF : dw Song1F_Sub_2F15 : db $04 ; call segment subroutine
+#_1BAF2A: #_2D63u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment2_Track1:
-#_1BAF2B: #_2D64u: db !INSTR, $0B
-#_1BAF2D: #_2D66u: db !VOLUME, $C8
+#_1BAF2B: #_2D64u: db $E0, $0B ; set instrument - trombone
+#_1BAF2D: #_2D66u: db $ED, $C8 ; set channel volume
 #_1BAF2F: #_2D68u: db $0C, $6D ; duration, params
-#_1BAF31: #_2D6Au: db Cs5
+#_1BAF31: #_2D6Au: db $B1 ; play note Cs5
 #_1BAF32: #_2D6Bu: db $60 ; duration
-#_1BAF33: #_2D6Cu: db Fs5
+#_1BAF33: #_2D6Cu: db $B6 ; play note Fs5
 #_1BAF34: #_2D6Du: db $3C ; duration
-#_1BAF35: #_2D6Eu: db !TIE
+#_1BAF35: #_2D6Eu: db $C8 ; sustain current note
 #_1BAF36: #_2D6Fu: db $0C ; duration
-#_1BAF37: #_2D70u: db G5
+#_1BAF37: #_2D70u: db $B7 ; play note G5
 #_1BAF38: #_2D71u: db $48 ; duration
-#_1BAF39: #_2D72u: db C5
+#_1BAF39: #_2D72u: db $B0 ; play note C5
 #_1BAF3A: #_2D73u: db $54 ; duration
-#_1BAF3B: #_2D74u: db !TIE
+#_1BAF3B: #_2D74u: db $C8 ; sustain current note
 #_1BAF3C: #_2D75u: db $0C ; duration
-#_1BAF3D: #_2D76u: db F5
+#_1BAF3D: #_2D76u: db $B5 ; play note F5
 #_1BAF3E: #_2D77u: db $60 ; duration
-#_1BAF3F: #_2D78u: db Gs4
+#_1BAF3F: #_2D78u: db $AC ; play note Gs4
 #_1BAF40: #_2D79u: db $3C ; duration
-#_1BAF41: #_2D7Au: db !TIE
+#_1BAF41: #_2D7Au: db $C8 ; sustain current note
 #_1BAF42: #_2D7Bu: db $0C ; duration
-#_1BAF43: #_2D7Cu: db G4
+#_1BAF43: #_2D7Cu: db $AB ; play note G4
 #_1BAF44: #_2D7Du: db $60 ; duration
-#_1BAF45: #_2D7Eu: db D5
+#_1BAF45: #_2D7Eu: db $B2 ; play note D5
 #_1BAF46: #_2D7Fu: db $3C ; duration
-#_1BAF47: #_2D80u: db !TIE
+#_1BAF47: #_2D80u: db $C8 ; sustain current note
 #_1BAF48: #_2D81u: db $0C ; duration
-#_1BAF49: #_2D82u: db Ds5
+#_1BAF49: #_2D82u: db $B3 ; play note Ds5
 #_1BAF4A: #_2D83u: db $60 ; duration
-#_1BAF4B: #_2D84u: db Fs4
+#_1BAF4B: #_2D84u: db $AA ; play note Fs4
 #_1BAF4C: #_2D85u: db $3C ; duration
-#_1BAF4D: #_2D86u: db !TIE
+#_1BAF4D: #_2D86u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment2_Track2:
-#_1BAF4E: #_2D87u: db !CALL_PART : dw Song1F_Sub_2EEA : db 5
+#_1BAF4E: #_2D87u: db $EF : dw Song1F_Sub_2EEA : db $05 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment2_Track3:
-#_1BAF52: #_2D8Bu: db !INSTR, $11
-#_1BAF54: #_2D8Du: db !VOLUME, $C8
+#_1BAF52: #_2D8Bu: db $E0, $11 ; set instrument - trumpet
+#_1BAF54: #_2D8Du: db $ED, $C8 ; set channel volume
 #_1BAF56: #_2D8Fu: db $60, $6D ; duration, params
-#_1BAF58: #_2D91u: db Fs4
+#_1BAF58: #_2D91u: db $AA ; play note Fs4
 #_1BAF59: #_2D92u: db $48 ; duration
-#_1BAF5A: #_2D93u: db !TIE
+#_1BAF5A: #_2D93u: db $C8 ; sustain current note
 #_1BAF5B: #_2D94u: db $60 ; duration
-#_1BAF5C: #_2D95u: db A4
+#_1BAF5C: #_2D95u: db $AD ; play note A4
 #_1BAF5D: #_2D96u: db $48 ; duration
-#_1BAF5E: #_2D97u: db !TIE
-#_1BAF5F: #_2D98u: db Gs4
+#_1BAF5E: #_2D97u: db $C8 ; sustain current note
+#_1BAF5F: #_2D98u: db $AC ; play note Gs4
 #_1BAF60: #_2D99u: db $60 ; duration
-#_1BAF61: #_2D9Au: db !TIE
-#_1BAF62: #_2D9Bu: db G4
+#_1BAF61: #_2D9Au: db $C8 ; sustain current note
+#_1BAF62: #_2D9Bu: db $AB ; play note G4
 #_1BAF63: #_2D9Cu: db $48 ; duration
-#_1BAF64: #_2D9Du: db !TIE
-#_1BAF65: #_2D9Eu: db Fs4
+#_1BAF64: #_2D9Du: db $C8 ; sustain current note
+#_1BAF65: #_2D9Eu: db $AA ; play note Fs4
 #_1BAF66: #_2D9Fu: db $60 ; duration
-#_1BAF67: #_2DA0u: db !TIE
+#_1BAF67: #_2DA0u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment2_Track4:
-#_1BAF68: #_2DA1u: db !INSTR, $11
-#_1BAF6A: #_2DA3u: db !VOLUME, $C8
+#_1BAF68: #_2DA1u: db $E0, $11 ; set instrument - trumpet
+#_1BAF6A: #_2DA3u: db $ED, $C8 ; set channel volume
 #_1BAF6C: #_2DA5u: db $60, $6D ; duration, params
-#_1BAF6E: #_2DA7u: db Cs4
+#_1BAF6E: #_2DA7u: db $A5 ; play note Cs4
 #_1BAF6F: #_2DA8u: db $48 ; duration
-#_1BAF70: #_2DA9u: db !TIE
+#_1BAF70: #_2DA9u: db $C8 ; sustain current note
 #_1BAF71: #_2DAAu: db $60 ; duration
-#_1BAF72: #_2DABu: db E4
+#_1BAF72: #_2DABu: db $A8 ; play note E4
 #_1BAF73: #_2DACu: db $48 ; duration
-#_1BAF74: #_2DADu: db !TIE
-#_1BAF75: #_2DAEu: db Ds4
+#_1BAF74: #_2DADu: db $C8 ; sustain current note
+#_1BAF75: #_2DAEu: db $A7 ; play note Ds4
 #_1BAF76: #_2DAFu: db $60 ; duration
-#_1BAF77: #_2DB0u: db !TIE
-#_1BAF78: #_2DB1u: db D4
+#_1BAF77: #_2DB0u: db $C8 ; sustain current note
+#_1BAF78: #_2DB1u: db $A6 ; play note D4
 #_1BAF79: #_2DB2u: db $48 ; duration
-#_1BAF7A: #_2DB3u: db !TIE
-#_1BAF7B: #_2DB4u: db Cs4
+#_1BAF7A: #_2DB3u: db $C8 ; sustain current note
+#_1BAF7B: #_2DB4u: db $A5 ; play note Cs4
 #_1BAF7C: #_2DB5u: db $60 ; duration
-#_1BAF7D: #_2DB6u: db !TIE
+#_1BAF7D: #_2DB6u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment2_Track5:
-#_1BAF7E: #_2DB7u: db !INSTR, $11
-#_1BAF80: #_2DB9u: db !VOLUME, $C8
+#_1BAF7E: #_2DB7u: db $E0, $11 ; set instrument - trumpet
+#_1BAF80: #_2DB9u: db $ED, $C8 ; set channel volume
 #_1BAF82: #_2DBBu: db $60, $6D ; duration, params
-#_1BAF84: #_2DBDu: db Gs3
+#_1BAF84: #_2DBDu: db $A0 ; play note Gs3
 #_1BAF85: #_2DBEu: db $48 ; duration
-#_1BAF86: #_2DBFu: db !TIE
+#_1BAF86: #_2DBFu: db $C8 ; sustain current note
 #_1BAF87: #_2DC0u: db $60 ; duration
-#_1BAF88: #_2DC1u: db B3
+#_1BAF88: #_2DC1u: db $A3 ; play note B3
 #_1BAF89: #_2DC2u: db $48 ; duration
-#_1BAF8A: #_2DC3u: db !TIE
-#_1BAF8B: #_2DC4u: db As3
+#_1BAF8A: #_2DC3u: db $C8 ; sustain current note
+#_1BAF8B: #_2DC4u: db $A2 ; play note As3
 #_1BAF8C: #_2DC5u: db $60 ; duration
-#_1BAF8D: #_2DC6u: db !TIE
-#_1BAF8E: #_2DC7u: db A3
+#_1BAF8D: #_2DC6u: db $C8 ; sustain current note
+#_1BAF8E: #_2DC7u: db $A1 ; play note A3
 #_1BAF8F: #_2DC8u: db $48 ; duration
-#_1BAF90: #_2DC9u: db !TIE
-#_1BAF91: #_2DCAu: db Gs3
+#_1BAF90: #_2DC9u: db $C8 ; sustain current note
+#_1BAF91: #_2DCAu: db $A0 ; play note Gs3
 #_1BAF92: #_2DCBu: db $60 ; duration
-#_1BAF93: #_2DCCu: db !TIE
+#_1BAF93: #_2DCCu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment2_Track6:
 #_1BAF94: #_2DCDu: db $24, $7D ; duration, params
-#_1BAF96: #_2DCFu: db Fs2
-#_1BAF97: #_2DD0u: db A2
-#_1BAF98: #_2DD1u: db B2
-#_1BAF99: #_2DD2u: db D3
+#_1BAF96: #_2DCFu: db $92 ; play note Fs2
+#_1BAF97: #_2DD0u: db $95 ; play note A2
+#_1BAF98: #_2DD1u: db $97 ; play note B2
+#_1BAF99: #_2DD2u: db $9A ; play note D3
 #_1BAF9A: #_2DD3u: db $18 ; duration
-#_1BAF9B: #_2DD4u: db Cs3
-#_1BAF9C: #_2DD5u: db !CALL_PART : dw Song1F_Sub_2F24 : db 4
+#_1BAF9B: #_2DD4u: db $99 ; play note Cs3
+#_1BAF9C: #_2DD5u: db $EF : dw Song1F_Sub_2F24 : db $04 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment4_Track0:
-#_1BAFA0: #_2DD9u: db !CALL_PART : dw Song1F_Sub_2F2C : db 1
-#_1BAFA4: #_2DDDu: db !PART_END
+#_1BAFA0: #_2DD9u: db $EF : dw Song1F_Sub_2F2C : db $01 ; call segment subroutine
+#_1BAFA4: #_2DDDu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment4_Track1:
-#_1BAFA5: #_2DDEu: db !CALL_PART : dw Song1F_Sub_2F2C : db 1
+#_1BAFA5: #_2DDEu: db $EF : dw Song1F_Sub_2F2C : db $01 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment4_Track2:
-#_1BAFA9: #_2DE2u: db !INSTR, $13
-#_1BAFAB: #_2DE4u: db !VOLUME, $A0
-#_1BAFAD: #_2DE6u: db !CALL_PART : dw Song1F_Sub_2EEA : db 3
+#_1BAFA9: #_2DE2u: db $E0, $13 ; set instrument - snare A
+#_1BAFAB: #_2DE4u: db $ED, $A0 ; set channel volume
+#_1BAFAD: #_2DE6u: db $EF : dw Song1F_Sub_2EEA : db $03 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment4_Track3:
 #_1BAFB1: #_2DEAu: db $0C, $4D ; duration, params
-#_1BAFB3: #_2DECu: db B4
+#_1BAFB3: #_2DECu: db $AF ; play note B4
 #_1BAFB4: #_2DEDu: db $18 ; duration
-#_1BAFB5: #_2DEEu: db B4
+#_1BAFB5: #_2DEEu: db $AF ; play note B4
 #_1BAFB6: #_2DEFu: db $0C ; duration
-#_1BAFB7: #_2DF0u: db B4
-#_1BAFB8: #_2DF1u: db B4
+#_1BAFB7: #_2DF0u: db $AF ; play note B4
+#_1BAFB8: #_2DF1u: db $AF ; play note B4
 #_1BAFB9: #_2DF2u: db $18 ; duration
-#_1BAFBA: #_2DF3u: db B4
+#_1BAFBA: #_2DF3u: db $AF ; play note B4
 #_1BAFBB: #_2DF4u: db $0C ; duration
-#_1BAFBC: #_2DF5u: db B4
-#_1BAFBD: #_2DF6u: db B4
-#_1BAFBE: #_2DF7u: db B4
-#_1BAFBF: #_2DF8u: db B4
-#_1BAFC0: #_2DF9u: db B4
+#_1BAFBC: #_2DF5u: db $AF ; play note B4
+#_1BAFBD: #_2DF6u: db $AF ; play note B4
+#_1BAFBE: #_2DF7u: db $AF ; play note B4
+#_1BAFBF: #_2DF8u: db $AF ; play note B4
+#_1BAFC0: #_2DF9u: db $AF ; play note B4
 #_1BAFC1: #_2DFAu: db $18 ; duration
-#_1BAFC2: #_2DFBu: db B4
+#_1BAFC2: #_2DFBu: db $AF ; play note B4
 #_1BAFC3: #_2DFCu: db $0C ; duration
-#_1BAFC4: #_2DFDu: db As4
+#_1BAFC4: #_2DFDu: db $AE ; play note As4
 #_1BAFC5: #_2DFEu: db $18 ; duration
-#_1BAFC6: #_2DFFu: db As4
+#_1BAFC6: #_2DFFu: db $AE ; play note As4
 #_1BAFC7: #_2E00u: db $0C ; duration
-#_1BAFC8: #_2E01u: db As4
-#_1BAFC9: #_2E02u: db As4
+#_1BAFC8: #_2E01u: db $AE ; play note As4
+#_1BAFC9: #_2E02u: db $AE ; play note As4
 #_1BAFCA: #_2E03u: db $18 ; duration
-#_1BAFCB: #_2E04u: db As4
-#_1BAFCC: #_2E05u: db As4
+#_1BAFCB: #_2E04u: db $AE ; play note As4
+#_1BAFCC: #_2E05u: db $AE ; play note As4
 #_1BAFCD: #_2E06u: db $0C ; duration
-#_1BAFCE: #_2E07u: db As4
-#_1BAFCF: #_2E08u: db As4
-#_1BAFD0: #_2E09u: db As4
+#_1BAFCE: #_2E07u: db $AE ; play note As4
+#_1BAFCF: #_2E08u: db $AE ; play note As4
+#_1BAFD0: #_2E09u: db $AE ; play note As4
 #_1BAFD1: #_2E0Au: db $18 ; duration
-#_1BAFD2: #_2E0Bu: db As4
+#_1BAFD2: #_2E0Bu: db $AE ; play note As4
 #_1BAFD3: #_2E0Cu: db $0C ; duration
-#_1BAFD4: #_2E0Du: db A4
+#_1BAFD4: #_2E0Du: db $AD ; play note A4
 #_1BAFD5: #_2E0Eu: db $18 ; duration
-#_1BAFD6: #_2E0Fu: db A4
+#_1BAFD6: #_2E0Fu: db $AD ; play note A4
 #_1BAFD7: #_2E10u: db $0C ; duration
-#_1BAFD8: #_2E11u: db A4
-#_1BAFD9: #_2E12u: db A4
+#_1BAFD8: #_2E11u: db $AD ; play note A4
+#_1BAFD9: #_2E12u: db $AD ; play note A4
 #_1BAFDA: #_2E13u: db $18 ; duration
-#_1BAFDB: #_2E14u: db A4
-#_1BAFDC: #_2E15u: db A4
+#_1BAFDB: #_2E14u: db $AD ; play note A4
+#_1BAFDC: #_2E15u: db $AD ; play note A4
 #_1BAFDD: #_2E16u: db $0C ; duration
-#_1BAFDE: #_2E17u: db Gs4
-#_1BAFDF: #_2E18u: db Gs4
-#_1BAFE0: #_2E19u: db Gs4
+#_1BAFDE: #_2E17u: db $AC ; play note Gs4
+#_1BAFDF: #_2E18u: db $AC ; play note Gs4
+#_1BAFE0: #_2E19u: db $AC ; play note Gs4
 #_1BAFE1: #_2E1Au: db $18 ; duration
-#_1BAFE2: #_2E1Bu: db Gs4
+#_1BAFE2: #_2E1Bu: db $AC ; play note Gs4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment4_Track4:
 #_1BAFE3: #_2E1Cu: db $0C, $4D ; duration, params
-#_1BAFE5: #_2E1Eu: db Fs4
+#_1BAFE5: #_2E1Eu: db $AA ; play note Fs4
 #_1BAFE6: #_2E1Fu: db $18 ; duration
-#_1BAFE7: #_2E20u: db Fs4
+#_1BAFE7: #_2E20u: db $AA ; play note Fs4
 #_1BAFE8: #_2E21u: db $0C ; duration
-#_1BAFE9: #_2E22u: db Fs4
-#_1BAFEA: #_2E23u: db Fs4
+#_1BAFE9: #_2E22u: db $AA ; play note Fs4
+#_1BAFEA: #_2E23u: db $AA ; play note Fs4
 #_1BAFEB: #_2E24u: db $18 ; duration
-#_1BAFEC: #_2E25u: db Fs4
+#_1BAFEC: #_2E25u: db $AA ; play note Fs4
 #_1BAFED: #_2E26u: db $0C ; duration
-#_1BAFEE: #_2E27u: db Fs4
-#_1BAFEF: #_2E28u: db Fs4
-#_1BAFF0: #_2E29u: db Fs4
-#_1BAFF1: #_2E2Au: db Fs4
-#_1BAFF2: #_2E2Bu: db Fs4
+#_1BAFEE: #_2E27u: db $AA ; play note Fs4
+#_1BAFEF: #_2E28u: db $AA ; play note Fs4
+#_1BAFF0: #_2E29u: db $AA ; play note Fs4
+#_1BAFF1: #_2E2Au: db $AA ; play note Fs4
+#_1BAFF2: #_2E2Bu: db $AA ; play note Fs4
 #_1BAFF3: #_2E2Cu: db $18 ; duration
-#_1BAFF4: #_2E2Du: db Fs4
+#_1BAFF4: #_2E2Du: db $AA ; play note Fs4
 #_1BAFF5: #_2E2Eu: db $0C ; duration
-#_1BAFF6: #_2E2Fu: db F4
+#_1BAFF6: #_2E2Fu: db $A9 ; play note F4
 #_1BAFF7: #_2E30u: db $18 ; duration
-#_1BAFF8: #_2E31u: db F4
+#_1BAFF8: #_2E31u: db $A9 ; play note F4
 #_1BAFF9: #_2E32u: db $0C ; duration
-#_1BAFFA: #_2E33u: db F4
-#_1BAFFB: #_2E34u: db F4
+#_1BAFFA: #_2E33u: db $A9 ; play note F4
+#_1BAFFB: #_2E34u: db $A9 ; play note F4
 #_1BAFFC: #_2E35u: db $18 ; duration
-#_1BAFFD: #_2E36u: db F4
-#_1BAFFE: #_2E37u: db F4
+#_1BAFFD: #_2E36u: db $A9 ; play note F4
+#_1BAFFE: #_2E37u: db $A9 ; play note F4
 #_1BAFFF: #_2E38u: db $0C ; duration
-#_1BB000: #_2E39u: db F4
-#_1BB001: #_2E3Au: db F4
-#_1BB002: #_2E3Bu: db F4
+#_1BB000: #_2E39u: db $A9 ; play note F4
+#_1BB001: #_2E3Au: db $A9 ; play note F4
+#_1BB002: #_2E3Bu: db $A9 ; play note F4
 #_1BB003: #_2E3Cu: db $18 ; duration
-#_1BB004: #_2E3Du: db F4
+#_1BB004: #_2E3Du: db $A9 ; play note F4
 #_1BB005: #_2E3Eu: db $0C ; duration
-#_1BB006: #_2E3Fu: db E4
+#_1BB006: #_2E3Fu: db $A8 ; play note E4
 #_1BB007: #_2E40u: db $18 ; duration
-#_1BB008: #_2E41u: db E4
+#_1BB008: #_2E41u: db $A8 ; play note E4
 #_1BB009: #_2E42u: db $0C ; duration
-#_1BB00A: #_2E43u: db E4
-#_1BB00B: #_2E44u: db E4
+#_1BB00A: #_2E43u: db $A8 ; play note E4
+#_1BB00B: #_2E44u: db $A8 ; play note E4
 #_1BB00C: #_2E45u: db $18 ; duration
-#_1BB00D: #_2E46u: db E4
-#_1BB00E: #_2E47u: db E4
+#_1BB00D: #_2E46u: db $A8 ; play note E4
+#_1BB00E: #_2E47u: db $A8 ; play note E4
 #_1BB00F: #_2E48u: db $0C ; duration
-#_1BB010: #_2E49u: db Ds4
-#_1BB011: #_2E4Au: db Ds4
-#_1BB012: #_2E4Bu: db Ds4
+#_1BB010: #_2E49u: db $A7 ; play note Ds4
+#_1BB011: #_2E4Au: db $A7 ; play note Ds4
+#_1BB012: #_2E4Bu: db $A7 ; play note Ds4
 #_1BB013: #_2E4Cu: db $18 ; duration
-#_1BB014: #_2E4Du: db Ds4
+#_1BB014: #_2E4Du: db $A7 ; play note Ds4
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment4_Track5:
 #_1BB015: #_2E4Eu: db $0C, $4D ; duration, params
-#_1BB017: #_2E50u: db C4
+#_1BB017: #_2E50u: db $A4 ; play note C4
 #_1BB018: #_2E51u: db $18 ; duration
-#_1BB019: #_2E52u: db C4
+#_1BB019: #_2E52u: db $A4 ; play note C4
 #_1BB01A: #_2E53u: db $0C ; duration
-#_1BB01B: #_2E54u: db C4
-#_1BB01C: #_2E55u: db C4
+#_1BB01B: #_2E54u: db $A4 ; play note C4
+#_1BB01C: #_2E55u: db $A4 ; play note C4
 #_1BB01D: #_2E56u: db $18 ; duration
-#_1BB01E: #_2E57u: db C4
+#_1BB01E: #_2E57u: db $A4 ; play note C4
 #_1BB01F: #_2E58u: db $0C ; duration
-#_1BB020: #_2E59u: db C4
-#_1BB021: #_2E5Au: db C4
-#_1BB022: #_2E5Bu: db C4
-#_1BB023: #_2E5Cu: db C4
-#_1BB024: #_2E5Du: db C4
+#_1BB020: #_2E59u: db $A4 ; play note C4
+#_1BB021: #_2E5Au: db $A4 ; play note C4
+#_1BB022: #_2E5Bu: db $A4 ; play note C4
+#_1BB023: #_2E5Cu: db $A4 ; play note C4
+#_1BB024: #_2E5Du: db $A4 ; play note C4
 #_1BB025: #_2E5Eu: db $18 ; duration
-#_1BB026: #_2E5Fu: db C4
+#_1BB026: #_2E5Fu: db $A4 ; play note C4
 #_1BB027: #_2E60u: db $0C ; duration
-#_1BB028: #_2E61u: db B3
+#_1BB028: #_2E61u: db $A3 ; play note B3
 #_1BB029: #_2E62u: db $18 ; duration
-#_1BB02A: #_2E63u: db B3
+#_1BB02A: #_2E63u: db $A3 ; play note B3
 #_1BB02B: #_2E64u: db $0C ; duration
-#_1BB02C: #_2E65u: db B3
-#_1BB02D: #_2E66u: db B3
+#_1BB02C: #_2E65u: db $A3 ; play note B3
+#_1BB02D: #_2E66u: db $A3 ; play note B3
 #_1BB02E: #_2E67u: db $18 ; duration
-#_1BB02F: #_2E68u: db B3
-#_1BB030: #_2E69u: db B3
+#_1BB02F: #_2E68u: db $A3 ; play note B3
+#_1BB030: #_2E69u: db $A3 ; play note B3
 #_1BB031: #_2E6Au: db $0C ; duration
-#_1BB032: #_2E6Bu: db B3
-#_1BB033: #_2E6Cu: db B3
-#_1BB034: #_2E6Du: db B3
+#_1BB032: #_2E6Bu: db $A3 ; play note B3
+#_1BB033: #_2E6Cu: db $A3 ; play note B3
+#_1BB034: #_2E6Du: db $A3 ; play note B3
 #_1BB035: #_2E6Eu: db $18 ; duration
-#_1BB036: #_2E6Fu: db B3
+#_1BB036: #_2E6Fu: db $A3 ; play note B3
 #_1BB037: #_2E70u: db $0C ; duration
-#_1BB038: #_2E71u: db As3
+#_1BB038: #_2E71u: db $A2 ; play note As3
 #_1BB039: #_2E72u: db $18 ; duration
-#_1BB03A: #_2E73u: db As3
+#_1BB03A: #_2E73u: db $A2 ; play note As3
 #_1BB03B: #_2E74u: db $0C ; duration
-#_1BB03C: #_2E75u: db As3
-#_1BB03D: #_2E76u: db As3
+#_1BB03C: #_2E75u: db $A2 ; play note As3
+#_1BB03D: #_2E76u: db $A2 ; play note As3
 #_1BB03E: #_2E77u: db $18 ; duration
-#_1BB03F: #_2E78u: db As3
-#_1BB040: #_2E79u: db As3
+#_1BB03F: #_2E78u: db $A2 ; play note As3
+#_1BB040: #_2E79u: db $A2 ; play note As3
 #_1BB041: #_2E7Au: db $0C ; duration
-#_1BB042: #_2E7Bu: db A3
-#_1BB043: #_2E7Cu: db A3
-#_1BB044: #_2E7Du: db A3
+#_1BB042: #_2E7Bu: db $A1 ; play note A3
+#_1BB043: #_2E7Cu: db $A1 ; play note A3
+#_1BB044: #_2E7Du: db $A1 ; play note A3
 #_1BB045: #_2E7Eu: db $18 ; duration
-#_1BB046: #_2E7Fu: db A3
+#_1BB046: #_2E7Fu: db $A1 ; play note A3
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment3_Track0:
 #_1BB047: #_2E80u: db $0C, $6D ; duration, params
-#_1BB049: #_2E82u: db F2
-#_1BB04A: #_2E83u: db C3
-#_1BB04B: #_2E84u: db F3
-#_1BB04C: #_2E85u: db Gs2
-#_1BB04D: #_2E86u: db Ds3
-#_1BB04E: #_2E87u: db Gs3
-#_1BB04F: #_2E88u: db As2
-#_1BB050: #_2E89u: db F3
-#_1BB051: #_2E8Au: db As3
-#_1BB052: #_2E8Bu: db Cs3
-#_1BB053: #_2E8Cu: db Gs3
-#_1BB054: #_2E8Du: db Cs4
-#_1BB055: #_2E8Eu: db C3
-#_1BB056: #_2E8Fu: db C4
-#_1BB057: #_2E90u: db E2
-#_1BB058: #_2E91u: db B2
-#_1BB059: #_2E92u: db E3
-#_1BB05A: #_2E93u: db G2
-#_1BB05B: #_2E94u: db D3
-#_1BB05C: #_2E95u: db G3
-#_1BB05D: #_2E96u: db A2
-#_1BB05E: #_2E97u: db E3
-#_1BB05F: #_2E98u: db A3
-#_1BB060: #_2E99u: db C3
-#_1BB061: #_2E9Au: db G3
-#_1BB062: #_2E9Bu: db C4
-#_1BB063: #_2E9Cu: db B2
-#_1BB064: #_2E9Du: db B3
-#_1BB065: #_2E9Eu: db !PART_END
+#_1BB049: #_2E82u: db $91 ; play note F2
+#_1BB04A: #_2E83u: db $98 ; play note C3
+#_1BB04B: #_2E84u: db $9D ; play note F3
+#_1BB04C: #_2E85u: db $94 ; play note Gs2
+#_1BB04D: #_2E86u: db $9B ; play note Ds3
+#_1BB04E: #_2E87u: db $A0 ; play note Gs3
+#_1BB04F: #_2E88u: db $96 ; play note As2
+#_1BB050: #_2E89u: db $9D ; play note F3
+#_1BB051: #_2E8Au: db $A2 ; play note As3
+#_1BB052: #_2E8Bu: db $99 ; play note Cs3
+#_1BB053: #_2E8Cu: db $A0 ; play note Gs3
+#_1BB054: #_2E8Du: db $A5 ; play note Cs4
+#_1BB055: #_2E8Eu: db $98 ; play note C3
+#_1BB056: #_2E8Fu: db $A4 ; play note C4
+#_1BB057: #_2E90u: db $90 ; play note E2
+#_1BB058: #_2E91u: db $97 ; play note B2
+#_1BB059: #_2E92u: db $9C ; play note E3
+#_1BB05A: #_2E93u: db $93 ; play note G2
+#_1BB05B: #_2E94u: db $9A ; play note D3
+#_1BB05C: #_2E95u: db $9F ; play note G3
+#_1BB05D: #_2E96u: db $95 ; play note A2
+#_1BB05E: #_2E97u: db $9C ; play note E3
+#_1BB05F: #_2E98u: db $A1 ; play note A3
+#_1BB060: #_2E99u: db $98 ; play note C3
+#_1BB061: #_2E9Au: db $9F ; play note G3
+#_1BB062: #_2E9Bu: db $A4 ; play note C4
+#_1BB063: #_2E9Cu: db $97 ; play note B2
+#_1BB064: #_2E9Du: db $A3 ; play note B3
+#_1BB065: #_2E9Eu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment3_Track1:
 #_1BB066: #_2E9Fu: db $0C, $6D ; duration, params
-#_1BB068: #_2EA1u: db Fs4
+#_1BB068: #_2EA1u: db $AA ; play note Fs4
 #_1BB069: #_2EA2u: db $60 ; duration
-#_1BB06A: #_2EA3u: db F4
+#_1BB06A: #_2EA3u: db $A9 ; play note F4
 #_1BB06B: #_2EA4u: db $3C ; duration
-#_1BB06C: #_2EA5u: db !TIE
+#_1BB06C: #_2EA5u: db $C8 ; sustain current note
 #_1BB06D: #_2EA6u: db $0C ; duration
-#_1BB06E: #_2EA7u: db F4
+#_1BB06E: #_2EA7u: db $A9 ; play note F4
 #_1BB06F: #_2EA8u: db $48 ; duration
-#_1BB070: #_2EA9u: db E4
+#_1BB070: #_2EA9u: db $A8 ; play note E4
 #_1BB071: #_2EAAu: db $54 ; duration
-#_1BB072: #_2EABu: db !TIE
+#_1BB072: #_2EABu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment3_Track2:
-#_1BB073: #_2EACu: db !CALL_PART : dw Song1F_Sub_2EEA : db 2
+#_1BB073: #_2EACu: db $EF : dw Song1F_Sub_2EEA : db $02 ; call segment subroutine
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment3_Track3:
 #_1BB077: #_2EB0u: db $60, $6D ; duration, params
-#_1BB079: #_2EB2u: db F4
+#_1BB079: #_2EB2u: db $A9 ; play note F4
 #_1BB07A: #_2EB3u: db $48 ; duration
-#_1BB07B: #_2EB4u: db !TIE
+#_1BB07B: #_2EB4u: db $C8 ; sustain current note
 #_1BB07C: #_2EB5u: db $60 ; duration
-#_1BB07D: #_2EB6u: db E4
+#_1BB07D: #_2EB6u: db $A8 ; play note E4
 #_1BB07E: #_2EB7u: db $48 ; duration
-#_1BB07F: #_2EB8u: db !TIE
+#_1BB07F: #_2EB8u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment3_Track4:
 #_1BB080: #_2EB9u: db $60, $6D ; duration, params
-#_1BB082: #_2EBBu: db C4
+#_1BB082: #_2EBBu: db $A4 ; play note C4
 #_1BB083: #_2EBCu: db $48 ; duration
-#_1BB084: #_2EBDu: db !TIE
+#_1BB084: #_2EBDu: db $C8 ; sustain current note
 #_1BB085: #_2EBEu: db $60 ; duration
-#_1BB086: #_2EBFu: db B3
+#_1BB086: #_2EBFu: db $A3 ; play note B3
 #_1BB087: #_2EC0u: db $48 ; duration
-#_1BB088: #_2EC1u: db !TIE
+#_1BB088: #_2EC1u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment3_Track5:
 #_1BB089: #_2EC2u: db $60, $6D ; duration, params
-#_1BB08B: #_2EC4u: db G3
+#_1BB08B: #_2EC4u: db $9F ; play note G3
 #_1BB08C: #_2EC5u: db $48 ; duration
-#_1BB08D: #_2EC6u: db !TIE
+#_1BB08D: #_2EC6u: db $C8 ; sustain current note
 #_1BB08E: #_2EC7u: db $60 ; duration
-#_1BB08F: #_2EC8u: db Fs3
+#_1BB08F: #_2EC8u: db $9E ; play note Fs3
 #_1BB090: #_2EC9u: db $48 ; duration
-#_1BB091: #_2ECAu: db !TIE
+#_1BB091: #_2ECAu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Segment3_Track6:
 #_1BB092: #_2ECBu: db $24, $7D ; duration, params
-#_1BB094: #_2ECDu: db F2
-#_1BB095: #_2ECEu: db Gs2
-#_1BB096: #_2ECFu: db As2
-#_1BB097: #_2ED0u: db Cs3
+#_1BB094: #_2ECDu: db $91 ; play note F2
+#_1BB095: #_2ECEu: db $94 ; play note Gs2
+#_1BB096: #_2ECFu: db $96 ; play note As2
+#_1BB097: #_2ED0u: db $99 ; play note Cs3
 #_1BB098: #_2ED1u: db $18 ; duration
-#_1BB099: #_2ED2u: db C3
+#_1BB099: #_2ED2u: db $98 ; play note C3
 #_1BB09A: #_2ED3u: db $24 ; duration
-#_1BB09B: #_2ED4u: db E2
-#_1BB09C: #_2ED5u: db G2
-#_1BB09D: #_2ED6u: db A2
-#_1BB09E: #_2ED7u: db C3
+#_1BB09B: #_2ED4u: db $90 ; play note E2
+#_1BB09C: #_2ED5u: db $93 ; play note G2
+#_1BB09D: #_2ED6u: db $95 ; play note A2
+#_1BB09E: #_2ED7u: db $98 ; play note C3
 #_1BB09F: #_2ED8u: db $18 ; duration
-#_1BB0A0: #_2ED9u: db B2
-#_1BB0A1: #_2EDAu: db !PART_END
+#_1BB0A0: #_2ED9u: db $97 ; play note B2
+#_1BB0A1: #_2EDAu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Sub_2EDB:
-#_1BB0A2: #_2EDBu: db C2
-#_1BB0A3: #_2EDCu: db G2
-#_1BB0A4: #_2EDDu: db C3
-#_1BB0A5: #_2EDEu: db Ds2
-#_1BB0A6: #_2EDFu: db As2
-#_1BB0A7: #_2EE0u: db Ds3
-#_1BB0A8: #_2EE1u: db F2
-#_1BB0A9: #_2EE2u: db C3
-#_1BB0AA: #_2EE3u: db F3
-#_1BB0AB: #_2EE4u: db Gs2
-#_1BB0AC: #_2EE5u: db Ds3
-#_1BB0AD: #_2EE6u: db Gs3
-#_1BB0AE: #_2EE7u: db G2
-#_1BB0AF: #_2EE8u: db G3
-#_1BB0B0: #_2EE9u: db !PART_END
+#_1BB0A2: #_2EDBu: db $8C ; play note C2
+#_1BB0A3: #_2EDCu: db $93 ; play note G2
+#_1BB0A4: #_2EDDu: db $98 ; play note C3
+#_1BB0A5: #_2EDEu: db $8F ; play note Ds2
+#_1BB0A6: #_2EDFu: db $96 ; play note As2
+#_1BB0A7: #_2EE0u: db $9B ; play note Ds3
+#_1BB0A8: #_2EE1u: db $91 ; play note F2
+#_1BB0A9: #_2EE2u: db $98 ; play note C3
+#_1BB0AA: #_2EE3u: db $9D ; play note F3
+#_1BB0AB: #_2EE4u: db $94 ; play note Gs2
+#_1BB0AC: #_2EE5u: db $9B ; play note Ds3
+#_1BB0AD: #_2EE6u: db $A0 ; play note Gs3
+#_1BB0AE: #_2EE7u: db $93 ; play note G2
+#_1BB0AF: #_2EE8u: db $9F ; play note G3
+#_1BB0B0: #_2EE9u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Sub_2EEA:
 #_1BB0B1: #_2EEAu: db $0C, $6D ; duration, params
-#_1BB0B3: #_2EECu: db F4
+#_1BB0B3: #_2EECu: db $A9 ; play note F4
 #_1BB0B4: #_2EEDu: db $0C, $69 ; duration, params
-#_1BB0B6: #_2EEFu: db F4
-#_1BB0B7: #_2EF0u: db F4
+#_1BB0B6: #_2EEFu: db $A9 ; play note F4
+#_1BB0B7: #_2EF0u: db $A9 ; play note F4
 #_1BB0B8: #_2EF1u: db $0C, $6D ; duration, params
-#_1BB0BA: #_2EF3u: db F4
+#_1BB0BA: #_2EF3u: db $A9 ; play note F4
 #_1BB0BB: #_2EF4u: db $0C, $69 ; duration, params
-#_1BB0BD: #_2EF6u: db F4
-#_1BB0BE: #_2EF7u: db F4
+#_1BB0BD: #_2EF6u: db $A9 ; play note F4
+#_1BB0BE: #_2EF7u: db $A9 ; play note F4
 #_1BB0BF: #_2EF8u: db $0C, $6D ; duration, params
-#_1BB0C1: #_2EFAu: db F4
+#_1BB0C1: #_2EFAu: db $A9 ; play note F4
 #_1BB0C2: #_2EFBu: db $0C, $69 ; duration, params
-#_1BB0C4: #_2EFDu: db F4
-#_1BB0C5: #_2EFEu: db F4
+#_1BB0C4: #_2EFDu: db $A9 ; play note F4
+#_1BB0C5: #_2EFEu: db $A9 ; play note F4
 #_1BB0C6: #_2EFFu: db $0C, $6D ; duration, params
-#_1BB0C8: #_2F01u: db F4
+#_1BB0C8: #_2F01u: db $A9 ; play note F4
 #_1BB0C9: #_2F02u: db $0C, $69 ; duration, params
-#_1BB0CB: #_2F04u: db F4
-#_1BB0CC: #_2F05u: db F4
+#_1BB0CB: #_2F04u: db $A9 ; play note F4
+#_1BB0CC: #_2F05u: db $A9 ; play note F4
 #_1BB0CD: #_2F06u: db $0C, $6D ; duration, params
-#_1BB0CF: #_2F08u: db F4
+#_1BB0CF: #_2F08u: db $A9 ; play note F4
 #_1BB0D0: #_2F09u: db $0C, $69 ; duration, params
-#_1BB0D2: #_2F0Bu: db F4
-#_1BB0D3: #_2F0Cu: db !PART_END
+#_1BB0D2: #_2F0Bu: db $A9 ; play note F4
+#_1BB0D3: #_2F0Cu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Sub_2F0D:
 #_1BB0D4: #_2F0Du: db $24 ; duration
-#_1BB0D5: #_2F0Eu: db C2
-#_1BB0D6: #_2F0Fu: db Ds2
-#_1BB0D7: #_2F10u: db F2
-#_1BB0D8: #_2F11u: db Gs2
+#_1BB0D5: #_2F0Eu: db $8C ; play note C2
+#_1BB0D6: #_2F0Fu: db $8F ; play note Ds2
+#_1BB0D7: #_2F10u: db $91 ; play note F2
+#_1BB0D8: #_2F11u: db $94 ; play note Gs2
 #_1BB0D9: #_2F12u: db $18 ; duration
-#_1BB0DA: #_2F13u: db G2
-#_1BB0DB: #_2F14u: db !PART_END
+#_1BB0DA: #_2F13u: db $93 ; play note G2
+#_1BB0DB: #_2F14u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Sub_2F15:
-#_1BB0DC: #_2F15u: db Fs2
-#_1BB0DD: #_2F16u: db Cs3
-#_1BB0DE: #_2F17u: db Fs3
-#_1BB0DF: #_2F18u: db A2
-#_1BB0E0: #_2F19u: db E3
-#_1BB0E1: #_2F1Au: db A3
-#_1BB0E2: #_2F1Bu: db B2
-#_1BB0E3: #_2F1Cu: db Fs3
-#_1BB0E4: #_2F1Du: db B3
-#_1BB0E5: #_2F1Eu: db D3
-#_1BB0E6: #_2F1Fu: db A3
-#_1BB0E7: #_2F20u: db D4
-#_1BB0E8: #_2F21u: db Cs3
-#_1BB0E9: #_2F22u: db Cs4
-#_1BB0EA: #_2F23u: db !PART_END
+#_1BB0DC: #_2F15u: db $92 ; play note Fs2
+#_1BB0DD: #_2F16u: db $99 ; play note Cs3
+#_1BB0DE: #_2F17u: db $9E ; play note Fs3
+#_1BB0DF: #_2F18u: db $95 ; play note A2
+#_1BB0E0: #_2F19u: db $9C ; play note E3
+#_1BB0E1: #_2F1Au: db $A1 ; play note A3
+#_1BB0E2: #_2F1Bu: db $97 ; play note B2
+#_1BB0E3: #_2F1Cu: db $9E ; play note Fs3
+#_1BB0E4: #_2F1Du: db $A3 ; play note B3
+#_1BB0E5: #_2F1Eu: db $9A ; play note D3
+#_1BB0E6: #_2F1Fu: db $A1 ; play note A3
+#_1BB0E7: #_2F20u: db $A6 ; play note D4
+#_1BB0E8: #_2F21u: db $99 ; play note Cs3
+#_1BB0E9: #_2F22u: db $A5 ; play note Cs4
+#_1BB0EA: #_2F23u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Sub_2F24:
 #_1BB0EB: #_2F24u: db $24 ; duration
-#_1BB0EC: #_2F25u: db Fs2
-#_1BB0ED: #_2F26u: db A2
-#_1BB0EE: #_2F27u: db B2
-#_1BB0EF: #_2F28u: db D3
+#_1BB0EC: #_2F25u: db $92 ; play note Fs2
+#_1BB0ED: #_2F26u: db $95 ; play note A2
+#_1BB0EE: #_2F27u: db $97 ; play note B2
+#_1BB0EF: #_2F28u: db $9A ; play note D3
 #_1BB0F0: #_2F29u: db $18 ; duration
-#_1BB0F1: #_2F2Au: db Cs3
-#_1BB0F2: #_2F2Bu: db !PART_END
+#_1BB0F1: #_2F2Au: db $99 ; play note Cs3
+#_1BB0F2: #_2F2Bu: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1F_Sub_2F2C:
 #_1BB0F3: #_2F2Cu: db $0C, $6D ; duration, params
-#_1BB0F5: #_2F2Eu: db Ds2
-#_1BB0F6: #_2F2Fu: db As2
-#_1BB0F7: #_2F30u: db Ds3
-#_1BB0F8: #_2F31u: db Fs3
-#_1BB0F9: #_2F32u: db Cs4
-#_1BB0FA: #_2F33u: db Fs4
-#_1BB0FB: #_2F34u: db Gs4
-#_1BB0FC: #_2F35u: db Ds4
-#_1BB0FD: #_2F36u: db Gs3
-#_1BB0FE: #_2F37u: db B2
-#_1BB0FF: #_2F38u: db Fs3
-#_1BB100: #_2F39u: db B3
-#_1BB101: #_2F3Au: db As2
-#_1BB102: #_2F3Bu: db As3
-#_1BB103: #_2F3Cu: db D2
-#_1BB104: #_2F3Du: db A2
-#_1BB105: #_2F3Eu: db D3
-#_1BB106: #_2F3Fu: db F3
-#_1BB107: #_2F40u: db C4
-#_1BB108: #_2F41u: db F4
-#_1BB109: #_2F42u: db G4
-#_1BB10A: #_2F43u: db D4
-#_1BB10B: #_2F44u: db G3
-#_1BB10C: #_2F45u: db As2
-#_1BB10D: #_2F46u: db F3
-#_1BB10E: #_2F47u: db As3
-#_1BB10F: #_2F48u: db A2
-#_1BB110: #_2F49u: db A3
-#_1BB111: #_2F4Au: db Cs2
-#_1BB112: #_2F4Bu: db Gs2
-#_1BB113: #_2F4Cu: db Cs3
-#_1BB114: #_2F4Du: db E3
-#_1BB115: #_2F4Eu: db B3
-#_1BB116: #_2F4Fu: db E4
-#_1BB117: #_2F50u: db Fs4
-#_1BB118: #_2F51u: db Cs4
-#_1BB119: #_2F52u: db F4
-#_1BB11A: #_2F53u: db Gs4
-#_1BB11B: #_2F54u: db Ds4
-#_1BB11C: #_2F55u: db Gs3
-#_1BB11D: #_2F56u: db G3
-#_1BB11E: #_2F57u: db G4
-#_1BB11F: #_2F58u: db !PART_END
+#_1BB0F5: #_2F2Eu: db $8F ; play note Ds2
+#_1BB0F6: #_2F2Fu: db $96 ; play note As2
+#_1BB0F7: #_2F30u: db $9B ; play note Ds3
+#_1BB0F8: #_2F31u: db $9E ; play note Fs3
+#_1BB0F9: #_2F32u: db $A5 ; play note Cs4
+#_1BB0FA: #_2F33u: db $AA ; play note Fs4
+#_1BB0FB: #_2F34u: db $AC ; play note Gs4
+#_1BB0FC: #_2F35u: db $A7 ; play note Ds4
+#_1BB0FD: #_2F36u: db $A0 ; play note Gs3
+#_1BB0FE: #_2F37u: db $97 ; play note B2
+#_1BB0FF: #_2F38u: db $9E ; play note Fs3
+#_1BB100: #_2F39u: db $A3 ; play note B3
+#_1BB101: #_2F3Au: db $96 ; play note As2
+#_1BB102: #_2F3Bu: db $A2 ; play note As3
+#_1BB103: #_2F3Cu: db $8E ; play note D2
+#_1BB104: #_2F3Du: db $95 ; play note A2
+#_1BB105: #_2F3Eu: db $9A ; play note D3
+#_1BB106: #_2F3Fu: db $9D ; play note F3
+#_1BB107: #_2F40u: db $A4 ; play note C4
+#_1BB108: #_2F41u: db $A9 ; play note F4
+#_1BB109: #_2F42u: db $AB ; play note G4
+#_1BB10A: #_2F43u: db $A6 ; play note D4
+#_1BB10B: #_2F44u: db $9F ; play note G3
+#_1BB10C: #_2F45u: db $96 ; play note As2
+#_1BB10D: #_2F46u: db $9D ; play note F3
+#_1BB10E: #_2F47u: db $A2 ; play note As3
+#_1BB10F: #_2F48u: db $95 ; play note A2
+#_1BB110: #_2F49u: db $A1 ; play note A3
+#_1BB111: #_2F4Au: db $8D ; play note Cs2
+#_1BB112: #_2F4Bu: db $94 ; play note Gs2
+#_1BB113: #_2F4Cu: db $99 ; play note Cs3
+#_1BB114: #_2F4Du: db $9C ; play note E3
+#_1BB115: #_2F4Eu: db $A3 ; play note B3
+#_1BB116: #_2F4Fu: db $A8 ; play note E4
+#_1BB117: #_2F50u: db $AA ; play note Fs4
+#_1BB118: #_2F51u: db $A5 ; play note Cs4
+#_1BB119: #_2F52u: db $A9 ; play note F4
+#_1BB11A: #_2F53u: db $AC ; play note Gs4
+#_1BB11B: #_2F54u: db $A7 ; play note Ds4
+#_1BB11C: #_2F55u: db $A0 ; play note Gs3
+#_1BB11D: #_2F56u: db $9F ; play note G3
+#_1BB11E: #_2F57u: db $AB ; play note G4
+#_1BB11F: #_2F58u: db $00 ; End
 
 ;===================================================================================================
 
@@ -11090,7 +11090,7 @@ Song1E_Loop:
 #_1BB122: #_2F5Bu: dw Song1C_Segment1
 #_1BB124: #_2F5Du: dw Song1C_Segment1
 #_1BB126: #_2F5Fu: dw Song1C_Segment2
-#_1BB128: #_2F61u: dw !SONG_LOOP, Song1E_Loop
+#_1BB128: #_2F61u: dw $00FF, Song1E_Loop ; Loop point
 #_1BB12C: #_2F65u: dw $0000
 
 Song1E_Segment0:
@@ -11106,149 +11106,149 @@ Song1E_Segment0:
 ;---------------------------------------------------------------------------------------------------
 
 Song1E_Segment0_Track0:
-#_1BB13E: #_2F77u: db !SET_PERC, $19
-#_1BB140: #_2F79u: db !MASTER_VOLUME, $C8
-#_1BB142: #_2F7Bu: db !ECHO_CONFIG, $FF, $28, $28
-#_1BB146: #_2F7Fu: db !ECHO_FILTER, $02, $14, $02
-#_1BB14A: #_2F83u: db !TEMPO, $19
-#_1BB14C: #_2F85u: db !INSTR, $09
-#_1BB14E: #_2F87u: db !VOLUME, $C8
-#_1BB150: #_2F89u: db !VIBRATO, $1A, $1C, $18
-#_1BB154: #_2F8Du: db !PAN, $0C
+#_1BB13E: #_2F77u: db $FA, $19 ; set base percussion sample
+#_1BB140: #_2F79u: db $E5, $C8 ; set song volume
+#_1BB142: #_2F7Bu: db $F5, $FF, $28, $28 ; configure EON, EVOLL, EVOLR
+#_1BB146: #_2F7Fu: db $F7, $02, $14, $02 ; configure EDL, EFB, FIR
+#_1BB14A: #_2F83u: db $E7, $19 ; set song tempo
+#_1BB14C: #_2F85u: db $E0, $09 ; set instrument - strings A
+#_1BB14E: #_2F87u: db $ED, $C8 ; set channel volume
+#_1BB150: #_2F89u: db $E3, $1A, $1C, $18 ; enable vibrato
+#_1BB154: #_2F8Du: db $E1, $0C ; set panning - leaning left
 #_1BB156: #_2F8Fu: db $08, $6D ; duration, params
-#_1BB158: #_2F91u: db F5
+#_1BB158: #_2F91u: db $B5 ; play note F5
 #_1BB159: #_2F92u: db $10 ; duration
-#_1BB15A: #_2F93u: db E5
+#_1BB15A: #_2F93u: db $B4 ; play note E5
 #_1BB15B: #_2F94u: db $08 ; duration
-#_1BB15C: #_2F95u: db B4
+#_1BB15C: #_2F95u: db $AF ; play note B4
 #_1BB15D: #_2F96u: db $10 ; duration
-#_1BB15E: #_2F97u: db As4
+#_1BB15E: #_2F97u: db $AE ; play note As4
 #_1BB15F: #_2F98u: db $08 ; duration
-#_1BB160: #_2F99u: db F4
-#_1BB161: #_2F9Au: db E4
-#_1BB162: #_2F9Bu: db B3
+#_1BB160: #_2F99u: db $A9 ; play note F4
+#_1BB161: #_2F9Au: db $A8 ; play note E4
+#_1BB162: #_2F9Bu: db $A3 ; play note B3
 #_1BB163: #_2F9Cu: db $10 ; duration
-#_1BB164: #_2F9Du: db As3
+#_1BB164: #_2F9Du: db $A2 ; play note As3
 #_1BB165: #_2F9Eu: db $60 ; duration
-#_1BB166: #_2F9Fu: db !TIE
-#_1BB167: #_2FA0u: db !PART_END
+#_1BB166: #_2F9Fu: db $C8 ; sustain current note
+#_1BB167: #_2FA0u: db $00 ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1E_Segment0_Track1:
-#_1BB168: #_2FA1u: db !INSTR, $09
-#_1BB16A: #_2FA3u: db !VOLUME, $C8
+#_1BB168: #_2FA1u: db $E0, $09 ; set instrument - strings A
+#_1BB16A: #_2FA3u: db $ED, $C8 ; set channel volume
 #_1BB16C: #_2FA5u: db $08, $6D ; duration, params
-#_1BB16E: #_2FA7u: db F4
+#_1BB16E: #_2FA7u: db $A9 ; play note F4
 #_1BB16F: #_2FA8u: db $10 ; duration
-#_1BB170: #_2FA9u: db E4
+#_1BB170: #_2FA9u: db $A8 ; play note E4
 #_1BB171: #_2FAAu: db $08 ; duration
-#_1BB172: #_2FABu: db B3
+#_1BB172: #_2FABu: db $A3 ; play note B3
 #_1BB173: #_2FACu: db $10 ; duration
-#_1BB174: #_2FADu: db As3
+#_1BB174: #_2FADu: db $A2 ; play note As3
 #_1BB175: #_2FAEu: db $08 ; duration
-#_1BB176: #_2FAFu: db F3
-#_1BB177: #_2FB0u: db E3
-#_1BB178: #_2FB1u: db B2
+#_1BB176: #_2FAFu: db $9D ; play note F3
+#_1BB177: #_2FB0u: db $9C ; play note E3
+#_1BB178: #_2FB1u: db $97 ; play note B2
 #_1BB179: #_2FB2u: db $10 ; duration
-#_1BB17A: #_2FB3u: db As2
+#_1BB17A: #_2FB3u: db $96 ; play note As2
 #_1BB17B: #_2FB4u: db $60 ; duration
-#_1BB17C: #_2FB5u: db !TIE
+#_1BB17C: #_2FB5u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1E_Segment0_Track2:
-#_1BB17D: #_2FB6u: db !INSTR, $09
-#_1BB17F: #_2FB8u: db !VOLUME, $C8
+#_1BB17D: #_2FB6u: db $E0, $09 ; set instrument - strings A
+#_1BB17F: #_2FB8u: db $ED, $C8 ; set channel volume
 #_1BB181: #_2FBAu: db $08, $6D ; duration, params
-#_1BB183: #_2FBCu: db B4
+#_1BB183: #_2FBCu: db $AF ; play note B4
 #_1BB184: #_2FBDu: db $10 ; duration
-#_1BB185: #_2FBEu: db As4
+#_1BB185: #_2FBEu: db $AE ; play note As4
 #_1BB186: #_2FBFu: db $08 ; duration
-#_1BB187: #_2FC0u: db F4
+#_1BB187: #_2FC0u: db $A9 ; play note F4
 #_1BB188: #_2FC1u: db $10 ; duration
-#_1BB189: #_2FC2u: db E4
+#_1BB189: #_2FC2u: db $A8 ; play note E4
 #_1BB18A: #_2FC3u: db $08 ; duration
-#_1BB18B: #_2FC4u: db B3
-#_1BB18C: #_2FC5u: db As3
-#_1BB18D: #_2FC6u: db F3
+#_1BB18B: #_2FC4u: db $A3 ; play note B3
+#_1BB18C: #_2FC5u: db $A2 ; play note As3
+#_1BB18D: #_2FC6u: db $9D ; play note F3
 #_1BB18E: #_2FC7u: db $10 ; duration
-#_1BB18F: #_2FC8u: db E3
+#_1BB18F: #_2FC8u: db $9C ; play note E3
 #_1BB190: #_2FC9u: db $60 ; duration
-#_1BB191: #_2FCAu: db !TIE
+#_1BB191: #_2FCAu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1E_Segment0_Track3:
-#_1BB192: #_2FCBu: db !INSTR, $09
-#_1BB194: #_2FCDu: db !VOLUME, $C8
+#_1BB192: #_2FCBu: db $E0, $09 ; set instrument - strings A
+#_1BB194: #_2FCDu: db $ED, $C8 ; set channel volume
 #_1BB196: #_2FCFu: db $08, $6D ; duration, params
-#_1BB198: #_2FD1u: db As4
+#_1BB198: #_2FD1u: db $AE ; play note As4
 #_1BB199: #_2FD2u: db $10 ; duration
-#_1BB19A: #_2FD3u: db A4
+#_1BB19A: #_2FD3u: db $AD ; play note A4
 #_1BB19B: #_2FD4u: db $08 ; duration
-#_1BB19C: #_2FD5u: db E4
+#_1BB19C: #_2FD5u: db $A8 ; play note E4
 #_1BB19D: #_2FD6u: db $10 ; duration
-#_1BB19E: #_2FD7u: db Ds4
+#_1BB19E: #_2FD7u: db $A7 ; play note Ds4
 #_1BB19F: #_2FD8u: db $08 ; duration
-#_1BB1A0: #_2FD9u: db As3
-#_1BB1A1: #_2FDAu: db A3
-#_1BB1A2: #_2FDBu: db E3
+#_1BB1A0: #_2FD9u: db $A2 ; play note As3
+#_1BB1A1: #_2FDAu: db $A1 ; play note A3
+#_1BB1A2: #_2FDBu: db $9C ; play note E3
 #_1BB1A3: #_2FDCu: db $10 ; duration
-#_1BB1A4: #_2FDDu: db Ds3
+#_1BB1A4: #_2FDDu: db $9B ; play note Ds3
 #_1BB1A5: #_2FDEu: db $60 ; duration
-#_1BB1A6: #_2FDFu: db !TIE
+#_1BB1A6: #_2FDFu: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1E_Segment0_Track4:
-#_1BB1A7: #_2FE0u: db !INSTR, $09
-#_1BB1A9: #_2FE2u: db !VOLUME, $C8
+#_1BB1A7: #_2FE0u: db $E0, $09 ; set instrument - strings A
+#_1BB1A9: #_2FE2u: db $ED, $C8 ; set channel volume
 #_1BB1AB: #_2FE4u: db $08, $6D ; duration, params
-#_1BB1AD: #_2FE6u: db F3
+#_1BB1AD: #_2FE6u: db $9D ; play note F3
 #_1BB1AE: #_2FE7u: db $10 ; duration
-#_1BB1AF: #_2FE8u: db E3
+#_1BB1AF: #_2FE8u: db $9C ; play note E3
 #_1BB1B0: #_2FE9u: db $08 ; duration
-#_1BB1B1: #_2FEAu: db B2
+#_1BB1B1: #_2FEAu: db $97 ; play note B2
 #_1BB1B2: #_2FEBu: db $10 ; duration
-#_1BB1B3: #_2FECu: db As2
+#_1BB1B3: #_2FECu: db $96 ; play note As2
 #_1BB1B4: #_2FEDu: db $08 ; duration
-#_1BB1B5: #_2FEEu: db F2
-#_1BB1B6: #_2FEFu: db E2
-#_1BB1B7: #_2FF0u: db B1
+#_1BB1B5: #_2FEEu: db $91 ; play note F2
+#_1BB1B6: #_2FEFu: db $90 ; play note E2
+#_1BB1B7: #_2FF0u: db $8B ; play note B1
 #_1BB1B8: #_2FF1u: db $10 ; duration
-#_1BB1B9: #_2FF2u: db As1
+#_1BB1B9: #_2FF2u: db $8A ; play note As1
 #_1BB1BA: #_2FF3u: db $60 ; duration
-#_1BB1BB: #_2FF4u: db !TIE
+#_1BB1BB: #_2FF4u: db $C8 ; sustain current note
 
 ;---------------------------------------------------------------------------------------------------
 
 Song1E_Segment0_Track5:
-#_1BB1BC: #_2FF5u: db !INSTR, $02
-#_1BB1BE: #_2FF7u: db !VOLUME, $DC
+#_1BB1BC: #_2FF5u: db $E0, $02 ; set instrument - timpani
+#_1BB1BE: #_2FF7u: db $ED, $DC ; set channel volume
 #_1BB1C0: #_2FF9u: db $08, $7D ; duration, params
-#_1BB1C2: #_2FFBu: db A1
+#_1BB1C2: #_2FFBu: db $89 ; play note A1
 #_1BB1C3: #_2FFCu: db $10 ; duration
-#_1BB1C4: #_2FFDu: db A1
+#_1BB1C4: #_2FFDu: db $89 ; play note A1
 #_1BB1C5: #_2FFEu: db $08 ; duration
-#_1BB1C6: #_2FFFu: db A1
+#_1BB1C6: #_2FFFu: db $89 ; play note A1
 #_1BB1C7: #_3000u: db $10 ; duration
-#_1BB1C8: #_3001u: db A1
+#_1BB1C8: #_3001u: db $89 ; play note A1
 #_1BB1C9: #_3002u: db $08 ; duration
-#_1BB1CA: #_3003u: db A1
-#_1BB1CB: #_3004u: db A1
-#_1BB1CC: #_3005u: db A1
+#_1BB1CA: #_3003u: db $89 ; play note A1
+#_1BB1CB: #_3004u: db $89 ; play note A1
+#_1BB1CC: #_3005u: db $89 ; play note A1
 #_1BB1CD: #_3006u: db $10 ; duration
-#_1BB1CE: #_3007u: db A1
+#_1BB1CE: #_3007u: db $89 ; play note A1
 #_1BB1CF: #_3008u: db $60, $68 ; duration, params
-#_1BB1D1: #_300Au: db !TIE
-#_1BB1D2: #_300Bu: db !PART_END
+#_1BB1D1: #_300Au: db $C8 ; sustain current note
+#_1BB1D2: #_300Bu: db $00 ; End
 
 ;===================================================================================================
 
 base off
 
-#_1BB1D3: dw !END_TRANSFER, SPC_ENGINE
+#_1BB1D3: dw $0000, SPC_ENGINE ; end of transfer
 
 ;===================================================================================================
 ; FREE ROM: 0x629
@@ -17746,7 +17746,7 @@ Palettes_LinkGloveColors:
 Palettes_Load_LinkArmorAndGloves:
 #_1BEDF9: REP #$21
 
-#_1BEDFB: LDA.l $7EF35B ; use current armour to get an index
+#_1BEDFB: LDA.l $7EF35B
 #_1BEDFF: AND.w #$00FF
 #_1BEE02: TAX
 

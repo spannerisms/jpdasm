@@ -75,37 +75,37 @@ PlaySFX_SetPan_Bank07:
 pool Link_ControlHandler
 
 .vectors
-#_078041: dw LinkState_Default
-#_078043: dw LinkState_Pits
-#_078045: dw LinkState_Recoil
-#_078047: dw LinkState_SpinAttack
-#_078049: dw LinkState_Swimming
-#_07804B: dw LinkState_OnIce
-#_07804D: dw LinkState_Recoil
-#_07804F: dw LinkState_Zapped
-#_078051: dw LinkState_UsingEther
-#_078053: dw LinkState_UsingBombos
-#_078055: dw LinkState_UsingQuake
-#_078057: dw LinkHop_HoppingSouthOW
-#_078059: dw LinkState_HoppingHorizontallyOW
-#_07805B: dw LinkState_HoppingDiagonallyUpOW
-#_07805D: dw LinkState_HoppingDiagonallyDownOW
-#_07805F: dw LinkState_0F
-#_078061: dw LinkState_0F
-#_078063: dw LinkState_Dashing
-#_078065: dw LinkState_ExitingDash
-#_078067: dw LinkState_Hookshotting
-#_078069: dw LinkState_CrossingWorlds
-#_07806B: dw LinkState_ShowingOffItem
-#_07806D: dw LinkState_Sleeping
-#_07806F: dw LinkState_Bunny
-#_078071: dw LinkState_HoldingBigRock
-#_078073: dw LinkState_ReceivingEther
-#_078075: dw LinkState_ReceivingBombos
-#_078077: dw LinkState_ReadingDesertTablet
-#_078079: dw LinkState_TemporaryBunny
-#_07807B: dw LinkState_TreePull
-#_07807D: dw LinkState_SpinAttack
+#_078041: dw LinkState_Default                  ; 0x00
+#_078043: dw LinkState_Pits                     ; 0x01
+#_078045: dw LinkState_Recoil                   ; 0x02
+#_078047: dw LinkState_SpinAttack               ; 0x03
+#_078049: dw LinkState_Swimming                 ; 0x04
+#_07804B: dw LinkState_OnIce                    ; 0x05
+#_07804D: dw LinkState_Recoil                   ; 0x06
+#_07804F: dw LinkState_Zapped                   ; 0x07
+#_078051: dw LinkState_UsingEther               ; 0x08
+#_078053: dw LinkState_UsingBombos              ; 0x09
+#_078055: dw LinkState_UsingQuake               ; 0x0A
+#_078057: dw LinkHop_HoppingSouthOW             ; 0x0B
+#_078059: dw LinkState_HoppingHorizontallyOW    ; 0x0C
+#_07805B: dw LinkState_HoppingDiagonallyUpOW    ; 0x0D
+#_07805D: dw LinkState_HoppingDiagonallyDownOW  ; 0x0E
+#_07805F: dw LinkState_0F                       ; 0x0F
+#_078061: dw LinkState_0F                       ; 0x10
+#_078063: dw LinkState_Dashing                  ; 0x11
+#_078065: dw LinkState_ExitingDash              ; 0x12
+#_078067: dw LinkState_Hookshotting             ; 0x13
+#_078069: dw LinkState_CrossingWorlds           ; 0x14
+#_07806B: dw LinkState_ShowingOffItem           ; 0x15
+#_07806D: dw LinkState_Sleeping                 ; 0x16
+#_07806F: dw LinkState_Bunny                    ; 0x17
+#_078071: dw LinkState_HoldingBigRock           ; 0x18
+#_078073: dw LinkState_ReceivingEther           ; 0x19
+#_078075: dw LinkState_ReceivingBombos          ; 0x1A
+#_078077: dw LinkState_ReadingDesertTablet      ; 0x1B
+#_078079: dw LinkState_TemporaryBunny           ; 0x1C
+#_07807B: dw LinkState_TreePull                 ; 0x1D
+#_07807D: dw LinkState_SpinAttack               ; 0x1E
 
 pool off
 
@@ -158,6 +158,7 @@ Link_ControlHandler:
 .dont_mess_with_boom
 #_0780BE: LDA.b #!SFX2_26 ; OOF
 #_0780C0: JSR PlaySFX_Set2_Bank07
+
 #_0780C3: INC.w $0CFC
 
 #_0780C6: LDA.l $7EF36D ; remove HP
@@ -165,17 +166,17 @@ Link_ControlHandler:
 #_0780CB: SBC.b $00
 
 ; kill Link if he has 0 HP or >=21
-; coulda used BCC after the SBC instead of this weird stuff
+; probably coulda used BCC after the SBC instead of this weird stuff
 #_0780CD: CMP.b #$00
-#_0780CF: BEQ .WOW_you_died
+#_0780CF: BEQ .you_died
 
 #_0780D1: CMP.b #$A8
 #_0780D3: BCC .do_not_die
 
 ;---------------------------------------------------------------------------------------------------
 
-.WOW_you_died
-#_0780D5: LDA.b $1C ; cache MAINDES and SUBDES mirror
+.you_died
+#_0780D5: LDA.b $1C ; cache MAINDES and SUBDES queue
 #_0780D7: STA.l $7EC211
 
 #_0780DB: LDA.b $1D
@@ -217,7 +218,8 @@ Link_ControlHandler:
 LinkState_Default:
 #_078109: JSR CacheCameraPropertiesIfOutdoors
 
-#_07810C: LDA.b $F5 ; check player 2 B for debug cheats
+; check player 2 B for debug cheats
+#_07810C: LDA.b $F5
 #_07810E: AND.b #$80
 #_078110: BEQ .stay_in_bounds_forever
 
@@ -248,7 +250,8 @@ LinkState_Default:
 
 ;---------------------------------------------------------------------------------------------------
 
-#HandleLink_From1D: ; state 1D continues from here
+; state 1D continues from here
+#HandleLink_From1D:
 #_078130: STZ.w $0301
 #_078133: STZ.w $037A
 
@@ -263,7 +266,7 @@ LinkState_Default:
 #_078145: STZ.b $3B
 
 #_078147: LDA.b $3A ; clear Y button
-#_078149: AND.b #%10111111
+#_078149: AND.b #$BF
 #_07814B: STA.b $3A
 
 #_07814D: STZ.w $0308 ; related to carrying stuff
@@ -2152,7 +2155,7 @@ LinkState_HandlingJump:
 #_078A45: AND.b #$01
 #_078A47: BEQ .dont_become_swimming
 
-#_078A49: LDA.b #$04
+#_078A49: LDA.b #!LINKSTATE_04
 #_078A4B: STA.b $5D
 
 #_078A4D: JSR Link_SetToDeepWater
@@ -3267,6 +3270,7 @@ FollowerDashReplacement:
 
 LinkState_Dashing:
 #_078F80: JSR CacheCameraPropertiesIfOutdoors
+
 #_078F83: JSR Link_HandleBunnyTransformation
 #_078F86: BCC .not_bunnifying
 
@@ -3300,16 +3304,16 @@ LinkState_Dashing:
 
 .still_dashing
 #_078FA8: BIT.b $3A
-#_078FAA: BPL .no_a_press
+#_078FAA: BPL .no_b_press
 
 #_078FAC: LDA.b $3C
 #_078FAE: CMP.b #$09
-#_078FB0: BCC .no_a_press
+#_078FB0: BCC .no_b_press
 
 #_078FB2: LDA.b #$09
 #_078FB4: STA.b $3C
 
-.no_a_press
+.no_b_press
 #_078FB6: STZ.w $02CA
 
 #_078FB9: LDA.b $4D
@@ -3379,13 +3383,13 @@ LinkState_Dashing:
 #_079009: TAX
 
 #_07900A: LDA.w $0374
-#_07900D: BNE .dont_tick_dsh_timer
+#_07900D: BNE .dont_tick_dash_timer
 
 #_07900F: LDA.b $4F
 
 #_079011: DEC.b $4F
 
-.dont_tick_dsh_timer
+.dont_tick_dash_timer
 #_079013: AND.w LinkDashSFXMasks,X
 #_079016: BNE .no_sfx
 
@@ -3438,7 +3442,7 @@ LinkState_Dashing:
 .b_held
 #_079055: BRL .exit
 
-;===================================================================================================
+;---------------------------------------------------------------------------------------------------
 
 .new_a_press
 #_079058: LDY.b #$00
@@ -3739,7 +3743,7 @@ IceRepelAccelX:
 ;===================================================================================================
 
 RepelDirectionMasks:
-#_0791E7: db $08,$04,$02,$01
+#_0791E7: db $08, $04, $02, $01
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -7157,7 +7161,7 @@ LinkItem_Lamp:
 #_07A24E: JSR LinkCheckMagicCost
 #_07A251: BCC .no_magic
 
-; !WTF it only does this to 
+; !WTF it only does this to get collision
 #_07A253: LDY.b #$00
 #_07A255: LDA.b #!ANCILLA_1A
 #_07A257: JSL AncillaAdd_MagicPowder
@@ -8891,6 +8895,7 @@ HandleFollowersAfterMirroring:
 #_07AAFA: JSR Link_ForceUnequipCape_quietly
 
 #_07AAFD: STZ.w $02E2
+
 #_07AB00: BRA .exit
 
 .have_pearl
@@ -8898,6 +8903,7 @@ HandleFollowersAfterMirroring:
 #_07AB04: BEQ .exit
 
 #_07AB06: JSR Link_ForceUnequipCape
+
 #_07AB09: STZ.w $02E2
 
 .exit
@@ -11234,7 +11240,7 @@ UNREACHABLE_07B5F2:
 #_07B602: STA.b $3A
 
 .a_held
-; debug flag only set here
+; debug flag only referenced here
 #_07B604: LDA.b $3B
 #_07B606: AND.b #$10
 #_07B608: STA.b $00
@@ -13780,12 +13786,10 @@ ChangeAxisOfPerpendicularDoorMovement_Vertical:
 #_07C228: TSB.b $50
 
 #_07C22A: LDA.b $0E
-
-#_07C22C: LSR A ; x16
+#_07C22C: LSR A
 #_07C22D: LSR A
 #_07C22E: LSR A
 #_07C22F: LSR A
-
 #_07C230: ORA.b $0E
 #_07C232: AND.b #$0F
 #_07C234: STA.b $00
@@ -15693,12 +15697,10 @@ ChangeAxisOfPerpendicularDoorMovement_Horizontal:
 #_07CBC8: TSB.b $50
 
 #_07CBCA: LDA.b $0E
-
-#_07CBCC: LSR A ; x16
+#_07CBCC: LSR A
 #_07CBCD: LSR A
 #_07CBCE: LSR A
 #_07CBCF: LSR A
-
 #_07CBD0: ORA.b $0E
 #_07CBD2: AND.b #$0F
 #_07CBD4: STA.b $00
@@ -18418,8 +18420,6 @@ TileDetection_Execute_underworld:
 .not_oob
 #_07DA03: PLA
 
-;---------------------------------------------------------------------------------------------------
-
 .oob_mode
 #_07DA04: AND.w #$00FF
 #_07DA07: STA.b $06
@@ -18717,8 +18717,6 @@ TileDetection_Execute_overworld:
 
 .not_oob
 #_07DC28: PLA
-
-;---------------------------------------------------------------------------------------------------
 
 .oob_mode
 #_07DC29: AND.w #$00FF
@@ -22607,6 +22605,7 @@ PushBlock_ApplyVelocity:
 #_07EEA0: BCC .pushing_right
 
 #_07EEA2: ORA.b #$F0
+
 #_07EEA4: LDX.b #$FF
 
 .pushing_right

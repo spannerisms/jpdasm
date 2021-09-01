@@ -2754,10 +2754,10 @@ RollerSpeed:
 
 ;---------------------------------------------------------------------------------------------------
 
-Sprite_5D_Roller_LongVertical:
-Sprite_5E_Roller_ShortVertical:
-Sprite_5F_Roller_LongHorizontal:
-Sprite_60_Roller_ShortHorizontal:
+Sprite_5D_Roller_VerticalStartUp:
+Sprite_5E_Roller_VerticalStartDown:
+Sprite_5F_Roller_HorizontalStartLeft:
+Sprite_60_Roller_HorizontalStartRight:
 #_058DDE: LDA.w $0DE0,X
 #_058DE1: AND.b #$02
 #_058DE3: STA.b $00
@@ -5371,7 +5371,7 @@ Sprite_SpawnBigSplash:
 #_059B8F: TXA
 #_059B90: STA.w $0D90,Y
 
-#_059B93: PHY ; not necessary; indicative of an old RNG, possibly SMW's
+#_059B93: PHY ; !WEIRD not necessary; indicative of an old RNG, possibly SMW's
 
 #_059B94: JSL GetRandomNumber
 
@@ -9867,10 +9867,10 @@ SpriteModule_Active_Bank05:
 #_05B61C: dw Sprite_5B_Spark_Clockwise
 #_05B61E: dw Sprite_5C_Spark_Counterclockwise
 
-#_05B620: dw Sprite_5D_Roller_LongVertical
-#_05B622: dw Sprite_5E_Roller_ShortVertical
-#_05B624: dw Sprite_5F_Roller_LongHorizontal
-#_05B626: dw Sprite_60_Roller_ShortHorizontal
+#_05B620: dw Sprite_5D_Roller_VerticalStartUp
+#_05B622: dw Sprite_5E_Roller_VerticalStartDown
+#_05B624: dw Sprite_5F_Roller_HorizontalStartLeft
+#_05B626: dw Sprite_60_Roller_HorizontalStartRight
 
 #_05B628: dw Sprite_61_Beamos
 #_05B62A: dw Sprite_62_MasterSword
@@ -12147,6 +12147,7 @@ Probe:
 #_05C203: LDA.b #$03
 #_05C205: STA.w $0D80,X
 
+; Don't trigger Blind
 #_05C208: LDA.w $0E20,X
 #_05C20B: CMP.b #!SPRITE_CE
 #_05C20D: BEQ .dont_trigger_parent
@@ -12158,6 +12159,7 @@ Probe:
 
 .dont_trigger_parent
 #_05C217: PLX
+
 #_05C218: BRA .complete_failure
 
 ;---------------------------------------------------------------------------------------------------
@@ -12268,6 +12270,7 @@ Guard_NotFalling:
 
 .tile_collision
 #_05C2A5: JSR Sprite_CheckTileCollision_Bank05
+
 #_05C2A8: BRA .continue_after_move
 
 .cant_go_over_short_tiles
@@ -12380,10 +12383,10 @@ Guard_Idle:
 
 ;===================================================================================================
 
-SomeSpeed05C331X:
+SharedGuardSpeeds_X:
 #_05C331: db   8,  -8,   0,   0
 
-SomeSpeed05C331Y:
+SharedGuardSpeeds_Y:
 #_05C335: db   0,   0,   8,  -8
 
 ;===================================================================================================
@@ -12544,10 +12547,10 @@ Guard_OnPatrol:
 .no_tile_collision
 #_05C441: LDY.w $0DE0,X
 
-#_05C444: LDA.w SomeSpeed05C331X,Y
+#_05C444: LDA.w SharedGuardSpeeds_X,Y
 #_05C447: STA.w $0D50,X
 
-#_05C44A: LDA.w SomeSpeed05C331Y,Y
+#_05C44A: LDA.w SharedGuardSpeeds_Y,Y
 #_05C44D: STA.w $0D40,X
 
 #_05C450: TYA
@@ -14112,10 +14115,10 @@ Archer_Walking:
 .no_tile_collision
 #_05CECF: LDY.w $0DE0,X
 
-#_05CED2: LDA.w SomeSpeed05C331X,Y
+#_05CED2: LDA.w SharedGuardSpeeds_X,Y
 #_05CED5: STA.w $0D50,X
 
-#_05CED8: LDA.w SomeSpeed05C331Y,Y
+#_05CED8: LDA.w SharedGuardSpeeds_Y,Y
 #_05CEDB: STA.w $0D40,X
 
 #_05CEDE: TYA
@@ -17171,29 +17174,30 @@ Uncle_GrantEquipment:
 ; ALTTP SpriteDraw format
 ;===================================================================================================
 ; Pose 1: dw XXXX, YYYY : db CHAR, PROP, ??, ??
-; Pose 2: dw XXXX, YYYY : db 
-; ...
+; Pose 2: dw XXXX, YYYY : db CHAR, PROP, ??, ??
+; etc...
+;
 ; XXXX - signed 16-bit offset of object's X position relative to its position
 ; YYYY - signed 16-bit offset of object's Y position relative to its position
-; 
+;
 ; CHAR - 8-bit character name
 ; PROP - object properties
-; 
+;
 ; $00 X position low
 ; $01 X position high
-; 
+;
 ; $02 Y position low
 ; $03 Y position high
-; 
+;
 ; $04 Properties low (EOR'd in)
 ; $05 Properties high
-; 
+;
 ; $06 Number of objects low
 ; $07 Number of objects high (always 0)
-; 
+;
 ; $08 Data pointer low
 ; $09 Data pointer high
-; 
+;
 ; $0C OAM X low
 ; $0D OAM X bit 8 (written to $0A20, X)
 ;===================================================================================================

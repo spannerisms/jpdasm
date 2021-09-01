@@ -1,6 +1,8 @@
+====================================================================================================
+
 Transfers (+4 for first byte of data)
 ----------------------------------------------------------------------------------------------------
- ROM        Size     ARAM    Data
+ ROM       Size     ARAM     Data
 ----------------------------------------------------------------------------------------------------
 $198000    $0070    $3C00    Sample pointers
 $198074    $7AA0    $4000    Sample data
@@ -28,106 +30,165 @@ Free APU RAM
 ----------------------------------------------------------------------------------------------------
  Addr     Size
 ----------------------------------------------------------------------------------------------------
-$0410    $03F0    Seems unused
+$040F    $03F1    After variables
 $2850    $0030    Before fairy theme
 $2A8C    $0074    After fairy theme
-$3188    $0A78    After Auxiliary Songs (Credits extend to $3938, leaving only $02C8)
-$BAA0    $0560    Part of samples data
+$3188    $0A78    After auxiliary songs (Credits extend to $3938, leaving only $02C8)
+$BAA0    $0560    After sample data
 
 ====================================================================================================
 
+Overworld song bank
+
+Song       ARAM     ROM         Name
 ----------------------------------------------------------------------------------------------------
- Song     Addr    ROM        Name
-----------------------------------------------------------------------------------------------------
-Overworld:
- 0x01    $D036    $1A9F2F     Triforce opening
- 0x02    $D0FF    $1A9FF8     light world
- 0x03    $D86A    $1AA763     legend theme (rain state)
- 0x04    $DCA7    $1AB4D5     bunny link
- 0x05    $DEE5    $1AADDE     lost woods
- 0x06    $E36A    $1AB263     legend theme (attract mode)
- 0x07    $E8DC    $1AB7D5     kakariko village
- 0x08    $EE11    $1ABD0A     mirror warp
- 0x09    $EF6D    $1ABE66     dark world
- 0x0A    $F813    $1AC70C     restoring the master sword
- 0x0B    $2880    $1A9CE9     faerie theme
- 0x0C    $F8F6    $1AC7EF     chase theme
- 0x0D    $2B00    $1ACCAB     skull woods
- 0x0E    $2FA6    $1AD151     game theme
- 0x0F    $FAFA    $1AC9F3     Intro no triforce
-<0x1B    $0000    ----        nothing
+SONG 01    $D036    $1A9F2F     Triforce opening
+SONG 02    $D0FF    $1A9FF8     Light world
+SONG 03    $D86A    $1AA763     Legend theme (rain state)
+SONG 04    $DCA7    $1AB4D5     Bunny link
+SONG 05    $DEE5    $1AADDE     Lost woods
+SONG 06    $E36A    $1AB263     Legend theme (attract mode)
+SONG 07    $E8DC    $1AB7D5     Kakariko village
+SONG 08    $EE11    $1ABD0A     Mirror warp
+SONG 09    $EF6D    $1ABE66     Dark world
+SONG 0A    $F813    $1AC70C     Restoring the master sword
+SONG 0B    $2880    $1A9CE9     Faerie theme
+SONG 0C    $F8F6    $1AC7EF     Chase theme
+SONG 0D    $2B00    $1ACCAB     Skull woods
+SONG 0E    $2FA6    $1AD151     Game theme
+SONG 0F    $FAFA    $1AC9F3     Intro no triforce
+SONG 10    $0000    -------     nothing
+SONG 11    $0000    -------     nothing
+SONG 12    $0000    -------     nothing
+SONG 13    $0000    -------     nothing
+SONG 14    $0000    -------     nothing
+SONG 15    $0000    -------     nothing
+SONG 16    $0000    -------     nothing
+SONG 17    $0000    -------     nothing
+SONG 18    $0000    -------     nothing
+SONG 19    $0000    -------     nothing
+SONG 1A    $0000    -------     nothing
+SONG 1B    $0000    -------     nothing
 
 ----------------------------------------------------------------------------------------------------
 
-Underworld:
-<0x0A    $0000    ----        nothing
- 0x0B    $2880    $1A9CE9     faerie theme
-<0x0F    $0000    ----        nothing
- 0x10    $D046    $1B804A     hyrule castle
- 0x11    $DBEC    $1B8BF0     pendant dungeon
- 0x12    $E13A    $1B913E     caves
- 0x13    $E431    $1B9435     fanfare
- 0x14    $E6F9    $1B96FD     sanctuary
- 0x15    $E91E    $1B9922     boss theme
- 0x16    $EC0B    $1B9C0F     dark world dungeon
- 0x17    $F1D1    $1BA1D5     fortune teller
- 0x18    $E13A    $1B913E     caves
- 0x19    $F304    $1BA308     zelda rescue
- 0x1A    $F580    $1BA584     crystal theme
- 0x1B    $F909    $1BA90D     faerie theme w/ arpeggio
- 0x1C    $FB6A    $1BAB6E     pre aga theme
- 0x1D    $2B00    $1BACC7     Agahnim escape
- 0x1E    $2F59    $1BB120     pre ganon theme
- 0x1F    $2BB3    $1BAD7A     Ganondorf the Thief
- 0x20    $0000    ----        nothing
- 0x21    $2B00    $1BACC7     Agahnim escape (unreferenced dupe)
- 0x22    $2F59    $1BB120     pre ganon theme (unreferenced dupe)
- 0x23    $2BB3    $1BAD7A     Ganondorf the Thief (unreferenced dupe)
+Underworld song bank
 
-;---------------------------------------------------------------------------------------------------
+Song       ARAM     ROM         Name
+----------------------------------------------------------------------------------------------------
+SONG 01    $0000    -------     nothing
+SONG 02    $0000    -------     nothing
+SONG 03    $0000    -------     nothing
+SONG 04    $0000    -------     nothing
+SONG 05    $0000    -------     nothing
+SONG 06    $0000    -------     nothing
+SONG 07    $0000    -------     nothing
+SONG 08    $0000    -------     nothing
+SONG 09    $0000    -------     nothing
+SONG 0A    $0000    -------     nothing
+SONG 0B    $2880    $1A9CE9     Faerie theme
+SONG 0C    $0000    -------     nothing
+SONG 0D    $0000    -------     nothing
+SONG 0E    $0000    -------     nothing
+SONG 0F    $0000    -------     nothing
+SONG 10    $D046    $1B804A     Hyrule castle
+SONG 11    $DBEC    $1B8BF0     Pendant dungeon
+SONG 12    $E13A    $1B913E     Caves
+SONG 13    $E431    $1B9435     Fanfare
+SONG 14    $E6F9    $1B96FD     Sanctuary
+SONG 15    $E91E    $1B9922     Boss theme
+SONG 16    $EC0B    $1B9C0F     Dark world dungeon
+SONG 17    $F1D1    $1BA1D5     Fortune teller
+SONG 18    $E13A    $1B913E     Caves
+SONG 19    $F304    $1BA308     Zelda rescue
+SONG 1A    $F580    $1BA584     Crystal theme
+SONG 1B    $F909    $1BA90D     Faerie theme w/ arpeggio
+SONG 1C    $FB6A    $1BAB6E     Pre aga theme
+SONG 1D    $2B00    $1BACC7     Agahnim escape
+SONG 1E    $2F59    $1BB120     Pre ganon theme
+SONG 1F    $2BB3    $1BAD7A     Ganondorf the Thief
+SONG 20    $0000    -------     nothing
+SONG 21    $2B00    $1BACC7     Agahnim escape duplicate (unused)
+SONG 22    $2F59    $1BB120     Pre ganon theme duplicate (unused)
+SONG 23    $2BB3    $1BAD7A     Ganondorf the Thief duplicate (unused)
 
-Credits:
-<0x19    $0000    ----        nothing
- 0x20    $D046    $1AD3CA     Triforce room
- 0x21    $2900    $1AE3E8     Grabbing Triforce+Cutscene
- 0x22    $D2FD    $1AD681     Credits
- 0x23    $0000    ----        nothing
+----------------------------------------------------------------------------------------------------
+
+Credits song bank
+
+Song       ARAM     ROM         Name
+----------------------------------------------------------------------------------------------------
+SONG 01    $0000    -------     nothing
+SONG 02    $0000    -------     nothing
+SONG 03    $0000    -------     nothing
+SONG 04    $0000    -------     nothing
+SONG 05    $0000    -------     nothing
+SONG 06    $0000    -------     nothing
+SONG 07    $0000    -------     nothing
+SONG 08    $0000    -------     nothing
+SONG 09    $0000    -------     nothing
+SONG 0A    $0000    -------     nothing
+SONG 0B    $0000    -------     nothing
+SONG 0C    $0000    -------     nothing
+SONG 0D    $0000    -------     nothing
+SONG 0E    $0000    -------     nothing
+SONG 0F    $0000    -------     nothing
+SONG 10    $0000    -------     nothing
+SONG 11    $0000    -------     nothing
+SONG 12    $0000    -------     nothing
+SONG 13    $0000    -------     nothing
+SONG 14    $0000    -------     nothing
+SONG 15    $0000    -------     nothing
+SONG 16    $0000    -------     nothing
+SONG 17    $0000    -------     nothing
+SONG 18    $0000    -------     nothing
+SONG 19    $0000    -------     nothing
+SONG 1A    $0000    -------     nothing
+SONG 1B    $0000    -------     nothing
+SONG 1C    $0000    -------     nothing
+SONG 1D    $0000    -------     nothing
+SONG 1E    $0000    -------     nothing
+SONG 1F    $0000    -------     nothing
+SONG 20    $D046    $1AD3CA     Triforce room
+SONG 21    $2900    $1AE3E8     Grabbing Triforce and Epilogue
+SONG 22    $D2FD    $1AD681     Credits
+SONG 23    $0000    -------     nothing
 
 ====================================================================================================
 
 Instruments:
-  LTTP has 1:1 correspondence for instrument:sample tables
-  ADSR, Gain, and Mult only apply to Song instruments
+  LTTP has 1:1 correspondence of instrument:sample refrences
+  ADSR, Gain, and Mult only apply to song instruments
   Everything else applies to the sample as a whole
 
-----------------------------------------------------------------------------------------------------
- ID    Addr   Loop  (off)     ADSR  Gain   Mult^  Name             Usage (M=Songs | S=SFX)
-----------------------------------------------------------------------------------------------------
-0x00  $4000  $4012  $0012    $FF $E0 $B8  $0470   Noise             - S
-0x01  $4048  $4063  $001B    $FF $E0 $B8  $0790   Rain              M S
-0x02  $47F2  $5395  $0BA3    $FF $E0 $B8  $09C0   Timpani           M S
-0x03  $5395  $53B0  $001B    $FF $E0 $B8  $0400   Square wave       - S
-0x04  $53D4  $53EF  $001B    $FF $E0 $B8  $0400   Saw wave          - S
-0x05  $5413  $542E  $001B    $FF $E0 $B8  $0470   Clink?            - S
-0x06  $5476  $54A3  $002D    $FF $E0 $B8  $0470   Double Saw A      M S
-0x07  $550F  $5521  $0012    $FF $E0 $B8  $0470   Double Saw B      - S
-0x08  $55B1  $5B2D  $057C*   $FF $E0 $B8  $07A0   Tweet             - S
-0x09  $5B2D  $60BB  $058E    $8F $E9 $B8  $01E0   Strings A         M -
-0x0A  $5B2D  $60BB  $058E    $8A $E9 $B8  $01E0   Strings B         M S
-0x0B  $68AD  $6C9D  $03F0    $FF $E0 $B8  $0300   Trombone          M S
-0x0C  $6CD3  $7A65  $0D92*   $FF $E0 $B8  $03A0   Cymbal            M S
-0x0D  $7A65  $7BFA  $0195    $FF $E0 $B8  $0100   Ocarina           - S
-0x0E  $7C03  $7C78  $0075    $FF $EF $B8  $0EA0   Chimes            M S
-0x0F  $7CDB  $7EA6  $01CB    $FF $EF $B8  $0600   Harp              M S
-0x10  $7EC1  $867D  $07BC*   $FF $E0 $B8  $03D0   Splash            M S
-0x11  $867D  $8D6A  $06ED    $8F $E0 $B8  $0300   Trumpet           M -
-0x12  $8D85  $944E  $06C9    $8F $E0 $B8  $06F0   Horn              M -
-0x13  $948D  $A1BC  $0D2F*   $FD $E0 $B8  $07A0   Snare             M -
-0x14  $948D  $A1BC  $0D2F*   $FF $E0 $B8  $07A0   Snare2            M S
-0x15  $A1BC  $A6E7  $052B    $FF $E0 $B8  $03D0   Choir             M S
-0x16  $AEB5  $B0D1  $021C    $8F $E0 $B8  $0300   Flute             M -
-0x17  $B0EC  $B32C  $0240*   $FF $E0 $B8  $02C0   Oof               - S
-0x18  $B32C  $BA61  $0735    $FE $8F $B8  $06F0   Guitar            M -
-
 * = Sample has no loop (loop point is end)
-^ = Big endian in APU
+^ = Pitch multiplier is in big endian
+
+----------------------------------------------------------------------------------------------------
+     ID      Addr   Loop  (off)      ADSR  Gain  Mult^     Name            Usage (M=Song | S=SFX)
+----------------------------------------------------------------------------------------------------
+SRCN 00     $4000  $4012  $0012     $FF $E0 $B8  $0470     Noise           - S
+SRCN 01     $4048  $4063  $001B     $FF $E0 $B8  $0790     Rain            M S
+SRCN 02     $47F2  $5395  $0BA3     $FF $E0 $B8  $09C0     Timpani         M S
+SRCN 03     $5395  $53B0  $001B     $FF $E0 $B8  $0400     Square wave     - S
+SRCN 04     $53D4  $53EF  $001B     $FF $E0 $B8  $0400     Saw wave        - S
+SRCN 05     $5413  $542E  $001B     $FF $E0 $B8  $0470     Clink           - S
+SRCN 06     $5476  $54A3  $002D     $FF $E0 $B8  $0470     Wobbly lead     M S
+SRCN 07     $550F  $5521  $0012     $FF $E0 $B8  $0470     Compound Saw    - S
+SRCN 08     $55B1  $5B2D  $057C*    $FF $E0 $B8  $07A0     Tweet           - S
+SRCN 09     $5B2D  $60BB  $058E     $8F $E9 $B8  $01E0     Strings A       M -
+SRCN 0A     $5B2D  $60BB  $058E     $8A $E9 $B8  $01E0     Strings B       M S
+SRCN 0B     $68AD  $6C9D  $03F0     $FF $E0 $B8  $0300     Trombone        M S
+SRCN 0C     $6CD3  $7A65  $0D92*    $FF $E0 $B8  $03A0     Cymbal          M S
+SRCN 0D     $7A65  $7BFA  $0195     $FF $E0 $B8  $0100     Ocarina         - S
+SRCN 0E     $7C03  $7C78  $0075     $FF $EF $B8  $0EA0     Chimes          M S
+SRCN 0F     $7CDB  $7EA6  $01CB     $FF $EF $B8  $0600     Harp            M S
+SRCN 10     $7EC1  $867D  $07BC*    $FF $E0 $B8  $03D0     Splash          M S
+SRCN 11     $867D  $8D6A  $06ED     $8F $E0 $B8  $0300     Trumpet         M -
+SRCN 12     $8D85  $944E  $06C9     $8F $E0 $B8  $06F0     Horn            M -
+SRCN 13     $948D  $A1BC  $0D2F*    $FD $E0 $B8  $07A0     Snare A         M -
+SRCN 14     $948D  $A1BC  $0D2F*    $FF $E0 $B8  $07A0     Snare B         M S
+SRCN 15     $A1BC  $A6E7  $052B     $FF $E0 $B8  $03D0     Choir           M S
+SRCN 16     $AEB5  $B0D1  $021C     $8F $E0 $B8  $0300     Flute           M -
+SRCN 17     $B0EC  $B32C  $0240*    $FF $E0 $B8  $02C0     Oof             - S
+SRCN 18     $B32C  $BA61  $0735     $FE $8F $B8  $06F0     Piano           M -

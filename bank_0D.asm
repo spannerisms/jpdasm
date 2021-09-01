@@ -6327,10 +6327,10 @@ SpriteData_OAMHarm:
 #_0DB0DA: db $01 ; ... $01 | 0x5A - LOST WOODS SQUIRREL
 #_0DB0DB: db $01 ; ... $01 | 0x5B - SPARK
 #_0DB0DC: db $01 ; ... $01 | 0x5C - SPARK
-#_0DB0DD: db $07 ; ... $07 | 0x5D - ROLLER LONG VERTICAL
-#_0DB0DE: db $07 ; ... $07 | 0x5E - ROLLER SHORT VERTICAL
-#_0DB0DF: db $07 ; ... $07 | 0x5F - ROLLER LONG HORIZONTAL
-#_0DB0E0: db $07 ; ... $07 | 0x60 - ROLLER SHORT HORIZONTAL
+#_0DB0DD: db $07 ; ... $07 | 0x5D - ROLLER VERTICAL UP
+#_0DB0DE: db $07 ; ... $07 | 0x5E - ROLLER VERTICAL DOWN
+#_0DB0DF: db $07 ; ... $07 | 0x5F - ROLLER HORIZONTAL LEFT
+#_0DB0E0: db $07 ; ... $07 | 0x60 - ROLLER HORIZONTAL RIGHT
 #_0DB0E1: db $00 ; ... $00 | 0x61 - BEAMOS
 #_0DB0E2: db $85 ; h.. $05 | 0x62 - MASTERSWORD
 #_0DB0E3: db $83 ; h.. $03 | 0x63 - DEBIRANDO PIT
@@ -6415,11 +6415,11 @@ SpriteData_OAMHarm:
 #_0DB132: db $A1 ; h.w $01 | 0xB2 - GOOD BEE
 #_0DB133: db $80 ; h.. $00 | 0xB3 - PEDESTAL PLAQUE
 #_0DB134: db $81 ; h.. $01 | 0xB4 - PURPLE CHEST
-#_0DB135: db $81 ; h.. $01 | 0xB5 - BOMBSHOP GUY
+#_0DB135: db $81 ; h.. $01 | 0xB5 - BOMB SHOP GUY
 #_0DB136: db $86 ; h.. $06 | 0xB6 - KIKI
 #_0DB137: db $81 ; h.. $01 | 0xB7 - BLIND MAIDEN
 #_0DB138: db $82 ; h.. $02 | 0xB8 - DIALOGUE TESTER
-#_0DB139: db $82 ; h.. $02 | 0xB9 - BULLY AND PINK BALL
+#_0DB139: db $82 ; h.. $02 | 0xB9 - BULLY / PINK BALL
 #_0DB13A: db $80 ; h.. $00 | 0xBA - WHIRLPOOL
 #_0DB13B: db $80 ; h.. $00 | 0xBB - SHOPKEEPER / CHEST GAME GUY
 #_0DB13C: db $83 ; h.. $03 | 0xBC - DRUNKARD
@@ -6472,7 +6472,7 @@ SpriteData_OAMHarm:
 #_0DB16B: db $A1 ; h.w $01 | 0xEB - HEART PIECE
 #_0DB16C: db $A1 ; h.w $01 | 0xEC - THROWN ITEM
 #_0DB16D: db $83 ; h.. $03 | 0xED - SOMARIA PLATFORM
-#_0DB16E: db $85 ; h.. $05 | 0xEE - CASTLE THRONE
+#_0DB16E: db $85 ; h.. $05 | 0xEE - CASTLE MANTLE
 #_0DB16F: db $83 ; h.. $03 | 0xEF - UNUSED SOMARIA PLATFORM
 #_0DB170: db $83 ; h.. $03 | 0xF0 - UNUSED SOMARIA PLATFORM
 #_0DB171: db $83 ; h.. $03 | 0xF1 - UNUSED SOMARIA PLATFORM
@@ -6575,10 +6575,10 @@ SpriteData_Health:
 #_0DB1CD: db   0 ; 0x5A - LOST WOODS SQUIRREL
 #_0DB1CE: db 255 ; 0x5B - SPARK
 #_0DB1CF: db 255 ; 0x5C - SPARK
-#_0DB1D0: db 255 ; 0x5D - ROLLER LONG VERTICAL
-#_0DB1D1: db 255 ; 0x5E - ROLLER SHORT VERTICAL
-#_0DB1D2: db 255 ; 0x5F - ROLLER LONG HORIZONTAL
-#_0DB1D3: db 255 ; 0x60 - ROLLER SHORT HORIZONTAL
+#_0DB1D0: db 255 ; 0x5D - ROLLER VERTICAL UP
+#_0DB1D1: db 255 ; 0x5E - ROLLER VERTICAL DOWN
+#_0DB1D2: db 255 ; 0x5F - ROLLER HORIZONTAL LEFT
+#_0DB1D3: db 255 ; 0x60 - ROLLER HORIZONTAL RIGHT
 #_0DB1D4: db 255 ; 0x61 - BEAMOS
 #_0DB1D5: db 255 ; 0x62 - MASTERSWORD
 #_0DB1D6: db 255 ; 0x63 - DEBIRANDO PIT
@@ -6663,11 +6663,11 @@ SpriteData_Health:
 #_0DB225: db   0 ; 0xB2 - GOOD BEE
 #_0DB226: db   0 ; 0xB3 - PEDESTAL PLAQUE
 #_0DB227: db   0 ; 0xB4 - PURPLE CHEST
-#_0DB228: db   0 ; 0xB5 - BOMBSHOP GUY
+#_0DB228: db   0 ; 0xB5 - BOMB SHOP GUY
 #_0DB229: db   0 ; 0xB6 - KIKI
 #_0DB22A: db   0 ; 0xB7 - BLIND MAIDEN
 #_0DB22B: db   0 ; 0xB8 - DIALOGUE TESTER
-#_0DB22C: db   0 ; 0xB9 - BULLY AND PINK BALL
+#_0DB22C: db   0 ; 0xB9 - BULLY / PINK BALL
 #_0DB22D: db   0 ; 0xBA - WHIRLPOOL
 #_0DB22E: db   0 ; 0xBB - SHOPKEEPER / CHEST GAME GUY
 #_0DB22F: db   0 ; 0xBC - DRUNKARD
@@ -6720,7 +6720,7 @@ SpriteData_Health:
 #_0DB25E: db   0 ; 0xEB - HEART PIECE
 #_0DB25F: db   0 ; 0xEC - THROWN ITEM
 #_0DB260: db   0 ; 0xED - SOMARIA PLATFORM
-#_0DB261: db   0 ; 0xEE - CASTLE THRONE
+#_0DB261: db   0 ; 0xEE - CASTLE MANTLE
 #_0DB262: db   0 ; 0xEF - UNUSED SOMARIA PLATFORM
 #_0DB263: db   0 ; 0xF0 - UNUSED SOMARIA PLATFORM
 #_0DB264: db   0 ; 0xF1 - UNUSED SOMARIA PLATFORM
@@ -6828,10 +6828,10 @@ SpriteData_Bump:
 #_0DB2C0: db $00 ; .... $0 | 0x5A - LOST WOODS SQUIRREL
 #_0DB2C1: db $04 ; .... $4 | 0x5B - SPARK
 #_0DB2C2: db $04 ; .... $4 | 0x5C - SPARK
-#_0DB2C3: db $08 ; .... $8 | 0x5D - ROLLER LONG VERTICAL
-#_0DB2C4: db $08 ; .... $8 | 0x5E - ROLLER SHORT VERTICAL
-#_0DB2C5: db $08 ; .... $8 | 0x5F - ROLLER LONG HORIZONTAL
-#_0DB2C6: db $08 ; .... $8 | 0x60 - ROLLER SHORT HORIZONTAL
+#_0DB2C3: db $08 ; .... $8 | 0x5D - ROLLER VERTICAL UP
+#_0DB2C4: db $08 ; .... $8 | 0x5E - ROLLER VERTICAL DOWN
+#_0DB2C5: db $08 ; .... $8 | 0x5F - ROLLER HORIZONTAL LEFT
+#_0DB2C6: db $08 ; .... $8 | 0x60 - ROLLER HORIZONTAL RIGHT
 #_0DB2C7: db $04 ; .... $4 | 0x61 - BEAMOS
 #_0DB2C8: db $00 ; .... $0 | 0x62 - MASTERSWORD
 #_0DB2C9: db $04 ; .... $4 | 0x63 - DEBIRANDO PIT
@@ -6916,11 +6916,11 @@ SpriteData_Bump:
 #_0DB318: db $00 ; .... $0 | 0xB2 - GOOD BEE
 #_0DB319: db $00 ; .... $0 | 0xB3 - PEDESTAL PLAQUE
 #_0DB31A: db $00 ; .... $0 | 0xB4 - PURPLE CHEST
-#_0DB31B: db $00 ; .... $0 | 0xB5 - BOMBSHOP GUY
+#_0DB31B: db $00 ; .... $0 | 0xB5 - BOMB SHOP GUY
 #_0DB31C: db $00 ; .... $0 | 0xB6 - KIKI
 #_0DB31D: db $00 ; .... $0 | 0xB7 - BLIND MAIDEN
 #_0DB31E: db $00 ; .... $0 | 0xB8 - DIALOGUE TESTER
-#_0DB31F: db $00 ; .... $0 | 0xB9 - BULLY AND PINK BALL
+#_0DB31F: db $00 ; .... $0 | 0xB9 - BULLY / PINK BALL
 #_0DB320: db $00 ; .... $0 | 0xBA - WHIRLPOOL
 #_0DB321: db $00 ; .... $0 | 0xBB - SHOPKEEPER / CHEST GAME GUY
 #_0DB322: db $00 ; .... $0 | 0xBC - DRUNKARD
@@ -6973,7 +6973,7 @@ SpriteData_Bump:
 #_0DB351: db $00 ; .... $0 | 0xEB - HEART PIECE
 #_0DB352: db $00 ; .... $0 | 0xEC - THROWN ITEM
 #_0DB353: db $00 ; .... $0 | 0xED - SOMARIA PLATFORM
-#_0DB354: db $00 ; .... $0 | 0xEE - CASTLE THRONE
+#_0DB354: db $00 ; .... $0 | 0xEE - CASTLE MANTLE
 #_0DB355: db $00 ; .... $0 | 0xEF - UNUSED SOMARIA PLATFORM
 #_0DB356: db $00 ; .... $0 | 0xF0 - UNUSED SOMARIA PLATFORM
 #_0DB357: db $00 ; .... $0 | 0xF1 - UNUSED SOMARIA PLATFORM
@@ -7082,10 +7082,10 @@ SpriteData_OAMProp:
 #_0DB3B3: db $5D ; .i.s $5, 1 | 0x5A - LOST WOODS SQUIRREL
 #_0DB3B4: db $43 ; .i.. $3, 1 | 0x5B - SPARK
 #_0DB3B5: db $43 ; .i.. $3, 1 | 0x5C - SPARK
-#_0DB3B6: db $4D ; .i.. $5, 1 | 0x5D - ROLLER LONG VERTICAL
-#_0DB3B7: db $4D ; .i.. $5, 1 | 0x5E - ROLLER SHORT VERTICAL
-#_0DB3B8: db $4D ; .i.. $5, 1 | 0x5F - ROLLER LONG HORIZONTAL
-#_0DB3B9: db $4D ; .i.. $5, 1 | 0x60 - ROLLER SHORT HORIZONTAL
+#_0DB3B6: db $4D ; .i.. $5, 1 | 0x5D - ROLLER VERTICAL UP
+#_0DB3B7: db $4D ; .i.. $5, 1 | 0x5E - ROLLER VERTICAL DOWN
+#_0DB3B8: db $4D ; .i.. $5, 1 | 0x5F - ROLLER HORIZONTAL LEFT
+#_0DB3B9: db $4D ; .i.. $5, 1 | 0x60 - ROLLER HORIZONTAL RIGHT
 #_0DB3BA: db $4D ; .i.. $5, 1 | 0x61 - BEAMOS
 #_0DB3BB: db $49 ; .i.. $1, 1 | 0x62 - MASTERSWORD
 #_0DB3BC: db $01 ; .... $1, 1 | 0x63 - DEBIRANDO PIT
@@ -7170,11 +7170,11 @@ SpriteData_OAMProp:
 #_0DB40B: db $76 ; .ios $6, 0 | 0xB2 - GOOD BEE
 #_0DB40C: db $40 ; .i.. $0, 0 | 0xB3 - PEDESTAL PLAQUE
 #_0DB40D: db $59 ; .i.s $1, 1 | 0xB4 - PURPLE CHEST
-#_0DB40E: db $41 ; .i.. $1, 1 | 0xB5 - BOMBSHOP GUY
+#_0DB40E: db $41 ; .i.. $1, 1 | 0xB5 - BOMB SHOP GUY
 #_0DB40F: db $58 ; .i.s $0, 0 | 0xB6 - KIKI
 #_0DB410: db $4F ; .i.. $7, 1 | 0xB7 - BLIND MAIDEN
 #_0DB411: db $73 ; .ios $3, 1 | 0xB8 - DIALOGUE TESTER
-#_0DB412: db $5B ; .i.s $3, 1 | 0xB9 - BULLY AND PINK BALL
+#_0DB412: db $5B ; .i.s $3, 1 | 0xB9 - BULLY / PINK BALL
 #_0DB413: db $44 ; .i.. $4, 0 | 0xBA - WHIRLPOOL
 #_0DB414: db $41 ; .i.. $1, 1 | 0xBB - SHOPKEEPER / CHEST GAME GUY
 #_0DB415: db $51 ; .i.s $1, 1 | 0xBC - DRUNKARD
@@ -7227,7 +7227,7 @@ SpriteData_OAMProp:
 #_0DB444: db $D2 ; ni.s $2, 0 | 0xEB - HEART PIECE
 #_0DB445: db $DC ; ni.s $4, 0 | 0xEC - THROWN ITEM
 #_0DB446: db $C7 ; ni.. $7, 1 | 0xED - SOMARIA PLATFORM
-#_0DB447: db $C1 ; ni.. $1, 1 | 0xEE - CASTLE THRONE
+#_0DB447: db $C1 ; ni.. $1, 1 | 0xEE - CASTLE MANTLE
 #_0DB448: db $C7 ; ni.. $7, 1 | 0xEF - UNUSED SOMARIA PLATFORM
 #_0DB449: db $C7 ; ni.. $7, 1 | 0xF0 - UNUSED SOMARIA PLATFORM
 #_0DB44A: db $C7 ; ni.. $7, 1 | 0xF1 - UNUSED SOMARIA PLATFORM
@@ -7334,10 +7334,10 @@ SpriteData_HitBox:
 #_0DB4A6: db $00 ; ... $00 | 0x5A - LOST WOODS SQUIRREL
 #_0DB4A7: db $40 ; .s. $00 | 0x5B - SPARK
 #_0DB4A8: db $40 ; .s. $00 | 0x5C - SPARK
-#_0DB4A9: db $10 ; ... $10 | 0x5D - ROLLER LONG VERTICAL
-#_0DB4AA: db $10 ; ... $10 | 0x5E - ROLLER SHORT VERTICAL
-#_0DB4AB: db $2E ; ..p $0E | 0x5F - ROLLER LONG HORIZONTAL
-#_0DB4AC: db $2E ; ..p $0E | 0x60 - ROLLER SHORT HORIZONTAL
+#_0DB4A9: db $10 ; ... $10 | 0x5D - ROLLER VERTICAL UP
+#_0DB4AA: db $10 ; ... $10 | 0x5E - ROLLER VERTICAL DOWN
+#_0DB4AB: db $2E ; ..p $0E | 0x5F - ROLLER HORIZONTAL LEFT
+#_0DB4AC: db $2E ; ..p $0E | 0x60 - ROLLER HORIZONTAL RIGHT
 #_0DB4AD: db $40 ; .s. $00 | 0x61 - BEAMOS
 #_0DB4AE: db $1E ; ... $1E | 0x62 - MASTERSWORD
 #_0DB4AF: db $53 ; .s. $13 | 0x63 - DEBIRANDO PIT
@@ -7422,11 +7422,11 @@ SpriteData_HitBox:
 #_0DB4FE: db $41 ; .s. $01 | 0xB2 - GOOD BEE
 #_0DB4FF: db $00 ; ... $00 | 0xB3 - PEDESTAL PLAQUE
 #_0DB500: db $03 ; ... $03 | 0xB4 - PURPLE CHEST
-#_0DB501: db $07 ; ... $07 | 0xB5 - BOMBSHOP GUY
+#_0DB501: db $07 ; ... $07 | 0xB5 - BOMB SHOP GUY
 #_0DB502: db $07 ; ... $07 | 0xB6 - KIKI
 #_0DB503: db $03 ; ... $03 | 0xB7 - BLIND MAIDEN
 #_0DB504: db $0A ; ... $0A | 0xB8 - DIALOGUE TESTER
-#_0DB505: db $00 ; ... $00 | 0xB9 - BULLY AND PINK BALL
+#_0DB505: db $00 ; ... $00 | 0xB9 - BULLY / PINK BALL
 #_0DB506: db $01 ; ... $01 | 0xBA - WHIRLPOOL
 #_0DB507: db $0A ; ... $0A | 0xBB - SHOPKEEPER / CHEST GAME GUY
 #_0DB508: db $0A ; ... $0A | 0xBC - DRUNKARD
@@ -7479,7 +7479,7 @@ SpriteData_HitBox:
 #_0DB537: db $C3 ; is. $03 | 0xEB - HEART PIECE
 #_0DB538: db $C0 ; is. $00 | 0xEC - THROWN ITEM
 #_0DB539: db $1B ; ... $1B | 0xED - SOMARIA PLATFORM
-#_0DB53A: db $08 ; ... $08 | 0xEE - CASTLE THRONE
+#_0DB53A: db $08 ; ... $08 | 0xEE - CASTLE MANTLE
 #_0DB53B: db $1B ; ... $1B | 0xEF - UNUSED SOMARIA PLATFORM
 #_0DB53C: db $1B ; ... $1B | 0xF0 - UNUSED SOMARIA PLATFORM
 #_0DB53D: db $1B ; ... $1B | 0xF1 - UNUSED SOMARIA PLATFORM
@@ -7590,10 +7590,10 @@ SpriteData_TileInteraction:
 #_0DB599: db $00 ; .... $0 | 0x5A - LOST WOODS SQUIRREL
 #_0DB59A: db $90 ; .... $0 | 0x5B - SPARK
 #_0DB59B: db $90 ; .... $0 | 0x5C - SPARK
-#_0DB59C: db $00 ; .... $0 | 0x5D - ROLLER LONG VERTICAL
-#_0DB59D: db $00 ; .... $0 | 0x5E - ROLLER SHORT VERTICAL
-#_0DB59E: db $00 ; .... $0 | 0x5F - ROLLER LONG HORIZONTAL
-#_0DB59F: db $00 ; .... $0 | 0x60 - ROLLER SHORT HORIZONTAL
+#_0DB59C: db $00 ; .... $0 | 0x5D - ROLLER VERTICAL UP
+#_0DB59D: db $00 ; .... $0 | 0x5E - ROLLER VERTICAL DOWN
+#_0DB59E: db $00 ; .... $0 | 0x5F - ROLLER HORIZONTAL LEFT
+#_0DB59F: db $00 ; .... $0 | 0x60 - ROLLER HORIZONTAL RIGHT
 #_0DB5A0: db $00 ; .... $0 | 0x61 - BEAMOS
 #_0DB5A1: db $00 ; .... $0 | 0x62 - MASTERSWORD
 #_0DB5A2: db $00 ; .... $0 | 0x63 - DEBIRANDO PIT
@@ -7678,11 +7678,11 @@ SpriteData_TileInteraction:
 #_0DB5F1: db $00 ; .... $0 | 0xB2 - GOOD BEE
 #_0DB5F2: db $00 ; .... $0 | 0xB3 - PEDESTAL PLAQUE
 #_0DB5F3: db $00 ; .... $0 | 0xB4 - PURPLE CHEST
-#_0DB5F4: db $00 ; .... $0 | 0xB5 - BOMBSHOP GUY
+#_0DB5F4: db $00 ; .... $0 | 0xB5 - BOMB SHOP GUY
 #_0DB5F5: db $00 ; .... $0 | 0xB6 - KIKI
 #_0DB5F6: db $00 ; .... $0 | 0xB7 - BLIND MAIDEN
 #_0DB5F7: db $00 ; .... $0 | 0xB8 - DIALOGUE TESTER
-#_0DB5F8: db $00 ; .... $0 | 0xB9 - BULLY AND PINK BALL
+#_0DB5F8: db $00 ; .... $0 | 0xB9 - BULLY / PINK BALL
 #_0DB5F9: db $00 ; .... $0 | 0xBA - WHIRLPOOL
 #_0DB5FA: db $00 ; .... $0 | 0xBB - SHOPKEEPER / CHEST GAME GUY
 #_0DB5FB: db $00 ; .... $0 | 0xBC - DRUNKARD
@@ -7735,7 +7735,7 @@ SpriteData_TileInteraction:
 #_0DB62A: db $00 ; .... $0 | 0xEB - HEART PIECE
 #_0DB62B: db $00 ; .... $0 | 0xEC - THROWN ITEM
 #_0DB62C: db $00 ; .... $0 | 0xED - SOMARIA PLATFORM
-#_0DB62D: db $00 ; .... $0 | 0xEE - CASTLE THRONE
+#_0DB62D: db $00 ; .... $0 | 0xEE - CASTLE MANTLE
 #_0DB62E: db $00 ; .... $0 | 0xEF - UNUSED SOMARIA PLATFORM
 #_0DB62F: db $00 ; .... $0 | 0xF0 - UNUSED SOMARIA PLATFORM
 #_0DB630: db $00 ; .... $0 | 0xF1 - UNUSED SOMARIA PLATFORM
@@ -7843,10 +7843,10 @@ SpriteData_PrizePack:
 #_0DB68C: db $80 ; i... $0 | 0x5A - LOST WOODS SQUIRREL
 #_0DB68D: db $80 ; i... $0 | 0x5B - SPARK
 #_0DB68E: db $80 ; i... $0 | 0x5C - SPARK
-#_0DB68F: db $80 ; i... $0 | 0x5D - ROLLER LONG VERTICAL
-#_0DB690: db $80 ; i... $0 | 0x5E - ROLLER SHORT VERTICAL
-#_0DB691: db $80 ; i... $0 | 0x5F - ROLLER LONG HORIZONTAL
-#_0DB692: db $80 ; i... $0 | 0x60 - ROLLER SHORT HORIZONTAL
+#_0DB68F: db $80 ; i... $0 | 0x5D - ROLLER VERTICAL UP
+#_0DB690: db $80 ; i... $0 | 0x5E - ROLLER VERTICAL DOWN
+#_0DB691: db $80 ; i... $0 | 0x5F - ROLLER HORIZONTAL LEFT
+#_0DB692: db $80 ; i... $0 | 0x60 - ROLLER HORIZONTAL RIGHT
 #_0DB693: db $00 ; .... $0 | 0x61 - BEAMOS
 #_0DB694: db $80 ; i... $0 | 0x62 - MASTERSWORD
 #_0DB695: db $80 ; i... $0 | 0x63 - DEBIRANDO PIT
@@ -7931,11 +7931,11 @@ SpriteData_PrizePack:
 #_0DB6E4: db $80 ; i... $0 | 0xB2 - GOOD BEE
 #_0DB6E5: db $80 ; i... $0 | 0xB3 - PEDESTAL PLAQUE
 #_0DB6E6: db $00 ; .... $0 | 0xB4 - PURPLE CHEST
-#_0DB6E7: db $00 ; .... $0 | 0xB5 - BOMBSHOP GUY
+#_0DB6E7: db $00 ; .... $0 | 0xB5 - BOMB SHOP GUY
 #_0DB6E8: db $00 ; .... $0 | 0xB6 - KIKI
 #_0DB6E9: db $00 ; .... $0 | 0xB7 - BLIND MAIDEN
 #_0DB6EA: db $00 ; .... $0 | 0xB8 - DIALOGUE TESTER
-#_0DB6EB: db $00 ; .... $0 | 0xB9 - BULLY AND PINK BALL
+#_0DB6EB: db $00 ; .... $0 | 0xB9 - BULLY / PINK BALL
 #_0DB6EC: db $00 ; .... $0 | 0xBA - WHIRLPOOL
 #_0DB6ED: db $00 ; .... $0 | 0xBB - SHOPKEEPER / CHEST GAME GUY
 #_0DB6EE: db $00 ; .... $0 | 0xBC - DRUNKARD
@@ -7988,7 +7988,7 @@ SpriteData_PrizePack:
 #_0DB71D: db $00 ; .... $0 | 0xEB - HEART PIECE
 #_0DB71E: db $80 ; i... $0 | 0xEC - THROWN ITEM
 #_0DB71F: db $00 ; .... $0 | 0xED - SOMARIA PLATFORM
-#_0DB720: db $00 ; .... $0 | 0xEE - CASTLE THRONE
+#_0DB720: db $00 ; .... $0 | 0xEE - CASTLE MANTLE
 #_0DB721: db $00 ; .... $0 | 0xEF - UNUSED SOMARIA PLATFORM
 #_0DB722: db $00 ; .... $0 | 0xF0 - UNUSED SOMARIA PLATFORM
 #_0DB723: db $00 ; .... $0 | 0xF1 - UNUSED SOMARIA PLATFORM
@@ -8099,10 +8099,10 @@ SpriteData_Deflection:
 #_0DB77F: db $00 ; .... .... | 0x5A - LOST WOODS SQUIRREL
 #_0DB780: db $00 ; .... .... | 0x5B - SPARK
 #_0DB781: db $00 ; .... .... | 0x5C - SPARK
-#_0DB782: db $84 ; a... .h.. | 0x5D - ROLLER LONG VERTICAL
-#_0DB783: db $84 ; a... .h.. | 0x5E - ROLLER SHORT VERTICAL
-#_0DB784: db $84 ; a... .h.. | 0x5F - ROLLER LONG HORIZONTAL
-#_0DB785: db $84 ; a... .h.. | 0x60 - ROLLER SHORT HORIZONTAL
+#_0DB782: db $84 ; a... .h.. | 0x5D - ROLLER VERTICAL UP
+#_0DB783: db $84 ; a... .h.. | 0x5E - ROLLER VERTICAL DOWN
+#_0DB784: db $84 ; a... .h.. | 0x5F - ROLLER HORIZONTAL LEFT
+#_0DB785: db $84 ; a... .h.. | 0x60 - ROLLER HORIZONTAL RIGHT
 #_0DB786: db $08 ; .... c... | 0x61 - BEAMOS
 #_0DB787: db $80 ; a... .... | 0x62 - MASTERSWORD
 #_0DB788: db $80 ; a... .... | 0x63 - DEBIRANDO PIT
@@ -8187,11 +8187,11 @@ SpriteData_Deflection:
 #_0DB7D7: db $82 ; a... ..b. | 0xB2 - GOOD BEE
 #_0DB7D8: db $80 ; a... .... | 0xB3 - PEDESTAL PLAQUE
 #_0DB7D9: db $00 ; .... .... | 0xB4 - PURPLE CHEST
-#_0DB7DA: db $00 ; .... .... | 0xB5 - BOMBSHOP GUY
+#_0DB7DA: db $00 ; .... .... | 0xB5 - BOMB SHOP GUY
 #_0DB7DB: db $80 ; a... .... | 0xB6 - KIKI
 #_0DB7DC: db $00 ; .... .... | 0xB7 - BLIND MAIDEN
 #_0DB7DD: db $00 ; .... .... | 0xB8 - DIALOGUE TESTER
-#_0DB7DE: db $80 ; a... .... | 0xB9 - BULLY AND PINK BALL
+#_0DB7DE: db $80 ; a... .... | 0xB9 - BULLY / PINK BALL
 #_0DB7DF: db $80 ; a... .... | 0xBA - WHIRLPOOL
 #_0DB7E0: db $00 ; .... .... | 0xBB - SHOPKEEPER / CHEST GAME GUY
 #_0DB7E1: db $00 ; .... .... | 0xBC - DRUNKARD
@@ -8244,7 +8244,7 @@ SpriteData_Deflection:
 #_0DB810: db $82 ; a... ..b. | 0xEB - HEART PIECE
 #_0DB811: db $08 ; .... c... | 0xEC - THROWN ITEM
 #_0DB812: db $80 ; a... .... | 0xED - SOMARIA PLATFORM
-#_0DB813: db $20 ; ..s. .... | 0xEE - CASTLE THRONE
+#_0DB813: db $20 ; ..s. .... | 0xEE - CASTLE MANTLE
 #_0DB814: db $80 ; a... .... | 0xEF - UNUSED SOMARIA PLATFORM
 #_0DB815: db $80 ; a... .... | 0xF0 - UNUSED SOMARIA PLATFORM
 #_0DB816: db $80 ; a... .... | 0xF1 - UNUSED SOMARIA PLATFORM
@@ -14952,7 +14952,7 @@ ItemMenu_DrawYItems:
 #_0DE536: AND.w #$00FF
 #_0DE539: STA.b $02
 
-#_0DE53B: LDA.w #ItemMenu_ItemIcons_quake
+#_0DE53B: LDA.w #ItemMenu_ItemIcons_ether
 #_0DE53E: STA.b $04
 
 #_0DE540: JSR ItemMenu_DrawItem
@@ -14966,7 +14966,7 @@ ItemMenu_DrawYItems:
 #_0DE54C: AND.w #$00FF
 #_0DE54F: STA.b $02
 
-#_0DE551: LDA.w #ItemMenu_ItemIcons_ether
+#_0DE551: LDA.w #ItemMenu_ItemIcons_quake
 #_0DE554: STA.b $04
 
 #_0DE556: JSR ItemMenu_DrawItem
@@ -16168,13 +16168,13 @@ NotAsGoodAsSMT029032:
 
 ;===================================================================================================
 
-ItemMenu_Word_EQUIPMENT:
+ItemMenu_EQUIPMENT:
 #_0DED09: dw $2479, $247A, $247B, $247C
 #_0DED11: dw $248C, $24F5, $24F5, $24F5
 
 ;===================================================================================================
 
-ItemMenu_Word_DUNGEONITEM:
+ItemMenu_DUNGEONITEM:
 #_0DED19: dw $2469, $246A, $246B, $246C
 #_0DED21: dw $246D, $246E, $246F, $24F5
 
@@ -16282,11 +16282,11 @@ ItemMenu_DrawEquipment:
 #_0DEDB4: LDY.w #$0007
 
 .next_label_letter
-#_0DEDB7: LDA.w ItemMenu_Word_EQUIPMENT,X
+#_0DEDB7: LDA.w ItemMenu_EQUIPMENT,X
 #_0DEDBA: AND.b $00
 #_0DEDBC: STA.w $15AC,X
 
-#_0DEDBF: LDA.w ItemMenu_Word_DUNGEONITEM,X
+#_0DEDBF: LDA.w ItemMenu_DUNGEONITEM,X
 #_0DEDC2: AND.b $00
 #_0DEDC4: STA.w $16AC,X
 
@@ -16417,11 +16417,11 @@ ItemMenu_DrawMapAndBigKey:
 
 #_0DEE66: LDA.l $7EF366
 
-.look_for_next_key
+.shift_for_key
 #_0DEE6A: ASL A
 
 #_0DEE6B: DEX
-#_0DEE6C: BPL .look_for_next_key
+#_0DEE6C: BPL .shift_for_key
 
 #_0DEE6E: BCC .no_big_key
 
@@ -17247,13 +17247,13 @@ ItemMenu_ItemIcons:
 #_0DF6E1: dw $20F5, $20F5, $20F5, $20F5 ; No bombos
 #_0DF6E9: dw $287D, $287E, $E87E, $E87D ; Bombos
 
-.quake
-#_0DF6F1: dw $20F5, $20F5, $20F5, $20F5 ; No quake
-#_0DF6F9: dw $2876, $2877, $E877, $E876 ; Quake
-
 .ether
-#_0DF701: dw $20F5, $20F5, $20F5, $20F5 ; No ether
-#_0DF709: dw $2866, $2867, $E867, $E866 ; Ether
+#_0DF6F1: dw $20F5, $20F5, $20F5, $20F5 ; No ether
+#_0DF6F9: dw $2876, $2877, $E877, $E876 ; Ether
+
+.quake
+#_0DF701: dw $20F5, $20F5, $20F5, $20F5 ; No quake
+#_0DF709: dw $2866, $2867, $E867, $E866 ; Quake
 
 .lamp
 #_0DF711: dw $20F5, $20F5, $20F5, $20F5 ; No lamp
@@ -17554,7 +17554,7 @@ RebuildHUD:
 #_0DFA93: LDA.w #$0149
 #_0DFA96: LDX.w #HUD_TilemapTemplate
 #_0DFA99: LDY.w #$7EC700
-#_0DFA9C: %MVN($0D, $7E)
+#_0DFA9C: %MVN(HUD_TilemapTemplate>>16, $7E) ; MVN $0D, $7E
 
 #_0DFA9F: PLB ; PLB : PHB useless here
 #_0DFAA0: PHB
@@ -17596,8 +17596,8 @@ ItemMenu_ItemGFXPointers:
 #_0DFABD: dw ItemMenu_ItemIcons_fire_rod
 #_0DFABF: dw ItemMenu_ItemIcons_ice_rod
 #_0DFAC1: dw ItemMenu_ItemIcons_bombos
-#_0DFAC3: dw ItemMenu_ItemIcons_quake
-#_0DFAC5: dw ItemMenu_ItemIcons_ether
+#_0DFAC3: dw ItemMenu_ItemIcons_ether
+#_0DFAC5: dw ItemMenu_ItemIcons_quake
 
 #_0DFAC7: dw ItemMenu_ItemIcons_lamp
 #_0DFAC9: dw ItemMenu_ItemIcons_hammer

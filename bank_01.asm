@@ -5,914 +5,914 @@ org $018000
 DrawObjects:
 
 .type1_subtype_1_data_offset
-#_018000: dw $03D8 ; 0000
-#_018002: dw $02E8 ; 0001
-#_018004: dw $02F8 ; 0002
-#_018006: dw $0328 ; 0003
-#_018008: dw $0338 ; 0004
-#_01800A: dw $0400 ; 0005
-#_01800C: dw $0410 ; 0006
-#_01800E: dw $0388 ; 0007
-#_018010: dw $0390 ; 0008
-#_018012: dw $0420 ; 0009
-#_018014: dw $042A ; 000A
-#_018016: dw $0434 ; 000B
-#_018018: dw $043E ; 000C
-#_01801A: dw $0448 ; 000D
-#_01801C: dw $0452 ; 000E
-#_01801E: dw $045C ; 000F
-#_018020: dw $0466 ; 0010
-#_018022: dw $0470 ; 0011
-#_018024: dw $047A ; 0012
-#_018026: dw $0484 ; 0013
-#_018028: dw $048E ; 0014
-#_01802A: dw $0498 ; 0015
-#_01802C: dw $04A2 ; 0016
-#_01802E: dw $04AC ; 0017
-#_018030: dw $04B6 ; 0018
-#_018032: dw $04C0 ; 0019
-#_018034: dw $04CA ; 001A
-#_018036: dw $04D4 ; 001B
-#_018038: dw $04DE ; 001C
-#_01803A: dw $04E8 ; 001D
-#_01803C: dw $04F2 ; 001E
-#_01803E: dw $04FC ; 001F
-#_018040: dw $0506 ; 0020
-#_018042: dw $0598 ; 0021
-#_018044: dw $0600 ; 0022
-#_018046: dw $063C ; 0023
-#_018048: dw $063C ; 0024
-#_01804A: dw $063C ; 0025
-#_01804C: dw $063C ; 0026
-#_01804E: dw $063C ; 0027
-#_018050: dw $0642 ; 0028
-#_018052: dw $064C ; 0029
-#_018054: dw $0652 ; 002A
-#_018056: dw $0658 ; 002B
-#_018058: dw $065E ; 002C
-#_01805A: dw $0664 ; 002D
-#_01805C: dw $066A ; 002E
-#_01805E: dw $0688 ; 002F
-#_018060: dw $0694 ; 0030
-#_018062: dw $06A8 ; 0031
-#_018064: dw $06A8 ; 0032
-#_018066: dw $06A8 ; 0033
-#_018068: dw $06C8 ; 0034
-#_01806A: dw $0000 ; 0035
-#_01806C: dw $078A ; 0036
-#_01806E: dw $07AA ; 0037
-#_018070: dw $0E26 ; 0038
-#_018072: dw $084A ; 0039
-#_018074: dw $086A ; 003A
-#_018076: dw $0882 ; 003B
-#_018078: dw $08CA ; 003C
-#_01807A: dw $085A ; 003D
-#_01807C: dw $08FA ; 003E
-#_01807E: dw $091A ; 003F
-#_018080: dw $0920 ; 0040
-#_018082: dw $092A ; 0041
-#_018084: dw $0930 ; 0042
-#_018086: dw $0936 ; 0043
-#_018088: dw $093C ; 0044
-#_01808A: dw $0942 ; 0045
-#_01808C: dw $0948 ; 0046
-#_01808E: dw $094E ; 0047
-#_018090: dw $096C ; 0048
-#_018092: dw $097E ; 0049
-#_018094: dw $098E ; 004A
-#_018096: dw $0902 ; 004B
-#_018098: dw $099E ; 004C
-#_01809A: dw $09D8 ; 004D
-#_01809C: dw $09D8 ; 004E
-#_01809E: dw $09D8 ; 004F
-#_0180A0: dw $09FA ; 0050
-#_0180A2: dw $156C ; 0051
-#_0180A4: dw $1590 ; 0052
-#_0180A6: dw $1D86 ; 0053
-#_0180A8: dw $0000 ; 0054
-#_0180AA: dw $0A14 ; 0055
-#_0180AC: dw $0A24 ; 0056
-#_0180AE: dw $0A54 ; 0057
-#_0180B0: dw $0A54 ; 0058
-#_0180B2: dw $0A84 ; 0059
-#_0180B4: dw $0A84 ; 005A
-#_0180B6: dw $14DC ; 005B
-#_0180B8: dw $1500 ; 005C
-#_0180BA: dw $061E ; 005D
-#_0180BC: dw $0E52 ; 005E
-#_0180BE: dw $0600 ; 005F
-#_0180C0: dw $03D8 ; 0060
-#_0180C2: dw $02C8 ; 0061
-#_0180C4: dw $02D8 ; 0062
-#_0180C6: dw $0308 ; 0063
-#_0180C8: dw $0318 ; 0064
-#_0180CA: dw $03E0 ; 0065
-#_0180CC: dw $03F0 ; 0066
-#_0180CE: dw $0378 ; 0067
-#_0180D0: dw $0380 ; 0068
-#_0180D2: dw $05FA ; 0069
-#_0180D4: dw $0648 ; 006A
-#_0180D6: dw $064A ; 006B
-#_0180D8: dw $0670 ; 006C
-#_0180DA: dw $067C ; 006D
-#_0180DC: dw $06A8 ; 006E
-#_0180DE: dw $06A8 ; 006F
-#_0180E0: dw $06A8 ; 0070
-#_0180E2: dw $06C8 ; 0071
-#_0180E4: dw $0000 ; 0072
-#_0180E6: dw $07AA ; 0073
-#_0180E8: dw $07CA ; 0074
-#_0180EA: dw $084A ; 0075
-#_0180EC: dw $089A ; 0076
-#_0180EE: dw $08B2 ; 0077
-#_0180F0: dw $090A ; 0078
-#_0180F2: dw $0926 ; 0079
-#_0180F4: dw $0928 ; 007A
-#_0180F6: dw $0912 ; 007B
-#_0180F8: dw $09F8 ; 007C
-#_0180FA: dw $1D7E ; 007D
-#_0180FC: dw $0000 ; 007E
-#_0180FE: dw $0A34 ; 007F
-#_018100: dw $0A44 ; 0080
-#_018102: dw $0A54 ; 0081
-#_018104: dw $0A6C ; 0082
-#_018106: dw $0A84 ; 0083
-#_018108: dw $0A9C ; 0084
-#_01810A: dw $1524 ; 0085
-#_01810C: dw $1548 ; 0086
-#_01810E: dw $085A ; 0087
-#_018110: dw $0606 ; 0088
-#_018112: dw $0E52 ; 0089
-#_018114: dw $05FA ; 008A
-#_018116: dw $06A0 ; 008B
-#_018118: dw $06A2 ; 008C
-#_01811A: dw $0B12 ; 008D
-#_01811C: dw $0B14 ; 008E
-#_01811E: dw $09B0 ; 008F
-#_018120: dw $0B46 ; 0090
-#_018122: dw $0B56 ; 0091
-#_018124: dw $1F52 ; 0092
-#_018126: dw $1F5A ; 0093
-#_018128: dw $0288 ; 0094
-#_01812A: dw $0E82 ; 0095
-#_01812C: dw $1DF2 ; 0096
-#_01812E: dw $0000 ; 0097
-#_018130: dw $0000 ; 0098
-#_018132: dw $0000 ; 0099
-#_018134: dw $0000 ; 009A
-#_018136: dw $0000 ; 009B
-#_018138: dw $0000 ; 009C
-#_01813A: dw $0000 ; 009D
-#_01813C: dw $0000 ; 009E
-#_01813E: dw $0000 ; 009F
-#_018140: dw $03D8 ; 00A0
-#_018142: dw $03D8 ; 00A1
-#_018144: dw $03D8 ; 00A2
-#_018146: dw $03D8 ; 00A3
-#_018148: dw $05AA ; 00A4
-#_01814A: dw $05B2 ; 00A5
-#_01814C: dw $05B2 ; 00A6
-#_01814E: dw $05B2 ; 00A7
-#_018150: dw $05B2 ; 00A8
-#_018152: dw $00E0 ; 00A9
-#_018154: dw $00E0 ; 00AA
-#_018156: dw $00E0 ; 00AB
-#_018158: dw $00E0 ; 00AC
-#_01815A: dw $0110 ; 00AD
-#_01815C: dw $0000 ; 00AE
-#_01815E: dw $0000 ; 00AF
-#_018160: dw $06A4 ; 00B0
-#_018162: dw $06A6 ; 00B1
-#_018164: dw $0AE6 ; 00B2
-#_018166: dw $0B06 ; 00B3
-#_018168: dw $0B0C ; 00B4
-#_01816A: dw $0B16 ; 00B5
-#_01816C: dw $0B26 ; 00B6
-#_01816E: dw $0B36 ; 00B7
-#_018170: dw $1F52 ; 00B8
-#_018172: dw $1F5A ; 00B9
-#_018174: dw $0288 ; 00BA
-#_018176: dw $0EBA ; 00BB
-#_018178: dw $0E82 ; 00BC
-#_01817A: dw $1DF2 ; 00BD
-#_01817C: dw $0000 ; 00BE
-#_01817E: dw $0000 ; 00BF
-#_018180: dw $03D8 ; 00C0
-#_018182: dw $0510 ; 00C1
-#_018184: dw $05AA ; 00C2
-#_018186: dw $05AA ; 00C3
-#_018188: dw $0000 ; 00C4
-#_01818A: dw $0168 ; 00C5
-#_01818C: dw $00E0 ; 00C6
-#_01818E: dw $0158 ; 00C7
-#_018190: dw $0100 ; 00C8
-#_018192: dw $0110 ; 00C9
-#_018194: dw $0178 ; 00CA
-#_018196: dw $072A ; 00CB
-#_018198: dw $072A ; 00CC
-#_01819A: dw $072A ; 00CD
-#_01819C: dw $075A ; 00CE
-#_01819E: dw $0670 ; 00CF
-#_0181A0: dw $0670 ; 00D0
-#_0181A2: dw $0130 ; 00D1
-#_0181A4: dw $0148 ; 00D2
-#_0181A6: dw $072A ; 00D3
-#_0181A8: dw $072A ; 00D4
-#_0181AA: dw $072A ; 00D5
-#_0181AC: dw $075A ; 00D6
-#_0181AE: dw $00E0 ; 00D7
-#_0181B0: dw $0110 ; 00D8
-#_0181B2: dw $00F0 ; 00D9
-#_0181B4: dw $0110 ; 00DA
-#_0181B6: dw $0000 ; 00DB
-#_0181B8: dw $0AB4 ; 00DC
-#_0181BA: dw $08DA ; 00DD
-#_0181BC: dw $0ADE ; 00DE
-#_0181BE: dw $0188 ; 00DF
-#_0181C0: dw $01A0 ; 00E0
-#_0181C2: dw $01B0 ; 00E1
-#_0181C4: dw $01C0 ; 00E2
-#_0181C6: dw $01D0 ; 00E3
-#_0181C8: dw $01E0 ; 00E4
-#_0181CA: dw $01F0 ; 00E5
-#_0181CC: dw $0200 ; 00E6
-#_0181CE: dw $0120 ; 00E7
-#_0181D0: dw $02A8 ; 00E8
-#_0181D2: dw $0000 ; 00E9
-#_0181D4: dw $0000 ; 00EA
-#_0181D6: dw $0000 ; 00EB
-#_0181D8: dw $0000 ; 00EC
-#_0181DA: dw $0000 ; 00ED
-#_0181DC: dw $0000 ; 00EE
-#_0181DE: dw $0000 ; 00EF
-#_0181E0: dw $0000 ; 00F0
-#_0181E2: dw $0000 ; 00F1
-#_0181E4: dw $0000 ; 00F2
-#_0181E6: dw $0000 ; 00F3
-#_0181E8: dw $0000 ; 00F4
-#_0181EA: dw $0000 ; 00F5
-#_0181EC: dw $0000 ; 00F6
-#_0181EE: dw $0000 ; 00F7
-#_0181F0: dw $0000 ; 00F8
-#_0181F2: dw $0000 ; 00F9
-#_0181F4: dw $0000 ; 00FA
-#_0181F6: dw $0000 ; 00FB
-#_0181F8: dw $0000 ; 00FC
-#_0181FA: dw $0000 ; 00FD
-#_0181FC: dw $0000 ; 00FE
-#_0181FE: dw $0000 ; 00FF
+#_018000: dw $03D8 ; 000 - 
+#_018002: dw $02E8 ; 001 - 
+#_018004: dw $02F8 ; 002 - 
+#_018006: dw $0328 ; 003 - 
+#_018008: dw $0338 ; 004 - 
+#_01800A: dw $0400 ; 005 - 
+#_01800C: dw $0410 ; 006 - 
+#_01800E: dw $0388 ; 007 - 
+#_018010: dw $0390 ; 008 - 
+#_018012: dw $0420 ; 009 - 
+#_018014: dw $042A ; 00A - 
+#_018016: dw $0434 ; 00B - 
+#_018018: dw $043E ; 00C - 
+#_01801A: dw $0448 ; 00D - 
+#_01801C: dw $0452 ; 00E - 
+#_01801E: dw $045C ; 00F - 
+#_018020: dw $0466 ; 010 - 
+#_018022: dw $0470 ; 011 - 
+#_018024: dw $047A ; 012 - 
+#_018026: dw $0484 ; 013 - 
+#_018028: dw $048E ; 014 - 
+#_01802A: dw $0498 ; 015 - 
+#_01802C: dw $04A2 ; 016 - 
+#_01802E: dw $04AC ; 017 - 
+#_018030: dw $04B6 ; 018 - 
+#_018032: dw $04C0 ; 019 - 
+#_018034: dw $04CA ; 01A - 
+#_018036: dw $04D4 ; 01B - 
+#_018038: dw $04DE ; 01C - 
+#_01803A: dw $04E8 ; 01D - 
+#_01803C: dw $04F2 ; 01E - 
+#_01803E: dw $04FC ; 01F - 
+#_018040: dw $0506 ; 020 - 
+#_018042: dw $0598 ; 021 - 
+#_018044: dw $0600 ; 022 - 
+#_018046: dw $063C ; 023 - 
+#_018048: dw $063C ; 024 - 
+#_01804A: dw $063C ; 025 - 
+#_01804C: dw $063C ; 026 - 
+#_01804E: dw $063C ; 027 - 
+#_018050: dw $0642 ; 028 - 
+#_018052: dw $064C ; 029 - 
+#_018054: dw $0652 ; 02A - 
+#_018056: dw $0658 ; 02B - 
+#_018058: dw $065E ; 02C - 
+#_01805A: dw $0664 ; 02D - 
+#_01805C: dw $066A ; 02E - 
+#_01805E: dw $0688 ; 02F - 
+#_018060: dw $0694 ; 030 - 
+#_018062: dw $06A8 ; 031 - 
+#_018064: dw $06A8 ; 032 - 
+#_018066: dw $06A8 ; 033 - 
+#_018068: dw $06C8 ; 034 - 
+#_01806A: dw $0000 ; 035 - 
+#_01806C: dw $078A ; 036 - 
+#_01806E: dw $07AA ; 037 - 
+#_018070: dw $0E26 ; 038 - 
+#_018072: dw $084A ; 039 - 
+#_018074: dw $086A ; 03A - 
+#_018076: dw $0882 ; 03B - 
+#_018078: dw $08CA ; 03C - 
+#_01807A: dw $085A ; 03D - 
+#_01807C: dw $08FA ; 03E - 
+#_01807E: dw $091A ; 03F - 
+#_018080: dw $0920 ; 040 - 
+#_018082: dw $092A ; 041 - 
+#_018084: dw $0930 ; 042 - 
+#_018086: dw $0936 ; 043 - 
+#_018088: dw $093C ; 044 - 
+#_01808A: dw $0942 ; 045 - 
+#_01808C: dw $0948 ; 046 - 
+#_01808E: dw $094E ; 047 - 
+#_018090: dw $096C ; 048 - 
+#_018092: dw $097E ; 049 - 
+#_018094: dw $098E ; 04A - 
+#_018096: dw $0902 ; 04B - 
+#_018098: dw $099E ; 04C - 
+#_01809A: dw $09D8 ; 04D - 
+#_01809C: dw $09D8 ; 04E - 
+#_01809E: dw $09D8 ; 04F - 
+#_0180A0: dw $09FA ; 050 - 
+#_0180A2: dw $156C ; 051 - 
+#_0180A4: dw $1590 ; 052 - 
+#_0180A6: dw $1D86 ; 053 - 
+#_0180A8: dw $0000 ; 054 - 
+#_0180AA: dw $0A14 ; 055 - 
+#_0180AC: dw $0A24 ; 056 - 
+#_0180AE: dw $0A54 ; 057 - 
+#_0180B0: dw $0A54 ; 058 - 
+#_0180B2: dw $0A84 ; 059 - 
+#_0180B4: dw $0A84 ; 05A - 
+#_0180B6: dw $14DC ; 05B - 
+#_0180B8: dw $1500 ; 05C - 
+#_0180BA: dw $061E ; 05D - 
+#_0180BC: dw $0E52 ; 05E - 
+#_0180BE: dw $0600 ; 05F - 
+#_0180C0: dw $03D8 ; 060 - 
+#_0180C2: dw $02C8 ; 061 - 
+#_0180C4: dw $02D8 ; 062 - 
+#_0180C6: dw $0308 ; 063 - 
+#_0180C8: dw $0318 ; 064 - 
+#_0180CA: dw $03E0 ; 065 - 
+#_0180CC: dw $03F0 ; 066 - 
+#_0180CE: dw $0378 ; 067 - 
+#_0180D0: dw $0380 ; 068 - 
+#_0180D2: dw $05FA ; 069 - 
+#_0180D4: dw $0648 ; 06A - 
+#_0180D6: dw $064A ; 06B - 
+#_0180D8: dw $0670 ; 06C - 
+#_0180DA: dw $067C ; 06D - 
+#_0180DC: dw $06A8 ; 06E - 
+#_0180DE: dw $06A8 ; 06F - 
+#_0180E0: dw $06A8 ; 070 - 
+#_0180E2: dw $06C8 ; 071 - 
+#_0180E4: dw $0000 ; 072 - 
+#_0180E6: dw $07AA ; 073 - 
+#_0180E8: dw $07CA ; 074 - 
+#_0180EA: dw $084A ; 075 - 
+#_0180EC: dw $089A ; 076 - 
+#_0180EE: dw $08B2 ; 077 - 
+#_0180F0: dw $090A ; 078 - 
+#_0180F2: dw $0926 ; 079 - 
+#_0180F4: dw $0928 ; 07A - 
+#_0180F6: dw $0912 ; 07B - 
+#_0180F8: dw $09F8 ; 07C - 
+#_0180FA: dw $1D7E ; 07D - 
+#_0180FC: dw $0000 ; 07E - 
+#_0180FE: dw $0A34 ; 07F - 
+#_018100: dw $0A44 ; 080 - 
+#_018102: dw $0A54 ; 081 - 
+#_018104: dw $0A6C ; 082 - 
+#_018106: dw $0A84 ; 083 - 
+#_018108: dw $0A9C ; 084 - 
+#_01810A: dw $1524 ; 085 - 
+#_01810C: dw $1548 ; 086 - 
+#_01810E: dw $085A ; 087 - 
+#_018110: dw $0606 ; 088 - 
+#_018112: dw $0E52 ; 089 - 
+#_018114: dw $05FA ; 08A - 
+#_018116: dw $06A0 ; 08B - 
+#_018118: dw $06A2 ; 08C - 
+#_01811A: dw $0B12 ; 08D - 
+#_01811C: dw $0B14 ; 08E - 
+#_01811E: dw $09B0 ; 08F - 
+#_018120: dw $0B46 ; 090 - 
+#_018122: dw $0B56 ; 091 - 
+#_018124: dw $1F52 ; 092 - 
+#_018126: dw $1F5A ; 093 - 
+#_018128: dw $0288 ; 094 - 
+#_01812A: dw $0E82 ; 095 - 
+#_01812C: dw $1DF2 ; 096 - 
+#_01812E: dw $0000 ; 097 - 
+#_018130: dw $0000 ; 098 - 
+#_018132: dw $0000 ; 099 - 
+#_018134: dw $0000 ; 09A - 
+#_018136: dw $0000 ; 09B - 
+#_018138: dw $0000 ; 09C - 
+#_01813A: dw $0000 ; 09D - 
+#_01813C: dw $0000 ; 09E - 
+#_01813E: dw $0000 ; 09F - 
+#_018140: dw $03D8 ; 0A0 - 
+#_018142: dw $03D8 ; 0A1 - 
+#_018144: dw $03D8 ; 0A2 - 
+#_018146: dw $03D8 ; 0A3 - 
+#_018148: dw $05AA ; 0A4 - 
+#_01814A: dw $05B2 ; 0A5 - 
+#_01814C: dw $05B2 ; 0A6 - 
+#_01814E: dw $05B2 ; 0A7 - 
+#_018150: dw $05B2 ; 0A8 - 
+#_018152: dw $00E0 ; 0A9 - 
+#_018154: dw $00E0 ; 0AA - 
+#_018156: dw $00E0 ; 0AB - 
+#_018158: dw $00E0 ; 0AC - 
+#_01815A: dw $0110 ; 0AD - 
+#_01815C: dw $0000 ; 0AE - 
+#_01815E: dw $0000 ; 0AF - 
+#_018160: dw $06A4 ; 0B0 - 
+#_018162: dw $06A6 ; 0B1 - 
+#_018164: dw $0AE6 ; 0B2 - 
+#_018166: dw $0B06 ; 0B3 - 
+#_018168: dw $0B0C ; 0B4 - 
+#_01816A: dw $0B16 ; 0B5 - 
+#_01816C: dw $0B26 ; 0B6 - 
+#_01816E: dw $0B36 ; 0B7 - 
+#_018170: dw $1F52 ; 0B8 - 
+#_018172: dw $1F5A ; 0B9 - 
+#_018174: dw $0288 ; 0BA - 
+#_018176: dw $0EBA ; 0BB - 
+#_018178: dw $0E82 ; 0BC - 
+#_01817A: dw $1DF2 ; 0BD - 
+#_01817C: dw $0000 ; 0BE - 
+#_01817E: dw $0000 ; 0BF - 
+#_018180: dw $03D8 ; 0C0 - 
+#_018182: dw $0510 ; 0C1 - 
+#_018184: dw $05AA ; 0C2 - 
+#_018186: dw $05AA ; 0C3 - 
+#_018188: dw $0000 ; 0C4 - 
+#_01818A: dw $0168 ; 0C5 - 
+#_01818C: dw $00E0 ; 0C6 - 
+#_01818E: dw $0158 ; 0C7 - 
+#_018190: dw $0100 ; 0C8 - 
+#_018192: dw $0110 ; 0C9 - 
+#_018194: dw $0178 ; 0CA - 
+#_018196: dw $072A ; 0CB - 
+#_018198: dw $072A ; 0CC - 
+#_01819A: dw $072A ; 0CD - 
+#_01819C: dw $075A ; 0CE - 
+#_01819E: dw $0670 ; 0CF - 
+#_0181A0: dw $0670 ; 0D0 - 
+#_0181A2: dw $0130 ; 0D1 - 
+#_0181A4: dw $0148 ; 0D2 - 
+#_0181A6: dw $072A ; 0D3 - 
+#_0181A8: dw $072A ; 0D4 - 
+#_0181AA: dw $072A ; 0D5 - 
+#_0181AC: dw $075A ; 0D6 - 
+#_0181AE: dw $00E0 ; 0D7 - 
+#_0181B0: dw $0110 ; 0D8 - 
+#_0181B2: dw $00F0 ; 0D9 - 
+#_0181B4: dw $0110 ; 0DA - 
+#_0181B6: dw $0000 ; 0DB - 
+#_0181B8: dw $0AB4 ; 0DC - 
+#_0181BA: dw $08DA ; 0DD - 
+#_0181BC: dw $0ADE ; 0DE - 
+#_0181BE: dw $0188 ; 0DF - 
+#_0181C0: dw $01A0 ; 0E0 - 
+#_0181C2: dw $01B0 ; 0E1 - 
+#_0181C4: dw $01C0 ; 0E2 - 
+#_0181C6: dw $01D0 ; 0E3 - 
+#_0181C8: dw $01E0 ; 0E4 - 
+#_0181CA: dw $01F0 ; 0E5 - 
+#_0181CC: dw $0200 ; 0E6 - 
+#_0181CE: dw $0120 ; 0E7 - 
+#_0181D0: dw $02A8 ; 0E8 - 
+#_0181D2: dw $0000 ; 0E9 - 
+#_0181D4: dw $0000 ; 0EA - 
+#_0181D6: dw $0000 ; 0EB - 
+#_0181D8: dw $0000 ; 0EC - 
+#_0181DA: dw $0000 ; 0ED - 
+#_0181DC: dw $0000 ; 0EE - 
+#_0181DE: dw $0000 ; 0EF - 
+#_0181E0: dw $0000 ; 0F0 - 
+#_0181E2: dw $0000 ; 0F1 - 
+#_0181E4: dw $0000 ; 0F2 - 
+#_0181E6: dw $0000 ; 0F3 - 
+#_0181E8: dw $0000 ; 0F4 - 
+#_0181EA: dw $0000 ; 0F5 - 
+#_0181EC: dw $0000 ; 0F6 - 
+#_0181EE: dw $0000 ; 0F7 - 
+#_0181F0: dw $0000 ; 0F8 - 
+#_0181F2: dw $0000 ; 0F9 - 
+#_0181F4: dw $0000 ; 0FA - 
+#_0181F6: dw $0000 ; 0FB - 
+#_0181F8: dw $0000 ; 0FC - 
+#_0181FA: dw $0000 ; 0FD - 
+#_0181FC: dw $0000 ; 0FE - 
+#_0181FE: dw $0000 ; 0FF - 
 
 ;---------------------------------------------------------------------------------------------------
 
 .type1_subtype_1_routine
-#_018200: dw RoomDraw_Rightwards2x2_1to15or32                            ; 0000
-#_018202: dw RoomDraw_Rightwards2x4_1to15or26                            ; 0001
-#_018204: dw RoomDraw_Rightwards2x4_1to15or26                            ; 0002
-#_018206: dw RoomDraw_Object_Rightwards2x4spaced4_1to16                  ; 0003
-#_018208: dw RoomDraw_Object_Rightwards2x4spaced4_1to16                  ; 0004
-#_01820A: dw RoomDraw_Rightwards2x2_1to16_BothBG                         ; 0005
-#_01820C: dw RoomDraw_Rightwards2x2_1to16_BothBG                         ; 0006
-#_01820E: dw RoomDraw_Rightwards2x2_1to16                                ; 0007
-#_018210: dw RoomDraw_Rightwards2x2_1to16                                ; 0008
-#_018212: dw RoomDraw_DiagonalAcute_1to16                                ; 0009
-#_018214: dw RoomDraw_DiagonalGrave_1to16                                ; 000A
-#_018216: dw RoomDraw_DiagonalGrave_1to16                                ; 000B
-#_018218: dw RoomDraw_DiagonalAcute_1to16                                ; 000C
-#_01821A: dw RoomDraw_DiagonalAcute_1to16                                ; 000D
-#_01821C: dw RoomDraw_DiagonalGrave_1to16                                ; 000E
-#_01821E: dw RoomDraw_DiagonalGrave_1to16                                ; 000F
-#_018220: dw RoomDraw_DiagonalAcute_1to16                                ; 0010
-#_018222: dw RoomDraw_DiagonalAcute_1to16                                ; 0011
-#_018224: dw RoomDraw_DiagonalGrave_1to16                                ; 0012
-#_018226: dw RoomDraw_DiagonalGrave_1to16                                ; 0013
-#_018228: dw RoomDraw_DiagonalAcute_1to16                                ; 0014
-#_01822A: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 0015
-#_01822C: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 0016
-#_01822E: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 0017
-#_018230: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 0018
-#_018232: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 0019
-#_018234: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 001A
-#_018236: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 001B
-#_018238: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 001C
-#_01823A: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 001D
-#_01823C: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 001E
-#_01823E: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 001F
-#_018240: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 0020
-#_018242: dw RoomDraw_Rightwards1x2_1to16_plus2                          ; 0021
-#_018244: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus3                   ; 0022
-#_018246: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0023
-#_018248: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0024
-#_01824A: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0025
-#_01824C: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0026
-#_01824E: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0027
-#_018250: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0028
-#_018252: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0029
-#_018254: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 002A
-#_018256: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 002B
-#_018258: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 002C
-#_01825A: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 002D
-#_01825C: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 002E
-#_01825E: dw RoomDraw_RightwardsTopCorners1x2_1to16_plus13               ; 002F
-#_018260: dw RoomDraw_RightwardsBottomCorners1x2_1to16_plus13            ; 0030
-#_018262: dw RoomDraw_Nothing_A                                          ; 0031
-#_018264: dw RoomDraw_Nothing_A                                          ; 0032
-#_018266: dw RoomDraw_Rightwards4x4_1to16                                ; 0033
-#_018268: dw RoomDraw_Rightwards1x1Solid_1to16_plus3                     ; 0034
-#_01826A: dw RoomDraw_DoorSwitcherer                                     ; 0035
-#_01826C: dw RoomDraw_RightwardsDecor4x4spaced2_1to16                    ; 0036
-#_01826E: dw RoomDraw_RightwardsDecor4x4spaced2_1to16                    ; 0037
-#_018270: dw RoomDraw_RightwardsStatue2x3spaced2_1to16                   ; 0038
-#_018272: dw RoomDraw_RightwardsPillar2x4spaced4_1to16                   ; 0039
-#_018274: dw RoomDraw_RightwardsDecor4x3spaced4_1to16                    ; 003A
-#_018276: dw RoomDraw_RightwardsDecor4x3spaced4_1to16                    ; 003B
-#_018278: dw RoomDraw_RightwardsDoubled2x2spaced2_1to16                  ; 003C
-#_01827A: dw RoomDraw_RightwardsPillar2x4spaced4_1to16                   ; 003D
-#_01827C: dw RoomDraw_RightwardsDecor2x2spaced12_1to16                   ; 003E
-#_01827E: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 003F
-#_018280: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0040
-#_018282: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0041
-#_018284: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0042
-#_018286: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0043
-#_018288: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0044
-#_01828A: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0045
-#_01828C: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0046
-#_01828E: dw RoomDraw_Waterfall47                                        ; 0047
-#_018290: dw RoomDraw_Waterfall48                                        ; 0048
-#_018292: dw RoomDraw_RightwardsFloorTile4x2_1to16                       ; 0049
-#_018294: dw RoomDraw_RightwardsFloorTile4x2_1to16                       ; 004A
-#_018296: dw RoomDraw_RightwardsDecor2x2spaced12_1to16                   ; 004B
-#_018298: dw RoomDraw_RightwardsBar4x3_1to16                             ; 004C
-#_01829A: dw RoomDraw_RightwardsShelf4x4_1to16                           ; 004D
-#_01829C: dw RoomDraw_RightwardsShelf4x4_1to16                           ; 004E
-#_01829E: dw RoomDraw_RightwardsShelf4x4_1to16                           ; 004F
-#_0182A0: dw RoomDraw_RightwardsLine1x1_1to16plus1                       ; 0050
-#_0182A2: dw RoomDraw_RightwardsCannonHole4x3_1to16                      ; 0051
-#_0182A4: dw RoomDraw_RightwardsCannonHole4x3_1to16                      ; 0052
-#_0182A6: dw RoomDraw_Rightwards2x2_1to16                                ; 0053
-#_0182A8: dw RoomDraw_Nothing_B                                          ; 0054
-#_0182AA: dw RoomDraw_RightwardsDecor4x2spaced8_1to16                    ; 0055
-#_0182AC: dw RoomDraw_RightwardsDecor4x2spaced8_1to16                    ; 0056
-#_0182AE: dw RoomDraw_Nothing_C                                          ; 0057
-#_0182B0: dw RoomDraw_Nothing_C                                          ; 0058
-#_0182B2: dw RoomDraw_Nothing_C                                          ; 0059
-#_0182B4: dw RoomDraw_Nothing_C                                          ; 005A
-#_0182B6: dw RoomDraw_RightwardsCannonHole4x3_1to16                      ; 005B
-#_0182B8: dw RoomDraw_RightwardsCannonHole4x3_1to16                      ; 005C
-#_0182BA: dw RoomDraw_RightwardsBigRail1x3_1to16plus5                    ; 005D
-#_0182BC: dw RoomDraw_RightwardsBlock2x2spaced2_1to16                    ; 005E
-#_0182BE: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus23                  ; 005F
-#_0182C0: dw RoomDraw_Downwards2x2_1to15or32                             ; 0060
-#_0182C2: dw RoomDraw_Downwards4x2_1to15or26                             ; 0061
-#_0182C4: dw RoomDraw_Downwards4x2_1to15or26                             ; 0062
-#_0182C6: dw RoomDraw_Downwards4x2_1to16_BothBG                          ; 0063
-#_0182C8: dw RoomDraw_Downwards4x2_1to16_BothBG                          ; 0064
-#_0182CA: dw RoomDraw_DownwardsDecor4x2spaced4_1to16                     ; 0065
-#_0182CC: dw RoomDraw_DownwardsDecor4x2spaced4_1to16                     ; 0066
-#_0182CE: dw RoomDraw_Downwards2x2_1to16                                 ; 0067
-#_0182D0: dw RoomDraw_Downwards2x2_1to16                                 ; 0068
-#_0182D2: dw RoomDraw_DownwardsHasEdge1x1_1to16_plus3                    ; 0069
-#_0182D4: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 006A
-#_0182D6: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 006B
-#_0182D8: dw RoomDraw_DownwardsLeftCorners2x1_1to16_plus12               ; 006C
-#_0182DA: dw RoomDraw_DownwardsRightCorners2x1_1to16_plus12              ; 006D
-#_0182DC: dw RoomDraw_Nothing_A                                          ; 006E
-#_0182DE: dw RoomDraw_Nothing_A                                          ; 006F
-#_0182E0: dw RoomDraw_DownwardsFloor4x4_1to16                            ; 0070
-#_0182E2: dw RoomDraw_Downwards1x1Solid_1to16_plus3                      ; 0071
-#_0182E4: dw RoomDraw_Nothing_B                                          ; 0072
-#_0182E6: dw RoomDraw_DownwardsDecor4x4spaced2_1to16                     ; 0073
-#_0182E8: dw RoomDraw_DownwardsDecor4x4spaced2_1to16                     ; 0074
-#_0182EA: dw RoomDraw_DownwardsPillar2x4spaced2_1to16                    ; 0075
-#_0182EC: dw RoomDraw_DownwardsDecor4x4spaced4_1to16                     ; 0076
-#_0182EE: dw RoomDraw_DownwardsDecor4x4spaced4_1to16                     ; 0077
-#_0182F0: dw RoomDraw_DownwardsDecor2x2spaced12_1to16                    ; 0078
-#_0182F2: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 0079
-#_0182F4: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 007A
-#_0182F6: dw RoomDraw_DownwardsDecor2x2spaced12_1to16                    ; 007B
-#_0182F8: dw RoomDraw_DownwardsLine1x1_1to16plus1                        ; 007C
-#_0182FA: dw RoomDraw_Downwards2x2_1to16                                 ; 007D
-#_0182FC: dw RoomDraw_Nothing_B                                          ; 007E
-#_0182FE: dw RoomDraw_DownwardsDecor2x4spaced8_1to16                     ; 007F
-#_018300: dw RoomDraw_DownwardsDecor2x4spaced8_1to16                     ; 0080
-#_018302: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 0081
-#_018304: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 0082
-#_018306: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 0083
-#_018308: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 0084
-#_01830A: dw RoomDraw_DownwardsCannonHole3x4_1to16                       ; 0085
-#_01830C: dw RoomDraw_DownwardsCannonHole3x4_1to16                       ; 0086
-#_01830E: dw RoomDraw_DownwardsPillar2x4spaced2_1to16                    ; 0087
-#_018310: dw RoomDraw_DownwardsBigRail3x1_1to16plus5                     ; 0088
-#_018312: dw RoomDraw_DownwardsBlock2x2spaced2_1to16                     ; 0089
-#_018314: dw RoomDraw_DownwardsHasEdge1x1_1to16_plus23                   ; 008A
-#_018316: dw RoomDraw_DownwardsEdge1x1_1to16plus7                        ; 008B
-#_018318: dw RoomDraw_DownwardsEdge1x1_1to16plus7                        ; 008C
-#_01831A: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 008D
-#_01831C: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 008E
-#_01831E: dw RoomDraw_DownwardsBar2x5_1to16                              ; 008F
-#_018320: dw RoomDraw_Downwards4x2_1to15or26                             ; 0090
-#_018322: dw RoomDraw_Downwards4x2_1to15or26                             ; 0091
-#_018324: dw RoomDraw_Downwards2x2_1to15or32                             ; 0092
-#_018326: dw RoomDraw_Downwards2x2_1to15or32                             ; 0093
-#_018328: dw RoomDraw_DownwardsFloor4x4_1to16                            ; 0094
-#_01832A: dw RoomDraw_DownwardsFakePots2x2_1to16                         ; 0095
-#_01832C: dw RoomDraw_DownwardsHammerPegs2x2_1to16                       ; 0096
-#_01832E: dw RoomDraw_Nothing_B                                          ; 0097
-#_018330: dw RoomDraw_Nothing_B                                          ; 0098
-#_018332: dw RoomDraw_Nothing_B                                          ; 0099
-#_018334: dw RoomDraw_Nothing_B                                          ; 009A
-#_018336: dw RoomDraw_Nothing_B                                          ; 009B
-#_018338: dw RoomDraw_Nothing_B                                          ; 009C
-#_01833A: dw RoomDraw_Nothing_B                                          ; 009D
-#_01833C: dw RoomDraw_Nothing_B                                          ; 009E
-#_01833E: dw RoomDraw_Nothing_B                                          ; 009F
-#_018340: dw RoomDraw_DiagonalCeilingTopLeftA                            ; 00A0
-#_018342: dw RoomDraw_DiagonalCeilingBottomLeftA                         ; 00A1
-#_018344: dw RoomDraw_DiagonalCeilingTopRightA                           ; 00A2
-#_018346: dw RoomDraw_DiagonalCeilingBottomRightA                        ; 00A3
-#_018348: dw RoomDraw_BigHole4x4_1to16                                   ; 00A4
-#_01834A: dw RoomDraw_DiagonalCeilingTopLeftB                            ; 00A5
-#_01834C: dw RoomDraw_DiagonalCeilingBottomLeftB                         ; 00A6
-#_01834E: dw RoomDraw_DiagonalCeilingTopRightB                           ; 00A7
-#_018350: dw RoomDraw_DiagonalCeilingBottomRightB                        ; 00A8
-#_018352: dw RoomDraw_DiagonalCeilingTopLeftB                            ; 00A9
-#_018354: dw RoomDraw_DiagonalCeilingBottomLeftB                         ; 00AA
-#_018356: dw RoomDraw_DiagonalCeilingTopRightB                           ; 00AB
-#_018358: dw RoomDraw_DiagonalCeilingBottomRightB                        ; 00AC
-#_01835A: dw RoomDraw_Nothing_B                                          ; 00AD
-#_01835C: dw RoomDraw_Nothing_B                                          ; 00AE
-#_01835E: dw RoomDraw_Nothing_B                                          ; 00AF
-#_018360: dw RoomDraw_RightwardsEdge1x1_1to16plus7                       ; 00B0
-#_018362: dw RoomDraw_RightwardsEdge1x1_1to16plus7                       ; 00B1
-#_018364: dw RoomDraw_Rightwards4x4_1to16                                ; 00B2
-#_018366: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 00B3
-#_018368: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 00B4
-#_01836A: dw RoomDraw_Weird2x4_1_to_16                                   ; 00B5
-#_01836C: dw RoomDraw_Rightwards2x4_1to15or26                            ; 00B6
-#_01836E: dw RoomDraw_Rightwards2x4_1to15or26                            ; 00B7
-#_018370: dw RoomDraw_Rightwards2x2_1to15or32                            ; 00B8
-#_018372: dw RoomDraw_Rightwards2x2_1to15or32                            ; 00B9
-#_018374: dw RoomDraw_Rightwards4x4_1to16                                ; 00BA
-#_018376: dw RoomDraw_RightwardsBlock2x2spaced2_1to16                    ; 00BB
-#_018378: dw RoomDraw_RightwardsFakePots2x2_1to16                        ; 00BC
-#_01837A: dw RoomDraw_RightwardsHammerPegs2x2_1to16                      ; 00BD
-#_01837C: dw RoomDraw_Nothing_B                                          ; 00BE
-#_01837E: dw RoomDraw_Nothing_B                                          ; 00BF
-#_018380: dw RoomDraw_4x4BlocksIn4x4SuperSquare                          ; 00C0
-#_018382: dw RoomDraw_ClosedChestPlatform                                ; 00C1
-#_018384: dw RoomDraw_4x4BlocksIn4x4SuperSquare                          ; 00C2
-#_018386: dw RoomDraw_3x3FloorIn4x4SuperSquare                           ; 00C3
-#_018388: dw RoomDraw_4x4FloorOneIn4x4SuperSquare                        ; 00C4
-#_01838A: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00C5
-#_01838C: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00C6
-#_01838E: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00C7
-#_018390: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00C8
-#_018392: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00C9
-#_018394: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00CA
-#_018396: dw RoomDraw_Nothing_E                                          ; 00CB
-#_018398: dw RoomDraw_Nothing_E                                          ; 00CC
-#_01839A: dw RoomDraw_MovingWallWest                                     ; 00CD
-#_01839C: dw RoomDraw_MovingWallEast                                     ; 00CE
-#_01839E: dw RoomDraw_Nothing_D                                          ; 00CF
-#_0183A0: dw RoomDraw_Nothing_D                                          ; 00D0
-#_0183A2: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00D1
-#_0183A4: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00D2
-#_0183A6: dw RoomDraw_CheckIfWallIsMoved                                 ; 00D3
-#_0183A8: dw RoomDraw_CheckIfWallIsMoved                                 ; 00D4
-#_0183AA: dw RoomDraw_CheckIfWallIsMoved                                 ; 00D5
-#_0183AC: dw RoomDraw_CheckIfWallIsMoved                                 ; 00D6
-#_0183AE: dw RoomDraw_3x3FloorIn4x4SuperSquare                           ; 00D7
-#_0183B0: dw RoomDraw_WaterOverlayA8x8_1to16                             ; 00D8
-#_0183B2: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00D9
-#_0183B4: dw RoomDraw_WaterOverlayB8x8_1to16                             ; 00DA
-#_0183B6: dw RoomDraw_4x4FloorTwoIn4x4SuperSquare                        ; 00DB
-#_0183B8: dw RoomDraw_OpenChestPlatform                                  ; 00DC
-#_0183BA: dw RoomDraw_TableRock4x4_1to16                                 ; 00DD
-#_0183BC: dw RoomDraw_Spike2x2In4x4SuperSquare                           ; 00DE
-#_0183BE: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00DF
-#_0183C0: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00E0
-#_0183C2: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00E1
-#_0183C4: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00E2
-#_0183C6: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00E3
-#_0183C8: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00E4
-#_0183CA: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00E5
-#_0183CC: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00E6
-#_0183CE: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00E7
-#_0183D0: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 00E8
-#_0183D2: dw RoomDraw_Nothing_B                                          ; 00E9
-#_0183D4: dw RoomDraw_Nothing_B                                          ; 00EA
-#_0183D6: dw RoomDraw_Nothing_B                                          ; 00EB
-#_0183D8: dw RoomDraw_Nothing_B                                          ; 00EC
-#_0183DA: dw RoomDraw_Nothing_B                                          ; 00ED
-#_0183DC: dw RoomDraw_Nothing_B                                          ; 00EE
-#_0183DE: dw RoomDraw_Nothing_B                                          ; 00EF
-#_0183E0: dw RoomDraw_Nothing_B                                          ; 00F0
-#_0183E2: dw RoomDraw_Nothing_B                                          ; 00F1
-#_0183E4: dw RoomDraw_Nothing_B                                          ; 00F2
-#_0183E6: dw RoomDraw_Nothing_B                                          ; 00F3
-#_0183E8: dw RoomDraw_Nothing_B                                          ; 00F4
-#_0183EA: dw RoomDraw_Nothing_B                                          ; 00F5
-#_0183EC: dw RoomDraw_Nothing_B                                          ; 00F6
-#_0183EE: dw RoomDraw_Nothing_B                                          ; 00F7
+#_018200: dw RoomDraw_Rightwards2x2_1to15or32                            ; 000
+#_018202: dw RoomDraw_Rightwards2x4_1to15or26                            ; 001
+#_018204: dw RoomDraw_Rightwards2x4_1to15or26                            ; 002
+#_018206: dw RoomDraw_Object_Rightwards2x4spaced4_1to16                  ; 003
+#_018208: dw RoomDraw_Object_Rightwards2x4spaced4_1to16                  ; 004
+#_01820A: dw RoomDraw_Rightwards2x2_1to16_BothBG                         ; 005
+#_01820C: dw RoomDraw_Rightwards2x2_1to16_BothBG                         ; 006
+#_01820E: dw RoomDraw_Rightwards2x2_1to16                                ; 007
+#_018210: dw RoomDraw_Rightwards2x2_1to16                                ; 008
+#_018212: dw RoomDraw_DiagonalAcute_1to16                                ; 009
+#_018214: dw RoomDraw_DiagonalGrave_1to16                                ; 00A
+#_018216: dw RoomDraw_DiagonalGrave_1to16                                ; 00B
+#_018218: dw RoomDraw_DiagonalAcute_1to16                                ; 00C
+#_01821A: dw RoomDraw_DiagonalAcute_1to16                                ; 00D
+#_01821C: dw RoomDraw_DiagonalGrave_1to16                                ; 00E
+#_01821E: dw RoomDraw_DiagonalGrave_1to16                                ; 00F
+#_018220: dw RoomDraw_DiagonalAcute_1to16                                ; 010
+#_018222: dw RoomDraw_DiagonalAcute_1to16                                ; 011
+#_018224: dw RoomDraw_DiagonalGrave_1to16                                ; 012
+#_018226: dw RoomDraw_DiagonalGrave_1to16                                ; 013
+#_018228: dw RoomDraw_DiagonalAcute_1to16                                ; 014
+#_01822A: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 015
+#_01822C: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 016
+#_01822E: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 017
+#_018230: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 018
+#_018232: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 019
+#_018234: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 01A
+#_018236: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 01B
+#_018238: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 01C
+#_01823A: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 01D
+#_01823C: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 01E
+#_01823E: dw RoomDraw_DiagonalGrave_1to16_BothBG                         ; 01F
+#_018240: dw RoomDraw_DiagonalAcute_1to16_BothBG                         ; 020
+#_018242: dw RoomDraw_Rightwards1x2_1to16_plus2                          ; 021
+#_018244: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus3                   ; 022
+#_018246: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 023
+#_018248: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 024
+#_01824A: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 025
+#_01824C: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 026
+#_01824E: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 027
+#_018250: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 028
+#_018252: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 029
+#_018254: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 02A
+#_018256: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 02B
+#_018258: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 02C
+#_01825A: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 02D
+#_01825C: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 02E
+#_01825E: dw RoomDraw_RightwardsTopCorners1x2_1to16_plus13               ; 02F
+#_018260: dw RoomDraw_RightwardsBottomCorners1x2_1to16_plus13            ; 030
+#_018262: dw RoomDraw_Nothing_A                                          ; 031
+#_018264: dw RoomDraw_Nothing_A                                          ; 032
+#_018266: dw RoomDraw_Rightwards4x4_1to16                                ; 033
+#_018268: dw RoomDraw_Rightwards1x1Solid_1to16_plus3                     ; 034
+#_01826A: dw RoomDraw_DoorSwitcherer                                     ; 035
+#_01826C: dw RoomDraw_RightwardsDecor4x4spaced2_1to16                    ; 036
+#_01826E: dw RoomDraw_RightwardsDecor4x4spaced2_1to16                    ; 037
+#_018270: dw RoomDraw_RightwardsStatue2x3spaced2_1to16                   ; 038
+#_018272: dw RoomDraw_RightwardsPillar2x4spaced4_1to16                   ; 039
+#_018274: dw RoomDraw_RightwardsDecor4x3spaced4_1to16                    ; 03A
+#_018276: dw RoomDraw_RightwardsDecor4x3spaced4_1to16                    ; 03B
+#_018278: dw RoomDraw_RightwardsDoubled2x2spaced2_1to16                  ; 03C
+#_01827A: dw RoomDraw_RightwardsPillar2x4spaced4_1to16                   ; 03D
+#_01827C: dw RoomDraw_RightwardsDecor2x2spaced12_1to16                   ; 03E
+#_01827E: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 03F
+#_018280: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 040
+#_018282: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 041
+#_018284: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 042
+#_018286: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 043
+#_018288: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 044
+#_01828A: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 045
+#_01828C: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 046
+#_01828E: dw RoomDraw_Waterfall47                                        ; 047
+#_018290: dw RoomDraw_Waterfall48                                        ; 048
+#_018292: dw RoomDraw_RightwardsFloorTile4x2_1to16                       ; 049
+#_018294: dw RoomDraw_RightwardsFloorTile4x2_1to16                       ; 04A
+#_018296: dw RoomDraw_RightwardsDecor2x2spaced12_1to16                   ; 04B
+#_018298: dw RoomDraw_RightwardsBar4x3_1to16                             ; 04C
+#_01829A: dw RoomDraw_RightwardsShelf4x4_1to16                           ; 04D
+#_01829C: dw RoomDraw_RightwardsShelf4x4_1to16                           ; 04E
+#_01829E: dw RoomDraw_RightwardsShelf4x4_1to16                           ; 04F
+#_0182A0: dw RoomDraw_RightwardsLine1x1_1to16plus1                       ; 050
+#_0182A2: dw RoomDraw_RightwardsCannonHole4x3_1to16                      ; 051
+#_0182A4: dw RoomDraw_RightwardsCannonHole4x3_1to16                      ; 052
+#_0182A6: dw RoomDraw_Rightwards2x2_1to16                                ; 053
+#_0182A8: dw RoomDraw_Nothing_B                                          ; 054
+#_0182AA: dw RoomDraw_RightwardsDecor4x2spaced8_1to16                    ; 055
+#_0182AC: dw RoomDraw_RightwardsDecor4x2spaced8_1to16                    ; 056
+#_0182AE: dw RoomDraw_Nothing_C                                          ; 057
+#_0182B0: dw RoomDraw_Nothing_C                                          ; 058
+#_0182B2: dw RoomDraw_Nothing_C                                          ; 059
+#_0182B4: dw RoomDraw_Nothing_C                                          ; 05A
+#_0182B6: dw RoomDraw_RightwardsCannonHole4x3_1to16                      ; 05B
+#_0182B8: dw RoomDraw_RightwardsCannonHole4x3_1to16                      ; 05C
+#_0182BA: dw RoomDraw_RightwardsBigRail1x3_1to16plus5                    ; 05D
+#_0182BC: dw RoomDraw_RightwardsBlock2x2spaced2_1to16                    ; 05E
+#_0182BE: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus23                  ; 05F
+#_0182C0: dw RoomDraw_Downwards2x2_1to15or32                             ; 060
+#_0182C2: dw RoomDraw_Downwards4x2_1to15or26                             ; 061
+#_0182C4: dw RoomDraw_Downwards4x2_1to15or26                             ; 062
+#_0182C6: dw RoomDraw_Downwards4x2_1to16_BothBG                          ; 063
+#_0182C8: dw RoomDraw_Downwards4x2_1to16_BothBG                          ; 064
+#_0182CA: dw RoomDraw_DownwardsDecor4x2spaced4_1to16                     ; 065
+#_0182CC: dw RoomDraw_DownwardsDecor4x2spaced4_1to16                     ; 066
+#_0182CE: dw RoomDraw_Downwards2x2_1to16                                 ; 067
+#_0182D0: dw RoomDraw_Downwards2x2_1to16                                 ; 068
+#_0182D2: dw RoomDraw_DownwardsHasEdge1x1_1to16_plus3                    ; 069
+#_0182D4: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 06A
+#_0182D6: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 06B
+#_0182D8: dw RoomDraw_DownwardsLeftCorners2x1_1to16_plus12               ; 06C
+#_0182DA: dw RoomDraw_DownwardsRightCorners2x1_1to16_plus12              ; 06D
+#_0182DC: dw RoomDraw_Nothing_A                                          ; 06E
+#_0182DE: dw RoomDraw_Nothing_A                                          ; 06F
+#_0182E0: dw RoomDraw_DownwardsFloor4x4_1to16                            ; 070
+#_0182E2: dw RoomDraw_Downwards1x1Solid_1to16_plus3                      ; 071
+#_0182E4: dw RoomDraw_Nothing_B                                          ; 072
+#_0182E6: dw RoomDraw_DownwardsDecor4x4spaced2_1to16                     ; 073
+#_0182E8: dw RoomDraw_DownwardsDecor4x4spaced2_1to16                     ; 074
+#_0182EA: dw RoomDraw_DownwardsPillar2x4spaced2_1to16                    ; 075
+#_0182EC: dw RoomDraw_DownwardsDecor4x4spaced4_1to16                     ; 076
+#_0182EE: dw RoomDraw_DownwardsDecor4x4spaced4_1to16                     ; 077
+#_0182F0: dw RoomDraw_DownwardsDecor2x2spaced12_1to16                    ; 078
+#_0182F2: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 079
+#_0182F4: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 07A
+#_0182F6: dw RoomDraw_DownwardsDecor2x2spaced12_1to16                    ; 07B
+#_0182F8: dw RoomDraw_DownwardsLine1x1_1to16plus1                        ; 07C
+#_0182FA: dw RoomDraw_Downwards2x2_1to16                                 ; 07D
+#_0182FC: dw RoomDraw_Nothing_B                                          ; 07E
+#_0182FE: dw RoomDraw_DownwardsDecor2x4spaced8_1to16                     ; 07F
+#_018300: dw RoomDraw_DownwardsDecor2x4spaced8_1to16                     ; 080
+#_018302: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 081
+#_018304: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 082
+#_018306: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 083
+#_018308: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 084
+#_01830A: dw RoomDraw_DownwardsCannonHole3x4_1to16                       ; 085
+#_01830C: dw RoomDraw_DownwardsCannonHole3x4_1to16                       ; 086
+#_01830E: dw RoomDraw_DownwardsPillar2x4spaced2_1to16                    ; 087
+#_018310: dw RoomDraw_DownwardsBigRail3x1_1to16plus5                     ; 088
+#_018312: dw RoomDraw_DownwardsBlock2x2spaced2_1to16                     ; 089
+#_018314: dw RoomDraw_DownwardsHasEdge1x1_1to16_plus23                   ; 08A
+#_018316: dw RoomDraw_DownwardsEdge1x1_1to16plus7                        ; 08B
+#_018318: dw RoomDraw_DownwardsEdge1x1_1to16plus7                        ; 08C
+#_01831A: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 08D
+#_01831C: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 08E
+#_01831E: dw RoomDraw_DownwardsBar2x5_1to16                              ; 08F
+#_018320: dw RoomDraw_Downwards4x2_1to15or26                             ; 090
+#_018322: dw RoomDraw_Downwards4x2_1to15or26                             ; 091
+#_018324: dw RoomDraw_Downwards2x2_1to15or32                             ; 092
+#_018326: dw RoomDraw_Downwards2x2_1to15or32                             ; 093
+#_018328: dw RoomDraw_DownwardsFloor4x4_1to16                            ; 094
+#_01832A: dw RoomDraw_DownwardsFakePots2x2_1to16                         ; 095
+#_01832C: dw RoomDraw_DownwardsHammerPegs2x2_1to16                       ; 096
+#_01832E: dw RoomDraw_Nothing_B                                          ; 097
+#_018330: dw RoomDraw_Nothing_B                                          ; 098
+#_018332: dw RoomDraw_Nothing_B                                          ; 099
+#_018334: dw RoomDraw_Nothing_B                                          ; 09A
+#_018336: dw RoomDraw_Nothing_B                                          ; 09B
+#_018338: dw RoomDraw_Nothing_B                                          ; 09C
+#_01833A: dw RoomDraw_Nothing_B                                          ; 09D
+#_01833C: dw RoomDraw_Nothing_B                                          ; 09E
+#_01833E: dw RoomDraw_Nothing_B                                          ; 09F
+#_018340: dw RoomDraw_DiagonalCeilingTopLeftA                            ; 0A0
+#_018342: dw RoomDraw_DiagonalCeilingBottomLeftA                         ; 0A1
+#_018344: dw RoomDraw_DiagonalCeilingTopRightA                           ; 0A2
+#_018346: dw RoomDraw_DiagonalCeilingBottomRightA                        ; 0A3
+#_018348: dw RoomDraw_BigHole4x4_1to16                                   ; 0A4
+#_01834A: dw RoomDraw_DiagonalCeilingTopLeftB                            ; 0A5
+#_01834C: dw RoomDraw_DiagonalCeilingBottomLeftB                         ; 0A6
+#_01834E: dw RoomDraw_DiagonalCeilingTopRightB                           ; 0A7
+#_018350: dw RoomDraw_DiagonalCeilingBottomRightB                        ; 0A8
+#_018352: dw RoomDraw_DiagonalCeilingTopLeftB                            ; 0A9
+#_018354: dw RoomDraw_DiagonalCeilingBottomLeftB                         ; 0AA
+#_018356: dw RoomDraw_DiagonalCeilingTopRightB                           ; 0AB
+#_018358: dw RoomDraw_DiagonalCeilingBottomRightB                        ; 0AC
+#_01835A: dw RoomDraw_Nothing_B                                          ; 0AD
+#_01835C: dw RoomDraw_Nothing_B                                          ; 0AE
+#_01835E: dw RoomDraw_Nothing_B                                          ; 0AF
+#_018360: dw RoomDraw_RightwardsEdge1x1_1to16plus7                       ; 0B0
+#_018362: dw RoomDraw_RightwardsEdge1x1_1to16plus7                       ; 0B1
+#_018364: dw RoomDraw_Rightwards4x4_1to16                                ; 0B2
+#_018366: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0B3
+#_018368: dw RoomDraw_RightwardsHasEdge1x1_1to16_plus2                   ; 0B4
+#_01836A: dw RoomDraw_Weird2x4_1_to_16                                   ; 0B5
+#_01836C: dw RoomDraw_Rightwards2x4_1to15or26                            ; 0B6
+#_01836E: dw RoomDraw_Rightwards2x4_1to15or26                            ; 0B7
+#_018370: dw RoomDraw_Rightwards2x2_1to15or32                            ; 0B8
+#_018372: dw RoomDraw_Rightwards2x2_1to15or32                            ; 0B9
+#_018374: dw RoomDraw_Rightwards4x4_1to16                                ; 0BA
+#_018376: dw RoomDraw_RightwardsBlock2x2spaced2_1to16                    ; 0BB
+#_018378: dw RoomDraw_RightwardsFakePots2x2_1to16                        ; 0BC
+#_01837A: dw RoomDraw_RightwardsHammerPegs2x2_1to16                      ; 0BD
+#_01837C: dw RoomDraw_Nothing_B                                          ; 0BE
+#_01837E: dw RoomDraw_Nothing_B                                          ; 0BF
+#_018380: dw RoomDraw_4x4BlocksIn4x4SuperSquare                          ; 0C0
+#_018382: dw RoomDraw_ClosedChestPlatform                                ; 0C1
+#_018384: dw RoomDraw_4x4BlocksIn4x4SuperSquare                          ; 0C2
+#_018386: dw RoomDraw_3x3FloorIn4x4SuperSquare                           ; 0C3
+#_018388: dw RoomDraw_4x4FloorOneIn4x4SuperSquare                        ; 0C4
+#_01838A: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0C5
+#_01838C: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0C6
+#_01838E: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0C7
+#_018390: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0C8
+#_018392: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0C9
+#_018394: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0CA
+#_018396: dw RoomDraw_Nothing_E                                          ; 0CB
+#_018398: dw RoomDraw_Nothing_E                                          ; 0CC
+#_01839A: dw RoomDraw_MovingWallWest                                     ; 0CD
+#_01839C: dw RoomDraw_MovingWallEast                                     ; 0CE
+#_01839E: dw RoomDraw_Nothing_D                                          ; 0CF
+#_0183A0: dw RoomDraw_Nothing_D                                          ; 0D0
+#_0183A2: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0D1
+#_0183A4: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0D2
+#_0183A6: dw RoomDraw_CheckIfWallIsMoved                                 ; 0D3
+#_0183A8: dw RoomDraw_CheckIfWallIsMoved                                 ; 0D4
+#_0183AA: dw RoomDraw_CheckIfWallIsMoved                                 ; 0D5
+#_0183AC: dw RoomDraw_CheckIfWallIsMoved                                 ; 0D6
+#_0183AE: dw RoomDraw_3x3FloorIn4x4SuperSquare                           ; 0D7
+#_0183B0: dw RoomDraw_WaterOverlayA8x8_1to16                             ; 0D8
+#_0183B2: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0D9
+#_0183B4: dw RoomDraw_WaterOverlayB8x8_1to16                             ; 0DA
+#_0183B6: dw RoomDraw_4x4FloorTwoIn4x4SuperSquare                        ; 0DB
+#_0183B8: dw RoomDraw_OpenChestPlatform                                  ; 0DC
+#_0183BA: dw RoomDraw_TableRock4x4_1to16                                 ; 0DD
+#_0183BC: dw RoomDraw_Spike2x2In4x4SuperSquare                           ; 0DE
+#_0183BE: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0DF
+#_0183C0: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0E0
+#_0183C2: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0E1
+#_0183C4: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0E2
+#_0183C6: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0E3
+#_0183C8: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0E4
+#_0183CA: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0E5
+#_0183CC: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0E6
+#_0183CE: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0E7
+#_0183D0: dw RoomDraw_4x4FloorIn4x4SuperSquare                           ; 0E8
+#_0183D2: dw RoomDraw_Nothing_B                                          ; 0E9
+#_0183D4: dw RoomDraw_Nothing_B                                          ; 0EA
+#_0183D6: dw RoomDraw_Nothing_B                                          ; 0EB
+#_0183D8: dw RoomDraw_Nothing_B                                          ; 0EC
+#_0183DA: dw RoomDraw_Nothing_B                                          ; 0ED
+#_0183DC: dw RoomDraw_Nothing_B                                          ; 0EE
+#_0183DE: dw RoomDraw_Nothing_B                                          ; 0EF
+#_0183E0: dw RoomDraw_Nothing_B                                          ; 0F0
+#_0183E2: dw RoomDraw_Nothing_B                                          ; 0F1
+#_0183E4: dw RoomDraw_Nothing_B                                          ; 0F2
+#_0183E6: dw RoomDraw_Nothing_B                                          ; 0F3
+#_0183E8: dw RoomDraw_Nothing_B                                          ; 0F4
+#_0183EA: dw RoomDraw_Nothing_B                                          ; 0F5
+#_0183EC: dw RoomDraw_Nothing_B                                          ; 0F6
+#_0183EE: dw RoomDraw_Nothing_B                                          ; 0F7
 
 ;===================================================================================================
 
 .type1_subtype_2_data_offset
-#_0183F0: dw $0B66 ; 0100
-#_0183F2: dw $0B86 ; 0101
-#_0183F4: dw $0BA6 ; 0102
-#_0183F6: dw $0BC6 ; 0103
-#_0183F8: dw $0C66 ; 0104
-#_0183FA: dw $0C86 ; 0105
-#_0183FC: dw $0CA6 ; 0106
-#_0183FE: dw $0CC6 ; 0107
-#_018400: dw $0BE6 ; 0108
-#_018402: dw $0C06 ; 0109
-#_018404: dw $0C26 ; 010A
-#_018406: dw $0C46 ; 010B
-#_018408: dw $0CE6 ; 010C
-#_01840A: dw $0D06 ; 010D
-#_01840C: dw $0D26 ; 010E
-#_01840E: dw $0D46 ; 010F
-#_018410: dw $0D66 ; 0110
-#_018412: dw $0D7E ; 0111
-#_018414: dw $0D96 ; 0112
-#_018416: dw $0DAE ; 0113
-#_018418: dw $0DC6 ; 0114
-#_01841A: dw $0DDE ; 0115
-#_01841C: dw $0DF6 ; 0116
-#_01841E: dw $0E0E ; 0117
-#_018420: dw $0398 ; 0118
-#_018422: dw $03A0 ; 0119
-#_018424: dw $03A8 ; 011A
-#_018426: dw $03B0 ; 011B
-#_018428: dw $0E32 ; 011C
-#_01842A: dw $0E26 ; 011D
-#_01842C: dw $0EA2 ; 011E
-#_01842E: dw $0E9A ; 011F
-#_018430: dw $0ECA ; 0120
-#_018432: dw $0ED2 ; 0121
-#_018434: dw $0EDE ; 0122
-#_018436: dw $0EDE ; 0123
-#_018438: dw $0F1E ; 0124
-#_01843A: dw $0F3E ; 0125
-#_01843C: dw $0F5E ; 0126
-#_01843E: dw $0F6A ; 0127
-#_018440: dw $0EF6 ; 0128
-#_018442: dw $0F72 ; 0129
-#_018444: dw $0F92 ; 012A
-#_018446: dw $0FA2 ; 012B
-#_018448: dw $0FA2 ; 012C
-#_01844A: dw $1088 ; 012D
-#_01844C: dw $10A8 ; 012E
-#_01844E: dw $10A8 ; 012F
-#_018450: dw $10C8 ; 0130
-#_018452: dw $10C8 ; 0131
-#_018454: dw $10C8 ; 0132
-#_018456: dw $10C8 ; 0133
-#_018458: dw $0E52 ; 0134
-#_01845A: dw $1108 ; 0135
-#_01845C: dw $1108 ; 0136
-#_01845E: dw $12A8 ; 0137
-#_018460: dw $1148 ; 0138
-#_018462: dw $1160 ; 0139
-#_018464: dw $1178 ; 013A
-#_018466: dw $1190 ; 013B
-#_018468: dw $1458 ; 013C
-#_01846A: dw $1488 ; 013D
-#_01846C: dw $2062 ; 013E
-#_01846E: dw $2086 ; 013F
+#_0183F0: dw $0B66 ; 100
+#_0183F2: dw $0B86 ; 101
+#_0183F4: dw $0BA6 ; 102
+#_0183F6: dw $0BC6 ; 103
+#_0183F8: dw $0C66 ; 104
+#_0183FA: dw $0C86 ; 105
+#_0183FC: dw $0CA6 ; 106
+#_0183FE: dw $0CC6 ; 107
+#_018400: dw $0BE6 ; 108
+#_018402: dw $0C06 ; 109
+#_018404: dw $0C26 ; 10A
+#_018406: dw $0C46 ; 10B
+#_018408: dw $0CE6 ; 10C
+#_01840A: dw $0D06 ; 10D
+#_01840C: dw $0D26 ; 10E
+#_01840E: dw $0D46 ; 10F
+#_018410: dw $0D66 ; 110
+#_018412: dw $0D7E ; 111
+#_018414: dw $0D96 ; 112
+#_018416: dw $0DAE ; 113
+#_018418: dw $0DC6 ; 114
+#_01841A: dw $0DDE ; 115
+#_01841C: dw $0DF6 ; 116
+#_01841E: dw $0E0E ; 117
+#_018420: dw $0398 ; 118
+#_018422: dw $03A0 ; 119
+#_018424: dw $03A8 ; 11A
+#_018426: dw $03B0 ; 11B
+#_018428: dw $0E32 ; 11C
+#_01842A: dw $0E26 ; 11D
+#_01842C: dw $0EA2 ; 11E
+#_01842E: dw $0E9A ; 11F
+#_018430: dw $0ECA ; 120
+#_018432: dw $0ED2 ; 121
+#_018434: dw $0EDE ; 122
+#_018436: dw $0EDE ; 123
+#_018438: dw $0F1E ; 124
+#_01843A: dw $0F3E ; 125
+#_01843C: dw $0F5E ; 126
+#_01843E: dw $0F6A ; 127
+#_018440: dw $0EF6 ; 128
+#_018442: dw $0F72 ; 129
+#_018444: dw $0F92 ; 12A
+#_018446: dw $0FA2 ; 12B
+#_018448: dw $0FA2 ; 12C
+#_01844A: dw $1088 ; 12D
+#_01844C: dw $10A8 ; 12E
+#_01844E: dw $10A8 ; 12F
+#_018450: dw $10C8 ; 130
+#_018452: dw $10C8 ; 131
+#_018454: dw $10C8 ; 132
+#_018456: dw $10C8 ; 133
+#_018458: dw $0E52 ; 134
+#_01845A: dw $1108 ; 135
+#_01845C: dw $1108 ; 136
+#_01845E: dw $12A8 ; 137
+#_018460: dw $1148 ; 138
+#_018462: dw $1160 ; 139
+#_018464: dw $1178 ; 13A
+#_018466: dw $1190 ; 13B
+#_018468: dw $1458 ; 13C
+#_01846A: dw $1488 ; 13D
+#_01846C: dw $2062 ; 13E
+#_01846E: dw $2086 ; 13F
 
 ;---------------------------------------------------------------------------------------------------
 
 .type1_subtype_2_routine
-#_018470: dw RoomDraw_4x4Object                                          ; 0100
-#_018472: dw RoomDraw_4x4Object                                          ; 0101
-#_018474: dw RoomDraw_4x4Object                                          ; 0102
-#_018476: dw RoomDraw_4x4Object                                          ; 0103
-#_018478: dw RoomDraw_4x4Object                                          ; 0104
-#_01847A: dw RoomDraw_4x4Object                                          ; 0105
-#_01847C: dw RoomDraw_4x4Object                                          ; 0106
-#_01847E: dw RoomDraw_4x4Object                                          ; 0107
-#_018480: dw RoomDraw_4x4Corner_BothBG                                   ; 0108
-#_018482: dw RoomDraw_4x4Corner_BothBG                                   ; 0109
-#_018484: dw RoomDraw_4x4Corner_BothBG                                   ; 010A
-#_018486: dw RoomDraw_4x4Corner_BothBG                                   ; 010B
-#_018488: dw RoomDraw_4x4Corner_BothBG                                   ; 010C
-#_01848A: dw RoomDraw_4x4Corner_BothBG                                   ; 010D
-#_01848C: dw RoomDraw_4x4Corner_BothBG                                   ; 010E
-#_01848E: dw RoomDraw_4x4Corner_BothBG                                   ; 010F
-#_018490: dw RoomDraw_WeirdCornerBottom_BothBG                           ; 0110
-#_018492: dw RoomDraw_WeirdCornerBottom_BothBG                           ; 0111
-#_018494: dw RoomDraw_WeirdCornerBottom_BothBG                           ; 0112
-#_018496: dw RoomDraw_WeirdCornerBottom_BothBG                           ; 0113
-#_018498: dw RoomDraw_WeirdCornerTop_BothBG                              ; 0114
-#_01849A: dw RoomDraw_WeirdCornerTop_BothBG                              ; 0115
-#_01849C: dw RoomDraw_WeirdCornerTop_BothBG                              ; 0116
-#_01849E: dw RoomDraw_WeirdCornerTop_BothBG                              ; 0117
-#_0184A0: dw RoomDraw_Object_2x2_rightwards                              ; 0118
-#_0184A2: dw RoomDraw_Object_2x2_rightwards                              ; 0119
-#_0184A4: dw RoomDraw_Object_2x2_rightwards                              ; 011A
-#_0184A6: dw RoomDraw_Object_2x2_rightwards                              ; 011B
-#_0184A8: dw RoomDraw_4x4Object                                          ; 011C
-#_0184AA: dw RoomDraw_Single2x3Pillar                                    ; 011D
-#_0184AC: dw RoomDraw_Single2x2                                          ; 011E
-#_0184AE: dw RoomDraw_EnabledStarSwitch                                  ; 011F
-#_0184B0: dw RoomDraw_LitTorch                                           ; 0120
-#_0184B2: dw RoomDraw_Single2x3Pillar                                    ; 0121
-#_0184B4: dw RoomDraw_Bed2x5                                             ; 0122
-#_0184B6: dw RoomDraw_TableRock2x3                                       ; 0123
-#_0184B8: dw RoomDraw_4x4Object                                          ; 0124
-#_0184BA: dw RoomDraw_4x4Object                                          ; 0125
-#_0184BC: dw RoomDraw_Single2x3Pillar                                    ; 0126
-#_0184BE: dw RoomDraw_Object_2x2_rightwards                              ; 0127
-#_0184C0: dw RoomDraw_Bed2x5                                             ; 0128
-#_0184C2: dw RoomDraw_4x4Object                                          ; 0129
-#_0184C4: dw RoomDraw_PortraitOfMario                                    ; 012A
-#_0184C6: dw RoomDraw_Object_2x2_rightwards                              ; 012B
-#_0184C8: dw RoomDraw_DrawRightwards3x6                                  ; 012C
-#_0184CA: dw RoomDraw_InterRoomFatStairsUp                               ; 012D
-#_0184CC: dw RoomDraw_InterRoomFatStairsDown_A                           ; 012E
-#_0184CE: dw RoomDraw_InterRoomFatStairsDown_B                           ; 012F
-#_0184D0: dw RoomDraw_AutoStairs_North_MultiLayer_A                      ; 0130
-#_0184D2: dw RoomDraw_AutoStairs_North_MultiLayer_B                      ; 0131
-#_0184D4: dw RoomDraw_AutoStairs_North_MergedLayer_A                     ; 0132
-#_0184D6: dw RoomDraw_AutoStairs_North_MergedLayer_B                     ; 0133
-#_0184D8: dw RoomDraw_Object_2x2_rightwards                              ; 0134
-#_0184DA: dw RoomDraw_WaterHopStairs_A                                   ; 0135
-#_0184DC: dw RoomDraw_WaterHopStairs_B                                   ; 0136
-#_0184DE: dw RoomDraw_DamFloodGate                                       ; 0137
-#_0184E0: dw RoomDraw_SpiralStairsGoingUpUpper                           ; 0138
-#_0184E2: dw RoomDraw_SpiralStairsGoingDownUpper                         ; 0139
-#_0184E4: dw RoomDraw_SpiralStairsGoingUpLower                           ; 013A
-#_0184E6: dw RoomDraw_SpiralStairsGoingDownLower                         ; 013B
-#_0184E8: dw RoomDraw_SanctuaryWall                                      ; 013C
-#_0184EA: dw RoomDraw_TableRock2x3                                       ; 013D
-#_0184EC: dw RoomDraw_Utility6x3                                         ; 013E
-#_0184EE: dw RoomDraw_MagicBatAltar                                      ; 013F
+#_018470: dw RoomDraw_4x4Object                                          ; 100
+#_018472: dw RoomDraw_4x4Object                                          ; 101
+#_018474: dw RoomDraw_4x4Object                                          ; 102
+#_018476: dw RoomDraw_4x4Object                                          ; 103
+#_018478: dw RoomDraw_4x4Object                                          ; 104
+#_01847A: dw RoomDraw_4x4Object                                          ; 105
+#_01847C: dw RoomDraw_4x4Object                                          ; 106
+#_01847E: dw RoomDraw_4x4Object                                          ; 107
+#_018480: dw RoomDraw_4x4Corner_BothBG                                   ; 108
+#_018482: dw RoomDraw_4x4Corner_BothBG                                   ; 109
+#_018484: dw RoomDraw_4x4Corner_BothBG                                   ; 10A
+#_018486: dw RoomDraw_4x4Corner_BothBG                                   ; 10B
+#_018488: dw RoomDraw_4x4Corner_BothBG                                   ; 10C
+#_01848A: dw RoomDraw_4x4Corner_BothBG                                   ; 10D
+#_01848C: dw RoomDraw_4x4Corner_BothBG                                   ; 10E
+#_01848E: dw RoomDraw_4x4Corner_BothBG                                   ; 10F
+#_018490: dw RoomDraw_WeirdCornerBottom_BothBG                           ; 110
+#_018492: dw RoomDraw_WeirdCornerBottom_BothBG                           ; 111
+#_018494: dw RoomDraw_WeirdCornerBottom_BothBG                           ; 112
+#_018496: dw RoomDraw_WeirdCornerBottom_BothBG                           ; 113
+#_018498: dw RoomDraw_WeirdCornerTop_BothBG                              ; 114
+#_01849A: dw RoomDraw_WeirdCornerTop_BothBG                              ; 115
+#_01849C: dw RoomDraw_WeirdCornerTop_BothBG                              ; 116
+#_01849E: dw RoomDraw_WeirdCornerTop_BothBG                              ; 117
+#_0184A0: dw RoomDraw_Object_2x2_rightwards                              ; 118
+#_0184A2: dw RoomDraw_Object_2x2_rightwards                              ; 119
+#_0184A4: dw RoomDraw_Object_2x2_rightwards                              ; 11A
+#_0184A6: dw RoomDraw_Object_2x2_rightwards                              ; 11B
+#_0184A8: dw RoomDraw_4x4Object                                          ; 11C
+#_0184AA: dw RoomDraw_Single2x3Pillar                                    ; 11D
+#_0184AC: dw RoomDraw_Single2x2                                          ; 11E
+#_0184AE: dw RoomDraw_EnabledStarSwitch                                  ; 11F
+#_0184B0: dw RoomDraw_LitTorch                                           ; 120
+#_0184B2: dw RoomDraw_Single2x3Pillar                                    ; 121
+#_0184B4: dw RoomDraw_Bed2x5                                             ; 122
+#_0184B6: dw RoomDraw_TableRock2x3                                       ; 123
+#_0184B8: dw RoomDraw_4x4Object                                          ; 124
+#_0184BA: dw RoomDraw_4x4Object                                          ; 125
+#_0184BC: dw RoomDraw_Single2x3Pillar                                    ; 126
+#_0184BE: dw RoomDraw_Object_2x2_rightwards                              ; 127
+#_0184C0: dw RoomDraw_Bed2x5                                             ; 128
+#_0184C2: dw RoomDraw_4x4Object                                          ; 129
+#_0184C4: dw RoomDraw_PortraitOfMario                                    ; 12A
+#_0184C6: dw RoomDraw_Object_2x2_rightwards                              ; 12B
+#_0184C8: dw RoomDraw_DrawRightwards3x6                                  ; 12C
+#_0184CA: dw RoomDraw_InterRoomFatStairsUp                               ; 12D
+#_0184CC: dw RoomDraw_InterRoomFatStairsDown_A                           ; 12E
+#_0184CE: dw RoomDraw_InterRoomFatStairsDown_B                           ; 12F
+#_0184D0: dw RoomDraw_AutoStairs_North_MultiLayer_A                      ; 130
+#_0184D2: dw RoomDraw_AutoStairs_North_MultiLayer_B                      ; 131
+#_0184D4: dw RoomDraw_AutoStairs_North_MergedLayer_A                     ; 132
+#_0184D6: dw RoomDraw_AutoStairs_North_MergedLayer_B                     ; 133
+#_0184D8: dw RoomDraw_Object_2x2_rightwards                              ; 134
+#_0184DA: dw RoomDraw_WaterHopStairs_A                                   ; 135
+#_0184DC: dw RoomDraw_WaterHopStairs_B                                   ; 136
+#_0184DE: dw RoomDraw_DamFloodGate                                       ; 137
+#_0184E0: dw RoomDraw_SpiralStairsGoingUpUpper                           ; 138
+#_0184E2: dw RoomDraw_SpiralStairsGoingDownUpper                         ; 139
+#_0184E4: dw RoomDraw_SpiralStairsGoingUpLower                           ; 13A
+#_0184E6: dw RoomDraw_SpiralStairsGoingDownLower                         ; 13B
+#_0184E8: dw RoomDraw_SanctuaryWall                                      ; 13C
+#_0184EA: dw RoomDraw_TableRock2x3                                       ; 13D
+#_0184EC: dw RoomDraw_Utility6x3                                         ; 13E
+#_0184EE: dw RoomDraw_MagicBatAltar                                      ; 13F
 
 ;===================================================================================================
 
 .type1_subtype_3_data_offset
-#_0184F0: dw $1614 ; 0F80
-#_0184F2: dw $162C ; 0F81
-#_0184F4: dw $1654 ; 0F82
-#_0184F6: dw $0A0E ; 0F83
-#_0184F8: dw $0A0C ; 0F84
-#_0184FA: dw $09FC ; 0F85
-#_0184FC: dw $09FE ; 0F86
-#_0184FE: dw $0A00 ; 0F87
-#_018500: dw $0A02 ; 0F88
-#_018502: dw $0A04 ; 0F89
-#_018504: dw $0A06 ; 0F8A
-#_018506: dw $0A08 ; 0F8B
-#_018508: dw $0A0A ; 0F8C
-#_01850A: dw $0000 ; 0F8D
-#_01850C: dw $0A10 ; 0F8E
-#_01850E: dw $0A12 ; 0F8F
-#_018510: dw $1DDA ; 0F90
-#_018512: dw $1DE2 ; 0F91
-#_018514: dw $1DD6 ; 0F92
-#_018516: dw $1DEA ; 0F93
-#_018518: dw $15FC ; 0F94
-#_01851A: dw $1DFA ; 0F95
-#_01851C: dw $1DF2 ; 0F96
-#_01851E: dw $1488 ; 0F97
-#_018520: dw $1494 ; 0F98
-#_018522: dw $149C ; 0F99
-#_018524: dw $14A4 ; 0F9A
-#_018526: dw $10E8 ; 0F9B
-#_018528: dw $10E8 ; 0F9C
-#_01852A: dw $10E8 ; 0F9D
-#_01852C: dw $11A8 ; 0F9E
-#_01852E: dw $11C8 ; 0F9F
-#_018530: dw $11E8 ; 0FA0
-#_018532: dw $1208 ; 0FA1
-#_018534: dw $03B8 ; 0FA2
-#_018536: dw $03C0 ; 0FA3
-#_018538: dw $03C8 ; 0FA4
-#_01853A: dw $03D0 ; 0FA5
-#_01853C: dw $1228 ; 0FA6
-#_01853E: dw $1248 ; 0FA7
-#_018540: dw $1268 ; 0FA8
-#_018542: dw $1288 ; 0FA9
-#_018544: dw $0000 ; 0FAA
-#_018546: dw $0E5A ; 0FAB
-#_018548: dw $0E62 ; 0FAC
-#_01854A: dw $0000 ; 0FAD
-#_01854C: dw $0000 ; 0FAE
-#_01854E: dw $0E82 ; 0FAF
-#_018550: dw $0E8A ; 0FB0
-#_018552: dw $14AC ; 0FB1
-#_018554: dw $14C4 ; 0FB2
-#_018556: dw $10E8 ; 0FB3
-#_018558: dw $1614 ; 0FB4
-#_01855A: dw $1614 ; 0FB5
-#_01855C: dw $1614 ; 0FB6
-#_01855E: dw $1614 ; 0FB7
-#_018560: dw $1614 ; 0FB8
-#_018562: dw $1614 ; 0FB9
-#_018564: dw $1CBE ; 0FBA
-#_018566: dw $1CEE ; 0FBB
-#_018568: dw $1D1E ; 0FBC
-#_01856A: dw $1D4E ; 0FBD
-#_01856C: dw $1D8E ; 0FBE
-#_01856E: dw $1D96 ; 0FBF
-#_018570: dw $1D9E ; 0FC0
-#_018572: dw $1DA6 ; 0FC1
-#_018574: dw $1DAE ; 0FC2
-#_018576: dw $1DB6 ; 0FC3
-#_018578: dw $1DBE ; 0FC4
-#_01857A: dw $1DC6 ; 0FC5
-#_01857C: dw $1DCE ; 0FC6
-#_01857E: dw $0220 ; 0FC7
-#_018580: dw $0260 ; 0FC8
-#_018582: dw $0280 ; 0FC9
-#_018584: dw $1F3A ; 0FCA
-#_018586: dw $1F62 ; 0FCB
-#_018588: dw $1F92 ; 0FCC
-#_01858A: dw $1FF2 ; 0FCD
-#_01858C: dw $2016 ; 0FCE
-#_01858E: dw $1F42 ; 0FCF
-#_018590: dw $0EAA ; 0FD0
-#_018592: dw $1F4A ; 0FD1
-#_018594: dw $1F52 ; 0FD2
-#_018596: dw $1F5A ; 0FD3
-#_018598: dw $202E ; 0FD4
-#_01859A: dw $2062 ; 0FD5
-#_01859C: dw $09B8 ; 0FD6
-#_01859E: dw $09C0 ; 0FD7
-#_0185A0: dw $09C8 ; 0FD8
-#_0185A2: dw $09D0 ; 0FD9
-#_0185A4: dw $0FA2 ; 0FDA
-#_0185A6: dw $0FB2 ; 0FDB
-#_0185A8: dw $0FC4 ; 0FDC
-#_0185AA: dw $0FF4 ; 0FDD
-#_0185AC: dw $1018 ; 0FDE
-#_0185AE: dw $1020 ; 0FDF
-#_0185B0: dw $15B4 ; 0FE0
-#_0185B2: dw $15D8 ; 0FE1
-#_0185B4: dw $20F6 ; 0FE2
-#_0185B6: dw $0EBA ; 0FE3
-#_0185B8: dw $22E6 ; 0FE4
-#_0185BA: dw $22EE ; 0FE5
-#_0185BC: dw $05DA ; 0FE6
-#_0185BE: dw $281E ; 0FE7
-#_0185C0: dw $2AE0 ; 0FE8
-#_0185C2: dw $2D2A ; 0FE9
-#_0185C4: dw $2F2A ; 0FEA
-#_0185C6: dw $22F6 ; 0FEB
-#_0185C8: dw $2316 ; 0FEC
-#_0185CA: dw $232E ; 0FED
-#_0185CC: dw $2346 ; 0FEE
-#_0185CE: dw $235E ; 0FEF
-#_0185D0: dw $2376 ; 0FF0
-#_0185D2: dw $23B6 ; 0FF1
-#_0185D4: dw $1E9A ; 0FF2
-#_0185D6: dw $0000 ; 0FF3
-#_0185D8: dw $2436 ; 0FF4
-#_0185DA: dw $149C ; 0FF5
-#_0185DC: dw $24B6 ; 0FF6
-#_0185DE: dw $24E6 ; 0FF7
-#_0185E0: dw $2516 ; 0FF8
-#_0185E2: dw $1028 ; 0FF9
-#_0185E4: dw $1040 ; 0FFA
-#_0185E6: dw $1060 ; 0FFB
-#_0185E8: dw $1070 ; 0FFC
-#_0185EA: dw $1078 ; 0FFD
-#_0185EC: dw $1080 ; 0FFE
-#_0185EE: dw $0000 ; 0FFF
+#_0184F0: dw $1614 ; 200
+#_0184F2: dw $162C ; 201
+#_0184F4: dw $1654 ; 202
+#_0184F6: dw $0A0E ; 203
+#_0184F8: dw $0A0C ; 204
+#_0184FA: dw $09FC ; 205
+#_0184FC: dw $09FE ; 206
+#_0184FE: dw $0A00 ; 207
+#_018500: dw $0A02 ; 208
+#_018502: dw $0A04 ; 209
+#_018504: dw $0A06 ; 20A
+#_018506: dw $0A08 ; 20B
+#_018508: dw $0A0A ; 20C
+#_01850A: dw $0000 ; 20D
+#_01850C: dw $0A10 ; 20E
+#_01850E: dw $0A12 ; 20F
+#_018510: dw $1DDA ; 210
+#_018512: dw $1DE2 ; 211
+#_018514: dw $1DD6 ; 212
+#_018516: dw $1DEA ; 213
+#_018518: dw $15FC ; 214
+#_01851A: dw $1DFA ; 215
+#_01851C: dw $1DF2 ; 216
+#_01851E: dw $1488 ; 217
+#_018520: dw $1494 ; 218
+#_018522: dw $149C ; 219
+#_018524: dw $14A4 ; 21A
+#_018526: dw $10E8 ; 21B
+#_018528: dw $10E8 ; 21C
+#_01852A: dw $10E8 ; 21D
+#_01852C: dw $11A8 ; 21E
+#_01852E: dw $11C8 ; 21F
+#_018530: dw $11E8 ; 220
+#_018532: dw $1208 ; 221
+#_018534: dw $03B8 ; 222
+#_018536: dw $03C0 ; 223
+#_018538: dw $03C8 ; 224
+#_01853A: dw $03D0 ; 225
+#_01853C: dw $1228 ; 226
+#_01853E: dw $1248 ; 227
+#_018540: dw $1268 ; 228
+#_018542: dw $1288 ; 229
+#_018544: dw $0000 ; 22A
+#_018546: dw $0E5A ; 22B
+#_018548: dw $0E62 ; 22C
+#_01854A: dw $0000 ; 22D
+#_01854C: dw $0000 ; 22E
+#_01854E: dw $0E82 ; 22F
+#_018550: dw $0E8A ; 230
+#_018552: dw $14AC ; 231
+#_018554: dw $14C4 ; 232
+#_018556: dw $10E8 ; 233
+#_018558: dw $1614 ; 234
+#_01855A: dw $1614 ; 235
+#_01855C: dw $1614 ; 236
+#_01855E: dw $1614 ; 237
+#_018560: dw $1614 ; 238
+#_018562: dw $1614 ; 239
+#_018564: dw $1CBE ; 23A
+#_018566: dw $1CEE ; 23B
+#_018568: dw $1D1E ; 23C
+#_01856A: dw $1D4E ; 23D
+#_01856C: dw $1D8E ; 23E
+#_01856E: dw $1D96 ; 23F
+#_018570: dw $1D9E ; 240
+#_018572: dw $1DA6 ; 241
+#_018574: dw $1DAE ; 242
+#_018576: dw $1DB6 ; 243
+#_018578: dw $1DBE ; 244
+#_01857A: dw $1DC6 ; 245
+#_01857C: dw $1DCE ; 246
+#_01857E: dw $0220 ; 247
+#_018580: dw $0260 ; 248
+#_018582: dw $0280 ; 249
+#_018584: dw $1F3A ; 24A
+#_018586: dw $1F62 ; 24B
+#_018588: dw $1F92 ; 24C
+#_01858A: dw $1FF2 ; 24D
+#_01858C: dw $2016 ; 24E
+#_01858E: dw $1F42 ; 24F
+#_018590: dw $0EAA ; 250
+#_018592: dw $1F4A ; 251
+#_018594: dw $1F52 ; 252
+#_018596: dw $1F5A ; 253
+#_018598: dw $202E ; 254
+#_01859A: dw $2062 ; 255
+#_01859C: dw $09B8 ; 256
+#_01859E: dw $09C0 ; 257
+#_0185A0: dw $09C8 ; 258
+#_0185A2: dw $09D0 ; 259
+#_0185A4: dw $0FA2 ; 25A
+#_0185A6: dw $0FB2 ; 25B
+#_0185A8: dw $0FC4 ; 25C
+#_0185AA: dw $0FF4 ; 25D
+#_0185AC: dw $1018 ; 25E
+#_0185AE: dw $1020 ; 25F
+#_0185B0: dw $15B4 ; 260
+#_0185B2: dw $15D8 ; 261
+#_0185B4: dw $20F6 ; 262
+#_0185B6: dw $0EBA ; 263
+#_0185B8: dw $22E6 ; 264
+#_0185BA: dw $22EE ; 265
+#_0185BC: dw $05DA ; 266
+#_0185BE: dw $281E ; 267
+#_0185C0: dw $2AE0 ; 268
+#_0185C2: dw $2D2A ; 269
+#_0185C4: dw $2F2A ; 26A
+#_0185C6: dw $22F6 ; 26B
+#_0185C8: dw $2316 ; 26C
+#_0185CA: dw $232E ; 26D
+#_0185CC: dw $2346 ; 26E
+#_0185CE: dw $235E ; 26F
+#_0185D0: dw $2376 ; 270
+#_0185D2: dw $23B6 ; 271
+#_0185D4: dw $1E9A ; 272
+#_0185D6: dw $0000 ; 273
+#_0185D8: dw $2436 ; 274
+#_0185DA: dw $149C ; 275
+#_0185DC: dw $24B6 ; 276
+#_0185DE: dw $24E6 ; 277
+#_0185E0: dw $2516 ; 278
+#_0185E2: dw $1028 ; 279
+#_0185E4: dw $1040 ; 27A
+#_0185E6: dw $1060 ; 27B
+#_0185E8: dw $1070 ; 27C
+#_0185EA: dw $1078 ; 27D
+#_0185EC: dw $1080 ; 27E
+#_0185EE: dw $0000 ; 27F
 
 ;---------------------------------------------------------------------------------------------------
 
 .type1_subtype_3_routine
-#_0185F0: dw RoomDraw_EmptyWaterFace                                     ; 0F80
-#_0185F2: dw RoomDraw_SpittingWaterFace                                  ; 0F81
-#_0185F4: dw RoomDraw_DrenchingWaterFace                                 ; 0F82
-#_0185F6: dw RoomDraw_SomariaLine_increment_count                        ; 0F83
-#_0185F8: dw RoomDraw_SomariaLine                                        ; 0F84
-#_0185FA: dw RoomDraw_SomariaLine                                        ; 0F85
-#_0185FC: dw RoomDraw_SomariaLine                                        ; 0F86
-#_0185FE: dw RoomDraw_SomariaLine                                        ; 0F87
-#_018600: dw RoomDraw_SomariaLine                                        ; 0F88
-#_018602: dw RoomDraw_SomariaLine                                        ; 0F89
-#_018604: dw RoomDraw_SomariaLine                                        ; 0F8A
-#_018606: dw RoomDraw_SomariaLine                                        ; 0F8B
-#_018608: dw RoomDraw_SomariaLine                                        ; 0F8C
-#_01860A: dw RoomDraw_PrisonCell                                         ; 0F8D
-#_01860C: dw RoomDraw_SomariaLine_increment_count                        ; 0F8E
-#_01860E: dw RoomDraw_SomariaLine                                        ; 0F8F
-#_018610: dw RoomDraw_Object_2x2_rightwards                              ; 0F90
-#_018612: dw RoomDraw_Object_2x2_rightwards                              ; 0F91
-#_018614: dw RoomDraw_RupeeFloor                                         ; 0F92
-#_018616: dw RoomDraw_Object_2x2_rightwards                              ; 0F93
-#_018618: dw RoomDraw_TableRock2x3                                       ; 0F94
-#_01861A: dw RoomDraw_KholdstareShell                                    ; 0F95
-#_01861C: dw RoomDraw_HammerPegSingle                                    ; 0F96
-#_01861E: dw RoomDraw_PrisonCell                                         ; 0F97
-#_018620: dw RoomDraw_BigKeyLock                                         ; 0F98
-#_018622: dw RoomDraw_Chest                                              ; 0F99
-#_018624: dw RoomDraw_OpenChest                                          ; 0F9A
-#_018626: dw RoomDraw_AutoStairs_South_MultiLayer_A                      ; 0F9B
-#_018628: dw RoomDraw_AutoStairs_South_MultiLayer_B                      ; 0F9C
-#_01862A: dw RoomDraw_AutoStairs_South_MultiLayer_C                      ; 0F9D
-#_01862C: dw RoomDraw_StraightInterroomStairsGoingUpNorthUpper           ; 0F9E
-#_01862E: dw RoomDraw_StraightInterroomStairsGoingDownNorthUpper         ; 0F9F
-#_018630: dw RoomDraw_StraightInterroomStairsGoingUpSouthUpper           ; 0FA0
-#_018632: dw RoomDraw_StraightInterroomStairsGoingDownSouthUpper         ; 0FA1
-#_018634: dw RoomDraw_Object_2x2_rightwards                              ; 0FA2
-#_018636: dw RoomDraw_Object_2x2_rightwards                              ; 0FA3
-#_018638: dw RoomDraw_Object_2x2_rightwards                              ; 0FA4
-#_01863A: dw RoomDraw_Object_2x2_rightwards                              ; 0FA5
-#_01863C: dw RoomDraw_StraightInterroomStairsGoingUpNorthLower           ; 0FA6
-#_01863E: dw RoomDraw_StraightInterroomStairsGoingDownNorthLower         ; 0FA7
-#_018640: dw RoomDraw_StraightInterroomStairsGoingUpSouthLower           ; 0FA8
-#_018642: dw RoomDraw_StraightInterroomStairsGoingDownSouthLower         ; 0FA9
-#_018644: dw RoomDraw_LampCones                                          ; 0FAA
-#_018646: dw RoomDraw_WeirdGloveRequiredPot                              ; 0FAB
-#_018648: dw RoomDraw_BigGrayRock                                        ; 0FAC
-#_01864A: dw RoomDraw_AgahnimsAltar                                      ; 0FAD
-#_01864C: dw RoomDraw_AgahnimsWindows                                    ; 0FAE
-#_01864E: dw RoomDraw_SinglePot                                          ; 0FAF
-#_018650: dw RoomDraw_WeirdUglyPot                                       ; 0FB0
-#_018652: dw RoomDraw_BigChest                                           ; 0FB1
-#_018654: dw RoomDraw_OpenBigChest                                       ; 0FB2
-#_018656: dw RoomDraw_AutoStairs_South_MergedLayer                       ; 0FB3
-#_018658: dw RoomDraw_ChestPlatformVerticalWall                          ; 0FB4
-#_01865A: dw RoomDraw_ChestPlatformVerticalWall                          ; 0FB5
-#_01865C: dw RoomDraw_DrawRightwards3x6                                  ; 0FB6
-#_01865E: dw RoomDraw_DrawRightwards3x6                                  ; 0FB7
-#_018660: dw RoomDraw_ChestPlatformVerticalWall                          ; 0FB8
-#_018662: dw RoomDraw_ChestPlatformVerticalWall                          ; 0FB9
-#_018664: dw RoomDraw_VerticalTurtleRockPipe                             ; 0FBA
-#_018666: dw RoomDraw_VerticalTurtleRockPipe                             ; 0FBB
-#_018668: dw RoomDraw_HorizontalTurtleRockPipe                           ; 0FBC
-#_01866A: dw RoomDraw_HorizontalTurtleRockPipe                           ; 0FBD
-#_01866C: dw RoomDraw_Object_2x2_rightwards                              ; 0FBE
-#_01866E: dw RoomDraw_Object_2x2_rightwards                              ; 0FBF
-#_018670: dw RoomDraw_Object_2x2_rightwards                              ; 0FC0
-#_018672: dw RoomDraw_Object_2x2_rightwards                              ; 0FC1
-#_018674: dw RoomDraw_Object_2x2_rightwards                              ; 0FC2
-#_018676: dw RoomDraw_Object_2x2_rightwards                              ; 0FC3
-#_018678: dw RoomDraw_Object_2x2_rightwards                              ; 0FC4
-#_01867A: dw RoomDraw_Object_2x2_rightwards                              ; 0FC5
-#_01867C: dw RoomDraw_Object_2x2_rightwards                              ; 0FC6
-#_01867E: dw RoomDraw_BombableFloor                                      ; 0FC7
-#_018680: dw RoomDraw_4x4Object                                          ; 0FC8
-#_018682: dw RoomDraw_Object_2x2_rightwards                              ; 0FC9
-#_018684: dw RoomDraw_Object_2x2_rightwards                              ; 0FCA
-#_018686: dw RoomDraw_BigWallDecor                                       ; 0FCB
-#_018688: dw RoomDraw_SmithyFurnace                                      ; 0FCC
-#_01868A: dw RoomDraw_Utility6x3                                         ; 0FCD
-#_01868C: dw RoomDraw_TableRock2x3                                       ; 0FCE
-#_01868E: dw RoomDraw_Object_2x2_rightwards                              ; 0FCF
-#_018690: dw RoomDraw_Single2x2                                          ; 0FD0
-#_018692: dw RoomDraw_Object_2x2_rightwards                              ; 0FD1
-#_018694: dw RoomDraw_Object_2x2_rightwards                              ; 0FD2
-#_018696: dw RoomDraw_Object_2x2_rightwards                              ; 0FD3
-#_018698: dw RoomDraw_FortuneTellerRoom                                  ; 0FD4
-#_01869A: dw RoomDraw_Utility3x5                                         ; 0FD5
-#_01869C: dw RoomDraw_Object_2x2_rightwards                              ; 0FD6
-#_01869E: dw RoomDraw_Object_2x2_rightwards                              ; 0FD7
-#_0186A0: dw RoomDraw_Object_2x2_rightwards                              ; 0FD8
-#_0186A2: dw RoomDraw_Object_2x2_rightwards                              ; 0FD9
-#_0186A4: dw RoomDraw_TableBowl                                          ; 0FDA
-#_0186A6: dw RoomDraw_Utility3x5                                         ; 0FDB
-#_0186A8: dw RoomDraw_HorizontalTurtleRockPipe                           ; 0FDC
-#_0186AA: dw RoomDraw_Utility6x3                                         ; 0FDD
-#_0186AC: dw RoomDraw_Object_2x2_rightwards                              ; 0FDE
-#_0186AE: dw RoomDraw_Object_2x2_rightwards                              ; 0FDF
-#_0186B0: dw RoomDraw_ArcheryGameTargetDoor                              ; 0FE0
-#_0186B2: dw RoomDraw_ArcheryGameTargetDoor                              ; 0FE1
-#_0186B4: dw RoomDraw_VitreousGooGraphics                                ; 0FE2
-#_0186B6: dw RoomDraw_Object_2x2_rightwards                              ; 0FE3
-#_0186B8: dw RoomDraw_Object_2x2_rightwards                              ; 0FE4
-#_0186BA: dw RoomDraw_Object_2x2_rightwards                              ; 0FE5
-#_0186BC: dw RoomDraw_4x4Object                                          ; 0FE6
-#_0186BE: dw RoomDraw_TableRock2x3                                       ; 0FE7
-#_0186C0: dw RoomDraw_TableRock2x3                                       ; 0FE8
-#_0186C2: dw RoomDraw_SolidWallDecor3x4                                  ; 0FE9
-#_0186C4: dw RoomDraw_SolidWallDecor3x4                                  ; 0FEA
-#_0186C6: dw RoomDraw_4x4Object                                          ; 0FEB
-#_0186C8: dw RoomDraw_TableRock2x3                                       ; 0FEC
-#_0186CA: dw RoomDraw_TableRock2x3                                       ; 0FED
-#_0186CC: dw RoomDraw_SolidWallDecor3x4                                  ; 0FEE
-#_0186CE: dw RoomDraw_SolidWallDecor3x4                                  ; 0FEF
-#_0186D0: dw RoomDraw_LightBeamOnFloor                                   ; 0FF0
-#_0186D2: dw RoomDraw_BigLightBeamOnFloor                                ; 0FF1
-#_0186D4: dw RoomDraw_TrinexxShell                                       ; 0FF2
-#_0186D6: dw RoomDraw_BG2MaskFull                                        ; 0FF3
-#_0186D8: dw RoomDraw_FloorLight                                         ; 0FF4
-#_0186DA: dw RoomDraw_Object_2x2_rightwards                              ; 0FF5
-#_0186DC: dw RoomDraw_BigWallDecor                                       ; 0FF6
-#_0186DE: dw RoomDraw_BigWallDecor                                       ; 0FF7
-#_0186E0: dw RoomDraw_GanonTriforceFloorDecor                            ; 0FF8
-#_0186E2: dw RoomDraw_TableRock2x3                                       ; 0FF9
-#_0186E4: dw RoomDraw_4x4Object                                          ; 0FFA
-#_0186E6: dw RoomDraw_VitreousGooDamage                                  ; 0FFB
-#_0186E8: dw RoomDraw_Object_2x2_rightwards                              ; 0FFC
-#_0186EA: dw RoomDraw_Object_2x2_rightwards                              ; 0FFD
-#_0186EC: dw RoomDraw_Object_2x2_rightwards                              ; 0FFE
-#_0186EE: dw RoomDraw_Nothing_B                                          ; 0FFF
+#_0185F0: dw RoomDraw_EmptyWaterFace                                     ; 200
+#_0185F2: dw RoomDraw_SpittingWaterFace                                  ; 201
+#_0185F4: dw RoomDraw_DrenchingWaterFace                                 ; 202
+#_0185F6: dw RoomDraw_SomariaLine_increment_count                        ; 203
+#_0185F8: dw RoomDraw_SomariaLine                                        ; 204
+#_0185FA: dw RoomDraw_SomariaLine                                        ; 205
+#_0185FC: dw RoomDraw_SomariaLine                                        ; 206
+#_0185FE: dw RoomDraw_SomariaLine                                        ; 207
+#_018600: dw RoomDraw_SomariaLine                                        ; 208
+#_018602: dw RoomDraw_SomariaLine                                        ; 209
+#_018604: dw RoomDraw_SomariaLine                                        ; 20A
+#_018606: dw RoomDraw_SomariaLine                                        ; 20B
+#_018608: dw RoomDraw_SomariaLine                                        ; 20C
+#_01860A: dw RoomDraw_PrisonCell                                         ; 20D
+#_01860C: dw RoomDraw_SomariaLine_increment_count                        ; 20E
+#_01860E: dw RoomDraw_SomariaLine                                        ; 20F
+#_018610: dw RoomDraw_Object_2x2_rightwards                              ; 210
+#_018612: dw RoomDraw_Object_2x2_rightwards                              ; 211
+#_018614: dw RoomDraw_RupeeFloor                                         ; 212
+#_018616: dw RoomDraw_Object_2x2_rightwards                              ; 213
+#_018618: dw RoomDraw_TableRock2x3                                       ; 214
+#_01861A: dw RoomDraw_KholdstareShell                                    ; 215
+#_01861C: dw RoomDraw_HammerPegSingle                                    ; 216
+#_01861E: dw RoomDraw_PrisonCell                                         ; 217
+#_018620: dw RoomDraw_BigKeyLock                                         ; 218
+#_018622: dw RoomDraw_Chest                                              ; 219
+#_018624: dw RoomDraw_OpenChest                                          ; 21A
+#_018626: dw RoomDraw_AutoStairs_South_MultiLayer_A                      ; 21B
+#_018628: dw RoomDraw_AutoStairs_South_MultiLayer_B                      ; 21C
+#_01862A: dw RoomDraw_AutoStairs_South_MultiLayer_C                      ; 21D
+#_01862C: dw RoomDraw_StraightInterroomStairsGoingUpNorthUpper           ; 21E
+#_01862E: dw RoomDraw_StraightInterroomStairsGoingDownNorthUpper         ; 21F
+#_018630: dw RoomDraw_StraightInterroomStairsGoingUpSouthUpper           ; 220
+#_018632: dw RoomDraw_StraightInterroomStairsGoingDownSouthUpper         ; 221
+#_018634: dw RoomDraw_Object_2x2_rightwards                              ; 222
+#_018636: dw RoomDraw_Object_2x2_rightwards                              ; 223
+#_018638: dw RoomDraw_Object_2x2_rightwards                              ; 224
+#_01863A: dw RoomDraw_Object_2x2_rightwards                              ; 225
+#_01863C: dw RoomDraw_StraightInterroomStairsGoingUpNorthLower           ; 226
+#_01863E: dw RoomDraw_StraightInterroomStairsGoingDownNorthLower         ; 227
+#_018640: dw RoomDraw_StraightInterroomStairsGoingUpSouthLower           ; 228
+#_018642: dw RoomDraw_StraightInterroomStairsGoingDownSouthLower         ; 229
+#_018644: dw RoomDraw_LampCones                                          ; 22A
+#_018646: dw RoomDraw_WeirdGloveRequiredPot                              ; 22B
+#_018648: dw RoomDraw_BigGrayRock                                        ; 22C
+#_01864A: dw RoomDraw_AgahnimsAltar                                      ; 22D
+#_01864C: dw RoomDraw_AgahnimsWindows                                    ; 22E
+#_01864E: dw RoomDraw_SinglePot                                          ; 22F
+#_018650: dw RoomDraw_WeirdUglyPot                                       ; 230
+#_018652: dw RoomDraw_BigChest                                           ; 231
+#_018654: dw RoomDraw_OpenBigChest                                       ; 232
+#_018656: dw RoomDraw_AutoStairs_South_MergedLayer                       ; 233
+#_018658: dw RoomDraw_ChestPlatformVerticalWall                          ; 234
+#_01865A: dw RoomDraw_ChestPlatformVerticalWall                          ; 235
+#_01865C: dw RoomDraw_DrawRightwards3x6                                  ; 236
+#_01865E: dw RoomDraw_DrawRightwards3x6                                  ; 237
+#_018660: dw RoomDraw_ChestPlatformVerticalWall                          ; 238
+#_018662: dw RoomDraw_ChestPlatformVerticalWall                          ; 239
+#_018664: dw RoomDraw_VerticalTurtleRockPipe                             ; 23A
+#_018666: dw RoomDraw_VerticalTurtleRockPipe                             ; 23B
+#_018668: dw RoomDraw_HorizontalTurtleRockPipe                           ; 23C
+#_01866A: dw RoomDraw_HorizontalTurtleRockPipe                           ; 23D
+#_01866C: dw RoomDraw_Object_2x2_rightwards                              ; 23E
+#_01866E: dw RoomDraw_Object_2x2_rightwards                              ; 23F
+#_018670: dw RoomDraw_Object_2x2_rightwards                              ; 240
+#_018672: dw RoomDraw_Object_2x2_rightwards                              ; 241
+#_018674: dw RoomDraw_Object_2x2_rightwards                              ; 242
+#_018676: dw RoomDraw_Object_2x2_rightwards                              ; 243
+#_018678: dw RoomDraw_Object_2x2_rightwards                              ; 244
+#_01867A: dw RoomDraw_Object_2x2_rightwards                              ; 245
+#_01867C: dw RoomDraw_Object_2x2_rightwards                              ; 246
+#_01867E: dw RoomDraw_BombableFloor                                      ; 247
+#_018680: dw RoomDraw_4x4Object                                          ; 248
+#_018682: dw RoomDraw_Object_2x2_rightwards                              ; 249
+#_018684: dw RoomDraw_Object_2x2_rightwards                              ; 24A
+#_018686: dw RoomDraw_BigWallDecor                                       ; 24B
+#_018688: dw RoomDraw_SmithyFurnace                                      ; 24C
+#_01868A: dw RoomDraw_Utility6x3                                         ; 24D
+#_01868C: dw RoomDraw_TableRock2x3                                       ; 24E
+#_01868E: dw RoomDraw_Object_2x2_rightwards                              ; 24F
+#_018690: dw RoomDraw_Single2x2                                          ; 250
+#_018692: dw RoomDraw_Object_2x2_rightwards                              ; 251
+#_018694: dw RoomDraw_Object_2x2_rightwards                              ; 252
+#_018696: dw RoomDraw_Object_2x2_rightwards                              ; 253
+#_018698: dw RoomDraw_FortuneTellerRoom                                  ; 254
+#_01869A: dw RoomDraw_Utility3x5                                         ; 255
+#_01869C: dw RoomDraw_Object_2x2_rightwards                              ; 256
+#_01869E: dw RoomDraw_Object_2x2_rightwards                              ; 257
+#_0186A0: dw RoomDraw_Object_2x2_rightwards                              ; 258
+#_0186A2: dw RoomDraw_Object_2x2_rightwards                              ; 259
+#_0186A4: dw RoomDraw_TableBowl                                          ; 25A
+#_0186A6: dw RoomDraw_Utility3x5                                         ; 25B
+#_0186A8: dw RoomDraw_HorizontalTurtleRockPipe                           ; 25C
+#_0186AA: dw RoomDraw_Utility6x3                                         ; 25D
+#_0186AC: dw RoomDraw_Object_2x2_rightwards                              ; 25E
+#_0186AE: dw RoomDraw_Object_2x2_rightwards                              ; 25F
+#_0186B0: dw RoomDraw_ArcheryGameTargetDoor                              ; 260
+#_0186B2: dw RoomDraw_ArcheryGameTargetDoor                              ; 261
+#_0186B4: dw RoomDraw_VitreousGooGraphics                                ; 262
+#_0186B6: dw RoomDraw_Object_2x2_rightwards                              ; 263
+#_0186B8: dw RoomDraw_Object_2x2_rightwards                              ; 264
+#_0186BA: dw RoomDraw_Object_2x2_rightwards                              ; 265
+#_0186BC: dw RoomDraw_4x4Object                                          ; 266
+#_0186BE: dw RoomDraw_TableRock2x3                                       ; 267
+#_0186C0: dw RoomDraw_TableRock2x3                                       ; 268
+#_0186C2: dw RoomDraw_SolidWallDecor3x4                                  ; 269
+#_0186C4: dw RoomDraw_SolidWallDecor3x4                                  ; 26A
+#_0186C6: dw RoomDraw_4x4Object                                          ; 26B
+#_0186C8: dw RoomDraw_TableRock2x3                                       ; 26C
+#_0186CA: dw RoomDraw_TableRock2x3                                       ; 26D
+#_0186CC: dw RoomDraw_SolidWallDecor3x4                                  ; 26E
+#_0186CE: dw RoomDraw_SolidWallDecor3x4                                  ; 26F
+#_0186D0: dw RoomDraw_LightBeamOnFloor                                   ; 270
+#_0186D2: dw RoomDraw_BigLightBeamOnFloor                                ; 271
+#_0186D4: dw RoomDraw_TrinexxShell                                       ; 272
+#_0186D6: dw RoomDraw_BG2MaskFull                                        ; 273
+#_0186D8: dw RoomDraw_FloorLight                                         ; 274
+#_0186DA: dw RoomDraw_Object_2x2_rightwards                              ; 275
+#_0186DC: dw RoomDraw_BigWallDecor                                       ; 276
+#_0186DE: dw RoomDraw_BigWallDecor                                       ; 277
+#_0186E0: dw RoomDraw_GanonTriforceFloorDecor                            ; 278
+#_0186E2: dw RoomDraw_TableRock2x3                                       ; 279
+#_0186E4: dw RoomDraw_4x4Object                                          ; 27A
+#_0186E6: dw RoomDraw_VitreousGooDamage                                  ; 27B
+#_0186E8: dw RoomDraw_Object_2x2_rightwards                              ; 27C
+#_0186EA: dw RoomDraw_Object_2x2_rightwards                              ; 27D
+#_0186EC: dw RoomDraw_Object_2x2_rightwards                              ; 27E
+#_0186EE: dw RoomDraw_Nothing_B                                          ; 27F
 
 ;===================================================================================================
 
@@ -1245,7 +1245,7 @@ Underworld_LoadRoom:
 ;===================================================================================================
 
 RoomDraw_DrawAllObjects:
-.next_type_1
+.next
 #_0188E4: STZ.b $B2
 #_0188E6: STZ.b $B4
 
@@ -1258,22 +1258,22 @@ RoomDraw_DrawAllObjects:
 #_0188F1: STA.b $00
 
 #_0188F3: CMP.w #$FFF0
-#_0188F6: BEQ .try_type_2
+#_0188F6: BEQ .start_doors
 
-#_0188F8: JSR RoomData_DrawObject_Type1
+#_0188F8: JSR RoomData_DrawObject
 
-#_0188FB: BRA .next_type_1
+#_0188FB: BRA .next
 
 .return
 #_0188FD: RTS
 
 ;---------------------------------------------------------------------------------------------------
 
-.try_type_2
+.start_doors
 #_0188FE: INC.b $BA
 #_018900: INC.b $BA
 
-.next_type_2
+.next_door
 #_018902: LDY.b $BA
 
 #_018904: LDA.b [$B7],Y
@@ -1282,16 +1282,16 @@ RoomDraw_DrawAllObjects:
 
 #_01890B: STA.b $00
 
-#_01890D: JSR RoomData_DrawObject_Type2
+#_01890D: JSR RoomData_DrawObject_Door
 
 #_018910: INC.b $BA
 #_018912: INC.b $BA
 
-#_018914: BRA .next_type_2
+#_018914: BRA .next_door
 
 ;===================================================================================================
 
-RoomData_DrawObject_Type2:
+RoomData_DrawObject_Door:
 #_018916: AND.w #$00F0
 #_018919: LSR A
 #_01891A: LSR A
@@ -1320,7 +1320,7 @@ RoomData_DrawObject_Type2:
 
 ;===================================================================================================
 
-RoomData_DrawObject_Type1:
+RoomData_DrawObject:
 #_01893C: SEP #$20
 
 #_01893E: AND.b #$FC
@@ -6577,7 +6577,7 @@ RoomDraw_AutoStairs_South_MergedLayer:
 #_01A381: LDA.b $AF
 #_01A383: AND.w #$00FF
 #_01A386: CMP.w #$001B
-#_01A389: BNE .not_water_twin
+#_01A389: BNE .not_dam_gate
 
 #_01A38B: LDA.b $A0
 #_01A38D: ASL A
@@ -6590,7 +6590,7 @@ RoomDraw_AutoStairs_South_MergedLayer:
 #_01A398: LDA.w #$6202
 #_01A39B: STA.b $99
 
-.not_water_twin
+.not_dam_gate
 #_01A39D: LDX.w $04AE
 
 #_01A3A0: TYA
@@ -6811,6 +6811,7 @@ RoomDraw_SpiralStairsGoingUpUpper:
 
 RoomDraw_SpiralStairsGoingUpLower:
 #_01A4F5: LDX.w $0482
+
 #_01A4F8: TYA
 #_01A4F9: SEC
 #_01A4FA: SBC.w #$0080
@@ -10083,7 +10084,7 @@ Underworld_LoadHeader:
 #_01B5E2: SEP #$20
 #_01B5E4: REP #$10
 
-#_01B5E6: LDA.b #$04
+#_01B5E6: LDA.b #RoomHeader_RoomToPointer>>16
 #_01B5E8: STA.b $0F
 
 #_01B5EA: LDA.w $0414
@@ -11602,11 +11603,11 @@ Underworld_LoadSingleDoorAttribute:
 
 .not_exploding_wall
 #_01BE77: CMP.w #$0040
-#_01BE7A: BCC .not_normalish_doors
+#_01BE7A: BCC .normalish_doors
 
 #_01BE7C: JMP.w AddDoorwayPropsForWeirdos
 
-.not_normalish_doors
+.normalish_doors
 #_01BE7F: CMP.w #$0018
 #_01BE82: BEQ .shutter_door
 
@@ -11778,8 +11779,8 @@ Underworld_LoadSingleDoorAttribute:
 .not_west_door
 #_01BF8B: LDA.w $19A0,Y
 #_01BF8E: LSR A
-
 #_01BF8F: TAX
+
 #_01BF90: LDA.b $00
 #_01BF92: CLC
 #_01BF93: ADC.w #$0101
@@ -12267,7 +12268,7 @@ pool Underworld_HandleRoomTags
 #_01C2AD: dw RoomTag_WaterOff                   ; 0x18
 #_01C2AF: dw RoomTag_WaterOn                    ; 0x19
 #_01C2B1: dw RoomTag_WaterGate                  ; 0x1A
-#_01C2B3: dw RoomTag_WaterTwin                  ; 0x1B
+#_01C2B3: dw RoomTag_DamGate                    ; 0x1B
 #_01C2B5: dw RoomTag_MovingWall_West            ; 0x1C
 #_01C2B7: dw RoomTag_MovingWall_East            ; 0x1D
 #_01C2B9: dw RoomTag_MovingWallTorchesCheck     ; 0x1E
@@ -13058,7 +13059,7 @@ RoomTag_TorchPuzzleDoor:
 #_01C63A: CPX.w #$0020
 #_01C63D: BNE .next
 
-;===================================================================================================
+;---------------------------------------------------------------------------------------------------
 
 #_01C63F: LDX.w #$0001
 
@@ -13236,6 +13237,7 @@ RoomTag_KillRoomForPrize:
 #_01C710: LDA.w $040C
 #_01C713: LSR A
 #_01C714: TAX
+
 #_01C715: LDA.l $7EF3CA
 #_01C719: BNE .dark_world
 
@@ -14058,7 +14060,7 @@ RoomTag_WaterGate:
 #_01CB52: LDA.w $0642
 #_01CB55: BEQ EXIT_01CB48
 
-;===================================================================================================
+;---------------------------------------------------------------------------------------------------
 
 #_01CB57: LDA.b #$0D
 #_01CB59: STA.b $11
@@ -14174,7 +14176,7 @@ RoomTag_WaterGate:
 
 ;===================================================================================================
 
-RoomTag_WaterTwin:
+RoomTag_DamGate:
 #_01CBFF: RTS
 
 ;===================================================================================================
@@ -17000,7 +17002,7 @@ HandleItemTileAction_Underworld:
 
 #_01DB13: RTL
 
-;===================================================================================================
+;---------------------------------------------------------------------------------------------------
 
 .not_hammer_pegs
 #_01DB14: CMP.w #$1010
@@ -17022,7 +17024,7 @@ HandleItemTileAction_Underworld:
 #_01DB30: ORA.b #$80
 #_01DB32: STA.w $0B9C
 
-#_01DB35: LDA.b #!SPRITE_01
+#_01DB35: LDA.b #$01
 #_01DB37: JSL Sprite_SpawnImmediatelySmashedTerrain
 
 #_01DB3B: JML AncillaAdd_BushPoof
@@ -17060,7 +17062,8 @@ ManipBlock_Something:
 #_01DB66: RTS
 
 ;===================================================================================================
-
+; dw tilemap : db id
+;===================================================================================================
 RoomData_PotItems_Pointers:
 #_01DB67: dw RoomData_PotItems_Room_0000
 #_01DB69: dw RoomData_PotItems_Room_0001
@@ -17394,8 +17397,8 @@ RoomData_PotItems_Room_0003:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0004:
-#_01DDE9: db $CC, $13, $0A ; 1 Bomb       xyz:{ 0x130, 0x130, U }
-#_01DDEC: db $F0, $13, $0A ; 1 Bomb       xyz:{ 0x1C0, 0x130, U }
+#_01DDE9: dw $13CC : db $0A ; 1 Bomb       xyz:{ 0x130, 0x130, U }
+#_01DDEC: dw $13F0 : db $0A ; 1 Bomb       xyz:{ 0x1C0, 0x130, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17408,26 +17411,26 @@ RoomData_PotItems_Room_0008:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0009:
-#_01DDF1: db $0C, $04, $01 ; Green rupee  xyz:{ 0x030, 0x040, U }
-#_01DDF4: db $30, $04, $0B ; Heart        xyz:{ 0x0C0, 0x040, U }
-#_01DDF7: db $0C, $0C, $88 ; Switch       xyz:{ 0x030, 0x0C0, U }
+#_01DDF1: dw $040C : db $01 ; Green rupee  xyz:{ 0x030, 0x040, U }
+#_01DDF4: dw $0430 : db $0B ; Heart        xyz:{ 0x0C0, 0x040, U }
+#_01DDF7: dw $0C0C : db $88 ; Switch       xyz:{ 0x030, 0x0C0, U }
 #_01DDFA: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_000A:
-#_01DDFC: db $60, $08, $0B ; Heart        xyz:{ 0x180, 0x080, U }
-#_01DDFF: db $68, $08, $0B ; Heart        xyz:{ 0x1A0, 0x080, U }
-#_01DE02: db $CC, $0B, $88 ; Switch       xyz:{ 0x130, 0x0B0, U }
-#_01DE05: db $9C, $11, $0A ; 1 Bomb       xyz:{ 0x070, 0x110, U }
-#_01DE08: db $A0, $11, $09 ; 5 arrows     xyz:{ 0x080, 0x110, U }
+#_01DDFC: dw $0860 : db $0B ; Heart        xyz:{ 0x180, 0x080, U }
+#_01DDFF: dw $0868 : db $0B ; Heart        xyz:{ 0x1A0, 0x080, U }
+#_01DE02: dw $0BCC : db $88 ; Switch       xyz:{ 0x130, 0x0B0, U }
+#_01DE05: dw $119C : db $0A ; 1 Bomb       xyz:{ 0x070, 0x110, U }
+#_01DE08: dw $11A0 : db $09 ; 5 arrows     xyz:{ 0x080, 0x110, U }
 #_01DE0B: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_000B:
-#_01DE0D: db $CA, $03, $0A ; 1 Bomb       xyz:{ 0x128, 0x030, U }
-#_01DE10: db $CA, $0C, $0A ; 1 Bomb       xyz:{ 0x128, 0x0C0, U }
+#_01DE0D: dw $03CA : db $0A ; 1 Bomb       xyz:{ 0x128, 0x030, U }
+#_01DE10: dw $0CCA : db $0A ; 1 Bomb       xyz:{ 0x128, 0x0C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17441,10 +17444,10 @@ RoomData_PotItems_Room_0010:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0011:
-#_01DE15: db $90, $0F, $0B ; Heart        xyz:{ 0x040, 0x0F0, U }
-#_01DE18: db $A0, $0F, $0B ; Heart        xyz:{ 0x080, 0x0F0, U }
-#_01DE1B: db $90, $13, $0B ; Heart        xyz:{ 0x040, 0x130, U }
-#_01DE1E: db $A0, $13, $0B ; Heart        xyz:{ 0x080, 0x130, U }
+#_01DE15: dw $0F90 : db $0B ; Heart        xyz:{ 0x040, 0x0F0, U }
+#_01DE18: dw $0FA0 : db $0B ; Heart        xyz:{ 0x080, 0x0F0, U }
+#_01DE1B: dw $1390 : db $0B ; Heart        xyz:{ 0x040, 0x130, U }
+#_01DE1E: dw $13A0 : db $0B ; Heart        xyz:{ 0x080, 0x130, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17456,46 +17459,46 @@ RoomData_PotItems_Room_0014:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0015:
-#_01DE23: db $60, $04, $0A ; 1 Bomb       xyz:{ 0x180, 0x040, U }
-#_01DE26: db $64, $04, $0C ; Small magic  xyz:{ 0x190, 0x040, U }
-#_01DE29: db $68, $04, $0B ; Heart        xyz:{ 0x1A0, 0x040, U }
-#_01DE2C: db $6C, $04, $0C ; Small magic  xyz:{ 0x1B0, 0x040, U }
-#_01DE2F: db $70, $04, $09 ; 5 arrows     xyz:{ 0x1C0, 0x040, U }
-#_01DE32: db $0C, $06, $01 ; Green rupee  xyz:{ 0x030, 0x060, U }
-#_01DE35: db $10, $06, $09 ; 5 arrows     xyz:{ 0x040, 0x060, U }
-#_01DE38: db $14, $06, $07 ; Blue rupee   xyz:{ 0x050, 0x060, U }
-#_01DE3B: db $46, $0B, $0D ; Full magic   xyz:{ 0x118, 0x0B0, U }
+#_01DE23: dw $0460 : db $0A ; 1 Bomb       xyz:{ 0x180, 0x040, U }
+#_01DE26: dw $0464 : db $0C ; Small magic  xyz:{ 0x190, 0x040, U }
+#_01DE29: dw $0468 : db $0B ; Heart        xyz:{ 0x1A0, 0x040, U }
+#_01DE2C: dw $046C : db $0C ; Small magic  xyz:{ 0x1B0, 0x040, U }
+#_01DE2F: dw $0470 : db $09 ; 5 arrows     xyz:{ 0x1C0, 0x040, U }
+#_01DE32: dw $060C : db $01 ; Green rupee  xyz:{ 0x030, 0x060, U }
+#_01DE35: dw $0610 : db $09 ; 5 arrows     xyz:{ 0x040, 0x060, U }
+#_01DE38: dw $0614 : db $07 ; Blue rupee   xyz:{ 0x050, 0x060, U }
+#_01DE3B: dw $0B46 : db $0D ; Full magic   xyz:{ 0x118, 0x0B0, U }
 #_01DE3E: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0016:
-#_01DE40: db $BC, $03, $0B ; Heart        xyz:{ 0x0F0, 0x030, U }
-#_01DE43: db $C0, $03, $0B ; Heart        xyz:{ 0x100, 0x030, U }
-#_01DE46: db $BC, $04, $0C ; Small magic  xyz:{ 0x0F0, 0x040, U }
-#_01DE49: db $C0, $04, $0C ; Small magic  xyz:{ 0x100, 0x040, U }
-#_01DE4C: db $BC, $05, $09 ; 5 arrows     xyz:{ 0x0F0, 0x050, U }
-#_01DE4F: db $C0, $05, $09 ; 5 arrows     xyz:{ 0x100, 0x050, U }
-#_01DE52: db $BC, $06, $0A ; 1 Bomb       xyz:{ 0x0F0, 0x060, U }
-#_01DE55: db $C0, $06, $0A ; 1 Bomb       xyz:{ 0x100, 0x060, U }
-#_01DE58: db $F0, $13, $08 ; Small key    xyz:{ 0x1C0, 0x130, U }
+#_01DE40: dw $03BC : db $0B ; Heart        xyz:{ 0x0F0, 0x030, U }
+#_01DE43: dw $03C0 : db $0B ; Heart        xyz:{ 0x100, 0x030, U }
+#_01DE46: dw $04BC : db $0C ; Small magic  xyz:{ 0x0F0, 0x040, U }
+#_01DE49: dw $04C0 : db $0C ; Small magic  xyz:{ 0x100, 0x040, U }
+#_01DE4C: dw $05BC : db $09 ; 5 arrows     xyz:{ 0x0F0, 0x050, U }
+#_01DE4F: dw $05C0 : db $09 ; 5 arrows     xyz:{ 0x100, 0x050, U }
+#_01DE52: dw $06BC : db $0A ; 1 Bomb       xyz:{ 0x0F0, 0x060, U }
+#_01DE55: dw $06C0 : db $0A ; 1 Bomb       xyz:{ 0x100, 0x060, U }
+#_01DE58: dw $13F0 : db $08 ; Small key    xyz:{ 0x1C0, 0x130, U }
 #_01DE5B: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0017:
-#_01DE5D: db $64, $0D, $0B ; Heart        xyz:{ 0x190, 0x0D0, U }
-#_01DE60: db $64, $0E, $0B ; Heart        xyz:{ 0x190, 0x0E0, U }
-#_01DE63: db $64, $0F, $0B ; Heart        xyz:{ 0x190, 0x0F0, U }
-#_01DE66: db $64, $10, $0B ; Heart        xyz:{ 0x190, 0x100, U }
-#_01DE69: db $64, $11, $0B ; Heart        xyz:{ 0x190, 0x110, U }
-#_01DE6C: db $64, $12, $0B ; Heart        xyz:{ 0x190, 0x120, U }
-#_01DE6F: db $68, $0D, $0B ; Heart        xyz:{ 0x1A0, 0x0D0, U }
-#_01DE72: db $68, $0E, $0B ; Heart        xyz:{ 0x1A0, 0x0E0, U }
-#_01DE75: db $68, $0F, $0B ; Heart        xyz:{ 0x1A0, 0x0F0, U }
-#_01DE78: db $68, $10, $0B ; Heart        xyz:{ 0x1A0, 0x100, U }
-#_01DE7B: db $68, $11, $0B ; Heart        xyz:{ 0x1A0, 0x110, U }
-#_01DE7E: db $68, $12, $0B ; Heart        xyz:{ 0x1A0, 0x120, U }
+#_01DE5D: dw $0D64 : db $0B ; Heart        xyz:{ 0x190, 0x0D0, U }
+#_01DE60: dw $0E64 : db $0B ; Heart        xyz:{ 0x190, 0x0E0, U }
+#_01DE63: dw $0F64 : db $0B ; Heart        xyz:{ 0x190, 0x0F0, U }
+#_01DE66: dw $1064 : db $0B ; Heart        xyz:{ 0x190, 0x100, U }
+#_01DE69: dw $1164 : db $0B ; Heart        xyz:{ 0x190, 0x110, U }
+#_01DE6C: dw $1264 : db $0B ; Heart        xyz:{ 0x190, 0x120, U }
+#_01DE6F: dw $0D68 : db $0B ; Heart        xyz:{ 0x1A0, 0x0D0, U }
+#_01DE72: dw $0E68 : db $0B ; Heart        xyz:{ 0x1A0, 0x0E0, U }
+#_01DE75: dw $0F68 : db $0B ; Heart        xyz:{ 0x1A0, 0x0F0, U }
+#_01DE78: dw $1068 : db $0B ; Heart        xyz:{ 0x1A0, 0x100, U }
+#_01DE7B: dw $1168 : db $0B ; Heart        xyz:{ 0x1A0, 0x110, U }
+#_01DE7E: dw $1268 : db $0B ; Heart        xyz:{ 0x1A0, 0x120, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17506,17 +17509,17 @@ RoomData_PotItems_Room_0019:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_001A:
-#_01DE83: db $1C, $05, $0A ; 1 Bomb       xyz:{ 0x070, 0x050, U }
-#_01DE86: db $20, $05, $0A ; 1 Bomb       xyz:{ 0x080, 0x050, U }
-#_01DE89: db $1C, $1B, $0A ; 1 Bomb       xyz:{ 0x070, 0x1B0, U }
-#_01DE8C: db $20, $1B, $0A ; 1 Bomb       xyz:{ 0x080, 0x1B0, U }
+#_01DE83: dw $051C : db $0A ; 1 Bomb       xyz:{ 0x070, 0x050, U }
+#_01DE86: dw $0520 : db $0A ; 1 Bomb       xyz:{ 0x080, 0x050, U }
+#_01DE89: dw $1B1C : db $0A ; 1 Bomb       xyz:{ 0x070, 0x1B0, U }
+#_01DE8C: dw $1B20 : db $0A ; 1 Bomb       xyz:{ 0x080, 0x1B0, U }
 #_01DE8F: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_001B:
-#_01DE91: db $14, $17, $09 ; 5 arrows     xyz:{ 0x050, 0x170, U }
-#_01DE94: db $28, $17, $09 ; 5 arrows     xyz:{ 0x0A0, 0x170, U }
+#_01DE91: dw $1714 : db $09 ; 5 arrows     xyz:{ 0x050, 0x170, U }
+#_01DE94: dw $1728 : db $09 ; 5 arrows     xyz:{ 0x0A0, 0x170, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17527,13 +17530,13 @@ RoomData_PotItems_Room_001D:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_001E:
-#_01DE99: db $54, $09, $0A ; 1 Bomb       xyz:{ 0x150, 0x090, U }
+#_01DE99: dw $0954 : db $0A ; 1 Bomb       xyz:{ 0x150, 0x090, U }
 #_01DE9C: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_001F:
-#_01DE9E: db $1C, $19, $88 ; Switch       xyz:{ 0x070, 0x190, U }
+#_01DE9E: dw $191C : db $88 ; Switch       xyz:{ 0x070, 0x190, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17543,9 +17546,9 @@ RoomData_PotItems_Room_0020:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0021:
-#_01DEA3: db $A8, $18, $0C ; Small magic  xyz:{ 0x0A0, 0x180, U }
-#_01DEA6: db $30, $1C, $0B ; Heart        xyz:{ 0x0C0, 0x1C0, U }
-#_01DEA9: db $52, $1C, $0C ; Small magic  xyz:{ 0x148, 0x1C0, U }
+#_01DEA3: dw $18A8 : db $0C ; Small magic  xyz:{ 0x0A0, 0x180, U }
+#_01DEA6: dw $1C30 : db $0B ; Heart        xyz:{ 0x0C0, 0x1C0, U }
+#_01DEA9: dw $1C52 : db $0C ; Small magic  xyz:{ 0x148, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17555,20 +17558,20 @@ RoomData_PotItems_Room_0022:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0023:
-#_01DEAE: db $56, $1A, $01 ; Green rupee  xyz:{ 0x158, 0x1A0, U }
-#_01DEB1: db $5A, $1A, $0B ; Heart        xyz:{ 0x168, 0x1A0, U }
-#_01DEB4: db $5E, $1A, $01 ; Green rupee  xyz:{ 0x178, 0x1A0, U }
-#_01DEB7: db $62, $1A, $0A ; 1 Bomb       xyz:{ 0x188, 0x1A0, U }
-#_01DEBA: db $66, $1A, $01 ; Green rupee  xyz:{ 0x198, 0x1A0, U }
+#_01DEAE: dw $1A56 : db $01 ; Green rupee  xyz:{ 0x158, 0x1A0, U }
+#_01DEB1: dw $1A5A : db $0B ; Heart        xyz:{ 0x168, 0x1A0, U }
+#_01DEB4: dw $1A5E : db $01 ; Green rupee  xyz:{ 0x178, 0x1A0, U }
+#_01DEB7: dw $1A62 : db $0A ; 1 Bomb       xyz:{ 0x188, 0x1A0, U }
+#_01DEBA: dw $1A66 : db $01 ; Green rupee  xyz:{ 0x198, 0x1A0, U }
 #_01DEBD: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0024:
-#_01DEBF: db $0C, $04, $07 ; Blue rupee   xyz:{ 0x030, 0x040, U }
-#_01DEC2: db $30, $04, $0B ; Heart        xyz:{ 0x0C0, 0x040, U }
-#_01DEC5: db $0C, $0C, $0C ; Small magic  xyz:{ 0x030, 0x0C0, U }
-#_01DEC8: db $30, $0C, $01 ; Green rupee  xyz:{ 0x0C0, 0x0C0, U }
+#_01DEBF: dw $040C : db $07 ; Blue rupee   xyz:{ 0x030, 0x040, U }
+#_01DEC2: dw $0430 : db $0B ; Heart        xyz:{ 0x0C0, 0x040, U }
+#_01DEC5: dw $0C0C : db $0C ; Small magic  xyz:{ 0x030, 0x0C0, U }
+#_01DEC8: dw $0C30 : db $01 ; Green rupee  xyz:{ 0x0C0, 0x0C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17578,22 +17581,22 @@ RoomData_PotItems_Room_0025:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0026:
-#_01DECD: db $1C, $04, $0A ; 1 Bomb       xyz:{ 0x070, 0x040, U }
-#_01DED0: db $0C, $08, $0C ; Small magic  xyz:{ 0x030, 0x080, U }
-#_01DED3: db $96, $13, $88 ; Switch       xyz:{ 0x058, 0x130, U }
-#_01DED6: db $16, $1A, $07 ; Blue rupee   xyz:{ 0x058, 0x1A0, U }
-#_01DED9: db $DC, $1A, $09 ; 5 arrows     xyz:{ 0x170, 0x1A0, U }
+#_01DECD: dw $041C : db $0A ; 1 Bomb       xyz:{ 0x070, 0x040, U }
+#_01DED0: dw $080C : db $0C ; Small magic  xyz:{ 0x030, 0x080, U }
+#_01DED3: dw $1396 : db $88 ; Switch       xyz:{ 0x058, 0x130, U }
+#_01DED6: dw $1A16 : db $07 ; Blue rupee   xyz:{ 0x058, 0x1A0, U }
+#_01DED9: dw $1ADC : db $09 ; 5 arrows     xyz:{ 0x170, 0x1A0, U }
 #_01DEDC: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0027:
-#_01DEDE: db $A6, $14, $0A ; 1 Bomb       xyz:{ 0x098, 0x140, U }
-#_01DEE1: db $D6, $15, $0B ; Heart        xyz:{ 0x158, 0x150, U }
-#_01DEE4: db $28, $1C, $01 ; Green rupee  xyz:{ 0x0A0, 0x1C0, U }
-#_01DEE7: db $2C, $1C, $01 ; Green rupee  xyz:{ 0x0B0, 0x1C0, U }
-#_01DEEA: db $50, $1C, $07 ; Blue rupee   xyz:{ 0x140, 0x1C0, U }
-#_01DEED: db $54, $1C, $07 ; Blue rupee   xyz:{ 0x150, 0x1C0, U }
+#_01DEDE: dw $14A6 : db $0A ; 1 Bomb       xyz:{ 0x098, 0x140, U }
+#_01DEE1: dw $15D6 : db $0B ; Heart        xyz:{ 0x158, 0x150, U }
+#_01DEE4: dw $1C28 : db $01 ; Green rupee  xyz:{ 0x0A0, 0x1C0, U }
+#_01DEE7: dw $1C2C : db $01 ; Green rupee  xyz:{ 0x0B0, 0x1C0, U }
+#_01DEEA: dw $1C50 : db $07 ; Blue rupee   xyz:{ 0x140, 0x1C0, U }
+#_01DEED: dw $1C54 : db $07 ; Blue rupee   xyz:{ 0x150, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17604,30 +17607,30 @@ RoomData_PotItems_Room_0029:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_002A:
-#_01DEF2: db $50, $0C, $01 ; Green rupee  xyz:{ 0x140, 0x0C0, U }
-#_01DEF5: db $50, $13, $0B ; Heart        xyz:{ 0x140, 0x130, U }
+#_01DEF2: dw $0C50 : db $01 ; Green rupee  xyz:{ 0x140, 0x0C0, U }
+#_01DEF5: dw $1350 : db $0B ; Heart        xyz:{ 0x140, 0x130, U }
 #_01DEF8: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_002B:
-#_01DEFA: db $10, $05, $0B ; Heart        xyz:{ 0x040, 0x050, U }
-#_01DEFD: db $2C, $05, $88 ; Switch       xyz:{ 0x0B0, 0x050, U }
-#_01DF00: db $10, $06, $0B ; Heart        xyz:{ 0x040, 0x060, U }
-#_01DF03: db $2C, $06, $0A ; 1 Bomb       xyz:{ 0x0B0, 0x060, U }
-#_01DF06: db $10, $07, $0B ; Heart        xyz:{ 0x040, 0x070, U }
-#_01DF09: db $2C, $07, $0A ; 1 Bomb       xyz:{ 0x0B0, 0x070, U }
-#_01DF0C: db $92, $15, $0A ; 1 Bomb       xyz:{ 0x048, 0x150, U }
-#_01DF0F: db $AA, $15, $09 ; 5 arrows     xyz:{ 0x0A8, 0x150, U }
-#_01DF12: db $92, $16, $0A ; 1 Bomb       xyz:{ 0x048, 0x160, U }
-#_01DF15: db $AA, $16, $09 ; 5 arrows     xyz:{ 0x0A8, 0x160, U }
+#_01DEFA: dw $0510 : db $0B ; Heart        xyz:{ 0x040, 0x050, U }
+#_01DEFD: dw $052C : db $88 ; Switch       xyz:{ 0x0B0, 0x050, U }
+#_01DF00: dw $0610 : db $0B ; Heart        xyz:{ 0x040, 0x060, U }
+#_01DF03: dw $062C : db $0A ; 1 Bomb       xyz:{ 0x0B0, 0x060, U }
+#_01DF06: dw $0710 : db $0B ; Heart        xyz:{ 0x040, 0x070, U }
+#_01DF09: dw $072C : db $0A ; 1 Bomb       xyz:{ 0x0B0, 0x070, U }
+#_01DF0C: dw $1592 : db $0A ; 1 Bomb       xyz:{ 0x048, 0x150, U }
+#_01DF0F: dw $15AA : db $09 ; 5 arrows     xyz:{ 0x0A8, 0x150, U }
+#_01DF12: dw $1692 : db $0A ; 1 Bomb       xyz:{ 0x048, 0x160, U }
+#_01DF15: dw $16AA : db $09 ; 5 arrows     xyz:{ 0x0A8, 0x160, U }
 #_01DF18: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_002C:
-#_01DF1A: db $6C, $18, $0B ; Heart        xyz:{ 0x1B0, 0x180, U }
-#_01DF1D: db $70, $18, $0B ; Heart        xyz:{ 0x1C0, 0x180, U }
+#_01DF1A: dw $186C : db $0B ; Heart        xyz:{ 0x1B0, 0x180, U }
+#_01DF1D: dw $1870 : db $0B ; Heart        xyz:{ 0x1C0, 0x180, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17638,14 +17641,14 @@ RoomData_PotItems_Room_002E:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_002F:
-#_01DF22: db $1C, $07, $0B ; Heart        xyz:{ 0x070, 0x070, U }
-#_01DF25: db $20, $07, $0B ; Heart        xyz:{ 0x080, 0x070, U }
-#_01DF28: db $1C, $09, $07 ; Blue rupee   xyz:{ 0x070, 0x090, U }
-#_01DF2B: db $20, $09, $07 ; Blue rupee   xyz:{ 0x080, 0x090, U }
-#_01DF2E: db $AC, $13, $07 ; Blue rupee   xyz:{ 0x0B0, 0x130, U }
-#_01DF31: db $B4, $13, $07 ; Blue rupee   xyz:{ 0x0D0, 0x130, U }
-#_01DF34: db $68, $1B, $0B ; Heart        xyz:{ 0x1A0, 0x1B0, U }
-#_01DF37: db $68, $1C, $0B ; Heart        xyz:{ 0x1A0, 0x1C0, U }
+#_01DF22: dw $071C : db $0B ; Heart        xyz:{ 0x070, 0x070, U }
+#_01DF25: dw $0720 : db $0B ; Heart        xyz:{ 0x080, 0x070, U }
+#_01DF28: dw $091C : db $07 ; Blue rupee   xyz:{ 0x070, 0x090, U }
+#_01DF2B: dw $0920 : db $07 ; Blue rupee   xyz:{ 0x080, 0x090, U }
+#_01DF2E: dw $13AC : db $07 ; Blue rupee   xyz:{ 0x0B0, 0x130, U }
+#_01DF31: dw $13B4 : db $07 ; Blue rupee   xyz:{ 0x0D0, 0x130, U }
+#_01DF34: dw $1B68 : db $0B ; Heart        xyz:{ 0x1A0, 0x1B0, U }
+#_01DF37: dw $1C68 : db $0B ; Heart        xyz:{ 0x1A0, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17655,13 +17658,13 @@ RoomData_PotItems_Room_0030:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0031:
-#_01DF3C: db $5C, $1C, $0A ; 1 Bomb       xyz:{ 0x170, 0x1C0, U }
+#_01DF3C: dw $1C5C : db $0A ; 1 Bomb       xyz:{ 0x170, 0x1C0, U }
 #_01DF3F: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0032:
-#_01DF41: db $1C, $0D, $0C ; Small magic  xyz:{ 0x070, 0x0D0, U }
+#_01DF41: dw $0D1C : db $0C ; Small magic  xyz:{ 0x070, 0x0D0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17671,55 +17674,55 @@ RoomData_PotItems_Room_0033:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0034:
-#_01DF46: db $4E, $08, $07 ; Blue rupee   xyz:{ 0x138, 0x080, U }
-#_01DF49: db $5C, $08, $07 ; Blue rupee   xyz:{ 0x170, 0x080, U }
+#_01DF46: dw $084E : db $07 ; Blue rupee   xyz:{ 0x138, 0x080, U }
+#_01DF49: dw $085C : db $07 ; Blue rupee   xyz:{ 0x170, 0x080, U }
 #_01DF4C: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0035:
-#_01DF4E: db $3C, $06, $08 ; Small key    xyz:{ 0x0F0, 0x060, U }
-#_01DF51: db $14, $08, $07 ; Blue rupee   xyz:{ 0x050, 0x080, U }
-#_01DF54: db $18, $08, $07 ; Blue rupee   xyz:{ 0x060, 0x080, U }
-#_01DF57: db $1C, $08, $07 ; Blue rupee   xyz:{ 0x070, 0x080, U }
-#_01DF5A: db $20, $08, $07 ; Blue rupee   xyz:{ 0x080, 0x080, U }
-#_01DF5D: db $24, $08, $07 ; Blue rupee   xyz:{ 0x090, 0x080, U }
-#_01DF60: db $30, $14, $0B ; Heart        xyz:{ 0x0C0, 0x140, U }
-#_01DF63: db $70, $17, $0B ; Heart        xyz:{ 0x1C0, 0x170, U }
-#_01DF66: db $4C, $1C, $0B ; Heart        xyz:{ 0x130, 0x1C0, U }
+#_01DF4E: dw $063C : db $08 ; Small key    xyz:{ 0x0F0, 0x060, U }
+#_01DF51: dw $0814 : db $07 ; Blue rupee   xyz:{ 0x050, 0x080, U }
+#_01DF54: dw $0818 : db $07 ; Blue rupee   xyz:{ 0x060, 0x080, U }
+#_01DF57: dw $081C : db $07 ; Blue rupee   xyz:{ 0x070, 0x080, U }
+#_01DF5A: dw $0820 : db $07 ; Blue rupee   xyz:{ 0x080, 0x080, U }
+#_01DF5D: dw $0824 : db $07 ; Blue rupee   xyz:{ 0x090, 0x080, U }
+#_01DF60: dw $1430 : db $0B ; Heart        xyz:{ 0x0C0, 0x140, U }
+#_01DF63: dw $1770 : db $0B ; Heart        xyz:{ 0x1C0, 0x170, U }
+#_01DF66: dw $1C4C : db $0B ; Heart        xyz:{ 0x130, 0x1C0, U }
 #_01DF69: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0036:
-#_01DF6B: db $6C, $04, $0A ; 1 Bomb       xyz:{ 0x1B0, 0x040, U }
-#_01DF6E: db $70, $04, $07 ; Blue rupee   xyz:{ 0x1C0, 0x040, U }
-#_01DF71: db $0A, $10, $0B ; Heart        xyz:{ 0x028, 0x100, U }
-#_01DF74: db $72, $10, $08 ; Small key    xyz:{ 0x1C8, 0x100, U }
+#_01DF6B: dw $046C : db $0A ; 1 Bomb       xyz:{ 0x1B0, 0x040, U }
+#_01DF6E: dw $0470 : db $07 ; Blue rupee   xyz:{ 0x1C0, 0x040, U }
+#_01DF71: dw $100A : db $0B ; Heart        xyz:{ 0x028, 0x100, U }
+#_01DF74: dw $1072 : db $08 ; Small key    xyz:{ 0x1C8, 0x100, U }
 #_01DF77: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0037:
-#_01DF79: db $3C, $06, $08 ; Small key    xyz:{ 0x0F0, 0x060, U }
+#_01DF79: dw $063C : db $08 ; Small key    xyz:{ 0x0F0, 0x060, U }
 #_01DF7C: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0038:
-#_01DF7E: db $A4, $0C, $0A ; 1 Bomb       xyz:{ 0x090, 0x0C0, U }
-#_01DF81: db $A4, $0D, $07 ; Blue rupee   xyz:{ 0x090, 0x0D0, U }
-#_01DF84: db $A4, $12, $0A ; 1 Bomb       xyz:{ 0x090, 0x120, U }
-#_01DF87: db $A4, $13, $08 ; Small key    xyz:{ 0x090, 0x130, U }
+#_01DF7E: dw $0CA4 : db $0A ; 1 Bomb       xyz:{ 0x090, 0x0C0, U }
+#_01DF81: dw $0DA4 : db $07 ; Blue rupee   xyz:{ 0x090, 0x0D0, U }
+#_01DF84: dw $12A4 : db $0A ; 1 Bomb       xyz:{ 0x090, 0x120, U }
+#_01DF87: dw $13A4 : db $08 ; Small key    xyz:{ 0x090, 0x130, U }
 #_01DF8A: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0039:
-#_01DF8C: db $0C, $14, $0B ; Heart        xyz:{ 0x030, 0x140, U }
-#_01DF8F: db $64, $16, $0C ; Small magic  xyz:{ 0x190, 0x160, U }
-#_01DF92: db $64, $1A, $09 ; 5 arrows     xyz:{ 0x190, 0x1A0, U }
-#_01DF95: db $30, $1C, $09 ; 5 arrows     xyz:{ 0x0C0, 0x1C0, U }
+#_01DF8C: dw $140C : db $0B ; Heart        xyz:{ 0x030, 0x140, U }
+#_01DF8F: dw $1664 : db $0C ; Small magic  xyz:{ 0x190, 0x160, U }
+#_01DF92: dw $1A64 : db $09 ; 5 arrows     xyz:{ 0x190, 0x1A0, U }
+#_01DF95: dw $1C30 : db $09 ; 5 arrows     xyz:{ 0x0C0, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17730,46 +17733,46 @@ RoomData_PotItems_Room_003B:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_003C:
-#_01DF9A: db $18, $08, $0C ; Small magic  xyz:{ 0x060, 0x080, U }
-#_01DF9D: db $40, $0C, $07 ; Blue rupee   xyz:{ 0x100, 0x0C0, U }
-#_01DFA0: db $14, $0E, $01 ; Green rupee  xyz:{ 0x050, 0x0E0, U }
-#_01DFA3: db $44, $12, $07 ; Blue rupee   xyz:{ 0x110, 0x120, U }
-#_01DFA6: db $60, $13, $0B ; Heart        xyz:{ 0x180, 0x130, U }
-#_01DFA9: db $40, $14, $07 ; Blue rupee   xyz:{ 0x100, 0x140, U }
-#_01DFAC: db $40, $1A, $07 ; Blue rupee   xyz:{ 0x100, 0x1A0, U }
+#_01DF9A: dw $0818 : db $0C ; Small magic  xyz:{ 0x060, 0x080, U }
+#_01DF9D: dw $0C40 : db $07 ; Blue rupee   xyz:{ 0x100, 0x0C0, U }
+#_01DFA0: dw $0E14 : db $01 ; Green rupee  xyz:{ 0x050, 0x0E0, U }
+#_01DFA3: dw $1244 : db $07 ; Blue rupee   xyz:{ 0x110, 0x120, U }
+#_01DFA6: dw $1360 : db $0B ; Heart        xyz:{ 0x180, 0x130, U }
+#_01DFA9: dw $1440 : db $07 ; Blue rupee   xyz:{ 0x100, 0x140, U }
+#_01DFAC: dw $1A40 : db $07 ; Blue rupee   xyz:{ 0x100, 0x1A0, U }
 #_01DFAF: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_003D:
-#_01DFB1: db $4C, $0C, $0A ; 1 Bomb       xyz:{ 0x130, 0x0C0, U }
-#_01DFB4: db $70, $0C, $0A ; 1 Bomb       xyz:{ 0x1C0, 0x0C0, U }
-#_01DFB7: db $18, $16, $0B ; Heart        xyz:{ 0x060, 0x160, U }
-#_01DFBA: db $28, $16, $09 ; 5 arrows     xyz:{ 0x0A0, 0x160, U }
-#_01DFBD: db $20, $18, $0B ; Heart        xyz:{ 0x080, 0x180, U }
-#_01DFC0: db $14, $1A, $07 ; Blue rupee   xyz:{ 0x050, 0x1A0, U }
-#_01DFC3: db $24, $1A, $0D ; Full magic   xyz:{ 0x090, 0x1A0, U }
+#_01DFB1: dw $0C4C : db $0A ; 1 Bomb       xyz:{ 0x130, 0x0C0, U }
+#_01DFB4: dw $0C70 : db $0A ; 1 Bomb       xyz:{ 0x1C0, 0x0C0, U }
+#_01DFB7: dw $1618 : db $0B ; Heart        xyz:{ 0x060, 0x160, U }
+#_01DFBA: dw $1628 : db $09 ; 5 arrows     xyz:{ 0x0A0, 0x160, U }
+#_01DFBD: dw $1820 : db $0B ; Heart        xyz:{ 0x080, 0x180, U }
+#_01DFC0: dw $1A14 : db $07 ; Blue rupee   xyz:{ 0x050, 0x1A0, U }
+#_01DFC3: dw $1A24 : db $0D ; Full magic   xyz:{ 0x090, 0x1A0, U }
 #_01DFC6: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_003E:
-#_01DFC8: db $60, $06, $0A ; 1 Bomb       xyz:{ 0x180, 0x060, U }
-#_01DFCB: db $64, $06, $0C ; Small magic  xyz:{ 0x190, 0x060, U }
-#_01DFCE: db $58, $0A, $0B ; Heart        xyz:{ 0x160, 0x0A0, U }
-#_01DFD1: db $5C, $0A, $0C ; Small magic  xyz:{ 0x170, 0x0A0, U }
+#_01DFC8: dw $0660 : db $0A ; 1 Bomb       xyz:{ 0x180, 0x060, U }
+#_01DFCB: dw $0664 : db $0C ; Small magic  xyz:{ 0x190, 0x060, U }
+#_01DFCE: dw $0A58 : db $0B ; Heart        xyz:{ 0x160, 0x0A0, U }
+#_01DFD1: dw $0A5C : db $0C ; Small magic  xyz:{ 0x170, 0x0A0, U }
 #_01DFD4: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_003F:
-#_01DFD6: db $0C, $19, $01 ; Green rupee  xyz:{ 0x030, 0x190, U }
-#_01DFD9: db $14, $19, $01 ; Green rupee  xyz:{ 0x050, 0x190, U }
-#_01DFDC: db $0C, $1A, $0A ; 1 Bomb       xyz:{ 0x030, 0x1A0, U }
-#_01DFDF: db $14, $1A, $0A ; 1 Bomb       xyz:{ 0x050, 0x1A0, U }
-#_01DFE2: db $0C, $1B, $88 ; Switch       xyz:{ 0x030, 0x1B0, U }
-#_01DFE5: db $14, $1B, $0B ; Heart        xyz:{ 0x050, 0x1B0, U }
-#_01DFE8: db $1C, $17, $08 ; Small key    xyz:{ 0x070, 0x170, U }
+#_01DFD6: dw $190C : db $01 ; Green rupee  xyz:{ 0x030, 0x190, U }
+#_01DFD9: dw $1914 : db $01 ; Green rupee  xyz:{ 0x050, 0x190, U }
+#_01DFDC: dw $1A0C : db $0A ; 1 Bomb       xyz:{ 0x030, 0x1A0, U }
+#_01DFDF: dw $1A14 : db $0A ; 1 Bomb       xyz:{ 0x050, 0x1A0, U }
+#_01DFE2: dw $1B0C : db $88 ; Switch       xyz:{ 0x030, 0x1B0, U }
+#_01DFE5: dw $1B14 : db $0B ; Heart        xyz:{ 0x050, 0x1B0, U }
+#_01DFE8: dw $171C : db $08 ; Small key    xyz:{ 0x070, 0x170, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17779,10 +17782,10 @@ RoomData_PotItems_Room_0040:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0041:
-#_01DFED: db $64, $0A, $0B ; Heart        xyz:{ 0x190, 0x0A0, U }
-#_01DFF0: db $34, $0F, $01 ; Green rupee  xyz:{ 0x0D0, 0x0F0, U }
-#_01DFF3: db $34, $10, $0C ; Small magic  xyz:{ 0x0D0, 0x100, U }
-#_01DFF6: db $94, $16, $0C ; Small magic  xyz:{ 0x050, 0x160, U }
+#_01DFED: dw $0A64 : db $0B ; Heart        xyz:{ 0x190, 0x0A0, U }
+#_01DFF0: dw $0F34 : db $01 ; Green rupee  xyz:{ 0x0D0, 0x0F0, U }
+#_01DFF3: dw $1034 : db $0C ; Small magic  xyz:{ 0x0D0, 0x100, U }
+#_01DFF6: dw $1694 : db $0C ; Small magic  xyz:{ 0x050, 0x160, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17792,11 +17795,11 @@ RoomData_PotItems_Room_0042:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0043:
-#_01DFFB: db $42, $04, $09 ; 5 arrows     xyz:{ 0x108, 0x040, U }
-#_01DFFE: db $4E, $04, $0C ; Small magic  xyz:{ 0x138, 0x040, U }
-#_01E001: db $42, $09, $0B ; Heart        xyz:{ 0x108, 0x090, U }
-#_01E004: db $4E, $09, $0B ; Heart        xyz:{ 0x138, 0x090, U }
-#_01E007: db $70, $14, $08 ; Small key    xyz:{ 0x1C0, 0x140, U }
+#_01DFFB: dw $0442 : db $09 ; 5 arrows     xyz:{ 0x108, 0x040, U }
+#_01DFFE: dw $044E : db $0C ; Small magic  xyz:{ 0x138, 0x040, U }
+#_01E001: dw $0942 : db $0B ; Heart        xyz:{ 0x108, 0x090, U }
+#_01E004: dw $094E : db $0B ; Heart        xyz:{ 0x138, 0x090, U }
+#_01E007: dw $1470 : db $08 ; Small key    xyz:{ 0x1C0, 0x140, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17806,18 +17809,18 @@ RoomData_PotItems_Room_0044:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0045:
-#_01E00C: db $0C, $04, $09 ; 5 arrows     xyz:{ 0x030, 0x040, U }
-#_01E00F: db $6C, $0B, $0B ; Heart        xyz:{ 0x1B0, 0x0B0, U }
-#_01E012: db $30, $0C, $09 ; 5 arrows     xyz:{ 0x0C0, 0x0C0, U }
-#_01E015: db $DC, $10, $0C ; Small magic  xyz:{ 0x170, 0x100, U }
-#_01E018: db $EC, $10, $0B ; Heart        xyz:{ 0x1B0, 0x100, U }
+#_01E00C: dw $040C : db $09 ; 5 arrows     xyz:{ 0x030, 0x040, U }
+#_01E00F: dw $0B6C : db $0B ; Heart        xyz:{ 0x1B0, 0x0B0, U }
+#_01E012: dw $0C30 : db $09 ; 5 arrows     xyz:{ 0x0C0, 0x0C0, U }
+#_01E015: dw $10DC : db $0C ; Small magic  xyz:{ 0x170, 0x100, U }
+#_01E018: dw $10EC : db $0B ; Heart        xyz:{ 0x1B0, 0x100, U }
 #_01E01B: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0046:
-#_01E01D: db $60, $05, $0B ; Heart        xyz:{ 0x180, 0x050, U }
-#_01E020: db $1C, $1B, $0B ; Heart        xyz:{ 0x070, 0x1B0, U }
+#_01E01D: dw $0560 : db $0B ; Heart        xyz:{ 0x180, 0x050, U }
+#_01E020: dw $1B1C : db $0B ; Heart        xyz:{ 0x070, 0x1B0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17828,34 +17831,34 @@ RoomData_PotItems_Room_0048:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0049:
-#_01E025: db $68, $0F, $0C ; Small magic  xyz:{ 0x1A0, 0x0F0, U }
-#_01E028: db $68, $10, $0C ; Small magic  xyz:{ 0x1A0, 0x100, U }
-#_01E02B: db $90, $13, $0C ; Small magic  xyz:{ 0x040, 0x130, U }
-#_01E02E: db $AC, $14, $0B ; Heart        xyz:{ 0x0B0, 0x140, U }
-#_01E031: db $90, $1B, $0B ; Heart        xyz:{ 0x040, 0x1B0, U }
-#_01E034: db $AC, $1C, $0C ; Small magic  xyz:{ 0x0B0, 0x1C0, U }
+#_01E025: dw $0F68 : db $0C ; Small magic  xyz:{ 0x1A0, 0x0F0, U }
+#_01E028: dw $1068 : db $0C ; Small magic  xyz:{ 0x1A0, 0x100, U }
+#_01E02B: dw $1390 : db $0C ; Small magic  xyz:{ 0x040, 0x130, U }
+#_01E02E: dw $14AC : db $0B ; Heart        xyz:{ 0x0B0, 0x140, U }
+#_01E031: dw $1B90 : db $0B ; Heart        xyz:{ 0x040, 0x1B0, U }
+#_01E034: dw $1CAC : db $0C ; Small magic  xyz:{ 0x0B0, 0x1C0, U }
 #_01E037: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_004A:
-#_01E039: db $0E, $05, $88 ; Switch       xyz:{ 0x038, 0x050, U }
-#_01E03C: db $20, $05, $0A ; 1 Bomb       xyz:{ 0x080, 0x050, U }
-#_01E03F: db $5C, $05, $0A ; 1 Bomb       xyz:{ 0x170, 0x050, U }
-#_01E042: db $6E, $05, $88 ; Switch       xyz:{ 0x1B8, 0x050, U }
-#_01E045: db $38, $08, $0A ; 1 Bomb       xyz:{ 0x0E0, 0x080, U }
-#_01E048: db $44, $08, $0A ; 1 Bomb       xyz:{ 0x110, 0x080, U }
-#_01E04B: db $0E, $0B, $0B ; Heart        xyz:{ 0x038, 0x0B0, U }
-#_01E04E: db $20, $0B, $01 ; Green rupee  xyz:{ 0x080, 0x0B0, U }
-#_01E051: db $5C, $0B, $01 ; Green rupee  xyz:{ 0x170, 0x0B0, U }
-#_01E054: db $6E, $0B, $0B ; Heart        xyz:{ 0x1B8, 0x0B0, U }
+#_01E039: dw $050E : db $88 ; Switch       xyz:{ 0x038, 0x050, U }
+#_01E03C: dw $0520 : db $0A ; 1 Bomb       xyz:{ 0x080, 0x050, U }
+#_01E03F: dw $055C : db $0A ; 1 Bomb       xyz:{ 0x170, 0x050, U }
+#_01E042: dw $056E : db $88 ; Switch       xyz:{ 0x1B8, 0x050, U }
+#_01E045: dw $0838 : db $0A ; 1 Bomb       xyz:{ 0x0E0, 0x080, U }
+#_01E048: dw $0844 : db $0A ; 1 Bomb       xyz:{ 0x110, 0x080, U }
+#_01E04B: dw $0B0E : db $0B ; Heart        xyz:{ 0x038, 0x0B0, U }
+#_01E04E: dw $0B20 : db $01 ; Green rupee  xyz:{ 0x080, 0x0B0, U }
+#_01E051: dw $0B5C : db $01 ; Green rupee  xyz:{ 0x170, 0x0B0, U }
+#_01E054: dw $0B6E : db $0B ; Heart        xyz:{ 0x1B8, 0x0B0, U }
 #_01E057: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_004B:
-#_01E059: db $14, $06, $09 ; 5 arrows     xyz:{ 0x050, 0x060, U }
-#_01E05C: db $28, $06, $0B ; Heart        xyz:{ 0x0A0, 0x060, U }
+#_01E059: dw $0614 : db $09 ; 5 arrows     xyz:{ 0x050, 0x060, U }
+#_01E05C: dw $0628 : db $0B ; Heart        xyz:{ 0x0A0, 0x060, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17866,9 +17869,9 @@ RoomData_PotItems_Room_004D:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_004E:
-#_01E061: db $8C, $0B, $88 ; Switch       xyz:{ 0x030, 0x0B0, U }
-#_01E064: db $1C, $0C, $0B ; Heart        xyz:{ 0x070, 0x0C0, U }
-#_01E067: db $70, $0C, $0C ; Small magic  xyz:{ 0x1C0, 0x0C0, U }
+#_01E061: dw $0B8C : db $88 ; Switch       xyz:{ 0x030, 0x0B0, U }
+#_01E064: dw $0C1C : db $0B ; Heart        xyz:{ 0x070, 0x0C0, U }
+#_01E067: dw $0C70 : db $0C ; Small magic  xyz:{ 0x1C0, 0x0C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17878,8 +17881,8 @@ RoomData_PotItems_Room_004F:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0050:
-#_01E06C: db $60, $26, $0B ; Heart        xyz:{ 0x180, 0x060, L }
-#_01E06F: db $64, $26, $0B ; Heart        xyz:{ 0x190, 0x060, L }
+#_01E06C: dw $2660 : db $0B ; Heart        xyz:{ 0x180, 0x060, L }
+#_01E06F: dw $2664 : db $0B ; Heart        xyz:{ 0x190, 0x060, L }
 
 RoomData_PotItems_Room_0051:
 #_01E072: dw $FFFF
@@ -17887,81 +17890,81 @@ RoomData_PotItems_Room_0051:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0052:
-#_01E074: db $8A, $03, $0B ; Heart        xyz:{ 0x028, 0x030, U }
-#_01E077: db $C2, $1A, $0B ; Heart        xyz:{ 0x108, 0x1A0, U }
+#_01E074: dw $038A : db $0B ; Heart        xyz:{ 0x028, 0x030, U }
+#_01E077: dw $1AC2 : db $0B ; Heart        xyz:{ 0x108, 0x1A0, U }
 #_01E07A: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0053:
-#_01E07C: db $5C, $0B, $0B ; Heart        xyz:{ 0x170, 0x0B0, U }
-#_01E07F: db $60, $0B, $0C ; Small magic  xyz:{ 0x180, 0x0B0, U }
-#_01E082: db $64, $0B, $08 ; Small key    xyz:{ 0x190, 0x0B0, U }
-#_01E085: db $68, $0B, $0B ; Heart        xyz:{ 0x1A0, 0x0B0, U }
+#_01E07C: dw $0B5C : db $0B ; Heart        xyz:{ 0x170, 0x0B0, U }
+#_01E07F: dw $0B60 : db $0C ; Small magic  xyz:{ 0x180, 0x0B0, U }
+#_01E082: dw $0B64 : db $08 ; Small key    xyz:{ 0x190, 0x0B0, U }
+#_01E085: dw $0B68 : db $0B ; Heart        xyz:{ 0x1A0, 0x0B0, U }
 #_01E088: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0054:
-#_01E08A: db $BA, $19, $07 ; Blue rupee   xyz:{ 0x0E8, 0x190, U }
-#_01E08D: db $BA, $1A, $0B ; Heart        xyz:{ 0x0E8, 0x1A0, U }
-#_01E090: db $BA, $1B, $0B ; Heart        xyz:{ 0x0E8, 0x1B0, U }
-#_01E093: db $BA, $1C, $0B ; Heart        xyz:{ 0x0E8, 0x1C0, U }
+#_01E08A: dw $19BA : db $07 ; Blue rupee   xyz:{ 0x0E8, 0x190, U }
+#_01E08D: dw $1ABA : db $0B ; Heart        xyz:{ 0x0E8, 0x1A0, U }
+#_01E090: dw $1BBA : db $0B ; Heart        xyz:{ 0x0E8, 0x1B0, U }
+#_01E093: dw $1CBA : db $0B ; Heart        xyz:{ 0x0E8, 0x1C0, U }
 #_01E096: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0055:
-#_01E098: db $E6, $18, $0C ; Small magic  xyz:{ 0x198, 0x180, U }
-#_01E09B: db $E6, $19, $0C ; Small magic  xyz:{ 0x198, 0x190, U }
+#_01E098: dw $18E6 : db $0C ; Small magic  xyz:{ 0x198, 0x180, U }
+#_01E09B: dw $19E6 : db $0C ; Small magic  xyz:{ 0x198, 0x190, U }
 #_01E09E: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0056:
-#_01E0A0: db $14, $06, $0C ; Small magic  xyz:{ 0x050, 0x060, U }
-#_01E0A3: db $28, $06, $0C ; Small magic  xyz:{ 0x0A0, 0x060, U }
-#_01E0A6: db $18, $07, $0C ; Small magic  xyz:{ 0x060, 0x070, U }
-#_01E0A9: db $24, $07, $0C ; Small magic  xyz:{ 0x090, 0x070, U }
-#_01E0AC: db $0C, $08, $0B ; Heart        xyz:{ 0x030, 0x080, U }
-#_01E0AF: db $30, $08, $0B ; Heart        xyz:{ 0x0C0, 0x080, U }
-#_01E0B2: db $18, $09, $0C ; Small magic  xyz:{ 0x060, 0x090, U }
-#_01E0B5: db $24, $09, $0C ; Small magic  xyz:{ 0x090, 0x090, U }
-#_01E0B8: db $14, $0A, $07 ; Blue rupee   xyz:{ 0x050, 0x0A0, U }
-#_01E0BB: db $28, $0A, $07 ; Blue rupee   xyz:{ 0x0A0, 0x0A0, U }
-#_01E0BE: db $0C, $14, $08 ; Small key    xyz:{ 0x030, 0x140, U }
+#_01E0A0: dw $0614 : db $0C ; Small magic  xyz:{ 0x050, 0x060, U }
+#_01E0A3: dw $0628 : db $0C ; Small magic  xyz:{ 0x0A0, 0x060, U }
+#_01E0A6: dw $0718 : db $0C ; Small magic  xyz:{ 0x060, 0x070, U }
+#_01E0A9: dw $0724 : db $0C ; Small magic  xyz:{ 0x090, 0x070, U }
+#_01E0AC: dw $080C : db $0B ; Heart        xyz:{ 0x030, 0x080, U }
+#_01E0AF: dw $0830 : db $0B ; Heart        xyz:{ 0x0C0, 0x080, U }
+#_01E0B2: dw $0918 : db $0C ; Small magic  xyz:{ 0x060, 0x090, U }
+#_01E0B5: dw $0924 : db $0C ; Small magic  xyz:{ 0x090, 0x090, U }
+#_01E0B8: dw $0A14 : db $07 ; Blue rupee   xyz:{ 0x050, 0x0A0, U }
+#_01E0BB: dw $0A28 : db $07 ; Blue rupee   xyz:{ 0x0A0, 0x0A0, U }
+#_01E0BE: dw $140C : db $08 ; Small key    xyz:{ 0x030, 0x140, U }
 #_01E0C1: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0057:
-#_01E0C3: db $5C, $07, $0D ; Full magic   xyz:{ 0x170, 0x070, U }
-#_01E0C6: db $0C, $14, $0C ; Small magic  xyz:{ 0x030, 0x140, U }
-#_01E0C9: db $5C, $17, $0A ; 1 Bomb       xyz:{ 0x170, 0x170, U }
-#_01E0CC: db $64, $17, $0C ; Small magic  xyz:{ 0x190, 0x170, U }
-#_01E0CF: db $54, $19, $07 ; Blue rupee   xyz:{ 0x150, 0x190, U }
-#_01E0D2: db $4C, $1B, $0B ; Heart        xyz:{ 0x130, 0x1B0, U }
-#_01E0D5: db $30, $14, $0C ; Small magic  xyz:{ 0x0C0, 0x140, U }
-#_01E0D8: db $1E, $16, $88 ; Switch       xyz:{ 0x078, 0x160, U }
+#_01E0C3: dw $075C : db $0D ; Full magic   xyz:{ 0x170, 0x070, U }
+#_01E0C6: dw $140C : db $0C ; Small magic  xyz:{ 0x030, 0x140, U }
+#_01E0C9: dw $175C : db $0A ; 1 Bomb       xyz:{ 0x170, 0x170, U }
+#_01E0CC: dw $1764 : db $0C ; Small magic  xyz:{ 0x190, 0x170, U }
+#_01E0CF: dw $1954 : db $07 ; Blue rupee   xyz:{ 0x150, 0x190, U }
+#_01E0D2: dw $1B4C : db $0B ; Heart        xyz:{ 0x130, 0x1B0, U }
+#_01E0D5: dw $1430 : db $0C ; Small magic  xyz:{ 0x0C0, 0x140, U }
+#_01E0D8: dw $161E : db $88 ; Switch       xyz:{ 0x078, 0x160, U }
 #_01E0DB: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0058:
-#_01E0DD: db $60, $05, $0A ; 1 Bomb       xyz:{ 0x180, 0x050, U }
-#_01E0E0: db $64, $05, $0C ; Small magic  xyz:{ 0x190, 0x050, U }
-#_01E0E3: db $0C, $07, $0C ; Small magic  xyz:{ 0x030, 0x070, U }
-#_01E0E6: db $5C, $07, $0B ; Heart        xyz:{ 0x170, 0x070, U }
-#_01E0E9: db $6C, $07, $0B ; Heart        xyz:{ 0x1B0, 0x070, U }
-#_01E0EC: db $10, $08, $0C ; Small magic  xyz:{ 0x040, 0x080, U }
-#_01E0EF: db $64, $09, $0C ; Small magic  xyz:{ 0x190, 0x090, U }
-#_01E0F2: db $68, $09, $0A ; 1 Bomb       xyz:{ 0x1A0, 0x090, U }
+#_01E0DD: dw $0560 : db $0A ; 1 Bomb       xyz:{ 0x180, 0x050, U }
+#_01E0E0: dw $0564 : db $0C ; Small magic  xyz:{ 0x190, 0x050, U }
+#_01E0E3: dw $070C : db $0C ; Small magic  xyz:{ 0x030, 0x070, U }
+#_01E0E6: dw $075C : db $0B ; Heart        xyz:{ 0x170, 0x070, U }
+#_01E0E9: dw $076C : db $0B ; Heart        xyz:{ 0x1B0, 0x070, U }
+#_01E0EC: dw $0810 : db $0C ; Small magic  xyz:{ 0x040, 0x080, U }
+#_01E0EF: dw $0964 : db $0C ; Small magic  xyz:{ 0x190, 0x090, U }
+#_01E0F2: dw $0968 : db $0A ; 1 Bomb       xyz:{ 0x1A0, 0x090, U }
 #_01E0F5: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0059:
-#_01E0F7: db $1A, $2B, $0B ; Heart        xyz:{ 0x068, 0x0B0, L }
+#_01E0F7: dw $2B1A : db $0B ; Heart        xyz:{ 0x068, 0x0B0, L }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17971,49 +17974,49 @@ RoomData_PotItems_Room_005A:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_005B:
-#_01E0FC: db $DE, $25, $88 ; Switch       xyz:{ 0x178, 0x050, L }
+#_01E0FC: dw $25DE : db $88 ; Switch       xyz:{ 0x178, 0x050, L }
 #_01E0FF: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_005C:
-#_01E101: db $5E, $16, $0A ; 1 Bomb       xyz:{ 0x178, 0x160, U }
-#_01E104: db $5E, $1A, $0D ; Full magic   xyz:{ 0x178, 0x1A0, U }
+#_01E101: dw $165E : db $0A ; 1 Bomb       xyz:{ 0x178, 0x160, U }
+#_01E104: dw $1A5E : db $0D ; Full magic   xyz:{ 0x178, 0x1A0, U }
 #_01E107: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_005D:
-#_01E109: db $10, $05, $0A ; 1 Bomb       xyz:{ 0x040, 0x050, U }
-#_01E10C: db $2C, $05, $07 ; Blue rupee   xyz:{ 0x0B0, 0x050, U }
-#_01E10F: db $10, $0B, $01 ; Green rupee  xyz:{ 0x040, 0x0B0, U }
-#_01E112: db $2C, $0B, $09 ; 5 arrows     xyz:{ 0x0B0, 0x0B0, U }
-#_01E115: db $0C, $14, $09 ; 5 arrows     xyz:{ 0x030, 0x140, U }
-#_01E118: db $30, $14, $0A ; 1 Bomb       xyz:{ 0x0C0, 0x140, U }
-#_01E11B: db $0C, $1C, $0C ; Small magic  xyz:{ 0x030, 0x1C0, U }
-#_01E11E: db $30, $1C, $0A ; 1 Bomb       xyz:{ 0x0C0, 0x1C0, U }
+#_01E109: dw $0510 : db $0A ; 1 Bomb       xyz:{ 0x040, 0x050, U }
+#_01E10C: dw $052C : db $07 ; Blue rupee   xyz:{ 0x0B0, 0x050, U }
+#_01E10F: dw $0B10 : db $01 ; Green rupee  xyz:{ 0x040, 0x0B0, U }
+#_01E112: dw $0B2C : db $09 ; 5 arrows     xyz:{ 0x0B0, 0x0B0, U }
+#_01E115: dw $140C : db $09 ; 5 arrows     xyz:{ 0x030, 0x140, U }
+#_01E118: dw $1430 : db $0A ; 1 Bomb       xyz:{ 0x0C0, 0x140, U }
+#_01E11B: dw $1C0C : db $0C ; Small magic  xyz:{ 0x030, 0x1C0, U }
+#_01E11E: dw $1C30 : db $0A ; 1 Bomb       xyz:{ 0x0C0, 0x1C0, U }
 #_01E121: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_005E:
-#_01E123: db $5C, $04, $0C ; Small magic  xyz:{ 0x170, 0x040, U }
-#_01E126: db $60, $04, $0C ; Small magic  xyz:{ 0x180, 0x040, U }
-#_01E129: db $4C, $08, $0B ; Heart        xyz:{ 0x130, 0x080, U }
-#_01E12C: db $70, $08, $0B ; Heart        xyz:{ 0x1C0, 0x080, U }
+#_01E123: dw $045C : db $0C ; Small magic  xyz:{ 0x170, 0x040, U }
+#_01E126: dw $0460 : db $0C ; Small magic  xyz:{ 0x180, 0x040, U }
+#_01E129: dw $084C : db $0B ; Heart        xyz:{ 0x130, 0x080, U }
+#_01E12C: dw $0870 : db $0B ; Heart        xyz:{ 0x1C0, 0x080, U }
 #_01E12F: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_005F:
-#_01E131: db $2C, $1B, $88 ; Switch       xyz:{ 0x0B0, 0x1B0, U }
+#_01E131: dw $1B2C : db $88 ; Switch       xyz:{ 0x0B0, 0x1B0, U }
 #_01E134: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0060:
-#_01E136: db $4C, $04, $0B ; Heart        xyz:{ 0x130, 0x040, U }
-#_01E139: db $70, $04, $0B ; Heart        xyz:{ 0x1C0, 0x040, U }
+#_01E136: dw $044C : db $0B ; Heart        xyz:{ 0x130, 0x040, U }
+#_01E139: dw $0470 : db $0B ; Heart        xyz:{ 0x1C0, 0x040, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18023,70 +18026,70 @@ RoomData_PotItems_Room_0061:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0062:
-#_01E13E: db $D0, $15, $0B ; Heart        xyz:{ 0x140, 0x150, U }
+#_01E13E: dw $15D0 : db $0B ; Heart        xyz:{ 0x140, 0x150, U }
 #_01E141: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0063:
-#_01E143: db $30, $08, $0B ; Heart        xyz:{ 0x0C0, 0x080, U }
-#_01E146: db $0C, $0C, $08 ; Small key    xyz:{ 0x030, 0x0C0, U }
+#_01E143: dw $0830 : db $0B ; Heart        xyz:{ 0x0C0, 0x080, U }
+#_01E146: dw $0C0C : db $08 ; Small key    xyz:{ 0x030, 0x0C0, U }
 #_01E149: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0064:
-#_01E14B: db $0C, $16, $0A ; 1 Bomb       xyz:{ 0x030, 0x160, U }
-#_01E14E: db $10, $16, $0A ; 1 Bomb       xyz:{ 0x040, 0x160, U }
-#_01E151: db $14, $16, $0A ; 1 Bomb       xyz:{ 0x050, 0x160, U }
-#_01E154: db $24, $1C, $0A ; 1 Bomb       xyz:{ 0x090, 0x1C0, U }
-#_01E157: db $28, $1C, $0C ; Small magic  xyz:{ 0x0A0, 0x1C0, U }
-#_01E15A: db $2C, $1C, $0C ; Small magic  xyz:{ 0x0B0, 0x1C0, U }
-#_01E15D: db $30, $1C, $88 ; Switch       xyz:{ 0x0C0, 0x1C0, U }
+#_01E14B: dw $160C : db $0A ; 1 Bomb       xyz:{ 0x030, 0x160, U }
+#_01E14E: dw $1610 : db $0A ; 1 Bomb       xyz:{ 0x040, 0x160, U }
+#_01E151: dw $1614 : db $0A ; 1 Bomb       xyz:{ 0x050, 0x160, U }
+#_01E154: dw $1C24 : db $0A ; 1 Bomb       xyz:{ 0x090, 0x1C0, U }
+#_01E157: dw $1C28 : db $0C ; Small magic  xyz:{ 0x0A0, 0x1C0, U }
+#_01E15A: dw $1C2C : db $0C ; Small magic  xyz:{ 0x0B0, 0x1C0, U }
+#_01E15D: dw $1C30 : db $88 ; Switch       xyz:{ 0x0C0, 0x1C0, U }
 #_01E160: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0065:
-#_01E162: db $64, $1C, $0A ; 1 Bomb       xyz:{ 0x190, 0x1C0, U }
-#_01E165: db $68, $1C, $0A ; 1 Bomb       xyz:{ 0x1A0, 0x1C0, U }
+#_01E162: dw $1C64 : db $0A ; 1 Bomb       xyz:{ 0x190, 0x1C0, U }
+#_01E165: dw $1C68 : db $0A ; 1 Bomb       xyz:{ 0x1A0, 0x1C0, U }
 #_01E168: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0066:
-#_01E16A: db $30, $25, $09 ; 5 arrows     xyz:{ 0x0C0, 0x050, L }
-#_01E16D: db $34, $25, $0A ; 1 Bomb       xyz:{ 0x0D0, 0x050, L }
-#_01E170: db $38, $25, $07 ; Blue rupee   xyz:{ 0x0E0, 0x050, L }
-#_01E173: db $54, $05, $0B ; Heart        xyz:{ 0x150, 0x050, U }
-#_01E176: db $68, $05, $09 ; 5 arrows     xyz:{ 0x1A0, 0x050, U }
-#_01E179: db $30, $26, $09 ; 5 arrows     xyz:{ 0x0C0, 0x060, L }
-#_01E17C: db $34, $26, $0A ; 1 Bomb       xyz:{ 0x0D0, 0x060, L }
-#_01E17F: db $38, $26, $07 ; Blue rupee   xyz:{ 0x0E0, 0x060, L }
-#_01E182: db $54, $06, $0B ; Heart        xyz:{ 0x150, 0x060, U }
-#_01E185: db $68, $06, $0A ; 1 Bomb       xyz:{ 0x1A0, 0x060, U }
+#_01E16A: dw $2530 : db $09 ; 5 arrows     xyz:{ 0x0C0, 0x050, L }
+#_01E16D: dw $2534 : db $0A ; 1 Bomb       xyz:{ 0x0D0, 0x050, L }
+#_01E170: dw $2538 : db $07 ; Blue rupee   xyz:{ 0x0E0, 0x050, L }
+#_01E173: dw $0554 : db $0B ; Heart        xyz:{ 0x150, 0x050, U }
+#_01E176: dw $0568 : db $09 ; 5 arrows     xyz:{ 0x1A0, 0x050, U }
+#_01E179: dw $2630 : db $09 ; 5 arrows     xyz:{ 0x0C0, 0x060, L }
+#_01E17C: dw $2634 : db $0A ; 1 Bomb       xyz:{ 0x0D0, 0x060, L }
+#_01E17F: dw $2638 : db $07 ; Blue rupee   xyz:{ 0x0E0, 0x060, L }
+#_01E182: dw $0654 : db $0B ; Heart        xyz:{ 0x150, 0x060, U }
+#_01E185: dw $0668 : db $0A ; 1 Bomb       xyz:{ 0x1A0, 0x060, U }
 #_01E188: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0067:
-#_01E18A: db $0C, $07, $09 ; 5 arrows     xyz:{ 0x030, 0x070, U }
-#_01E18D: db $30, $07, $0C ; Small magic  xyz:{ 0x0C0, 0x070, U }
-#_01E190: db $60, $13, $0B ; Heart        xyz:{ 0x180, 0x130, U }
-#_01E193: db $4A, $14, $0C ; Small magic  xyz:{ 0x128, 0x140, U }
-#_01E196: db $12, $17, $0C ; Small magic  xyz:{ 0x048, 0x170, U }
-#_01E199: db $12, $1A, $0B ; Heart        xyz:{ 0x048, 0x1A0, U }
-#_01E19C: db $68, $1C, $0B ; Heart        xyz:{ 0x1A0, 0x1C0, U }
+#_01E18A: dw $070C : db $09 ; 5 arrows     xyz:{ 0x030, 0x070, U }
+#_01E18D: dw $0730 : db $0C ; Small magic  xyz:{ 0x0C0, 0x070, U }
+#_01E190: dw $1360 : db $0B ; Heart        xyz:{ 0x180, 0x130, U }
+#_01E193: dw $144A : db $0C ; Small magic  xyz:{ 0x128, 0x140, U }
+#_01E196: dw $1712 : db $0C ; Small magic  xyz:{ 0x048, 0x170, U }
+#_01E199: dw $1A12 : db $0B ; Heart        xyz:{ 0x048, 0x1A0, U }
+#_01E19C: dw $1C68 : db $0B ; Heart        xyz:{ 0x1A0, 0x1C0, U }
 #_01E19F: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0068:
-#_01E1A1: db $40, $07, $0B ; Heart        xyz:{ 0x100, 0x070, U }
-#_01E1A4: db $58, $07, $0C ; Small magic  xyz:{ 0x160, 0x070, U }
-#_01E1A7: db $40, $10, $0B ; Heart        xyz:{ 0x100, 0x100, U }
-#_01E1AA: db $40, $18, $0C ; Small magic  xyz:{ 0x100, 0x180, U }
-#_01E1AD: db $40, $19, $0B ; Heart        xyz:{ 0x100, 0x190, U }
+#_01E1A1: dw $0740 : db $0B ; Heart        xyz:{ 0x100, 0x070, U }
+#_01E1A4: dw $0758 : db $0C ; Small magic  xyz:{ 0x160, 0x070, U }
+#_01E1A7: dw $1040 : db $0B ; Heart        xyz:{ 0x100, 0x100, U }
+#_01E1AA: dw $1840 : db $0C ; Small magic  xyz:{ 0x100, 0x180, U }
+#_01E1AD: dw $1940 : db $0B ; Heart        xyz:{ 0x100, 0x190, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18097,28 +18100,28 @@ RoomData_PotItems_Room_006A:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_006B:
-#_01E1B2: db $1C, $05, $0B ; Heart        xyz:{ 0x070, 0x050, U }
-#_01E1B5: db $2C, $08, $0C ; Small magic  xyz:{ 0x0B0, 0x080, U }
-#_01E1B8: db $1C, $0B, $0C ; Small magic  xyz:{ 0x070, 0x0B0, U }
-#_01E1BB: db $62, $19, $09 ; 5 arrows     xyz:{ 0x188, 0x190, U }
+#_01E1B2: dw $051C : db $0B ; Heart        xyz:{ 0x070, 0x050, U }
+#_01E1B5: dw $082C : db $0C ; Small magic  xyz:{ 0x0B0, 0x080, U }
+#_01E1B8: dw $0B1C : db $0C ; Small magic  xyz:{ 0x070, 0x0B0, U }
+#_01E1BB: dw $1962 : db $09 ; 5 arrows     xyz:{ 0x188, 0x190, U }
 #_01E1BE: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_006C:
-#_01E1C0: db $14, $06, $0B ; Heart        xyz:{ 0x050, 0x060, U }
-#_01E1C3: db $28, $06, $09 ; 5 arrows     xyz:{ 0x0A0, 0x060, U }
-#_01E1C6: db $14, $0A, $0A ; 1 Bomb       xyz:{ 0x050, 0x0A0, U }
-#_01E1C9: db $28, $0A, $0C ; Small magic  xyz:{ 0x0A0, 0x0A0, U }
+#_01E1C0: dw $0614 : db $0B ; Heart        xyz:{ 0x050, 0x060, U }
+#_01E1C3: dw $0628 : db $09 ; 5 arrows     xyz:{ 0x0A0, 0x060, U }
+#_01E1C6: dw $0A14 : db $0A ; 1 Bomb       xyz:{ 0x050, 0x0A0, U }
+#_01E1C9: dw $0A28 : db $0C ; Small magic  xyz:{ 0x0A0, 0x0A0, U }
 #_01E1CC: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_006D:
-#_01E1CE: db $1C, $1A, $0B ; Heart        xyz:{ 0x070, 0x1A0, U }
-#_01E1D1: db $20, $1A, $0B ; Heart        xyz:{ 0x080, 0x1A0, U }
-#_01E1D4: db $1C, $1B, $0C ; Small magic  xyz:{ 0x070, 0x1B0, U }
-#_01E1D7: db $20, $1B, $0C ; Small magic  xyz:{ 0x080, 0x1B0, U }
+#_01E1CE: dw $1A1C : db $0B ; Heart        xyz:{ 0x070, 0x1A0, U }
+#_01E1D1: dw $1A20 : db $0B ; Heart        xyz:{ 0x080, 0x1A0, U }
+#_01E1D4: dw $1B1C : db $0C ; Small magic  xyz:{ 0x070, 0x1B0, U }
+#_01E1D7: dw $1B20 : db $0C ; Small magic  xyz:{ 0x080, 0x1B0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18132,44 +18135,44 @@ RoomData_PotItems_Room_0072:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0073:
-#_01E1DC: db $9A, $15, $09 ; 5 arrows     xyz:{ 0x068, 0x150, U }
-#_01E1DF: db $9E, $15, $01 ; Green rupee  xyz:{ 0x078, 0x150, U }
-#_01E1E2: db $14, $17, $88 ; Switch       xyz:{ 0x050, 0x170, U }
-#_01E1E5: db $24, $17, $07 ; Blue rupee   xyz:{ 0x090, 0x170, U }
-#_01E1E8: db $90, $18, $0B ; Heart        xyz:{ 0x040, 0x180, U }
-#_01E1EB: db $A8, $18, $09 ; 5 arrows     xyz:{ 0x0A0, 0x180, U }
-#_01E1EE: db $14, $1A, $0C ; Small magic  xyz:{ 0x050, 0x1A0, U }
-#_01E1F1: db $24, $1A, $0B ; Heart        xyz:{ 0x090, 0x1A0, U }
-#_01E1F4: db $9A, $1B, $01 ; Green rupee  xyz:{ 0x068, 0x1B0, U }
-#_01E1F7: db $9E, $1B, $07 ; Blue rupee   xyz:{ 0x078, 0x1B0, U }
+#_01E1DC: dw $159A : db $09 ; 5 arrows     xyz:{ 0x068, 0x150, U }
+#_01E1DF: dw $159E : db $01 ; Green rupee  xyz:{ 0x078, 0x150, U }
+#_01E1E2: dw $1714 : db $88 ; Switch       xyz:{ 0x050, 0x170, U }
+#_01E1E5: dw $1724 : db $07 ; Blue rupee   xyz:{ 0x090, 0x170, U }
+#_01E1E8: dw $1890 : db $0B ; Heart        xyz:{ 0x040, 0x180, U }
+#_01E1EB: dw $18A8 : db $09 ; 5 arrows     xyz:{ 0x0A0, 0x180, U }
+#_01E1EE: dw $1A14 : db $0C ; Small magic  xyz:{ 0x050, 0x1A0, U }
+#_01E1F1: dw $1A24 : db $0B ; Heart        xyz:{ 0x090, 0x1A0, U }
+#_01E1F4: dw $1B9A : db $01 ; Green rupee  xyz:{ 0x068, 0x1B0, U }
+#_01E1F7: dw $1B9E : db $07 ; Blue rupee   xyz:{ 0x078, 0x1B0, U }
 #_01E1FA: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0074:
-#_01E1FC: db $1E, $05, $0C ; Small magic  xyz:{ 0x078, 0x050, U }
-#_01E1FF: db $3E, $05, $88 ; Switch       xyz:{ 0x0F8, 0x050, U }
-#_01E202: db $5E, $05, $0C ; Small magic  xyz:{ 0x178, 0x050, U }
-#_01E205: db $0E, $0B, $0B ; Heart        xyz:{ 0x038, 0x0B0, U }
-#_01E208: db $2E, $0B, $09 ; 5 arrows     xyz:{ 0x0B8, 0x0B0, U }
-#_01E20B: db $4E, $0B, $09 ; 5 arrows     xyz:{ 0x138, 0x0B0, U }
-#_01E20E: db $6E, $0B, $0B ; Heart        xyz:{ 0x1B8, 0x0B0, U }
+#_01E1FC: dw $051E : db $0C ; Small magic  xyz:{ 0x078, 0x050, U }
+#_01E1FF: dw $053E : db $88 ; Switch       xyz:{ 0x0F8, 0x050, U }
+#_01E202: dw $055E : db $0C ; Small magic  xyz:{ 0x178, 0x050, U }
+#_01E205: dw $0B0E : db $0B ; Heart        xyz:{ 0x038, 0x0B0, U }
+#_01E208: dw $0B2E : db $09 ; 5 arrows     xyz:{ 0x0B8, 0x0B0, U }
+#_01E20B: dw $0B4E : db $09 ; 5 arrows     xyz:{ 0x138, 0x0B0, U }
+#_01E20E: dw $0B6E : db $0B ; Heart        xyz:{ 0x1B8, 0x0B0, U }
 #_01E211: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0075:
-#_01E213: db $94, $16, $0C ; Small magic  xyz:{ 0x050, 0x160, U }
-#_01E216: db $A0, $16, $09 ; 5 arrows     xyz:{ 0x080, 0x160, U }
-#_01E219: db $AC, $16, $0B ; Heart        xyz:{ 0x0B0, 0x160, U }
+#_01E213: dw $1694 : db $0C ; Small magic  xyz:{ 0x050, 0x160, U }
+#_01E216: dw $16A0 : db $09 ; 5 arrows     xyz:{ 0x080, 0x160, U }
+#_01E219: dw $16AC : db $0B ; Heart        xyz:{ 0x0B0, 0x160, U }
 #_01E21C: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0076:
-#_01E21E: db $70, $0C, $0B ; Heart        xyz:{ 0x1C0, 0x0C0, U }
-#_01E221: db $54, $17, $0B ; Heart        xyz:{ 0x150, 0x170, U }
-#_01E224: db $60, $17, $0B ; Heart        xyz:{ 0x180, 0x170, U }
+#_01E21E: dw $0C70 : db $0B ; Heart        xyz:{ 0x1C0, 0x0C0, U }
+#_01E221: dw $1754 : db $0B ; Heart        xyz:{ 0x150, 0x170, U }
+#_01E224: dw $1760 : db $0B ; Heart        xyz:{ 0x180, 0x170, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18182,32 +18185,32 @@ RoomData_PotItems_Room_007A:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_007B:
-#_01E229: db $3C, $04, $0B ; Heart        xyz:{ 0x0F0, 0x040, U }
-#_01E22C: db $40, $04, $08 ; Small key    xyz:{ 0x100, 0x040, U }
+#_01E229: dw $043C : db $0B ; Heart        xyz:{ 0x0F0, 0x040, U }
+#_01E22C: dw $0440 : db $08 ; Small key    xyz:{ 0x100, 0x040, U }
 #_01E22F: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_007C:
-#_01E231: db $1C, $04, $0B ; Heart        xyz:{ 0x070, 0x040, U }
-#_01E234: db $20, $04, $0B ; Heart        xyz:{ 0x080, 0x040, U }
+#_01E231: dw $041C : db $0B ; Heart        xyz:{ 0x070, 0x040, U }
+#_01E234: dw $0420 : db $0B ; Heart        xyz:{ 0x080, 0x040, U }
 #_01E237: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_007D:
-#_01E239: db $70, $06, $0B ; Heart        xyz:{ 0x1C0, 0x060, U }
-#_01E23C: db $6C, $14, $09 ; 5 arrows     xyz:{ 0x1B0, 0x140, U }
-#_01E23F: db $72, $14, $0A ; 1 Bomb       xyz:{ 0x1C8, 0x140, U }
-#_01E242: db $4C, $1C, $0A ; 1 Bomb       xyz:{ 0x130, 0x1C0, U }
+#_01E239: dw $0670 : db $0B ; Heart        xyz:{ 0x1C0, 0x060, U }
+#_01E23C: dw $146C : db $09 ; 5 arrows     xyz:{ 0x1B0, 0x140, U }
+#_01E23F: dw $1472 : db $0A ; 1 Bomb       xyz:{ 0x1C8, 0x140, U }
+#_01E242: dw $1C4C : db $0A ; 1 Bomb       xyz:{ 0x130, 0x1C0, U }
 #_01E245: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_007E:
-#_01E247: db $56, $0F, $0B ; Heart        xyz:{ 0x158, 0x0F0, U }
-#_01E24A: db $52, $1A, $0C ; Small magic  xyz:{ 0x148, 0x1A0, U }
-#_01E24D: db $64, $1A, $88 ; Switch       xyz:{ 0x190, 0x1A0, U }
+#_01E247: dw $0F56 : db $0B ; Heart        xyz:{ 0x158, 0x0F0, U }
+#_01E24A: dw $1A52 : db $0C ; Small magic  xyz:{ 0x148, 0x1A0, U }
+#_01E24D: dw $1A64 : db $88 ; Switch       xyz:{ 0x190, 0x1A0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18217,9 +18220,9 @@ RoomData_PotItems_Room_007F:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0080:
-#_01E252: db $30, $04, $0B ; Heart        xyz:{ 0x0C0, 0x040, U }
-#_01E255: db $34, $04, $0B ; Heart        xyz:{ 0x0D0, 0x040, U }
-#_01E258: db $38, $04, $0B ; Heart        xyz:{ 0x0E0, 0x040, U }
+#_01E252: dw $0430 : db $0B ; Heart        xyz:{ 0x0C0, 0x040, U }
+#_01E255: dw $0434 : db $0B ; Heart        xyz:{ 0x0D0, 0x040, U }
+#_01E258: dw $0438 : db $0B ; Heart        xyz:{ 0x0E0, 0x040, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18229,30 +18232,30 @@ RoomData_PotItems_Room_0081:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0082:
-#_01E25D: db $4C, $32, $0B ; Heart        xyz:{ 0x130, 0x120, L }
+#_01E25D: dw $324C : db $0B ; Heart        xyz:{ 0x130, 0x120, L }
 #_01E260: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0083:
-#_01E262: db $4C, $04, $09 ; 5 arrows     xyz:{ 0x130, 0x040, U }
-#_01E265: db $50, $04, $01 ; Green rupee  xyz:{ 0x140, 0x040, U }
-#_01E268: db $4C, $1C, $07 ; Blue rupee   xyz:{ 0x130, 0x1C0, U }
-#_01E26B: db $50, $1C, $09 ; 5 arrows     xyz:{ 0x140, 0x1C0, U }
+#_01E262: dw $044C : db $09 ; 5 arrows     xyz:{ 0x130, 0x040, U }
+#_01E265: dw $0450 : db $01 ; Green rupee  xyz:{ 0x140, 0x040, U }
+#_01E268: dw $1C4C : db $07 ; Blue rupee   xyz:{ 0x130, 0x1C0, U }
+#_01E26B: dw $1C50 : db $09 ; 5 arrows     xyz:{ 0x140, 0x1C0, U }
 #_01E26E: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0084:
-#_01E270: db $18, $07, $09 ; 5 arrows     xyz:{ 0x060, 0x070, U }
-#_01E273: db $64, $07, $09 ; 5 arrows     xyz:{ 0x190, 0x070, U }
+#_01E270: dw $0718 : db $09 ; 5 arrows     xyz:{ 0x060, 0x070, U }
+#_01E273: dw $0764 : db $09 ; 5 arrows     xyz:{ 0x190, 0x070, U }
 #_01E276: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0085:
-#_01E278: db $2C, $1C, $0B ; Heart        xyz:{ 0x0B0, 0x1C0, U }
-#_01E27B: db $30, $1C, $09 ; 5 arrows     xyz:{ 0x0C0, 0x1C0, U }
+#_01E278: dw $1C2C : db $0B ; Heart        xyz:{ 0x0B0, 0x1C0, U }
+#_01E27B: dw $1C30 : db $09 ; 5 arrows     xyz:{ 0x0C0, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18262,8 +18265,8 @@ RoomData_PotItems_Room_0086:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0087:
-#_01E280: db $4C, $14, $0C ; Small magic  xyz:{ 0x130, 0x140, U }
-#_01E283: db $70, $14, $0D ; Full magic   xyz:{ 0x1C0, 0x140, U }
+#_01E280: dw $144C : db $0C ; Small magic  xyz:{ 0x130, 0x140, U }
+#_01E283: dw $1470 : db $0D ; Full magic   xyz:{ 0x1C0, 0x140, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18275,36 +18278,36 @@ RoomData_PotItems_Room_008A:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_008B:
-#_01E288: db $70, $0C, $08 ; Small key    xyz:{ 0x1C0, 0x0C0, U }
-#_01E28B: db $20, $09, $0C ; Small magic  xyz:{ 0x080, 0x090, U }
-#_01E28E: db $4C, $1C, $0B ; Heart        xyz:{ 0x130, 0x1C0, U }
+#_01E288: dw $0C70 : db $08 ; Small key    xyz:{ 0x1C0, 0x0C0, U }
+#_01E28B: dw $0920 : db $0C ; Small magic  xyz:{ 0x080, 0x090, U }
+#_01E28E: dw $1C4C : db $0B ; Heart        xyz:{ 0x130, 0x1C0, U }
 #_01E291: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_008C:
-#_01E293: db $4C, $0C, $88 ; Switch       xyz:{ 0x130, 0x0C0, U }
-#_01E296: db $70, $0C, $0C ; Small magic  xyz:{ 0x1C0, 0x0C0, U }
-#_01E299: db $4C, $14, $0A ; 1 Bomb       xyz:{ 0x130, 0x140, U }
-#_01E29C: db $5C, $14, $0A ; 1 Bomb       xyz:{ 0x170, 0x140, U }
-#_01E29F: db $64, $15, $09 ; 5 arrows     xyz:{ 0x190, 0x150, U }
-#_01E2A2: db $68, $1A, $0A ; 1 Bomb       xyz:{ 0x1A0, 0x1A0, U }
-#_01E2A5: db $58, $1B, $0A ; 1 Bomb       xyz:{ 0x160, 0x1B0, U }
+#_01E293: dw $0C4C : db $88 ; Switch       xyz:{ 0x130, 0x0C0, U }
+#_01E296: dw $0C70 : db $0C ; Small magic  xyz:{ 0x1C0, 0x0C0, U }
+#_01E299: dw $144C : db $0A ; 1 Bomb       xyz:{ 0x130, 0x140, U }
+#_01E29C: dw $145C : db $0A ; 1 Bomb       xyz:{ 0x170, 0x140, U }
+#_01E29F: dw $1564 : db $09 ; 5 arrows     xyz:{ 0x190, 0x150, U }
+#_01E2A2: dw $1A68 : db $0A ; 1 Bomb       xyz:{ 0x1A0, 0x1A0, U }
+#_01E2A5: dw $1B58 : db $0A ; 1 Bomb       xyz:{ 0x160, 0x1B0, U }
 #_01E2A8: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_008D:
-#_01E2AA: db $CC, $0E, $0D ; Full magic   xyz:{ 0x130, 0x0E0, U }
-#_01E2AD: db $1C, $17, $0B ; Heart        xyz:{ 0x070, 0x170, U }
-#_01E2B0: db $24, $17, $0B ; Heart        xyz:{ 0x090, 0x170, U }
-#_01E2B3: db $20, $18, $0D ; Full magic   xyz:{ 0x080, 0x180, U }
+#_01E2AA: dw $0ECC : db $0D ; Full magic   xyz:{ 0x130, 0x0E0, U }
+#_01E2AD: dw $171C : db $0B ; Heart        xyz:{ 0x070, 0x170, U }
+#_01E2B0: dw $1724 : db $0B ; Heart        xyz:{ 0x090, 0x170, U }
+#_01E2B3: dw $1820 : db $0D ; Full magic   xyz:{ 0x080, 0x180, U }
 #_01E2B6: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_008E:
-#_01E2B8: db $50, $05, $09 ; 5 arrows     xyz:{ 0x140, 0x050, U }
+#_01E2B8: dw $0550 : db $09 ; 5 arrows     xyz:{ 0x140, 0x050, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18315,8 +18318,8 @@ RoomData_PotItems_Room_0090:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0091:
-#_01E2BD: db $54, $04, $0B ; Heart        xyz:{ 0x150, 0x040, U }
-#_01E2C0: db $68, $04, $0C ; Small magic  xyz:{ 0x1A0, 0x040, U }
+#_01E2BD: dw $0454 : db $0B ; Heart        xyz:{ 0x150, 0x040, U }
+#_01E2C0: dw $0468 : db $0C ; Small magic  xyz:{ 0x1A0, 0x040, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18326,8 +18329,8 @@ RoomData_PotItems_Room_0092:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0093:
-#_01E2C5: db $1C, $07, $88 ; Switch       xyz:{ 0x070, 0x070, U }
-#_01E2C8: db $60, $07, $0B ; Heart        xyz:{ 0x180, 0x070, U }
+#_01E2C5: dw $071C : db $88 ; Switch       xyz:{ 0x070, 0x070, U }
+#_01E2C8: dw $0760 : db $0B ; Heart        xyz:{ 0x180, 0x070, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18338,10 +18341,10 @@ RoomData_PotItems_Room_0095:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0096:
-#_01E2CD: db $20, $11, $0C ; Small magic  xyz:{ 0x080, 0x110, U }
-#_01E2D0: db $20, $18, $0C ; Small magic  xyz:{ 0x080, 0x180, U }
-#_01E2D3: db $4C, $15, $0B ; Heart        xyz:{ 0x130, 0x150, U }
-#_01E2D6: db $70, $15, $0D ; Full magic   xyz:{ 0x1C0, 0x150, U }
+#_01E2CD: dw $1120 : db $0C ; Small magic  xyz:{ 0x080, 0x110, U }
+#_01E2D0: dw $1820 : db $0C ; Small magic  xyz:{ 0x080, 0x180, U }
+#_01E2D3: dw $154C : db $0B ; Heart        xyz:{ 0x130, 0x150, U }
+#_01E2D6: dw $1570 : db $0D ; Full magic   xyz:{ 0x1C0, 0x150, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18352,8 +18355,8 @@ RoomData_PotItems_Room_0098:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0099:
-#_01E2DB: db $28, $14, $0C ; Small magic  xyz:{ 0x0A0, 0x140, U }
-#_01E2DE: db $54, $14, $0B ; Heart        xyz:{ 0x150, 0x140, U }
+#_01E2DB: dw $1428 : db $0C ; Small magic  xyz:{ 0x0A0, 0x140, U }
+#_01E2DE: dw $1454 : db $0B ; Heart        xyz:{ 0x150, 0x140, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18363,22 +18366,22 @@ RoomData_PotItems_Room_009A:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_009B:
-#_01E2E3: db $30, $04, $0C ; Small magic  xyz:{ 0x0C0, 0x040, U }
-#_01E2E6: db $30, $0C, $08 ; Small key    xyz:{ 0x0C0, 0x0C0, U }
+#_01E2E3: dw $0430 : db $0C ; Small magic  xyz:{ 0x0C0, 0x040, U }
+#_01E2E6: dw $0C30 : db $08 ; Small key    xyz:{ 0x0C0, 0x0C0, U }
 #_01E2E9: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_009C:
-#_01E2EB: db $38, $08, $0C ; Small magic  xyz:{ 0x0E0, 0x080, U }
-#_01E2EE: db $38, $09, $09 ; 5 arrows     xyz:{ 0x0E0, 0x090, U }
+#_01E2EB: dw $0838 : db $0C ; Small magic  xyz:{ 0x0E0, 0x080, U }
+#_01E2EE: dw $0938 : db $09 ; 5 arrows     xyz:{ 0x0E0, 0x090, U }
 #_01E2F1: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_009D:
-#_01E2F3: db $4C, $04, $0A ; 1 Bomb       xyz:{ 0x130, 0x040, U }
-#_01E2F6: db $54, $04, $0C ; Small magic  xyz:{ 0x150, 0x040, U }
+#_01E2F3: dw $044C : db $0A ; 1 Bomb       xyz:{ 0x130, 0x040, U }
+#_01E2F6: dw $0454 : db $0C ; Small magic  xyz:{ 0x150, 0x040, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18388,13 +18391,13 @@ RoomData_PotItems_Room_009E:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_009F:
-#_01E2FB: db $8A, $13, $0B ; Heart        xyz:{ 0x028, 0x130, U }
-#_01E2FE: db $B2, $13, $0B ; Heart        xyz:{ 0x0C8, 0x130, U }
-#_01E301: db $28, $15, $88 ; Switch       xyz:{ 0x0A0, 0x150, U }
-#_01E304: db $8A, $15, $08 ; Small key    xyz:{ 0x028, 0x150, U }
-#_01E307: db $14, $1B, $0B ; Heart        xyz:{ 0x050, 0x1B0, U }
-#_01E30A: db $8A, $1B, $0B ; Heart        xyz:{ 0x028, 0x1B0, U }
-#_01E30D: db $B2, $1C, $0B ; Heart        xyz:{ 0x0C8, 0x1C0, U }
+#_01E2FB: dw $138A : db $0B ; Heart        xyz:{ 0x028, 0x130, U }
+#_01E2FE: dw $13B2 : db $0B ; Heart        xyz:{ 0x0C8, 0x130, U }
+#_01E301: dw $1528 : db $88 ; Switch       xyz:{ 0x0A0, 0x150, U }
+#_01E304: dw $158A : db $08 ; Small key    xyz:{ 0x028, 0x150, U }
+#_01E307: dw $1B14 : db $0B ; Heart        xyz:{ 0x050, 0x1B0, U }
+#_01E30A: dw $1B8A : db $0B ; Heart        xyz:{ 0x028, 0x1B0, U }
+#_01E30D: dw $1CB2 : db $0B ; Heart        xyz:{ 0x0C8, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18404,18 +18407,18 @@ RoomData_PotItems_Room_00A0:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00A1:
-#_01E312: db $96, $06, $08 ; Small key    xyz:{ 0x058, 0x060, U }
-#_01E315: db $64, $0B, $0C ; Small magic  xyz:{ 0x190, 0x0B0, U }
-#_01E318: db $68, $0C, $0B ; Heart        xyz:{ 0x1A0, 0x0C0, U }
-#_01E31B: db $6C, $0D, $0C ; Small magic  xyz:{ 0x1B0, 0x0D0, U }
-#_01E31E: db $70, $0E, $0B ; Heart        xyz:{ 0x1C0, 0x0E0, U }
-#_01E321: db $60, $17, $0B ; Heart        xyz:{ 0x180, 0x170, U }
+#_01E312: dw $0696 : db $08 ; Small key    xyz:{ 0x058, 0x060, U }
+#_01E315: dw $0B64 : db $0C ; Small magic  xyz:{ 0x190, 0x0B0, U }
+#_01E318: dw $0C68 : db $0B ; Heart        xyz:{ 0x1A0, 0x0C0, U }
+#_01E31B: dw $0D6C : db $0C ; Small magic  xyz:{ 0x1B0, 0x0D0, U }
+#_01E31E: dw $0E70 : db $0B ; Heart        xyz:{ 0x1C0, 0x0E0, U }
+#_01E321: dw $1760 : db $0B ; Heart        xyz:{ 0x180, 0x170, U }
 #_01E324: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00A2:
-#_01E326: db $0C, $1C, $0D ; Full magic   xyz:{ 0x030, 0x1C0, U }
+#_01E326: dw $1C0C : db $0D ; Full magic   xyz:{ 0x030, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18429,35 +18432,35 @@ RoomData_PotItems_Room_00A7:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00A8:
-#_01E32B: db $8A, $13, $0B ; Heart        xyz:{ 0x028, 0x130, U }
-#_01E32E: db $1E, $18, $01 ; Green rupee  xyz:{ 0x078, 0x180, U }
+#_01E32B: dw $138A : db $0B ; Heart        xyz:{ 0x028, 0x130, U }
+#_01E32E: dw $181E : db $01 ; Green rupee  xyz:{ 0x078, 0x180, U }
 #_01E331: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00A9:
-#_01E333: db $90, $2B, $09 ; 5 arrows     xyz:{ 0x040, 0x0B0, L }
-#_01E336: db $EC, $2B, $09 ; 5 arrows     xyz:{ 0x1B0, 0x0B0, L }
-#_01E339: db $90, $2C, $09 ; 5 arrows     xyz:{ 0x040, 0x0C0, L }
-#_01E33C: db $EC, $2C, $0B ; Heart        xyz:{ 0x1B0, 0x0C0, L }
-#_01E33F: db $10, $14, $0B ; Heart        xyz:{ 0x040, 0x140, U }
-#_01E342: db $6C, $14, $0B ; Heart        xyz:{ 0x1B0, 0x140, U }
+#_01E333: dw $2B90 : db $09 ; 5 arrows     xyz:{ 0x040, 0x0B0, L }
+#_01E336: dw $2BEC : db $09 ; 5 arrows     xyz:{ 0x1B0, 0x0B0, L }
+#_01E339: dw $2C90 : db $09 ; 5 arrows     xyz:{ 0x040, 0x0C0, L }
+#_01E33C: dw $2CEC : db $0B ; Heart        xyz:{ 0x1B0, 0x0C0, L }
+#_01E33F: dw $1410 : db $0B ; Heart        xyz:{ 0x040, 0x140, U }
+#_01E342: dw $146C : db $0B ; Heart        xyz:{ 0x1B0, 0x140, U }
 #_01E345: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00AA:
-#_01E347: db $D4, $05, $0B ; Heart        xyz:{ 0x150, 0x050, U }
-#_01E34A: db $5E, $08, $88 ; Switch       xyz:{ 0x178, 0x080, U }
-#_01E34D: db $6C, $37, $0B ; Heart        xyz:{ 0x1B0, 0x170, L }
-#_01E350: db $6C, $38, $0B ; Heart        xyz:{ 0x1B0, 0x180, L }
-#_01E353: db $6C, $39, $0B ; Heart        xyz:{ 0x1B0, 0x190, L }
+#_01E347: dw $05D4 : db $0B ; Heart        xyz:{ 0x150, 0x050, U }
+#_01E34A: dw $085E : db $88 ; Switch       xyz:{ 0x178, 0x080, U }
+#_01E34D: dw $376C : db $0B ; Heart        xyz:{ 0x1B0, 0x170, L }
+#_01E350: dw $386C : db $0B ; Heart        xyz:{ 0x1B0, 0x180, L }
+#_01E353: dw $396C : db $0B ; Heart        xyz:{ 0x1B0, 0x190, L }
 #_01E356: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00AB:
-#_01E358: db $14, $18, $08 ; Small key    xyz:{ 0x050, 0x180, U }
+#_01E358: dw $1814 : db $08 ; Small key    xyz:{ 0x050, 0x180, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18468,7 +18471,7 @@ RoomData_PotItems_Room_00AD:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00AE:
-#_01E35D: db $4C, $0C, $88 ; Switch       xyz:{ 0x130, 0x0C0, U }
+#_01E35D: dw $0C4C : db $88 ; Switch       xyz:{ 0x130, 0x0C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18478,97 +18481,97 @@ RoomData_PotItems_Room_00AF:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00B0:
-#_01E362: db $14, $15, $0A ; 1 Bomb       xyz:{ 0x050, 0x150, U }
-#_01E365: db $1C, $15, $01 ; Green rupee  xyz:{ 0x070, 0x150, U }
-#_01E368: db $20, $15, $07 ; Blue rupee   xyz:{ 0x080, 0x150, U }
-#_01E36B: db $28, $15, $09 ; 5 arrows     xyz:{ 0x0A0, 0x150, U }
-#_01E36E: db $10, $17, $07 ; Blue rupee   xyz:{ 0x040, 0x170, U }
-#_01E371: db $2C, $17, $01 ; Green rupee  xyz:{ 0x0B0, 0x170, U }
-#_01E374: db $24, $18, $0B ; Heart        xyz:{ 0x090, 0x180, U }
-#_01E377: db $10, $19, $0B ; Heart        xyz:{ 0x040, 0x190, U }
-#_01E37A: db $1C, $1B, $09 ; 5 arrows     xyz:{ 0x070, 0x1B0, U }
-#_01E37D: db $28, $1B, $0A ; 1 Bomb       xyz:{ 0x0A0, 0x1B0, U }
+#_01E362: dw $1514 : db $0A ; 1 Bomb       xyz:{ 0x050, 0x150, U }
+#_01E365: dw $151C : db $01 ; Green rupee  xyz:{ 0x070, 0x150, U }
+#_01E368: dw $1520 : db $07 ; Blue rupee   xyz:{ 0x080, 0x150, U }
+#_01E36B: dw $1528 : db $09 ; 5 arrows     xyz:{ 0x0A0, 0x150, U }
+#_01E36E: dw $1710 : db $07 ; Blue rupee   xyz:{ 0x040, 0x170, U }
+#_01E371: dw $172C : db $01 ; Green rupee  xyz:{ 0x0B0, 0x170, U }
+#_01E374: dw $1824 : db $0B ; Heart        xyz:{ 0x090, 0x180, U }
+#_01E377: dw $1910 : db $0B ; Heart        xyz:{ 0x040, 0x190, U }
+#_01E37A: dw $1B1C : db $09 ; 5 arrows     xyz:{ 0x070, 0x1B0, U }
+#_01E37D: dw $1B28 : db $0A ; 1 Bomb       xyz:{ 0x0A0, 0x1B0, U }
 #_01E380: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00B1:
-#_01E382: db $4C, $04, $0B ; Heart        xyz:{ 0x130, 0x040, U }
-#_01E385: db $70, $04, $01 ; Green rupee  xyz:{ 0x1C0, 0x040, U }
+#_01E382: dw $044C : db $0B ; Heart        xyz:{ 0x130, 0x040, U }
+#_01E385: dw $0470 : db $01 ; Green rupee  xyz:{ 0x1C0, 0x040, U }
 #_01E388: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00B2:
-#_01E38A: db $30, $28, $01 ; Green rupee  xyz:{ 0x0C0, 0x080, L }
-#_01E38D: db $4C, $28, $01 ; Green rupee  xyz:{ 0x130, 0x080, L }
-#_01E390: db $4C, $29, $0B ; Heart        xyz:{ 0x130, 0x090, L }
+#_01E38A: dw $2830 : db $01 ; Green rupee  xyz:{ 0x0C0, 0x080, L }
+#_01E38D: dw $284C : db $01 ; Green rupee  xyz:{ 0x130, 0x080, L }
+#_01E390: dw $294C : db $0B ; Heart        xyz:{ 0x130, 0x090, L }
 #_01E393: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00B3:
-#_01E395: db $0C, $14, $08 ; Small key    xyz:{ 0x030, 0x140, U }
-#_01E398: db $30, $14, $0C ; Small magic  xyz:{ 0x0C0, 0x140, U }
-#_01E39B: db $30, $1C, $88 ; Switch       xyz:{ 0x0C0, 0x1C0, U }
+#_01E395: dw $140C : db $08 ; Small key    xyz:{ 0x030, 0x140, U }
+#_01E398: dw $1430 : db $0C ; Small magic  xyz:{ 0x0C0, 0x140, U }
+#_01E39B: dw $1C30 : db $88 ; Switch       xyz:{ 0x0C0, 0x1C0, U }
 #_01E39E: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00B4:
-#_01E3A0: db $2C, $1C, $0D ; Full magic   xyz:{ 0x0B0, 0x1C0, U }
-#_01E3A3: db $30, $1C, $0B ; Heart        xyz:{ 0x0C0, 0x1C0, U }
+#_01E3A0: dw $1C2C : db $0D ; Full magic   xyz:{ 0x0B0, 0x1C0, U }
+#_01E3A3: dw $1C30 : db $0B ; Heart        xyz:{ 0x0C0, 0x1C0, U }
 #_01E3A6: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00B5:
-#_01E3A8: db $70, $04, $07 ; Blue rupee   xyz:{ 0x1C0, 0x040, U }
-#_01E3AB: db $70, $0F, $0B ; Heart        xyz:{ 0x1C0, 0x0F0, U }
-#_01E3AE: db $4C, $10, $88 ; Switch       xyz:{ 0x130, 0x100, U }
-#_01E3B1: db $70, $10, $0D ; Full magic   xyz:{ 0x1C0, 0x100, U }
-#_01E3B4: db $70, $11, $0B ; Heart        xyz:{ 0x1C0, 0x110, U }
-#_01E3B7: db $70, $1C, $0A ; 1 Bomb       xyz:{ 0x1C0, 0x1C0, U }
+#_01E3A8: dw $0470 : db $07 ; Blue rupee   xyz:{ 0x1C0, 0x040, U }
+#_01E3AB: dw $0F70 : db $0B ; Heart        xyz:{ 0x1C0, 0x0F0, U }
+#_01E3AE: dw $104C : db $88 ; Switch       xyz:{ 0x130, 0x100, U }
+#_01E3B1: dw $1070 : db $0D ; Full magic   xyz:{ 0x1C0, 0x100, U }
+#_01E3B4: dw $1170 : db $0B ; Heart        xyz:{ 0x1C0, 0x110, U }
+#_01E3B7: dw $1C70 : db $0A ; 1 Bomb       xyz:{ 0x1C0, 0x1C0, U }
 #_01E3BA: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00B6:
-#_01E3BC: db $5E, $09, $0D ; Full magic   xyz:{ 0x178, 0x090, U }
+#_01E3BC: dw $095E : db $0D ; Full magic   xyz:{ 0x178, 0x090, U }
 #_01E3BF: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00B7:
-#_01E3C1: db $1E, $05, $0C ; Small magic  xyz:{ 0x078, 0x050, U }
+#_01E3C1: dw $051E : db $0C ; Small magic  xyz:{ 0x078, 0x050, U }
 #_01E3C4: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00B8:
-#_01E3C6: db $60, $0D, $88 ; Switch       xyz:{ 0x180, 0x0D0, U }
-#_01E3C9: db $58, $10, $0B ; Heart        xyz:{ 0x160, 0x100, U }
-#_01E3CC: db $68, $10, $0B ; Heart        xyz:{ 0x1A0, 0x100, U }
+#_01E3C6: dw $0D60 : db $88 ; Switch       xyz:{ 0x180, 0x0D0, U }
+#_01E3C9: dw $1058 : db $0B ; Heart        xyz:{ 0x160, 0x100, U }
+#_01E3CC: dw $1068 : db $0B ; Heart        xyz:{ 0x1A0, 0x100, U }
 #_01E3CF: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00B9:
-#_01E3D1: db $5C, $12, $01 ; Green rupee  xyz:{ 0x170, 0x120, U }
-#_01E3D4: db $60, $12, $07 ; Blue rupee   xyz:{ 0x180, 0x120, U }
-#_01E3D7: db $68, $12, $07 ; Blue rupee   xyz:{ 0x1A0, 0x120, U }
-#_01E3DA: db $6C, $12, $01 ; Green rupee  xyz:{ 0x1B0, 0x120, U }
+#_01E3D1: dw $125C : db $01 ; Green rupee  xyz:{ 0x170, 0x120, U }
+#_01E3D4: dw $1260 : db $07 ; Blue rupee   xyz:{ 0x180, 0x120, U }
+#_01E3D7: dw $1268 : db $07 ; Blue rupee   xyz:{ 0x1A0, 0x120, U }
+#_01E3DA: dw $126C : db $01 ; Green rupee  xyz:{ 0x1B0, 0x120, U }
 #_01E3DD: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00BA:
-#_01E3DF: db $5E, $04, $01 ; Green rupee  xyz:{ 0x178, 0x040, U }
-#_01E3E2: db $4C, $06, $0B ; Heart        xyz:{ 0x130, 0x060, U }
-#_01E3E5: db $70, $06, $08 ; Small key    xyz:{ 0x1C0, 0x060, U }
-#_01E3E8: db $4C, $0A, $0B ; Heart        xyz:{ 0x130, 0x0A0, U }
-#_01E3EB: db $70, $0A, $0C ; Small magic  xyz:{ 0x1C0, 0x0A0, U }
-#_01E3EE: db $5E, $0C, $01 ; Green rupee  xyz:{ 0x178, 0x0C0, U }
+#_01E3DF: dw $045E : db $01 ; Green rupee  xyz:{ 0x178, 0x040, U }
+#_01E3E2: dw $064C : db $0B ; Heart        xyz:{ 0x130, 0x060, U }
+#_01E3E5: dw $0670 : db $08 ; Small key    xyz:{ 0x1C0, 0x060, U }
+#_01E3E8: dw $0A4C : db $0B ; Heart        xyz:{ 0x130, 0x0A0, U }
+#_01E3EB: dw $0A70 : db $0C ; Small magic  xyz:{ 0x1C0, 0x0A0, U }
+#_01E3EE: dw $0C5E : db $01 ; Green rupee  xyz:{ 0x178, 0x0C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18578,19 +18581,19 @@ RoomData_PotItems_Room_00BB:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00BC:
-#_01E3F3: db $8A, $03, $0A ; 1 Bomb       xyz:{ 0x028, 0x030, U }
-#_01E3F6: db $B2, $03, $88 ; Switch       xyz:{ 0x0C8, 0x030, U }
-#_01E3F9: db $56, $04, $0B ; Heart        xyz:{ 0x158, 0x040, U }
-#_01E3FC: db $66, $04, $08 ; Small key    xyz:{ 0x198, 0x040, U }
-#_01E3FF: db $8A, $0C, $0B ; Heart        xyz:{ 0x028, 0x0C0, U }
-#_01E402: db $B2, $0C, $0A ; 1 Bomb       xyz:{ 0x0C8, 0x0C0, U }
-#_01E405: db $30, $14, $0A ; 1 Bomb       xyz:{ 0x0C0, 0x140, U }
-#_01E408: db $1C, $15, $07 ; Blue rupee   xyz:{ 0x070, 0x150, U }
-#_01E40B: db $20, $15, $07 ; Blue rupee   xyz:{ 0x080, 0x150, U }
-#_01E40E: db $1C, $1B, $07 ; Blue rupee   xyz:{ 0x070, 0x1B0, U }
-#_01E411: db $20, $1B, $07 ; Blue rupee   xyz:{ 0x080, 0x1B0, U }
-#_01E414: db $0C, $1C, $0A ; 1 Bomb       xyz:{ 0x030, 0x1C0, U }
-#_01E417: db $30, $1C, $0A ; 1 Bomb       xyz:{ 0x0C0, 0x1C0, U }
+#_01E3F3: dw $038A : db $0A ; 1 Bomb       xyz:{ 0x028, 0x030, U }
+#_01E3F6: dw $03B2 : db $88 ; Switch       xyz:{ 0x0C8, 0x030, U }
+#_01E3F9: dw $0456 : db $0B ; Heart        xyz:{ 0x158, 0x040, U }
+#_01E3FC: dw $0466 : db $08 ; Small key    xyz:{ 0x198, 0x040, U }
+#_01E3FF: dw $0C8A : db $0B ; Heart        xyz:{ 0x028, 0x0C0, U }
+#_01E402: dw $0CB2 : db $0A ; 1 Bomb       xyz:{ 0x0C8, 0x0C0, U }
+#_01E405: dw $1430 : db $0A ; 1 Bomb       xyz:{ 0x0C0, 0x140, U }
+#_01E408: dw $151C : db $07 ; Blue rupee   xyz:{ 0x070, 0x150, U }
+#_01E40B: dw $1520 : db $07 ; Blue rupee   xyz:{ 0x080, 0x150, U }
+#_01E40E: dw $1B1C : db $07 ; Blue rupee   xyz:{ 0x070, 0x1B0, U }
+#_01E411: dw $1B20 : db $07 ; Blue rupee   xyz:{ 0x080, 0x1B0, U }
+#_01E414: dw $1C0C : db $0A ; 1 Bomb       xyz:{ 0x030, 0x1C0, U }
+#_01E417: dw $1C30 : db $0A ; 1 Bomb       xyz:{ 0x0C0, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18600,27 +18603,27 @@ RoomData_PotItems_Room_00BD:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00BE:
-#_01E41C: db $5C, $19, $88 ; Switch       xyz:{ 0x170, 0x190, U }
+#_01E41C: dw $195C : db $88 ; Switch       xyz:{ 0x170, 0x190, U }
 #_01E41F: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00BF:
-#_01E421: db $28, $14, $09 ; 5 arrows     xyz:{ 0x0A0, 0x140, U }
-#_01E424: db $2C, $14, $0B ; Heart        xyz:{ 0x0B0, 0x140, U }
-#_01E427: db $30, $14, $0A ; 1 Bomb       xyz:{ 0x0C0, 0x140, U }
-#_01E42A: db $28, $1C, $0C ; Small magic  xyz:{ 0x0A0, 0x1C0, U }
-#_01E42D: db $2C, $1C, $0C ; Small magic  xyz:{ 0x0B0, 0x1C0, U }
-#_01E430: db $30, $1C, $0C ; Small magic  xyz:{ 0x0C0, 0x1C0, U }
+#_01E421: dw $1428 : db $09 ; 5 arrows     xyz:{ 0x0A0, 0x140, U }
+#_01E424: dw $142C : db $0B ; Heart        xyz:{ 0x0B0, 0x140, U }
+#_01E427: dw $1430 : db $0A ; 1 Bomb       xyz:{ 0x0C0, 0x140, U }
+#_01E42A: dw $1C28 : db $0C ; Small magic  xyz:{ 0x0A0, 0x1C0, U }
+#_01E42D: dw $1C2C : db $0C ; Small magic  xyz:{ 0x0B0, 0x1C0, U }
+#_01E430: dw $1C30 : db $0C ; Small magic  xyz:{ 0x0C0, 0x1C0, U }
 #_01E433: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00C0:
-#_01E435: db $30, $0A, $0A ; 1 Bomb       xyz:{ 0x0C0, 0x0A0, U }
-#_01E438: db $0C, $0E, $07 ; Blue rupee   xyz:{ 0x030, 0x0E0, U }
-#_01E43B: db $0C, $1A, $0B ; Heart        xyz:{ 0x030, 0x1A0, U }
-#_01E43E: db $1C, $1B, $01 ; Green rupee  xyz:{ 0x070, 0x1B0, U }
+#_01E435: dw $0A30 : db $0A ; 1 Bomb       xyz:{ 0x0C0, 0x0A0, U }
+#_01E438: dw $0E0C : db $07 ; Blue rupee   xyz:{ 0x030, 0x0E0, U }
+#_01E43B: dw $1A0C : db $0B ; Heart        xyz:{ 0x030, 0x1A0, U }
+#_01E43E: dw $1B1C : db $01 ; Green rupee  xyz:{ 0x070, 0x1B0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18630,10 +18633,10 @@ RoomData_PotItems_Room_00C1:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00C2:
-#_01E443: db $B4, $07, $88 ; Switch       xyz:{ 0x0D0, 0x070, U }
-#_01E446: db $64, $2E, $0C ; Small magic  xyz:{ 0x190, 0x0E0, L }
-#_01E449: db $44, $30, $01 ; Green rupee  xyz:{ 0x110, 0x100, L }
-#_01E44C: db $40, $34, $09 ; 5 arrows     xyz:{ 0x100, 0x140, L }
+#_01E443: dw $07B4 : db $88 ; Switch       xyz:{ 0x0D0, 0x070, U }
+#_01E446: dw $2E64 : db $0C ; Small magic  xyz:{ 0x190, 0x0E0, L }
+#_01E449: dw $3044 : db $01 ; Green rupee  xyz:{ 0x110, 0x100, L }
+#_01E44C: dw $3440 : db $09 ; 5 arrows     xyz:{ 0x100, 0x140, L }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18643,14 +18646,14 @@ RoomData_PotItems_Room_00C3:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00C4:
-#_01E451: db $54, $09, $0A ; 1 Bomb       xyz:{ 0x150, 0x090, U }
-#_01E454: db $18, $0E, $0B ; Heart        xyz:{ 0x060, 0x0E0, U }
-#_01E457: db $38, $11, $07 ; Blue rupee   xyz:{ 0x0E0, 0x110, U }
-#_01E45A: db $54, $11, $0A ; 1 Bomb       xyz:{ 0x150, 0x110, U }
-#_01E45D: db $0C, $15, $09 ; 5 arrows     xyz:{ 0x030, 0x150, U }
-#_01E460: db $4C, $17, $01 ; Green rupee  xyz:{ 0x130, 0x170, U }
-#_01E463: db $30, $19, $0C ; Small magic  xyz:{ 0x0C0, 0x190, U }
-#_01E466: db $0C, $1A, $0B ; Heart        xyz:{ 0x030, 0x1A0, U }
+#_01E451: dw $0954 : db $0A ; 1 Bomb       xyz:{ 0x150, 0x090, U }
+#_01E454: dw $0E18 : db $0B ; Heart        xyz:{ 0x060, 0x0E0, U }
+#_01E457: dw $1138 : db $07 ; Blue rupee   xyz:{ 0x0E0, 0x110, U }
+#_01E45A: dw $1154 : db $0A ; 1 Bomb       xyz:{ 0x150, 0x110, U }
+#_01E45D: dw $150C : db $09 ; 5 arrows     xyz:{ 0x030, 0x150, U }
+#_01E460: dw $174C : db $01 ; Green rupee  xyz:{ 0x130, 0x170, U }
+#_01E463: dw $1930 : db $0C ; Small magic  xyz:{ 0x0C0, 0x190, U }
+#_01E466: dw $1A0C : db $0B ; Heart        xyz:{ 0x030, 0x1A0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18660,17 +18663,17 @@ RoomData_PotItems_Room_00C5:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00C6:
-#_01E46B: db $0C, $07, $0D ; Full magic   xyz:{ 0x030, 0x070, U }
-#_01E46E: db $0C, $19, $0B ; Heart        xyz:{ 0x030, 0x190, U }
+#_01E46B: dw $070C : db $0D ; Full magic   xyz:{ 0x030, 0x070, U }
+#_01E46E: dw $190C : db $0B ; Heart        xyz:{ 0x030, 0x190, U }
 #_01E471: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00C7:
-#_01E473: db $0C, $0A, $0B ; Heart        xyz:{ 0x030, 0x0A0, U }
-#_01E476: db $0C, $0B, $0D ; Full magic   xyz:{ 0x030, 0x0B0, U }
-#_01E479: db $0C, $16, $0C ; Small magic  xyz:{ 0x030, 0x160, U }
-#_01E47C: db $0C, $1C, $09 ; 5 arrows     xyz:{ 0x030, 0x1C0, U }
+#_01E473: dw $0A0C : db $0B ; Heart        xyz:{ 0x030, 0x0A0, U }
+#_01E476: dw $0B0C : db $0D ; Full magic   xyz:{ 0x030, 0x0B0, U }
+#_01E479: dw $160C : db $0C ; Small magic  xyz:{ 0x030, 0x160, U }
+#_01E47C: dw $1C0C : db $09 ; 5 arrows     xyz:{ 0x030, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18680,9 +18683,9 @@ RoomData_PotItems_Room_00C8:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00C9:
-#_01E481: db $1E, $16, $01 ; Green rupee  xyz:{ 0x078, 0x160, U }
-#_01E484: db $5E, $16, $01 ; Green rupee  xyz:{ 0x178, 0x160, U }
-#_01E487: db $3C, $16, $88 ; Switch       xyz:{ 0x0F0, 0x160, U }
+#_01E481: dw $161E : db $01 ; Green rupee  xyz:{ 0x078, 0x160, U }
+#_01E484: dw $165E : db $01 ; Green rupee  xyz:{ 0x178, 0x160, U }
+#_01E487: dw $163C : db $88 ; Switch       xyz:{ 0x0F0, 0x160, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18692,17 +18695,17 @@ RoomData_PotItems_Room_00CA:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00CB:
-#_01E48C: db $58, $10, $0B ; Heart        xyz:{ 0x160, 0x100, U }
-#_01E48F: db $58, $1C, $07 ; Blue rupee   xyz:{ 0x160, 0x1C0, U }
+#_01E48C: dw $1058 : db $0B ; Heart        xyz:{ 0x160, 0x100, U }
+#_01E48F: dw $1C58 : db $07 ; Blue rupee   xyz:{ 0x160, 0x1C0, U }
 #_01E492: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00CC:
-#_01E494: db $24, $04, $07 ; Blue rupee   xyz:{ 0x090, 0x040, U }
-#_01E497: db $70, $04, $0B ; Heart        xyz:{ 0x1C0, 0x040, U }
-#_01E49A: db $24, $1C, $07 ; Blue rupee   xyz:{ 0x090, 0x1C0, U }
-#_01E49D: db $70, $1C, $0A ; 1 Bomb       xyz:{ 0x1C0, 0x1C0, U }
+#_01E494: dw $0424 : db $07 ; Blue rupee   xyz:{ 0x090, 0x040, U }
+#_01E497: dw $0470 : db $0B ; Heart        xyz:{ 0x1C0, 0x040, U }
+#_01E49A: dw $1C24 : db $07 ; Blue rupee   xyz:{ 0x090, 0x1C0, U }
+#_01E49D: dw $1C70 : db $0A ; 1 Bomb       xyz:{ 0x1C0, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18712,11 +18715,11 @@ RoomData_PotItems_Room_00CD:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00CE:
-#_01E4A2: db $4C, $08, $0C ; Small magic  xyz:{ 0x130, 0x080, U }
-#_01E4A5: db $50, $08, $0C ; Small magic  xyz:{ 0x140, 0x080, U }
-#_01E4A8: db $6C, $0C, $0A ; 1 Bomb       xyz:{ 0x1B0, 0x0C0, U }
-#_01E4AB: db $70, $0C, $09 ; 5 arrows     xyz:{ 0x1C0, 0x0C0, U }
-#_01E4AE: db $CC, $0B, $80 ; Hole         xyz:{ 0x130, 0x0B0, U }
+#_01E4A2: dw $084C : db $0C ; Small magic  xyz:{ 0x130, 0x080, U }
+#_01E4A5: dw $0850 : db $0C ; Small magic  xyz:{ 0x140, 0x080, U }
+#_01E4A8: dw $0C6C : db $0A ; 1 Bomb       xyz:{ 0x1B0, 0x0C0, U }
+#_01E4AB: dw $0C70 : db $09 ; 5 arrows     xyz:{ 0x1C0, 0x0C0, U }
+#_01E4AE: dw $0BCC : db $80 ; Hole         xyz:{ 0x130, 0x0B0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18726,23 +18729,23 @@ RoomData_PotItems_Room_00CF:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00D0:
-#_01E4B3: db $9E, $05, $0C ; Small magic  xyz:{ 0x078, 0x050, U }
-#_01E4B6: db $8C, $0B, $01 ; Green rupee  xyz:{ 0x030, 0x0B0, U }
-#_01E4B9: db $2A, $0D, $0C ; Small magic  xyz:{ 0x0A8, 0x0D0, U }
-#_01E4BC: db $30, $10, $0B ; Heart        xyz:{ 0x0C0, 0x100, U }
-#_01E4BF: db $B0, $14, $01 ; Green rupee  xyz:{ 0x0C0, 0x140, U }
-#_01E4C2: db $92, $17, $07 ; Blue rupee   xyz:{ 0x048, 0x170, U }
-#_01E4C5: db $0C, $1C, $0B ; Heart        xyz:{ 0x030, 0x1C0, U }
+#_01E4B3: dw $059E : db $0C ; Small magic  xyz:{ 0x078, 0x050, U }
+#_01E4B6: dw $0B8C : db $01 ; Green rupee  xyz:{ 0x030, 0x0B0, U }
+#_01E4B9: dw $0D2A : db $0C ; Small magic  xyz:{ 0x0A8, 0x0D0, U }
+#_01E4BC: dw $1030 : db $0B ; Heart        xyz:{ 0x0C0, 0x100, U }
+#_01E4BF: dw $14B0 : db $01 ; Green rupee  xyz:{ 0x0C0, 0x140, U }
+#_01E4C2: dw $1792 : db $07 ; Blue rupee   xyz:{ 0x048, 0x170, U }
+#_01E4C5: dw $1C0C : db $0B ; Heart        xyz:{ 0x030, 0x1C0, U }
 #_01E4C8: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00D1:
-#_01E4CA: db $30, $04, $0D ; Full magic   xyz:{ 0x0C0, 0x040, U }
-#_01E4CD: db $4C, $04, $01 ; Green rupee  xyz:{ 0x130, 0x040, U }
-#_01E4D0: db $70, $04, $09 ; 5 arrows     xyz:{ 0x1C0, 0x040, U }
-#_01E4D3: db $A8, $07, $01 ; Green rupee  xyz:{ 0x0A0, 0x070, U }
-#_01E4D6: db $70, $0C, $01 ; Green rupee  xyz:{ 0x1C0, 0x0C0, U }
+#_01E4CA: dw $0430 : db $0D ; Full magic   xyz:{ 0x0C0, 0x040, U }
+#_01E4CD: dw $044C : db $01 ; Green rupee  xyz:{ 0x130, 0x040, U }
+#_01E4D0: dw $0470 : db $09 ; 5 arrows     xyz:{ 0x1C0, 0x040, U }
+#_01E4D3: dw $07A8 : db $01 ; Green rupee  xyz:{ 0x0A0, 0x070, U }
+#_01E4D6: dw $0C70 : db $01 ; Green rupee  xyz:{ 0x1C0, 0x0C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18755,8 +18758,8 @@ RoomData_PotItems_Room_00D5:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00D6:
-#_01E4DB: db $5C, $16, $0D ; Full magic   xyz:{ 0x170, 0x160, U }
-#_01E4DE: db $60, $16, $0A ; 1 Bomb       xyz:{ 0x180, 0x160, U }
+#_01E4DB: dw $165C : db $0D ; Full magic   xyz:{ 0x170, 0x160, U }
+#_01E4DE: dw $1660 : db $0A ; 1 Bomb       xyz:{ 0x180, 0x160, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18766,46 +18769,46 @@ RoomData_PotItems_Room_00D7:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00D8:
-#_01E4E3: db $CA, $08, $0B ; Heart        xyz:{ 0x128, 0x080, U }
-#_01E4E6: db $F2, $08, $09 ; 5 arrows     xyz:{ 0x1C8, 0x080, U }
-#_01E4E9: db $CA, $0A, $09 ; 5 arrows     xyz:{ 0x128, 0x0A0, U }
-#_01E4EC: db $F2, $0A, $09 ; 5 arrows     xyz:{ 0x1C8, 0x0A0, U }
-#_01E4EF: db $CA, $0C, $09 ; 5 arrows     xyz:{ 0x128, 0x0C0, U }
-#_01E4F2: db $F2, $0C, $0B ; Heart        xyz:{ 0x1C8, 0x0C0, U }
-#_01E4F5: db $5C, $18, $0B ; Heart        xyz:{ 0x170, 0x180, U }
-#_01E4F8: db $60, $18, $09 ; 5 arrows     xyz:{ 0x180, 0x180, U }
+#_01E4E3: dw $08CA : db $0B ; Heart        xyz:{ 0x128, 0x080, U }
+#_01E4E6: dw $08F2 : db $09 ; 5 arrows     xyz:{ 0x1C8, 0x080, U }
+#_01E4E9: dw $0ACA : db $09 ; 5 arrows     xyz:{ 0x128, 0x0A0, U }
+#_01E4EC: dw $0AF2 : db $09 ; 5 arrows     xyz:{ 0x1C8, 0x0A0, U }
+#_01E4EF: dw $0CCA : db $09 ; 5 arrows     xyz:{ 0x128, 0x0C0, U }
+#_01E4F2: dw $0CF2 : db $0B ; Heart        xyz:{ 0x1C8, 0x0C0, U }
+#_01E4F5: dw $185C : db $0B ; Heart        xyz:{ 0x170, 0x180, U }
+#_01E4F8: dw $1860 : db $09 ; 5 arrows     xyz:{ 0x180, 0x180, U }
 #_01E4FB: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00D9:
-#_01E4FD: db $5C, $14, $09 ; 5 arrows     xyz:{ 0x170, 0x140, U }
-#_01E500: db $5C, $1C, $0B ; Heart        xyz:{ 0x170, 0x1C0, U }
+#_01E4FD: dw $145C : db $09 ; 5 arrows     xyz:{ 0x170, 0x140, U }
+#_01E500: dw $1C5C : db $0B ; Heart        xyz:{ 0x170, 0x1C0, U }
 #_01E503: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00DA:
-#_01E505: db $18, $17, $09 ; 5 arrows     xyz:{ 0x060, 0x170, U }
-#_01E508: db $24, $17, $09 ; 5 arrows     xyz:{ 0x090, 0x170, U }
-#_01E50B: db $18, $19, $88 ; Switch       xyz:{ 0x060, 0x190, U }
-#_01E50E: db $24, $19, $0B ; Heart        xyz:{ 0x090, 0x190, U }
+#_01E505: dw $1718 : db $09 ; 5 arrows     xyz:{ 0x060, 0x170, U }
+#_01E508: dw $1724 : db $09 ; 5 arrows     xyz:{ 0x090, 0x170, U }
+#_01E50B: dw $1918 : db $88 ; Switch       xyz:{ 0x060, 0x190, U }
+#_01E50E: dw $1924 : db $0B ; Heart        xyz:{ 0x090, 0x190, U }
 #_01E511: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00DB:
-#_01E513: db $70, $04, $07 ; Blue rupee   xyz:{ 0x1C0, 0x040, U }
-#_01E516: db $58, $10, $0B ; Heart        xyz:{ 0x160, 0x100, U }
+#_01E513: dw $0470 : db $07 ; Blue rupee   xyz:{ 0x1C0, 0x040, U }
+#_01E516: dw $1058 : db $0B ; Heart        xyz:{ 0x160, 0x100, U }
 #_01E519: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00DC:
-#_01E51B: db $38, $04, $07 ; Blue rupee   xyz:{ 0x0E0, 0x040, U }
-#_01E51E: db $70, $04, $0A ; 1 Bomb       xyz:{ 0x1C0, 0x040, U }
-#_01E521: db $44, $10, $0B ; Heart        xyz:{ 0x110, 0x100, U }
-#_01E524: db $0C, $1C, $09 ; 5 arrows     xyz:{ 0x030, 0x1C0, U }
+#_01E51B: dw $0438 : db $07 ; Blue rupee   xyz:{ 0x0E0, 0x040, U }
+#_01E51E: dw $0470 : db $0A ; 1 Bomb       xyz:{ 0x1C0, 0x040, U }
+#_01E521: dw $1044 : db $0B ; Heart        xyz:{ 0x110, 0x100, U }
+#_01E524: dw $1C0C : db $09 ; 5 arrows     xyz:{ 0x030, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18817,7 +18820,7 @@ RoomData_PotItems_Room_00DF:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00E0:
-#_01E529: db $18, $08, $0B ; Heart        xyz:{ 0x060, 0x080, U }
+#_01E529: dw $0818 : db $0B ; Heart        xyz:{ 0x060, 0x080, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18828,44 +18831,44 @@ RoomData_PotItems_Room_00E2:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00E3:
-#_01E52E: db $64, $39, $01 ; Green rupee  xyz:{ 0x190, 0x190, L }
+#_01E52E: dw $3964 : db $01 ; Green rupee  xyz:{ 0x190, 0x190, L }
 #_01E531: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00E4:
-#_01E533: db $20, $09, $07 ; Blue rupee   xyz:{ 0x080, 0x090, U }
-#_01E536: db $70, $0A, $01 ; Green rupee  xyz:{ 0x1C0, 0x0A0, U }
+#_01E533: dw $0920 : db $07 ; Blue rupee   xyz:{ 0x080, 0x090, U }
+#_01E536: dw $0A70 : db $01 ; Green rupee  xyz:{ 0x1C0, 0x0A0, U }
 #_01E539: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00E5:
-#_01E53B: db $30, $04, $01 ; Green rupee  xyz:{ 0x0C0, 0x040, U }
-#_01E53E: db $4C, $04, $01 ; Green rupee  xyz:{ 0x130, 0x040, U }
-#_01E541: db $70, $10, $01 ; Green rupee  xyz:{ 0x1C0, 0x100, U }
-#_01E544: db $40, $12, $07 ; Blue rupee   xyz:{ 0x100, 0x120, U }
+#_01E53B: dw $0430 : db $01 ; Green rupee  xyz:{ 0x0C0, 0x040, U }
+#_01E53E: dw $044C : db $01 ; Green rupee  xyz:{ 0x130, 0x040, U }
+#_01E541: dw $1070 : db $01 ; Green rupee  xyz:{ 0x1C0, 0x100, U }
+#_01E544: dw $1240 : db $07 ; Blue rupee   xyz:{ 0x100, 0x120, U }
 #_01E547: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00E6:
-#_01E549: db $6C, $0C, $09 ; 5 arrows     xyz:{ 0x1B0, 0x0C0, U }
-#_01E54C: db $58, $10, $0B ; Heart        xyz:{ 0x160, 0x100, U }
-#_01E54F: db $38, $18, $01 ; Green rupee  xyz:{ 0x0E0, 0x180, U }
+#_01E549: dw $0C6C : db $09 ; 5 arrows     xyz:{ 0x1B0, 0x0C0, U }
+#_01E54C: dw $1058 : db $0B ; Heart        xyz:{ 0x160, 0x100, U }
+#_01E54F: dw $1838 : db $01 ; Green rupee  xyz:{ 0x0E0, 0x180, U }
 #_01E552: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00E7:
-#_01E554: db $44, $05, $01 ; Green rupee  xyz:{ 0x110, 0x050, U }
-#_01E557: db $48, $05, $01 ; Green rupee  xyz:{ 0x120, 0x050, U }
+#_01E554: dw $0544 : db $01 ; Green rupee  xyz:{ 0x110, 0x050, U }
+#_01E557: dw $0548 : db $01 ; Green rupee  xyz:{ 0x120, 0x050, U }
 #_01E55A: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00E8:
-#_01E55C: db $60, $04, $0B ; Heart        xyz:{ 0x180, 0x040, U }
+#_01E55C: dw $0460 : db $0B ; Heart        xyz:{ 0x180, 0x040, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18876,11 +18879,11 @@ RoomData_PotItems_Room_00EA:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00EB:
-#_01E561: db $CE, $08, $07 ; Blue rupee   xyz:{ 0x138, 0x080, U }
-#_01E564: db $D2, $08, $07 ; Blue rupee   xyz:{ 0x148, 0x080, U }
-#_01E567: db $58, $0E, $0C ; Small magic  xyz:{ 0x160, 0x0E0, U }
-#_01E56A: db $5C, $0E, $0B ; Heart        xyz:{ 0x170, 0x0E0, U }
-#_01E56D: db $60, $0E, $0C ; Small magic  xyz:{ 0x180, 0x0E0, U }
+#_01E561: dw $08CE : db $07 ; Blue rupee   xyz:{ 0x138, 0x080, U }
+#_01E564: dw $08D2 : db $07 ; Blue rupee   xyz:{ 0x148, 0x080, U }
+#_01E567: dw $0E58 : db $0C ; Small magic  xyz:{ 0x160, 0x0E0, U }
+#_01E56A: dw $0E5C : db $0B ; Heart        xyz:{ 0x170, 0x0E0, U }
+#_01E56D: dw $0E60 : db $0C ; Small magic  xyz:{ 0x180, 0x0E0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18894,7 +18897,7 @@ RoomData_PotItems_Room_00F0:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00F1:
-#_01E572: db $40, $05, $0B ; Heart        xyz:{ 0x100, 0x050, U }
+#_01E572: dw $0540 : db $0B ; Heart        xyz:{ 0x100, 0x050, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18909,7 +18912,7 @@ RoomData_PotItems_Room_00F7:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00F8:
-#_01E577: db $F2, $0D, $0D ; Full magic   xyz:{ 0x1C8, 0x0D0, U }
+#_01E577: dw $0DF2 : db $0D ; Full magic   xyz:{ 0x1C8, 0x0D0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18922,10 +18925,10 @@ RoomData_PotItems_Room_00FC:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00FD:
-#_01E57C: db $58, $06, $07 ; Blue rupee   xyz:{ 0x160, 0x060, U }
-#_01E57F: db $64, $06, $07 ; Blue rupee   xyz:{ 0x190, 0x060, U }
-#_01E582: db $54, $17, $07 ; Blue rupee   xyz:{ 0x150, 0x170, U }
-#_01E585: db $54, $18, $07 ; Blue rupee   xyz:{ 0x150, 0x180, U }
+#_01E57C: dw $0658 : db $07 ; Blue rupee   xyz:{ 0x160, 0x060, U }
+#_01E57F: dw $0664 : db $07 ; Blue rupee   xyz:{ 0x190, 0x060, U }
+#_01E582: dw $1754 : db $07 ; Blue rupee   xyz:{ 0x150, 0x170, U }
+#_01E585: dw $1854 : db $07 ; Blue rupee   xyz:{ 0x150, 0x180, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18935,9 +18938,9 @@ RoomData_PotItems_Room_00FE:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_00FF:
-#_01E58A: db $5C, $08, $0B ; Heart        xyz:{ 0x170, 0x080, U }
-#_01E58D: db $60, $08, $0B ; Heart        xyz:{ 0x180, 0x080, U }
-#_01E590: db $70, $1C, $01 ; Green rupee  xyz:{ 0x1C0, 0x1C0, U }
+#_01E58A: dw $085C : db $0B ; Heart        xyz:{ 0x170, 0x080, U }
+#_01E58D: dw $0860 : db $0B ; Heart        xyz:{ 0x180, 0x080, U }
+#_01E590: dw $1C70 : db $01 ; Green rupee  xyz:{ 0x1C0, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18947,39 +18950,39 @@ RoomData_PotItems_Room_0100:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0101:
-#_01E595: db $0C, $14, $0B ; Heart        xyz:{ 0x030, 0x140, U }
-#_01E598: db $E0, $13, $0E ; Cucco        xyz:{ 0x180, 0x130, U }
-#_01E59B: db $E4, $13, $0B ; Heart        xyz:{ 0x190, 0x130, U }
+#_01E595: dw $140C : db $0B ; Heart        xyz:{ 0x030, 0x140, U }
+#_01E598: dw $13E0 : db $0E ; Cucco        xyz:{ 0x180, 0x130, U }
+#_01E59B: dw $13E4 : db $0B ; Heart        xyz:{ 0x190, 0x130, U }
 #_01E59E: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0102:
-#_01E5A0: db $92, $13, $0B ; Heart        xyz:{ 0x048, 0x130, U }
-#_01E5A3: db $96, $13, $0B ; Heart        xyz:{ 0x058, 0x130, U }
+#_01E5A0: dw $1392 : db $0B ; Heart        xyz:{ 0x048, 0x130, U }
+#_01E5A3: dw $1396 : db $0B ; Heart        xyz:{ 0x058, 0x130, U }
 #_01E5A6: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0103:
-#_01E5A8: db $8C, $07, $0E ; Cucco        xyz:{ 0x030, 0x070, U }
-#_01E5AB: db $0C, $0C, $0B ; Heart        xyz:{ 0x030, 0x0C0, U }
+#_01E5A8: dw $078C : db $0E ; Cucco        xyz:{ 0x030, 0x070, U }
+#_01E5AB: dw $0C0C : db $0B ; Heart        xyz:{ 0x030, 0x0C0, U }
 #_01E5AE: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0104:
-#_01E5B0: db $CA, $15, $0B ; Heart        xyz:{ 0x128, 0x150, U }
-#_01E5B3: db $CA, $16, $0B ; Heart        xyz:{ 0x128, 0x160, U }
-#_01E5B6: db $CA, $17, $0B ; Heart        xyz:{ 0x128, 0x170, U }
+#_01E5B0: dw $15CA : db $0B ; Heart        xyz:{ 0x128, 0x150, U }
+#_01E5B3: dw $16CA : db $0B ; Heart        xyz:{ 0x128, 0x160, U }
+#_01E5B6: dw $17CA : db $0B ; Heart        xyz:{ 0x128, 0x170, U }
 #_01E5B9: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0105:
-#_01E5BB: db $1E, $14, $0B ; Heart        xyz:{ 0x078, 0x140, U }
-#_01E5BE: db $1C, $15, $0B ; Heart        xyz:{ 0x070, 0x150, U }
-#_01E5C1: db $20, $15, $0B ; Heart        xyz:{ 0x080, 0x150, U }
+#_01E5BB: dw $141E : db $0B ; Heart        xyz:{ 0x078, 0x140, U }
+#_01E5BE: dw $151C : db $0B ; Heart        xyz:{ 0x070, 0x150, U }
+#_01E5C1: dw $1520 : db $0B ; Heart        xyz:{ 0x080, 0x150, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -18989,19 +18992,19 @@ RoomData_PotItems_Room_0106:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0107:
-#_01E5C6: db $D6, $17, $0A ; 1 Bomb       xyz:{ 0x158, 0x170, U }
-#_01E5C9: db $DE, $17, $09 ; 5 arrows     xyz:{ 0x178, 0x170, U }
-#_01E5CC: db $E6, $17, $0A ; 1 Bomb       xyz:{ 0x198, 0x170, U }
-#_01E5CF: db $D6, $19, $01 ; Green rupee  xyz:{ 0x158, 0x190, U }
-#_01E5D2: db $E6, $19, $01 ; Green rupee  xyz:{ 0x198, 0x190, U }
-#_01E5D5: db $D6, $1B, $0A ; 1 Bomb       xyz:{ 0x158, 0x1B0, U }
-#_01E5D8: db $E6, $1B, $0A ; 1 Bomb       xyz:{ 0x198, 0x1B0, U }
+#_01E5C6: dw $17D6 : db $0A ; 1 Bomb       xyz:{ 0x158, 0x170, U }
+#_01E5C9: dw $17DE : db $09 ; 5 arrows     xyz:{ 0x178, 0x170, U }
+#_01E5CC: dw $17E6 : db $0A ; 1 Bomb       xyz:{ 0x198, 0x170, U }
+#_01E5CF: dw $19D6 : db $01 ; Green rupee  xyz:{ 0x158, 0x190, U }
+#_01E5D2: dw $19E6 : db $01 ; Green rupee  xyz:{ 0x198, 0x190, U }
+#_01E5D5: dw $1BD6 : db $0A ; 1 Bomb       xyz:{ 0x158, 0x1B0, U }
+#_01E5D8: dw $1BE6 : db $0A ; 1 Bomb       xyz:{ 0x198, 0x1B0, U }
 #_01E5DB: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0108:
-#_01E5DD: db $A6, $13, $0E ; Cucco        xyz:{ 0x098, 0x130, U }
+#_01E5DD: dw $13A6 : db $0E ; Cucco        xyz:{ 0x098, 0x130, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -19013,7 +19016,7 @@ RoomData_PotItems_Room_010B:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_010C:
-#_01E5E2: db $58, $0E, $0B ; Heart        xyz:{ 0x160, 0x0E0, U }
+#_01E5E2: dw $0E58 : db $0B ; Heart        xyz:{ 0x160, 0x0E0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -19029,12 +19032,12 @@ RoomData_PotItems_Room_0113:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0114:
-#_01E5E7: db $5C, $04, $0B ; Heart        xyz:{ 0x170, 0x040, U }
-#_01E5EA: db $60, $04, $0B ; Heart        xyz:{ 0x180, 0x040, U }
-#_01E5ED: db $5C, $05, $0A ; 1 Bomb       xyz:{ 0x170, 0x050, U }
-#_01E5F0: db $60, $05, $0A ; 1 Bomb       xyz:{ 0x180, 0x050, U }
-#_01E5F3: db $5C, $0A, $09 ; 5 arrows     xyz:{ 0x170, 0x0A0, U }
-#_01E5F6: db $60, $0A, $0B ; Heart        xyz:{ 0x180, 0x0A0, U }
+#_01E5E7: dw $045C : db $0B ; Heart        xyz:{ 0x170, 0x040, U }
+#_01E5EA: dw $0460 : db $0B ; Heart        xyz:{ 0x180, 0x040, U }
+#_01E5ED: dw $055C : db $0A ; 1 Bomb       xyz:{ 0x170, 0x050, U }
+#_01E5F0: dw $0560 : db $0A ; 1 Bomb       xyz:{ 0x180, 0x050, U }
+#_01E5F3: dw $0A5C : db $09 ; 5 arrows     xyz:{ 0x170, 0x0A0, U }
+#_01E5F6: dw $0A60 : db $0B ; Heart        xyz:{ 0x180, 0x0A0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -19045,14 +19048,14 @@ RoomData_PotItems_Room_0116:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0117:
-#_01E5FB: db $8A, $03, $0B ; Heart        xyz:{ 0x028, 0x030, U }
-#_01E5FE: db $8E, $03, $0B ; Heart        xyz:{ 0x038, 0x030, U }
-#_01E601: db $A6, $03, $0B ; Heart        xyz:{ 0x098, 0x030, U }
-#_01E604: db $AA, $03, $0B ; Heart        xyz:{ 0x0A8, 0x030, U }
-#_01E607: db $8A, $04, $0B ; Heart        xyz:{ 0x028, 0x040, U }
-#_01E60A: db $8E, $04, $0B ; Heart        xyz:{ 0x038, 0x040, U }
-#_01E60D: db $A6, $04, $0B ; Heart        xyz:{ 0x098, 0x040, U }
-#_01E610: db $AA, $04, $0B ; Heart        xyz:{ 0x0A8, 0x040, U }
+#_01E5FB: dw $038A : db $0B ; Heart        xyz:{ 0x028, 0x030, U }
+#_01E5FE: dw $038E : db $0B ; Heart        xyz:{ 0x038, 0x030, U }
+#_01E601: dw $03A6 : db $0B ; Heart        xyz:{ 0x098, 0x030, U }
+#_01E604: dw $03AA : db $0B ; Heart        xyz:{ 0x0A8, 0x030, U }
+#_01E607: dw $048A : db $0B ; Heart        xyz:{ 0x028, 0x040, U }
+#_01E60A: dw $048E : db $0B ; Heart        xyz:{ 0x038, 0x040, U }
+#_01E60D: dw $04A6 : db $0B ; Heart        xyz:{ 0x098, 0x040, U }
+#_01E610: dw $04AA : db $0B ; Heart        xyz:{ 0x0A8, 0x040, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -19062,37 +19065,37 @@ RoomData_PotItems_Room_0118:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0119:
-#_01E615: db $2C, $1C, $0B ; Heart        xyz:{ 0x0B0, 0x1C0, U }
-#_01E618: db $30, $1C, $01 ; Green rupee  xyz:{ 0x0C0, 0x1C0, U }
-#_01E61B: db $4C, $1C, $0B ; Heart        xyz:{ 0x130, 0x1C0, U }
-#_01E61E: db $50, $1C, $0B ; Heart        xyz:{ 0x140, 0x1C0, U }
+#_01E615: dw $1C2C : db $0B ; Heart        xyz:{ 0x0B0, 0x1C0, U }
+#_01E618: dw $1C30 : db $01 ; Green rupee  xyz:{ 0x0C0, 0x1C0, U }
+#_01E61B: dw $1C4C : db $0B ; Heart        xyz:{ 0x130, 0x1C0, U }
+#_01E61E: dw $1C50 : db $0B ; Heart        xyz:{ 0x140, 0x1C0, U }
 #_01E621: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_011A:
-#_01E623: db $D6, $0A, $0B ; Heart        xyz:{ 0x158, 0x0A0, U }
-#_01E626: db $DA, $0A, $0B ; Heart        xyz:{ 0x168, 0x0A0, U }
-#_01E629: db $E2, $0A, $0B ; Heart        xyz:{ 0x188, 0x0A0, U }
-#_01E62C: db $E6, $0A, $0B ; Heart        xyz:{ 0x198, 0x0A0, U }
+#_01E623: dw $0AD6 : db $0B ; Heart        xyz:{ 0x158, 0x0A0, U }
+#_01E626: dw $0ADA : db $0B ; Heart        xyz:{ 0x168, 0x0A0, U }
+#_01E629: dw $0AE2 : db $0B ; Heart        xyz:{ 0x188, 0x0A0, U }
+#_01E62C: dw $0AE6 : db $0B ; Heart        xyz:{ 0x198, 0x0A0, U }
 #_01E62F: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_011B:
-#_01E631: db $18, $36, $0B ; Heart        xyz:{ 0x060, 0x160, L }
-#_01E634: db $20, $36, $0B ; Heart        xyz:{ 0x080, 0x160, L }
-#_01E637: db $28, $36, $0B ; Heart        xyz:{ 0x0A0, 0x160, L }
-#_01E63A: db $5C, $16, $0A ; 1 Bomb       xyz:{ 0x170, 0x160, U }
-#_01E63D: db $60, $16, $0B ; Heart        xyz:{ 0x180, 0x160, U }
-#_01E640: db $18, $37, $0B ; Heart        xyz:{ 0x060, 0x170, L }
-#_01E643: db $5C, $17, $0A ; 1 Bomb       xyz:{ 0x170, 0x170, U }
-#_01E646: db $60, $17, $0B ; Heart        xyz:{ 0x180, 0x170, U }
-#_01E649: db $1C, $38, $0B ; Heart        xyz:{ 0x070, 0x180, L }
-#_01E64C: db $5C, $18, $0A ; 1 Bomb       xyz:{ 0x170, 0x180, U }
-#_01E64F: db $60, $18, $0B ; Heart        xyz:{ 0x180, 0x180, U }
-#_01E652: db $5C, $19, $0A ; 1 Bomb       xyz:{ 0x170, 0x190, U }
-#_01E655: db $60, $19, $0B ; Heart        xyz:{ 0x180, 0x190, U }
+#_01E631: dw $3618 : db $0B ; Heart        xyz:{ 0x060, 0x160, L }
+#_01E634: dw $3620 : db $0B ; Heart        xyz:{ 0x080, 0x160, L }
+#_01E637: dw $3628 : db $0B ; Heart        xyz:{ 0x0A0, 0x160, L }
+#_01E63A: dw $165C : db $0A ; 1 Bomb       xyz:{ 0x170, 0x160, U }
+#_01E63D: dw $1660 : db $0B ; Heart        xyz:{ 0x180, 0x160, U }
+#_01E640: dw $3718 : db $0B ; Heart        xyz:{ 0x060, 0x170, L }
+#_01E643: dw $175C : db $0A ; 1 Bomb       xyz:{ 0x170, 0x170, U }
+#_01E646: dw $1760 : db $0B ; Heart        xyz:{ 0x180, 0x170, U }
+#_01E649: dw $381C : db $0B ; Heart        xyz:{ 0x070, 0x180, L }
+#_01E64C: dw $185C : db $0A ; 1 Bomb       xyz:{ 0x170, 0x180, U }
+#_01E64F: dw $1860 : db $0B ; Heart        xyz:{ 0x180, 0x180, U }
+#_01E652: dw $195C : db $0A ; 1 Bomb       xyz:{ 0x170, 0x190, U }
+#_01E655: dw $1960 : db $0B ; Heart        xyz:{ 0x180, 0x190, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -19102,12 +19105,12 @@ RoomData_PotItems_Room_011C:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_011D:
-#_01E65A: db $3C, $06, $07 ; Blue rupee   xyz:{ 0x0F0, 0x060, U }
-#_01E65D: db $40, $06, $07 ; Blue rupee   xyz:{ 0x100, 0x060, U }
-#_01E660: db $3C, $07, $07 ; Blue rupee   xyz:{ 0x0F0, 0x070, U }
-#_01E663: db $40, $07, $07 ; Blue rupee   xyz:{ 0x100, 0x070, U }
-#_01E666: db $3C, $08, $07 ; Blue rupee   xyz:{ 0x0F0, 0x080, U }
-#_01E669: db $40, $08, $07 ; Blue rupee   xyz:{ 0x100, 0x080, U }
+#_01E65A: dw $063C : db $07 ; Blue rupee   xyz:{ 0x0F0, 0x060, U }
+#_01E65D: dw $0640 : db $07 ; Blue rupee   xyz:{ 0x100, 0x060, U }
+#_01E660: dw $073C : db $07 ; Blue rupee   xyz:{ 0x0F0, 0x070, U }
+#_01E663: dw $0740 : db $07 ; Blue rupee   xyz:{ 0x100, 0x070, U }
+#_01E666: dw $083C : db $07 ; Blue rupee   xyz:{ 0x0F0, 0x080, U }
+#_01E669: dw $0840 : db $07 ; Blue rupee   xyz:{ 0x100, 0x080, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -19117,8 +19120,8 @@ RoomData_PotItems_Room_011E:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_011F:
-#_01E66E: db $AE, $1C, $0B ; Heart        xyz:{ 0x0B8, 0x1C0, U }
-#_01E671: db $B2, $1C, $0B ; Heart        xyz:{ 0x0C8, 0x1C0, U }
+#_01E66E: dw $1CAE : db $0B ; Heart        xyz:{ 0x0B8, 0x1C0, U }
+#_01E671: dw $1CB2 : db $0B ; Heart        xyz:{ 0x0C8, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -19131,29 +19134,29 @@ RoomData_PotItems_Room_0123:
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0124:
-#_01E676: db $14, $14, $07 ; Blue rupee   xyz:{ 0x050, 0x140, U }
-#_01E679: db $28, $14, $07 ; Blue rupee   xyz:{ 0x0A0, 0x140, U }
-#_01E67C: db $14, $15, $07 ; Blue rupee   xyz:{ 0x050, 0x150, U }
-#_01E67F: db $28, $15, $07 ; Blue rupee   xyz:{ 0x0A0, 0x150, U }
-#_01E682: db $14, $16, $07 ; Blue rupee   xyz:{ 0x050, 0x160, U }
-#_01E685: db $28, $16, $07 ; Blue rupee   xyz:{ 0x0A0, 0x160, U }
-#_01E688: db $18, $18, $07 ; Blue rupee   xyz:{ 0x060, 0x180, U }
-#_01E68B: db $1C, $18, $07 ; Blue rupee   xyz:{ 0x070, 0x180, U }
-#_01E68E: db $20, $18, $07 ; Blue rupee   xyz:{ 0x080, 0x180, U }
-#_01E691: db $24, $18, $07 ; Blue rupee   xyz:{ 0x090, 0x180, U }
+#_01E676: dw $1414 : db $07 ; Blue rupee   xyz:{ 0x050, 0x140, U }
+#_01E679: dw $1428 : db $07 ; Blue rupee   xyz:{ 0x0A0, 0x140, U }
+#_01E67C: dw $1514 : db $07 ; Blue rupee   xyz:{ 0x050, 0x150, U }
+#_01E67F: dw $1528 : db $07 ; Blue rupee   xyz:{ 0x0A0, 0x150, U }
+#_01E682: dw $1614 : db $07 ; Blue rupee   xyz:{ 0x050, 0x160, U }
+#_01E685: dw $1628 : db $07 ; Blue rupee   xyz:{ 0x0A0, 0x160, U }
+#_01E688: dw $1818 : db $07 ; Blue rupee   xyz:{ 0x060, 0x180, U }
+#_01E68B: dw $181C : db $07 ; Blue rupee   xyz:{ 0x070, 0x180, U }
+#_01E68E: dw $1820 : db $07 ; Blue rupee   xyz:{ 0x080, 0x180, U }
+#_01E691: dw $1824 : db $07 ; Blue rupee   xyz:{ 0x090, 0x180, U }
 #_01E694: dw $FFFF
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomData_PotItems_Room_0125:
-#_01E696: db $18, $19, $07 ; Blue rupee   xyz:{ 0x060, 0x190, U }
-#_01E699: db $1C, $19, $07 ; Blue rupee   xyz:{ 0x070, 0x190, U }
-#_01E69C: db $20, $19, $07 ; Blue rupee   xyz:{ 0x080, 0x190, U }
-#_01E69F: db $24, $19, $07 ; Blue rupee   xyz:{ 0x090, 0x190, U }
-#_01E6A2: db $58, $16, $0B ; Heart        xyz:{ 0x160, 0x160, U }
-#_01E6A5: db $64, $16, $0B ; Heart        xyz:{ 0x190, 0x160, U }
-#_01E6A8: db $58, $1C, $0B ; Heart        xyz:{ 0x160, 0x1C0, U }
-#_01E6AB: db $64, $1C, $0B ; Heart        xyz:{ 0x190, 0x1C0, U }
+#_01E696: dw $1918 : db $07 ; Blue rupee   xyz:{ 0x060, 0x190, U }
+#_01E699: dw $191C : db $07 ; Blue rupee   xyz:{ 0x070, 0x190, U }
+#_01E69C: dw $1920 : db $07 ; Blue rupee   xyz:{ 0x080, 0x190, U }
+#_01E69F: dw $1924 : db $07 ; Blue rupee   xyz:{ 0x090, 0x190, U }
+#_01E6A2: dw $1658 : db $0B ; Heart        xyz:{ 0x160, 0x160, U }
+#_01E6A5: dw $1664 : db $0B ; Heart        xyz:{ 0x190, 0x160, U }
+#_01E6A8: dw $1C58 : db $0B ; Heart        xyz:{ 0x160, 0x1C0, U }
+#_01E6AB: dw $1C64 : db $0B ; Heart        xyz:{ 0x190, 0x1C0, U }
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -19388,7 +19391,7 @@ Underworld_UpdateTileMapWithCommonTile:
 
 #_01E7AC: PHB
 
-#_01E7AD: LDA.b #$00
+#_01E7AD: LDA.b #RoomDrawObjectData>>16
 #_01E7AF: PHA
 #_01E7B0: PLB
 
@@ -19583,7 +19586,7 @@ Underworld_UpdateTileMapWithCommonTile:
 Underworld_DeleteRupeeTile:
 #_01E8BB: PHB
 
-#_01E8BC: LDA.b #$00
+#_01E8BC: LDA.b #RoomDrawObjectData>>16
 #_01E8BE: PHA
 #_01E8BF: PLB
 
@@ -19886,7 +19889,7 @@ RoomData_ChestItems:
 OpenChestForItem:
 #_01EB64: PHB
 
-#_01EB65: LDX.b #$00
+#_01EB65: LDX.b #RoomDrawObjectData>>16
 #_01EB67: PHX
 #_01EB68: PLB
 
@@ -21526,7 +21529,7 @@ Underworld_LightTorch:
 #_01F3FF: PHA
 #_01F400: PHB
 
-#_01F401: LDA.b #$00
+#_01F401: LDA.b #RoomDrawObjectData>>16
 #_01F403: PHA
 #_01F404: PLB
 
@@ -21667,7 +21670,7 @@ Underworld_ExtinguishTorch:
 #_01F4AA: PHA
 #_01F4AB: PHB
 
-#_01F4AC: LDA.b #$00
+#_01F4AC: LDA.b #RoomDrawObjectData>>16
 #_01F4AE: PHA
 #_01F4AF: PLB
 

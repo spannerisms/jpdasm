@@ -5,6 +5,7 @@ base SPC_ENGINE
 
 Engine_Start:
 #_19FBCE: #_0800: clrp
+
 #_19FBCF: #_0801: mov.b X, #$CF
 #_19FBD1: #_0803: mov SP, X
 
@@ -13,6 +14,7 @@ Engine_Start:
 
 .zeroing_loop_1
 #_19FBD5: #_0807: mov (X+), A
+
 #_19FBD6: #_0808: cmp.b X, #$E0
 #_19FBD8: #_080A: bne .zeroing_loop_1
 
@@ -20,18 +22,22 @@ Engine_Start:
 
 .zeroing_loop_2
 #_19FBDC: #_080E: mov.w $0200+X, A
+
 #_19FBDF: #_0811: inc X
 #_19FBE0: #_0812: bne .zeroing_loop_2
 
 .zeroing_loop_3
 #_19FBE2: #_0814: mov.w $0300+X, A
+
 #_19FBE5: #_0817: inc X
 #_19FBE6: #_0818: bne .zeroing_loop_3
 
+; A = 1
 #_19FBE8: #_081A: inc A
 #_19FBE9: #_081B: call ConfigureEcho
 
 #_19FBEC: #_081E: set5.b $48
+
 #_19FBEE: #_0820: mov.b A, #$60
 #_19FBF0: #_0822: mov.b Y, #MVOLL
 #_19FBF2: #_0824: call WriteToDSP
@@ -82,6 +88,9 @@ Engine_Main:
 
 .skip
 #_19FC30: #_0862: dbnz Y, .next_register
+
+;---------------------------------------------------------------------------------------------------
+
 #_19FC32: #_0864: mov.b $45, Y
 #_19FC34: #_0866: mov.b $46, Y
 
@@ -152,6 +161,8 @@ Engine_Main:
 
 #_19FC95: #_08C7: jmp Engine_Main
 
+;---------------------------------------------------------------------------------------------------
+
 .ignore_tracker
 #_19FC98: #_08CA: mov.b A, $04
 #_19FC9A: #_08CC: beq .no_song
@@ -168,6 +179,7 @@ Engine_Main:
 .skip_voice
 #_19FCA8: #_08DA: inc X
 #_19FCA9: #_08DB: inc X
+
 #_19FCAA: #_08DC: asl.b $47
 #_19FCAC: #_08DE: bne .next_track
 
@@ -195,6 +207,7 @@ Synchronize:
 
 #_19FCC8: #_08FA: mov.b Y, #$00
 #_19FCCA: #_08FC: mov.b $00+X, Y
+
 #_19FCCC: #_08FE: ret
 
 .change
@@ -206,14 +219,15 @@ Synchronize:
 ;===================================================================================================
 
 HandleNote:
-#_19FCD0: #_0902: cmp.b Y, #!PERC_CA
+#_19FCD0: #_0902: cmp.b Y, #$CA ; check if percussion hit
 #_19FCD2: #_0904: bcc .not_percussion
 
 #_19FCD4: #_0906: call TrackCommand_E0_ChangeInstrument
-#_19FCD7: #_0909: mov.b Y, #C4
+
+#_19FCD7: #_0909: mov.b Y, #$A4 ; note C4
 
 .not_percussion
-#_19FCD9: #_090B: cmp.b Y, #!TIE
+#_19FCD9: #_090B: cmp.b Y, #$C8 ; check if tie
 #_19FCDB: #_090D: bcs Synchronize_return
 
 #_19FCDD: #_090F: mov.b A, $1A
@@ -257,14 +271,14 @@ HandleNote:
 #_19FD1C: #_094E: mov.b $A1+X, A
 
 #_19FD1E: #_0950: mov.w A, $0290+X
-#_19FD21: #_0953: bne .do_pitch_slide
+#_19FD21: #_0953: bne .do_slide_to
 
 #_19FD23: #_0955: mov.w A, $0361+X
 #_19FD26: #_0958: setc
 #_19FD27: #_0959: sbc.w A, $0291+X
 #_19FD2A: #_095C: mov.w $0361+X, A
 
-.do_pitch_slide
+.do_slide_to
 #_19FD2D: #_095F: mov.w A, $0291+X
 #_19FD30: #_0962: clrc
 #_19FD31: #_0963: adc.w A, $0361+X
@@ -502,6 +516,7 @@ Song_Commands:
 PerformFadeout:
 #_19FE47: #_0A79: dec.w $03CA
 #_19FE4A: #_0A7C: beq SongCommand_F0_Mute
+
 #_19FE4C: #_0A7E: jmp HandleInput_Song_dont_fade_out
 
 ;===================================================================================================
@@ -556,6 +571,7 @@ Song_NewJam:
 #_19FE84: #_0AB6: mov.b A, $1A
 #_19FE86: #_0AB8: eor.b A, #$FF
 #_19FE88: #_0ABA: tset.w $0046, A
+
 #_19FE8B: #_0ABD: ret
 
 ;===================================================================================================
@@ -604,6 +620,7 @@ EngineStartDelay:
 HandleInput_Song:
 #_19FEC7: #_0AF9: mov.b A, $00
 #_19FEC9: #_0AFB: beq .no_new_song
+
 #_19FECB: #_0AFD: jmp Song_Commands
 
 .no_new_song
@@ -612,6 +629,7 @@ HandleInput_Song:
 
 #_19FED2: #_0B04: mov.w A, $03CA
 #_19FED5: #_0B07: beq .dont_fade_out
+
 #_19FED7: #_0B09: jmp PerformFadeout
 
 .dont_fade_out
@@ -715,7 +733,7 @@ HandleInput_Song:
 #_19FF51: #_0B83: mov.b A, $80+X
 #_19FF53: #_0B85: beq .loop
 
-#_19FF55: #_0B87: call TrackCommand_EF_CallPart_iterate
+#_19FF55: #_0B87: call IteratePartLoop
 
 #_19FF58: #_0B8A: dec.b $80+X
 #_19FF5A: #_0B8C: bne .try_again
@@ -732,6 +750,7 @@ HandleInput_Song:
 #_19FF68: #_0B9A: bmi .note_or_command
 
 #_19FF6A: #_0B9C: mov.w $0200+X, A
+
 #_19FF6D: #_0B9F: call GetTrackByte
 #_19FF70: #_0BA2: bmi .note_or_command
 
@@ -752,7 +771,7 @@ HandleInput_Song:
 #_19FF87: #_0BB9: call GetTrackByte
 
 .note_or_command
-#_19FF8A: #_0BBC: cmp.b A, #!INSTR
+#_19FF8A: #_0BBC: cmp.b A, #$E0 ; instrument change
 #_19FF8C: #_0BBE: bcc .note
 
 #_19FF8E: #_0BC0: call ExecuteCommand
@@ -765,8 +784,10 @@ HandleInput_Song:
 #_19FF9A: #_0BCC: mov A, Y
 
 #_19FF9B: #_0BCD: push A
+
 #_19FF9C: #_0BCE: mov.b A, $47
 #_19FF9E: #_0BD0: and.b A, $1A
+
 #_19FFA0: #_0BD2: pop A
 
 #_19FFA1: #_0BD3: bne .disabled_channel
@@ -884,7 +905,8 @@ ExecuteCommand:
 #_1A8022: #_0C54: mov A, Y
 #_1A8023: #_0C55: lsr A
 #_1A8024: #_0C56: mov Y, A
-#_1A8025: #_0C57: mov.w A, Command_Num_Params-$60+Y
+
+#_1A8025: #_0C57: mov.w A, TrackCommandParamCount-$60+Y
 #_1A8028: #_0C5A: beq NoParameters
 
 ;===================================================================================================
@@ -904,12 +926,14 @@ SkipTrackByte:
 
 NoParameters:
 #_1A8032: #_0C64: mov Y, A
+
 #_1A8033: #_0C65: ret
 
 ;===================================================================================================
 
 TrackCommand_E0_ChangeInstrument:
 #_1A8034: #_0C66: mov.w $0211+X, A
+
 #_1A8037: #_0C69: mov Y, A
 #_1A8038: #_0C6A: bpl .no_percussion
 
@@ -982,6 +1006,7 @@ TrackCommand_E0_ChangeInstrument:
 
 TrackCommand_E1_ChangePan:
 #_1A808D: #_0CBF: mov.w $0351+X, A
+
 #_1A8090: #_0CC2: and.b A, #$1F
 #_1A8092: #_0CC4: mov.w $0331+X, A
 
@@ -1015,9 +1040,10 @@ TrackCommand_E2_PanSlide:
 
 TrackCommand_E3_SetVibrato:
 #_1A80B4: #_0CE6: mov.w $02B0+X, A
-#_1A80B7: #_0CE9: call GetTrackByte
 
+#_1A80B7: #_0CE9: call GetTrackByte
 #_1A80BA: #_0CEC: mov.w $02A1+X, A
+
 #_1A80BD: #_0CEF: call GetTrackByte
 
 ;===================================================================================================
@@ -1033,7 +1059,7 @@ TrackCommand_E4_VibratoOff:
 
 ;===================================================================================================
 
-TrackCommand_F0_VibratoStep:
+TrackCommand_F0_VibratoGradient:
 #_1A80CB: #_0CFD: mov.w $02B1+X, A
 
 #_1A80CE: #_0D00: push A
@@ -1076,6 +1102,7 @@ TrackCommand_E6_GlobalVolumeSlide:
 #_1A80F6: #_0D28: call MakeFraction
 
 #_1A80F9: #_0D2B: movw.b $5C, YA
+
 #_1A80FB: #_0D2D: ret
 
 ;===================================================================================================
@@ -1100,18 +1127,21 @@ TrackCommand_E8_TempoSlide:
 #_1A810D: #_0D3F: call MakeFraction
 
 #_1A8110: #_0D42: movw.b $56, YA
+
 #_1A8112: #_0D44: ret
 
 ;===================================================================================================
 
 TrackCommand_E9_GlobalTranspose:
 #_1A8113: #_0D45: mov.b $50, A
+
 #_1A8115: #_0D47: ret
 
 ;===================================================================================================
 
 TrackCommand_EA_ChannelTranspose:
 #_1A8116: #_0D48: mov.w $02F0+X, A
+
 #_1A8119: #_0D4B: ret
 
 ;===================================================================================================
@@ -1128,12 +1158,14 @@ TrackCommand_EB_SetTremelo:
 
 TrackCommand_EC_TremeloOff:
 #_1A8126: #_0D58: mov.b $C1+X, A
+
 #_1A8128: #_0D5A: ret
 
 ;===================================================================================================
 
 TrackCommand_F1_PitchSlideTo:
 #_1A8129: #_0D5B: mov.b A, #$01
+
 #_1A812B: #_0D5D: bra TrackCommand_F2_PitchSlideFrom_start
 
 ;===================================================================================================
@@ -1159,6 +1191,7 @@ TrackCommand_F2_PitchSlideFrom:
 
 TrackCommand_F3_PitchSlideStop:
 #_1A8143: #_0D75: mov.w $0280+X, A
+
 #_1A8146: #_0D78: ret
 
 ;===================================================================================================
@@ -1177,6 +1210,7 @@ TrackCommand_EE_ChannelVolumeSlide:
 #_1A8150: #_0D82: mov.b $90+X, A
 
 #_1A8152: #_0D84: push A
+
 #_1A8153: #_0D85: call GetTrackByte
 #_1A8156: #_0D88: mov.w $0320+X, A
 
@@ -1184,6 +1218,7 @@ TrackCommand_EE_ChannelVolumeSlide:
 #_1A815A: #_0D8C: sbc.w A, $0301+X
 
 #_1A815D: #_0D8F: pop X
+
 #_1A815E: #_0D90: call MakeFraction
 #_1A8161: #_0D93: mov.w $0310+X, A
 
@@ -1196,6 +1231,7 @@ TrackCommand_EE_ChannelVolumeSlide:
 
 TrackCommand_F4_FineTuning:
 #_1A8169: #_0D9B: mov.w $0381+X, A
+
 #_1A816C: #_0D9E: ret
 
 ;===================================================================================================
@@ -1215,7 +1251,9 @@ TrackCommand_EF_CallPart:
 #_1A8180: #_0DB2: mov.b A, $31+X
 #_1A8182: #_0DB4: mov.w $0231+X, A
 
-.iterate
+;===================================================================================================
+
+IteratePartLoop:
 #_1A8185: #_0DB7: mov.w A, $0240+X
 #_1A8188: #_0DBA: mov.b $30+X, A
 
@@ -1237,6 +1275,7 @@ TrackCommand_F5_EchoBasicControl:
 #_1A819C: #_0DCE: call GetTrackByte
 #_1A819F: #_0DD1: mov.b A, #$00
 #_1A81A1: #_0DD3: movw.b $62, YA
+
 #_1A81A3: #_0DD5: clr5.b $48
 
 #_1A81A5: #_0DD7: ret
@@ -1273,6 +1312,7 @@ TrackCommand_F8_EchoSlide:
 TrackCommand_F6_EchoSilence:
 #_1A81C7: #_0DF9: movw.b $60, YA
 #_1A81C9: #_0DFB: movw.b $62, YA
+
 #_1A81CB: #_0DFD: set5.b $48
 
 #_1A81CD: #_0DFF: ret
@@ -1357,36 +1397,41 @@ ConfigureEcho:
 #_1A822E: #_0E60: setc
 #_1A822F: #_0E61: adc.b A, #SONG_POINTERS>>8
 #_1A8231: #_0E63: mov.b Y, #ESA
+
 #_1A8233: #_0E65: jmp WriteToDSP
 
 ;===================================================================================================
 
 TrackCommand_FA_PercussionOffset:
 #_1A8236: #_0E68: mov.b $5F, A
+
 #_1A8238: #_0E6A: ret
 
 ;===================================================================================================
 
 DummyCommand:
 #_1A8239: #_0E6B: call SkipTrackByte
+
 #_1A823C: #_0E6E: ret
 
 ;===================================================================================================
 
-ChannelSustain:
+ChannelStop:
 #_1A823D: #_0E6F: inc A
 #_1A823E: #_0E70: mov.w $03FF+X, A
+
 #_1A8241: #_0E73: ret
 
 ;===================================================================================================
 
-GlobalSustainOn:
+SongStop:
 #_1A8242: #_0E74: inc A
 
 ;===================================================================================================
 
-GlobalSustainOff:
+SongContinue:
 #_1A8243: #_0E75: mov.b $1B, A
+
 #_1A8245: #_0E77: jmp Song_NewJam_key_off
 
 ;===================================================================================================
@@ -1407,12 +1452,15 @@ PitchSlide:
 
 .skip_loop
 #_1A825B: #_0E8D: call SkipTrackByte
+
 #_1A825E: #_0E90: dbnz.b $10, .skip_loop
 #_1A8261: #_0E93: bra .return
 
 .do_pitch_slide
 #_1A8263: #_0E95: call SkipTrackByte
 #_1A8266: #_0E98: call GetTrackByte
+
+;---------------------------------------------------------------------------------------------------
 
 #TrackCommand_F9_SlideOnce:
 #_1A8269: #_0E9B: mov.b $A1+X, A
@@ -1511,7 +1559,7 @@ TrackCommand_Vectors:
 #_1A82D4: #_0F06: dw TrackCommand_EE_ChannelVolumeSlide
 #_1A82D6: #_0F08: dw TrackCommand_EF_CallPart
 
-#_1A82D8: #_0F0A: dw TrackCommand_F0_VibratoStep
+#_1A82D8: #_0F0A: dw TrackCommand_F0_VibratoGradient
 #_1A82DA: #_0F0C: dw TrackCommand_F1_PitchSlideTo
 #_1A82DC: #_0F0E: dw TrackCommand_F2_PitchSlideFrom
 #_1A82DE: #_0F10: dw TrackCommand_F3_PitchSlideStop
@@ -1527,7 +1575,7 @@ TrackCommand_Vectors:
 
 ;===================================================================================================
 
-Command_Num_Params:
+TrackCommandParamCount:
 #_1A82EE: #_0F20: db 1
 #_1A82EF: #_0F21: db 1
 #_1A82F0: #_0F22: db 2
@@ -1680,6 +1728,7 @@ WritePitch:
 
 #_1A8392: #_0FC4: mov.b Y, #$14
 #_1A8394: #_0FC6: mov.b A, #$00
+
 #_1A8396: #_0FC8: subw.b YA, $10
 #_1A8398: #_0FCA: movw.b $10, YA
 
@@ -1763,20 +1812,20 @@ Tracker:
 #_1A83E8: #_101A: bpl .read_track_data
 
 .command
-#_1A83EA: #_101C: cmp.b A, #!TIE
+#_1A83EA: #_101C: cmp.b A, #$C8 ; tie
 #_1A83EC: #_101E: beq .time_left
 
-#_1A83EE: #_1020: cmp.b A, #!CALL_PART
+#_1A83EE: #_1020: cmp.b A, #$EF ; call part
 #_1A83F0: #_1022: beq .call_loop_command
 
-#_1A83F2: #_1024: cmp.b A, #!INSTR
+#_1A83F2: #_1024: cmp.b A, #$E0 ; instrument change
 #_1A83F4: #_1026: bcc .call_loop_over
 
 #_1A83F6: #_1028: push Y
 #_1A83F7: #_1029: mov Y, A
 
 #_1A83F8: #_102A: pop A
-#_1A83F9: #_102B: adc.w A, Command_Num_Params-$E0+Y
+#_1A83F9: #_102B: adc.w A, TrackCommandParamCount-$E0+Y
 #_1A83FC: #_102E: mov Y, A
 
 #_1A83FD: #_102F: bra .next_byte
@@ -1867,7 +1916,7 @@ Tracker:
 
 .increment
 #_1A8466: #_1098: setp
-#_1A8467: #_1099: inc.b $00+X
+#_1A8467: #_1099: inc.b $0100+X
 #_1A8469: #_109B: clrp
 
 #_1A846A: #_109C: mov Y, A
@@ -1923,6 +1972,7 @@ Tracker:
 
 .no_vibrato
 #_1A849F: #_10D1: bbs7.b $13, .change_pitch
+
 #_1A84A2: #_10D4: ret
 
 ;===================================================================================================
@@ -2021,6 +2071,7 @@ AdjustPitch:
 
 #_1A8517: #_1149: addw.b YA, $10
 #_1A8519: #_114B: movw.b $10, YA
+
 #_1A851B: #_114D: ret
 
 ;===================================================================================================
@@ -2075,7 +2126,7 @@ LogisticFunc:
 
 ;===================================================================================================
 ; TODO
-; Contains DSP echo settings for each channel
+; Contains values for each of the 8 bytes of filter
 ;===================================================================================================
 TrackCommand_F7_EchoFilters:
 #_1A855B: #_118D: db $7F, $00, $00, $00, $00, $00, $00, $00
@@ -2100,16 +2151,16 @@ RegisterList:
 ;===================================================================================================
 
 LoadValueFrom:
-#_1A8585: #_11B7: db $61
-#_1A8586: #_11B8: db $63
-#_1A8587: #_11B9: db $4E
-#_1A8588: #_11BA: db $4A
-#_1A8589: #_11BB: db $48
-#_1A858A: #_11BC: db $45
-#_1A858B: #_11BD: db $0E
-#_1A858C: #_11BE: db $49
-#_1A858D: #_11BF: db $4B
-#_1A858E: #_11C0: db $46
+#_1A8585: #_11B7: db $61 ; EVOLL
+#_1A8586: #_11B8: db $63 ; EVOLR
+#_1A8587: #_11B9: db $4E ; EFB
+#_1A8588: #_11BA: db $4A ; EON
+#_1A8589: #_11BB: db $48 ; FLG
+#_1A858A: #_11BC: db $45 ; KON
+#_1A858B: #_11BD: db $0E ; KOFF
+#_1A858C: #_11BE: db $49 ; NON
+#_1A858D: #_11BF: db $4B ; PMON
+#_1A858E: #_11C0: db $46 ; KOFF
 
 ;===================================================================================================
 
@@ -2130,7 +2181,7 @@ TuningValues:
 
 ;===================================================================================================
 
-Unused_Array:
+UNREACHABLE_11DB:
 #_1A85A9: #_11DB: db $2A
 #_1A85AA: #_11DC: db $56
 #_1A85AB: #_11DD: db $65
@@ -2200,12 +2251,12 @@ Data_Loader:
 
 ;===================================================================================================
 
-SFX2_Unknown:
+SFX2_HandleEcho:
 #_1A8600: #_1232: mov.b A, $02
 #_1A8602: #_1234: and.b A, #$3F
 #_1A8604: #_1236: mov X, A
 
-#_1A8605: #_1237: mov.w A, SFX_2_Something-1+X
+#_1A8605: #_1237: mov.w A, SFX2_Echo-1+X
 #_1A8608: #_123A: mov.w $03E2, A
 
 #_1A860B: #_123D: mov.b Y, #$0E
@@ -2222,7 +2273,7 @@ SFX2_Unknown:
 #_1A861E: #_1250: adc.w A, $03D0+Y
 
 #_1A8621: #_1253: cmp.b A, $02
-#_1A8623: #_1255: beq SFX3_Unknown_match
+#_1A8623: #_1255: beq SFX3_HandleEcho_match
 
 .SFX2_next_slot
 #_1A8625: #_1257: dec Y
@@ -2230,16 +2281,16 @@ SFX2_Unknown:
 
 #_1A8627: #_1259: lsr.w $03C1
 #_1A862A: #_125C: bne .loop_back
-#_1A862C: #_125E: bra SFX3_Unknown_no_slot
+#_1A862C: #_125E: bra SFX3_HandleEcho_no_slot
 
 ;===================================================================================================
 
-SFX3_Unknown:
+SFX3_HandleEcho:
 #_1A862E: #_1260: mov.b A, $03
 #_1A8630: #_1262: and.b A, #$3F
 #_1A8632: #_1264: mov X, A
 
-#_1A8633: #_1265: mov.w A, SFX_3_Something-1+X
+#_1A8633: #_1265: mov.w A, SFX3_Echo-1+X
 #_1A8636: #_1268: mov.w $03E2, A
 
 #_1A8639: #_126B: mov.b Y, #$0E
@@ -2301,12 +2352,12 @@ SFX3_Unknown:
 #_1A8684: #_12B6: mov.b $1A, A
 
 #_1A8686: #_12B8: mov.w X, $03E2
-#_1A8689: #_12BB: beq .disabled_unknown
+#_1A8689: #_12BB: beq .disabled
 
 #_1A868B: #_12BD: or.w A, $03E3
 #_1A868E: #_12C0: mov.w $03E3, A
 
-.disabled_unknown
+.disabled
 #_1A8691: #_12C3: mov.w A, $0004
 #_1A8694: #_12C6: and.b A, #$10
 #_1A8696: #_12C8: beq .lower_bank
@@ -2345,6 +2396,7 @@ Unused_Function:
 #_1A86C6: #_12F8: call WriteToDSP
 
 #_1A86C9: #_12FB: call ResumeMusic
+
 #_1A86CC: #_12FE: ret
 
 ;===================================================================================================
@@ -2383,7 +2435,7 @@ InitSFX1:
 #_1A86F9: #_132B: set7.b $1A
 
 #_1A86FB: #_132D: mov.b X, $01
-#_1A86FD: #_132F: mov.w A, SFX_1_Accomp-1+X
+#_1A86FD: #_132F: mov.w A, SFX1_Accomp-1+X
 
 #_1A8700: #_1332: mov.b $01, A
 #_1A8702: #_1334: bne .also_use_chan_6
@@ -2429,12 +2481,14 @@ InitSFX1:
 HandleInput_SFX1:
 #_1A873B: #_136D: mov.b A, $01
 #_1A873D: #_136F: bmi .SFX1_negative
+
 #_1A873F: #_1371: bne InitSFX1
 
 #_1A8741: #_1373: ret
 
 .SFX1_negative
 #_1A8742: #_1374: mov.b $05, A
+
 #_1A8744: #_1376: mov.w A, $03CF
 #_1A8747: #_1379: beq .channels_not_used
 
@@ -2448,6 +2502,7 @@ HandleInput_SFX1:
 
 SFX1_FadeHandler:
 #_1A874F: #_1381: dec.w $03E4
+
 #_1A8752: #_1384: mov.w A, $03E4
 #_1A8755: #_1387: bne .still_fading
 
@@ -2484,7 +2539,7 @@ SFX1_FadeHandler:
 
 HandleInput_SFX2:
 #_1A8785: #_13B7: mov.b A, $02
-#_1A8787: #_13B9: bne HandleInput_SFX2_main
+#_1A8787: #_13B9: bne HandleValidSFX2or3
 
 #_1A8789: #_13BB: ret
 
@@ -2502,7 +2557,7 @@ HandleInput_SFX3:
 #_1A8794: #_13C6: bra .return
 
 .not_all_muted
-#_1A8796: #_13C8: call SFX3_Unknown
+#_1A8796: #_13C8: call SFX3_HandleEcho
 
 #_1A8799: #_13CB: mov.w X, $03C0
 
@@ -2531,7 +2586,7 @@ HandleInput_SFX3:
 #_1A87C5: #_13F7: mov.w A, $03A0+X
 #_1A87C8: #_13FA: mov X, A
 
-#_1A87C9: #_13FB: mov.w A, SFX_3_Accomp-1+X
+#_1A87C9: #_13FB: mov.w A, SFX3_Accomp-1+X
 #_1A87CC: #_13FE: mov.b $03, A
 #_1A87CE: #_1400: bne .valid
 
@@ -2540,14 +2595,13 @@ HandleInput_SFX3:
 
 ;===================================================================================================
 
-HandleInput_SFX2_main:
-.valid
+HandleValidSFX2or3:
 #_1A87D1: #_1403: mov.b A, #$FF
-#_1A87D3: #_1405: cbne.b $1A, .not_all_mute
+#_1A87D3: #_1405: cbne.b $1A, .not_all_muted
 #_1A87D6: #_1408: bra .return
 
-.not_all_mute
-#_1A87D8: #_140A: call SFX2_Unknown
+.not_all_muted
+#_1A87D8: #_140A: call SFX2_HandleEcho
 
 #_1A87DB: #_140D: mov.w X, $03C0
 
@@ -2576,10 +2630,10 @@ HandleInput_SFX2_main:
 #_1A8807: #_1439: mov.w A, $03A0+X
 #_1A880A: #_143C: mov X, A
 
-#_1A880B: #_143D: mov.w A, SFX_2_Accomp-1+X
+#_1A880B: #_143D: mov.w A, SFX2_Accomp-1+X
 #_1A880E: #_1440: mov.b $02, A
 
-#_1A8810: #_1442: bne .valid
+#_1A8810: #_1442: bne HandleValidSFX2or3
 
 .return
 #_1A8812: #_1444: ret
@@ -2589,10 +2643,12 @@ HandleInput_SFX2_main:
 Handle_SFX1:
 #_1A8813: #_1445: mov.w A, $03E4
 #_1A8816: #_1448: beq .no_fadeout
+
 #_1A8818: #_144A: jmp SFX1_FadeHandler
 
 .no_fadeout
 #_1A881B: #_144D: mov.w A, $03CF
+
 #_1A881E: #_1450: mov.w $03E0, A
 #_1A8821: #_1453: beq .return
 
@@ -2619,6 +2675,7 @@ Handle_SFX1:
 
 #_1A8842: #_1474: mov.w A, $03A0+X
 #_1A8845: #_1477: beq .unused_channel
+
 #_1A8847: #_1479: jmp SFXControl
 
 .unused_channel
@@ -2641,6 +2698,7 @@ Handle_SFX1:
 #_1A885B: #_148D: mov.w $03A1+X, A
 
 #_1A885E: #_1490: beq .initialize
+
 #_1A8860: #_1492: jmp .unused_channel
 
 .initialize
@@ -2648,11 +2706,11 @@ Handle_SFX1:
 #_1A8866: #_1498: asl A
 #_1A8867: #_1499: mov Y, A
 
-#_1A8868: #_149A: mov.w A, SFX_1_Pointers-1+Y
+#_1A8868: #_149A: mov.w A, SFX1_Pointers-1+Y
 #_1A886B: #_149D: mov.w $0391+X, A
 #_1A886E: #_14A0: mov.b $2D, A
 
-#_1A8870: #_14A2: mov.w A, SFX_1_Pointers-2+Y
+#_1A8870: #_14A2: mov.w A, SFX1_Pointers-2+Y
 #_1A8873: #_14A5: mov.w $0390+X, A
 #_1A8876: #_14A8: mov.b $2C, A
 
@@ -2705,6 +2763,7 @@ Handle_SFX2:
 #_1A88B8: #_14EA: dec A
 #_1A88B9: #_14EB: mov.w $03A1+X, A
 #_1A88BC: #_14EE: beq .initialize
+
 #_1A88BE: #_14F0: jmp .next_channel
 
 .initialize
@@ -2712,11 +2771,11 @@ Handle_SFX2:
 #_1A88C4: #_14F6: asl A
 #_1A88C5: #_14F7: mov Y, A
 
-#_1A88C6: #_14F8: mov.w A, SFX_2_Pointers-1+Y
+#_1A88C6: #_14F8: mov.w A, SFX2_Pointers-1+Y
 #_1A88C9: #_14FB: mov.w $0391+X, A
 #_1A88CC: #_14FE: mov.b $2D, A
 
-#_1A88CE: #_1500: mov.w A, SFX_2_Pointers-2+Y
+#_1A88CE: #_1500: mov.w A, SFX2_Pointers-2+Y
 #_1A88D1: #_1503: mov.w $0390+X, A
 #_1A88D4: #_1506: mov.b $2C, A
 
@@ -2751,6 +2810,7 @@ Handle_SFX3:
 
 #_1A8900: #_1532: mov.w A, $03A0+X
 #_1A8903: #_1535: beq .inactive_channel
+
 #_1A8905: #_1537: jmp SFXControl
 
 .inactive_channel
@@ -2777,11 +2837,11 @@ Handle_SFX3:
 #_1A8922: #_1554: asl A
 #_1A8923: #_1555: mov Y, A
 
-#_1A8924: #_1556: mov.w A, SFX_3_Pointers-1+Y
+#_1A8924: #_1556: mov.w A, SFX3_Pointers-1+Y
 #_1A8927: #_1559: mov.w $0391+X, A
 #_1A892A: #_155C: mov.b $2D, A
 
-#_1A892C: #_155E: mov.w A, SFX_3_Pointers-2+Y
+#_1A892C: #_155E: mov.w A, SFX3_Pointers-2+Y
 #_1A892F: #_1561: mov.w $0390+X, A
 #_1A8932: #_1564: mov.b $2C, A
 
@@ -2882,7 +2942,8 @@ DisableSFX:
 ;===================================================================================================
 
 SFXControl:
-#_1A89CA: #_15FC: call SFX3_Unknown_disabled_unknown
+#_1A89CA: #_15FC: call SFX3_HandleEcho_disabled
+
 #_1A89CD: #_15FF: mov.w $03C0, X
 #_1A89D0: #_1602: mov.w A, $0391+X
 #_1A89D3: #_1605: mov Y, A
@@ -2967,17 +3028,17 @@ SFXControl:
 #_1A8A44: #_1676: mov.b A, #$0A
 #_1A8A46: #_1678: mov.w $0351+X, A
 
-#_1A8A49: #_167B: bbs7.b $20, .right_pan
-#_1A8A4C: #_167E: bbs6.b $20, .left_pan
+#_1A8A49: #_167B: bbs7.b $20, .left_pan
+#_1A8A4C: #_167E: bbs6.b $20, .right_pan
 
 #_1A8A4F: #_1681: mov.b $11, #$0A
 #_1A8A52: #_1684: bne .set_pan
 
-.right_pan
+.left_pan
 #_1A8A54: #_1686: mov.b $11, #$10
 #_1A8A57: #_1689: bne .set_pan
 
-.left_pan
+.right_pan
 #_1A8A59: #_168B: mov.b $11, #$04
 
 .set_pan
@@ -2991,18 +3052,19 @@ SFXControl:
 #_1A8A66: #_1698: mov.b A, ($2C+X)
 
 .note_or_command
-#_1A8A68: #_169A: cmp.b A, #!INSTR
+#_1A8A68: #_169A: cmp.b A, #$E0 ; instrument change
 #_1A8A6A: #_169C: bne .not_instrument_change
+
 #_1A8A6C: #_169E: jmp .change_instrument
 
 .not_instrument_change
-#_1A8A6F: #_16A1: cmp.b A, #!SLIDE_ONCE
+#_1A8A6F: #_16A1: cmp.b A, #$F9 ; slide once
 #_1A8A71: #_16A3: beq .pitch_slide_command
 
-#_1A8A73: #_16A5: cmp.b A, #!SLIDE_TO
+#_1A8A73: #_16A5: cmp.b A, #$F1 ; slide to
 #_1A8A75: #_16A7: beq .pitch_slide_to_command
 
-#_1A8A77: #_16A9: cmp.b A, #!SFX_LOOP
+#_1A8A77: #_16A9: cmp.b A, #$FF ; SFX loop trigger
 #_1A8A79: #_16AB: bne .not_loop
 
 #_1A8A7B: #_16AD: mov.w X, $03C0
@@ -3018,6 +3080,7 @@ SFXControl:
 
 .setup_pitch_slide
 #_1A8A8E: #_16C0: mov.w X, $03C0
+
 #_1A8A91: #_16C3: mov.w A, $03B1+X
 #_1A8A94: #_16C6: mov.w $03B0+X, A
 
@@ -3064,6 +3127,8 @@ SFXControl:
 .on_SFX_2
 #_1A8AD7: #_1709: jmp Handle_SFX2_next_channel
 
+;---------------------------------------------------------------------------------------------------
+
 .pitch_slide_command
 #_1A8ADA: #_170C: mov.b X, #$00
 #_1A8ADC: #_170E: incw.b $2C
@@ -3077,6 +3142,8 @@ SFXControl:
 
 #_1A8AE9: #_171B: mov.w A, $03C1
 #_1A8AEC: #_171E: call KeyOnChannels
+
+;---------------------------------------------------------------------------------------------------
 
 .pitch_slide_to_command
 #_1A8AEF: #_1721: mov.b X, #$00
@@ -3104,7 +3171,10 @@ SFXControl:
 #_1A8B10: #_1742: mov.b $44, X
 
 #_1A8B12: #_1744: call PitchSlide_calc_frames
+
 #_1A8B15: #_1747: jmp .setup_pitch_slide
+
+;---------------------------------------------------------------------------------------------------
 
 .change_instrument
 #_1A8B18: #_174A: mov.b X, #$00
@@ -3169,5 +3239,8 @@ KeyOnChannels:
 
 #_1A8B69: #_179B: jmp WriteToDSP
 
+;===================================================================================================
+
 base off
+
 arch 65816

@@ -9,7 +9,7 @@ This will always be a work in progress, as routines are analyzed further and bet
 ## Binaries
 Raw binaries are not included in this repository due to voiced concerns of potential copyright issues. For reassembling, you will need to extract that data from your own JP1.0 ROM and create the `bin` directory with those files included.
 
-Both the Makefile and `binextact.py` Python program can extract the necessary binary files from a JP1.0 ROM file located in the base directory and named `alttp.sfc`.
+Both the Makefile and `binextract.py` Python program can extract the necessary binary files from a JP1.0 ROM file located in the base directory and named `alttp.sfc`.
 
 
 ---

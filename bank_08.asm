@@ -693,8 +693,9 @@ Ancilla_ExecuteOne:
 #_08833F: BCS .skip_oam
 
 #_088341: LDA.w $0C90,X
+
 #_088344: LDY.w $0FB3
-#_088347: BEQ .sorted
+#_088347: BEQ .ignore_layer
 
 #_088349: LDY.w $0C7C,X
 #_08834C: BNE .bg1
@@ -706,7 +707,7 @@ Ancilla_ExecuteOne:
 #_088354: JSL OAM_AllocateFromRegionF
 #_088358: BRA .save_oam
 
-.sorted
+.ignore_layer
 #_08835A: JSL OAM_AllocateFromRegionA
 
 .save_oam
@@ -774,14 +775,14 @@ Ancilla_ExecuteOne:
 #_0883BB: dw Ancilla1F_Hookshot
 #_0883BD: dw Ancilla20_Blanket
 #_0883BF: dw Ancilla21_Snore
-#_0883C1: dw Ancilla22_ItemGet
+#_0883C1: dw Ancilla22_ItemReceipt
 #_0883C3: dw Ancilla23_LinkPoof
 #_0883C5: dw Ancilla24_Gravestone
 #_0883C7: dw HitStar_char ; bad pointer but correct
 #_0883C9: dw Ancilla26_SwordSwingSparkle
 #_0883CB: dw Ancilla27_Duck
 #_0883CD: dw Ancilla28_WishPondItem
-#_0883CF: dw Ancilla29_MilestoneItemGet
+#_0883CF: dw Ancilla29_MilestoneItemReceipt
 #_0883D1: dw Ancilla2A_SpinAttackSparkleA
 #_0883D3: dw Ancilla2B_SpinAttackSparkleB
 #_0883D5: dw Ancilla2C_SomariaBlock
@@ -874,7 +875,7 @@ Ancilla13_IceRodSparkle:
 #_08845F: LDA.b #$10
 
 #_088461: LDY.w $0FB3
-#_088464: BEQ .sorted
+#_088464: BEQ .ignore_layer
 
 #_088466: LDY.w $0C7C,X ; check layer for OAM region
 #_088469: BNE .lower_layer
@@ -886,7 +887,7 @@ Ancilla13_IceRodSparkle:
 #_088471: JSL OAM_AllocateFromRegionE
 #_088475: BRA .draw
 
-.sorted
+.ignore_layer
 #_088477: JSL OAM_AllocateFromRegionA
 
 ;---------------------------------------------------------------------------------------------------
@@ -1590,7 +1591,9 @@ FireRodShot_Dissipate:
 #_0887E0: BNE .no_burn
 
 #_0887E2: PHX
+
 #_0887E3: JSL FireRodShot_BecomeSkullWoodsFire
+
 #_0887E7: PLX
 
 .no_burn
@@ -1694,6 +1697,7 @@ Ancilla03:
 
 ;===================================================================================================
 ; TODO
+; Tile type ID -> 0, 1, 2, 3, 4 
 ;===================================================================================================
 Ancilla_TileCollisionBehaviorClass1:
 
@@ -2031,6 +2035,7 @@ Ancilla_CheckTileCollision_targeted:
 
 .collision
 #_088AB6: LDY.b #$00
+
 #_088AB8: SEC
 
 ;===================================================================================================
@@ -2978,7 +2983,7 @@ Ancilla_RepulseSpark:
 #_088FA0: LDA.b #$10
 
 #_088FA2: LDY.w $0FB3
-#_088FA5: BEQ .no_sort
+#_088FA5: BEQ .ignore_layer
 
 #_088FA7: LDY.w $0B68
 #_088FAA: BNE .bg1
@@ -2990,7 +2995,7 @@ Ancilla_RepulseSpark:
 #_088FB2: JSL OAM_AllocateFromRegionF
 #_088FB6: BRA .screen_check
 
-.no_sort
+.ignore_layer
 #_088FB8: JSL OAM_AllocateFromRegionA
 
 ;---------------------------------------------------------------------------------------------------
@@ -12989,7 +12994,7 @@ Ancilla35_MasterSwordGet:
 ;===================================================================================================
 ; For messages, $FFFF means no message
 ;===================================================================================================
-pool Ancilla22_ItemGet ItemGet
+pool Ancilla22_ItemReceipt ItemReceipt
 
 .message
 #_08C301: dw $FFFF ; FIGHTER SWORD
@@ -13094,7 +13099,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Ancilla22_ItemGet:
+Ancilla22_ItemReceipt:
 #_08C3AE: LDA.w $02E4
 #_08C3B1: CMP.b #$02
 #_08C3B3: BEQ .just_draw_a
@@ -13115,7 +13120,7 @@ Ancilla22_ItemGet:
 #_08C3C7: STA.w $0C68,X
 
 .just_draw_a
-#_08C3CA: BRL ItemGet_Animate
+#_08C3CA: BRL ItemReceipt_Animate
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -13194,7 +13199,7 @@ Ancilla22_ItemGet:
 ;---------------------------------------------------------------------------------------------------
 
 .just_draw_b
-#_08C42E: BRL ItemGet_Animate
+#_08C42E: BRL ItemReceipt_Animate
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -13366,16 +13371,16 @@ Ancilla22_ItemGet:
 
 #_08C512: LDY.w $0C5E,X
 
-#_08C515: CPY.w MilestoneItemGetIDs_ether
+#_08C515: CPY.w MilestoneItemReceiptIDs_ether
 #_08C518: BEQ .no_victory_sequence
 
-#_08C51A: CPY.w MilestoneItemGetIDs_bombos
+#_08C51A: CPY.w MilestoneItemReceiptIDs_bombos
 #_08C51D: BEQ .no_victory_sequence
 
-#_08C51F: CPY.w MilestoneItemGetIDs_heart_container
+#_08C51F: CPY.w MilestoneItemReceiptIDs_heart_container
 #_08C522: BEQ .no_victory_sequence
 
-#_08C524: CPY.w MilestoneItemGetIDs_crystal
+#_08C524: CPY.w MilestoneItemReceiptIDs_crystal
 #_08C527: BEQ .no_victory_sequence
 
 #_08C529: PHA
@@ -13501,7 +13506,7 @@ Ancilla22_ItemGet:
 .not_possibly_a_pendant
 #_08C5B9: LDA.w $0C54,X
 #_08C5BC: CMP.b #$02
-#_08C5BE: BEQ ItemGet_Animate
+#_08C5BE: BEQ ItemReceipt_Animate
 
 #_08C5C0: LDA.w $0C5E,X
 #_08C5C3: CMP.b #!ITEMGET_17
@@ -13515,7 +13520,7 @@ Ancilla22_ItemGet:
 
 #_08C5CF: LDA.w .heart_piece_message,Y
 #_08C5D2: CMP.w #$FFFF
-#_08C5D5: BEQ ItemGet_Animate
+#_08C5D5: BEQ ItemReceipt_Animate
 
 #_08C5D7: STA.w $1CF0
 
@@ -13534,7 +13539,7 @@ Ancilla22_ItemGet:
 
 #_08C5E5: LDA.w .message,Y
 #_08C5E8: CMP.w #$FFFF
-#_08C5EB: BEQ ItemGet_Animate
+#_08C5EB: BEQ ItemReceipt_Animate
 
 #_08C5ED: STA.w $1CF0
 
@@ -13554,12 +13559,12 @@ Ancilla22_ItemGet:
 
 .trigger_message
 #_08C5FE: JSL Interface_PrepAndDisplayMessage
-#_08C602: BRA ItemGet_Animate
+#_08C602: BRA ItemReceipt_Animate
 
 .skip_messaging
 #_08C604: LDA.w $03B1,X
 #_08C607: CMP.b #$18
-#_08C609: BCC ItemGet_Animate
+#_08C609: BCC ItemReceipt_Animate
 
 #_08C60B: LDA.w $0C22,X
 #_08C60E: CLC
@@ -13574,7 +13579,7 @@ Ancilla22_ItemGet:
 
 ;===================================================================================================
 
-ItemGet_Animate:
+ItemReceipt_Animate:
 #_08C61B: SEP #$20
 
 #_08C61D: LDA.w $0C5E,X
@@ -13591,7 +13596,7 @@ ItemGet_Animate:
 #_08C62F: LDA.b #!SONG_1A
 #_08C631: STA.w $012C
 
-#_08C634: BRL ItemGet_TransmuteToRisingCrystal
+#_08C634: BRL ItemReceipt_TransmuteToRisingCrystal
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -13602,7 +13607,7 @@ ItemGet_Animate:
 #_08C63C: CMP.b #!ITEMGET_01
 #_08C63E: BNE .not_a_flashy_sword
 
-#_08C640: LDA.w ItemGet_default_oam_props
+#_08C640: LDA.w ItemReceipt_default_oam_props
 #_08C643: STA.w $0BF0,X
 
 #_08C646: LDA.w $0C54,X
@@ -13634,7 +13639,7 @@ ItemGet_Animate:
 
 #_08C66B: TAY
 
-#_08C66C: LDA.w ItemGet_default_oam_props,Y
+#_08C66C: LDA.w ItemReceipt_default_oam_props,Y
 #_08C66F: STA.w $0BF0,X
 
 .not_a_flashy_sword
@@ -13665,12 +13670,12 @@ ItemGet_Animate:
 .no_wrap_rupee
 #_08C695: TAY
 
-#_08C696: LDA.w ItemGet_animated_rupee_timers,Y
+#_08C696: LDA.w ItemReceipt_animated_rupee_timers,Y
 #_08C699: STA.w $039F,X
 
 #_08C69C: PHX
 
-#_08C69D: LDA.w ItemGet_animated_rupee_tiles,Y
+#_08C69D: LDA.w ItemReceipt_animated_rupee_tiles,Y
 #_08C6A0: JSL WriteTo4BPPBuffer_at_7F4000
 
 #_08C6A4: PLX
@@ -13691,7 +13696,7 @@ ItemGet_Animate:
 
 ;---------------------------------------------------------------------------------------------------
 
-AncillaDraw_ItemGet:
+AncillaDraw_ItemReceipt:
 #_08C6B4: PHX
 
 #_08C6B5: LDA.w $0BF0,X
@@ -13872,7 +13877,7 @@ AncillaDraw_WishPondItem:
 #_08C78A: CMP.b #!ITEMGET_01
 #_08C78C: BNE .not_master_sword
 
-#_08C78E: LDA.w ItemGet_default_oam_props
+#_08C78E: LDA.w ItemReceipt_default_oam_props
 #_08C791: STA.w $0BF0,X
 
 .not_master_sword
@@ -13904,7 +13909,7 @@ AncillaDraw_WishPondItem:
 
 #_08C7B7: SEP #$20
 
-#_08C7B9: JSR AncillaDraw_ItemGet
+#_08C7B9: JSR AncillaDraw_ItemReceipt
 
 #_08C7BC: LDA.w $0309
 #_08C7BF: CMP.b #$02
@@ -14437,7 +14442,7 @@ AncillaDraw_ObjectSplash:
 
 ;===================================================================================================
 
-MilestoneItemGetIDs:
+MilestoneItemReceiptIDs:
 .ether
 #_08CAA9: db !ITEMGET_10
 
@@ -14462,12 +14467,12 @@ MilestoneItemGetIDs:
 
 ;---------------------------------------------------------------------------------------------------
 
-Ancilla29_MilestoneItemGet:
+Ancilla29_MilestoneItemReceipt:
 #_08CAB0: LDA.w $0C5E,X
-#_08CAB3: CMP.w MilestoneItemGetIDs_ether
+#_08CAB3: CMP.w MilestoneItemReceiptIDs_ether
 #_08CAB6: BEQ .medallion
 
-#_08CAB8: CMP.w MilestoneItemGetIDs_bombos
+#_08CAB8: CMP.w MilestoneItemReceiptIDs_bombos
 #_08CABB: BEQ .medallion
 
 #_08CABD: LDA.w $0403
@@ -14487,7 +14492,7 @@ Ancilla29_MilestoneItemGet:
 #_08CAD4: LDY.b #$23
 
 #_08CAD6: LDA.w $0C5E,X
-#_08CAD9: CMP.w MilestoneItemGetIDs_crystal
+#_08CAD9: CMP.w MilestoneItemReceiptIDs_crystal
 #_08CADC: BNE .not_crystal
 
 #_08CADE: LDA.b #!SFX1_0F
@@ -14500,7 +14505,9 @@ Ancilla29_MilestoneItemGet:
 #_08CAE6: STA.b $72
 
 #_08CAE8: PHX
+
 #_08CAE9: JSL WriteTo4BPPBuffer_item_gfx
+
 #_08CAED: PLX
 
 .tick_timer
@@ -14531,7 +14538,7 @@ Ancilla29_MilestoneItemGet:
 #_08CB02: BNE .no_misc_palette
 
 #_08CB04: LDA.w $0C5E,X
-#_08CB07: CMP.w MilestoneItemGetIDs_crystal
+#_08CB07: CMP.w MilestoneItemReceiptIDs_crystal
 #_08CB0A: BNE .no_misc_palette
 
 #_08CB0C: LDA.b #$01
@@ -14555,7 +14562,7 @@ Ancilla29_MilestoneItemGet:
 
 .no_misc_palette
 #_08CB23: LDA.w $0C5E,X
-#_08CB26: CMP.w MilestoneItemGetIDs_crystal
+#_08CB26: CMP.w MilestoneItemReceiptIDs_crystal
 #_08CB29: BNE .no_sparkle
 
 #_08CB2B: JSR AncillaAdd_OccasionalSparkle
@@ -14659,7 +14666,7 @@ Ancilla29_MilestoneItemGet:
 
 #_08CBAD: SEP #$20
 
-#_08CBAF: JSR AncillaDraw_ItemGet
+#_08CBAF: JSR AncillaDraw_ItemReceipt
 
 #_08CBB2: PHX
 
@@ -14735,7 +14742,7 @@ Ancilla29_MilestoneItemGet:
 
 ;===================================================================================================
 
-ItemGet_TransmuteToRisingCrystal:
+ItemReceipt_TransmuteToRisingCrystal:
 #_08CC08: LDA.b #!ANCILLA_3E
 #_08CC0A: STA.w $0C4A,X
 
@@ -14851,7 +14858,7 @@ Ancilla3E_RisingCrystal:
 
 #_08CCB1: SEP #$20
 
-#_08CCB3: JSR AncillaDraw_ItemGet
+#_08CCB3: JSR AncillaDraw_ItemReceipt
 
 #_08CCB6: RTS
 
@@ -20010,7 +20017,7 @@ SomariaBlock_CheckForSwitch:
 #_08E7D1: RTS
 
 ;===================================================================================================
-; TODO 
+; TODO
 ;===================================================================================================
 pool SomariaBlock_HandlePlayerInteraction
 
@@ -23808,7 +23815,7 @@ Ancilla_AllocateOAMFromCustomRegion:
 #_08F9D5: ADC.b $90
 
 #_08F9D7: LDX.w $0FB3
-#_08F9DA: BEQ .unsorted
+#_08F9DA: BEQ .ignore_layer
 
 #_08F9DC: CMP.w #$0900
 #_08F9DF: BCS .upper_region
@@ -23828,7 +23835,7 @@ Ancilla_AllocateOAMFromCustomRegion:
 
 ;---------------------------------------------------------------------------------------------------
 
-.unsorted
+.ignore_layer
 #_08F9F5: CMP.w #$0990
 #_08F9F8: BCC .continue
 
@@ -24163,13 +24170,13 @@ Ancilla_GetRadialProjection_long:
 ;===================================================================================================
 Ancilla_AllocateOAMFromRegion_A_or_D_or_F:
 #_08FB3D: LDY.w $0FB3
-#_08FB40: BNE .sorted_sprites ; TODO bad name
+#_08FB40: BNE .consider_layer
 
 #_08FB42: JSL OAM_AllocateFromRegionA
 
 #_08FB46: RTS
 
-.sorted_sprites
+.consider_layer
 #_08FB47: LDY.w $0C7C,X
 #_08FB4A: BNE .lower_layer
 

@@ -389,12 +389,12 @@
 !SPRITE_58 = $58 ; CRAB
 !SPRITE_59 = $59 ; LOST WOODS BIRD
 !SPRITE_5A = $5A ; LOST WOODS SQUIRREL
-!SPRITE_5B = $5B ; SPARK
-!SPRITE_5C = $5C ; SPARK
-!SPRITE_5D = $5D ; ROLLER LONG VERTICAL
-!SPRITE_5E = $5E ; ROLLER SHORT VERTICAL
-!SPRITE_5F = $5F ; ROLLER LONG HORIZONTAL
-!SPRITE_60 = $60 ; ROLLER SHORT HORIZONTAL
+!SPRITE_5B = $5B ; SPARK CLOCKWISE
+!SPRITE_5C = $5C ; SPARK COUNTERCLOCKWISE
+!SPRITE_5D = $5D ; ROLLER VERTICAL UP
+!SPRITE_5E = $5E ; ROLLER VERTICAL DOWN
+!SPRITE_5F = $5F ; ROLLER HORIZONTAL LEFT
+!SPRITE_60 = $60 ; ROLLER HORIZONTAL RIGHT
 !SPRITE_61 = $61 ; BEAMOS
 !SPRITE_62 = $62 ; MASTERSWORD
 !SPRITE_63 = $63 ; DEBIRANDO PIT
@@ -479,11 +479,11 @@
 !SPRITE_B2 = $B2 ; GOOD BEE
 !SPRITE_B3 = $B3 ; PEDESTAL PLAQUE
 !SPRITE_B4 = $B4 ; PURPLE CHEST
-!SPRITE_B5 = $B5 ; BOMBSHOP GUY
+!SPRITE_B5 = $B5 ; BOMB SHOP GUY
 !SPRITE_B6 = $B6 ; KIKI
 !SPRITE_B7 = $B7 ; BLIND MAIDEN
 !SPRITE_B8 = $B8 ; DIALOGUE TESTER
-!SPRITE_B9 = $B9 ; BULLY AND PINK BALL
+!SPRITE_B9 = $B9 ; BULLY / PINK BALL
 !SPRITE_BA = $BA ; WHIRLPOOL
 !SPRITE_BB = $BB ; SHOPKEEPER / CHEST GAME GUY
 !SPRITE_BC = $BC ; DRUNKARD
@@ -536,13 +536,13 @@
 !SPRITE_EB = $EB ; HEART PIECE
 !SPRITE_EC = $EC ; THROWN ITEM
 !SPRITE_ED = $ED ; SOMARIA PLATFORM
-!SPRITE_EE = $EE ; CASTLE THRONE
+!SPRITE_EE = $EE ; CASTLE MANTLE
 !SPRITE_EF = $EF ; UNUSED SOMARIA PLATFORM
 !SPRITE_F0 = $F0 ; UNUSED SOMARIA PLATFORM
 !SPRITE_F1 = $F1 ; UNUSED SOMARIA PLATFORM
 !SPRITE_F2 = $F2 ; MEDALLION TABLET
-!SPRITE_F3 = $F3 ; UNDEFINED
-!SPRITE_F4 = $F4 ; UNDEFINED
+!SPRITE_F3 = $F3 ; UNDEFINED - Becomes overlord 01 in overworld
+!SPRITE_F4 = $F4 ; UNDEFINED - Flags boulders in overworld
 !SPRITE_F5 = $F5 ; UNDEFINED
 !SPRITE_F6 = $F6 ; UNDEFINED
 !SPRITE_F7 = $F7 ; UNDEFINED
@@ -568,10 +568,10 @@
 !OVERLORD_09 = $09 ; WALLMASTER
 !OVERLORD_0A = $0A ; FALLING SQUARE
 !OVERLORD_0B = $0B ; FALLING BRIDGE
-!OVERLORD_0C = $0C ; FALLINGTILES WEST TO EAST
-!OVERLORD_0D = $0D ; FALLINGTILES NORTH TO SOUTH
-!OVERLORD_0E = $0E ; FALLINGTILES EAST TO WEST
-!OVERLORD_0F = $0F ; FALLINGTILES SOUTH TO NORTH
+!OVERLORD_0C = $0C ; FALLING TILES WEST TO EAST
+!OVERLORD_0D = $0D ; FALLING TILES NORTH TO SOUTH
+!OVERLORD_0E = $0E ; FALLING TILES EAST TO WEST
+!OVERLORD_0F = $0F ; FALLING TILES SOUTH TO NORTH
 !OVERLORD_10 = $10 ; PIROGUSU SPAWNER LEFT
 !OVERLORD_11 = $11 ; PIROGUSU SPAWNER RIGHT
 !OVERLORD_12 = $12 ; PIROGUSU SPAWNER TOP
@@ -597,7 +597,7 @@
 !ANCILLA_09 = $09 ; ARROW
 !ANCILLA_0A = $0A ; ARROW IN THE WALL
 !ANCILLA_0B = $0B ; ICE ROD SHOT
-!ANCILLA_0C = $0C ; SWORD BEAM_BOUNCE
+!ANCILLA_0C = $0C ; SWORD BEAM
 !ANCILLA_0D = $0D ; SPIN ATTACK FULL CHARGE SPARK
 !ANCILLA_0E = $0E ; BLAST WALL EXPLOSION
 !ANCILLA_0F = $0F ; BLAST WALL EXPLOSION
@@ -656,28 +656,28 @@
 
 ;===================================================================================================
 
-!GARNISH_01 = $01 ; Fire snake tail
-!GARNISH_02 = $02 ; Mothula beam trail
-!GARNISH_03 = $03 ; Falling tile
-!GARNISH_04 = $04 ; Laser trail
-!GARNISH_05 = $05 ; Sparkle
-!GARNISH_06 = $06 ; Zoro trail
-!GARNISH_07 = $07 ; Babasu flash
-!GARNISH_08 = $08 ; Kholdstare trail
-!GARNISH_09 = $09 ; Lightning trail
-!GARNISH_0A = $0A ; Cannon smoke
-!GARNISH_0B = $0B ; Water trail
-!GARNISH_0C = $0C ; Trinexx ice breath
-!GARNISH_0D = $0D ; Null pointer
-!GARNISH_0E = $0E ; Trinexx fire breath
-!GARNISH_0F = $0F ; Blind laser trail
-!GARNISH_10 = $10 ; Ganon bat flame
-!GARNISH_11 = $11 ; Withering bat flame
-!GARNISH_12 = $12 ; Sparkle
-!GARNISH_13 = $13 ; Pyramid debris
-!GARNISH_14 = $14 ; Running kid dash dust
-!GARNISH_15 = $15 ; Arrghus splash
-!GARNISH_16 = $16 ; Thrown item debris
+!GARNISH_01 = $01 ; FIRE SNAKE TAIL
+!GARNISH_02 = $02 ; MOTHULA BEAM TRAIL
+!GARNISH_03 = $03 ; FALLING TILE
+!GARNISH_04 = $04 ; LASER TRAIL
+!GARNISH_05 = $05 ; SPARKLE
+!GARNISH_06 = $06 ; ZORO TRAIL
+!GARNISH_07 = $07 ; BABASU FLASH
+!GARNISH_08 = $08 ; KHOLDSTARE TRAIL
+!GARNISH_09 = $09 ; LIGHTNING TRAIL
+!GARNISH_0A = $0A ; CANNON SMOKE
+!GARNISH_0B = $0B ; WATER TRAIL
+!GARNISH_0C = $0C ; TRINEXX ICE BREATH
+!GARNISH_0D = $0D ; NULL POINTER
+!GARNISH_0E = $0E ; TRINEXX FIRE BREATH
+!GARNISH_0F = $0F ; BLIND LASER TRAIL
+!GARNISH_10 = $10 ; GANON BAT FLAME
+!GARNISH_11 = $11 ; WITHERING BAT FLAME
+!GARNISH_12 = $12 ; SPARKLE
+!GARNISH_13 = $13 ; PYRAMID DEBRIS
+!GARNISH_14 = $14 ; RUNNING KID DASH DUST
+!GARNISH_15 = $15 ; ARRGHUS SPLASH
+!GARNISH_16 = $16 ; THROWN ITEM DEBRIS
 
 ;===================================================================================================
 
@@ -732,7 +732,6 @@
 ;===================================================================================================
 ; Text commands
 ;===================================================================================================
-
 !CMD_F6_SCROLL = $F6
 !CMD_F7_ROW1   = $F7
 !CMD_F8_ROW2   = $F8
@@ -850,6 +849,7 @@
 
 ;===================================================================================================
 
+; TODO
 ; use $3E4 with lamp
 ; OW: 0A, 0B, 4C, 4D, 4E, 4F
 ; UW: 0A
@@ -893,7 +893,7 @@
 !TILETYPE_24 = $24 ; Pressure switch
 !TILETYPE_25 = $25 ; Nothing (unused but referenced by somaria blocks)
 !TILETYPE_26 = $26 ; Collision (near stairs?)
-!TILETYPE_27 = $27 ; Brazier/Fence/Statue/Block/General hookable things
+!TILETYPE_27 = $27 ; General hookable object
 !TILETYPE_28 = $28 ; North ledge
 !TILETYPE_29 = $29 ; South ledge
 !TILETYPE_2A = $2A ; East ledge
@@ -920,8 +920,8 @@
 !TILETYPE_3F = $3F ; South layer-swap auto stairs
 !TILETYPE_40 = $40 ; Thick grass
 !TILETYPE_41 = $41 ; Nothing (unused?)
-!TILETYPE_42 = $42 ; Gravestone / Tower of hera ledge shadows??
-!TILETYPE_43 = $43 ; Skull Woods entrance/Hera columns???
+!TILETYPE_42 = $42 ; Gravestone / Tower of hera ledge shadows
+!TILETYPE_43 = $43 ; Skull Woods entrance / Hera columns
 !TILETYPE_44 = $44 ; Spike
 !TILETYPE_45 = $45 ; Nothing (unused?)
 !TILETYPE_46 = $46 ; Desert Tablet
@@ -930,15 +930,15 @@
 !TILETYPE_49 = $49 ; Nothing (unused?)
 !TILETYPE_4A = $4A ; Diggable ground
 !TILETYPE_4B = $4B ; Warp tile
-!TILETYPE_4C = $4C ; Nothing (unused?) | Something unknown in overworld
-!TILETYPE_4D = $4D ; Nothing (unused?) | Something unknown in overworld
+!TILETYPE_4C = $4C ; Nothing (unused?) / Something unknown in overworld
+!TILETYPE_4D = $4D ; Nothing (unused?) / Something unknown in overworld
 !TILETYPE_4E = $4E ; Square corners in EP overworld
 !TILETYPE_4F = $4F ; Square corners in EP overworld
 !TILETYPE_50 = $50 ; Green bush
 !TILETYPE_51 = $51 ; Dark bush
 !TILETYPE_52 = $52 ; Gray rock
 !TILETYPE_53 = $53 ; Black rock
-!TILETYPE_54 = $54 ; Hint tile/Sign
+!TILETYPE_54 = $54 ; Hint tile / Sign
 !TILETYPE_55 = $55 ; Big gray rock
 !TILETYPE_56 = $56 ; Big black rock
 !TILETYPE_57 = $57 ; Bonk rocks

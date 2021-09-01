@@ -11417,6 +11417,7 @@ RenderText:
 ;===================================================================================================
 
 RenderText_PostDeathSaveOptions:
+; Message 0003
 #_0EEE25: LDA.b #$03
 #_0EEE27: STA.w $1CF0
 
@@ -11425,6 +11426,7 @@ RenderText_PostDeathSaveOptions:
 
 #_0EEE2F: LDX.b #$00
 #_0EEE31: JSR RenderText_Initialize_IgnoreAttract
+
 #_0EEE34: LDA.b #$E8
 #_0EEE36: STA.w $1CD2
 
@@ -13299,6 +13301,7 @@ RenderText_Draw_Choose2LowOr3:
 #_0EF72F: BEQ .exit
 
 #_0EF731: STZ.w $1CE8
+
 #_0EF734: BRA .continue_press
 
 .pressed_down
@@ -13352,7 +13355,7 @@ RenderText_Draw_ChooseItem:
 #_0EF775: STA.w $1CE9
 
 #_0EF778: CMP.b #$01
-#_0EF77A: BEQ RenderText_FineYItem_Next
+#_0EF77A: BEQ RenderText_FindYItem_Next
 
 #_0EF77C: BRA .exit
 
@@ -13369,6 +13372,7 @@ RenderText_Draw_ChooseItem:
 #_0EF78A: BEQ .pressed_down_or_right
 
 #_0EF78C: INC.w $1CE8
+
 #_0EF78F: BRA .adjust_selection
 
 .pressed_down_or_right
@@ -13378,7 +13382,7 @@ RenderText_Draw_ChooseItem:
 
 #_0EF797: DEC.w $1CE8
 
-#_0EF79A: JSR RenderText_FineYItem_Previous
+#_0EF79A: JSR RenderText_FindYItem_Previous
 #_0EF79D: JSR RenderText_Refresh
 
 #_0EF7A0: BRA .exit
@@ -13386,7 +13390,7 @@ RenderText_Draw_ChooseItem:
 ;---------------------------------------------------------------------------------------------------
 
 .adjust_selection
-#_0EF7A2: JSR RenderText_FineYItem_Next
+#_0EF7A2: JSR RenderText_FindYItem_Next
 #_0EF7A5: JSR RenderText_Refresh
 
 .exit
@@ -13402,7 +13406,7 @@ RenderText_Draw_ChooseItem:
 
 ;===================================================================================================
 
-RenderText_FineYItem_Previous:
+RenderText_FindYItem_Previous:
 #_0EF7AF: LDX.w $1CE8
 #_0EF7B2: BPL .no_wrap
 
@@ -13426,11 +13430,11 @@ RenderText_FineYItem_Previous:
 
 .check_next
 #_0EF7CF: DEC.w $1CE8
-#_0EF7D2: BRA RenderText_FineYItem_Previous
+#_0EF7D2: BRA RenderText_FindYItem_Previous
 
 ;---------------------------------------------------------------------------------------------------
 
-RenderText_FineYItem_Next:
+RenderText_FindYItem_Next:
 #_0EF7D4: LDX.w $1CE8
 #_0EF7D7: CPX.b #$20
 #_0EF7D9: BCC .no_wrap
@@ -13456,7 +13460,7 @@ RenderText_FineYItem_Next:
 .check_next
 #_0EF7F6: INC.w $1CE8
 
-#_0EF7F9: BRA RenderText_FineYItem_Next
+#_0EF7F9: BRA RenderText_FindYItem_Next
 
 ;===================================================================================================
 
@@ -13774,7 +13778,7 @@ RenderText_Draw_Scroll:
 #_0EF955: PHA
 #_0EF956: PLB
 
-; !WEIRD hold A = fast text scroll?
+; !WEIRD hold A = fast text scroll? poorly implemented???
 #_0EF957: LDA.b $F2
 #_0EF959: AND.b #$80
 #_0EF95B: BEQ .no_a_press
@@ -14371,6 +14375,7 @@ RenderText_Draw_BuildCharacterTilemap:
 
 #_0EFC3A: LDX.w #$0000
 
+; dumb #$3980
 #_0EFC3D: LDA.w #$387F ; text character to fill the tilemap
 #_0EFC40: AND.w #$FF00
 #_0EFC43: ORA.w #$0180
