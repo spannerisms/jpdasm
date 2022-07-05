@@ -22,7 +22,7 @@ BRRBINS:=	chime.brr		\
 			trombone.brr	\
 			trumpet.brr		\
 			tweet.brr		\
-			wobblylead.brr
+			wobbly.brr
 
 .PHONY: clean
 
@@ -48,7 +48,7 @@ cymbal.brr: $(ROMFILE)
 	@dd if=$< of=$@ bs=4096 skip=830795 count=3474 iflag=skip_bytes,count_bytes status=none
 
 # 0x0C94EE-0x0C9586
-wobblylead.brr: $(ROMFILE)
+wobbly.brr: $(ROMFILE)
 	@dd if=$< of=$@ bs=4096 skip=824558 count=153 iflag=skip_bytes,count_bytes status=none
 
 # 0x0C9587-0x0C9628

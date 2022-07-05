@@ -2,6 +2,18 @@ org $198000
 
 ;===================================================================================================
 
+SPC_ENGINE          = $0800
+SFX_DATA            = $17C0
+SAMPLE_POINTERS     = $3C00
+INSTRUMENT_DATA     = $3D00
+INSTRUMENT_DATA_SFX = $3E00
+SAMPLE_DATA         = $4000
+SONG_POINTERS       = $D000
+SONG_POINTERS_AUX   = $2B00
+CREDITS_AUX_POINTER = $2900
+
+;===================================================================================================
+
 SamplePointers:
 #_198000: dw $0070, SAMPLE_POINTERS ; Transfer size, transfer address
 

@@ -5654,7 +5654,7 @@ FluteMenu_HandleSelection:
 
 #_0AB7D5: DEC.w $1AF0
 
-#_0AB7D8: LDA.b #!SFX3_20
+#_0AB7D8: LDA.b #$20 ; SFX3.20
 #_0AB7DA: STA.w $012F
 
 .pressed_up_or_left
@@ -5664,7 +5664,7 @@ FluteMenu_HandleSelection:
 
 #_0AB7E3: INC.w $1AF0
 
-#_0AB7E6: LDA.b #!SFX3_20
+#_0AB7E6: LDA.b #$20 ; SFX3.20
 #_0AB7E8: STA.w $012F
 
 .pressed_down_or_right
@@ -5893,13 +5893,13 @@ FluteMenu_LoadSelectedScreen:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0AB944: LDA.b #!SFX3_10
+#_0AB944: LDA.b #$10 ; SFX3.10
 #_0AB946: STA.w $012F
 
 #_0AB949: LDA.b $8A
 #_0AB94B: AND.b #$BF
 
-#_0AB94D: LDX.b #!SONG_02
+#_0AB94D: LDX.b #$02 ; SONG 02
 
 ; are we in kak?
 #_0AB94F: CMP.b #$18
@@ -5910,13 +5910,13 @@ FluteMenu_LoadSelectedScreen:
 #_0AB957: CMP.b #$03
 #_0AB959: BCS .use_this_song
 
-#_0AB95B: LDX.b #!SONG_07
+#_0AB95B: LDX.b #$07 ; SONG 07
 
 .use_this_song
 #_0AB95D: CPX.w $0130
 #_0AB960: BNE .songs_differ
 
-#_0AB962: LDX.b #!SONG_F3_MAXVOL
+#_0AB962: LDX.b #$F3 ; SONG F3 - max volume
 #_0AB964: STX.w $012C
 
 #_0AB967: RTL
@@ -5977,7 +5977,7 @@ FluteMenu_FadeInAndQuack:
 #_0AB9A0: STA.b $9B
 
 #_0AB9A2: LDY.b #$04
-#_0AB9A4: LDA.b #!ANCILLA_27
+#_0AB9A4: LDA.b #$27 ; ANCILLA 27
 #_0AB9A6: JSL AncillaAdd_Duck_drop_off
 
 .delay
@@ -6080,10 +6080,10 @@ WorldMap_FadeOut:
 #_0ABA36: STA.b $9A
 
 .zelda_rescured
-#_0ABA38: LDA.b #!SFX3_10
+#_0ABA38: LDA.b #$10 ; SFX3.10
 #_0ABA3A: STA.w $012F
 
-#_0ABA3D: LDA.b #!SONG_F2_HALFVOL
+#_0ABA3D: LDA.b #$F2 ; SONG F2 - half volume
 #_0ABA3F: STA.w $012C
 
 #_0ABA42: LDA.b #$07
@@ -6294,12 +6294,12 @@ WorldMap_PlayerControl:
 ;---------------------------------------------------------------------------------------------------
 
 .not_switching
-; check for LR
+; check for lr
 #_0ABB32: LDA.b $F6
 #_0ABB34: AND.b #$70
 #_0ABB36: BEQ .continue
 
-#_0ABB38: LDA.b #!SFX3_24
+#_0ABB38: LDA.b #$24 ; SFX3.24
 #_0ABB3A: STA.w $012F
 
 #_0ABB3D: LDA.b #$08
@@ -6566,10 +6566,10 @@ WorldMap_ExitMap:
 
 #_0ABC9B: SEP #$20
 
-#_0ABC9D: LDA.b #!SFX3_10
+#_0ABC9D: LDA.b #$10 ; SFX3.10
 #_0ABC9F: STA.w $012F
 
-#_0ABCA2: LDA.b #!SONG_F3_MAXVOL
+#_0ABCA2: LDA.b #$F3 ; SONG F3 - max volume
 #_0ABCA4: STA.w $012C
 
 #_0ABCA7: RTL
@@ -6785,7 +6785,7 @@ WorldMap_FillTilemapWithEF:
 #_0ABDBC: STA.b $00
 
 #_0ABDBE: STZ.w VMAIN
-#_0ABDC1: STZ.w VMADDR
+#_0ABDC1: STZ.w VMADDR ; VRAM $0000
 
 #_0ABDC4: LDA.w #$1808
 #_0ABDC7: STA.w DMA1MODE
@@ -9812,11 +9812,11 @@ Module0E_03_01_00_PrepMapGraphics:
 pool Module0E_03_01_01_DrawLEVEL
 
 .LEVEL_top
-#_0AE16A: dw VRAMaddrBE($C108), $0B00 ; 12 bytes | Horizontal
+#_0AE16A: dw $8460, $0B00 ; VRAM $C108 | 12 bytes | Horizontal
 #_0AE16E: dw $2132, $2133, $2138, $213A, $207F
 
 .LEVEL_bottom
-#_0AE178: dw VRAMaddrBE($C148), $0B00 ; 12 bytes | Horizontal
+#_0AE178: dw $A460, $0B00 ; VRAM $C148 | 12 bytes | Horizontal
 #_0AE17C: dw $2142, $2143, $2149, $214A, $207F
 
 .numerals_top
@@ -9906,16 +9906,16 @@ Module0E_03_01_01_DrawLEVEL:
 ; above ground levels take priority in this decision
 ;===================================================================================================
 DungeonMap_BackdropFloorPosition:
-#_0AE1F1: dw VRAMaddr($2446) ; 4B-4F
-#_0AE1F3: dw VRAMaddr($24C6) ; 5F
-#_0AE1F5: dw VRAMaddr($2546) ; 6F
-#_0AE1F7: dw VRAMaddr($25C6) ; 7F
-#_0AE1F9: dw VRAMaddr($2646) ; 8F
-
-#_0AE1FB: dw VRAMaddr($23C6) ; 5B
-#_0AE1FD: dw VRAMaddr($2346) ; 6B
-#_0AE1FF: dw VRAMaddr($22C6) ; 7B
-#_0AE201: dw VRAMaddr($2246) ; 8B
+#_0AE1F1: dw $1223 ; 4B-4F | VRAM $2446
+#_0AE1F3: dw $1263 ; 5F    | VRAM $24C6
+#_0AE1F5: dw $12A3 ; 6F    | VRAM $2546
+#_0AE1F7: dw $12E3 ; 7F    | VRAM $25C6
+#_0AE1F9: dw $1323 ; 8F    | VRAM $2646
+				   ;       | 
+#_0AE1FB: dw $11E3 ; 5B    | VRAM $23C6
+#_0AE1FD: dw $11A3 ; 6B    | VRAM $2346
+#_0AE1FF: dw $1163 ; 7B    | VRAM $22C6
+#_0AE201: dw $1123 ; 8B    | VRAM $2246
 
 ;===================================================================================================
 ; Sets up stripes at $1000 for the backdrop behind the floor window that's
@@ -9958,7 +9958,7 @@ Module0E_03_01_02_DrawFloorsBackdrop:
 ; Now create a series of stripes for the fill
 #_0AE22A: PLX ; get back that 2A
 
-#_0AE22B: LDA.w #VRAMaddr($2246)
+#_0AE22B: LDA.w #$1123 ; VRAM $2246
 #_0AE22E: STA.b $00
 
 #_0AE230: LDY.w #$0010 ; number of rows
@@ -10086,7 +10086,7 @@ Module0E_03_01_02_DrawFloorsBackdrop:
 #_0AE2CD: ADC.w #$0020
 #_0AE2D0: STA.b $00
 
-#_0AE2D2: CMP.w #VRAMaddr($26C0)
+#_0AE2D2: CMP.w #$1360 ; VRAM $26C0
 #_0AE2D5: BCC .next_floor_stripe
 
 ;---------------------------------------------------------------------------------------------------
@@ -12839,10 +12839,10 @@ UnderworldMap_RecoverGFX:
 #_0AEFBC: TSB.b $9D
 #_0AEFBE: TSB.b $9E
 
-#_0AEFC0: LDA.b #!SFX3_10
+#_0AEFC0: LDA.b #$10 ; SFX3.10
 #_0AEFC2: STA.w $012F
 
-#_0AEFC5: LDA.b #!SONG_F3_MAXVOL
+#_0AEFC5: LDA.b #$F3 ; SONG F3 - max volume
 #_0AEFC7: STA.w $012C
 
 #_0AEFCA: JSL RecoverPegGFXFromMapping
@@ -12876,19 +12876,19 @@ DungeonMap_BackdropFloorGradientTiles:
 DungeonMap_MountainStripes:
 #_0AEFED: dw $1B2E ; some straggler/placeholder? this gets overwritten later
 
-#_0AEFEF: dw VRAMaddrBE($2154), $0100 ; 2 bytes | Horizontal
+#_0AEFEF: dw $AA10, $0100 ; VRAM $2154 | 2 bytes | Horizontal
 #_0AEFF3: dw $1B2F
 
-#_0AEFF5: dw VRAMaddrBE($2192), $0300 ; 4 bytes | Horizontal
+#_0AEFF5: dw $C910, $0300 ; VRAM $2192 | 4 bytes | Horizontal
 #_0AEFF9: dw $1B2F, $1B2E
 
-#_0AEFFD: dw VRAMaddrBE($21CA), $0B00 ; 12 bytes | Horizontal
+#_0AEFFD: dw $E510, $0B00 ; VRAM $21CA | 12 bytes | Horizontal
 #_0AF001: dw $1B2F, $1B2E, $5B2F, $1B2F, $1B2E, $1B2E
 
-#_0AF00D: dw VRAMaddrBE($2206), $0100 ; 2 bytes | Horizontal
+#_0AF00D: dw $0311, $0100 ; VRAM $2206 | 2 bytes | Horizontal
 #_0AF011: dw $1B2F
 
-#_0AF013: dw VRAMaddrBE($2208), $0C40 ; 14 bytes | Fixed horizontal
+#_0AF013: dw $0411, $0C40 ; VRAM $2208 | 14 bytes | Fixed horizontal
 #_0AF017: dw $1B2E
 
 ;===================================================================================================
@@ -14008,7 +14008,7 @@ HUD_HandleFloorIndicator:
 #_0AFD75: CMP.b #$02
 #_0AFD77: BCS .too_late_for_rain
 
-#_0AFD79: LDA.b #!SFX1_03
+#_0AFD79: LDA.b #$03 ; SFX1.03
 #_0AFD7B: STA.w $012D
 
 ;---------------------------------------------------------------------------------------------------
@@ -14024,7 +14024,7 @@ HUD_HandleFloorIndicator:
 .basement_floors
 #_0AFD87: SEP #$20
 
-#_0AFD89: LDA.b #!SFX1_05
+#_0AFD89: LDA.b #$05 ; SFX1.05
 #_0AFD8B: STA.w $012D
 
 #_0AFD8E: REP #$20
@@ -14191,7 +14191,7 @@ pool Underworld_HandleLayerEffect
 #_0AFE76: dw LayerEffect_WaterRapids
 #_0AFE78: dw LayerEffect_Trinexx
 #_0AFE7A: dw LayerEffect_Agahnim2
-#_0AFE7C: dw LayerEffect_Black2
+#_0AFE7C: dw LayerEffect_InvisibleFloor
 #_0AFE7E: dw LayerEffect_Ganon
 
 pool off
@@ -14376,7 +14376,7 @@ LayerEffect_Agahnim2:
 
 ;===================================================================================================
 
-LayerEffect_Black2:
+LayerEffect_InvisibleFloor:
 #_0AFF5D: REP #$30
 
 #_0AFF5F: LDX.w #$0000

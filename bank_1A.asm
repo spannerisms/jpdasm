@@ -3247,31 +3247,31 @@ SFX_Instruments:
 
 base INSTRUMENT_DATA_SFX
 ;                   VOLL VOLR      Pitch      SRCN   ADSR   GAIN  Mult
-#_1A9C04: #_3E00: db $70, $70 : dw $1000 : db $00, $F6, $6A, $B8, $03 ; Fwoosh
-#_1A9C0D: #_3E09: db $70, $70 : dw $1000 : db $01, $8E, $E0, $B8, $02 ; Swish
-#_1A9C16: #_3E12: db $70, $70 : dw $1000 : db $14, $FE, $6A, $B8, $02 ; Bomp
-#_1A9C1F: #_3E1B: db $70, $70 : dw $1000 : db $03, $FE, $F8, $B8, $0D ; Ting
-#_1A9C28: #_3E24: db $70, $70 : dw $1000 : db $04, $FE, $6A, $7F, $03 ; Rrrrr
-#_1A9C31: #_3E2D: db $70, $70 : dw $1000 : db $02, $FE, $6A, $7F, $03 ; Clunk
-#_1A9C3A: #_3E36: db $70, $70 : dw $1000 : db $05, $FE, $6A, $70, $03 ; Ching
-#_1A9C43: #_3E3F: db $70, $70 : dw $1000 : db $06, $FE, $6A, $70, $03 ; Fwomp
-#_1A9C4C: #_3E48: db $70, $70 : dw $1000 : db $08, $FA, $6A, $70, $03 ; Squee
-#_1A9C55: #_3E51: db $70, $70 : dw $1000 : db $06, $FE, $6A, $70, $01 ; Unused
-#_1A9C5E: #_3E5A: db $70, $70 : dw $1000 : db $07, $FE, $6A, $70, $05 ; Bzzzrt
-#_1A9C67: #_3E63: db $70, $70 : dw $1000 : db $0B, $FE, $6A, $B8, $03 ; Brrfft
-#_1A9C70: #_3E6C: db $70, $70 : dw $1000 : db $0C, $FE, $E0, $B8, $02 ; Brrwwww
-#_1A9C79: #_3E75: db $70, $70 : dw $1000 : db $0D, $F9, $6E, $B8, $03 ; Twee
-#_1A9C82: #_3E7E: db $70, $70 : dw $1000 : db $0E, $FE, $F5, $B8, $07 ; Pwing
-#_1A9C8B: #_3E87: db $70, $70 : dw $1000 : db $0F, $FE, $F5, $B8, $06 ; Pling
-#_1A9C94: #_3E90: db $70, $70 : dw $1000 : db $01, $FE, $FC, $B8, $03 ; Chshtsh
-#_1A9C9D: #_3E99: db $70, $70 : dw $1000 : db $10, $8E, $E0, $B8, $03 ; Splssh
-#_1A9CA6: #_3EA2: db $70, $70 : dw $1000 : db $08, $8E, $E0, $B8, $02 ; Weewoo
-#_1A9CAF: #_3EAB: db $70, $70 : dw $1000 : db $14, $8E, $E0, $B8, $02 ; Brbrbrb
-#_1A9CB8: #_3EB4: db $70, $70 : dw $1000 : db $0A, $88, $E0, $B8, $02 ; Bwow
-#_1A9CC1: #_3EBD: db $70, $70 : dw $1000 : db $17, $8E, $E0, $B8, $02 ; Uughf
-#_1A9CCA: #_3EC6: db $70, $70 : dw $1000 : db $15, $FF, $E0, $B8, $04 ; Aaaaaa
-#_1A9CD3: #_3ECF: db $70, $70 : dw $1000 : db $03, $DF, $11, $B8, $0F ; Twing
-#_1A9CDC: #_3ED8: db $70, $70 : dw $1000 : db $01, $88, $E0, $B8, $01 ; Whooo
+#_1A9C04: #_3E00: db $70, $70 : dw $1000 : db $00, $F6, $6A, $B8, $03 ; 00 - Fwoosh
+#_1A9C0D: #_3E09: db $70, $70 : dw $1000 : db $01, $8E, $E0, $B8, $02 ; 01 - Swish
+#_1A9C16: #_3E12: db $70, $70 : dw $1000 : db $14, $FE, $6A, $B8, $02 ; 02 - Bomp
+#_1A9C1F: #_3E1B: db $70, $70 : dw $1000 : db $03, $FE, $F8, $B8, $0D ; 03 - Ting
+#_1A9C28: #_3E24: db $70, $70 : dw $1000 : db $04, $FE, $6A, $7F, $03 ; 04 - Rrrrr
+#_1A9C31: #_3E2D: db $70, $70 : dw $1000 : db $02, $FE, $6A, $7F, $03 ; 05 - Clunk
+#_1A9C3A: #_3E36: db $70, $70 : dw $1000 : db $05, $FE, $6A, $70, $03 ; 06 - Ching
+#_1A9C43: #_3E3F: db $70, $70 : dw $1000 : db $06, $FE, $6A, $70, $03 ; 07 - Fwomp
+#_1A9C4C: #_3E48: db $70, $70 : dw $1000 : db $08, $FA, $6A, $70, $03 ; 08 - Squee
+#_1A9C55: #_3E51: db $70, $70 : dw $1000 : db $06, $FE, $6A, $70, $01 ; 09 - Unused
+#_1A9C5E: #_3E5A: db $70, $70 : dw $1000 : db $07, $FE, $6A, $70, $05 ; 0A - Bzzzrt
+#_1A9C67: #_3E63: db $70, $70 : dw $1000 : db $0B, $FE, $6A, $B8, $03 ; 0B - Brrfft
+#_1A9C70: #_3E6C: db $70, $70 : dw $1000 : db $0C, $FE, $E0, $B8, $02 ; 0C - Brrwwww
+#_1A9C79: #_3E75: db $70, $70 : dw $1000 : db $0D, $F9, $6E, $B8, $03 ; 0D - Twee
+#_1A9C82: #_3E7E: db $70, $70 : dw $1000 : db $0E, $FE, $F5, $B8, $07 ; 0E - Pwing
+#_1A9C8B: #_3E87: db $70, $70 : dw $1000 : db $0F, $FE, $F5, $B8, $06 ; 0F - Pling
+#_1A9C94: #_3E90: db $70, $70 : dw $1000 : db $01, $FE, $FC, $B8, $03 ; 10 - Chshtsh
+#_1A9C9D: #_3E99: db $70, $70 : dw $1000 : db $10, $8E, $E0, $B8, $03 ; 11 - Splssh
+#_1A9CA6: #_3EA2: db $70, $70 : dw $1000 : db $08, $8E, $E0, $B8, $02 ; 12 - Weewoo
+#_1A9CAF: #_3EAB: db $70, $70 : dw $1000 : db $14, $8E, $E0, $B8, $02 ; 13 - Brbrbrb
+#_1A9CB8: #_3EB4: db $70, $70 : dw $1000 : db $0A, $88, $E0, $B8, $02 ; 14 - Bwow
+#_1A9CC1: #_3EBD: db $70, $70 : dw $1000 : db $17, $8E, $E0, $B8, $02 ; 15 - Uughf
+#_1A9CCA: #_3EC6: db $70, $70 : dw $1000 : db $15, $FF, $E0, $B8, $04 ; 16 - Aaaaaa
+#_1A9CD3: #_3ECF: db $70, $70 : dw $1000 : db $03, $DF, $11, $B8, $0F ; 17 - Twing
+#_1A9CDC: #_3ED8: db $70, $70 : dw $1000 : db $01, $88, $E0, $B8, $01 ; 18 - Whooo
 
 base off
 
@@ -22945,7 +22945,7 @@ BatCrash:
 #_1AF5F2: BNE .still_nonzero
 
 ; Play this sound on the last frame
-#_1AF5F4: LDY.b #!SFX1_05
+#_1AF5F4: LDY.b #$05 ; SFX1.05
 #_1AF5F6: STY.w $012D
 
 .still_nonzero
@@ -22972,7 +22972,7 @@ BatCrash:
 #_1AF61B: CMP.b #$02
 #_1AF61D: BCS .no_flap_sfx
 
-#_1AF61F: LDA.b #!SFX2_03
+#_1AF61F: LDA.b #$03 ; SFX2.03
 #_1AF621: JSL SpriteSFX_QueueSFX2WithPan
 
 .no_flap_sfx
@@ -23061,7 +23061,7 @@ BatCrash_Ascend:
 ; This hardcodes the bat's coordinates as it advances to its next AI.
 #_1AF689: INC.w $0D80,X
 
-#_1AF68C: LDA.b #!SFX3_26
+#_1AF68C: LDA.b #$26 ; SFX3.26
 #_1AF68E: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1AF692: INC.w $0DE0,X
@@ -23149,7 +23149,7 @@ BatCrash_StallTheInevitable:
 ; This is what actually spawns the bat.
 ;===================================================================================================
 Sprite_SpawnBatCrashCutscene:
-#_1AF6F5: LDA.b #!SPRITE_37
+#_1AF6F5: LDA.b #$37 ; SPRITE 37
 #_1AF6F7: JSL Sprite_SpawnDynamically
 
 #_1AF6FB: LDA.b #$00
@@ -23556,7 +23556,7 @@ Lanmola_SpawnShrapnel:
 #_1AF993: STY.w $0FB5
 
 .next_spawn
-#_1AF996: LDA.b #!SPRITE_C2
+#_1AF996: LDA.b #$C2 ; SPRITE C2
 #_1AF998: JSL Sprite_SpawnDynamically
 #_1AF99C: BMI .no_space
 
@@ -23790,7 +23790,7 @@ SpriteDraw_Cukeman:
 ; WTF
 ; This reuses the stun/key drop flag.
 ;===================================================================================================
-RunningBoy_SpawnDushGarnish:
+RunningBoy_SpawnDustGarnish:
 #_1AFB2C: INC.w $0CBA,X
 
 #_1AFB2F: LDA.w $0CBA,X
@@ -23812,7 +23812,7 @@ RunningBoy_SpawnDushGarnish:
 #_1AFB43: INX
 
 .free_slot
-#_1AFB44: LDA.b #!GARNISH_14
+#_1AFB44: LDA.b #$14 ; GARNISH 14
 #_1AFB46: STA.l $7FF800,X
 #_1AFB4A: STA.w $0FB4
 
@@ -23926,7 +23926,7 @@ Overworld_SubstituteAlternateSecret:
 #_1AFBED: BEQ .skip_slot
 
 #_1AFBEF: LDA.w $0E20,Y
-#_1AFBF2: CMP.b #!SPRITE_6C
+#_1AFBF2: CMP.b #$6C ; SPRITE 6C
 #_1AFBF4: BEQ .skip_slot
 
 #_1AFBF6: INC.b $0D
@@ -24008,7 +24008,7 @@ Sprite_EE_CastleMantle:
 
 ; Zelda follower
 #_1AFC4D: LDA.l $7EF3CC
-#_1AFC51: CMP.b #!FOLLOWER_01
+#_1AFC51: CMP.b #$01 ; FOLLOWER 01
 #_1AFC53: BNE .exit
 
 ; Own lamp
@@ -24052,7 +24052,7 @@ Sprite_EE_CastleMantle:
 #_1AFC87: LDA.w $012E
 #_1AFC8A: BNE .skip_sfx
 
-#_1AFC8C: LDA.b #!SFX2_22
+#_1AFC8C: LDA.b #$22 ; SFX2.22
 #_1AFC8E: STA.w $012E
 
 .skip_sfx
@@ -24337,7 +24337,7 @@ BottleMerchant_BuyBee:
 #_1AFE89: PHK
 #_1AFE8A: PLB
 
-#_1AFE8B: LDA.b #!SFX3_13
+#_1AFE8B: LDA.b #$13 ; SFX3.13
 #_1AFE8D: JSL SpriteSFX_QueueSFX3WithPan
 
 ; Spawns 5 sprites
@@ -24346,7 +24346,7 @@ BottleMerchant_BuyBee:
 
 .next_spawn
 ; all red rupees
-#_1AFE96: LDA.b #!SPRITE_DB
+#_1AFE96: LDA.b #$DB ; SPRITE DB
 #_1AFE98: JSL Sprite_SpawnDynamically
 #_1AFE9C: BMI .no_space
 

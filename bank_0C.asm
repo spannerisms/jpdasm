@@ -7089,7 +7089,7 @@ Intro_InitialInitialization:
 #_0CC146: LDX.b #$80
 #_0CC148: STX.w VMAIN
 
-#_0CC14B: LDA.w #VRAMaddr($4FE0)
+#_0CC14B: LDA.w #$27F0 ; VRAM $4FE0
 #_0CC14E: STA.w VMADDR
 
 #_0CC151: LDX.b #$20
@@ -7123,7 +7123,7 @@ Intro_InitialInitialization:
 #_0CC173: INC.b $15
 #_0CC175: INC.b $11
 
-#_0CC177: LDA.b #!SFX3_0A
+#_0CC177: LDA.b #$0A ; SFX3.0A
 #_0CC179: STA.w $012F
 
 ;===================================================================================================
@@ -7353,7 +7353,7 @@ FadeMusicAndResetSRAMMirror:
 #_0CC2BF: STZ.b $1D
 #_0CC2C1: STZ.b $1B
 
-#_0CC2C3: LDA.b #!SONG_F1_FADE
+#_0CC2C3: LDA.b #$F1 ; SONG F1 - fade
 #_0CC2C5: STA.w $012C
 
 #_0CC2C8: JSL FixedColorBlack
@@ -7662,7 +7662,7 @@ Intro_TriforceSpinInwards:
 #_0CC47E: CMP.b #$71
 #_0CC480: BNE .delay_song
 
-#_0CC482: LDA.b #!SONG_01
+#_0CC482: LDA.b #$01 ; SONG 01
 #_0CC484: STA.w $012C
 
 .delay_song
@@ -8644,7 +8644,7 @@ IntroPolyhedral_MoveRotate:
 #_0CCA42: INC.b $B0
 #_0CCA44: INC.w $1E00
 
-#_0CCA47: LDA.b #!SFX2_2C
+#_0CCA47: LDA.b #$2C ; SFX2.2C
 #_0CCA49: STA.w $012E
 
 #_0CCA4C: LDA.b #$FF ; RGB: #F8F8F8
@@ -9166,7 +9166,7 @@ FileSelect_InitializeGFX:
 #_0CCC8D: STZ.w $012A
 #_0CCC90: STZ.w $1F0C
 
-#_0CCC93: LDA.b #!SONG_0B
+#_0CCC93: LDA.b #$0B ; SONG 0B
 #_0CCC95: STA.w $012C
 
 #_0CCC98: INC.b $11
@@ -9504,7 +9504,7 @@ FileSelect_HandleInput:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0CCE3C: LDA.b #!SFX3_20
+#_0CCE3C: LDA.b #$20 ; SFX3.20
 #_0CCE3E: STA.w $012F
 
 #_0CCE41: DEC.b $C8
@@ -9518,7 +9518,7 @@ FileSelect_HandleInput:
 ;---------------------------------------------------------------------------------------------------
 
 .pressed_down
-#_0CCE4B: LDA.b #!SFX3_20
+#_0CCE4B: LDA.b #$20 ; SFX3.20
 #_0CCE4D: STA.w $012F
 
 #_0CCE50: INC.b $C8
@@ -9535,7 +9535,7 @@ FileSelect_HandleInput:
 ;---------------------------------------------------------------------------------------------------
 
 .didnt_change_selection
-#_0CCE5C: LDA.b #!SFX2_2C
+#_0CCE5C: LDA.b #$2C ; SFX2.2C
 #_0CCE5E: STA.w $012E
 
 #_0CCE61: LDA.b $C8
@@ -9551,7 +9551,7 @@ FileSelect_HandleInput:
 #_0CCE6D: LDA.b $BF,X
 #_0CCE6F: BEQ .no_file_there
 
-#_0CCE71: LDA.b #!SONG_F1_FADE
+#_0CCE71: LDA.b #$F1 ; SONG F1 - fade
 #_0CCE73: STA.w $012C
 
 #_0CCE76: STZ.b $C9
@@ -9594,7 +9594,7 @@ FileSelect_HandleInput:
 #_0CCE9E: ORA.b $C3
 #_0CCEA0: BNE .dont_error_beep
 
-#_0CCEA2: LDA.b #!SFX2_3C
+#_0CCEA2: LDA.b #$3C ; SFX2.3C
 #_0CCEA4: STA.w $012E
 
 #_0CCEA7: BRA .exit
@@ -9676,7 +9676,7 @@ CopySaveToWRAM:
 #_0CCF13: STA.l $7EC00F
 #_0CCF17: STA.l $7EC015
 
-#_0CCF1B: LDA.w #VRAMaddr($C080)
+#_0CCF1B: LDA.w #$6040 ; VRAM $C080
 #_0CCF1E: STA.w $0219
 
 #_0CCF21: LDA.w #$4841
@@ -9868,37 +9868,37 @@ CopyFile_FairyHeight:
 ;===================================================================================================
 
 CopyFile_CopyToMenuStripe:
-#_0CCFDF: dw VRAMaddrBE($C24A), $1040 ; 18 bytes | Fixed horizontal
+#_0CCFDF: dw $2561, $1040 ; VRAM $C24A | 18 bytes | Fixed horizontal
 #_0CCFE3: dw $0188
 
-#_0CCFE5: dw VRAMaddrBE($C28A), $1040 ; 18 bytes | Fixed horizontal
+#_0CCFE5: dw $4561, $1040 ; VRAM $C28A | 18 bytes | Fixed horizontal
 #_0CCFE9: dw $0188
 
-#_0CCFEB: dw VRAMaddrBE($C34A), $1040 ; 18 bytes | Fixed horizontal
+#_0CCFEB: dw $A561, $1040 ; VRAM $C34A | 18 bytes | Fixed horizontal
 #_0CCFEF: dw $0188
 
-#_0CCFF1: dw VRAMaddrBE($C38A), $1040 ; 18 bytes | Fixed horizontal
+#_0CCFF1: dw $C561, $1040 ; VRAM $C38A | 18 bytes | Fixed horizontal
 #_0CCFF5: dw $0188
 
-#_0CCFF7: dw VRAMaddrBE($21E2), $0300 ; 4 bytes | Horizontal
+#_0CCFF7: dw $F110, $0300 ; VRAM $21E2 | 4 bytes | Horizontal
 #_0CCFFB: dw $4882, $0881
 
-#_0CCFFF: dw VRAMaddrBE($21F8), $0300 ; 4 bytes | Horizontal
+#_0CCFFF: dw $FC10, $0300 ; VRAM $21F8 | 4 bytes | Horizontal
 #_0CD003: dw $0881, $0882
 
-#_0CD007: dw VRAMaddrBE($2222), $0CC0 ; 14 bytes | Fixed vertical
+#_0CD007: dw $1111, $0CC0 ; VRAM $2222 | 14 bytes | Fixed vertical
 #_0CD00B: dw $4883
 
-#_0CD00D: dw VRAMaddrBE($223A), $0CC0 ; 14 bytes | Fixed vertical
+#_0CD00D: dw $1D11, $0CC0 ; VRAM $223A | 14 bytes | Fixed vertical
 #_0CD011: dw $0883
 
-#_0CD013: dw VRAMaddrBE($23E2), $0100 ; 2 bytes | Horizontal
+#_0CD013: dw $F111, $0100 ; VRAM $23E2 | 2 bytes | Horizontal
 #_0CD017: dw $C882
 
-#_0CD019: dw VRAMaddrBE($23E4), $1440 ; 22 bytes | Fixed horizontal
+#_0CD019: dw $F211, $1440 ; VRAM $23E4 | 22 bytes | Fixed horizontal
 #_0CD01D: dw $8881
 
-#_0CD01F: dw VRAMaddrBE($23FA), $0100 ; 2 bytes | Horizontal
+#_0CD01F: dw $FD11, $0100 ; VRAM $23FA | 2 bytes | Horizontal
 #_0CD023: dw $8882
 
 #_0CD025: db $FF ; end of stripes data
@@ -10065,7 +10065,7 @@ CopyFile_SelectionAndBlinker:
 #_0CD0D6: BRA .next_file_check
 
 .set_new_selection
-#_0CD0D8: LDA.b #!SFX3_20
+#_0CD0D8: LDA.b #$20 ; SFX3.20
 #_0CD0DA: STA.w $012F
 
 #_0CD0DD: STX.b $C8
@@ -10074,7 +10074,7 @@ CopyFile_SelectionAndBlinker:
 ;---------------------------------------------------------------------------------------------------
 
 .made_selection
-#_0CD0E1: LDA.b #!SFX2_2C
+#_0CD0E1: LDA.b #$2C ; SFX2.2C
 #_0CD0E3: STA.w $012E
 
 #_0CD0E6: LDA.b $C8
@@ -10141,17 +10141,17 @@ CopyFile_SelectionAndBlinker:
 ;===================================================================================================
 
 CopyFile_ConfirmationStripes:
-#_0CD12A: dw VRAMaddrBE($C268), $1040 ; 18 bytes | Fixed horizontal
+#_0CD12A: dw $3461, $1040 ; VRAM $C268 | 18 bytes | Fixed horizontal
 #_0CD12E: dw $0188
 
-#_0CD130: dw VRAMaddrBE($C2A8), $1040 ; 18 bytes | Fixed horizontal
+#_0CD130: dw $5461, $1040 ; VRAM $C2A8 | 18 bytes | Fixed horizontal
 #_0CD134: dw $0188
 
-#_0CD136: dw VRAMaddrBE($C58A), $1100 ; 18 bytes | Horizontal
+#_0CD136: dw $C562, $1100 ; VRAM $C58A | 18 bytes | Horizontal
 #_0CD13A: dw $1CAC, $0188, $1D23, $0188, $1D89, $0188, $1D68, $0188
 #_0CD14A: dw $1D64
 
-#_0CD14C: dw VRAMaddrBE($C5CA), $1100 ; 18 bytes | Horizontal
+#_0CD14C: dw $E562, $1100 ; VRAM $C5CA | 18 bytes | Horizontal
 #_0CD150: dw $1CBC, $0188, $1D33, $0188, $1D99, $0188, $1D78, $0188
 #_0CD160: dw $1D74
 
@@ -10326,7 +10326,7 @@ CopyFile_TargetSelectionAndBlink:
 ;---------------------------------------------------------------------------------------------------
 
 .select_exit
-#_0CD223: LDA.b #!SFX3_20
+#_0CD223: LDA.b #$20 ; SFX3.20
 #_0CD225: STA.w $012F
 
 #_0CD228: STX.b $C8
@@ -10335,7 +10335,7 @@ CopyFile_TargetSelectionAndBlink:
 ;---------------------------------------------------------------------------------------------------
 
 .made_selection
-#_0CD22C: LDA.b #!SFX2_2C
+#_0CD22C: LDA.b #$2C ; SFX2.2C
 #_0CD22E: STA.w $012E
 
 #_0CD231: LDX.b $C8
@@ -10419,7 +10419,7 @@ CopyFile_HandleConfirmation:
 #_0CD27F: AND.b #$24
 #_0CD281: BEQ .select_or_down
 
-#_0CD283: LDA.b #!SFX3_20
+#_0CD283: LDA.b #$20 ; SFX3.20
 #_0CD285: STA.w $012F
 
 #_0CD288: INC.b $C8
@@ -10434,7 +10434,7 @@ CopyFile_HandleConfirmation:
 ;---------------------------------------------------------------------------------------------------
 
 .select_or_down
-#_0CD294: LDA.b #!SFX3_20
+#_0CD294: LDA.b #$20 ; SFX3.20
 #_0CD296: STA.w $012F
 
 #_0CD299: DEC.b $C8
@@ -10447,7 +10447,7 @@ CopyFile_HandleConfirmation:
 ;---------------------------------------------------------------------------------------------------
 
 .made_selection
-#_0CD2A3: LDA.b #!SFX2_2C
+#_0CD2A3: LDA.b #$2C ; SFX2.2C
 #_0CD2A5: STA.w $012E
 
 #_0CD2A8: LDA.b $C8
@@ -10547,24 +10547,24 @@ KILLFile_FairyY:
 
 KILL_OK_stripes:
 ; Deletes file names
-#_0CD30C: dw VRAMaddrBE($C250), $2C40 ; 46 bytes | Fixed horizontal
+#_0CD30C: dw $2861, $2C40 ; VRAM $C250 | 46 bytes | Fixed horizontal
 #_0CD310: dw $0188
 
-#_0CD312: dw VRAMaddrBE($C290), $2C40 ; 46 bytes | Fixed horizontal
+#_0CD312: dw $4861, $2C40 ; VRAM $C290 | 46 bytes | Fixed horizontal
 #_0CD316: dw $0188
 
-#_0CD318: dw VRAMaddrBE($C350), $2C40 ; 46 bytes | Fixed horizontal
+#_0CD318: dw $A861, $2C40 ; VRAM $C350 | 46 bytes | Fixed horizontal
 #_0CD31C: dw $0188
 
-#_0CD31E: dw VRAMaddrBE($C390), $2C40 ; 46 bytes | Fixed horizontal
+#_0CD31E: dw $C861, $2C40 ; VRAM $C390 | 46 bytes | Fixed horizontal
 #_0CD322: dw $0188
 
 ; KILL OK
-#_0CD324: dw VRAMaddrBE($C54A), $1700 ; 24 bytes | Horizontal
+#_0CD324: dw $A562, $1700 ; VRAM $C54A | 24 bytes | Horizontal
 #_0CD328: dw $1D64, $0188, $1D62, $0188, $1D65, $0188, $1D65, $0188
 #_0CD338: dw $0188, $1D68, $0188, $1D64
 
-#_0CD340: dw VRAMaddrBE($C58A), $1700 ; 24 bytes | Horizontal
+#_0CD340: dw $C562, $1700 ; VRAM $C58A | 24 bytes | Horizontal
 #_0CD344: dw $1D74, $0188, $1D72, $0188, $1D75, $0188, $1D75, $0188
 #_0CD354: dw $0188, $1D78, $0188, $1D74
 
@@ -10690,7 +10690,7 @@ KILLFile_ChooseTarget:
 #_0CD3DC: AND.b #$04
 #_0CD3DE: BNE .pressed_down_or_select
 
-#_0CD3E0: LDA.b #!SFX3_20
+#_0CD3E0: LDA.b #$20 ; SFX3.20
 #_0CD3E2: STA.w $012F
 
 #_0CD3E5: LDY.b #$FE
@@ -10719,7 +10719,7 @@ KILLFile_ChooseTarget:
 ;---------------------------------------------------------------------------------------------------
 
 .pressed_down_or_select
-#_0CD3FB: LDA.b #!SFX3_20
+#_0CD3FB: LDA.b #$20 ; SFX3.20
 #_0CD3FD: STA.w $012F
 
 #_0CD400: LDX.b $C8
@@ -10762,7 +10762,7 @@ KILLFile_ChooseTarget:
 #_0CD426: AND.b #$D0
 #_0CD428: BEQ .exit
 
-#_0CD42A: LDA.b #!SFX2_2C
+#_0CD42A: LDA.b #$2C ; SFX2.2C
 #_0CD42C: STA.w $012E
 
 #_0CD42F: LDA.b $C8
@@ -10873,7 +10873,7 @@ KILLFile_VerifyDeletion:
 #_0CD49B: AND.b #$01
 #_0CD49D: STA.b $C8
 
-#_0CD49F: LDA.b #!SFX3_20
+#_0CD49F: LDA.b #$20 ; SFX3.20
 #_0CD4A1: STA.w $012F
 
 ;---------------------------------------------------------------------------------------------------
@@ -10888,13 +10888,13 @@ KILLFile_VerifyDeletion:
 #_0CD4AA: AND.b #$D0
 #_0CD4AC: BEQ .exit
 
-#_0CD4AE: LDA.b #!SFX2_2C
+#_0CD4AE: LDA.b #$2C ; SFX2.2C
 #_0CD4B0: STA.w $012E
 
 #_0CD4B3: LDA.b $C8
 #_0CD4B5: BNE .chickened_out
 
-#_0CD4B7: LDA.b #!SFX3_22
+#_0CD4B7: LDA.b #$22 ; SFX3.22
 #_0CD4B9: STA.w $012F
 #_0CD4BC: STZ.w $012E
 
@@ -11924,7 +11924,7 @@ NameFile_DoTheNaming:
 ;---------------------------------------------------------------------------------------------------
 
 .select_item
-#_0CDAB0: LDA.b #!SFX2_2B
+#_0CDAB0: LDA.b #$2B ; SFX2.2B
 #_0CDAB2: STA.w $012E
 
 #_0CDAB5: REP #$30
@@ -12153,7 +12153,7 @@ InitializeSaveFile:
 #_0CDBE1: LDA.b #$FF
 #_0CDBE3: STA.w $0128
 
-#_0CDBE6: LDA.b #!SFX2_2C
+#_0CDBE6: LDA.b #$2C ; SFX2.2C
 #_0CDBE8: STA.w $012E
 
 #_0CDBEB: SEP #$30
@@ -12338,40 +12338,40 @@ NameFile_DrawSelectedCharacter:
 ;===================================================================================================
 
 IntroLogoTileMap:
-#_0CDCC7: dw VRAMaddrBE($2000), $7E47 ; 1920 bytes | Fixed horizontal
+#_0CDCC7: dw $0010, $7E47 ; VRAM $2000 | 1920 bytes | Fixed horizontal
 #_0CDCCB: dw $0976
 
-#_0CDCCD: dw VRAMaddrBE($2140), $7E43 ; 896 bytes | Fixed horizontal
+#_0CDCCD: dw $A010, $7E43 ; VRAM $2140 | 896 bytes | Fixed horizontal
 #_0CDCD1: dw $0977
 
-#_0CDCD3: dw VRAMaddrBE($224A), $1700 ; 24 bytes | Horizontal
+#_0CDCD3: dw $2511, $1700 ; VRAM $224A | 24 bytes | Horizontal
 #_0CDCD7: dw $3900, $3901, $3902, $3903, $3904, $3905, $3906, $3907
 #_0CDCE7: dw $3908, $3909, $390A, $390B
 
-#_0CDCEF: dw VRAMaddrBE($2272), $0300 ; 4 bytes | Horizontal
+#_0CDCEF: dw $3911, $0300 ; VRAM $2272 | 4 bytes | Horizontal
 #_0CDCF3: dw $397E, $397F
 
-#_0CDCF7: dw VRAMaddrBE($228A), $2B00 ; 44 bytes | Horizontal
+#_0CDCF7: dw $4511, $2B00 ; VRAM $228A | 44 bytes | Horizontal
 #_0CDCFB: dw $390C, $390D, $390E, $390F, $3910, $3911, $3912, $3977
 #_0CDD0B: dw $3913, $3914, $3915, $3916, $3977, $3977, $3917, $3918
 #_0CDD1B: dw $3919, $391A, $391B, $391C, $391D, $391E
 
-#_0CDD27: dw VRAMaddrBE($22CA), $2B00 ; 44 bytes | Horizontal
+#_0CDD27: dw $6511, $2B00 ; VRAM $22CA | 44 bytes | Horizontal
 #_0CDD2B: dw $391F, $3920, $3921, $3922, $3923, $3924, $3925, $3926
 #_0CDD3B: dw $3927, $3928, $3929, $392A, $392B, $392C, $392D, $392E
 #_0CDD4B: dw $392F, $3930, $3931, $3932, $3933, $3934
 
-#_0CDD57: dw VRAMaddrBE($230A), $2B00 ; 44 bytes | Horizontal
+#_0CDD57: dw $8511, $2B00 ; VRAM $230A | 44 bytes | Horizontal
 #_0CDD5B: dw $3935, $3936, $3937, $3938, $3939, $393A, $393B, $393C
 #_0CDD6B: dw $393D, $393E, $393F, $3940, $3941, $3942, $3943, $3944
 #_0CDD7B: dw $3945, $3946, $3947, $3948, $3949, $394A
 
-#_0CDD87: dw VRAMaddrBE($234A), $2B00 ; 44 bytes | Horizontal
+#_0CDD87: dw $A511, $2B00 ; VRAM $234A | 44 bytes | Horizontal
 #_0CDD8B: dw $394B, $394C, $394D, $394E, $394F, $3950, $3951, $3952
 #_0CDD9B: dw $3953, $3954, $3955, $3956, $3957, $3958, $3959, $395A
 #_0CDDAB: dw $395B, $395C, $395D, $395E, $395F, $3960
 
-#_0CDDB7: dw VRAMaddrBE($238A), $2B00 ; 44 bytes | Horizontal
+#_0CDDB7: dw $C511, $2B00 ; VRAM $238A | 44 bytes | Horizontal
 #_0CDDBB: dw $3977, $3961, $3962, $3963, $3964, $3965, $3966, $3967
 #_0CDDCB: dw $3968, $3969, $396A, $396B, $396C, $396D, $396E, $396F
 #_0CDDDB: dw $3970, $3971, $3972, $3973, $3974, $3975
@@ -12381,31 +12381,31 @@ IntroLogoTileMap:
 ;===================================================================================================
 
 FileSelectTileMap:
-#_0CDDE8: dw VRAMaddrBE($C0C4), $3700 ; 56 bytes | Horizontal
+#_0CDDE8: dw $6260, $3700 ; VRAM $C0C4 | 56 bytes | Horizontal
 #_0CDDEC: dw $1D8A, $0188, $1D69, $0188, $1D65, $0188, $1D4A, $0188
 #_0CDDFC: dw $1D82, $0188, $1D4E, $0188, $1D6B, $0188, $0188, $1D6C
 #_0CDE0C: dw $0188, $1D4E, $0188, $1D65, $0188, $1D4E, $0188, $1D4C
 #_0CDE1C: dw $0188, $1D6D, $0188, $1D8B
 
-#_0CDE24: dw VRAMaddrBE($C104), $3700 ; 56 bytes | Horizontal
+#_0CDE24: dw $8260, $3700 ; VRAM $C104 | 56 bytes | Horizontal
 #_0CDE28: dw $1D9A, $0188, $1D79, $0188, $1D75, $0188, $1D5A, $0188
 #_0CDE38: dw $1D92, $0188, $1D5E, $0188, $1D7B, $0188, $0188, $1D7C
 #_0CDE48: dw $0188, $1D5E, $0188, $1D75, $0188, $1D5E, $0188, $1D5C
 #_0CDE58: dw $0188, $1D7D, $0188, $1D9B
 
-#_0CDE60: dw VRAMaddrBE($C54A), $1500 ; 22 bytes | Horizontal
+#_0CDE60: dw $A562, $1500 ; VRAM $C54A | 22 bytes | Horizontal
 #_0CDE64: dw $1CAC, $0188, $1D23, $0188, $1D89, $0188, $1D04, $0188
 #_0CDE74: dw $1D89, $0188, $1D07
 
-#_0CDE7A: dw VRAMaddrBE($C58A), $1500 ; 22 bytes | Horizontal
+#_0CDE7A: dw $C562, $1500 ; VRAM $C58A | 22 bytes | Horizontal
 #_0CDE7E: dw $1CBC, $0188, $1D33, $0188, $1D99, $0188, $1D14, $0188
 #_0CDE8E: dw $1D99, $0188, $1D17
 
-#_0CDE94: dw VRAMaddrBE($C64A), $1900 ; 26 bytes | Horizontal
+#_0CDE94: dw $2563, $1900 ; VRAM $C64A | 26 bytes | Horizontal
 #_0CDE98: dw $1D64, $0188, $1D62, $0188, $1D65, $0188, $1D65, $0188
 #_0CDEA8: dw $1D04, $0188, $1D89, $0188, $1D07
 
-#_0CDEB2: dw VRAMaddrBE($C68A), $1900 ; 26 bytes | Horizontal
+#_0CDEB2: dw $4563, $1900 ; VRAM $C68A | 26 bytes | Horizontal
 #_0CDEB6: dw $1D74, $0188, $1D72, $0188, $1D75, $0188, $1D75, $0188
 #_0CDEC6: dw $1D14, $0188, $1D99, $0188, $1D17
 
@@ -12414,32 +12414,32 @@ FileSelectTileMap:
 ;===================================================================================================
 
 FileSelectNamesTilemap:
-#_0CDED1: dw VRAMaddrBE($C250), $2D00 ; 46 bytes | Horizontal
+#_0CDED1: dw $2861, $2D00 ; VRAM $C250 | 46 bytes | Horizontal
 #_0CDED5: dw $1D41, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDEE5: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDEF5: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
 
-#_0CDF03: dw VRAMaddrBE($C290), $2D00 ; 46 bytes | Horizontal
+#_0CDF03: dw $4861, $2D00 ; VRAM $C290 | 46 bytes | Horizontal
 #_0CDF07: dw $1D51, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDF17: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDF27: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
 
-#_0CDF35: dw VRAMaddrBE($C350), $2D00 ; 46 bytes | Horizontal
+#_0CDF35: dw $A861, $2D00 ; VRAM $C350 | 46 bytes | Horizontal
 #_0CDF39: dw $1D42, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDF49: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDF59: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
 
-#_0CDF67: dw VRAMaddrBE($C390), $2D00 ; 46 bytes | Horizontal
+#_0CDF67: dw $C861, $2D00 ; VRAM $C390 | 46 bytes | Horizontal
 #_0CDF6B: dw $1D52, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDF7B: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDF8B: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
 
-#_0CDF99: dw VRAMaddrBE($C450), $2D00 ; 46 bytes | Horizontal
+#_0CDF99: dw $2862, $2D00 ; VRAM $C450 | 46 bytes | Horizontal
 #_0CDF9D: dw $1D43, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDFAD: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDFBD: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
 
-#_0CDFCB: dw VRAMaddrBE($C490), $2D00 ; 46 bytes | Horizontal
+#_0CDFCB: dw $4862, $2D00 ; VRAM $C490 | 46 bytes | Horizontal
 #_0CDFCF: dw $1D53, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDFDF: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CDFEF: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
@@ -12449,33 +12449,33 @@ FileSelectNamesTilemap:
 ;===================================================================================================
 
 FileSelectKILLFileTileMap:
-#_0CDFFE: dw VRAMaddrBE($C0CE), $2100 ; 34 bytes | Horizontal
+#_0CDFFE: dw $6760, $2100 ; VRAM $C0CE | 34 bytes | Horizontal
 #_0CE002: dw $1D8A, $0188, $1D64, $0188, $1D62, $0188, $1D65, $0188
 #_0CE012: dw $1D65, $0188, $1D04, $0188, $1D89, $0188, $1D07, $0188
 #_0CE022: dw $1D8B
 
-#_0CE024: dw VRAMaddrBE($C10E), $2100 ; 34 bytes | Horizontal
+#_0CE024: dw $8760, $2100 ; VRAM $C10E | 34 bytes | Horizontal
 #_0CE028: dw $1D9A, $0188, $1D74, $0188, $1D72, $0188, $1D75, $0188
 #_0CE038: dw $1D75, $0188, $1D14, $0188, $1D99, $0188, $1D17, $0188
 #_0CE048: dw $1D9B
 
-#_0CE04A: dw VRAMaddrBE($C186), $3100 ; 50 bytes | Horizontal
+#_0CE04A: dw $C360, $3100 ; VRAM $C186 | 50 bytes | Horizontal
 #_0CE04E: dw $0C67, $0188, $0C44, $0188, $0D06, $0188, $0D89, $0188
 #_0CE05E: dw $0CC8, $0188, $0D89, $0188, $0C0E, $0188, $0C0B, $0188
 #_0CE06E: dw $0C21, $0188, $0C60, $0188, $0C22, $0188, $0C08, $0188
 #_0CE07E: dw $0D86
 
-#_0CE080: dw VRAMaddrBE($C1C6), $3100 ; 50 bytes | Horizontal
+#_0CE080: dw $E360, $3100 ; VRAM $C1C6 | 50 bytes | Horizontal
 #_0CE084: dw $0C77, $0188, $0C54, $0188, $0D16, $0188, $0D99, $0188
 #_0CE094: dw $0CD8, $0188, $0D99, $0188, $0C1E, $0188, $0C1B, $0188
 #_0CE0A4: dw $0C31, $0188, $0C70, $0188, $0C32, $0188, $0C18, $0188
 #_0CE0B4: dw $0D96
 
-#_0CE0B6: dw VRAMaddrBE($C64A), $1B00 ; 28 bytes | Horizontal
+#_0CE0B6: dw $2563, $1B00 ; VRAM $C64A | 28 bytes | Horizontal
 #_0CE0BA: dw $1C05, $0188, $1C8A, $0188, $1C82, $0188, $1C69, $0188
 #_0CE0CA: dw $0188, $1C05, $0188, $1C63, $0188, $1C6A
 
-#_0CE0D6: dw VRAMaddrBE($C68A), $1B00 ; 28 bytes | Horizontal
+#_0CE0D6: dw $4563, $1B00 ; VRAM $C68A | 28 bytes | Horizontal
 #_0CE0DA: dw $1C15, $0188, $1C9A, $0188, $1C92, $0188, $1C79, $0188
 #_0CE0EA: dw $0188, $1C15, $0188, $1C73, $0188, $1C7A
 
@@ -12485,34 +12485,34 @@ FileSelectKILLFileTileMap:
 
 KILLFile_BlankNameStripes:
 ; File 1
-#_0CE0F7: dw VRAMaddrBE($C250), $2D00 ; 46 bytes | Horizontal
+#_0CE0F7: dw $2861, $2D00 ; VRAM $C250 | 46 bytes | Horizontal
 #_0CE0FB: dw $1D41, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE10B: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE11B: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
 
-#_0CE129: dw VRAMaddrBE($C290), $2D00 ; 46 bytes | Horizontal
+#_0CE129: dw $4861, $2D00 ; VRAM $C290 | 46 bytes | Horizontal
 #_0CE12D: dw $1D51, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE13D: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE14D: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
 
 ; File 2
-#_0CE15B: dw VRAMaddrBE($C350), $2D00 ; 46 bytes | Horizontal
+#_0CE15B: dw $A861, $2D00 ; VRAM $C350 | 46 bytes | Horizontal
 #_0CE15F: dw $1D42, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE16F: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE17F: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
 
-#_0CE18D: dw VRAMaddrBE($C390), $2D00 ; 46 bytes | Horizontal
+#_0CE18D: dw $C861, $2D00 ; VRAM $C390 | 46 bytes | Horizontal
 #_0CE191: dw $1D52, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE1A1: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE1B1: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
 
 ; File 3
-#_0CE1BF: dw VRAMaddrBE($C450), $2D00 ; 46 bytes | Horizontal
+#_0CE1BF: dw $2862, $2D00 ; VRAM $C450 | 46 bytes | Horizontal
 #_0CE1C3: dw $1D43, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE1D3: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE1E3: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
 
-#_0CE1F1: dw VRAMaddrBE($C490), $2D00 ; 46 bytes | Horizontal
+#_0CE1F1: dw $4862, $2D00 ; VRAM $C490 | 46 bytes | Horizontal
 #_0CE1F5: dw $1D53, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE205: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE215: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188
@@ -12522,40 +12522,40 @@ KILLFile_BlankNameStripes:
 ;===================================================================================================
 
 FileSelectCopyFileTileMap:
-#_0CE224: dw VRAMaddrBE($C0D0), $1D00 ; 30 bytes | Horizontal
+#_0CE224: dw $6860, $1D00 ; VRAM $C0D0 | 30 bytes | Horizontal
 #_0CE228: dw $1D8A, $0188, $1CAC, $0188, $1D23, $0188, $1D89, $0188
 #_0CE238: dw $1D04, $0188, $1D89, $0188, $1D07, $0188, $1D8B
 
-#_0CE246: dw VRAMaddrBE($C110), $1D00 ; 30 bytes | Horizontal
+#_0CE246: dw $8860, $1D00 ; VRAM $C110 | 30 bytes | Horizontal
 #_0CE24A: dw $1D9A, $0188, $1CBC, $0188, $1D33, $0188, $1D99, $0188
 #_0CE25A: dw $1D14, $0188, $1D99, $0188, $1D17, $0188, $1D9B
 
-#_0CE268: dw VRAMaddrBE($21C4), $0300 ; 4 bytes | Horizontal
+#_0CE268: dw $E210, $0300 ; VRAM $21C4 | 4 bytes | Horizontal
 #_0CE26C: dw $4882, $0881
 
-#_0CE270: dw VRAMaddrBE($21DA), $0300 ; 4 bytes | Horizontal
+#_0CE270: dw $ED10, $0300 ; VRAM $21DA | 4 bytes | Horizontal
 #_0CE274: dw $0881, $0882
 
-#_0CE278: dw VRAMaddrBE($2204), $14C0 ; 22 bytes | Fixed vertical
+#_0CE278: dw $0211, $14C0 ; VRAM $2204 | 22 bytes | Fixed vertical
 #_0CE27C: dw $4883
 
-#_0CE27E: dw VRAMaddrBE($221C), $14C0 ; 22 bytes | Fixed vertical
+#_0CE27E: dw $0E11, $14C0 ; VRAM $221C | 22 bytes | Fixed vertical
 #_0CE282: dw $0883
 
-#_0CE284: dw VRAMaddrBE($24C4), $0100 ; 2 bytes | Horizontal
+#_0CE284: dw $6212, $0100 ; VRAM $24C4 | 2 bytes | Horizontal
 #_0CE288: dw $C882
 
-#_0CE28A: dw VRAMaddrBE($24C6), $1440 ; 22 bytes | Fixed horizontal
+#_0CE28A: dw $6312, $1440 ; VRAM $24C6 | 22 bytes | Fixed horizontal
 #_0CE28E: dw $8881
 
-#_0CE290: dw VRAMaddrBE($24DC), $0100 ; 2 bytes | Horizontal
+#_0CE290: dw $6E12, $0100 ; VRAM $24DC | 2 bytes | Horizontal
 #_0CE294: dw $8882
 
-#_0CE296: dw VRAMaddrBE($C64A), $1B00 ; 28 bytes | Horizontal
+#_0CE296: dw $2563, $1B00 ; VRAM $C64A | 28 bytes | Horizontal
 #_0CE29A: dw $1C05, $0188, $1C8A, $0188, $1C82, $0188, $1C69, $0188
 #_0CE2AA: dw $0188, $1C05, $0188, $1C63, $0188, $1C6A
 
-#_0CE2B6: dw VRAMaddrBE($C68A), $1B00 ; 28 bytes | Horizontal
+#_0CE2B6: dw $4563, $1B00 ; VRAM $C68A | 28 bytes | Horizontal
 #_0CE2BA: dw $1C15, $0188, $1C9A, $0188, $1C92, $0188, $1C79, $0188
 #_0CE2CA: dw $0188, $1C15, $0188, $1C73, $0188, $1C7A
 
@@ -12564,46 +12564,46 @@ FileSelectCopyFileTileMap:
 ;===================================================================================================
 
 CopyFile_HeaderStripe:
-#_0CE2D7: dw VRAMaddrBE($C18A), $0D00 ; 14 bytes | Horizontal
+#_0CE2D7: dw $C560, $0D00 ; VRAM $C18A | 14 bytes | Horizontal
 #_0CE2DB: dw $0C67, $0188, $0C6B, $0188, $0C0E, $0188, $0D86
 
-#_0CE2E9: dw VRAMaddrBE($C1CA), $0D00 ; 14 bytes | Horizontal
+#_0CE2E9: dw $E560, $0D00 ; VRAM $C1CA | 14 bytes | Horizontal
 #_0CE2ED: dw $0C77, $0188, $0C7B, $0188, $0C1E, $0188, $0D96
 
-#_0CE2FB: dw VRAMaddrBE($C24A), $1100 ; 18 bytes | Horizontal
+#_0CE2FB: dw $2561, $1100 ; VRAM $C24A | 18 bytes | Horizontal
 #_0CE2FF: dw $1D41, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE30F: dw $0188
 
-#_0CE311: dw VRAMaddrBE($C28A), $1100 ; 18 bytes | Horizontal
+#_0CE311: dw $4561, $1100 ; VRAM $C28A | 18 bytes | Horizontal
 #_0CE315: dw $1D51, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE325: dw $0188
 
-#_0CE327: dw VRAMaddrBE($C34A), $1100 ; 18 bytes | Horizontal
+#_0CE327: dw $A561, $1100 ; VRAM $C34A | 18 bytes | Horizontal
 #_0CE32B: dw $1D42, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE33B: dw $0188
 
-#_0CE33D: dw VRAMaddrBE($C38A), $1100 ; 18 bytes | Horizontal
+#_0CE33D: dw $C561, $1100 ; VRAM $C38A | 18 bytes | Horizontal
 #_0CE341: dw $1D52, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE351: dw $0188
 
-#_0CE353: dw VRAMaddrBE($C44A), $1100 ; 18 bytes | Horizontal
+#_0CE353: dw $2562, $1100 ; VRAM $C44A | 18 bytes | Horizontal
 #_0CE357: dw $1D43, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE367: dw $0188
 
-#_0CE369: dw VRAMaddrBE($C48A), $1100 ; 18 bytes | Horizontal
+#_0CE369: dw $4562, $1100 ; VRAM $C48A | 18 bytes | Horizontal
 #_0CE36D: dw $1D53, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE37D: dw $0188
 
-#_0CE37F: dw VRAMaddrBE($21E2), $1840 ; 26 bytes | Fixed horizontal
+#_0CE37F: dw $F110, $1840 ; VRAM $21E2 | 26 bytes | Fixed horizontal
 #_0CE383: dw $087F
 
-#_0CE385: dw VRAMaddrBE($2222), $0CC0 ; 14 bytes | Fixed vertical
+#_0CE385: dw $1111, $0CC0 ; VRAM $2222 | 14 bytes | Fixed vertical
 #_0CE389: dw $087F
 
-#_0CE38B: dw VRAMaddrBE($223A), $0CC0 ; 14 bytes | Fixed vertical
+#_0CE38B: dw $1D11, $0CC0 ; VRAM $223A | 14 bytes | Fixed vertical
 #_0CE38F: dw $087F
 
-#_0CE391: dw VRAMaddrBE($23E2), $1840 ; 26 bytes | Fixed horizontal
+#_0CE391: dw $F111, $1840 ; VRAM $23E2 | 26 bytes | Fixed horizontal
 #_0CE395: dw $087F
 
 #_0CE397: db $FF ; end of stripes data
@@ -12611,25 +12611,25 @@ CopyFile_HeaderStripe:
 ;===================================================================================================
 
 CopyFile_TargetHeaderStripes:
-#_0CE398: dw VRAMaddrBE($C1A8), $0D00 ; 14 bytes | Horizontal
+#_0CE398: dw $D460, $0D00 ; VRAM $C1A8 | 14 bytes | Horizontal
 #_0CE39C: dw $0C67, $0188, $0C0C, $0188, $0C41, $0188, $0D86
 
-#_0CE3AA: dw VRAMaddrBE($C1E8), $0D00 ; 14 bytes | Horizontal
+#_0CE3AA: dw $F460, $0D00 ; VRAM $C1E8 | 14 bytes | Horizontal
 #_0CE3AE: dw $0C77, $0188, $0C1C, $0188, $0C51, $0188, $0D96
 
-#_0CE3BC: dw VRAMaddrBE($C268), $1100 ; 18 bytes | Horizontal
+#_0CE3BC: dw $3461, $1100 ; VRAM $C268 | 18 bytes | Horizontal
 #_0CE3C0: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE3D0: dw $0188
 
-#_0CE3D2: dw VRAMaddrBE($C2A8), $1100 ; 18 bytes | Horizontal
+#_0CE3D2: dw $5461, $1100 ; VRAM $C2A8 | 18 bytes | Horizontal
 #_0CE3D6: dw $0188, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE3E6: dw $0188
 
-#_0CE3E8: dw VRAMaddrBE($C368), $1100 ; 18 bytes | Horizontal
+#_0CE3E8: dw $B461, $1100 ; VRAM $C368 | 18 bytes | Horizontal
 #_0CE3EC: dw $0188, $0188, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE3FC: dw $0188
 
-#_0CE3FE: dw VRAMaddrBE($C3A8), $1100 ; 18 bytes | Horizontal
+#_0CE3FE: dw $D461, $1100 ; VRAM $C3A8 | 18 bytes | Horizontal
 #_0CE402: dw $0188, $1D98, $0188, $0188, $0188, $0188, $0188, $0188
 #_0CE412: dw $0188
 
@@ -12638,316 +12638,316 @@ CopyFile_TargetHeaderStripes:
 ;===================================================================================================
 
 NamePlayerTileMap:
-#_0CE415: dw VRAMaddrBE($2000), $7E41 ; 384 bytes | Fixed horizontal
+#_0CE415: dw $0010, $7E41 ; VRAM $2000 | 384 bytes | Fixed horizontal
 #_0CE419: dw $0890
 
-#_0CE41B: dw VRAMaddrBE($2180), $2CC0 ; 46 bytes | Fixed vertical
+#_0CE41B: dw $C010, $2CC0 ; VRAM $2180 | 46 bytes | Fixed vertical
 #_0CE41F: dw $0890
 
-#_0CE421: dw VRAMaddrBE($2182), $2CC0 ; 46 bytes | Fixed vertical
+#_0CE421: dw $C110, $2CC0 ; VRAM $2182 | 46 bytes | Fixed vertical
 #_0CE425: dw $0890
 
-#_0CE427: dw VRAMaddrBE($21BC), $2CC0 ; 46 bytes | Fixed vertical
+#_0CE427: dw $DE10, $2CC0 ; VRAM $21BC | 46 bytes | Fixed vertical
 #_0CE42B: dw $0890
 
-#_0CE42D: dw VRAMaddrBE($21BE), $2CC0 ; 46 bytes | Fixed vertical
+#_0CE42D: dw $DF10, $2CC0 ; VRAM $21BE | 46 bytes | Fixed vertical
 #_0CE431: dw $0890
 
-#_0CE433: dw VRAMaddrBE($2700), $3E40 ; 64 bytes | Fixed horizontal
+#_0CE433: dw $8013, $3E40 ; VRAM $2700 | 64 bytes | Fixed horizontal
 #_0CE437: dw $0890
 
-#_0CE439: dw VRAMaddrBE($2066), $0980 ; 10 bytes | Vertical
+#_0CE439: dw $3310, $0980 ; VRAM $2066 | 10 bytes | Vertical
 #_0CE43D: dw $4882, $4883, $4883, $4883, $C882
 
-#_0CE447: dw VRAMaddrBE($2068), $1040 ; 18 bytes | Fixed horizontal
+#_0CE447: dw $3410, $1040 ; VRAM $2068 | 18 bytes | Fixed horizontal
 #_0CE44B: dw $0881
 
-#_0CE44D: dw VRAMaddrBE($207A), $0980 ; 10 bytes | Vertical
+#_0CE44D: dw $3D10, $0980 ; VRAM $207A | 10 bytes | Vertical
 #_0CE451: dw $0882, $0883, $0883, $0883, $8882
 
-#_0CE45B: dw VRAMaddrBE($20A8), $1040 ; 18 bytes | Fixed horizontal
+#_0CE45B: dw $5410, $1040 ; VRAM $20A8 | 18 bytes | Fixed horizontal
 #_0CE45F: dw $087F
 
-#_0CE461: dw VRAMaddrBE($20E8), $1040 ; 18 bytes | Fixed horizontal
+#_0CE461: dw $7410, $1040 ; VRAM $20E8 | 18 bytes | Fixed horizontal
 #_0CE465: dw $087F
 
-#_0CE467: dw VRAMaddrBE($2128), $1040 ; 18 bytes | Fixed horizontal
+#_0CE467: dw $9410, $1040 ; VRAM $2128 | 18 bytes | Fixed horizontal
 #_0CE46B: dw $087F
 
-#_0CE46D: dw VRAMaddrBE($2168), $1040 ; 18 bytes | Fixed horizontal
+#_0CE46D: dw $B410, $1040 ; VRAM $2168 | 18 bytes | Fixed horizontal
 #_0CE471: dw $8881
 
-#_0CE473: dw VRAMaddrBE($2184), $0100 ; 2 bytes | Horizontal
+#_0CE473: dw $C210, $0100 ; VRAM $2184 | 2 bytes | Horizontal
 #_0CE477: dw $4885
 
-#_0CE479: dw VRAMaddrBE($2186), $3240 ; 52 bytes | Fixed horizontal
+#_0CE479: dw $C310, $3240 ; VRAM $2186 | 52 bytes | Fixed horizontal
 #_0CE47D: dw $0884
 
-#_0CE47F: dw VRAMaddrBE($21BA), $0100 ; 2 bytes | Horizontal
+#_0CE47F: dw $DD10, $0100 ; VRAM $21BA | 2 bytes | Horizontal
 #_0CE483: dw $0885
 
-#_0CE485: dw VRAMaddrBE($21C4), $26C0 ; 40 bytes | Fixed vertical
+#_0CE485: dw $E210, $26C0 ; VRAM $21C4 | 40 bytes | Fixed vertical
 #_0CE489: dw $4893
 
-#_0CE48B: dw VRAMaddrBE($21FA), $26C0 ; 40 bytes | Fixed vertical
+#_0CE48B: dw $FD10, $26C0 ; VRAM $21FA | 40 bytes | Fixed vertical
 #_0CE48F: dw $0893
 
-#_0CE491: dw VRAMaddrBE($26C4), $0100 ; 2 bytes | Horizontal
+#_0CE491: dw $6213, $0100 ; VRAM $26C4 | 2 bytes | Horizontal
 #_0CE495: dw $C885
 
-#_0CE497: dw VRAMaddrBE($26C6), $3240 ; 52 bytes | Fixed horizontal
+#_0CE497: dw $6313, $3240 ; VRAM $26C6 | 52 bytes | Fixed horizontal
 #_0CE49B: dw $8884
 
-#_0CE49D: dw VRAMaddrBE($26FA), $0100 ; 2 bytes | Horizontal
+#_0CE49D: dw $7D13, $0100 ; VRAM $26FA | 2 bytes | Horizontal
 #_0CE4A1: dw $8885
 
-#_0CE4A3: dw VRAMaddrBE($2086), $0F00 ; 16 bytes | Horizontal
+#_0CE4A3: dw $4310, $0F00 ; VRAM $2086 | 16 bytes | Horizontal
 #_0CE4A7: dw $0886, $0887, $0888, $0889, $088A, $088B, $088C, $088D
 
-#_0CE4B7: dw VRAMaddrBE($20C6), $0F00 ; 16 bytes | Horizontal
+#_0CE4B7: dw $6310, $0F00 ; VRAM $20C6 | 16 bytes | Horizontal
 #_0CE4BB: dw $0896, $0897, $0898, $0899, $089A, $089B, $089C, $089D
 
-#_0CE4CB: dw VRAMaddrBE($21DE), $26C0 ; 40 bytes | Fixed vertical
+#_0CE4CB: dw $EF10, $26C0 ; VRAM $21DE | 40 bytes | Fixed vertical
 #_0CE4CF: dw $0495
 
-#_0CE4D1: dw VRAMaddrBE($C1C6), $3900 ; 58 bytes | Horizontal
+#_0CE4D1: dw $E360, $3900 ; VRAM $C1C6 | 58 bytes | Horizontal
 #_0CE4D5: dw $1C00, $0188, $1C01, $0188, $1C02, $0188, $1C03, $0188
 #_0CE4E5: dw $1C04, $0188, $0188, $0188, $0188, $0188, $1C25, $0188
 #_0CE4F5: dw $1C26, $0188, $1C27, $0188, $1C2D, $0188, $1C2E, $0188
 #_0CE505: dw $0188, $0188, $1CA0, $0188, $1CA1
 
-#_0CE50F: dw VRAMaddrBE($C206), $3900 ; 58 bytes | Horizontal
+#_0CE50F: dw $0361, $3900 ; VRAM $C206 | 58 bytes | Horizontal
 #_0CE513: dw $1C10, $0188, $1C11, $0188, $1C12, $0188, $1C13, $0188
 #_0CE523: dw $1C14, $0188, $0188, $0188, $0188, $0188, $1C35, $0188
 #_0CE533: dw $1C36, $0188, $1C37, $0188, $1C3D, $0188, $1C3E, $0188
 #_0CE543: dw $0188, $0188, $1CB0, $0188, $1CB1
 
-#_0CE54D: dw VRAMaddrBE($C246), $3900 ; 58 bytes | Horizontal
+#_0CE54D: dw $2361, $3900 ; VRAM $C246 | 58 bytes | Horizontal
 #_0CE551: dw $1C08, $0188, $1C09, $0188, $1C0A, $0188, $1C0B, $0188
 #_0CE561: dw $1C0C, $0188, $0188, $0188, $0188, $0188, $1C2F, $0188
 #_0CE571: dw $1C45, $0188, $1C46, $0188, $1C47, $0188, $1C4D, $0188
 #_0CE581: dw $0188, $0188, $1CA8, $0188, $1CA9
 
-#_0CE58B: dw VRAMaddrBE($C286), $3900 ; 58 bytes | Horizontal
+#_0CE58B: dw $4361, $3900 ; VRAM $C286 | 58 bytes | Horizontal
 #_0CE58F: dw $1C18, $0188, $1C19, $0188, $1C1A, $0188, $1C1B, $0188
 #_0CE59F: dw $1C1C, $0188, $0188, $0188, $0188, $0188, $1C3F, $0188
 #_0CE5AF: dw $1C55, $0188, $1C56, $0188, $1C57, $0188, $1C5D, $0188
 #_0CE5BF: dw $0188, $0188, $1CB8, $0188, $1CB9
 
-#_0CE5C9: dw VRAMaddrBE($C2C6), $3900 ; 58 bytes | Horizontal
+#_0CE5C9: dw $6361, $3900 ; VRAM $C2C6 | 58 bytes | Horizontal
 #_0CE5CD: dw $1C20, $0188, $1C21, $0188, $1C22, $0188, $1C23, $0188
 #_0CE5DD: dw $1C24, $0188, $0188, $0188, $0188, $0188, $1C4E, $0188
 #_0CE5ED: dw $1C4F, $0188, $1C65, $0188, $1C66, $0188, $1C67, $0188
 #_0CE5FD: dw $0188, $0188, $1CC0, $0188, $1CC1
 
-#_0CE607: dw VRAMaddrBE($C306), $3900 ; 58 bytes | Horizontal
+#_0CE607: dw $8361, $3900 ; VRAM $C306 | 58 bytes | Horizontal
 #_0CE60B: dw $1C30, $0188, $1C31, $0188, $1C32, $0188, $1C33, $0188
 #_0CE61B: dw $1C34, $0188, $0188, $0188, $0188, $0188, $1C5E, $0188
 #_0CE62B: dw $1C5F, $0188, $1C75, $0188, $1C76, $0188, $1C77, $0188
 #_0CE63B: dw $0188, $0188, $1CD0, $0188, $1CD1
 
-#_0CE645: dw VRAMaddrBE($C346), $3900 ; 58 bytes | Horizontal
+#_0CE645: dw $A361, $3900 ; VRAM $C346 | 58 bytes | Horizontal
 #_0CE649: dw $1C28, $0188, $1C29, $0188, $1C2A, $0188, $1C2B, $0188
 #_0CE659: dw $1C2C, $0188, $0188, $0188, $0188, $0188, $1C6D, $0188
 #_0CE669: dw $1C6E, $0188, $1C6F, $0188, $1C80, $0188, $1C81, $0188
 #_0CE679: dw $0188, $0188, $1CC8, $0188, $1CC9
 
-#_0CE683: dw VRAMaddrBE($C386), $3900 ; 58 bytes | Horizontal
+#_0CE683: dw $C361, $3900 ; VRAM $C386 | 58 bytes | Horizontal
 #_0CE687: dw $1C38, $0188, $1C39, $0188, $1C3A, $0188, $1C3B, $0188
 #_0CE697: dw $1C3C, $0188, $0188, $0188, $0188, $0188, $1C7D, $0188
 #_0CE6A7: dw $1C7E, $0188, $1C7F, $0188, $1C90, $0188, $1C91, $0188
 #_0CE6B7: dw $0188, $0188, $1CD8, $0188, $1CD9
 
-#_0CE6C1: dw VRAMaddrBE($C3C6), $3900 ; 58 bytes | Horizontal
+#_0CE6C1: dw $E361, $3900 ; VRAM $C3C6 | 58 bytes | Horizontal
 #_0CE6C5: dw $1C40, $0188, $1C41, $0188, $1C42, $0188, $1C43, $0188
 #_0CE6D5: dw $1C44, $0188, $0188, $0188, $0188, $0188, $1C82, $0188
 #_0CE6E5: dw $1C83, $0188, $1C84, $0188, $1C85, $0188, $1C86, $0188
 #_0CE6F5: dw $0188, $0188, $1CE0, $0188, $1CE1
 
-#_0CE6FF: dw VRAMaddrBE($C406), $3900 ; 58 bytes | Horizontal
+#_0CE6FF: dw $0362, $3900 ; VRAM $C406 | 58 bytes | Horizontal
 #_0CE703: dw $1C50, $0188, $1C51, $0188, $1C52, $0188, $1C53, $0188
 #_0CE713: dw $1C54, $0188, $0188, $0188, $0188, $0188, $1C92, $0188
 #_0CE723: dw $1C93, $0188, $1C94, $0188, $1C95, $0188, $1C96, $0188
 #_0CE733: dw $0188, $0188, $1CF0, $0188, $1CF1
 
-#_0CE73D: dw VRAMaddrBE($C446), $3900 ; 58 bytes | Horizontal
+#_0CE73D: dw $2362, $3900 ; VRAM $C446 | 58 bytes | Horizontal
 #_0CE741: dw $1C48, $0188, $1C49, $0188, $1C4A, $0188, $1C4B, $0188
 #_0CE751: dw $1C4C, $0188, $0188, $0188, $0188, $0188, $1C8B, $0188
 #_0CE761: dw $1C8C, $0188, $1C8D, $0188, $1C8E, $0188, $1C8F, $0188
 #_0CE771: dw $0188, $0188, $1CE8, $0188, $1CE9
 
-#_0CE77B: dw VRAMaddrBE($C486), $3900 ; 58 bytes | Horizontal
+#_0CE77B: dw $4362, $3900 ; VRAM $C486 | 58 bytes | Horizontal
 #_0CE77F: dw $1C58, $0188, $1C59, $0188, $1C5A, $0188, $1C5B, $0188
 #_0CE78F: dw $1C5C, $0188, $0188, $0188, $0188, $0188, $1C9B, $0188
 #_0CE79F: dw $1C9C, $0188, $1C9D, $0188, $1C9E, $0188, $1C9F, $0188
 #_0CE7AF: dw $0188, $0188, $1CF8, $0188, $1CF9
 
-#_0CE7B9: dw VRAMaddrBE($C4C6), $3900 ; 58 bytes | Horizontal
+#_0CE7B9: dw $6362, $3900 ; VRAM $C4C6 | 58 bytes | Horizontal
 #_0CE7BD: dw $1C60, $0188, $1C61, $0188, $1C62, $0188, $1C63, $0188
 #_0CE7CD: dw $1C64, $0188, $0188, $0188, $0188, $0188, $1C87, $0188
 #_0CE7DD: dw $1C88, $0188, $1C89, $0188, $0188, $0188, $1C8A, $0188
 #_0CE7ED: dw $0188, $0188, $1D00, $0188, $1D01
 
-#_0CE7F7: dw VRAMaddrBE($C506), $3900 ; 58 bytes | Horizontal
+#_0CE7F7: dw $8362, $3900 ; VRAM $C506 | 58 bytes | Horizontal
 #_0CE7FB: dw $1C70, $0188, $1C71, $0188, $1C72, $0188, $1C73, $0188
 #_0CE80B: dw $1C74, $0188, $0188, $0188, $0188, $0188, $1C97, $0188
 #_0CE81B: dw $1C98, $0188, $1C99, $0188, $0188, $0188, $1C9A, $0188
 #_0CE82B: dw $0188, $0188, $1D10, $0188, $1D11
 
-#_0CE835: dw VRAMaddrBE($C546), $1100 ; 18 bytes | Horizontal
+#_0CE835: dw $A362, $1100 ; VRAM $C546 | 18 bytes | Horizontal
 #_0CE839: dw $1C05, $0188, $0188, $0188, $1C06, $0188, $0188, $0188
 #_0CE849: dw $1C07
 
-#_0CE84B: dw VRAMaddrBE($C586), $1100 ; 18 bytes | Horizontal
+#_0CE84B: dw $C362, $1100 ; VRAM $C586 | 18 bytes | Horizontal
 #_0CE84F: dw $1C15, $0188, $0188, $0188, $1C16, $0188, $0188, $0188
 #_0CE85F: dw $1C17
 
-#_0CE861: dw VRAMaddrBE($C57A), $0100 ; 2 bytes | Horizontal
+#_0CE861: dw $BD62, $0100 ; VRAM $C57A | 2 bytes | Horizontal
 #_0CE865: dw $1CA5
 
-#_0CE867: dw VRAMaddrBE($C5BA), $0100 ; 2 bytes | Horizontal
+#_0CE867: dw $DD62, $0100 ; VRAM $C5BA | 2 bytes | Horizontal
 #_0CE86B: dw $1CB5
 
-#_0CE86D: dw VRAMaddrBE($C5C6), $1100 ; 18 bytes | Horizontal
+#_0CE86D: dw $E362, $1100 ; VRAM $C5C6 | 18 bytes | Horizontal
 #_0CE871: dw $1C68, $0188, $1C69, $0188, $1C6A, $0188, $1C6B, $0188
 #_0CE881: dw $1C6C
 
-#_0CE883: dw VRAMaddrBE($C606), $1100 ; 18 bytes | Horizontal
+#_0CE883: dw $0363, $1100 ; VRAM $C606 | 18 bytes | Horizontal
 #_0CE887: dw $1C78, $0188, $1C79, $0188, $1C7A, $0188, $1C7B, $0188
 #_0CE897: dw $1C7C
 
-#_0CE899: dw VRAMaddrBE($C646), $1100 ; 18 bytes | Horizontal
+#_0CE899: dw $2363, $1100 ; VRAM $C646 | 18 bytes | Horizontal
 #_0CE89D: dw $1C0D, $0188, $1C0E, $0188, $1C0F, $0188, $0188, $0188
 #_0CE8AD: dw $1D89
 
-#_0CE8AF: dw VRAMaddrBE($C686), $1100 ; 18 bytes | Horizontal
+#_0CE8AF: dw $4363, $1100 ; VRAM $C686 | 18 bytes | Horizontal
 #_0CE8B3: dw $1C1D, $0188, $1C1E, $0188, $1C1F, $0188, $0188, $0188
 #_0CE8C3: dw $1D99
 
-#_0CE8C5: dw VRAMaddrBE($C5FA), $0500 ; 6 bytes | Horizontal
+#_0CE8C5: dw $FD62, $0500 ; VRAM $C5FA | 6 bytes | Horizontal
 #_0CE8C9: dw $1D08, $0188, $1D09
 
-#_0CE8CF: dw VRAMaddrBE($C63A), $0500 ; 6 bytes | Horizontal
+#_0CE8CF: dw $1D63, $0500 ; VRAM $C63A | 6 bytes | Horizontal
 #_0CE8D3: dw $1D18, $0188, $1D19
 
-#_0CE8D9: dw VRAMaddrBE($C67A), $0500 ; 6 bytes | Horizontal
+#_0CE8D9: dw $3D63, $0500 ; VRAM $C67A | 6 bytes | Horizontal
 #_0CE8DD: dw $1CAD, $0188, $1CAE
 
-#_0CE8E3: dw VRAMaddrBE($C6BA), $0500 ; 6 bytes | Horizontal
+#_0CE8E3: dw $5D63, $0500 ; VRAM $C6BA | 6 bytes | Horizontal
 #_0CE8E7: dw $1CBD, $0188, $1CBE
 
-#_0CE8ED: dw VRAMaddrBE($C5E2), $0D00 ; 14 bytes | Horizontal
+#_0CE8ED: dw $F162, $0D00 ; VRAM $C5E2 | 14 bytes | Horizontal
 #_0CE8F1: dw $1D8A, $0188, $1D8B, $0188, $1D4E, $1D67, $1D4D
 
-#_0CE8FF: dw VRAMaddrBE($C622), $0D00 ; 14 bytes | Horizontal
+#_0CE8FF: dw $1163, $0D00 ; VRAM $C622 | 14 bytes | Horizontal
 #_0CE903: dw $1D9A, $0188, $1D9B, $0188, $1D5E, $1D77, $1D5D
 
-#_0CE911: dw VRAMaddrBE($C9C2), $3900 ; 58 bytes | Horizontal
+#_0CE911: dw $E164, $3900 ; VRAM $C9C2 | 58 bytes | Horizontal
 #_0CE915: dw $1CA2, $0188, $1CA3, $0188, $1CA4, $0188, $0188, $0188
 #_0CE925: dw $0188, $0188, $1CC5, $0188, $1CC6, $0188, $1CC7, $0188
 #_0CE935: dw $1CCD, $0188, $1CCE, $0188, $0188, $0188, $1D4A, $0188
 #_0CE945: dw $1D4B, $0188, $1D4C, $0188, $1D4D
 
-#_0CE94F: dw VRAMaddrBE($CA02), $3900 ; 58 bytes | Horizontal
+#_0CE94F: dw $0165, $3900 ; VRAM $CA02 | 58 bytes | Horizontal
 #_0CE953: dw $1CB2, $0188, $1CB3, $0188, $1CB4, $0188, $0188, $0188
 #_0CE963: dw $0188, $0188, $1CD5, $0188, $1CD6, $0188, $1CD7, $0188
 #_0CE973: dw $1CDD, $0188, $1CDE, $0188, $0188, $0188, $1D5A, $0188
 #_0CE983: dw $1D5B, $0188, $1D5C, $0188, $1D5D
 
-#_0CE98D: dw VRAMaddrBE($CA42), $3900 ; 58 bytes | Horizontal
+#_0CE98D: dw $2165, $3900 ; VRAM $CA42 | 58 bytes | Horizontal
 #_0CE991: dw $1CAA, $0188, $1CAB, $0188, $1CAC, $0188, $0188, $0188
 #_0CE9A1: dw $0188, $0188, $1CCF, $0188, $1CE5, $0188, $1CE6, $0188
 #_0CE9B1: dw $1CE7, $0188, $1CED, $0188, $0188, $0188, $1D4E, $0188
 #_0CE9C1: dw $1D4F, $0188, $1D60, $0188, $1D61
 
-#_0CE9CB: dw VRAMaddrBE($CA82), $3900 ; 58 bytes | Horizontal
+#_0CE9CB: dw $4165, $3900 ; VRAM $CA82 | 58 bytes | Horizontal
 #_0CE9CF: dw $1CBA, $0188, $1CBB, $0188, $1CBC, $0188, $0188, $0188
 #_0CE9DF: dw $0188, $0188, $1CDF, $0188, $1CF5, $0188, $1CF6, $0188
 #_0CE9EF: dw $1CF7, $0188, $1CFD, $0188, $0188, $0188, $1D5E, $0188
 #_0CE9FF: dw $1D5F, $0188, $1D70, $0188, $1D71
 
-#_0CEA09: dw VRAMaddrBE($CAC2), $3900 ; 58 bytes | Horizontal
+#_0CEA09: dw $6165, $3900 ; VRAM $CAC2 | 58 bytes | Horizontal
 #_0CEA0D: dw $1CC2, $0188, $1CC3, $0188, $1CC4, $0188, $0188, $0188
 #_0CEA1D: dw $0188, $0188, $1CEE, $0188, $1CEF, $0188, $1D05, $0188
 #_0CEA2D: dw $1D06, $0188, $1D07, $0188, $0188, $0188, $1D62, $0188
 #_0CEA3D: dw $1D63, $0188, $1D64, $0188, $1D65
 
-#_0CEA47: dw VRAMaddrBE($CB02), $3900 ; 58 bytes | Horizontal
+#_0CEA47: dw $8165, $3900 ; VRAM $CB02 | 58 bytes | Horizontal
 #_0CEA4B: dw $1CD2, $0188, $1CD3, $0188, $1CD4, $0188, $0188, $0188
 #_0CEA5B: dw $0188, $0188, $1CFE, $0188, $1CFF, $0188, $1D15, $0188
 #_0CEA6B: dw $1D16, $0188, $1D17, $0188, $0188, $0188, $1D72, $0188
 #_0CEA7B: dw $1D73, $0188, $1D74, $0188, $1D75
 
-#_0CEA85: dw VRAMaddrBE($CB42), $3900 ; 58 bytes | Horizontal
+#_0CEA85: dw $A165, $3900 ; VRAM $CB42 | 58 bytes | Horizontal
 #_0CEA89: dw $1CCA, $0188, $1CCB, $0188, $1CCC, $0188, $0188, $0188
 #_0CEA99: dw $0188, $0188, $1D0D, $0188, $1D0E, $0188, $1D0F, $0188
 #_0CEAA9: dw $1D20, $0188, $1D21, $0188, $0188, $0188, $1D66, $0188
 #_0CEAB9: dw $1D67, $0188, $1D68, $0188, $1D69
 
-#_0CEAC3: dw VRAMaddrBE($CB82), $3900 ; 58 bytes | Horizontal
+#_0CEAC3: dw $C165, $3900 ; VRAM $CB82 | 58 bytes | Horizontal
 #_0CEAC7: dw $1CDA, $0188, $1CDB, $0188, $1CDC, $0188, $0188, $0188
 #_0CEAD7: dw $0188, $0188, $1D1D, $0188, $1D1E, $0188, $1D1F, $0188
 #_0CEAE7: dw $1D30, $0188, $1D31, $0188, $0188, $0188, $1D76, $0188
 #_0CEAF7: dw $1D77, $0188, $1D78, $0188, $1D79
 
-#_0CEB01: dw VRAMaddrBE($CBC2), $3900 ; 58 bytes | Horizontal
+#_0CEB01: dw $E165, $3900 ; VRAM $CBC2 | 58 bytes | Horizontal
 #_0CEB05: dw $1CE2, $0188, $1CE3, $0188, $1CE4, $0188, $0188, $0188
 #_0CEB15: dw $0188, $0188, $1D22, $0188, $1D23, $0188, $1D24, $0188
 #_0CEB25: dw $1D25, $0188, $1D26, $0188, $1D88, $0188, $1D6A, $0188
 #_0CEB35: dw $1D6B, $0188, $1D6C, $0188, $1D6D
 
-#_0CEB3F: dw VRAMaddrBE($CC02), $3900 ; 58 bytes | Horizontal
+#_0CEB3F: dw $0166, $3900 ; VRAM $CC02 | 58 bytes | Horizontal
 #_0CEB43: dw $1CF2, $0188, $1CF3, $0188, $1CF4, $0188, $0188, $0188
 #_0CEB53: dw $0188, $0188, $1D32, $0188, $1D33, $0188, $1D34, $0188
 #_0CEB63: dw $1D35, $0188, $1D36, $0188, $1D88, $0188, $1D7A, $0188
 #_0CEB73: dw $1D7B, $0188, $1D7C, $0188, $1D7D
 
-#_0CEB7D: dw VRAMaddrBE($CC42), $3900 ; 58 bytes | Horizontal
+#_0CEB7D: dw $2166, $3900 ; VRAM $CC42 | 58 bytes | Horizontal
 #_0CEB81: dw $1CEA, $0188, $1CEB, $0188, $1CEC, $0188, $0188, $0188
 #_0CEB91: dw $0188, $0188, $1D2B, $0188, $1D2C, $0188, $1D2D, $0188
 #_0CEBA1: dw $1D2E, $0188, $1D2F, $0188, $1D88, $0188, $1D6E, $0188
 #_0CEBB1: dw $1D6F, $0188, $1D80, $0188, $1D81
 
-#_0CEBBB: dw VRAMaddrBE($CC82), $3900 ; 58 bytes | Horizontal
+#_0CEBBB: dw $4166, $3900 ; VRAM $CC82 | 58 bytes | Horizontal
 #_0CEBBF: dw $1CFA, $0188, $1CFB, $0188, $1CFC, $0188, $0188, $0188
 #_0CEBCF: dw $0188, $0188, $1D3B, $0188, $1D3C, $0188, $1D3D, $0188
 #_0CEBDF: dw $1D3E, $0188, $1D3F, $0188, $1D88, $0188, $1D7E, $0188
 #_0CEBEF: dw $1D7F, $0188, $1D90, $0188, $1D91
 
-#_0CEBF9: dw VRAMaddrBE($CCC2), $3900 ; 58 bytes | Horizontal
+#_0CEBF9: dw $6166, $3900 ; VRAM $CCC2 | 58 bytes | Horizontal
 #_0CEBFD: dw $1D02, $0188, $1D03, $0188, $1D04, $0188, $0188, $0188
 #_0CEC0D: dw $0188, $0188, $1D27, $0188, $1D28, $0188, $1D29, $0188
 #_0CEC1D: dw $0188, $0188, $1D2A, $1D88, $0188, $0188, $1D82, $0188
 #_0CEC2D: dw $1D83, $0188, $1D89, $0188, $1D8E
 
-#_0CEC37: dw VRAMaddrBE($CD02), $3900 ; 58 bytes | Horizontal
+#_0CEC37: dw $8166, $3900 ; VRAM $CD02 | 58 bytes | Horizontal
 #_0CEC3B: dw $1D12, $0188, $1D13, $0188, $1D14, $0188, $0188, $0188
 #_0CEC4B: dw $0188, $0188, $1D37, $0188, $1D38, $0188, $1D39, $0188
 #_0CEC5B: dw $0188, $0188, $1D3A, $1D88, $0188, $0188, $1D92, $0188
 #_0CEC6B: dw $1D93, $0188, $1D99, $0188, $1D9E
 
-#_0CEC75: dw VRAMaddrBE($CD42), $0900 ; 10 bytes | Horizontal
+#_0CEC75: dw $A166, $0900 ; VRAM $CD42 | 10 bytes | Horizontal
 #_0CEC79: dw $1CA6, $0188, $0188, $0188, $1CA7
 
-#_0CEC83: dw VRAMaddrBE($CD82), $0900 ; 10 bytes | Horizontal
+#_0CEC83: dw $C166, $0900 ; VRAM $CD82 | 10 bytes | Horizontal
 #_0CEC87: dw $1CB6, $0188, $0188, $0188, $1CB7
 
-#_0CEC91: dw VRAMaddrBE($CDC2), $0900 ; 10 bytes | Horizontal
+#_0CEC91: dw $E166, $0900 ; VRAM $CDC2 | 10 bytes | Horizontal
 #_0CEC95: dw $1D0A, $0188, $1D0B, $0188, $1D0C
 
-#_0CEC9F: dw VRAMaddrBE($CE02), $0900 ; 10 bytes | Horizontal
+#_0CEC9F: dw $0167, $0900 ; VRAM $CE02 | 10 bytes | Horizontal
 #_0CECA3: dw $1D1A, $0188, $1D1B, $0188, $1D1C
 
-#_0CECAD: dw VRAMaddrBE($CE42), $0900 ; 10 bytes | Horizontal
+#_0CECAD: dw $2167, $0900 ; VRAM $CE42 | 10 bytes | Horizontal
 #_0CECB1: dw $1CAF, $0188, $0188, $0188, $1D89
 
-#_0CECBB: dw VRAMaddrBE($CE82), $0900 ; 10 bytes | Horizontal
+#_0CECBB: dw $4167, $0900 ; VRAM $CE82 | 10 bytes | Horizontal
 #_0CECBF: dw $1CBF, $0188, $0188, $0188, $1D99
 
-#_0CECC9: dw VRAMaddrBE($CDEE), $0D00 ; 14 bytes | Horizontal
+#_0CECC9: dw $F766, $0D00 ; VRAM $CDEE | 14 bytes | Horizontal
 #_0CECCD: dw $1D8A, $0188, $1D8B, $0188, $1D4E, $1D67, $1D4D
 
-#_0CECDB: dw VRAMaddrBE($CE2E), $0D00 ; 14 bytes | Horizontal
+#_0CECDB: dw $1767, $0D00 ; VRAM $CE2E | 14 bytes | Horizontal
 #_0CECDF: dw $1D9A, $0188, $1D9B, $0188, $1D5E, $1D77, $1D5D
 
 #_0CECED: db $FF ; end of stripes data
@@ -13168,7 +13168,7 @@ Attract_Initialize:
 #_0CEDF8: LDA.b #$C0
 #_0CEDFA: STA.b $9B
 
-#_0CEDFC: LDA.b #!SONG_06
+#_0CEDFC: LDA.b #$06 ; SONG 06
 #_0CEDFE: STA.w $012C
 
 #_0CEE01: INC.b $27
@@ -13642,7 +13642,7 @@ InitializeTriforceIntro:
 
 #_0CF05A: SEP #$20
 
-#_0CF05C: LDA.b #!SONG_F1_FADE
+#_0CF05C: LDA.b #$F1 ; SONG F1 - fade
 #_0CF05E: STA.w $012C
 
 #_0CF061: STZ.b $23
@@ -14095,7 +14095,7 @@ AttractDramatize_Prison:
 #_0CF261: AND.b #$08
 #_0CF263: BEQ .delay_sfx
 
-#_0CF265: LDA.b #!SFX3_04
+#_0CF265: LDA.b #$04 ; SFX3.04
 #_0CF267: STA.w $012F
 
 .delay_sfx
@@ -14361,7 +14361,7 @@ AttractDramatize_AgahnimAltar:
 #_0CF393: AND.b #$04
 #_0CF395: BEQ .delay_sfx
 
-#_0CF397: LDX.b #!SFX3_2B
+#_0CF397: LDX.b #$2B ; SFX3.2B
 #_0CF399: STX.w $012F
 
 ;---------------------------------------------------------------------------------------------------
@@ -14693,7 +14693,7 @@ Dramagahnim_ReadySpell:
 #_0CF522: CPY.b #$70
 #_0CF524: BNE .delay_sfx
 
-#_0CF526: LDX.b #!SFX3_27
+#_0CF526: LDX.b #$27 ; SFX3.27
 #_0CF528: STX.w $012F
 
 ;---------------------------------------------------------------------------------------------------
@@ -14708,7 +14708,7 @@ Dramagahnim_ReadySpell:
 #_0CF533: LDX.b #$90
 #_0CF535: STX.w $0FF9
 
-#_0CF538: LDX.b #!SFX3_2B
+#_0CF538: LDX.b #$2B ; SFX3.2B
 #_0CF53A: STX.w $012F
 
 ;---------------------------------------------------------------------------------------------------
@@ -14888,7 +14888,7 @@ Dramagahnim_RealizeWhatJustHappened:
 
 #_0CF5DE: INC.b $52
 
-#_0CF5E0: LDA.b #!SFX2_33
+#_0CF5E0: LDA.b #$33 ; SFX2.33
 #_0CF5E2: STA.w $012E
 
 .delay_sfx
@@ -15774,28 +15774,28 @@ Attract_SetUpWindowingHDMA:
 ;===================================================================================================
 
 AttractImage0Stripes:
-#_0CFA0D: dw VRAMaddrBE($C2CA), $2840 ; 42 bytes | Fixed horizontal
+#_0CFA0D: dw $6561, $2840 ; VRAM $C2CA | 42 bytes | Fixed horizontal
 #_0CFA11: dw $3500
 
-#_0CFA13: dw VRAMaddrBE($C30A), $2840 ; 42 bytes | Fixed horizontal
+#_0CFA13: dw $8561, $2840 ; VRAM $C30A | 42 bytes | Fixed horizontal
 #_0CFA17: dw $3510
 
-#_0CFA19: dw VRAMaddrBE($C34A), $2900 ; 42 bytes | Horizontal
+#_0CFA19: dw $A561, $2900 ; VRAM $C34A | 42 bytes | Horizontal
 #_0CFA1D: dw $3501, $3502, $3501, $3502, $3501, $3502, $3501, $3502
 #_0CFA2D: dw $3501, $3103, $7103, $3502, $3501, $3502, $3501, $3502
 #_0CFA3D: dw $3501, $3502, $3501, $3502, $3501
 
-#_0CFA47: dw VRAMaddrBE($C38A), $2900 ; 42 bytes | Horizontal
+#_0CFA47: dw $C561, $2900 ; VRAM $C38A | 42 bytes | Horizontal
 #_0CFA4B: dw $3511, $3512, $3511, $3512, $3511, $3512, $3511, $3512
 #_0CFA5B: dw $3511, $3513, $7513, $3512, $3511, $3512, $3511, $3512
 #_0CFA6B: dw $3511, $3512, $3511, $3512, $3511
 
-#_0CFA75: dw VRAMaddrBE($C3CA), $2900 ; 42 bytes | Horizontal
+#_0CFA75: dw $E561, $2900 ; VRAM $C3CA | 42 bytes | Horizontal
 #_0CFA79: dw $3520, $3521, $3520, $3521, $3520, $3521, $3520, $3521
 #_0CFA89: dw $3520, $3521, $3520, $3521, $3520, $3521, $3520, $3521
 #_0CFA99: dw $3520, $3521, $3520, $3521, $3520
 
-#_0CFAA3: dw VRAMaddrBE($C40A), $2840 ; 42 bytes | Fixed horizontal
+#_0CFAA3: dw $0562, $2840 ; VRAM $C40A | 42 bytes | Fixed horizontal
 #_0CFAA7: dw $B500
 
 #_0CFAA9: db $FF ; end of stripes data
@@ -15803,35 +15803,35 @@ AttractImage0Stripes:
 ;===================================================================================================
 
 AttractImage1Stripes:
-#_0CFAAA: dw VRAMaddrBE($C2CA), $2840 ; 42 bytes | Fixed horizontal
+#_0CFAAA: dw $6561, $2840 ; VRAM $C2CA | 42 bytes | Fixed horizontal
 #_0CFAAE: dw $3500
 
-#_0CFAB0: dw VRAMaddrBE($C30A), $1300 ; 20 bytes | Horizontal
+#_0CFAB0: dw $8561, $1300 ; VRAM $C30A | 20 bytes | Horizontal
 #_0CFAB4: dw $3510, $754E, $356E, $3510, $354E, $3510, $354C, $3510
 #_0CFAC4: dw $754E, $3549
 
-#_0CFAC8: dw VRAMaddrBE($C31E), $0840 ; 10 bytes | Fixed horizontal
+#_0CFAC8: dw $8F61, $0840 ; VRAM $C31E | 10 bytes | Fixed horizontal
 #_0CFACC: dw $3510
 
-#_0CFACE: dw VRAMaddrBE($C328), $0B00 ; 12 bytes | Horizontal
+#_0CFACE: dw $9461, $0B00 ; VRAM $C328 | 12 bytes | Horizontal
 #_0CFAD2: dw $754E, $356E, $3510, $354E, $3510, $354C
 
-#_0CFADE: dw VRAMaddrBE($C34A), $2900 ; 42 bytes | Horizontal
+#_0CFADE: dw $A561, $2900 ; VRAM $C34A | 42 bytes | Horizontal
 #_0CFAE2: dw $755F, $755E, $357E, $357F, $355E, $355F, $354D, $755F
 #_0CFAF2: dw $755E, $354A, $354B, $3510, $7549, $3510, $755F, $755E
 #_0CFB02: dw $357E, $357F, $355E, $355F, $354D
 
-#_0CFB0C: dw VRAMaddrBE($C38A), $2900 ; 42 bytes | Horizontal
+#_0CFB0C: dw $C561, $2900 ; VRAM $C38A | 42 bytes | Horizontal
 #_0CFB10: dw $3550, $3551, $3552, $3553, $3554, $3555, $3556, $3557
 #_0CFB20: dw $3558, $3559, $355A, $355B, $355C, $355D, $3550, $3551
 #_0CFB30: dw $3552, $3553, $3554, $3555, $3556
 
-#_0CFB3A: dw VRAMaddrBE($C3CA), $2900 ; 42 bytes | Horizontal
+#_0CFB3A: dw $E561, $2900 ; VRAM $C3CA | 42 bytes | Horizontal
 #_0CFB3E: dw $3560, $3561, $3562, $3563, $3564, $3565, $3566, $3567
 #_0CFB4E: dw $3568, $3569, $356A, $356B, $356C, $356D, $3560, $3561
 #_0CFB5E: dw $3562, $3563, $3564, $3565, $3566
 
-#_0CFB68: dw VRAMaddrBE($C40A), $2900 ; 42 bytes | Horizontal
+#_0CFB68: dw $0562, $2900 ; VRAM $C40A | 42 bytes | Horizontal
 #_0CFB6C: dw $3570, $3571, $3572, $3573, $3574, $3575, $3576, $3577
 #_0CFB7C: dw $3578, $3579, $357A, $357B, $357C, $357D, $3570, $3571
 #_0CFB8C: dw $3572, $3573, $3574, $3575, $3576
@@ -15841,33 +15841,33 @@ AttractImage1Stripes:
 ;===================================================================================================
 
 AttractImage2Stripes:
-#_0CFB97: dw VRAMaddrBE($C2CA), $2840 ; 42 bytes | Fixed horizontal
+#_0CFB97: dw $6561, $2840 ; VRAM $C2CA | 42 bytes | Fixed horizontal
 #_0CFB9B: dw $3500
 
-#_0CFB9D: dw VRAMaddrBE($C30A), $2840 ; 42 bytes | Fixed horizontal
+#_0CFB9D: dw $8561, $2840 ; VRAM $C30A | 42 bytes | Fixed horizontal
 #_0CFBA1: dw $3510
 
-#_0CFBA3: dw VRAMaddrBE($C34A), $1D00 ; 30 bytes | Horizontal
+#_0CFBA3: dw $A561, $1D00 ; VRAM $C34A | 30 bytes | Horizontal
 #_0CFBA7: dw $3522, $3523, $3510, $3522, $3523, $3510, $3522, $3523
 #_0CFBB7: dw $3510, $3522, $3523, $3510, $7510, $7523, $7522
 
-#_0CFBC5: dw VRAMaddrBE($C368), $0640 ; 8 bytes | Fixed horizontal
+#_0CFBC5: dw $B461, $0640 ; VRAM $C368 | 8 bytes | Fixed horizontal
 #_0CFBC9: dw $3510
 
-#_0CFBCB: dw VRAMaddrBE($C370), $0300 ; 4 bytes | Horizontal
+#_0CFBCB: dw $B861, $0300 ; VRAM $C370 | 4 bytes | Horizontal
 #_0CFBCF: dw $7523, $7522
 
-#_0CFBD3: dw VRAMaddrBE($C38A), $2900 ; 42 bytes | Horizontal
+#_0CFBD3: dw $C561, $2900 ; VRAM $C38A | 42 bytes | Horizontal
 #_0CFBD7: dw $3504, $3505, $3506, $3504, $3505, $3506, $3504, $3505
 #_0CFBE7: dw $3506, $3504, $3505, $3506, $7506, $7505, $7504, $7510
 #_0CFBF7: dw $7523, $7522, $7506, $7505, $7504
 
-#_0CFC01: dw VRAMaddrBE($C3CA), $2900 ; 42 bytes | Horizontal
+#_0CFC01: dw $E561, $2900 ; VRAM $C3CA | 42 bytes | Horizontal
 #_0CFC05: dw $3514, $3515, $3516, $3514, $3515, $3516, $3514, $3515
 #_0CFC15: dw $3516, $3514, $3515, $3516, $7516, $7515, $7514, $7506
 #_0CFC25: dw $7505, $7504, $7516, $7515, $7514
 
-#_0CFC2F: dw VRAMaddrBE($C40A), $2900 ; 42 bytes | Horizontal
+#_0CFC2F: dw $0562, $2900 ; VRAM $C40A | 42 bytes | Horizontal
 #_0CFC33: dw $3524, $3525, $3526, $3524, $3525, $3526, $3524, $3525
 #_0CFC43: dw $3526, $3524, $3525, $3526, $7526, $7525, $7524, $7526
 #_0CFC53: dw $7525, $7524, $7526, $7525, $7524
@@ -15877,36 +15877,36 @@ AttractImage2Stripes:
 ;===================================================================================================
 
 AttractImage3Stripes:
-#_0CFC5E: dw VRAMaddrBE($C2CA), $2900 ; 42 bytes | Horizontal
+#_0CFC5E: dw $6561, $2900 ; VRAM $C2CA | 42 bytes | Horizontal
 #_0CFC62: dw $3500, $3500, $351B, $3530, $3531, $3532, $3500, $3500
 #_0CFC72: dw $3500, $3533, $3541, $7541, $7533, $7500, $7500, $7500
 #_0CFC82: dw $7532, $7531, $7530, $751B, $7500
 
-#_0CFC8C: dw VRAMaddrBE($C30A), $1E40 ; 32 bytes | Fixed horizontal
+#_0CFC8C: dw $8561, $1E40 ; VRAM $C30A | 32 bytes | Fixed horizontal
 #_0CFC90: dw $3510
 
-#_0CFC92: dw VRAMaddrBE($C30C), $0900 ; 10 bytes | Horizontal
+#_0CFC92: dw $8661, $0900 ; VRAM $C30C | 10 bytes | Horizontal
 #_0CFC96: dw $3534, $350B, $3540, $3541, $3542
 
-#_0CFCA0: dw VRAMaddrBE($C32A), $0900 ; 10 bytes | Horizontal
+#_0CFCA0: dw $9561, $0900 ; VRAM $C32A | 10 bytes | Horizontal
 #_0CFCA4: dw $7542, $7541, $7540, $750B, $7534
 
-#_0CFCAE: dw VRAMaddrBE($C34A), $2900 ; 42 bytes | Horizontal
+#_0CFCAE: dw $A561, $2900 ; VRAM $C34A | 42 bytes | Horizontal
 #_0CFCB2: dw $3543, $3544, $3507, $3508, $3509, $350A, $3510, $350C
 #_0CFCC2: dw $350D, $350E, $350F, $750F, $750E, $750D, $750C, $7510
 #_0CFCD2: dw $750A, $7509, $7508, $7507, $7544
 
-#_0CFCDC: dw VRAMaddrBE($C38A), $2900 ; 42 bytes | Horizontal
+#_0CFCDC: dw $C561, $2900 ; VRAM $C38A | 42 bytes | Horizontal
 #_0CFCE0: dw $3535, $3536, $3517, $3518, $3519, $351A, $3510, $351C
 #_0CFCF0: dw $351D, $351E, $351F, $751F, $751E, $751D, $751C, $7510
 #_0CFD00: dw $751A, $7519, $7518, $7517, $7536
 
-#_0CFD0A: dw VRAMaddrBE($C3CA), $2900 ; 42 bytes | Horizontal
+#_0CFD0A: dw $E561, $2900 ; VRAM $C3CA | 42 bytes | Horizontal
 #_0CFD0E: dw $3545, $3546, $3527, $3528, $3529, $352A, $352B, $352C
 #_0CFD1E: dw $352D, $352E, $352F, $752F, $752E, $752D, $752C, $752B
 #_0CFD2E: dw $752A, $7529, $7528, $7527, $7546
 
-#_0CFD38: dw VRAMaddrBE($C40A), $2900 ; 42 bytes | Horizontal
+#_0CFD38: dw $0562, $2900 ; VRAM $C40A | 42 bytes | Horizontal
 #_0CFD3C: dw $3547, $3548, $3537, $3538, $3539, $353A, $353B, $353C
 #_0CFD4C: dw $353D, $353E, $353F, $753F, $753E, $753D, $753C, $753B
 #_0CFD5C: dw $753A, $7539, $7538, $7537, $7548
@@ -15935,82 +15935,82 @@ NULL_0CFD67:
 ;===================================================================================================
 
 UnderworldPaletteSets:
-#_0CFDD0: db $00, $00, $03, $01
-#_0CFDD4: db $02, $00, $03, $01
-#_0CFDD8: db $04, $00, $0A, $01
-#_0CFDDC: db $06, $00, $01, $07
-#_0CFDE0: db $0A, $02, $02, $07
-#_0CFDE4: db $04, $04, $03, $0A
-#_0CFDE8: db $0C, $05, $08, $14
-#_0CFDEC: db $0E, $00, $03, $0A
-#_0CFDF0: db $02, $00, $0F, $14
-#_0CFDF4: db $0A, $02, $00, $07
-#_0CFDF8: db $02, $00, $0F, $0C
-#_0CFDFC: db $06, $00, $06, $07
-#_0CFE00: db $00, $00, $0E, $12
-#_0CFE04: db $12, $05, $05, $0B
-#_0CFE08: db $12, $00, $02, $0C
-#_0CFE0C: db $10, $05, $0A, $07
-#_0CFE10: db $10, $00, $10, $0C
-#_0CFE14: db $16, $07, $02, $07
-#_0CFE18: db $16, $00, $07, $0F
-#_0CFE1C: db $08, $00, $04, $0C
-#_0CFE20: db $08, $00, $04, $09
-#_0CFE24: db $04, $00, $03, $01
-#_0CFE28: db $14, $00, $04, $04
-#_0CFE2C: db $14, $00, $14, $0C
-#_0CFE30: db $18, $05, $07, $0B
-#_0CFE34: db $18, $06, $10, $0C
-#_0CFE38: db $1A, $05, $08, $14
-#_0CFE3C: db $1A, $02, $00, $07
-#_0CFE40: db $06, $00, $03, $0A
-#_0CFE44: db $1C, $00, $03, $01
-#_0CFE48: db $1E, $00, $0B, $11
-#_0CFE4C: db $04, $00, $0B, $11
-#_0CFE50: db $0E, $00, $00, $02
-#_0CFE54: db $20, $08, $13, $0D
-#_0CFE58: db $0A, $00, $03, $0A
-#_0CFE5C: db $14, $00, $04, $04
-#_0CFE60: db $1A, $02, $02, $07
-#_0CFE64: db $1A, $0A, $00, $00
-#_0CFE68: db $00, $00, $03, $02
-#_0CFE6C: db $0E, $00, $03, $07
-#_0CFE70: db $1A, $05, $05, $0B
+#_0CFDD0: db $00, $00, $03, $01 ; 0x00
+#_0CFDD4: db $02, $00, $03, $01 ; 0x01
+#_0CFDD8: db $04, $00, $0A, $01 ; 0x02
+#_0CFDDC: db $06, $00, $01, $07 ; 0x03
+#_0CFDE0: db $0A, $02, $02, $07 ; 0x04
+#_0CFDE4: db $04, $04, $03, $0A ; 0x05
+#_0CFDE8: db $0C, $05, $08, $14 ; 0x06
+#_0CFDEC: db $0E, $00, $03, $0A ; 0x07
+#_0CFDF0: db $02, $00, $0F, $14 ; 0x08
+#_0CFDF4: db $0A, $02, $00, $07 ; 0x09
+#_0CFDF8: db $02, $00, $0F, $0C ; 0x0A
+#_0CFDFC: db $06, $00, $06, $07 ; 0x0B
+#_0CFE00: db $00, $00, $0E, $12 ; 0x0C
+#_0CFE04: db $12, $05, $05, $0B ; 0x0D
+#_0CFE08: db $12, $00, $02, $0C ; 0x0E
+#_0CFE0C: db $10, $05, $0A, $07 ; 0x0F
+#_0CFE10: db $10, $00, $10, $0C ; 0x10
+#_0CFE14: db $16, $07, $02, $07 ; 0x11
+#_0CFE18: db $16, $00, $07, $0F ; 0x12
+#_0CFE1C: db $08, $00, $04, $0C ; 0x13
+#_0CFE20: db $08, $00, $04, $09 ; 0x14
+#_0CFE24: db $04, $00, $03, $01 ; 0x15
+#_0CFE28: db $14, $00, $04, $04 ; 0x16
+#_0CFE2C: db $14, $00, $14, $0C ; 0x17
+#_0CFE30: db $18, $05, $07, $0B ; 0x18
+#_0CFE34: db $18, $06, $10, $0C ; 0x19
+#_0CFE38: db $1A, $05, $08, $14 ; 0x1A
+#_0CFE3C: db $1A, $02, $00, $07 ; 0x1B
+#_0CFE40: db $06, $00, $03, $0A ; 0x1C
+#_0CFE44: db $1C, $00, $03, $01 ; 0x1D
+#_0CFE48: db $1E, $00, $0B, $11 ; 0x1E
+#_0CFE4C: db $04, $00, $0B, $11 ; 0x1F
+#_0CFE50: db $0E, $00, $00, $02 ; 0x20
+#_0CFE54: db $20, $08, $13, $0D ; 0x21
+#_0CFE58: db $0A, $00, $03, $0A ; 0x22
+#_0CFE5C: db $14, $00, $04, $04 ; 0x23
+#_0CFE60: db $1A, $02, $02, $07 ; 0x24
+#_0CFE64: db $1A, $0A, $00, $00 ; 0x25
+#_0CFE68: db $00, $00, $03, $02 ; 0x26
+#_0CFE6C: db $0E, $00, $03, $07 ; 0x27
+#_0CFE70: db $1A, $05, $05, $0B ; 0x28
 
 ;===================================================================================================
 
 OverworldPaletteSet:
-#_0CFE74: db $00, $FF, $07, $FF
-#_0CFE78: db $00, $01, $07, $FF
-#_0CFE7C: db $00, $02, $07, $FF
-#_0CFE80: db $00, $03, $07, $FF
-#_0CFE84: db $00, $04, $07, $FF
-#_0CFE88: db $00, $05, $07, $FF
-#_0CFE8C: db $00, $06, $07, $FF
-#_0CFE90: db $07, $06, $05, $FF
-#_0CFE94: db $00, $08, $07, $FF
-#_0CFE98: db $00, $09, $07, $FF
-#_0CFE9C: db $00, $0A, $07, $FF
-#_0CFEA0: db $00, $0B, $07, $FF
-#_0CFEA4: db $00, $FF, $07, $FF
-#_0CFEA8: db $00, $FF, $07, $FF
-#_0CFEAC: db $03, $04, $07, $FF
-#_0CFEB0: db $04, $04, $03, $FF
-#_0CFEB4: db $10, $FF, $06, $FF
-#_0CFEB8: db $10, $01, $06, $FF
-#_0CFEBC: db $10, $11, $06, $FF
-#_0CFEC0: db $10, $03, $06, $FF
-#_0CFEC4: db $10, $04, $06, $FF
-#_0CFEC8: db $10, $05, $06, $FF
-#_0CFECC: db $10, $06, $06, $FF
-#_0CFED0: db $12, $13, $04, $FF
-#_0CFED4: db $12, $05, $04, $FF
-#_0CFED8: db $10, $09, $06, $FF
-#_0CFEDC: db $10, $0B, $06, $FF
-#_0CFEE0: db $10, $0C, $06, $FF
-#_0CFEE4: db $10, $0D, $06, $FF
-#_0CFEE8: db $10, $0E, $06, $FF
-#_0CFEEC: db $10, $0F, $06, $FF
+#_0CFE74: db $00, $FF, $07, $FF ; 0x00
+#_0CFE78: db $00, $01, $07, $FF ; 0x01
+#_0CFE7C: db $00, $02, $07, $FF ; 0x02
+#_0CFE80: db $00, $03, $07, $FF ; 0x03
+#_0CFE84: db $00, $04, $07, $FF ; 0x04
+#_0CFE88: db $00, $05, $07, $FF ; 0x05
+#_0CFE8C: db $00, $06, $07, $FF ; 0x06
+#_0CFE90: db $07, $06, $05, $FF ; 0x07
+#_0CFE94: db $00, $08, $07, $FF ; 0x08
+#_0CFE98: db $00, $09, $07, $FF ; 0x09
+#_0CFE9C: db $00, $0A, $07, $FF ; 0x0A
+#_0CFEA0: db $00, $0B, $07, $FF ; 0x0B
+#_0CFEA4: db $00, $FF, $07, $FF ; 0x0C
+#_0CFEA8: db $00, $FF, $07, $FF ; 0x0D
+#_0CFEAC: db $03, $04, $07, $FF ; 0x0E
+#_0CFEB0: db $04, $04, $03, $FF ; 0x0F
+#_0CFEB4: db $10, $FF, $06, $FF ; 0x10
+#_0CFEB8: db $10, $01, $06, $FF ; 0x11
+#_0CFEBC: db $10, $11, $06, $FF ; 0x12
+#_0CFEC0: db $10, $03, $06, $FF ; 0x13
+#_0CFEC4: db $10, $04, $06, $FF ; 0x14
+#_0CFEC8: db $10, $05, $06, $FF ; 0x15
+#_0CFECC: db $10, $06, $06, $FF ; 0x16
+#_0CFED0: db $12, $13, $04, $FF ; 0x17
+#_0CFED4: db $12, $05, $04, $FF ; 0x18
+#_0CFED8: db $10, $09, $06, $FF ; 0x19
+#_0CFEDC: db $10, $0B, $06, $FF ; 0x1A
+#_0CFEE0: db $10, $0C, $06, $FF ; 0x1B
+#_0CFEE4: db $10, $0D, $06, $FF ; 0x1C
+#_0CFEE8: db $10, $0E, $06, $FF ; 0x1D
+#_0CFEEC: db $10, $0F, $06, $FF ; 0x1E
 
 ;===================================================================================================
 

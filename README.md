@@ -41,7 +41,6 @@ This disassembly was created with a number of specific guidelines
 * For data bank and direct page changes, the full address will be written out.
 * In data tables, the number of entries per line is determined by how they should logically be grouped. In all other cases, they are grouped in sets of four or eight.
 * The MVN and MVP instructions are written with a macro so that writing them in the standard way assembles correctly.
-* A list of standardized names for various entity classes is found in `defines.asm`.
-* For maximum clarity, there are many defines of the form !DEFINE_HH, where DEFINE is scope or ID of the hexadecimal value HH.
+* A list of standardized names for various entity classes is found in `values.asm`.
 * My personal thoughts are noted in some comments with !WORD, where WORD is in all caps.
 * The `.ly` files in the `resources/music/` directory can be compiled with [LilyPond](https://lilypond.org/).

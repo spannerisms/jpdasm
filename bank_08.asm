@@ -215,7 +215,7 @@ AncillaAdd_FireRodShot:
 
 #_0880D6: PHY
 
-#_0880D7: LDA.b #!SFX2_0E
+#_0880D7: LDA.b #$0E ; SFX2.0E
 #_0880D9: JSR Ancilla_SFX2_Near
 
 #_0880DC: PLY
@@ -283,7 +283,7 @@ AncillaAdd_FireRodShot:
 ;---------------------------------------------------------------------------------------------------
 ; !WTF
 #_088134: LDA.w $0C4A,Y
-#_088137: CMP.b #!ANCILLA_01
+#_088137: CMP.b #$01 ; ANCILLA 01
 #_088139: BEQ .is_somaria_bullet
 
 #_08813B: LDA.w .flame_speed_x,X
@@ -336,10 +336,10 @@ AncillaAdd_FireRodShot:
 
 .disperse_on_spawn
 #_088170: LDA.w $0C4A,Y
-#_088173: CMP.b #!ANCILLA_01
+#_088173: CMP.b #$01 ; ANCILLA 01
 #_088175: BNE .not_bullet
 
-#_088177: LDA.b #!ANCILLA_04
+#_088177: LDA.b #$04 ; ANCILLA 04
 #_088179: STA.w $0C4A,Y
 
 #_08817C: LDA.b #$07
@@ -362,7 +362,7 @@ AncillaAdd_FireRodShot:
 #_088192: LDA.b #$08
 #_088194: STA.w $0C90,Y
 
-#_088197: LDA.b #!SFX2_2A
+#_088197: LDA.b #$2A ; SFX2.2A
 #_088199: JSR Ancilla_SFX2_Pan
 
 .exit_b
@@ -420,13 +420,13 @@ SomariaBlock_SpawnBullets:
 
 .next_spawn
 #_0881D5: LDY.b #$04
-#_0881D7: LDA.b #!ANCILLA_01
+#_0881D7: LDA.b #$01 ; ANCILLA 01
 #_0881D9: JSL Ancilla_CheckForAvailableSlot
 #_0881DD: BMI .spawn_failed
 
 #_0881DF: PHX
 
-#_0881E0: LDA.b #!ANCILLA_01
+#_0881E0: LDA.b #$01 ; ANCILLA 01
 #_0881E2: STA.w $0C4A,Y
 
 #_0881E5: TAX
@@ -492,7 +492,7 @@ Ancilla_Main:
 #_088243: PHK
 #_088244: PLB
 
-#_088245: JSR Ancilla_RepulseSpark
+#_088245: JSR Ancilla_WeaponTink
 #_088248: JSR Ancilla_ExecuteAll
 
 #_08824B: PLB
@@ -610,7 +610,7 @@ Bomb_CheckSpriteDamage:
 ;---------------------------------------------------------------------------------------------------
 
 #_0882E1: LDA.w $0E20,Y
-#_0882E4: CMP.b #!SPRITE_92
+#_0882E4: CMP.b #$92 ; SPRITE 92
 #_0882E6: BNE .not_king_helma
 
 #_0882E8: LDA.w $0DB0,Y
@@ -794,7 +794,7 @@ Ancilla_ExecuteOne:
 #_0883E1: dw Ancilla32_BlastWallFireball
 #_0883E3: dw Ancilla33_BlastWallExplosion
 #_0883E5: dw Ancilla34_SkullWoodsFire
-#_0883E7: dw Ancilla35_MasterSwordGet
+#_0883E7: dw Ancilla35_MasterSwordReceipt
 #_0883E9: dw Ancilla36_Flute
 #_0883EB: dw Ancilla37_WeathervaneExplosion
 #_0883ED: dw Ancilla38_CutsceneDuck
@@ -809,6 +809,7 @@ Ancilla_ExecuteOne:
 #_0883FF: dw Ancilla41_WaterfallSplash
 #_088401: dw Ancilla42_HappinessPondRupees
 #_088403: dw Ancilla43_GanonsTowerCutscene
+
 ;===================================================================================================
 ; The little sparkle thingies that come off the ice rod shot
 ;===================================================================================================
@@ -854,7 +855,7 @@ Ancilla13_IceRodSparkle:
 
 ; We're looking for an ice rod shot to steal OAM properties from
 #_08844A: LDY.b #$04
-#_08844C: LDA.b #!ANCILLA_0B
+#_08844C: LDA.b #$0B ; ANCILLA 0B
 
 .next_slot
 #_08844E: CMP.w $0C4A,Y ; look for the main shot
@@ -889,8 +890,6 @@ Ancilla13_IceRodSparkle:
 
 .ignore_layer
 #_088477: JSL OAM_AllocateFromRegionA
-
-;---------------------------------------------------------------------------------------------------
 
 .draw
 #_08847B: LDY.b #$00
@@ -997,7 +996,7 @@ AncillaAdd_IceRodSparkle:
 ;---------------------------------------------------------------------------------------------------
 
 .free_slot
-#_0884E1: LDA.b #!ANCILLA_13
+#_0884E1: LDA.b #$13 ; ANCILLA 13
 #_0884E3: STA.w $0C4A,Y
 
 #_0884E6: LDA.b #$0F
@@ -1015,8 +1014,6 @@ AncillaAdd_IceRodSparkle:
 #_0884F9: STA.w $0C22,Y
 
 #_0884FC: PLX
-
-;---------------------------------------------------------------------------------------------------
 
 ; copy some properties from parent
 #_0884FD: LDA.w $0C04,X
@@ -1082,7 +1079,7 @@ Ancilla01_SomariaBullet:
 #_08854E: BCC .draw
 
 .collision
-#_088550: LDA.b #!ANCILLA_04
+#_088550: LDA.b #$04 ; ANCILLA 04
 #_088552: STA.w $0C4A,X
 
 #_088555: LDA.b #$07
@@ -1318,14 +1315,10 @@ SomariaBlast_Draw:
 #_088689: LDA.w .offset_y_a,X
 #_08868C: BMI .hide_a
 
-;---------------------------------------------------------------------------------------------------
-
 #_08868E: CLC
 #_08868F: ADC.b $01
 #_088691: LDY.b #$01
 #_088693: STA.b ($90),Y
-
-;---------------------------------------------------------------------------------------------------
 
 .hide_a
 #_088695: LDA.w .offset_y_b,X
@@ -1436,7 +1429,7 @@ FireRodShot_Moving:
 #_088722: LDA.b #$08
 #_088724: STA.w $0C90,X
 
-#_088727: LDA.b #!SFX2_2A
+#_088727: LDA.b #$2A ; SFX2.2A
 #_088729: JSR Ancilla_SFX2_Pan
 
 ;---------------------------------------------------------------------------------------------------
@@ -1579,7 +1572,7 @@ FireRodShot_Dissipate:
 
 #_0887CE: STZ.w $0C4A,X
 
-#_0887D1: CMP.b #!ANCILLA_2F
+#_0887D1: CMP.b #$2F ; ANCILLA 2F
 #_0887D3: BEQ .no_burn
 
 #_0887D5: LDA.b $8A
@@ -1587,7 +1580,7 @@ FireRodShot_Dissipate:
 #_0887D9: BNE .no_burn
 
 #_0887DB: LDA.w $03E4,X
-#_0887DE: CMP.b #!TILETYPE_43
+#_0887DE: CMP.b #$43 ; TILETYPE 43
 #_0887E0: BNE .no_burn
 
 #_0887E2: PHX
@@ -1962,7 +1955,7 @@ Ancilla_CheckTileCollision_targeted:
 #_088A64: STA.b $0F
 
 #_088A66: LDA.w $0C4A,X
-#_088A69: CMP.b #!ANCILLA_02
+#_088A69: CMP.b #$02 ; ANCILLA 02
 #_088A6B: BNE .no_firetorch
 
 #_088A6D: TYA
@@ -2275,7 +2268,7 @@ Ancilla_CheckTileCollision_Class2:
 .save_tile
 #_088C9F: STA.w $03E4,X
 
-#_088CA2: CMP.b #!TILETYPE_03
+#_088CA2: CMP.b #$03 ; TILETYPE 03
 #_088CA4: BNE .not_slope3
 
 #_088CA6: LDY.w $03CA,X
@@ -2434,10 +2427,10 @@ Ancilla_CheckSpriteCollision:
 
 .next_sprite
 #_088D6A: LDA.w $0C4A,X
-#_088D6D: CMP.b #!ANCILLA_09
+#_088D6D: CMP.b #$09 ; ANCILLA 09
 #_088D6F: BEQ .arrow_or_hook
 
-#_088D71: CMP.b #!ANCILLA_1F
+#_088D71: CMP.b #$1F ; ANCILLA 1F
 #_088D73: BEQ .arrow_or_hook
 
 #_088D75: TYA
@@ -2522,11 +2515,11 @@ Ancilla_CheckSpriteCollision_Single:
 #_088DC8: BEQ .arrow_continue
 
 #_088DCA: LDA.w $0C4A,X
-#_088DCD: CMP.b #!ANCILLA_09
+#_088DCD: CMP.b #$09 ; ANCILLA 09
 #_088DCF: BNE .arrow_continue
 
 #_088DD1: LDA.w $0E20,Y
-#_088DD4: CMP.b #!SPRITE_1B
+#_088DD4: CMP.b #$1B ; SPRITE 1B
 #_088DD6: BEQ .arrow_v_arrow
 
 .deflected_arrow
@@ -2581,14 +2574,14 @@ Ancilla_CheckSpriteCollision_Single:
 
 .no_succ
 #_088E0B: LDA.w $0C4A,X
-#_088E0E: CMP.b #!ANCILLA_05
+#_088E0E: CMP.b #$05 ; ANCILLA 05
 #_088E10: BEQ .boom
 
-#_088E12: CMP.b #!ANCILLA_1F
+#_088E12: CMP.b #$1F ; ANCILLA 1F
 #_088E14: BNE .continue_b
 
 #_088E16: LDA.w $0E20,Y
-#_088E19: CMP.b #!SPRITE_8D
+#_088E19: CMP.b #$8D ; SPRITE 8D
 #_088E1B: BEQ .arrghus_puff
 
 .boom
@@ -2613,7 +2606,7 @@ Ancilla_CheckSpriteCollision_Single:
 #_088E33: BNE .no_collision
 
 #_088E35: LDA.w $0E20,Y
-#_088E38: CMP.b #!SPRITE_92
+#_088E38: CMP.b #$92 ; SPRITE 92
 #_088E3A: BNE .not_helma_mask
 
 #_088E3C: LDA.w $0DB0,Y
@@ -2754,7 +2747,7 @@ Ancilla_SetupHitbox:
 #_088EB0: LDY.w $0C72,X
 
 #_088EB3: LDA.w $0C4A,X
-#_088EB6: CMP.b #!ANCILLA_0C
+#_088EB6: CMP.b #$0C ; ANCILLA 0C
 #_088EB8: BNE .not_beam
 
 #_088EBA: DEC.b $09
@@ -2952,7 +2945,7 @@ Ancilla_IsBelowLink:
 
 ;===================================================================================================
 
-pool Ancilla_RepulseSpark
+pool Ancilla_WeaponTink
 
 .char
 #_088F82: db $93, $82, $81
@@ -2964,7 +2957,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Ancilla_RepulseSpark:
+Ancilla_WeaponTink:
 #_088F89: LDA.w $0FAC
 #_088F8C: BEQ EXIT_088F81
 
@@ -3163,7 +3156,7 @@ Ancilla_RepulseSpark:
 Ancilla_Move_X:
 #_089080: TXA
 #_089081: CLC
-#_089082: ADC.b #10
+#_089082: ADC.b #$0A
 #_089084: TAX
 
 #_089085: JSR Ancilla_Move_Y
@@ -3267,7 +3260,7 @@ Ancilla05_Boomerang:
 
 .next_slot
 #_0890FE: LDA.w $0C4A,Y
-#_089101: CMP.b #!ANCILLA_22
+#_089101: CMP.b #$22 ; ANCILLA 22
 #_089103: BEQ .draw
 
 #_089105: DEY
@@ -3282,7 +3275,7 @@ Ancilla05_Boomerang:
 #_08910E: AND.b #$07
 #_089110: BNE .no_whoosh
 
-#_089112: LDA.b #!SFX2_09
+#_089112: LDA.b #$09 ; SFX2.09
 #_089114: JSR Ancilla_SFX2_Pan
 
 .no_whoosh
@@ -3442,16 +3435,18 @@ Ancilla05_Boomerang:
 #_0891E6: BCC .no_tile_collision
 
 #_0891E8: PHX
+
 #_0891E9: JSL AncillaAdd_BoomerangWallClink
+
 #_0891ED: PLX
 
-#_0891EE: LDY.b #!SFX2_06
+#_0891EE: LDY.b #$06 ; SFX2.06
 
 #_0891F0: LDA.w $03E4,X
-#_0891F3: CMP.b #!TILETYPE_F0
+#_0891F3: CMP.b #$F0 ; TILETYPE F0
 #_0891F5: BEQ .not_key_door
 
-#_0891F7: LDY.b #!SFX2_05
+#_0891F7: LDY.b #$05 ; SFX2.05
 
 .not_key_door
 #_0891F9: TYA
@@ -4145,7 +4140,7 @@ Ancilla07_Bomb:
 #_0895AC: BEQ .leave_layer
 
 #_0895AE: LDA.w $03E4,X
-#_0895B1: CMP.b #!TILETYPE_1C
+#_0895B1: CMP.b #$1C ; TILETYPE 1C
 #_0895B3: BNE .leave_layer
 
 #_0895B5: LDA.b #$01
@@ -4260,37 +4255,37 @@ Ancilla07_Bomb:
 ;---------------------------------------------------------------------------------------------------
 ; TODO ANALYZE
 #_08963B: LDA.w $03E4,X
-#_08963E: CMP.b #!TILETYPE_26
+#_08963E: CMP.b #$26 ; TILETYPE 26
 #_089640: BEQ .tile_staircase
 
-#_089642: CMP.b #!TILETYPE_0C
+#_089642: CMP.b #$0C ; TILETYPE 0C
 #_089644: BEQ .tile_0C_1C
 
-#_089646: CMP.b #!TILETYPE_1C
+#_089646: CMP.b #$1C ; TILETYPE 1C
 #_089648: BEQ .tile_0C_1C
 
-#_08964A: CMP.b #!TILETYPE_20
+#_08964A: CMP.b #$20 ; TILETYPE 20
 #_08964C: BEQ .tile_pit
 
-#_08964E: CMP.b #!TILETYPE_08
+#_08964E: CMP.b #$08 ; TILETYPE 08
 #_089650: BEQ .tile_deep_water
 
-#_089652: CMP.b #!TILETYPE_68
+#_089652: CMP.b #$68 ; TILETYPE 68
 #_089654: BEQ .tile_conveyor
 
-#_089656: CMP.b #!TILETYPE_69
+#_089656: CMP.b #$69 ; TILETYPE 69
 #_089658: BEQ .tile_conveyor
 
-#_08965A: CMP.b #!TILETYPE_6A
+#_08965A: CMP.b #$6A ; TILETYPE 6A
 #_08965C: BEQ .tile_conveyor
 
-#_08965E: CMP.b #!TILETYPE_6B
+#_08965E: CMP.b #$6B ; TILETYPE 6B
 #_089660: BEQ .tile_conveyor
 
-#_089662: CMP.b #!TILETYPE_B6
+#_089662: CMP.b #$B6 ; TILETYPE B6
 #_089664: BEQ .tile_transit
 
-#_089666: CMP.b #!TILETYPE_BC
+#_089666: CMP.b #$BC ; TILETYPE BC
 #_089668: BEQ .tile_transit
 
 #_08966A: AND.b #$F0
@@ -4446,7 +4441,7 @@ Bomb_HandleState:
 #_08972C: CMP.b #$01
 #_08972E: BNE .not_just_exploded
 
-#_089730: LDA.b #!SFX2_0C
+#_089730: LDA.b #$0C ; SFX2.0C
 #_089732: JSR Ancilla_SFX2_Pan
 
 #_089735: TXA
@@ -4474,7 +4469,7 @@ Bomb_HandleState:
 #_089752: LDA.w $0C54,X
 #_089755: BEQ .dont_become_debris ; except b/c is 0, you could have gone to 975A
 
-#_089757: LDY.b #!ANCILLA_08
+#_089757: LDY.b #$08 ; ANCILLA 08
 
 .dont_become_debris
 #_089759: TYA
@@ -4574,7 +4569,7 @@ pool off
 Ancilla_ApplyConveyor:
 #_0897B7: LDA.w $03E4,X
 #_0897BA: SEC
-#_0897BB: SBC.b #!TILETYPE_68
+#_0897BB: SBC.b #$68 ; TILETYPE 68
 #_0897BD: TAY
 
 #_0897BE: LDA.w .speed_y,Y
@@ -5015,7 +5010,7 @@ Ancilla_HandleLiftLogic:
 #_089A2B: CMP.b #$10
 #_089A2D: BNE .skip_lift_sfx
 
-#_089A2F: LDA.b #!SFX2_1D
+#_089A2F: LDA.b #$1D ; SFX2.1D
 #_089A31: JSR Ancilla_SFX2_Pan
 
 ;---------------------------------------------------------------------------------------------------
@@ -5139,7 +5134,7 @@ AncillaCarry_HandleThrow:
 #_089AD2: STZ.w $0380,X
 #_089AD5: STZ.w $0280,X
 
-#_089AD8: LDA.b #!SFX3_13
+#_089AD8: LDA.b #$13 ; SFX3.13
 #_089ADA: JSR Ancilla_SFX3_Pan
 
 ;===================================================================================================
@@ -5206,8 +5201,6 @@ AncillaCarry_Airborne:
 #_089B35: LDA.b $0D
 #_089B37: STA.w $0C0E,X
 
-;---------------------------------------------------------------------------------------------------
-
 .dont_adjust_altitude
 #_089B3A: LDA.w $029E,X
 #_089B3D: CMP.b #$80
@@ -5216,13 +5209,15 @@ AncillaCarry_Airborne:
 .exit_a
 #_089B41: RTS
 
+;---------------------------------------------------------------------------------------------------
+
 .negative_z
 #_089B42: CMP.b #$FF
 #_089B44: BCS .exit_a
 
 #_089B46: STZ.w $029E,X
 
-#_089B49: LDA.b #!SFX2_21
+#_089B49: LDA.b #$21 ; SFX2.21
 #_089B4B: JSR Ancilla_SFX2_Pan
 
 #_089B4E: INC.w $0385,X
@@ -5284,8 +5279,6 @@ AncillaCarry_Airborne:
 
 #_089B8A: EOR.b #$FF
 #_089B8C: INC A
-
-;---------------------------------------------------------------------------------------------------
 
 .dont_invert_x
 #_089B8D: STA.w $0C2C,X
@@ -5948,7 +5941,7 @@ AncillaDraw_Bomb:
 #_089F13: BNE .not_deferred
 
 #_089F15: LDA.w $0E20
-#_089F18: CMP.b #!SPRITE_92
+#_089F18: CMP.b #$92 ; SPRITE 92
 #_089F1A: BEQ .outmaneuver_this
 
 #_089F1C: TXY
@@ -6510,14 +6503,14 @@ Ancilla09_Arrow:
 #_08A1EB: STA.w $03A9,X
 
 #_08A1EE: LDA.w $0E20,Y
-#_08A1F1: CMP.b #!SPRITE_65
+#_08A1F1: CMP.b #$65 ; SPRITE 65
 #_08A1F3: BNE .not_arrow_game
 
 #_08A1F5: LDA.w $0D90,Y
 #_08A1F8: CMP.b #$01
 #_08A1FA: BNE .not_arrow_game_target
 
-#_08A1FC: LDA.b #!SFX3_2D
+#_08A1FC: LDA.b #$2D ; SFX3.2D
 #_08A1FE: STA.w $012F
 
 #_08A201: LDA.b #$80
@@ -6553,16 +6546,16 @@ Ancilla09_Arrow:
 
 .become_stopped
 #_08A22A: LDA.w $0E20,Y
-#_08A22D: CMP.b #!SPRITE_1B
+#_08A22D: CMP.b #$1B ; SPRITE 1B
 #_08A22F: BEQ .not_enemy_arrow
 
-#_08A231: LDA.b #!SFX2_08
+#_08A231: LDA.b #$08 ; SFX2.08
 #_08A233: JSR Ancilla_SFX2_Pan
 
 .not_enemy_arrow
 #_08A236: STZ.w $0C5E,X
 
-#_08A239: LDA.b #!ANCILLA_0A
+#_08A239: LDA.b #$0A ; ANCILLA 0A
 #_08A23B: STA.w $0C4A,X
 
 #_08A23E: LDA.b #$01
@@ -6862,7 +6855,7 @@ AncillaDraw_Arrow:
 #_08A3D4: TAY
 
 #_08A3D5: LDA.w $0C4A,X
-#_08A3D8: CMP.b #!ANCILLA_0A
+#_08A3D8: CMP.b #$0A ; ANCILLA 0A
 #_08A3DA: BNE .not_halted
 
 #_08A3DC: LDA.w $0C5E,X
@@ -7174,7 +7167,7 @@ Ancilla0B_IceRodShot:
 #_08A541: BCC .generate_sparkle
 
 .sprite_collision
-#_08A543: LDA.b #!ANCILLA_11
+#_08A543: LDA.b #$11 ; ANCILLA 11
 #_08A545: STA.w $0C4A,X
 
 #_08A548: TAY
@@ -7416,7 +7409,7 @@ Ancilla33_BlastWallExplosion:
 #_08A65A: STA.b $04
 
 #_08A65C: LDY.b #$0A
-#_08A65E: LDA.b #!ANCILLA_32
+#_08A65E: LDA.b #$32 ; ANCILLA 32
 #_08A660: JSL AncillaAdd_BlastWallFireball
 
 #_08A664: PLX
@@ -7553,7 +7546,7 @@ Ancilla33_BlastWallExplosion:
 
 #_08A715: LDA.b $72
 #_08A717: JSR Ancilla_SetPanRelativeCoordinates
-#_08A71A: ORA.b #!SFX2_0C
+#_08A71A: ORA.b #$0C ; SFX2.0C
 #_08A71C: STA.w $012E
 
 .no_sfx
@@ -7844,7 +7837,7 @@ Ancilla15_JumpSplash:
 #_08A85F: BNE .am_bunny
 
 #_08A861: LDA.b $5D
-#_08A863: CMP.b #!LINKSTATE_04
+#_08A863: CMP.b #$04 ; LINKSTATE 04
 #_08A865: BNE .exit
 
 .am_bunny
@@ -8667,14 +8660,14 @@ EtherSpell_HandleRadialSpin:
 #_08AC16: CMP.b #$04
 #_08AC18: BNE .skip_sfx
 
-#_08AC1A: LDY.b #!SFX3_2A
+#_08AC1A: LDY.b #$2A ; SFX3.2A
 
 #_08AC1C: LDA.b $1A
 #_08AC1E: AND.b #$07
 #_08AC20: BEQ .set_sfx
 
-; !HARDCODED pan values
-#_08AC22: LDY.b #!SFX3_2A|$80
+
+#_08AC22: LDY.b #$AA ; SFX3.2A with !HARDCODED pan value of ($80)
 
 #_08AC24: CMP.b #$04
 #_08AC26: BEQ .set_sfx
@@ -8682,7 +8675,7 @@ EtherSpell_HandleRadialSpin:
 #_08AC28: CMP.b #$07
 #_08AC2A: BNE .skip_sfx
 
-#_08AC2C: LDY.b #!SFX3_2A|$40
+#_08AC2C: LDY.b #$6A ; SFX3.2A with !HARDCODED pan value of ($40)
 
 .set_sfx
 #_08AC2E: STY.w $012F
@@ -8824,10 +8817,10 @@ EtherSpell_HandleRadialSpin:
 
 .dont_open_mire
 #_08ACE6: LDA.b $5D
-#_08ACE8: CMP.b #!LINKSTATE_19
+#_08ACE8: CMP.b #$19 ; LINKSTATE 19
 #_08ACEA: BEQ .spin_attack
 
-#_08ACEC: LDA.b #!LINKSTATE_00
+#_08ACEC: LDA.b #$00 ; LINKSTATE 00
 #_08ACEE: STA.b $5D
 
 #_08ACF0: STZ.b $3D
@@ -9492,7 +9485,7 @@ AncillaAdd_BombosSpell:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B04D: LDA.b #!SFX2_2A
+#_08B04D: LDA.b #$2A ; SFX2.2A
 #_08B04F: JSR Ancilla_SFX2_Near
 
 #_08B052: PHX
@@ -9907,7 +9900,7 @@ BombosSpell_ControlFireColumns:
 #_08B22F: TAX
 
 #_08B230: LDA.l AncillaPanValues,X
-#_08B234: ORA.b #!SFX2_2A
+#_08B234: ORA.b #$2A ; SFX2.2A
 #_08B236: STA.w $012E
 
 ;---------------------------------------------------------------------------------------------------
@@ -10358,7 +10351,7 @@ BombosSpell_ControlBlasting:
 #_08B4D0: TAX
 
 #_08B4D1: LDA.l AncillaPanValues,X
-#_08B4D5: ORA.b #!SFX2_0C
+#_08B4D5: ORA.b #$0C ; SFX2.0C
 #_08B4D7: STA.w $012E
 
 #_08B4DA: PLY
@@ -10405,10 +10398,10 @@ BombosSpell_ControlBlasting:
 #_08B506: STZ.w $0FC1
 
 #_08B509: LDA.b $5D
-#_08B50B: CMP.b #!LINKSTATE_1A
+#_08B50B: CMP.b #$1A ; LINKSTATE 1A
 #_08B50D: BEQ .link_bombosing
 
-#_08B50F: LDA.b #!LINKSTATE_00
+#_08B50F: LDA.b #$00 ; LINKSTATE 00
 #_08B511: STA.b $5D
 
 #_08B513: STZ.b $3D
@@ -10688,7 +10681,7 @@ QuakeSpell_FinishingTouches:
 
 #_08B6C2: STZ.w $0C4A,X
 
-#_08B6C5: LDA.b #!LINKSTATE_00
+#_08B6C5: LDA.b #$00 ; LINKSTATE 00
 #_08B6C7: STA.b $5D
 
 #_08B6C9: LDA.b #$01
@@ -10816,7 +10809,7 @@ QuakeSpell_ControlBolts:
 #_08B774: CMP.b #$02
 #_08B776: BNE .dont_go_to_2
 
-#_08B778: LDA.b #!SFX2_0C
+#_08B778: LDA.b #$0C ; SFX2.0C
 #_08B77A: JSR Ancilla_SFX2_Near
 
 #_08B77D: LDA.b #$01
@@ -11491,7 +11484,7 @@ Powder_ApplyDamageToSprites:
 #_08BBA3: BCC .skip_sprite
 
 #_08BBA5: LDA.w $0E20,Y
-#_08BBA8: CMP.b #!SPRITE_0B
+#_08BBA8: CMP.b #$0B ; SPRITE 0B
 #_08BBAA: BNE .not_cucco_easter_egg
 
 #_08BBAC: LDA.b $1B ; this gets compared to #$0D weirdly...
@@ -11506,7 +11499,7 @@ Powder_ApplyDamageToSprites:
 ;---------------------------------------------------------------------------------------------------
 
 .not_cucco_easter_egg
-#_08BBB8: CMP.b #!SPRITE_0D
+#_08BBB8: CMP.b #$0D ; SPRITE 0D
 #_08BBBA: BNE .not_buzz_blob
 
 #_08BBBC: LDA.w $0EB0,Y
@@ -11820,13 +11813,13 @@ pool Hookshot
 #_08BD82: db $40, $FF, $40 ; left
 #_08BD85: db $00, $FF, $00 ; right
 
-.chain_speed_y
+.box_size_y
 #_08BD88: dw   8 ; up
 #_08BD8A: dw  -9 ; down - This is faster, but does it matter?
 #_08BD8C: dw   0 ; left
 #_08BD8E: dw   0 ; right
 
-.chain_speed_x
+.box_size_x
 #_08BD90: dw   0 ; up
 #_08BD92: dw   0 ; down
 #_08BD94: dw   8 ; left
@@ -11847,7 +11840,7 @@ Ancilla1F_Hookshot:
 #_08BDA1: LDA.b #$07
 #_08BDA3: STA.w $0C68,X
 
-#_08BDA6: LDA.b #!SFX2_0A
+#_08BDA6: LDA.b #$0A ; SFX2.0A
 #_08BDA8: JSR Ancilla_SFX2_Pan
 
 ;---------------------------------------------------------------------------------------------------
@@ -11899,7 +11892,6 @@ Hookshot_Extending:
 #_08BDD2: LDA.b #$01
 #_08BDD4: STA.w $0C54,X
 
-; Common technique to get the additive inverse
 ; set Y velocity
 #_08BDD7: LDA.w $0C22,X
 #_08BDDA: EOR.b #$FF
@@ -12099,18 +12091,18 @@ Hookshot_ExtraCollisionLogic:
 #_08BECE: PHX
 
 #_08BECF: LDY.b #$01
-#_08BED1: LDA.b #!ANCILLA_06
+#_08BED1: LDA.b #$06 ; ANCILLA 06
 #_08BED3: JSL AncillaAdd_HookshotWallClink
 
 #_08BED7: PLX
 
-#_08BED8: LDY.b #!SFX2_06
+#_08BED8: LDY.b #$06 ; SFX2.06
 
 #_08BEDA: LDA.w $02F6
 #_08BEDD: AND.b #$30
 #_08BEDF: BNE .key_door
 
-#_08BEE1: LDY.b #!SFX2_05
+#_08BEE1: LDY.b #$05 ; SFX2.05
 
 .key_door
 #_08BEE3: TYA
@@ -12296,7 +12288,7 @@ AncillaDraw_HookshotChain:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BFB8: LDA.w Hookshot_chain_speed_y,X
+#_08BFB8: LDA.w Hookshot_box_size_y,X
 #_08BFBB: BNE .use_actual_y
 
 #_08BFBD: LDA.b $04
@@ -12307,7 +12299,7 @@ AncillaDraw_HookshotChain:
 ;---------------------------------------------------------------------------------------------------
 
 .use_actual_y
-#_08BFC5: LDA.w Hookshot_chain_speed_x,X
+#_08BFC5: LDA.w Hookshot_box_size_x,X
 #_08BFC8: BNE .next_object
 
 #_08BFCA: LDA.b $06
@@ -12322,7 +12314,7 @@ AncillaDraw_HookshotChain:
 .next_object
 #_08BFD4: REP #$20
 
-#_08BFD6: LDA.w Hookshot_chain_speed_y,X
+#_08BFD6: LDA.w Hookshot_box_size_y,X
 #_08BFD9: BEQ .dont_add_y
 
 #_08BFDB: CLC
@@ -12334,7 +12326,7 @@ AncillaDraw_HookshotChain:
 #_08BFE1: STA.b $04
 #_08BFE3: STA.b $00
 
-#_08BFE5: LDA.w Hookshot_chain_speed_x,X
+#_08BFE5: LDA.w Hookshot_box_size_x,X
 #_08BFE8: BEQ .dont_add_x
 
 #_08BFEA: CLC
@@ -12850,7 +12842,7 @@ Ancilla3C_SpinAttackChargeSparkle:
 
 ;===================================================================================================
 
-pool Ancilla35_MasterSwordGet
+pool Ancilla35_MasterSwordReceipt
 
 .offset_y
 #_08C253: dw   1,   1,   9,   9
@@ -12872,7 +12864,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Ancilla35_MasterSwordGet:
+Ancilla35_MasterSwordReceipt:
 #_08C283: LDA.w $0C68,X
 #_08C286: BNE .stay_around
 
@@ -13140,7 +13132,7 @@ Ancilla22_ItemReceipt:
 .from_text_or_object
 #_08C3DC: LDA.w $0C5E,X
 
-#_08C3DF: CMP.b #!ITEMGET_01
+#_08C3DF: CMP.b #$01 ; ITEMGET 01
 #_08C3E1: BNE .not_ms_pull
 
 #_08C3E3: LDA.w $0C54,X
@@ -13160,7 +13152,7 @@ Ancilla22_ItemReceipt:
 
 #_08C3FB: SEP #$20
 
-#_08C3FD: LDA.b #!FOLLOWER_0E
+#_08C3FD: LDA.b #$0E ; FOLLOWER 0E
 #_08C3FF: STA.l $7EF3CC
 
 .time_up_a
@@ -13173,17 +13165,17 @@ Ancilla22_ItemReceipt:
 #_08C409: LDA.w $03B1,X
 #_08C40C: BEQ .delay_a
 
-#_08C40E: CMP.b #!ITEMGET_01
+#_08C40E: CMP.b #$01 ; ITEMGET 01
 #_08C410: BNE .just_draw_b
 
 #_08C412: LDA.w $0C5E,X
-#_08C415: CMP.b #!ITEMGET_37
+#_08C415: CMP.b #$37 ; ITEMGET 37
 #_08C417: BEQ .is_pendant
 
-#_08C419: CMP.b #!ITEMGET_38
+#_08C419: CMP.b #$38 ; ITEMGET 38
 #_08C41B: BEQ .is_pendant
 
-#_08C41D: CMP.b #!ITEMGET_39
+#_08C41D: CMP.b #$39 ; ITEMGET 39
 #_08C41F: BNE .wait_for_music
 
 .is_pendant
@@ -13205,25 +13197,25 @@ Ancilla22_ItemReceipt:
 
 .delay_a
 #_08C431: LDA.w $0C5E,X
-#_08C434: CMP.b #!ITEMGET_01
+#_08C434: CMP.b #$01 ; ITEMGET 01
 #_08C436: BNE .not_ms_from_text
 
 #_08C438: LDA.w $0C54,X
 #_08C43B: BNE .not_ms_from_text
 
-#_08C43D: LDA.b #!SFX1_05
+#_08C43D: LDA.b #$05 ; SFX1.05
 #_08C43F: STA.w $012D
 
-#_08C442: LDA.b #!SONG_02
+#_08C442: LDA.b #$02 ; SONG 02
 #_08C444: STA.w $012C
 
 .not_ms_from_text
-#_08C447: LDY.b #!LINKSTATE_00
+#_08C447: LDY.b #$00 ; LINKSTATE 00
 
 #_08C449: LDA.w $0345
 #_08C44C: BEQ .not_in_water
 
-#_08C44E: LDY.b #!LINKSTATE_04
+#_08C44E: LDY.b #$04 ; LINKSTATE 04
 
 .not_in_water
 #_08C450: STY.b $5D
@@ -13240,7 +13232,7 @@ Ancilla22_ItemReceipt:
 #_08C45F: STZ.w $02E9
 
 #_08C462: LDA.w $0C5E,X
-#_08C465: CMP.b #!ITEMGET_17
+#_08C465: CMP.b #$17 ; ITEMGET 17
 #_08C467: BNE .not_heart_piece
 
 #_08C469: LDA.l $7EF36B
@@ -13248,7 +13240,7 @@ Ancilla22_ItemReceipt:
 
 #_08C46F: PHX
 
-#_08C470: LDY.b #!ITEMGET_26
+#_08C470: LDY.b #$26 ; ITEMGET 26
 #_08C472: JSL Link_ReceiveItem
 
 #_08C476: PLX
@@ -13260,13 +13252,13 @@ Ancilla22_ItemReceipt:
 #_08C47D: RTS
 
 .not_heart_piece
-#_08C47E: CMP.b #!ITEMGET_26
+#_08C47E: CMP.b #$26 ; ITEMGET 26
 #_08C480: BEQ .refill_hp
 
-#_08C482: CMP.b #!ITEMGET_3F
+#_08C482: CMP.b #$3F ; ITEMGET 3F
 #_08C484: BEQ .refill_hp
 
-#_08C486: CMP.b #!ITEMGET_3E
+#_08C486: CMP.b #$3E ; ITEMGET 3E
 #_08C488: BNE .not_heart
 
 #_08C48A: STZ.w $02E4
@@ -13310,7 +13302,7 @@ Ancilla22_ItemReceipt:
 #_08C4CA: STA.l $7EF372
 
 .continue_a
-#_08C4CE: LDA.b #!SFX3_0D
+#_08C4CE: LDA.b #$0D ; SFX3.0D
 #_08C4D0: JSR Ancilla_SFX3_Near
 
 #_08C4D3: BRA .continue_b
@@ -13318,7 +13310,7 @@ Ancilla22_ItemReceipt:
 ;---------------------------------------------------------------------------------------------------
 
 .not_heart
-#_08C4D5: CMP.b #!ITEMGET_42
+#_08C4D5: CMP.b #$42 ; ITEMGET 42
 #_08C4D7: BNE .not_single_heart
 
 #_08C4D9: LDA.l $7EF372
@@ -13331,7 +13323,7 @@ Ancilla22_ItemReceipt:
 ;---------------------------------------------------------------------------------------------------
 
 .not_single_heart
-#_08C4E6: CMP.b #!ITEMGET_45
+#_08C4E6: CMP.b #$45 ; ITEMGET 45
 #_08C4E8: BNE .not_small_magic
 
 #_08C4EA: LDA.l $7EF373
@@ -13344,11 +13336,11 @@ Ancilla22_ItemReceipt:
 ;---------------------------------------------------------------------------------------------------
 
 .not_small_magic
-#_08C4F7: CMP.b #!ITEMGET_22
+#_08C4F7: CMP.b #$22 ; ITEMGET 22
 #_08C4F9: BEQ .blue_mail
 
 ; Red mail?
-#_08C4FB: CMP.b #!ITEMGET_23
+#_08C4FB: CMP.b #$23 ; ITEMGET 23
 #_08C4FD: BNE .continue_b
 
 .blue_mail
@@ -13392,7 +13384,7 @@ Ancilla22_ItemReceipt:
 #_08C530: PLA
 
 .no_victory_sequence
-#_08C531: CMP.b #!ITEMGET_02
+#_08C531: CMP.b #$02 ; ITEMGET 02
 #_08C533: BEQ .exit
 
 #_08C535: STZ.w $02E4
@@ -13432,7 +13424,7 @@ Ancilla22_ItemReceipt:
 #_08C560: BRL .skip_messaging
 
 .play_rupee_sfx
-#_08C563: LDA.b #!SFX3_0F
+#_08C563: LDA.b #$0F ; SFX3.0F
 #_08C565: JSR Ancilla_SFX3_Near
 
 #_08C568: BRA .dont_give
@@ -13472,10 +13464,10 @@ Ancilla22_ItemReceipt:
 #_08C58F: SEP #$20
 
 #_08C591: LDA.w $0C5E,X
-#_08C594: CMP.b #!ITEMGET_38
+#_08C594: CMP.b #$38 ; ITEMGET 38
 #_08C596: BEQ .use_pendant_message
 
-#_08C598: CMP.b #!ITEMGET_39
+#_08C598: CMP.b #$39 ; ITEMGET 39
 #_08C59A: BNE .not_possibly_a_pendant
 
 .use_pendant_message
@@ -13509,7 +13501,7 @@ Ancilla22_ItemReceipt:
 #_08C5BE: BEQ ItemReceipt_Animate
 
 #_08C5C0: LDA.w $0C5E,X
-#_08C5C3: CMP.b #!ITEMGET_17
+#_08C5C3: CMP.b #$17 ; ITEMGET 17
 #_08C5C5: BNE .fetch_message_id
 
 #_08C5C7: LDA.l $7EF36B
@@ -13549,7 +13541,7 @@ Ancilla22_ItemReceipt:
 
 #_08C5F5: SEP #$20
 
-#_08C5F7: LDA.b #!SFX1_09
+#_08C5F7: LDA.b #$09 ; SFX1.09
 #_08C5F9: STA.w $012D
 
 .no_sfx_just_text
@@ -13593,7 +13585,7 @@ ItemReceipt_Animate:
 #_08C62A: LDA.w APUIO0
 #_08C62D: BNE .continue
 
-#_08C62F: LDA.b #!SONG_1A
+#_08C62F: LDA.b #$1A ; SONG 1A
 #_08C631: STA.w $012C
 
 #_08C634: BRL ItemReceipt_TransmuteToRisingCrystal
@@ -13604,7 +13596,7 @@ ItemReceipt_Animate:
 #_08C637: SEP #$20
 
 #_08C639: LDA.w $0C5E,X
-#_08C63C: CMP.b #!ITEMGET_01
+#_08C63C: CMP.b #$01 ; ITEMGET 01
 #_08C63E: BNE .not_a_flashy_sword
 
 #_08C640: LDA.w ItemReceipt_default_oam_props
@@ -13644,13 +13636,13 @@ ItemReceipt_Animate:
 
 .not_a_flashy_sword
 #_08C672: LDA.w $0C5E,X
-#_08C675: CMP.b #!ITEMGET_34
+#_08C675: CMP.b #$34 ; ITEMGET 34
 #_08C677: BEQ .animated_rupee
 
-#_08C679: CMP.b #!ITEMGET_35
+#_08C679: CMP.b #$35 ; ITEMGET 35
 #_08C67B: BEQ .animated_rupee
 
-#_08C67D: CMP.b #!ITEMGET_36
+#_08C67D: CMP.b #$36 ; ITEMGET 36
 #_08C67F: BNE .not_animating_rupee
 
 .animated_rupee
@@ -13874,7 +13866,7 @@ AncillaDraw_WishPondItem:
 #_08C784: JSR Ancilla_PrepOAMCoord_adjusted
 
 #_08C787: LDA.w $0C5E,X
-#_08C78A: CMP.b #!ITEMGET_01
+#_08C78A: CMP.b #$01 ; ITEMGET 01
 #_08C78C: BNE .not_master_sword
 
 #_08C78E: LDA.w ItemReceipt_default_oam_props
@@ -14119,7 +14111,7 @@ HapinessPondRupees_ExecuteRupee:
 #_08C8C0: LDA.b #$06
 #_08C8C2: STA.w $0C68,X
 
-#_08C8C5: LDA.b #!SFX2_28
+#_08C8C5: LDA.b #$28 ; SFX2.28
 #_08C8C7: JSR Ancilla_SFX2_Pan
 
 #_08C8CA: INC.w $0C54,X
@@ -14291,7 +14283,7 @@ pool off
 ;===================================================================================================
 
 Ancilla_TransmuteToSplash:
-#_08C9F1: LDA.b #!ANCILLA_3D
+#_08C9F1: LDA.b #$3D ; ANCILLA 3D
 #_08C9F3: STA.w $0C4A,X
 
 #_08C9F6: STZ.w $0C5E,X
@@ -14317,7 +14309,7 @@ Ancilla_TransmuteToSplash:
 #_08CA1B: ADC.b #$FF
 #_08CA1D: STA.w $0C18,X
 
-#_08CA20: LDA.b #!SFX2_28
+#_08CA20: LDA.b #$28 ; SFX2.28
 #_08CA22: JSR Ancilla_SFX2_Pan
 
 ;===================================================================================================
@@ -14444,26 +14436,26 @@ AncillaDraw_ObjectSplash:
 
 MilestoneItemReceiptIDs:
 .ether
-#_08CAA9: db !ITEMGET_10
+#_08CAA9: db $10 ; ITEMGET 10
 
 .pendants
 .green_pendant
-#_08CAAA: db !ITEMGET_37
+#_08CAAA: db $37 ; ITEMGET 37
 
 .blue_pendant
-#_08CAAB: db !ITEMGET_39
+#_08CAAB: db $39 ; ITEMGET 39
 
 .red_pendant
-#_08CAAC: db !ITEMGET_38
+#_08CAAC: db $38 ; ITEMGET 38
 
 .heart_container
-#_08CAAD: db !ITEMGET_26
+#_08CAAD: db $26 ; ITEMGET 26
 
 .bombos
-#_08CAAE: db !ITEMGET_0F
+#_08CAAE: db $0F ; ITEMGET 0F
 
 .crystal
-#_08CAAF: db !ITEMGET_20
+#_08CAAF: db $20 ; ITEMGET 20
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -14495,7 +14487,7 @@ Ancilla29_MilestoneItemReceipt:
 #_08CAD9: CMP.w MilestoneItemReceiptIDs_crystal
 #_08CADC: BNE .not_crystal
 
-#_08CADE: LDA.b #!SFX1_0F
+#_08CADE: LDA.b #$0F ; SFX1.0F
 #_08CAE0: STA.w $012D
 
 #_08CAE3: LDY.b #$28
@@ -14552,7 +14544,7 @@ Ancilla29_MilestoneItemReceipt:
 #_08CB17: LDA.b #$02
 #_08CB19: STA.w $0AA9
 
-#_08CB1C: JSL Palettes_Load_SpriteMiscSP6
+#_08CB1C: JSL Palettes_Load_SpriteEnvironment_Underworld
 
 #_08CB20: INC.b $15
 
@@ -14588,17 +14580,17 @@ Ancilla29_MilestoneItemReceipt:
 #_08CB49: STZ.w $0C4A,X
 
 #_08CB4C: LDA.b $5D
-#_08CB4E: CMP.b #!LINKSTATE_19
+#_08CB4E: CMP.b #$19 ; LINKSTATE 19
 #_08CB50: BEQ .using_medallion
 
-#_08CB52: CMP.b #!LINKSTATE_1A
+#_08CB52: CMP.b #$1A ; LINKSTATE 1A
 #_08CB54: BNE .not_medallion
 
 .using_medallion
 #_08CB56: STZ.w $0112
 #_08CB59: STZ.w $03EF
 
-#_08CB5C: LDA.b #!LINKSTATE_00
+#_08CB5C: LDA.b #$00 ; LINKSTATE 00
 #_08CB5E: STA.b $5D
 
 ;---------------------------------------------------------------------------------------------------
@@ -14743,7 +14735,7 @@ Ancilla29_MilestoneItemReceipt:
 ;===================================================================================================
 
 ItemReceipt_TransmuteToRisingCrystal:
-#_08CC08: LDA.b #!ANCILLA_3E
+#_08CC08: LDA.b #$3E ; ANCILLA 3E
 #_08CC0A: STA.w $0C4A,X
 
 #_08CC0D: STZ.w $0C22,X
@@ -14946,10 +14938,10 @@ Ancilla43_GanonsTowerCutscene:
 
 #_08CD23: INC.w $0C54,X
 
-#_08CD26: LDA.b #!SFX1_05
+#_08CD26: LDA.b #$05 ; SFX1.05
 #_08CD28: STA.w $012D
 
-#_08CD2B: LDA.b #!SONG_F1_FADE
+#_08CD2B: LDA.b #$F1 ; SONG F1 - fade
 #_08CD2D: STA.w $012C
 
 #_08CD30: REP #$20
@@ -15096,7 +15088,7 @@ Ancilla43_GanonsTowerCutscene:
 #_08CDF5: LDA.b #$02
 #_08CDF7: STA.w $0AA9
 
-#_08CDFA: JSL Palettes_Load_SpriteMiscSP6
+#_08CDFA: JSL Palettes_Load_SpriteEnvironment_Underworld
 
 #_08CDFE: INC.b $15
 
@@ -15515,7 +15507,7 @@ Ancilla36_Flute:
 
 #_08D016: STZ.w $02E9
 
-#_08D019: LDY.b #!ITEMGET_14
+#_08D019: LDY.b #$14 ; ITEMGET 14
 #_08D01B: JSL Link_ReceiveItem
 
 #_08D01F: PLX
@@ -15602,7 +15594,7 @@ Ancilla37_WeathervaneExplosion:
 #_08D07B: INC A
 #_08D07C: STA.l $7F58B8
 
-#_08D080: LDA.b #!SONG_F3_MAXVOL
+#_08D080: LDA.b #$F3 ; SONG F3 - max volume
 #_08D082: STA.w $012C
 
 #_08D085: BRA .continue
@@ -15629,7 +15621,7 @@ Ancilla37_WeathervaneExplosion:
 #_08D09C: INC A
 #_08D09D: STA.w $039F,X
 
-#_08D0A0: LDA.b #!SFX2_0C
+#_08D0A0: LDA.b #$0C ; SFX2.0C
 #_08D0A2: JSR Ancilla_SFX2_Near
 
 ;---------------------------------------------------------------------------------------------------
@@ -15649,7 +15641,7 @@ Ancilla37_WeathervaneExplosion:
 #_08D0B5: JSL Overworld_AlterWeathervane
 
 #_08D0B9: LDY.b #$00
-#_08D0BB: LDA.b #!ANCILLA_38
+#_08D0BB: LDA.b #$38 ; ANCILLA 38
 #_08D0BD: JSL AncillaAdd_CutsceneDuck
 
 #_08D0C1: PLX
@@ -15898,7 +15890,7 @@ Ancilla38_CutsceneDuck:
 #_08D1FE: AND.b #$1F
 #_08D200: BNE .skip_sfx
 
-#_08D202: LDA.b #!SFX3_1E
+#_08D202: LDA.b #$1E ; SFX3.1E
 #_08D204: JSR Ancilla_SFX3_Pan
 
 .skip_sfx
@@ -17080,7 +17072,7 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 SpinAttackSparkleA_TransmuteToNextSpark:
-#_08D891: LDA.b #!ANCILLA_2B
+#_08D891: LDA.b #$2B ; ANCILLA 2B
 #_08D893: STA.w $0C4A,X
 
 #_08D896: LDA.b $2F
@@ -17768,7 +17760,7 @@ ByrnaMagicCost:
 ;===================================================================================================
 
 ByrnaWindupSpark_TransmuteToNormal:
-#_08DC45: LDA.b #!ANCILLA_31
+#_08DC45: LDA.b #$31 ; ANCILLA 31
 #_08DC47: STA.w $0C4A,X
 
 #_08DC4A: LDA.b $2F
@@ -17808,7 +17800,7 @@ ByrnaWindupSpark_TransmuteToNormal:
 #_08DC8A: DEC A
 #_08DC8B: STA.l $7F5808
 
-#_08DC8F: LDA.b #!SFX3_30
+#_08DC8F: LDA.b #$30 ; SFX3.30
 #_08DC91: JSR Ancilla_SFX3_Near
 
 ;===================================================================================================
@@ -17970,7 +17962,7 @@ ByrnaSpark_Animate:
 #_08DD5D: LDA.b #$15
 #_08DD5F: STA.w $0C68,X
 
-#_08DD62: LDA.b #!SFX3_30
+#_08DD62: LDA.b #$30 ; SFX3.30
 #_08DD64: JSR Ancilla_SFX3_Near
 
 .skip_sfx
@@ -18170,7 +18162,7 @@ Ancilla27_Duck:
 #_08DE46: LDA.b #$28
 #_08DE48: STA.w $0394,X
 
-#_08DE4B: LDA.b #!SFX3_1E
+#_08DE4B: LDA.b #$1E ; SFX3.1E
 #_08DE4D: JSR Ancilla_SFX3_Pan
 
 ;---------------------------------------------------------------------------------------------------
@@ -18219,13 +18211,13 @@ Ancilla27_Duck:
 #_08DE86: BNE .continue_the_pick
 
 #_08DE88: LDA.b $5D
-#_08DE8A: CMP.b #!LINKSTATE_0A
+#_08DE8A: CMP.b #$0A ; LINKSTATE 0A
 #_08DE8C: BEQ .dont_pick_up
 
-#_08DE8E: CMP.b #!LINKSTATE_09
+#_08DE8E: CMP.b #$09 ; LINKSTATE 09
 #_08DE90: BEQ .dont_pick_up
 
-#_08DE92: CMP.b #!LINKSTATE_08
+#_08DE92: CMP.b #$08 ; LINKSTATE 08
 #_08DE94: BEQ .dont_pick_up
 
 #_08DE96: LDA.b $5B
@@ -18249,19 +18241,19 @@ Ancilla27_Duck:
 
 .next_ancilla_delete
 #_08DEB2: LDA.w $0C4A,X
-#_08DEB5: CMP.b #!ANCILLA_2A
+#_08DEB5: CMP.b #$2A ; ANCILLA 2A
 #_08DEB7: BEQ .delete_ancilla
 
-#_08DEB9: CMP.b #!ANCILLA_1F
+#_08DEB9: CMP.b #$1F ; ANCILLA 1F
 #_08DEBB: BEQ .delete_ancilla
 
-#_08DEBD: CMP.b #!ANCILLA_30
+#_08DEBD: CMP.b #$30 ; ANCILLA 30
 #_08DEBF: BEQ .delete_ancilla
 
-#_08DEC1: CMP.b #!ANCILLA_31
+#_08DEC1: CMP.b #$31 ; ANCILLA 31
 #_08DEC3: BEQ .delete_ancilla
 
-#_08DEC5: CMP.b #!ANCILLA_41
+#_08DEC5: CMP.b #$41 ; ANCILLA 41
 #_08DEC7: BNE .dont_delete_ancilla
 
 .delete_ancilla
@@ -18276,7 +18268,7 @@ Ancilla27_Duck:
 ;---------------------------------------------------------------------------------------------------
 
 #_08DED0: LDA.l $7EF3CC
-#_08DED4: CMP.b #!FOLLOWER_09
+#_08DED4: CMP.b #$09 ; FOLLOWER 09
 #_08DED6: BNE .continue_the_pick
 
 #_08DED8: LDA.b #$00
@@ -18300,7 +18292,7 @@ Ancilla27_Duck:
 #_08DEF8: LDA.b #$0C
 #_08DEFA: STA.b $4B
 
-#_08DEFC: LDA.b #!LINKSTATE_00
+#_08DEFC: LDA.b #$00 ; LINKSTATE 00
 #_08DEFE: STA.b $5D
 
 #_08DF00: INC A
@@ -18644,7 +18636,7 @@ AncillaAdd_SomariaBlock:
 #_08E09C: BEQ .skip
 
 #_08E09E: LDA.w $0C4A,X
-#_08E0A1: CMP.b #!ANCILLA_2C
+#_08E0A1: CMP.b #$2C ; ANCILLA 2C
 #_08E0A3: BNE .skip
 
 ;---------------------------------------------------------------------------------------------------
@@ -18687,7 +18679,7 @@ AncillaAdd_SomariaBlock:
 
 #_08E0CD: PLX
 
-#_08E0CE: LDA.b #!SFX3_2A
+#_08E0CE: LDA.b #$2A ; SFX3.2A
 #_08E0D0: JSR Ancilla_SFX3_Near
 
 #_08E0D3: STZ.w $0C54,X
@@ -18854,10 +18846,10 @@ SomariaBlock_CheckForTransitTile:
 #_08E1E0: PLY
 #_08E1E1: LDA.w $03E4,X
 
-#_08E1E4: CMP.b #!TILETYPE_B6
+#_08E1E4: CMP.b #$B6 ; TILETYPE B6
 #_08E1E6: BEQ .node
 
-#_08E1E8: CMP.b #!TILETYPE_BC
+#_08E1E8: CMP.b #$BC ; TILETYPE BC
 #_08E1EA: BEQ .node
 
 #_08E1EC: DEY
@@ -18918,14 +18910,14 @@ Ancilla_CheckBasicSpriteCollision:
 
 ; Crystal switch v Somaria block
 #_08E235: LDA.w $0C4A,X
-#_08E238: CMP.b #!ANCILLA_2C
+#_08E238: CMP.b #$2C ; ANCILLA 2C
 #_08E23A: BNE .not_somaria_block
 
 #_08E23C: LDA.w $0E20,Y
-#_08E23F: CMP.b #!SPRITE_1E
+#_08E23F: CMP.b #$1E ; SPRITE 1E
 #_08E241: BEQ .skip
 
-#_08E243: CMP.b #!SPRITE_90
+#_08E243: CMP.b #$90 ; SPRITE 90
 #_08E245: BEQ .skip
 
 .not_somaria_block
@@ -18957,7 +18949,7 @@ Ancilla_CheckBasicSpriteCollision_Single:
 #_08E25F: BCC .fail
 
 #_08E261: LDA.w $0E20,Y
-#_08E264: CMP.b #!SPRITE_92
+#_08E264: CMP.b #$92 ; SPRITE 92
 #_08E266: BNE .not_king_helma
 
 #_08E268: LDA.w $0DB0,Y
@@ -18966,7 +18958,7 @@ Ancilla_CheckBasicSpriteCollision_Single:
 
 .not_king_helma
 #_08E26F: LDA.w $0E20,Y
-#_08E272: CMP.b #!SPRITE_80
+#_08E272: CMP.b #$80 ; SPRITE 80
 #_08E274: BNE .dont_reverse_fire_snake
 
 #_08E276: LDA.w $0F10,Y
@@ -19253,10 +19245,10 @@ Ancilla2C_SomariaBlock:
 #_08E41A: PLY
 
 #_08E41B: LDA.w $03E4,X
-#_08E41E: CMP.b #!TILETYPE_B6
+#_08E41E: CMP.b #$B6 ; TILETYPE B6
 #_08E420: BEQ .valid_node
 
-#_08E422: CMP.b #!TILETYPE_BC
+#_08E422: CMP.b #$BC ; TILETYPE BC
 #_08E424: BEQ .valid_node
 
 #_08E426: TYA
@@ -19335,7 +19327,7 @@ Ancilla2C_SomariaBlock:
 #_08E480: BEQ .dont_layer_swap
 
 #_08E482: LDA.w $03E4,X
-#_08E485: CMP.b #!TILETYPE_1C
+#_08E485: CMP.b #$1C ; TILETYPE 1C
 #_08E487: BNE .dont_layer_swap
 
 #_08E489: LDA.b #$01
@@ -19453,37 +19445,37 @@ Ancilla2C_SomariaBlock:
 ; TODO analyze
 #_08E510: LDA.w $03E4,X
 
-#_08E513: CMP.b #!TILETYPE_26
+#_08E513: CMP.b #$26 ; TILETYPE 26
 #_08E515: BEQ .staircase_boundary
 
-#_08E517: CMP.b #!TILETYPE_0C
+#_08E517: CMP.b #$0C ; TILETYPE 0C
 #_08E519: BEQ .overlay_mask
 
-#_08E51B: CMP.b #!TILETYPE_1C
+#_08E51B: CMP.b #$1C ; TILETYPE 1C
 #_08E51D: BEQ .overlay_mask
 
-#_08E51F: CMP.b #!TILETYPE_20
+#_08E51F: CMP.b #$20 ; TILETYPE 20
 #_08E521: BEQ .pit
 
-#_08E523: CMP.b #!TILETYPE_08
+#_08E523: CMP.b #$08 ; TILETYPE 08
 #_08E525: BEQ .deep_water
 
-#_08E527: CMP.b #!TILETYPE_68
+#_08E527: CMP.b #$68 ; TILETYPE 68
 #_08E529: BEQ .conveyor
 
-#_08E52B: CMP.b #!TILETYPE_69
+#_08E52B: CMP.b #$69 ; TILETYPE 69
 #_08E52D: BEQ .conveyor
 
-#_08E52F: CMP.b #!TILETYPE_6A
+#_08E52F: CMP.b #$6A ; TILETYPE 6A
 #_08E531: BEQ .conveyor
 
-#_08E533: CMP.b #!TILETYPE_6B
+#_08E533: CMP.b #$6B ; TILETYPE 6B
 #_08E535: BEQ .conveyor
 
-#_08E537: CMP.b #!TILETYPE_B6
+#_08E537: CMP.b #$B6 ; TILETYPE B6
 #_08E539: BEQ .somaria_node_or_path
 
-#_08E53B: CMP.b #!TILETYPE_BC
+#_08E53B: CMP.b #$BC ; TILETYPE BC
 #_08E53D: BEQ .somaria_node_or_path
 
 #_08E53F: AND.b #$F0
@@ -19979,17 +19971,17 @@ SomariaBlock_CheckForSwitch:
 #_08E7AC: PLY
 
 #_08E7AD: LDA.w $03E4,X
-#_08E7B0: CMP.b #!TILETYPE_23
+#_08E7B0: CMP.b #$23 ; TILETYPE 23
 #_08E7B2: BEQ .valid_switch
 
-#_08E7B4: CMP.b #!TILETYPE_24
+#_08E7B4: CMP.b #$24 ; TILETYPE 24
 #_08E7B6: BEQ .valid_switch
 
-#_08E7B8: CMP.b #!TILETYPE_25
+#_08E7B8: CMP.b #$25 ; TILETYPE 25
 #_08E7BA: BEQ .valid_switch
 
 ; !WTF star tiles that are active on load count too
-#_08E7BC: CMP.b #!TILETYPE_3B
+#_08E7BC: CMP.b #$3B ; TILETYPE 3B
 #_08E7BE: BNE .not_star_tile
 
 .valid_switch
@@ -20194,7 +20186,7 @@ SomariaBlock_HandlePlayerInteraction:
 .disable_nearitude
 #_08E87D: JSL Link_CancelDash_long
 
-#_08E881: LDA.b #!SFX3_32
+#_08E881: LDA.b #$32 ; SFX3.32
 #_08E883: JSR Ancilla_SFX3_Pan
 
 #_08E886: BRL .init_dash_bouncing
@@ -20278,7 +20270,7 @@ SomariaBlock_HandlePlayerInteraction:
 #_08E8EE: AND.b #$07
 #_08E8F0: BNE .no_tile_collision_here
 
-#_08E8F2: LDA.b #!SFX2_22
+#_08E8F2: LDA.b #$22 ; SFX2.22
 #_08E8F4: JSR Ancilla_SFX2_Pan
 
 .no_tile_collision_here
@@ -20338,7 +20330,7 @@ SomariaBlock_HandlePlayerInteraction:
 #_08E93F: BCC .exit_b
 
 .hit_ground_running
-#_08E941: LDA.b #!SFX2_21
+#_08E941: LDA.b #$21 ; SFX2.21
 #_08E943: JSR Ancilla_SFX2_Pan
 
 #_08E946: STZ.w $029E,X
@@ -20464,7 +20456,7 @@ SomariaBlock_FizzleAway:
 .dont_reset_speed
 #_08E9CE: STZ.w $0646
 
-#_08E9D1: LDA.b #!ANCILLA_2D
+#_08E9D1: LDA.b #$2D ; ANCILLA 2D
 #_08E9D3: STA.w $0C4A,X
 
 #_08E9D6: STZ.w $03B1,X
@@ -20666,7 +20658,7 @@ Ancilla39_SomariaPlatformPoof:
 
 #_08EAB7: PHX
 
-#_08EAB8: LDA.b #!SPRITE_ED
+#_08EAB8: LDA.b #$ED ; SPRITE ED
 #_08EABA: JSL Sprite_SpawnDynamically
 #_08EABE: BPL .free_slot
 
@@ -21118,7 +21110,7 @@ Ancilla41_WaterfallSplash:
 #_08ECD8: AND.b #$07
 #_08ECDA: BNE .skip_sfx
 
-#_08ECDC: LDA.b #!SFX2_1C
+#_08ECDC: LDA.b #$1C ; SFX2.1C
 #_08ECDE: JSR Ancilla_SFX2_Near
 
 .skip_sfx
@@ -21714,7 +21706,7 @@ SkullWoodsFlame_DoNext:
 
 #_08F022: LDA.b $00
 #_08F024: JSR Ancilla_SetPanRelativeCoordinates
-#_08F027: ORA.b #!SFX2_0C
+#_08F027: ORA.b #$0C ; SFX2.0C
 #_08F029: STA.w $012E
 
 ;---------------------------------------------------------------------------------------------------
@@ -21756,7 +21748,7 @@ SkullWoodsFlame_DoNext:
 #_08F066: SBC.b $E2
 
 #_08F068: JSR Ancilla_SetPanRelativeCoordinates
-#_08F06B: ORA.b #!SFX2_2A
+#_08F06B: ORA.b #$2A ; SFX2.2A
 #_08F06D: STA.w $012E
 
 ;===================================================================================================
@@ -22034,7 +22026,7 @@ Ancilla3A_BigBombExplosion:
 #_08F1B1: CMP.b #$02
 #_08F1B3: BNE .skip_sfx
 
-#_08F1B5: LDA.b #!SFX2_0C
+#_08F1B5: LDA.b #$0C ; SFX2.0C
 #_08F1B7: JSR Ancilla_SFX2_Pan
 
 .skip_sfx
@@ -22296,7 +22288,7 @@ RevivalFairy_Main:
 .do_sprinkle
 #_08F2E9: INC.w $0385,X
 
-#_08F2EC: LDA.b #!SFX2_31
+#_08F2EC: LDA.b #$31 ; SFX2.31
 #_08F2EE: JSR Ancilla_SFX2_Pan
 
 .dont_sprinkle
@@ -22592,13 +22584,13 @@ RevivalFairy_MonitorHP:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F459: LDY.b #!LINKSTATE_00
+#_08F459: LDY.b #$00 ; LINKSTATE 00
 
 ; fake flippers
 #_08F45B: LDA.w $0345
 #_08F45E: BEQ .not_swimming
 
-#_08F460: LDY.b #!LINKSTATE_04
+#_08F460: LDY.b #$04 ; LINKSTATE 04
 
 #_08F462: LDA.b #$04
 #_08F464: STA.w $0340
@@ -22609,7 +22601,7 @@ RevivalFairy_MonitorHP:
 #_08F469: LDA.b $56
 #_08F46B: BEQ .set_state
 
-#_08F46D: LDY.b #!LINKSTATE_17
+#_08F46D: LDY.b #$17 ; LINKSTATE 17
 
 #_08F46F: LDA.b #$01
 #_08F471: STA.w $02E0
@@ -22799,7 +22791,7 @@ GAMEOVER_Sweep:
 
 #_08F540: STZ.w $039D
 
-#_08F543: LDA.b #!SFX3_26
+#_08F543: LDA.b #$26 ; SFX3.26
 #_08F545: STA.w $012F
 
 #_08F548: BRA .proceed_to_draw

@@ -495,19 +495,19 @@ SongCommand_F3_MaxVolume:
 ;===================================================================================================
 
 Song_Commands:
-#_19FE31: #_0A63: cmp.b A, #!SONG_FF_TRANSFER
+#_19FE31: #_0A63: cmp.b A, #$FF ; SONG FF - transfer
 #_19FE33: #_0A65: beq SongCommand_FF_TransferData
 
-#_19FE35: #_0A67: cmp.b A, #!SONG_F1_FADE
+#_19FE35: #_0A67: cmp.b A, #$F1 ; SONG F1 - fade
 #_19FE37: #_0A69: beq SongCommand_F1_Fadeout
 
-#_19FE39: #_0A6B: cmp.b A, #!SONG_F2_HALFVOL
+#_19FE39: #_0A6B: cmp.b A, #$F2 ; SONG F2 - half volume
 #_19FE3B: #_0A6D: beq SongCommand_F2_HalfVolume
 
-#_19FE3D: #_0A6F: cmp.b A, #!SONG_F3_MAXVOL
+#_19FE3D: #_0A6F: cmp.b A, #$F3 ; SONG F3 - max volume
 #_19FE3F: #_0A71: beq SongCommand_F3_MaxVolume
 
-#_19FE41: #_0A73: cmp.b A, #!SONG_F0_MUTE
+#_19FE41: #_0A73: cmp.b A, #$F0 ; SONG F0 - mute
 #_19FE43: #_0A75: beq SongCommand_F0_Mute
 #_19FE45: #_0A77: bra Song_NewJam
 
@@ -552,9 +552,11 @@ GetNextPart:
 ;===================================================================================================
 Song_NewJam:
 #_19FE6B: #_0A9D: clrc
+
 #_19FE6C: #_0A9E: mov.b X, #$00
 #_19FE6E: #_0AA0: mov.w $03CA, X
 #_19FE71: #_0AA3: mov.w $03E1, X
+
 #_19FE74: #_0AA6: mov.b $04, A
 
 #_19FE76: #_0AA8: asl A
@@ -938,7 +940,7 @@ TrackCommand_E0_ChangeInstrument:
 #_1A8038: #_0C6A: bpl .no_percussion
 
 #_1A803A: #_0C6C: setc
-#_1A803B: #_0C6D: sbc.b A, #!PERC_CA
+#_1A803B: #_0C6D: sbc.b A, #$CA ; Percussion base
 #_1A803D: #_0C6F: clrc
 #_1A803E: #_0C70: adc.b A, $5F
 
@@ -1329,7 +1331,7 @@ TrackCommand_F7_EchoFilter:
 #_1A81D9: #_0E0B: mov.b Y, #$08
 #_1A81DB: #_0E0D: mul YA
 #_1A81DC: #_0E0E: mov X, A
-#_1A81DD: #_0E0F: mov.b Y, #FIR
+#_1A81DD: #_0E0F: mov.b Y, #FIR0
 
 .set_next_filter
 #_1A81DF: #_0E11: mov.w A, TrackCommand_F7_EchoFilters+X
@@ -2687,6 +2689,8 @@ Handle_SFX1:
 #_1A884F: #_1481: cmp.b X, #$0A
 #_1A8851: #_1483: bpl .next_channel
 
+;---------------------------------------------------------------------------------------------------
+
 .return
 #_1A8853: #_1485: ret
 
@@ -2915,6 +2919,7 @@ ResumeMusic:
 
 .return
 #_1A89A4: #_15D6: mov.w X, $03C0
+
 #_1A89A7: #_15D9: ret
 
 ;===================================================================================================

@@ -38,31 +38,31 @@ Link_Main:
 ;===================================================================================================
 ; Link SFX Control
 ;===================================================================================================
-PlaySFX_Set1_Bank07:
-#_078021: JSR PlaySFX_SetPan_Bank07
+PlaySFX_Set1:
+#_078021: JSR PlaySFX_SetPan
 #_078024: STA.w $012D
 
 #_078027: RTS
 
 ;===================================================================================================
 
-PlaySFX_Set2_Bank07:
-#_078028: JSR PlaySFX_SetPan_Bank07
+PlaySFX_Set2:
+#_078028: JSR PlaySFX_SetPan
 #_07802B: STA.w $012E
 
 #_07802E: RTS
 
 ;===================================================================================================
 
-PlaySFX_Set3_Bank07:
-#_07802F: JSR PlaySFX_SetPan_Bank07
+PlaySFX_Set3:
+#_07802F: JSR PlaySFX_SetPan
 #_078032: STA.w $012F
 
 #_078035: RTS
 
 ;===================================================================================================
 
-PlaySFX_SetPan_Bank07:
+PlaySFX_SetPan:
 #_078036: STA.w $0CF8
 
 #_078039: JSL Link_CalculateSFXPan
@@ -136,7 +136,7 @@ Link_ControlHandler:
 
 ; !WEIRD hardcoded boomerang things
 #_07809E: LDA.w $0C4A
-#_0780A1: CMP.b #!ANCILLA_05
+#_0780A1: CMP.b #$05 ; ANCILLA 05
 #_0780A3: BNE .dont_delete_boom
 
 #_0780A5: LDA.w $0300
@@ -156,8 +156,8 @@ Link_ControlHandler:
 #_0780BB: STA.w $031F
 
 .dont_mess_with_boom
-#_0780BE: LDA.b #!SFX2_26 ; OOF
-#_0780C0: JSR PlaySFX_Set2_Bank07
+#_0780BE: LDA.b #$26 ; SFX2.26 ; OOF
+#_0780C0: JSR PlaySFX_Set2
 
 #_0780C3: INC.w $0CFC
 
@@ -232,7 +232,7 @@ LinkState_Default:
 #_07811D: BCC .no_bunny
 
 #_07811F: LDA.b $5D
-#_078121: CMP.b #!LINKSTATE_17
+#_078121: CMP.b #$17 ; LINKSTATE 17
 #_078123: BNE .already_bunny
 
 #_078125: BRL LinkState_Bunny
@@ -310,10 +310,10 @@ LinkState_Default:
 #_078183: AND.b #$F0
 #_078185: STA.b $67
 
-#_078187: LDA.b #!SFX3_2B
-#_078189: JSR PlaySFX_Set3_Bank07
+#_078187: LDA.b #$2B ; SFX3.2B
+#_078189: JSR PlaySFX_Set3
 
-#_07818C: LDA.b #!LINKSTATE_07
+#_07818C: LDA.b #$07 ; LINKSTATE 07
 #_07818E: STA.b $5D
 
 #_078190: BRL LinkState_Zapped
@@ -327,7 +327,7 @@ LinkState_Default:
 .pointless_branch
 #_078197: STZ.b $6B
 
-#_078199: LDA.b #!LINKSTATE_02
+#_078199: LDA.b #$02 ; LINKSTATE 02
 #_07819B: STA.b $5D
 
 #_07819D: BRL LinkState_Recoil
@@ -362,7 +362,7 @@ LinkState_Default:
 #_0781C9: JSR Link_HandleSwordCooldown
 
 #_0781CC: LDA.b $5D
-#_0781CE: CMP.b #!LINKSTATE_03
+#_0781CE: CMP.b #$03 ; LINKSTATE 03
 #_0781D0: BNE .continue_a
 
 #_0781D2: STZ.b $30
@@ -574,10 +574,10 @@ Link_HandleBunnyTransformation:
 #_0782DF: BNE .tick_timer
 
 #_0782E1: LDA.b $5D ; if we're already bunny, don't do anything
-#_0782E3: CMP.b #!LINKSTATE_17
+#_0782E3: CMP.b #$17 ; LINKSTATE 17
 #_0782E5: BEQ .exit_clear_timer
 
-#_0782E7: CMP.b #!LINKSTATE_1C ; or temp bunny
+#_0782E7: CMP.b #$1C ; or temp bunny - LINKSTATE 1C
 #_0782E9: BEQ .exit_clear_timer
 
 #_0782EB: LDA.w $0309
@@ -602,10 +602,10 @@ Link_HandleBunnyTransformation:
 
 .next_ancilla
 #_078305: LDA.w $0C4A,X
-#_078308: CMP.b #!ANCILLA_30
+#_078308: CMP.b #$30 ; ANCILLA 30
 #_07830A: BEQ .kill_ancilla
 
-#_07830C: CMP.b #!ANCILLA_31
+#_07830C: CMP.b #$31 ; ANCILLA 31
 #_07830E: BNE .skip_ancilla
 
 .kill_ancilla
@@ -620,11 +620,11 @@ Link_HandleBunnyTransformation:
 #_078316: JSR Link_CancelDash
 
 #_078319: LDY.b #$04
-#_07831B: LDA.b #!ANCILLA_23
+#_07831B: LDA.b #$23 ; ANCILLA 23
 #_07831D: JSL AncillaAdd_CapePoof
 
-#_078321: LDA.b #!SFX2_14
-#_078323: JSR PlaySFX_Set2_Bank07
+#_078321: LDA.b #$14 ; SFX2.14
+#_078323: JSR PlaySFX_Set2
 
 #_078326: LDA.b #$14
 #_078328: STA.w $02E2
@@ -642,7 +642,7 @@ Link_HandleBunnyTransformation:
 #_078337: DEC.w $02E2
 #_07833A: BPL .dont_revert
 
-#_07833C: LDA.b #!LINKSTATE_1C
+#_07833C: LDA.b #$1C ; LINKSTATE 1C
 #_07833E: STA.b $5D
 
 #_078340: LDA.b #$01
@@ -682,16 +682,16 @@ LinkState_TemporaryBunny:
 #_078365: BNE .delay_change_back
 
 #_078367: LDY.b #$04
-#_078369: LDA.b #!ANCILLA_23
+#_078369: LDA.b #$23 ; ANCILLA 23
 #_07836B: JSL AncillaAdd_CapePoof
 
-#_07836F: LDA.b #!SFX2_15
-#_078371: JSR PlaySFX_Set2_Bank07
+#_07836F: LDA.b #$15 ; SFX2.15
+#_078371: JSR PlaySFX_Set2
 
 #_078374: LDA.b #$20
 #_078376: STA.w $02E2
 
-#_078379: LDA.b #!LINKSTATE_00
+#_078379: LDA.b #$00 ; LINKSTATE 00
 #_07837B: STA.b $5D
 
 #_07837D: JSL Link_ResetProperties_C
@@ -770,13 +770,13 @@ LinkState_Bunny:
 
 #_0783DB: JSL Link_ResetSwimmingState
 
-#_0783DF: LDA.b #!LINKSTATE_02
+#_0783DF: LDA.b #$02 ; LINKSTATE 02
 #_0783E1: STA.b $5D
 
 #_0783E3: LDA.l $7EF357
 #_0783E7: BEQ .no_pearl_b
 
-#_0783E9: LDA.b #!LINKSTATE_00
+#_0783E9: LDA.b #$00 ; LINKSTATE 00
 #_0783EB: STA.b $5D
 
 #_0783ED: JSL RefreshLinkEquipmentPalettes_sword_and_mail
@@ -934,10 +934,10 @@ LinkState_HoldingBigRock:
 #_0784C1: AND.b #$F0
 #_0784C3: STA.b $67
 
-#_0784C5: LDA.b #!SFX3_2B
-#_0784C7: JSR PlaySFX_Set3_Bank07
+#_0784C5: LDA.b #$2B ; SFX3.2B
+#_0784C7: JSR PlaySFX_Set3
 
-#_0784CA: LDA.b #!LINKSTATE_07
+#_0784CA: LDA.b #$07 ; LINKSTATE 07
 #_0784CC: STA.b $5D
 
 #_0784CE: BRL LinkState_Zapped
@@ -945,7 +945,7 @@ LinkState_HoldingBigRock:
 ;---------------------------------------------------------------------------------------------------
 
 .no_zapping
-#_0784D1: LDA.b #!LINKSTATE_02
+#_0784D1: LDA.b #$02 ; LINKSTATE 02
 #_0784D3: STA.b $5D
 
 #_0784D5: BRL LinkState_Recoil
@@ -1058,7 +1058,7 @@ EtherTablet_StartCutscene:
 
 #_07855B: SEP #$20
 
-#_07855D: LDA.b #!LINKSTATE_19
+#_07855D: LDA.b #$19 ; LINKSTATE 19
 #_07855F: STA.b $5D
 
 #_078561: LDA.b #$01
@@ -1121,7 +1121,7 @@ LinkState_ReceivingEther:
 #_078599: LDX.b #$00
 
 #_07859B: LDY.b #$04
-#_07859D: LDA.b #!ANCILLA_29
+#_07859D: LDA.b #$29 ; ANCILLA 29
 #_07859F: JSL AncillaAdd_FallingPrize
 
 #_0785A3: LDA.b #$01
@@ -1161,7 +1161,7 @@ LinkState_ReceivingEther:
 #_0785C8: STA.b $23
 
 #_0785CA: LDY.b #$00
-#_0785CC: LDA.b #!ANCILLA_18
+#_0785CC: LDA.b #$18 ; ANCILLA 18
 #_0785CE: JSL AncillaAdd_EtherSpell
 
 #_0785D2: PLA
@@ -1188,7 +1188,7 @@ BombosTablet_StartCutscene:
 
 #_0785E6: SEP #$20
 
-#_0785E8: LDA.b #!LINKSTATE_1A
+#_0785E8: LDA.b #$1A ; LINKSTATE 1A
 #_0785EA: STA.b $5D
 
 #_0785EC: LDA.b #$01
@@ -1248,7 +1248,7 @@ LinkState_ReceivingBombos:
 
 #_078624: LDY.b #$04
 #_078626: LDX.b #$05
-#_078628: LDA.b #!ANCILLA_29
+#_078628: LDA.b #$29 ; ANCILLA 29
 #_07862A: JSL AncillaAdd_FallingPrize
 
 #_07862E: LDA.b #$01
@@ -1286,7 +1286,7 @@ LinkState_ReceivingBombos:
 #_078650: STA.b $23
 
 #_078652: LDY.b #$00
-#_078654: LDA.b #!ANCILLA_19
+#_078654: LDA.b #$19 ; ANCILLA 19
 #_078656: JSL AncillaAdd_BombosSpell
 
 #_07865A: PLA
@@ -1313,7 +1313,7 @@ InitiateDesertCutscene:
 
 #_07866E: SEP #$20
 
-#_078670: LDA.b #!LINKSTATE_1B
+#_078670: LDA.b #$1B ; LINKSTATE 1B
 #_078672: STA.b $5D
 
 #_078674: RTL
@@ -1326,7 +1326,7 @@ LinkState_ReadingDesertTablet:
 #_078677: LDA.b $3C
 #_078679: BNE .delay
 
-#_07867B: LDA.b #!LINKSTATE_00
+#_07867B: LDA.b #$00 ; LINKSTATE 00
 #_07867D: STA.b $5D
 
 #_07867F: JSR Link_PerformDesertPrayer
@@ -1351,7 +1351,7 @@ HandleSomariaAndGraves:
 
 .next_slot
 #_07868E: LDA.w $0C4A,X
-#_078691: CMP.b #!ANCILLA_24
+#_078691: CMP.b #$24 ; ANCILLA 24
 #_078693: BNE .not_grave
 
 #_078695: JSL Gravestone_Move
@@ -1368,7 +1368,7 @@ HandleSomariaAndGraves:
 
 .next_slot_again
 #_07869E: LDA.w $0C4A,X
-#_0786A1: CMP.b #!ANCILLA_2C
+#_0786A1: CMP.b #$2C ; ANCILLA 2C
 #_0786A3: BNE .not_somaria
 
 #_0786A5: JSL SomariaBlock_HandlePlayerInteraction
@@ -1422,14 +1422,14 @@ LinkState_Recoil:
 #_0786D7: AND.b #$01
 #_0786D9: BEQ .no_deep_water_interaction
 
-#_0786DB: LDA.b #!LINKSTATE_04
+#_0786DB: LDA.b #$04 ; LINKSTATE 04
 #_0786DD: STA.b $5D
 
 #_0786DF: JSR Link_SetToDeepWater
 
 #_0786E2: JSR Link_ResetSwordAndItemUsage
 
-#_0786E5: LDA.b #!ANCILLA_15
+#_0786E5: LDA.b #$15 ; ANCILLA 15
 #_0786E7: LDY.b #$00
 #_0786E9: JSL AncillaAdd_Splash
 
@@ -1508,7 +1508,7 @@ Link_HandleRecoilAndTimer:
 #_078738: STA.b $72
 
 #_07873A: LDA.b $5D
-#_07873C: CMP.b #!LINKSTATE_06
+#_07873C: CMP.b #$06 ; LINKSTATE 06
 #_07873E: BEQ .jumping
 
 #_078740: STZ.b $3C
@@ -1542,20 +1542,20 @@ Link_HandleRecoilAndTimer:
 
 .no_guaranteed_thud
 #_078762: LDA.b $72
-#_078764: CMP.b #!LINKSTATE_02
+#_078764: CMP.b #$02 ; LINKSTATE 02
 #_078766: BEQ .skip_thud_sfx
 
 #_078768: LDA.b $5D
-#_07876A: CMP.b #!LINKSTATE_04
+#_07876A: CMP.b #$04 ; LINKSTATE 04
 #_07876C: BEQ .skip_thud_sfx
 
 .play_thud
-#_07876E: LDA.b #!SFX2_21
-#_078770: JSR PlaySFX_Set2_Bank07
+#_07876E: LDA.b #$21 ; SFX2.21
+#_078770: JSR PlaySFX_Set2
 
 .skip_thud_sfx
 #_078773: LDY.b $5D
-#_078775: CPY.b #!LINKSTATE_04
+#_078775: CPY.b #$04 ; LINKSTATE 04
 #_078777: BNE .not_swimming
 
 #_078779: JSR Link_ForceUnequipCape_quietly
@@ -1564,7 +1564,7 @@ Link_HandleRecoilAndTimer:
 #_07877E: BEQ .dont_swap_layers
 
 #_078780: LDA.b $72
-#_078782: CMP.b #!LINKSTATE_02
+#_078782: CMP.b #$02 ; LINKSTATE 02
 #_078784: BEQ .dont_swap_layers
 
 #_078786: LDA.l $7EF356
@@ -1574,7 +1574,7 @@ Link_HandleRecoilAndTimer:
 #_07878E: STA.b $EE
 
 .dont_swap_layers
-#_078790: LDA.b #!ANCILLA_15
+#_078790: LDA.b #$15 ; ANCILLA 15
 #_078792: LDY.b #$00
 #_078794: JSL AncillaAdd_Splash
 
@@ -1588,8 +1588,8 @@ Link_HandleRecoilAndTimer:
 #_0787A0: AND.b #$01
 #_0787A2: BEQ .not_in_thick_grass
 
-#_0787A4: LDA.b #!SFX2_1A
-#_0787A6: JSR PlaySFX_Set2_Bank07
+#_0787A4: LDA.b #$1A ; SFX2.1A
+#_0787A6: JSR PlaySFX_Set2
 
 .not_in_thick_grass
 #_0787A9: LDA.w $0359
@@ -1597,11 +1597,11 @@ Link_HandleRecoilAndTimer:
 #_0787AE: BEQ .skip_sploosh_sfx
 
 #_0787B0: LDA.w $012E
-#_0787B3: CMP.b #!SFX2_24
+#_0787B3: CMP.b #$24 ; SFX2.24
 #_0787B5: BEQ .skip_sploosh_sfx
 
-#_0787B7: LDA.b #!SFX2_1C
-#_0787B9: JSR PlaySFX_Set2_Bank07
+#_0787B7: LDA.b #$1C ; SFX2.1C
+#_0787B9: JSR PlaySFX_Set2
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -1610,13 +1610,13 @@ Link_HandleRecoilAndTimer:
 #_0787BF: AND.b #$01
 #_0787C1: BEQ Link_CheckLayerForChange
 
-#_0787C3: LDA.b #!LINKSTATE_04
+#_0787C3: LDA.b #$04 ; LINKSTATE 04
 #_0787C5: STA.b $5D
 
 #_0787C7: JSR Link_SetToDeepWater
 #_0787CA: JSR Link_ResetSwordAndItemUsage
 
-#_0787CD: LDA.b #!ANCILLA_15
+#_0787CD: LDA.b #$15 ; ANCILLA 15
 #_0787CF: LDY.b #$00
 #_0787D1: JSL AncillaAdd_Splash
 
@@ -1664,7 +1664,7 @@ Link_HandleRecoilVelocity_and_reset:
 
 Link_HandleRecoilVelocity:
 #_078807: LDA.b $5D
-#_078809: CMP.b #!LINKSTATE_05
+#_078809: CMP.b #$05 ; LINKSTATE 05
 #_07880B: BEQ .icy_or_low_timer
 
 #_07880D: LDA.b $46
@@ -1684,7 +1684,7 @@ Link_HandleRecoilVelocity:
 #_07881F: JSR Flag67WithDirections
 
 #_078822: LDA.b $5D
-#_078824: CMP.b #!LINKSTATE_06
+#_078824: CMP.b #$06 ; LINKSTATE 06
 #_078826: BEQ .find_spot
 
 #_078828: JSR Link_HandleDiagonalCollision
@@ -1709,7 +1709,7 @@ Link_HandleRecoilVelocity:
 
 .delay_flagging
 #_07883F: LDA.b $5D
-#_078841: CMP.b #!LINKSTATE_06
+#_078841: CMP.b #$06 ; LINKSTATE 06
 #_078843: BEQ .jumping_out_of_water
 
 #_078845: JSR Link_HandleCardinalCollision
@@ -1733,7 +1733,7 @@ Link_HandleRecoilVelocity:
 #_07885D: CMP.b #$0F
 #_07885F: BNE .skip_pit_detect
 
-#_078861: LDA.b #!LINKSTATE_01
+#_078861: LDA.b #$01 ; LINKSTATE 01
 #_078863: STA.b $5D
 
 #_078865: LDA.b #$04
@@ -1919,7 +1919,7 @@ Link_HandleChangeInZVelocity:
 #_078920: LDX.b #$02
 
 #_078922: LDA.b $5D ; is Link on a somaria platform?
-#_078924: CMP.b #!LINKSTATE_05 ; if so, X = 1
+#_078924: CMP.b #$05 ; LINKSTATE 05
 #_078926: BNE .not_somaria_platform
 
 #_078928: LDX.b #$01
@@ -1972,8 +1972,8 @@ LinkHop_HoppingSouthOW:
 #_078959: LDA.w $0362
 #_07895C: BNE .continue
 
-#_07895E: LDA.b #!SFX2_20
-#_078960: JSR PlaySFX_Set2_Bank07
+#_07895E: LDA.b #$20 ; SFX2.20
+#_078960: JSR PlaySFX_Set2
 
 #_078963: JSR LinkHop_FindTileToLandOnSouth
 
@@ -2031,22 +2031,22 @@ LinkHop_HoppingSouthOW:
 #_0789AA: LDA.b $5B
 #_0789AC: BEQ .not_near_pit
 
-#_0789AE: LDA.b #!LINKSTATE_01
+#_0789AE: LDA.b #$01 ; LINKSTATE 01
 #_0789B0: STA.b $5D
 
 .not_near_pit
 #_0789B2: LDA.b $5D
-#_0789B4: CMP.b #!LINKSTATE_04
+#_0789B4: CMP.b #$04 ; LINKSTATE 04
 #_0789B6: BEQ .skip_sfx
 
-#_0789B8: CMP.b #!LINKSTATE_01
+#_0789B8: CMP.b #$01 ; LINKSTATE 01
 #_0789BA: BEQ .skip_sfx
 
 #_0789BC: LDA.w $0345
 #_0789BF: BNE .skip_sfx
 
-#_0789C1: LDA.b #!SFX2_21
-#_0789C3: JSR PlaySFX_Set2_Bank07
+#_0789C1: LDA.b #$21 ; SFX2.21
+#_0789C3: JSR PlaySFX_Set2
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2139,10 +2139,10 @@ LinkState_HandlingJump:
 #_078A31: STZ.b $25
 
 #_078A33: LDA.b $5D
-#_078A35: CMP.b #!LINKSTATE_0C
+#_078A35: CMP.b #$0C ; LINKSTATE 0C
 #_078A37: BEQ .left_or_right
 
-#_078A39: CMP.b #!LINKSTATE_0E
+#_078A39: CMP.b #$0E ; LINKSTATE 0E
 #_078A3B: BNE .continue_a
 
 ;---------------------------------------------------------------------------------------------------
@@ -2155,13 +2155,13 @@ LinkState_HandlingJump:
 #_078A45: AND.b #$01
 #_078A47: BEQ .dont_become_swimming
 
-#_078A49: LDA.b #!LINKSTATE_04
+#_078A49: LDA.b #$04 ; LINKSTATE 04
 #_078A4B: STA.b $5D
 
 #_078A4D: JSR Link_SetToDeepWater
 #_078A50: JSR Link_ResetSwordAndItemUsage
 
-#_078A53: LDA.b #!ANCILLA_15
+#_078A53: LDA.b #$15 ; ANCILLA 15
 #_078A55: LDY.b #$00
 #_078A57: JSL AncillaAdd_Splash
 
@@ -2184,7 +2184,7 @@ LinkState_HandlingJump:
 
 ; we won't be swimming
 ; branch further dumdum
-#_078A6D: LDA.b #!LINKSTATE_01
+#_078A6D: LDA.b #$01 ; LINKSTATE 01
 #_078A6F: STA.b $5D
 
 #_078A71: BRA .check_if_swimming
@@ -2195,18 +2195,18 @@ LinkState_HandlingJump:
 #_078A73: JSR Link_SplashUponLanding
 
 #_078A76: LDA.b $5D
-#_078A78: CMP.b #!LINKSTATE_04
+#_078A78: CMP.b #$04 ; LINKSTATE 04
 #_078A7A: BEQ .check_if_swimming
 
 #_078A7C: LDA.w $0345
 #_078A7F: BNE .check_if_swimming
 
-#_078A81: LDA.b #!SFX2_21
-#_078A83: JSR PlaySFX_Set2_Bank07
+#_078A81: LDA.b #$21 ; SFX2.21
+#_078A83: JSR PlaySFX_Set2
 
 .check_if_swimming
 #_078A86: LDA.b $5D
-#_078A88: CMP.b #!LINKSTATE_04
+#_078A88: CMP.b #$04 ; LINKSTATE 04
 #_078A8A: BNE .not_swimming
 
 #_078A8C: LDA.w $02E0
@@ -2421,12 +2421,12 @@ LinkState_HoppingHorizontallyOW:
 pool Link_HoppingHorizontally_FindTile_Vertical
 ; TODO verify
 .speed_z
-#_078B85: db $20,$20,$20,$28
-#_078B89: db $30,$38,$40,$48
+#_078B85: db $20, $20, $20, $28
+#_078B89: db $30, $38, $40, $48
 
 .speed_x
-#_078B8D: db $10,$1C,$1C,$1C
-#_078B91: db $1C,$1C,$1C,$1C
+#_078B8D: db $10, $1C, $1C, $1C
+#_078B91: db $1C, $1C, $1C, $1C
 
 pool off
 
@@ -2736,15 +2736,15 @@ pool Link_HoppingHorizontally_FindTile_Horizontal
 #_078CF3: dw  16
 
 .speed_x
-#_078CF5: db $14,$14,$14,$18,$18,$18,$18,$1C
-#_078CFD: db $1C,$24,$24,$24,$24,$24,$24,$26
-#_078D05: db $26,$26,$26,$26,$26,$26,$28,$28
+#_078CF5: db $14, $14, $14, $18, $18, $18, $18, $1C
+#_078CFD: db $1C, $24, $24, $24, $24, $24, $24, $26
+#_078D05: db $26, $26, $26, $26, $26, $26, $28, $28
 
 ; TODO verify
 .speed_z
-#_078D0D: db $14,$14,$14,$14,$14,$14,$14,$18
-#_078D15: db $18,$20,$20,$20,$24,$24,$24,$26
-#_078D1D: db $26,$26,$26,$26,$26,$26,$28,$28
+#_078D0D: db $14, $14, $14, $14, $14, $14, $14, $18
+#_078D15: db $18, $20, $20, $20, $24, $24, $24, $26
+#_078D1D: db $26, $26, $26, $26, $26, $26, $28, $28
 
 pool off
 
@@ -2890,14 +2890,14 @@ LinkState_HoppingDiagonallyUpOW:
 #_078DD2: JSR Link_SplashUponLanding
 
 #_078DD5: LDA.b $5D
-#_078DD7: CMP.b #!LINKSTATE_04
+#_078DD7: CMP.b #$04 ; LINKSTATE 04
 #_078DD9: BEQ .no_sfx
 
 #_078DDB: LDA.w $0345
 #_078DDE: BNE .no_sfx
 
-#_078DE0: LDA.b #!SFX2_21
-#_078DE2: JSR PlaySFX_Set2_Bank07
+#_078DE0: LDA.b #$21 ; SFX2.21
+#_078DE2: JSR PlaySFX_Set2
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2962,8 +2962,8 @@ LinkState_HoppingDiagonallyDownOW:
 #_078E31: LDA.b $23
 #_078E33: PHA
 
-#_078E34: LDA.b #!SFX2_20
-#_078E36: JSR PlaySFX_Set2_Bank07
+#_078E34: LDA.b #$20 ; SFX2.20
+#_078E36: JSR PlaySFX_Set2
 
 #_078E39: JSR LinkHop_FindLandingSpotDiagonallyDown
 
@@ -3014,16 +3014,16 @@ LinkState_HoppingDiagonallyDownOW:
 pool LinkHop_FindLandingSpotDiagonallyDown
 
 .offset_x
-#_078E67: db $F8,$FF,$08,$00
+#_078E67: db $F8, $FF, $08, $00
 
 .offset_y
-#_078E6B: db $F7,$FF,$09,$00
+#_078E6B: db $F7, $FF, $09, $00
 
 .offset_y_2
-#_078E6F: db $E8,$FF,$18,$00
+#_078E6F: db $E8, $FF, $18, $00
 
 .detection_masks
-#_078E73: db $06,$03
+#_078E73: db $06, $03
 
 pool off
 
@@ -3163,7 +3163,7 @@ Link_SplashUponLanding:
 #_078F1E: LDA.w $0345
 #_078F21: BEQ .not_deep_water
 
-#_078F23: LDA.b #!ANCILLA_15
+#_078F23: LDA.b #$15 ; ANCILLA 15
 #_078F25: LDY.b #$00
 #_078F27: JSL AncillaAdd_Splash
 
@@ -3173,18 +3173,18 @@ Link_SplashUponLanding:
 #_078F2D: BRL LinkState_Bunny_recache
 
 .not_deep_water
-#_078F30: LDX.b #!LINKSTATE_17
+#_078F30: LDX.b #$17 ; LINKSTATE 17
 
 #_078F32: LDA.l $7EF357
 #_078F36: BEQ .set_state
 
-#_078F38: LDX.b #!LINKSTATE_1C
+#_078F38: LDX.b #$1C ; LINKSTATE 1C
 #_078F3A: BRA .set_state
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_bunny
-#_078F3C: LDX.b #!LINKSTATE_00
+#_078F3C: LDX.b #$00 ; LINKSTATE 00
 
 ; check for deep water
 #_078F3E: LDA.w $0345
@@ -3192,10 +3192,10 @@ Link_SplashUponLanding:
 
 ; check for some type of recoil
 #_078F43: LDA.b $5D
-#_078F45: CMP.b #!LINKSTATE_06
+#_078F45: CMP.b #$06 ; LINKSTATE 06
 #_078F47: BEQ .not_recoiling
 
-#_078F49: LDA.b #!ANCILLA_15
+#_078F49: LDA.b #$15 ; ANCILLA 15
 #_078F4B: LDY.b #$00
 #_078F4D: JSL AncillaAdd_Splash
 
@@ -3205,7 +3205,7 @@ Link_SplashUponLanding:
 #_078F51: JSR Link_ForceUnequipCape_quietly
 
 ; set to swim state
-#_078F54: LDX.b #!LINKSTATE_04
+#_078F54: LDX.b #$04 ; LINKSTATE 04
 
 .set_state
 #_078F56: STX.b $5D
@@ -3250,21 +3250,21 @@ FollowerReactionToDashing:
 ;---------------------------------------------------------------------------------------------------
 
 FollowerDashReplacement:
-#_078F71: db $FF          ; 0x00 - No follower
-#_078F72: db $00          ; 0x01 - Zelda
-#_078F73: db !FOLLOWER_03 ; 0x02 - Old man that stops following you
-#_078F74: db $00          ; 0x03 - Unused old man
-#_078F75: db $00          ; 0x04 - Normal old man
-#_078F76: db $00          ; 0x05 - Zelda rescue telepathy
-#_078F77: db $00          ; 0x06 - Blind maiden
-#_078F78: db $00          ; 0x07 - Frogsmith
-#_078F79: db $00          ; 0x08 - Smithy
-#_078F7A: db $00          ; 0x09 - Locksmith
-#_078F7B: db $00          ; 0x0A - Kiki
-#_078F7C: db $00          ; 0x0B - Unused old man
-#_078F7D: db $00          ; 0x0C - Purple chest
-#_078F7E: db $00          ; 0x0D - Super bomb
-#_078F7F: db $00          ; 0x0E - Master Sword telepathy
+#_078F71: db $FF ; 0x00 - No follower
+#_078F72: db $00 ; 0x01 - Zelda
+#_078F73: db $03 ; 0x02 - Old man that stops following you ⇒ FOLLOWER 03
+#_078F74: db $00 ; 0x03 - Unused old man
+#_078F75: db $00 ; 0x04 - Normal old man
+#_078F76: db $00 ; 0x05 - Zelda rescue telepathy
+#_078F77: db $00 ; 0x06 - Blind maiden
+#_078F78: db $00 ; 0x07 - Frogsmith
+#_078F79: db $00 ; 0x08 - Smithy
+#_078F7A: db $00 ; 0x09 - Locksmith
+#_078F7B: db $00 ; 0x0A - Kiki
+#_078F7C: db $00 ; 0x0B - Unused old man
+#_078F7D: db $00 ; 0x0C - Purple chest
+#_078F7E: db $00 ; 0x0D - Super bomb
+#_078F7F: db $00 ; 0x0E - Master Sword telepathy
 
 ;===================================================================================================
 
@@ -3275,7 +3275,7 @@ LinkState_Dashing:
 #_078F86: BCC .not_bunnifying
 
 #_078F88: LDA.b $5D
-#_078F8A: CMP.b #!LINKSTATE_17
+#_078F8A: CMP.b #$17 ; LINKSTATE 17
 #_078F8C: BNE .not_bunny
 
 #_078F8E: BRL LinkState_Bunny
@@ -3293,7 +3293,7 @@ LinkState_Dashing:
 #_078F9A: STZ.w $0374
 #_078F9D: STZ.b $5E
 
-#_078F9F: LDA.b #!LINKSTATE_00
+#_078F9F: LDA.b #$00 ; LINKSTATE 00
 #_078FA1: STA.b $5D
 
 #_078FA3: STZ.b $50
@@ -3356,10 +3356,10 @@ LinkState_Dashing:
 #_078FEB: AND.b #$F0
 #_078FED: STA.b $67
 
-#_078FEF: LDA.b #!SFX3_2B
-#_078FF1: JSR PlaySFX_Set3_Bank07
+#_078FEF: LDA.b #$2B ; SFX3.2B
+#_078FF1: JSR PlaySFX_Set3
 
-#_078FF4: LDA.b #!LINKSTATE_07
+#_078FF4: LDA.b #$07 ; LINKSTATE 07
 #_078FF6: STA.b $5D
 
 #_078FF8: BRL LinkState_Zapped
@@ -3367,7 +3367,7 @@ LinkState_Dashing:
 ;---------------------------------------------------------------------------------------------------
 
 .bonking
-#_078FFB: LDA.b #!LINKSTATE_02
+#_078FFB: LDA.b #$02 ; LINKSTATE 02
 #_078FFD: STA.b $5D
 
 #_078FFF: BRL LinkState_Recoil
@@ -3393,8 +3393,8 @@ LinkState_Dashing:
 #_079013: AND.w LinkDashSFXMasks,X
 #_079016: BNE .no_sfx
 
-#_079018: LDA.b #!SFX2_23
-#_07901A: JSR PlaySFX_Set2_Bank07
+#_079018: LDA.b #$23 ; SFX2.23
+#_07901A: JSR PlaySFX_Set2
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -3429,7 +3429,7 @@ LinkState_Dashing:
 #_079043: STZ.w $0374
 #_079046: STZ.b $5E
 
-#_079048: LDA.b #!LINKSTATE_00
+#_079048: LDA.b #$00 ; LINKSTATE 00
 #_07904A: STA.b $5D
 
 #_07904C: STZ.w $0372
@@ -3446,7 +3446,7 @@ LinkState_Dashing:
 
 .new_a_press
 #_079058: LDY.b #$00
-#_07905A: LDA.b #!ANCILLA_1E
+#_07905A: LDA.b #$1E ; ANCILLA 1E
 #_07905C: JSL AncillaAdd_DashDust_charging
 
 #_079060: STZ.b $30
@@ -3547,7 +3547,7 @@ LinkState_Dashing:
 
 .dont_reset_anim_timer
 #_0790E6: LDY.b #$00
-#_0790E8: LDA.b #!ANCILLA_1E
+#_0790E8: LDA.b #$1E ; ANCILLA 1E
 #_0790EA: JSL AncillaAdd_DashDust
 
 #_0790EE: STZ.b $79
@@ -3589,7 +3589,7 @@ LinkState_Dashing:
 #_07911D: CMP.b $00
 #_07911F: BEQ .dpad_relaxed
 
-#_079121: LDA.b #!LINKSTATE_12
+#_079121: LDA.b #$12 ; LINKSTATE 12
 #_079123: STA.b $5D
 
 #_079125: LDA.b $3A
@@ -3648,7 +3648,7 @@ LinkState_ExitingDash:
 #_079168: STZ.w $0374
 #_07916B: STZ.b $5E
 
-#_07916D: LDA.b #!LINKSTATE_00
+#_07916D: LDA.b #$00 ; LINKSTATE 00
 #_07916F: STA.b $5D
 
 #_079171: STZ.w $0372
@@ -3689,7 +3689,7 @@ Link_CancelDash:
 
 .next_ancilla
 #_079197: LDA.w $0C4A,X
-#_07919A: CMP.b #!ANCILLA_1E
+#_07919A: CMP.b #$1E ; ANCILLA 1E
 #_07919C: BNE .dont_delete
 
 #_07919E: STZ.w $0C4A,X
@@ -3764,21 +3764,21 @@ RepelDash:
 #_0791FA: JSL Link_ResetSwimmingState
 
 #_0791FE: LDY.b #$01
-#_079200: LDA.b #!ANCILLA_1D
+#_079200: LDA.b #$1D ; ANCILLA 1D
 #_079202: JSL AncillaAdd_DashTremor
 
 #_079206: JSL Prepare_ApplyRumbleToSprites
 
 #_07920A: LDA.w $012F
 #_07920D: AND.b #$3F
-#_07920F: CMP.b #!SFX3_1B
+#_07920F: CMP.b #$1B ; SFX3.1B
 #_079211: BEQ LinkApplyTileRebound
 
-#_079213: CMP.b #!SFX3_32
+#_079213: CMP.b #$32 ; SFX3.32
 #_079215: BEQ LinkApplyTileRebound
 
-#_079217: LDA.b #!SFX3_03
-#_079219: JSR PlaySFX_Set3_Bank07
+#_079217: LDA.b #$03 ; SFX3.03
+#_079219: JSR PlaySFX_Set3
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -4017,25 +4017,25 @@ LinkState_Pits:
 .holding_b
 #_07932F: STZ.b $5B
 
-#_079331: LDY.b #!LINKSTATE_00
+#_079331: LDY.b #$00 ; LINKSTATE 00
 
 #_079333: LDA.w $02E0
 #_079336: BEQ .set_state_and_continue
 
-#_079338: LDY.b #!LINKSTATE_17
+#_079338: LDY.b #$17 ; LINKSTATE 17
 
 #_07933A: LDA.l $7EF357
 #_07933E: BEQ .set_state_and_continue
 
-#_079340: LDY.b #!LINKSTATE_1C
+#_079340: LDY.b #$1C ; LINKSTATE 1C
 
 .set_state_and_continue
 #_079342: STY.b $5D
 
-#_079344: CPY.b #!LINKSTATE_17
+#_079344: CPY.b #$17 ; LINKSTATE 17
 #_079346: BEQ .normal_bunny
 
-#_079348: CPY.b #!LINKSTATE_1C
+#_079348: CPY.b #$1C ; LINKSTATE 1C
 #_07934A: BEQ .temp_bunny
 
 #_07934C: BRL LinkState_Default
@@ -4066,12 +4066,12 @@ Link_HandleFallingInPit:
 #_079368: LDA.w $02E0
 #_07936B: BEQ .set_state
 
-#_07936D: LDY.b #!LINKSTATE_17
+#_07936D: LDY.b #$17 ; LINKSTATE 17
 
 #_07936F: LDA.l $7EF357
 #_079373: BEQ .set_state
 
-#_079375: LDY.b #!LINKSTATE_1C
+#_079375: LDY.b #$1C ; LINKSTATE 1C
 
 .set_state
 #_079377: STY.b $5D
@@ -4130,8 +4130,8 @@ Link_HandleFallingInPit:
 #_0793C0: STZ.b $46
 #_0793C2: STZ.b $4D
 
-#_0793C4: LDA.b #!SFX3_1F
-#_0793C6: JSR PlaySFX_Set3_Bank07
+#_0793C4: LDA.b #$1F ; SFX3.1F
+#_0793C6: JSR PlaySFX_Set3
 
 .already_falling
 #_0793C9: BRA DetermineConsequencesOfFalling
@@ -4242,7 +4242,7 @@ DetermineConsequencesOfFalling:
 #_079440: STA.b $5C
 
 #_079442: LDA.l $7EF3CC
-#_079446: CMP.b #!FOLLOWER_0D
+#_079446: CMP.b #$0D ; FOLLOWER 0D
 #_079448: BEQ .no_hud_numbers
 
 #_07944A: CPX.b #$01
@@ -4507,13 +4507,13 @@ HandleUnderworldLandingFromPit:
 #_07958A: BEQ .dont_reinitialize_follower
 
 ; Unused old man
-#_07958C: CMP.b #!FOLLOWER_03
+#_07958C: CMP.b #$03 ; FOLLOWER 03
 #_07958E: BEQ .dont_reinitialize_follower
 
 #_079590: STZ.w $02F9
 
 ; Delete super bomb follower
-#_079593: CMP.b #!FOLLOWER_0D
+#_079593: CMP.b #$0D ; FOLLOWER 0D
 #_079595: BNE .dont_delete_follower
 
 #_079597: LDA.b #$00
@@ -4538,19 +4538,19 @@ HandleUnderworldLandingFromPit:
 #_0795B5: AND.b #$01
 #_0795B7: BEQ .not_shallow_water
 
-#_0795B9: LDA.b #!SFX2_24
-#_0795BB: JSR PlaySFX_Set2_Bank07
+#_0795B9: LDA.b #$24 ; SFX2.24
+#_0795BB: JSR PlaySFX_Set2
 
 .not_shallow_water
 #_0795BE: JSR TileDetect_BigArea
 
 #_0795C1: LDA.w $012E
 #_0795C4: AND.b #$3F
-#_0795C6: CMP.b #!SFX2_24
+#_0795C6: CMP.b #$24 ; SFX2.24
 #_0795C8: BEQ .already_made_a_sound
 
-#_0795CA: LDA.b #!SFX2_21
-#_0795CC: JSR PlaySFX_Set2_Bank07
+#_0795CA: LDA.b #$21 ; SFX2.21
+#_0795CC: JSR PlaySFX_Set2
 
 .already_made_a_sound
 #_0795CF: LDA.b $AD
@@ -4581,11 +4581,11 @@ HandleUnderworldLandingFromPit:
 #_0795F8: LDA.b #$01
 #_0795FA: STA.b $EE
 
-#_0795FC: LDA.b #!ANCILLA_15
+#_0795FC: LDA.b #$15 ; ANCILLA 15
 #_0795FE: LDY.b #$00
 #_079600: JSL AncillaAdd_Splash
 
-#_079604: LDA.b #!LINKSTATE_04
+#_079604: LDA.b #$04 ; LINKSTATE 04
 #_079606: STA.b $5D
 
 #_079608: JSR Link_ForceUnequipCape_quietly
@@ -4602,13 +4602,13 @@ HandleUnderworldLandingFromPit:
 #_07961A: AND.b #$0F
 #_07961C: BNE .pit
 
-#_07961E: LDA.b #!LINKSTATE_00
+#_07961E: LDA.b #$00 ; LINKSTATE 00
 #_079620: STA.b $5D
 
 #_079622: BRA .exit
 
 .pit
-#_079624: LDA.b #!LINKSTATE_01
+#_079624: LDA.b #$01 ; LINKSTATE 01
 #_079626: STA.b $5D
 
 ;---------------------------------------------------------------------------------------------------
@@ -4637,7 +4637,7 @@ LinkState_Swimming:
 #_079632: LDA.b $4D
 #_079634: BEQ .not_diving
 
-#_079636: LDA.b #!LINKSTATE_02
+#_079636: LDA.b #$02 ; LINKSTATE 02
 #_079638: STA.b $5D
 #_07963A: STZ.b $25
 
@@ -4748,8 +4748,8 @@ LinkState_Swimming:
 
 #_0796D1: STA.w $034F
 
-#_0796D4: LDA.b #!SFX2_25
-#_0796D6: JSR PlaySFX_Set2_Bank07
+#_0796D4: LDA.b #$25 ; SFX2.25
+#_0796D6: JSR PlaySFX_Set2
 
 #_0796D9: LDA.b #$01
 #_0796DB: STA.w $032A
@@ -4826,7 +4826,7 @@ Link_HandleSwimMovements:
 
 .check_if_swimming
 #_07973D: LDA.b $5D
-#_07973F: CMP.b #!LINKSTATE_04
+#_07973F: CMP.b #$04 ; LINKSTATE 04
 #_079741: BEQ .finish_up
 
 #_079743: STZ.b $2E
@@ -5051,7 +5051,7 @@ Link_ResetStateAfterDamagingPit:
 
 #_07983E: JSL Link_ResetSwimmingState
 
-#_079842: LDY.b #!LINKSTATE_00
+#_079842: LDY.b #$00 ; LINKSTATE 00
 
 #_079844: LDA.b $56
 #_079846: BEQ .dont_bunny
@@ -5059,7 +5059,7 @@ Link_ResetStateAfterDamagingPit:
 #_079848: LDA.l $7EF357
 #_07984C: BNE .dont_bunny
 
-#_07984E: LDY.b #!LINKSTATE_17
+#_07984E: LDY.b #$17 ; LINKSTATE 17
 
 .dont_bunny
 #_079850: STY.b $5D
@@ -5107,8 +5107,8 @@ ResetAllAcceleration:
 pool Link_HandleSwimAccels
 
 .max_speeds
-#_079886: dw $0080,$00A0,$00C0,$00E0
-#_07988E: dw $0100,$0120,$0140,$0160
+#_079886: dw $0080, $00A0, $00C0, $00E0
+#_07988E: dw $0100, $0120, $0140, $0160
 #_079896: dw $0180
 
 pool off
@@ -5128,7 +5128,7 @@ Link_HandleSwimAccels:
 .next
 #_0798A2: LDA.b $F0
 #_0798A4: AND.b $02
-#_0798A6: BEQ .to_next
+#_0798A6: BEQ .next_axis
 
 #_0798A8: LDA.w $033C,X
 #_0798AB: BEQ .check_max
@@ -5172,7 +5172,7 @@ Link_HandleSwimAccels:
 .set
 #_0798E5: STA.w $0334,X
 
-.to_next
+.next_axis
 #_0798E8: ASL.b $02
 #_0798EA: ASL.b $02
 
@@ -5289,7 +5289,7 @@ LinkState_Zapped:
 
 #_079987: STZ.w $0300
 
-#_07998A: LDA.b #!LINKSTATE_00
+#_07998A: LDA.b #$00 ; LINKSTATE 00
 #_07998C: STA.b $5D
 
 #_07998E: STZ.w $037B
@@ -5325,11 +5325,11 @@ Link_ReceiveItem:
 .not_recoiling
 #_0799AE: STY.w $02D8
 
-#_0799B1: CPY.b #!ITEMGET_3E
+#_0799B1: CPY.b #$3E ; ITEMGET 3E
 #_0799B3: BNE .not_boss_heart
 
-#_0799B5: LDA.b #!SFX3_2E
-#_0799B7: JSR PlaySFX_Set3_Bank07
+#_0799B5: LDA.b #$2E ; SFX3.2E
+#_0799B7: JSR PlaySFX_Set3
 
 .not_boss_heart
 #_0799BA: LDA.b #$60
@@ -5359,14 +5359,14 @@ Link_ReceiveItem:
 
 #_0799DB: STZ.w $0300
 
-#_0799DE: LDA.b #!LINKSTATE_15
+#_0799DE: LDA.b #$15 ; LINKSTATE 15
 #_0799E0: STA.b $5D
 
 #_0799E2: LDA.b #$01
 #_0799E4: STA.w $02DA
 #_0799E7: STA.w $037B
 
-#_0799EA: CPY.b #!ITEMGET_20
+#_0799EA: CPY.b #$20 ; ITEMGET 20
 #_0799EC: BNE .not_cool_pose
 
 #_0799EE: INC A
@@ -5378,21 +5378,24 @@ Link_ReceiveItem:
 #_0799F2: PHX
 
 #_0799F3: LDY.b #$04
-#_0799F5: LDA.b #!ANCILLA_22
+#_0799F5: LDA.b #$22 ; ANCILLA 22
 #_0799F7: JSL AncillaAdd_ItemReceipt
 
 ; Checks for prizes
 #_0799FB: LDA.w $02D8
-#_0799FE: CMP.b #!ITEMGET_20 ; crystal
+
+; crystal
+#_0799FE: CMP.b #$20 ; ITEMGET 20
 #_079A00: BEQ .skip_hud
 
-#_079A02: CMP.b #!ITEMGET_37 ; pendant
+; pendants
+#_079A02: CMP.b #$37 ; ITEMGET 37
 #_079A04: BEQ .skip_hud
 
-#_079A06: CMP.b #!ITEMGET_38 ; pendant
+#_079A06: CMP.b #$38 ; ITEMGET 38
 #_079A08: BEQ .skip_hud
 
-#_079A0A: CMP.b #!ITEMGET_39 ; pendant
+#_079A0A: CMP.b #$39 ; ITEMGET 39
 #_079A0C: BEQ .skip_hud
 
 #_079A0E: JSL RefreshIcon_long
@@ -5435,7 +5438,7 @@ Link_TuckIntoBed:
 
 #_079A2B: SEP #$20
 
-#_079A2D: LDA.b #!LINKSTATE_16
+#_079A2D: LDA.b #$16 ; LINKSTATE 16
 #_079A2F: STA.b $5D
 
 #_079A31: STZ.w $037C
@@ -5444,7 +5447,7 @@ Link_TuckIntoBed:
 #_079A37: LDA.b #$03
 #_079A39: STA.w $0374
 
-#_079A3C: LDA.b #!ANCILLA_20
+#_079A3C: LDA.b #$20 ; ANCILLA 20
 #_079A3E: JSL AncillaAdd_Blanket
 
 #_079A42: PLB
@@ -5479,7 +5482,7 @@ Link_SnoringInBed:
 #_079A56: BNE .exit
 
 #_079A58: LDY.b #$01
-#_079A5A: LDA.b #!ANCILLA_21
+#_079A5A: LDA.b #$21 ; ANCILLA 21
 #_079A5C: JSL AncillaAdd_Snoring
 
 .exit
@@ -5548,7 +5551,7 @@ Link_JumpingOutOfBed:
 #_079AA9: LDA.b #$02
 #_079AAB: STA.b $4D
 
-#_079AAD: LDA.b #!LINKSTATE_06
+#_079AAD: LDA.b #$06 ; LINKSTATE 06
 #_079AAF: STA.b $5D
 
 .exit
@@ -5741,14 +5744,14 @@ Link_APress_vectors:
 ; Used to check $7EF379
 ;===================================================================================================
 Link_AbilityChecks:
-#_079B92: db %11100000 ; Lift, read, talk
-#_079B93: db %01000000 ; Read
-#_079B94: db %00000100 ; Run
-#_079B95: db %11100000 ; Lift, read, talk
-#_079B96: db %11100000 ; Lift, read, talk
-#_079B97: db %11100000 ; Lift, read, talk
-#_079B98: db %11100000 ; Lift, read, talk   used by statue drag
-#_079B99: db %11100000 ; Lift, read, talk   used by rupee pull
+#_079B92: db $E0 ; 11100000 - Lift, read, talk
+#_079B93: db $40 ; 01000000 - Read
+#_079B94: db $04 ; 00000100 - Run
+#_079B95: db $E0 ; 11100000 - Lift, read, talk
+#_079B96: db $E0 ; 11100000 - Lift, read, talk
+#_079B97: db $E0 ; 11100000 - Lift, read, talk
+#_079B98: db $E0 ; 11100000 - Lift, read, talk | used by statue drag
+#_079B99: db $E0 ; 11100000 - Lift, read, talk | used by rupee pull
 
 ;===================================================================================================
 
@@ -5841,7 +5844,7 @@ Link_HandleAPress:
 
 ; All these hardcoded boomerang checks
 #_079C0E: LDA.w $0C4A
-#_079C11: CMP.b #!ANCILLA_05
+#_079C11: CMP.b #$05 ; ANCILLA 05
 #_079C13: BNE .no_boom
 
 #_079C15: STZ.w $0C4A
@@ -5947,7 +5950,7 @@ HandleSwordSFXAndBeam:
 
 .next_slot
 #_079C80: LDA.w $0C4A,X
-#_079C83: CMP.b #!ANCILLA_31
+#_079C83: CMP.b #$31 ; ANCILLA 31
 #_079C85: BEQ .no_make_beam
 
 #_079C87: DEX
@@ -5996,14 +5999,14 @@ SwordSwingTimers:
 ;===================================================================================================
 
 SwordSwingSFX:
-#_079CC1: db !SFX2_01
-#_079CC2: db !SFX2_02
-#_079CC3: db !SFX2_03
-#_079CC4: db !SFX2_04
-#_079CC5: db !SFX2_00
-#_079CC6: db !SFX2_09
-#_079CC7: db !SFX2_12
-#_079CC8: db !SFX2_1B
+#_079CC1: db $01 ; SFX2.01
+#_079CC2: db $02 ; SFX2.02
+#_079CC3: db $03 ; SFX2.03
+#_079CC4: db $04 ; SFX2.04
+#_079CC5: db $00 ; SFX2.00
+#_079CC6: db $09 ; SFX2.09
+#_079CC7: db $12 ; SFX2.12
+#_079CC8: db $1B ; SFX2.1B
 
 ;===================================================================================================
 
@@ -6086,7 +6089,7 @@ Link_CheckForSwordSwing:
 #_079D26: BEQ .weak_or_no_sword
 
 #_079D28: LDY.b #$04
-#_079D2A: LDA.b #!ANCILLA_26
+#_079D2A: LDA.b #$26 ; ANCILLA 26
 #_079D2C: JSL AncillaAdd_SwordSwingSparkle
 
 ;---------------------------------------------------------------------------------------------------
@@ -6187,7 +6190,7 @@ HandleSwordControls:
 
 .pushing_statue
 #_079D99: LDA.b $47
-#_079D9B: BEQ .no_repulse_spark
+#_079D9B: BEQ .no_tink
 
 #_079D9D: CMP.b #$01
 #_079D9F: BEQ Link_ResetSwordAndItemUsage
@@ -6222,21 +6225,21 @@ HandleSwordControls:
 #_079DC8: BEQ .reset_poke_index
 
 #_079DCA: LDY.b #$01
-#_079DCC: LDA.b #!ANCILLA_1B
+#_079DCC: LDA.b #$1B ; ANCILLA 1B
 #_079DCE: JSL AncillaAdd_WallTapSpark
 
 #_079DD2: LDA.b $48
 #_079DD4: AND.b #$08
 #_079DD6: BNE .not_poking_door
 
-#_079DD8: LDA.b #!SFX2_05
-#_079DDA: JSR PlaySFX_Set2_Bank07
+#_079DD8: LDA.b #$05 ; SFX2.05
+#_079DDA: JSR PlaySFX_Set2
 
 #_079DDD: BRA .detect_poked_tile
 
 .not_poking_door
-#_079DDF: LDA.b #!SFX2_06
-#_079DE1: JSR PlaySFX_Set2_Bank07
+#_079DDF: LDA.b #$06 ; SFX2.06
+#_079DE1: JSR PlaySFX_Set2
 
 .detect_poked_tile
 #_079DE4: LDY.b #$01
@@ -6258,7 +6261,7 @@ HandleSwordControls:
 
 ;---------------------------------------------------------------------------------------------------
 
-.no_repulse_spark
+.no_tink
 #_079DF5: LDA.b #$09
 #_079DF7: STA.b $3C
 
@@ -6288,10 +6291,10 @@ HandleSwordControls:
 
 .look_for_byrna_spark
 #_079E18: LDA.w $0C4A,X
-#_079E1B: CMP.b #!ANCILLA_30
+#_079E1B: CMP.b #$30 ; ANCILLA 30
 #_079E1D: BEQ EXIT_079E52
 
-#_079E1F: CMP.b #!ANCILLA_31
+#_079E1F: CMP.b #$31 ; ANCILLA 31
 #_079E21: BEQ EXIT_079E52
 
 #_079E23: DEX
@@ -6321,8 +6324,8 @@ HandleSwordControls:
 #_079E40: CMP.b #$30 ; 48 frames for a spin attack
 #_079E42: BNE EXIT_079E52
 
-#_079E44: LDA.b #!SFX2_37
-#_079E46: JSR PlaySFX_Set2_Bank07
+#_079E44: LDA.b #$37 ; SFX2.37
+#_079E46: JSR PlaySFX_Set2
 
 #_079E49: JSL AncillaAdd_ChargedSpinAttackSparkle
 
@@ -6457,7 +6460,7 @@ CalculateSwordHitbox:
 ;===================================================================================================
 
 RodAndCaneAnimationTimer:
-#_079EDC: db 3, 3, 5
+#_079EDC: db $03, $03, $05
 
 ;===================================================================================================
 
@@ -6562,7 +6565,7 @@ RodItem_CreateShot:
 ;===================================================================================================
 
 RodItem_CreateIceShot:
-#_079F56: LDA.b #!ANCILLA_0B
+#_079F56: LDA.b #$0B ; ANCILLA 0B
 #_079F58: LDY.b #$01
 #_079F5A: JSL AncillaAdd_IceRodShot
 
@@ -6571,7 +6574,7 @@ RodItem_CreateIceShot:
 ;===================================================================================================
 
 RodItem_CreateFireShot:
-#_079F5F: LDA.b #!ANCILLA_02
+#_079F5F: LDA.b #$02 ; ANCILLA 02
 #_079F61: LDY.b #$01
 #_079F63: JSL AncillaAdd_FireRodShot
 
@@ -6653,7 +6656,7 @@ LinkItem_Hammer:
 #_079FBB: JSR TileDetect_MainHandler
 
 #_079FBE: LDY.b #$00
-#_079FC0: LDA.b #!ANCILLA_16
+#_079FC0: LDA.b #$16 ; ANCILLA 16
 #_079FC2: JSL Ancilla_AddHitStars
 
 #_079FC6: PLX
@@ -6661,8 +6664,8 @@ LinkItem_Hammer:
 #_079FC7: LDA.w $012E
 #_079FCA: BNE .no_impact_yet
 
-#_079FCC: LDA.b #!SFX2_10
-#_079FCE: JSR PlaySFX_Set2_Bank07
+#_079FCC: LDA.b #$10 ; SFX2.10
+#_079FCE: JSR PlaySFX_Set2
 
 #_079FD1: JSL SpawnHammerWaterSplash
 
@@ -6697,7 +6700,7 @@ LinkItem_Hammer:
 pool LinkItem_Bow
 
 .timer
-#_079FF3: db  3,  3,  8
+#_079FF3: db $03, $03, $08
 
 pool off
 
@@ -6768,7 +6771,7 @@ LinkItem_Bow:
 #_07A049: LDX.b $2F
 
 #_07A04B: LDY.b #$02
-#_07A04D: LDA.b #!ANCILLA_09
+#_07A04D: LDA.b #$09 ; ANCILLA 09
 #_07A04F: JSL AncillaAdd_Arrow
 #_07A053: BCC .no_arrow
 
@@ -6804,8 +6807,8 @@ LinkItem_Bow:
 .delete_arrow
 #_07A07F: STZ.w $0C4A,X
 
-#_07A082: LDA.b #!SFX2_3C
-#_07A084: JSR PlaySFX_Set2_Bank07
+#_07A082: LDA.b #$3C ; SFX2.3C
+#_07A084: JSR PlaySFX_Set2
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -6865,7 +6868,7 @@ LinkItem_Boomerang:
 #_07A0CE: STA.b $3D
 
 #_07A0D0: LDY.b #$00
-#_07A0D2: LDA.b #!ANCILLA_05
+#_07A0D2: LDA.b #$05 ; ANCILLA 05
 #_07A0D4: JSL AncillaAdd_Boomerang
 
 #_07A0D8: LDA.b $3C
@@ -6940,7 +6943,7 @@ LinkItem_Bombs:
 
 ; can't use with super bombs
 #_07A12C: LDA.l $7EF3CC
-#_07A130: CMP.b #!FOLLOWER_0D
+#_07A130: CMP.b #$0D ; FOLLOWER 0D
 #_07A132: BEQ EXIT_07A14A
 
 #_07A134: JSR CheckYButtonPress
@@ -6951,7 +6954,7 @@ LinkItem_Bombs:
 #_07A13D: STA.b $3A
 
 #_07A13F: LDY.b #$01
-#_07A141: LDA.b #!ANCILLA_07
+#_07A141: LDA.b #$07 ; ANCILLA 07
 #_07A143: JSL AncillaAdd_Bomb
 
 #_07A147: STZ.w $0301
@@ -7163,13 +7166,13 @@ LinkItem_Lamp:
 
 ; !WTF it only does this to get collision
 #_07A253: LDY.b #$00
-#_07A255: LDA.b #!ANCILLA_1A
+#_07A255: LDA.b #$1A ; ANCILLA 1A
 #_07A257: JSL AncillaAdd_MagicPowder
 
 #_07A25B: JSL Underworld_LightTorch
 
 #_07A25F: LDY.b #$02
-#_07A261: LDA.b #!ANCILLA_2F
+#_07A261: LDA.b #$2F ; ANCILLA 2F
 #_07A263: JSL AncillaAdd_LampFlame
 
 .no_magic
@@ -7195,9 +7198,9 @@ LinkItem_Lamp:
 pool LinkItem_Powder
 
 .timer
-#_07A279: db  2,  1,  1,  3
-#_07A27D: db  2,  2,  2,  2
-#_07A281: db  6,  0
+#_07A279: db $02, $01, $01, $03
+#_07A27D: db $02, $02, $02, $02
+#_07A281: db $06, $00
 
 pool off
 
@@ -7217,8 +7220,8 @@ LinkItem_Powder:
 #_07A294: CMP.b #$02
 #_07A296: BEQ .is_powder
 
-#_07A298: LDA.b #!SFX2_3C
-#_07A29A: JSR PlaySFX_Set2_Bank07
+#_07A298: LDA.b #$3C ; SFX2.3C
+#_07A29A: JSR PlaySFX_Set2
 
 #_07A29D: BRA .no_tile_detect
 
@@ -7272,7 +7275,7 @@ LinkItem_Powder:
 #_07A2DD: BNE .dont_make_powder
 
 #_07A2DF: LDY.b #$00
-#_07A2E1: LDA.b #!ANCILLA_1A
+#_07A2E1: LDA.b #$1A ; ANCILLA 1A
 #_07A2E3: JSL AncillaAdd_MagicPowder
 
 .dont_make_powder
@@ -7395,13 +7398,13 @@ LinkItem_Shovel:
 #_07A36A: LDA.w $04B2
 #_07A36D: BEQ .not_flute_spot
 
-#_07A36F: LDA.b #!SFX3_1B
-#_07A371: JSR PlaySFX_Set3_Bank07
+#_07A36F: LDA.b #$1B ; SFX3.1B
+#_07A371: JSR PlaySFX_Set3
 
 #_07A374: PHX
 
 #_07A375: LDY.b #$00
-#_07A377: LDA.b #!ANCILLA_36
+#_07A377: LDA.b #$36 ; ANCILLA 36
 #_07A379: JSL AncillaAdd_DugUpFlute
 
 #_07A37D: PLX
@@ -7417,13 +7420,13 @@ LinkItem_Shovel:
 #_07A388: PHX
 
 #_07A389: LDY.b #$00
-#_07A38B: LDA.b #!ANCILLA_16
+#_07A38B: LDA.b #$16 ; ANCILLA 16
 #_07A38D: JSL Ancilla_AddHitStars
 
 #_07A391: PLX
 
-#_07A392: LDA.b #!SFX2_05
-#_07A394: JSR PlaySFX_Set2_Bank07
+#_07A392: LDA.b #$05 ; SFX2.05
+#_07A394: JSR PlaySFX_Set2
 
 #_07A397: BRA .finish_up
 
@@ -7433,7 +7436,7 @@ LinkItem_Shovel:
 #_07A399: PHX
 
 #_07A39A: LDY.b #$00
-#_07A39C: LDA.b #!ANCILLA_17
+#_07A39C: LDA.b #$17 ; ANCILLA 17
 #_07A39E: JSL AncillaAdd_ShovelDirt
 
 #_07A3A2: LDA.w $03FC
@@ -7444,8 +7447,8 @@ LinkItem_Shovel:
 .not_dig_game
 #_07A3AB: PLX
 
-#_07A3AC: LDA.b #!SFX2_12
-#_07A3AE: JSR PlaySFX_Set2_Bank07
+#_07A3AC: LDA.b #$12 ; SFX2.12
+#_07A3AE: JSR PlaySFX_Set2
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -7495,8 +7498,8 @@ LinkItem_Flute:
 #_07A3E2: LDA.b #$80
 #_07A3E4: STA.w $03F0
 
-#_07A3E7: LDA.b #!SFX2_13
-#_07A3E9: JSR PlaySFX_Set2_Bank07
+#_07A3E7: LDA.b #$13 ; SFX2.13
+#_07A3E9: JSR PlaySFX_Set2
 
 #_07A3EC: LDA.b $1B
 #_07A3EE: BNE EXIT_07A3CA
@@ -7517,7 +7520,7 @@ LinkItem_Flute:
 
 .look_for_duck
 #_07A3FE: LDA.w $0C4A,X
-#_07A401: CMP.b #!ANCILLA_27
+#_07A401: CMP.b #$27 ; ANCILLA 27
 #_07A403: BEQ EXIT_07A3CA
 
 #_07A405: DEX
@@ -7555,7 +7558,7 @@ LinkItem_Flute:
 #_07A435: STA.b $11
 
 #_07A437: LDY.b #$00
-#_07A439: LDA.b #!ANCILLA_37
+#_07A439: LDA.b #$37 ; ANCILLA 37
 #_07A43B: JSL AncillaAdd_ExplodingWeatherVane
 
 .dont_blow_up_weathervane
@@ -7567,7 +7570,7 @@ LinkItem_Flute:
 
 .have_activated_flute
 #_07A443: LDY.b #$04
-#_07A445: LDA.b #!ANCILLA_27
+#_07A445: LDA.b #$27 ; ANCILLA 27
 #_07A447: JSL AncillaAdd_Duck_take_off
 
 #_07A44B: STZ.w $03F8
@@ -7584,11 +7587,11 @@ CallForDuckIndoors:
 #_07A450: PHK
 #_07A451: PLB
 
-#_07A452: LDA.b #!SFX2_13
-#_07A454: JSR PlaySFX_Set2_Bank07
+#_07A452: LDA.b #$13 ; SFX2.13
+#_07A454: JSR PlaySFX_Set2
 
 #_07A457: LDY.b #$04
-#_07A459: LDA.b #!ANCILLA_27
+#_07A459: LDA.b #$27 ; ANCILLA 27
 #_07A45B: JSL AncillaAdd_Duck_take_off
 
 #_07A45F: PLB
@@ -7615,8 +7618,8 @@ LinkItem_Book:
 #_07A474: LDA.w $02ED
 #_07A477: BNE .do_prayer
 
-#_07A479: LDA.b #!SFX2_3C
-#_07A47B: JSR PlaySFX_Set2_Bank07
+#_07A479: LDA.b #$3C ; SFX2.3C
+#_07A47B: JSR PlaySFX_Set2
 
 #_07A47E: BRA .exit
 
@@ -7657,7 +7660,7 @@ LinkItem_Ether:
 #_07A4AC: BEQ .allow_ether
 
 #_07A4AE: LDA.l $7EF3CC
-#_07A4B2: CMP.b #!FOLLOWER_0D
+#_07A4B2: CMP.b #$0D ; FOLLOWER 0D
 #_07A4B4: BNE .allow_ether
 
 .cannot_ether
@@ -7675,7 +7678,7 @@ LinkItem_Ether:
 #_07A4C6: JSR LinkCheckMagicCost
 #_07A4C9: BCC .exit
 
-#_07A4CB: LDA.b #!LINKSTATE_08
+#_07A4CB: LDA.b #$08 ; LINKSTATE 08
 #_07A4CD: STA.b $5D
 
 #_07A4CF: LDA.b #$01
@@ -7688,8 +7691,8 @@ LinkItem_Ether:
 #_07A4DB: STZ.w $031D
 #_07A4DE: STZ.w $0324
 
-#_07A4E1: LDA.b #!SFX3_23
-#_07A4E3: JSR PlaySFX_Set3_Bank07
+#_07A4E1: LDA.b #$23 ; SFX3.23
+#_07A4E3: JSR PlaySFX_Set3
 
 .exit
 #_07A4E6: RTS
@@ -7736,8 +7739,8 @@ LinkState_UsingEther:
 
 #_07A518: PHX
 
-#_07A519: LDA.b #!SFX3_23
-#_07A51B: JSR PlaySFX_Set3_Bank07
+#_07A519: LDA.b #$23 ; SFX3.23
+#_07A51B: JSR PlaySFX_Set3
 
 #_07A51E: PLX
 
@@ -7745,8 +7748,8 @@ LinkState_UsingEther:
 #_07A51F: CPX.b #$09
 #_07A521: BNE .skip_ding_sfx
 
-#_07A523: LDA.b #!SFX2_2C
-#_07A525: JSR PlaySFX_Set2_Bank07
+#_07A523: LDA.b #$2C ; SFX2.2C
+#_07A525: JSR PlaySFX_Set2
 
 .skip_ding_sfx
 #_07A528: CPX.b #$0C
@@ -7776,7 +7779,7 @@ LinkState_UsingEther:
 #_07A548: STA.w $0324
 
 #_07A54B: LDY.b #$00
-#_07A54D: LDA.b #!ANCILLA_18
+#_07A54D: LDA.b #$18 ; ANCILLA 18
 #_07A54F: JSL AncillaAdd_EtherSpell
 
 #_07A553: STZ.b $4D
@@ -7814,7 +7817,7 @@ LinkItem_Bombos:
 #_07A581: BEQ .allow_bombos
 
 #_07A583: LDA.l $7EF3CC
-#_07A587: CMP.b #!FOLLOWER_0D
+#_07A587: CMP.b #$0D ; FOLLOWER 0D
 #_07A589: BNE .allow_bombos
 
 .cannot_bombos
@@ -7832,7 +7835,7 @@ LinkItem_Bombos:
 #_07A59B: JSR LinkCheckMagicCost
 #_07A59E: BCC .exit
 
-#_07A5A0: LDA.b #!LINKSTATE_09
+#_07A5A0: LDA.b #$09 ; LINKSTATE 09
 #_07A5A2: STA.b $5D
 
 #_07A5A4: LDA.b #$01
@@ -7847,8 +7850,8 @@ LinkItem_Bombos:
 
 #_07A5B6: STZ.w $0324
 
-#_07A5B9: LDA.b #!SFX3_23
-#_07A5BB: JSR PlaySFX_Set3_Bank07
+#_07A5B9: LDA.b #$23 ; SFX3.23
+#_07A5BB: JSR PlaySFX_Set3
 
 .exit
 #_07A5BE: RTS
@@ -7889,8 +7892,8 @@ LinkState_UsingBombos:
 
 #_07A5F8: PHX
 
-#_07A5F9: LDA.b #!SFX3_23
-#_07A5FB: JSR PlaySFX_Set3_Bank07
+#_07A5F9: LDA.b #$23 ; SFX3.23
+#_07A5FB: JSR PlaySFX_Set3
 
 #_07A5FE: PLX
 
@@ -7900,8 +7903,8 @@ LinkState_UsingBombos:
 
 #_07A603: PHX
 
-#_07A604: LDA.b #!SFX2_2C
-#_07A606: JSR PlaySFX_Set2_Bank07
+#_07A604: LDA.b #$2C ; SFX2.2C
+#_07A606: JSR PlaySFX_Set2
 
 #_07A609: PLX
 
@@ -7933,7 +7936,7 @@ LinkState_UsingBombos:
 #_07A62A: STA.w $0324
 
 #_07A62D: LDY.b #$00
-#_07A62F: LDA.b #!ANCILLA_19
+#_07A62F: LDA.b #$19 ; ANCILLA 19
 #_07A631: JSL AncillaAdd_BombosSpell
 
 #_07A635: STZ.b $4D
@@ -7971,7 +7974,7 @@ LinkItem_Quake:
 #_07A663: BEQ .allow_quake
 
 #_07A665: LDA.l $7EF3CC
-#_07A669: CMP.b #!FOLLOWER_0D
+#_07A669: CMP.b #$0D ; FOLLOWER 0D
 #_07A66B: BNE .allow_quake
 
 .cannot_quake
@@ -7989,7 +7992,7 @@ LinkItem_Quake:
 #_07A67D: JSR LinkCheckMagicCost
 #_07A680: BCC .exit
 
-#_07A682: LDA.b #!LINKSTATE_0A
+#_07A682: LDA.b #$0A ; LINKSTATE 0A
 #_07A684: STA.b $5D
 
 #_07A686: LDA.b #$01
@@ -8011,8 +8014,8 @@ LinkItem_Quake:
 #_07A6A2: STA.w $0363
 #_07A6A5: STZ.w $0364
 
-#_07A6A8: LDA.b #!SFX3_23
-#_07A6AA: JSR PlaySFX_Set3_Bank07
+#_07A6A8: LDA.b #$23 ; SFX3.23
+#_07A6AA: JSR PlaySFX_Set3
 
 .exit
 #_07A6AD: RTS
@@ -8100,8 +8103,8 @@ LinkState_UsingQuake:
 
 #_07A71E: PHX
 
-#_07A71F: LDA.b #!SFX3_23
-#_07A721: JSR PlaySFX_Set3_Bank07
+#_07A71F: LDA.b #$23 ; SFX3.23
+#_07A721: JSR PlaySFX_Set3
 
 #_07A724: PLX
 
@@ -8111,8 +8114,8 @@ LinkState_UsingQuake:
 
 #_07A729: PHX
 
-#_07A72A: LDA.b #!SFX2_2C
-#_07A72C: JSR PlaySFX_Set2_Bank07
+#_07A72A: LDA.b #$2C ; SFX2.2C
+#_07A72C: JSR PlaySFX_Set2
 
 #_07A72F: PLX
 
@@ -8120,8 +8123,8 @@ LinkState_UsingQuake:
 #_07A730: CPX.b #$0B
 #_07A732: BNE .skip_boom_sfx
 
-#_07A734: LDA.b #!SFX2_0C
-#_07A736: JSR PlaySFX_Set2_Bank07
+#_07A734: LDA.b #$0C ; SFX2.0C
+#_07A736: JSR PlaySFX_Set2
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -8151,7 +8154,7 @@ LinkState_UsingQuake:
 #_07A759: STA.w $0324
 
 #_07A75C: LDY.b #$00
-#_07A75E: LDA.b #!ANCILLA_1C
+#_07A75E: LDA.b #$1C ; ANCILLA 1C
 #_07A760: JSL AncillaAdd_QuakeSpell
 
 #_07A764: STZ.b $4D
@@ -8166,13 +8169,13 @@ Link_ActivateSpinAttack:
 #_07A76A: LDY.b #$00
 #_07A76C: TYX
 
-#_07A76D: LDA.b #!ANCILLA_2A
+#_07A76D: LDA.b #$2A ; ANCILLA 2A
 #_07A76F: JSL AncillaAdd_SpinAttackInitSpark
 
 ;===================================================================================================
 
 Link_AnimateVictorySpin:
-#_07A773: LDA.b #!LINKSTATE_03
+#_07A773: LDA.b #$03 ; LINKSTATE 03
 #_07A775: STA.b $5D
 
 #_07A777: LDA.b $2F
@@ -8230,16 +8233,16 @@ pool SpinAttack
 #_07A7CC: db $0E, $0F, $0E, $08, $09, $02, $03, $04, $05, $06, $07, $0E ; right
 
 .anim_timer_a
-#_07A7D8: db   3,   9,   3 ; up
-#_07A7DB: db   1,   1,   1 ; down
-#_07A7DE: db   1,   1,   1 ; left
-#_07A7E1: db   1,   1,   5 ; right
+#_07A7D8: db $03, $09, $03 ; up
+#_07A7DB: db $01, $01, $01 ; down
+#_07A7DE: db $01, $01, $01 ; left
+#_07A7E1: db $01, $01, $05 ; right
 
 .anim_timer_b
-#_07A7E4: db   1,   5,   1 ; up
-#_07A7E7: db   1,   1,   1 ; down
-#_07A7EA: db   1,   1,   1 ; left
-#_07A7ED: db   1,   1,   5 ; right
+#_07A7E4: db $01, $05, $01 ; up
+#_07A7E7: db $01, $01, $01 ; down
+#_07A7EA: db $01, $01, $01 ; left
+#_07A7ED: db $01, $01, $05 ; right
 
 .data_offset
 #_07A7F0: db $00 ; up
@@ -8263,10 +8266,10 @@ LinkState_SpinAttack:
 
 .next_ancilla
 #_07A7FD: LDA.w $0C4A,X
-#_07A800: CMP.b #!ANCILLA_2A
+#_07A800: CMP.b #$2A ; ANCILLA 2A
 #_07A802: BEQ .delete_ancilla
 
-#_07A804: CMP.b #!ANCILLA_2B
+#_07A804: CMP.b #$2B ; ANCILLA 2B
 #_07A806: BNE .skip_ancilla
 
 .delete_ancilla
@@ -8326,10 +8329,10 @@ LinkState_SpinAttack:
 #_07A849: AND.b #$F0
 #_07A84B: STA.b $67
 
-#_07A84D: LDA.b #!SFX3_2B
-#_07A84F: JSR PlaySFX_Set3_Bank07
+#_07A84D: LDA.b #$2B ; SFX3.2B
+#_07A84F: JSR PlaySFX_Set3
 
-#_07A852: LDA.b #!LINKSTATE_07
+#_07A852: LDA.b #$07 ; LINKSTATE 07
 #_07A854: STA.b $5D
 
 #_07A856: BRL LinkState_Zapped
@@ -8337,7 +8340,7 @@ LinkState_SpinAttack:
 ;---------------------------------------------------------------------------------------------------
 
 .not_electrocuted
-#_07A859: LDA.b #!LINKSTATE_02
+#_07A859: LDA.b #$02 ; LINKSTATE 02
 #_07A85B: STA.b $5D
 
 #_07A85D: BRL LinkState_Recoil
@@ -8358,7 +8361,7 @@ LinkState_SpinAttack:
 
 #_07A86F: JSR Link_HandleCardinalCollision
 
-#_07A872: LDA.b #!LINKSTATE_03
+#_07A872: LDA.b #$03 ; LINKSTATE 03
 #_07A874: STA.b $5D
 
 #_07A876: STZ.w $0302
@@ -8378,8 +8381,8 @@ LinkState_SpinAttack:
 #_07A887: CMP.b #$02
 #_07A889: BNE .skip_swoosh_sfx
 
-#_07A88B: LDA.b #!SFX3_23
-#_07A88D: JSR PlaySFX_Set3_Bank07
+#_07A88B: LDA.b #$23 ; SFX3.23
+#_07A88D: JSR PlaySFX_Set3
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -8399,7 +8402,7 @@ LinkState_SpinAttack:
 #_07A8A4: STZ.w $031D
 
 #_07A8A7: LDA.b $5D
-#_07A8A9: CMP.b #!LINKSTATE_1E
+#_07A8A9: CMP.b #$1E ; LINKSTATE 1E
 #_07A8AB: BEQ .victory_spin
 
 #_07A8AD: LDX.b #$00
@@ -8415,7 +8418,7 @@ LinkState_SpinAttack:
 #_07A8B8: STX.b $3A
 
 .victory_spin
-#_07A8BA: LDA.b #!LINKSTATE_00
+#_07A8BA: LDA.b #$00 ; LINKSTATE 00
 #_07A8BC: STA.b $5D
 
 #_07A8BE: BRA EXIT_07A8DB
@@ -8449,10 +8452,10 @@ LinkState_SpinAttack:
 UNREACHABLE_07A8DC:
 #_07A8DC: LDY.b #$00
 #_07A8DE: LDX.b #$01
-#_07A8E0: LDA.b #!ANCILLA_2A
+#_07A8E0: LDA.b #$2A ; ANCILLA 2A
 #_07A8E2: JSL AncillaAdd_SpinAttackInitSpark
 
-#_07A8E6: LDA.b #!LINKSTATE_1E
+#_07A8E6: LDA.b #$1E ; LINKSTATE 1E
 #_07A8E8: STA.b $5D
 
 #_07A8EA: LDA.b $2F
@@ -8487,7 +8490,7 @@ LinkItem_Mirror:
 
 ; check for kiki
 #_07A913: LDA.l $7EF3CC
-#_07A917: CMP.b #!FOLLOWER_0A
+#_07A917: CMP.b #$0A ; FOLLOWER 0A
 #_07A919: BNE .continue
 
 ;---------------------------------------------------------------------------------------------------
@@ -8526,8 +8529,8 @@ LinkItem_Mirror:
 ;===================================================================================================
 
 #LinkGoBeep:
-#_07A945: LDA.b #!SFX2_3C
-#_07A947: JSR PlaySFX_Set2_Bank07
+#_07A945: LDA.b #$3C ; SFX2.3C
+#_07A947: JSR PlaySFX_Set2
 
 #_07A94A: BRA .exit
 
@@ -8591,7 +8594,7 @@ LinkItem_Mirror:
 #_07A991: STZ.b $27
 #_07A993: STZ.b $28
 
-#_07A995: LDA.b #!LINKSTATE_14
+#_07A995: LDA.b #$14 ; LINKSTATE 14
 #_07A997: STA.b $5D
 
 .exit
@@ -8696,7 +8699,7 @@ LinkState_CrossingWorlds:
 
 #_07AA05: JSL Link_ResetSwimmingState
 
-#_07AA09: LDA.b #!LINKSTATE_04
+#_07AA09: LDA.b #$04 ; LINKSTATE 04
 #_07AA0B: STA.b $5D
 
 #_07AA0D: JSR Link_ForceUnequipCape_quietly
@@ -8743,7 +8746,7 @@ LinkState_CrossingWorlds:
 #_07AA3F: STZ.w $04AD
 
 .worlds_match
-#_07AA42: LDY.b #!LINKSTATE_00
+#_07AA42: LDY.b #$00 ; LINKSTATE 00
 
 #_07AA44: LDA.l $7EF357
 #_07AA48: BNE .not_pearlless_in_darkworld
@@ -8753,7 +8756,7 @@ LinkState_CrossingWorlds:
 #_07AA4E: BEQ .not_pearlless_in_darkworld
 
 ; become bunny
-#_07AA50: LDY.b #!LINKSTATE_17
+#_07AA50: LDY.b #$17 ; LINKSTATE 17
 
 .not_pearlless_in_darkworld
 #_07AA52: STY.b $5D
@@ -8793,10 +8796,10 @@ Link_PerformDesertPrayer:
 #_07AA7C: AND.b #$F0
 #_07AA7E: STA.b $67
 
-#_07AA80: LDA.b #!SFX1_11
+#_07AA80: LDA.b #$11 ; SFX1.11
 #_07AA82: STA.w $012D
 
-#_07AA85: LDA.b #!SONG_F2_HALFVOL
+#_07AA85: LDA.b #$F2 ; SONG F2 - half volume
 #_07AA87: STA.w $012C
 
 ;===================================================================================================
@@ -8817,10 +8820,10 @@ HandleFollowersAfterMirroring:
 #_07AA93: STZ.b $2E
 
 #_07AA95: LDA.l $7EF3CC
-#_07AA99: CMP.b #!FOLLOWER_0C
+#_07AA99: CMP.b #$0C ; FOLLOWER 0C
 #_07AA9B: BEQ .have_purple_chest
 
-#_07AA9D: CMP.b #!FOLLOWER_0D
+#_07AA9D: CMP.b #$0D ; FOLLOWER 0D
 #_07AA9F: BNE .dont_have_superbomb
 
 #_07AAA1: LDA.b #$FE
@@ -8844,10 +8847,10 @@ HandleFollowersAfterMirroring:
 #_07AAB7: LDA.l $7EF3CC
 
 ; is it sign guy?
-#_07AABB: CMP.b #!FOLLOWER_09
+#_07AABB: CMP.b #$09 ; FOLLOWER 09
 #_07AABD: BEQ .clear_follower
 
-#_07AABF: CMP.b #!FOLLOWER_0A
+#_07AABF: CMP.b #$0A ; FOLLOWER 0A
 #_07AAC1: BNE .not_kiki
 
 .clear_follower
@@ -8859,16 +8862,16 @@ HandleFollowersAfterMirroring:
 ;---------------------------------------------------------------------------------------------------
 
 .not_kiki
-#_07AACB: LDY.b #!FOLLOWER_07
+#_07AACB: LDY.b #$07 ; FOLLOWER 07
 
 #_07AACD: LDA.l $7EF3CC
-#_07AAD1: CMP.b #!FOLLOWER_08
+#_07AAD1: CMP.b #$08 ; FOLLOWER 08
 #_07AAD3: BEQ .smithy
 
-#_07AAD5: LDY.b #!FOLLOWER_08
+#_07AAD5: LDY.b #$08 ; FOLLOWER 08
 
 ; or is it the frog?
-#_07AAD7: CMP.b #!FOLLOWER_07
+#_07AAD7: CMP.b #$07 ; FOLLOWER 07
 #_07AAD9: BNE .check_for_pearl
 
 ;---------------------------------------------------------------------------------------------------
@@ -8879,7 +8882,7 @@ HandleFollowersAfterMirroring:
 #_07AAE0: JSL LoadFollowerGraphics
 
 #_07AAE4: LDY.b #$04
-#_07AAE6: LDA.b #!ANCILLA_40
+#_07AAE6: LDA.b #$40 ; ANCILLA 40
 #_07AAE8: JSL AncillaAdd_DwarfPoof
 
 ;---------------------------------------------------------------------------------------------------
@@ -8889,7 +8892,7 @@ HandleFollowersAfterMirroring:
 #_07AAF0: BNE .have_pearl
 
 #_07AAF2: LDY.b #$04
-#_07AAF4: LDA.b #!ANCILLA_23
+#_07AAF4: LDA.b #$23 ; ANCILLA 23
 #_07AAF6: JSL AncillaAdd_BunnyPoof
 
 #_07AAFA: JSR Link_ForceUnequipCape_quietly
@@ -8954,14 +8957,14 @@ LinkItem_Hookshot:
 #_07AB3E: ORA.b #$04
 #_07AB40: STA.w $037A
 
-#_07AB43: LDA.b #!LINKSTATE_13
+#_07AB43: LDA.b #$13 ; LINKSTATE 13
 #_07AB45: STA.b $5D
 
 #_07AB47: LDA.b #$01
 #_07AB49: STA.w $037B
 
 #_07AB4C: LDY.b #$03
-#_07AB4E: LDA.b #!ANCILLA_1F
+#_07AB4E: LDA.b #$1F ; ANCILLA 1F
 #_07AB50: JSL AncillaAdd_Hookshot
 
 ;---------------------------------------------------------------------------------------------------
@@ -9008,7 +9011,7 @@ LinkState_Hookshotting:
 
 .next_ancilla_check
 #_07AB6E: LDA.w $0C4A,X
-#_07AB71: CMP.b #!ANCILLA_1F
+#_07AB71: CMP.b #$1F ; ANCILLA 1F
 #_07AB73: BEQ .found_hookshot
 
 #_07AB75: DEX
@@ -9038,7 +9041,7 @@ LinkState_Hookshotting:
 #_07AB93: AND.b #$FB
 #_07AB95: STA.w $037A
 
-#_07AB98: LDA.b #!LINKSTATE_00
+#_07AB98: LDA.b #$00 ; LINKSTATE 00
 #_07AB9A: STA.b $5D
 
 #_07AB9C: LDA.b $3C
@@ -9199,7 +9202,7 @@ LinkHookshot_DeleteHook:
 #_07AC60: LDA.w $02D3
 #_07AC63: STA.w $02D1
 
-#_07AC66: LDA.b #!LINKSTATE_00
+#_07AC66: LDA.b #$00 ; LINKSTATE 00
 #_07AC68: STA.b $5D
 
 #_07AC6A: STZ.w $0300
@@ -9274,11 +9277,11 @@ LinkHookshot_DeleteHook:
 
 #_07ACD1: JSL Link_ResetSwimmingState
 
-#_07ACD5: LDA.b #!ANCILLA_15
+#_07ACD5: LDA.b #$15 ; ANCILLA 15
 #_07ACD7: LDY.b #$00
 #_07ACD9: JSL AncillaAdd_Splash
 
-#_07ACDD: LDA.b #!LINKSTATE_04
+#_07ACDD: LDA.b #$04 ; LINKSTATE 04
 #_07ACDF: STA.b $5D
 
 #_07ACE1: JSR Link_ForceUnequipCape_quietly
@@ -9313,7 +9316,7 @@ LinkHookshot_DeleteHook:
 #_07AD05: LDA.b #$01
 #_07AD07: STA.b $5B
 
-#_07AD09: LDA.b #!LINKSTATE_01
+#_07AD09: LDA.b #$01 ; LINKSTATE 01
 #_07AD0B: STA.b $5D
 
 #_07AD0D: BRA .continue_after_tiles
@@ -9405,8 +9408,8 @@ LinkHookshot_GetDragged:
 #_07AD78: JSR Link_PermissionForSloshSounds
 #_07AD7B: BCS .go_backwards
 
-#_07AD7D: LDA.b #!SFX2_1A
-#_07AD7F: JSR PlaySFX_Set2_Bank07
+#_07AD7D: LDA.b #$1A ; SFX2.1A
+#_07AD7F: JSR PlaySFX_Set2
 
 #_07AD82: BRA .go_backwards
 
@@ -9423,14 +9426,14 @@ LinkHookshot_GetDragged:
 #_07AD93: CMP.b #$70
 #_07AD95: BNE .not_mire
 
-#_07AD97: LDA.b #!SFX2_1B
-#_07AD99: JSR PlaySFX_Set2_Bank07
+#_07AD97: LDA.b #$1B ; SFX2.1B
+#_07AD99: JSR PlaySFX_Set2
 
 #_07AD9C: BRA .go_backwards
 
 .not_mire
-#_07AD9E: LDA.b #!SFX2_1C
-#_07ADA0: JSR PlaySFX_Set2_Bank07
+#_07AD9E: LDA.b #$1C ; SFX2.1C
+#_07ADA0: JSR PlaySFX_Set2
 
 .go_backwards
 #_07ADA3: JSR HandleIndoorCameraAndDoors
@@ -9444,9 +9447,9 @@ LinkHookshot_GetDragged:
 ; How long each tick of the tock lasts for cape.
 ;===================================================================================================
 CapeSapTimers:
-#_07ADA7: db 4 ; normal
-#_07ADA8: db 8 ; 1/2 magic
-#_07ADA9: db 8 ; 1/4 magic
+#_07ADA7: db $04 ; normal
+#_07ADA8: db $08 ; 1/2 magic
+#_07ADA9: db $08 ; 1/4 magic
 
 ;===================================================================================================
 
@@ -9496,11 +9499,11 @@ LinkItem_Cape:
 #_07ADE7: STA.w $02E2
 
 #_07ADEA: LDY.b #$04
-#_07ADEC: LDA.b #!ANCILLA_23
+#_07ADEC: LDA.b #$23 ; ANCILLA 23
 #_07ADEE: JSL AncillaAdd_CapePoof
 
-#_07ADF2: LDA.b #!SFX2_14
-#_07ADF4: JSR PlaySFX_Set2_Bank07
+#_07ADF2: LDA.b #$14 ; SFX2.14
+#_07ADF4: JSR PlaySFX_Set2
 
 #_07ADF7: BRA .exit
 
@@ -9547,11 +9550,11 @@ LinkItem_Cape:
 
 #Link_ForceUnequipCape:
 #_07AE30: LDY.b #$04
-#_07AE32: LDA.b #!ANCILLA_23
+#_07AE32: LDA.b #$23 ; ANCILLA 23
 #_07AE34: JSL AncillaAdd_CapePoof
 
-#_07AE38: LDA.b #!SFX2_15
-#_07AE3A: JSR PlaySFX_Set2_Bank07
+#_07AE38: LDA.b #$15 ; SFX2.15
+#_07AE3A: JSR PlaySFX_Set2
 
 ;===================================================================================================
 
@@ -9673,7 +9676,7 @@ LinkItem_CaneOfSomaria:
 
 .next_ancilla
 #_07AEBD: LDA.w $0C4A,X
-#_07AEC0: CMP.b #!ANCILLA_2C
+#_07AEC0: CMP.b #$2C ; ANCILLA 2C
 #_07AEC2: BEQ .found_block
 
 #_07AEC4: DEX
@@ -9690,7 +9693,7 @@ LinkItem_CaneOfSomaria:
 #_07AED0: STA.w $0350
 
 #_07AED3: LDY.b #$01
-#_07AED5: LDA.b #!ANCILLA_2C
+#_07AED5: LDA.b #$2C ; ANCILLA 2C
 #_07AED7: JSL AncillaAdd_SomariaBlock
 
 #_07AEDB: LDA.w RodAndCaneAnimationTimer
@@ -9777,7 +9780,7 @@ LinkItem_CaneOfByrna:
 #_07AF3E: BCC .lack_magic
 
 #_07AF40: LDY.b #$00
-#_07AF42: LDA.b #!ANCILLA_30
+#_07AF42: LDA.b #$30 ; ANCILLA 30
 #_07AF44: JSL AncillaAdd_CaneOfByrnaInitSpark
 
 #_07AF48: STZ.b $79
@@ -9820,8 +9823,8 @@ LinkItem_CaneOfByrna:
 
 #_07AF7D: PHX
 
-#_07AF7E: LDA.b #!SFX3_2A
-#_07AF80: JSR PlaySFX_Set3_Bank07
+#_07AF7E: LDA.b #$2A ; SFX3.2A
+#_07AF80: JSR PlaySFX_Set3
 
 #_07AF83: PLX
 
@@ -9861,7 +9864,7 @@ SearchForByrnaSpark:
 
 .next
 #_07AFA7: LDA.w $0C4A,X
-#_07AFAA: CMP.b #!ANCILLA_31
+#_07AFAA: CMP.b #$31 ; ANCILLA 31
 #_07AFAC: BEQ .found_spark
 
 #_07AFAE: DEX
@@ -9933,8 +9936,8 @@ LinkItem_Net:
 
 #_07B00B: STZ.b $2E
 
-#_07B00D: LDA.b #!SFX2_32
-#_07B00F: JSR PlaySFX_Set2_Bank07
+#_07B00D: LDA.b #$32 ; SFX2.32
+#_07B00F: JSR PlaySFX_Set2
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -10085,8 +10088,8 @@ LinkCheckMagicCost:
 ;---------------------------------------------------------------------------------------------------
 
 #Link_DisplayNoMagicMessage:
-#_07B0BD: LDA.b #!SFX2_3C
-#_07B0BF: JSR PlaySFX_Set2_Bank07
+#_07B0BD: LDA.b #$3C ; SFX2.3C
+#_07B0BF: JSR PlaySFX_Set2
 
 #_07B0C2: REP #$20
 
@@ -10227,12 +10230,8 @@ Link_PerformThrow:
 #_07B155: ASL.b $F6
 #_07B157: LSR.b $F6
 
-;---------------------------------------------------------------------------------------------------
-
 .actually_lifting
 #_07B159: STZ.w $0300
-
-;---------------------------------------------------------------------------------------------------
 
 .continue_a
 #_07B15C: STZ.b $3A
@@ -10345,10 +10344,10 @@ Link_APress_LiftCarryThrow:
 #_07B1F9: STZ.b $5E
 
 #_07B1FB: LDA.b $5D
-#_07B1FD: CMP.b #!LINKSTATE_18
+#_07B1FD: CMP.b #$18 ; LINKSTATE 18
 #_07B1FF: BNE .reset_dirlock
 
-#_07B201: LDA.b #!LINKSTATE_00
+#_07B201: LDA.b #$00 ; LINKSTATE 00
 #_07B203: STA.b $5D
 
 #_07B205: BRL .reset_dirlock
@@ -10393,7 +10392,7 @@ Link_APress_LiftCarryThrow:
 #_07B239: INC A
 #_07B23A: PHA
 
-#_07B23B: LDA.b #!LINKSTATE_18
+#_07B23B: LDA.b #$18 ; LINKSTATE 18
 #_07B23D: STA.b $5D
 
 #_07B23F: LDA.b #$01
@@ -10460,7 +10459,7 @@ Link_PerformDash:
 #_07B287: LDA.b #$40
 #_07B289: STA.w $02F1
 
-#_07B28C: LDA.b #!LINKSTATE_11
+#_07B28C: LDA.b #$11 ; LINKSTATE 11
 #_07B28E: STA.b $5D
 
 #_07B290: LDA.b #$01
@@ -10747,7 +10746,7 @@ Link_PerformRupeePull:
 
 #_07B3E8: STZ.w $030D
 
-#_07B3EB: LDA.b #!LINKSTATE_1D
+#_07B3EB: LDA.b #$1D ; LINKSTATE 1D
 #_07B3ED: STA.b $5D
 
 #_07B3EF: STZ.b $27
@@ -10799,8 +10798,8 @@ LinkState_TreePull:
 
 #_07B41C: STA.b $3A
 
-#_07B41E: LDA.b #!SFX2_22
-#_07B420: JSR PlaySFX_Set2_Bank07
+#_07B41E: LDA.b #$22 ; SFX2.22
+#_07B420: JSR PlaySFX_Set2
 
 #_07B423: BRA .continue
 
@@ -10816,7 +10815,7 @@ LinkState_TreePull:
 
 #_07B433: STZ.b $50
 
-#_07B435: LDA.b #!LINKSTATE_00
+#_07B435: LDA.b #$00 ; LINKSTATE 00
 #_07B437: STA.b $5D
 
 #_07B439: BRA .reset_state
@@ -10879,7 +10878,7 @@ LinkState_TreePull:
 ;---------------------------------------------------------------------------------------------------
 
 .reset_state
-#_07B483: LDA.b #!LINKSTATE_00
+#_07B483: LDA.b #$00 ; LINKSTATE 00
 #_07B485: STA.b $5D
 
 #_07B487: BRL LinkState_Default
@@ -10888,7 +10887,7 @@ LinkState_TreePull:
 
 .add_dust
 #_07B48A: LDY.b #$00
-#_07B48C: LDA.b #!ANCILLA_1E
+#_07B48C: LDA.b #$1E ; ANCILLA 1E
 #_07B48E: JSL AncillaAdd_DashDust_charging
 
 #_07B492: DEC.w $030B
@@ -10919,7 +10918,7 @@ LinkState_TreePull:
 
 #_07B4B5: STZ.b $50
 
-#_07B4B7: LDA.b #!LINKSTATE_00
+#_07B4B7: LDA.b #$00 ; LINKSTATE 00
 #_07B4B9: STA.b $5D
 
 #_07B4BB: BRA .exit
@@ -11013,82 +11012,82 @@ Link_APress_NothingC:
 pool Link_PerformOpenChest
 
 .overflow_replacement
-#_07B511: db $FF         ; FIGHTER SWORD
-#_07B512: db $FF         ; MASTER SWORD
-#_07B513: db $FF         ; TEMPERED SWORD
-#_07B514: db $FF         ; BUTTER SWORD
-#_07B515: db $FF         ; FIGHTER SHIELD
-#_07B516: db $FF         ; FIRE SHIELD
-#_07B517: db $FF         ; MIRROR SHIELD
-#_07B518: db $FF         ; FIRE ROD
-#_07B519: db $FF         ; ICE ROD
-#_07B51A: db $FF         ; HAMMER
-#_07B51B: db $FF         ; HOOKSHOT
-#_07B51C: db $FF         ; BOW
-#_07B51D: db !ITEMGET_44 ; BOOMERANG ⇒ 10 arrows
-#_07B51E: db $FF         ; POWDER
-#_07B51F: db $FF         ; BOTTLE REFILL (BEE)
-#_07B520: db $FF         ; BOMBOS
-#_07B521: db $FF         ; ETHER
-#_07B522: db $FF         ; QUAKE
-#_07B523: db !ITEMGET_35 ; LAMP ⇒ Blue rupee
-#_07B524: db $FF         ; SHOVEL
-#_07B525: db $FF         ; FLUTE
-#_07B526: db $FF         ; SOMARIA
-#_07B527: db $FF         ; BOTTLE
-#_07B528: db $FF         ; HEART PIECE
-#_07B529: db $FF         ; BYRNA
-#_07B52A: db $FF         ; CAPE
-#_07B52B: db $FF         ; MIRROR
-#_07B52C: db $FF         ; GLOVE
-#_07B52D: db $FF         ; MITTS
-#_07B52E: db $FF         ; BOOK
-#_07B52F: db $FF         ; FLIPPERS
-#_07B530: db $FF         ; PEARL
-#_07B531: db $FF         ; CRYSTAL
-#_07B532: db $FF         ; NET
-#_07B533: db $FF         ; BLUE MAIL
-#_07B534: db $FF         ; RED MAIL
-#_07B535: db $FF         ; SMALL KEY
-#_07B536: db $FF         ; COMPASS
-#_07B537: db $FF         ; HEART CONTAINER FROM 4/4
-#_07B538: db $FF         ; BOMB
-#_07B539: db $FF         ; 3 BOMBS
-#_07B53A: db $FF         ; MUSHROOM
-#_07B53B: db !ITEMGET_46 ; RED BOOMERANG ⇒ 300 rupees
-#_07B53C: db $FF         ; FULL BOTTLE (RED)
-#_07B53D: db $FF         ; FULL BOTTLE (GREEN)
-#_07B53E: db $FF         ; FULL BOTTLE (BLUE)
-#_07B53F: db $FF         ; POTION REFILL (RED)
-#_07B540: db $FF         ; POTION REFILL (GREEN)
-#_07B541: db $FF         ; POTION REFILL (BLUE)
-#_07B542: db $FF         ; 10 BOMBS
-#_07B543: db $FF         ; BIG KEY
-#_07B544: db $FF         ; MAP
-#_07B545: db $FF         ; 1 RUPEE
-#_07B546: db $FF         ; 5 RUPEES
-#_07B547: db $FF         ; 20 RUPEES
-#_07B548: db $FF         ; GREEN PENDANT
-#_07B549: db $FF         ; BLUE PENDANT
-#_07B54A: db $FF         ; RED PENDANT
-#_07B54B: db $FF         ; TOSSED BOW
-#_07B54C: db $FF         ; SILVERS
-#_07B54D: db $FF         ; FULL BOTTLE (BEE)
-#_07B54E: db $FF         ; FULL BOTTLE (FAIRY)
-#_07B54F: db $FF         ; BOSS HC
-#_07B550: db $FF         ; SANC HC
-#_07B551: db $FF         ; 100 RUPEES
-#_07B552: db $FF         ; 50 RUPEES
-#_07B553: db $FF         ; HEART
-#_07B554: db $FF         ; ARROW
-#_07B555: db $FF         ; 10 ARROWS
-#_07B556: db $FF         ; SMALL MAGIC
-#_07B557: db $FF         ; 300 RUPEES
-#_07B558: db $FF         ; 20 RUPEES GREEN
-#_07B559: db $FF         ; FULL BOTTLE (GOOD BEE)
-#_07B55A: db $FF         ; TOSSED FIGHTER SWORD
-#_07B55B: db $FF         ; BOTTLE REFILL (GOOD BEE)
-#_07B55C: db $FF         ; BOOTS
+#_07B511: db $FF ; FIGHTER SWORD
+#_07B512: db $FF ; MASTER SWORD
+#_07B513: db $FF ; TEMPERED SWORD
+#_07B514: db $FF ; BUTTER SWORD
+#_07B515: db $FF ; FIGHTER SHIELD
+#_07B516: db $FF ; FIRE SHIELD
+#_07B517: db $FF ; MIRROR SHIELD
+#_07B518: db $FF ; FIRE ROD
+#_07B519: db $FF ; ICE ROD
+#_07B51A: db $FF ; HAMMER
+#_07B51B: db $FF ; HOOKSHOT
+#_07B51C: db $FF ; BOW
+#_07B51D: db $44 ; BOOMERANG ⇒ 10 arrows (ITEMGET 44)
+#_07B51E: db $FF ; POWDER
+#_07B51F: db $FF ; BOTTLE REFILL (BEE)
+#_07B520: db $FF ; BOMBOS
+#_07B521: db $FF ; ETHER
+#_07B522: db $FF ; QUAKE
+#_07B523: db $35 ; LAMP ⇒ Blue rupee (ITEMGET 35)
+#_07B524: db $FF ; SHOVEL
+#_07B525: db $FF ; FLUTE
+#_07B526: db $FF ; SOMARIA
+#_07B527: db $FF ; BOTTLE
+#_07B528: db $FF ; HEART PIECE
+#_07B529: db $FF ; BYRNA
+#_07B52A: db $FF ; CAPE
+#_07B52B: db $FF ; MIRROR
+#_07B52C: db $FF ; GLOVE
+#_07B52D: db $FF ; MITTS
+#_07B52E: db $FF ; BOOK
+#_07B52F: db $FF ; FLIPPERS
+#_07B530: db $FF ; PEARL
+#_07B531: db $FF ; CRYSTAL
+#_07B532: db $FF ; NET
+#_07B533: db $FF ; BLUE MAIL
+#_07B534: db $FF ; RED MAIL
+#_07B535: db $FF ; SMALL KEY
+#_07B536: db $FF ; COMPASS
+#_07B537: db $FF ; HEART CONTAINER FROM 4/4
+#_07B538: db $FF ; BOMB
+#_07B539: db $FF ; 3 BOMBS
+#_07B53A: db $FF ; MUSHROOM
+#_07B53B: db $46 ; RED BOOMERANG ⇒ 300 rupees (ITEMGET 46)
+#_07B53C: db $FF ; FULL BOTTLE (RED)
+#_07B53D: db $FF ; FULL BOTTLE (GREEN)
+#_07B53E: db $FF ; FULL BOTTLE (BLUE)
+#_07B53F: db $FF ; POTION REFILL (RED)
+#_07B540: db $FF ; POTION REFILL (GREEN)
+#_07B541: db $FF ; POTION REFILL (BLUE)
+#_07B542: db $FF ; 10 BOMBS
+#_07B543: db $FF ; BIG KEY
+#_07B544: db $FF ; MAP
+#_07B545: db $FF ; 1 RUPEE
+#_07B546: db $FF ; 5 RUPEES
+#_07B547: db $FF ; 20 RUPEES
+#_07B548: db $FF ; GREEN PENDANT
+#_07B549: db $FF ; BLUE PENDANT
+#_07B54A: db $FF ; RED PENDANT
+#_07B54B: db $FF ; TOSSED BOW
+#_07B54C: db $FF ; SILVERS
+#_07B54D: db $FF ; FULL BOTTLE (BEE)
+#_07B54E: db $FF ; FULL BOTTLE (FAIRY)
+#_07B54F: db $FF ; BOSS HC
+#_07B550: db $FF ; SANC HC
+#_07B551: db $FF ; 100 RUPEES
+#_07B552: db $FF ; 50 RUPEES
+#_07B553: db $FF ; HEART
+#_07B554: db $FF ; ARROW
+#_07B555: db $FF ; 10 ARROWS
+#_07B556: db $FF ; SMALL MAGIC
+#_07B557: db $FF ; 300 RUPEES
+#_07B558: db $FF ; 20 RUPEES GREEN
+#_07B559: db $FF ; FULL BOTTLE (GOOD BEE)
+#_07B55A: db $FF ; TOSSED FIGHTER SWORD
+#_07B55B: db $FF ; BOTTLE REFILL (GOOD BEE)
+#_07B55C: db $FF ; BOOTS
 
 pool off
 
@@ -11701,19 +11700,19 @@ CheckCollisionSingleLayerRun:
 #_07B847: BNE FlagAndRunSlopeChecks_VerticalFirst
 
 #_07B849: LDA.b $5D
-#_07B84B: CMP.b #!LINKSTATE_13
+#_07B84B: CMP.b #$13 ; LINKSTATE 13
 #_07B84D: BEQ .skip_pit_stuff
 
-#_07B84F: CMP.b #!LINKSTATE_08
+#_07B84F: CMP.b #$08 ; LINKSTATE 08
 #_07B851: BEQ .skip_pit_stuff
 
-#_07B853: CMP.b #!LINKSTATE_09
+#_07B853: CMP.b #$09 ; LINKSTATE 09
 #_07B855: BEQ .skip_pit_stuff
 
-#_07B857: CMP.b #!LINKSTATE_0A
+#_07B857: CMP.b #$0A ; LINKSTATE 0A
 #_07B859: BEQ .skip_pit_stuff
 
-#_07B85B: CMP.b #!LINKSTATE_03
+#_07B85B: CMP.b #$03 ; LINKSTATE 03
 #_07B85D: BEQ .skip_pit_stuff
 
 #_07B85F: JSR TileDetect_BigArea
@@ -11722,7 +11721,7 @@ CheckCollisionSingleLayerRun:
 #_07B864: AND.b #$0F
 #_07B866: BEQ .skip_pit_stuff
 
-#_07B868: LDA.b #!LINKSTATE_01
+#_07B868: LDA.b #$01 ; LINKSTATE 01
 #_07B86A: STA.b $5D
 
 #_07B86C: LDA.w $0372
@@ -11803,7 +11802,7 @@ CalculateSaveFlagVelocity:
 
 .not_moving_diagonal
 #_07B8C7: LDA.b $5D
-#_07B8C9: CMP.b #!LINKSTATE_0B
+#_07B8C9: CMP.b #$0B ; LINKSTATE 0B
 #_07B8CB: BEQ .no_y_movement
 
 #_07B8CD: LDY.b #$08
@@ -11856,7 +11855,7 @@ CalculateSaveFlagVelocity:
 #_07B906: BNE .exit
 
 #_07B908: LDA.b $5D
-#_07B90A: CMP.b #!LINKSTATE_04
+#_07B90A: CMP.b #$04 ; LINKSTATE 04
 #_07B90C: BNE .exit
 
 #_07B90E: LDY.b #$F7
@@ -12046,10 +12045,10 @@ CreateVelocityFromMovingBackground:
 ;===================================================================================================
 ; TODO directionals
 RupeeTileOffset_y:
-#_07B9E0: dw $0008,$0018,$0010,$0010
+#_07B9E0: dw $0008, $0018, $0010, $0010
 
 RupeeTileOffset_x:
-#_07B9E8: dw $0008,$0008,$0000,$000F
+#_07B9E8: dw $0008, $0008, $0000, $000F
 
 ;===================================================================================================
 
@@ -12396,8 +12395,8 @@ HandleMasksRupeesConveyors_Vertical:
 
 #_07BB8E: JSL Underworld_DeleteRupeeTile
 
-#_07BB92: LDA.b #!SFX3_0A
-#_07BB94: JSR PlaySFX_Set3_Bank07
+#_07BB92: LDA.b #$0A ; SFX3.0A
+#_07BB94: JSR PlaySFX_Set3
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -12472,8 +12471,8 @@ Link_CheckForLedgeTile_Vertical:
 #_07BBE8: LDA.b #$02
 #_07BBEA: STA.b $4D
 
-#_07BBEC: LDA.b #!SFX2_20
-#_07BBEE: JSR PlaySFX_Set2_Bank07
+#_07BBEC: LDA.b #$20 ; SFX2.20
+#_07BBEE: JSR PlaySFX_Set2
 
 #_07BBF1: BRA HandleUnderworldHopOntoWater_Vertical
 
@@ -12514,8 +12513,8 @@ Link_CheckForWaterTiles_Vertical:
 
 #_07BC23: JSL Link_ResetSwimmingState
 
-#_07BC27: LDA.b #!SFX2_20
-#_07BC29: JSR PlaySFX_Set2_Bank07
+#_07BC27: LDA.b #$20 ; SFX2.20
+#_07BC29: JSR PlaySFX_Set2
 
 ;===================================================================================================
 
@@ -12553,10 +12552,10 @@ Link_CheckForWaterTiles_Vertical:
 #_07BC52: LDA.w $0340
 #_07BC55: STA.b $26
 
-#_07BC57: LDA.b #!ANCILLA_15
+#_07BC57: LDA.b #$15 ; ANCILLA 15
 #_07BC59: LDY.b #$00
 #_07BC5B: JSL AncillaAdd_Splash
-#_07BC5F: BCC .no_room_for_splash
+#_07BC5F: BCC .no_space_for_splash
 
 #_07BC61: LDA.b #$01
 #_07BC63: STA.w $0345
@@ -12566,7 +12565,7 @@ Link_CheckForWaterTiles_Vertical:
 
 #_07BC6A: BRA .continue
 
-.no_room_for_splash
+.no_space_for_splash
 #_07BC6C: LDA.b #$01
 #_07BC6E: STA.w $037B
 
@@ -12661,10 +12660,10 @@ HandleUnderworldPitSlip_Vertical:
 #_07BCD5: BNE HandleUnderworldSpikeBlockCollision_Vertical
 
 #_07BCD7: LDA.b $5D
-#_07BCD9: CMP.b #!LINKSTATE_05
+#_07BCD9: CMP.b #$05 ; LINKSTATE 05
 #_07BCDB: BEQ .exit
 
-#_07BCDD: CMP.b #!LINKSTATE_02
+#_07BCDD: CMP.b #$02 ; LINKSTATE 02
 #_07BCDF: BEQ .exit
 
 #_07BCE1: LDA.b #$09
@@ -12675,7 +12674,7 @@ HandleUnderworldPitSlip_Vertical:
 #_07BCE7: LDA.b #$01
 #_07BCE9: STA.b $5B
 
-#_07BCEB: LDA.b #!LINKSTATE_01
+#_07BCEB: LDA.b #$01 ; LINKSTATE 01
 #_07BCED: STA.b $5D
 
 .exit
@@ -12837,7 +12836,7 @@ HandlePushingBonkingSnaps_Vertical:
 
 .check_for_swimming
 #_07BDA3: LDA.b $5D
-#_07BDA5: CMP.b #!LINKSTATE_04
+#_07BDA5: CMP.b #$04 ; LINKSTATE 04
 #_07BDA7: BNE .not_swimming_or_moving
 
 #_07BDA9: LDA.w $0310
@@ -13070,10 +13069,10 @@ StartMovementCollisionChecks_Vertical_HandleOutdoors:
 #_07BEB3: BNE HandleLiftablesBeforeDeepWater_Vertical
 
 #_07BEB5: LDA.b $5D
-#_07BEB7: CMP.b #!LINKSTATE_05
+#_07BEB7: CMP.b #$05 ; LINKSTATE 05
 #_07BEB9: BEQ .exit
 
-#_07BEBB: CMP.b #!LINKSTATE_02
+#_07BEBB: CMP.b #$02 ; LINKSTATE 02
 #_07BEBD: BEQ .exit
 
 #_07BEBF: LDA.b #$09
@@ -13084,7 +13083,7 @@ StartMovementCollisionChecks_Vertical_HandleOutdoors:
 #_07BEC5: LDA.b #$01
 #_07BEC7: STA.b $5B
 
-#_07BEC9: LDA.b #!LINKSTATE_01
+#_07BEC9: LDA.b #$01 ; LINKSTATE 01
 #_07BECB: STA.b $5D
 
 .exit
@@ -13158,14 +13157,14 @@ Link_CheckEnteringWaterVertical:
 #_07BF25: LDA.w $02E0
 #_07BF28: BNE Link_HandleEnteringWater_Vertical
 
-#_07BF2A: LDA.b #!LINKSTATE_04
+#_07BF2A: LDA.b #$04 ; LINKSTATE 04
 #_07BF2C: STA.b $5D
 
 #_07BF2E: BRA Link_HandleEnteringWater_Vertical
 
 .jump_into_water
-#_07BF30: LDA.b #!SFX2_20
-#_07BF32: JSR PlaySFX_Set2_Bank07
+#_07BF30: LDA.b #$20 ; SFX2.20
+#_07BF32: JSR PlaySFX_Set2
 
 #_07BF35: LDA.b $3E
 #_07BF37: STA.b $20
@@ -13223,7 +13222,7 @@ Link_HandleEnteringWater_Vertical:
 #_07BF7E: LDA.b #$01
 #_07BF80: STA.w $037B
 
-#_07BF83: LDA.b #!ANCILLA_15
+#_07BF83: LDA.b #$15 ; ANCILLA 15
 #_07BF85: LDY.b #$00
 #_07BF87: JSL AncillaAdd_Splash
 
@@ -13260,7 +13259,7 @@ Link_HandleEnteringWater_Vertical:
 #_07BFB4: STA.w $037B
 #_07BFB7: STA.b $78
 
-#_07BFB9: LDA.b #!LINKSTATE_0B
+#_07BFB9: LDA.b #$0B ; LINKSTATE 0B
 #_07BFBB: STA.b $5D
 
 #_07BFBD: STZ.b $46
@@ -13299,8 +13298,8 @@ Link_CheckForNorthSouthLedges:
 #_07BFE8: JSR RunLedgeHopTimer
 #_07BFEB: BCC .dont_hop
 
-#_07BFED: LDA.b #!SFX2_20
-#_07BFEF: JSR PlaySFX_Set2_Bank07
+#_07BFED: LDA.b #$20 ; SFX2.20
+#_07BFEF: JSR PlaySFX_Set2
 
 #_07BFF2: LDA.b #$01
 #_07BFF4: STA.w $037B
@@ -13381,7 +13380,7 @@ Link_CheckForNorthSouthLedges:
 
 #_07C060: STZ.b $46
 
-#_07C062: LDA.b #!LINKSTATE_0E
+#_07C062: LDA.b #$0E ; LINKSTATE 0E
 #_07C064: STA.b $5D
 
 #_07C066: RTS
@@ -13402,8 +13401,8 @@ CheckOverworldHopTiles_Vertical:
 
 #_07C07A: JSR Link_CancelDash
 
-#_07C07D: LDA.b #!SFX2_20
-#_07C07F: JSR PlaySFX_Set2_Bank07
+#_07C07D: LDA.b #$20 ; SFX2.20
+#_07C07F: JSR PlaySFX_Set2
 
 #_07C082: LDY.b #$03
 
@@ -13519,7 +13518,7 @@ CheckForGravePush:
 #_07C108: PHA
 
 #_07C109: LDY.b #$04
-#_07C10B: LDA.b #!ANCILLA_24
+#_07C10B: LDA.b #$24 ; ANCILLA 24
 #_07C10D: JSL AncillaAdd_GraveStone
 
 #_07C111: PLA
@@ -13678,8 +13677,8 @@ Link_BonkAndSmash:
 .play_sfx
 #_07C1C0: PHX
 
-#_07C1C1: LDA.b #!SFX3_32
-#_07C1C3: JSR PlaySFX_Set3_Bank07
+#_07C1C1: LDA.b #$32 ; SFX3.32
+#_07C1C3: JSR PlaySFX_Set3
 
 #_07C1C6: PLX
 
@@ -13970,7 +13969,7 @@ Link_HopInOrOutOfWater_Vertical:
 #_07C2ED: STZ.w $0360
 
 .already_recoiling
-#_07C2F0: LDA.b #!LINKSTATE_06
+#_07C2F0: LDA.b #$06 ; LINKSTATE 06
 #_07C2F2: STA.b $5D
 
 #_07C2F4: RTS
@@ -13980,22 +13979,22 @@ Link_HopInOrOutOfWater_Vertical:
 pool Link_FindValidLandingTile_North
 
 .recoil_y
-#_07C2F5: db $10,$10,$14,$14,$18,$18,$1C,$1C
-#_07C2FD: db $20,$20,$24,$24,$28,$28,$2C,$2C
-#_07C305: db $30,$30,$30,$30,$30,$30,$30,$30
-#_07C30D: db $30,$30,$30,$30,$30,$30,$30,$30
+#_07C2F5: db $10, $10, $14, $14, $18, $18, $1C, $1C
+#_07C2FD: db $20, $20, $24, $24, $28, $28, $2C, $2C
+#_07C305: db $30, $30, $30, $30, $30, $30, $30, $30
+#_07C30D: db $30, $30, $30, $30, $30, $30, $30, $30
 
 .recoil_z
-#_07C315: db $18,$18,$18,$18,$1C,$1C,$1C,$1C
-#_07C31D: db $20,$20,$20,$20,$24,$24,$24,$24
-#_07C325: db $28,$28,$28,$28,$2C,$2C,$2C,$2C
-#_07C32D: db $30,$30,$30,$30,$34,$34,$34,$34
+#_07C315: db $18, $18, $18, $18, $1C, $1C, $1C, $1C
+#_07C31D: db $20, $20, $20, $20, $24, $24, $24, $24
+#_07C325: db $28, $28, $28, $28, $2C, $2C, $2C, $2C
+#_07C32D: db $30, $30, $30, $30, $34, $34, $34, $34
 
 .timer
-#_07C335: db $10,$10,$14,$14,$18,$18,$1C,$1C
-#_07C33D: db $20,$20,$24,$24,$28,$28,$2C,$2C
-#_07C345: db $30,$30,$30,$30,$30,$30,$30,$30
-#_07C34D: db $30,$30,$30,$30,$30,$30,$30,$30
+#_07C335: db $10, $10, $14, $14, $18, $18, $1C, $1C
+#_07C33D: db $20, $20, $24, $24, $28, $28, $2C, $2C
+#_07C345: db $30, $30, $30, $30, $30, $30, $30, $30
+#_07C34D: db $30, $30, $30, $30, $30, $30, $30, $30
 
 pool off
 
@@ -14122,7 +14121,7 @@ Link_FindValidLandingTile_North:
 
 #_07C3EA: STZ.w $0360
 
-#_07C3ED: LDA.b #!LINKSTATE_06
+#_07C3ED: LDA.b #$06 ; LINKSTATE 06
 #_07C3EF: STA.b $5D
 
 #_07C3F1: RTS
@@ -14132,23 +14131,23 @@ Link_FindValidLandingTile_North:
 pool Link_FindValidLandingTile_DiagonalNorth
 
 .recoil_y
-#_07C3F2: db $08,$08,$08,$08,$10,$10,$14,$14
-#_07C3FA: db $18,$18,$18,$18,$20,$20,$20,$20
-#_07C402: db $08,$14,$14,$14,$18,$18,$18,$18
-#_07C40A: db $1C,$1C,$1C,$1C,$20,$20,$20,$20
+#_07C3F2: db $08, $08, $08, $08, $10, $10, $14, $14
+#_07C3FA: db $18, $18, $18, $18, $20, $20, $20, $20
+#_07C402: db $08, $14, $14, $14, $18, $18, $18, $18
+#_07C40A: db $1C, $1C, $1C, $1C, $20, $20, $20, $20
 
 .recoil_x
-#_07C412: db $08,$08,$08,$08,$10,$10,$10,$10
-#_07C41A: db $18,$18,$18,$18,$10,$10,$10,$10
-#_07C422: db $08,$14,$14,$14,$18,$18,$18,$18
-#_07C42A: db $1C,$1C,$1C,$1C,$20,$20,$20,$20
+#_07C412: db $08, $08, $08, $08, $10, $10, $10, $10
+#_07C41A: db $18, $18, $18, $18, $10, $10, $10, $10
+#_07C422: db $08, $14, $14, $14, $18, $18, $18, $18
+#_07C42A: db $1C, $1C, $1C, $1C, $20, $20, $20, $20
 
 .recoil_z
-#_07C432: db $20,$20,$20,$20,$20,$20,$20,$20
-#_07C43A: db $24,$24,$24,$24,$28,$28,$28,$28
-#_07C442: db $20,$28,$28,$28,$2C,$2C,$2C,$2C
-#_07C44A: db $30,$30,$30,$30,$34,$34,$34,$34
-#_07C452: db $E0,$FF,$20,$00
+#_07C432: db $20, $20, $20, $20, $20, $20, $20, $20
+#_07C43A: db $24, $24, $24, $24, $28, $28, $28, $28
+#_07C442: db $20, $28, $28, $28, $2C, $2C, $2C, $2C
+#_07C44A: db $30, $30, $30, $30, $34, $34, $34, $34
+#_07C452: db $E0, $FF, $20, $00
 
 pool off
 
@@ -14237,7 +14236,7 @@ Link_FindValidLandingTile_DiagonalNorth:
 
 #_07C4B5: STZ.w $0360
 
-#_07C4B8: LDA.b #!LINKSTATE_0D
+#_07C4B8: LDA.b #$0D ; LINKSTATE 0D
 #_07C4BA: STA.b $5D
 
 #_07C4BC: RTS
@@ -14527,8 +14526,8 @@ HandleMasksRupeesConveyors_Horizontal:
 
 #_07C61B: JSL Underworld_DeleteRupeeTile
 
-#_07C61F: LDA.b #!SFX3_0A
-#_07C621: JSR PlaySFX_Set3_Bank07
+#_07C61F: LDA.b #$0A ; SFX3.0A
+#_07C621: JSR PlaySFX_Set3
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -14613,7 +14612,7 @@ Link_CheckForWaterTiles_Horizontal:
 #_07C682: BNE .not_deep_water
 
 #_07C684: LDA.b $5D
-#_07C686: CMP.b #!LINKSTATE_06
+#_07C686: CMP.b #$06 ; LINKSTATE 06
 #_07C688: BEQ .not_deep_water
 
 #_07C68A: LDA.b $3E
@@ -14660,8 +14659,8 @@ Link_CheckForWaterTiles_Horizontal:
 
 #_07C6C5: JSR Link_HopInOrOutOfWater_Horizontal
 
-#_07C6C8: LDA.b #!SFX2_20
-#_07C6CA: JSR PlaySFX_Set2_Bank07
+#_07C6C8: LDA.b #$20 ; SFX2.20
+#_07C6CA: JSR PlaySFX_Set2
 
 #_07C6CD: BRA HandleUnderworldPitSlip_Horizontal
 
@@ -14692,7 +14691,7 @@ Link_CheckForWaterTiles_Horizontal:
 
 #_07C6F3: STZ.w $0345
 
-#_07C6F6: LDA.b #!ANCILLA_15
+#_07C6F6: LDA.b #$15 ; ANCILLA 15
 #_07C6F8: LDY.b #$00
 #_07C6FA: JSL AncillaAdd_Splash
 
@@ -14713,10 +14712,10 @@ HandleUnderworldPitSlip_Horizontal:
 #_07C710: BNE HandleUnderworldSpikeBlockCollision_Horizontal
 
 #_07C712: LDA.b $5D
-#_07C714: CMP.b #!LINKSTATE_05
+#_07C714: CMP.b #$05 ; LINKSTATE 05
 #_07C716: BEQ .exit
 
-#_07C718: CMP.b #!LINKSTATE_02
+#_07C718: CMP.b #$02 ; LINKSTATE 02
 #_07C71A: BEQ .exit
 
 #_07C71C: LDA.b #$09
@@ -14727,7 +14726,7 @@ HandleUnderworldPitSlip_Horizontal:
 #_07C722: LDA.b #$01
 #_07C724: STA.b $5B
 
-#_07C726: LDA.b #!LINKSTATE_01
+#_07C726: LDA.b #$01 ; LINKSTATE 01
 #_07C728: STA.b $5D
 
 .exit
@@ -14904,7 +14903,7 @@ HandlePushingBonkingSnaps_Horizontal:
 
 .check_swimming
 #_07C7EE: LDA.b $5D
-#_07C7F0: CMP.b #!LINKSTATE_04
+#_07C7F0: CMP.b #$04 ; LINKSTATE 04
 #_07C7F2: BNE .not_swimming_or_moving
 
 #_07C7F4: LDA.w $0312
@@ -15119,10 +15118,10 @@ StartMovementCollisionChecks_Horizontal_HandleOutdoors:
 #_07C8EA: BNE HandleLiftablesBeforeDeepWater_Horizontal
 
 #_07C8EC: LDA.b $5D
-#_07C8EE: CMP.b #!LINKSTATE_05
+#_07C8EE: CMP.b #$05 ; LINKSTATE 05
 #_07C8F0: BEQ .exit
 
-#_07C8F2: CMP.b #!LINKSTATE_02
+#_07C8F2: CMP.b #$02 ; LINKSTATE 02
 #_07C8F4: BEQ .exit
 
 #_07C8F6: LDA.b #$09
@@ -15133,7 +15132,7 @@ StartMovementCollisionChecks_Horizontal_HandleOutdoors:
 #_07C8FC: LDA.b #$01
 #_07C8FE: STA.b $5B
 
-#_07C900: LDA.b #!LINKSTATE_01
+#_07C900: LDA.b #$01 ; LINKSTATE 01
 #_07C902: STA.b $5D
 
 .exit
@@ -15204,7 +15203,7 @@ Link_CheckEnteringWater_Horizontal:
 #_07C95C: LDA.w $02E0
 #_07C95F: BNE Link_HandleEnteringWater_Horizontal
 
-#_07C961: LDA.b #!LINKSTATE_04
+#_07C961: LDA.b #$04 ; LINKSTATE 04
 #_07C963: STA.b $5D
 
 #_07C965: BRA Link_HandleEnteringWater_Horizontal
@@ -15229,8 +15228,8 @@ Link_CheckEnteringWater_Horizontal:
 
 #_07C97C: JSR Link_HopInOrOutOfWater_Horizontal
 
-#_07C97F: LDA.b #!SFX2_20
-#_07C981: JSR PlaySFX_Set2_Bank07
+#_07C97F: LDA.b #$20 ; SFX2.20
+#_07C981: JSR PlaySFX_Set2
 
 ;===================================================================================================
 
@@ -15274,7 +15273,7 @@ Link_HandleEnteringWater_Horizontal:
 
 #_07C9BC: STZ.w $0345
 
-#_07C9BF: LDA.b #!ANCILLA_15
+#_07C9BF: LDA.b #$15 ; ANCILLA 15
 #_07C9C1: LDY.b #$00
 #_07C9C3: JSL AncillaAdd_Splash
 
@@ -15293,8 +15292,8 @@ Link_HandleLedgeTile_Horizontal:
 #_07C9D6: JSR RunLedgeHopTimer
 #_07C9D9: BCC Link_CheckForWeirdLedges_Horizontal
 
-#_07C9DB: LDA.b #!SFX2_20
-#_07C9DD: JSR PlaySFX_Set2_Bank07
+#_07C9DB: LDA.b #$20 ; SFX2.20
+#_07C9DD: JSR PlaySFX_Set2
 
 #_07C9E0: LDX.b #$10
 
@@ -15322,7 +15321,7 @@ Link_HandleLedgeTile_Horizontal:
 #_07C9FE: LDA.b #$FF
 #_07CA00: STA.w $0364
 
-#_07CA03: LDA.b #!LINKSTATE_0C
+#_07CA03: LDA.b #$0C ; LINKSTATE 0C
 #_07CA05: STA.b $5D
 
 #_07CA07: LDA.b #$01
@@ -15383,15 +15382,15 @@ Link_CheckForWeirdLedges_Horizontal:
 #_07CA48: JSR RunLedgeHopTimer
 #_07CA4B: BCC CheckLedgeTypes_Horizontal
 
-#_07CA4D: LDA.b #!SFX2_20
-#_07CA4F: JSR PlaySFX_Set2_Bank07
+#_07CA4D: LDA.b #$20 ; SFX2.20
+#_07CA4F: JSR PlaySFX_Set2
 
-#_07CA52: LDX.b #!LINKSTATE_0F
+#_07CA52: LDX.b #$0F ; LINKSTATE 0F
 
 #_07CA54: AND.b #$07
 #_07CA56: BNE .dumb_thing_has_sfx
 
-#_07CA58: LDX.b #!LINKSTATE_10
+#_07CA58: LDX.b #$10 ; LINKSTATE 10
 
 .dumb_thing_has_sfx
 #_07CA5A: STX.b $5D
@@ -15446,14 +15445,14 @@ CheckLedgeTypes_Horizontal:
 #_07CA9D: BNE .dont_hop
 
 #_07CA9F: LDA.b $5D
-#_07CAA1: CMP.b #!LINKSTATE_0D
+#_07CAA1: CMP.b #$0D ; LINKSTATE 0D
 #_07CAA3: BEQ .dont_hop
 
 #_07CAA5: JSR RunLedgeHopTimer
 #_07CAA8: BCC .dont_hop
 
-#_07CAAA: LDA.b #!SFX2_20
-#_07CAAC: JSR PlaySFX_Set2_Bank07
+#_07CAAA: LDA.b #$20 ; SFX2.20
+#_07CAAC: JSR PlaySFX_Set2
 #_07CAAF: JSR Link_CancelDash
 
 #_07CAB2: LDA.b #$01
@@ -15508,7 +15507,7 @@ CheckLedgeTypes_Horizontal:
 #_07CAF6: LDA.b #$FF
 #_07CAF8: STA.w $0364
 
-#_07CAFB: LDA.b #!LINKSTATE_0E
+#_07CAFB: LDA.b #$0E ; LINKSTATE 0E
 #_07CAFD: STA.b $5D
 
 #_07CAFF: STZ.b $46
@@ -15845,7 +15844,7 @@ Link_HopInOrOutOfWater_Horizontal:
 #_07CC64: STZ.w $0360
 
 .dont_set_recoil
-#_07CC67: LDA.b #!LINKSTATE_06
+#_07CC67: LDA.b #$06 ; LINKSTATE 06
 #_07CC69: STA.b $5D
 
 #_07CC6B: RTS
@@ -16060,10 +16059,10 @@ ResetSlopeIntoFlag:
 TileDetect_Movement:
 
 .offset_same_axis
-#_07CD64: dw $0008,$0018,$0000,$000F
+#_07CD64: dw $0008, $0018, $0000, $000F
 
 .offset_perpendicular_axis_1
-#_07CD6C: dw $0000,$0000
+#_07CD6C: dw $0000, $0000
 
 .offset_pit_y
 #_07CD70: dw $0008
@@ -16072,27 +16071,27 @@ TileDetect_Movement:
 #_07CD72: dw $0008
 
 .offset_perpendicular_axis_2
-#_07CD74: dw $0008,$0008,$0010,$0010
+#_07CD74: dw $0008, $0008, $0010, $0010
 
 .offset_perpendicular_axis_3
-#_07CD7C: dw $000F,$000F
+#_07CD7C: dw $000F, $000F
 
 .offset_pit_x
 #_07CD80: dw $0017
 
 .unused_b
-#_07CD82: dw $0017, $0000, $0000,  $001F, $001F
+#_07CD82: dw $0017, $0000, $0000, $001F, $001F
 
 .offset_slope_same_axis
-#_07CD8C: dw $0007,$0018,$FFFF,$0010
+#_07CD8C: dw $0007, $0018, $FFFF, $0010
 
 .offset_slope_perpendicular_axis_1
-#_07CD94: dw $0000,$0000,$0008,$0008
+#_07CD94: dw $0000, $0000, $0008, $0008
 
 .offset_slope_perpendicular_axis_2
-#_07CD9C: dw $000F,$000F,$0017,$0017
-#_07CDA4: dw $0000,$0000,$0000,$000F
-#_07CDAC: dw $0000,$0000,$0012,$0012
+#_07CD9C: dw $000F, $000F, $0017, $0017
+#_07CDA4: dw $0000, $0000, $0000, $000F
+#_07CDAC: dw $0000, $0000, $0012, $0012
 
 ;===================================================================================================
 
@@ -16644,7 +16643,7 @@ TileDetect_MainHandler:
 
 #_07D0DA: PLY
 
-#_07D0DB: BRA .contiue_from_detection
+#_07D0DB: BRA .continue_from_detection
 
 .detect_from_item
 #_07D0DD: SEP #$30
@@ -16661,7 +16660,7 @@ TileDetect_MainHandler:
 
 ;---------------------------------------------------------------------------------------------------
 
-.contiue_from_detection
+.continue_from_detection
 #_07D0E7: SEP #$30
 
 #_07D0E9: CPY.b #$05
@@ -16702,8 +16701,8 @@ TileDetect_MainHandler:
 
 #_07D11C: JSL Underworld_FlagRoomData_Quadrants
 
-#_07D120: LDA.b #!SFX2_33
-#_07D122: JSR PlaySFX_Set2_Bank07
+#_07D120: LDA.b #$33 ; SFX2.33
+#_07D122: JSR PlaySFX_Set2
 
 #_07D125: STZ.b $5E
 
@@ -16748,8 +16747,8 @@ TileDetect_MainHandler:
 #_07D159: LDA.b $4D
 #_07D15B: BNE .jump_to_exit
 
-#_07D15D: LDA.b #!SFX2_1A
-#_07D15F: JSR PlaySFX_Set2_Bank07
+#_07D15D: LDA.b #$1A ; SFX2.1A
+#_07D15F: JSR PlaySFX_Set2
 
 .jump_to_exit
 #_07D162: BRL .exit
@@ -16781,7 +16780,7 @@ TileDetect_MainHandler:
 #_07D188: LDA.w $0340
 #_07D18B: STA.b $26
 
-#_07D18D: LDA.b #!LINKSTATE_00
+#_07D18D: LDA.b #$00 ; LINKSTATE 00
 #_07D18F: STA.b $5D
 
 #_07D191: BRL .exit
@@ -16796,8 +16795,8 @@ TileDetect_MainHandler:
 #_07D19B: CMP.b #$70
 #_07D19D: BNE .mire_splash
 
-#_07D19F: LDA.b #!SFX2_1B
-#_07D1A1: JSR PlaySFX_Set2_Bank07
+#_07D19F: LDA.b #$1B ; SFX2.1B
+#_07D1A1: JSR PlaySFX_Set2
 
 #_07D1A4: BRA .no_sound_allowed
 
@@ -16807,8 +16806,8 @@ TileDetect_MainHandler:
 #_07D1A6: LDA.b $4D
 #_07D1A8: BNE .no_sound_allowed
 
-#_07D1AA: LDA.b #!SFX2_1C
-#_07D1AC: JSR PlaySFX_Set2_Bank07
+#_07D1AA: LDA.b #$1C ; SFX2.1C
+#_07D1AC: JSR PlaySFX_Set2
 
 .no_sound_allowed
 #_07D1AF: BRL .exit
@@ -16836,8 +16835,8 @@ TileDetect_MainHandler:
 #_07D1CE: CMP.b #$70
 #_07D1D0: BNE .in_mire_again
 
-#_07D1D2: LDA.b #!SFX2_1B
-#_07D1D4: JSR PlaySFX_Set2_Bank07
+#_07D1D2: LDA.b #$1B ; SFX2.1B
+#_07D1D4: JSR PlaySFX_Set2
 
 #_07D1D7: BRA .no_sloshing_sounds
 
@@ -16847,8 +16846,8 @@ TileDetect_MainHandler:
 #_07D1D9: LDA.b $4D
 #_07D1DB: BNE .no_sloshing_sounds
 
-#_07D1DD: LDA.b #!SFX2_1C
-#_07D1DF: JSR PlaySFX_Set2_Bank07
+#_07D1DD: LDA.b #$1C ; SFX2.1C
+#_07D1DF: JSR PlaySFX_Set2
 
 .no_sloshing_sounds
 #_07D1E2: BRL .exit
@@ -16971,7 +16970,7 @@ TileDetect_MainHandler:
 
 .not_on_any_ice
 #_07D286: LDA.b $5D
-#_07D288: CMP.b #!LINKSTATE_04
+#_07D288: CMP.b #$04 ; LINKSTATE 04
 #_07D28A: BEQ .swimming
 
 #_07D28C: LDA.w $034A
@@ -17010,7 +17009,7 @@ Link_PermissionForSloshSounds:
 #_07D2B3: BEQ .fail
 
 #_07D2B5: LDA.b $5D
-#_07D2B7: CMP.b #!LINKSTATE_11
+#_07D2B7: CMP.b #$11 ; LINKSTATE 11
 #_07D2B9: BEQ .dashing
 
 #_07D2BB: LDA.b $1A
@@ -17204,8 +17203,6 @@ Link_HandleLiftables:
 #_07D386: AND.b $EC
 #_07D388: STA.b $04
 
-;---------------------------------------------------------------------------------------------------
-
 #_07D38A: LDA.b $22
 #_07D38C: CLC
 #_07D38D: ADC.w LiftableCheckOffset_X,Y
@@ -17216,8 +17213,6 @@ Link_HandleLiftables:
 #_07D394: LSR A
 
 #_07D395: STA.b $02
-
-;---------------------------------------------------------------------------------------------------
 
 #_07D397: LDA.b $22
 #_07D399: CLC
@@ -17249,8 +17244,6 @@ Link_HandleLiftables:
 #_07D3B9: STA.b $0A
 
 #_07D3BB: JSR TileDetection_Execute
-
-;---------------------------------------------------------------------------------------------------
 
 #_07D3BE: SEP #$30
 
@@ -17357,20 +17350,20 @@ Link_HandleLiftables:
 pool HandleNudging
 
 .offset_y_top
-#_07D42E: dw $0008,$0008,$0017,$0017
-#_07D436: dw $0008,$0017,$0008,$0017
+#_07D42E: dw $0008, $0008, $0017, $0017
+#_07D436: dw $0008, $0017, $0008, $0017
 
 .offset_x_top
-#_07D43E: dw $0000,$000F,$0000,$000F
-#_07D446: dw $0000,$0000,$000F,$000F
+#_07D43E: dw $0000, $000F, $0000, $000F
+#_07D446: dw $0000, $0000, $000F, $000F
 
 .offset_y_bottom
-#_07D44E: dw $0017,$0017,$0008,$0008
-#_07D456: dw $0008,$0017,$0008,$0017
+#_07D44E: dw $0017, $0017, $0008, $0008
+#_07D456: dw $0008, $0017, $0008, $0017
 
 .offset_x_bottom
-#_07D45E: dw $0000,$000F,$0000,$000F
-#_07D466: dw $000F,$000F,$0000,$0000
+#_07D45E: dw $0000, $000F, $0000, $000F
+#_07D466: dw $000F, $000F, $0000, $0000
 
 pool off
 
@@ -17790,10 +17783,10 @@ Hookshot_CheckSingleLayerTileCollision:
 pool HandleNudgingInADoor
 
 .offset_y
-#_07D640: dw $0008,$0017,$0010,$0010
+#_07D640: dw $0008, $0017, $0010, $0010
 
 .offset_x
-#_07D648: dw $0008,$0008,$0000,$000F
+#_07D648: dw $0008, $0008, $0000, $000F
 
 pool off
 
@@ -17959,10 +17952,10 @@ TileCheckForMirrorBonk:
 pool TileDetect_SwordSwingDeepInDoor
 
 .offset_y
-#_07D717: dw $FFFF,$0018,$0010,$0010
+#_07D717: dw $FFFF, $0018, $0010, $0010
 
 .offset_x
-#_07D71F: dw $0008,$0008,$FFFF,$0010
+#_07D71F: dw $0008, $0008, $FFFF, $0010
 
 pool off
 
@@ -18100,7 +18093,7 @@ pool TileDetection_Execute_underworld
 #_07D7CF: dw TileBehavior_Nothing                          ; 0x07 UW
 #_07D7D1: dw TileBehavior_DeepWater                        ; 0x08 UW
 #_07D7D3: dw TileBehavior_ShallowWater                     ; 0x09 UW
-#_07D7D5: dw TileBehavior_UW0A                             ; 0x0A UW
+#_07D7D5: dw TileBehavior_ShortWaterLadder                 ; 0x0A UW
 #_07D7D7: dw TileBehavior_StandardCollision                ; 0x0B UW
 #_07D7D9: dw TileBehavior_OverlayMask_0C                   ; 0x0C UW
 #_07D7DB: dw TileBehavior_SpikeFloor                       ; 0x0D UW
@@ -18353,10 +18346,7 @@ pool off
 ; TODO
 ; Enters with:
 ;   $0A - bit to set
-;     Generally:
-;     .... ..lr
-;       r - Any detection, or detected on right side
-;       l - Detected on left side
+;
 ; Uses:
 ;   $06 - Tile ID
 ;
@@ -18447,8 +18437,8 @@ pool TileDetection_Execute_overworld
 #_07DA21: dw TileBehavior_NothingOW                        ; 0x07 OW
 #_07DA23: dw TileBehavior_DeepWater                        ; 0x08 OW
 #_07DA25: dw TileBehavior_ShallowWater                     ; 0x09 OW
-#_07DA27: dw TileBehavior_OW0A                             ; 0x0A OW
-#_07DA29: dw TileBehavior_OW0B                             ; 0x0B OW
+#_07DA27: dw TileBehavior_ShortWaterLadder                 ; 0x0A OW
+#_07DA29: dw TileBehavior_UnusedDeepWater                  ; 0x0B OW
 #_07DA2B: dw TileBehavior_OverlayMask_0C                   ; 0x0C OW
 #_07DA2D: dw TileBehavior_SpikeFloor                       ; 0x0D OW
 #_07DA2F: dw TileBehavior_GanonIce                         ; 0x0E OW
@@ -18513,8 +18503,8 @@ pool TileDetection_Execute_overworld
 #_07DAA5: dw TileBehavior_NothingOW                        ; 0x49 OW
 #_07DAA7: dw TileBehavior_DiggableGround                   ; 0x4A OW
 #_07DAA9: dw TileBehavior_Warp                             ; 0x4B OW
-#_07DAAB: dw TileBehavior_OW4C                             ; 0x4C OW
-#_07DAAD: dw TileBehavior_OW4D                             ; 0x4D OW
+#_07DAAB: dw TileBehavior_UnusedCornerType                 ; 0x4C OW
+#_07DAAD: dw TileBehavior_UnusedCornerType                 ; 0x4D OW
 #_07DAAF: dw TileBehavior_EasternRuinsCorner               ; 0x4E OW
 #_07DAB1: dw TileBehavior_EasternRuinsCorner               ; 0x4F OW
 #_07DAB3: dw TileBehavior_Liftable                         ; 0x50 OW
@@ -18749,10 +18739,10 @@ TileBehavior_Nothing:
 ;===================================================================================================
 
 TileBehavior_Slope_masks:
-#_07DC3E: dw %00000100 ; $0004
-#_07DC40: dw %00000000 ; $0000
-#_07DC42: dw %00000110 ; $0006
-#_07DC44: dw %00000010 ; $0002
+#_07DC3E: dw $0004 ; 00000100
+#_07DC40: dw $0000 ; 00000000
+#_07DC42: dw $0006 ; 00000110
+#_07DC44: dw $0002 ; 00000010
 
 ;===================================================================================================
 
@@ -18865,10 +18855,8 @@ TileBehavior_DeepWater:
 #_07DCA4: RTS
 
 ;===================================================================================================
-; TODO
-;===================================================================================================
-TileBehavior_UW0A:
-TileBehavior_OW0A:
+
+TileBehavior_ShortWaterLadder:
 #_07DCA5: LDA.b $0A
 #_07DCA7: TSB.w $0343
 
@@ -18971,22 +18959,22 @@ TileBehavior_ShallowWater:
 pool TileBehavior_ManipulablyReplaced
 
 .bitmask
-#_07DD0A: dw %0000000000000001 ; $0001
-#_07DD0C: dw %0000000000000010 ; $0002
-#_07DD0E: dw %0000000000000100 ; $0004
-#_07DD10: dw %0000000000001000 ; $0008
-#_07DD12: dw %0000000000010000 ; $0010
-#_07DD14: dw %0000000000100000 ; $0020
-#_07DD16: dw %0000000001000000 ; $0040
-#_07DD18: dw %0000000010000000 ; $0080
-#_07DD1A: dw %0000000100000000 ; $0100
-#_07DD1C: dw %0000001000000000 ; $0200
-#_07DD1E: dw %0000010000000000 ; $0400
-#_07DD20: dw %0000100000000000 ; $0800
-#_07DD22: dw %0001000000000000 ; $1000
-#_07DD24: dw %0010000000000000 ; $2000
-#_07DD26: dw %0100000000000000 ; $4000
-#_07DD28: dw %1000000000000000 ; $8000
+#_07DD0A: dw $0001 ; 0000000000000001
+#_07DD0C: dw $0002 ; 0000000000000010
+#_07DD0E: dw $0004 ; 0000000000000100
+#_07DD10: dw $0008 ; 0000000000001000
+#_07DD12: dw $0010 ; 0000000000010000
+#_07DD14: dw $0020 ; 0000000000100000
+#_07DD16: dw $0040 ; 0000000001000000
+#_07DD18: dw $0080 ; 0000000010000000
+#_07DD1A: dw $0100 ; 0000000100000000
+#_07DD1C: dw $0200 ; 0000001000000000
+#_07DD1E: dw $0400 ; 0000010000000000
+#_07DD20: dw $0800 ; 0000100000000000
+#_07DD22: dw $1000 ; 0001000000000000
+#_07DD24: dw $2000 ; 0010000000000000
+#_07DD26: dw $4000 ; 0100000000000000
+#_07DD28: dw $8000 ; 1000000000000000
 
 pool off
 
@@ -19014,9 +19002,8 @@ TileBehavior_ManipulablyReplaced:
 #_07DD44: RTS
 
 ;===================================================================================================
-; TODO
-;===================================================================================================
-TileBehavior_OW0B:
+
+TileBehavior_UnusedDeepWater:
 #_07DD45: LDA.b $06
 #_07DD47: STA.b $76
 
@@ -19442,10 +19429,8 @@ TileBehavior_Ledge_SouthDiagonal:
 #_07DECF: RTS
 
 ;===================================================================================================
-; TODO
-;===================================================================================================
-TileBehavior_OW4C:
-TileBehavior_OW4D:
+
+TileBehavior_UnusedCornerType:
 #_07DED0: LDA.b $06
 #_07DED2: STA.b $76
 
@@ -19520,38 +19505,38 @@ TileBehavior_BonkRocks:
 pool PushBlock_GetTargetTileFlag
 
 .tile_flags
-#_07DF0F: db $00,$01,$02,$03,$02,$00,$00,$00
-#_07DF17: db $00,$01,$00,$01,$00,$00,$00,$00
-#_07DF1F: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DF27: db $01,$01,$01,$01,$00,$01,$01,$01
-#_07DF2F: db $00,$01,$01,$00,$00,$00,$01,$01
-#_07DF37: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DF3F: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DF47: db $01,$01,$00,$00,$01,$01,$01,$01
-#_07DF4F: db $00,$01,$01,$01,$01,$01,$01,$01
-#_07DF57: db $00,$01,$00,$01,$01,$01,$01,$01
-#_07DF5F: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DF67: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DF6F: db $00,$00,$00,$01,$00,$01,$01,$01
-#_07DF77: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DF7F: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DF87: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DF8F: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DF97: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DF9F: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFA7: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFAF: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFB7: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFBF: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFC7: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFCF: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFD7: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFDF: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFE7: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFEF: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFF7: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07DFFF: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07E007: db $01,$01,$01,$01,$01,$01,$01,$01
+#_07DF0F: db $00, $01, $02, $03, $02, $00, $00, $00
+#_07DF17: db $00, $01, $00, $01, $00, $00, $00, $00
+#_07DF1F: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DF27: db $01, $01, $01, $01, $00, $01, $01, $01
+#_07DF2F: db $00, $01, $01, $00, $00, $00, $01, $01
+#_07DF37: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DF3F: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DF47: db $01, $01, $00, $00, $01, $01, $01, $01
+#_07DF4F: db $00, $01, $01, $01, $01, $01, $01, $01
+#_07DF57: db $00, $01, $00, $01, $01, $01, $01, $01
+#_07DF5F: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DF67: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DF6F: db $00, $00, $00, $01, $00, $01, $01, $01
+#_07DF77: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DF7F: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DF87: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DF8F: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DF97: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DF9F: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFA7: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFAF: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFB7: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFBF: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFC7: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFCF: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFD7: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFDF: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFE7: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFEF: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFF7: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07DFFF: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07E007: db $01, $01, $01, $01, $01, $01, $01, $01
 
 pool off
 
@@ -19597,10 +19582,10 @@ PushBlock_GetTargetTileFlag:
 ;===================================================================================================
 ; TODO analyze
 DifferenceFor6BLowNibble:
-#_07E03B: db $00,$01,$02,$03,$04,$05,$06,$07 ; ◥
-#_07E043: db $07,$06,$05,$04,$03,$02,$01,$00 ; ◤
-#_07E04B: db $07,$06,$05,$04,$03,$02,$01,$00 ; ◢
-#_07E053: db $00,$01,$02,$03,$04,$05,$06,$07 ; ◣
+#_07E03B: db $00, $01, $02, $03, $04, $05, $06, $07 ; ◥
+#_07E043: db $07, $06, $05, $04, $03, $02, $01, $00 ; ◤
+#_07E04B: db $07, $06, $05, $04, $03, $02, $01, $00 ; ◢
+#_07E053: db $00, $01, $02, $03, $04, $05, $06, $07 ; ◣
 
 FlagFor6BLowNibble:
 #_07E05B: db $08 ; ◥
@@ -19941,7 +19926,7 @@ Link_HandleRecoiling:
 #_07E1D1: BEQ .dont_invert
 
 #_07E1D3: LDA.b $5D
-#_07E1D5: CMP.b #!LINKSTATE_02
+#_07E1D5: CMP.b #$02 ; LINKSTATE 02
 #_07E1D7: BNE .dont_invert
 
 #_07E1D9: LDA.b $28
@@ -20071,7 +20056,7 @@ Link_HandleVelocity:
 
 .can_move
 #_07E25D: LDA.b $5D ; check for swimming
-#_07E25F: CMP.b #!LINKSTATE_04
+#_07E25F: CMP.b #$04 ; LINKSTATE 04
 #_07E261: BEQ .swimming_or_not_dashing
 
 #_07E263: LDA.w $034A ; check ice floor type
@@ -20323,7 +20308,7 @@ Link_HandleVelocity:
 #_07E372: STA.b $41
 
 #_07E374: LDA.b $5D
-#_07E376: CMP.b #!LINKSTATE_0A
+#_07E376: CMP.b #$0A ; LINKSTATE 0A
 #_07E378: BEQ .quaking
 
 #_07E37A: LDA.w $02F5
@@ -20789,7 +20774,7 @@ Link_HandleMovingFloor:
 #_07E592: BNE EXIT_07E5CC
 
 #_07E594: LDA.b $5D
-#_07E596: CMP.b #!LINKSTATE_13
+#_07E596: CMP.b #$13 ; LINKSTATE 13
 #_07E598: BEQ EXIT_07E5CC
 
 #_07E59A: LDY.b #$08
@@ -20886,7 +20871,7 @@ Link_ApplyConveyor:
 #_07E5EB: BNE EXIT_07E5CC
 
 #_07E5ED: LDA.b $5D ; Is Link hookshotting?
-#_07E5EF: CMP.b #!LINKSTATE_13
+#_07E5EF: CMP.b #$13 ; LINKSTATE 13
 #_07E5F1: BEQ EXIT_07E5CC
 
 #_07E5F3: LDA.b $4D ; is Link recoiling?
@@ -21032,7 +21017,7 @@ Link_HandleMovingAnimation_FullLongEntry:
 
 Link_HandleMovingAnimation_MainEntry:
 #_07E692: LDA.b $5D
-#_07E694: CMP.b #!LINKSTATE_04
+#_07E694: CMP.b #$04 ; LINKSTATE 04
 #_07E696: BNE .not_swimming
 
 #_07E698: BRL Link_HandleMovingAnimationSwimming
@@ -21169,7 +21154,7 @@ Link_HandleMovingAnimation_MainEntry:
 
 .continue_b
 #_07E719: LDA.b $5D
-#_07E71B: CMP.b #!LINKSTATE_17
+#_07E71B: CMP.b #$17 ; LINKSTATE 17
 #_07E71D: BNE .not_bunny
 
 #_07E71F: BRL Link_HandleMovingAnimation_Bunny
@@ -21429,13 +21414,13 @@ pool Link_HandleMovingAnimation_Dash
 
 ; TODO how to get most of these values?
 .timers_a_idk
-#_07E82B: db $03,$03,$05,$03,$03,$03,$05,$03
-#_07E833: db $02,$02,$04,$02,$02,$02,$04,$02
-#_07E83B: db $02,$02,$03,$02,$02,$02,$03,$02
-#_07E843: db $01,$01,$02,$01,$01,$01,$02,$01
-#_07E84B: db $01,$01,$01,$01,$01,$01,$01,$01
-#_07E853: db $00,$00,$01,$00,$00,$00,$01,$00
-#_07E85B: db $00,$00,$00,$00,$00,$00,$00,$00
+#_07E82B: db $03, $03, $05, $03, $03, $03, $05, $03
+#_07E833: db $02, $02, $04, $02, $02, $02, $04, $02
+#_07E83B: db $02, $02, $03, $02, $02, $02, $03, $02
+#_07E843: db $01, $01, $02, $01, $01, $01, $02, $01
+#_07E84B: db $01, $01, $01, $01, $01, $01, $01, $01
+#_07E853: db $00, $00, $01, $00, $00, $00, $01, $00
+#_07E85B: db $00, $00, $00, $00, $00, $00, $00, $00
 
 .timers_charge
 #_07E863: db $01
@@ -22074,7 +22059,7 @@ DesertHDMATableFinished:
 #_07EB74: EOR.b #$01
 #_07EB76: STA.w $02F0
 
-#_07EB79: LDA.b #!SONG_F3_MAXVOL
+#_07EB79: LDA.b #$F3 ; SONG F3 - max volume
 #_07EB7B: STA.w $012C
 
 #_07EB7E: LDA.b #$00
@@ -22343,8 +22328,8 @@ InitializePushBlock:
 ;---------------------------------------------------------------------------------------------------
 
 .do_the_push
-#_07ED8E: LDA.b #!SFX2_22
-#_07ED90: JSR PlaySFX_Set2_Bank07
+#_07ED8E: LDA.b #$22 ; SFX2.22
+#_07ED90: JSR PlaySFX_Set2
 
 #_07ED93: PLA
 #_07ED94: STA.b $0E
@@ -23386,14 +23371,14 @@ Link_AnimateIntraStairClimbAndSFX:
 #_07F267: AND.b #$04
 #_07F269: BEQ .upwards_sfx
 
-#_07F26B: LDA.b #!SFX2_18
-#_07F26D: JSR PlaySFX_Set2_Bank07
+#_07F26B: LDA.b #$18 ; SFX2.18
+#_07F26D: JSR PlaySFX_Set2
 
 #_07F270: BRA .sfx_set
 
 .upwards_sfx
-#_07F272: LDA.b #!SFX2_16
-#_07F274: JSR PlaySFX_Set2_Bank07
+#_07F272: LDA.b #$16 ; SFX2.16
+#_07F274: JSR PlaySFX_Set2
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -23590,14 +23575,14 @@ HandleLinkOnSpiralStairs:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_07F35B: LDA.b #!SFX2_17
-#_07F35D: JSR PlaySFX_Set2_Bank07
+#_07F35B: LDA.b #$17 ; SFX2.17
+#_07F35D: JSR PlaySFX_Set2
 
 #_07F360: BRA .exit
 
 .different_stair_sound
-#_07F362: LDA.b #!SFX2_19
-#_07F364: JSR PlaySFX_Set2_Bank07
+#_07F362: LDA.b #$19 ; SFX2.19
+#_07F364: JSR PlaySFX_Set2
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -23774,17 +23759,17 @@ Link_CheckForEdgeScreenTransition:
 #_07F416: LDA.b $5D
 
 ; check for spin attack
-#_07F418: CMP.b #!LINKSTATE_03
+#_07F418: CMP.b #$03 ; LINKSTATE 03
 #_07F41A: BEQ .prevent_transition
 
 ; check for medallion use
-#_07F41C: CMP.b #!LINKSTATE_08
+#_07F41C: CMP.b #$08 ; LINKSTATE 08
 #_07F41E: BEQ .prevent_transition
 
-#_07F420: CMP.b #!LINKSTATE_09
+#_07F420: CMP.b #$09 ; LINKSTATE 09
 #_07F422: BEQ .prevent_transition
 
-#_07F424: CMP.b #!LINKSTATE_0A
+#_07F424: CMP.b #$0A ; LINKSTATE 0A
 #_07F426: BEQ .prevent_transition
 
 ; check for recoil
@@ -23829,13 +23814,13 @@ Link_CheckForEdgeScreenTransition:
 Follower_ValidateMessageFreedom:
 #_07F449: LDA.b $5D
 
-#_07F44B: CMP.b #!LINKSTATE_00
+#_07F44B: CMP.b #$00 ; LINKSTATE 00
 #_07F44D: BEQ .do_check
 
-#_07F44F: CMP.b #!LINKSTATE_04
+#_07F44F: CMP.b #$04 ; LINKSTATE 04
 #_07F451: BEQ .do_check
 
-#_07F453: CMP.b #!LINKSTATE_11
+#_07F453: CMP.b #$11 ; LINKSTATE 11
 #_07F455: BNE .fail
 
 .do_check
@@ -23930,7 +23915,7 @@ CheckIfLinkIsBusy:
 
 .next_ancilla
 #_07F4BB: LDA.w $0C4A,X
-#_07F4BE: CMP.b #!ANCILLA_27
+#_07F4BE: CMP.b #$27 ; ANCILLA 27
 #_07F4C0: BEQ .am_busy
 
 #_07F4C2: DEX
@@ -23962,7 +23947,7 @@ Pipe_ValidateEntry:
 ; look for and delete byrna spark
 .next_ancilla
 #_07F4CD: LDA.w $0C4A,X
-#_07F4D0: CMP.b #!ANCILLA_31
+#_07F4D0: CMP.b #$31 ; ANCILLA 31
 #_07F4D2: BNE .skip_ancilla
 
 #_07F4D4: STZ.w $037A
@@ -24429,7 +24414,7 @@ FlashGanonTowerPalette:
 ;---------------------------------------------------------------------------------------------------
 
 .thunder
-#_07FA76: LDX.b #!SFX2_36
+#_07FA76: LDX.b #$36 ; SFX2.36
 #_07FA78: STX.w $012E
 
 ;---------------------------------------------------------------------------------------------------

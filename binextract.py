@@ -24,7 +24,7 @@ bins_to_extract = {
     "bin/brr/square.brr": (0x0C940D, 0x0C944B),
     "bin/brr/saw.brr": (0x0C944C, 0x0C948A),
     "bin/brr/clink.brr": (0x0C948B, 0x0C94ED),
-    "bin/brr/wobblylead.brr": (0x0C94EE, 0x0C9586),
+    "bin/brr/wobbly.brr": (0x0C94EE, 0x0C9586),
     "bin/brr/compoundsaw.brr": (0x0C9587, 0x0C9628),
     "bin/brr/tweet.brr": (0x0C9629, 0x0C9BA4),
     "bin/brr/strings.brr": (0x0C9BA5, 0x0CA924),

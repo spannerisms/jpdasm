@@ -8,7 +8,7 @@
 ; High bytes are indicated with an "H" suffix
 ; High bytes that are unused may use a "U" suffix
 ;
-; Bitfields, full or partial, will name each field with a unique letter
+; Bitfields, full or partial, will name each property with a unique letter
 ; If multiple bits share a letter, they are part of the same property
 ; and form a larger number that is only part of the address
 ; All unused bits are marked with a period (.) and no mention of them is made
@@ -85,9 +85,9 @@ SUBMODE         = $7E0011
 ; Before the main loop starts again, $12 is cleared with an STZ
 ; While 0, it sits in a loop, waiting for interrupts.
 ; When NMI triggers, it checks this flag to decide if the bulk updates should be performed.
-; If NMI reads this flag as zero, it knows the main loop has completed and bulk
-; If NMI triggers before the main game code is finished, this flag will be nonzero
-; then this flag will still be nonzero, and NMI will skip most updates
+; If NMI reads this flag as zero, it knows the main loop has completed and bulk updates are allowed to occur
+; If NMI triggers before the main game code is finished, this flag will be still be nonzero
+; such bulk updates will be skipped
 ; NMI will set this flag to non zero, allowing the loop to exit after NMI
 LAG             = $7E0012
 
@@ -249,8 +249,8 @@ OAMOFFAX        = $7E0045
 ; Countdown timer used when Link takes damage
 INPAIN          = $7E0046
 
-; Repulse spark timer
-REPULSET        = $7E0047
+; Weapon tink spark timer
+TINKTM          = $7E0047
 
 ; Bitfield for push actions
 ; s... dbpt
@@ -292,7 +292,7 @@ FSHFSH          = $7E004F
 ; When 0, Link will change the direction he's facing based on his movement
 ; When nonzero, he will strafe around
 ; .... .bps
-;   s - generally the bit flagged
+;   s - the bit generally flagged
 ;   p - flagged during rupee pull and perpendicular door movement
 ;   b - flagged during push blocks
 ;
@@ -390,7 +390,7 @@ DIFFXH          = $7E0069
 ;   v - facing vertically
 DIAGFACE        = $7E006A
 
-;         ..hv udrl
+;         ..hv udlr
 ;   0x15  ...1 .1.1  ◣ down
 ;   0x16  ...1 .11.  ◢ down
 ;   0x19  ...1 1..1  ◤ up
@@ -479,7 +479,7 @@ OWMAPDIYH       = $7E0089
 
 ; Overworld screen ID
 ; In practice bit 6 indicates a Dark World screen, and bit 7 indicates special overworld
-; As the highest screen ID is 0x7F, $8B is essentially unused in the overworld.
+; As the highest screen ID is 0x81, $8B is essentially unused in the overworld.
 ; However, reads and writes for screen ID are often 16-bit
 ; Occasionally 8A is used to read underworld screens.
 ; Thus, this address should be considered used.
@@ -515,11 +515,11 @@ CGADSUBQ        = $7E009A
 HDMAENQ         = $7E009B
 
 ; These are just written to COLDATA successively
-; The color defininition bit is not ORA'd in
+; The color channel bit is not ORA'd in
 ; So generally expect to see the same top 3 bits for each address
 ; There's nothing preventing these being used for any COLDATA writes, though
-; e.g. the following line of code will produce a pure white
-;      STZ $9C : STZ $9D : LDA.b #$FF : STA.b $9E
+; e.g. the following values will produce a pure white:
+;      00 00 FF
 COLDATAR        = $7E009C
 COLDATAG        = $7E009D
 COLDATAB        = $7E009E
@@ -644,7 +644,7 @@ SCRAPDF         = $7E00DF
 
 ; Background scroll registers
 ; For BG1 and BG2, these registers are used for calculations later for different writes to PPU.
-; For BG3, these mirrors are written to PPU during NMI
+; For BG3, the values are written directly to the PPU during NMI
 ; Since BG1 and BG2 are not written directly to PPU they are given different names from BG3.
 BG1H            = $7E00E0
 BG1HH           = $7E00E1
@@ -719,7 +719,7 @@ NMIVTIME        = $7E00FF
 ; WRAM MIRROR
 ;---------------------------------------------------------------------------------------------------
 ; Pages 0x00–0x1F of Bank7E are mirrored to every program bank ALTTP uses.
-; These addresses can be accessed with absolute addressing, as long as the data bank is not 0x7F.
+; These addresses can be accessed with absolute addressing, as long as the data bank is not 0x70 or 0x7F.
 ;---------------------------------------------------------------------------------------------------
 ;===================================================================================================
 
@@ -735,6 +735,7 @@ AUXBCHRH        = $7E0105
 
 ; FREE RAM: 0x01
 UNUSED_7E0106   = $7E0106
+
 SWORDCHR        = $7E0107
 SHIELDCHR       = $7E0108
 ITEMCHR         = $7E0109
@@ -749,8 +750,7 @@ UNUSED_7E010B   = $7E010B
 MODECACHE       = $7E010C
 SUBCACHE        = $7E010D
 
-; Last entrance ID used.
-; Referenced by mirror and wallmasters.
+; Entrance ID into underworld.
 ENTRANCE        = $7E010E
 ENTRANCEH       = $7E010F
 
@@ -855,8 +855,8 @@ STACK           = $7E01FF
 
 ;---------------------------------------------------------------------------------------------------
 
-; High byte is never written, but always expected to be 0x00.
 ; Used by interfaces as a submodule ID.
+; High byte is never written, but always expected to be 0x00.
 INTSUBSUB       = $7E0200
 INTSUBSUBH      = $7E0201
 
@@ -891,7 +891,7 @@ HPFLIPI         = $7E0209
 HPFILL          = $7E020A
 
 ; Appears to be a flag related to the menu and rod items.
-; Zeroed in several places, but never any other value.
+; Zeroed in several places, but never set to any other value.
 DEBUG_7E020B    = $7E020B
 
 ; Never really used. Scares MoN for some reason - "oh hells naw".
@@ -1124,10 +1124,10 @@ JUNK_7E02D9     = $7E02D9
 ;   0x00 - No pose
 ;   0x01 - 1 hand up
 ;   0x02 - 2 hands up
-GETPOSE         = $7E02DA
+BRANDISH        = $7E02DA
 
 ; Flag that prevents warp tiles from activating.
-; Is set by world changes, but always seems cleared before it can be read.
+; Set during world changes, but always seems cleared before it can be read.
 NOWARP          = $7E02DB
 
 ; Cache of Link's coordinates used during slope kickback routine.
@@ -1248,7 +1248,7 @@ THUD            = $7E02F8
 FLWNODRAW       = $7E02F9
 
 ; Set when near a draggable statue. Causes Link to drag.
-STATUEDRAG      = $7E02FA
+STATUE          = $7E02FA
 
 ; FREE RAM: 0x05
 UNUSED_7E02FB   = $7E02FB
@@ -1262,7 +1262,8 @@ UNUSED_7E02FF   = $7E02FF
 ; Step counter for Y-item animations. Also used for zap.
 ITEMSTEP        = $7E0300
 
-; Bitfield for Y-item usage. See also USEY2.
+; Bitfield for Y-item usage.
+; See also: USEY2
 ; bp.a xzhr
 ;   b - boomerang
 ;   p - powder
@@ -1292,7 +1293,7 @@ AINDEX2         = $7E0306
 ; Contains ACTY minus 4 to get rod type.
 ;   0x01 - Fire rod
 ;   0x02 - Ice rod
-; Any other value will crash the game on use.
+; Any other value would crash the game on use.
 RODTYPE         = $7E0307
 
 ; Bitfield for certain A button presses.
@@ -1639,7 +1640,8 @@ STAIRDIRT       = $7E0378
 ; When set, the A press routine is short circuited.
 NOA             = $7E0379
 
-; Bitfield for Y-item usage. See also USEY1.
+; Bitfield for Y-item usage.
+; See also: USEY1
 ; ..bn ch.s
 ;   b - book
 ;   n - net
@@ -1654,7 +1656,7 @@ NOPAIN          = $7E037B
 ; Sleep submode for link state 0x16
 SLEEPMODE       = $7E037C
 
-; Used by OAM for how exactly Link is in bed:
+; Determines how exactly Link is in bed.
 ;   0x00 - sleep
 ;   0x01 - awake
 ;   0x02 - jumping out
@@ -1662,7 +1664,7 @@ SLEEPSTAGE      = $7E037D
 
 ; Bitfield for hookshot drag stuff.
 ; .... ..ld
-;   l - set when Link crossing a hop tile; seems to flag which layer to read from.
+;   l - set when crossing a hop tile; seems to flag which layer to read from.
 ;   d - hookshot drag in effect
 HOOKDRAG        = $7E037E
 
@@ -1932,10 +1934,10 @@ OPENED          = $7E0402
 ; Items taken in a room
 ; Bit 7 prevents damage from bombs and spikes
 ; bkut sehc
-;   b - boss kill / heart piece
-;   k - key / crystal (unused for crystals, but prevents them from dropping)
-;   u - 2nd key
-;   t - chest 4 / rupee floor / swamp drains / bomable floor / mire wall
+;   b - boss kill / heart container
+;   k - key / heart piece / crystal (unused for crystals, but prevents them from dropping)
+;   u - 2nd key / heart piece
+;   t - chest 4 / rupee floor / swamp drains / bombable floor / mire wall
 ;   s - chest 3 / pod or desert wall
 ;   e - chest 2
 ;   h - chest 1
@@ -1998,7 +2000,7 @@ UNUSED_7E0413   = $7E0413
 BGACT           = $7E0414
 BGACTH          = $7E0415
 
-; Designates which vector to use when updating the overworld tilemap
+; Designates which vector to follow when updating the overworld tilemap
 ; High byte seems unused
 MAPPANVCT       = $7E0416
 MAPPANVCTH      = $7E0417
@@ -2083,6 +2085,7 @@ STAIRSI2        = $7E043A
 STAIRSI2H       = $7E043B
 
 ; Indexes all sorts of inter-room stairs
+; TODO split
 RSTAIRSI        = $7E043C
 RSTAIRSIH       = $7E043D
 RSTAIRSI2       = $7E043E
@@ -2172,9 +2175,9 @@ BLKSWITCHH      = $7E0467
 SHUTTER         = $7E0468
 SHUTTERH        = $7E0469
 
-; Used in room draw routines to index floor tiles
-FLOORX2         = $7E046A
-FLOORX2H        = $7E046B
+; Floor 1 draw
+FLOOR1          = $7E046A
+FLOOR1H         = $7E046B
 
 ; TODO "collision"
 BG1FX           = $7E046C
@@ -2201,7 +2204,8 @@ DAMTMAPH        = $7E0473
 BLOCKDIR        = $7E0474
 BLOCKDIRH       = $7E0475
 
-; More layer, similar to LAYER, but different. Sometimes kept in sync.
+; More layer, similar to LAYER, but different.
+; Sometimes kept in sync.
 DLAYER          = $7E0476
 
 ; FREE RAM: 0x01
@@ -2373,7 +2377,7 @@ NOTAG           = $7E04C7
 PEGCOUNTL       = $7E04C8
 PEGCOUNTH       = $7E04C9
 
-; Countdown timer for heart beep. Starts at 32 frames.
+; Countdown timer for heart beep. Starts at 32.
 BEEP            = $7E04CA
 
 ; FREE RAM: 0x25
@@ -2606,7 +2610,7 @@ UNSUED_7E0645   = $7E0645
 ; Set by somaria when on a switch
 SOMBTN          = $7E0646
 
-; If set, mosaic from electrocution decreases; otherwise, increases.
+; If set, mosaic from electrocution decreases; otherwise, it increases.
 MOSAICDIR       = $7E0647
 
 ; FREE RAM: 0x28
@@ -2653,7 +2657,7 @@ WTRMAXXH        = $7E0689
 WTRMAXY         = $7E068A
 WTRMAXYH        = $7E068B
 
-; Flags opened doors during transitions
+; Flags open doors during transitions
 DOOROPEN2       = $7E068C
 DOOROPEN        = $7E068D
 
@@ -2699,6 +2703,9 @@ SCROLLHUHX      = $7E069F
 
 ; TODO
 ; Mirror warp variables that can be figured out later
+; Star tile (enabled only) in underworld
+STARTILES       = $7E06A0
+
 WARP_7E06A0     = $7E06A0
 WARP_7E06A1     = $7E06A1
 WARP_7E06A2     = $7E06A2
@@ -2757,6 +2764,7 @@ CHEST5AT        = $7E06EA
 CHEST5ATH       = $7E06EB
 
 ; Tilemap positions of south stairs
+; TODO
 SSTAIRAT        = $7E06EC
 
 ; FREE RAM: 0x08
@@ -2817,7 +2825,7 @@ SKIPOAMH        = $7E0711
 OWSCRSIZE       = $7E0712
 OWSCRSIZEH      = $7E0713
 
-; Screen size of previos screen
+; Screen size of previous screen
 PREVSIZE        = $7E0714
 PREVSIZEH       = $7E0715
 
@@ -2839,9 +2847,9 @@ MAP16OVERFLOW   = $7E0718
 OAMBUFF         = $7E0800
 OAMBUFF2        = $7E0A00
 
-; Holds bit 8 of object's X coordinate.
+; Holds the 2 auxiliary bits of OAM data.
 ; ORA'd in every frame.
-OAMXBIT8        = $7E0A20
+OAMBUFFSX       = $7E0A20
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -3146,10 +3154,10 @@ SPRDSTUN        = $7E0B65
 SPRESTUN        = $7E0B66
 SPRFSTUN        = $7E0B67
 
-; Repulse spark layer
-REPBG           = $7E0B68
+; Weapon tink spark layer
+TINKBG          = $7E0B68
 
-; Controls Blind's head spin by /8
+; Controls Blind's head spin by /8.
 ; Also controls tutorial guard message increment.
 BLINDDIR        = $7E0B69
 
@@ -3237,13 +3245,13 @@ DRYFIRE         = $7E0B9A
 KEYSLOT         = $7E0B9B
 
 ; Controls the secret spawned from bushes, pots, rots, etc
-; See Sprite_SpawnSecret ($06:8264)
+; See Sprite_SpawnSecret
 SECRETID        = $7E0B9C
 
 ; Indexes the save file ID to act on for COPY and KILL.
 FILEID          = $7E0B9D
 
-; Flags to activation of falling stalfos trap triggers.
+; Flags activation of falling stalfos trap triggers.
 STALTRAP        = $7E0B9E
 
 ; FREE RAM: 0x01
@@ -3268,23 +3276,23 @@ SPRDBPF         = $7E0BAD
 SPREBPF         = $7E0BAE
 SPRFBPF         = $7E0BAF
 
-; TODO
-SPR0ANCX        = $7E0BB0
-SPR1ANCX        = $7E0BB1
-SPR2ANCX        = $7E0BB2
-SPR3ANCX        = $7E0BB3
-SPR4ANCX        = $7E0BB4
-SPR5ANCX        = $7E0BB5
-SPR6ANCX        = $7E0BB6
-SPR7ANCX        = $7E0BB7
-SPR8ANCX        = $7E0BB8
-SPR9ANCX        = $7E0BB9
-SPRAANCX        = $7E0BBA
-SPRBANCX        = $7E0BBB
-SPRCANCX        = $7E0BBC
-SPRDANCX        = $7E0BBD
-SPREANCX        = $7E0BBE
-SPRFANCX        = $7E0BBF
+; When an ancilla hits a sprite, it stores its ID here.
+SPR0ANCID       = $7E0BB0
+SPR1ANCID       = $7E0BB1
+SPR2ANCID       = $7E0BB2
+SPR3ANCID       = $7E0BB3
+SPR4ANCID       = $7E0BB4
+SPR5ANCID       = $7E0BB5
+SPR6ANCID       = $7E0BB6
+SPR7ANCID       = $7E0BB7
+SPR8ANCID       = $7E0BB8
+SPR9ANCID       = $7E0BB9
+SPRAANCID       = $7E0BBA
+SPRBANCID       = $7E0BBB
+SPRCANCID       = $7E0BBC
+SPRDANCID       = $7E0BBD
+SPREANCID       = $7E0BBE
+SPRFANCID       = $7E0BBF
 
 ; Slots of currently loaded sprites.
 ; Half redundant, but has special flagging before with negative values.
@@ -3663,7 +3671,7 @@ OL7_ROOM        = $7E0CD1
 ;   b - bump damage class
 ;   Bump damage classes are read from a table at $06F42D
 ;   Each table entry has 3 values, for green, blue, and red mails
-;   class    g    b    r
+;   class   g    b    r
 ;   0x00    2    1    1
 ;   0x01    4    4    4
 ;   0x02    0    0    0
@@ -3962,7 +3970,22 @@ SPRE_0DA0       = $7E0DAE
 SPRF_0DA0       = $7E0DAF
 
 ; TODO
-SPR             = $7E0DB0
+SPR0_0DB0       = $7E0DB0
+SPR1_0DB0       = $7E0DB1
+SPR2_0DB0       = $7E0DB2
+SPR3_0DB0       = $7E0DB3
+SPR4_0DB0       = $7E0DB4
+SPR5_0DB0       = $7E0DB5
+SPR6_0DB0       = $7E0DB6
+SPR7_0DB0       = $7E0DB7
+SPR8_0DB0       = $7E0DB8
+SPR9_0DB0       = $7E0DB9
+SPRA_0DB0       = $7E0DBA
+SPRB_0DB0       = $7E0DBB
+SPRC_0DB0       = $7E0DBC
+SPRD_0DB0       = $7E0DBD
+SPRE_0DB0       = $7E0DBE
+SPRF_0DB0       = $7E0DBF
 
 ; Mostly used as graphics control
 SPR0_GFXSTEP    = $7E0DC0
@@ -4550,15 +4573,15 @@ SPROAMY         = $7E0FA9
 MAPOAMX         = $7E0FAA
 MAPOAMY         = $7E0FAB
 
-; Repulse spark animation state
-REPULSE         = $7E0FAC
+; Weapon tink spark animation state
+TINK            = $7E0FAC
 
-; Repulse spark coordinates
-REPULSEX        = $7E0FAD
-REPULSEY        = $7E0FAE
+; Weapon tink spark coordinates
+TINKX           = $7E0FAD
+TINKY           = $7E0FAE
 
-; Repulse spark animation timer
-REPULAT         = $7E0FAF
+; Weapon tink spark animation timer
+TINKATM         = $7E0FAF
 
 ; Used to set sprite coordinate high bytes as calculated from room ID
 SETXHI          = $7E0FB0
@@ -4712,7 +4735,7 @@ AVALANCHE       = $7E0FFD
 BOULDER         = $7E0FFE
 
 ; Light world or dark world
-WORLD_FLAG      = $7E0FFF
+WORLDFLAG       = $7E0FFF
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5754,7 +5777,7 @@ PALB_SPR7A      = $7EC4E0
 PALB_SPR7B      = $7EC4F0
 
 ;===================================================================================================
-; Main palette written to CGRAM
+; Main palette block written to CGRAM
 ;===================================================================================================
 
 ; HUD palettes

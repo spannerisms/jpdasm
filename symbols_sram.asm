@@ -57,7 +57,7 @@ SRAMOFF         = $701FFE
 ; dddd bkut sehc qqqq
 ;   d - door opened
 ;   b - boss kill / heart container
-;   k - key / heart piece
+;   k - key / heart piece / crystal (unused for crystals, but prevents them from dropping)
 ;   u - 2nd key / heart piece
 ;   t - chest 4 / rupee floor / swamp drains / bombable floor / mire wall
 ;   s - chest 3 / pod or desert wall
@@ -806,7 +806,7 @@ UNUSED_7EF378   = $7EF378
 ;      If this bit is unset but LIFT is set then the proper lift text is displayed
 ABILITY         = $7EF379
 
-; .wbs tidm
+; .wbs tipm
 ;   p - Palace of Darkness
 ;   s - Swamp Palace
 ;   w - Skull Woods
@@ -955,7 +955,7 @@ GPTHIEF         = $7EF3F9
 GPTROCK         = $7EF3FB
 GPGANON         = $7EF3FD
 
-; Games played  for current segment
+; Games played for current segment
 GPNOW           = $7EF3FF
 
 ; Total games played

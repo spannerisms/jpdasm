@@ -3264,7 +3264,7 @@ LinkOAM_RodTypeID:
 ;===================================================================================================
 
 LinkOAM_StairsSomething:
-#_0DA131: db $00,$01,$02,$00,$01,$02,$00,$01
+#_0DA131: db $00, $01, $02, $00, $01, $02, $00, $01
 #_0DA139: db $02
 
 ;===================================================================================================
@@ -3439,8 +3439,8 @@ LinkOAM_Main:
 ; here's where we start handling Link's state
 #_0DA20D: SEP #$20
 
-#_0DA20F: LDA.b $5D
-#_0DA211: CMP.b #!LINKSTATE_16 ; is Link asleep?
+#_0DA20F: LDA.b $5D ; is Link asleep?
+#_0DA211: CMP.b #$16 ; LINKSTATE 16
 #_0DA213: BNE .not_in_bed
 
 #_0DA215: LDY.b #$1F
@@ -3578,7 +3578,7 @@ LinkOAM_Main:
 
 .not_in_deep_water
 #_0DA2B6: LDA.b $5D ; is Link swimming?
-#_0DA2B8: CMP.b #!LINKSTATE_04
+#_0DA2B8: CMP.b #$04 ; LINKSTATE 04
 #_0DA2BA: BNE .not_swimming
 
 #_0DA2BC: LDY.b #$11
@@ -3681,7 +3681,7 @@ LinkOAM_Main:
 
 .check_if_som_platform
 #_0DA330: LDA.b $5D
-#_0DA332: CMP.b #!LINKSTATE_05
+#_0DA332: CMP.b #$05 ; LINKSTATE 05
 #_0DA334: BNE .not_on_tr_platform
 
 #_0DA336: LDA.w $034E
@@ -3698,7 +3698,7 @@ LinkOAM_Main:
 
 .not_on_tr_platform
 #_0DA344: LDA.b $5D
-#_0DA346: CMP.b #!LINKSTATE_13
+#_0DA346: CMP.b #$13 ; LINKSTATE 13
 #_0DA348: BEQ .nothing_with_swim
 
 #_0DA34A: LDA.b $55
@@ -3841,13 +3841,13 @@ LinkOAM_Main:
 
 .not_using_items_b
 #_0DA3EF: LDA.b $5D
-#_0DA3F1: CMP.b #!LINKSTATE_0A
+#_0DA3F1: CMP.b #$0A ; LINKSTATE 0A
 #_0DA3F3: BEQ .using_medallion
 
-#_0DA3F5: CMP.b #!LINKSTATE_08
+#_0DA3F5: CMP.b #$08 ; LINKSTATE 08
 #_0DA3F7: BEQ .using_medallion
 
-#_0DA3F9: CMP.b #!LINKSTATE_09
+#_0DA3F9: CMP.b #$09 ; LINKSTATE 09
 #_0DA3FB: BNE .not_using_medallion
 
 .using_medallion
@@ -3857,10 +3857,10 @@ LinkOAM_Main:
 ;---------------------------------------------------------------------------------------------------
 
 .not_using_medallion
-#_0DA401: CMP.b #!LINKSTATE_1E
+#_0DA401: CMP.b #$1E ; LINKSTATE 1E
 #_0DA403: BEQ .using_spin_attack
 
-#_0DA405: CMP.b #!LINKSTATE_03
+#_0DA405: CMP.b #$03 ; LINKSTATE 03
 #_0DA407: BNE .not_spinning
 
 .using_spin_attack
@@ -4212,19 +4212,19 @@ LinkOAM_NoAux:
 #_0DA5DB: LDA.b $5D
 #_0DA5DD: AND.w #$00FF
 
-#_0DA5E0: CMP.w #!LINKSTATE_08 ; #$0008
+#_0DA5E0: CMP.w #$0008 ; LINKSTATE 08
 #_0DA5E3: BEQ .check_sword
 
-#_0DA5E5: CMP.w #!LINKSTATE_09 ; #$0009
+#_0DA5E5: CMP.w #$0009 ; LINKSTATE 09
 #_0DA5E8: BEQ .check_sword
 
-#_0DA5EA: CMP.w #!LINKSTATE_0A ; #$000A
+#_0DA5EA: CMP.w #$000A ; LINKSTATE 0A
 #_0DA5ED: BEQ .check_sword
 
-#_0DA5EF: CMP.w #!LINKSTATE_03 ; #$0003
+#_0DA5EF: CMP.w #$0003 ; LINKSTATE 03
 #_0DA5F2: BEQ .check_sword
 
-#_0DA5F4: CMP.w #!LINKSTATE_1E ; #$001E
+#_0DA5F4: CMP.w #$001E ; LINKSTATE 1E
 #_0DA5F7: BEQ .check_sword
 
 #_0DA5F9: LDA.w $0308
@@ -4714,7 +4714,7 @@ LinkOAM_DrawShadow:
 
 .continue_with_shadow
 #_0DA862: LDA.b $5D
-#_0DA864: CMP.b #!LINKSTATE_16
+#_0DA864: CMP.b #$16 ; LINKSTATE 16
 #_0DA866: BEQ .proceed_to_pose
 
 #_0DA868: LDA.w $0354
@@ -4736,7 +4736,7 @@ LinkOAM_DrawShadow:
 #_0DA87D: BEQ .proceed_to_pose
 
 #_0DA87F: LDA.b $5D
-#_0DA881: CMP.b #!LINKSTATE_04
+#_0DA881: CMP.b #$04 ; LINKSTATE 04
 #_0DA883: BEQ .proceed_to_pose
 
 #_0DA885: LDY.b #$00
@@ -5204,8 +5204,8 @@ LinkOAM_WeaponOffsetID:
 ;===================================================================================================
 
 LinkOAM_RodOffsetID:
-#_0DAB18: db $01,$04,$01,$04,$06,$02,$00,$05
-#_0DAB20: db $00,$05
+#_0DAB18: db $01, $04, $01, $04, $06, $02, $00, $05
+#_0DAB20: db $00, $05
 
 ;===================================================================================================
 
@@ -6327,10 +6327,10 @@ SpriteData_OAMHarm:
 #_0DB0DA: db $01 ; ... $01 | 0x5A - LOST WOODS SQUIRREL
 #_0DB0DB: db $01 ; ... $01 | 0x5B - SPARK
 #_0DB0DC: db $01 ; ... $01 | 0x5C - SPARK
-#_0DB0DD: db $07 ; ... $07 | 0x5D - ROLLER VERTICAL UP
-#_0DB0DE: db $07 ; ... $07 | 0x5E - ROLLER VERTICAL DOWN
-#_0DB0DF: db $07 ; ... $07 | 0x5F - ROLLER HORIZONTAL LEFT
-#_0DB0E0: db $07 ; ... $07 | 0x60 - ROLLER HORIZONTAL RIGHT
+#_0DB0DD: db $07 ; ... $07 | 0x5D - ROLLER VERTICAL DOWN FIRST
+#_0DB0DE: db $07 ; ... $07 | 0x5E - ROLLER VERTICAL UP FIRST
+#_0DB0DF: db $07 ; ... $07 | 0x5F - ROLLER HORIZONTAL RIGHT FIRST
+#_0DB0E0: db $07 ; ... $07 | 0x60 - ROLLER HORIZONTAL LEFT FIRST
 #_0DB0E1: db $00 ; ... $00 | 0x61 - BEAMOS
 #_0DB0E2: db $85 ; h.. $05 | 0x62 - MASTERSWORD
 #_0DB0E3: db $83 ; h.. $03 | 0x63 - DEBIRANDO PIT
@@ -6339,7 +6339,7 @@ SpriteData_OAMHarm:
 #_0DB0E6: db $00 ; ... $00 | 0x66 - WALL CANNON VERTICAL LEFT
 #_0DB0E7: db $00 ; ... $00 | 0x67 - WALL CANNON VERTICAL RIGHT
 #_0DB0E8: db $00 ; ... $00 | 0x68 - WALL CANNON HORIZONTAL TOP
-#_0DB0E9: db $00 ; ... $00 | 0x69 - WALL CANNON HORIZONTAL BOTTO
+#_0DB0E9: db $00 ; ... $00 | 0x69 - WALL CANNON HORIZONTAL BOTTOM
 #_0DB0EA: db $09 ; ... $09 | 0x6A - BALL N CHAIN
 #_0DB0EB: db $04 ; ... $04 | 0x6B - CANNONBALL / CANNON TROOPER
 #_0DB0EC: db $A0 ; h.w $00 | 0x6C - MIRROR PORTAL
@@ -6575,10 +6575,10 @@ SpriteData_Health:
 #_0DB1CD: db   0 ; 0x5A - LOST WOODS SQUIRREL
 #_0DB1CE: db 255 ; 0x5B - SPARK
 #_0DB1CF: db 255 ; 0x5C - SPARK
-#_0DB1D0: db 255 ; 0x5D - ROLLER VERTICAL UP
-#_0DB1D1: db 255 ; 0x5E - ROLLER VERTICAL DOWN
-#_0DB1D2: db 255 ; 0x5F - ROLLER HORIZONTAL LEFT
-#_0DB1D3: db 255 ; 0x60 - ROLLER HORIZONTAL RIGHT
+#_0DB1D0: db 255 ; 0x5D - ROLLER VERTICAL DOWN FIRST
+#_0DB1D1: db 255 ; 0x5E - ROLLER VERTICAL UP FIRST
+#_0DB1D2: db 255 ; 0x5F - ROLLER HORIZONTAL RIGHT FIRST
+#_0DB1D3: db 255 ; 0x60 - ROLLER HORIZONTAL LEFT FIRST
 #_0DB1D4: db 255 ; 0x61 - BEAMOS
 #_0DB1D5: db 255 ; 0x62 - MASTERSWORD
 #_0DB1D6: db 255 ; 0x63 - DEBIRANDO PIT
@@ -6828,10 +6828,10 @@ SpriteData_Bump:
 #_0DB2C0: db $00 ; .... $0 | 0x5A - LOST WOODS SQUIRREL
 #_0DB2C1: db $04 ; .... $4 | 0x5B - SPARK
 #_0DB2C2: db $04 ; .... $4 | 0x5C - SPARK
-#_0DB2C3: db $08 ; .... $8 | 0x5D - ROLLER VERTICAL UP
-#_0DB2C4: db $08 ; .... $8 | 0x5E - ROLLER VERTICAL DOWN
-#_0DB2C5: db $08 ; .... $8 | 0x5F - ROLLER HORIZONTAL LEFT
-#_0DB2C6: db $08 ; .... $8 | 0x60 - ROLLER HORIZONTAL RIGHT
+#_0DB2C3: db $08 ; .... $8 | 0x5D - ROLLER VERTICAL DOWN FIRST
+#_0DB2C4: db $08 ; .... $8 | 0x5E - ROLLER VERTICAL UP FIRST
+#_0DB2C5: db $08 ; .... $8 | 0x5F - ROLLER HORIZONTAL RIGHT FIRST
+#_0DB2C6: db $08 ; .... $8 | 0x60 - ROLLER HORIZONTAL LEFT FIRST
 #_0DB2C7: db $04 ; .... $4 | 0x61 - BEAMOS
 #_0DB2C8: db $00 ; .... $0 | 0x62 - MASTERSWORD
 #_0DB2C9: db $04 ; .... $4 | 0x63 - DEBIRANDO PIT
@@ -6840,7 +6840,7 @@ SpriteData_Bump:
 #_0DB2CC: db $02 ; .... $2 | 0x66 - WALL CANNON VERTICAL LEFT
 #_0DB2CD: db $02 ; .... $2 | 0x67 - WALL CANNON VERTICAL RIGHT
 #_0DB2CE: db $02 ; .... $2 | 0x68 - WALL CANNON HORIZONTAL TOP
-#_0DB2CF: db $02 ; .... $2 | 0x69 - WALL CANNON HORIZONTAL BOTTO
+#_0DB2CF: db $02 ; .... $2 | 0x69 - WALL CANNON HORIZONTAL BOTTOM
 #_0DB2D0: db $03 ; .... $3 | 0x6A - BALL N CHAIN
 #_0DB2D1: db $01 ; .... $1 | 0x6B - CANNONBALL / CANNON TROOPER
 #_0DB2D2: db $00 ; .... $0 | 0x6C - MIRROR PORTAL
@@ -6983,7 +6983,7 @@ SpriteData_Bump:
 ; nios pppt
 ;   n - custom death animation
 ;   i - impervious to attacks
-;   o - shadow location (0: no offset | 1: offset shadow)
+;   o - shadow size (0: big | 1: small)
 ;   s - draw shadow? (0: no shadow | 1: draw shadow)
 ;   p - sprite palette, copied to OAM
 ;   t - sprite name table, copied to OAM
@@ -7082,10 +7082,10 @@ SpriteData_OAMProp:
 #_0DB3B3: db $5D ; .i.s $5, 1 | 0x5A - LOST WOODS SQUIRREL
 #_0DB3B4: db $43 ; .i.. $3, 1 | 0x5B - SPARK
 #_0DB3B5: db $43 ; .i.. $3, 1 | 0x5C - SPARK
-#_0DB3B6: db $4D ; .i.. $5, 1 | 0x5D - ROLLER VERTICAL UP
-#_0DB3B7: db $4D ; .i.. $5, 1 | 0x5E - ROLLER VERTICAL DOWN
-#_0DB3B8: db $4D ; .i.. $5, 1 | 0x5F - ROLLER HORIZONTAL LEFT
-#_0DB3B9: db $4D ; .i.. $5, 1 | 0x60 - ROLLER HORIZONTAL RIGHT
+#_0DB3B6: db $4D ; .i.. $5, 1 | 0x5D - ROLLER VERTICAL DOWN FIRST
+#_0DB3B7: db $4D ; .i.. $5, 1 | 0x5E - ROLLER VERTICAL UP FIRST
+#_0DB3B8: db $4D ; .i.. $5, 1 | 0x5F - ROLLER HORIZONTAL RIGHT FIRST
+#_0DB3B9: db $4D ; .i.. $5, 1 | 0x60 - ROLLER HORIZONTAL LEFT FIRST
 #_0DB3BA: db $4D ; .i.. $5, 1 | 0x61 - BEAMOS
 #_0DB3BB: db $49 ; .i.. $1, 1 | 0x62 - MASTERSWORD
 #_0DB3BC: db $01 ; .... $1, 1 | 0x63 - DEBIRANDO PIT
@@ -7094,7 +7094,7 @@ SpriteData_OAMProp:
 #_0DB3BF: db $4D ; .i.. $5, 1 | 0x66 - WALL CANNON VERTICAL LEFT
 #_0DB3C0: db $4D ; .i.. $5, 1 | 0x67 - WALL CANNON VERTICAL RIGHT
 #_0DB3C1: db $4D ; .i.. $5, 1 | 0x68 - WALL CANNON HORIZONTAL TOP
-#_0DB3C2: db $4D ; .i.. $5, 1 | 0x69 - WALL CANNON HORIZONTAL BOTTO
+#_0DB3C2: db $4D ; .i.. $5, 1 | 0x69 - WALL CANNON HORIZONTAL BOTTOM
 #_0DB3C3: db $1D ; ...s $5, 1 | 0x6A - BALL N CHAIN
 #_0DB3C4: db $09 ; .... $1, 1 | 0x6B - CANNONBALL / CANNON TROOPER
 #_0DB3C5: db $C4 ; ni.. $4, 0 | 0x6C - MIRROR PORTAL
@@ -7334,10 +7334,10 @@ SpriteData_HitBox:
 #_0DB4A6: db $00 ; ... $00 | 0x5A - LOST WOODS SQUIRREL
 #_0DB4A7: db $40 ; .s. $00 | 0x5B - SPARK
 #_0DB4A8: db $40 ; .s. $00 | 0x5C - SPARK
-#_0DB4A9: db $10 ; ... $10 | 0x5D - ROLLER VERTICAL UP
-#_0DB4AA: db $10 ; ... $10 | 0x5E - ROLLER VERTICAL DOWN
-#_0DB4AB: db $2E ; ..p $0E | 0x5F - ROLLER HORIZONTAL LEFT
-#_0DB4AC: db $2E ; ..p $0E | 0x60 - ROLLER HORIZONTAL RIGHT
+#_0DB4A9: db $10 ; ... $10 | 0x5D - ROLLER VERTICAL DOWN FIRST
+#_0DB4AA: db $10 ; ... $10 | 0x5E - ROLLER VERTICAL UP FIRST
+#_0DB4AB: db $2E ; ..p $0E | 0x5F - ROLLER HORIZONTAL RIGHT FIRST
+#_0DB4AC: db $2E ; ..p $0E | 0x60 - ROLLER HORIZONTAL LEFT FIRST
 #_0DB4AD: db $40 ; .s. $00 | 0x61 - BEAMOS
 #_0DB4AE: db $1E ; ... $1E | 0x62 - MASTERSWORD
 #_0DB4AF: db $53 ; .s. $13 | 0x63 - DEBIRANDO PIT
@@ -7346,7 +7346,7 @@ SpriteData_HitBox:
 #_0DB4B2: db $00 ; ... $00 | 0x66 - WALL CANNON VERTICAL LEFT
 #_0DB4B3: db $00 ; ... $00 | 0x67 - WALL CANNON VERTICAL RIGHT
 #_0DB4B4: db $00 ; ... $00 | 0x68 - WALL CANNON HORIZONTAL TOP
-#_0DB4B5: db $00 ; ... $00 | 0x69 - WALL CANNON HORIZONTAL BOTTO
+#_0DB4B5: db $00 ; ... $00 | 0x69 - WALL CANNON HORIZONTAL BOTTOM
 #_0DB4B6: db $12 ; ... $12 | 0x6A - BALL N CHAIN
 #_0DB4B7: db $12 ; ... $12 | 0x6B - CANNONBALL / CANNON TROOPER
 #_0DB4B8: db $40 ; .s. $00 | 0x6C - MIRROR PORTAL
@@ -7590,10 +7590,10 @@ SpriteData_TileInteraction:
 #_0DB599: db $00 ; .... $0 | 0x5A - LOST WOODS SQUIRREL
 #_0DB59A: db $90 ; .... $0 | 0x5B - SPARK
 #_0DB59B: db $90 ; .... $0 | 0x5C - SPARK
-#_0DB59C: db $00 ; .... $0 | 0x5D - ROLLER VERTICAL UP
-#_0DB59D: db $00 ; .... $0 | 0x5E - ROLLER VERTICAL DOWN
-#_0DB59E: db $00 ; .... $0 | 0x5F - ROLLER HORIZONTAL LEFT
-#_0DB59F: db $00 ; .... $0 | 0x60 - ROLLER HORIZONTAL RIGHT
+#_0DB59C: db $00 ; .... $0 | 0x5D - ROLLER VERTICAL DOWN FIRST
+#_0DB59D: db $00 ; .... $0 | 0x5E - ROLLER VERTICAL UP FIRST
+#_0DB59E: db $00 ; .... $0 | 0x5F - ROLLER HORIZONTAL RIGHT FIRST
+#_0DB59F: db $00 ; .... $0 | 0x60 - ROLLER HORIZONTAL LEFT FIRST
 #_0DB5A0: db $00 ; .... $0 | 0x61 - BEAMOS
 #_0DB5A1: db $00 ; .... $0 | 0x62 - MASTERSWORD
 #_0DB5A2: db $00 ; .... $0 | 0x63 - DEBIRANDO PIT
@@ -7602,7 +7602,7 @@ SpriteData_TileInteraction:
 #_0DB5A5: db $00 ; .... $0 | 0x66 - WALL CANNON VERTICAL LEFT
 #_0DB5A6: db $00 ; .... $0 | 0x67 - WALL CANNON VERTICAL RIGHT
 #_0DB5A7: db $00 ; .... $0 | 0x68 - WALL CANNON HORIZONTAL TOP
-#_0DB5A8: db $00 ; .... $0 | 0x69 - WALL CANNON HORIZONTAL BOTTO
+#_0DB5A8: db $00 ; .... $0 | 0x69 - WALL CANNON HORIZONTAL BOTTOM
 #_0DB5A9: db $60 ; .... $0 | 0x6A - BALL N CHAIN
 #_0DB5AA: db $60 ; .... $0 | 0x6B - CANNONBALL / CANNON TROOPER
 #_0DB5AB: db $00 ; .... $0 | 0x6C - MIRROR PORTAL
@@ -7744,7 +7744,7 @@ SpriteData_TileInteraction:
 ;===================================================================================================
 ; iwbs pppp
 ;   i - limits pit and conveyor interaction
-;   w - flags sprites that need to check for water uniquely (0: skip | 1: check water)
+;   w - check for water uniquely (0: skip | 1: check water)
 ;   b - blockable by shield
 ;   s - damage SFX (0: normal | 1: boss)
 ;   p - prize pack
@@ -7843,10 +7843,10 @@ SpriteData_PrizePack:
 #_0DB68C: db $80 ; i... $0 | 0x5A - LOST WOODS SQUIRREL
 #_0DB68D: db $80 ; i... $0 | 0x5B - SPARK
 #_0DB68E: db $80 ; i... $0 | 0x5C - SPARK
-#_0DB68F: db $80 ; i... $0 | 0x5D - ROLLER VERTICAL UP
-#_0DB690: db $80 ; i... $0 | 0x5E - ROLLER VERTICAL DOWN
-#_0DB691: db $80 ; i... $0 | 0x5F - ROLLER HORIZONTAL LEFT
-#_0DB692: db $80 ; i... $0 | 0x60 - ROLLER HORIZONTAL RIGHT
+#_0DB68F: db $80 ; i... $0 | 0x5D - ROLLER VERTICAL DOWN FIRST
+#_0DB690: db $80 ; i... $0 | 0x5E - ROLLER VERTICAL UP FIRST
+#_0DB691: db $80 ; i... $0 | 0x5F - ROLLER HORIZONTAL RIGHT FIRST
+#_0DB692: db $80 ; i... $0 | 0x60 - ROLLER HORIZONTAL LEFT FIRST
 #_0DB693: db $00 ; .... $0 | 0x61 - BEAMOS
 #_0DB694: db $80 ; i... $0 | 0x62 - MASTERSWORD
 #_0DB695: db $80 ; i... $0 | 0x63 - DEBIRANDO PIT
@@ -7855,7 +7855,7 @@ SpriteData_PrizePack:
 #_0DB698: db $80 ; i... $0 | 0x66 - WALL CANNON VERTICAL LEFT
 #_0DB699: db $80 ; i... $0 | 0x67 - WALL CANNON VERTICAL RIGHT
 #_0DB69A: db $80 ; i... $0 | 0x68 - WALL CANNON HORIZONTAL TOP
-#_0DB69B: db $80 ; i... $0 | 0x69 - WALL CANNON HORIZONTAL BOTTO
+#_0DB69B: db $80 ; i... $0 | 0x69 - WALL CANNON HORIZONTAL BOTTOM
 #_0DB69C: db $92 ; i..s $2 | 0x6A - BALL N CHAIN
 #_0DB69D: db $91 ; i..s $1 | 0x6B - CANNONBALL / CANNON TROOPER
 #_0DB69E: db $80 ; i... $0 | 0x6C - MIRROR PORTAL
@@ -8099,10 +8099,10 @@ SpriteData_Deflection:
 #_0DB77F: db $00 ; .... .... | 0x5A - LOST WOODS SQUIRREL
 #_0DB780: db $00 ; .... .... | 0x5B - SPARK
 #_0DB781: db $00 ; .... .... | 0x5C - SPARK
-#_0DB782: db $84 ; a... .h.. | 0x5D - ROLLER VERTICAL UP
-#_0DB783: db $84 ; a... .h.. | 0x5E - ROLLER VERTICAL DOWN
-#_0DB784: db $84 ; a... .h.. | 0x5F - ROLLER HORIZONTAL LEFT
-#_0DB785: db $84 ; a... .h.. | 0x60 - ROLLER HORIZONTAL RIGHT
+#_0DB782: db $84 ; a... .h.. | 0x5D - ROLLER VERTICAL DOWN FIRST
+#_0DB783: db $84 ; a... .h.. | 0x5E - ROLLER VERTICAL UP FIRST
+#_0DB784: db $84 ; a... .h.. | 0x5F - ROLLER HORIZONTAL RIGHT FIRST
+#_0DB785: db $84 ; a... .h.. | 0x60 - ROLLER HORIZONTAL LEFT FIRST
 #_0DB786: db $08 ; .... c... | 0x61 - BEAMOS
 #_0DB787: db $80 ; a... .... | 0x62 - MASTERSWORD
 #_0DB788: db $80 ; a... .... | 0x63 - DEBIRANDO PIT
@@ -8111,7 +8111,7 @@ SpriteData_Deflection:
 #_0DB78B: db $80 ; a... .... | 0x66 - WALL CANNON VERTICAL LEFT
 #_0DB78C: db $80 ; a... .... | 0x67 - WALL CANNON VERTICAL RIGHT
 #_0DB78D: db $80 ; a... .... | 0x68 - WALL CANNON HORIZONTAL TOP
-#_0DB78E: db $80 ; a... .... | 0x69 - WALL CANNON HORIZONTAL BOTTO
+#_0DB78E: db $80 ; a... .... | 0x69 - WALL CANNON HORIZONTAL BOTTOM
 #_0DB78F: db $00 ; .... .... | 0x6A - BALL N CHAIN
 #_0DB790: db $08 ; .... c... | 0x6B - CANNONBALL / CANNON TROOPER
 #_0DB791: db $80 ; a... .... | 0x6C - MIRROR PORTAL
@@ -10925,7 +10925,7 @@ SpriteDraw_FortuneTeller:
 ;===================================================================================================
 
 Smithy_SpawnDumbBarrierSprite:
-#_0DCB1A: LDA.b #!SPRITE_31
+#_0DCB1A: LDA.b #$31 ; SPRITE 31
 #_0DCB1C: JSL Sprite_SpawnDynamically
 
 #_0DCB20: LDA.b $00
@@ -11055,7 +11055,7 @@ RaceGameLady_TimeRun:
 ;===================================================================================================
 
 RaceGameLady_FireStarterPistol:
-#_0DCBD0: LDA.b #!SFX3_07
+#_0DCBD0: LDA.b #$07 ; SFX3.07
 #_0DCBD2: JSL SpriteSFX_QueueSFX3WithPan
 
 #_0DCBD6: INC.w $0D80,X
@@ -12242,7 +12242,7 @@ SpriteDraw_ZirroBomb:
 
 PlayerBee_HoneInOnTarget:
 #_0DD621: LDA.w $0E20,Y
-#_0DD624: CMP.b #!SPRITE_88
+#_0DD624: CMP.b #$88 ; SPRITE 88
 #_0DD626: BEQ .attack_mothula
 
 ; ignore other bosses
@@ -12287,7 +12287,7 @@ PlayerBee_HoneInOnTarget:
 
 #_0DD665: LDA.w $0E20,Y
 
-#_0DD668: CMP.b #!SPRITE_75
+#_0DD668: CMP.b #$75 ; SPRITE 75
 #_0DD66A: BNE .not_bottle_vendor
 
 #_0DD66C: TXA
@@ -12891,11 +12891,11 @@ Sprite_SpawnFireball:
 #_0DD9F7: PHK
 #_0DD9F8: PLB
 
-#_0DD9F9: LDA.b #!SFX3_19
+#_0DD9F9: LDA.b #$19 ; SFX3.19
 #_0DD9FB: JSL SpriteSFX_QueueSFX3WithPan
 
 #_0DD9FF: LDY.b #$0D
-#_0DDA01: LDA.b #!SPRITE_55
+#_0DDA01: LDA.b #$55 ; SPRITE 55
 #_0DDA03: JSL Sprite_SpawnDynamically_slot_limited
 #_0DDA07: BMI .no_space
 
@@ -13182,7 +13182,7 @@ RefillLogic:
 #_0DDBC6: LDA.w $012E ; unless something is queued already
 #_0DDBC9: BNE .magic_refill_done
 
-#_0DDBCB: LDA.b #!SFX2_2D
+#_0DDBCB: LDA.b #$2D ; SFX2.2D
 #_0DDBCD: STA.w $012E
 
 ;---------------------------------------------------------------------------------------------------
@@ -13224,7 +13224,7 @@ RefillLogic:
 #_0DDC08: AND.b #$07
 #_0DDC0A: BNE .rupee_sound_done
 
-#_0DDC0C: LDA.b #!SFX2_29
+#_0DDC0C: LDA.b #$29 ; SFX2.29
 #_0DDC0E: STA.w $012E
 
 #_0DDC11: BRA .rupee_sound_done
@@ -13316,7 +13316,7 @@ RefillLogic:
 #_0DDC9B: LDA.b #$20 ; beep timer is every 32 frames
 #_0DDC9D: STA.w $04CA
 
-#_0DDCA0: LDA.b #!SFX2_2B
+#_0DDCA0: LDA.b #$2B ; SFX2.2B
 #_0DDCA2: STA.w $012E
 
 .tick_beep_timer
@@ -13352,7 +13352,7 @@ RefillLogic:
 #_0DDCD8: LDA.w $012F ; don't interrupt queued sfx
 #_0DDCDB: BNE .skip_heal_sfx
 
-#_0DDCDD: LDA.b #!SFX3_0D
+#_0DDCDD: LDA.b #$0D ; SFX3.0D
 #_0DDCDF: STA.w $012F
 
 .skip_heal_sfx
@@ -13487,7 +13487,7 @@ ItemMenu_ClearTilemap:
 
 #_0DDD97: SEP #$20
 
-#_0DDD99: LDA.b #!SFX3_11
+#_0DDD99: LDA.b #$11 ; SFX3.11
 #_0DDD9B: STA.w $012F
 
 ; trigger an update and tell it where to update from
@@ -13835,7 +13835,7 @@ ItemMenu_YItemSelection:
 #_0DDF24: LDA.b #$05
 #_0DDF26: STA.w $0200
 
-#_0DDF29: LDA.b #!SFX3_12
+#_0DDF29: LDA.b #$12 ; SFX3.12
 #_0DDF2B: STA.w $012F
 
 #_0DDF2E: RTS
@@ -13910,7 +13910,7 @@ ItemMenu_YItemSelection:
 #_0DDF7E: LDA.b #$10 ; if different, reset blink timer
 #_0DDF80: STA.w $0207
 
-#_0DDF83: LDA.b #!SFX3_20 ; and make some noise
+#_0DDF83: LDA.b #$20 ; SFX3.20
 #_0DDF85: STA.w $012F
 
 .do_item_draw
@@ -14181,7 +14181,7 @@ ItemMenu_BottleMenu:
 #_0DE0E4: AND.b #$10
 #_0DE0E6: BEQ .dont_close_menu
 
-#_0DE0E8: LDA.b #!SFX3_12
+#_0DE0E8: LDA.b #$12 ; SFX3.12
 #_0DE0EA: STA.w $012F
 
 #_0DE0ED: LDA.b #$05
@@ -14215,7 +14215,7 @@ ItemMenu_BottleMenu:
 #_0DE10E: LDA.b #$10
 #_0DE110: STA.w $0207
 
-#_0DE113: LDA.b #!SFX3_20
+#_0DE113: LDA.b #$20 ; SFX3.20
 #_0DE115: STA.w $012F
 
 #_0DE118: LDA.b #$01
@@ -14293,7 +14293,7 @@ ItemMenu_BottleMenu:
 #_0DE16C: LDA.b #$10
 #_0DE16E: STA.w $0207
 
-#_0DE171: LDA.b #!SFX3_20
+#_0DE171: LDA.b #$20 ; SFX3.20
 #_0DE173: STA.w $012F
 
 .exit

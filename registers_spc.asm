@@ -46,7 +46,7 @@ DSPADDR = $F2
 
 ; DSP DATA READ/WRITE
 ; $00F3 rw
-; Read/write data from registed selected in DSPADDR
+; Read/write data from register selected in DSPADDR
 DSPDATA = $F3
 
 ; SNES CPU COMMUNICATION PORTS
@@ -358,7 +358,6 @@ V7OUTX = $79
 ; Official examples:
 ;   FF 08 17 24 24 17 08 FF - low pass on echo (apparently bugged)
 ;   7F 00 00 00 00 00 00 00 - same tone color
-FIR = $0F
 FIR0 = $0F
 FIR1 = $1F
 FIR2 = $2F

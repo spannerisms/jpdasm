@@ -268,10 +268,10 @@ DrawObjects:
 #_018200: dw RoomDraw_Rightwards2x2_1to15or32                            ; 000
 #_018202: dw RoomDraw_Rightwards2x4_1to15or26                            ; 001
 #_018204: dw RoomDraw_Rightwards2x4_1to15or26                            ; 002
-#_018206: dw RoomDraw_Object_Rightwards2x4spaced4_1to16                  ; 003
-#_018208: dw RoomDraw_Object_Rightwards2x4spaced4_1to16                  ; 004
-#_01820A: dw RoomDraw_Rightwards2x2_1to16_BothBG                         ; 005
-#_01820C: dw RoomDraw_Rightwards2x2_1to16_BothBG                         ; 006
+#_018206: dw RoomDraw_Rightwards2x4spaced4_1to16                         ; 003
+#_018208: dw RoomDraw_Rightwards2x4spaced4_1to16                         ; 004
+#_01820A: dw RoomDraw_Rightwards2x4spaced4_1to16_BothBG                  ; 005
+#_01820C: dw RoomDraw_Rightwards2x4spaced4_1to16_BothBG                  ; 006
 #_01820E: dw RoomDraw_Rightwards2x2_1to16                                ; 007
 #_018210: dw RoomDraw_Rightwards2x2_1to16                                ; 008
 #_018212: dw RoomDraw_DiagonalAcute_1to16                                ; 009
@@ -383,8 +383,8 @@ DrawObjects:
 #_0182E6: dw RoomDraw_DownwardsDecor4x4spaced2_1to16                     ; 073
 #_0182E8: dw RoomDraw_DownwardsDecor4x4spaced2_1to16                     ; 074
 #_0182EA: dw RoomDraw_DownwardsPillar2x4spaced2_1to16                    ; 075
-#_0182EC: dw RoomDraw_DownwardsDecor4x4spaced4_1to16                     ; 076
-#_0182EE: dw RoomDraw_DownwardsDecor4x4spaced4_1to16                     ; 077
+#_0182EC: dw RoomDraw_DownwardsDecor3x4spaced4_1to16                     ; 076
+#_0182EE: dw RoomDraw_DownwardsDecor3x4spaced4_1to16                     ; 077
 #_0182F0: dw RoomDraw_DownwardsDecor2x2spaced12_1to16                    ; 078
 #_0182F2: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 079
 #_0182F4: dw RoomDraw_DownwardsEdge1x1_1to16                             ; 07A
@@ -394,10 +394,10 @@ DrawObjects:
 #_0182FC: dw RoomDraw_Nothing_B                                          ; 07E
 #_0182FE: dw RoomDraw_DownwardsDecor2x4spaced8_1to16                     ; 07F
 #_018300: dw RoomDraw_DownwardsDecor2x4spaced8_1to16                     ; 080
-#_018302: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 081
-#_018304: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 082
-#_018306: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 083
-#_018308: dw RoomDraw_DownwardsDecor2x4spaced2_1to16                     ; 084
+#_018302: dw RoomDraw_DownwardsDecor3x4spaced2_1to16                     ; 081
+#_018304: dw RoomDraw_DownwardsDecor3x4spaced2_1to16                     ; 082
+#_018306: dw RoomDraw_DownwardsDecor3x4spaced2_1to16                     ; 083
+#_018308: dw RoomDraw_DownwardsDecor3x4spaced2_1to16                     ; 084
 #_01830A: dw RoomDraw_DownwardsCannonHole3x4_1to16                       ; 085
 #_01830C: dw RoomDraw_DownwardsCannonHole3x4_1to16                       ; 086
 #_01830E: dw RoomDraw_DownwardsPillar2x4spaced2_1to16                    ; 087
@@ -585,14 +585,14 @@ DrawObjects:
 ;---------------------------------------------------------------------------------------------------
 
 .type1_subtype_2_routine
-#_018470: dw RoomDraw_4x4Object                                          ; 100
-#_018472: dw RoomDraw_4x4Object                                          ; 101
-#_018474: dw RoomDraw_4x4Object                                          ; 102
-#_018476: dw RoomDraw_4x4Object                                          ; 103
-#_018478: dw RoomDraw_4x4Object                                          ; 104
-#_01847A: dw RoomDraw_4x4Object                                          ; 105
-#_01847C: dw RoomDraw_4x4Object                                          ; 106
-#_01847E: dw RoomDraw_4x4Object                                          ; 107
+#_018470: dw RoomDraw_4x4                                                ; 100
+#_018472: dw RoomDraw_4x4                                                ; 101
+#_018474: dw RoomDraw_4x4                                                ; 102
+#_018476: dw RoomDraw_4x4                                                ; 103
+#_018478: dw RoomDraw_4x4                                                ; 104
+#_01847A: dw RoomDraw_4x4                                                ; 105
+#_01847C: dw RoomDraw_4x4                                                ; 106
+#_01847E: dw RoomDraw_4x4                                                ; 107
 #_018480: dw RoomDraw_4x4Corner_BothBG                                   ; 108
 #_018482: dw RoomDraw_4x4Corner_BothBG                                   ; 109
 #_018484: dw RoomDraw_4x4Corner_BothBG                                   ; 10A
@@ -609,26 +609,26 @@ DrawObjects:
 #_01849A: dw RoomDraw_WeirdCornerTop_BothBG                              ; 115
 #_01849C: dw RoomDraw_WeirdCornerTop_BothBG                              ; 116
 #_01849E: dw RoomDraw_WeirdCornerTop_BothBG                              ; 117
-#_0184A0: dw RoomDraw_Object_2x2_rightwards                              ; 118
-#_0184A2: dw RoomDraw_Object_2x2_rightwards                              ; 119
-#_0184A4: dw RoomDraw_Object_2x2_rightwards                              ; 11A
-#_0184A6: dw RoomDraw_Object_2x2_rightwards                              ; 11B
-#_0184A8: dw RoomDraw_4x4Object                                          ; 11C
+#_0184A0: dw RoomDraw_Rightwards2x2                                      ; 118
+#_0184A2: dw RoomDraw_Rightwards2x2                                      ; 119
+#_0184A4: dw RoomDraw_Rightwards2x2                                      ; 11A
+#_0184A6: dw RoomDraw_Rightwards2x2                                      ; 11B
+#_0184A8: dw RoomDraw_4x4                                                ; 11C
 #_0184AA: dw RoomDraw_Single2x3Pillar                                    ; 11D
 #_0184AC: dw RoomDraw_Single2x2                                          ; 11E
 #_0184AE: dw RoomDraw_EnabledStarSwitch                                  ; 11F
 #_0184B0: dw RoomDraw_LitTorch                                           ; 120
 #_0184B2: dw RoomDraw_Single2x3Pillar                                    ; 121
-#_0184B4: dw RoomDraw_Bed2x5                                             ; 122
-#_0184B6: dw RoomDraw_TableRock2x3                                       ; 123
-#_0184B8: dw RoomDraw_4x4Object                                          ; 124
-#_0184BA: dw RoomDraw_4x4Object                                          ; 125
+#_0184B4: dw RoomDraw_Bed4x5                                             ; 122
+#_0184B6: dw RoomDraw_TableRock4x3                                       ; 123
+#_0184B8: dw RoomDraw_4x4                                                ; 124
+#_0184BA: dw RoomDraw_4x4                                                ; 125
 #_0184BC: dw RoomDraw_Single2x3Pillar                                    ; 126
-#_0184BE: dw RoomDraw_Object_2x2_rightwards                              ; 127
-#_0184C0: dw RoomDraw_Bed2x5                                             ; 128
-#_0184C2: dw RoomDraw_4x4Object                                          ; 129
+#_0184BE: dw RoomDraw_Rightwards2x2                                      ; 127
+#_0184C0: dw RoomDraw_Bed4x5                                             ; 128
+#_0184C2: dw RoomDraw_4x4                                                ; 129
 #_0184C4: dw RoomDraw_PortraitOfMario                                    ; 12A
-#_0184C6: dw RoomDraw_Object_2x2_rightwards                              ; 12B
+#_0184C6: dw RoomDraw_Rightwards2x2                                      ; 12B
 #_0184C8: dw RoomDraw_DrawRightwards3x6                                  ; 12C
 #_0184CA: dw RoomDraw_InterRoomFatStairsUp                               ; 12D
 #_0184CC: dw RoomDraw_InterRoomFatStairsDown_A                           ; 12E
@@ -637,7 +637,7 @@ DrawObjects:
 #_0184D2: dw RoomDraw_AutoStairs_North_MultiLayer_B                      ; 131
 #_0184D4: dw RoomDraw_AutoStairs_North_MergedLayer_A                     ; 132
 #_0184D6: dw RoomDraw_AutoStairs_North_MergedLayer_B                     ; 133
-#_0184D8: dw RoomDraw_Object_2x2_rightwards                              ; 134
+#_0184D8: dw RoomDraw_Rightwards2x2                                      ; 134
 #_0184DA: dw RoomDraw_WaterHopStairs_A                                   ; 135
 #_0184DC: dw RoomDraw_WaterHopStairs_B                                   ; 136
 #_0184DE: dw RoomDraw_DamFloodGate                                       ; 137
@@ -646,7 +646,7 @@ DrawObjects:
 #_0184E4: dw RoomDraw_SpiralStairsGoingUpLower                           ; 13A
 #_0184E6: dw RoomDraw_SpiralStairsGoingDownLower                         ; 13B
 #_0184E8: dw RoomDraw_SanctuaryWall                                      ; 13C
-#_0184EA: dw RoomDraw_TableRock2x3                                       ; 13D
+#_0184EA: dw RoomDraw_TableRock4x3                                       ; 13D
 #_0184EC: dw RoomDraw_Utility6x3                                         ; 13E
 #_0184EE: dw RoomDraw_MagicBatAltar                                      ; 13F
 
@@ -801,11 +801,11 @@ DrawObjects:
 #_01860A: dw RoomDraw_PrisonCell                                         ; 20D
 #_01860C: dw RoomDraw_SomariaLine_increment_count                        ; 20E
 #_01860E: dw RoomDraw_SomariaLine                                        ; 20F
-#_018610: dw RoomDraw_Object_2x2_rightwards                              ; 210
-#_018612: dw RoomDraw_Object_2x2_rightwards                              ; 211
+#_018610: dw RoomDraw_Rightwards2x2                                      ; 210
+#_018612: dw RoomDraw_Rightwards2x2                                      ; 211
 #_018614: dw RoomDraw_RupeeFloor                                         ; 212
-#_018616: dw RoomDraw_Object_2x2_rightwards                              ; 213
-#_018618: dw RoomDraw_TableRock2x3                                       ; 214
+#_018616: dw RoomDraw_Rightwards2x2                                      ; 213
+#_018618: dw RoomDraw_TableRock4x3                                       ; 214
 #_01861A: dw RoomDraw_KholdstareShell                                    ; 215
 #_01861C: dw RoomDraw_HammerPegSingle                                    ; 216
 #_01861E: dw RoomDraw_PrisonCell                                         ; 217
@@ -819,10 +819,10 @@ DrawObjects:
 #_01862E: dw RoomDraw_StraightInterroomStairsGoingDownNorthUpper         ; 21F
 #_018630: dw RoomDraw_StraightInterroomStairsGoingUpSouthUpper           ; 220
 #_018632: dw RoomDraw_StraightInterroomStairsGoingDownSouthUpper         ; 221
-#_018634: dw RoomDraw_Object_2x2_rightwards                              ; 222
-#_018636: dw RoomDraw_Object_2x2_rightwards                              ; 223
-#_018638: dw RoomDraw_Object_2x2_rightwards                              ; 224
-#_01863A: dw RoomDraw_Object_2x2_rightwards                              ; 225
+#_018634: dw RoomDraw_Rightwards2x2                                      ; 222
+#_018636: dw RoomDraw_Rightwards2x2                                      ; 223
+#_018638: dw RoomDraw_Rightwards2x2                                      ; 224
+#_01863A: dw RoomDraw_Rightwards2x2                                      ; 225
 #_01863C: dw RoomDraw_StraightInterroomStairsGoingUpNorthLower           ; 226
 #_01863E: dw RoomDraw_StraightInterroomStairsGoingDownNorthLower         ; 227
 #_018640: dw RoomDraw_StraightInterroomStairsGoingUpSouthLower           ; 228
@@ -847,54 +847,54 @@ DrawObjects:
 #_018666: dw RoomDraw_VerticalTurtleRockPipe                             ; 23B
 #_018668: dw RoomDraw_HorizontalTurtleRockPipe                           ; 23C
 #_01866A: dw RoomDraw_HorizontalTurtleRockPipe                           ; 23D
-#_01866C: dw RoomDraw_Object_2x2_rightwards                              ; 23E
-#_01866E: dw RoomDraw_Object_2x2_rightwards                              ; 23F
-#_018670: dw RoomDraw_Object_2x2_rightwards                              ; 240
-#_018672: dw RoomDraw_Object_2x2_rightwards                              ; 241
-#_018674: dw RoomDraw_Object_2x2_rightwards                              ; 242
-#_018676: dw RoomDraw_Object_2x2_rightwards                              ; 243
-#_018678: dw RoomDraw_Object_2x2_rightwards                              ; 244
-#_01867A: dw RoomDraw_Object_2x2_rightwards                              ; 245
-#_01867C: dw RoomDraw_Object_2x2_rightwards                              ; 246
+#_01866C: dw RoomDraw_Rightwards2x2                                      ; 23E
+#_01866E: dw RoomDraw_Rightwards2x2                                      ; 23F
+#_018670: dw RoomDraw_Rightwards2x2                                      ; 240
+#_018672: dw RoomDraw_Rightwards2x2                                      ; 241
+#_018674: dw RoomDraw_Rightwards2x2                                      ; 242
+#_018676: dw RoomDraw_Rightwards2x2                                      ; 243
+#_018678: dw RoomDraw_Rightwards2x2                                      ; 244
+#_01867A: dw RoomDraw_Rightwards2x2                                      ; 245
+#_01867C: dw RoomDraw_Rightwards2x2                                      ; 246
 #_01867E: dw RoomDraw_BombableFloor                                      ; 247
-#_018680: dw RoomDraw_4x4Object                                          ; 248
-#_018682: dw RoomDraw_Object_2x2_rightwards                              ; 249
-#_018684: dw RoomDraw_Object_2x2_rightwards                              ; 24A
+#_018680: dw RoomDraw_4x4                                                ; 248
+#_018682: dw RoomDraw_Rightwards2x2                                      ; 249
+#_018684: dw RoomDraw_Rightwards2x2                                      ; 24A
 #_018686: dw RoomDraw_BigWallDecor                                       ; 24B
 #_018688: dw RoomDraw_SmithyFurnace                                      ; 24C
 #_01868A: dw RoomDraw_Utility6x3                                         ; 24D
-#_01868C: dw RoomDraw_TableRock2x3                                       ; 24E
-#_01868E: dw RoomDraw_Object_2x2_rightwards                              ; 24F
+#_01868C: dw RoomDraw_TableRock4x3                                       ; 24E
+#_01868E: dw RoomDraw_Rightwards2x2                                      ; 24F
 #_018690: dw RoomDraw_Single2x2                                          ; 250
-#_018692: dw RoomDraw_Object_2x2_rightwards                              ; 251
-#_018694: dw RoomDraw_Object_2x2_rightwards                              ; 252
-#_018696: dw RoomDraw_Object_2x2_rightwards                              ; 253
+#_018692: dw RoomDraw_Rightwards2x2                                      ; 251
+#_018694: dw RoomDraw_Rightwards2x2                                      ; 252
+#_018696: dw RoomDraw_Rightwards2x2                                      ; 253
 #_018698: dw RoomDraw_FortuneTellerRoom                                  ; 254
 #_01869A: dw RoomDraw_Utility3x5                                         ; 255
-#_01869C: dw RoomDraw_Object_2x2_rightwards                              ; 256
-#_01869E: dw RoomDraw_Object_2x2_rightwards                              ; 257
-#_0186A0: dw RoomDraw_Object_2x2_rightwards                              ; 258
-#_0186A2: dw RoomDraw_Object_2x2_rightwards                              ; 259
+#_01869C: dw RoomDraw_Rightwards2x2                                      ; 256
+#_01869E: dw RoomDraw_Rightwards2x2                                      ; 257
+#_0186A0: dw RoomDraw_Rightwards2x2                                      ; 258
+#_0186A2: dw RoomDraw_Rightwards2x2                                      ; 259
 #_0186A4: dw RoomDraw_TableBowl                                          ; 25A
 #_0186A6: dw RoomDraw_Utility3x5                                         ; 25B
 #_0186A8: dw RoomDraw_HorizontalTurtleRockPipe                           ; 25C
 #_0186AA: dw RoomDraw_Utility6x3                                         ; 25D
-#_0186AC: dw RoomDraw_Object_2x2_rightwards                              ; 25E
-#_0186AE: dw RoomDraw_Object_2x2_rightwards                              ; 25F
+#_0186AC: dw RoomDraw_Rightwards2x2                                      ; 25E
+#_0186AE: dw RoomDraw_Rightwards2x2                                      ; 25F
 #_0186B0: dw RoomDraw_ArcheryGameTargetDoor                              ; 260
 #_0186B2: dw RoomDraw_ArcheryGameTargetDoor                              ; 261
 #_0186B4: dw RoomDraw_VitreousGooGraphics                                ; 262
-#_0186B6: dw RoomDraw_Object_2x2_rightwards                              ; 263
-#_0186B8: dw RoomDraw_Object_2x2_rightwards                              ; 264
-#_0186BA: dw RoomDraw_Object_2x2_rightwards                              ; 265
-#_0186BC: dw RoomDraw_4x4Object                                          ; 266
-#_0186BE: dw RoomDraw_TableRock2x3                                       ; 267
-#_0186C0: dw RoomDraw_TableRock2x3                                       ; 268
+#_0186B6: dw RoomDraw_Rightwards2x2                                      ; 263
+#_0186B8: dw RoomDraw_Rightwards2x2                                      ; 264
+#_0186BA: dw RoomDraw_Rightwards2x2                                      ; 265
+#_0186BC: dw RoomDraw_4x4                                                ; 266
+#_0186BE: dw RoomDraw_TableRock4x3                                       ; 267
+#_0186C0: dw RoomDraw_TableRock4x3                                       ; 268
 #_0186C2: dw RoomDraw_SolidWallDecor3x4                                  ; 269
 #_0186C4: dw RoomDraw_SolidWallDecor3x4                                  ; 26A
-#_0186C6: dw RoomDraw_4x4Object                                          ; 26B
-#_0186C8: dw RoomDraw_TableRock2x3                                       ; 26C
-#_0186CA: dw RoomDraw_TableRock2x3                                       ; 26D
+#_0186C6: dw RoomDraw_4x4                                                ; 26B
+#_0186C8: dw RoomDraw_TableRock4x3                                       ; 26C
+#_0186CA: dw RoomDraw_TableRock4x3                                       ; 26D
 #_0186CC: dw RoomDraw_SolidWallDecor3x4                                  ; 26E
 #_0186CE: dw RoomDraw_SolidWallDecor3x4                                  ; 26F
 #_0186D0: dw RoomDraw_LightBeamOnFloor                                   ; 270
@@ -902,16 +902,16 @@ DrawObjects:
 #_0186D4: dw RoomDraw_TrinexxShell                                       ; 272
 #_0186D6: dw RoomDraw_BG2MaskFull                                        ; 273
 #_0186D8: dw RoomDraw_FloorLight                                         ; 274
-#_0186DA: dw RoomDraw_Object_2x2_rightwards                              ; 275
+#_0186DA: dw RoomDraw_Rightwards2x2                                      ; 275
 #_0186DC: dw RoomDraw_BigWallDecor                                       ; 276
 #_0186DE: dw RoomDraw_BigWallDecor                                       ; 277
 #_0186E0: dw RoomDraw_GanonTriforceFloorDecor                            ; 278
-#_0186E2: dw RoomDraw_TableRock2x3                                       ; 279
-#_0186E4: dw RoomDraw_4x4Object                                          ; 27A
+#_0186E2: dw RoomDraw_TableRock4x3                                       ; 279
+#_0186E4: dw RoomDraw_4x4                                                ; 27A
 #_0186E6: dw RoomDraw_VitreousGooDamage                                  ; 27B
-#_0186E8: dw RoomDraw_Object_2x2_rightwards                              ; 27C
-#_0186EA: dw RoomDraw_Object_2x2_rightwards                              ; 27D
-#_0186EC: dw RoomDraw_Object_2x2_rightwards                              ; 27E
+#_0186E8: dw RoomDraw_Rightwards2x2                                      ; 27C
+#_0186EA: dw RoomDraw_Rightwards2x2                                      ; 27D
+#_0186EC: dw RoomDraw_Rightwards2x2                                      ; 27E
 #_0186EE: dw RoomDraw_Nothing_B                                          ; 27F
 
 ;===================================================================================================
@@ -1614,7 +1614,7 @@ RoomDraw_Rightwards2x4_1to15or26:
 
 .next
 #_018A97: LDA.w #$0002
-#_018A9A: JSR RoomDraw_Object_4xN
+#_018A9A: JSR RoomDraw_Object_Nx4
 
 #_018A9D: LDX.b $0A
 
@@ -1680,7 +1680,7 @@ RoomDraw_Downwards4x2_1to16_BothBG:
 
 ;===================================================================================================
 
-RoomDraw_Object_Rightwards2x4spaced4_1to16:
+RoomDraw_Rightwards2x4spaced4_1to16:
 #_018B0D: TXA
 #_018B0E: TYX
 #_018B0F: TAY
@@ -1763,7 +1763,7 @@ RoomDraw_Rightwards2x2_1to15or32:
 #_018B89: JSR RoomDraw_GetObjectSize_1to15or32
 
 .draw_next_2x2
-#_018B8C: JSR RoomDraw_Object_2x2_rightwards
+#_018B8C: JSR RoomDraw_Rightwards2x2
 #_018B8F: DEC.b $B2
 
 #_018B91: BNE .draw_next_2x2
@@ -1907,14 +1907,14 @@ RoomDraw_DiagonalCeilingBottomRightA:
 
 ;===================================================================================================
 
-RoomDraw_Rightwards2x2_1to16_BothBG:
+RoomDraw_Rightwards2x4spaced4_1to16_BothBG:
 #_018C37: JSR RoomDraw_GetObjectSize_1to16
 
 #_018C3A: STX.b $0A
 
 .next
 #_018C3C: LDA.w #$0002
-#_018C3F: JSR RoomDraw_Object_4xN
+#_018C3F: JSR RoomDraw_Object_Nx4
 
 #_018C42: TYA
 #_018C43: CLC
@@ -2059,7 +2059,7 @@ RoomDraw_ClosedChestPlatform:
 #_018CFD: TAY
 
 .next_horizontal_carpet
-#_018CFE: JSR RoomDraw_Object_2x2_rightwards
+#_018CFE: JSR RoomDraw_Rightwards2x2
 
 #_018D01: DEC.b $0A
 #_018D03: BNE .next_horizontal_carpet
@@ -2113,7 +2113,7 @@ RoomDraw_ClosedChestPlatform:
 #_018D40: TAY
 
 #_018D41: LDX.w #$0590
-#_018D44: JMP.w RoomDraw_Object_2x2_rightwards
+#_018D44: JMP.w RoomDraw_Rightwards2x2
 
 ;===================================================================================================
 
@@ -2122,7 +2122,7 @@ RoomDraw_ChestPlatformHorizontalWallWithCorners:
 
 .next
 #_018D4A: LDA.w #$0002
-#_018D4D: JSR RoomDraw_Rightwards1x2_rightwards
+#_018D4D: JSR RoomDraw_1x3_rightwards
 
 #_018D50: TXA
 #_018D51: SEC
@@ -2148,7 +2148,7 @@ RoomDraw_Rightwards1x2_1to16_plus2:
 #_018D65: STA.b $B2
 
 #_018D67: LDA.w #$0002
-#_018D6A: JSR RoomDraw_Rightwards1x2_rightwards
+#_018D6A: JSR RoomDraw_1x3_rightwards
 
 .next_set
 #_018D6D: TXA
@@ -2157,7 +2157,7 @@ RoomDraw_Rightwards1x2_1to16_plus2:
 #_018D72: TAX
 
 #_018D73: LDA.w #$0001
-#_018D76: JSR RoomDraw_Rightwards1x2_rightwards
+#_018D76: JSR RoomDraw_1x3_rightwards
 
 #_018D79: DEC.b $B2
 #_018D7B: BNE .next_set
@@ -2167,7 +2167,7 @@ RoomDraw_Rightwards1x2_1to16_plus2:
 ;===================================================================================================
 
 ; TODO bad name
-RoomDraw_Rightwards1x2_rightwards:
+RoomDraw_1x3_rightwards:
 #_018D80: STA.b $0E
 
 .next
@@ -2557,7 +2557,7 @@ RoomDraw_DownwardsBigRail3x1_1to16plus5:
 
 RoomDraw_Single2x3Pillar:
 #_018F30: LDA.w #$0002
-#_018F33: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_018F33: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
@@ -2567,7 +2567,7 @@ RoomDraw_RightwardsBigRail1x3_1to16plus5:
 #_018F39: INC.b $B2
 
 #_018F3B: LDA.w #$0002
-#_018F3E: JSR RoomDraw_Rightwards1x2_rightwards
+#_018F3E: JSR RoomDraw_1x3_rightwards
 
 .next
 #_018F41: LDA.w RoomDrawObjectData+0,X
@@ -2594,7 +2594,7 @@ RoomDraw_RightwardsBigRail1x3_1to16plus5:
 
 #_018F5C: LDA.w #$0002
 
-#_018F5F: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_018F5F: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
@@ -2972,7 +2972,7 @@ RoomDraw_DownwardsFloor4x4_1to16:
 
 .next
 #_0190FE: LDX.b $0A
-#_019100: JSR RoomDraw_4x4Object
+#_019100: JSR RoomDraw_4x4
 
 #_019103: LDA.b $08
 #_019105: CLC
@@ -2995,7 +2995,7 @@ RoomDraw_Rightwards4x4_1to16:
 
 .next
 #_019116: LDX.b $0A
-#_019118: JSR RoomDraw_4x4Object
+#_019118: JSR RoomDraw_4x4
 
 #_01911B: DEC.b $B2
 
@@ -3232,7 +3232,7 @@ RoomDraw_ChestPlatformCorner_advance_from_A:
 RoomDraw_ChestPlatformCorner:
 #_019216: LDA.w #$0003
 
-#_019219: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_019219: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
@@ -3431,7 +3431,7 @@ RoomDraw_RightwardsDecor4x4spaced2_1to16:
 
 .next
 #_019300: LDX.b $0A
-#_019302: JSR RoomDraw_4x4Object
+#_019302: JSR RoomDraw_4x4
 
 #_019305: INY
 #_019306: INY
@@ -3451,7 +3451,7 @@ RoomDraw_DownwardsDecor4x4spaced2_1to16:
 
 .next
 #_019313: LDX.b $0A
-#_019315: JSR RoomDraw_4x4Object
+#_019315: JSR RoomDraw_4x4
 
 #_019318: TYA
 #_019319: CLC
@@ -3472,7 +3472,7 @@ RoomDraw_RightwardsStatue2x3spaced2_1to16:
 #_019326: LDX.w #$0E26
 
 #_019329: LDA.w #$0002
-#_01932C: JSR RoomDraw_Rightwards1x2_rightwards
+#_01932C: JSR RoomDraw_1x3_rightwards
 
 #_01932F: INY
 #_019330: INY
@@ -3490,7 +3490,7 @@ RoomDraw_RightwardsBlock2x2spaced2_1to16:
 #_019338: JSR RoomDraw_GetObjectSize_1to16
 
 .next
-#_01933B: JSR RoomDraw_Object_2x2_rightwards
+#_01933B: JSR RoomDraw_Rightwards2x2
 
 #_01933E: INY
 #_01933F: INY
@@ -3528,7 +3528,7 @@ RoomDraw_DownwardsPillar2x4spaced2_1to16:
 #_01935C: LDX.b $0C
 
 #_01935E: LDA.w #$0002
-#_019361: JSR RoomDraw_Object_4xN
+#_019361: JSR RoomDraw_Object_Nx4
 
 #_019364: TYA
 #_019365: CLC
@@ -3551,7 +3551,7 @@ RoomDraw_RightwardsPillar2x4spaced4_1to16:
 #_019374: LDX.b $0C
 
 #_019376: LDA.w #$0002
-#_019379: JSR RoomDraw_Object_4xN
+#_019379: JSR RoomDraw_Object_Nx4
 
 #_01937C: TYA
 #_01937D: CLC
@@ -3574,7 +3574,7 @@ RoomDraw_RightwardsDecor4x3spaced4_1to16:
 #_01938C: LDX.b $0A
 
 #_01938E: LDA.w #$0004
-#_019391: JSR RoomDraw_Rightwards1x2_rightwards
+#_019391: JSR RoomDraw_1x3_rightwards
 
 #_019394: TYA
 #_019395: CLC
@@ -3588,7 +3588,7 @@ RoomDraw_RightwardsDecor4x3spaced4_1to16:
 
 ;===================================================================================================
 
-RoomDraw_DownwardsDecor4x4spaced4_1to16:
+RoomDraw_DownwardsDecor3x4spaced4_1to16:
 #_01939F: STX.b $0A
 
 #_0193A1: JSR RoomDraw_GetObjectSize_1to16
@@ -3597,7 +3597,7 @@ RoomDraw_DownwardsDecor4x4spaced4_1to16:
 #_0193A4: LDX.b $0A
 
 #_0193A6: LDA.w #$0003
-#_0193A9: JSR RoomDraw_Object_4xN
+#_0193A9: JSR RoomDraw_Object_Nx4
 
 #_0193AC: TYA
 #_0193AD: CLC
@@ -3732,7 +3732,7 @@ RoomDraw_Spike2x2In4x4SuperSquare:
 #_01942F: STA.b $0E
 
 .next
-#_019431: JSR RoomDraw_Object_2x2_rightwards
+#_019431: JSR RoomDraw_Rightwards2x2
 
 #_019434: DEC.b $0E
 #_019436: BNE .next
@@ -3824,7 +3824,7 @@ RoomDraw_Waterfall48:
 #_01948B: ASL.b $B2
 
 #_01948D: LDA.w #$0001
-#_019490: JSR RoomDraw_Rightwards1x2_rightwards
+#_019490: JSR RoomDraw_1x3_rightwards
 
 .next
 #_019493: LDA.w RoomDrawObjectData+0,X
@@ -3852,7 +3852,7 @@ RoomDraw_Waterfall48:
 #_0194AD: INX
 
 #_0194AE: LDA.w #$0001
-#_0194B1: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_0194B1: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
@@ -3903,11 +3903,11 @@ RoomDraw_RightwardsShelf4x4_1to16:
 #_0194DF: JSR RoomDraw_GetObjectSize_1to16
 
 #_0194E2: LDA.w #$0001
-#_0194E5: JSR RoomDraw_Object_4xN
+#_0194E5: JSR RoomDraw_Object_Nx4
 
 .next
 #_0194E8: LDA.w #$0002
-#_0194EB: JSR RoomDraw_Object_4xN
+#_0194EB: JSR RoomDraw_Object_Nx4
 
 #_0194EE: TXA
 #_0194EF: SEC
@@ -4281,7 +4281,6 @@ RoomDraw_WaterOverlayB8x8_1to16:
 
 ;===================================================================================================
 
-
 RoomDraw_RightwardsLine1x1_1to16plus1:
 #_0196DC: JSR RoomDraw_GetObjectSize_1to16
 
@@ -4329,7 +4328,7 @@ RoomDraw_DownwardsDecor2x4spaced8_1to16:
 #_019707: LDX.b $0A
 
 #_019709: LDA.w #$0002
-#_01970C: JSR RoomDraw_Object_4xN
+#_01970C: JSR RoomDraw_Object_Nx4
 
 #_01970F: TYA
 #_019710: CLC
@@ -4348,7 +4347,7 @@ RoomDraw_Nothing_C:
 
 ;===================================================================================================
 
-RoomDraw_DownwardsDecor2x4spaced2_1to16:
+RoomDraw_DownwardsDecor3x4spaced2_1to16:
 #_01971B: STX.b $0A
 
 #_01971D: JSR RoomDraw_GetObjectSize_1to16
@@ -4357,7 +4356,7 @@ RoomDraw_DownwardsDecor2x4spaced2_1to16:
 #_019720: LDX.b $0A
 
 #_019722: LDA.w #$0003
-#_019725: JSR RoomDraw_Object_4xN
+#_019725: JSR RoomDraw_Object_Nx4
 
 #_019728: TYA
 #_019729: CLC
@@ -4514,7 +4513,7 @@ RoomDraw_Weird2x4_1_to_16:
 .next
 #_0197DF: LDX.w #$0B16
 #_0197E2: LDA.w #$0002
-#_0197E5: JSR RoomDraw_Object_4xN
+#_0197E5: JSR RoomDraw_Object_Nx4
 
 #_0197E8: DEC.b $B2
 #_0197EA: BNE .next
@@ -4523,12 +4522,12 @@ RoomDraw_Weird2x4_1_to_16:
 
 ;===================================================================================================
 
-RoomDraw_4x4Object:
+RoomDraw_4x4:
 #_0197ED: LDA.w #$0004
 
 ;===================================================================================================
 
-RoomDraw_Object_4xN:
+RoomDraw_Object_Nx4:
 #_0197F0: STA.b $0E
 
 .next
@@ -4654,7 +4653,7 @@ RoomDraw_LitTorch:
 
 ;===================================================================================================
 
-RoomDraw_Object_2x2_rightwards:
+RoomDraw_Rightwards2x2:
 #_019895: LDA.w RoomDrawObjectData+0,X
 #_019898: STA.b [$BF],Y
 
@@ -4691,7 +4690,7 @@ RoomDraw_BigKeyLock:
 #_0198BF: STX.w $0498
 
 #_0198C2: LDX.w #$1494
-#_0198C5: BRA RoomDraw_Object_2x2_rightwards
+#_0198C5: BRA RoomDraw_Rightwards2x2
 
 .lock_opened
 #_0198C7: STZ.w $06E0,X
@@ -4708,6 +4707,7 @@ RoomDraw_BigKeyLock:
 ;===================================================================================================
 
 RoomDraw_Chest:
+; Don't draw chests during credits
 #_0198D0: LDA.b $10
 #_0198D2: AND.w #$00FF
 #_0198D5: CMP.w #$001A
@@ -4799,7 +4799,7 @@ RoomDraw_Chest:
 #_019954: LDY.b $08
 #_019956: LDX.w #$149C
 
-#_019959: JMP.w RoomDraw_Object_2x2_rightwards
+#_019959: JMP.w RoomDraw_Rightwards2x2
 
 ;===================================================================================================
 
@@ -4870,7 +4870,7 @@ RoomDraw_Chest_opened:
 ;===================================================================================================
 
 RoomDraw_OpenChest:
-#_0199B8: JMP.w RoomDraw_Object_2x2_rightwards
+#_0199B8: JMP.w RoomDraw_Rightwards2x2
 
 ;===================================================================================================
 
@@ -4903,15 +4903,15 @@ RoomDraw_BigChest:
 
 ;===================================================================================================
 
-RoomDraw_TableRock2x3:
+RoomDraw_TableRock4x3:
 #_0199E6: LDA.w #$0004
-#_0199E9: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_0199E9: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
 RoomDraw_SolidWallDecor3x4:
 #_0199EC: LDA.w #$0003
-#_0199EF: JMP.w RoomDraw_Object_4xN
+#_0199EF: JMP.w RoomDraw_Object_Nx4
 
 ;===================================================================================================
 
@@ -4929,19 +4929,19 @@ RoomDraw_BigChest_opened:
 
 RoomDraw_OpenBigChest:
 #_019A00: LDA.w #$0004
-#_019A03: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_019A03: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
 RoomDraw_BigWallDecor:
 #_019A06: LDA.w #$0008
-#_019A09: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_019A09: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
 RoomDraw_Utility6x3:
 #_019A0C: LDA.w #$0006
-#_019A0F: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_019A0F: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
@@ -5042,7 +5042,7 @@ RoomDraw_Single2x2:
 
 RoomDraw_VerticalTurtleRockPipe:
 #_019A90: LDA.w #$0004
-#_019A93: JSR RoomDraw_Rightwards1x2_rightwards
+#_019A93: JSR RoomDraw_1x3_rightwards
 
 #_019A96: LDA.b $08
 #_019A98: CLC
@@ -5050,13 +5050,13 @@ RoomDraw_VerticalTurtleRockPipe:
 #_019A9C: TAY
 
 #_019A9D: LDA.w #$0004
-#_019AA0: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_019AA0: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
 RoomDraw_HorizontalTurtleRockPipe:
 #_019AA3: LDA.w #$0006
-#_019AA6: JMP.w RoomDraw_Object_4xN
+#_019AA6: JMP.w RoomDraw_Object_Nx4
 
 ;===================================================================================================
 
@@ -5104,7 +5104,7 @@ RoomDraw_RupeeFloor:
 
 ;===================================================================================================
 
-RoomDraw_Bed2x5:
+RoomDraw_Bed4x5:
 #_019AEE: LDA.w #$0005
 #_019AF1: STA.b $0E
 
@@ -5140,7 +5140,7 @@ RoomDraw_Bed2x5:
 
 UNREACHABLE_019B18:
 #_019B18: LDA.w #$0002
-#_019B1B: JMP.w RoomDraw_Object_4xN
+#_019B1B: JMP.w RoomDraw_Object_Nx4
 
 ;===================================================================================================
 
@@ -5187,7 +5187,7 @@ RoomDraw_PortraitOfMario:
 
 RoomDraw_DrawRightwards3x6:
 #_019B50: LDA.w #$0006
-#_019B53: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_019B53: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
@@ -5252,7 +5252,7 @@ RoomDraw_SanctuaryWall:
 #_019BD2: TAY
 
 #_019BD3: LDA.w #$0004
-#_019BD6: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_019BD6: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
@@ -5285,7 +5285,7 @@ RoomDraw_DamFloodGate:
 #_019BFE: BNE .draw_water
 
 #_019C00: LDA.w #$000A
-#_019C03: JSR RoomDraw_Object_4xN
+#_019C03: JSR RoomDraw_Object_Nx4
 
 #_019C06: LDA.w #$000F
 #_019C09: STA.w $0470
@@ -5300,7 +5300,7 @@ RoomDraw_DamFloodGate:
 .draw_water
 #_019C12: LDX.w #$13E8
 #_019C15: LDA.w #$000A
-#_019C18: JSR RoomDraw_Object_4xN
+#_019C18: JSR RoomDraw_Object_Nx4
 
 #_019C1B: LDA.b $B7
 #_019C1D: PHA
@@ -5425,7 +5425,7 @@ RoomDraw_RightwardsCannonHole4x3_1to16:
 #_019CC6: JSR RoomDraw_GetObjectSize_1to16
 
 #_019CC9: LDA.w #$0002
-#_019CCC: JSR RoomDraw_Rightwards1x2_rightwards
+#_019CCC: JSR RoomDraw_1x3_rightwards
 
 #_019CCF: DEC.b $B2
 #_019CD1: BEQ .skip
@@ -5434,7 +5434,7 @@ RoomDraw_RightwardsCannonHole4x3_1to16:
 #_019CD3: PHX
 
 #_019CD4: LDA.w #$0002
-#_019CD7: JSR RoomDraw_Rightwards1x2_rightwards
+#_019CD7: JSR RoomDraw_1x3_rightwards
 
 #_019CDA: PLX
 
@@ -5450,7 +5450,7 @@ RoomDraw_RightwardsCannonHole4x3_1to16:
 #_019CE4: TAX
 
 #_019CE5: LDA.w #$0002
-#_019CE8: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_019CE8: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
@@ -6436,7 +6436,7 @@ RoomDraw_AutoStairs_North_MergedLayer_A:
 
 #_01A2DB: PLX
 
-#_01A2DC: JMP.w RoomDraw_4x4Object
+#_01A2DC: JMP.w RoomDraw_4x4
 
 ;===================================================================================================
 ; TODO WTF ARE THESE LOCKED STAIRS?
@@ -6469,7 +6469,7 @@ RoomDraw_AutoStairs_North_MergedLayer_B:
 #_01A303: STX.w $0444
 
 #_01A306: LDX.w #$10C8
-#_01A309: JMP.w RoomDraw_4x4Object
+#_01A309: JMP.w RoomDraw_4x4
 
 ;===================================================================================================
 
@@ -6567,7 +6567,7 @@ RoomDraw_AutoStairs_South_MultiLayer_C:
 
 #_01A37C: PLX
 
-#_01A37D: JMP.w RoomDraw_4x4Object
+#_01A37D: JMP.w RoomDraw_4x4
 
 ;===================================================================================================
 
@@ -6603,7 +6603,7 @@ RoomDraw_AutoStairs_South_MergedLayer:
 
 #_01A3AA: PLX
 
-#_01A3AB: JMP.w RoomDraw_4x4Object
+#_01A3AB: JMP.w RoomDraw_4x4
 
 ;===================================================================================================
 
@@ -6697,7 +6697,7 @@ RoomDraw_InterRoomFatStairsUp:
 #_01A44F: STX.w $04A8
 
 #_01A452: LDX.w #$1088
-#_01A455: JMP.w RoomDraw_4x4Object
+#_01A455: JMP.w RoomDraw_4x4
 
 ;===================================================================================================
 
@@ -6729,7 +6729,7 @@ RoomDraw_InterRoomFatStairsDown_A:
 #_01A47D: STX.w $04A8
 
 #_01A480: LDX.w #$10A8
-#_01A483: JMP.w RoomDraw_4x4Object
+#_01A483: JMP.w RoomDraw_4x4
 
 ;===================================================================================================
 
@@ -6762,7 +6762,7 @@ RoomDraw_InterRoomFatStairsDown_B:
 #_01A4AB: STX.w $04A8
 
 #_01A4AE: LDX.w #$10A8
-#_01A4B1: JMP.w RoomDraw_4x4Object
+#_01A4B1: JMP.w RoomDraw_4x4
 
 ;===================================================================================================
 
@@ -6887,7 +6887,7 @@ RoomDraw_SpiralStairsGoingDownUpper:
 
 RoomDraw_SpiralStairsUpper:
 #_01A563: LDA.w #$0004
-#_01A566: JSR RoomDraw_Rightwards1x2_rightwards
+#_01A566: JSR RoomDraw_1x3_rightwards
 
 #_01A569: LDX.b $08
 #_01A56B: DEX
@@ -6940,7 +6940,7 @@ RoomDraw_SpiralStairsGoingDownLower:
 
 #SpiralStairsDownLower_continue:
 #_01A5B1: LDA.w #$0004
-#_01A5B4: JSR RoomDraw_Rightwards1x2_rightwards
+#_01A5B4: JSR RoomDraw_1x3_rightwards
 
 #_01A5B7: LDX.b $08
 #_01A5B9: DEX
@@ -7311,7 +7311,7 @@ StraightInterroomStairsLower_continue:
 
 RoomDraw_ArcheryGameTargetDoor:
 #_01A7A3: LDA.w #$0003
-#_01A7A6: JSR RoomDraw_Rightwards1x2_rightwards
+#_01A7A6: JSR RoomDraw_1x3_rightwards
 
 #_01A7A9: LDA.b $08
 #_01A7AB: CLC
@@ -7319,12 +7319,12 @@ RoomDraw_ArcheryGameTargetDoor:
 #_01A7AF: TAY
 
 #_01A7B0: LDA.w #$0003
-#_01A7B3: JMP.w RoomDraw_Rightwards1x2_rightwards
+#_01A7B3: JMP.w RoomDraw_1x3_rightwards
 
 ;===================================================================================================
 
 RoomDraw_LightBeamOnFloor:
-#_01A7B6: JSR RoomDraw_4x4Object
+#_01A7B6: JSR RoomDraw_4x4
 
 #_01A7B9: LDA.b $08
 #_01A7BB: CLC
@@ -7332,7 +7332,7 @@ RoomDraw_LightBeamOnFloor:
 #_01A7BF: TAY
 
 #_01A7C0: LDX.w #$2376
-#_01A7C3: JSR RoomDraw_4x4Object
+#_01A7C3: JSR RoomDraw_4x4
 
 #_01A7C6: LDA.b $08
 #_01A7C8: CLC
@@ -7340,7 +7340,7 @@ RoomDraw_LightBeamOnFloor:
 #_01A7CC: TAY
 
 #_01A7CD: LDX.w #$2396
-#_01A7D0: JMP.w RoomDraw_4x4Object
+#_01A7D0: JMP.w RoomDraw_4x4
 
 ;===================================================================================================
 
@@ -7352,16 +7352,16 @@ RoomDraw_BigLightBeamOnFloor:
 ;===================================================================================================
 
 RoomDraw_FloorLight:
-#_01A7DC: JSR RoomDraw_4x4Object
-#_01A7DF: JSR RoomDraw_4x4Object
+#_01A7DC: JSR RoomDraw_4x4
+#_01A7DF: JSR RoomDraw_4x4
 
 #_01A7E2: LDA.b $08
 #_01A7E4: CLC
 #_01A7E5: ADC.w #$0200
 #_01A7E8: TAY
 
-#_01A7E9: JSR RoomDraw_4x4Object
-#_01A7EC: JSR RoomDraw_4x4Object
+#_01A7E9: JSR RoomDraw_4x4
+#_01A7EC: JSR RoomDraw_4x4
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -7371,7 +7371,7 @@ RoomDraw_FloorLight:
 ;===================================================================================================
 
 RoomDraw_GanonTriforceFloorDecor:
-#_01A7F0: JSR RoomDraw_4x4Object
+#_01A7F0: JSR RoomDraw_4x4
 
 #_01A7F3: LDA.b $08
 #_01A7F5: CLC
@@ -7380,7 +7380,7 @@ RoomDraw_GanonTriforceFloorDecor:
 
 #_01A7FA: PHX
 
-#_01A7FB: JSR RoomDraw_4x4Object
+#_01A7FB: JSR RoomDraw_4x4
 
 #_01A7FE: PLX
 
@@ -7389,7 +7389,7 @@ RoomDraw_GanonTriforceFloorDecor:
 #_01A802: ADC.w #$0204
 #_01A805: TAY
 
-#_01A806: JMP.w RoomDraw_4x4Object
+#_01A806: JMP.w RoomDraw_4x4
 
 ;===================================================================================================
 
@@ -7847,7 +7847,7 @@ RoomDraw_CaveExitLight:
 
 #_01AA42: LDX.w #$26F6
 #_01AA45: LDA.w #$000A
-#_01AA48: JMP.w RoomDraw_4x4Object
+#_01AA48: JMP.w RoomDraw_4x4
 
 ;===================================================================================================
 
@@ -8273,11 +8273,11 @@ RoomDraw_NorthCurtainDoor:
 #_01AC4D: LDY.b $08
 #_01AC4F: LDX.w #$078A
 
-#_01AC52: JMP.w RoomDraw_4x4Object
+#_01AC52: JMP.w RoomDraw_4x4
 
 .draw_open
 #_01AC55: LDY.b $08
-#_01AC57: JSR RoomDraw_4x4Object
+#_01AC57: JSR RoomDraw_4x4
 
 #_01AC5A: RTS
 
@@ -9400,7 +9400,7 @@ UNREACHABLE_01B264:
 
 .next
 #_01B268: LDA.w #$0002
-#_01B26B: JSR RoomDraw_Object_4xN
+#_01B26B: JSR RoomDraw_Object_Nx4
 
 #_01B26E: TXA
 #_01B26F: SEC
@@ -9636,7 +9636,7 @@ DrawBigGraySegment:
 
 #_01B372: PLX
 
-#_01B373: JMP.w RoomDraw_Object_2x2_rightwards
+#_01B373: JMP.w RoomDraw_Rightwards2x2
 
 ;===================================================================================================
 
@@ -9718,7 +9718,7 @@ RoomDraw_SinglePot:
 #_01B3DB: LDX.w #$0E92
 
 .light_world
-#_01B3DE: JMP.w RoomDraw_Object_2x2_rightwards
+#_01B3DE: JMP.w RoomDraw_Rightwards2x2
 
 ;===================================================================================================
 
@@ -9816,7 +9816,7 @@ RoomDraw_BombableFloor:
 #_01B46F: PLY
 #_01B470: PLX
 
-#_01B471: JMP.w RoomDraw_Object_2x2_rightwards
+#_01B471: JMP.w RoomDraw_Rightwards2x2
 
 ;===================================================================================================
 
@@ -9893,7 +9893,7 @@ RoomDraw_HammerPegSingle:
 
 #_01B4D2: PLX
 
-#_01B4D3: JMP.w RoomDraw_Object_2x2_rightwards
+#_01B4D3: JMP.w RoomDraw_Rightwards2x2
 
 ;===================================================================================================
 
@@ -9928,7 +9928,7 @@ DrawObjects_PushableBlock:
 
 #_01B503: LDX.w #$0E52
 
-#_01B506: JMP.w RoomDraw_Object_2x2_rightwards
+#_01B506: JMP.w RoomDraw_Rightwards2x2
 
 ;===================================================================================================
 
@@ -9967,7 +9967,7 @@ DrawObjects_LightableTorch:
 #_01B535: AND.w #$3FFF
 #_01B538: TAY
 
-#_01B539: JMP.w RoomDraw_Object_2x2_rightwards
+#_01B539: JMP.w RoomDraw_Rightwards2x2
 
 ;===================================================================================================
 ; FREE ROM: 0x24
@@ -10092,6 +10092,7 @@ Underworld_LoadHeader:
 
 #_01B5F1: LDY.w #$0000
 
+; BG2PROP
 #_01B5F4: LDA.b [$0D],Y
 #_01B5F6: AND.b #$E0
 #_01B5F8: ASL A
@@ -10113,10 +10114,10 @@ Underworld_LoadHeader:
 #_01B612: AND.b #$01
 #_01B614: STA.l $7EC005
 
-;---------------------------------------------------------------------------------------------------
-; TODO annotate
 #_01B618: REP #$20
 
+
+; Palette
 #_01B61A: INY
 
 #_01B61B: LDA.b [$0D],Y
@@ -10139,29 +10140,41 @@ Underworld_LoadHeader:
 #_01B63A: LDA.l UnderworldPaletteSets+3,X
 #_01B63E: STA.w $0AAE
 
+; Block set
 #_01B641: INY
+
 #_01B642: LDA.b [$0D],Y
 #_01B644: STA.w $0AA2
 
+; Sprite set
 #_01B647: INY
+
 #_01B648: LDA.b [$0D],Y
 #_01B64A: CLC
 #_01B64B: ADC.b #$40
 #_01B64D: STA.w $0AA3
 
+; BGMOVE
 #_01B650: INY
+
 #_01B651: LDA.b [$0D],Y
 #_01B653: STA.b $AD
 
+; Room tag 1
 #_01B655: INY
+
 #_01B656: LDA.b [$0D],Y
 #_01B658: STA.b $AE
 
+; Room tag 2
 #_01B65A: INY
+
 #_01B65B: LDA.b [$0D],Y
 #_01B65D: STA.b $AF
 
+; PLANES1
 #_01B65F: INY
+
 #_01B660: LDA.b [$0D],Y
 #_01B662: AND.b #$03
 #_01B664: STA.w $063C
@@ -10187,28 +10200,40 @@ Underworld_LoadHeader:
 #_01B681: ROL A
 #_01B682: STA.w $063F
 
+; PLANES2
 #_01B685: INY
+
 #_01B686: LDA.b [$0D],Y
 #_01B688: AND.b #$03
 #_01B68A: STA.w $0640
 
+; Warp
 #_01B68D: INY
+
 #_01B68E: LDA.b [$0D],Y
 #_01B690: STA.l $7EC000
 
+; Stairs 0
 #_01B694: INY
+
 #_01B695: LDA.b [$0D],Y
 #_01B697: STA.l $7EC001
 
+; Stairs 1
 #_01B69B: INY
+
 #_01B69C: LDA.b [$0D],Y
 #_01B69E: STA.l $7EC002
 
+; Stairs 2
 #_01B6A2: INY
+
 #_01B6A3: LDA.b [$0D],Y
 #_01B6A5: STA.l $7EC003
 
+; Stairs 3
 #_01B6A9: INY
+
 #_01B6AA: LDA.b [$0D],Y
 #_01B6AC: STA.l $7EC004
 
@@ -10291,10 +10316,9 @@ Underworld_LoadHeader:
 #_01B71B: CMP.w #$000F
 #_01B71E: BEQ .room_id_X0
 
+; TODO document this fofset
 #_01B720: LDA.w #$0024
 #_01B723: JSR Underworld_CheckAdjacentRoomsForOpenDoors
-
-;---------------------------------------------------------------------------------------------------
 
 .room_id_X0
 #_01B726: LDA.b $A0
@@ -10307,8 +10331,6 @@ Underworld_LoadHeader:
 #_01B72F: LDA.w #$0018
 #_01B732: JSR Underworld_CheckAdjacentRoomsForOpenDoors
 
-;---------------------------------------------------------------------------------------------------
-
 .room_id_XF
 #_01B735: LDA.b $A0
 #_01B737: SEC
@@ -10318,8 +10340,6 @@ Underworld_LoadHeader:
 
 #_01B73E: LDA.w #$000C
 #_01B741: JSR Underworld_CheckAdjacentRoomsForOpenDoors
-
-;---------------------------------------------------------------------------------------------------
 
 .room_id_0X
 #_01B744: LDA.b $A0
@@ -10742,6 +10762,7 @@ Underworld_LoadBasicAttribute_full:
 
 .dont_flip_b
 #_01B941: XBA
+
 #_01B942: LDA.b $02
 
 #_01B944: REP #$21
@@ -12262,15 +12283,15 @@ pool Underworld_HandleRoomTags
 #_01C2A1: dw RoomTag_SouthTrigger               ; 0x12
 #_01C2A3: dw RoomTag_QuadrantTrigger            ; 0x13
 #_01C2A5: dw RoomTag_RoomTrigger_BlockDoor      ; 0x14
-#_01C2A7: dw RoomTag_RoomTrigger_KillDoor       ; 0x15
+#_01C2A7: dw RoomTag_PrizeTriggerDoorDoor       ; 0x15
 #_01C2A9: dw RoomTag_SwitchTrigger_HoldDoor     ; 0x16
 #_01C2AB: dw RoomTag_SwitchTrigger_ToggleDoor   ; 0x17
 #_01C2AD: dw RoomTag_WaterOff                   ; 0x18
 #_01C2AF: dw RoomTag_WaterOn                    ; 0x19
 #_01C2B1: dw RoomTag_WaterGate                  ; 0x1A
 #_01C2B3: dw RoomTag_DamGate                    ; 0x1B
-#_01C2B5: dw RoomTag_MovingWall_West            ; 0x1C
-#_01C2B7: dw RoomTag_MovingWall_East            ; 0x1D
+#_01C2B5: dw RoomTag_MovingWall_East            ; 0x1C
+#_01C2B7: dw RoomTag_MovingWall_West            ; 0x1D
 #_01C2B9: dw RoomTag_MovingWallTorchesCheck     ; 0x1E
 #_01C2BB: dw RoomTag_MovingWallTorchesCheck     ; 0x1F
 #_01C2BD: dw RoomTag_Switch_ExplodingWall       ; 0x20
@@ -12278,7 +12299,7 @@ pool Underworld_HandleRoomTags
 #_01C2C1: dw RoomTag_ChestHoles0                ; 0x22
 #_01C2C3: dw RoomTag_Holes1                     ; 0x23
 #_01C2C5: dw RoomTag_Holes2                     ; 0x24
-#_01C2C7: dw RoomTag_KillRoomForPrize           ; 0x25
+#_01C2C7: dw RoomTag_GetHeartForPrize           ; 0x25
 #_01C2C9: dw RoomTag_KillRoomBlock              ; 0x26
 #_01C2CB: dw RoomTag_TriggerChest               ; 0x27
 #_01C2CD: dw RoomTag_PullSwitchExplodingWall    ; 0x28
@@ -12301,7 +12322,7 @@ pool Underworld_HandleRoomTags
 #_01C2EF: dw RoomTag_Holes7                     ; 0x39
 #_01C2F1: dw RoomTag_Holes8                     ; 0x3A
 #_01C2F3: dw RoomTag_ChestHoles8                ; 0x3B
-#_01C2F5: dw RoomTag_BlockForChest              ; 0x3C
+#_01C2F5: dw RoomTag_PushBlockForChest          ; 0x3C
 #_01C2F7: dw RoomTag_GanonDoor                  ; 0x3D
 #_01C2F9: dw RoomTag_TorchPuzzleChest           ; 0x3E
 #_01C2FB: dw RoomTag_RekillableBoss             ; 0x3F
@@ -12584,13 +12605,13 @@ Underworld_DetectStaircase:
 .set_submodule_and_sfx
 #_01C421: STX.b $11
 
-#_01C423: LDY.b #!SFX2_16
+#_01C423: LDY.b #$16 ; SFX2.16
 
 #_01C425: LDA.w $048A
 #_01C428: CMP.b #$34
 #_01C42A: BCC .use_sfx16
 
-#_01C42C: LDY.b #!SFX2_18
+#_01C42C: LDY.b #$18 ; SFX2.18
 
 .use_sfx16
 #_01C42E: STY.w $012E
@@ -12685,7 +12706,7 @@ RoomTag_QuadrantTrigger:
 ;===================================================================================================
 
 RoomTag_OperateKillChest:
-#_01C46D: JSL CheckIfRoomIsClear
+#_01C46D: JSL CheckIfScreenIsClear
 #_01C471: BCC .exit
 
 #_01C473: JSR RoomTag_OperateChestReveal
@@ -12703,7 +12724,7 @@ RoomTag_OperateBlockDoor:
 
 #_01C481: STA.w $0468
 
-#_01C484: LDA.b #!SFX3_25
+#_01C484: LDA.b #$25 ; SFX3.25
 #_01C486: STA.w $012F
 
 #_01C489: LDA.b #$05
@@ -12722,7 +12743,7 @@ RoomTag_OperateBlockDoor:
 ;===================================================================================================
 
 RoomTag_OperateKillDoor:
-#_01C498: JSL CheckIfRoomIsClear
+#_01C498: JSL CheckIfScreenIsClear
 #_01C49C: BCC .exit
 
 ;===================================================================================================
@@ -12741,7 +12762,7 @@ RoomTag_OperateKillDoor:
 
 #_01C4B1: SEP #$30
 
-#_01C4B3: LDA.b #!SFX3_1B
+#_01C4B3: LDA.b #$1B ; SFX3.1B
 #_01C4B5: STA.w $012F
 
 #_01C4B8: LDA.b #$05
@@ -12761,7 +12782,7 @@ RoomTag_RoomTrigger:
 #_01C4C3: CMP.b #$0A
 #_01C4C5: BEQ RoomTag_FullRoomKillCheck
 
-#_01C4C7: JSL CheckIfQuadrantIsClear
+#_01C4C7: JSL CheckIfRoomIsClear
 #_01C4CB: BCC EXIT_01C4D0
 
 #_01C4CD: JSR RoomTag_OperateChestReveal
@@ -12773,17 +12794,17 @@ RoomTag_RoomTrigger:
 
 #_01C4D2: RTS
 
-;---------------------------------------------------------------------------------------------------
+;===================================================================================================
 
 RoomTag_FullRoomKillCheck:
-#_01C4D3: JSL CheckIfQuadrantIsClear
+#_01C4D3: JSL CheckIfRoomIsClear
 #_01C4D7: BCC EXIT_01C4D0
 #_01C4D9: BCS RoomTag_OperateShutters
 
 ;===================================================================================================
 
 RoomTag_RekillableBoss:
-#_01C4DB: JSL CheckIfQuadrantIsClear
+#_01C4DB: JSL CheckIfRoomIsClear
 #_01C4DF: BCC EXIT_01C4D0
 
 #_01C4E1: STZ.w $0FFC
@@ -12821,7 +12842,7 @@ RoomTag_RoomTrigger_BlockDoor:
 
 ;===================================================================================================
 
-RoomTag_RoomTrigger_KillDoor:
+RoomTag_PrizeTriggerDoorDoor:
 #_01C508: LDA.w $040C
 #_01C50B: LSR A
 #_01C50C: TAX
@@ -12912,7 +12933,7 @@ RoomTag_SwitchTrigger_HoldDoor:
 #_01C589: CPX.b #$00
 #_01C58B: BNE .no_sfx
 
-#_01C58D: LDA.b #!SFX3_25
+#_01C58D: LDA.b #$25 ; SFX3.25
 #_01C58F: STA.w $012F
 
 .no_sfx
@@ -12940,11 +12961,11 @@ RoomTag_SwitchTrigger_ToggleDoor:
 
 #_01C5AB: SEP #$30
 
-#_01C5AD: LDA.b #!SFX3_25
+#_01C5AD: LDA.b #$25 ; SFX3.25
 #_01C5AF: STA.w $012F
 
 #_01C5B2: LDA.b #$05
-#_01C5B4: JSR RoomTag_SwitchTrigger_ToggleDoor_trigger_shutters
+#_01C5B4: JSR PushPressurePlate
 
 #_01C5B7: LDA.w $0468
 #_01C5BA: EOR.b #$01
@@ -12966,7 +12987,7 @@ RoomTag_SwitchTrigger_ToggleDoor:
 
 ;===================================================================================================
 
-RoomTag_SwitchTrigger_ToggleDoor_trigger_shutters:
+PushPressurePlate:
 #_01C5CF: STA.b $11
 
 #_01C5D1: LDX.b $0C
@@ -12980,7 +13001,7 @@ RoomTag_SwitchTrigger_ToggleDoor_trigger_shutters:
 #_01C5DF: LDA.b $11
 #_01C5E1: STA.w $010C
 
-; Pressure plate switch?
+; Pressure plate switch
 #_01C5E4: LDA.b #$17
 #_01C5E6: STA.b $11
 
@@ -13080,7 +13101,7 @@ RoomTag_TorchPuzzleDoor:
 
 #_01C658: SEP #$30
 
-#_01C65A: LDA.b #!SFX3_1B
+#_01C65A: LDA.b #$1B ; SFX3.1B
 #_01C65C: STA.w $012F
 
 #_01C65F: LDA.b #$05
@@ -13094,11 +13115,17 @@ RoomTag_TorchPuzzleDoor:
 ;===================================================================================================
 
 ExplodingWallExplosionMovement:
-#_01C666: dw $0004, $0006, $0000, $0000
+#_01C666: dw $0004
+#_01C668: dw $0006
+#_01C66A: dw $0000
+#_01C66C: dw $0000
 #_01C66E: dw $0002
 
 ExplodingWallTilemapOffset:
-#_01C670: dw $0000, $000A, $0000, $0000
+#_01C670: dw $0000
+#_01C672: dw $000A
+#_01C674: dw $0000
+#_01C676: dw $0000
 #_01C678: dw $0280
 
 ;===================================================================================================
@@ -13187,7 +13214,7 @@ RoomTag_RunExplodingWall:
 
 #_01C6E5: SEP #$30
 
-#_01C6E7: LDA.b #!SFX3_1B
+#_01C6E7: LDA.b #$1B ; SFX3.1B
 #_01C6E9: STA.w $012F
 
 #_01C6EC: LDA.b #$01
@@ -13208,7 +13235,7 @@ RoomTag_RunExplodingWall:
 
 ;===================================================================================================
 
-pool RoomTag_KillRoomForPrize
+pool RoomTag_GetHeartForPrize
 
 .prizes
 #_01C6FC: db $00 ; Sewers
@@ -13229,7 +13256,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-RoomTag_KillRoomForPrize:
+RoomTag_GetHeartForPrize:
 #_01C709: LDA.w $0403
 #_01C70C: AND.b #$80
 #_01C70E: BEQ .exit
@@ -13319,7 +13346,7 @@ RoomTag_GanonDoor:
 ;---------------------------------------------------------------------------------------------------
 
 #_01C77F: LDA.b $5D
-#_01C781: CMP.b #!LINKSTATE_01
+#_01C781: CMP.b #$01 ; LINKSTATE 01
 #_01C783: BEQ .exit
 
 #_01C785: LDA.b #$1A
@@ -13358,10 +13385,10 @@ RoomTag_KillRoomBlock:
 #_01C7AC: LDA.b $0E
 #_01C7AE: PHA
 
-#_01C7AF: JSL CheckIfRoomIsClear
+#_01C7AF: JSL CheckIfScreenIsClear
 #_01C7B3: BCC .fail
 
-#_01C7B5: LDA.b #!SFX3_1B
+#_01C7B5: LDA.b #$1B ; SFX3.1B
 #_01C7B7: STA.w $012F
 
 #_01C7BA: PLX
@@ -13384,7 +13411,7 @@ RoomTag_KillRoomBlock:
 
 ;===================================================================================================
 
-RoomTag_BlockForChest:
+RoomTag_PushBlockForChest:
 #_01C7C2: LDA.b $14
 #_01C7C4: BNE .exit
 
@@ -13534,7 +13561,7 @@ RoomTag_OperateChestReveal:
 
 #_01C8A2: SEP #$30
 
-#_01C8A4: LDA.b #!SFX3_1A
+#_01C8A4: LDA.b #$1A ; SFX3.1A
 #_01C8A6: STA.w $012F
 
 #_01C8A9: LDA.b #$01
@@ -13578,7 +13605,7 @@ RoomTag_TorchPuzzleChest:
 
 ;===================================================================================================
 
-RoomTag_MovingWall_West:
+RoomTag_MovingWall_East:
 #_01C8D4: REP #$20
 
 #_01C8D6: LDA.w $041A
@@ -13616,21 +13643,21 @@ RoomTag_MovingWall_West:
 #_01C905: LDX.w $041E
 
 #_01C908: LDA.w $0422
-#_01C90B: CMP.w MovingWallWestBoundaries,X
+#_01C90B: CMP.w MovingWallEastBoundaries,X
 #_01C90E: BCS .dont_advance
 
 #_01C910: JSR RoomTag_AdvanceGiganticWall
 
 #_01C913: LDA.w $0422
-#_01C916: CMP.w MovingWallWestBoundaries,X
+#_01C916: CMP.w MovingWallEastBoundaries,X
 #_01C919: BCS .dont_advance
 
 ;---------------------------------------------------------------------------------------------------
 
-#_01C91B: LDX.b #!SFX3_1B
+#_01C91B: LDX.b #$1B ; SFX3.1B
 #_01C91D: STX.w $012F
 
-#_01C920: LDX.b #!SFX1_05
+#_01C920: LDX.b #$05 ; SFX1.05
 #_01C922: STX.w $012D
 
 #_01C925: LDX.b $0E
@@ -13718,7 +13745,7 @@ RoomTag_MovingWallShakeItUp:
 
 ;===================================================================================================
 
-RoomTag_MovingWall_East:
+RoomTag_MovingWall_West:
 #_01C98B: REP #$20
 
 #_01C98D: LDA.w $041A
@@ -13754,21 +13781,21 @@ RoomTag_MovingWall_East:
 #_01C9B9: LDX.w $041E
 
 #_01C9BC: LDA.w $0422
-#_01C9BF: CMP.w MovingWallEastBoundaries,X
+#_01C9BF: CMP.w MovingWallWestBoundaries,X
 #_01C9C2: BCC .dont_advance
 
 #_01C9C4: JSR RoomTag_AdvanceGiganticWall
 
 #_01C9C7: LDA.w $0422
-#_01C9CA: CMP.w MovingWallEastBoundaries,X
+#_01C9CA: CMP.w MovingWallWestBoundaries,X
 #_01C9CD: BCC .dont_advance
 
 ;---------------------------------------------------------------------------------------------------
 
-#_01C9CF: LDX.b #!SFX3_1B
+#_01C9CF: LDX.b #$1B ; SFX3.1B
 #_01C9D1: STX.w $012F
 
-#_01C9D4: LDX.b #!SFX1_05
+#_01C9D4: LDX.b #$05 ; SFX1.05
 #_01C9D6: STX.w $012D
 
 #_01C9D9: LDX.b $0E
@@ -13860,7 +13887,7 @@ RoomTag_MovingWallTorchesCheck:
 #_01CA4B: ORA.w DoorFlagMasks-1,X
 #_01CA4E: STA.w $0403
 
-#_01CA51: LDA.b #!SFX1_07
+#_01CA51: LDA.b #$07 ; SFX1.07
 #_01CA53: STA.w $012D
 
 #_01CA56: LDA.b #$01
@@ -14001,10 +14028,10 @@ RoomTag_WaterOff:
 
 #_01CB09: SEP #$30
 
-#_01CB0B: LDA.b #!SFX3_1B
+#_01CB0B: LDA.b #$1B ; SFX3.1B
 #_01CB0D: STA.w $012F
 
-#_01CB10: LDA.b #!SFX2_2E
+#_01CB10: LDA.b #$2E ; SFX2.2E
 #_01CB12: STA.w $012E
 
 #_01CB15: LDA.b #$01
@@ -14021,10 +14048,10 @@ RoomTag_WaterOn:
 #_01CB1A: LDA.w $0642
 #_01CB1D: BEQ EXIT_01CB19
 
-#_01CB1F: LDA.b #!SFX3_1B
+#_01CB1F: LDA.b #$1B ; SFX3.1B
 #_01CB21: STA.w $012F
 
-#_01CB24: LDA.b #!SFX2_2F
+#_01CB24: LDA.b #$2F ; SFX2.2F
 #_01CB26: STA.w $012E
 
 #_01CB29: LDA.b #$0C
@@ -14168,10 +14195,10 @@ RoomTag_WaterGate:
 
 #_01CBF3: SEP #$30
 
-#_01CBF5: LDA.b #!SFX3_1B
+#_01CBF5: LDA.b #$1B ; SFX3.1B
 #_01CBF7: STA.w $012F
 
-#_01CBFA: LDA.b #!SFX2_2F
+#_01CBFA: LDA.b #$2F ; SFX2.2F
 #_01CBFC: STA.w $012E
 
 ;===================================================================================================
@@ -14256,7 +14283,7 @@ RoomTag_TriggerHoles:
 #_01CC3F: STZ.b $BB
 #_01CC41: STZ.b $B0
 
-#_01CC43: LDA.b #!SFX3_1B
+#_01CC43: LDA.b #$1B ; SFX3.1B
 #_01CC45: STA.w $012F
 
 #_01CC48: LDA.b #$03
@@ -14306,7 +14333,7 @@ RoomTag_TriggerChestHoles:
 #_01CC75: STZ.b $BB
 #_01CC77: STZ.b $B0
 
-#_01CC79: LDA.b #!SFX3_1B
+#_01CC79: LDA.b #$1B ; SFX3.1B
 #_01CC7B: STA.w $012F
 
 #_01CC7E: LDA.b #$03
@@ -14904,7 +14931,7 @@ Underworld_ProcessTorchesAndDoors:
 #_01CF73: LDA.b #$04
 #_01CF75: STA.b $11
 
-#_01CF77: LDA.b #!SFX3_14
+#_01CF77: LDA.b #$14 ; SFX3.14
 #_01CF79: STA.b $00
 
 #_01CF7B: LDX.w $0694
@@ -14978,7 +15005,7 @@ OperateDashBashWall:
 .skip_ancilla
 #_01CFDA: SEP #$30
 
-#_01CFDC: LDA.b #!SFX3_1B
+#_01CFDC: LDA.b #$1B ; SFX3.1B
 #_01CFDE: STA.w $012F
 
 #_01CFE1: LDA.b #$09
@@ -15059,7 +15086,7 @@ DontOpenDoor:
 #_01D048: LDA.b #$01
 #_01D04A: STA.b $18
 
-#_01D04C: LDA.b #!SFX3_15
+#_01D04C: LDA.b #$15 ; SFX3.15
 #_01D04E: STA.w $012F
 
 #_01D051: RTL
@@ -15300,7 +15327,7 @@ SlashSwordAgainstVinesAndDoors:
 
 #_01D1A1: SEP #$20
 
-#_01D1A3: LDA.b #!SFX3_1B
+#_01D1A3: LDA.b #$1B ; SFX3.1B
 #_01D1A5: STA.w $012F
 
 #_01D1A8: REP #$20
@@ -15337,7 +15364,7 @@ SlashSwordAgainstVinesAndDoors:
 #_01D1D7: ASL A
 #_01D1D8: JSL CalculateSFXPan_Arbitrary
 
-#_01D1DC: ORA.b #!SFX2_1E
+#_01D1DC: ORA.b #$1E ; SFX2.1E
 #_01D1DE: STA.w $012E
 
 #_01D1E1: REP #$30
@@ -15495,7 +15522,7 @@ Bomb_CheckForUWDestructibles:
 #_01D2B6: AND.b #$03
 #_01D2B8: STA.w $03BE,X
 
-#_01D2BB: LDA.b #!SFX3_1B
+#_01D2BB: LDA.b #$1B ; SFX3.1B
 #_01D2BD: STA.w $012F
 
 #_01D2C0: LDA.b #$09
@@ -15523,7 +15550,7 @@ BlowOpenBombableFloor:
 
 #_01D2DE: SEP #$30
 
-#_01D2E0: LDA.b #!SFX3_1B
+#_01D2E0: LDA.b #$1B ; SFX3.1B
 #_01D2E2: STA.w $012F
 
 #_01D2E5: RTL
@@ -15725,7 +15752,7 @@ OperateShutterDoors:
 
 #_01D3EB: SEP #$30
 
-#_01D3ED: LDA.b #!SFX3_15
+#_01D3ED: LDA.b #$15 ; SFX3.15
 #_01D3EF: STA.w $012F
 
 #_01D3F2: REP #$30
@@ -15751,7 +15778,7 @@ OperateShutterDoors:
 
 #_01D40E: SEP #$30
 
-#_01D410: LDA.b #!SFX3_16
+#_01D410: LDA.b #$16 ; SFX3.16
 #_01D412: STA.w $012F
 
 #_01D415: REP #$30
@@ -15891,7 +15918,7 @@ OpenCrackedDoor:
 
 #_01D4C8: SEP #$30
 
-#_01D4CA: LDA.b #!SFX3_15
+#_01D4CA: LDA.b #$15 ; SFX3.15
 #_01D4CC: STA.w $012F
 
 #_01D4CF: LDA.b #$01
@@ -16703,7 +16730,7 @@ PushBlock_CheckForPit:
 .play_sfx_and_done
 #_01D96A: SEP #$20
 
-#_01D96C: LDA.b #!SFX2_20
+#_01D96C: LDA.b #$20 ; SFX2.20
 #_01D96E: STA.w $012E
 
 #_01D971: REP #$20
@@ -16995,7 +17022,7 @@ HandleItemTileAction_Underworld:
 #_01DB09: PLA ; What's the point if you just LDA?
 #_01DB0A: SEP #$30
 
-#_01DB0C: LDA.b #!SFX2_11
+#_01DB0C: LDA.b #$11 ; SFX2.11
 #_01DB0E: STA.w $012E
 
 #_01DB11: LDA.b #$00
@@ -19309,7 +19336,7 @@ RevealPotItem:
 
 #_01E742: SEP #$20
 
-#_01E744: LDA.b #!SFX3_1B
+#_01E744: LDA.b #$1B ; SFX3.1B
 #_01E746: STA.w $012F
 
 ;---------------------------------------------------------------------------------------------------
@@ -19712,177 +19739,177 @@ Underworld_DeleteRupeeTile:
 
 ;===================================================================================================
 ; dw ROOM_ID : db ITEM_ID
-; bit 7 of ROOM_ID set means it's a big chest
+; bit 15 of ROOM_ID set means it's a big chest
 ;===================================================================================================
 RoomData_ChestItems:
-#_01E96C: dw $0032 : db !ITEMGET_24
-#_01E96F: dw $0055 : db !ITEMGET_12
-#_01E972: dw $0071 : db !ITEMGET_0C
-#_01E975: dw $00A8 : db !ITEMGET_25
-#_01E978: dw $0113 : db !ITEMGET_19
-#_01E97B: dw $80A9 : db !ITEMGET_0B ; big chest
-#_01E97E: dw $0016 : db !ITEMGET_28
-#_01E981: dw $0016 : db !ITEMGET_25
-#_01E984: dw $0037 : db !ITEMGET_33
-#_01E987: dw $8036 : db !ITEMGET_0A ; big chest
-#_01E98A: dw $010B : db !ITEMGET_28
-#_01E98D: dw $8073 : db !ITEMGET_1B ; big chest
-#_01E990: dw $0067 : db !ITEMGET_25
-#_01E993: dw $007E : db !ITEMGET_28
-#_01E996: dw $8058 : db !ITEMGET_07 ; big chest
-#_01E999: dw $0058 : db !ITEMGET_33
-#_01E99C: dw $0057 : db !ITEMGET_32
-#_01E99F: dw $0057 : db !ITEMGET_24
-#_01E9A2: dw $001F : db !ITEMGET_32
-#_01E9A5: dw $007E : db !ITEMGET_24
-#_01E9A8: dw $809E : db !ITEMGET_22 ; big chest
-#_01E9AB: dw $0077 : db !ITEMGET_33
-#_01E9AE: dw $0005 : db !ITEMGET_28
-#_01E9B1: dw $00B9 : db !ITEMGET_40
-#_01E9B4: dw $0074 : db !ITEMGET_33
-#_01E9B7: dw $00B8 : db !ITEMGET_32
-#_01E9BA: dw $0104 : db !ITEMGET_12
-#_01E9BD: dw $00FE : db !ITEMGET_41
-#_01E9C0: dw $0075 : db !ITEMGET_32
-#_01E9C3: dw $010C : db !ITEMGET_17
-#_01E9C6: dw $0068 : db !ITEMGET_24
-#_01E9C9: dw $0085 : db !ITEMGET_25
-#_01E9CC: dw $0103 : db !ITEMGET_16
-#_01E9CF: dw $013D : db !ITEMGET_36
-#_01E9D2: dw $002E : db !ITEMGET_25
-#_01E9D5: dw $012D : db !ITEMGET_36
-#_01E9D8: dw $00B3 : db !ITEMGET_24
-#_01E9DB: dw $003F : db !ITEMGET_33
-#_01E9DE: dw $005F : db !ITEMGET_24
-#_01E9E1: dw $00AE : db !ITEMGET_24
-#_01E9E4: dw $0087 : db !ITEMGET_32
-#_01E9E7: dw $0108 : db !ITEMGET_0C
-#_01E9EA: dw $0106 : db !ITEMGET_2A
-#_01E9ED: dw $011C : db !ITEMGET_46
-#_01E9F0: dw $010A : db !ITEMGET_17
-#_01E9F3: dw $00AA : db !ITEMGET_33
-#_01E9F6: dw $8027 : db !ITEMGET_1F ; big chest
-#_01E9F9: dw $0027 : db !ITEMGET_25
-#_01E9FC: dw $0059 : db !ITEMGET_24
-#_01E9FF: dw $00DB : db !ITEMGET_33
-#_01EA02: dw $00DB : db !ITEMGET_32
-#_01EA05: dw $00DC : db !ITEMGET_25
-#_01EA08: dw $00CB : db !ITEMGET_36
-#_01EA0B: dw $0065 : db !ITEMGET_28
-#_01EA0E: dw $8044 : db !ITEMGET_1C ; big chest
-#_01EA11: dw $0045 : db !ITEMGET_24
-#_01EA14: dw $00B6 : db !ITEMGET_24
-#_01EA17: dw $8024 : db !ITEMGET_06 ; big chest
-#_01EA1A: dw $00B7 : db !ITEMGET_33
-#_01EA1D: dw $00B7 : db !ITEMGET_24
-#_01EA20: dw $00D6 : db !ITEMGET_25
-#_01EA23: dw $0014 : db !ITEMGET_32
-#_01EA26: dw $00D5 : db !ITEMGET_34
-#_01EA29: dw $00D5 : db !ITEMGET_35
-#_01EA2C: dw $00D5 : db !ITEMGET_36
-#_01EA2F: dw $00D5 : db !ITEMGET_24
-#_01EA32: dw $0004 : db !ITEMGET_24
-#_01EA35: dw $003A : db !ITEMGET_32
-#_01EA38: dw $002A : db !ITEMGET_24
-#_01EA3B: dw $002A : db !ITEMGET_24
-#_01EA3E: dw $801A : db !ITEMGET_09 ; big chest
-#_01EA41: dw $001A : db !ITEMGET_25
-#_01EA44: dw $001A : db !ITEMGET_35
-#_01EA47: dw $000A : db !ITEMGET_24
-#_01EA4A: dw $006A : db !ITEMGET_43
-#_01EA4D: dw $006A : db !ITEMGET_24
-#_01EA50: dw $002B : db !ITEMGET_33
-#_01EA53: dw $0019 : db !ITEMGET_28
-#_01EA56: dw $0019 : db !ITEMGET_24
-#_01EA59: dw $0009 : db !ITEMGET_24
-#_01EA5C: dw $00C2 : db !ITEMGET_24
-#_01EA5F: dw $00A2 : db !ITEMGET_24
-#_01EA62: dw $00C1 : db !ITEMGET_25
-#_01EA65: dw $80C3 : db !ITEMGET_15 ; big chest
-#_01EA68: dw $00C3 : db !ITEMGET_33
-#_01EA6B: dw $00D1 : db !ITEMGET_32
-#_01EA6E: dw $00B3 : db !ITEMGET_24
-#_01EA71: dw $010D : db !ITEMGET_17
-#_01EA74: dw $010D : db !ITEMGET_36
-#_01EA77: dw $0012 : db !ITEMGET_3F
-#_01EA7A: dw $00F8 : db !ITEMGET_28
-#_01EA7D: dw $00F8 : db !ITEMGET_36
-#_01EA80: dw $0105 : db !ITEMGET_41
-#_01EA83: dw $0105 : db !ITEMGET_28
-#_01EA86: dw $0105 : db !ITEMGET_41
-#_01EA89: dw $0117 : db !ITEMGET_18
-#_01EA8C: dw $002F : db !ITEMGET_17
-#_01EA8F: dw $002F : db !ITEMGET_36
-#_01EA92: dw $002F : db !ITEMGET_36
-#_01EA95: dw $002F : db !ITEMGET_36
-#_01EA98: dw $002F : db !ITEMGET_28
-#_01EA9B: dw $0028 : db !ITEMGET_24
-#_01EA9E: dw $0046 : db !ITEMGET_25
-#_01EAA1: dw $0034 : db !ITEMGET_36
-#_01EAA4: dw $0035 : db !ITEMGET_32
-#_01EAA7: dw $0076 : db !ITEMGET_36
-#_01EAAA: dw $0076 : db !ITEMGET_36
-#_01EAAD: dw $0066 : db !ITEMGET_36
-#_01EAB0: dw $00D0 : db !ITEMGET_24
-#_01EAB3: dw $00E0 : db !ITEMGET_24
-#_01EAB6: dw $007B : db !ITEMGET_28
-#_01EAB9: dw $007B : db !ITEMGET_44
-#_01EABC: dw $007B : db !ITEMGET_36
-#_01EABF: dw $007B : db !ITEMGET_36
-#_01EAC2: dw $007C : db !ITEMGET_44
-#_01EAC5: dw $007C : db !ITEMGET_44
-#_01EAC8: dw $007C : db !ITEMGET_28
-#_01EACB: dw $007C : db !ITEMGET_28
-#_01EACE: dw $007D : db !ITEMGET_24
-#_01EAD1: dw $008B : db !ITEMGET_33
-#_01EAD4: dw $808C : db !ITEMGET_23 ; big chest
-#_01EAD7: dw $008C : db !ITEMGET_44
-#_01EADA: dw $008C : db !ITEMGET_28
-#_01EADD: dw $008C : db !ITEMGET_44
-#_01EAE0: dw $008D : db !ITEMGET_24
-#_01EAE3: dw $009D : db !ITEMGET_25
-#_01EAE6: dw $009D : db !ITEMGET_34
-#_01EAE9: dw $009D : db !ITEMGET_36
-#_01EAEC: dw $009D : db !ITEMGET_44
-#_01EAEF: dw $001C : db !ITEMGET_32
-#_01EAF2: dw $001C : db !ITEMGET_44
-#_01EAF5: dw $001C : db !ITEMGET_28
-#_01EAF8: dw $005B : db !ITEMGET_24
-#_01EAFB: dw $003D : db !ITEMGET_28
-#_01EAFE: dw $003D : db !ITEMGET_28
-#_01EB01: dw $003D : db !ITEMGET_24
-#_01EB04: dw $004D : db !ITEMGET_36
-#_01EB07: dw $0080 : db !ITEMGET_12
-#_01EB0A: dw $0072 : db !ITEMGET_33
-#_01EB0D: dw $011D : db !ITEMGET_17
-#_01EB10: dw $011D : db !ITEMGET_36
-#_01EB13: dw $011D : db !ITEMGET_36
-#_01EB16: dw $011D : db !ITEMGET_36
-#_01EB19: dw $011D : db !ITEMGET_36
-#_01EB1C: dw $011E : db !ITEMGET_36
-#_01EB1F: dw $011E : db !ITEMGET_36
-#_01EB22: dw $011E : db !ITEMGET_36
-#_01EB25: dw $011E : db !ITEMGET_36
-#_01EB28: dw $00EF : db !ITEMGET_36
-#_01EB2B: dw $00EF : db !ITEMGET_36
-#_01EB2E: dw $00EF : db !ITEMGET_36
-#_01EB31: dw $00EF : db !ITEMGET_36
-#_01EB34: dw $00EF : db !ITEMGET_36
-#_01EB37: dw $00FF : db !ITEMGET_28
-#_01EB3A: dw $00FF : db !ITEMGET_44
-#_01EB3D: dw $0124 : db !ITEMGET_17
-#_01EB40: dw $0123 : db !ITEMGET_28
-#_01EB43: dw $0123 : db !ITEMGET_36
-#_01EB46: dw $0123 : db !ITEMGET_36
-#_01EB49: dw $0123 : db !ITEMGET_44
-#_01EB4C: dw $0120 : db !ITEMGET_08
-#_01EB4F: dw $003C : db !ITEMGET_41
-#_01EB52: dw $003C : db !ITEMGET_41
-#_01EB55: dw $003C : db !ITEMGET_41
-#_01EB58: dw $003C : db !ITEMGET_41
-#_01EB5B: dw $0011 : db !ITEMGET_28
-#_01EB5E: dw $0011 : db !ITEMGET_46
-#_01EB61: dw $0011 : db !ITEMGET_44
+#_01E96C: dw $0032 : db $24 ; ITEMGET 24
+#_01E96F: dw $0055 : db $12 ; ITEMGET 12
+#_01E972: dw $0071 : db $0C ; ITEMGET 0C
+#_01E975: dw $00A8 : db $25 ; ITEMGET 25
+#_01E978: dw $0113 : db $19 ; ITEMGET 19
+#_01E97B: dw $80A9 : db $0B ; ITEMGET 0B - big chest
+#_01E97E: dw $0016 : db $28 ; ITEMGET 28 - !UNUSED chests in swamp TIC room
+#_01E981: dw $0016 : db $25 ; ITEMGET 25 - !UNUSED chests in swamp TIC room
+#_01E984: dw $0037 : db $33 ; ITEMGET 33
+#_01E987: dw $8036 : db $0A ; ITEMGET 0A - big chest
+#_01E98A: dw $010B : db $28 ; ITEMGET 28
+#_01E98D: dw $8073 : db $1B ; ITEMGET 1B - big chest
+#_01E990: dw $0067 : db $25 ; ITEMGET 25
+#_01E993: dw $007E : db $28 ; ITEMGET 28
+#_01E996: dw $8058 : db $07 ; ITEMGET 07 - big chest
+#_01E999: dw $0058 : db $33 ; ITEMGET 33
+#_01E99C: dw $0057 : db $32 ; ITEMGET 32
+#_01E99F: dw $0057 : db $24 ; ITEMGET 24
+#_01E9A2: dw $001F : db $32 ; ITEMGET 32
+#_01E9A5: dw $007E : db $24 ; ITEMGET 24
+#_01E9A8: dw $809E : db $22 ; ITEMGET 22 - big chest
+#_01E9AB: dw $0077 : db $33 ; ITEMGET 33
+#_01E9AE: dw $0005 : db $28 ; ITEMGET 28 - !UNUSED chest in unused room
+#_01E9B1: dw $00B9 : db $40 ; ITEMGET 40
+#_01E9B4: dw $0074 : db $33 ; ITEMGET 33
+#_01E9B7: dw $00B8 : db $32 ; ITEMGET 32
+#_01E9BA: dw $0104 : db $12 ; ITEMGET 12
+#_01E9BD: dw $00FE : db $41 ; ITEMGET 41
+#_01E9C0: dw $0075 : db $32 ; ITEMGET 32
+#_01E9C3: dw $010C : db $17 ; ITEMGET 17
+#_01E9C6: dw $0068 : db $24 ; ITEMGET 24
+#_01E9C9: dw $0085 : db $25 ; ITEMGET 25
+#_01E9CC: dw $0103 : db $16 ; ITEMGET 16
+#_01E9CF: dw $013D : db $36 ; ITEMGET 36 - !UNUSED chest in room that doesn't exist
+#_01E9D2: dw $002E : db $25 ; ITEMGET 25
+#_01E9D5: dw $012D : db $36 ; ITEMGET 36
+#_01E9D8: dw $00B3 : db $24 ; ITEMGET 24
+#_01E9DB: dw $003F : db $33 ; ITEMGET 33
+#_01E9DE: dw $005F : db $24 ; ITEMGET 24
+#_01E9E1: dw $00AE : db $24 ; ITEMGET 24
+#_01E9E4: dw $0087 : db $32 ; ITEMGET 32
+#_01E9E7: dw $0108 : db $0C ; ITEMGET 0C
+#_01E9EA: dw $0106 : db $2A ; ITEMGET 2A
+#_01E9ED: dw $011C : db $46 ; ITEMGET 46
+#_01E9F0: dw $010A : db $17 ; ITEMGET 17
+#_01E9F3: dw $00AA : db $33 ; ITEMGET 33
+#_01E9F6: dw $8027 : db $1F ; ITEMGET 1F - big chest
+#_01E9F9: dw $0027 : db $25 ; ITEMGET 25
+#_01E9FC: dw $0059 : db $24 ; ITEMGET 24
+#_01E9FF: dw $00DB : db $33 ; ITEMGET 33
+#_01EA02: dw $00DB : db $32 ; ITEMGET 32
+#_01EA05: dw $00DC : db $25 ; ITEMGET 25
+#_01EA08: dw $00CB : db $36 ; ITEMGET 36
+#_01EA0B: dw $0065 : db $28 ; ITEMGET 28
+#_01EA0E: dw $8044 : db $1C ; ITEMGET 1C - big chest
+#_01EA11: dw $0045 : db $24 ; ITEMGET 24
+#_01EA14: dw $00B6 : db $24 ; ITEMGET 24
+#_01EA17: dw $8024 : db $06 ; ITEMGET 06 - big chest
+#_01EA1A: dw $00B7 : db $33 ; ITEMGET 33
+#_01EA1D: dw $00B7 : db $24 ; ITEMGET 24
+#_01EA20: dw $00D6 : db $25 ; ITEMGET 25
+#_01EA23: dw $0014 : db $32 ; ITEMGET 32
+#_01EA26: dw $00D5 : db $34 ; ITEMGET 34
+#_01EA29: dw $00D5 : db $35 ; ITEMGET 35
+#_01EA2C: dw $00D5 : db $36 ; ITEMGET 36
+#_01EA2F: dw $00D5 : db $24 ; ITEMGET 24
+#_01EA32: dw $0004 : db $24 ; ITEMGET 24
+#_01EA35: dw $003A : db $32 ; ITEMGET 32
+#_01EA38: dw $002A : db $24 ; ITEMGET 24
+#_01EA3B: dw $002A : db $24 ; ITEMGET 24
+#_01EA3E: dw $801A : db $09 ; ITEMGET 09 - big chest
+#_01EA41: dw $001A : db $25 ; ITEMGET 25
+#_01EA44: dw $001A : db $35 ; ITEMGET 35
+#_01EA47: dw $000A : db $24 ; ITEMGET 24
+#_01EA4A: dw $006A : db $43 ; ITEMGET 43
+#_01EA4D: dw $006A : db $24 ; ITEMGET 24
+#_01EA50: dw $002B : db $33 ; ITEMGET 33
+#_01EA53: dw $0019 : db $28 ; ITEMGET 28
+#_01EA56: dw $0019 : db $24 ; ITEMGET 24
+#_01EA59: dw $0009 : db $24 ; ITEMGET 24
+#_01EA5C: dw $00C2 : db $24 ; ITEMGET 24
+#_01EA5F: dw $00A2 : db $24 ; ITEMGET 24
+#_01EA62: dw $00C1 : db $25 ; ITEMGET 25
+#_01EA65: dw $80C3 : db $15 ; ITEMGET 15 - big chest
+#_01EA68: dw $00C3 : db $33 ; ITEMGET 33
+#_01EA6B: dw $00D1 : db $32 ; ITEMGET 32
+#_01EA6E: dw $00B3 : db $24 ; ITEMGET 24
+#_01EA71: dw $010D : db $17 ; ITEMGET 17
+#_01EA74: dw $010D : db $36 ; ITEMGET 36
+#_01EA77: dw $0012 : db $3F ; ITEMGET 3F
+#_01EA7A: dw $00F8 : db $28 ; ITEMGET 28
+#_01EA7D: dw $00F8 : db $36 ; ITEMGET 36
+#_01EA80: dw $0105 : db $41 ; ITEMGET 41
+#_01EA83: dw $0105 : db $28 ; ITEMGET 28
+#_01EA86: dw $0105 : db $41 ; ITEMGET 41
+#_01EA89: dw $0117 : db $18 ; ITEMGET 18
+#_01EA8C: dw $002F : db $17 ; ITEMGET 17
+#_01EA8F: dw $002F : db $36 ; ITEMGET 36
+#_01EA92: dw $002F : db $36 ; ITEMGET 36
+#_01EA95: dw $002F : db $36 ; ITEMGET 36
+#_01EA98: dw $002F : db $28 ; ITEMGET 28
+#_01EA9B: dw $0028 : db $24 ; ITEMGET 24
+#_01EA9E: dw $0046 : db $25 ; ITEMGET 25
+#_01EAA1: dw $0034 : db $36 ; ITEMGET 36
+#_01EAA4: dw $0035 : db $32 ; ITEMGET 32
+#_01EAA7: dw $0076 : db $36 ; ITEMGET 36
+#_01EAAA: dw $0076 : db $36 ; ITEMGET 36
+#_01EAAD: dw $0066 : db $36 ; ITEMGET 36
+#_01EAB0: dw $00D0 : db $24 ; ITEMGET 24
+#_01EAB3: dw $00E0 : db $24 ; ITEMGET 24
+#_01EAB6: dw $007B : db $28 ; ITEMGET 28
+#_01EAB9: dw $007B : db $44 ; ITEMGET 44
+#_01EABC: dw $007B : db $36 ; ITEMGET 36
+#_01EABF: dw $007B : db $36 ; ITEMGET 36
+#_01EAC2: dw $007C : db $44 ; ITEMGET 44
+#_01EAC5: dw $007C : db $44 ; ITEMGET 44
+#_01EAC8: dw $007C : db $28 ; ITEMGET 28
+#_01EACB: dw $007C : db $28 ; ITEMGET 28
+#_01EACE: dw $007D : db $24 ; ITEMGET 24
+#_01EAD1: dw $008B : db $33 ; ITEMGET 33
+#_01EAD4: dw $808C : db $23 ; ITEMGET 23 - big chest
+#_01EAD7: dw $008C : db $44 ; ITEMGET 44
+#_01EADA: dw $008C : db $28 ; ITEMGET 28
+#_01EADD: dw $008C : db $44 ; ITEMGET 44
+#_01EAE0: dw $008D : db $24 ; ITEMGET 24
+#_01EAE3: dw $009D : db $25 ; ITEMGET 25
+#_01EAE6: dw $009D : db $34 ; ITEMGET 34
+#_01EAE9: dw $009D : db $36 ; ITEMGET 36
+#_01EAEC: dw $009D : db $44 ; ITEMGET 44
+#_01EAEF: dw $001C : db $32 ; ITEMGET 32
+#_01EAF2: dw $001C : db $44 ; ITEMGET 44
+#_01EAF5: dw $001C : db $28 ; ITEMGET 28
+#_01EAF8: dw $005B : db $24 ; ITEMGET 24
+#_01EAFB: dw $003D : db $28 ; ITEMGET 28
+#_01EAFE: dw $003D : db $28 ; ITEMGET 28
+#_01EB01: dw $003D : db $24 ; ITEMGET 24
+#_01EB04: dw $004D : db $36 ; ITEMGET 36
+#_01EB07: dw $0080 : db $12 ; ITEMGET 12
+#_01EB0A: dw $0072 : db $33 ; ITEMGET 33
+#_01EB0D: dw $011D : db $17 ; ITEMGET 17
+#_01EB10: dw $011D : db $36 ; ITEMGET 36
+#_01EB13: dw $011D : db $36 ; ITEMGET 36
+#_01EB16: dw $011D : db $36 ; ITEMGET 36
+#_01EB19: dw $011D : db $36 ; ITEMGET 36
+#_01EB1C: dw $011E : db $36 ; ITEMGET 36
+#_01EB1F: dw $011E : db $36 ; ITEMGET 36
+#_01EB22: dw $011E : db $36 ; ITEMGET 36
+#_01EB25: dw $011E : db $36 ; ITEMGET 36
+#_01EB28: dw $00EF : db $36 ; ITEMGET 36
+#_01EB2B: dw $00EF : db $36 ; ITEMGET 36
+#_01EB2E: dw $00EF : db $36 ; ITEMGET 36
+#_01EB31: dw $00EF : db $36 ; ITEMGET 36
+#_01EB34: dw $00EF : db $36 ; ITEMGET 36
+#_01EB37: dw $00FF : db $28 ; ITEMGET 28
+#_01EB3A: dw $00FF : db $44 ; ITEMGET 44
+#_01EB3D: dw $0124 : db $17 ; ITEMGET 17
+#_01EB40: dw $0123 : db $28 ; ITEMGET 28
+#_01EB43: dw $0123 : db $36 ; ITEMGET 36
+#_01EB46: dw $0123 : db $36 ; ITEMGET 36
+#_01EB49: dw $0123 : db $44 ; ITEMGET 44
+#_01EB4C: dw $0120 : db $08 ; ITEMGET 08
+#_01EB4F: dw $003C : db $41 ; ITEMGET 41
+#_01EB52: dw $003C : db $41 ; ITEMGET 41
+#_01EB55: dw $003C : db $41 ; ITEMGET 41
+#_01EB58: dw $003C : db $41 ; ITEMGET 41
+#_01EB5B: dw $0011 : db $28 ; ITEMGET 28
+#_01EB5E: dw $0011 : db $46 ; ITEMGET 46
+#_01EB61: dw $0011 : db $44 ; ITEMGET 44
 
 ;===================================================================================================
 
@@ -19893,7 +19920,7 @@ OpenChestForItem:
 #_01EB67: PHX
 #_01EB68: PLB
 
-#_01EB69: CMP.b #!TILETYPE_63
+#_01EB69: CMP.b #$63 ; TILETYPE 63
 #_01EB6B: BNE OpenItemChest
 
 #_01EB6D: JMP.w OpenMiniGameChest
@@ -19943,7 +19970,7 @@ OpenItemChest:
 #_01EBA7: ORA.w RoomFlagMask,Y
 #_01EBAA: STA.w $0402
 
-#_01EBAD: LDA.w #(!SFX3_15<<8)|(!SFX2_29) ; queues 2 SFX
+#_01EBAD: LDA.w #$1529 ; queues SFX3_15 and SFX2_29
 #_01EBB0: STA.w $012E
 
 #_01EBB3: LDA.w $06E0,Y
@@ -20168,7 +20195,7 @@ OpenItemChest:
 #_01ECEA: LDA.w $012F
 #_01ECED: BNE .skip_sfx
 
-#_01ECEF: LDA.b #!SFX3_0E
+#_01ECEF: LDA.b #$0E ; SFX3.0E
 #_01ECF1: STA.w $012F
 
 .skip_sfx
@@ -20272,7 +20299,7 @@ OpenBigChest:
 
 #_01ED75: JSL Underworld_FlagRoomData_Quadrants
 
-#_01ED79: LDA.b #!SFX3_0E
+#_01ED79: LDA.b #$0E ; SFX3.0E
 #_01ED7B: STA.w $012F
 
 #_01ED7E: LDA.b #$01
@@ -20321,14 +20348,14 @@ OpenMiniGameChestFail:
 ;===================================================================================================
 
 VoOChestGamePrizes:
-#_01EDA1: db !ITEMGET_40 ; 100 RUPEES
-#_01EDA2: db !ITEMGET_41 ; 50 RUPEES
-#_01EDA3: db !ITEMGET_34 ; 1 RUPEE
-#_01EDA4: db !ITEMGET_42 ; HEART
-#_01EDA5: db !ITEMGET_43 ; ARROW
-#_01EDA6: db !ITEMGET_44 ; 10 ARROWS
-#_01EDA7: db !ITEMGET_27 ; BOMB
-#_01EDA8: db !ITEMGET_17 ; HEART PIECE
+#_01EDA1: db $40 ; ITEMGET 40 - 100 RUPEES
+#_01EDA2: db $41 ; ITEMGET 41 - 50 RUPEES
+#_01EDA3: db $34 ; ITEMGET 34 - 1 RUPEE
+#_01EDA4: db $42 ; ITEMGET 42 - HEART
+#_01EDA5: db $43 ; ITEMGET 43 - ARROW
+#_01EDA6: db $44 ; ITEMGET 44 - 10 ARROWS
+#_01EDA7: db $27 ; ITEMGET 27 - BOMB
+#_01EDA8: db $17 ; ITEMGET 17 - HEART PIECE
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -20535,7 +20562,7 @@ FinalizeChestGamePrize:
 #_01EEC9: LDA.b #$01
 #_01EECB: STA.b $14
 
-#_01EECD: LDA.b #!SFX3_0E
+#_01EECD: LDA.b #$0E ; SFX3.0E
 #_01EECF: STA.w $012F
 
 #_01EED2: PLB
@@ -20548,42 +20575,42 @@ FinalizeChestGamePrize:
 
 OtherChestGamePrizes:
 .high_stakes
-#_01EED5: db !ITEMGET_47 ; 20 RUPEES GREEN
-#_01EED6: db !ITEMGET_34 ; 1 RUPEE
-#_01EED7: db !ITEMGET_46 ; 300 RUPEES
-#_01EED8: db !ITEMGET_34 ; 1 RUPEE
-#_01EED9: db !ITEMGET_46 ; 300 RUPEES
-#_01EEDA: db !ITEMGET_46 ; 300 RUPEES
-#_01EEDB: db !ITEMGET_34 ; 1 RUPEE
-#_01EEDC: db !ITEMGET_47 ; 20 RUPEES GREEN
-#_01EEDD: db !ITEMGET_46 ; 300 RUPEES
-#_01EEDE: db !ITEMGET_47 ; 20 RUPEES GREEN
-#_01EEDF: db !ITEMGET_34 ; 1 RUPEE
-#_01EEE0: db !ITEMGET_46 ; 300 RUPEES
-#_01EEE1: db !ITEMGET_47 ; 20 RUPEES GREEN
-#_01EEE2: db !ITEMGET_34 ; 1 RUPEE
-#_01EEE3: db !ITEMGET_46 ; 300 RUPEES
-#_01EEE4: db !ITEMGET_47 ; 20 RUPEES GREEN
+#_01EED5: db $47 ; ITEMGET 47 - 20 RUPEES GREEN
+#_01EED6: db $34 ; ITEMGET 34 - 1 RUPEE
+#_01EED7: db $46 ; ITEMGET 46 - 300 RUPEES
+#_01EED8: db $34 ; ITEMGET 34 - 1 RUPEE
+#_01EED9: db $46 ; ITEMGET 46 - 300 RUPEES
+#_01EEDA: db $46 ; ITEMGET 46 - 300 RUPEES
+#_01EEDB: db $34 ; ITEMGET 34 - 1 RUPEE
+#_01EEDC: db $47 ; ITEMGET 47 - 20 RUPEES GREEN
+#_01EEDD: db $46 ; ITEMGET 46 - 300 RUPEES
+#_01EEDE: db $47 ; ITEMGET 47 - 20 RUPEES GREEN
+#_01EEDF: db $34 ; ITEMGET 34 - 1 RUPEE
+#_01EEE0: db $46 ; ITEMGET 46 - 300 RUPEES
+#_01EEE1: db $47 ; ITEMGET 47 - 20 RUPEES GREEN
+#_01EEE2: db $34 ; ITEMGET 34 - 1 RUPEE
+#_01EEE3: db $46 ; ITEMGET 46 - 300 RUPEES
+#_01EEE4: db $47 ; ITEMGET 47 - 20 RUPEES GREEN
 
 ;---------------------------------------------------------------------------------------------------
 
 .low_stakes
-#_01EEE5: db !ITEMGET_34 ; 1 RUPEE
-#_01EEE6: db !ITEMGET_47 ; 20 RUPEES GREEN
-#_01EEE7: db !ITEMGET_41 ; 50 RUPEES
-#_01EEE8: db !ITEMGET_47 ; 20 RUPEES GREEN
-#_01EEE9: db !ITEMGET_41 ; 50 RUPEES
-#_01EEEA: db !ITEMGET_41 ; 50 RUPEES
-#_01EEEB: db !ITEMGET_47 ; 20 RUPEES GREEN
-#_01EEEC: db !ITEMGET_34 ; 1 RUPEE
-#_01EEED: db !ITEMGET_41 ; 50 RUPEES
-#_01EEEE: db !ITEMGET_34 ; 1 RUPEE
-#_01EEEF: db !ITEMGET_47 ; 20 RUPEES GREEN
-#_01EEF0: db !ITEMGET_41 ; 50 RUPEES
-#_01EEF1: db !ITEMGET_34 ; 1 RUPEE
-#_01EEF2: db !ITEMGET_47 ; 20 RUPEES GREEN
-#_01EEF3: db !ITEMGET_41 ; 50 RUPEES
-#_01EEF4: db !ITEMGET_34 ; 1 RUPEE
+#_01EEE5: db $34 ; ITEMGET 34 - 1 RUPEE
+#_01EEE6: db $47 ; ITEMGET 47 - 20 RUPEES GREEN
+#_01EEE7: db $41 ; ITEMGET 41 - 50 RUPEES
+#_01EEE8: db $47 ; ITEMGET 47 - 20 RUPEES GREEN
+#_01EEE9: db $41 ; ITEMGET 41 - 50 RUPEES
+#_01EEEA: db $41 ; ITEMGET 41 - 50 RUPEES
+#_01EEEB: db $47 ; ITEMGET 47 - 20 RUPEES GREEN
+#_01EEEC: db $34 ; ITEMGET 34 - 1 RUPEE
+#_01EEED: db $41 ; ITEMGET 41 - 50 RUPEES
+#_01EEEE: db $34 ; ITEMGET 34 - 1 RUPEE
+#_01EEEF: db $47 ; ITEMGET 47 - 20 RUPEES GREEN
+#_01EEF0: db $41 ; ITEMGET 41 - 50 RUPEES
+#_01EEF1: db $34 ; ITEMGET 34 - 1 RUPEE
+#_01EEF2: db $47 ; ITEMGET 47 - 20 RUPEES GREEN
+#_01EEF3: db $41 ; ITEMGET 41 - 50 RUPEES
+#_01EEF4: db $34 ; ITEMGET 34 - 1 RUPEE
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -21588,7 +21615,7 @@ Underworld_LightTorch:
 #_01F44F: ASL A
 #_01F450: JSL CalculateSFXPan_Arbitrary
 
-#_01F454: ORA.b #!SFX2_2A
+#_01F454: ORA.b #$2A ; SFX2.2A
 #_01F456: STA.w $012E
 
 #_01F459: PLB
@@ -21902,7 +21929,7 @@ RoomDraw_OpenTriforceDoor:
 #_01F5E7: DEC.b $C9
 #_01F5E9: BNE EXIT_01F5D7
 
-#_01F5EB: LDA.b #!SFX1_15
+#_01F5EB: LDA.b #$15 ; SFX1.15
 #_01F5ED: STA.w $012D
 
 #_01F5F0: STZ.w $03EF

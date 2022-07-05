@@ -1,20 +1,9 @@
-;===================================================================================================
-
-SPC_ENGINE          = $0800
-SFX_DATA            = $17C0
-SAMPLE_POINTERS     = $3C00
-INSTRUMENT_DATA     = $3D00
-INSTRUMENT_DATA_SFX = $3E00
-SAMPLE_DATA         = $4000
-SONG_POINTERS       = $D000
-SONG_POINTERS_AUX   = $2B00
-CREDITS_AUX_POINTER = $2900
 
 ;===================================================================================================
 
 !CMD_00_PART_END = $00
 
-!CMD_C8_TIE           = $C8
+!CMD_C8_TIE    = $C8
 
 !PERC_CA       = $CA
 !PERC_CB       = $CB

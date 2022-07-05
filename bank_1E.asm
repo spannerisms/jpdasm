@@ -393,7 +393,7 @@ HelmasaurKing_ShuffleLegs:
 #_1E8206: AND.b #$0F
 #_1E8208: BNE .exit
 
-#_1E820A: LDA.b #!SFX2_21
+#_1E820A: LDA.b #$21 ; SFX2.21
 #_1E820C: STA.w $012E
 
 .exit
@@ -473,7 +473,7 @@ HelmasaurKing_MaybeFireball:
 #_1E826A: LDA.b #$7F
 #_1E826C: STA.w $0E10,X
 
-#_1E826F: LDA.b #!SFX3_2A
+#_1E826F: LDA.b #$2A ; SFX3.2A
 #_1E8271: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1E8275: RTS
@@ -553,7 +553,7 @@ HelmasaurKing_SwingTail:
 #_1E82E9: LDA.w $0B30
 #_1E82EC: BNE .skip_sfx
 
-#_1E82EE: LDA.b #!SFX3_06
+#_1E82EE: LDA.b #$06 ; SFX3.06
 #_1E82F0: JSL SpriteSFX_QueueSFX3WithPan
 
 ;---------------------------------------------------------------------------------------------------
@@ -584,7 +584,7 @@ HelmasaurKing_SwingTail:
 #_1E831A: INC.w $0EC0,X
 
 #_1E831D: JSL Sprite_CalculateSFXPan
-#_1E8321: ORA.b #!SFX3_26
+#_1E8321: ORA.b #$26 ; SFX3.26
 #_1E8323: STA.w $012F
 
 .exit_a
@@ -703,7 +703,7 @@ HelmasaurKing_CheckMaskDamageFromHammer:
 
 #_1E83B5: DEC.w $0E50,X
 
-#_1E83B8: LDA.b #!SFX3_21
+#_1E83B8: LDA.b #$21 ; SFX3.21
 #_1E83BA: STA.w $012F
 
 #_1E83BD: LDA.b #$30
@@ -723,7 +723,7 @@ HelmasaurKing_CheckMaskDamageFromHammer:
 
 ; !BUG cute bug here
 ; Not sure what exactly they were planning to do,
-; but this uses the projected speed values to place a repulse spark.
+; but this uses the projected speed values to place a weapon tink spark.
 ; This is why there's sometimes a spark at the bottom of the screen.
 #_1E83D5: LDA.b $00
 #_1E83D7: STA.w $0FAD
@@ -735,7 +735,7 @@ HelmasaurKing_CheckMaskDamageFromHammer:
 #_1E83E1: STA.w $0FAC
 
 .no_spark
-#_1E83E4: LDA.b #!SFX2_05
+#_1E83E4: LDA.b #$05 ; SFX2.05
 #_1E83E6: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -849,7 +849,7 @@ HelmasaurKing_ChipAwayAtMask:
 #_1E84A1: BPL .next_debris
 
 .make_sfx
-#_1E84A3: LDA.b #!SFX2_1F
+#_1E84A3: LDA.b #$1F ; SFX2.1F
 #_1E84A5: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1E84A9: RTS
@@ -857,9 +857,9 @@ HelmasaurKing_ChipAwayAtMask:
 ;===================================================================================================
 
 HelmasaurKing_SpawnMaskDebris:
-#_1E84AA: LDA.b #!SPRITE_92
+#_1E84AA: LDA.b #$92 ; SPRITE 92
 #_1E84AC: JSL Sprite_SpawnDynamically
-#_1E84B0: BMI .no_room
+#_1E84B0: BMI .no_space
 
 #_1E84B2: PHX
 
@@ -917,15 +917,15 @@ HelmasaurKing_SpawnMaskDebris:
 
 #_1E8515: PLX
 
-.no_room
+.no_space
 #_1E8516: RTS
 
 ;===================================================================================================
 
 HelmasaurKing_SpitFireball:
-#_1E8517: LDA.b #!SPRITE_70
+#_1E8517: LDA.b #$70 ; SPRITE 70
 #_1E8519: JSL Sprite_SpawnDynamically
-#_1E851D: BMI .no_room
+#_1E851D: BMI .no_space
 
 #_1E851F: JSL Sprite_SetSpawnedCoordinates
 
@@ -942,7 +942,7 @@ HelmasaurKing_SpitFireball:
 #_1E8534: STA.w $0DF0,Y
 #_1E8537: STA.w $0BA0,Y
 
-.no_room
+.no_space
 #_1E853A: RTS
 
 ;===================================================================================================
@@ -1168,7 +1168,7 @@ KingHelmasaurMask:
 
 .next_slot
 #_1E86CF: LDA.w $0C4A,Y
-#_1E86D2: CMP.b #!ANCILLA_07
+#_1E86D2: CMP.b #$07 ; ANCILLA 07
 #_1E86D4: BNE .to_next
 
 #_1E86D6: LDA.w $0C2C,Y
@@ -1243,7 +1243,7 @@ KingHelmasaur_CheckBombDamage:
 #_1E8741: SBC.w $029E,Y
 #_1E8744: STA.w $0FAE
 
-#_1E8747: LDA.b #!SFX2_05
+#_1E8747: LDA.b #$05 ; SFX2.05
 #_1E8749: STA.w $012E
 
 .not_hit
@@ -1870,7 +1870,7 @@ Sprite3A_MagicBatLightning:
 #_1E8ADA: AND.b #$07
 #_1E8ADC: BNE .no_sfx
 
-#_1E8ADE: LDA.b #!SFX3_30
+#_1E8ADE: LDA.b #$30 ; SFX3.30
 #_1E8AE0: STA.w $012F
 
 .no_sfx
@@ -2299,7 +2299,7 @@ Pikit_Steal:
 #_1E8D64: BCS .exit
 
 #_1E8D66: JSL Link_CalculateSFXPan
-#_1E8D6A: ORA.b #!SFX2_26
+#_1E8D6A: ORA.b #$26 ; SFX2.26
 #_1E8D6C: STA.w $012E
 
 #_1E8D6F: JSL GetRandomNumber
@@ -2423,7 +2423,7 @@ ZirroBomb_Falling:
 
 #_1E8E0A: INC.w $0E40,X
 
-#_1E8E0D: LDA.b #!SFX2_0C
+#_1E8E0D: LDA.b #$0C ; SFX2.0C
 #_1E8E0F: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -2648,7 +2648,7 @@ Zirro_Move:
 #_1E8F40: STA.w $0DF0,X
 
 #_1E8F43: LDY.w $0E20,X
-#_1E8F46: CPY.b #!SPRITE_A8
+#_1E8F46: CPY.b #$A8 ; SPRITE A8
 #_1E8F48: BNE .not_green
 
 #_1E8F4A: LDA.b #$10
@@ -2706,11 +2706,11 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 Zirro_DropBomb:
-#_1E8F81: LDA.b #!SPRITE_A8
+#_1E8F81: LDA.b #$A8 ; SPRITE A8
 #_1E8F83: JSL Sprite_SpawnDynamically
 #_1E8F87: BMI .exit
 
-#_1E8F89: LDA.b #!SFX2_20
+#_1E8F89: LDA.b #$20 ; SFX2.20
 #_1E8F8B: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1E8F8F: LDA.b $04
@@ -2781,7 +2781,7 @@ StalfosBone:
 
 #_1E8FF8: STZ.w $0DD0,X
 
-#_1E8FFB: JSL Sprite_PlaceRepulseSpark
+#_1E8FFB: JSL Sprite_PlaceWeaponTink
 
 .exit
 #_1E8FFF: RTS
@@ -2882,7 +2882,7 @@ Stalfos_Invisible:
 .no_collision
 #_1E908F: STZ.w $0E90,X
 
-#_1E9092: LDA.b #!SFX2_15
+#_1E9092: LDA.b #$15 ; SFX2.15
 #_1E9094: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1E9098: JSL Sprite_SpawnPoofGarnish
@@ -2993,7 +2993,7 @@ Stalfos_Skellington:
 #_1E912D: LDA.b #$20
 #_1E912F: STA.w $0F80,X
 
-#_1E9132: LDA.b #!SFX3_13
+#_1E9132: LDA.b #$13 ; SFX3.13
 #_1E9134: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1E9138: INC.w $0F70,X
@@ -3054,7 +3054,7 @@ Stalfos_Skellington:
 
 #_1E9188: JSR Sprite_ZeroVelocity_XY_Bank1E
 
-#_1E918B: LDA.b #!SFX2_21
+#_1E918B: LDA.b #$21 ; SFX2.21
 #_1E918D: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1E9191: LDA.w $0E30,X
@@ -3096,7 +3096,7 @@ ZazakPhlegm:
 
 #_1E91BD: STZ.w $0DD0,X
 
-#_1E91C0: JSL Sprite_PlaceRepulseSpark_forced
+#_1E91C0: JSL Sprite_PlaceWeaponTink_forced
 
 .exit
 #_1E91C4: RTS
@@ -3144,7 +3144,7 @@ TrueZazak:
 #_1E91F8: STA.w $0DC0,X
 
 #_1E91FB: LDA.w $0E20,X
-#_1E91FE: CMP.b #!SPRITE_A7
+#_1E91FE: CMP.b #$A7 ; SPRITE A7
 #_1E9200: BNE .draw_as_zazak
 
 .draw_as_stalfos
@@ -3214,7 +3214,7 @@ StalfosZazak_Wait:
 #_1E9266: BNE .delay
 
 #_1E9268: LDA.w $0E20,X
-#_1E926B: CMP.b #!SPRITE_A6
+#_1E926B: CMP.b #$A6 ; SPRITE A6
 #_1E926D: BNE .dont_shoot
 
 #_1E926F: JSR Sprite_DirectionToFaceLink_Bank1E
@@ -3314,11 +3314,11 @@ Sprite_SpawnFirePhlegm:
 #_1E92E5: PHK
 #_1E92E6: PLB
 
-#_1E92E7: LDA.b #!SPRITE_A5
+#_1E92E7: LDA.b #$A5 ; SPRITE A5
 #_1E92E9: JSL Sprite_SpawnDynamically
 #_1E92ED: BMI .no_space
 
-#_1E92EF: LDA.b #!SFX3_05
+#_1E92EF: LDA.b #$05 ; SFX3.05
 #_1E92F1: JSL SpriteSFX_QueueSFX3WithPan
 #_1E92F5: JSL Sprite_SetSpawnedCoordinates
 
@@ -3411,7 +3411,7 @@ Sprite_SpawnFirePhlegm:
 ;===================================================================================================
 
 Stalfos_ThrowBone:
-#_1E9379: LDA.b #!SPRITE_A7
+#_1E9379: LDA.b #$A7 ; SPRITE A7
 #_1E937B: JSL Sprite_SpawnDynamically
 #_1E937F: BMI .exit
 
@@ -3451,7 +3451,7 @@ Stalfos_ThrowBone:
 
 #_1E93BB: PLX
 
-#_1E93BC: LDA.b #!SFX2_02
+#_1E93BC: LDA.b #$02 ; SFX2.02
 #_1E93BE: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -3630,7 +3630,7 @@ GenerateIceball:
 #_1E94E5: ORA.w $0E00,X
 #_1E94E8: BNE .exit
 
-#_1E94EA: LDA.b #!SPRITE_A4
+#_1E94EA: LDA.b #$A4 ; SPRITE A4
 #_1E94EC: JSL Sprite_SpawnDynamically
 #_1E94F0: BMI .exit
 
@@ -3653,7 +3653,7 @@ GenerateIceball:
 #_1E950E: PHX
 #_1E950F: TYX
 
-#_1E9510: LDA.b #!SFX2_20
+#_1E9510: LDA.b #$20 ; SFX2.20
 #_1E9512: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1E9516: PLX
@@ -3677,7 +3677,7 @@ Sprite_A2_Kholdstare:
 #_1E952B: AND.b #$07
 #_1E952D: BNE .no_garnish
 
-#_1E952F: LDA.b #!SFX2_02
+#_1E952F: LDA.b #$02 ; SFX2.02
 #_1E9531: STA.w $012E
 
 .no_garnish
@@ -3904,7 +3904,7 @@ Kholdstare_Split:
 #_1E965E: STA.w $0FB5
 
 .next_scoop
-#_1E9661: LDA.b #!SPRITE_A2
+#_1E9661: LDA.b #$A2 ; SPRITE A2
 #_1E9663: LDY.b #$04
 #_1E9665: JSL Sprite_SpawnDynamically_slot_limited
 #_1E9669: BMI .exit
@@ -3983,7 +3983,7 @@ Kholdstare_SpawnPuffCloudGarnish:
 ;---------------------------------------------------------------------------------------------------
 
 .open_slot
-#_1E96BA: LDA.b #!GARNISH_07
+#_1E96BA: LDA.b #$07 ; GARNISH 07
 #_1E96BC: STA.l $7FF800,X
 #_1E96C0: STA.w $0FB4
 
@@ -4160,7 +4160,7 @@ FallingIce_IceBall:
 #_1E97AE: LDA.w $012E
 #_1E97B1: BNE .exit
 
-#_1E97B3: LDA.b #!SFX2_1E
+#_1E97B3: LDA.b #$1E ; SFX2.1E
 #_1E97B5: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1E97B9: LDA.b #$03
@@ -4186,7 +4186,7 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 IceBall_Split:
-#_1E97CF: LDA.b #!SFX2_1F
+#_1E97CF: LDA.b #$1F ; SFX2.1F
 #_1E97D1: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1E97D5: JSL GetRandomNumber
@@ -4197,7 +4197,7 @@ IceBall_Split:
 #_1E97DF: STA.w $0FB5
 
 .next_shard
-#_1E97E2: LDA.b #!SPRITE_A4
+#_1E97E2: LDA.b #$A4 ; SPRITE A4
 #_1E97E4: JSL Sprite_SpawnDynamically
 #_1E97E8: BMI .no_space
 
@@ -4978,7 +4978,7 @@ Zoro:
 ;---------------------------------------------------------------------------------------------------
 
 .spawn_garnish
-#_1E9C2D: LDA.b #!GARNISH_06
+#_1E9C2D: LDA.b #$06 ; GARNISH 06
 #_1E9C2F: STA.l $7FF800,X
 #_1E9C33: STA.w $0FB4
 
@@ -5378,11 +5378,11 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 Wizzrobe_FireBeam:
-#_1E9E15: LDA.b #!SPRITE_9B
+#_1E9E15: LDA.b #$9B ; SPRITE 9B
 #_1E9E17: JSL Sprite_SpawnDynamically
 #_1E9E1B: BMI .no_space
 
-#_1E9E1D: LDA.b #!SFX3_36
+#_1E9E1D: LDA.b #$36 ; SFX3.36
 #_1E9E1F: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1E9E23: LDA.b #$01
@@ -5659,7 +5659,7 @@ Kyameron_Moving:
 #_1E9F98: LDA.b #$0F
 #_1E9F9A: STA.w $0DF0,X
 
-#_1E9F9D: LDA.b #!SFX2_28
+#_1E9F9D: LDA.b #$28 ; SFX2.28
 #_1E9F9F: JSL SpriteSFX_QueueSFX2WithPan
 
 .can_bounce_more
@@ -5770,7 +5770,7 @@ GarnishSpawn_Sparkle_limited:
 .free_slot
 #_1EA018: STX.b $0F
 
-#_1EA01A: LDA.b #!GARNISH_05
+#_1EA01A: LDA.b #$05 ; GARNISH 05
 #_1EA01C: STA.l $7FF800,X
 #_1EA020: STA.w $0FB4
 
@@ -6352,7 +6352,7 @@ LaserBeam:
 
 #_1EA47D: STZ.w $0DD0,X
 
-#_1EA480: LDA.b #!SFX3_26
+#_1EA480: LDA.b #$26 ; SFX3.26
 #_1EA482: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1EA486: RTS
@@ -6387,7 +6387,7 @@ LaserBeam_BuildUpGarnish:
 ;---------------------------------------------------------------------------------------------------
 
 .free_slot
-#_1EA4A2: LDA.b #!GARNISH_04
+#_1EA4A2: LDA.b #$04 ; GARNISH 04
 #_1EA4A4: STA.l $7FF800,X
 #_1EA4A8: STA.w $0FB4
 
@@ -6444,7 +6444,7 @@ SpritePrep_LaserEye:
 
 .main
 #_1EA4F1: LDA.w $0E20,X
-#_1EA4F4: CMP.b #!SPRITE_97
+#_1EA4F4: CMP.b #$97 ; SPRITE 97
 #_1EA4F6: BCC .horizontal
 
 #_1EA4F8: LDA.w $0D10,X
@@ -6649,7 +6649,7 @@ LaserEye_TangoLocked:
 ;===================================================================================================
 
 LaserEye_FireBeam:
-#_1EA5D8: LDA.b #!SPRITE_95
+#_1EA5D8: LDA.b #$95 ; SPRITE 95
 #_1EA5DA: JSL Sprite_SpawnDynamically
 #_1EA5DE: BMI .no_space
 
@@ -6710,7 +6710,7 @@ LaserEye_FireBeam:
 .full_photon_jacket
 #_1EA640: PLX
 
-#_1EA641: LDA.b #!SFX3_19
+#_1EA641: LDA.b #$19 ; SFX3.19
 #_1EA643: JSL SpriteSFX_QueueSFX3WithPan
 
 .no_space
@@ -6993,7 +6993,7 @@ Pirogusu_Animate:
 ;===================================================================================================
 
 Sprite_SpawnSmallSplash:
-#_1EA820: LDA.b #!SPRITE_EC
+#_1EA820: LDA.b #$EC ; SPRITE EC
 #_1EA822: LDY.b #$0E
 #_1EA824: JSL Sprite_SpawnDynamically_slot_limited
 #_1EA828: BMI .no_space
@@ -7002,7 +7002,7 @@ Sprite_SpawnSmallSplash:
 
 #_1EA82E: STZ.w $012E
 
-#_1EA831: LDA.b #!SFX2_28
+#_1EA831: LDA.b #$28 ; SFX2.28
 #_1EA833: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1EA837: LDA.b #$03
@@ -7126,7 +7126,7 @@ Pirogusu_SpawnSplash:
 ;---------------------------------------------------------------------------------------------------
 
 .free_slot
-#_1EA8C5: LDA.b #!GARNISH_0B
+#_1EA8C5: LDA.b #$0B ; GARNISH 0B
 #_1EA8C7: STA.l $7FF800,X
 #_1EA8CB: STA.w $0FB4
 
@@ -7284,7 +7284,7 @@ Sprite_93_Bumper:
 
 #_1EA9C9: PLX
 
-#_1EA9CA: LDA.b #!SFX3_32
+#_1EA9CA: LDA.b #$32 ; SFX3.32
 #_1EA9CC: JSL SpriteSFX_QueueSFX3WithPan
 
 ;---------------------------------------------------------------------------------------------------
@@ -7364,7 +7364,7 @@ Sprite_93_Bumper:
 #_1EAA3A: LDA.b #$20
 #_1EAA3C: STA.w $0DF0,X
 
-#_1EAA3F: LDA.b #!SFX3_32
+#_1EAA3F: LDA.b #$32 ; SFX3.32
 #_1EAA41: JSL SpriteSFX_QueueSFX3WithPan
 
 .dont_boing_sprite
@@ -7500,7 +7500,7 @@ StalfosKnight_Hidden:
 #_1EAB1B: LDA.b #$02
 #_1EAB1D: STA.w $0DC0,X
 
-#_1EAB20: LDA.b #!SFX2_20
+#_1EAB20: LDA.b #$20 ; SFX2.20
 #_1EAB22: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -7696,7 +7696,7 @@ StalfosKnight_HopAround:
 #_1EAC0F: TYA
 #_1EAC10: STA.w $0EB0,X
 
-#_1EAC13: LDA.b #!SFX3_13
+#_1EAC13: LDA.b #$13 ; SFX3.13
 #_1EAC15: JSL SpriteSFX_QueueSFX3WithPan
 
 .dont_change_direction
@@ -7814,7 +7814,7 @@ StalfosKnight_Crumble:
 #_1EACB6: AND.b #$03
 #_1EACB8: BNE .dont_do_sfx
 
-#_1EACBA: LDA.b #!SFX3_14
+#_1EACBA: LDA.b #$14 ; SFX3.14
 #_1EACBC: JSL SpriteSFX_QueueSFX3WithPan
 
 .dont_do_sfx
@@ -8209,7 +8209,7 @@ Wallmaster_Grab:
 #_1EAF71: STZ.b $31
 #_1EAF73: STZ.b $30
 
-#_1EAF75: LDA.b #!SFX3_2A
+#_1EAF75: LDA.b #$2A ; SFX3.2A
 #_1EAF77: JSL SpriteSFX_QueueSFX3WithPan
 
 .exit
@@ -8317,7 +8317,7 @@ Sprite_8F_Blob:
 ;---------------------------------------------------------------------------------------------------
 
 .dont_die
-#_1EB01C: LDA.b #!SFX2_20
+#_1EB01C: LDA.b #$20 ; SFX2.20
 #_1EB01E: JSL SpriteSFX_QueueSFX2WithPan
 
 .skip_tile_collision
@@ -8423,7 +8423,7 @@ Blob_Peeking:
 #_1EB0B6: LDA.b #$10
 #_1EB0B8: JSL Sprite_ApplySpeedTowardsLink_long
 
-#_1EB0BC: LDA.b #!SFX3_30
+#_1EB0BC: LDA.b #$30 ; SFX3.30
 #_1EB0BE: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1EB0C2: RTS
@@ -9228,7 +9228,7 @@ Arrghus_SmashDown:
 #_1EB50F: LDA.b #$20
 #_1EB511: STA.w $0DF0,X
 
-#_1EB514: LDA.b #!SFX3_03
+#_1EB514: LDA.b #$03 ; SFX3.03
 #_1EB516: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1EB51A: LDA.b #$20
@@ -9239,7 +9239,7 @@ Arrghus_SmashDown:
 #_1EB522: DEC A
 #_1EB523: BNE .exit
 
-#_1EB525: LDA.b #!SFX2_20
+#_1EB525: LDA.b #$20 ; SFX2.20
 #_1EB527: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -9260,7 +9260,7 @@ Arrghus_PingPong:
 #_1EB53D: AND.b #$07
 #_1EB53F: BNE .exit
 
-#_1EB541: LDA.b #!SFX2_28
+#_1EB541: LDA.b #$28 ; SFX2.28
 #_1EB543: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1EB547: PHX
@@ -9278,7 +9278,7 @@ Arrghus_PingPong:
 #_1EB552: LDA.l $7FF800,X
 #_1EB556: BNE .slot_occupied
 
-#_1EB558: LDA.b #!GARNISH_15
+#_1EB558: LDA.b #$15 ; GARNISH 15
 #_1EB55A: STA.l $7FF800,X
 #_1EB55E: STA.w $0FB4
 
@@ -9362,7 +9362,7 @@ Arrghus_MakeDecision:
 
 #_1EB5C7: STZ.w $0D80,X
 
-#_1EB5CA: JSL CheckIfRoomIsClear
+#_1EB5CA: JSL CheckIfScreenIsClear
 #_1EB5CE: BCS Arrghus_BOING
 
 #_1EB5D0: INC.w $0B0B
@@ -9387,7 +9387,7 @@ Arrghus_BOING:
 #_1EB5E8: LDA.b #$03
 #_1EB5EA: STA.w $0D80,X
 
-#_1EB5ED: LDA.b #!SFX3_32
+#_1EB5ED: LDA.b #$32 ; SFX3.32
 #_1EB5EF: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1EB5F3: STZ.w $0E80,X
@@ -9472,14 +9472,14 @@ Arrghus_PuffAttack:
 .hold
 #_1EB651: BNE .not_about_to_shrink
 
-#_1EB653: LDA.b #!SFX3_26
+#_1EB653: LDA.b #$26 ; SFX3.26
 #_1EB655: BRA .play_sfx
 
 .not_about_to_shrink
 #_1EB657: AND.b #$0F
 #_1EB659: BNE .no_sfx
 
-#_1EB65B: LDA.b #!SFX3_06
+#_1EB65B: LDA.b #$06 ; SFX3.06
 
 .play_sfx
 #_1EB65D: JSL SpriteSFX_QueueSFX3WithPan
@@ -10306,7 +10306,7 @@ Sprite_89_MothulaBeam:
 ;---------------------------------------------------------------------------------------------------
 
 .free_garnish_slot
-#_1EBB7A: LDA.b #!GARNISH_02
+#_1EBB7A: LDA.b #$02 ; GARNISH 02
 #_1EBB7C: STA.l $7FF800,X
 #_1EBB80: STA.w $0FB4
 
@@ -10417,7 +10417,7 @@ Tile_Launched:
 ;---------------------------------------------------------------------------------------------------
 
 #Tile_Shatter:
-#_1EBC29: LDA.b #!SFX2_1F
+#_1EBC29: LDA.b #$1F ; SFX2.1F
 #_1EBC2B: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1EBC2F: LDA.b #$06
@@ -10426,7 +10426,7 @@ Tile_Launched:
 #_1EBC34: LDA.b #$1F
 #_1EBC36: STA.w $0DF0,X
 
-#_1EBC39: LDA.b #!SPRITE_EC
+#_1EBC39: LDA.b #$EC ; SPRITE EC
 #_1EBC3B: STA.w $0E20,X
 
 #_1EBC3E: STZ.w $0EF0,X
@@ -10485,7 +10485,7 @@ Tile_Whirr:
 #_1EBC79: AND.b #$07
 #_1EBC7B: BNE .exit
 
-#_1EBC7D: LDA.b #!SFX2_07
+#_1EBC7D: LDA.b #$07 ; SFX2.07
 #_1EBC7F: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -10567,7 +10567,7 @@ Sprite_8A_SpikeBlock:
 #_1EBD12: INC A
 #_1EBD13: STA.w $0D50,X
 
-#_1EBD16: LDA.b #!SFX2_05
+#_1EBD16: LDA.b #$05 ; SFX2.05
 #_1EBD18: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -10771,7 +10771,7 @@ SpikeBlock_CheckStatueCollision:
 #_1EBE1F: BEQ .skip
 
 #_1EBE21: LDA.w $0E20,Y
-#_1EBE24: CMP.b #!SPRITE_1C
+#_1EBE24: CMP.b #$1C ; SPRITE 1C
 #_1EBE26: BNE .skip
 
 #_1EBE28: LDA.w $0D10,X
@@ -11073,7 +11073,7 @@ Mothula_FlapWings:
 
 #_1EBFA4: BNE .no_sfx
 
-#_1EBFA6: LDA.b #!SFX3_02
+#_1EBFA6: LDA.b #$02 ; SFX3.02
 #_1EBFA8: JSL SpriteSFX_QueueSFX3WithPan
 
 .no_sfx
@@ -11123,14 +11123,14 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 Mothula_SpawnBeams:
-#_1EBFD9: LDA.b #!SFX3_36
+#_1EBFD9: LDA.b #$36 ; SFX3.36
 #_1EBFDB: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1EBFDF: LDA.b #$02
 #_1EBFE1: STA.w $0FB5
 
 .next_spawn
-#_1EBFE4: LDA.b #!SPRITE_89
+#_1EBFE4: LDA.b #$89 ; SPRITE 89
 #_1EBFE6: JSL Sprite_SpawnDynamically
 #_1EBFEA: BMI .no_space
 
@@ -11207,7 +11207,7 @@ Mothula_HandleSpikes:
 #_1EC087: LDA.b #$40
 #_1EC089: STA.w $0EB0,X
 
-#_1EC08C: LDA.b #!SPRITE_8A
+#_1EC08C: LDA.b #$8A ; SPRITE 8A
 #_1EC08E: JSL Sprite_SpawnDynamically
 #_1EC092: BMI .exit
 
@@ -11493,20 +11493,21 @@ pool Kodongo_SpawnFire
 .offset_y_high
 #_1EC20B: db   0,   0,   0,  -1
 
-.speed_x ; bleeds into next
+.speed_x
 #_1EC20F: db  24, -24,   0,   0
 
 .speed_y
 #_1EC213: db   0,   0,  24, -24
-#_1EC217: db  64,  56,  48,  40
-#_1EC21B: db  32,  24
+
+; wtf is this?
+#_1EC217: db  64,  56,  48,  40, 32,  24
 
 pool off
 
 ;---------------------------------------------------------------------------------------------------
 
 Kodongo_SpawnFire:
-#_1EC21D: LDA.b #!SPRITE_87
+#_1EC21D: LDA.b #$87 ; SPRITE 87
 #_1EC21F: LDY.b #$0D
 #_1EC221: JSL Sprite_SpawnDynamically_slot_limited
 #_1EC225: BMI .no_space
@@ -11606,7 +11607,7 @@ Sprite_87_KodongoFire:
 #_1EC2A2: AND.b #$3F
 #_1EC2A4: STA.w $0F50,X
 
-#_1EC2A7: LDA.b #!SFX2_2A
+#_1EC2A7: LDA.b #$2A ; SFX2.2A
 #_1EC2A9: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1EC2AD: RTS
@@ -11748,7 +11749,7 @@ Sprite_85_YellowStalfos:
 #_1EC39A: ORA.b #$40
 #_1EC39C: STA.w $0E60,X
 
-#_1EC39F: LDA.b #!SFX2_20
+#_1EC39F: LDA.b #$20 ; SFX2.20
 #_1EC3A1: JSL SpriteSFX_QueueSFX2WithPan
 
 .tile_already_checked
@@ -12057,7 +12058,7 @@ YellowStalfos_Collapsed:
 ;===================================================================================================
 
 YellowStalfos_EmancipateHead:
-#_1EC57A: LDA.b #!SPRITE_02
+#_1EC57A: LDA.b #$02 ; SPRITE 02
 #_1EC57C: JSL Sprite_SpawnDynamically
 #_1EC580: BMI .no_space
 
@@ -12299,7 +12300,7 @@ SpritePrep_Eyegore:
 #_1EC70D: INC.w $0DA0,X
 
 #_1EC710: LDA.w $0E20,X
-#_1EC713: CMP.b #!SPRITE_83
+#_1EC713: CMP.b #$83 ; SPRITE 83
 #_1EC715: BNE .exit
 
 #_1EC717: STZ.w $0CAA,X
@@ -12392,7 +12393,7 @@ Mimic_Main:
 #_1EC7C0: AND.b #$0F
 #_1EC7C2: BEQ Mimic_Stationary
 
-#_1EC7C4: CPY.b #!SPRITE_84
+#_1EC7C4: CPY.b #$84 ; SPRITE 84
 #_1EC7C6: BNE .not_red_mimic
 
 #_1EC7C8: ORA.b #$10
@@ -12431,7 +12432,7 @@ Mimic_Main:
 #_1EC7FA: STA.w $0DC0,X
 
 #_1EC7FD: LDA.w $0E20,X
-#_1EC800: CMP.b #!SPRITE_84
+#_1EC800: CMP.b #$84 ; SPRITE 84
 #_1EC802: BNE .dont_prep_shot
 
 #_1EC804: JSR Sprite_DirectionToFaceLink_Bank1E
@@ -12594,7 +12595,7 @@ Eyegore_Chase:
 #_1EC8CA: STA.w $0E60,X
 
 #_1EC8CD: LDA.w $0E20,X
-#_1EC8D0: CMP.b #!SPRITE_84
+#_1EC8D0: CMP.b #$84 ; SPRITE 84
 #_1EC8D2: BEQ .not_red
 
 #_1EC8D4: LDA.w $0CAA,X
@@ -12863,7 +12864,7 @@ SpritePrep_AntifairyCircle:
 ;---------------------------------------------------------------------------------------------------
 
 .next_bubble
-#_1ECB30: LDA.b #!SPRITE_82
+#_1ECB30: LDA.b #$82 ; SPRITE 82
 #_1ECB32: JSL Sprite_SpawnDynamically
 #_1ECB36: BMI .no_space
 
@@ -12970,10 +12971,10 @@ Sprite_82_AntifairyCircle:
 #_1ECBD0: LDA.w $0D40,X
 #_1ECBD3: BEQ .keep_circling
 
-#_1ECBD5: JSL CheckIfQuadrantIsClear
+#_1ECBD5: JSL CheckIfRoomIsClear
 #_1ECBD9: BCC .keep_circling
 
-#_1ECBDB: LDA.b #!SPRITE_15
+#_1ECBDB: LDA.b #$15 ; SPRITE 15
 #_1ECBDD: STA.w $0E20,X
 
 #_1ECBE0: LDA.b #$10
@@ -13062,8 +13063,8 @@ Hover_Idle:
 #_1ECC4C: STY.b $0C
 
 #_1ECC4E: JSR Sprite_IsBelowLink_Bank1E
-#_1ECC51: TYA
 
+#_1ECC51: TYA
 #_1ECC52: ASL A
 #_1ECC53: ORA.b $0C
 #_1ECC55: STA.w $0DE0,X
@@ -13228,7 +13229,7 @@ CrystalCutscene_SpawnMaiden:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_1ECD4C: LDA.b #!SPRITE_AB
+#_1ECD4C: LDA.b #$AB ; SPRITE AB
 #_1ECD4E: JSL Sprite_SpawnDynamically
 
 #_1ECD52: LDA.b $23
@@ -13275,12 +13276,12 @@ CrystalCutscene_SpawnMaiden:
 #_1ECD8C: LDA.b #$09
 #_1ECD8E: STA.w $0F50,Y
 
-#_1ECD91: LDA.b #!FOLLOWER_01
+#_1ECD91: LDA.b #$01 ; FOLLOWER 01
 
 #_1ECD93: BRA .load_gfx
 
 .not_zelda
-#_1ECD95: LDA.b #!FOLLOWER_06
+#_1ECD95: LDA.b #$06 ; FOLLOWER 06
 
 .load_gfx
 #_1ECD97: STA.l $7EF3CC
@@ -13417,7 +13418,7 @@ CrystalMaiden_RunCutscene:
 #_1ECE5B: dw CrystalMaiden_KickOutOfDungeon
 
 ;===================================================================================================
-; Why does this AI routine even exist?
+; Why does this routine even exist?
 ;===================================================================================================
 CrystalMaiden_DisableSubscreen:
 #_1ECE5D: STZ.b $1D
@@ -13709,7 +13710,7 @@ Sprite_7D_BigSpike:
 
 #_1ECFAD: RTS
 
-;===================================================================================================
+;---------------------------------------------------------------------------------------------------
 
 .retracting
 #_1ECFAE: LDA.w $0DF0,X
@@ -14059,13 +14060,13 @@ Firebar_Main:
 #_1ED16B: DEX
 #_1ED16C: BPL .next_object_a
 
+;---------------------------------------------------------------------------------------------------
+
 #_1ED16E: PLX
 
 #_1ED16F: LDY.b #$FF
 #_1ED171: LDA.b #$03
 #_1ED173: JSL Sprite_CorrectOAMEntries_long
-
-;---------------------------------------------------------------------------------------------------
 
 #_1ED177: TXA
 #_1ED178: EOR.b $1A
@@ -14173,7 +14174,7 @@ Sprite_80_Firesnake:
 #_1ED1E1: ORA.w .flip,Y
 #_1ED1E4: STA.w $0F50,X
 
-; TODO analyze
+; !WTF some unimplemented method of killing firesnakes
 #_1ED1E7: LDA.w $0D90,X
 #_1ED1EA: BEQ .main
 
@@ -14241,6 +14242,7 @@ Firesnake_SpawnFireball:
 
 #_1ED23A: PHX
 #_1ED23B: TXY
+
 #_1ED23C: LDX.b #$1D
 
 .next_slot
@@ -14257,7 +14259,7 @@ Firesnake_SpawnFireball:
 ;---------------------------------------------------------------------------------------------------
 
 .free_slot
-#_1ED249: LDA.b #!GARNISH_01
+#_1ED249: LDA.b #$01 ; GARNISH 01
 #_1ED24B: STA.l $7FF800,X
 #_1ED24F: STA.w $0FB4
 
@@ -14337,7 +14339,6 @@ Sprite_7C_GreenStalfos:
 #_1ED2C7: BNE .dont_turn
 
 #_1ED2C9: JSR Sprite_DirectionToFaceLink_Bank1E
-
 #_1ED2CC: TYA
 #_1ED2CD: STA.w $0DE0,X
 
@@ -14513,7 +14514,7 @@ Agahnim_SpinToPyramid:
 
 #_1ED3C1: STZ.w $0E80,X
 
-#_1ED3C4: LDA.b #!SFX2_04
+#_1ED3C4: LDA.b #$04 ; SFX2.04
 #_1ED3C6: JSL SpriteSFX_QueueSFX2WithPan
 
 .no_sfx
@@ -14548,7 +14549,7 @@ Agahnim_ExorciseGanon:
 
 #_1ED3F0: JSL SpawnPhantomGanon
 
-#_1ED3F4: LDA.b #!SONG_1D
+#_1ED3F4: LDA.b #$1D ; SONG 1D
 #_1ED3F6: STA.w $012C
 
 .no_bat_yet
@@ -14702,14 +14703,14 @@ Agahnim_CreateClones:
 #_1ED4AB: CMP.b #$40
 #_1ED4AD: BNE .exit_b
 
-#_1ED4AF: LDA.b #!SFX3_28
+#_1ED4AF: LDA.b #$28 ; SFX3.28
 #_1ED4B1: STA.w $012F
 
 #_1ED4B4: LDA.b #$01
 #_1ED4B6: STA.w $0FB5
 
 .next_clone
-#_1ED4B9: LDA.b #!SPRITE_7A
+#_1ED4B9: LDA.b #$7A ; SPRITE 7A
 #_1ED4BB: LDY.b #$02
 #_1ED4BD: JSL Sprite_SpawnDynamically_slot_limited
 
@@ -14860,7 +14861,7 @@ Agahnim_Attack:
 
 #_1ED567: PHA
 
-#_1ED568: LDA.b #!SFX3_27
+#_1ED568: LDA.b #$27 ; SFX3.27
 #_1ED56A: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1ED56E: PLA
@@ -15091,7 +15092,7 @@ Agahnim_PerformAttack:
 
 #_1ED68F: STZ.w $0E30,X
 
-#_1ED692: LDA.b #!SFX3_26
+#_1ED692: LDA.b #$26 ; SFX3.26
 #_1ED694: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1ED698: JSR .spawn_2
@@ -15105,11 +15106,11 @@ Agahnim_PerformAttack:
 ;---------------------------------------------------------------------------------------------------
 
 .balls
-#_1ED6A4: LDA.b #!SPRITE_7B
+#_1ED6A4: LDA.b #$7B ; SPRITE 7B
 #_1ED6A6: JSL Sprite_SpawnDynamically
 #_1ED6AA: BMI .exit
 
-#_1ED6AC: LDA.b #!SFX3_29
+#_1ED6AC: LDA.b #$29 ; SFX3.29
 #_1ED6AE: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1ED6B2: PHX
@@ -15727,7 +15728,7 @@ AgahnimBalls_Main:
 #_1EDAE7: STZ.w $0DD0,X
 
 .blue_ball_explode
-#_1EDAEA: LDA.b #!SFX3_36
+#_1EDAEA: LDA.b #$36 ; SFX3.36
 #_1EDAEC: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1EDAF0: JSR CreateSixBlueBalls
@@ -15737,10 +15738,10 @@ AgahnimBalls_Main:
 ;---------------------------------------------------------------------------------------------------
 
 .reflected_yellow_ball
-#_1EDAF4: LDA.b #!SFX2_05
+#_1EDAF4: LDA.b #$05 ; SFX2.05
 #_1EDAF6: JSL SpriteSFX_QueueSFX2WithPan
 
-#_1EDAFA: LDA.b #!SFX3_29
+#_1EDAFA: LDA.b #$29 ; SFX3.29
 #_1EDAFC: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1EDB00: LDA.b #$30
@@ -15767,7 +15768,7 @@ AgahnimBalls_Main:
 #_1EDB1E: ORA.w $0DA0,X
 #_1EDB21: BNE .exit
 
-#_1EDB23: LDA.b #!SPRITE_7B
+#_1EDB23: LDA.b #$7B ; SPRITE 7B
 #_1EDB25: JSL Sprite_SpawnDynamically
 #_1EDB29: BMI .exit
 
@@ -15847,7 +15848,7 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 CreateSixBlueBalls:
-#_1EDB90: LDA.b #!SFX3_36
+#_1EDB90: LDA.b #$36 ; SFX3.36
 #_1EDB92: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1EDB96: LDA.b #$05
@@ -15862,7 +15863,7 @@ CreateSixBlueBalls:
 ;---------------------------------------------------------------------------------------------------
 
 .spawn_one
-#_1EDBA3: LDA.b #!SPRITE_55
+#_1EDBA3: LDA.b #$55 ; SPRITE 55
 #_1EDBA5: JSL Sprite_SpawnDynamically
 #_1EDBA9: BMI .no_space
 
@@ -16005,7 +16006,7 @@ BeeTimer:
 ;===================================================================================================
 
 SpawnBeeFromHive:
-#_1EDC89: LDA.b #!SPRITE_79
+#_1EDC89: LDA.b #$79 ; SPRITE 79
 #_1EDC8B: JSL Sprite_SpawnDynamically
 #_1EDC8F: BMI .no_space
 
@@ -16056,7 +16057,7 @@ ReleaseBeeFromBottle:
 #_1EDCCA: PHK
 #_1EDCCB: PLB
 
-#_1EDCCC: LDA.b #!SPRITE_B2
+#_1EDCCC: LDA.b #$B2 ; SPRITE B2
 #_1EDCCE: JSL Sprite_SpawnDynamically
 #_1EDCD2: BMI .no_space
 
@@ -16386,7 +16387,7 @@ GoldBee_Dormant:
 ;===================================================================================================
 
 GoldBee_SpawnSelf:
-#_1EDE8A: LDA.b #!SPRITE_79
+#_1EDE8A: LDA.b #$79 ; SPRITE 79
 #_1EDE8C: JSL Sprite_SpawnDynamically
 #_1EDE90: BMI .no_space
 
@@ -16702,7 +16703,7 @@ Bee_Bzzt:
 #_1EE02B: AND.b #$1F
 #_1EE02D: BNE .exit
 
-#_1EE02F: LDA.b #!SFX3_2C
+#_1EE02F: LDA.b #$2C ; SFX3.2C
 #_1EE031: JSL SpriteSFX_QueueSFX3WithPan
 
 .exit
@@ -16879,7 +16880,7 @@ Sprite_B4_PurpleChest:
 .follow_link
 #_1EE0F7: STZ.w $0DD0,X
 
-#_1EE0FA: LDA.b #!FOLLOWER_0C
+#_1EE0FA: LDA.b #$0C ; FOLLOWER 0C
 #_1EE0FC: STA.l $7EF3CC
 
 #_1EE100: PHX
@@ -16943,7 +16944,7 @@ BombShop_Clerk:
 #_1EE14C: STA.w $0DC0,X
 #_1EE14F: BNE .inhale
 
-#_1EE151: LDA.b #!SFX3_11
+#_1EE151: LDA.b #$11 ; SFX3.11
 #_1EE153: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1EE157: JSR BombShop_ClerkExhalation
@@ -16951,7 +16952,7 @@ BombShop_Clerk:
 #_1EE15A: BRA .continue
 
 .inhale
-#_1EE15C: LDA.b #!SFX3_12
+#_1EE15C: LDA.b #$12 ; SFX3.12
 #_1EE15E: JSL SpriteSFX_QueueSFX3WithPan
 
 ;---------------------------------------------------------------------------------------------------
@@ -17005,7 +17006,7 @@ BombShop_Bomb:
 #_1EE1A3: PLX
 
 #_1EE1A4: CMP.l $7EF343
-#_1EE1A8: BEQ .no_room
+#_1EE1A8: BEQ .no_space
 
 ; 100 rupees
 #_1EE1AA: LDA.b #100
@@ -17024,7 +17025,7 @@ BombShop_Bomb:
 #_1EE1BE: LDY.b #$01
 #_1EE1C0: JSL Sprite_ShowMessageUnconditional
 
-#_1EE1C4: LDY.b #!ITEMGET_28
+#_1EE1C4: LDY.b #$28 ; ITEMGET 28
 #_1EE1C6: JSR ShopItem_HandleReceipt
 
 .exit
@@ -17032,7 +17033,7 @@ BombShop_Bomb:
 
 ;---------------------------------------------------------------------------------------------------
 
-.no_room
+.no_space
 ; Message 016C
 #_1EE1CA: LDA.b #$6C
 #_1EE1CC: LDY.b #$01
@@ -17060,7 +17061,7 @@ BombShop_SuperBomb:
 #_1EE1EC: JSR ShopItem_HandleCost
 #_1EE1EF: BCC .too_poor
 
-#_1EE1F1: LDA.b #!FOLLOWER_0D
+#_1EE1F1: LDA.b #$0D ; FOLLOWER 0D
 #_1EE1F3: STA.l $7EF3CC
 
 #_1EE1F7: PHX
@@ -17139,7 +17140,7 @@ BombShop_Huff:
 ;===================================================================================================
 
 BombShop_ClerkExhalation:
-#_1EE250: LDA.b #!SPRITE_B5
+#_1EE250: LDA.b #$B5 ; SPRITE B5
 #_1EE252: JSL Sprite_SpawnDynamically
 
 #_1EE256: LDA.b #$03
@@ -17548,7 +17549,7 @@ Kiki_Dormant:
 #_1EE493: BNE .exit
 
 #_1EE495: LDA.l $7EF3CC
-#_1EE499: CMP.b #!FOLLOWER_0A
+#_1EE499: CMP.b #$0A ; FOLLOWER 0A
 #_1EE49B: BEQ .exit
 
 #_1EE49D: PHX
@@ -17563,7 +17564,7 @@ Kiki_Dormant:
 #_1EE4A9: JSL Sprite_CheckDamageToLink_same_layer_long
 #_1EE4AD: BCC .exit
 
-#_1EE4AF: LDA.b #!FOLLOWER_0A
+#_1EE4AF: LDA.b #$0A ; FOLLOWER 0A
 #_1EE4B1: STA.l $7EF3CC
 
 #_1EE4B5: PHX
@@ -17684,7 +17685,7 @@ Kiki_DartHead:
 #_1EE542: LDA.w .next_jump_speed,Y
 #_1EE545: STA.w $0F80,X
 
-#_1EE548: LDA.b #!SFX2_20
+#_1EE548: LDA.b #$20 ; SFX2.20
 #_1EE54A: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1EE54E: LDA.w $0D80,X
@@ -17770,7 +17771,7 @@ Kiki_HopToSpot:
 #_1EE5B2: LDA.b #$20
 #_1EE5B4: STA.w $0E00,X
 
-#_1EE5B7: LDA.b #!SFX2_21
+#_1EE5B7: LDA.b #$21 ; SFX2.21
 #_1EE5B9: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1EE5BD: RTS
@@ -17906,7 +17907,7 @@ Kiki_SlamButton:
 
 #_1EE65B: INC.w $0D80,X
 
-#_1EE65E: LDA.b #!SFX3_25
+#_1EE65E: LDA.b #$25 ; SFX3.25
 #_1EE660: JSL SpriteSFX_QueueSFX3WithPan
 
 ;===================================================================================================
@@ -17933,7 +17934,7 @@ Kiki_RevertToSprite:
 Kiki_SpawnHandlerMonke:
 #_1EE674: PHA
 
-#_1EE675: LDA.b #!SPRITE_B6
+#_1EE675: LDA.b #$B6 ; SPRITE B6
 #_1EE677: JSL Sprite_SpawnDynamically
 #_1EE67B: BMI .no_space
 
@@ -18227,7 +18228,7 @@ Sprite_B7_BlindMaiden:
 .become_follower
 #_1EE8D7: STZ.w $0DD0,X
 
-#_1EE8DA: LDA.b #!FOLLOWER_06
+#_1EE8DA: LDA.b #$06 ; FOLLOWER 06
 #_1EE8DC: STA.l $7EF3CC
 
 #_1EE8E0: PHX
@@ -18277,7 +18278,7 @@ SpritePrep_OldMan:
 #_1EE912: STZ.w $0DD0,X
 
 .spawn
-#_1EE915: LDA.b #!FOLLOWER_04
+#_1EE915: LDA.b #$04 ; FOLLOWER 04
 #_1EE917: STA.l $7EF3CC
 
 #_1EE91B: PHX
@@ -18305,7 +18306,7 @@ SpritePrep_OldMan:
 OldMan_RevertToSprite:
 #_1EE932: PHA
 
-#_1EE933: LDA.b #!SPRITE_AD
+#_1EE933: LDA.b #$AD ; SPRITE AD
 #_1EE935: JSL Sprite_SpawnDynamically
 
 #_1EE939: PLA
@@ -18411,7 +18412,7 @@ OldMan_Lost_Wait:
 ;===================================================================================================
 
 OldMan_Lost_BecomeFollower:
-#_1EE9CC: LDA.b #!FOLLOWER_04
+#_1EE9CC: LDA.b #$04 ; FOLLOWER 04
 #_1EE9CE: STA.l $7EF3CC
 
 #_1EE9D2: JSL Sprite_BecomeFollower
@@ -18442,7 +18443,7 @@ OldMan_Returning:
 OldMan_Returning_GiveMirror:
 #_1EE9F6: INC.w $0D80,X
 
-#_1EE9F9: LDY.b #!ITEMGET_1A
+#_1EE9F9: LDY.b #$1A ; ITEMGET 1A
 #_1EE9FB: STZ.w $02E9
 #_1EE9FE: JSL Link_ReceiveItem
 
@@ -19148,7 +19149,7 @@ SpriteDraw_Bully:
 ; BOI_OI_OI_OI_OING
 ;===================================================================================================
 BOI_OI_OI_OI_OING:
-#_1EEDBC: LDA.b #!SFX3_32
+#_1EEDBC: LDA.b #$32 ; SFX3.32
 #_1EEDBE: JSL SpriteSFX_QueueSFX3WithPan
 
 #_1EEDC2: RTS
@@ -19156,7 +19157,7 @@ BOI_OI_OI_OI_OING:
 ;===================================================================================================
 
 SpawnBully:
-#_1EEDC3: LDA.b #!SPRITE_B9
+#_1EEDC3: LDA.b #$B9 ; SPRITE B9
 #_1EEDC5: JSL Sprite_SpawnDynamically
 #_1EEDC9: BMI .no_space
 
@@ -19327,7 +19328,7 @@ CastleWarp:
 #_1EEE8E: STZ.b $27
 #_1EEE90: STZ.b $28
 
-#_1EEE92: LDA.b #!LINKSTATE_14
+#_1EEE92: LDA.b #$14 ; LINKSTATE 14
 #_1EEE94: STA.b $5D
 
 .no_warp
@@ -19678,7 +19679,7 @@ NiceThiefWithGift_GiveRupees:
 
 #_1EF060: INC.w $0D80,X
 
-#_1EF063: LDY.b #!ITEMGET_46 ; 300 rupees
+#_1EF063: LDY.b #$46 ; ITEMGET 46 - 300 rupees
 #_1EF065: JMP.w ShopItem_HandleReceipt
 
 ;===================================================================================================
@@ -19920,7 +19921,7 @@ ShopItem_RedPotion150:
 
 #_1EF180: STZ.w $0DD0,X
 
-#_1EF183: LDY.b #!ITEMGET_2E
+#_1EF183: LDY.b #$2E ; ITEMGET 2E
 #_1EF185: JSR ShopItem_HandleReceipt
 
 .exit
@@ -19963,7 +19964,7 @@ ShopKeeper_SpawnShopItem:
 #_1EF1A7: PHA
 #_1EF1A8: PHY
 
-#_1EF1A9: LDA.b #!SPRITE_BB
+#_1EF1A9: LDA.b #$BB ; SPRITE BB
 #_1EF1AB: LDY.b #$0C
 #_1EF1AD: JSL Sprite_SpawnDynamically_slot_limited
 
@@ -20024,7 +20025,7 @@ ShopItem_FighterShield:
 
 #_1EF207: STZ.w $0DD0,X
 
-#_1EF20A: LDY.b #!ITEMGET_04
+#_1EF20A: LDY.b #$04 ; ITEMGET 04
 #_1EF20C: JSR ShopItem_HandleReceipt
 
 .set_hitbox
@@ -20074,7 +20075,7 @@ ShopItem_FireShield:
 
 #_1EF247: STZ.w $0DD0,X
 
-#_1EF24A: LDY.b #!ITEMGET_05
+#_1EF24A: LDY.b #$05 ; ITEMGET 05
 #_1EF24C: JSR ShopItem_HandleReceipt
 
 .set_hitbox
@@ -20128,7 +20129,7 @@ ShopItem_Heart:
 
 #_1EF293: STZ.w $0DD0,X
 
-#_1EF296: LDY.b #!ITEMGET_42
+#_1EF296: LDY.b #$42 ; ITEMGET 42
 #_1EF298: JSR ShopItem_HandleReceipt
 
 .exit
@@ -20173,7 +20174,7 @@ ShopItem_Arrows:
 
 #_1EF2CC: STZ.w $0DD0,X
 
-#_1EF2CF: LDY.b #!ITEMGET_44
+#_1EF2CF: LDY.b #$44 ; ITEMGET 44
 #_1EF2D1: JSR ShopItem_HandleReceipt
 
 .exit
@@ -20225,7 +20226,7 @@ ShopItem_Bombs:
 
 #_1EF30D: STZ.w $0DD0,X
 
-#_1EF310: LDY.b #!ITEMGET_31
+#_1EF310: LDY.b #$31 ; ITEMGET 31
 #_1EF312: JSR ShopItem_HandleReceipt
 
 .exit
@@ -20252,7 +20253,7 @@ ShopItem_Bee:
 
 #_1EF334: STZ.w $0DD0,X
 
-#_1EF337: LDY.b #!ITEMGET_0E
+#_1EF337: LDY.b #$0E ; ITEMGET 0E
 #_1EF339: JSR ShopItem_HandleReceipt
 
 .exit
@@ -20330,7 +20331,7 @@ ShopItem_HandleReceipt:
 ;===================================================================================================
 
 ShopItem_PlayBeep:
-#_1EF37E: LDA.b #!SFX2_3C
+#_1EF37E: LDA.b #$3C ; SFX2.3C
 #_1EF380: JSL SpriteSFX_QueueSFX2WithPan
 
 #_1EF384: RTS
@@ -20543,7 +20544,7 @@ ApplesInTree:
 ;===================================================================================================
 
 SpawnApple:
-#_1EF529: LDA.b #!SPRITE_AC
+#_1EF529: LDA.b #$AC ; SPRITE AC
 #_1EF52B: JSL Sprite_SpawnDynamically
 #_1EF52F: BMI .exit
 
@@ -20618,7 +20619,7 @@ Apple:
 #_1EF58C: JSR Sprite_CheckDamageToLink_Bank1E
 #_1EF58F: BCC .not_collected
 
-#_1EF591: LDA.b #!SFX3_0B
+#_1EF591: LDA.b #$0B ; SFX3.0B
 #_1EF593: JSL SpriteSFX_QueueSFX3WithPan
 
 ; +1 heart of health
@@ -20917,10 +20918,10 @@ SomariaPlatformAndPipe_Main:
 #_1EF725: JSL Link_CancelDash_long
 
 #_1EF729: LDA.b $5D
-#_1EF72B: CMP.b #!LINKSTATE_13
+#_1EF72B: CMP.b #$13 ; LINKSTATE 13
 #_1EF72D: BEQ SomariaPlatform_Inactive
 
-#_1EF72F: CMP.b #!LINKSTATE_03
+#_1EF72F: CMP.b #$03 ; LINKSTATE 03
 #_1EF731: BEQ SomariaPlatform_Inactive
 
 #_1EF733: LDA.w $0D80,X
@@ -21748,7 +21749,7 @@ Sprite_B1_Pipe_Left:
 
 Pipe_FindEndPoint:
 #_1EFB88: JSR SomariaPlatformAndPipe_CheckTile
-#_1EFB8B: CMP.b #!TILETYPE_BE
+#_1EFB8B: CMP.b #$BE ; TILETYPE BE
 #_1EFB8D: BNE .invalid_tile
 
 #_1EFB8F: STA.w $0E90,X
@@ -21875,13 +21876,13 @@ Pipe_MoveLink:
 
 #_1EFC29: PHA
 
-#_1EFC2A: CMP.b #!TILETYPE_B2
+#_1EFC2A: CMP.b #$B2 ; TILETYPE B2
 #_1EFC2C: BCC .no_thud
 
-#_1EFC2E: CMP.b #!TILETYPE_B6
+#_1EFC2E: CMP.b #$B6 ; TILETYPE B6
 #_1EFC30: BCS .no_thud
 
-#_1EFC32: LDA.b #!SFX2_0B
+#_1EFC32: LDA.b #$0B ; SFX2.0B
 #_1EFC34: JSL SpriteSFX_QueueSFX2WithPan
 
 .no_thud
@@ -21891,7 +21892,7 @@ Pipe_MoveLink:
 
 #_1EFC3E: STA.w $0E90,X
 
-#_1EFC41: CMP.b #!TILETYPE_BE
+#_1EFC41: CMP.b #$BE ; TILETYPE BE
 #_1EFC43: BNE .check_new_tile
 
 #_1EFC45: INC.w $0DC0,X
@@ -22274,7 +22275,7 @@ Fairy_HandleMovement:
 ;===================================================================================================
 
 ReleaseFairy:
-#_1EFE27: LDA.b #!SPRITE_E3
+#_1EFE27: LDA.b #$E3 ; SPRITE E3
 #_1EFE29: JSL Sprite_SpawnDynamically
 #_1EFE2D: BMI .no_space
 
@@ -22452,7 +22453,7 @@ Sprite_CheckIfRecoiling_Bank1E:
 
 ; Agahnim recoils, but he keeps going.
 #_1EFF04: LDA.w $0E20,X
-#_1EFF07: CMP.b #!SPRITE_7A
+#_1EFF07: CMP.b #$7A ; SPRITE 7A
 #_1EFF09: BEQ .exit
 
 #_1EFF0B: PLA
@@ -22603,7 +22604,7 @@ Sprite_DrawRippleIfInWater:
 #_1EFFA2: STA.w $0FD9
 
 #_1EFFA5: LDA.w $0E20,X
-#_1EFFA8: CMP.b #!SPRITE_DF ; !HARDCODED thing for small magic
+#_1EFFA8: CMP.b #$DF ; !HARDCODED thing for small magic (SPRITE DF)
 #_1EFFAA: BNE .no_offset
 
 #_1EFFAC: LDA.w $0FDA

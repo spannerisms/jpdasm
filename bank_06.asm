@@ -16,7 +16,7 @@ BottleMerchant_DetectFish:
 #_068008: BEQ .inactive
 
 #_06800A: LDA.w $0E20,Y
-#_06800D: CMP.b #!SPRITE_D2
+#_06800D: CMP.b #$D2 ; SPRITE D2
 #_06800F: BEQ .is_fish
 
 .inactive
@@ -87,11 +87,11 @@ pool BottleMerchant_BuyFish
 #_06804E: db 11
 
 .item_id
-#_06804F: db !SPRITE_DB ; red rupee
-#_068050: db !SPRITE_E0 ; large magic
-#_068051: db !SPRITE_DE ; 8 bombs
-#_068052: db !SPRITE_E2 ; 10 arrows
-#_068053: db !SPRITE_D9 ; green rupee
+#_06804F: db $DB ; SPRITE DB - red rupee
+#_068050: db $E0 ; SPRITE E0 - large magic
+#_068051: db $DE ; SPRITE DE - 8 bombs
+#_068052: db $E2 ; SPRITE E2 - 10 arrows
+#_068053: db $D9 ; SPRITE D9 - green rupee
 
 pool off
 
@@ -102,7 +102,7 @@ BottleMerchant_BuyFish:
 #_068055: PHK
 #_068056: PLB
 
-#_068057: LDA.b #!SFX3_13 ; Throw sound effect
+#_068057: LDA.b #$13 ; SFX3.13
 #_068059: JSL SpriteSFX_QueueSFX3WithPan
 
 #_06805D: LDA.b #$04 ; this is being used as a counter for which item to throw
@@ -168,7 +168,7 @@ Boomerang_CheatWhenNoOnesLooking:
 
 #_0680B3: REP #$20
 
-#_0680B5: LDY.b #112
+#_0680B5: LDY.b #$70
 
 ; take Link's X coordinate and subtract the boomerang's
 #_0680B7: LDA.b $22
@@ -184,7 +184,7 @@ Boomerang_CheatWhenNoOnesLooking:
 #_0680C0: CMP.w #$01E0
 #_0680C3: BPL .positive_speed_x
 
-#_0680C5: LDY.b #-112
+#_0680C5: LDY.b #$90
 
 .positive_speed_x
 ; if the difference was < 240 and positive, then the boom is considered
@@ -321,7 +321,7 @@ Sprite_SpawnThrowableTerrain:
 #_06814B: PHA
 
 #_06814C: JSL Link_CalculateSFXPan
-#_068150: ORA.b #!SFX2_1D
+#_068150: ORA.b #$1D ; SFX2.1D
 #_068152: STA.w $012E
 
 #_068155: PLA
@@ -348,7 +348,7 @@ Sprite_SpawnThrowableTerrain_silently:
 #_068162: LDA.b #$0A
 #_068164: STA.w $0DD0,X
 
-#_068167: LDA.b #!SPRITE_EC
+#_068167: LDA.b #$EC ; SPRITE EC
 #_068169: STA.w $0E20,X
 
 #_06816C: LDA.b $00
@@ -455,27 +455,27 @@ Sprite_SpawnThrowableTerrain_silently:
 pool Sprite_SpawnSecret
 
 .ID
-#_0681F4: db !SPRITE_D9 ; 0x01 - green rupee
-#_0681F5: db !SPRITE_3E ; 0x02 - hoarder
-#_0681F6: db !SPRITE_79 ; 0x03 - bee
-#_0681F7: db !SPRITE_D9 ; 0x04 - green rupee
-#_0681F8: db !SPRITE_DC ; 0x05 - 1 bomb
-#_0681F9: db !SPRITE_D8 ; 0x06 - heart
-#_0681FA: db !SPRITE_DA ; 0x07 - blue rupee
-#_0681FB: db !SPRITE_E4 ; 0x08 - small key
-#_0681FC: db !SPRITE_E1 ; 0x09 - 5 arrows
-#_0681FD: db !SPRITE_DC ; 0x0A - 1 bomb
-#_0681FE: db !SPRITE_D8 ; 0x0B - heart
-#_0681FF: db !SPRITE_DF ; 0x0C - small magic
-#_068200: db !SPRITE_E0 ; 0x0D - full magic
-#_068201: db !SPRITE_0B ; 0x0E - cucco
-#_068202: db !SPRITE_42 ; 0x0F - green guard
-#_068203: db !SPRITE_D3 ; 0x10 - stal
-#_068204: db !SPRITE_41 ; 0x11 - blue guard
-#_068205: db !SPRITE_D4 ; 0x12 - landmine
-#_068206: db !SPRITE_D9 ; 0x13 - green rupee
-#_068207: db !SPRITE_E3 ; 0x14 - fairy
-#_068208: db !SPRITE_D8 ; 0x15 - heart
+#_0681F4: db $D9 ; SPRITE D9 - 0x01 - green rupee
+#_0681F5: db $3E ; SPRITE 3E - 0x02 - hoarder
+#_0681F6: db $79 ; SPRITE 79 - 0x03 - bee
+#_0681F7: db $D9 ; SPRITE D9 - 0x04 - green rupee
+#_0681F8: db $DC ; SPRITE DC - 0x05 - 1 bomb
+#_0681F9: db $D8 ; SPRITE D8 - 0x06 - heart
+#_0681FA: db $DA ; SPRITE DA - 0x07 - blue rupee
+#_0681FB: db $E4 ; SPRITE E4 - 0x08 - small key
+#_0681FC: db $E1 ; SPRITE E1 - 0x09 - 5 arrows
+#_0681FD: db $DC ; SPRITE DC - 0x0A - 1 bomb
+#_0681FE: db $D8 ; SPRITE D8 - 0x0B - heart
+#_0681FF: db $DF ; SPRITE DF - 0x0C - small magic
+#_068200: db $E0 ; SPRITE E0 - 0x0D - full magic
+#_068201: db $0B ; SPRITE 0B - 0x0E - cucco
+#_068202: db $42 ; SPRITE 42 - 0x0F - green guard
+#_068203: db $D3 ; SPRITE D3 - 0x10 - stal
+#_068204: db $41 ; SPRITE 41 - 0x11 - blue guard
+#_068205: db $D4 ; SPRITE D4 - 0x12 - landmine
+#_068206: db $D9 ; SPRITE D9 - 0x13 - green rupee
+#_068207: db $E3 ; SPRITE E3 - 0x14 - fairy
+#_068208: db $D8 ; SPRITE D8 - 0x15 - heart
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -666,7 +666,7 @@ Sprite_SpawnSecret:
 #_0682D0: STA.w $0E10,Y
 
 #_0682D3: LDX.w $0E20,Y
-#_0682D6: CPX.b #!SPRITE_E4
+#_0682D6: CPX.b #$E4 ; SPRITE E4
 #_0682D8: BNE .not_key
 
 #_0682DA: PHX
@@ -679,10 +679,10 @@ Sprite_SpawnSecret:
 ;---------------------------------------------------------------------------------------------------
 
 .not_key
-#_0682E0: CPX.b #!SPRITE_0B
+#_0682E0: CPX.b #$0B ; SPRITE 0B
 #_0682E2: BNE .not_cucco
 
-#_0682E4: LDA.b #!SFX2_30
+#_0682E4: LDA.b #$30 ; SFX2.30
 #_0682E6: STA.w $012E
 
 #_0682E9: LDA.w $048E ; are we in the western snitch house?
@@ -692,13 +692,13 @@ Sprite_SpawnSecret:
 #_0682F0: STA.w $0E30,Y
 
 .not_cucco
-#_0682F3: CPX.b #!SPRITE_42
+#_0682F3: CPX.b #$42 ; SPRITE 42
 #_0682F5: BEQ .guard
 
-#_0682F7: CPX.b #!SPRITE_41
+#_0682F7: CPX.b #$41 ; SPRITE 41
 #_0682F9: BEQ .guard
 
-#_0682FB: CPX.b #!SPRITE_3E
+#_0682FB: CPX.b #$3E ; SPRITE 3E
 #_0682FD: BNE .not_hoarder
 
 #_0682FF: LDA.b #$09
@@ -709,7 +709,7 @@ Sprite_SpawnSecret:
 ;---------------------------------------------------------------------------------------------------
 
 .guard
-#_068306: LDA.b #!SFX3_04
+#_068306: LDA.b #$04 ; SFX3.04
 #_068308: STA.w $012F
 
 #_06830B: LDA.b #$00 ; prevent damage
@@ -727,7 +727,7 @@ Sprite_SpawnSecret:
 #_068319: STA.w $0B58,Y
 
 .last_check
-#_06831C: CPX.b #!SPRITE_79 ; is it a bee?
+#_06831C: CPX.b #$79 ; SPRITE 79 - is it a bee?
 #_06831E: BNE .done
 
 #_068320: LDA.b #$20 ; target west
@@ -998,7 +998,7 @@ Sprite_TimersAndOAM:
 
 ; looks like agahnim 2 has some hardcoded nonsense going on for his message
 #_068454: LDA.w $0E20,X
-#_068457: CMP.b #!SPRITE_7A
+#_068457: CMP.b #$7A ; SPRITE 7A
 #_068459: BNE .not_agahnim2
 
 #_06845B: LDA.w $0FFF
@@ -1025,7 +1025,7 @@ Sprite_TimersAndOAM:
 #_068479: PLA
 
 .delay_damage
-#_06847A: CMP.b #!SPRITE_18
+#_06847A: CMP.b #$18 ; SPRITE 18
 #_06847C: BNE .no_damage
 
 #_06847E: JSR MiniMoldorm_Recoil
@@ -1501,10 +1501,10 @@ SpriteModule_Initialize:
 #_06870F: dw SpritePrep_LostWoodsSquirrel             ; 0x5A - LOST WOODS SQUIRREL
 #_068711: dw SpritePrep_Spark                         ; 0x5B - SPARK
 #_068713: dw SpritePrep_Spark                         ; 0x5C - SPARK
-#_068715: dw SpritePrep_Roller_VerticalStartUp        ; 0x5D - ROLLER VERTICAL UP
-#_068717: dw SpritePrep_Roller_VerticalStartDown      ; 0x5E - ROLLER VERTICAL DOWN
-#_068719: dw SpritePrep_Roller_HorizontalStartLeft    ; 0x5F - ROLLER HORIZONTAL LEFT
-#_06871B: dw SpritePrep_Roller_HorizontalStartRight   ; 0x60 - ROLLER HORIZONTAL RIGHT
+#_068715: dw SpritePrep_Roller_VerticalDownFirst      ; 0x5D - ROLLER VERTICAL DOWN FIRST
+#_068717: dw SpritePrep_Roller_VerticalUpFirst        ; 0x5E - ROLLER VERTICAL UP FIRST
+#_068719: dw SpritePrep_Roller_HorizontalRightFirst   ; 0x5F - ROLLER HORIZONTAL RIGHT FIRST
+#_06871B: dw SpritePrep_Roller_HorizontalLeftFirst    ; 0x60 - ROLLER HORIZONTAL LEFT FIRST
 #_06871D: dw SpritePrep_DoNothingA                    ; 0x61 - BEAMOS
 #_06871F: dw SpritePrep_MasterSword                   ; 0x62 - MASTERSWORD
 #_068721: dw SpritePrep_DebirandoPit                  ; 0x63 - DEBIRANDO PIT
@@ -1959,7 +1959,7 @@ SpritePrep_CutsceneAgahnim:
 #_06894A: JMP.w SpritePrep_IgnoreProjectiles
 
 ;===================================================================================================
-; Also moves vitty left 16 pixels
+; Movies up a net of 8 pixels. Just use the MoveRight_8px next time.
 ;===================================================================================================
 SpritePrep_Vitreous:
 #_06894D: JSR SpritePrep_Boss
@@ -2052,7 +2052,7 @@ SpritePrep_BlindMaiden:
 #_0689AB: CMP.b #$00 ; you didn't need this CMP
 #_0689AD: BNE .kill_the_girl
 
-#_0689AF: LDA.b #!FOLLOWER_06
+#_0689AF: LDA.b #$06 ; FOLLOWER 06
 #_0689B1: STA.l $7EF3CC
 
 #_0689B5: PHX
@@ -2095,9 +2095,9 @@ SpritePrep_Zirro:
 SpritePrep_BombShoppe:
 #_0689D9: INC.w $0BA0,X
 
-#_0689DC: LDA.b #!SPRITE_B5
+#_0689DC: LDA.b #$B5 ; SPRITE B5
 #_0689DE: JSL Sprite_SpawnDynamically
-#_0689E2: BMI .no_room_to_spawn_OHNO
+#_0689E2: BMI .no_space_to_spawn_OHNO
 
 #_0689E4: LDA.b $00
 #_0689E6: SEC
@@ -2123,7 +2123,7 @@ SpritePrep_BombShoppe:
 
 ;---------------------------------------------------------------------------------------------------
 
-.no_room_to_spawn_OHNO
+.no_space_to_spawn_OHNO
 #_068A0A: LDA.l $7EF37A ; check for crystals 5 and 6
 #_068A0E: AND.b #$05
 #_068A10: CMP.b #$05
@@ -2133,7 +2133,7 @@ SpritePrep_BombShoppe:
 #_068A18: AND.b #$20
 #_068A1A: BEQ .you_dont_deserve_the_big_bomb
 
-#_068A1C: LDA.b #!SPRITE_B5
+#_068A1C: LDA.b #$B5 ; SPRITE B5
 #_068A1E: JSL Sprite_SpawnDynamically
 #_068A22: BMI .you_dont_deserve_the_big_bomb
 
@@ -2175,7 +2175,7 @@ SpritePrep_BullyAndVictim:
 
 SpritePrep_PurpleChest:
 #_068A53: LDA.l $7EF3CC
-#_068A57: CMP.b #!FOLLOWER_0C
+#_068A57: CMP.b #$0C ; FOLLOWER 0C
 #_068A59: BEQ No_chest_for_you
 
 #_068A5B: LDA.l $7EF3C9
@@ -2385,7 +2385,7 @@ SpritePrep_WaterLever:
 ; Both are changed to 63 then spawn sprite 64
 ;===================================================================================================
 SpritePrep_Debirando:
-#_068B38: LDA.b #!SPRITE_63
+#_068B38: LDA.b #$63 ; SPRITE 63
 #_068B3A: STA.w $0E20,X
 
 #_068B3D: JSL SpritePrep_LoadProperties
@@ -2403,10 +2403,10 @@ SpritePrep_DebirandoPit:
 #_068B4E: STA.w $0DC0,X
 
 #_068B51: JSR SpritePrep_IgnoreProjectiles
-#_068B54: LDA.b #!SPRITE_64
+#_068B54: LDA.b #$64 ; SPRITE 64
 
 #_068B56: JSL Sprite_SpawnDynamically
-#_068B5A: BMI .no_room
+#_068B5A: BMI .no_space
 
 #_068B5C: JSL Sprite_SetSpawnedCoordinates
 
@@ -2429,7 +2429,7 @@ SpritePrep_DebirandoPit:
 
 #_068B77: PLX
 
-.no_room
+.no_space
 #_068B78: RTS
 
 ;---------------------------------------------------------------------------------------------------
@@ -2457,7 +2457,7 @@ SpritePrep_WeakGuard:
 SpritePrep_WallCannon:
 #_068B8D: LDA.w $0E20,X
 #_068B90: SEC
-#_068B91: SBC.b #$66
+#_068B91: SBC.b #$66 ; SPRITE 66 base wall cannon ID
 #_068B93: STA.w $0DE0,X
 
 #_068B96: AND.b #$02
@@ -2924,7 +2924,7 @@ SpritePrep_Locksmith:
 #_068D60: INC.w $0BA0,X
 
 #_068D63: LDA.l $7EF3CC
-#_068D67: CMP.b #!FOLLOWER_09
+#_068D67: CMP.b #$09 ; FOLLOWER 09
 #_068D69: BNE .not_already_following
 
 #_068D6B: STZ.w $0DD0,X
@@ -2934,7 +2934,7 @@ SpritePrep_Locksmith:
 ;---------------------------------------------------------------------------------------------------
 
 .not_already_following
-#_068D6F: CMP.b #!FOLLOWER_0C
+#_068D6F: CMP.b #$0C ; FOLLOWER 0C
 #_068D71: BNE .no_purple_chest
 
 #_068D73: LDA.b #$02
@@ -3034,7 +3034,7 @@ SpritePrep_BigFairy:
 #_068DD5: JMP.w SpritePrep_IgnoreProjectiles
 
 ;===================================================================================================
-; Move her down 8 pixels even though there's already a routine for that
+; Move her down and right 8 pixels even though there's already a routine for that
 ;===================================================================================================
 SpritePrep_MrsSahasrahla:
 #_068DD8: LDA.w $0D00,X
@@ -3112,7 +3112,7 @@ SpritePrep_Hobo:
 
 .next_check
 #_068E10: LDA.w $0E20,Y
-#_068E13: CMP.b #!SPRITE_2B
+#_068E13: CMP.b #$2B ; SPRITE 2B
 #_068E15: BNE .kill_the_hobo
 
 #_068E17: LDA.b #$00
@@ -3160,13 +3160,13 @@ SpritePrep_MasterSword:
 
 ;===================================================================================================
 
-SpritePrep_Roller_HorizontalStartLeft:
+SpritePrep_Roller_HorizontalRightFirst:
 #_068E49: LDY.b #$00
 #_068E4B: BRA .get_x_position
 
 ;---------------------------------------------------------------------------------------------------
 
-#SpritePrep_Roller_HorizontalStartRight:
+#SpritePrep_Roller_HorizontalLeftFirst:
 #_068E4D: LDY.b #$01
 
 .get_x_position
@@ -3177,13 +3177,13 @@ SpritePrep_Roller_HorizontalStartLeft:
 
 ;===================================================================================================
 
-SpritePrep_Roller_VerticalStartUp:
+SpritePrep_Roller_VerticalDownFirst:
 #_068E56: LDY.b #$02
 #_068E58: BRA .get_y_position
 
 ;---------------------------------------------------------------------------------------------------
 
-#SpritePrep_Roller_VerticalStartDown:
+#SpritePrep_Roller_VerticalUpFirst:
 #_068E5A: LDY.b #$03
 
 .get_y_position
@@ -4017,7 +4017,7 @@ SpritePrep_FreeUpBossSegmentSlots:
 #_0691DD: RTS
 
 ;===================================================================================================
-; Moves up 16
+; Moves up 1
 ; Initialize X speed to 32
 ;===================================================================================================
 SpritePrep_Spike:
@@ -4025,7 +4025,7 @@ SpritePrep_Spike:
 #_0691E0: STA.w $0D50,X
 
 ;===================================================================================================
-; Moves up 16
+; Moves up 1
 ;===================================================================================================
 SpritePrep_RockStal:
 #_0691E3: LDA.b #$F0
@@ -4284,10 +4284,10 @@ SpriteModule_Active:
 #_06933E: dw SpriteModule_Active_Bank05_bounce        ; 0x5A - LOST WOODS SQUIRREL
 #_069340: dw SpriteModule_Active_Bank05_bounce        ; 0x5B - SPARK
 #_069342: dw SpriteModule_Active_Bank05_bounce        ; 0x5C - SPARK
-#_069344: dw SpriteModule_Active_Bank05_bounce        ; 0x5D - ROLLER VERTICAL UP
-#_069346: dw SpriteModule_Active_Bank05_bounce        ; 0x5E - ROLLER VERTICAL DOWN
-#_069348: dw SpriteModule_Active_Bank05_bounce        ; 0x5F - ROLLER HORIZONTAL LEFT
-#_06934A: dw SpriteModule_Active_Bank05_bounce        ; 0x60 - ROLLER HORIZONTAL RIGHT
+#_069344: dw SpriteModule_Active_Bank05_bounce        ; 0x5D - ROLLER VERTICAL DOWN FIRST
+#_069346: dw SpriteModule_Active_Bank05_bounce        ; 0x5E - ROLLER VERTICAL UP FIRST
+#_069348: dw SpriteModule_Active_Bank05_bounce        ; 0x5F - ROLLER HORIZONTAL RIGHT FIRST
+#_06934A: dw SpriteModule_Active_Bank05_bounce        ; 0x60 - ROLLER HORIZONTAL LEFT FIRST
 #_06934C: dw SpriteModule_Active_Bank05_bounce        ; 0x61 - BEAMOS
 #_06934E: dw SpriteModule_Active_Bank05_bounce        ; 0x62 - MASTERSWORD
 #_069350: dw SpriteModule_Active_Bank05_bounce        ; 0x63 - DEBIRANDO PIT
@@ -4516,7 +4516,7 @@ Sprite_27_Deadrock:
 #_0694C9: LDA.w $012E
 #_0694CC: BNE .no_sfx_or_damage
 
-#_0694CE: LDA.b #!SFX2_0B
+#_0694CE: LDA.b #$0B ; SFX2.0B
 #_0694D0: JSL SpriteSFX_QueueSFX2WithPan
 
 .no_sfx_or_damage
@@ -4833,15 +4833,15 @@ Sluggula_BreakFromBombing:
 ;===================================================================================================
 
 Sluggula_DropBomb:
-#_06967A: LDA.b #!SPRITE_4A
+#_06967A: LDA.b #$4A ; SPRITE 4A
 #_06967C: LDY.b #$0B
 #_06967E: JSL Sprite_SpawnDynamically_slot_limited
-#_069682: BMI .no_room
+#_069682: BMI .no_space
 
 #_069684: JSL Sprite_SetSpawnedCoordinates
 #_069688: JSL Sprite_TransmuteToBomb
 
-.no_room
+.no_space
 #_06968C: RTS
 
 ;===================================================================================================
@@ -5527,9 +5527,9 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 Moblin_MaterializeSpear:
-#_0699F2: LDA.b #!SPRITE_1B
+#_0699F2: LDA.b #$1B ; SPRITE 1B
 #_0699F4: JSL Sprite_SpawnDynamically
-#_0699F8: BMI .no_room
+#_0699F8: BMI .no_space
 
 #_0699FA: LDA.b #$03
 #_0699FC: STA.w $0D90,Y
@@ -5567,7 +5567,7 @@ Moblin_MaterializeSpear:
 
 #_069A35: PLX
 
-.no_room
+.no_space
 #_069A36: RTS
 
 ;===================================================================================================
@@ -6200,9 +6200,9 @@ Hinox_ThrowBomb:
 #_069F5F: CMP.b #$20
 #_069F61: BNE .dont_throw
 
-#_069F63: LDA.b #!SPRITE_4A
+#_069F63: LDA.b #$4A ; SPRITE 4A
 #_069F65: JSL Sprite_SpawnDynamically
-#_069F69: BMI .no_room
+#_069F69: BMI .no_space
 
 #_069F6B: JSL Sprite_TransmuteToBomb
 
@@ -6243,7 +6243,7 @@ Hinox_ThrowBomb:
 #_069FA7: LDA.b #$28
 #_069FA9: STA.w $0F80,Y
 
-.no_room
+.no_space
 #_069FAC: RTS
 
 ;---------------------------------------------------------------------------------------------------
@@ -6810,9 +6810,9 @@ RedBari_Split:
 #_06A357: STA.w $0FB5
 
 .next_biri
-#_06A35A: LDA.b #!SPRITE_23
+#_06A35A: LDA.b #$23 ; SPRITE 23
 #_06A35C: JSL Sprite_SpawnDynamically
-#_06A360: BMI .no_room
+#_06A360: BMI .no_space
 
 #_06A362: JSL Sprite_SetSpawnedCoordinates
 
@@ -6850,7 +6850,7 @@ RedBari_Split:
 
 #_06A39C: PLX
 
-.no_room
+.no_space
 #_06A39D: DEC.w $0FB5
 #_06A3A0: BPL .next_biri
 
@@ -7137,7 +7137,7 @@ Sprite_77_Antifairy:
 #_06A534: BRA .skip_sfx
 
 .enough_magic_to_drain
-#_06A536: LDY.b #!SFX3_1D
+#_06A536: LDY.b #$1D ; SFX3.1D
 #_06A538: STY.w $012F
 
 .skip_sfx
@@ -7200,7 +7200,7 @@ Sprite_0B_Cucco:
 #_06A5E1: LDA.w $0EB0,X
 #_06A5E4: BEQ .not_easter_egg
 
-#_06A5E6: LDA.b #!SPRITE_3D
+#_06A5E6: LDA.b #$3D ; SPRITE 3D
 #_06A5E8: STA.w $0E20,X
 
 #_06A5EB: JSL SpritePrep_LoadProperties
@@ -7210,7 +7210,7 @@ Sprite_0B_Cucco:
 #_06A5F2: LDA.b #$30
 #_06A5F4: STA.w $0DF0,X
 
-#_06A5F7: LDA.b #!SFX2_15
+#_06A5F7: LDA.b #$15 ; SFX2.15
 #_06A5F9: STA.w $012E
 #_06A5FC: STA.w $0BA0,X
 
@@ -7608,7 +7608,7 @@ Cucco_SummonAvenger:
 #_06A7E0: ORA.b $1B
 #_06A7E2: BNE EXIT_06A85A
 
-#_06A7E4: LDA.b #!SPRITE_0B
+#_06A7E4: LDA.b #$0B ; SPRITE 0B
 #_06A7E6: LDY.b #$0A
 #_06A7E8: JSL Sprite_SpawnDynamically_slot_limited
 #_06A7EC: BMI EXIT_06A85A
@@ -7617,7 +7617,7 @@ Cucco_SummonAvenger:
 
 #_06A7EF: TYX
 
-#_06A7F0: LDA.b #!SFX3_1E
+#_06A7F0: LDA.b #$1E ; SFX3.1E
 #_06A7F2: JSL SpriteSFX_QueueSFX3WithPan
 
 #_06A7F6: PLX
@@ -7695,7 +7695,7 @@ Cucco_SummonAvenger:
 ; BAWK!
 ;===================================================================================================
 BawkBawk:
-#_06A854: LDA.b #!SFX2_30
+#_06A854: LDA.b #$30 ; SFX2.30
 #_06A856: JSL SpriteSFX_QueueSFX2WithPan
 
 ;---------------------------------------------------------------------------------------------------
@@ -7804,7 +7804,7 @@ Hoarder_Covered:
 
 .not_close
 #_06A8CE: LDA.w $0E20,X
-#_06A8D1: CMP.b #!SPRITE_3E
+#_06A8D1: CMP.b #$3E ; SPRITE 3E
 #_06A8D3: BNE .not_rock
 
 #_06A8D5: LDA.l $7EF354
@@ -7822,7 +7822,7 @@ Hoarder_Covered:
 #_06A8E8: LDA.b #$01
 
 #_06A8EA: LDY.w $0E20,X
-#_06A8ED: CPY.b #!SPRITE_17
+#_06A8ED: CPY.b #$17 ; SPRITE 17
 #_06A8EF: BNE .rock_hoarder
 
 #_06A8F1: INC A
@@ -7830,7 +7830,7 @@ Hoarder_Covered:
 .rock_hoarder
 #_06A8F2: STA.w $0DB0,X
 
-#_06A8F5: LDA.b #!SPRITE_EC
+#_06A8F5: LDA.b #$EC ; SPRITE EC
 #_06A8F7: STA.w $0E20,X
 
 #_06A8FA: LSR.w $0F50,X
@@ -7840,7 +7840,7 @@ Hoarder_Covered:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_06A903: LDA.b #!SPRITE_3E
+#_06A903: LDA.b #$3E ; SPRITE 3E
 #_06A905: JSL Sprite_SpawnDynamically
 #_06A909: BMI .exit
 
@@ -7970,11 +7970,11 @@ Hoarder_Frantic:
 #_06A9BF: CMP.b #$06
 #_06A9C1: BNE .green_rupee
 
-#_06A9C3: LDA.b #!SPRITE_DB
+#_06A9C3: LDA.b #$DB ; SPRITE DB
 #_06A9C5: BRA .spit_rupee
 
 .green_rupee
-#_06A9C7: LDA.b #!SPRITE_D9
+#_06A9C7: LDA.b #$D9 ; SPRITE D9
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -8018,7 +8018,7 @@ Hoarder_Frantic:
 
 #_06AA04: PLX
 
-#_06AA05: LDA.b #!SFX3_30
+#_06AA05: LDA.b #$30 ; SFX3.30
 #_06AA07: JSL SpriteSFX_QueueSFX3WithPan
 
 .exit
@@ -8085,7 +8085,7 @@ SpriteDraw_Hoarder:
 #_06AA5A: STZ.b $07
 
 #_06AA5C: LDA.w $0E20,X
-#_06AA5F: CMP.b #!SPRITE_17
+#_06AA5F: CMP.b #$17 ; SPRITE 17
 #_06AA61: BNE .rock_hoarder
 
 #_06AA63: LDA.b #$02
@@ -8517,7 +8517,7 @@ ThrowableScenery_ScatterIntoDebris:
 #_06AC54: STA.b $0D
 
 .next_particle
-#_06AC56: LDA.b #!SPRITE_EC
+#_06AC56: LDA.b #$EC ; SPRITE EC
 #_06AC58: JSL Sprite_SpawnDynamically
 #_06AC5C: BMI .no_space
 
@@ -8595,7 +8595,7 @@ ThrowableScenery_ScatterIntoSmallerDebris:
 #_06ACBC: INX
 
 .empty_slot
-#_06ACBD: LDA.b #!GARNISH_16
+#_06ACBD: LDA.b #$16 ; GARNISH 16
 #_06ACBF: STA.l $7FF800,X
 #_06ACC3: STA.w $0FB4
 
@@ -8669,7 +8669,7 @@ ApplyRumbleToSprites:
 #_06AD2B: LDA.b #$00
 #_06AD2D: STA.w $0E90,Y
 
-#_06AD30: LDA.b #!SFX3_30
+#_06AD30: LDA.b #$30 ; SFX3.30
 #_06AD32: STA.w $012F
 
 #_06AD35: LDA.b #$30
@@ -8685,7 +8685,7 @@ ApplyRumbleToSprites:
 #_06AD46: STA.w $0B58,Y
 
 #_06AD49: LDA.w $0E20,Y ; hearts in trees turn into bombs
-#_06AD4C: CMP.b #!SPRITE_D8
+#_06AD4C: CMP.b #$D8 ; SPRITE D8
 #_06AD4E: BNE .skip
 
 #_06AD50: JSL Sprite_TransmuteToBomb
@@ -8699,7 +8699,7 @@ ApplyRumbleToSprites:
 ;===================================================================================================
 
 Sprite_TransmuteToBomb:
-#_06AD58: LDA.b #!SPRITE_4A
+#_06AD58: LDA.b #$4A ; SPRITE 4A
 #_06AD5A: STA.w $0E20,Y
 
 #_06AD5D: LDA.b #$01
@@ -9091,7 +9091,7 @@ FluteKid_Human:
 #_06AF73: LDA.w $0DA0,X
 #_06AF76: BNE .no_tune
 
-#_06AF78: LDA.b #!SFX1_0B
+#_06AF78: LDA.b #$0B ; SFX1.0B
 #_06AF7A: STA.w $012D
 #_06AF7D: STA.w $0DA0,X
 
@@ -9171,10 +9171,10 @@ FluteKid_AboutToDisappear:
 
 #_06AFEB: INC.w $0D80,X
 
-#_06AFEE: LDA.b #!SFX1_80_FADE
+#_06AFEE: LDA.b #$80 ; SFX1.80 - fade
 #_06AFF0: STA.w $012D
 
-#_06AFF3: LDA.b #!SFX2_33
+#_06AFF3: LDA.b #$33 ; SFX2.33
 #_06AFF5: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -9338,7 +9338,7 @@ Stumpy_WaitForConvo:
 Stumpy_GiveShovel:
 #_06B0C3: STZ.w $02E9
 
-#_06B0C6: LDY.b #!ITEMGET_13
+#_06B0C6: LDY.b #$13 ; ITEMGET 13
 
 #_06B0C8: PHX
 
@@ -9362,12 +9362,12 @@ Stumpy_WaitForMusic:
 
 #_06B0DD: INC.w $0D80,X
 
-#_06B0E0: LDA.b #!SONG_F2_HALFVOL
+#_06B0E0: LDA.b #$F2 ; SONG F2 - half volume
 #_06B0E2: STA.w $012C
 
 #_06B0E5: STZ.w $012E
 
-#_06B0E8: LDA.b #!SFX1_17
+#_06B0E8: LDA.b #$17 ; SFX1.17
 #_06B0EA: STA.w $012D
 
 #_06B0ED: INC.w $02E4
@@ -9385,7 +9385,7 @@ Stumpy_BecomeTree:
 #_06B0F9: CMP.b #$03
 #_06B0FB: BCC .skip_sfx
 
-#_06B0FD: LDA.b #!SFX2_33
+#_06B0FD: LDA.b #$33 ; SFX2.33
 #_06B0FF: JSL SpriteSFX_QueueSFX2WithPan
 
 .skip_sfx
@@ -9407,7 +9407,7 @@ Stumpy_BecomeTree:
 #_06B119: RTS
 
 .turn_it_up_to_11
-#_06B11A: LDA.b #!SONG_F3_MAXVOL
+#_06B11A: LDA.b #$F3 ; SONG F3 - max volume
 #_06B11C: STA.w $012C
 
 #_06B11F: INC.w $0D80,X
@@ -9530,9 +9530,9 @@ FluteKid_Quaver:
 ;===================================================================================================
 
 FluteKid_SpawnQuaver:
-#_06B1AD: LDA.b #!SPRITE_2E
+#_06B1AD: LDA.b #$2E ; SPRITE 2E
 #_06B1AF: JSL Sprite_SpawnDynamically
-#_06B1B3: BMI .no_room
+#_06B1B3: BMI .no_space
 
 #_06B1B5: LDA.b $00
 #_06B1B7: CLC
@@ -9562,7 +9562,7 @@ FluteKid_SpawnQuaver:
 #_06B1DF: STA.w $0DF0,Y
 #_06B1E2: STA.w $0BA0,Y
 
-.no_room
+.no_space
 #_06B1E5: RTS
 
 ;===================================================================================================
@@ -9725,7 +9725,7 @@ Smithy_Frog:
 ;---------------------------------------------------------------------------------------------------
 
 .follow_link
-#_06B2B4: LDA.b #!FOLLOWER_07
+#_06B2B4: LDA.b #$07 ; FOLLOWER 07
 #_06B2B6: STA.l $7EF3CC
 
 #_06B2BA: PHX
@@ -9917,7 +9917,7 @@ Smithy_Main:
 
 #_06B3C3: JSR Smithy_SpawnSpark
 
-#_06B3C6: LDA.b #!SFX2_05
+#_06B3C6: LDA.b #$05 ; SFX2.05
 #_06B3C8: JSL SpriteSFX_QueueSFX2WithPan
 
 ;---------------------------------------------------------------------------------------------------
@@ -9944,7 +9944,7 @@ Smithy_Smithing:
 #_06B3EB: STZ.w $0DB0,X
 
 #_06B3EE: LDA.l $7EF3CC
-#_06B3F2: CMP.b #!FOLLOWER_08
+#_06B3F2: CMP.b #$08 ; FOLLOWER 08
 #_06B3F4: BEQ .smithy_follower
 
 #_06B3F6: JSR Smithy_ListenForHammer
@@ -10239,7 +10239,7 @@ Smithy_GiveTemperedSword:
 #_06B555: STA.w $0D80,X
 #_06B558: STA.w $0D80,Y
 
-#_06B55B: LDY.b #!ITEMGET_02
+#_06B55B: LDY.b #$02 ; ITEMGET 02
 
 #_06B55D: STZ.w $02E9
 
@@ -10261,7 +10261,7 @@ Smithy_Nothing:
 ;===================================================================================================
 
 Smithy_SpawnFriend:
-#_06B572: LDA.b #!SPRITE_1A
+#_06B572: LDA.b #$1A ; SPRITE 1A
 #_06B574: JSL Sprite_SpawnDynamically
 #_06B578: BMI .no_friend_in_me
 
@@ -10306,9 +10306,9 @@ Smithy_Thanks:
 ; Used during sprite prep
 ;===================================================================================================
 Smithy_SpawnDwarfPal:
-#_06B5AE: LDA.b #!SPRITE_1A
+#_06B5AE: LDA.b #$1A ; SPRITE 1A
 #_06B5B0: JSL Sprite_SpawnDynamically
-#_06B5B4: BMI .no_room
+#_06B5B4: BMI .no_space
 
 #_06B5B6: LDA.b $00
 #_06B5B8: CLC
@@ -10331,7 +10331,7 @@ Smithy_SpawnDwarfPal:
 #_06B5D4: STA.w $0D90,Y
 #_06B5D7: STA.w $0BA0,Y
 
-.no_room
+.no_space
 #_06B5DA: RTS
 
 ;===================================================================================================
@@ -10467,10 +10467,10 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 Smithy_SpawnSpark:
-#_06B6D5: LDA.b #!SPRITE_1A
+#_06B6D5: LDA.b #$1A ; SPRITE 1A
 
 #_06B6D7: JSL Sprite_SpawnDynamically
-#_06B6DB: BMI .no_room
+#_06B6DB: BMI .no_space
 
 #_06B6DD: PHX
 
@@ -10498,7 +10498,7 @@ Smithy_SpawnSpark:
 
 #_06B702: PLX
 
-.no_room
+.no_space
 #_06B703: RTS
 
 ;===================================================================================================
@@ -10628,7 +10628,7 @@ SpriteArrow_InFlight:
 #_06B7B5: LDA.b #$02
 #_06B7B7: STA.w $0D90,X
 
-#_06B7BA: LDA.b #!SFX2_08
+#_06B7BA: LDA.b #$08 ; SFX2.08
 #_06B7BC: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06B7C0: RTS
@@ -10638,7 +10638,7 @@ SpriteArrow_InFlight:
 #UNREACHABLE_06B7C1:
 #_06B7C1: STZ.w $0DD0,X
 
-#_06B7C4: JSL Sprite_PlaceRepulseSpark
+#_06B7C4: JSL Sprite_PlaceWeaponTink
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -10948,7 +10948,7 @@ Sprite_1E_CrystalSwitch:
 #_06B949: LDA.b #$16
 #_06B94B: STA.b $11
 
-#_06B94D: LDA.b #!SFX3_25
+#_06B94D: LDA.b #$25 ; SFX3.25
 #_06B94F: JSL SpriteSFX_QueueSFX3WithPan
 
 .no_color_change
@@ -11047,7 +11047,7 @@ SickKid_RealShit:
 ;===================================================================================================
 
 SickKid_NothingButNet:
-#_06B9CE: LDY.b #!ITEMGET_21
+#_06B9CE: LDY.b #$21 ; ITEMGET 21
 #_06B9D0: STZ.w $02E9
 
 #_06B9D3: PHX
@@ -11126,7 +11126,7 @@ WaterSwitch_Untoggled:
 #_06BA2A: AND.b #$03
 #_06BA2C: BNE .exit
 
-#_06BA2E: LDA.b #!SFX2_22
+#_06BA2E: LDA.b #$22 ; SFX2.22
 #_06BA30: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -11155,7 +11155,7 @@ WaterSwitch_ReleaseGate:
 #_06BA4A: INC.w $0D80,X
 #_06BA4D: INC.w $0642
 
-#_06BA50: LDA.b #!SFX3_25
+#_06BA50: LDA.b #$25 ; SFX3.25
 #_06BA52: JSL SpriteSFX_QueueSFX3WithPan
 
 #_06BA56: RTS
@@ -11167,7 +11167,7 @@ WaterSwitch_ReleaseGate:
 #_06BA5D: LDA.w WaterSwitch_Position,Y
 #_06BA60: STA.w $0DE0,X
 
-#_06BA63: LDA.b #!SFX2_22
+#_06BA63: LDA.b #$22 ; SFX2.22
 #_06BA65: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -11615,7 +11615,7 @@ LockSmith_Chillin:
 ;===================================================================================================
 
 LockSmith_FollowLink:
-#_06BD09: LDA.b #!FOLLOWER_09
+#_06BD09: LDA.b #$09 ; FOLLOWER 09
 #_06BD0B: STA.l $7EF3CC
 
 #_06BD0F: PHX
@@ -11690,7 +11690,7 @@ LockSmith_RespondToAnswer:
 ;---------------------------------------------------------------------------------------------------
 
 .give_bottle
-#_06BD67: LDY.b #!ITEMGET_16
+#_06BD67: LDY.b #$16 ; ITEMGET 16
 #_06BD69: STZ.w $02E9
 #_06BD6C: JSL Link_ReceiveItem
 
@@ -11903,7 +11903,7 @@ Hobo_GiveBottle:
 #_06BE76: ORA.b #$20
 #_06BE78: STA.l $7EF280,X
 
-#_06BE7C: LDY.b #!ITEMGET_16
+#_06BE7C: LDY.b #$16 ; ITEMGET 16
 #_06BE7E: STZ.w $02E9
 #_06BE81: JSL Link_ReceiveItem
 
@@ -11937,9 +11937,9 @@ Hobo_BackToSleep:
 ; Why is this even separate...?
 ;===================================================================================================
 SpritePrep_Hobo_SpawnSmoke:
-#_06BEA5: LDA.b #!SPRITE_2B
+#_06BEA5: LDA.b #$2B ; SPRITE 2B
 #_06BEA7: JSL Sprite_SpawnDynamically
-#_06BEAB: BMI .no_room
+#_06BEAB: BMI .no_space
 
 #_06BEAD: JSL Sprite_SetSpawnedCoordinates
 
@@ -11947,7 +11947,7 @@ SpritePrep_Hobo_SpawnSmoke:
 #_06BEB3: STA.w $0E80,Y
 #_06BEB6: STA.w $0BA0,Y
 
-.no_room
+.no_space
 #_06BEB9: RTS
 
 ;===================================================================================================
@@ -12004,7 +12004,7 @@ Hobo_Bubble:
 ;===================================================================================================
 
 Hobo_SpawnBubble:
-#_06BEF5: LDA.b #!SPRITE_2B
+#_06BEF5: LDA.b #$2B ; SPRITE 2B
 #_06BEF7: JSL Sprite_SpawnDynamically
 #_06BEFB: BMI EXIT_06BF1C
 
@@ -12081,9 +12081,9 @@ Hobo_Fire:
 ;===================================================================================================
 
 SpritePrep_Hobo_SpawnFire:
-#_06BF53: LDA.b #!SPRITE_2B
+#_06BF53: LDA.b #$2B ; SPRITE 2B
 #_06BF55: JSL Sprite_SpawnDynamically
-#_06BF59: BMI .no_room
+#_06BF59: BMI .no_space
 
 #_06BF5B: LDA.b #$94
 #_06BF5D: STA.w $0D10,Y
@@ -12108,7 +12108,7 @@ SpritePrep_Hobo_SpawnFire:
 #_06BF7F: ORA.b #$02
 #_06BF81: STA.w $0F50,Y
 
-.no_room
+.no_space
 #_06BF84: RTS
 
 ;===================================================================================================
@@ -12158,7 +12158,7 @@ Hobo_Smoke:
 ;===================================================================================================
 
 Hobo_SpawnSmoke:
-#_06BFB7: LDA.b #!SPRITE_2B
+#_06BFB7: LDA.b #$2B ; SPRITE 2B
 #_06BFB9: JSL Sprite_SpawnDynamically
 #_06BFBD: BMI .exit
 
@@ -12638,7 +12638,7 @@ Statue_HandleGrab:
 #_06C164: LDA.w $0F10,X
 #_06C167: BNE .exit
 
-#_06C169: LDA.b #!SFX2_22
+#_06C169: LDA.b #$22 ; SFX2.22
 #_06C16B: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06C16F: LDA.b #$08
@@ -12864,7 +12864,7 @@ Statue_BlockSprites:
 
 .next
 #_06C281: LDA.w $0E20,Y
-#_06C284: CMP.b #!SPRITE_1C
+#_06C284: CMP.b #$1C ; SPRITE 1C
 #_06C286: BEQ .skip
 
 #_06C288: CPY.w $0FA0
@@ -13019,7 +13019,7 @@ Sprite_72_FairyPond:
 #_06C341: AND.b #$0F
 #_06C343: BNE .exit
 
-#_06C345: LDA.b #!SPRITE_72
+#_06C345: LDA.b #$72 ; SPRITE 72
 #_06C347: JSL Sprite_SpawnDynamically
 #_06C34B: BMI .exit
 
@@ -13585,10 +13585,10 @@ LakeHyliaFairy_SpawnFairy:
 #_06C61E: LDA.w $0DF0,X
 #_06C621: BNE .exit
 
-#_06C623: LDA.b #!SPRITE_72
+#_06C623: LDA.b #$72 ; SPRITE 72
 #_06C625: JSL Sprite_SpawnDynamically
 
-#_06C629: LDA.b #!SONG_1B
+#_06C629: LDA.b #$1B ; SONG 1B
 #_06C62B: STA.w $012C
 
 #_06C62E: STZ.w $0133
@@ -14023,7 +14023,7 @@ UpgradeFairy_HandleItemToss:
 #_06C825: TAX
 
 #_06C826: LDY.b #$04
-#_06C828: LDA.b #!ANCILLA_28
+#_06C828: LDA.b #$28 ; ANCILLA 28
 #_06C82A: JSL AncillaAdd_TossedPondItem
 
 #_06C82E: JSL RefreshIcon_long
@@ -14056,10 +14056,10 @@ UpgradeFairy_SpawnFairy:
 #_06C844: LDA.w $0DF0,X
 #_06C847: BNE .exit
 
-#_06C849: LDA.b #!SPRITE_72
+#_06C849: LDA.b #$72 ; SPRITE 72
 #_06C84B: JSL Sprite_SpawnDynamically
 
-#_06C84F: LDA.b #!SONG_1B
+#_06C84F: LDA.b #$1B ; SONG 1B
 #_06C851: STA.w $012C
 
 #_06C854: STZ.w $0133
@@ -15329,7 +15329,7 @@ Fairy_HandleCapture:
 #_06CFEF: BNE .release
 
 #_06CFF1: JSL Find_EmptyBottle
-#_06CFF5: BMI .no_room
+#_06CFF5: BMI .no_space
 
 #_06CFF7: PHX
 
@@ -15348,7 +15348,7 @@ Fairy_HandleCapture:
 
 ;---------------------------------------------------------------------------------------------------
 
-.no_room
+.no_space
 ; Message 00C8
 #_06D008: LDA.b #$C8
 #_06D00A: LDY.b #$00
@@ -15520,13 +15520,13 @@ Absorbable_Main:
 
 .not_water_tile
 #_06D0DD: LDA.w $0E20,X
-#_06D0E0: CMP.b #!SPRITE_E4
+#_06D0E0: CMP.b #$E4 ; SPRITE E4
 #_06D0E2: BCC .aloft
 
 #_06D0E4: LDA.b $1B
 #_06D0E6: BEQ .aloft
 
-#_06D0E8: LDA.b #!SFX2_05
+#_06D0E8: LDA.b #$05 ; SFX2.05
 #_06D0EA: JSL SpriteSFX_QueueSFX2WithPan
 
 .aloft
@@ -15603,21 +15603,21 @@ Sprite_HandleAbsorptionByPlayer_long:
 ;===================================================================================================
 
 Absorbable_SFX3:
-#_06D135: db !SFX3_0B ; heart
-#_06D136: db !SFX3_0A ; green rupee
-#_06D137: db !SFX3_0A ; blue rupee
-#_06D138: db !SFX3_0A ; red rupee
-#_06D139: db !SFX3_0B ; bomb refill 1
-#_06D13A: db !SFX3_0B ; bomb refill 4
-#_06D13B: db !SFX3_0B ; bomb refill 8
-#_06D13C: db !SFX3_0B ; small magic
-#_06D13D: db !SFX3_0B ; full magic
-#_06D13E: db !SFX3_0B ; arrow refill 5
-#_06D13F: db !SFX3_0B ; arrow refill 10
-#_06D140: db !SFX3_0B ; faerie
-#_06D141: db !SFX3_2F ; small key
-#_06D142: db !SFX3_2F ; big key
-#_06D143: db !SFX3_0B ; stolen shield
+#_06D135: db $0B ; SFX3.0B - heart
+#_06D136: db $0A ; SFX3.0A - green rupee
+#_06D137: db $0A ; SFX3.0A - blue rupee
+#_06D138: db $0A ; SFX3.0A - red rupee
+#_06D139: db $0B ; SFX3.0B - bomb refill 1
+#_06D13A: db $0B ; SFX3.0B - bomb refill 4
+#_06D13B: db $0B ; SFX3.0B - bomb refill 8
+#_06D13C: db $0B ; SFX3.0B - small magic
+#_06D13D: db $0B ; SFX3.0B - full magic
+#_06D13E: db $0B ; SFX3.0B - arrow refill 5
+#_06D13F: db $0B ; SFX3.0B - arrow refill 10
+#_06D140: db $0B ; SFX3.0B - faerie
+#_06D141: db $2F ; SFX3.2F - small key
+#_06D142: db $2F ; SFX3.2F - big key
+#_06D143: db $0B ; SFX3.0B - stolen shield
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -15663,7 +15663,7 @@ Absorb_Shield:
 
 Absorb_BigKey:
 #_06D180: STZ.w $02E9
-#_06D183: LDY.b #!ITEMGET_32
+#_06D183: LDY.b #$32 ; ITEMGET 32
 
 #_06D185: PHX
 
@@ -15699,7 +15699,7 @@ Absorb_FlagKey:
 ;===================================================================================================
 
 Absorb_Fairy:
-#_06D1AD: LDA.b #!SFX2_31
+#_06D1AD: LDA.b #$31 ; SFX2.31
 #_06D1AF: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06D1B3: LDA.b #$38 ; 7*$08
@@ -15919,7 +15919,7 @@ SpriteDraw_Absorbable:
 ;---------------------------------------------------------------------------------------------------
 
 #_06D276: LDA.w $0E20,X
-#_06D279: CMP.b #!SPRITE_E6
+#_06D279: CMP.b #$E6 ; SPRITE E6
 #_06D27B: BNE .not_shield
 
 #_06D27D: LDA.w $0E30,X
@@ -16381,10 +16381,10 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 Octorok_FireLoogie:
-#_06D4D5: LDA.b #!SFX2_07
+#_06D4D5: LDA.b #$07 ; SFX2.07
 #_06D4D7: JSL SpriteSFX_QueueSFX2WithPan
 
-#_06D4DB: LDA.b #!SPRITE_0C
+#_06D4DB: LDA.b #$0C ; SPRITE 0C
 #_06D4DD: JSL Sprite_SpawnDynamically
 #_06D4E1: BMI .fired_a_blank ; we had no room :(
 
@@ -16550,7 +16550,7 @@ OctorokStone_Crumbling:
 #_06D5D1: CMP.b #$1E
 #_06D5D3: BNE .exit
 
-#_06D5D5: LDA.b #!SFX2_1F
+#_06D5D5: LDA.b #$1F ; SFX2.1F
 #_06D5D7: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -16729,7 +16729,7 @@ Sprite_0F_Octoballoon:
 #_06D6D6: BEQ .am_dead
 
 #_06D6D8: LDA.w $0E20,Y
-#_06D6DB: CMP.b #!SPRITE_10
+#_06D6DB: CMP.b #$10 ; SPRITE 10
 #_06D6DD: BEQ .dont_explode
 
 .am_dead
@@ -16965,16 +16965,16 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 Octoballoon_FormBabby:
-#_06D816: LDA.b #!SFX2_0C
+#_06D816: LDA.b #$0C ; SFX2.0C
 #_06D818: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06D81C: LDA.b #$05
 #_06D81E: STA.b $0D
 
 .nth_child
-#_06D820: LDA.b #!SPRITE_10
+#_06D820: LDA.b #$10 ; SPRITE 10
 #_06D822: JSL Sprite_SpawnDynamically
-#_06D826: BMI .no_room
+#_06D826: BMI .no_space
 
 #_06D828: JSL Sprite_SetSpawnedCoordinates
 
@@ -16996,7 +16996,7 @@ Octoballoon_FormBabby:
 
 #_06D845: PLX
 
-.no_room
+.no_space
 #_06D846: DEC.b $0D
 #_06D848: BPL .nth_child
 
@@ -17761,10 +17761,10 @@ SpriteDraw_ClassToChar:
 #_06DB66: db $4A ; LOST WOODS SQUIRREL
 #_06DB67: db $65 ; SPARK
 #_06DB68: db $65 ; SPARK
-#_06DB69: db $00 ; ROLLER VERTICAL UP
-#_06DB6A: db $00 ; ROLLER VERTICAL DOWN
-#_06DB6B: db $00 ; ROLLER HORIZONTAL LEFT
-#_06DB6C: db $00 ; ROLLER HORIZONTAL RIGHT
+#_06DB69: db $00 ; ROLLER VERTICAL DOWN FIRST
+#_06DB6A: db $00 ; ROLLER VERTICAL UP FIRST
+#_06DB6B: db $00 ; ROLLER HORIZONTAL RIGHT FIRST
+#_06DB6C: db $00 ; ROLLER HORIZONTAL LEFT FIRST
 #_06DB6D: db $00 ; BEAMOS
 #_06DB6E: db $8F ; MASTERSWORD
 #_06DB6F: db $00 ; DEBIRANDO PIT
@@ -18670,7 +18670,7 @@ CarriedSprite_CheckForThrow:
 ;---------------------------------------------------------------------------------------------------
 
 .forced_throw
-#_06DFA9: LDA.b #!SFX3_13
+#_06DFA9: LDA.b #$13 ; SFX3.13
 #_06DFAB: JSL SpriteSFX_QueueSFX3WithPan
 
 #_06DFAF: LDA.b #$02
@@ -18783,7 +18783,7 @@ SpriteModule_Stunned:
 #_06E03D: CMP.b #$0B
 #_06E03F: BNE .skip_tile_collision
 
-#_06E041: LDA.b #!SFX2_05
+#_06E041: LDA.b #$05 ; SFX2.05
 #_06E043: JSL SpriteSFX_QueueSFX2WithPan
 
 .skip_tile_collision
@@ -18807,7 +18807,7 @@ SpriteModule_Stunned:
 #_06E05F: STA.w $0E60,X
 
 #_06E062: LDA.w $0FA5 ; why is it even done this way?
-#_06E065: CMP.b #!TILETYPE_20 ; check for pit tiles
+#_06E065: CMP.b #$20 ; TILETYPE 20 - check for pit tiles
 #_06E067: BNE .not_over_pit
 
 #_06E069: JSR Sprite_DisableShadowFlag ; PHP instead of this next time
@@ -18829,7 +18829,7 @@ SpriteModule_Stunned:
 #_06E080: STZ.w $0F70,X
 
 #_06E083: LDA.w $0E20,X
-#_06E086: CMP.b #!SPRITE_E8
+#_06E086: CMP.b #$E8 ; SPRITE E8
 #_06E088: BNE .dont_set_death_state
 
 #_06E08A: LDA.w $0F80,X
@@ -18857,7 +18857,7 @@ SpriteModule_Stunned:
 #_06E0A1: JSR ThrowableScenery_TransmuteIfValid
 
 #_06E0A4: LDA.w $0FA5
-#_06E0A7: CMP.b #!TILETYPE_20
+#_06E0A7: CMP.b #$20 ; TILETYPE 20
 #_06E0A9: BNE .not_pit_or_too_high
 
 #_06E0AB: LDA.w $0B6B,X
@@ -18875,7 +18875,7 @@ SpriteModule_Stunned:
 
 #_06E0BB: STZ.w $012E
 
-#_06E0BE: LDA.b #!SFX2_20
+#_06E0BE: LDA.b #$20 ; SFX2.20
 #_06E0C0: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06E0C4: RTS
@@ -18893,7 +18893,7 @@ SpriteModule_Stunned:
 #_06E0CF: CMP.b #$F0
 #_06E0D1: BPL .continue
 
-#_06E0D3: LDA.b #!SPRITE_EC
+#_06E0D3: LDA.b #$EC ; SPRITE EC
 #_06E0D5: JSL Sprite_SpawnDynamically
 #_06E0D9: BMI .continue
 
@@ -18917,7 +18917,7 @@ SpriteModule_Stunned:
 #_06E0E9: BNE .continue
 
 #_06E0EB: LDA.w $0E20,X
-#_06E0EE: CMP.b #!SPRITE_D2
+#_06E0EE: CMP.b #$D2 ; SPRITE D2
 #_06E0F0: BEQ .spawn_a_fish
 
 #_06E0F2: JSL GetRandomNumber
@@ -18931,7 +18931,7 @@ SpriteModule_Stunned:
 
 .plop_in_water
 #_06E0FC: JSL Sprite_CalculateSFXPan
-#_06E100: ORA.b #!SFX2_28
+#_06E100: ORA.b #$28 ; SFX2.28
 #_06E102: STA.w $012E
 
 #_06E105: LDA.b #$03
@@ -19000,7 +19000,7 @@ SpriteModule_Stunned:
 #_06E15C: JSR Sprite_CheckIfLifted
 
 #_06E15F: LDA.w $0E20,X
-#_06E162: CMP.b #!SPRITE_4A
+#_06E162: CMP.b #$4A ; SPRITE 4A
 #_06E164: BEQ .exit
 
 #_06E166: JSR ThrownSprite_CheckDamageToSprites
@@ -19038,7 +19038,7 @@ ThrownSprite_CheckDamageToSprites:
 #_06E18B: BEQ .skip
 
 #_06E18D: LDA.w $0E20,X
-#_06E190: CMP.b #!SPRITE_D2
+#_06E190: CMP.b #$D2 ; SPRITE D2
 #_06E192: BEQ .skip
 
 #_06E194: LDA.w $0DD0,Y
@@ -19113,10 +19113,10 @@ ThrownSprite_CheckDamageToSingleSprite:
 #_06E1EA: BCC EXIT_06E1B7
 
 #_06E1EC: LDA.w $0E20,Y
-#_06E1EF: CMP.b #!SPRITE_3F ; wtf why
+#_06E1EF: CMP.b #$3F ; SPRITE 3F - wtf why
 #_06E1F1: BNE .not_tutorial_guard
 
-#_06E1F3: JSL Sprite_PlaceRepulseSpark
+#_06E1F3: JSL Sprite_PlaceWeaponTink
 
 #_06E1F7: BRA Sprite_ApplyRicochet
 
@@ -19127,7 +19127,7 @@ ThrownSprite_CheckDamageToSingleSprite:
 #_06E1FB: PHA
 
 #_06E1FC: LDA.w $0E20,X
-#_06E1FF: CMP.b #!SPRITE_EC
+#_06E1FF: CMP.b #$EC ; SPRITE EC
 #_06E201: BNE .not_pot
 
 #_06E203: LDA.w $0DB0,X
@@ -19177,7 +19177,7 @@ Sprite_ApplyRicochet:
 
 ThrowableScenery_TransmuteIfValid:
 #_06E235: LDA.w $0E20,X
-#_06E238: CMP.b #!SPRITE_EC
+#_06E238: CMP.b #$EC ; SPRITE EC
 #_06E23A: BNE EXIT_06E273
 
 #_06E23C: STZ.w $0FAC
@@ -19247,20 +19247,20 @@ Sprite_HalveSpeed_XY:
 ;===================================================================================================
 
 ThrownItemSFX:
-#_06E283: db !SFX2_1F
-#_06E284: db !SFX2_1F
-#_06E285: db !SFX2_1E
-#_06E286: db !SFX2_1E
-#_06E287: db !SFX2_1E
-#_06E288: db !SFX2_1F
-#_06E289: db !SFX2_1F
-#_06E28A: db !SFX2_1F
-#_06E28B: db !SFX2_1F
+#_06E283: db $1F ; SFX2.1F
+#_06E284: db $1F ; SFX2.1F
+#_06E285: db $1E ; SFX2.1E
+#_06E286: db $1E ; SFX2.1E
+#_06E287: db $1E ; SFX2.1E
+#_06E288: db $1F ; SFX2.1F
+#_06E289: db $1F ; SFX2.1F
+#_06E28A: db $1F ; SFX2.1F
+#_06E28B: db $1F ; SFX2.1F
 
 ;===================================================================================================
 
 Sprite_SpawnLeapingFish:
-#_06E28C: LDA.b #!SPRITE_D2
+#_06E28C: LDA.b #$D2 ; SPRITE D2
 #_06E28E: JSL Sprite_SpawnDynamically
 #_06E292: BMI .exit
 
@@ -19273,7 +19273,7 @@ Sprite_SpawnLeapingFish:
 #_06E29F: STA.w $0DF0,Y
 
 #_06E2A2: LDA.w $0E20,X
-#_06E2A5: CMP.b #!SPRITE_D2
+#_06E2A5: CMP.b #$D2 ; SPRITE D2
 #_06E2A7: BNE .exit
 
 #_06E2A9: STA.w $0D90,Y
@@ -19449,7 +19449,7 @@ SpriteModule_Poof:
 #_06E39C: BNE .delay
 
 #_06E39E: LDA.w $0E20,X
-#_06E3A1: CMP.b #!SPRITE_0D
+#_06E3A1: CMP.b #$0D ; SPRITE 0D
 #_06E3A3: BNE .not_cukeman
 
 #_06E3A5: LDY.w $0EB0,X
@@ -19826,7 +19826,7 @@ Sprite_CheckTileCollisionSingleLayer:
 #_06E53B: LDA.w $0FA5
 #_06E53E: STA.l $7FF9C2,X
 
-#_06E542: CMP.b #!TILETYPE_1C
+#_06E542: CMP.b #$1C ; TILETYPE 1C
 #_06E544: BNE .dont_fall_to_lower_layer
 
 #_06E546: LDY.w $0FB3
@@ -19844,7 +19844,7 @@ Sprite_CheckTileCollisionSingleLayer:
 ;---------------------------------------------------------------------------------------------------
 
 .dont_fall_to_lower_layer
-#_06E558: CMP.b #!TILETYPE_20
+#_06E558: CMP.b #$20 ; TILETYPE 20
 #_06E55A: BNE .not_pit
 
 #_06E55C: LDA.w $0B6B,X
@@ -19863,10 +19863,10 @@ Sprite_CheckTileCollisionSingleLayer:
 #_06E56F: LDA.b #$5F
 
 #_06E571: LDY.w $0E20,X
-#_06E574: CPY.b #!SPRITE_13
+#_06E574: CPY.b #$13 ; SPRITE 13
 #_06E576: BEQ .not_mini_helma_falling
 
-#_06E578: CPY.b #!SPRITE_26
+#_06E578: CPY.b #$26 ; SPRITE 26
 #_06E57A: BNE .not_beetle_falling
 
 .not_mini_helma_falling
@@ -19901,10 +19901,10 @@ Sprite_CheckTileCollisionSingleLayer:
 ;---------------------------------------------------------------------------------------------------
 
 .sprite_cant_fall
-#_06E5A0: CMP.b #!TILETYPE_68
+#_06E5A0: CMP.b #$68 ; TILETYPE 68
 #_06E5A2: BCC .not_a_conveyor
 
-#_06E5A4: CMP.b #!TILETYPE_6C
+#_06E5A4: CMP.b #$6C ; TILETYPE 6C
 #_06E5A6: BCS .exit_c
 
 .apply_conveyor_motion
@@ -19916,14 +19916,14 @@ Sprite_CheckTileCollisionSingleLayer:
 ;---------------------------------------------------------------------------------------------------
 
 .not_a_conveyor
-#_06E5AE: CMP.b #!TILETYPE_08
+#_06E5AE: CMP.b #$08 ; TILETYPE 08
 #_06E5B0: BNE .exit_c
 
 #_06E5B2: LDA.w $046C
 #_06E5B5: CMP.b #$04
 #_06E5B7: BNE .exit_c
 
-#_06E5B9: LDA.b #!TILETYPE_6A
+#_06E5B9: LDA.b #$6A ; TILETYPE 6A
 #_06E5BB: BRA .apply_conveyor_motion
 
 .exit_c
@@ -20194,10 +20194,10 @@ Sprite_CheckTileProperty:
 #_06E7BE: BCC .proceed_to_failure
 
 #_06E7C0: LDA.w $0FA5
-#_06E7C3: CMP.b #!TILETYPE_10
+#_06E7C3: CMP.b #$10 ; TILETYPE 10
 #_06E7C5: BCC .proceed_to_success
 
-#_06E7C7: CMP.b #!TILETYPE_14
+#_06E7C7: CMP.b #$14 ; TILETYPE 14
 #_06E7C9: BCS .proceed_to_success
 
 #_06E7CB: JSR Sprite_CheckSlopedTileCollision
@@ -20228,18 +20228,18 @@ Sprite_CheckTileProperty:
 #_06E7E2: BPL .disable_some_checks
 
 #_06E7E4: LDA.w $0E20,X
-#_06E7E7: CMP.b #!SPRITE_D2
+#_06E7E7: CMP.b #$D2 ; SPRITE D2
 #_06E7E9: BEQ .is_fish
 
-#_06E7EB: CMP.b #!SPRITE_8A
+#_06E7EB: CMP.b #$8A ; SPRITE 8A
 #_06E7ED: BNE .not_spiky_ouchers
 
 .is_fish
-#_06E7EF: CPY.b #!TILETYPE_09
+#_06E7EF: CPY.b #$09 ; TILETYPE 09
 #_06E7F1: BEQ .fish_in_deep_water
 
 .not_spiky_ouchers
-#_06E7F3: CMP.b #!SPRITE_94
+#_06E7F3: CMP.b #$94 ; SPRITE 94
 #_06E7F5: BNE .not_pirogusu
 
 #_06E7F7: LDA.w $0E90,X
@@ -20251,26 +20251,26 @@ Sprite_CheckTileProperty:
 
 .not_pirogusu
 ; Fairy
-#_06E7FE: CMP.b #!SPRITE_E3
+#_06E7FE: CMP.b #$E3 ; SPRITE E3
 #_06E800: BEQ .check_for_water
 
 ; Arrghus
-#_06E802: CMP.b #!SPRITE_8C
+#_06E802: CMP.b #$8C ; SPRITE 8C
 #_06E804: BEQ .check_for_water
 
 ; Kyameron
-#_06E806: CMP.b #!SPRITE_9A
+#_06E806: CMP.b #$9A ; SPRITE 9A
 #_06E808: BEQ .check_for_water
 
 ; Hover
-#_06E80A: CMP.b #!SPRITE_81
+#_06E80A: CMP.b #$81 ; SPRITE 81
 #_06E80C: BNE .disable_some_checks
 
 .check_for_water
-#_06E80E: CPY.b #!TILETYPE_08
+#_06E80E: CPY.b #$08 ; TILETYPE 08
 #_06E810: BEQ .fail
 
-#_06E812: CPY.b #!TILETYPE_09
+#_06E812: CPY.b #$09 ; TILETYPE 09
 
 .fish_in_deep_water
 #_06E814: BEQ .fail
@@ -20293,10 +20293,10 @@ Sprite_CheckTileProperty:
 
 #_06E825: LDA.w $0FA5
 
-#_06E828: CMP.b #!TILETYPE_10
+#_06E828: CMP.b #$10 ; TILETYPE 10
 #_06E82A: BCC .not_slope
 
-#_06E82C: CMP.b #!TILETYPE_14
+#_06E82C: CMP.b #$14 ; TILETYPE 14
 #_06E82E: BCS .not_slope
 
 #_06E830: JSR Sprite_CheckSlopedTileCollision
@@ -20305,7 +20305,7 @@ Sprite_CheckTileProperty:
 ;---------------------------------------------------------------------------------------------------
 
 .not_slope
-#_06E835: CMP.b #!TILETYPE_44
+#_06E835: CMP.b #$44 ; TILETYPE 44
 #_06E837: BNE .not_spike
 
 #_06E839: LDA.w $0EA0,X
@@ -20354,7 +20354,7 @@ Sprite_CheckTileProperty:
 
 .not_spike
 ; Is pit?
-#_06E868: CMP.b #!TILETYPE_20
+#_06E868: CMP.b #$20 ; TILETYPE 20
 #_06E86A: BNE .succeed_and_exit
 
 #_06E86C: LDA.w $0B6B,X
@@ -21220,7 +21220,7 @@ Guard_ParrySwordAttacks:
 #_06EBA8: BCC .continue
 
 #_06EBAA: LDA.w $0E20,X
-#_06EBAD: CMP.b #!SPRITE_6A
+#_06EBAD: CMP.b #$6A ; SPRITE 6A
 #_06EBAF: BEQ .is_bnc
 
 #_06EBB1: JSL GetRandomNumber
@@ -21271,7 +21271,7 @@ Guard_ParrySwordAttacks:
 
 .not_a_poke_b
 #_06EBF1: JSR Sprite_ApplyRecoilToLink
-#_06EBF4: JSR Link_PlaceRepulseSpark
+#_06EBF4: JSR Link_PlaceWeaponTink
 
 #_06EBF7: LDA.b #$90
 #_06EBF9: STA.b $47
@@ -21295,10 +21295,10 @@ Sprite_AttemptZapDamage:
 #_06EC08: LDA.w $0E20,X
 
 ; Aga always zaps
-#_06EC0B: CMP.b #!SPRITE_7A
+#_06EC0B: CMP.b #$7A ; SPRITE 7A
 #_06EC0D: BEQ .get_zapped
 
-#_06EC0F: CMP.b #!SPRITE_0D
+#_06EC0F: CMP.b #$0D ; SPRITE 0D
 #_06EC11: BNE .not_buzzblob
 
 ; sword 4+ means no zap
@@ -21307,11 +21307,11 @@ Sprite_AttemptZapDamage:
 #_06EC19: BCC .get_zapped
 
 .not_buzzblob
-#_06EC1B: CMP.b #!SPRITE_24
+#_06EC1B: CMP.b #$24 ; SPRITE 24
 #_06EC1D: BEQ .blue_baritone_saxamaphone
 
 ; red tenor saxophone
-#_06EC1F: CMP.b #!SPRITE_23
+#_06EC1F: CMP.b #$23 ; SPRITE 23
 #_06EC21: BNE .no_damage
 
 .blue_baritone_saxamaphone
@@ -21484,7 +21484,7 @@ Ancilla_CheckDamageToSprite_aggressive:
 #_06ECD6: BCC Ancilla_CheckDamageToSprite_preset
 
 #_06ECD8: LDA.w $0E20,X
-#_06ECDB: CMP.b #!SPRITE_D7
+#_06ECDB: CMP.b #$D7 ; SPRITE D7
 #_06ECDD: BNE .not_ganon
 
 #_06ECDF: LDA.b #$20
@@ -21541,7 +21541,7 @@ Ancilla_CheckDamageToSprite_aggressive:
 
 #_06ED21: STZ.w $012E
 
-#_06ED24: LDA.b #!SFX2_05
+#_06ED24: LDA.b #$05 ; SFX2.05
 #_06ED26: JSL SpriteSFX_QueueSFX2WithPan
 
 .exit
@@ -21657,7 +21657,7 @@ Sprite_ApplyCalculatedDamage:
 
 ; These high ID sprites just take no damage
 #_06ED9E: LDA.w $0E20,X
-#_06EDA1: CMP.b #!SPRITE_D8
+#_06EDA1: CMP.b #$D8 ; SPRITE D8
 #_06EDA3: BCC .not_absorbable
 
 .exit_a
@@ -21705,7 +21705,7 @@ Sprite_ApplyCalculatedDamage:
 #_06EDCB: CMP.b #$F9
 #_06EDCD: BNE .dont_fairyize
 
-#_06EDCF: LDA.b #!SPRITE_E3
+#_06EDCF: LDA.b #$E3 ; SPRITE E3
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -21717,7 +21717,7 @@ Sprite_ApplyCalculatedDamage:
 
 #_06EDDC: STZ.w $012F
 
-#_06EDDF: LDA.b #!SFX3_32
+#_06EDDF: LDA.b #$32 ; SFX3.32
 #_06EDE1: JSL SpriteSFX_QueueSFX3WithPan
 
 #_06EDE5: JMP.w .clear_queued_damage
@@ -21728,7 +21728,7 @@ Sprite_ApplyCalculatedDamage:
 #_06EDE8: CMP.b #$FA
 #_06EDEA: BNE .dont_blobbify
 
-#_06EDEC: LDA.b #!SPRITE_8F
+#_06EDEC: LDA.b #$8F ; SPRITE 8F
 #_06EDEE: JSL .transmute_to_sprite
 
 #_06EDF2: LDA.b #$02
@@ -21787,7 +21787,7 @@ Sprite_ApplyCalculatedDamage:
 
 .sub_frozen
 #_06EE3E: LDA.w $0E20,X
-#_06EE41: CMP.b #!SPRITE_9A
+#_06EE41: CMP.b #$9A ; SPRITE 9A
 #_06EE43: BNE .dont_reset_kyameron
 
 #_06EE45: LDY.w $0CE2,X
@@ -21803,7 +21803,7 @@ Sprite_ApplyCalculatedDamage:
 #_06EE56: LDA.b #$0F
 #_06EE58: STA.w $0DF0,X
 
-#_06EE5B: LDA.b #!SFX2_28
+#_06EE5B: LDA.b #$28 ; SFX2.28
 #_06EE5D: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06EE61: RTL
@@ -21811,17 +21811,17 @@ Sprite_ApplyCalculatedDamage:
 ;---------------------------------------------------------------------------------------------------
 
 .dont_reset_kyameron
-#_06EE62: CMP.b #!SPRITE_1B
+#_06EE62: CMP.b #$1B ; SPRITE 1B
 #_06EE64: BNE .not_arrow
 
 ;===================================================================================================
 
 #SpriteArrow_Break:
-#_06EE66: LDA.b #!SFX2_05
+#_06EE66: LDA.b #$05 ; SFX2.05
 #_06EE68: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06EE6C: JSR Sprite_ScheduleForBreakage
-#_06EE6F: JSL Sprite_PlaceRepulseSpark
+#_06EE6F: JSL Sprite_PlaceWeaponTink
 
 #_06EE73: RTL
 
@@ -21834,7 +21834,7 @@ Sprite_ApplyCalculatedDamage:
 #_06EE77: STA.w $0EF0,X
 
 #_06EE7A: PLA
-#_06EE7B: CMP.b #!SPRITE_92
+#_06EE7B: CMP.b #$92 ; SPRITE 92
 #_06EE7D: BNE .not_king_helma
 
 #_06EE7F: LDA.w $0DB0,X
@@ -21844,19 +21844,19 @@ Sprite_ApplyCalculatedDamage:
 ;---------------------------------------------------------------------------------------------------
 
 .not_king_helma
-#_06EE86: LDY.b #!SFX3_21
+#_06EE86: LDY.b #$21 ; SFX3.21
 
 #_06EE88: LDA.w $0B6B,X
 #_06EE8B: AND.b #$02
 #_06EE8D: BNE .set_damage_sfx
 
-#_06EE8F: LDY.b #!SFX3_08
+#_06EE8F: LDY.b #$08 ; SFX3.08
 
 #_06EE91: LDA.w $0BE0,X
 #_06EE94: AND.b #$10
 #_06EE96: BEQ .set_damage_sfx
 
-#_06EE98: LDY.b #!SFX3_1C
+#_06EE98: LDY.b #$1C ; SFX3.1C
 
 .set_damage_sfx
 #_06EE9A: STY.b $01
@@ -21878,14 +21878,14 @@ Sprite_ApplyCalculatedDamage:
 
 #_06EEB1: LDA.b #$14
 
-#_06EEB3: CPY.b #!SPRITE_09
+#_06EEB3: CPY.b #$09 ; SPRITE 09
 #_06EEB5: BEQ .set_iframe_timer
 
 #_06EEB7: LDA.b #$0F
-#_06EEB9: CPY.b #!SPRITE_53
+#_06EEB9: CPY.b #$53 ; SPRITE 53
 #_06EEBB: BEQ .eleven_frames_of_armos
 
-#_06EEBD: CPY.b #!SPRITE_18
+#_06EEBD: CPY.b #$18 ; SPRITE 18
 #_06EEBF: BNE .set_iframe_timer
 
 .eleven_frames_of_armos
@@ -21919,7 +21919,7 @@ Sprite_ApplyCalculatedDamage:
 
 #_06EEDF: STZ.w $0CE2,X
 
-#_06EEE2: LDA.b #!SFX3_09
+#_06EEE2: LDA.b #$09 ; SFX3.09
 #_06EEE4: JSL SpriteSFX_QueueSFX3WithPan
 
 #_06EEE8: LDA.b #$07
@@ -21971,7 +21971,7 @@ Sprite_ApplyCalculatedDamage:
 #_06EF24: ASL.w $0BE0,X
 #_06EF27: LSR.w $0BE0,X
 
-#_06EF2A: LDA.b #!SFX2_0F
+#_06EF2A: LDA.b #$0F ; SFX2.0F
 #_06EF2C: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06EF30: LDA.b #$18
@@ -22000,7 +22000,7 @@ Sprite_ApplyCalculatedDamage:
 #_06EF51: STA.w $0B58,X
 
 #_06EF54: LDA.w $0E20,X
-#_06EF57: CMP.b #!SPRITE_23
+#_06EF57: CMP.b #$23 ; SPRITE 23
 #_06EF59: BNE .not_a_red_bari
 
 #_06EF5B: INC A
@@ -22057,14 +22057,14 @@ Sprite_ApplyCalculatedDamage:
 
 .no_forced_drop
 #_06EF9A: LDY.w $0E20,X
-#_06EF9D: CPY.b #!SPRITE_1B
+#_06EF9D: CPY.b #$1B ; SPRITE 1B
 #_06EF9F: BEQ .no_arrow_sfx
 
-#_06EFA1: LDA.b #!SFX3_09
+#_06EFA1: LDA.b #$09 ; SFX3.09
 #_06EFA3: JSL SpriteSFX_QueueSFX3WithPan
 
 .no_arrow_sfx
-#_06EFA7: CPY.b #!SPRITE_40
+#_06EFA7: CPY.b #$40 ; SPRITE 40
 #_06EFA9: BNE .not_aga_barrier
 
 #_06EFAB: PHX
@@ -22081,7 +22081,7 @@ Sprite_ApplyCalculatedDamage:
 
 .not_aga_barrier
 #_06EFB9: TYA
-#_06EFBA: CMP.b #!SPRITE_EC
+#_06EFBA: CMP.b #$EC ; SPRITE EC
 #_06EFBC: BNE .not_a_thrown_item
 
 #_06EFBE: LDY.w $0DB0,X
@@ -22105,7 +22105,7 @@ Sprite_ApplyCalculatedDamage:
 #_06EFD8: STA.w $0DD0,X
 
 #_06EFDB: PLA
-#_06EFDC: CMP.b #!SPRITE_0C
+#_06EFDC: CMP.b #$0C ; SPRITE 0C
 #_06EFDE: BNE Sprite_AttemptKillingOfKin
 
 ;===================================================================================================
@@ -22127,7 +22127,7 @@ Sprite_ApplyCalculatedDamage:
 ;===================================================================================================
 
 Sprite_AttemptKillingOfKin:
-#_06EFEE: CMP.b #!SPRITE_92
+#_06EFEE: CMP.b #$92 ; SPRITE 92
 #_06EFF0: BNE .not_helmasaur_king
 
 #_06EFF2: JSL Sprite_KillFriends
@@ -22140,16 +22140,16 @@ Sprite_AttemptKillingOfKin:
 ;---------------------------------------------------------------------------------------------------
 
 .not_helmasaur_king
-#_06EFFE: CMP.b #!SPRITE_CB
+#_06EFFE: CMP.b #$CB ; SPRITE CB
 #_06F000: BNE .not_trinexx_rock
 
 #_06F002: JMP.w TrinexxRock_ScreamAndDie
 
 .not_trinexx_rock
-#_06F005: CMP.b #!SPRITE_CC
+#_06F005: CMP.b #$CC ; SPRITE CC
 #_06F007: BEQ .is_trinexx_fire
 
-#_06F009: CMP.b #!SPRITE_CD
+#_06F009: CMP.b #$CD ; SPRITE CD
 #_06F00B: BNE .not_trinexx_ice
 
 .is_trinexx_fire
@@ -22158,16 +22158,16 @@ Sprite_AttemptKillingOfKin:
 ;---------------------------------------------------------------------------------------------------
 
 .not_trinexx_ice
-#_06F010: CMP.b #!SPRITE_53
+#_06F010: CMP.b #$53 ; SPRITE 53
 #_06F012: BEQ ArmosKnight_ScreamAndDie
 
-#_06F014: CMP.b #!SPRITE_54
+#_06F014: CMP.b #$54 ; SPRITE 54
 #_06F016: BEQ Lanmolas_ScreamAndDie
 
-#_06F018: CMP.b #!SPRITE_09
+#_06F018: CMP.b #$09 ; SPRITE 09
 #_06F01A: BEQ Moldorm_ScreamAndDie
 
-#_06F01C: CMP.b #!SPRITE_7A
+#_06F01C: CMP.b #$7A ; SPRITE 7A
 #_06F01E: BNE .not_agahnim
 
 #_06F020: JMP.w Agahnim_ScreamAndDie
@@ -22175,10 +22175,10 @@ Sprite_AttemptKillingOfKin:
 ;---------------------------------------------------------------------------------------------------
 
 .not_agahnim
-#_06F023: CMP.b #!SPRITE_23
+#_06F023: CMP.b #$23 ; SPRITE 23
 #_06F025: BEQ RedBari_TimeToDie
 
-#_06F027: CMP.b #!SPRITE_0F
+#_06F027: CMP.b #$0F ; SPRITE 0F
 #_06F029: BNE SpriteDeath_not_octoballoon
 
 ;===================================================================================================
@@ -22234,7 +22234,7 @@ Sprite_AttemptKillingOfKin:
 
 .not_a_boss
 #_06F05D: LDA.w $0E20,X
-#_06F060: CMP.b #!SPRITE_A2
+#_06F060: CMP.b #$A2 ; SPRITE A2
 #_06F062: BEQ .kholdstare
 
 #_06F064: JSL Sprite_KillFriends
@@ -22282,7 +22282,7 @@ ArmosKnight_ScreamAndDie:
 .queue_scream
 #_06F090: STZ.w $012F
 
-#_06F093: LDA.b #!SFX3_22
+#_06F093: LDA.b #$22 ; SFX3.22
 #_06F095: JSL SpriteSFX_QueueSFX3WithPan
 
 #_06F099: RTS
@@ -22527,16 +22527,16 @@ Sprite_CheckDamageToLink:
 #_06F1A8: CMP.w Sprite_ToLink_Directions_opposing2,Y
 #_06F1AB: BNE .definitely_getting_hit
 
-#_06F1AD: LDA.b #!SFX2_06 ; clink sound
+#_06F1AD: LDA.b #$06 ; SFX2.06 clink sound
 #_06F1AF: JSL SpriteSFX_QueueSFX2WithPan
 
-#_06F1B3: JSL Sprite_PlaceRepulseSpark_forced
+#_06F1B3: JSL Sprite_PlaceWeaponTink_forced
 
 #_06F1B7: LDA.w $0E20,X
-#_06F1BA: CMP.b #!SPRITE_95 ; lasers dies with an extra sound
+#_06F1BA: CMP.b #$95 ; SPRITE 95 - lasers dies with an extra sound
 #_06F1BC: BNE .not_laser
 
-#_06F1BE: LDA.b #!SFX3_26
+#_06F1BE: LDA.b #$26 ; SFX3.26
 #_06F1C0: JSL SpriteSFX_QueueSFX3WithPan
 
 .no_damage
@@ -22549,7 +22549,7 @@ Sprite_CheckDamageToLink:
 ;---------------------------------------------------------------------------------------------------
 
 .not_laser
-#_06F1C6: CMP.b #!SPRITE_9B ; wizzrobe shots reflect back
+#_06F1C6: CMP.b #$9B ; SPRITE 9B - wizzrobe shots reflect back
 #_06F1C8: BNE .not_wizzrobe_beam
 
 #_06F1CA: JSR Sprite_InvertSpeed_XY
@@ -22571,10 +22571,10 @@ Sprite_CheckDamageToLink:
 ;---------------------------------------------------------------------------------------------------
 
 .not_wizzrobe_beam
-#_06F1DF: CMP.b #!SPRITE_1B ; special bounce back for arrows
+#_06F1DF: CMP.b #$1B ; SPRITE 1B - special bounce back for arrows
 #_06F1E1: BEQ .is_arrow
 
-#_06F1E3: CMP.b #!SPRITE_0C ; octorok rocks explode
+#_06F1E3: CMP.b #$0C ; SPRITE 0C - octorok rocks explode
 #_06F1E5: BEQ .is_rock
 
 #_06F1E7: RTS
@@ -22585,7 +22585,7 @@ Sprite_CheckDamageToLink:
 #_06F1E8: JSR Sprite_AttemptDamageToLinkPlusRecoil
 
 #_06F1EB: LDA.w $0E20,X
-#_06F1EE: CMP.b #!SPRITE_0C ; rocks again
+#_06F1EE: CMP.b #$0C ; SPRITE 0C - rocks again
 #_06F1F0: BNE .is_not_rock
 
 .is_rock
@@ -22678,10 +22678,10 @@ Sprite_CheckIfLifted:
 ;---------------------------------------------------------------------------------------------------
 
 #_06F24A: LDA.w $0E20,X
-#_06F24D: CMP.b #!SPRITE_0B
+#_06F24D: CMP.b #$0B ; SPRITE 0B
 #_06F24F: BEQ Sprite_CheckIfLifted_permissive
 
-#_06F251: CMP.b #!SPRITE_4A
+#_06F251: CMP.b #$4A ; SPRITE 4A
 #_06F253: BEQ Sprite_CheckIfLifted_permissive
 
 #_06F255: LDA.w $0D50,X
@@ -22719,7 +22719,7 @@ Sprite_CheckIfLifted:
 
 #_06F281: STZ.w $0E90,X
 
-#_06F284: LDA.b #!SFX2_1D
+#_06F284: LDA.b #$1D ; SFX2.1D
 #_06F286: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06F28A: LDA.w $0DD0,X
@@ -22799,11 +22799,11 @@ Sprite_CheckDamageFromLink:
 
 ; Skip Ganon
 #_06F2EA: LDA.w $0E20,X
-#_06F2ED: CMP.b #!SPRITE_D6
+#_06F2ED: CMP.b #$D6 ; SPRITE D6
 #_06F2EF: BCS .no_collision
 
 #_06F2F1: LDA.w $0DD0,X
-#_06F2F4: CMP.b #!SPRITE_0B
+#_06F2F4: CMP.b #$0B ; SPRITE 0B
 #_06F2F6: BNE .not_frozen_kill
 
 #_06F2F8: LDA.l $7FFA3C,X
@@ -22820,7 +22820,7 @@ Sprite_CheckDamageFromLink:
 #_06F30D: ORA.b #$03
 #_06F30F: STA.w $0E40,X
 
-#_06F312: LDA.b #!SFX2_1F
+#_06F312: LDA.b #$1F ; SFX2.1F
 #_06F314: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06F318: SEC
@@ -22831,7 +22831,7 @@ Sprite_CheckDamageFromLink:
 
 .not_frozen_kill
 #_06F31A: LDA.w $0E20,X
-#_06F31D: CMP.b #!SPRITE_7B
+#_06F31D: CMP.b #$7B ; SPRITE 7B
 #_06F31F: BNE .not_aga_ball
 
 #_06F321: LDA.b $3C
@@ -22858,7 +22858,7 @@ Sprite_CheckDamageFromLink:
 
 #_06F33A: STZ.w $0EF0,X
 
-#_06F33D: JSR Link_PlaceRepulseSpark
+#_06F33D: JSR Link_PlaceWeaponTink
 
 #_06F340: JMP.w SpriteDamage_ExitWith00
 
@@ -22879,7 +22879,7 @@ Sprite_CheckDamageFromLink:
 ;---------------------------------------------------------------------------------------------------
 
 .not_aga_ball
-#_06F354: CMP.b #!SPRITE_09
+#_06F354: CMP.b #$09 ; SPRITE 09
 #_06F356: BNE .not_moldorm
 
 #_06F358: LDA.w $0D90,X
@@ -22887,16 +22887,16 @@ Sprite_CheckDamageFromLink:
 
 #_06F35D: JSR Sprite_RecoilLinkAndTHUMP
 
-#_06F360: LDA.b #!SFX3_32
+#_06F360: LDA.b #$32 ; SFX3.32
 #_06F362: JSL Sprite_CalculateSFXPan
 #_06F366: STA.w $012F
 
-#_06F369: JMP.w .place_repulse_spark
+#_06F369: JMP.w .place_tink
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_moldorm
-#_06F36C: CMP.b #!SPRITE_92
+#_06F36C: CMP.b #$92 ; SPRITE 92
 #_06F36E: BNE .not_helma_king
 
 #_06F370: JMP.w KingHelmasaur_ApplyRecoilIfEarlyPhase
@@ -22905,43 +22905,43 @@ Sprite_CheckDamageFromLink:
 
 .not_helma_king
 ; Hardhat beetle
-#_06F373: CMP.b #!SPRITE_26
+#_06F373: CMP.b #$26 ; SPRITE 26
 #_06F375: BEQ Sprite_CheckDamageFromLink_with_recoil
 
 ; Mini helmasaur
-#_06F377: CMP.b #!SPRITE_13
+#_06F377: CMP.b #$13 ; SPRITE 13
 #_06F379: BEQ .mini_helma
 
 ; Stalfos head
-#_06F37B: CMP.b #!SPRITE_02
+#_06F37B: CMP.b #$02 ; SPRITE 02
 #_06F37D: BEQ .stalfos_head
 
 ; Trinexx rock head
-#_06F37F: CMP.b #!SPRITE_CB
+#_06F37F: CMP.b #$CB ; SPRITE CB
 #_06F381: BEQ Sprite_CheckDamageFromLink_apply_normal_recoil
 
 ; Trinexx ice head
-#_06F383: CMP.b #!SPRITE_CD
+#_06F383: CMP.b #$CD ; SPRITE CD
 #_06F385: BEQ Sprite_CheckDamageFromLink_apply_normal_recoil
 
 ; Trinexx fire head
-#_06F387: CMP.b #!SPRITE_CC
+#_06F387: CMP.b #$CC ; SPRITE CC
 #_06F389: BEQ Sprite_CheckDamageFromLink_apply_normal_recoil
 
 ; Ganon
-#_06F38B: CMP.b #!SPRITE_D6
+#_06F38B: CMP.b #$D6 ; SPRITE D6
 #_06F38D: BEQ Sprite_CheckDamageFromLink_apply_normal_recoil
 
 ; Ganon
-#_06F38F: CMP.b #!SPRITE_D7
+#_06F38F: CMP.b #$D7 ; SPRITE D7
 #_06F391: BEQ Sprite_CheckDamageFromLink_apply_normal_recoil
 
 ; Blind
-#_06F393: CMP.b #!SPRITE_CE
+#_06F393: CMP.b #$CE ; SPRITE CE
 #_06F395: BEQ Sprite_CheckDamageFromLink_apply_normal_recoil
 
 ; Lanmolas
-#_06F397: CMP.b #!SPRITE_54
+#_06F397: CMP.b #$54 ; SPRITE 54
 #_06F399: BNE .check_sword_swing
 
 ;===================================================================================================
@@ -22980,7 +22980,7 @@ Sprite_CheckDamageFromLink:
 
 #Sprite_CheckDamageFromLink_attempt_small_recoil:
 #_06F3B8: LDA.b $47
-#_06F3BA: BNE .place_repulse_spark
+#_06F3BA: BNE .place_tink
 
 #_06F3BC: LDA.b #$04
 #_06F3BE: JSR Sprite_ApplyRecoilToLink
@@ -22991,8 +22991,8 @@ Sprite_CheckDamageFromLink:
 #_06F3C5: LDA.b #$10
 #_06F3C7: STA.b $47
 
-.place_repulse_spark
-#_06F3C9: JSR Link_PlaceRepulseSpark
+.place_tink
+#_06F3C9: JSR Link_PlaceWeaponTink
 
 #_06F3CC: SEC
 
@@ -23048,7 +23048,7 @@ Sprite_AttemptDamageToLinkWithCollisionCheck:
 #_06F409: STA.w $0373
 
 #_06F40C: LDA.w $0E20,X
-#_06F40F: CMP.b #!SPRITE_61 ; special beamos logic
+#_06F40F: CMP.b #$61 ; SPRITE 61 - special beamos logic
 #_06F411: BNE .no_damage
 
 #_06F413: LDA.w $0DB0,X
@@ -23105,7 +23105,7 @@ Sprite_RecoilLinkAndTHUMP:
 #_06F454: LDA.b #$10
 #_06F456: STA.b $46
 
-#_06F458: LDA.b #!SFX2_21
+#_06F458: LDA.b #$21 ; SFX2.21
 #_06F45A: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06F45E: LDA.b #$30
@@ -23678,7 +23678,7 @@ Sprite_DoHitboxesFast:
 #_06F679: LDA.b #$03
 
 #_06F67B: LDY.w $0E20,X
-#_06F67E: CPY.b #!SPRITE_6A
+#_06F67E: CPY.b #$6A ; SPRITE 6A
 #_06F680: BNE .not_bnc
 
 #_06F682: LDA.b #$10
@@ -23720,7 +23720,7 @@ Sprite_ApplyRecoilToLink:
 
 ;===================================================================================================
 
-Link_PlaceRepulseSpark:
+Link_PlaceWeaponTink:
 #_06F6A5: LDA.w $0FAC
 #_06F6A8: BNE .exit
 
@@ -23739,29 +23739,29 @@ Link_PlaceRepulseSpark:
 #_06F6C3: STA.w $0B68
 
 #_06F6C6: JSL Link_CalculateSFXPan
-#_06F6CA: ORA.b #!SFX2_05
+#_06F6CA: ORA.b #$05 ; SFX2.05
 #_06F6CC: STA.w $012E
 
 .exit
 #_06F6CF: RTS
 
 ;===================================================================================================
-; Places a repulse spark at the sprite's coordinates
-; the repulse spark fails to be created if it would be off screen
-; the main entry point only allows 1 repulse spark at a time
-; the secondary entry point forces a new repulse spark
+; Places a weapon tink spark at the sprite's coordinates
+; the weapon tink spark fails to be created if it would be off screen
+; the main entry point only allows 1 weapon tink spark at a time
+; the secondary entry point forces a new weapon tink spark
 ; it also skips the sound effect
 ;===================================================================================================
-Sprite_PlaceRepulseSpark:
+Sprite_PlaceWeaponTink:
 #_06F6D0: LDA.w $0FAC
 #_06F6D3: BNE .no_spark
 
-#_06F6D5: LDA.b #!SFX2_05
+#_06F6D5: LDA.b #$05 ; SFX2.05
 #_06F6D7: JSL SpriteSFX_QueueSFX2WithPan
 
 ;===================================================================================================
 
-#Sprite_PlaceRepulseSpark_forced:
+#Sprite_PlaceWeaponTink_forced:
 #_06F6DB: LDA.w $0D10,X
 #_06F6DE: CMP.b $E2
 
@@ -24235,7 +24235,7 @@ OAM_AllocateDeferToPlayer:
 ;===================================================================================================
 SpriteModule_Die:
 #_06F8A8: LDA.w $0E20,X
-#_06F8AB: CMP.b #!SPRITE_EC
+#_06F8AB: CMP.b #$EC ; SPRITE EC
 #_06F8AD: BNE .not_foliage
 
 #_06F8AF: JSR ThrowableScenery_ScatterIntoDebris
@@ -24245,16 +24245,16 @@ SpriteModule_Die:
 ;---------------------------------------------------------------------------------------------------
 
 .not_foliage
-#_06F8B3: CMP.b #!SPRITE_53
+#_06F8B3: CMP.b #$53 ; SPRITE 53
 #_06F8B5: BEQ .just_draw
 
-#_06F8B7: CMP.b #!SPRITE_54
+#_06F8B7: CMP.b #$54 ; SPRITE 54
 #_06F8B9: BEQ .just_draw
 
-#_06F8BB: CMP.b #!SPRITE_92
+#_06F8BB: CMP.b #$92 ; SPRITE 92
 #_06F8BD: BEQ .just_draw
 
-#_06F8BF: CMP.b #!SPRITE_4A
+#_06F8BF: CMP.b #$4A ; SPRITE 4A
 #_06F8C1: BNE .not_enemy_bomb
 
 #_06F8C3: LDA.w $0DB0,X
@@ -24283,7 +24283,7 @@ SpriteModule_Die:
 ;---------------------------------------------------------------------------------------------------
 
 #_06F8E5: LDA.w $0E20,X
-#_06F8E8: CMP.b #!SPRITE_40
+#_06F8E8: CMP.b #$40 ; SPRITE 40
 #_06F8EA: BEQ .aga_barrier
 
 #_06F8EC: LDA.w $0DF0,X
@@ -24347,10 +24347,10 @@ Sprite_DoTheDeath_long:
 pool Sprite_DoTheDeath
 
 .pikit_loot
-#_06F925: db !SPRITE_DC ; 1 bomb
-#_06F926: db !SPRITE_E1 ; 1 arrow
-#_06F927: db !SPRITE_D9 ; 1 rupee
-#_06F928: db !SPRITE_E6 ; 1 shield
+#_06F925: db $DC ; SPRITE DC - 1 bomb
+#_06F926: db $E1 ; SPRITE E1 - 1 arrow
+#_06F927: db $D9 ; SPRITE D9 - 1 rupee
+#_06F928: db $E6 ; SPRITE E6 - 1 shield
 
 pool off
 
@@ -24358,7 +24358,7 @@ pool off
 
 Sprite_DoTheDeath:
 #_06F929: LDA.w $0E20,X
-#_06F92C: CMP.b #!SPRITE_BE
+#_06F92C: CMP.b #$BE ; SPRITE BE
 #_06F92E: BNE .not_mini_vitty
 
 ; !HARDCODED counter decrement for vitreous eyeballs
@@ -24366,7 +24366,7 @@ Sprite_DoTheDeath:
 #_06F930: DEC.w $0ED0
 
 .not_mini_vitty
-#_06F933: CMP.b #!SPRITE_AA
+#_06F933: CMP.b #$AA ; SPRITE AA
 #_06F935: BNE .pikit_no
 
 ; override item drop with pikit loot
@@ -24404,7 +24404,7 @@ Sprite_DoTheDeath:
 
 .pikit_no
 #_06F95B: LDA.w $0E20,X
-#_06F95E: CMP.b #!SPRITE_45
+#_06F95E: CMP.b #$45 ; SPRITE 45
 #_06F960: BNE .not_snitch_guard
 
 #_06F962: LDA.l $7EF3C5 ; game state 2 (zelda rescued)
@@ -24415,7 +24415,7 @@ Sprite_DoTheDeath:
 #_06F96D: CMP.b #$18
 #_06F96F: BNE .not_snitch_guard
 
-#_06F971: LDA.b #!SONG_07
+#_06F971: LDA.b #$07 ; SONG 07
 #_06F973: STA.w $012C
 
 .not_snitch_guard
@@ -24430,17 +24430,17 @@ Sprite_DoTheDeath:
 #_06F983: STA.w $0BC0,X
 
 ; 1 = small key
-#_06F986: LDA.b #!SPRITE_E4
+#_06F986: LDA.b #$E4 ; SPRITE E4
 #_06F988: CPY.b #$01
 #_06F98A: BEQ PrepareEnemyDrop
 
 ; 2 = big key
-#_06F98C: LDA.b #!SPRITE_E5
+#_06F98C: LDA.b #$E5 ; SPRITE E5
 #_06F98E: CPY.b #$03
 #_06F990: BNE PrepareEnemyDrop
 
 ; 3 = green rupee
-#_06F992: LDA.b #!SPRITE_D9
+#_06F992: LDA.b #$D9 ; SPRITE D9
 #_06F994: BRA PrepareEnemyDrop
 
 ;---------------------------------------------------------------------------------------------------
@@ -24508,14 +24508,14 @@ Sprite_DoTheDeath:
 #PrepareEnemyDrop:
 #_06F9D7: STA.w $0E20,X
 
-#_06F9DA: CMP.b #!SPRITE_E5
+#_06F9DA: CMP.b #$E5 ; SPRITE E5
 #_06F9DC: BNE .not_big_key_drop
 
 #_06F9DE: JSR SpritePrep_BigKey_load_graphics
 #_06F9E1: BRA .spawn_drop
 
 .not_big_key_drop
-#_06F9E3: CMP.b #!SPRITE_E4
+#_06F9E3: CMP.b #$E4 ; SPRITE E4
 #_06F9E5: BNE .spawn_drop
 
 #_06F9E7: JSR SpritePrep_SetKeyIndex
@@ -24570,10 +24570,10 @@ Sprite_DoTheDeath:
 
 .post_death_stuff
 #_06FA2B: LDA.w $0E20,X
-#_06FA2E: CMP.b #!SPRITE_A2
+#_06FA2E: CMP.b #$A2 ; SPRITE A2
 #_06FA30: BNE .not_dead_kholdstares
 
-#_06FA32: JSL CheckIfRoomIsClear
+#_06FA32: JSL CheckIfScreenIsClear
 #_06FA36: BCC .not_dead_kholdstares ; they alive
 
 #_06FA38: LDA.b #$04
@@ -24585,7 +24585,7 @@ Sprite_DoTheDeath:
 #_06FA42: INC.w $0CFB
 
 #_06FA45: LDA.w $0E20,X
-#_06FA48: CMP.b #!SPRITE_40
+#_06FA48: CMP.b #$40 ; SPRITE 40
 #_06FA4A: BNE .not_kyameron
 
 #_06FA4C: LDA.b #$09 ; keep it alive
@@ -24651,86 +24651,86 @@ ItemDropBounceProps:
 PrizePackPrizes:
 
 .pack_1
-#_06FA78: db !SPRITE_D8 ; heart
-#_06FA79: db !SPRITE_D8 ; heart
-#_06FA7A: db !SPRITE_D8 ; heart
-#_06FA7B: db !SPRITE_D8 ; heart
-#_06FA7C: db !SPRITE_D9 ; green rupee
-#_06FA7D: db !SPRITE_D8 ; heart
-#_06FA7E: db !SPRITE_D8 ; heart
-#_06FA7F: db !SPRITE_D9 ; green rupee
+#_06FA78: db $D8 ; SPRITE D8 - heart
+#_06FA79: db $D8 ; SPRITE D8 - heart
+#_06FA7A: db $D8 ; SPRITE D8 - heart
+#_06FA7B: db $D8 ; SPRITE D8 - heart
+#_06FA7C: db $D9 ; SPRITE D9 - green rupee
+#_06FA7D: db $D8 ; SPRITE D8 - heart
+#_06FA7E: db $D8 ; SPRITE D8 - heart
+#_06FA7F: db $D9 ; SPRITE D9 - green rupee
 
 ;---------------------------------------------------------------------------------------------------
 
 .pack_2
-#_06FA80: db !SPRITE_DA ; blue rupee
-#_06FA81: db !SPRITE_D9 ; green rupee
-#_06FA82: db !SPRITE_DA ; blue rupee
-#_06FA83: db !SPRITE_DB ; red rupee
-#_06FA84: db !SPRITE_DA ; blue rupee
-#_06FA85: db !SPRITE_D9 ; green rupee
-#_06FA86: db !SPRITE_DA ; blue rupee
-#_06FA87: db !SPRITE_DA ; blue rupee
+#_06FA80: db $DA ; SPRITE DA - blue rupee
+#_06FA81: db $D9 ; SPRITE D9 - green rupee
+#_06FA82: db $DA ; SPRITE DA - blue rupee
+#_06FA83: db $DB ; SPRITE DB - red rupee
+#_06FA84: db $DA ; SPRITE DA - blue rupee
+#_06FA85: db $D9 ; SPRITE D9 - green rupee
+#_06FA86: db $DA ; SPRITE DA - blue rupee
+#_06FA87: db $DA ; SPRITE DA - blue rupee
 
 ;---------------------------------------------------------------------------------------------------
 
 .pack_3
-#_06FA88: db !SPRITE_E0 ; full magic
-#_06FA89: db !SPRITE_DF ; small magic
-#_06FA8A: db !SPRITE_DF ; small magic
-#_06FA8B: db !SPRITE_DA ; blue rupee
-#_06FA8C: db !SPRITE_E0 ; full magic
-#_06FA8D: db !SPRITE_DF ; small magic
-#_06FA8E: db !SPRITE_D8 ; heart
-#_06FA8F: db !SPRITE_DF ; small magic
+#_06FA88: db $E0 ; SPRITE E0 - full magic
+#_06FA89: db $DF ; SPRITE DF - small magic
+#_06FA8A: db $DF ; SPRITE DF - small magic
+#_06FA8B: db $DA ; SPRITE DA - blue rupee
+#_06FA8C: db $E0 ; SPRITE E0 - full magic
+#_06FA8D: db $DF ; SPRITE DF - small magic
+#_06FA8E: db $D8 ; SPRITE D8 - heart
+#_06FA8F: db $DF ; SPRITE DF - small magic
 
 ;---------------------------------------------------------------------------------------------------
 
 .pack_4
-#_06FA90: db !SPRITE_DC ; 1 bomb
-#_06FA91: db !SPRITE_DC ; 1 bomb
-#_06FA92: db !SPRITE_DC ; 1 bomb
-#_06FA93: db !SPRITE_DD ; 4 bombs
-#_06FA94: db !SPRITE_DC ; 1 bomb
-#_06FA95: db !SPRITE_DC ; 1 bomb
-#_06FA96: db !SPRITE_DE ; 8 bombs
-#_06FA97: db !SPRITE_DC ; 1 bomb
+#_06FA90: db $DC ; SPRITE DC - 1 bomb
+#_06FA91: db $DC ; SPRITE DC - 1 bomb
+#_06FA92: db $DC ; SPRITE DC - 1 bomb
+#_06FA93: db $DD ; SPRITE DD - 4 bombs
+#_06FA94: db $DC ; SPRITE DC - 1 bomb
+#_06FA95: db $DC ; SPRITE DC - 1 bomb
+#_06FA96: db $DE ; SPRITE DE - 8 bombs
+#_06FA97: db $DC ; SPRITE DC - 1 bomb
 
 ;---------------------------------------------------------------------------------------------------
 
 .pack_5
-#_06FA98: db !SPRITE_E1 ; 5 arrows
-#_06FA99: db !SPRITE_D8 ; heart
-#_06FA9A: db !SPRITE_E1 ; 5 arrows
-#_06FA9B: db !SPRITE_E2 ; 10 arrows
-#_06FA9C: db !SPRITE_E1 ; 5 arrows
-#_06FA9D: db !SPRITE_D8 ; heart
-#_06FA9E: db !SPRITE_E1 ; 5 arrows
-#_06FA9F: db !SPRITE_E2 ; 10 arrows
+#_06FA98: db $E1 ; SPRITE E1 - 5 arrows
+#_06FA99: db $D8 ; SPRITE D8 - heart
+#_06FA9A: db $E1 ; SPRITE E1 - 5 arrows
+#_06FA9B: db $E2 ; SPRITE E2 - 10 arrows
+#_06FA9C: db $E1 ; SPRITE E1 - 5 arrows
+#_06FA9D: db $D8 ; SPRITE D8 - heart
+#_06FA9E: db $E1 ; SPRITE E1 - 5 arrows
+#_06FA9F: db $E2 ; SPRITE E2 - 10 arrows
 
 ;---------------------------------------------------------------------------------------------------
 
 .pack_6
-#_06FAA0: db !SPRITE_DF ; small magic
-#_06FAA1: db !SPRITE_D9 ; green rupee
-#_06FAA2: db !SPRITE_D8 ; heart
-#_06FAA3: db !SPRITE_E1 ; 5 arrows
-#_06FAA4: db !SPRITE_DF ; small magic
-#_06FAA5: db !SPRITE_DC ; 1 bomb
-#_06FAA6: db !SPRITE_D9 ; green rupee
-#_06FAA7: db !SPRITE_D8 ; heart
+#_06FAA0: db $DF ; SPRITE DF - small magic
+#_06FAA1: db $D9 ; SPRITE D9 - green rupee
+#_06FAA2: db $D8 ; SPRITE D8 - heart
+#_06FAA3: db $E1 ; SPRITE E1 - 5 arrows
+#_06FAA4: db $DF ; SPRITE DF - small magic
+#_06FAA5: db $DC ; SPRITE DC - 1 bomb
+#_06FAA6: db $D9 ; SPRITE D9 - green rupee
+#_06FAA7: db $D8 ; SPRITE D8 - heart
 
 ;---------------------------------------------------------------------------------------------------
 
 .pack_7
-#_06FAA8: db !SPRITE_D8 ; heart
-#_06FAA9: db !SPRITE_E3 ; fairy
-#_06FAAA: db !SPRITE_E0 ; full magic
-#_06FAAB: db !SPRITE_DB ; red rupee
-#_06FAAC: db !SPRITE_DE ; 8 bombs
-#_06FAAD: db !SPRITE_D8 ; heart
-#_06FAAE: db !SPRITE_DB ; red rupee
-#_06FAAF: db !SPRITE_E2 ; 10 arrows
+#_06FAA8: db $D8 ; SPRITE D8 - heart
+#_06FAA9: db $E3 ; SPRITE E3 - fairy
+#_06FAAA: db $E0 ; SPRITE E0 - full magic
+#_06FAAB: db $DB ; SPRITE DB - red rupee
+#_06FAAC: db $DE ; SPRITE DE - 8 bombs
+#_06FAAD: db $D8 ; SPRITE D8 - heart
+#_06FAAE: db $DB ; SPRITE DB - red rupee
+#_06FAAF: db $E2 ; SPRITE E2 - 10 arrows
 
 ;===================================================================================================
 
@@ -24945,7 +24945,7 @@ SpriteModule_Fall2:
 #_06FC16: ORA.w $0FC1
 #_06FC19: BNE .skip_sfx31
 
-#_06FC1B: LDA.b #!SFX3_31
+#_06FC1B: LDA.b #$31 ; SFX3.31
 #_06FC1D: JSL SpriteSFX_QueueSFX3WithPan
 
 .skip_sfx31
@@ -24978,7 +24978,7 @@ SpriteModule_Fall2:
 
 #_06FC45: PHA
 
-#_06FC46: LDA.b #!SFX2_20
+#_06FC46: LDA.b #$20 ; SFX2.20
 #_06FC48: JSL SpriteSFX_QueueSFX2WithPan
 
 #_06FC4C: PLA
@@ -24990,10 +24990,10 @@ SpriteModule_Fall2:
 #_06FC4E: TAY
 
 #_06FC4F: LDA.w $0E20,X
-#_06FC52: CMP.b #!SPRITE_26
+#_06FC52: CMP.b #$26 ; SPRITE 26
 #_06FC54: BEQ .is_beetle
 
-#_06FC56: CMP.b #!SPRITE_13
+#_06FC56: CMP.b #$13 ; SPRITE 13
 #_06FC58: BNE .not_minihelma
 
 .is_beetle
@@ -25039,7 +25039,7 @@ SpriteModule_Fall2:
 #_06FC8B: JSR Sprite_CheckTileProperty
 
 #_06FC8E: LDA.w $0FA5
-#_06FC91: CMP.b #!TILETYPE_20
+#_06FC91: CMP.b #$20 ; TILETYPE 20
 #_06FC93: BEQ .dont_reset_recoil
 
 #_06FC95: STZ.w $0F30,X
@@ -25121,7 +25121,7 @@ pool off
 
 SpriteDraw_FallingHelmaBeetle:
 #_06FD1D: LDA.w $0E20,X
-#_06FD20: CMP.b #!SPRITE_13
+#_06FD20: CMP.b #$13 ; SPRITE 13
 #_06FD22: BEQ .mini_helma
 
 ;---------------------------------------------------------------------------------------------------

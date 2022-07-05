@@ -7000,10 +7000,10 @@ Module0E_03_00_DarkenAndPrep:
 
 #_18BCEA: SEP #$20
 
-#_18BCEC: LDA.b #!SFX3_10
+#_18BCEC: LDA.b #$10 ; SFX3.10
 #_18BCEE: STA.w $012F
 
-#_18BCF1: LDA.b #!SONG_F2_HALFVOL
+#_18BCF1: LDA.b #$F2 ; SONG F2 - half volume
 #_18BCF3: STA.w $012C
 
 #_18BCF6: RTL
@@ -7081,174 +7081,174 @@ UnderworldMap_RecoverLightCone:
 ;===================================================================================================
 
 DungeonMap_BG3TileMap:
-#_18BD5C: dw VRAMaddrBE($C084), $0100 ; 2 bytes | Horizontal
+#_18BD5C: dw $4260, $0100 ; VRAM $C084 | 2 bytes | Horizontal
 #_18BD60: dw $2100
 
-#_18BD62: dw VRAMaddrBE($C086), $0E40 ; 16 bytes | Fixed horizontal
+#_18BD62: dw $4360, $0E40 ; VRAM $C086 | 16 bytes | Fixed horizontal
 #_18BD66: dw $2101
 
-#_18BD68: dw VRAMaddrBE($C096), $0100 ; 2 bytes | Horizontal
+#_18BD68: dw $4B60, $0100 ; VRAM $C096 | 2 bytes | Horizontal
 #_18BD6C: dw $6100
 
-#_18BD6E: dw VRAMaddrBE($C0C4), $2EC0 ; 48 bytes | Fixed vertical
+#_18BD6E: dw $6260, $2EC0 ; VRAM $C0C4 | 48 bytes | Fixed vertical
 #_18BD72: dw $2110
 
-#_18BD74: dw VRAMaddrBE($C0D6), $2EC0 ; 48 bytes | Fixed vertical
+#_18BD74: dw $6B60, $2EC0 ; VRAM $C0D6 | 48 bytes | Fixed vertical
 #_18BD78: dw $6110
 
-#_18BD7A: dw VRAMaddrBE($C6C4), $0100 ; 2 bytes | Horizontal
+#_18BD7A: dw $6263, $0100 ; VRAM $C6C4 | 2 bytes | Horizontal
 #_18BD7E: dw $A100
 
-#_18BD80: dw VRAMaddrBE($C6C6), $0E40 ; 16 bytes | Fixed horizontal
+#_18BD80: dw $6363, $0E40 ; VRAM $C6C6 | 16 bytes | Fixed horizontal
 #_18BD84: dw $A101
 
-#_18BD86: dw VRAMaddrBE($C6D6), $0100 ; 2 bytes | Horizontal
+#_18BD86: dw $6B63, $0100 ; VRAM $C6D6 | 2 bytes | Horizontal
 #_18BD8A: dw $E100
 
-#_18BD8C: dw VRAMaddrBE($C108), $0B00 ; 12 bytes | Horizontal
+#_18BD8C: dw $8460, $0B00 ; VRAM $C108 | 12 bytes | Horizontal
 #_18BD90: dw $2102, $2103, $2104, $2105, $2106, $2107
 
-#_18BD9C: dw VRAMaddrBE($C148), $0B00 ; 12 bytes | Horizontal
+#_18BD9C: dw $A460, $0B00 ; VRAM $C148 | 12 bytes | Horizontal
 #_18BDA0: dw $2112, $2113, $2114, $2115, $2116, $2117
 
-#_18BDAC: dw VRAMaddrBE($C09C), $0100 ; 2 bytes | Horizontal
+#_18BDAC: dw $4E60, $0100 ; VRAM $C09C | 2 bytes | Horizontal
 #_18BDB0: dw $2100
 
-#_18BDB2: dw VRAMaddrBE($C09E), $1A40 ; 28 bytes | Fixed horizontal
+#_18BDB2: dw $4F60, $1A40 ; VRAM $C09E | 28 bytes | Fixed horizontal
 #_18BDB6: dw $2101
 
-#_18BDB8: dw VRAMaddrBE($C0BA), $0100 ; 2 bytes | Horizontal
+#_18BDB8: dw $5D60, $0100 ; VRAM $C0BA | 2 bytes | Horizontal
 #_18BDBC: dw $6100
 
-#_18BDBE: dw VRAMaddrBE($C0DC), $2EC0 ; 48 bytes | Fixed vertical
+#_18BDBE: dw $6E60, $2EC0 ; VRAM $C0DC | 48 bytes | Fixed vertical
 #_18BDC2: dw $2110
 
-#_18BDC4: dw VRAMaddrBE($C0FA), $2EC0 ; 48 bytes | Fixed vertical
+#_18BDC4: dw $7D60, $2EC0 ; VRAM $C0FA | 48 bytes | Fixed vertical
 #_18BDC8: dw $6110
 
-#_18BDCA: dw VRAMaddrBE($C6DC), $0100 ; 2 bytes | Horizontal
+#_18BDCA: dw $6E63, $0100 ; VRAM $C6DC | 2 bytes | Horizontal
 #_18BDCE: dw $A100
 
-#_18BDD0: dw VRAMaddrBE($C6DE), $1A40 ; 28 bytes | Fixed horizontal
+#_18BDD0: dw $6F63, $1A40 ; VRAM $C6DE | 28 bytes | Fixed horizontal
 #_18BDD4: dw $A101
 
-#_18BDD6: dw VRAMaddrBE($C6FA), $0100 ; 2 bytes | Horizontal
+#_18BDD6: dw $7D63, $0100 ; VRAM $C6FA | 2 bytes | Horizontal
 #_18BDDA: dw $E100
 
-#_18BDDC: dw VRAMaddrBE($C000), $7E40 ; 128 bytes | Fixed horizontal
+#_18BDDC: dw $0060, $7E40 ; VRAM $C000 | 128 bytes | Fixed horizontal
 #_18BDE0: dw $2111
 
-#_18BDE2: dw VRAMaddrBE($C700), $3E41 ; 320 bytes | Fixed horizontal
+#_18BDE2: dw $8063, $3E41 ; VRAM $C700 | 320 bytes | Fixed horizontal
 #_18BDE6: dw $2111
 
-#_18BDE8: dw VRAMaddrBE($C000), $3EC0 ; 64 bytes | Fixed vertical
+#_18BDE8: dw $0060, $3EC0 ; VRAM $C000 | 64 bytes | Fixed vertical
 #_18BDEC: dw $2111
 
-#_18BDEE: dw VRAMaddrBE($C002), $3EC0 ; 64 bytes | Fixed vertical
+#_18BDEE: dw $0160, $3EC0 ; VRAM $C002 | 64 bytes | Fixed vertical
 #_18BDF2: dw $2111
 
-#_18BDF4: dw VRAMaddrBE($C018), $3EC0 ; 64 bytes | Fixed vertical
+#_18BDF4: dw $0C60, $3EC0 ; VRAM $C018 | 64 bytes | Fixed vertical
 #_18BDF8: dw $2111
 
-#_18BDFA: dw VRAMaddrBE($C01A), $3EC0 ; 64 bytes | Fixed vertical
+#_18BDFA: dw $0D60, $3EC0 ; VRAM $C01A | 64 bytes | Fixed vertical
 #_18BDFE: dw $2111
 
-#_18BE00: dw VRAMaddrBE($C03C), $3EC0 ; 64 bytes | Fixed vertical
+#_18BE00: dw $1E60, $3EC0 ; VRAM $C03C | 64 bytes | Fixed vertical
 #_18BE04: dw $2111
 
-#_18BE06: dw VRAMaddrBE($C03E), $3EC0 ; 64 bytes | Fixed vertical
+#_18BE06: dw $1F60, $3EC0 ; VRAM $C03E | 64 bytes | Fixed vertical
 #_18BE0A: dw $2111
 
-#_18BE0C: dw VRAMaddrBE($2122), $12C0 ; 20 bytes | Fixed vertical
+#_18BE0C: dw $9110, $12C0 ; VRAM $2122 | 20 bytes | Fixed vertical
 #_18BE10: dw $0B12
 
-#_18BE12: dw VRAMaddrBE($2124), $1300 ; 20 bytes | Horizontal
+#_18BE12: dw $9210, $1300 ; VRAM $2124 | 20 bytes | Horizontal
 #_18BE16: dw $0B06, $0B30, $0B06, $0B30, $0B06, $0B30, $0B06, $0B30
 #_18BE26: dw $0B06, $0B30
 
-#_18BE2A: dw VRAMaddrBE($2166), $1100 ; 18 bytes | Horizontal
+#_18BE2A: dw $B310, $1100 ; VRAM $2166 | 18 bytes | Horizontal
 #_18BE2E: dw $0B12, $0B00, $0B12, $0B00, $0B12, $0B00, $0B12, $0B00
 #_18BE3E: dw $0B12
 
-#_18BE40: dw VRAMaddrBE($21A4), $1300 ; 20 bytes | Horizontal
+#_18BE40: dw $D210, $1300 ; VRAM $21A4 | 20 bytes | Horizontal
 #_18BE44: dw $0B06, $0B30, $0B06, $0B30, $0B06, $0B30, $0B06, $0B30
 #_18BE54: dw $0B06, $0B30
 
-#_18BE58: dw VRAMaddrBE($21E6), $1100 ; 18 bytes | Horizontal
+#_18BE58: dw $F310, $1100 ; VRAM $21E6 | 18 bytes | Horizontal
 #_18BE5C: dw $0B12, $0B00, $0B12, $0B00, $0B12, $0B00, $0B12, $0B00
 #_18BE6C: dw $0B12
 
-#_18BE6E: dw VRAMaddrBE($2224), $1300 ; 20 bytes | Horizontal
+#_18BE6E: dw $1211, $1300 ; VRAM $2224 | 20 bytes | Horizontal
 #_18BE72: dw $0B06, $0B30, $0B06, $0B30, $0B06, $0B30, $0B06, $0B30
 #_18BE82: dw $0B06, $0B30
 
-#_18BE86: dw VRAMaddrBE($2266), $1100 ; 18 bytes | Horizontal
+#_18BE86: dw $3311, $1100 ; VRAM $2266 | 18 bytes | Horizontal
 #_18BE8A: dw $0B12, $0B00, $0B12, $0B00, $0B12, $0B00, $0B12, $0B00
 #_18BE9A: dw $0B12
 
-#_18BE9C: dw VRAMaddrBE($22A4), $1300 ; 20 bytes | Horizontal
+#_18BE9C: dw $5211, $1300 ; VRAM $22A4 | 20 bytes | Horizontal
 #_18BEA0: dw $0B06, $0B30, $0B06, $0B30, $0B06, $0B30, $0B06, $0B30
 #_18BEB0: dw $0B06, $0B30
 
-#_18BEB4: dw VRAMaddrBE($22E6), $1100 ; 18 bytes | Horizontal
+#_18BEB4: dw $7311, $1100 ; VRAM $22E6 | 18 bytes | Horizontal
 #_18BEB8: dw $0B12, $0B00, $0B12, $0B00, $0B12, $0B00, $0B12, $0B00
 #_18BEC8: dw $0B12
 
-#_18BECA: dw VRAMaddrBE($2324), $1300 ; 20 bytes | Horizontal
+#_18BECA: dw $9211, $1300 ; VRAM $2324 | 20 bytes | Horizontal
 #_18BECE: dw $0B06, $0B30, $0B06, $0B30, $0B06, $0B30, $0B06, $0B30
 #_18BEDE: dw $0B06, $0B30
 
-#_18BEE2: dw VRAMaddrBE($2366), $1100 ; 18 bytes | Horizontal
+#_18BEE2: dw $B311, $1100 ; VRAM $2366 | 18 bytes | Horizontal
 #_18BEE6: dw $0B12, $0B00, $0B12, $0B00, $0B12, $0B00, $0B12, $0B00
 #_18BEF6: dw $0B12
 
-#_18BEF8: dw VRAMaddrBE($23A4), $1240 ; 20 bytes | Fixed horizontal
+#_18BEF8: dw $D211, $1240 ; VRAM $23A4 | 20 bytes | Fixed horizontal
 #_18BEFC: dw $0B06
 
-#_18BEFE: dw VRAMaddrBE($2422), $12C0 ; 20 bytes | Fixed vertical
+#_18BEFE: dw $1112, $12C0 ; VRAM $2422 | 20 bytes | Fixed vertical
 #_18BF02: dw $0B12
 
-#_18BF04: dw VRAMaddrBE($2424), $1300 ; 20 bytes | Horizontal
+#_18BF04: dw $1212, $1300 ; VRAM $2424 | 20 bytes | Horizontal
 #_18BF08: dw $0B06, $0B30, $0B06, $0B30, $0B06, $0B30, $0B06, $0B30
 #_18BF18: dw $0B06, $0B30
 
-#_18BF1C: dw VRAMaddrBE($2466), $1100 ; 18 bytes | Horizontal
+#_18BF1C: dw $3312, $1100 ; VRAM $2466 | 18 bytes | Horizontal
 #_18BF20: dw $0B12, $0B00, $0B12, $0B00, $0B12, $0B00, $0B12, $0B00
 #_18BF30: dw $0B12
 
-#_18BF32: dw VRAMaddrBE($24A4), $1300 ; 20 bytes | Horizontal
+#_18BF32: dw $5212, $1300 ; VRAM $24A4 | 20 bytes | Horizontal
 #_18BF36: dw $0B06, $0B30, $0B06, $0B30, $0B06, $0B30, $0B06, $0B30
 #_18BF46: dw $0B06, $0B30
 
-#_18BF4A: dw VRAMaddrBE($24E6), $1100 ; 18 bytes | Horizontal
+#_18BF4A: dw $7312, $1100 ; VRAM $24E6 | 18 bytes | Horizontal
 #_18BF4E: dw $0B12, $0B00, $0B12, $0B00, $0B12, $0B00, $0B12, $0B00
 #_18BF5E: dw $0B12
 
-#_18BF60: dw VRAMaddrBE($2524), $1300 ; 20 bytes | Horizontal
+#_18BF60: dw $9212, $1300 ; VRAM $2524 | 20 bytes | Horizontal
 #_18BF64: dw $0B06, $0B30, $0B06, $0B30, $0B06, $0B30, $0B06, $0B30
 #_18BF74: dw $0B06, $0B30
 
-#_18BF78: dw VRAMaddrBE($2566), $1100 ; 18 bytes | Horizontal
+#_18BF78: dw $B312, $1100 ; VRAM $2566 | 18 bytes | Horizontal
 #_18BF7C: dw $0B12, $0B00, $0B12, $0B00, $0B12, $0B00, $0B12, $0B00
 #_18BF8C: dw $0B12
 
-#_18BF8E: dw VRAMaddrBE($25A4), $1300 ; 20 bytes | Horizontal
+#_18BF8E: dw $D212, $1300 ; VRAM $25A4 | 20 bytes | Horizontal
 #_18BF92: dw $0B06, $0B30, $0B06, $0B30, $0B06, $0B30, $0B06, $0B30
 #_18BFA2: dw $0B06, $0B30
 
-#_18BFA6: dw VRAMaddrBE($25E6), $1100 ; 18 bytes | Horizontal
+#_18BFA6: dw $F312, $1100 ; VRAM $25E6 | 18 bytes | Horizontal
 #_18BFAA: dw $0B12, $0B00, $0B12, $0B00, $0B12, $0B00, $0B12, $0B00
 #_18BFBA: dw $0B12
 
-#_18BFBC: dw VRAMaddrBE($2624), $1300 ; 20 bytes | Horizontal
+#_18BFBC: dw $1213, $1300 ; VRAM $2624 | 20 bytes | Horizontal
 #_18BFC0: dw $0B06, $0B30, $0B06, $0B30, $0B06, $0B30, $0B06, $0B30
 #_18BFD0: dw $0B06, $0B30
 
-#_18BFD4: dw VRAMaddrBE($2666), $1100 ; 18 bytes | Horizontal
+#_18BFD4: dw $3313, $1100 ; VRAM $2666 | 18 bytes | Horizontal
 #_18BFD8: dw $0B12, $0B00, $0B12, $0B00, $0B12, $0B00, $0B12, $0B00
 #_18BFE8: dw $0B12
 
-#_18BFEA: dw VRAMaddrBE($26A4), $1240 ; 20 bytes | Fixed horizontal
+#_18BFEA: dw $5213, $1240 ; VRAM $26A4 | 20 bytes | Fixed horizontal
 #_18BFEE: dw $0B06
 
 #_18BFF0: db $FF ; end of stripes data

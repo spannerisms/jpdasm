@@ -2215,7 +2215,6 @@ Tile32_BottomLeft:
 ;===================================================================================================
 
 Tile32_BottomRight:
-
 #_04B3C0: db $0B, $0A, $0C, $0E : db $00, $00 ; 0x0000–0x0003: 0x00B, 0x00A, 0x00C, 0x00E
 #_04B3C6: db $04, $10, $12, $11 : db $00, $00 ; 0x0004–0x0007: 0x004, 0x010, 0x012, 0x011
 #_04B3CC: db $13, $1D, $1C, $1E : db $00, $00 ; 0x0008–0x000B: 0x013, 0x01D, 0x01C, 0x01E
@@ -4482,8 +4481,8 @@ HandlePegPuzzles:
 #_04E7C5: CMP.b $00
 #_04E7C7: BNE .fail
 
-; Writes #$2D00, which unqueues SFX2.
-#_04E7C9: LDA.w #!SFX3_2D<<8
+
+#_04E7C9: LDA.w #$2D00 ; SFX3.2D; Writes #$2D00, which unqueues SFX2.
 #_04E7CC: STA.w $012E
 
 #_04E7CF: INX
@@ -4493,8 +4492,7 @@ HandlePegPuzzles:
 #_04E7D4: CPX.w #$0006
 #_04E7D7: BNE .unsolved
 
-; Writes #$1B00, which unqueues SFX2.
-#_04E7D9: LDA.w #!SFX3_1B<<8
+#_04E7D9: LDA.w #$1B00 ; SFX3.1B; Writes #$1B00, which unqueues SFX2.
 #_04E7DC: STA.w $012E
 
 ; Turtle rock overlay
@@ -4517,8 +4515,7 @@ HandlePegPuzzles:
 ;---------------------------------------------------------------------------------------------------
 
 .fail
-; Writes #$003C, which unqueues SFX3.
-#_04E7F5: LDA.w #!SFX2_3C
+#_04E7F5: LDA.w #$003C ; SFX2.3C; Writes #$003C, which unqueues SFX3.
 #_04E7F8: STA.w $012E
 
 #_04E7FB: LDA.w #$FFFF
@@ -4551,7 +4548,7 @@ HandleStakeField:
 #_04E81B: ORA.b #$20
 #_04E81D: STA.l $7EF2E2
 
-#_04E821: LDA.b #!SFX3_1B
+#_04E821: LDA.b #$1B ; SFX3.1B
 #_04E823: STA.w $012F
 
 #_04E826: REP #$20
@@ -4579,7 +4576,7 @@ GanonsTower_FlashAfterCrystals:
 #_04E83C: LDA.b $B0
 #_04E83E: BNE .skip_sfx
 
-#_04E840: LDA.b #!SFX2_2E
+#_04E840: LDA.b #$2E ; SFX2.2E
 #_04E842: STA.w $012E
 
 #_04E845: JML PaletteBlackAndWhiteSomething
@@ -4631,7 +4628,7 @@ pool Overworld_CheckForSpecialOverworldTrigger
 #_04E87D: dw $0008
 #_04E87F: dw $0008
 
-.room_id
+.special_id
 #_04E881: dw $0180
 #_04E883: dw $0181
 #_04E885: dw $0182
@@ -4644,7 +4641,7 @@ pool off
 Overworld_CheckForSpecialOverworldTrigger:
 #_04E889: REP #$31
 
-#_04E88B: JSR GetMap16Tile_bank04
+#_04E88B: JSR GetMap16Tile
 
 #_04E88E: LDA.l Map16Definitions,X
 #_04E892: AND.w #$01FF
@@ -4667,7 +4664,9 @@ Overworld_CheckForSpecialOverworldTrigger:
 #_04E8A8: CMP.l .screen_id,X
 #_04E8AC: BNE .check_next_screen
 
-#_04E8AE: LDA.l .room_id,X
+;---------------------------------------------------------------------------------------------------
+
+#_04E8AE: LDA.l .special_id,X
 #_04E8B2: STA.b $A0
 
 #_04E8B4: SEP #$20
@@ -4702,7 +4701,7 @@ Overworld_CheckForSpecialOverworldTrigger:
 
 ;===================================================================================================
 
-GetMap16Tile_bank04:
+GetMap16Tile:
 #_04E8DA: LDA.b $20
 #_04E8DC: CLC
 #_04E8DD: ADC.w #$000C
@@ -4747,6 +4746,7 @@ GetMap16Tile_bank04:
 ;===================================================================================================
 
 pool SpecialOverworld_CheckForReturnTrigger
+
 .tile_type
 #_04E90E: dw $017C
 #_04E910: dw $01E4
@@ -4776,7 +4776,7 @@ pool off
 SpecialOverworld_CheckForReturnTrigger:
 #_04E923: REP #$31
 
-#_04E925: JSR GetMap16Tile_bank04
+#_04E925: JSR GetMap16Tile
 
 #_04E928: LDA.l Map16Definitions,X
 #_04E92C: AND.w #$01FF
@@ -4888,7 +4888,7 @@ OverlayData_00:
 #_04E9FA: db $D0, $D0, $A4 ; 0x0A4: Pit ⇲ | { 34, 34 } | Size: 00
 #_04E9FD: db $A4, $A8, $A4 ; 0x0A4: Pit ⇲ | { 29, 2A } | Size: 00
 #_04EA00: db $A0, $70, $A4 ; 0x0A4: Pit ⇲ | { 28, 1C } | Size: 00
-#_04EA03: db $FF, $FF ; End of Data
+#_04EA03: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -4906,7 +4906,7 @@ OverlayData_01:
 #_04EA23: db $C8, $B0, $C7 ; 0x0C7: Floor 4 ⇲ | { 32, 2C } | Size: 00
 #_04EA26: db $18, $48, $C7 ; 0x0C7: Floor 4 ⇲ | { 06, 12 } | Size: 00
 #_04EA29: db $A0, $D8, $C7 ; 0x0C7: Floor 4 ⇲ | { 28, 36 } | Size: 00
-#_04EA2C: db $FF, $FF ; End of Data
+#_04EA2C: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -4924,7 +4924,7 @@ OverlayData_02:
 #_04EA4C: db $58, $58, $C7 ; 0x0C7: Floor 4 ⇲ | { 16, 16 } | Size: 00
 #_04EA4F: db $A8, $58, $C7 ; 0x0C7: Floor 4 ⇲ | { 2A, 16 } | Size: 00
 #_04EA52: db $C8, $58, $C7 ; 0x0C7: Floor 4 ⇲ | { 32, 16 } | Size: 00
-#_04EA55: db $FF, $FF ; End of Data
+#_04EA55: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -4942,7 +4942,7 @@ OverlayData_03:
 #_04EA75: db $D0, $70, $C7 ; 0x0C7: Floor 4 ⇲ | { 34, 1C } | Size: 00
 #_04EA78: db $A0, $B0, $C7 ; 0x0C7: Floor 4 ⇲ | { 28, 2C } | Size: 00
 #_04EA7B: db $D0, $B0, $C7 ; 0x0C7: Floor 4 ⇲ | { 34, 2C } | Size: 00
-#_04EA7E: db $FF, $FF ; End of Data
+#_04EA7E: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -4960,13 +4960,13 @@ OverlayData_04:
 #_04EA9E: db $98, $50, $C7 ; 0x0C7: Floor 4 ⇲ | { 26, 14 } | Size: 00
 #_04EAA1: db $D8, $50, $C7 ; 0x0C7: Floor 4 ⇲ | { 36, 14 } | Size: 00
 #_04EAA4: db $B8, $A0, $C7 ; 0x0C7: Floor 4 ⇲ | { 2E, 28 } | Size: 00
-#_04EAA7: db $FF, $FF ; End of Data
+#_04EAA7: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 OverlayData_05:
 #_04EAA9: db $78, $78, $A4 ; 0x0A4: Pit ⇲ | { 1E, 1E } | Size: 00
-#_04EAAC: db $FF, $FF ; End of Data
+#_04EAAC: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -4988,7 +4988,7 @@ OverlayData_06:
 #_04EAD8: db $48, $CC, $C7 ; 0x0C7: Floor 4 ⇲ | { 12, 33 } | Size: 00
 #_04EADB: db $48, $DC, $C7 ; 0x0C7: Floor 4 ⇲ | { 12, 37 } | Size: 00
 #_04EADE: db $48, $9C, $C7 ; 0x0C7: Floor 4 ⇲ | { 12, 27 } | Size: 00
-#_04EAE1: db $FF, $FF ; End of Data
+#_04EAE1: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5010,7 +5010,7 @@ OverlayData_07:
 #_04EB0D: db $48, $BC, $C7 ; 0x0C7: Floor 4 ⇲ | { 12, 2F } | Size: 00
 #_04EB10: db $58, $AC, $C7 ; 0x0C7: Floor 4 ⇲ | { 16, 2B } | Size: 00
 #_04EB13: db $58, $CC, $C7 ; 0x0C7: Floor 4 ⇲ | { 16, 33 } | Size: 00
-#_04EB16: db $FF, $FF ; End of Data
+#_04EB16: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5020,7 +5020,7 @@ OverlayData_08:
 #_04EB1E: db $30, $78, $C7 ; 0x0C7: Floor 4 ⇲ | { 0C, 1E } | Size: 00
 #_04EB21: db $30, $90, $C7 ; 0x0C7: Floor 4 ⇲ | { 0C, 24 } | Size: 00
 #_04EB24: db $78, $48, $C7 ; 0x0C7: Floor 4 ⇲ | { 1E, 12 } | Size: 00
-#_04EB27: db $FF, $FF ; End of Data
+#_04EB27: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5030,21 +5030,21 @@ OverlayData_09:
 #_04EB2F: db $78, $48, $A4 ; 0x0A4: Pit ⇲ | { 1E, 12 } | Size: 00
 #_04EB32: db $30, $68, $C7 ; 0x0C7: Floor 4 ⇲ | { 0C, 1A } | Size: 00
 #_04EB35: db $30, $A0, $C7 ; 0x0C7: Floor 4 ⇲ | { 0C, 28 } | Size: 00
-#_04EB38: db $FF, $FF ; End of Data
+#_04EB38: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 OverlayData_0A:
 #_04EB3A: db $78, $58, $A4 ; 0x0A4: Pit ⇲ | { 1E, 16 } | Size: 00
 #_04EB3D: db $78, $38, $C7 ; 0x0C7: Floor 4 ⇲ | { 1E, 0E } | Size: 00
-#_04EB40: db $FF, $FF ; End of Data
+#_04EB40: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
 OverlayData_0B:
 #_04EB42: db $78, $38, $A4 ; 0x0A4: Pit ⇲ | { 1E, 0E } | Size: 00
 #_04EB45: db $78, $58, $C7 ; 0x0C7: Floor 4 ⇲ | { 1E, 16 } | Size: 00
-#_04EB48: db $FF, $FF ; End of Data
+#_04EB48: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5061,7 +5061,7 @@ OverlayData_0C:
 #_04EB65: db $58, $48, $C7 ; 0x0C7: Floor 4 ⇲ | { 16, 12 } | Size: 00
 #_04EB68: db $B0, $38, $C7 ; 0x0C7: Floor 4 ⇲ | { 2C, 0E } | Size: 00
 #_04EB6B: db $D8, $58, $C7 ; 0x0C7: Floor 4 ⇲ | { 36, 16 } | Size: 00
-#_04EB6E: db $FF, $FF ; End of Data
+#_04EB6E: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5078,7 +5078,7 @@ OverlayData_0D:
 #_04EB8B: db $58, $38, $C7 ; 0x0C7: Floor 4 ⇲ | { 16, 0E } | Size: 00
 #_04EB8E: db $78, $58, $C7 ; 0x0C7: Floor 4 ⇲ | { 1E, 16 } | Size: 00
 #_04EB91: db $A0, $38, $C7 ; 0x0C7: Floor 4 ⇲ | { 28, 0E } | Size: 00
-#_04EB94: db $FF, $FF ; End of Data
+#_04EB94: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5092,7 +5092,7 @@ OverlayData_0E:
 #_04EBA8: db $78, $38, $C7 ; 0x0C7: Floor 4 ⇲ | { 1E, 0E } | Size: 00
 #_04EBAB: db $88, $38, $C7 ; 0x0C7: Floor 4 ⇲ | { 22, 0E } | Size: 00
 #_04EBAE: db $B8, $38, $C7 ; 0x0C7: Floor 4 ⇲ | { 2E, 0E } | Size: 00
-#_04EBB1: db $FF, $FF ; End of Data
+#_04EBB1: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5106,7 +5106,7 @@ OverlayData_0F:
 #_04EBC5: db $50, $48, $C7 ; 0x0C7: Floor 4 ⇲ | { 14, 12 } | Size: 00
 #_04EBC8: db $A0, $48, $C7 ; 0x0C7: Floor 4 ⇲ | { 28, 12 } | Size: 00
 #_04EBCB: db $B8, $A8, $C7 ; 0x0C7: Floor 4 ⇲ | { 2E, 2A } | Size: 00
-#_04EBCE: db $FF, $FF ; End of Data
+#_04EBCE: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5117,7 +5117,7 @@ OverlayData_10:
 #_04EBD9: db $B0, $A0, $C7 ; 0x0C7: Floor 4 ⇲ | { 2C, 28 } | Size: 00
 #_04EBDC: db $C8, $D8, $C7 ; 0x0C7: Floor 4 ⇲ | { 32, 36 } | Size: 00
 #_04EBDF: db $D8, $D8, $C7 ; 0x0C7: Floor 4 ⇲ | { 36, 36 } | Size: 00
-#_04EBE2: db $FF, $FF ; End of Data
+#_04EBE2: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5128,7 +5128,7 @@ OverlayData_11:
 #_04EBED: db $B0, $A0, $A4 ; 0x0A4: Pit ⇲ | { 2C, 28 } | Size: 00
 #_04EBF0: db $C8, $D8, $A4 ; 0x0A4: Pit ⇲ | { 32, 36 } | Size: 00
 #_04EBF3: db $D8, $D8, $A4 ; 0x0A4: Pit ⇲ | { 36, 36 } | Size: 00
-#_04EBF6: db $FF, $FF ; End of Data
+#_04EBF6: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5140,7 +5140,7 @@ OverlayData_12:
 #_04EC04: db $50, $20, $A4 ; 0x0A4: Pit ⇲ | { 14, 08 } | Size: 00
 #_04EC07: db $50, $38, $A4 ; 0x0A4: Pit ⇲ | { 14, 0E } | Size: 00
 #_04EC0A: db $58, $50, $A4 ; 0x0A4: Pit ⇲ | { 16, 14 } | Size: 00
-#_04EC0D: db $FF, $FF ; End of Data
+#_04EC0D: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -5191,7 +5191,7 @@ LayoutData_00:
 #_04EC84: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
 #_04EC87: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A } | Size: 00
 #_04EC8A: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
-#_04EC8D: db $FF, $FF ; End of Data
+#_04EC8D: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5217,7 +5217,7 @@ LayoutData_01:
 #_04ECC5: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 } | Size: 00
 #_04ECC8: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A } | Size: 00
 #_04ECCB: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
-#_04ECCE: db $FF, $FF ; End of Data
+#_04ECCE: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5252,7 +5252,7 @@ LayoutData_02:
 #_04ED21: db $FD, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 1A } | Size: 00
 #_04ED24: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
 #_04ED27: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A } | Size: 00
-#_04ED2A: db $FF, $FF ; End of Data
+#_04ED2A: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5287,7 +5287,7 @@ LayoutData_03:
 #_04ED7D: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
 #_04ED80: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A } | Size: 00
 #_04ED83: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
-#_04ED86: db $FF, $FF ; End of Data
+#_04ED86: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5314,7 +5314,7 @@ LayoutData_04:
 #_04EDC1: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 } | Size: 00
 #_04EDC4: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
 #_04EDC7: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
-#_04EDCA: db $FF, $FF ; End of Data
+#_04EDCA: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5349,7 +5349,7 @@ LayoutData_05:
 #_04EE1D: db $FD, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 1A } | Size: 00
 #_04EE20: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
 #_04EE23: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
-#_04EE26: db $FF, $FF ; End of Data
+#_04EE26: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5384,7 +5384,7 @@ LayoutData_06:
 #_04EE79: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
 #_04EE7C: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A } | Size: 00
 #_04EE7F: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
-#_04EE82: db $FF, $FF ; End of Data
+#_04EE82: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5402,7 +5402,7 @@ LayoutData_07:
 #_04EEA2: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A } | Size: 00
 #_04EEA5: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 } | Size: 00
 #_04EEA8: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
-#_04EEAB: db $FF, $FF ; End of Data
+#_04EEAB: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -5412,7 +5412,7 @@ WaterOverlayData:
 #_04EEB3: db $92, $A1, $C9 ; 0x0C9: Flood water (medium) ⇲ | { 24, 28 } | Size: 09
 #_04EEB6: db $A1, $33, $C9 ; 0x0C9: Flood water (medium) ⇲ | { 28, 0C } | Size: 07
 #_04EEB9: db $A1, $72, $C9 ; 0x0C9: Flood water (medium) ⇲ | { 28, 1C } | Size: 06
-#_04EEBC: db $FF, $FF ; End of Data
+#_04EEBC: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -6094,7 +6094,7 @@ RoomHeader_RoomToPointer:
 ; BLKSET    0x13
 ; SPRSET    0x22
 ; BGMOVE    0x07
-; EFFECT1   0x3D - Triforce Door
+; EFFECT1   0x3D - Triforce door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -6151,7 +6151,7 @@ RoomHeader_Room0002:
 ; BLKSET    0x0D
 ; SPRSET    0x26
 ; BGMOVE    0x00
-; EFFECT1   0x26 - SE Kill push block
+; EFFECT1   0x26 - SE kill push block
 ; EFFECT2   0x14 - Pull switch door
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -6170,7 +6170,7 @@ RoomHeader_Room0004:
 ; BLKSET    0x08
 ; SPRSET    0x14
 ; BGMOVE    0x00
-; EFFECT1   0x25 - Dungeon Prize
+; EFFECT1   0x25 - Dungeon prize
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x20 - leaked value
 ; PLANES2   0x06 - leaked value
@@ -6190,7 +6190,7 @@ RoomHeader_Room0006:
 ; BLKSET    0x05
 ; SPRSET    0x0C
 ; BGMOVE    0x00
-; EFFECT1   0x25 - Dungeon Prize
+; EFFECT1   0x25 - Dungeon prize
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -6266,7 +6266,7 @@ RoomHeader_Room000A:
 ; BLKSET    0x07
 ; SPRSET    0x19
 ; BGMOVE    0x00
-; EFFECT1   0x03 - SW Kill door
+; EFFECT1   0x03 - SW kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -6323,7 +6323,7 @@ RoomHeader_Room000D:
 ; BLKSET    0x0B
 ; SPRSET    0x1C
 ; BGMOVE    0x00
-; EFFECT1   0x08 - S Kill door
+; EFFECT1   0x08 - S kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -6555,8 +6555,8 @@ RoomHeader_Room001A:
 ; BLKSET    0x07
 ; SPRSET    0x08
 ; BGMOVE    0x00
-; EFFECT1   0x03 - SW Kill door
-; EFFECT2   0x1C - Secret wall right
+; EFFECT1   0x03 - SW kill door
+; EFFECT2   0x1C - Moving wall east
 ; PLANES1   0x00
 ; PLANES2   0x00
 ; WARP      0x00
@@ -6574,7 +6574,7 @@ RoomHeader_Room001B:
 ; BLKSET    0x0E
 ; SPRSET    0x09
 ; BGMOVE    0x00
-; EFFECT1   0x04 - SE Kill door
+; EFFECT1   0x04 - SE kill door
 ; EFFECT2   0x3F - Rekillable boss
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -6651,7 +6651,7 @@ RoomHeader_Room001F:
 ; SPRSET    0x12
 ; BGMOVE    0x00
 ; EFFECT1   0x15 - Beat dungeon door
-; EFFECT2   0x25 - Dungeon Prize
+; EFFECT2   0x25 - Dungeon prize
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x01 - leaked value
 ; WARP      0x01 - leaked value
@@ -6689,7 +6689,7 @@ RoomHeader_Room0022:
 ; BLKSET    0x0D
 ; SPRSET    0x26
 ; BGMOVE    0x00
-; EFFECT1   0x01 - NW Kill door
+; EFFECT1   0x01 - NW kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0A - leaked value
@@ -6747,7 +6747,7 @@ RoomHeader_Room0027:
 ; BLKSET    0x08
 ; SPRSET    0x11
 ; BGMOVE    0x00
-; EFFECT1   0x32
+; EFFECT1   0x32 - Full room kill chest
 ; EFFECT2   0x1B - Water gate twin
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -6766,7 +6766,7 @@ RoomHeader_Room0028:
 ; BLKSET    0x09
 ; SPRSET    0x1A
 ; BGMOVE    0x02
-; EFFECT1   0x25 - Dungeon Prize
+; EFFECT1   0x25 - Dungeon prize
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0F - leaked value
@@ -6823,7 +6823,7 @@ RoomHeader_Room002B:
 ; BLKSET    0x0B
 ; SPRSET    0x1C
 ; BGMOVE    0x00
-; EFFECT1   0x2A - NE Kill chest
+; EFFECT1   0x2A - NE kill chest
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x07 - leaked value
@@ -6883,7 +6883,7 @@ RoomHeader_Room0030:
 ; SPRSET    0x19
 ; BGMOVE    0x00
 ; EFFECT1   0x37 - Holes 6
-; EFFECT2   0x04 - SE Kill door
+; EFFECT2   0x04 - SE kill door
 ; PLANES1   0x22
 ; PLANES2   0x00
 ; WARP      0x77
@@ -6921,7 +6921,7 @@ RoomHeader_Room0032:
 ; SPRSET    0x0B
 ; BGMOVE    0x00
 ; EFFECT1   0x15 - Beat dungeon door
-; EFFECT2   0x25 - Dungeon Prize
+; EFFECT2   0x25 - Dungeon prize
 ; PLANES1   0x80 - leaked value
 ; PLANES2   0x0A - leaked value
 ; WARP      0x08 - leaked value
@@ -7111,7 +7111,7 @@ RoomHeader_Room003D:
 ; BLKSET    0x0B
 ; SPRSET    0x29
 ; BGMOVE    0x02
-; EFFECT1   0x02 - NE Kill door
+; EFFECT1   0x02 - NE kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -7168,7 +7168,7 @@ RoomHeader_Room0040:
 ; BLKSET    0x00
 ; SPRSET    0x02
 ; BGMOVE    0x00
-; EFFECT1   0x13 - Quadrant Block door
+; EFFECT1   0x13 - Quadrant block door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -7207,7 +7207,7 @@ RoomHeader_Room0042:
 ; SPRSET    0x0A
 ; BGMOVE    0x00
 ; EFFECT1   0x00 - Nothing
-; EFFECT2   0x1D - Secret wall left
+; EFFECT2   0x1D - Moving wall west
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x17 - leaked value
 ; WARP      0x0A - leaked value
@@ -7225,7 +7225,7 @@ RoomHeader_Room0043:
 ; BLKSET    0x0A
 ; SPRSET    0x1B
 ; BGMOVE    0x00
-; EFFECT1   0x01 - NW Kill door
+; EFFECT1   0x01 - NW kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x60 - leaked value
 ; PLANES2   0x17 - leaked value
@@ -7244,7 +7244,7 @@ RoomHeader_Room0044:
 ; BLKSET    0x0A
 ; SPRSET    0x1B
 ; BGMOVE    0x00
-; EFFECT1   0x01 - NW Kill door
+; EFFECT1   0x01 - NW kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -7322,7 +7322,7 @@ RoomHeader_Room004A:
 ; BLKSET    0x07
 ; SPRSET    0x08
 ; BGMOVE    0x00
-; EFFECT1   0x01 - NW Kill door
+; EFFECT1   0x01 - NW kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -7360,7 +7360,7 @@ RoomHeader_Room004C:
 ; BLKSET    0x0E
 ; SPRSET    0x0C
 ; BGMOVE    0x00
-; EFFECT1   0x32
+; EFFECT1   0x32 - Full room kill chest
 ; EFFECT2   0x3F - Rekillable boss
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -7474,7 +7474,7 @@ RoomHeader_Room0052:
 ; BLKSET    0x05
 ; SPRSET    0x0A
 ; BGMOVE    0x00
-; EFFECT1   0x03 - SW Kill door
+; EFFECT1   0x03 - SW kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -7607,7 +7607,7 @@ RoomHeader_Room0059:
 ; BLKSET    0x07
 ; SPRSET    0x15
 ; BGMOVE    0x00
-; EFFECT1   0x25 - Dungeon Prize
+; EFFECT1   0x25 - Dungeon prize
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x1B - leaked value
@@ -7664,7 +7664,7 @@ RoomHeader_Room005C:
 ; BLKSET    0x0E
 ; SPRSET    0x23
 ; BGMOVE    0x00
-; EFFECT1   0x09 - Quadrant Kill door
+; EFFECT1   0x09 - Quadrant kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -7760,7 +7760,7 @@ RoomHeader_Room0061:
 ; BLKSET    0x05
 ; SPRSET    0x0A
 ; BGMOVE    0x00
-; EFFECT1   0x0D - SW Block door
+; EFFECT1   0x0D - SW block door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -7836,7 +7836,7 @@ RoomHeader_Room0066:
 ; BLKSET    0x09
 ; SPRSET    0x13
 ; BGMOVE    0x00
-; EFFECT1   0x22 - Chest Holes 0
+; EFFECT1   0x22 - Chest holes 0
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0D - leaked value
@@ -7894,8 +7894,8 @@ RoomHeader_Room006A:
 ; BLKSET    0x0E
 ; SPRSET    0x0A
 ; BGMOVE    0x00
-; EFFECT1   0x08 - S Kill door
-; EFFECT2   0x0B - NW Block door
+; EFFECT1   0x08 - S kill door
+; EFFECT2   0x0B - NW block door
 ; PLANES1   0x00
 ; PLANES2   0x00
 ; WARP      0x00
@@ -7913,7 +7913,7 @@ RoomHeader_Room006B:
 ; BLKSET    0x0E
 ; SPRSET    0x23
 ; BGMOVE    0x00
-; EFFECT1   0x03 - SW Kill door
+; EFFECT1   0x03 - SW kill door
 ; EFFECT2   0x3F - Rekillable boss
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -7932,7 +7932,7 @@ RoomHeader_Room006C:
 ; BLKSET    0x0E
 ; SPRSET    0x23
 ; BGMOVE    0x00
-; EFFECT1   0x05 - W Kill door
+; EFFECT1   0x05 - W kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x13 - leaked value
@@ -7951,7 +7951,7 @@ RoomHeader_Room006D:
 ; BLKSET    0x0B
 ; SPRSET    0x1C
 ; BGMOVE    0x00
-; EFFECT1   0x02 - NE Kill door
+; EFFECT1   0x02 - NE kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -7990,7 +7990,7 @@ RoomHeader_Room0070:
 ; BLKSET    0x01
 ; SPRSET    0x04
 ; BGMOVE    0x00
-; EFFECT1   0x08 - S Kill door
+; EFFECT1   0x08 - S kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -8066,7 +8066,7 @@ RoomHeader_Room0074:
 ; BLKSET    0x05
 ; SPRSET    0x0A
 ; BGMOVE    0x00
-; EFFECT1   0x01 - NW Kill door
+; EFFECT1   0x01 - NW kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x80 - leaked value
 ; PLANES2   0x0A - leaked value
@@ -8086,7 +8086,7 @@ RoomHeader_Room0075:
 ; SPRSET    0x11
 ; BGMOVE    0x00
 ; EFFECT1   0x00 - Nothing
-; EFFECT2   0x18
+; EFFECT2   0x18 - Water drain
 ; PLANES1   0x00
 ; PLANES2   0x00
 ; WARP      0x00
@@ -8123,7 +8123,7 @@ RoomHeader_Room0077:
 ; BLKSET    0x0E
 ; SPRSET    0x13
 ; BGMOVE    0x00
-; EFFECT1   0x03 - SW Kill door
+; EFFECT1   0x03 - SW kill door
 ; EFFECT2   0x39 - Holes 7
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -8164,7 +8164,7 @@ RoomHeader_Room007C:
 ; BLKSET    0x0E
 ; SPRSET    0x13
 ; BGMOVE    0x00
-; EFFECT1   0x04 - SE Kill door
+; EFFECT1   0x04 - SE kill door
 ; EFFECT2   0x3C - Push block chest
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -8183,7 +8183,7 @@ RoomHeader_Room007D:
 ; BLKSET    0x0B
 ; SPRSET    0x1C
 ; BGMOVE    0x00
-; EFFECT1   0x2B - SW Kill chest
+; EFFECT1   0x2B - SW kill chest
 ; EFFECT2   0x17 - Toggle switch door
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -8260,7 +8260,7 @@ RoomHeader_Room0082:
 ; BLKSET    0x05
 ; SPRSET    0x0A
 ; BGMOVE    0x00
-; EFFECT1   0x0D - SW Block door
+; EFFECT1   0x0D - SW block door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x09 - leaked value
@@ -8298,7 +8298,7 @@ RoomHeader_Room0084:
 ; BLKSET    0x05
 ; SPRSET    0x0A
 ; BGMOVE    0x00
-; EFFECT1   0x02 - NE Kill door
+; EFFECT1   0x02 - NE kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x06 - leaked value
@@ -8318,7 +8318,7 @@ RoomHeader_Room0085:
 ; SPRSET    0x19
 ; BGMOVE    0x00
 ; EFFECT1   0x3E - Torch chest
-; EFFECT2   0x01 - NW Kill door
+; EFFECT2   0x01 - NW kill door
 ; PLANES1   0x28
 ; PLANES2   0x00
 ; WARP      0x00
@@ -8358,7 +8358,7 @@ RoomHeader_Room0089:
 ; SPRSET    0x13
 ; BGMOVE    0x00
 ; EFFECT1   0x3A - Agahnim 2
-; EFFECT2   0x0C - NE Block door
+; EFFECT2   0x0C - NE block door
 ; PLANES1   0x20 - leaked value
 ; PLANES2   0x28 - leaked value
 ; WARP      0x0E - leaked value
@@ -8397,7 +8397,7 @@ RoomHeader_Room008C:
 ; SPRSET    0x13
 ; BGMOVE    0x00
 ; EFFECT1   0x33 - Torch door
-; EFFECT2   0x29 - NW Kill chest
+; EFFECT2   0x29 - NW kill chest
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x13 - leaked value
 ; WARP      0x0B - leaked value
@@ -8434,7 +8434,7 @@ RoomHeader_Room008E:
 ; BLKSET    0x0C
 ; SPRSET    0x16
 ; BGMOVE    0x00
-; EFFECT1   0x25 - Dungeon Prize
+; EFFECT1   0x25 - Dungeon prize
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x11 - leaked value
@@ -8550,7 +8550,7 @@ RoomHeader_Room0096:
 ; BLKSET    0x0C
 ; SPRSET    0x1D
 ; BGMOVE    0x00
-; EFFECT1   0x1C - Secret wall right
+; EFFECT1   0x1C - Moving wall east
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -8761,7 +8761,7 @@ RoomHeader_Room00A2:
 ; BLKSET    0x0D
 ; SPRSET    0x17
 ; BGMOVE    0x04
-; EFFECT1   0x25 - Dungeon Prize
+; EFFECT1   0x25 - Dungeon prize
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x25 - leaked value
@@ -8780,7 +8780,7 @@ RoomHeader_Room00A4:
 ; BLKSET    0x0E
 ; SPRSET    0x24
 ; BGMOVE    0x00
-; EFFECT1   0x07 - N Kill door
+; EFFECT1   0x07 - N kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -8837,7 +8837,7 @@ RoomHeader_Room00A7:
 ; BLKSET    0x05
 ; SPRSET    0x08
 ; BGMOVE    0x00
-; EFFECT1   0x03 - SW Kill door
+; EFFECT1   0x03 - SW kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x0B - leaked value
@@ -8913,7 +8913,7 @@ RoomHeader_Room00AB:
 ; BLKSET    0x0A
 ; SPRSET    0x20
 ; BGMOVE    0x00
-; EFFECT1   0x25 - Dungeon Prize
+; EFFECT1   0x25 - Dungeon prize
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x13 - leaked value
@@ -8971,8 +8971,8 @@ RoomHeader_Room00AF:
 ; BLKSET    0x02
 ; SPRSET    0x21
 ; BGMOVE    0x00
-; EFFECT1   0x05 - W Kill door
-; EFFECT2   0x02 - NE Kill door
+; EFFECT1   0x05 - W kill door
+; EFFECT2   0x02 - NE kill door
 ; PLANES1   0x08
 ; PLANES2   0x00
 ; WARP      0x00
@@ -9009,8 +9009,8 @@ RoomHeader_Room00B1:
 ; BLKSET    0x0C
 ; SPRSET    0x1D
 ; BGMOVE    0x00
-; EFFECT1   0x03 - SW Kill door
-; EFFECT2   0x0E - SE Block door
+; EFFECT1   0x03 - SW kill door
+; EFFECT2   0x0E - SE block door
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x11 - leaked value
 ; WARP      0x0C - leaked value
@@ -9085,7 +9085,7 @@ RoomHeader_Room00B5:
 ; BLKSET    0x0D
 ; SPRSET    0x1E
 ; BGMOVE    0x00
-; EFFECT1   0x04 - SE Kill door
+; EFFECT1   0x04 - SE kill door
 ; EFFECT2   0x3C - Push block chest
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -9238,8 +9238,8 @@ RoomHeader_Room00BF:
 ; BLKSET    0x02
 ; SPRSET    0x27
 ; BGMOVE    0x00
-; EFFECT1   0x02 - NE Kill door
-; EFFECT2   0x0F - W Block door
+; EFFECT1   0x02 - NE kill door
+; EFFECT2   0x0F - W block door
 ; PLANES1   0x00
 ; PLANES2   0x00
 ; WARP      0x00
@@ -9373,7 +9373,7 @@ RoomHeader_Room00C7:
 ; SPRSET    0x09
 ; BGMOVE    0x00
 ; EFFECT1   0x15 - Beat dungeon door
-; EFFECT2   0x25 - Dungeon Prize
+; EFFECT2   0x25 - Dungeon prize
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0B - leaked value
 ; WARP      0x05 - leaked value
@@ -9453,7 +9453,7 @@ RoomHeader_Room00CE:
 ; BLKSET    0x02
 ; SPRSET    0x21
 ; BGMOVE    0x00
-; EFFECT1   0x0F - W Block door
+; EFFECT1   0x0F - W block door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -9492,7 +9492,7 @@ RoomHeader_Room00D1:
 ; BLKSET    0x0C
 ; SPRSET    0x1D
 ; BGMOVE    0x00
-; EFFECT1   0x0A - Full Room Kill door
+; EFFECT1   0x0A - Full room kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
@@ -9511,7 +9511,7 @@ RoomHeader_Room00D2:
 ; BLKSET    0x05
 ; SPRSET    0x08
 ; BGMOVE    0x00
-; EFFECT1   0x06 - E Kill door
+; EFFECT1   0x06 - E kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0B - leaked value
@@ -9571,7 +9571,7 @@ RoomHeader_Room00DA:
 ; BLKSET    0x0B
 ; SPRSET    0x16
 ; BGMOVE    0x00
-; EFFECT1   0x25 - Dungeon Prize
+; EFFECT1   0x25 - Dungeon prize
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x20 - leaked value
@@ -9610,8 +9610,8 @@ RoomHeader_Room00DF:
 ; BLKSET    0x02
 ; SPRSET    0x21
 ; BGMOVE    0x00
-; EFFECT1   0x01 - NW Kill door
-; EFFECT2   0x2A - NE Kill chest
+; EFFECT1   0x01 - NW kill door
+; EFFECT2   0x2A - NE kill chest
 ; PLANES1   0x00
 ; PLANES2   0x00
 ; WARP      0x00
@@ -9825,7 +9825,7 @@ RoomHeader_Room00EE:
 ; BLKSET    0x06
 ; SPRSET    0x13
 ; BGMOVE    0x00
-; EFFECT1   0x02 - NE Kill door
+; EFFECT1   0x02 - NE kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x08
 ; PLANES2   0x00
@@ -10252,7 +10252,7 @@ RoomHeader_Room010B:
 ; BLKSET    0x06
 ; SPRSET    0x08
 ; BGMOVE    0x00
-; EFFECT1   0x03 - SW Kill door
+; EFFECT1   0x03 - SW kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0A - leaked value
@@ -10562,7 +10562,7 @@ RoomHeader_Room0120:
 ; BLKSET    0x06
 ; SPRSET    0x28
 ; BGMOVE    0x00
-; EFFECT1   0x03 - SW Kill door
+; EFFECT1   0x03 - SW kill door
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x07 - leaked value

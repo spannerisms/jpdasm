@@ -333,8 +333,6 @@ SUBDES = $00212D
 ; o - window mask for OBJ (0: disabled | 1: enabled)
 TMW = $00212E
 TSW = $00212F
-THRUMAIN = $00212E
-THRUSUB = $00212F
 
 ; COLOR MATH SETTINGS
 ; $2130 w1 fvh

@@ -6,11 +6,7 @@ arch 65816
 
 check bankcross off
 
-org $008000
-
 incsrc "functions.asm"
-incsrc "defines.asm"
-incsrc "defines_spc.asm"
 incsrc "registers.asm"
 incsrc "registers_spc.asm"
 

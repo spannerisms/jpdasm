@@ -11617,431 +11617,431 @@ Overworld_GetPitDestination:
 ; TODO format and name
 ;===================================================================================================
 ValidDoorTypes_low:
-#_1BB8BF: dw $00FE,$00C5,$00FE,$0114
-#_1BB8C7: dw $0115,$0175,$0156,$00F5
-#_1BB8CF: dw $00E2,$01EF,$0119,$00FE
-#_1BB8D7: dw $0172,$0177,$013F,$0172
-#_1BB8DF: dw $0112,$0161,$0172,$014C
-#_1BB8E7: dw $0156,$01EF,$00FE,$00FE
-#_1BB8EF: dw $00FE,$010B,$0173,$0143
-#_1BB8F7: dw $0149,$0175,$0103,$0100
-#_1BB8FF: dw $01CC,$015E,$0167,$0128
-#_1BB907: dw $0131,$0112,$016D,$0163
-#_1BB90F: dw $0173,$00FE,$0113,$0177
+#_1BB8BF: dw $00FE, $00C5, $00FE, $0114
+#_1BB8C7: dw $0115, $0175, $0156, $00F5
+#_1BB8CF: dw $00E2, $01EF, $0119, $00FE
+#_1BB8D7: dw $0172, $0177, $013F, $0172
+#_1BB8DF: dw $0112, $0161, $0172, $014C
+#_1BB8E7: dw $0156, $01EF, $00FE, $00FE
+#_1BB8EF: dw $00FE, $010B, $0173, $0143
+#_1BB8F7: dw $0149, $0175, $0103, $0100
+#_1BB8FF: dw $01CC, $015E, $0167, $0128
+#_1BB907: dw $0131, $0112, $016D, $0163
+#_1BB90F: dw $0173, $00FE, $0113, $0177
 
 ;---------------------------------------------------------------------------------------------------
 
 ValidDoorTypes_high:
-#_1BB917: dw $014A,$00C4,$014F,$0115
-#_1BB91F: dw $0114,$0174,$0155,$00F5
-#_1BB927: dw $00EE,$01EB,$0118,$0146
-#_1BB92F: dw $0171,$0155,$0137,$0174
-#_1BB937: dw $0173,$0121,$0164,$0155
-#_1BB93F: dw $0157,$0128,$0114,$0123
-#_1BB947: dw $0113,$0109,$0118,$0161
-#_1BB94F: dw $0149,$0117,$0174,$0101
-#_1BB957: dw $01CC,$0131,$0051,$014E
-#_1BB95F: dw $0131,$0112,$017A,$0163
-#_1BB967: dw $0172,$01BD,$0152,$0167
+#_1BB917: dw $014A, $00C4, $014F, $0115
+#_1BB91F: dw $0114, $0174, $0155, $00F5
+#_1BB927: dw $00EE, $01EB, $0118, $0146
+#_1BB92F: dw $0171, $0155, $0137, $0174
+#_1BB937: dw $0173, $0121, $0164, $0155
+#_1BB93F: dw $0157, $0128, $0114, $0123
+#_1BB947: dw $0113, $0109, $0118, $0161
+#_1BB94F: dw $0149, $0117, $0174, $0101
+#_1BB957: dw $01CC, $0131, $0051, $014E
+#_1BB95F: dw $0131, $0112, $017A, $0163
+#_1BB967: dw $0172, $01BD, $0152, $0167
 
 ;---------------------------------------------------------------------------------------------------
 
 Overworld_EntranceScreens:
-#_1BB96F: dw $002C ; Link's house
-#_1BB971: dw $0013 ; Sanctuary
-#_1BB973: dw $001B ; Castle west wing
-#_1BB975: dw $001B ; Castle lobby
-#_1BB977: dw $001B ; Castle east wing
-#_1BB979: dw $000A ; Old man cave west
-#_1BB97B: dw $0003 ; Old man cave east
-#_1BB97D: dw $001E ; Eastern Palace
-#_1BB97F: dw $0030 ; Desert Palace lobby
-#_1BB981: dw $0030 ; Desert Palace east
-#_1BB983: dw $0030 ; Desert Palace west
-#_1BB985: dw $0030 ; Desert Palace back
-#_1BB987: dw $0018 ; Sahasrahla's house west
-#_1BB989: dw $0018 ; Sahasrahla's house east
-#_1BB98B: dw $0028 ; Angry bro west
-#_1BB98D: dw $0029 ; Angry bro east
-#_1BB98F: dw $0022 ; Magic bat
-#_1BB991: dw $0002 ; Lumberjack cave
-#_1BB993: dw $0045 ; Super bunny bottom
-#_1BB995: dw $0045 ; Super bunny top
-#_1BB997: dw $0045 ; Turtle Rock laser pots
-#_1BB999: dw $004A ; Bumper cave bottom
-#_1BB99B: dw $004A ; Bumper cave top
-#_1BB99D: dw $0045 ; Turtle Rock laser bridge
-#_1BB99F: dw $0045 ; Turtle Rock big chest
-#_1BB9A1: dw $0005 ; East Death Mountain useless bottom
-#_1BB9A3: dw $0005 ; East Death Mountain useless top
-#_1BB9A5: dw $0005 ; Spiral cave exit
-#_1BB9A7: dw $0005 ; Spiral cave top
-#_1BB9A9: dw $0005 ; Paradox cave bottom
-#_1BB9AB: dw $0005 ; Paradox cave middle
-#_1BB9AD: dw $0005 ; Paradox cave top
-#_1BB9AF: dw $0003 ; Kiki cave west
-#_1BB9B1: dw $0003 ; Kiki cave east
-#_1BB9B3: dw $0003 ; Spectacle rock
-#_1BB9B5: dw $001B ; Agahnim's Tower
-#_1BB9B7: dw $007B ; Swamp Palace
-#_1BB9B9: dw $005E ; Palace of Darkness
-#_1BB9BB: dw $0070 ; Misery Mire
-#_1BB9BD: dw $0040 ; Skull Woods west
-#_1BB9BF: dw $0040 ; Skull Woods mummy statue
-#_1BB9C1: dw $0040 ; Skull Woods big chest
-#_1BB9C3: dw $0040 ; Skull Woods back
-#_1BB9C5: dw $0000 ; Lost Woods hideout
-#_1BB9C7: dw $0075 ; Ice Palace
-#_1BB9C9: dw $000A ; Death Mountain exit west
-#_1BB9CB: dw $0003 ; Death Mountain exit from summit
-#_1BB9CD: dw $0003 ; Old man home cave west
-#_1BB9CF: dw $0003 ; Old man home cave east
-#_1BB9D1: dw $001B ; Hyrule Castle secret entrance
-#_1BB9D3: dw $0003 ; Tower of Hera
-#_1BB9D5: dw $0058 ; Thieves' Town
-#_1BB9D7: dw $0047 ; Turtle Rock
-#_1BB9D9: dw $005B ; Pyramid drop
-#_1BB9DB: dw $0043 ; Ganon's Tower
-#_1BB9DD: dw $0015 ; Graveyard fairy
-#_1BB9DF: dw $0018 ; Kakariko well
-#_1BB9E1: dw $0045 ; Hookshot cave bottom
-#_1BB9E3: dw $0045 ; Hookshot cave top
-#_1BB9E5: dw $0000 ; Lost Woods chest game
-#_1BB9E7: dw $0074 ; Swamp thief cave hideout
-#_1BB9E9: dw $0018 ; Eastern snitch house
-#_1BB9EB: dw $0018 ; Cucco easter egg
-#_1BB9ED: dw $0018 ; Sick kid
-#_1BB9EF: dw $0043 ; Spike cave
-#_1BB9F1: dw $0018 ; Tavern front
-#_1BB9F3: dw $0018 ; Tavern back
-#_1BB9F5: dw $0018 ; Kakariko Inn
-#_1BB9F7: dw $001E ; Sahasrahla's hideout
-#_1BB9F9: dw $0018 ; Kakariko shop
-#_1BB9FB: dw $0058 ; Village of Outcasts chest game
-#_1BB9FD: dw $0058 ; Village of Outcasts bombable hut
-#_1BB9FF: dw $0029 ; Library
-#_1BBA01: dw $0018 ; Kakariko bombable hut
-#_1BBA03: dw $0018 ; Chicken hut
-#_1BBA05: dw $0016 ; Potion shop
-#_1BBA07: dw $0030 ; Aginah's cave
-#_1BBA09: dw $003B ; Dam
-#_1BBA0B: dw $0005 ; Mimic cave
-#_1BBA0D: dw $0005 ; East Death Mountain fairy pond cave
-#_1BBA0F: dw $0032 ; Circle of bushes heart piece cave
-#_1BBA11: dw $0014 ; Graveyard ledge heart piece cave
-#_1BBA13: dw $006C ; Bomb shop
-#_1BBA15: dw $0058 ; C-shaped house
-#_1BBA17: dw $002F ; Southeast of Eastern Ruins fairy cave
-#_1BBA19: dw $0070 ; Mire big fairy
-#_1BBA1B: dw $0042 ; Dark World lumberjacks shop
-#_1BBA1D: dw $0035 ; Lake Hylia shop
-#_1BBA1F: dw $0069 ; Arrow game
-#_1BBA21: dw $0053 ; Dark World sanctuary cave
-#_1BBA23: dw $0014 ; King's tomb
-#_1BBA25: dw $000F ; Waterfall of Wishing
-#_1BBA27: dw $0035 ; Pond of Happiness
-#_1BBA29: dw $002E ; Big fairy (Eastern Ruins)
-#_1BBA2B: dw $0070 ; Mire shed
-#_1BBA2D: dw $0058 ; Village of Outcasts shop
-#_1BBA2F: dw $0018 ; Blind's hut
-#_1BBA31: dw $0070 ; Watto's cave
-#_1BBA33: dw $005B ; Fat Fairy
-#_1BBA35: dw $0022 ; Smithy's house
-#_1BBA37: dw $0011 ; Light World fortune teller (Kakariko)
-#_1BBA39: dw $0051 ; Dark World fortune teller
-#_1BBA3B: dw $0029 ; South of Kakariko chest game
-#_1BBA3D: dw $005E ; Broccoli's house
-#_1BBA3F: dw $006F ; Bird hint NPC cave
-#_1BBA41: dw $0077 ; Hamburger Helper's cave
-#_1BBA43: dw $0037 ; Ice rod cave golden bee
-#_1BBA45: dw $0034 ; Big fairy (South of Link's house)
-#_1BBA47: dw $006E ; Big fairy (South of Kiki)
-#_1BBA49: dw $0045 ; Dark Death Mountain shop
-#_1BBA4B: dw $0056 ; Dark World witch shop
-#_1BBA4D: dw $0043 ; Dark West Death Mountain Big fairy
-#_1BBA4F: dw $0030 ; Aginah's cave
-#_1BBA51: dw $003A ; Desert big fairy
-#_1BBA53: dw $0035 ; Light World fortune teller (Lake Hylia)
-#_1BBA55: dw $0075 ; Dark Lake Hylia shop
-#_1BBA57: dw $005A ; East of Village of Outcasts shop
-#_1BBA59: dw $0002 ; Bumpkin residency
-#_1BBA5B: dw $002B ; Link's house bonk rocks fairy pond
-#_1BBA5D: dw $006B ; Bomb shop bonk rocks fairy pond
-#_1BBA5F: dw $003A ; Desert thief hideout
-#_1BBA61: dw $0013 ; Bonk rocks heart piece cave
-#_1BBA63: dw $0037 ; Lake Hylia falls thief hideout
-#_1BBA65: dw $0077 ; Dark Lake Hylia falls dev cave
-#_1BBA67: dw $0035 ; Minimoldorm cave
-#_1BBA69: dw $0030 ; Checkerboard cave heart piece
-#_1BBA6B: dw $0062 ; Stake puzzle heart piece cave
-#_1BBA6D: dw $0037 ; Ice rod cave
-#_1BBA6F: dw $0077 ; Dark ice rod big fairy
+#_1BB96F: dw $002C ; 0x00 - Link's house
+#_1BB971: dw $0013 ; 0x01 - Sanctuary
+#_1BB973: dw $001B ; 0x02 - Castle west wing
+#_1BB975: dw $001B ; 0x03 - Castle lobby
+#_1BB977: dw $001B ; 0x04 - Castle east wing
+#_1BB979: dw $000A ; 0x05 - Old man cave west
+#_1BB97B: dw $0003 ; 0x06 - Old man cave east
+#_1BB97D: dw $001E ; 0x07 - Eastern Palace
+#_1BB97F: dw $0030 ; 0x08 - Desert Palace lobby
+#_1BB981: dw $0030 ; 0x09 - Desert Palace east
+#_1BB983: dw $0030 ; 0x0A - Desert Palace west
+#_1BB985: dw $0030 ; 0x0B - Desert Palace back
+#_1BB987: dw $0018 ; 0x0C - Sahasrahla's house west
+#_1BB989: dw $0018 ; 0x0D - Sahasrahla's house east
+#_1BB98B: dw $0028 ; 0x0E - Angry bro west
+#_1BB98D: dw $0029 ; 0x0F - Angry bro east
+#_1BB98F: dw $0022 ; 0x10 - Magic bat
+#_1BB991: dw $0002 ; 0x11 - Lumberjack cave
+#_1BB993: dw $0045 ; 0x12 - Super bunny bottom
+#_1BB995: dw $0045 ; 0x13 - Super bunny top
+#_1BB997: dw $0045 ; 0x14 - Turtle Rock laser pots
+#_1BB999: dw $004A ; 0x15 - Bumper cave bottom
+#_1BB99B: dw $004A ; 0x16 - Bumper cave top
+#_1BB99D: dw $0045 ; 0x17 - Turtle Rock laser bridge
+#_1BB99F: dw $0045 ; 0x18 - Turtle Rock big chest
+#_1BB9A1: dw $0005 ; 0x19 - East Death Mountain useless bottom
+#_1BB9A3: dw $0005 ; 0x1A - East Death Mountain useless top
+#_1BB9A5: dw $0005 ; 0x1B - Spiral cave exit
+#_1BB9A7: dw $0005 ; 0x1C - Spiral cave top
+#_1BB9A9: dw $0005 ; 0x1D - Paradox cave bottom
+#_1BB9AB: dw $0005 ; 0x1E - Paradox cave middle
+#_1BB9AD: dw $0005 ; 0x1F - Paradox cave top
+#_1BB9AF: dw $0003 ; 0x20 - Kiki cave west
+#_1BB9B1: dw $0003 ; 0x21 - Kiki cave east
+#_1BB9B3: dw $0003 ; 0x22 - Spectacle rock
+#_1BB9B5: dw $001B ; 0x23 - Agahnim's Tower
+#_1BB9B7: dw $007B ; 0x24 - Swamp Palace
+#_1BB9B9: dw $005E ; 0x25 - Palace of Darkness
+#_1BB9BB: dw $0070 ; 0x26 - Misery Mire
+#_1BB9BD: dw $0040 ; 0x27 - Skull Woods west
+#_1BB9BF: dw $0040 ; 0x28 - Skull Woods mummy statue
+#_1BB9C1: dw $0040 ; 0x29 - Skull Woods big chest
+#_1BB9C3: dw $0040 ; 0x2A - Skull Woods back
+#_1BB9C5: dw $0000 ; 0x2B - Lost Woods hideout
+#_1BB9C7: dw $0075 ; 0x2C - Ice Palace
+#_1BB9C9: dw $000A ; 0x2D - Death Mountain exit west
+#_1BB9CB: dw $0003 ; 0x2E - Death Mountain exit from summit
+#_1BB9CD: dw $0003 ; 0x2F - Old man home cave west
+#_1BB9CF: dw $0003 ; 0x30 - Old man home cave east
+#_1BB9D1: dw $001B ; 0x31 - Hyrule Castle secret entrance
+#_1BB9D3: dw $0003 ; 0x32 - Tower of Hera
+#_1BB9D5: dw $0058 ; 0x33 - Thieves' Town
+#_1BB9D7: dw $0047 ; 0x34 - Turtle Rock
+#_1BB9D9: dw $005B ; 0x35 - Pyramid drop
+#_1BB9DB: dw $0043 ; 0x36 - Ganon's Tower
+#_1BB9DD: dw $0015 ; 0x37 - Graveyard fairy
+#_1BB9DF: dw $0018 ; 0x38 - Kakariko well
+#_1BB9E1: dw $0045 ; 0x39 - Hookshot cave bottom
+#_1BB9E3: dw $0045 ; 0x3A - Hookshot cave top
+#_1BB9E5: dw $0000 ; 0x3B - Lost Woods chest game
+#_1BB9E7: dw $0074 ; 0x3C - Swamp thief cave hideout
+#_1BB9E9: dw $0018 ; 0x3D - Eastern snitch house
+#_1BB9EB: dw $0018 ; 0x3E - Cucco easter egg
+#_1BB9ED: dw $0018 ; 0x3F - Sick kid
+#_1BB9EF: dw $0043 ; 0x40 - Spike cave
+#_1BB9F1: dw $0018 ; 0x41 - Tavern front
+#_1BB9F3: dw $0018 ; 0x42 - Tavern back
+#_1BB9F5: dw $0018 ; 0x43 - Kakariko Inn
+#_1BB9F7: dw $001E ; 0x44 - Sahasrahla's hideout
+#_1BB9F9: dw $0018 ; 0x45 - Kakariko shop
+#_1BB9FB: dw $0058 ; 0x46 - Village of Outcasts chest game
+#_1BB9FD: dw $0058 ; 0x47 - Village of Outcasts bombable hut
+#_1BB9FF: dw $0029 ; 0x48 - Library
+#_1BBA01: dw $0018 ; 0x49 - Kakariko bombable hut
+#_1BBA03: dw $0018 ; 0x4A - Chicken hut
+#_1BBA05: dw $0016 ; 0x4B - Potion shop
+#_1BBA07: dw $0030 ; 0x4C - Aginah's cave
+#_1BBA09: dw $003B ; 0x4D - Dam
+#_1BBA0B: dw $0005 ; 0x4E - Mimic cave
+#_1BBA0D: dw $0005 ; 0x4F - East Death Mountain fairy pond cave
+#_1BBA0F: dw $0032 ; 0x50 - Circle of bushes heart piece cave
+#_1BBA11: dw $0014 ; 0x51 - Graveyard ledge heart piece cave
+#_1BBA13: dw $006C ; 0x52 - Bomb shop
+#_1BBA15: dw $0058 ; 0x53 - C-shaped house
+#_1BBA17: dw $002F ; 0x54 - Southeast of Eastern Ruins fairy cave
+#_1BBA19: dw $0070 ; 0x55 - Mire big fairy
+#_1BBA1B: dw $0042 ; 0x56 - Dark World lumberjacks shop
+#_1BBA1D: dw $0035 ; 0x57 - Lake Hylia shop
+#_1BBA1F: dw $0069 ; 0x58 - Arrow game
+#_1BBA21: dw $0053 ; 0x59 - Dark World sanctuary cave
+#_1BBA23: dw $0014 ; 0x5A - King's tomb
+#_1BBA25: dw $000F ; 0x5B - Waterfall of Wishing
+#_1BBA27: dw $0035 ; 0x5C - Pond of Happiness
+#_1BBA29: dw $002E ; 0x5D - Big fairy (Eastern Ruins)
+#_1BBA2B: dw $0070 ; 0x5E - Mire shed
+#_1BBA2D: dw $0058 ; 0x5F - Village of Outcasts shop
+#_1BBA2F: dw $0018 ; 0x60 - Blind's hut
+#_1BBA31: dw $0070 ; 0x61 - Watto's cave
+#_1BBA33: dw $005B ; 0x62 - Fat Fairy
+#_1BBA35: dw $0022 ; 0x63 - Smithy's house
+#_1BBA37: dw $0011 ; 0x64 - Light World fortune teller (Kakariko)
+#_1BBA39: dw $0051 ; 0x65 - Dark World fortune teller
+#_1BBA3B: dw $0029 ; 0x66 - South of Kakariko chest game
+#_1BBA3D: dw $005E ; 0x67 - Broccoli's house
+#_1BBA3F: dw $006F ; 0x68 - Bird hint NPC cave
+#_1BBA41: dw $0077 ; 0x69 - Hamburger Helper's cave
+#_1BBA43: dw $0037 ; 0x6A - Ice rod cave golden bee
+#_1BBA45: dw $0034 ; 0x6B - Big fairy (South of Link's house)
+#_1BBA47: dw $006E ; 0x6C - Big fairy (South of Kiki)
+#_1BBA49: dw $0045 ; 0x6D - Dark Death Mountain shop
+#_1BBA4B: dw $0056 ; 0x6E - Dark World witch shop
+#_1BBA4D: dw $0043 ; 0x6F - Dark West Death Mountain Big fairy
+#_1BBA4F: dw $0030 ; 0x70 - Aginah's cave
+#_1BBA51: dw $003A ; 0x71 - Desert big fairy
+#_1BBA53: dw $0035 ; 0x72 - Light World fortune teller (Lake Hylia)
+#_1BBA55: dw $0075 ; 0x73 - Dark Lake Hylia shop
+#_1BBA57: dw $005A ; 0x74 - East of Village of Outcasts shop
+#_1BBA59: dw $0002 ; 0x75 - Bumpkin residency
+#_1BBA5B: dw $002B ; 0x76 - Link's house bonk rocks fairy pond
+#_1BBA5D: dw $006B ; 0x77 - Bomb shop bonk rocks fairy pond
+#_1BBA5F: dw $003A ; 0x78 - Desert thief hideout
+#_1BBA61: dw $0013 ; 0x79 - Bonk rocks heart piece cave
+#_1BBA63: dw $0037 ; 0x7A - Lake Hylia falls thief hideout
+#_1BBA65: dw $0077 ; 0x7B - Dark Lake Hylia falls dev cave
+#_1BBA67: dw $0035 ; 0x7C - Mini moldorm cave
+#_1BBA69: dw $0030 ; 0x7D - Checkerboard cave heart piece
+#_1BBA6B: dw $0062 ; 0x7E - Stake puzzle heart piece cave
+#_1BBA6D: dw $0037 ; 0x7F - Ice rod cave
+#_1BBA6F: dw $0077 ; 0x80 - Dark ice rod big fairy
 
 ;---------------------------------------------------------------------------------------------------
 
 Overworld_EntranceTileIndex:
-#_1BBA71: dw $0796 ; Link's house
-#_1BBA73: dw $01AA ; Sanctuary
-#_1BBA75: dw $0124 ; Castle west wing
-#_1BBA77: dw $07BE ; Castle lobby
-#_1BBA79: dw $0158 ; Castle east wing
-#_1BBA7B: dw $0634 ; Old man cave west
-#_1BBA7D: dw $178E ; Old man cave east
-#_1BBA7F: dw $016A ; Eastern Palace
-#_1BBA81: dw $05A4 ; Desert Palace lobby
-#_1BBA83: dw $0538 ; Desert Palace east
-#_1BBA85: dw $0510 ; Desert Palace west
-#_1BBA87: dw $01A4 ; Desert Palace back
-#_1BBA89: dw $054C ; Sahasrahla's house west
-#_1BBA8B: dw $0554 ; Sahasrahla's house east
-#_1BBA8D: dw $0B36 ; Angry bro west
-#_1BBA8F: dw $0B06 ; Angry bro east
-#_1BBA91: dw $06A0 ; Magic bat
-#_1BBA93: dw $03A8 ; Lumberjack cave
-#_1BBA95: dw $126E ; Super bunny bottom
-#_1BBA97: dw $07F6 ; Super bunny top
-#_1BBA99: dw $0B56 ; Turtle Rock laser pots
-#_1BBA9B: dw $0634 ; Bumper cave bottom
-#_1BBA9D: dw $0336 ; Bumper cave top
-#_1BBA9F: dw $0E62 ; Turtle Rock laser bridge
-#_1BBAA1: dw $0B6E ; Turtle Rock big chest
-#_1BBAA3: dw $1162 ; East Death Mountain useless bottom
-#_1BBAA5: dw $0E62 ; East Death Mountain useless top
-#_1BBAA7: dw $1058 ; Spiral cave exit
-#_1BBAA9: dw $0B56 ; Spiral cave top
-#_1BBAAB: dw $1274 ; Paradox cave bottom
-#_1BBAAD: dw $1B78 ; Paradox cave middle
-#_1BBAAF: dw $07F6 ; Paradox cave top
-#_1BBAB1: dw $1128 ; Kiki cave west
-#_1BBAB3: dw $1238 ; Kiki cave east
-#_1BBAB5: dw $0CB8 ; Spectacle rock
-#_1BBAB7: dw $02BE ; Agahnim's Tower
-#_1BBAB9: dw $072E ; Swamp Palace
-#_1BBABB: dw $01EA ; Palace of Darkness
-#_1BBABD: dw $06A4 ; Misery Mire
-#_1BBABF: dw $101C ; Skull Woods west
-#_1BBAC1: dw $1248 ; Skull Woods mummy statue
-#_1BBAC3: dw $12DC ; Skull Woods big chest
-#_1BBAC5: dw $0612 ; Skull Woods back
-#_1BBAC7: dw $12DC ; Lost Woods hideout
-#_1BBAC9: dw $0E56 ; Ice Palace
-#_1BBACB: dw $0336 ; Death Mountain exit west
-#_1BBACD: dw $1108 ; Death Mountain exit from summit
-#_1BBACF: dw $1DA4 ; Old man home cave west
-#_1BBAD1: dw $1450 ; Old man home cave east
-#_1BBAD3: dw $06D8 ; Hyrule Castle secret entrance
-#_1BBAD5: dw $03DE ; Tower of Hera
-#_1BBAD7: dw $0DBE ; Thieves' Town
-#_1BBAD9: dw $09A0 ; Turtle Rock
-#_1BBADB: dw $0D9C ; Pyramid drop
-#_1BBADD: dw $01DE ; Ganon's Tower
-#_1BBADF: dw $0294 ; Graveyard fairy
-#_1BBAE1: dw $0616 ; Kakariko well
-#_1BBAE3: dw $0868 ; Hookshot cave bottom
-#_1BBAE5: dw $01D8 ; Hookshot cave top
-#_1BBAE7: dw $00DE ; Lost Woods chest game
-#_1BBAE9: dw $0330 ; Swamp thief cave hideout
-#_1BBAEB: dw $0D68 ; Eastern snitch house
-#_1BBAED: dw $0B18 ; Cucco easter egg
-#_1BBAEF: dw $144E ; Sick kid
-#_1BBAF1: dw $1264 ; Spike cave
-#_1BBAF3: dw $1BD0 ; Tavern front
-#_1BBAF5: dw $18D0 ; Tavern back
-#_1BBAF7: dw $13E6 ; Kakariko Inn
-#_1BBAF9: dw $099E ; Sahasrahla's hideout
-#_1BBAFB: dw $1A36 ; Kakariko shop
-#_1BBAFD: dw $0B18 ; Village of Outcasts chest game
-#_1BBAFF: dw $1A36 ; Village of Outcasts bombable hut
-#_1BBB01: dw $038E ; Library
-#_1BBB03: dw $1B8C ; Kakariko bombable hut
-#_1BBB05: dw $14B0 ; Chicken hut
-#_1BBB07: dw $0A18 ; Potion shop
-#_1BBB09: dw $0964 ; Aginah's cave
-#_1BBB0B: dw $072E ; Dam
-#_1BBB0D: dw $0B6E ; Mimic cave
-#_1BBB0F: dw $126E ; East Death Mountain fairy pond cave
-#_1BBB11: dw $0906 ; Circle of bushes heart piece cave
-#_1BBB13: dw $02A2 ; Graveyard ledge heart piece cave
-#_1BBB15: dw $0796 ; Bomb shop
-#_1BBB17: dw $0D68 ; C-shaped house
-#_1BBB19: dw $0934 ; Southeast of Eastern Ruins fairy cave
-#_1BBB1B: dw $0636 ; Mire big fairy
-#_1BBB1D: dw $06AA ; Dark World lumberjacks shop
-#_1BBB1F: dw $01B2 ; Lake Hylia shop
-#_1BBB21: dw $092C ; Arrow game
-#_1BBB23: dw $02AA ; Dark World sanctuary cave
-#_1BBB25: dw $05B2 ; King's tomb
-#_1BBB27: dw $008C ; Waterfall of Wishing
-#_1BBB29: dw $0CD4 ; Pond of Happiness
-#_1BBB2B: dw $0224 ; Big fairy (Eastern Ruins)
-#_1BBB2D: dw $0612 ; Mire shed
-#_1BBB2F: dw $13E6 ; Village of Outcasts shop
-#_1BBB31: dw $0540 ; Blind's hut
-#_1BBB33: dw $0964 ; Watto's cave
-#_1BBB35: dw $0DAE ; Fat Fairy
-#_1BBB37: dw $039A ; Smithy's house
-#_1BBB39: dw $089E ; Light World fortune teller (Kakariko)
-#_1BBB3B: dw $089E ; Dark World fortune teller
-#_1BBB3D: dw $092C ; South of Kakariko chest game
-#_1BBB3F: dw $0FB2 ; Broccoli's house
-#_1BBB41: dw $0934 ; Bird hint NPC cave
-#_1BBB43: dw $0212 ; Hamburger Helper's cave
-#_1BBB45: dw $0212 ; Ice rod cave golden bee
-#_1BBB47: dw $0330 ; Big fairy (South of Link's house)
-#_1BBB49: dw $0224 ; Big fairy (South of Kiki)
-#_1BBB4B: dw $1274 ; Dark Death Mountain shop
-#_1BBB4D: dw $0A9A ; Dark World witch shop
-#_1BBB4F: dw $178E ; Dark West Death Mountain Big fairy
-#_1BBB51: dw $0964 ; Aginah's cave
-#_1BBB53: dw $018C ; Desert big fairy
-#_1BBB55: dw $060A ; Light World fortune teller (Lake Hylia)
-#_1BBB57: dw $060A ; Dark Lake Hylia shop
-#_1BBB59: dw $0A28 ; East of Village of Outcasts shop
-#_1BBB5B: dw $072A ; Bumpkin residency
-#_1BBB5D: dw $0330 ; Link's house bonk rocks fairy pond
-#_1BBB5F: dw $0330 ; Bomb shop bonk rocks fairy pond
-#_1BBB61: dw $0A1E ; Desert thief hideout
-#_1BBB63: dw $0506 ; Bonk rocks heart piece cave
-#_1BBB65: dw $040C ; Lake Hylia falls thief hideout
-#_1BBB67: dw $040C ; Dark Lake Hylia falls dev cave
-#_1BBB69: dw $178C ; Minimoldorm cave
-#_1BBB6B: dw $0358 ; Checkerboard cave heart piece
-#_1BBB6D: dw $0D20 ; Stake puzzle heart piece cave
-#_1BBB6F: dw $0208 ; Ice rod cave
-#_1BBB71: dw $0208 ; Dark ice rod big fairy
+#_1BBA71: dw $0796 ; 0x00 - Link's house
+#_1BBA73: dw $01AA ; 0x01 - Sanctuary
+#_1BBA75: dw $0124 ; 0x02 - Castle west wing
+#_1BBA77: dw $07BE ; 0x03 - Castle lobby
+#_1BBA79: dw $0158 ; 0x04 - Castle east wing
+#_1BBA7B: dw $0634 ; 0x05 - Old man cave west
+#_1BBA7D: dw $178E ; 0x06 - Old man cave east
+#_1BBA7F: dw $016A ; 0x07 - Eastern Palace
+#_1BBA81: dw $05A4 ; 0x08 - Desert Palace lobby
+#_1BBA83: dw $0538 ; 0x09 - Desert Palace east
+#_1BBA85: dw $0510 ; 0x0A - Desert Palace west
+#_1BBA87: dw $01A4 ; 0x0B - Desert Palace back
+#_1BBA89: dw $054C ; 0x0C - Sahasrahla's house west
+#_1BBA8B: dw $0554 ; 0x0D - Sahasrahla's house east
+#_1BBA8D: dw $0B36 ; 0x0E - Angry bro west
+#_1BBA8F: dw $0B06 ; 0x0F - Angry bro east
+#_1BBA91: dw $06A0 ; 0x10 - Magic bat
+#_1BBA93: dw $03A8 ; 0x11 - Lumberjack cave
+#_1BBA95: dw $126E ; 0x12 - Super bunny bottom
+#_1BBA97: dw $07F6 ; 0x13 - Super bunny top
+#_1BBA99: dw $0B56 ; 0x14 - Turtle Rock laser pots
+#_1BBA9B: dw $0634 ; 0x15 - Bumper cave bottom
+#_1BBA9D: dw $0336 ; 0x16 - Bumper cave top
+#_1BBA9F: dw $0E62 ; 0x17 - Turtle Rock laser bridge
+#_1BBAA1: dw $0B6E ; 0x18 - Turtle Rock big chest
+#_1BBAA3: dw $1162 ; 0x19 - East Death Mountain useless bottom
+#_1BBAA5: dw $0E62 ; 0x1A - East Death Mountain useless top
+#_1BBAA7: dw $1058 ; 0x1B - Spiral cave exit
+#_1BBAA9: dw $0B56 ; 0x1C - Spiral cave top
+#_1BBAAB: dw $1274 ; 0x1D - Paradox cave bottom
+#_1BBAAD: dw $1B78 ; 0x1E - Paradox cave middle
+#_1BBAAF: dw $07F6 ; 0x1F - Paradox cave top
+#_1BBAB1: dw $1128 ; 0x20 - Kiki cave west
+#_1BBAB3: dw $1238 ; 0x21 - Kiki cave east
+#_1BBAB5: dw $0CB8 ; 0x22 - Spectacle rock
+#_1BBAB7: dw $02BE ; 0x23 - Agahnim's Tower
+#_1BBAB9: dw $072E ; 0x24 - Swamp Palace
+#_1BBABB: dw $01EA ; 0x25 - Palace of Darkness
+#_1BBABD: dw $06A4 ; 0x26 - Misery Mire
+#_1BBABF: dw $101C ; 0x27 - Skull Woods west
+#_1BBAC1: dw $1248 ; 0x28 - Skull Woods mummy statue
+#_1BBAC3: dw $12DC ; 0x29 - Skull Woods big chest
+#_1BBAC5: dw $0612 ; 0x2A - Skull Woods back
+#_1BBAC7: dw $12DC ; 0x2B - Lost Woods hideout
+#_1BBAC9: dw $0E56 ; 0x2C - Ice Palace
+#_1BBACB: dw $0336 ; 0x2D - Death Mountain exit west
+#_1BBACD: dw $1108 ; 0x2E - Death Mountain exit from summit
+#_1BBACF: dw $1DA4 ; 0x2F - Old man home cave west
+#_1BBAD1: dw $1450 ; 0x30 - Old man home cave east
+#_1BBAD3: dw $06D8 ; 0x31 - Hyrule Castle secret entrance
+#_1BBAD5: dw $03DE ; 0x32 - Tower of Hera
+#_1BBAD7: dw $0DBE ; 0x33 - Thieves' Town
+#_1BBAD9: dw $09A0 ; 0x34 - Turtle Rock
+#_1BBADB: dw $0D9C ; 0x35 - Pyramid drop
+#_1BBADD: dw $01DE ; 0x36 - Ganon's Tower
+#_1BBADF: dw $0294 ; 0x37 - Graveyard fairy
+#_1BBAE1: dw $0616 ; 0x38 - Kakariko well
+#_1BBAE3: dw $0868 ; 0x39 - Hookshot cave bottom
+#_1BBAE5: dw $01D8 ; 0x3A - Hookshot cave top
+#_1BBAE7: dw $00DE ; 0x3B - Lost Woods chest game
+#_1BBAE9: dw $0330 ; 0x3C - Swamp thief cave hideout
+#_1BBAEB: dw $0D68 ; 0x3D - Eastern snitch house
+#_1BBAED: dw $0B18 ; 0x3E - Cucco easter egg
+#_1BBAEF: dw $144E ; 0x3F - Sick kid
+#_1BBAF1: dw $1264 ; 0x40 - Spike cave
+#_1BBAF3: dw $1BD0 ; 0x41 - Tavern front
+#_1BBAF5: dw $18D0 ; 0x42 - Tavern back
+#_1BBAF7: dw $13E6 ; 0x43 - Kakariko Inn
+#_1BBAF9: dw $099E ; 0x44 - Sahasrahla's hideout
+#_1BBAFB: dw $1A36 ; 0x45 - Kakariko shop
+#_1BBAFD: dw $0B18 ; 0x46 - Village of Outcasts chest game
+#_1BBAFF: dw $1A36 ; 0x47 - Village of Outcasts bombable hut
+#_1BBB01: dw $038E ; 0x48 - Library
+#_1BBB03: dw $1B8C ; 0x49 - Kakariko bombable hut
+#_1BBB05: dw $14B0 ; 0x4A - Chicken hut
+#_1BBB07: dw $0A18 ; 0x4B - Potion shop
+#_1BBB09: dw $0964 ; 0x4C - Aginah's cave
+#_1BBB0B: dw $072E ; 0x4D - Dam
+#_1BBB0D: dw $0B6E ; 0x4E - Mimic cave
+#_1BBB0F: dw $126E ; 0x4F - East Death Mountain fairy pond cave
+#_1BBB11: dw $0906 ; 0x50 - Circle of bushes heart piece cave
+#_1BBB13: dw $02A2 ; 0x51 - Graveyard ledge heart piece cave
+#_1BBB15: dw $0796 ; 0x52 - Bomb shop
+#_1BBB17: dw $0D68 ; 0x53 - C-shaped house
+#_1BBB19: dw $0934 ; 0x54 - Southeast of Eastern Ruins fairy cave
+#_1BBB1B: dw $0636 ; 0x55 - Mire big fairy
+#_1BBB1D: dw $06AA ; 0x56 - Dark World lumberjacks shop
+#_1BBB1F: dw $01B2 ; 0x57 - Lake Hylia shop
+#_1BBB21: dw $092C ; 0x58 - Arrow game
+#_1BBB23: dw $02AA ; 0x59 - Dark World sanctuary cave
+#_1BBB25: dw $05B2 ; 0x5A - King's tomb
+#_1BBB27: dw $008C ; 0x5B - Waterfall of Wishing
+#_1BBB29: dw $0CD4 ; 0x5C - Pond of Happiness
+#_1BBB2B: dw $0224 ; 0x5D - Big fairy (Eastern Ruins)
+#_1BBB2D: dw $0612 ; 0x5E - Mire shed
+#_1BBB2F: dw $13E6 ; 0x5F - Village of Outcasts shop
+#_1BBB31: dw $0540 ; 0x60 - Blind's hut
+#_1BBB33: dw $0964 ; 0x61 - Watto's cave
+#_1BBB35: dw $0DAE ; 0x62 - Fat Fairy
+#_1BBB37: dw $039A ; 0x63 - Smithy's house
+#_1BBB39: dw $089E ; 0x64 - Light World fortune teller (Kakariko)
+#_1BBB3B: dw $089E ; 0x65 - Dark World fortune teller
+#_1BBB3D: dw $092C ; 0x66 - South of Kakariko chest game
+#_1BBB3F: dw $0FB2 ; 0x67 - Broccoli's house
+#_1BBB41: dw $0934 ; 0x68 - Bird hint NPC cave
+#_1BBB43: dw $0212 ; 0x69 - Hamburger Helper's cave
+#_1BBB45: dw $0212 ; 0x6A - Ice rod cave golden bee
+#_1BBB47: dw $0330 ; 0x6B - Big fairy (South of Link's house)
+#_1BBB49: dw $0224 ; 0x6C - Big fairy (South of Kiki)
+#_1BBB4B: dw $1274 ; 0x6D - Dark Death Mountain shop
+#_1BBB4D: dw $0A9A ; 0x6E - Dark World witch shop
+#_1BBB4F: dw $178E ; 0x6F - Dark West Death Mountain Big fairy
+#_1BBB51: dw $0964 ; 0x70 - Aginah's cave
+#_1BBB53: dw $018C ; 0x71 - Desert big fairy
+#_1BBB55: dw $060A ; 0x72 - Light World fortune teller (Lake Hylia)
+#_1BBB57: dw $060A ; 0x73 - Dark Lake Hylia shop
+#_1BBB59: dw $0A28 ; 0x74 - East of Village of Outcasts shop
+#_1BBB5B: dw $072A ; 0x75 - Bumpkin residency
+#_1BBB5D: dw $0330 ; 0x76 - Link's house bonk rocks fairy pond
+#_1BBB5F: dw $0330 ; 0x77 - Bomb shop bonk rocks fairy pond
+#_1BBB61: dw $0A1E ; 0x78 - Desert thief hideout
+#_1BBB63: dw $0506 ; 0x79 - Bonk rocks heart piece cave
+#_1BBB65: dw $040C ; 0x7A - Lake Hylia falls thief hideout
+#_1BBB67: dw $040C ; 0x7B - Dark Lake Hylia falls dev cave
+#_1BBB69: dw $178C ; 0x7C - Mini moldorm cave
+#_1BBB6B: dw $0358 ; 0x7D - Checkerboard cave heart piece
+#_1BBB6D: dw $0D20 ; 0x7E - Stake puzzle heart piece cave
+#_1BBB6F: dw $0208 ; 0x7F - Ice rod cave
+#_1BBB71: dw $0208 ; 0x80 - Dark ice rod big fairy
 
 ;---------------------------------------------------------------------------------------------------
 
 Overworld_Entrance_ID:
-#_1BBB73: db $01 ; Link's house
-#_1BBB74: db $02 ; Sanctuary
-#_1BBB75: db $03 ; Castle west wing
-#_1BBB76: db $04 ; Castle lobby
-#_1BBB77: db $05 ; Castle east wing
-#_1BBB78: db $06 ; Old man cave west
-#_1BBB79: db $07 ; Old man cave east
-#_1BBB7A: db $08 ; Eastern Palace
-#_1BBB7B: db $09 ; Desert Palace lobby
-#_1BBB7C: db $0A ; Desert Palace east
-#_1BBB7D: db $0B ; Desert Palace west
-#_1BBB7E: db $0C ; Desert Palace back
-#_1BBB7F: db $0D ; Sahasrahla's house west
-#_1BBB80: db $0E ; Sahasrahla's house east
-#_1BBB81: db $0F ; Angry bro west
-#_1BBB82: db $10 ; Angry bro east
-#_1BBB83: db $11 ; Magic bat
-#_1BBB84: db $12 ; Lumberjack cave
-#_1BBB85: db $13 ; Super bunny bottom
-#_1BBB86: db $14 ; Super bunny top
-#_1BBB87: db $15 ; Turtle Rock laser pots
-#_1BBB88: db $16 ; Bumper cave bottom
-#_1BBB89: db $17 ; Bumper cave top
-#_1BBB8A: db $18 ; Turtle Rock laser bridge
-#_1BBB8B: db $19 ; Turtle Rock big chest
-#_1BBB8C: db $1A ; East Death Mountain useless bottom
-#_1BBB8D: db $1B ; East Death Mountain useless top
-#_1BBB8E: db $1C ; Spiral cave exit
-#_1BBB8F: db $1D ; Spiral cave top
-#_1BBB90: db $1E ; Paradox cave bottom
-#_1BBB91: db $1F ; Paradox cave middle
-#_1BBB92: db $20 ; Paradox cave top
-#_1BBB93: db $21 ; Kiki cave west
-#_1BBB94: db $22 ; Kiki cave east
-#_1BBB95: db $23 ; Spectacle rock
-#_1BBB96: db $24 ; Agahnim's Tower
-#_1BBB97: db $25 ; Swamp Palace
-#_1BBB98: db $26 ; Palace of Darkness
-#_1BBB99: db $27 ; Misery Mire
-#_1BBB9A: db $28 ; Skull Woods west
-#_1BBB9B: db $29 ; Skull Woods mummy statue
-#_1BBB9C: db $2A ; Skull Woods big chest
-#_1BBB9D: db $2B ; Skull Woods back
-#_1BBB9E: db $2C ; Lost Woods hideout
-#_1BBB9F: db $2D ; Ice Palace
-#_1BBBA0: db $2E ; Death Mountain exit west
-#_1BBBA1: db $2F ; Death Mountain exit from summit
-#_1BBBA2: db $30 ; Old man home cave west
-#_1BBBA3: db $31 ; Old man home cave east
-#_1BBBA4: db $32 ; Hyrule Castle secret entrance
-#_1BBBA5: db $33 ; Tower of Hera
-#_1BBBA6: db $34 ; Thieves' Town
-#_1BBBA7: db $35 ; Turtle Rock
-#_1BBBA8: db $36 ; Pyramid drop
-#_1BBBA9: db $37 ; Ganon's Tower
-#_1BBBAA: db $38 ; Graveyard fairy
-#_1BBBAB: db $39 ; Kakariko well
-#_1BBBAC: db $3A ; Hookshot cave bottom
-#_1BBBAD: db $3B ; Hookshot cave top
-#_1BBBAE: db $3C ; Lost Woods chest game
-#_1BBBAF: db $3D ; Swamp thief cave hideout
-#_1BBBB0: db $3E ; Eastern snitch house
-#_1BBBB1: db $3F ; Cucco easter egg
-#_1BBBB2: db $40 ; Sick kid
-#_1BBBB3: db $41 ; Spike cave
-#_1BBBB4: db $42 ; Tavern front
-#_1BBBB5: db $43 ; Tavern back
-#_1BBBB6: db $44 ; Kakariko Inn
-#_1BBBB7: db $45 ; Sahasrahla's hideout
-#_1BBBB8: db $46 ; Kakariko shop
-#_1BBBB9: db $47 ; Village of Outcasts chest game
-#_1BBBBA: db $48 ; Village of Outcasts bombable hut
-#_1BBBBB: db $49 ; Library
-#_1BBBBC: db $4A ; Kakariko bombable hut
-#_1BBBBD: db $4B ; Chicken hut
-#_1BBBBE: db $4C ; Potion shop
-#_1BBBBF: db $4D ; Aginah's cave
-#_1BBBC0: db $4E ; Dam
-#_1BBBC1: db $4F ; Mimic cave
-#_1BBBC2: db $50 ; East Death Mountain fairy pond cave
-#_1BBBC3: db $51 ; Circle of bushes heart piece cave
-#_1BBBC4: db $52 ; Graveyard ledge heart piece cave
-#_1BBBC5: db $53 ; Bomb shop
-#_1BBBC6: db $54 ; C-shaped house
-#_1BBBC7: db $55 ; Southeast of Eastern Ruins fairy cave
-#_1BBBC8: db $5E ; Mire big fairy
-#_1BBBC9: db $60 ; Dark World lumberjacks shop
-#_1BBBCA: db $58 ; Lake Hylia shop
-#_1BBBCB: db $59 ; Arrow game
-#_1BBBCC: db $5A ; Dark World sanctuary cave
-#_1BBBCD: db $5B ; King's tomb
-#_1BBBCE: db $5C ; Waterfall of Wishing
-#_1BBBCF: db $5D ; Pond of Happiness
-#_1BBBD0: db $5E ; Big fairy (Eastern Ruins)
-#_1BBBD1: db $5F ; Mire shed
-#_1BBBD2: db $60 ; Village of Outcasts shop
-#_1BBBD3: db $61 ; Blind's hut
-#_1BBBD4: db $62 ; Watto's cave
-#_1BBBD5: db $63 ; Fat Fairy
-#_1BBBD6: db $64 ; Smithy's house
-#_1BBBD7: db $65 ; Light World fortune teller (Kakariko)
-#_1BBBD8: db $66 ; Dark World fortune teller
-#_1BBBD9: db $67 ; South of Kakariko chest game
-#_1BBBDA: db $68 ; Broccoli's house
-#_1BBBDB: db $69 ; Bird hint NPC cave
-#_1BBBDC: db $6A ; Hamburger Helper's cave
-#_1BBBDD: db $56 ; Ice rod cave golden bee
-#_1BBBDE: db $5E ; Big fairy (South of Link's house)
-#_1BBBDF: db $5E ; Big fairy (South of Kiki)
-#_1BBBE0: db $58 ; Dark Death Mountain shop
-#_1BBBE1: db $60 ; Dark World witch shop
-#_1BBBE2: db $5E ; Dark West Death Mountain Big fairy
-#_1BBBE3: db $4D ; Aginah's cave
-#_1BBBE4: db $5E ; Desert big fairy
-#_1BBBE5: db $65 ; Light World fortune teller (Lake Hylia)
-#_1BBBE6: db $60 ; Dark Lake Hylia shop
-#_1BBBE7: db $57 ; East of Village of Outcasts shop
-#_1BBBE8: db $6B ; Bumpkin residency
-#_1BBBE9: db $71 ; Link's house bonk rocks fairy pond
-#_1BBBEA: db $71 ; Bomb shop bonk rocks fairy pond
-#_1BBBEB: db $6D ; Desert thief hideout
-#_1BBBEC: db $6E ; Bonk rocks heart piece cave
-#_1BBBED: db $6F ; Lake Hylia falls thief hideout
-#_1BBBEE: db $70 ; Dark Lake Hylia falls dev cave
-#_1BBBEF: db $6C ; Minimoldorm cave
-#_1BBBF0: db $72 ; Checkerboard cave heart piece
-#_1BBBF1: db $83 ; Stake puzzle heart piece cave
-#_1BBBF2: db $84 ; Ice rod cave
-#_1BBBF3: db $5E ; Dark ice rod big fairy
+#_1BBB73: db $01 ; 0x00 - Link's house
+#_1BBB74: db $02 ; 0x01 - Sanctuary
+#_1BBB75: db $03 ; 0x02 - Castle west wing
+#_1BBB76: db $04 ; 0x03 - Castle lobby
+#_1BBB77: db $05 ; 0x04 - Castle east wing
+#_1BBB78: db $06 ; 0x05 - Old man cave west
+#_1BBB79: db $07 ; 0x06 - Old man cave east
+#_1BBB7A: db $08 ; 0x07 - Eastern Palace
+#_1BBB7B: db $09 ; 0x08 - Desert Palace lobby
+#_1BBB7C: db $0A ; 0x09 - Desert Palace east
+#_1BBB7D: db $0B ; 0x0A - Desert Palace west
+#_1BBB7E: db $0C ; 0x0B - Desert Palace back
+#_1BBB7F: db $0D ; 0x0C - Sahasrahla's house west
+#_1BBB80: db $0E ; 0x0D - Sahasrahla's house east
+#_1BBB81: db $0F ; 0x0E - Angry bro west
+#_1BBB82: db $10 ; 0x0F - Angry bro east
+#_1BBB83: db $11 ; 0x10 - Magic bat
+#_1BBB84: db $12 ; 0x11 - Lumberjack cave
+#_1BBB85: db $13 ; 0x12 - Super bunny bottom
+#_1BBB86: db $14 ; 0x13 - Super bunny top
+#_1BBB87: db $15 ; 0x14 - Turtle Rock laser pots
+#_1BBB88: db $16 ; 0x15 - Bumper cave bottom
+#_1BBB89: db $17 ; 0x16 - Bumper cave top
+#_1BBB8A: db $18 ; 0x17 - Turtle Rock laser bridge
+#_1BBB8B: db $19 ; 0x18 - Turtle Rock big chest
+#_1BBB8C: db $1A ; 0x19 - East Death Mountain useless bottom
+#_1BBB8D: db $1B ; 0x1A - East Death Mountain useless top
+#_1BBB8E: db $1C ; 0x1B - Spiral cave exit
+#_1BBB8F: db $1D ; 0x1C - Spiral cave top
+#_1BBB90: db $1E ; 0x1D - Paradox cave bottom
+#_1BBB91: db $1F ; 0x1E - Paradox cave middle
+#_1BBB92: db $20 ; 0x1F - Paradox cave top
+#_1BBB93: db $21 ; 0x20 - Kiki cave west
+#_1BBB94: db $22 ; 0x21 - Kiki cave east
+#_1BBB95: db $23 ; 0x22 - Spectacle rock
+#_1BBB96: db $24 ; 0x23 - Agahnim's Tower
+#_1BBB97: db $25 ; 0x24 - Swamp Palace
+#_1BBB98: db $26 ; 0x25 - Palace of Darkness
+#_1BBB99: db $27 ; 0x26 - Misery Mire
+#_1BBB9A: db $28 ; 0x27 - Skull Woods west
+#_1BBB9B: db $29 ; 0x28 - Skull Woods mummy statue
+#_1BBB9C: db $2A ; 0x29 - Skull Woods big chest
+#_1BBB9D: db $2B ; 0x2A - Skull Woods back
+#_1BBB9E: db $2C ; 0x2B - Lost Woods hideout
+#_1BBB9F: db $2D ; 0x2C - Ice Palace
+#_1BBBA0: db $2E ; 0x2D - Death Mountain exit west
+#_1BBBA1: db $2F ; 0x2E - Death Mountain exit from summit
+#_1BBBA2: db $30 ; 0x2F - Old man home cave west
+#_1BBBA3: db $31 ; 0x30 - Old man home cave east
+#_1BBBA4: db $32 ; 0x31 - Hyrule Castle secret entrance
+#_1BBBA5: db $33 ; 0x32 - Tower of Hera
+#_1BBBA6: db $34 ; 0x33 - Thieves' Town
+#_1BBBA7: db $35 ; 0x34 - Turtle Rock
+#_1BBBA8: db $36 ; 0x35 - Pyramid drop
+#_1BBBA9: db $37 ; 0x36 - Ganon's Tower
+#_1BBBAA: db $38 ; 0x37 - Graveyard fairy
+#_1BBBAB: db $39 ; 0x38 - Kakariko well
+#_1BBBAC: db $3A ; 0x39 - Hookshot cave bottom
+#_1BBBAD: db $3B ; 0x3A - Hookshot cave top
+#_1BBBAE: db $3C ; 0x3B - Lost Woods chest game
+#_1BBBAF: db $3D ; 0x3C - Swamp thief cave hideout
+#_1BBBB0: db $3E ; 0x3D - Eastern snitch house
+#_1BBBB1: db $3F ; 0x3E - Cucco easter egg
+#_1BBBB2: db $40 ; 0x3F - Sick kid
+#_1BBBB3: db $41 ; 0x40 - Spike cave
+#_1BBBB4: db $42 ; 0x41 - Tavern front
+#_1BBBB5: db $43 ; 0x42 - Tavern back
+#_1BBBB6: db $44 ; 0x43 - Kakariko Inn
+#_1BBBB7: db $45 ; 0x44 - Sahasrahla's hideout
+#_1BBBB8: db $46 ; 0x45 - Kakariko shop
+#_1BBBB9: db $47 ; 0x46 - Village of Outcasts chest game
+#_1BBBBA: db $48 ; 0x47 - Village of Outcasts bombable hut
+#_1BBBBB: db $49 ; 0x48 - Library
+#_1BBBBC: db $4A ; 0x49 - Kakariko bombable hut
+#_1BBBBD: db $4B ; 0x4A - Chicken hut
+#_1BBBBE: db $4C ; 0x4B - Potion shop
+#_1BBBBF: db $4D ; 0x4C - Aginah's cave
+#_1BBBC0: db $4E ; 0x4D - Dam
+#_1BBBC1: db $4F ; 0x4E - Mimic cave
+#_1BBBC2: db $50 ; 0x4F - East Death Mountain fairy pond cave
+#_1BBBC3: db $51 ; 0x50 - Circle of bushes heart piece cave
+#_1BBBC4: db $52 ; 0x51 - Graveyard ledge heart piece cave
+#_1BBBC5: db $53 ; 0x52 - Bomb shop
+#_1BBBC6: db $54 ; 0x53 - C-shaped house
+#_1BBBC7: db $55 ; 0x54 - Southeast of Eastern Ruins fairy cave
+#_1BBBC8: db $5E ; 0x55 - Mire big fairy
+#_1BBBC9: db $60 ; 0x56 - Dark World lumberjacks shop
+#_1BBBCA: db $58 ; 0x57 - Lake Hylia shop
+#_1BBBCB: db $59 ; 0x58 - Arrow game
+#_1BBBCC: db $5A ; 0x59 - Dark World sanctuary cave
+#_1BBBCD: db $5B ; 0x5A - King's tomb
+#_1BBBCE: db $5C ; 0x5B - Waterfall of Wishing
+#_1BBBCF: db $5D ; 0x5C - Pond of Happiness
+#_1BBBD0: db $5E ; 0x5D - Big fairy (Eastern Ruins)
+#_1BBBD1: db $5F ; 0x5E - Mire shed
+#_1BBBD2: db $60 ; 0x5F - Village of Outcasts shop
+#_1BBBD3: db $61 ; 0x60 - Blind's hut
+#_1BBBD4: db $62 ; 0x61 - Watto's cave
+#_1BBBD5: db $63 ; 0x62 - Fat Fairy
+#_1BBBD6: db $64 ; 0x63 - Smithy's house
+#_1BBBD7: db $65 ; 0x64 - Light World fortune teller (Kakariko)
+#_1BBBD8: db $66 ; 0x65 - Dark World fortune teller
+#_1BBBD9: db $67 ; 0x66 - South of Kakariko chest game
+#_1BBBDA: db $68 ; 0x67 - Broccoli's house
+#_1BBBDB: db $69 ; 0x68 - Bird hint NPC cave
+#_1BBBDC: db $6A ; 0x69 - Hamburger Helper's cave
+#_1BBBDD: db $56 ; 0x6A - Ice rod cave golden bee
+#_1BBBDE: db $5E ; 0x6B - Big fairy (South of Link's house)
+#_1BBBDF: db $5E ; 0x6C - Big fairy (South of Kiki)
+#_1BBBE0: db $58 ; 0x6D - Dark Death Mountain shop
+#_1BBBE1: db $60 ; 0x6E - Dark World witch shop
+#_1BBBE2: db $5E ; 0x6F - Dark West Death Mountain Big fairy
+#_1BBBE3: db $4D ; 0x70 - Aginah's cave
+#_1BBBE4: db $5E ; 0x71 - Desert big fairy
+#_1BBBE5: db $65 ; 0x72 - Light World fortune teller (Lake Hylia)
+#_1BBBE6: db $60 ; 0x73 - Dark Lake Hylia shop
+#_1BBBE7: db $57 ; 0x74 - East of Village of Outcasts shop
+#_1BBBE8: db $6B ; 0x75 - Bumpkin residency
+#_1BBBE9: db $71 ; 0x76 - Link's house bonk rocks fairy pond
+#_1BBBEA: db $71 ; 0x77 - Bomb shop bonk rocks fairy pond
+#_1BBBEB: db $6D ; 0x78 - Desert thief hideout
+#_1BBBEC: db $6E ; 0x79 - Bonk rocks heart piece cave
+#_1BBBED: db $6F ; 0x7A - Lake Hylia falls thief hideout
+#_1BBBEE: db $70 ; 0x7B - Dark Lake Hylia falls dev cave
+#_1BBBEF: db $6C ; 0x7C - Mini moldorm cave
+#_1BBBF0: db $72 ; 0x7D - Checkerboard cave heart piece
+#_1BBBF1: db $83 ; 0x7E - Stake puzzle heart piece cave
+#_1BBBF2: db $84 ; 0x7F - Ice rod cave
+#_1BBBF3: db $5E ; 0x80 - Dark ice rod big fairy
 
 ;===================================================================================================
 
@@ -12137,7 +12137,7 @@ Overworld_UseEntrance:
 
 #_1BBC79: SEP #$30
 
-#_1BBC7B: LDA.b #!SFX3_15
+#_1BBC7B: LDA.b #$15 ; SFX3.15
 #_1BBC7D: STA.w $012F
 
 #_1BBC80: LDA.b #$01
@@ -12178,7 +12178,7 @@ Overworld_UseEntrance:
 
 #_1BBCAE: SEP #$20
 
-#_1BBCB0: LDA.b #!SFX3_15
+#_1BBCB0: LDA.b #$15 ; SFX3.15
 #_1BBCB2: STA.w $012F
 
 #_1BBCB5: STZ.b $B0
@@ -12241,10 +12241,9 @@ Overworld_UseEntrance:
 
 #_1BBD00: JML Interface_PrepAndDisplayMessage
 
-;---------------------------------------------------------------------------------------------------
+;===================================================================================================
 
 ; Check for a valid entrance now
-
 FindEntrance:
 #_1BBD04: TYA
 #_1BBD05: STA.b $00
@@ -12283,23 +12282,23 @@ FindEntrance:
 #_1BBD3A: BEQ .entry_allowed
 
 ; Zelda telepathy - allowed
-#_1BBD3C: CMP.w #!FOLLOWER_05
+#_1BBD3C: CMP.w #$05 ; FOLLOWER 05
 #_1BBD3F: BEQ .entry_allowed
 
 ; Telepathy - allowed
-#_1BBD41: CMP.w #!FOLLOWER_0E
+#_1BBD41: CMP.w #$0E ; FOLLOWER 0E
 #_1BBD44: BEQ .entry_allowed
 
 ; Zelda - allowed
-#_1BBD46: CMP.w #!FOLLOWER_01
+#_1BBD46: CMP.w #$01 ; FOLLOWER 01
 #_1BBD49: BEQ .entry_allowed
 
 ; Frog - single entrance only
-#_1BBD4B: CMP.w #!FOLLOWER_07
+#_1BBD4B: CMP.w #$07 ; FOLLOWER 07
 #_1BBD4E: BEQ .check_single_entrance
 
 ; Dwarf - single entrance only
-#_1BBD50: CMP.w #!FOLLOWER_08
+#_1BBD50: CMP.w #$08 ; FOLLOWER 08
 
 ; All other followers are BANNED
 #_1BBD53: BNE Overworld_ForbidEntry
@@ -12404,7 +12403,7 @@ HandleItemTileAction_Overworld:
 
 #_1BBDD6: SEP #$20
 
-#_1BBDD8: LDA.b #!SFX2_11
+#_1BBDD8: LDA.b #$11 ; SFX2.11
 #_1BBDDA: STA.w $012E
 
 #_1BBDDD: REP #$20
@@ -12664,15 +12663,15 @@ Overworld_PickHammerSFX:
 #_1BBF30: CMP.b #$50
 #_1BBF32: BCC .no_sfx
 
-#_1BBF34: LDY.b #!SFX2_1A
+#_1BBF34: LDY.b #$1A ; SFX2.1A
 #_1BBF36: CMP.b #$52
 #_1BBF38: BCC .play_sfx
 
-#_1BBF3A: LDY.b #!SFX2_11
+#_1BBF3A: LDY.b #$11 ; SFX2.11
 #_1BBF3C: CMP.b #$54
 #_1BBF3E: BEQ .play_sfx
 
-#_1BBF40: LDY.b #!SFX2_05
+#_1BBF40: LDY.b #$05 ; SFX2.05
 #_1BBF42: CMP.b #$58
 #_1BBF44: BCS .no_sfx
 
@@ -12993,7 +12992,7 @@ Overworld_SmashRockPileFromAbove:
 #_1BC0CA: ORA.b #$20
 #_1BC0CC: STA.l $7EF280,X
 
-#_1BC0D0: LDA.b #!SFX3_1B
+#_1BC0D0: LDA.b #$1B ; SFX3.1B
 #_1BC0D2: STA.w $012F
 
 #_1BC0D5: REP #$20
@@ -13103,7 +13102,7 @@ Overworld_BombTile:
 
 #_1BC166: LDA.l $7EF3CC
 #_1BC16A: AND.w #$00FF
-#_1BC16D: CMP.w #!FOLLOWER_0D
+#_1BC16D: CMP.w #$0D ; FOLLOWER 0D
 #_1BC170: BEQ .check_for_cave
 
 #_1BC172: LDA.l $7E2000,X
@@ -13293,7 +13292,7 @@ OpenGargoylesDomain:
 #_1BC297: ORA.b #$20
 #_1BC299: STA.l $7EF2D8
 
-#_1BC29D: LDA.b #!SFX3_1B
+#_1BC29D: LDA.b #$1B ; SFX3.1B
 #_1BC29F: STA.w $012F
 
 #_1BC2A2: LDA.b #$01
@@ -13328,7 +13327,7 @@ CreatePyramidHole:
 #_1BC2D7: LDA.w #$FFFF
 #_1BC2DA: STA.w $1012,Y
 
-#_1BC2DD: LDA.w #(!SFX2_35<<8)|(!SFX1_15) ; #$3515 - plays 2 at once
+#_1BC2DD: LDA.w #$3515 ; plays 2 at once SFX1.15 / SFX2.35
 #_1BC2E0: STA.w $012D
 
 #_1BC2E3: SEP #$30
@@ -13337,7 +13336,7 @@ CreatePyramidHole:
 #_1BC2E9: ORA.b #$20
 #_1BC2EB: STA.l $7EF2DB
 
-#_1BC2EF: LDA.b #!SFX3_03
+#_1BC2EF: LDA.b #$03 ; SFX3.03
 #_1BC2F1: STA.w $012F
 
 #_1BC2F4: LDA.b #$01
@@ -13350,20 +13349,20 @@ CreatePyramidHole:
 OverworldData_HiddenItems:
 ; Light World
 #_1BC2F9: dw OverworldData_HiddenItems_Screen_00 ; 0x00 - Lost Woods
-#_1BC2FB: dw OverworldData_HiddenItems_Screen_01 ; 0x01 - Lost Woods
+#_1BC2FB: dw OverworldData_HiddenItems_Screen_00 ; 0x01 - Lost Woods
 #_1BC2FD: dw OverworldData_HiddenItems_Screen_02 ; 0x02 - Lumberjacks
 #_1BC2FF: dw OverworldData_HiddenItems_Screen_03 ; 0x03 - West Death Mountain
-#_1BC301: dw OverworldData_HiddenItems_Screen_04 ; 0x04 - West Death Mountain
+#_1BC301: dw OverworldData_HiddenItems_Screen_03 ; 0x04 - West Death Mountain
 #_1BC303: dw OverworldData_HiddenItems_Screen_05 ; 0x05 - East Death Mountain
-#_1BC305: dw OverworldData_HiddenItems_Screen_06 ; 0x06 - East Death Mountain
+#_1BC305: dw OverworldData_HiddenItems_Screen_05 ; 0x06 - East Death Mountain
 #_1BC307: dw OverworldData_HiddenItems_Screen_07 ; 0x07 - Turtle Rock Portalway
-#_1BC309: dw OverworldData_HiddenItems_Screen_08 ; 0x08 - Lost Woods
-#_1BC30B: dw OverworldData_HiddenItems_Screen_09 ; 0x09 - Lost Woods
+#_1BC309: dw OverworldData_HiddenItems_Screen_00 ; 0x08 - Lost Woods
+#_1BC30B: dw OverworldData_HiddenItems_Screen_00 ; 0x09 - Lost Woods
 #_1BC30D: dw OverworldData_HiddenItems_Screen_0A ; 0x0A - Death Mountain Foot
-#_1BC30F: dw OverworldData_HiddenItems_Screen_0B ; 0x0B - West Death Mountain
-#_1BC311: dw OverworldData_HiddenItems_Screen_0C ; 0x0C - West Death Mountain
-#_1BC313: dw OverworldData_HiddenItems_Screen_0D ; 0x0D - East Death Mountain
-#_1BC315: dw OverworldData_HiddenItems_Screen_0E ; 0x0E - East Death Mountain
+#_1BC30F: dw OverworldData_HiddenItems_Screen_03 ; 0x0B - West Death Mountain
+#_1BC311: dw OverworldData_HiddenItems_Screen_03 ; 0x0C - West Death Mountain
+#_1BC313: dw OverworldData_HiddenItems_Screen_05 ; 0x0D - East Death Mountain
+#_1BC315: dw OverworldData_HiddenItems_Screen_05 ; 0x0E - East Death Mountain
 #_1BC317: dw OverworldData_HiddenItems_Screen_0F ; 0x0F - Waterfall of Wishing
 #_1BC319: dw OverworldData_HiddenItems_Screen_10 ; 0x10 - Lost Woods Alcove
 #_1BC31B: dw OverworldData_HiddenItems_Screen_11 ; 0x11 - North of Kakariko
@@ -13374,21 +13373,21 @@ OverworldData_HiddenItems:
 #_1BC325: dw OverworldData_HiddenItems_Screen_16 ; 0x16 - Potion Shop
 #_1BC327: dw OverworldData_HiddenItems_Screen_17 ; 0x17 - Octorok Pit
 #_1BC329: dw OverworldData_HiddenItems_Screen_18 ; 0x18 - Kakariko Village
-#_1BC32B: dw OverworldData_HiddenItems_Screen_19 ; 0x19 - Kakariko Village
+#_1BC32B: dw OverworldData_HiddenItems_Screen_18 ; 0x19 - Kakariko Village
 #_1BC32D: dw OverworldData_HiddenItems_Screen_1A ; 0x1A - Kakariko Orchard
 #_1BC32F: dw OverworldData_HiddenItems_Screen_1B ; 0x1B - Hyrule Castle
-#_1BC331: dw OverworldData_HiddenItems_Screen_1C ; 0x1C - Hyrule Castle
+#_1BC331: dw OverworldData_HiddenItems_Screen_1B ; 0x1C - Hyrule Castle
 #_1BC333: dw OverworldData_HiddenItems_Screen_1D ; 0x1D - Hylia River Peninsula
 #_1BC335: dw OverworldData_HiddenItems_Screen_1E ; 0x1E - Eastern Ruins
-#_1BC337: dw OverworldData_HiddenItems_Screen_1F ; 0x1F - Eastern Ruins
-#_1BC339: dw OverworldData_HiddenItems_Screen_20 ; 0x20 - Kakariko Village
-#_1BC33B: dw OverworldData_HiddenItems_Screen_21 ; 0x21 - Kakariko Village
+#_1BC337: dw OverworldData_HiddenItems_Screen_1E ; 0x1F - Eastern Ruins
+#_1BC339: dw OverworldData_HiddenItems_Screen_18 ; 0x20 - Kakariko Village
+#_1BC33B: dw OverworldData_HiddenItems_Screen_18 ; 0x21 - Kakariko Village
 #_1BC33D: dw OverworldData_HiddenItems_Screen_22 ; 0x22 - Smith's House
-#_1BC33F: dw OverworldData_HiddenItems_Screen_23 ; 0x23 - Hyrule Castle
-#_1BC341: dw OverworldData_HiddenItems_Screen_24 ; 0x24 - Hyrule Castle
+#_1BC33F: dw OverworldData_HiddenItems_Screen_1B ; 0x23 - Hyrule Castle
+#_1BC341: dw OverworldData_HiddenItems_Screen_1B ; 0x24 - Hyrule Castle
 #_1BC343: dw OverworldData_HiddenItems_Screen_25 ; 0x25 - Boulder Field
-#_1BC345: dw OverworldData_HiddenItems_Screen_26 ; 0x26 - Eastern Ruins
-#_1BC347: dw OverworldData_HiddenItems_Screen_27 ; 0x27 - Eastern Ruins
+#_1BC345: dw OverworldData_HiddenItems_Screen_1E ; 0x26 - Eastern Ruins
+#_1BC347: dw OverworldData_HiddenItems_Screen_1E ; 0x27 - Eastern Ruins
 #_1BC349: dw OverworldData_HiddenItems_Screen_28 ; 0x28 - Racing Game
 #_1BC34B: dw OverworldData_HiddenItems_Screen_29 ; 0x29 - South of Kakariko
 #_1BC34D: dw OverworldData_HiddenItems_Screen_2A ; 0x2A - Haunted Grove
@@ -13398,38 +13397,40 @@ OverworldData_HiddenItems:
 #_1BC355: dw OverworldData_HiddenItems_Screen_2E ; 0x2E - Lake Hylia River Bend
 #_1BC357: dw OverworldData_HiddenItems_Screen_2F ; 0x2F - Eastern Portalway
 #_1BC359: dw OverworldData_HiddenItems_Screen_30 ; 0x30 - Desert
-#_1BC35B: dw OverworldData_HiddenItems_Screen_31 ; 0x31 - Desert
+#_1BC35B: dw OverworldData_HiddenItems_Screen_30 ; 0x31 - Desert
 #_1BC35D: dw OverworldData_HiddenItems_Screen_32 ; 0x32 - Haunted Grove Entrance
 #_1BC35F: dw OverworldData_HiddenItems_Screen_33 ; 0x33 - Marshlands Portalway
 #_1BC361: dw OverworldData_HiddenItems_Screen_34 ; 0x34 - Marshlands Totems
 #_1BC363: dw OverworldData_HiddenItems_Screen_35 ; 0x35 - Lake Hylia
-#_1BC365: dw OverworldData_HiddenItems_Screen_36 ; 0x36 - Lake Hylia
+#_1BC365: dw OverworldData_HiddenItems_Screen_35 ; 0x36 - Lake Hylia
 #_1BC367: dw OverworldData_HiddenItems_Screen_37 ; 0x37 - Lake Hylia River End
-#_1BC369: dw OverworldData_HiddenItems_Screen_38 ; 0x38 - Desert
-#_1BC36B: dw OverworldData_HiddenItems_Screen_39 ; 0x39 - Desert
+#_1BC369: dw OverworldData_HiddenItems_Screen_30 ; 0x38 - Desert
+#_1BC36B: dw OverworldData_HiddenItems_Screen_30 ; 0x39 - Desert
 #_1BC36D: dw OverworldData_HiddenItems_Screen_3A ; 0x3A - Desert Pass
 #_1BC36F: dw OverworldData_HiddenItems_Screen_3B ; 0x3B - Marshlands Dam Entrance
 #_1BC371: dw OverworldData_HiddenItems_Screen_3C ; 0x3C - Marshlands Ravine
-#_1BC373: dw OverworldData_HiddenItems_Screen_3D ; 0x3D - Lake Hylia
-#_1BC375: dw OverworldData_HiddenItems_Screen_3E ; 0x3E - Lake Hylia
+#_1BC373: dw OverworldData_HiddenItems_Screen_35 ; 0x3D - Lake Hylia
+#_1BC375: dw OverworldData_HiddenItems_Screen_35 ; 0x3E - Lake Hylia
 #_1BC377: dw OverworldData_HiddenItems_Screen_3F ; 0x3F - Lake Hylia Waterfall
+
+;---------------------------------------------------------------------------------------------------
 
 ; Dark World
 #_1BC379: dw OverworldData_HiddenItems_Screen_40 ; 0x40 - Skull Woods
-#_1BC37B: dw OverworldData_HiddenItems_Screen_41 ; 0x41 - Skull Woods
+#_1BC37B: dw OverworldData_HiddenItems_Screen_40 ; 0x41 - Skull Woods
 #_1BC37D: dw OverworldData_HiddenItems_Screen_42 ; 0x42 - Dark Lumberjacks
 #_1BC37F: dw OverworldData_HiddenItems_Screen_43 ; 0x43 - West Dark Death Mountain
-#_1BC381: dw OverworldData_HiddenItems_Screen_44 ; 0x44 - West Dark Death Mountain
+#_1BC381: dw OverworldData_HiddenItems_Screen_43 ; 0x44 - West Dark Death Mountain
 #_1BC383: dw OverworldData_HiddenItems_Screen_45 ; 0x45 - East Dark Death Mountain
-#_1BC385: dw OverworldData_HiddenItems_Screen_46 ; 0x46 - East Dark Death Mountain
+#_1BC385: dw OverworldData_HiddenItems_Screen_45 ; 0x46 - East Dark Death Mountain
 #_1BC387: dw OverworldData_HiddenItems_Screen_47 ; 0x47 - Turtle Rock
-#_1BC389: dw OverworldData_HiddenItems_Screen_48 ; 0x48 - Skull Woods
-#_1BC38B: dw OverworldData_HiddenItems_Screen_49 ; 0x49 - Skull Woods
+#_1BC389: dw OverworldData_HiddenItems_Screen_40 ; 0x48 - Skull Woods
+#_1BC38B: dw OverworldData_HiddenItems_Screen_40 ; 0x49 - Skull Woods
 #_1BC38D: dw OverworldData_HiddenItems_Screen_4A ; 0x4A - Bumper Ledge
-#_1BC38F: dw OverworldData_HiddenItems_Screen_4B ; 0x4B - West Dark Death Mountain
-#_1BC391: dw OverworldData_HiddenItems_Screen_4C ; 0x4C - West Dark Death Mountain
-#_1BC393: dw OverworldData_HiddenItems_Screen_4D ; 0x4D - East Dark Death Mountain
-#_1BC395: dw OverworldData_HiddenItems_Screen_4E ; 0x4E - East Dark Death Mountain
+#_1BC38F: dw OverworldData_HiddenItems_Screen_43 ; 0x4B - West Dark Death Mountain
+#_1BC391: dw OverworldData_HiddenItems_Screen_43 ; 0x4C - West Dark Death Mountain
+#_1BC393: dw OverworldData_HiddenItems_Screen_45 ; 0x4D - East Dark Death Mountain
+#_1BC395: dw OverworldData_HiddenItems_Screen_45 ; 0x4E - East Dark Death Mountain
 #_1BC397: dw OverworldData_HiddenItems_Screen_4F ; 0x4F - Lake of Bad Omens
 #_1BC399: dw OverworldData_HiddenItems_Screen_50 ; 0x50 - Skull Woods Alcove
 #_1BC39B: dw OverworldData_HiddenItems_Screen_51 ; 0x51 - North of Outcasts
@@ -13440,21 +13441,21 @@ OverworldData_HiddenItems:
 #_1BC3A5: dw OverworldData_HiddenItems_Screen_56 ; 0x56 - Dark Northeast Shop
 #_1BC3A7: dw OverworldData_HiddenItems_Screen_57 ; 0x57 - Dark Octorok Pit
 #_1BC3A9: dw OverworldData_HiddenItems_Screen_58 ; 0x58 - Village of Outcasts
-#_1BC3AB: dw OverworldData_HiddenItems_Screen_59 ; 0x59 - Village of Outcasts
+#_1BC3AB: dw OverworldData_HiddenItems_Screen_58 ; 0x59 - Village of Outcasts
 #_1BC3AD: dw OverworldData_HiddenItems_Screen_5A ; 0x5A - Outcasts Orchard
 #_1BC3AF: dw OverworldData_HiddenItems_Screen_5B ; 0x5B - Pyramid of Power
-#_1BC3B1: dw OverworldData_HiddenItems_Screen_5C ; 0x5C - Pyramid of Power
+#_1BC3B1: dw OverworldData_HiddenItems_Screen_5B ; 0x5C - Pyramid of Power
 #_1BC3B3: dw OverworldData_HiddenItems_Screen_5D ; 0x5D - Dark Hylia River Peninsula
 #_1BC3B5: dw OverworldData_HiddenItems_Screen_5E ; 0x5E - Palace of Darkness Maze
-#_1BC3B7: dw OverworldData_HiddenItems_Screen_5F ; 0x5F - Palace of Darkness Maze
-#_1BC3B9: dw OverworldData_HiddenItems_Screen_60 ; 0x60 - Village of Outcasts
-#_1BC3BB: dw OverworldData_HiddenItems_Screen_61 ; 0x61 - Village of Outcasts
+#_1BC3B7: dw OverworldData_HiddenItems_Screen_5E ; 0x5F - Palace of Darkness Maze
+#_1BC3B9: dw OverworldData_HiddenItems_Screen_58 ; 0x60 - Village of Outcasts
+#_1BC3BB: dw OverworldData_HiddenItems_Screen_58 ; 0x61 - Village of Outcasts
 #_1BC3BD: dw OverworldData_HiddenItems_Screen_62 ; 0x62 - Stake Puzzle
-#_1BC3BF: dw OverworldData_HiddenItems_Screen_63 ; 0x63 - Pyramid of Power
-#_1BC3C1: dw OverworldData_HiddenItems_Screen_64 ; 0x64 - Pyramid of Power
+#_1BC3BF: dw OverworldData_HiddenItems_Screen_5B ; 0x63 - Pyramid of Power
+#_1BC3C1: dw OverworldData_HiddenItems_Screen_5B ; 0x64 - Pyramid of Power
 #_1BC3C3: dw OverworldData_HiddenItems_Screen_65 ; 0x65 - Boulder Field
-#_1BC3C5: dw OverworldData_HiddenItems_Screen_66 ; 0x66 - Palace of Darkness Maze
-#_1BC3C7: dw OverworldData_HiddenItems_Screen_67 ; 0x67 - Palace of Darkness Maze
+#_1BC3C5: dw OverworldData_HiddenItems_Screen_5E ; 0x66 - Palace of Darkness Maze
+#_1BC3C7: dw OverworldData_HiddenItems_Screen_5E ; 0x67 - Palace of Darkness Maze
 #_1BC3C9: dw OverworldData_HiddenItems_Screen_68 ; 0x68 - Digging Game
 #_1BC3CB: dw OverworldData_HiddenItems_Screen_69 ; 0x69 - South of Outcasts
 #_1BC3CD: dw OverworldData_HiddenItems_Screen_6A ; 0x6A - Stumpy Grove
@@ -13464,34 +13465,33 @@ OverworldData_HiddenItems:
 #_1BC3D5: dw OverworldData_HiddenItems_Screen_6E ; 0x6E - Dark Lake Hylia River Bend
 #_1BC3D7: dw OverworldData_HiddenItems_Screen_6F ; 0x6F - East Dark World Portalway
 #_1BC3D9: dw OverworldData_HiddenItems_Screen_70 ; 0x70 - Misery Mire
-#_1BC3DB: dw OverworldData_HiddenItems_Screen_71 ; 0x71 - Misery Mire
+#_1BC3DB: dw OverworldData_HiddenItems_Screen_70 ; 0x71 - Misery Mire
 #_1BC3DD: dw OverworldData_HiddenItems_Screen_72 ; 0x72 - Stumpy Grove Entrance
 #_1BC3DF: dw OverworldData_HiddenItems_Screen_73 ; 0x73 - Swamplands Portalway
 #_1BC3E1: dw OverworldData_HiddenItems_Screen_74 ; 0x74 - Swamplands Totems
 #_1BC3E3: dw OverworldData_HiddenItems_Screen_75 ; 0x75 - Dark Lake Hylia
-#_1BC3E5: dw OverworldData_HiddenItems_Screen_76 ; 0x76 - Dark Lake Hylia
+#_1BC3E5: dw OverworldData_HiddenItems_Screen_75 ; 0x76 - Dark Lake Hylia
 #_1BC3E7: dw OverworldData_HiddenItems_Screen_77 ; 0x77 - Dark Lake Hylia River End
-#_1BC3E9: dw OverworldData_HiddenItems_Screen_78 ; 0x78 - Misery Mire
-#_1BC3EB: dw OverworldData_HiddenItems_Screen_79 ; 0x79 - Misery Mire
+#_1BC3E9: dw OverworldData_HiddenItems_Screen_70 ; 0x78 - Misery Mire
+#_1BC3EB: dw OverworldData_HiddenItems_Screen_70 ; 0x79 - Misery Mire
 #_1BC3ED: dw OverworldData_HiddenItems_Screen_7A ; 0x7A - West of Swamplands
 #_1BC3EF: dw OverworldData_HiddenItems_Screen_7B ; 0x7B - Swamplands Palace Entrance
 #_1BC3F1: dw OverworldData_HiddenItems_Screen_7C ; 0x7C - Swamplands Ravine
-#_1BC3F3: dw OverworldData_HiddenItems_Screen_7D ; 0x7D - Dark Lake Hylia
-#_1BC3F5: dw OverworldData_HiddenItems_Screen_7E ; 0x7E - Dark Lake Hylia
+#_1BC3F3: dw OverworldData_HiddenItems_Screen_75 ; 0x7D - Dark Lake Hylia
+#_1BC3F5: dw OverworldData_HiddenItems_Screen_75 ; 0x7E - Dark Lake Hylia
 #_1BC3F7: dw OverworldData_HiddenItems_Screen_7F ; 0x7F - Dark Lake Hylia Waterfall
 
 ;===================================================================================================
 
 ; Lost Woods
 OverworldData_HiddenItems_Screen_00:
-OverworldData_HiddenItems_Screen_01:
-OverworldData_HiddenItems_Screen_08:
-OverworldData_HiddenItems_Screen_09:
 #_1BC3F9: db $6A, $03, $04 ; Random pack  xy:{ 0x350, 0x060 }
 #_1BC3FC: db $14, $19, $04 ; Random pack  xy:{ 0x0A0, 0x320 }
 #_1BC3FF: db $E0, $10, $80 ; Hole         xy:{ 0x300, 0x200 }
 #_1BC402: db $D0, $1A, $01 ; Green rupee  xy:{ 0x280, 0x340 }
 #_1BC405: dw $FFFF
+
+;===================================================================================================
 
 ; Lumberjacks
 OverworldData_HiddenItems_Screen_02:
@@ -13501,11 +13501,10 @@ OverworldData_HiddenItems_Screen_02:
 #_1BC410: db $A0, $0E, $01 ; Green rupee  xy:{ 0x100, 0x1C0 }
 #_1BC413: dw $FFFF
 
+;===================================================================================================
+
 ; West Death Mountain
 OverworldData_HiddenItems_Screen_03:
-OverworldData_HiddenItems_Screen_04:
-OverworldData_HiddenItems_Screen_0B:
-OverworldData_HiddenItems_Screen_0C:
 #_1BC415: db $6A, $18, $05 ; 1 Bomb       xy:{ 0x350, 0x300 }
 #_1BC418: db $72, $18, $05 ; 1 Bomb       xy:{ 0x390, 0x300 }
 #_1BC41B: db $6E, $19, $04 ; Random pack  xy:{ 0x370, 0x320 }
@@ -13513,26 +13512,33 @@ OverworldData_HiddenItems_Screen_0C:
 #_1BC421: db $72, $1A, $05 ; 1 Bomb       xy:{ 0x390, 0x340 }
 #_1BC424: dw $FFFF
 
+;===================================================================================================
+
 ; East Death Mountain
 OverworldData_HiddenItems_Screen_05:
-OverworldData_HiddenItems_Screen_06:
-OverworldData_HiddenItems_Screen_0D:
-OverworldData_HiddenItems_Screen_0E:
 #_1BC426: db $4A, $1D, $82 ; Warp         xy:{ 0x250, 0x3A0 }
+
+;===================================================================================================
 
 ; Death Mountain peg puzzle
 OverworldData_HiddenItems_Screen_07:
 #_1BC429: dw $FFFF
+
+;===================================================================================================
 
 ; Death Mountain foot
 OverworldData_HiddenItems_Screen_0A:
 #_1BC42B: db $30, $07, $02 ; Hoarder      xy:{ 0x180, 0x0E0 }
 #_1BC42E: dw $FFFF
 
+;===================================================================================================
+
 ; Waterfall of Wishing
 OverworldData_HiddenItems_Screen_0F:
 #_1BC430: db $18, $06, $06 ; Heart        xy:{ 0x0C0, 0x0C0 }
 #_1BC433: dw $FFFF
+
+;===================================================================================================
 
 ; Lost Woods grotto
 OverworldData_HiddenItems_Screen_10:
@@ -13540,11 +13546,15 @@ OverworldData_HiddenItems_Screen_10:
 #_1BC438: db $2E, $0B, $82 ; Warp         xy:{ 0x170, 0x160 }
 #_1BC43B: dw $FFFF
 
+;===================================================================================================
+
 ; Kakariko fortune teller
 OverworldData_HiddenItems_Screen_11:
 #_1BC43D: db $34, $0A, $05 ; 1 Bomb       xy:{ 0x1A0, 0x140 }
 #_1BC440: db $8E, $0D, $06 ; Heart        xy:{ 0x070, 0x1A0 }
 #_1BC443: dw $FFFF
+
+;===================================================================================================
 
 ; Northwest Pond
 OverworldData_HiddenItems_Screen_12:
@@ -13552,6 +13562,8 @@ OverworldData_HiddenItems_Screen_12:
 #_1BC448: db $08, $08, $04 ; Random pack  xy:{ 0x040, 0x100 }
 #_1BC44B: db $B2, $09, $06 ; Heart        xy:{ 0x190, 0x120 }
 #_1BC44E: dw $FFFF
+
+;===================================================================================================
 
 ; Sanctuary
 OverworldData_HiddenItems_Screen_13:
@@ -13563,6 +13575,8 @@ OverworldData_HiddenItems_Screen_13:
 #_1BC45F: db $B6, $09, $04 ; Random pack  xy:{ 0x1B0, 0x120 }
 #_1BC462: dw $FFFF
 
+;===================================================================================================
+
 ; Graveyard
 OverworldData_HiddenItems_Screen_14:
 #_1BC464: db $90, $04, $01 ; Green rupee  xy:{ 0x080, 0x080 }
@@ -13573,11 +13587,15 @@ OverworldData_HiddenItems_Screen_14:
 #_1BC473: db $8C, $0A, $03 ; Bee          xy:{ 0x060, 0x140 }
 #_1BC476: dw $FFFF
 
+;===================================================================================================
+
 ; Hylia River Bend
 OverworldData_HiddenItems_Screen_15:
 #_1BC478: db $90, $03, $05 ; 1 Bomb       xy:{ 0x080, 0x060 }
 #_1BC47B: db $88, $07, $80 ; Hole         xy:{ 0x040, 0x0E0 }
 #_1BC47E: dw $FFFF
+
+;===================================================================================================
 
 ; Potion Shop
 OverworldData_HiddenItems_Screen_16:
@@ -13587,16 +13605,17 @@ OverworldData_HiddenItems_Screen_16:
 #_1BC489: db $A8, $09, $04 ; Random pack  xy:{ 0x140, 0x120 }
 #_1BC48C: dw $FFFF
 
+;===================================================================================================
+
 ; Octorok Pit
 OverworldData_HiddenItems_Screen_17:
 #_1BC48E: db $1C, $0E, $06 ; Heart        xy:{ 0x0E0, 0x1C0 }
 #_1BC491: dw $FFFF
 
+;===================================================================================================
+
 ; Kakariko Village
 OverworldData_HiddenItems_Screen_18:
-OverworldData_HiddenItems_Screen_19:
-OverworldData_HiddenItems_Screen_20:
-OverworldData_HiddenItems_Screen_21:
 #_1BC493: db $F8, $0A, $04 ; Random pack  xy:{ 0x3C0, 0x140 }
 #_1BC496: db $FA, $0A, $05 ; 1 Bomb       xy:{ 0x3D0, 0x140 }
 #_1BC499: db $EE, $0E, $01 ; Green rupee  xy:{ 0x370, 0x1C0 }
@@ -13617,6 +13636,8 @@ OverworldData_HiddenItems_Screen_21:
 #_1BC4C6: db $EE, $15, $04 ; Random pack  xy:{ 0x370, 0x2A0 }
 #_1BC4C9: dw $FFFF
 
+;===================================================================================================
+
 ; Kakariko Orchard
 OverworldData_HiddenItems_Screen_1A:
 #_1BC4CB: db $AA, $04, $03 ; Bee          xy:{ 0x150, 0x080 }
@@ -13624,11 +13645,10 @@ OverworldData_HiddenItems_Screen_1A:
 #_1BC4D1: db $AA, $0D, $04 ; Random pack  xy:{ 0x150, 0x1A0 }
 #_1BC4D4: dw $FFFF
 
+;===================================================================================================
+
 ; Hyrule Castle
 OverworldData_HiddenItems_Screen_1B:
-OverworldData_HiddenItems_Screen_1C:
-OverworldData_HiddenItems_Screen_23:
-OverworldData_HiddenItems_Screen_24:
 #_1BC4D6: db $8C, $02, $01 ; Green rupee  xy:{ 0x060, 0x040 }
 #_1BC4D9: db $0C, $04, $04 ; Random pack  xy:{ 0x060, 0x080 }
 #_1BC4DC: db $0E, $04, $04 ; Random pack  xy:{ 0x070, 0x080 }
@@ -13659,17 +13679,20 @@ OverworldData_HiddenItems_Screen_24:
 #_1BC527: db $E0, $1D, $06 ; Heart        xy:{ 0x300, 0x3A0 }
 #_1BC52A: dw $FFFF
 
+;===================================================================================================
+
 ; Hylia River Peninsula
 OverworldData_HiddenItems_Screen_1D:
 #_1BC52C: db $30, $02, $01 ; Green rupee  xy:{ 0x180, 0x040 }
 #_1BC52F: db $34, $02, $05 ; 1 Bomb       xy:{ 0x1A0, 0x040 }
 
+;===================================================================================================
+
 ; Eastern Ruins
 OverworldData_HiddenItems_Screen_1E:
-OverworldData_HiddenItems_Screen_1F:
-OverworldData_HiddenItems_Screen_26:
-OverworldData_HiddenItems_Screen_27:
 #_1BC532: dw $FFFF
+
+;===================================================================================================
 
 ; Smith's House
 OverworldData_HiddenItems_Screen_22:
@@ -13680,15 +13703,21 @@ OverworldData_HiddenItems_Screen_22:
 #_1BC540: db $16, $0C, $04 ; Random pack  xy:{ 0x0B0, 0x180 }
 #_1BC543: dw $FFFF
 
+;===================================================================================================
+
 ; Boulder Field
 OverworldData_HiddenItems_Screen_25:
 #_1BC545: db $08, $09, $06 ; Heart        xy:{ 0x040, 0x120 }
 #_1BC548: dw $FFFF
 
+;===================================================================================================
+
 ; Racing Game
 OverworldData_HiddenItems_Screen_28:
 #_1BC54A: db $2A, $07, $04 ; Random pack  xy:{ 0x150, 0x0E0 }
 #_1BC54D: dw $FFFF
+
+;===================================================================================================
 
 ; South of Kakariko
 OverworldData_HiddenItems_Screen_29:
@@ -13697,9 +13726,13 @@ OverworldData_HiddenItems_Screen_29:
 #_1BC555: db $08, $08, $04 ; Random pack  xy:{ 0x040, 0x100 }
 #_1BC558: db $26, $09, $04 ; Random pack  xy:{ 0x130, 0x120 }
 
+;===================================================================================================
+
 ; Haunted Grove
 OverworldData_HiddenItems_Screen_2A:
 #_1BC55B: dw $FFFF
+
+;===================================================================================================
 
 ; West of Link's House
 OverworldData_HiddenItems_Screen_2B:
@@ -13712,6 +13745,8 @@ OverworldData_HiddenItems_Screen_2B:
 #_1BC56F: db $96, $0C, $01 ; Green rupee  xy:{ 0x0B0, 0x180 }
 #_1BC572: dw $FFFF
 
+;===================================================================================================
+
 ; Link's House
 OverworldData_HiddenItems_Screen_2C:
 #_1BC574: db $14, $02, $01 ; Green rupee  xy:{ 0x0A0, 0x040 }
@@ -13723,10 +13758,15 @@ OverworldData_HiddenItems_Screen_2C:
 #_1BC586: db $B4, $0A, $06 ; Heart        xy:{ 0x1A0, 0x140 }
 #_1BC589: db $B6, $0B, $01 ; Green rupee  xy:{ 0x1B0, 0x160 }
 
-; Eastern Bridge / Lake Hylia River Bend
+;===================================================================================================
+
+; Eastern Bridge
+; Lake Hylia River Bend
 OverworldData_HiddenItems_Screen_2D:
 OverworldData_HiddenItems_Screen_2E:
 #_1BC58C: dw $FFFF
+
+;===================================================================================================
 
 ; Eastern Portalway
 OverworldData_HiddenItems_Screen_2F:
@@ -13734,16 +13774,17 @@ OverworldData_HiddenItems_Screen_2F:
 #_1BC591: db $12, $0D, $05 ; 1 Bomb       xy:{ 0x090, 0x1A0 }
 #_1BC594: dw $FFFF
 
+;===================================================================================================
+
 ; Desert
 OverworldData_HiddenItems_Screen_30:
-OverworldData_HiddenItems_Screen_31:
-OverworldData_HiddenItems_Screen_38:
-OverworldData_HiddenItems_Screen_39:
 #_1BC596: db $58, $03, $84 ; Staircase    xy:{ 0x2C0, 0x060 }
 #_1BC599: db $50, $0A, $04 ; Random pack  xy:{ 0x280, 0x140 }
 #_1BC59C: db $06, $14, $06 ; Heart        xy:{ 0x030, 0x280 }
 #_1BC59F: db $94, $1D, $82 ; Warp         xy:{ 0x0A0, 0x3A0 }
 #_1BC5A2: dw $FFFF
+
+;===================================================================================================
 
 ; Haunted Grove Entrance
 OverworldData_HiddenItems_Screen_32:
@@ -13752,11 +13793,15 @@ OverworldData_HiddenItems_Screen_32:
 #_1BC5AA: db $9C, $05, $05 ; 1 Bomb       xy:{ 0x0E0, 0x0A0 }
 #_1BC5AD: dw $FFFF
 
+;===================================================================================================
+
 ; Marshlands Portalway
 OverworldData_HiddenItems_Screen_33:
 #_1BC5AF: db $A8, $02, $82 ; Warp         xy:{ 0x140, 0x040 }
 #_1BC5B2: db $14, $0B, $02 ; Hoarder      xy:{ 0x0A0, 0x160 }
 #_1BC5B5: dw $FFFF
+
+;===================================================================================================
 
 ; Marshlands Totems
 OverworldData_HiddenItems_Screen_34:
@@ -13764,17 +13809,18 @@ OverworldData_HiddenItems_Screen_34:
 #_1BC5BA: db $8C, $04, $04 ; Random pack  xy:{ 0x060, 0x080 }
 #_1BC5BD: dw $FFFF
 
+;===================================================================================================
+
 ; Lake Hylia
 OverworldData_HiddenItems_Screen_35:
-OverworldData_HiddenItems_Screen_36:
-OverworldData_HiddenItems_Screen_3D:
-OverworldData_HiddenItems_Screen_3E:
 #_1BC5BF: db $30, $0A, $04 ; Random pack  xy:{ 0x180, 0x140 }
 #_1BC5C2: db $10, $0C, $06 ; Heart        xy:{ 0x080, 0x180 }
 #_1BC5C5: db $56, $0F, $82 ; Warp         xy:{ 0x2B0, 0x1E0 }
 #_1BC5C8: db $0C, $18, $86 ; Bomb door    xy:{ 0x060, 0x300 }
 #_1BC5CB: db $DE, $1C, $03 ; Bee          xy:{ 0x2F0, 0x380 }
 #_1BC5CE: dw $FFFF
+
+;===================================================================================================
 
 ; Lake Hylia River End
 OverworldData_HiddenItems_Screen_37:
@@ -13783,6 +13829,8 @@ OverworldData_HiddenItems_Screen_37:
 #_1BC5D6: db $0C, $04, $84 ; Staircase    xy:{ 0x060, 0x080 }
 #_1BC5D9: dw $FFFF
 
+;===================================================================================================
+
 ; Desert Pass
 OverworldData_HiddenItems_Screen_3A:
 #_1BC5DB: db $1E, $08, $02 ; Hoarder      xy:{ 0x0F0, 0x100 }
@@ -13790,16 +13838,22 @@ OverworldData_HiddenItems_Screen_3A:
 #_1BC5E1: db $1E, $0A, $84 ; Staircase    xy:{ 0x0F0, 0x140 }
 #_1BC5E4: dw $FFFF
 
+;===================================================================================================
+
 ; Marshlands Dam Entrance
 OverworldData_HiddenItems_Screen_3B:
 #_1BC5E6: db $1A, $06, $03 ; Bee          xy:{ 0x0D0, 0x0C0 }
 #_1BC5E9: dw $FFFF
+
+;===================================================================================================
 
 ; Marshlands Ravine
 OverworldData_HiddenItems_Screen_3C:
 #_1BC5EB: db $96, $06, $03 ; Bee          xy:{ 0x0B0, 0x0C0 }
 #_1BC5EE: db $10, $07, $04 ; Random pack  xy:{ 0x080, 0x0E0 }
 #_1BC5F1: dw $FFFF
+
+;===================================================================================================
 
 ; Lake Hylia Waterfall
 OverworldData_HiddenItems_Screen_3F:
@@ -13810,9 +13864,6 @@ OverworldData_HiddenItems_Screen_3F:
 
 ; Skull Woods
 OverworldData_HiddenItems_Screen_40:
-OverworldData_HiddenItems_Screen_41:
-OverworldData_HiddenItems_Screen_48:
-OverworldData_HiddenItems_Screen_49:
 #_1BC5F8: db $38, $03, $04 ; Random pack  xy:{ 0x1C0, 0x060 }
 #_1BC5FB: db $6A, $03, $01 ; Green rupee  xy:{ 0x350, 0x060 }
 #_1BC5FE: db $70, $05, $03 ; Bee          xy:{ 0x380, 0x0A0 }
@@ -13825,6 +13876,8 @@ OverworldData_HiddenItems_Screen_49:
 #_1BC613: db $62, $11, $01 ; Green rupee  xy:{ 0x310, 0x220 }
 #_1BC616: dw $FFFF
 
+;===================================================================================================
+
 ; Dark Lumberjacks
 OverworldData_HiddenItems_Screen_42:
 #_1BC618: db $AC, $04, $01 ; Green rupee  xy:{ 0x160, 0x080 }
@@ -13836,11 +13889,10 @@ OverworldData_HiddenItems_Screen_42:
 #_1BC62A: db $A8, $0E, $01 ; Green rupee  xy:{ 0x140, 0x1C0 }
 #_1BC62D: dw $FFFF
 
+;===================================================================================================
+
 ; West Dark Death Mountain
 OverworldData_HiddenItems_Screen_43:
-OverworldData_HiddenItems_Screen_44:
-OverworldData_HiddenItems_Screen_4B:
-OverworldData_HiddenItems_Screen_4C:
 #_1BC62F: db $60, $0A, $04 ; Random pack  xy:{ 0x300, 0x140 }
 #_1BC632: db $DA, $0B, $04 ; Random pack  xy:{ 0x2D0, 0x160 }
 #_1BC635: db $E6, $0B, $04 ; Random pack  xy:{ 0x330, 0x160 }
@@ -13853,19 +13905,23 @@ OverworldData_HiddenItems_Screen_4C:
 #_1BC64A: db $EE, $1A, $06 ; Heart        xy:{ 0x370, 0x340 }
 #_1BC64D: dw $FFFF
 
+;===================================================================================================
+
 ; East Dark Death Mountain
 OverworldData_HiddenItems_Screen_45:
-OverworldData_HiddenItems_Screen_46:
-OverworldData_HiddenItems_Screen_4D:
-OverworldData_HiddenItems_Screen_4E:
 #_1BC64F: db $68, $08, $84 ; Staircase    xy:{ 0x340, 0x100 }
 #_1BC652: db $D8, $13, $05 ; 1 Bomb       xy:{ 0x2C0, 0x260 }
 #_1BC655: db $5A, $14, $05 ; 1 Bomb       xy:{ 0x2D0, 0x280 }
 
-; Turtle Rock / Bumper Ledge
+;===================================================================================================
+
+; Turtle Rock
+; Bumper Ledge
 OverworldData_HiddenItems_Screen_47:
 OverworldData_HiddenItems_Screen_4A:
 #_1BC658: dw $FFFF
+
+;===================================================================================================
 
 ; Lake of Bad Omens
 OverworldData_HiddenItems_Screen_4F:
@@ -13876,6 +13932,8 @@ OverworldData_HiddenItems_Screen_4F:
 #_1BC666: db $1C, $0B, $06 ; Heart        xy:{ 0x0E0, 0x160 }
 #_1BC669: dw $FFFF
 
+;===================================================================================================
+
 ; Skull Woods Alcove
 OverworldData_HiddenItems_Screen_50:
 #_1BC66B: db $0C, $04, $01 ; Green rupee  xy:{ 0x060, 0x080 }
@@ -13885,6 +13943,8 @@ OverworldData_HiddenItems_Screen_50:
 #_1BC677: db $A4, $07, $01 ; Green rupee  xy:{ 0x120, 0x0E0 }
 #_1BC67A: db $34, $0A, $01 ; Green rupee  xy:{ 0x1A0, 0x140 }
 #_1BC67D: dw $FFFF
+
+;===================================================================================================
 
 ; North of Outcasts
 OverworldData_HiddenItems_Screen_51:
@@ -13898,6 +13958,8 @@ OverworldData_HiddenItems_Screen_51:
 #_1BC694: db $8E, $0D, $04 ; Random pack  xy:{ 0x070, 0x1A0 }
 #_1BC697: dw $FFFF
 
+;===================================================================================================
+
 ; Dark Northwest Pond
 OverworldData_HiddenItems_Screen_52:
 #_1BC699: db $B2, $04, $06 ; Heart        xy:{ 0x190, 0x080 }
@@ -13908,6 +13970,8 @@ OverworldData_HiddenItems_Screen_52:
 #_1BC6A8: db $88, $08, $01 ; Green rupee  xy:{ 0x040, 0x100 }
 #_1BC6AB: db $B2, $09, $04 ; Random pack  xy:{ 0x190, 0x120 }
 #_1BC6AE: dw $FFFF
+
+;===================================================================================================
 
 ; Dark Sanctuary
 OverworldData_HiddenItems_Screen_53:
@@ -13929,6 +13993,8 @@ OverworldData_HiddenItems_Screen_53:
 #_1BC6DD: db $B6, $09, $01 ; Green rupee  xy:{ 0x1B0, 0x120 }
 #_1BC6E0: dw $FFFF
 
+;===================================================================================================
+
 ; Dark Graveyard
 OverworldData_HiddenItems_Screen_54:
 #_1BC6E2: db $90, $04, $04 ; Random pack  xy:{ 0x080, 0x080 }
@@ -13936,6 +14002,8 @@ OverworldData_HiddenItems_Screen_54:
 #_1BC6E8: db $AE, $05, $01 ; Green rupee  xy:{ 0x170, 0x0A0 }
 #_1BC6EB: db $B8, $07, $03 ; Bee          xy:{ 0x1C0, 0x0E0 }
 #_1BC6EE: dw $FFFF
+
+;===================================================================================================
 
 ; Dark Hylia River Bend
 OverworldData_HiddenItems_Screen_55:
@@ -13954,17 +14022,18 @@ OverworldData_HiddenItems_Screen_56:
 #_1BC70A: db $1A, $0D, $01 ; Green rupee  xy:{ 0x0D0, 0x1A0 }
 #_1BC70D: dw $FFFF
 
+;===================================================================================================
+
 ; Dark Octorok Pit
 OverworldData_HiddenItems_Screen_57:
 #_1BC70F: db $1C, $0E, $06 ; Heart        xy:{ 0x0E0, 0x1C0 }
 #_1BC712: db $20, $0E, $06 ; Heart        xy:{ 0x100, 0x1C0 }
 #_1BC715: dw $FFFF
 
+;===================================================================================================
+
 ; Village of Outcasts
 OverworldData_HiddenItems_Screen_58:
-OverworldData_HiddenItems_Screen_59:
-OverworldData_HiddenItems_Screen_60:
-OverworldData_HiddenItems_Screen_61:
 #_1BC717: db $9A, $04, $04 ; Random pack  xy:{ 0x0D0, 0x080 }
 #_1BC71A: db $96, $0C, $03 ; Bee          xy:{ 0x0B0, 0x180 }
 #_1BC71D: db $54, $06, $01 ; Green rupee  xy:{ 0x2A0, 0x0C0 }
@@ -13993,6 +14062,8 @@ OverworldData_HiddenItems_Screen_61:
 #_1BC762: db $48, $1B, $03 ; Bee          xy:{ 0x240, 0x360 }
 #_1BC765: dw $FFFF
 
+;===================================================================================================
+
 ; Outcasts Orchard
 OverworldData_HiddenItems_Screen_5A:
 #_1BC767: db $1A, $04, $06 ; Heart        xy:{ 0x0D0, 0x080 }
@@ -14007,11 +14078,10 @@ OverworldData_HiddenItems_Screen_5A:
 #_1BC782: db $B4, $0C, $01 ; Green rupee  xy:{ 0x1A0, 0x180 }
 #_1BC785: dw $FFFF
 
+;===================================================================================================
+
 ; Pyramid of Power
 OverworldData_HiddenItems_Screen_5B:
-OverworldData_HiddenItems_Screen_5C:
-OverworldData_HiddenItems_Screen_63:
-OverworldData_HiddenItems_Screen_64:
 #_1BC787: db $2E, $0E, $86 ; Bomb door    xy:{ 0x170, 0x1C0 }
 #_1BC78A: db $88, $1C, $04 ; Random pack  xy:{ 0x040, 0x380 }
 #_1BC78D: db $0E, $1E, $01 ; Green rupee  xy:{ 0x070, 0x3C0 }
@@ -14020,14 +14090,15 @@ OverworldData_HiddenItems_Screen_64:
 #_1BC796: db $60, $1E, $01 ; Green rupee  xy:{ 0x300, 0x3C0 }
 #_1BC799: db $72, $1E, $03 ; Bee          xy:{ 0x390, 0x3C0 }
 
+;===================================================================================================
+
 ; Dark Hylia River Peninsula
 ; Palace of Darkness Maze
 OverworldData_HiddenItems_Screen_5D:
 OverworldData_HiddenItems_Screen_5E:
-OverworldData_HiddenItems_Screen_5F:
-OverworldData_HiddenItems_Screen_66:
-OverworldData_HiddenItems_Screen_67:
 #_1BC79C: dw $FFFF
+
+;===================================================================================================
 
 ; Stake Puzzle
 OverworldData_HiddenItems_Screen_62:
@@ -14039,10 +14110,14 @@ OverworldData_HiddenItems_Screen_62:
 #_1BC7AD: db $10, $0E, $01 ; Green rupee  xy:{ 0x080, 0x1C0 }
 #_1BC7B0: dw $FFFF
 
+;===================================================================================================
+
 ; Boulder Field
 OverworldData_HiddenItems_Screen_65:
 #_1BC7B2: db $08, $09, $06 ; Heart        xy:{ 0x040, 0x120 }
 #_1BC7B5: dw $FFFF
+
+;===================================================================================================
 
 ; Digging Game
 OverworldData_HiddenItems_Screen_68:
@@ -14051,6 +14126,8 @@ OverworldData_HiddenItems_Screen_68:
 #_1BC7BD: db $20, $09, $03 ; Bee          xy:{ 0x100, 0x120 }
 #_1BC7C0: db $B2, $0A, $04 ; Random pack  xy:{ 0x190, 0x140 }
 #_1BC7C3: dw $FFFF
+
+;===================================================================================================
 
 ; South of Outcasts
 OverworldData_HiddenItems_Screen_69:
@@ -14061,9 +14138,13 @@ OverworldData_HiddenItems_Screen_69:
 #_1BC7D1: db $A4, $09, $01 ; Green rupee  xy:{ 0x120, 0x120 }
 #_1BC7D4: db $A6, $09, $01 ; Green rupee  xy:{ 0x130, 0x120 }
 
+;===================================================================================================
+
 ; Stumpy Grove
 OverworldData_HiddenItems_Screen_6A:
 #_1BC7D7: dw $FFFF
+
+;===================================================================================================
 
 ; West of Bomb Shoppe
 OverworldData_HiddenItems_Screen_6B:
@@ -14074,6 +14155,8 @@ OverworldData_HiddenItems_Screen_6B:
 #_1BC7E5: db $96, $0C, $01 ; Green rupee  xy:{ 0x0B0, 0x180 }
 #_1BC7E8: db $9A, $0C, $01 ; Green rupee  xy:{ 0x0D0, 0x180 }
 #_1BC7EB: dw $FFFF
+
+;===================================================================================================
 
 ; Bomb Shoppe
 OverworldData_HiddenItems_Screen_6C:
@@ -14088,10 +14171,15 @@ OverworldData_HiddenItems_Screen_6C:
 #_1BC805: db $36, $0B, $04 ; Random pack  xy:{ 0x1B0, 0x160 }
 #_1BC808: db $B8, $0B, $04 ; Random pack  xy:{ 0x1C0, 0x160 }
 
-; Hammer Bridge / Dark Lake Hylia River Bend
+;===================================================================================================
+
+; Hammer Bridge
+; Dark Lake Hylia River Bend
 OverworldData_HiddenItems_Screen_6D:
 OverworldData_HiddenItems_Screen_6E:
 #_1BC80B: dw $FFFF
+
+;===================================================================================================
 
 ; East Dark World Portalway
 OverworldData_HiddenItems_Screen_6F:
@@ -14101,14 +14189,15 @@ OverworldData_HiddenItems_Screen_6F:
 #_1BC816: db $12, $0D, $05 ; 1 Bomb       xy:{ 0x090, 0x1A0 }
 #_1BC819: dw $FFFF
 
+;===================================================================================================
+
 ; Misery Mire
 OverworldData_HiddenItems_Screen_70:
-OverworldData_HiddenItems_Screen_71:
-OverworldData_HiddenItems_Screen_78:
-OverworldData_HiddenItems_Screen_79:
 #_1BC81B: db $06, $14, $06 ; Heart        xy:{ 0x030, 0x280 }
 #_1BC81E: db $86, $14, $06 ; Heart        xy:{ 0x030, 0x280 }
 #_1BC821: dw $FFFF
+
+;===================================================================================================
 
 ; Stumpy Grove Entrance
 OverworldData_HiddenItems_Screen_72:
@@ -14122,9 +14211,13 @@ OverworldData_HiddenItems_Screen_72:
 #_1BC838: db $08, $0C, $01 ; Green rupee  xy:{ 0x040, 0x180 }
 #_1BC83B: db $0C, $0D, $01 ; Green rupee  xy:{ 0x060, 0x1A0 }
 
+;===================================================================================================
+
 ; Swamplands Portalway
 OverworldData_HiddenItems_Screen_73:
 #_1BC83E: dw $FFFF
+
+;===================================================================================================
 
 ; Swamplands Totems
 OverworldData_HiddenItems_Screen_74:
@@ -14137,14 +14230,15 @@ OverworldData_HiddenItems_Screen_74:
 #_1BC852: db $9E, $0D, $04 ; Random pack  xy:{ 0x0F0, 0x1A0 }
 #_1BC855: dw $FFFF
 
+;===================================================================================================
+
 ; Dark Lake Hylia
 OverworldData_HiddenItems_Screen_75:
-OverworldData_HiddenItems_Screen_76:
-OverworldData_HiddenItems_Screen_7D:
-OverworldData_HiddenItems_Screen_7E:
 #_1BC857: db $98, $02, $06 ; Heart        xy:{ 0x0C0, 0x040 }
 #_1BC85A: db $10, $0C, $04 ; Random pack  xy:{ 0x080, 0x180 }
 #_1BC85D: dw $FFFF
+
+;===================================================================================================
 
 ; Dark Lake Hylia River End
 OverworldData_HiddenItems_Screen_77:
@@ -14154,6 +14248,8 @@ OverworldData_HiddenItems_Screen_77:
 #_1BC868: db $18, $05, $05 ; 1 Bomb       xy:{ 0x0C0, 0x0A0 }
 #_1BC86B: dw $FFFF
 
+;===================================================================================================
+
 ; West of Swamplands
 OverworldData_HiddenItems_Screen_7A:
 #_1BC86D: db $26, $05, $05 ; 1 Bomb       xy:{ 0x130, 0x0A0 }
@@ -14162,12 +14258,16 @@ OverworldData_HiddenItems_Screen_7A:
 #_1BC876: db $AC, $09, $06 ; Heart        xy:{ 0x160, 0x120 }
 #_1BC879: dw $FFFF
 
+;===================================================================================================
+
 ; Swamplands Palace Entrance
 OverworldData_HiddenItems_Screen_7B:
 #_1BC87B: db $20, $04, $06 ; Heart        xy:{ 0x100, 0x080 }
 #_1BC87E: db $1A, $06, $04 ; Random pack  xy:{ 0x0D0, 0x0C0 }
 #_1BC881: db $96, $06, $04 ; Random pack  xy:{ 0x0B0, 0x0C0 }
 #_1BC884: dw $FFFF
+
+;===================================================================================================
 
 ; Swamplands Ravine
 OverworldData_HiddenItems_Screen_7C:
@@ -14176,6 +14276,8 @@ OverworldData_HiddenItems_Screen_7C:
 #_1BC88C: db $98, $06, $06 ; Heart        xy:{ 0x0C0, 0x0C0 }
 #_1BC88F: db $14, $07, $04 ; Random pack  xy:{ 0x0A0, 0x0E0 }
 #_1BC892: dw $FFFF
+
+;===================================================================================================
 
 ; Dark Lake Hylia Waterfall
 OverworldData_HiddenItems_Screen_7F:
@@ -14209,6 +14311,7 @@ Overworld_RevealSecret:
 ; Save the pointer for the secrets list
 #_1BC8B6: ASL A
 #_1BC8B7: TAX
+
 #_1BC8B8: LDA.l OverworldData_HiddenItems,X
 #_1BC8BC: STA.b $00
 
@@ -14274,13 +14377,13 @@ Overworld_RevealSecret:
 
 #_1BC912: LDA.l $7EF3CC
 #_1BC916: AND.w #$00FF
-#_1BC919: CMP.w #!FOLLOWER_0D
+#_1BC919: CMP.w #$0D ; FOLLOWER 0D
 #_1BC91C: BNE .fail
 
 .not_pyramid_screen
 #_1BC91E: SEP #$20
 
-#_1BC920: LDA.b #!SFX3_1B
+#_1BC920: LDA.b #$1B ; SFX3.1B
 #_1BC922: STA.w $012F
 
 #_1BC925: REP #$20
@@ -14825,7 +14928,7 @@ Overworld_AnimateEntrance_Skull:
 #_1BCBE4: LDA.b #$01
 #_1BCBE6: STA.b $14
 
-#_1BCBE8: LDA.b #!SFX3_16
+#_1BCBE8: LDA.b #$16 ; SFX3.16
 #_1BCBEA: STA.w $012F
 
 .exit
@@ -14869,7 +14972,7 @@ Overworld_AnimateEntrance_Skull:
 #_1BCC1D: LDA.b #$01
 #_1BCC1F: STA.b $14
 
-#_1BCC21: LDA.b #!SFX3_16
+#_1BCC21: LDA.b #$16 ; SFX3.16
 #_1BCC23: STA.w $012F
 
 .exit_b
@@ -15082,7 +15185,7 @@ AnimateEntrance_Mire_step1:
 
 #_1BCD49: INC.b $B0
 
-#_1BCD4B: LDY.b #!SFX1_07
+#_1BCD4B: LDY.b #$07 ; SFX1.07
 #_1BCD4D: STY.w $012D
 
 .delay_ambient_sfx
@@ -15202,7 +15305,7 @@ AnimateEntrance_Mire_step1:
 
 #_1BCE0D: JSR OverworldEntrance_PlayJingle
 
-#_1BCE10: LDA.b #!SFX1_05
+#_1BCE10: LDA.b #$05 ; SFX1.05
 #_1BCE12: STA.w $012D
 
 .exit_c
@@ -15411,7 +15514,7 @@ Overworld_AnimateEntrance_TurtleRock:
 
 #_1BCF03: JSL PaletteFilter_Restore
 
-#_1BCF07: LDA.b #!SFX3_02
+#_1BCF07: LDA.b #$02 ; SFX3.02
 #_1BCF09: STA.w $012F
 
 .skip_sfx7
@@ -15437,7 +15540,7 @@ Overworld_AnimateEntrance_TurtleRock:
 #_1BCF1E: AND.b #$07
 #_1BCF20: BNE .skip_sfx8
 
-#_1BCF22: LDA.b #!SFX3_02
+#_1BCF22: LDA.b #$02 ; SFX3.02
 #_1BCF24: STA.w $012F
 
 .skip_sfx8
@@ -15456,7 +15559,7 @@ Overworld_AnimateEntrance_TurtleRock:
 
 #_1BCF38: INC.b $B0
 
-#_1BCF3A: LDA.b #!SFX1_05
+#_1BCF3A: LDA.b #$05 ; SFX1.05
 #_1BCF3C: STA.w $012D
 
 #_1BCF3F: RTS
@@ -15464,7 +15567,7 @@ Overworld_AnimateEntrance_TurtleRock:
 ;===================================================================================================
 
 OverworldEntrance_PlayJingle:
-#_1BCF40: LDA.b #!SFX3_1B
+#_1BCF40: LDA.b #$1B ; SFX3.1B
 
 #_1BCF42: STA.w $012F
 
@@ -15592,7 +15695,7 @@ AnimateEntrance_GanonsTower_step02:
 
 #_1BD003: STZ.b $C8
 
-#_1BD005: LDA.b #!SFX1_07
+#_1BD005: LDA.b #$07 ; SFX1.07
 #_1BD007: STA.w $012D
 
 #_1BD00A: RTS
@@ -15612,10 +15715,10 @@ OverworldEntrance_AdvanceAndBoom:
 #_1BD00E: INC.b $B0
 #_1BD010: STZ.b $C8
 
-#_1BD012: LDA.b #!SFX2_0C
+#_1BD012: LDA.b #$0C ; SFX2.0C
 #_1BD014: STA.w $012E
 
-#_1BD017: LDA.b #!SFX3_07
+#_1BD017: LDA.b #$07 ; SFX3.07
 #_1BD019: STA.w $012F
 
 #_1BD01C: RTS
@@ -15876,7 +15979,7 @@ AnimateEntrance_GanonsTower_step03:
 #_1BD1A3: CMP.b #$20
 #_1BD1A5: BNE .exit_c
 
-#_1BD1A7: LDA.b #!SFX1_05
+#_1BD1A7: LDA.b #$05 ; SFX1.05
 #_1BD1A9: STA.w $012D
 
 #_1BD1AC: JSR OverworldEntrance_AdvanceAndBoom
@@ -15903,10 +16006,10 @@ AnimateEntrance_GanonsTower_step03:
 
 #_1BD1CB: STZ.b $C8
 
-#_1BD1CD: LDA.b #!SONG_0D
+#_1BD1CD: LDA.b #$0D ; SONG 0D
 #_1BD1CF: STA.w $012C
 
-#_1BD1D2: LDA.b #!SFX1_09
+#_1BD1D2: LDA.b #$09 ; SFX1.09
 #_1BD1D4: STA.w $012D
 
 .exit_c
@@ -16023,237 +16126,237 @@ PaletteData:
 #_1BD380: dw          $0000,  $0EFA,  $7DD1,  $0000,  $7F1A,  $0000,  $7F1A
 #_1BD38E: dw  $716E,  $7DD1,  $40A7,  $7DD1,  $40A7,  $48E9,  $50CF,  $7FFF
 
-.spriteaux1_00
+.sprpal0_00
 #Palettes_UglyThrone:
 ; #RRGGBB :  303020, A08020, E8C870, F0B0C8, C880A0, 68B880, 488848
 #_1BD39E: dw  $10C6,  $1214,  $3B3D,  $66DE,  $5219,  $42ED,  $2629
 
-.spriteaux1_01
+.sprpal0_01
 #Palettes_DarkMelon:
 ; #RRGGBB :  F8F8F8, 305818, C05058, E88888, 282828, 80A060, 587838
 #_1BD3AC: dw  $7FFF,  $0D66,  $2D58,  $463D,  $14A5,  $3290,  $1DEB
 
-.spriteaux1_02
+.sprpal0_02
 #Palettes_DebirandoBlue:
 ; #RRGGBB :  887848, 484018, 5048A0, 8890E0, 282828, 787040, 585030
 #_1BD3BA: dw  $25F1,  $0D09,  $512A,  $7251,  $14A5,  $21CF,  $194B
 
-.spriteaux1_03
+.sprpal0_03
 #Palettes_UglyThrone5:
 ; #RRGGBB :  B09868, 503808, 00A820, 00E058, 282828, 887040, 685020
 #_1BD3C8: dw  $3676,  $04EA,  $12A0,  $2F80,  $14A5,  $21D1,  $114D
 
-.spriteaux1_04
+.sprpal0_04
 #Palettes_UglyThrone6:
 ; #RRGGBB :  F8F8F8, 98F898, A85820, F0A068, 282828, F87818, C83800
 #_1BD3D6: dw  $7FFF,  $4FF3,  $1175,  $369E,  $14A5,  $0DFF,  $00F9
 
-.spriteaux1_05
+.sprpal0_05
 #Palettes_SoylentGreen:
 ; #RRGGBB :  F8F8F8, D0C848, A85820, F0A068, 282828, 78C820, 489808
 #_1BD3E4: dw  $7FFF,  $273A,  $1175,  $369E,  $14A5,  $132F,  $0669
 
-.spriteaux1_06
+.sprpal0_06
 #Palettes_RockyMiddleNeck:
 ; #RRGGBB :  F8F8F8, 505060, 788890, 78C0A8, 282828, 78E8A8, 503860
 #_1BD3F2: dw  $7FFF,  $314A,  $4A2F,  $570F,  $14A5,  $57AF,  $30EA
 
-.spriteaux1_07
+.sprpal0_07
 #Palettes_WizzardsInRobes:
 ; #RRGGBB :  F8F8F8, D84030, 60A828, A8F070, 282828, F09848, C06018
 #_1BD400: dw  $7FFF,  $191B,  $16AC,  $3BD5,  $14A5,  $267E,  $0D98
 
-.spriteaux1_08
+.sprpal0_08
 #Palettes_spraux01:
 ; #RRGGBB :  F8F8F8, 604838, 686898, 686898, 282828, A08050, 886038
 #_1BD40E: dw  $7FFF,  $1D2C,  $4DAD,  $4DAD,  $14A5,  $2A14,  $1D91
 
-.spriteaux1_09
+.sprpal0_09
 #Palettes_spraux02:
 ; #RRGGBB :  F8F8F8, 286040, C05058, E88888, 282828, 68A080, 488060
 #_1BD41C: dw  $7FFF,  $2185,  $2D58,  $463D,  $14A5,  $428D,  $3209
 
-.spriteaux1_0A
+.sprpal0_0A
 #Palettes_spraux03:
 ; #RRGGBB :  F8F8F8, A0A0A0, 383088, 7068C0, 282828, D88830, A85820
 #_1BD42A: dw  $7FFF,  $5294,  $44C7,  $61AE,  $14A5,  $1A3B,  $1175
 
-.spriteaux1_0B
+.sprpal0_0B
 #Palettes_OopsAllBlue:
 ; #RRGGBB :  686898, 686898, 686898, 686898, 686898, 686898, 686898
 #_1BD438: dw  $4DAD,  $4DAD,  $4DAD,  $4DAD,  $4DAD,  $4DAD,  $4DAD
 
-.spriteaux2_00
+.spriteenvironment_00
 #Palettes_spraux05:
 ; #RRGGBB :  203028, 585858, 7048C0, A068B8, C8B0F0, E8E8E8, A0A0A0
 #_1BD446: dw  $14C4,  $2D6B,  $612E,  $5DB4,  $7AD9,  $77BD,  $5294
 
-.spriteaux2_01
+.spriteenvironment_01
 #Palettes_spraux06:
 ; #RRGGBB :  203028, 585858, 407898, 70A8C8, A0D8F8, E8E8E8, A0A0A0
 #_1BD454: dw  $14C4,  $2D6B,  $4DE8,  $66AE,  $7F74,  $77BD,  $5294
 
-.spriteaux2_02
+.spriteenvironment_02
 #Palettes_spraux07:
 ; #RRGGBB :  203028, 585858, F84000, F87800, F8F000, E8E8E8, A0A0A0
 #_1BD462: dw  $14C4,  $2D6B,  $011F,  $01FF,  $03DF,  $77BD,  $5294
 
-.spriteaux2_03
+.spriteenvironment_03
 #Palettes_spraux08:
 ; #RRGGBB :  F8F8F8, 000000, 000000, 000000, 8000F0, F8D8F8, B800F8
 #_1BD470: dw  $7FFF,  $0000,  $0000,  $0000,  $7810,  $7F7F,  $7C17
 
-.spriteaux2_04
+.spriteenvironment_04
 #Palettes_spraux09:
 ; #RRGGBB :  F8F8F8, 000000, 3840B0, 7080D8, 000000, D8E8F8, 9098E8
 #_1BD47E: dw  $7FFF,  $0000,  $5907,  $6E0E,  $0000,  $7FBB,  $7672
 
-.spriteaux2_05
+.spriteenvironment_05
 #Palettes_spraux0A:
 ; #RRGGBB :  F8F8F8, F8E0B8, 500000, A880F8, 200858, 8070E8, 5848C0
 #_1BD48C: dw  $7FFF,  $5F9F,  $000A,  $7E15,  $2C24,  $75D0,  $612B
 
-.spriteaux2_06
+.spriteenvironment_06
 #Palettes_spraux0B:
 ; #RRGGBB :  282828, 508070, 287838, 489848, A08860, B0E8B8, 78B890
 #_1BD49A: dw  $14A5,  $3A0A,  $1DE5,  $2669,  $3234,  $5FB6,  $4AEF
 
-.spriteaux2_07
+.spriteenvironment_07
 #Palettes_spraux0C:
 ; #RRGGBB :  282828, 282828, 686028, 888040, A08860, 78B890, 508070
 #_1BD4A8: dw  $14A5,  $14A5,  $158D,  $2211,  $3234,  $4AEF,  $3A0A
 
-.spriteaux2_08
+.spriteenvironment_08
 #Palettes_PurpleShrubs:
 ; #RRGGBB :  203010, 487040, 886898, 98B0E0, B8A820, A0C898, 709868
 #_1BD4B6: dw  $08C4,  $21C9,  $4DB1,  $72D3,  $12B7,  $4F34,  $366E
 
-.spriteaux2_09
+.spriteenvironment_09
 #Palettes_DarkAndHeavyBush:
 ; #RRGGBB :  181818, 203010, 705830, 907850, 907850, 709868, 487040
 #_1BD4C4: dw  $0C63,  $08C4,  $196E,  $29F2,  $29F2,  $366E,  $21C9
 
-.spriteaux2_0A
+.spriteenvironment_0A
 #Palettes_StarryTile:
 ; #RRGGBB :  303030, 585858, A87850, D0A830, 784848, E8E8E8, A0A0A0
 #_1BD4D2: dw  $18C6,  $2D6B,  $29F5,  $1ABA,  $252F,  $77BD,  $5294
 
-.spriteaux3_00
+.spriteaux_00
 #Palettes_spraux10:
 ; #RRGGBB :  F8F8F8, A0C0F0, 9020B8, D040F0, 282828, F8A800, E86820
 #_1BD4E0: dw  $7FFF,  $7B14,  $5C92,  $791A,  $14A5,  $02BF,  $11BD
 
-.spriteaux3_01
+.spriteaux_01
 #Palettes_LeftOfRedItems:
 ; #RRGGBB :  F8F8F8, D8B060, B02800, F08848, 282828, A0A0A8, 686870
 #_1BD4EE: dw  $7FFF,  $32DB,  $00B6,  $263E,  $14A5,  $5694,  $39AD
 
-.spriteaux3_02
+.spriteaux_02
 #Palettes_RodentsAndGhosts:
 ; #RRGGBB :  F8F8F8, 885008, 6860B8, 9098E0, 282828, E8B818, B07818
 #_1BD4FC: dw  $7FFF,  $0551,  $5D8D,  $7272,  $14A5,  $0EFD,  $0DF6
 
-.spriteaux3_03
+.spriteaux_03
 #Palettes_BumpkinBrothers:
 ; #RRGGBB :  F8F8F8, F0D840, A85820, F0A068, 282828, 88D830, 009838
 #_1BD50A: dw  $7FFF,  $237E,  $1175,  $369E,  $14A5,  $1B71,  $1E60
 
-.spriteaux3_04
+.spriteaux_04
 #Palettes_BonyPaladin:
 ; #RRGGBB :  F8F8F8, D02040, A06818, D8B850, 282828, 78D800, 589800
 #_1BD518: dw  $7FFF,  $209A,  $0DB4,  $2AFB,  $14A5,  $036F,  $026B
 
-.spriteaux3_05
+.spriteaux_05
 #Palettes_ThickPikit:
 ; #RRGGBB :  F8F8F8, A85810, 903068, C868A0, 282828, F8B058, E07820
 #_1BD526: dw  $7FFF,  $0975,  $34D2,  $51B9,  $14A5,  $2EDF,  $11FC
 
-.spriteaux3_06
+.spriteaux_06
 #Palettes_spraux16:
 ; #RRGGBB :  E8E8E8, E03810, A07010, E0B020, 282828, C0B098, 887050
 #_1BD534: dw  $77BD,  $08FC,  $09D4,  $12DC,  $14A5,  $4ED8,  $29D1
 
-.spriteaux3_07
+.spriteaux_07
 #Palettes_PolishedEyegore:
 ; #RRGGBB :  F8F8F8, 305830, E06018, D8A800, 282828, 50C090, 408858
 #_1BD542: dw  $7FFF,  $1966,  $0D9C,  $02BB,  $14A5,  $4B0A,  $2E28
 
-.spriteaux3_08
+.spriteaux_08
 #Palettes_MoldormArmy:
 ; #RRGGBB :  F8F8F8, 503818, C8B818, F8D018, 282828, A89818, 806818
 #_1BD550: dw  $7FFF,  $0CEA,  $0EF9,  $0F5F,  $14A5,  $0E75,  $0DB0
 
-.spriteaux3_09
+.spriteaux_09
 #Palettes_VictimPink:
 ; #RRGGBB :  F8F8F8, E088B0, 7098C0, A0C8F8, 000000, F8C8F8, F0A0D8
 #_1BD55E: dw  $7FFF,  $5A3C,  $626E,  $7F34,  $0000,  $7F3F,  $6E9E
 
-.spriteaux3_0A
+.spriteaux_0A
 #Palettes_spraux1A:
 ; #RRGGBB :  F8F8F8, C83010, A85820, F0A068, 282828, D0C040, 988818
 #_1BD56C: dw  $7FFF,  $08D9,  $1175,  $369E,  $14A5,  $231A,  $0E33
 
-.spriteaux3_0B
+.spriteaux_0B
 #Palettes_LynelsMane:
 ; #RRGGBB :  F8F8F8, A04010, 289828, 70D8B8, 282828, F89848, C86828
 #_1BD57A: dw  $7FFF,  $0914,  $1665,  $5F6E,  $14A5,  $267F,  $15B9
 
-.spriteaux3_0C
+.spriteaux_0C
 #Palettes_HammerableMask:
 ; #RRGGBB :  F8F8F8, 4848B0, D85820, F8A840, 282828, A8A8F8, 7870E8
 #_1BD588: dw  $7FFF,  $5929,  $117B,  $22BF,  $14A5,  $7EB5,  $75CF
 
-.spriteaux3_0D
+.spriteaux_0D
 #Palettes_KleptomanicSwine:
 ; #RRGGBB :  F8F8F8, 385088, 886008, C0A028, 282828, 88C8A0, 5088A8
 #_1BD596: dw  $7FFF,  $4547,  $0591,  $1698,  $14A5,  $5331,  $562A
 
-.spriteaux3_0E
+.spriteaux_0E
 #Palettes_AgahnimsRobe:
 ; #RRGGBB :  F8F8F8, C04080, B08828, E8C070, 282828, 90D038, 688020
 #_1BD5A4: dw  $7FFF,  $4118,  $1636,  $3B1D,  $14A5,  $1F52,  $120D
 
-.spriteaux3_0F
+.spriteaux_0F
 #Palettes_SkateAndHover:
 ; #RRGGBB :  F8F8F8, D8A068, 58A040, 90D878, 282828, E06868, A84040
 #_1BD5B2: dw  $7FFF,  $369B,  $228B,  $3F72,  $14A5,  $35BC,  $2115
 
-.spriteaux3_10
+.spriteaux_10
 #Palettes_Outmaneuverable:
 ; #RRGGBB :  F8F8F8, A00028, 00D018, F8C040, 282828, E88820, D03828
 #_1BD5C0: dw  $7FFF,  $1414,  $0F40,  $231F,  $14A5,  $123D,  $14FA
 
-.spriteaux3_11
+.spriteaux_11
 #Palettes_AngryDeadrock:
 ; #RRGGBB :  F8F8F8, F890B8, 905810, C08848, 282828, B088E8, 7848A0
 #_1BD5CE: dw  $7FFF,  $5E5F,  $0972,  $2638,  $14A5,  $7636,  $512F
 
-.spriteaux3_12
+.spriteaux_12
 #Palettes_spraux22:
 ; #RRGGBB :  A888F8, D81830, A85820, F0A068, 282828, F8F8F8, A888F8
 #_1BD5DC: dw  $7E35,  $187B,  $1175,  $369E,  $14A5,  $7FFF,  $7E35
 
-.spriteaux3_13
+.spriteaux_13
 #Palettes_spraux23:
 ; #RRGGBB :  F8F8F8, A0A0B0, B83010, E86040, 282828, C0A028, 886008
 #_1BD5EA: dw  $7FFF,  $5A94,  $08D7,  $219D,  $14A5,  $1698,  $0591
 
-.spriteaux3_14
+.spriteaux_14
 #Palettes_RedBossBash:
 ; #RRGGBB :  F8F8F8, 903018, D85800, F8A828, 282828, E88068, B04038
 #_1BD5F8: dw  $7FFF,  $0CD2,  $017B,  $16BF,  $14A5,  $361D,  $1D16
 
-.spriteaux3_15
+.spriteaux_15
 #Palettes_FadingWarp:
 ; #RRGGBB :  989898, 203868, 904808, C07818, 000000, B83008, 307088
 #_1BD606: dw  $4E73,  $34E4,  $0532,  $0DF8,  $0000,  $04D7,  $45C6
 
-.spriteaux3_16
+.spriteaux_16
 #Palettes_spraux26:
 ; #RRGGBB :  F8F8F8, 709868, A07828, E0C040, 282828, A0C898, C0E8B8
 #_1BD614: dw  $7FFF,  $366E,  $15F4,  $231C,  $14A5,  $4F34,  $5FB8
 
-.spriteaux3_17
+.spriteaux_17
 #Palettes_StatueGray:
 ; #RRGGBB :  505050, E8E8E8, C0C0C0, 888888, E8E8E8, 888888, C0C0C0
 #_1BD622: dw  $294A,  $77BD,  $6318,  $4631,  $77BD,  $4631,  $6318
@@ -17317,50 +17420,50 @@ ShieldPaletteOffsets:
 ;===================================================================================================
 
 PaletteIDtoOffset:
-#_1BEBC6: db $00*14 ; 0x00
-#_1BEBC7: db $01*14 ; 0x0E
-#_1BEBC8: db $02*14 ; 0x1C
-#_1BEBC9: db $03*14 ; 0x2A
-#_1BEBCA: db $04*14 ; 0x38
-#_1BEBCB: db $05*14 ; 0x46
-#_1BEBCC: db $06*14 ; 0x54
-#_1BEBCD: db $07*14 ; 0x62
-#_1BEBCE: db $08*14 ; 0x70
-#_1BEBCF: db $09*14 ; 0x7E
-#_1BEBD0: db $0A*14 ; 0x8C
-#_1BEBD1: db $0B*14 ; 0x9A
-#_1BEBD2: db $0C*14 ; 0xA8
-#_1BEBD3: db $0D*14 ; 0xB6
-#_1BEBD4: db $0E*14 ; 0xC4
-#_1BEBD5: db $0F*14 ; 0xD2
+#_1BEBC6: db $00 ; 0x00*14
+#_1BEBC7: db $0E ; 0x01*14
+#_1BEBC8: db $1C ; 0x02*14
+#_1BEBC9: db $2A ; 0x03*14
+#_1BEBCA: db $38 ; 0x04*14
+#_1BEBCB: db $46 ; 0x05*14
+#_1BEBCC: db $54 ; 0x06*14
+#_1BEBCD: db $62 ; 0x07*14
+#_1BEBCE: db $70 ; 0x08*14
+#_1BEBCF: db $7E ; 0x09*14
+#_1BEBD0: db $8C ; 0x0A*14
+#_1BEBD1: db $9A ; 0x0B*14
+#_1BEBD2: db $A8 ; 0x0C*14
+#_1BEBD3: db $B6 ; 0x0D*14
+#_1BEBD4: db $C4 ; 0x0E*14
+#_1BEBD5: db $D2 ; 0x0F*14
 
 ;---------------------------------------------------------------------------------------------------
 
 PaletteIDtoOffset_16bit:
-#_1BEBD6: dw $00*14 ; 0x0000
-#_1BEBD8: dw $01*14 ; 0x000E
-#_1BEBDA: dw $02*14 ; 0x001C
-#_1BEBDC: dw $03*14 ; 0x002A
-#_1BEBDE: dw $04*14 ; 0x0038
-#_1BEBE0: dw $05*14 ; 0x0046
-#_1BEBE2: dw $06*14 ; 0x0054
-#_1BEBE4: dw $07*14 ; 0x0062
-#_1BEBE6: dw $08*14 ; 0x0070
-#_1BEBE8: dw $09*14 ; 0x007E
-#_1BEBEA: dw $0A*14 ; 0x008C
-#_1BEBEC: dw $0B*14 ; 0x009A
-#_1BEBEE: dw $0C*14 ; 0x00A8
-#_1BEBF0: dw $0D*14 ; 0x00B6
-#_1BEBF2: dw $0E*14 ; 0x00C4
-#_1BEBF4: dw $0F*14 ; 0x00D2
-#_1BEBF6: dw $10*14 ; 0x00E0
-#_1BEBF8: dw $11*14 ; 0x00EE
-#_1BEBFA: dw $12*14 ; 0x00FC
-#_1BEBFC: dw $13*14 ; 0x010A
-#_1BEBFE: dw $14*14 ; 0x0118
-#_1BEC00: dw $15*14 ; 0x0126
-#_1BEC02: dw $16*14 ; 0x0134
-#_1BEC04: dw $17*14 ; 0x0142
+#_1BEBD6: dw $0000 ; 0x00*14
+#_1BEBD8: dw $000E ; 0x01*14
+#_1BEBDA: dw $001C ; 0x02*14
+#_1BEBDC: dw $002A ; 0x03*14
+#_1BEBDE: dw $0038 ; 0x04*14
+#_1BEBE0: dw $0046 ; 0x05*14
+#_1BEBE2: dw $0054 ; 0x06*14
+#_1BEBE4: dw $0062 ; 0x07*14
+#_1BEBE6: dw $0070 ; 0x08*14
+#_1BEBE8: dw $007E ; 0x09*14
+#_1BEBEA: dw $008C ; 0x0A*14
+#_1BEBEC: dw $009A ; 0x0B*14
+#_1BEBEE: dw $00A8 ; 0x0C*14
+#_1BEBF0: dw $00B6 ; 0x0D*14
+#_1BEBF2: dw $00C4 ; 0x0E*14
+#_1BEBF4: dw $00D2 ; 0x0F*14
+#_1BEBF6: dw $00E0 ; 0x10*14
+#_1BEBF8: dw $00EE ; 0x11*14
+#_1BEBFA: dw $00FC ; 0x12*14
+#_1BEBFC: dw $010A ; 0x13*14
+#_1BEBFE: dw $0118 ; 0x14*14
+#_1BEC00: dw $0126 ; 0x15*14
+#_1BEC02: dw $0134 ; 0x16*14
+#_1BEC04: dw $0142 ; 0x17*14
 
 ;===================================================================================================
 
@@ -17386,36 +17489,36 @@ UnusedPaletteOffsets:
 ;===================================================================================================
 
 PaletteIDtoOffset_OW:
-#_1BEC13: dw $00*42 ; 0x0000
-#_1BEC15: dw $01*42 ; 0x002A
-#_1BEC17: dw $02*42 ; 0x0054
-#_1BEC19: dw $03*42 ; 0x007E
-#_1BEC1B: dw $04*42 ; 0x00A8
-#_1BEC1D: dw $05*42 ; 0x00D2
-#_1BEC1F: dw $06*42 ; 0x00FC
-#_1BEC21: dw $07*42 ; 0x0126
-#_1BEC23: dw $08*42 ; 0x0150
-#_1BEC25: dw $09*42 ; 0x017A
-#_1BEC27: dw $0A*42 ; 0x01A4
-#_1BEC29: dw $0B*42 ; 0x01CE
-#_1BEC2B: dw $0C*42 ; 0x01F8
-#_1BEC2D: dw $0D*42 ; 0x0222
-#_1BEC2F: dw $0E*42 ; 0x024C
-#_1BEC31: dw $0F*42 ; 0x0276
-#_1BEC33: dw $10*42 ; 0x02A0
-#_1BEC35: dw $11*42 ; 0x02CA
-#_1BEC37: dw $12*42 ; 0x02F4
-#_1BEC39: dw $13*42 ; 0x031E
+#_1BEC13: dw $0000 ; 0x00*42
+#_1BEC15: dw $002A ; 0x01*42
+#_1BEC17: dw $0054 ; 0x02*42
+#_1BEC19: dw $007E ; 0x03*42
+#_1BEC1B: dw $00A8 ; 0x04*42
+#_1BEC1D: dw $00D2 ; 0x05*42
+#_1BEC1F: dw $00FC ; 0x06*42
+#_1BEC21: dw $0126 ; 0x07*42
+#_1BEC23: dw $0150 ; 0x08*42
+#_1BEC25: dw $017A ; 0x09*42
+#_1BEC27: dw $01A4 ; 0x0A*42
+#_1BEC29: dw $01CE ; 0x0B*42
+#_1BEC2B: dw $01F8 ; 0x0C*42
+#_1BEC2D: dw $0222 ; 0x0D*42
+#_1BEC2F: dw $024C ; 0x0E*42
+#_1BEC31: dw $0276 ; 0x0F*42
+#_1BEC33: dw $02A0 ; 0x10*42
+#_1BEC35: dw $02CA ; 0x11*42
+#_1BEC37: dw $02F4 ; 0x12*42
+#_1BEC39: dw $031E ; 0x13*42
 
 ;---------------------------------------------------------------------------------------------------
 
 PaletteIDtoOffset_OW2:
-#_1BEC3B: dw $00*70 ; 0x0000
-#_1BEC3D: dw $01*70 ; 0x0046
-#_1BEC3F: dw $02*70 ; 0x008C
-#_1BEC41: dw $03*70 ; 0x00D2
-#_1BEC43: dw $04*70 ; 0x0118
-#_1BEC45: dw $05*70 ; 0x015E
+#_1BEC3B: dw $0000 ; 0x00*70
+#_1BEC3D: dw $0046 ; 0x01*70
+#_1BEC3F: dw $008C ; 0x02*70
+#_1BEC41: dw $00D2 ; 0x03*70
+#_1BEC43: dw $0118 ; 0x04*70
+#_1BEC45: dw $015E ; 0x05*70
 
 ;===================================================================================================
 
@@ -17428,26 +17531,26 @@ PaletteIDtoOffset_HUD:
 ;===================================================================================================
 
 PaletteIDtoOffset_UW:
-#_1BEC4B: dw $00*180 ; 0x0000
-#_1BEC4D: dw $01*180 ; 0x00B4
-#_1BEC4F: dw $02*180 ; 0x0168
-#_1BEC51: dw $03*180 ; 0x021C
-#_1BEC53: dw $04*180 ; 0x02D0
-#_1BEC55: dw $05*180 ; 0x0384
-#_1BEC57: dw $06*180 ; 0x0438
-#_1BEC59: dw $07*180 ; 0x04EC
-#_1BEC5B: dw $08*180 ; 0x05A0
-#_1BEC5D: dw $09*180 ; 0x0654
-#_1BEC5F: dw $0A*180 ; 0x0708
-#_1BEC61: dw $0B*180 ; 0x07BC
-#_1BEC63: dw $0C*180 ; 0x0870
-#_1BEC65: dw $0D*180 ; 0x0924
-#_1BEC67: dw $0E*180 ; 0x09D8
-#_1BEC69: dw $0F*180 ; 0x0A8C
-#_1BEC6B: dw $10*180 ; 0x0B40
-#_1BEC6D: dw $11*180 ; 0x0BF4
-#_1BEC6F: dw $12*180 ; 0x0CA8
-#_1BEC71: dw $13*180 ; 0x0D5C
+#_1BEC4B: dw $0000 ; $00*180 
+#_1BEC4D: dw $00B4 ; $01*180 
+#_1BEC4F: dw $0168 ; $02*180 
+#_1BEC51: dw $021C ; $03*180 
+#_1BEC53: dw $02D0 ; $04*180 
+#_1BEC55: dw $0384 ; $05*180 
+#_1BEC57: dw $0438 ; $06*180 
+#_1BEC59: dw $04EC ; $07*180 
+#_1BEC5B: dw $05A0 ; $08*180 
+#_1BEC5D: dw $0654 ; $09*180 
+#_1BEC5F: dw $0708 ; $0A*180 
+#_1BEC61: dw $07BC ; $0B*180 
+#_1BEC63: dw $0870 ; $0C*180 
+#_1BEC65: dw $0924 ; $0D*180 
+#_1BEC67: dw $09D8 ; $0E*180 
+#_1BEC69: dw $0A8C ; $0F*180 
+#_1BEC6B: dw $0B40 ; $10*180 
+#_1BEC6D: dw $0BF4 ; $11*180 
+#_1BEC6F: dw $0CA8 ; $12*180 
+#_1BEC71: dw $0D5C ; $13*180 
 
 ;===================================================================================================
 
@@ -17459,14 +17562,15 @@ PaletteWorldIDtoOffset:
 
 ; TODO more descriptiveness in all of these
 
-Palettes_Load_SpriteAux3:
+; this is palette 0
+Palettes_Load_SpritePal0Left:
 #_1BEC77: REP #$21
 
 #_1BEC79: LDX.w $0AAC
 
 #_1BEC7C: LDA.l PaletteIDtoOffset,X
 #_1BEC80: AND.w #$00FF
-#_1BEC83: ADC.w #PaletteData_spriteaux1_00
+#_1BEC83: ADC.w #PaletteData_sprpal0_00
 #_1BEC86: STA.b $00
 
 #_1BEC88: REP #$10
@@ -17491,6 +17595,7 @@ Palettes_Load_SpriteMain:
 #_1BEC9E: REP #$21
 
 #_1BECA0: LDX.b #$00
+
 #_1BECA2: LDA.b $8A
 #_1BECA4: AND.w #$0040
 #_1BECA7: BEQ .light_world
@@ -17516,6 +17621,7 @@ Palettes_Load_SpriteMain:
 
 ;===================================================================================================
 
+; this is palette 5
 Palettes_Load_SpriteAux1:
 #_1BECC5: REP #$31
 
@@ -17525,7 +17631,7 @@ Palettes_Load_SpriteAux1:
 #_1BECCE: TAX
 
 #_1BECCF: LDA.l PaletteIDtoOffset_16bit,X
-#_1BECD3: ADC.w #PaletteData_spriteaux3_00
+#_1BECD3: ADC.w #PaletteData_spriteaux_00
 #_1BECD6: STA.b $00
 
 #_1BECD8: LDA.w #$01A2
@@ -17538,6 +17644,7 @@ Palettes_Load_SpriteAux1:
 
 ;===================================================================================================
 
+; this is palette 6
 Palettes_Load_SpriteAux2:
 #_1BECE4: REP #$31
 
@@ -17547,7 +17654,7 @@ Palettes_Load_SpriteAux2:
 #_1BECED: TAX
 
 #_1BECEE: LDA.l PaletteIDtoOffset_16bit,X
-#_1BECF2: ADC.w #PaletteData_spriteaux3_00
+#_1BECF2: ADC.w #PaletteData_spriteaux_00
 #_1BECF5: STA.b $00
 
 #_1BECF7: LDA.w #$01C2
@@ -17620,7 +17727,7 @@ UNREACHABLE_1BED4F:
 
 #_1BED54: LDA.l PaletteIDtoOffset,X
 #_1BED58: AND.w #$00FF
-#_1BED5B: ADC.w #PaletteData_spriteaux2_00
+#_1BED5B: ADC.w #PaletteData_spriteenvironment_00
 #_1BED5E: STA.b $00
 
 #_1BED60: REP #$10
@@ -17635,18 +17742,18 @@ UNREACHABLE_1BED4F:
 
 ;===================================================================================================
 
-Palettes_Load_SpriteMisc:
+Palettes_Load_SpriteEnvironment:
 #_1BED6E: LDA.b $1B
 #_1BED70: BEQ .outdoors
 
-#Palettes_Load_SpriteMiscSP6:
+#Palettes_Load_SpriteEnvironment_Underworld:
 #_1BED72: REP #$21
 
 #_1BED74: LDX.w $0AB1
 
 #_1BED77: LDA.l PaletteIDtoOffset,X
 #_1BED7B: AND.w #$00FF
-#_1BED7E: ADC.w #PaletteData_spriteaux2_00
+#_1BED7E: ADC.w #PaletteData_spriteenvironment_00
 #_1BED81: STA.b $00
 
 #_1BED83: REP #$10
@@ -17665,6 +17772,7 @@ Palettes_Load_SpriteMisc:
 #_1BED91: REP #$21
 
 #_1BED93: LDX.b #$07
+
 #_1BED95: LDA.b $8A
 #_1BED97: AND.w #$0040
 #_1BED9A: BEQ .light_world
@@ -17677,7 +17785,7 @@ Palettes_Load_SpriteMisc:
 
 #_1BED9F: LDA.l PaletteIDtoOffset,X
 #_1BEDA3: AND.w #$00FF
-#_1BEDA6: ADC.w #PaletteData_spriteaux2_00
+#_1BEDA6: ADC.w #PaletteData_spriteenvironment_00
 #_1BEDA9: STA.b $00
 
 #_1BEDAB: REP #$10
@@ -17702,7 +17810,7 @@ Palettes_Load_SpriteMisc:
 #_1BEDC2: LDA.l PaletteIDtoOffset,X
 #_1BEDC6: AND.w #$00FF
 #_1BEDC9: CLC
-#_1BEDCA: ADC.w #PaletteData_spriteaux2_00
+#_1BEDCA: ADC.w #PaletteData_spriteenvironment_00
 #_1BEDCD: STA.b $00
 
 #_1BEDCF: REP #$10
@@ -18285,7 +18393,7 @@ Palettes_LoadAgahnim:
 
 ; !HARDCODED index load
 #_1BF0C4: LDA.l PaletteIDtoOffset_16bit+($0E*2)
-#_1BF0C8: ADC.w #PaletteData_spriteaux3_00
+#_1BF0C8: ADC.w #PaletteData_spriteaux_00
 #_1BF0CB: STA.b $00
 
 #_1BF0CD: PHA
@@ -18318,7 +18426,7 @@ Palettes_LoadAgahnim:
 
 #_1BF0F0: LDA.l PaletteIDtoOffset_16bit+($15*2)
 #_1BF0F4: CLC
-#_1BF0F5: ADC.w #PaletteData_spriteaux3_00
+#_1BF0F5: ADC.w #PaletteData_spriteaux_00
 #_1BF0F8: STA.b $00
 
 #_1BF0FA: LDA.w #$01C2

@@ -43,7 +43,7 @@ Overworld_LoadAllPalettes_long:
 
 ;===================================================================================================
 
-GFXAA1_Sheets:
+AnimatedTileSheets:
 #_02802E: db $5D, $5D, $5D, $5D, $5D, $5D, $5D, $5F
 #_028036: db $5D, $5F, $5F, $5E, $5F, $5E, $5E, $5D
 #_02803E: db $5D, $5E, $5D, $5D, $5D, $5D, $5D, $5D
@@ -242,7 +242,7 @@ Module06_UnderworldLoad:
 
 #_02817B: LDX.w $0AA1
 
-#_02817E: LDA.l GFXAA1_Sheets,X
+#_02817E: LDA.l AnimatedTileSheets,X
 #_028182: TAY
 
 #_028183: JSL DecompressAnimatedUnderworldTiles
@@ -365,7 +365,7 @@ Module06_UnderworldLoad:
 #_028232: JSR ResetThenCacheRoomEntryProperties
 
 #_028235: LDA.l $7EF3CC
-#_028239: CMP.b #!FOLLOWER_0D
+#_028239: CMP.b #$0D ; FOLLOWER 0D
 #_02823B: BNE .not_superbomb
 
 #_02823D: LDA.b #$00 ; kill super bomb
@@ -428,7 +428,7 @@ UnderworldAdjustRainSFX:
 #_02829A: CMP.b #$02
 #_02829C: BCS .exit
 
-#_02829E: LDA.b #!SFX1_05 ; shut off ambient sfx
+#_02829E: LDA.b #$05 ; SFX1.05 - shut off ambient sfx
 #_0282A0: STA.w $012D
 
 #_0282A3: LDA.b $A4 ; are we on a basement floor?
@@ -445,7 +445,7 @@ UnderworldAdjustRainSFX:
 
 #_0282B5: SEP #$20
 
-#_0282B7: LDA.b #!SFX1_03
+#_0282B7: LDA.b #$03 ; SFX1.03
 #_0282B9: STA.w $012D
 
 .exit
@@ -511,7 +511,7 @@ Module08_00_LoadProperties:
 #_0282F0: JSL RefillLogic_long
 
 #_0282F4: LDY.b #$58
-#_0282F6: LDX.b #!SONG_02
+#_0282F6: LDX.b #$02 ; SONG 02
 
 ; Check for death mountain screens
 #_0282F8: LDA.b $8A
@@ -524,7 +524,7 @@ Module08_00_LoadProperties:
 #_028302: CMP.b #$07
 #_028304: BEQ .death_mountain
 
-#_028306: LDX.b #!SONG_09
+#_028306: LDX.b #$09 ; SONG 09
 
 ; check for dark death mountain screens
 #_028308: LDA.b $8A
@@ -545,12 +545,12 @@ Module08_00_LoadProperties:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_02831E: LDX.b #!SONG_07
+#_02831E: LDX.b #$07 ; SONG 07
 #_028320: LDA.l $7EF3C5
 #_028324: CMP.b #$03
 #_028326: BCC .aga_alive
 
-#_028328: LDX.b #!SONG_02
+#_028328: LDX.b #$02 ; SONG 02
 
 .aga_alive
 ; kak well
@@ -569,14 +569,14 @@ Module08_00_LoadProperties:
 #_02833A: BEQ .death_mountain
 
 .not_some_shop
-#_02833C: LDX.b #!SONG_05
+#_02833C: LDX.b #$05 ; SONG 05
 
 ; Check for master sword
 #_02833E: LDA.l $7EF300
 #_028342: AND.b #$40
 #_028344: BEQ .no_ms
 
-#_028346: LDX.b #!SONG_02
+#_028346: LDX.b #$02 ; SONG 02
 
 .no_ms
 #_028348: LDA.b $A0
@@ -588,29 +588,29 @@ Module08_00_LoadProperties:
 ;---------------------------------------------------------------------------------------------------
 
 .dark_world
-#_028350: LDX.b #!SONG_F3_MAXVOL
+#_028350: LDX.b #$F3 ; SONG F3 - max volume
 
 ; If the last command was the cut the volume in half, turn it back up.
 #_028352: LDA.w $0132
-#_028355: CMP.b #!SONG_F2_HALFVOL
+#_028355: CMP.b #$F2 ; SONG F2 - half volume
 #_028357: BEQ .continue_with_music
 
 ; Use overture theme for aga defeated
-#_028359: LDX.b #!SONG_02
+#_028359: LDX.b #$02 ; SONG 02
 
 #_02835B: LDA.l $7EF3C5
 #_02835F: CMP.b #$02
 #_028361: BCS .death_mountain
 
 ; otherwise, use legends theme, maybe
-#_028363: LDX.b #!SONG_03
+#_028363: LDX.b #$03 ; SONG 03
 
 .death_mountain
 ; check for dark world
 #_028365: LDA.l $7EF3CA
 #_028369: BEQ .continue_with_music
 
-#_02836B: LDX.b #!SONG_0D
+#_02836B: LDX.b #$0D ; SONG 0D
 
 #_02836D: LDA.b $8A
 #_02836F: CMP.b #$40
@@ -625,14 +625,14 @@ Module08_00_LoadProperties:
 #_02837B: CMP.b #$47
 #_02837D: BEQ .use_sw_theme
 
-#_02837F: LDX.b #!SONG_09
+#_02837F: LDX.b #$09 ; SONG 09
 
 .use_sw_theme
 ; Check for pearl
 #_028381: LDA.l $7EF357
 #_028385: BNE .continue_with_music
 
-#_028387: LDX.b #!SONG_04
+#_028387: LDX.b #$04 ; SONG 04
 
 .continue_with_music
 #_028389: STX.w $0132
@@ -689,20 +689,20 @@ Module08_00_LoadProperties:
 #_0283E2: JSL InitializeMirrorPortal
 
 .no_mirror_portal
-#_0283E6: LDX.b #!SFX1_05
+#_0283E6: LDX.b #$05 ; SFX1.05
 
 #_0283E8: LDA.l $7EF3C5
 #_0283EC: CMP.b #$02
 #_0283EE: BCS .no_rain_sfx
 
-#_0283F0: LDX.b #!SFX1_01
+#_0283F0: LDX.b #$01 ; SFX1.01
 
 .no_rain_sfx
 #_0283F2: STX.w $012D
 
 ; Delete the maiden if that's our current follower
 #_0283F5: LDA.l $7EF3CC
-#_0283F9: CMP.b #!FOLLOWER_06
+#_0283F9: CMP.b #$06 ; FOLLOWER 06
 #_0283FB: BNE .not_blind_follower
 
 #_0283FD: LDA.b #$00
@@ -733,7 +733,7 @@ Module08_00_LoadProperties:
 #_028421: STA.w $02E0
 #_028424: STA.b $56
 
-#_028426: LDA.b #!LINKSTATE_17
+#_028426: LDA.b #$17 ; LINKSTATE 17
 #_028428: STA.b $5D
 
 #_02842A: JSL RefreshLinkEquipmentPalettes_bunny
@@ -767,7 +767,7 @@ LoadOWMusicIfNeeded:
 #_028453: STZ.w HDMAENABLE
 #_028456: STZ.w $0136
 
-#_028459: LDA.b #!SONG_FF_TRANSFER
+#_028459: LDA.b #$FF ; SONG FF - transfer
 #_02845B: STA.w APUIO0
 
 #_02845E: JSL LoadOverworldSongs
@@ -788,7 +788,7 @@ AdjustLinkBunnyStatus:
 ;===================================================================================================
 
 #ForceNonbunnyStatus:
-#_02846E: LDA.b #!LINKSTATE_00
+#_02846E: LDA.b #$00 ; LINKSTATE 00
 #_028470: STA.b $5D
 
 #_028472: STZ.w $03F5
@@ -1142,7 +1142,7 @@ Credits_LoadScene_Underworld:
 
 #_028620: LDX.w $0AA1
 
-#_028623: LDA.l GFXAA1_Sheets,X
+#_028623: LDA.l AnimatedTileSheets,X
 #_028627: TAY
 
 #_028628: JSL DecompressAnimatedUnderworldTiles
@@ -1204,16 +1204,16 @@ pool Module07_Underworld
 #_02867C: dw Module07_07_FallingTransition                ; 0x07
 #_02867E: dw Module07_08_NorthIntraRoomStairs             ; 0x08
 #_028680: dw Module07_09_OpenCrackedDoor                  ; 0x09
-#_028682: dw Module07_0A                                  ; 0x0A
+#_028682: dw Module07_0A_ChangeBrightness                 ; 0x0A
 #_028684: dw Module07_0B_DrainSwampPool                   ; 0x0B
 #_028686: dw Module07_0C_FloodSwampWater                  ; 0x0C
 #_028688: dw Module07_0D_FloodDam                         ; 0x0D
 #_02868A: dw Module07_0E_SpiralStairs                     ; 0x0E
-#_02868C: dw Module07_0F                                  ; 0x0F
+#_02868C: dw Module07_0F_LandingWipe                      ; 0x0F
 #_02868E: dw Module07_10_SouthIntraRoomStairs             ; 0x10
-#_028690: dw Module07_11                                  ; 0x11
-#_028692: dw Module07_11                                  ; 0x12
-#_028694: dw Module07_11                                  ; 0x13
+#_028690: dw Module07_11_StraightInterroomStairs          ; 0x11
+#_028692: dw Module07_11_StraightInterroomStairs          ; 0x12
+#_028694: dw Module07_11_StraightInterroomStairs          ; 0x13
 #_028696: dw Module07_14_RecoverFromFall                  ; 0x14
 #_028698: dw Module07_15_WarpPad                          ; 0x15
 #_02869A: dw Module07_16_UpdatePegs                       ; 0x16
@@ -1943,7 +1943,7 @@ DeleteCertainAncillaeStopDashing:
 #_028A25: STZ.w $032B
 #_028A28: STZ.w $0372
 
-#_028A2B: LDA.b #!LINKSTATE_00
+#_028A2B: LDA.b #$00 ; LINKSTATE 00
 #_028A2D: STA.b $5D
 
 ;---------------------------------------------------------------------------------------------------
@@ -2083,7 +2083,7 @@ Module07_02_0F:
 Underworld_SetBossOrSancMusicUponEntry:
 #_028AD9: REP #$20
 
-#_028ADB: LDX.b #!SONG_14
+#_028ADB: LDX.b #$14 ; SONG 14
 
 #_028ADD: LDA.b $A0
 
@@ -2091,7 +2091,7 @@ Underworld_SetBossOrSancMusicUponEntry:
 #_028ADF: CMP.w #$0012
 #_028AE2: BEQ .set_song
 
-#_028AE4: LDX.b #!SONG_10
+#_028AE4: LDX.b #$10 ; SONG 10
 
 ; Pre sanc?
 #_028AE6: CMP.w #$0002
@@ -2113,10 +2113,10 @@ Underworld_SetBossOrSancMusicUponEntry:
 
 #_028AF7: SEP #$20
 
-#_028AF9: JSL CheckIfRoomIsClear
+#_028AF9: JSL CheckIfScreenIsClear
 #_028AFD: BCS .exit
 
-#_028AFF: LDX.b #!SONG_15
+#_028AFF: LDX.b #$15 ; SONG 15
 
 .set_song
 #_028B01: STX.w $012C
@@ -2228,7 +2228,7 @@ Module07_0E_01_HandleMusicAndResetProps:
 #_028B86: BNE .dont_fade_music
 
 #_028B88: LDX.w $0130
-#_028B8B: CPX.b #!SONG_11
+#_028B8B: CPX.b #$11 ; SONG 11
 #_028B8D: BEQ .dont_fade_music
 
 .not_moldorm_room
@@ -2236,7 +2236,7 @@ Module07_0E_01_HandleMusicAndResetProps:
 #_028B93: LSR A
 #_028B94: BCS .dont_fade_music
 
-#_028B96: LDX.b #!SONG_F1
+#_028B96: LDX.b #$F1 ; SONG F1
 #_028B98: STX.w $012C
 
 ;---------------------------------------------------------------------------------------------------
@@ -2360,14 +2360,14 @@ UnderworldTransition_AdjustForFatStairScroll:
 #_028C39: LDA.b #$01
 #_028C3B: STA.b $57
 
-#_028C3D: LDY.b #!SFX2_17
+#_028C3D: LDY.b #$17 ; SFX2.17
 #_028C3F: LDX.b #$30
 
 #_028C41: LDA.w $0462
 #_028C44: AND.b #$04
 #_028C46: BEQ .going_upstairs
 
-#_028C48: LDY.b #!SFX2_19
+#_028C48: LDY.b #$19 ; SFX2.19
 
 #_028C4A: DEC.b $A4
 #_028C4C: DEC.b $A4
@@ -2380,7 +2380,7 @@ UnderworldTransition_AdjustForFatStairScroll:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_028C56: LDA.b #!SFX3_24
+#_028C56: LDA.b #$24 ; SFX3.24
 #_028C58: STA.w $012F
 
 #_028C5B: JSR Underworld_PlayBlipAndCacheQuadrantVisits
@@ -2563,7 +2563,7 @@ Module07_07_00_HandleMusicAndResetRoom:
 #_028D76: BNE .no_fade
 
 .fade_music
-#_028D78: LDX.b #!SONG_F1
+#_028D78: LDX.b #$F1 ; SONG F1
 #_028D7A: STX.w $012C
 
 .no_fade
@@ -2639,7 +2639,7 @@ Module07_07_0F_FallingFadeIn:
 #_028DCB: LDA.b #$01
 #_028DCD: STA.w $04A0
 
-#_028DD0: LDA.b #!SFX3_24
+#_028DD0: LDA.b #$24 ; SFX3.24
 #_028DD2: STA.w $012F
 
 #_028DD5: JSL SetAndSaveVisitedQuadrantFlags
@@ -2726,14 +2726,14 @@ Module07_08_NorthIntraRoomStairs:
 Module07_08_00_InitStairs:
 #_028E37: STZ.w $0351
 
-#_028E3A: LDY.b #!SFX2_19
+#_028E3A: LDY.b #$19 ; SFX2.19
 #_028E3C: LDX.b #$3C
 
 #_028E3E: LDA.b $67
 #_028E40: AND.b #$08
 #_028E42: BEQ .finish_up
 
-#_028E44: LDY.b #!SFX2_17
+#_028E44: LDY.b #$17 ; SFX2.17
 #_028E46: LDX.b #$38
 
 #_028E48: STZ.w $0476
@@ -2818,7 +2818,7 @@ Module07_10_SouthIntraRoomStairs:
 ;===================================================================================================
 
 Module07_10_00_InitStairs:
-#_028EB3: LDY.b #!SFX2_19
+#_028EB3: LDY.b #$19 ; SFX2.19
 
 #_028EB5: LDX.b #$3C
 
@@ -2826,7 +2826,7 @@ Module07_10_00_InitStairs:
 #_028EB9: AND.b #$04
 #_028EBB: BEQ .finish_up
 
-#_028EBD: LDY.b #!SFX2_17
+#_028EBD: LDY.b #$17 ; SFX2.17
 
 #_028EBF: LDX.b #$38
 
@@ -2899,7 +2899,7 @@ Module07_09_OpenCrackedDoor:
 
 ;===================================================================================================
 
-Module07_0A:
+Module07_0A_ChangeBrightness:
 #_028F16: JSL OrientLampLightCone
 #_028F1A: JSL ApplyGrayscaleFixed_Incremental
 
@@ -3025,7 +3025,7 @@ Module07_0E_02_ApplyFilterIf:
 
 Underworld_SyncBackgroundsFromSpiralStairs:
 #_028FC9: LDA.l $7EF3CC
-#_028FCD: CMP.b #!FOLLOWER_06
+#_028FCD: CMP.b #$06 ; FOLLOWER 06
 #_028FCF: BNE .not_blind_in_attic
 
 #_028FD1: LDA.b $A0
@@ -3151,7 +3151,7 @@ Underworld_AdvanceThenSetBossMusicUnorthodox:
 Underworld_SetBossMusicUnorthodox:
 #_029067: REP #$20
 
-#_029069: LDX.b #!SONG_1C
+#_029069: LDX.b #$1C ; SONG 1C
 
 #_02906B: LDA.b $A0
 
@@ -3159,13 +3159,13 @@ Underworld_SetBossMusicUnorthodox:
 #_02906D: CMP.w #$0010
 #_029070: BEQ .set_song
 
-#_029072: LDX.b #!SONG_15
+#_029072: LDX.b #$15 ; SONG 15
 
 ; Moldorm's room?
 #_029074: CMP.w #$0007
 #_029077: BEQ .check_last_command
 
-#_029079: LDX.b #!SONG_11
+#_029079: LDX.b #$11 ; SONG 11
 
 ; Hera 5F?
 #_02907B: CMP.w #$0017
@@ -3493,7 +3493,7 @@ SpiralStairs_MakeNearbyWallsHighPriority_Exiting:
 
 ;===================================================================================================
 
-pool Module07_0F
+pool Module07_0F_LandingWipe
 
 .vectors
 #_02921B: dw Module07_0F_00_InitSpotlight
@@ -3503,7 +3503,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Module07_0F:
+Module07_0F_LandingWipe:
 #_02921F: LDA.b $B0
 #_029221: ASL A
 #_029222: TAX
@@ -3543,7 +3543,7 @@ Module07_0F_01_OperateSpotlight:
 #_02924C: STZ.b $B0
 
 #_02924E: LDA.w $0132
-#_029251: CMP.b #!SONG_FF
+#_029251: CMP.b #$FF ; SONG FF
 #_029253: BEQ .exit
 
 #_029255: STA.w $012C
@@ -3552,10 +3552,9 @@ Module07_0F_01_OperateSpotlight:
 #_029258: RTS
 
 ;===================================================================================================
-; Seems like an unused module.
-; No clue what it does.
+; Stair
 ;===================================================================================================
-Module07_11:
+Module07_11_StraightInterroomStairs:
 #_029259: LDA.b $B0
 #_02925B: CMP.b #$03
 #_02925D: BCC .skip_attributes
@@ -3634,13 +3633,13 @@ Module07_11_00_PrepAndReset:
 #_0292C7: STA.b $5E
 
 .not_dashing
-#_0292C9: LDX.b #!SFX2_16
+#_0292C9: LDX.b #$16 ; SFX2.16
 
 #_0292CB: LDA.w $0462
 #_0292CE: AND.b #$04
 #_0292D0: BEQ .going_up
 
-#_0292D2: LDX.b #!SFX2_18
+#_0292D2: LDX.b #$18 ; SFX2.18
 
 .going_up
 #_0292D4: STX.w $012E
@@ -3660,7 +3659,7 @@ Module07_11_00_PrepAndReset:
 #_0292E3: BNE .no_song_fade
 
 .do_song_fade
-#_0292E5: LDX.b #!SONG_F1_FADE
+#_0292E5: LDX.b #$F1 ; SONG F1 - fade
 #_0292E7: STX.w $012C
 
 .no_song_fade
@@ -3742,7 +3741,7 @@ Module07_11_0B_PrepDestination:
 #_02934C: STY.b $1C
 #_02934E: STA.b $1D
 
-#_029350: LDY.b #!SFX2_17
+#_029350: LDY.b #$17 ; SFX2.17
 
 #_029352: INC.b $A4
 
@@ -3755,7 +3754,7 @@ Module07_11_0B_PrepDestination:
 #_02935D: AND.b #$04
 #_02935F: BEQ .going_up
 
-#_029361: LDY.b #!SFX2_19
+#_029361: LDY.b #$19 ; SFX2.19
 
 #_029363: DEC.b $A4
 #_029365: DEC.b $A4
@@ -3890,7 +3889,7 @@ Module07_11_19_SetSongAndFilter:
 
 #_0293FE: REP #$20
 
-#_029400: LDX.b #!SONG_1C
+#_029400: LDX.b #$1C ; SONG 1C
 
 #_029402: LDA.b $A0
 
@@ -3902,7 +3901,7 @@ Module07_11_19_SetSongAndFilter:
 #_029409: CMP.w #$0040
 #_02940C: BNE .skip_song
 
-#_02940E: LDX.b #!SONG_10
+#_02940E: LDX.b #$10 ; SONG 10
 
 .set_song
 #_029410: STX.w $012C
@@ -4849,7 +4848,7 @@ Underworld_PrepExitWithSpotlight:
 #_0298DD: LDX.w $010E
 
 #_0298E0: LDA.l EntranceData_song,X
-#_0298E4: CMP.b #!SONG_03
+#_0298E4: CMP.b #$03 ; SONG 03
 #_0298E6: BNE .check_if_half_vol
 
 #_0298E8: LDA.l $7EF3C5
@@ -4857,18 +4856,18 @@ Underworld_PrepExitWithSpotlight:
 #_0298EE: BCC .rain_state
 
 .check_if_half_vol
-#_0298F0: CMP.b #!SONG_F2
+#_0298F0: CMP.b #$F2 ; SONG F2
 #_0298F2: BNE .fade_song
 
 #_0298F4: LDX.w $0130
-#_0298F7: CPX.b #!SONG_0C
+#_0298F7: CPX.b #$0C ; SONG 0C
 #_0298F9: BNE .set_song
 
-#_0298FB: LDA.b #!SONG_07
+#_0298FB: LDA.b #$07 ; SONG 07
 #_0298FD: BRA .set_song
 
 .fade_song
-#_0298FF: LDA.b #!SONG_F1
+#_0298FF: LDA.b #$F1 ; SONG F1
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -4977,7 +4976,7 @@ Spotlight_ConfigureTableAndControl:
 
 #_029985: STZ.b $B0
 
-#_029987: LDA.b #!SFX3_15
+#_029987: LDA.b #$15 ; SFX3.15
 #_029989: STA.w $012F
 
 ;---------------------------------------------------------------------------------------------------
@@ -5092,7 +5091,7 @@ Module_11_00_SetSongAndInit:
 #_0299FC: LDX.w $010E
 
 #_0299FF: LDA.l EntranceData_song,X
-#_029A03: CMP.b #!SONG_03
+#_029A03: CMP.b #$03 ; SONG 03
 #_029A05: BNE .fade
 
 #_029A07: LDA.l $7EF3C5
@@ -5100,7 +5099,7 @@ Module_11_00_SetSongAndInit:
 #_029A0D: BCC .rain_state
 
 .fade
-#_029A0F: LDA.b #!SONG_F1_FADE
+#_029A0F: LDA.b #$F1 ; SONG F1 - fade
 #_029A11: STA.w $012C
 
 .rain_state
@@ -5192,7 +5191,7 @@ Module11_02_LoadEntrance:
 
 #_029A84: LDX.w $0AA1
 
-#_029A87: LDA.l GFXAA1_Sheets,X
+#_029A87: LDA.l AnimatedTileSheets,X
 #_029A8B: TAY
 
 #_029A8C: JSL DecompressAnimatedUnderworldTiles
@@ -5244,19 +5243,19 @@ Module11_02_LoadEntrance:
 
 Underworld_LoadSongBankIfNeeded:
 #_029AD2: LDA.w $0132
-#_029AD5: CMP.b #!SONG_FF_TRANSFER
+#_029AD5: CMP.b #$FF ; SONG FF - transfer
 #_029AD7: BEQ .exit
 
-#_029AD9: CMP.b #!SONG_F2_HALFVOL
+#_029AD9: CMP.b #$F2 ; SONG F2 - half volume
 #_029ADB: BEQ .exit
 
-#_029ADD: CMP.b #!SONG_03
+#_029ADD: CMP.b #$03 ; SONG 03
 #_029ADF: BEQ .overworld_song
 
-#_029AE1: CMP.b #!SONG_07
+#_029AE1: CMP.b #$07 ; SONG 07
 #_029AE3: BEQ .overworld_song
 
-#_029AE5: CMP.b #!SONG_0E
+#_029AE5: CMP.b #$0E ; SONG 0E
 #_029AE7: BEQ .overworld_song
 
 #_029AE9: LDA.w $0136
@@ -5268,7 +5267,7 @@ Underworld_LoadSongBankIfNeeded:
 
 #_029AF5: INC.w $0136
 
-#_029AF8: LDA.b #!SONG_FF_TRANSFER
+#_029AF8: LDA.b #$FF ; SONG FF - transfer
 #_029AFA: STA.w APUIO0
 
 #_029AFD: JSL LoadUnderworldSongs
@@ -5424,7 +5423,7 @@ Underworld_RunVictorySpin:
 #_029BA8: JSL Link_Main
 
 #_029BAC: LDA.b $5D
-#_029BAE: CMP.b #!LINKSTATE_00
+#_029BAE: CMP.b #$00 ; LINKSTATE 00
 #_029BB0: BNE .exit
 
 #_029BB2: LDA.l $7EF359
@@ -5432,7 +5431,7 @@ Underworld_RunVictorySpin:
 #_029BB7: AND.b #$FE
 #_029BB9: BEQ .skip_sfx
 
-#_029BBB: LDA.b #!SFX2_2C
+#_029BBB: LDA.b #$2C ; SFX2.2C
 #_029BBD: STA.w $012E
 
 .skip_sfx
@@ -5524,7 +5523,7 @@ Module15_00_Initialize:
 ;===================================================================================================
 
 Module15_01_SetTheScene:
-#_029C1D: LDA.b #!SONG_08
+#_029C1D: LDA.b #$08 ; SONG 08
 #_029C1F: STA.w $012C
 #_029C22: STA.w $0410
 
@@ -5538,7 +5537,7 @@ Module15_01_SetTheScene:
 
 #_029C33: INC.b $11
 
-#_029C35: LDA.b #!LINKSTATE_14
+#_029C35: LDA.b #$14 ; LINKSTATE 14
 #_029C37: STA.b $5D
 
 #_029C39: REP #$20
@@ -5627,7 +5626,7 @@ Module15_06:
 
 #_029CB5: INC.b $11
 
-#_029CB7: LDA.b #!SFX1_09
+#_029CB7: LDA.b #$09 ; SFX1.09
 #_029CB9: STA.w $012D
 
 .exit
@@ -5643,7 +5642,7 @@ Module15_07:
 
 #_029CC5: STZ.w $0200
 
-#_029CC8: LDA.b #!SFX1_05
+#_029CC8: LDA.b #$05 ; SFX1.05
 #_029CCA: STA.w $012D
 
 #_029CCD: LDX.b #$09
@@ -5756,12 +5755,12 @@ Module15_0C:
 
 #_029D40: STZ.b $E6
 
-#_029D42: LDX.b #!SONG_09
+#_029D42: LDX.b #$09 ; SONG 09
 
 #_029D44: LDA.l $7EF357
 #_029D48: BNE .have_pearl
 
-#_029D4A: LDX.b #!SONG_04
+#_029D4A: LDX.b #$04 ; SONG 04
 
 .have_pearl
 #_029D4C: STX.w $012C
@@ -5849,7 +5848,7 @@ Module16_04_FadeAndEnd:
 
 #_029DA4: JSL Palette_RevertTranslucencySwap
 
-#_029DA8: LDA.b #!LINKSTATE_00
+#_029DA8: LDA.b #$00 ; LINKSTATE 00
 #_029DAA: STA.b $5D
 
 #_029DAC: STZ.w $02D8
@@ -6018,7 +6017,7 @@ Module18_03:
 
 #_029E79: JSR LoadOWMusicIfNeeded
 
-#_029E7C: LDA.b #!SONG_09
+#_029E7C: LDA.b #$09 ; SONG 09
 #_029E7E: STA.w $012C
 
 #_029E81: RTS
@@ -6160,7 +6159,7 @@ Module19_00_ResetAndInit:
 
 #_029F1C: STZ.b $66
 
-#_029F1E: LDA.b #!SONG_F1_FADE
+#_029F1E: LDA.b #$F1 ; SONG F1 - fade
 #_029F20: STA.w $012C
 
 #_029F23: JMP.w ResetTransitionPropsAndAdvance_ResetInterface
@@ -6181,7 +6180,7 @@ Module19_02_LoadMusicAndScreen:
 
 #_029F31: STZ.w NMITIMEN
 
-#_029F34: LDA.b #!SONG_FF_TRANSFER
+#_029F34: LDA.b #$FF ; SONG FF - transfer
 #_029F36: STA.w APUIO0
 
 #_029F39: JSL LoadCreditsSongs
@@ -6274,7 +6273,7 @@ Module19_04_LoadAndSongAndAdvance:
 #_029FB4: LDA.b #$02
 #_029FB6: STA.b $EE
 
-#_029FB8: LDA.b #!SONG_20
+#_029FB8: LDA.b #$20 ; SONG 20
 #_029FBA: STA.w $012C
 
 ;===================================================================================================
@@ -6383,7 +6382,7 @@ Module19_TriforceExpansionControl:
 #_02A034: CMP.b #$0B
 #_02A036: BNE .exit
 
-#_02A038: LDA.b #!SONG_21
+#_02A038: LDA.b #$21 ; SONG 21
 #_02A03A: STA.w $012C
 
 #_02A03D: LDA.b #$19
@@ -6494,7 +6493,7 @@ Mirror_SaveRoomData:
 #_02A0B1: STA.b $11
 #_02A0B3: STZ.b $B0
 
-#_02A0B5: LDA.b #!SFX2_33
+#_02A0B5: LDA.b #$33 ; SFX2.33
 #_02A0B7: STA.w $012E
 
 #_02A0BA: JSL Underworld_FlagRoomData_Quadrants
@@ -6524,7 +6523,7 @@ Mirror_SaveRoomData:
 ;---------------------------------------------------------------------------------------------------
 
 .play_beep
-#_02A0D6: LDA.b #!SFX2_3C
+#_02A0D6: LDA.b #$3C ; SFX2.3C
 #_02A0D8: STA.w $012E
 
 #_02A0DB: RTL
@@ -6623,7 +6622,7 @@ Underworld_HandleTranslucencyAndPalettes:
 #_02A162: STZ.w $0AA9
 
 #_02A165: JSL Palettes_Load_UnderworldSet
-#_02A169: JSL Palettes_Load_SpriteAux3
+#_02A169: JSL Palettes_Load_SpritePal0Left
 #_02A16D: JSL Palettes_Load_SpriteAux1
 #_02A171: JSL Palettes_Load_SpriteAux2
 
@@ -7122,7 +7121,7 @@ OverworldOverlay_HandleRain:
 #_02A3F6: BRA .set_color_math
 
 .thunder
-#_02A3F8: LDX.b #!SFX2_36
+#_02A3F8: LDX.b #$36 ; SFX2.36
 #_02A3FA: STX.w $012E
 
 .flash
@@ -7431,6 +7430,8 @@ OverworldScreenSizeFlag:
 #_02A76B: db $20, $20, $00, $00, $00, $20, $20, $00
 #_02A773: db $20, $20, $00, $00, $00, $20, $20, $00
 
+;===================================================================================================
+
 OverworldScreenSizeHighByte:
 #_02A77B: db $03, $03, $01, $03, $03, $03, $03, $01
 #_02A783: db $03, $03, $01, $03, $03, $03, $03, $01
@@ -7444,42 +7445,26 @@ OverworldScreenSizeHighByte:
 ;===================================================================================================
 
 OverworldTransitionPositionY:
-#_02A7BB: dw $0000, $0000, $0000, $0000
-#_02A7C3: dw $0000, $0000, $0000, $0000
-#_02A7CB: dw $0000, $0000, $0200, $0000
-#_02A7D3: dw $0000, $0000, $0000, $0200
-#_02A7DB: dw $0400, $0400, $0400, $0400
-#_02A7E3: dw $0400, $0400, $0400, $0400
-#_02A7EB: dw $0600, $0600, $0600, $0600
-#_02A7F3: dw $0600, $0600, $0600, $0600
-#_02A7FB: dw $0600, $0600, $0800, $0600
-#_02A803: dw $0600, $0800, $0600, $0600
-#_02A80B: dw $0A00, $0A00, $0A00, $0A00
-#_02A813: dw $0A00, $0A00, $0A00, $0A00
-#_02A81B: dw $0C00, $0C00, $0C00, $0C00
-#_02A823: dw $0C00, $0C00, $0C00, $0C00
-#_02A82B: dw $0C00, $0C00, $0E00, $0E00
-#_02A833: dw $0E00, $0C00, $0C00, $0E00
+#_02A7BB: dw $0000, $0000, $0000, $0000, $0000, $0000, $0000, $0000
+#_02A7CB: dw $0000, $0000, $0200, $0000, $0000, $0000, $0000, $0200
+#_02A7DB: dw $0400, $0400, $0400, $0400, $0400, $0400, $0400, $0400
+#_02A7EB: dw $0600, $0600, $0600, $0600, $0600, $0600, $0600, $0600
+#_02A7FB: dw $0600, $0600, $0800, $0600, $0600, $0800, $0600, $0600
+#_02A80B: dw $0A00, $0A00, $0A00, $0A00, $0A00, $0A00, $0A00, $0A00
+#_02A81B: dw $0C00, $0C00, $0C00, $0C00, $0C00, $0C00, $0C00, $0C00
+#_02A82B: dw $0C00, $0C00, $0E00, $0E00, $0E00, $0C00, $0C00, $0E00
 
 ;===================================================================================================
 
 OverworldTransitionPositionX:
-#_02A83B: dw $0000, $0000, $0400, $0600
-#_02A843: dw $0600, $0A00, $0A00, $0E00
-#_02A84B: dw $0000, $0000, $0400, $0600
-#_02A853: dw $0600, $0A00, $0A00, $0E00
-#_02A85B: dw $0000, $0200, $0400, $0600
-#_02A863: dw $0800, $0A00, $0C00, $0E00
-#_02A86B: dw $0000, $0000, $0400, $0600
-#_02A873: dw $0600, $0A00, $0C00, $0C00
-#_02A87B: dw $0000, $0000, $0400, $0600
-#_02A883: dw $0600, $0A00, $0C00, $0C00
-#_02A88B: dw $0000, $0200, $0400, $0600
-#_02A893: dw $0800, $0A00, $0C00, $0E00
-#_02A89B: dw $0000, $0000, $0400, $0600
-#_02A8A3: dw $0800, $0A00, $0A00, $0E00
-#_02A8AB: dw $0000, $0000, $0400, $0600
-#_02A8B3: dw $0800, $0A00, $0A00, $0E00
+#_02A83B: dw $0000, $0000, $0400, $0600, $0600, $0A00, $0A00, $0E00
+#_02A84B: dw $0000, $0000, $0400, $0600, $0600, $0A00, $0A00, $0E00
+#_02A85B: dw $0000, $0200, $0400, $0600, $0800, $0A00, $0C00, $0E00
+#_02A86B: dw $0000, $0000, $0400, $0600, $0600, $0A00, $0C00, $0C00
+#_02A87B: dw $0000, $0000, $0400, $0600, $0600, $0A00, $0C00, $0C00
+#_02A88B: dw $0000, $0200, $0400, $0600, $0800, $0A00, $0C00, $0E00
+#_02A89B: dw $0000, $0000, $0400, $0600, $0800, $0A00, $0A00, $0E00
+#_02A8AB: dw $0000, $0000, $0400, $0600, $0800, $0A00, $0A00, $0E00
 
 ;===================================================================================================
 
@@ -7623,7 +7608,7 @@ OverworldHandleTransitions:
 #_02A96B: CMP.b #$2A
 #_02A96D: BNE .not_haunted_grove
 
-#_02A96F: LDA.b #!SFX1_80_FADE
+#_02A96F: LDA.b #$80 ; SFX1.80 - fade
 #_02A971: STA.w $012D
 
 .not_haunted_grove
@@ -7632,10 +7617,10 @@ OverworldHandleTransitions:
 #_02A978: BNE .dont_restore_dw_music
 
 #_02A97A: LDA.w $0130
-#_02A97D: CMP.b #!SONG_0E
+#_02A97D: CMP.b #$0E ; SONG 0E
 #_02A97F: BNE .dont_restore_dw_music
 
-#_02A981: LDA.b #!SONG_09
+#_02A981: LDA.b #$09 ; SONG 09
 #_02A983: STA.w $012C
 
 ;---------------------------------------------------------------------------------------------------
@@ -7649,7 +7634,7 @@ OverworldHandleTransitions:
 #_02A990: CMP.b #$03
 #_02A992: BCS .dont_fade_song_a
 
-#_02A994: LDA.b #!SONG_F1_FADE
+#_02A994: LDA.b #$F1 ; SONG F1 - fade
 #_02A996: STA.w $012C
 
 .dont_fade_song_a
@@ -7666,7 +7651,7 @@ OverworldHandleTransitions:
 #_02A9AE: CMP.b #$03
 #_02A9B0: BCS .dont_fade_song_b
 
-#_02A9B2: LDA.b #!SONG_F1_FADE
+#_02A9B2: LDA.b #$F1 ; SONG F1 - fade
 #_02A9B4: STA.w $012C
 
 ;---------------------------------------------------------------------------------------------------
@@ -8360,7 +8345,7 @@ OverworldMosaicTransition_HandleSong:
 #_02AD9E: BNE .dont_fade_song
 
 .fade_song
-#_02ADA0: LDA.b #!SONG_F1_FADE
+#_02ADA0: LDA.b #$F1 ; SONG F1 - fade
 #_02ADA2: STA.w $012C
 
 .dont_fade_song
@@ -8494,7 +8479,7 @@ Module09_25:
 ;===================================================================================================
 
 Overworld_LoadSubscreenAndSilenceSFX1:
-#_02AE3B: LDA.b #!SFX1_05
+#_02AE3B: LDA.b #$05 ; SFX1.05
 #_02AE3D: STA.w $012D
 
 ;===================================================================================================
@@ -8578,7 +8563,7 @@ Overworld_ReloadSubscreenOverlay:
 .disable_with_sfx
 #_02AEB7: SEP #$30
 
-#_02AEB9: LDA.b #!SFX1_01
+#_02AEB9: LDA.b #$01 ; SFX1.01
 #_02AEBB: STA.w $012D
 
 ;---------------------------------------------------------------------------------------------------
@@ -8704,7 +8689,7 @@ Overworld_ReloadSubscreenOverlay:
 #_02AF63: CPX.b #$9F
 #_02AF65: BNE .no_rain_sfx
 
-#_02AF67: LDA.b #!SFX1_01
+#_02AF67: LDA.b #$01 ; SFX1.01
 #_02AF69: STA.w $012D
 
 .no_rain_sfx
@@ -8842,12 +8827,12 @@ OverworldMosaicTransition_RecoverSongAndSetMoving:
 #_02B029: CMP.b #$80
 #_02B02B: BEQ .dont_set_song
 
-#_02B02D: LDX.b #!SONG_02
+#_02B02D: LDX.b #$02 ; SONG 02
 
 #_02B02F: CMP.b #$40
 #_02B031: BCC .light_world
 
-#_02B033: LDX.b #!SONG_09
+#_02B033: LDX.b #$09 ; SONG 09
 
 .light_world
 #_02B035: STX.w $012C
@@ -8867,12 +8852,12 @@ OverworldMosaicTransition_RecoverSongAndSetMoving:
 
 #_02B04E: STZ.w $012C
 
-#_02B051: LDX.b #!SONG_02 ; !USELESS ?
+#_02B051: LDX.b #$02 ; SONG 02 - !USELESS ?
 
 #_02B053: BRA .dont_set_song
 
 .ped_not_pulled
-#_02B055: LDX.b #!SONG_05
+#_02B055: LDX.b #$05 ; SONG 05
 
 .in_dark_world
 #_02B057: STX.w $012C
@@ -8965,7 +8950,7 @@ Module09_1C_02_HandleMusic:
 #_02B0C6: CMP.b #$80
 #_02B0C8: BEQ .no_song_change
 
-#_02B0CA: LDA.b #!SONG_02
+#_02B0CA: LDA.b #$02 ; SONG 02
 #_02B0CC: STA.w $012C
 
 ; are we in the woods?
@@ -8973,7 +8958,7 @@ Module09_1C_02_HandleMusic:
 #_02B0D1: AND.b #$3F
 #_02B0D3: BNE .no_song_change
 
-#_02B0D5: LDA.b #!SONG_05
+#_02B0D5: LDA.b #$05 ; SONG 05
 #_02B0D7: STA.w $012C
 
 .no_song_change
@@ -9094,7 +9079,7 @@ MirrorWarp_Initialize:
 ;---------------------------------------------------------------------------------------------------
 
 .not_special
-#_02B14B: LDA.b #!SONG_08
+#_02B14B: LDA.b #$08 ; SONG 08
 #_02B14D: STA.w $012C
 #_02B150: STA.w $0ABF
 
@@ -9167,7 +9152,7 @@ MirrorWarp_FinalizeAndLoadDestination:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_02B1C1: LDX.b #!SONG_04
+#_02B1C1: LDX.b #$04 ; SONG 04
 
 #_02B1C3: LDA.l $7EF3CA
 #_02B1C7: BEQ .light_world
@@ -9177,22 +9162,22 @@ MirrorWarp_FinalizeAndLoadDestination:
 
 .light_world
 ; check screen ID for dark world too
-#_02B1CF: LDX.b #!SONG_09
+#_02B1CF: LDX.b #$09 ; SONG 09
 #_02B1D1: LDA.b $8A
 #_02B1D3: CMP.b #$40
 #_02B1D5: BCS .set_song
 
 ; check for kak screen
-#_02B1D7: LDX.b #!SONG_02
+#_02B1D7: LDX.b #$02 ; SONG 02
 #_02B1D9: CMP.b #$18
 #_02B1DB: BNE .set_song
 
 ; check for rain state
 #_02B1DD: LDA.l $7EF3C5
-#_02B1E1: CMP.b #!SONG_03
+#_02B1E1: CMP.b #$03 ; SONG 03
 #_02B1E3: BCS .set_song
 
-#_02B1E5: LDX.b #!SONG_07
+#_02B1E5: LDX.b #$07 ; SONG 07
 
 .set_song
 #_02B1E7: STX.w $012C
@@ -9216,16 +9201,16 @@ MirrorWarp_FinalizeAndLoadDestination:
 #_02B1FA: BNE .no_second_song_change
 
 .dark_dm
-#_02B1FC: LDA.b #!SFX1_09
+#_02B1FC: LDA.b #$09 ; SFX1.09
 #_02B1FE: STA.w $012D
 
 .use_sw_march
-#_02B201: LDX.b #!SONG_0D
+#_02B201: LDX.b #$0D ; SONG 0D
 
 #_02B203: LDA.l $7EF357
 #_02B207: BNE .have_pearl
 
-#_02B209: LDX.b #!SONG_04
+#_02B209: LDX.b #$04 ; SONG 04
 
 .have_pearl
 #_02B20B: STX.w $012C
@@ -9469,7 +9454,7 @@ MirrorWarp_LoadSpritesAndColors:
 
 #_02B342: JSR DeleteCertainAncillaeStopDashing
 
-#_02B345: LDA.b #!LINKSTATE_14
+#_02B345: LDA.b #$14 ; LINKSTATE 14
 #_02B347: STA.b $5D
 
 ; no mirror in dark world
@@ -9516,7 +9501,7 @@ Module09_2E_Whirlpool:
 ;===================================================================================================
 
 Module09_2E_00_InitWhirlpool:
-#_02B37C: LDA.b #!SFX2_34
+#_02B37C: LDA.b #$34 ; SFX2.34
 #_02B37E: STA.w $012E
 
 #_02B381: STZ.w $0200
@@ -9636,8 +9621,8 @@ Module09_2E_09_LoadPalettes:
 #_02B3F3: STZ.w $0AA9
 
 #_02B3F6: JSL Palettes_Load_SpriteMain
-#_02B3FA: JSL Palettes_Load_SpriteMisc
-#_02B3FE: JSL Palettes_Load_SpriteAux3
+#_02B3FA: JSL Palettes_Load_SpriteEnvironment
+#_02B3FE: JSL Palettes_Load_SpritePal0Left
 #_02B402: JSL Palettes_Load_HUD
 #_02B406: JSL Palettes_Load_OWBGMain
 
@@ -9683,12 +9668,12 @@ Module09_2E_0C_FinalizeWarp:
 #_02B43D: LDA.b #$80
 #_02B43F: STA.b $9B
 
-#_02B441: LDX.b #!SONG_02
+#_02B441: LDX.b #$02 ; SONG 02
 
 #_02B443: LDA.l $7EF3CA
 #_02B447: BEQ .light_world
 
-#_02B449: LDX.b #!SONG_09
+#_02B449: LDX.b #$09 ; SONG 09
 
 .light_world
 #_02B44B: STX.w $012C
@@ -12223,36 +12208,36 @@ CalculateTransitionLanding:
 
 #_02C14C: LDY.b #$00
 
-#_02C14E: CMP.b #!TILETYPE_00
+#_02C14E: CMP.b #$00 ; TILETYPE 00
 #_02C150: BEQ .save
 
-#_02C152: CMP.b #!TILETYPE_09
+#_02C152: CMP.b #$09 ; TILETYPE 09
 #_02C154: BEQ .save
 
 #_02C156: INY
 
 ; Y=01
 #_02C157: AND.b #$8E
-#_02C159: CMP.b #!TILETYPE_80
+#_02C159: CMP.b #$80 ; TILETYPE 80
 #_02C15B: BEQ .save
 
 #_02C15D: INY
 
 ; Y=02
-#_02C15E: CMP.b #!TILETYPE_82
+#_02C15E: CMP.b #$82 ; TILETYPE 82
 #_02C160: BEQ .save
 
 ; Y=03
 #_02C162: INY
-#_02C163: CMP.b #!TILETYPE_84
+#_02C163: CMP.b #$84 ; TILETYPE 84
 #_02C165: BEQ .save
 
-#_02C167: CMP.b #!TILETYPE_88
+#_02C167: CMP.b #$88 ; TILETYPE 88
 #_02C169: BEQ .save
 
 ; Y=04
 #_02C16B: INY
-#_02C16C: CMP.b #!TILETYPE_86
+#_02C16C: CMP.b #$86 ; TILETYPE 86
 #_02C16E: BEQ .save
 
 #_02C170: DEY
@@ -12332,10 +12317,10 @@ Overworld_FinalizeEntryOntoScreen:
 
 #_02C1B3: LDA.w $0130
 
-#_02C1B6: CMP.b #!SONG_F1
+#_02C1B6: CMP.b #$F1 ; SONG F1
 #_02C1B8: BNE .no_song
 
-#_02C1BA: LDX.b #!SONG_02
+#_02C1BA: LDX.b #$02 ; SONG 02
 
 ; Are we in kak?
 #_02C1BC: LDA.b $8A
@@ -12346,7 +12331,7 @@ Overworld_FinalizeEntryOntoScreen:
 #_02C1C6: CMP.b #$03
 #_02C1C8: BCS .set_song
 
-#_02C1CA: LDX.b #!SONG_07
+#_02C1CA: LDX.b #$07 ; SONG 07
 
 .set_song
 #_02C1CC: STX.w $012C
@@ -12536,11 +12521,11 @@ Underworld_SaveAndLoadLoadAllPalettes:
 ;---------------------------------------------------------------------------------------------------
 
 Underworld_LoadAllPalettes:
-#_02C2CE: JSL Palettes_Load_SpriteAux3
+#_02C2CE: JSL Palettes_Load_SpritePal0Left
 #_02C2D2: JSL Palettes_Load_SpriteMain
 #_02C2D6: JSL Palettes_Load_SpriteAux1
 #_02C2DA: JSL Palettes_Load_SpriteAux2
-#_02C2DE: JSL Palettes_Load_SpriteMiscSP6
+#_02C2DE: JSL Palettes_Load_SpriteEnvironment_Underworld
 #_02C2E2: JSL Palettes_Load_HUD
 #_02C2E6: JSL Palettes_Load_UnderworldSet
 
@@ -12634,7 +12619,7 @@ Overworld_LoadAllPalettes:
 #_02C36F: JSL Palettes_Load_OWBG2
 #_02C373: JSL Palettes_Load_OWBG3
 
-#_02C377: JSL Palettes_Load_SpriteMiscSP6
+#_02C377: JSL Palettes_Load_SpriteEnvironment_Underworld
 
 #_02C37B: JSL Palettes_Load_HUD
 
@@ -12664,7 +12649,7 @@ Underworld_LoadPalettes:
 
 #_02C397: JSL SetBGandFixedColorBlack
 
-#_02C39B: JSL Palettes_Load_SpriteAux3
+#_02C39B: JSL Palettes_Load_SpritePal0Left
 #_02C39F: JSL Palettes_Load_SpriteMain
 #_02C3A3: JSL Palettes_Load_SpriteAux1
 #_02C3A7: JSL Palettes_Load_SpriteAux2
@@ -12672,7 +12657,7 @@ Underworld_LoadPalettes:
 #_02C3AB: JSL Palettes_Load_Sword
 #_02C3AF: JSL Palettes_Load_Shield
 
-#_02C3B3: JSL Palettes_Load_SpriteMisc
+#_02C3B3: JSL Palettes_Load_SpriteEnvironment
 #_02C3B7: JSL Palettes_Load_LinkArmorAndGloves
 
 #_02C3BB: JSL Palettes_Load_HUD
@@ -12743,7 +12728,7 @@ OverworldLoadScreensPaletteSet_Preloaded:
 #_02C414: STZ.w $0AA9
 
 #_02C417: JSL Palettes_Load_SpriteMain
-#_02C41B: JSL Palettes_Load_SpriteMisc
+#_02C41B: JSL Palettes_Load_SpriteEnvironment
 
 #_02C41F: JSL Palettes_Load_SpriteAux1
 #_02C423: JSL Palettes_Load_SpriteAux2
@@ -12763,7 +12748,7 @@ OverworldLoadScreensPaletteSet_Preloaded:
 .light_world
 #_02C43F: STX.w $0AAC
 
-#_02C442: JSL Palettes_Load_SpriteAux3
+#_02C442: JSL Palettes_Load_SpritePal0Left
 #_02C446: JSL Palettes_Load_HUD
 #_02C44A: JSL Palettes_Load_OWBGMain
 
@@ -15188,139 +15173,139 @@ EntranceData:
 
 .song
 ; writes to $0132
-#_02D592: db !SONG_FF ; 0x00
-#_02D593: db !SONG_07 ; 0x01
-#_02D594: db !SONG_14 ; 0x02
-#_02D595: db !SONG_10 ; 0x03
-#_02D596: db !SONG_10 ; 0x04
-#_02D597: db !SONG_10 ; 0x05
-#_02D598: db !SONG_12 ; 0x06
-#_02D599: db !SONG_12 ; 0x07
-#_02D59A: db !SONG_11 ; 0x08
-#_02D59B: db !SONG_11 ; 0x09
-#_02D59C: db !SONG_11 ; 0x0A
-#_02D59D: db !SONG_11 ; 0x0B
-#_02D59E: db !SONG_11 ; 0x0C
-#_02D59F: db !SONG_F2 ; 0x0D
-#_02D5A0: db !SONG_F2 ; 0x0E
-#_02D5A1: db !SONG_F2 ; 0x0F
-#_02D5A2: db !SONG_F2 ; 0x10
-#_02D5A3: db !SONG_18 ; 0x11
-#_02D5A4: db !SONG_1B ; 0x12
-#_02D5A5: db !SONG_12 ; 0x13
-#_02D5A6: db !SONG_12 ; 0x14
-#_02D5A7: db !SONG_16 ; 0x15
-#_02D5A8: db !SONG_12 ; 0x16
-#_02D5A9: db !SONG_12 ; 0x17
-#_02D5AA: db !SONG_16 ; 0x18
-#_02D5AB: db !SONG_16 ; 0x19
-#_02D5AC: db !SONG_12 ; 0x1A
-#_02D5AD: db !SONG_12 ; 0x1B
-#_02D5AE: db !SONG_12 ; 0x1C
-#_02D5AF: db !SONG_12 ; 0x1D
-#_02D5B0: db !SONG_12 ; 0x1E
-#_02D5B1: db !SONG_12 ; 0x1F
-#_02D5B2: db !SONG_12 ; 0x20
-#_02D5B3: db !SONG_12 ; 0x21
-#_02D5B4: db !SONG_12 ; 0x22
-#_02D5B5: db !SONG_12 ; 0x23
-#_02D5B6: db !SONG_10 ; 0x24
-#_02D5B7: db !SONG_16 ; 0x25
-#_02D5B8: db !SONG_16 ; 0x26
-#_02D5B9: db !SONG_16 ; 0x27
-#_02D5BA: db !SONG_16 ; 0x28
-#_02D5BB: db !SONG_16 ; 0x29
-#_02D5BC: db !SONG_16 ; 0x2A
-#_02D5BD: db !SONG_16 ; 0x2B
-#_02D5BE: db !SONG_18 ; 0x2C
-#_02D5BF: db !SONG_16 ; 0x2D
-#_02D5C0: db !SONG_12 ; 0x2E
-#_02D5C1: db !SONG_12 ; 0x2F
-#_02D5C2: db !SONG_12 ; 0x30
-#_02D5C3: db !SONG_12 ; 0x31
-#_02D5C4: db !SONG_03 ; 0x32
-#_02D5C5: db !SONG_11 ; 0x33
-#_02D5C6: db !SONG_16 ; 0x34
-#_02D5C7: db !SONG_16 ; 0x35
-#_02D5C8: db !SONG_1C ; 0x36
-#_02D5C9: db !SONG_16 ; 0x37
-#_02D5CA: db !SONG_1B ; 0x38
-#_02D5CB: db !SONG_12 ; 0x39
-#_02D5CC: db !SONG_12 ; 0x3A
-#_02D5CD: db !SONG_12 ; 0x3B
-#_02D5CE: db !SONG_0E ; 0x3C
-#_02D5CF: db !SONG_12 ; 0x3D
-#_02D5D0: db !SONG_F2 ; 0x3E
-#_02D5D1: db !SONG_F2 ; 0x3F
-#_02D5D2: db !SONG_F2 ; 0x40
-#_02D5D3: db !SONG_12 ; 0x41
-#_02D5D4: db !SONG_F2 ; 0x42
-#_02D5D5: db !SONG_F2 ; 0x43
-#_02D5D6: db !SONG_F2 ; 0x44
-#_02D5D7: db !SONG_18 ; 0x45
-#_02D5D8: db !SONG_17 ; 0x46
-#_02D5D9: db !SONG_0E ; 0x47
-#_02D5DA: db !SONG_F2 ; 0x48
-#_02D5DB: db !SONG_F2 ; 0x49
-#_02D5DC: db !SONG_F2 ; 0x4A
-#_02D5DD: db !SONG_F2 ; 0x4B
-#_02D5DE: db !SONG_F2 ; 0x4C
-#_02D5DF: db !SONG_18 ; 0x4D
-#_02D5E0: db !SONG_18 ; 0x4E
-#_02D5E1: db !SONG_12 ; 0x4F
-#_02D5E2: db !SONG_12 ; 0x50
-#_02D5E3: db !SONG_18 ; 0x51
-#_02D5E4: db !SONG_18 ; 0x52
-#_02D5E5: db !SONG_F2 ; 0x53
-#_02D5E6: db !SONG_F2 ; 0x54
-#_02D5E7: db !SONG_1B ; 0x55
-#_02D5E8: db !SONG_1B ; 0x56
-#_02D5E9: db !SONG_17 ; 0x57
-#_02D5EA: db !SONG_12 ; 0x58
-#_02D5EB: db !SONG_0E ; 0x59
-#_02D5EC: db !SONG_12 ; 0x5A
-#_02D5ED: db !SONG_18 ; 0x5B
-#_02D5EE: db !SONG_18 ; 0x5C
-#_02D5EF: db !SONG_18 ; 0x5D
-#_02D5F0: db !SONG_1B ; 0x5E
-#_02D5F1: db !SONG_12 ; 0x5F
-#_02D5F2: db !SONG_17 ; 0x60
-#_02D5F3: db !SONG_F2 ; 0x61
-#_02D5F4: db !SONG_12 ; 0x62
-#_02D5F5: db !SONG_18 ; 0x63
-#_02D5F6: db !SONG_F2 ; 0x64
-#_02D5F7: db !SONG_17 ; 0x65
-#_02D5F8: db !SONG_17 ; 0x66
-#_02D5F9: db !SONG_0E ; 0x67
-#_02D5FA: db !SONG_18 ; 0x68
-#_02D5FB: db !SONG_12 ; 0x69
-#_02D5FC: db !SONG_12 ; 0x6A
-#_02D5FD: db !SONG_F2 ; 0x6B
-#_02D5FE: db !SONG_12 ; 0x6C
-#_02D5FF: db !SONG_12 ; 0x6D
-#_02D600: db !SONG_12 ; 0x6E
-#_02D601: db !SONG_12 ; 0x6F
-#_02D602: db !SONG_12 ; 0x70
-#_02D603: db !SONG_1B ; 0x71
-#_02D604: db !SONG_12 ; 0x72
-#_02D605: db !SONG_FF ; 0x73
-#_02D606: db !SONG_FF ; 0x74
-#_02D607: db !SONG_FF ; 0x75
-#_02D608: db !SONG_16 ; 0x76
-#_02D609: db !SONG_16 ; 0x77
-#_02D60A: db !SONG_16 ; 0x78
-#_02D60B: db !SONG_16 ; 0x79
-#_02D60C: db !SONG_18 ; 0x7A
-#_02D60D: db !SONG_15 ; 0x7B
-#_02D60E: db !SONG_1B ; 0x7C
-#_02D60F: db !SONG_03 ; 0x7D
-#_02D610: db !SONG_18 ; 0x7E
-#_02D611: db !SONG_1B ; 0x7F
-#_02D612: db !SONG_12 ; 0x80
-#_02D613: db !SONG_10 ; 0x81
-#_02D614: db !SONG_12 ; 0x82
-#_02D615: db !SONG_12 ; 0x83
-#_02D616: db !SONG_1B ; 0x84
+#_02D592: db $FF ; 0x00 - SONG FF
+#_02D593: db $07 ; 0x01 - SONG 07
+#_02D594: db $14 ; 0x02 - SONG 14
+#_02D595: db $10 ; 0x03 - SONG 10
+#_02D596: db $10 ; 0x04 - SONG 10
+#_02D597: db $10 ; 0x05 - SONG 10
+#_02D598: db $12 ; 0x06 - SONG 12
+#_02D599: db $12 ; 0x07 - SONG 12
+#_02D59A: db $11 ; 0x08 - SONG 11
+#_02D59B: db $11 ; 0x09 - SONG 11
+#_02D59C: db $11 ; 0x0A - SONG 11
+#_02D59D: db $11 ; 0x0B - SONG 11
+#_02D59E: db $11 ; 0x0C - SONG 11
+#_02D59F: db $F2 ; 0x0D - SONG F2
+#_02D5A0: db $F2 ; 0x0E - SONG F2
+#_02D5A1: db $F2 ; 0x0F - SONG F2
+#_02D5A2: db $F2 ; 0x10 - SONG F2
+#_02D5A3: db $18 ; 0x11 - SONG 18
+#_02D5A4: db $1B ; 0x12 - SONG 1B
+#_02D5A5: db $12 ; 0x13 - SONG 12
+#_02D5A6: db $12 ; 0x14 - SONG 12
+#_02D5A7: db $16 ; 0x15 - SONG 16
+#_02D5A8: db $12 ; 0x16 - SONG 12
+#_02D5A9: db $12 ; 0x17 - SONG 12
+#_02D5AA: db $16 ; 0x18 - SONG 16
+#_02D5AB: db $16 ; 0x19 - SONG 16
+#_02D5AC: db $12 ; 0x1A - SONG 12
+#_02D5AD: db $12 ; 0x1B - SONG 12
+#_02D5AE: db $12 ; 0x1C - SONG 12
+#_02D5AF: db $12 ; 0x1D - SONG 12
+#_02D5B0: db $12 ; 0x1E - SONG 12
+#_02D5B1: db $12 ; 0x1F - SONG 12
+#_02D5B2: db $12 ; 0x20 - SONG 12
+#_02D5B3: db $12 ; 0x21 - SONG 12
+#_02D5B4: db $12 ; 0x22 - SONG 12
+#_02D5B5: db $12 ; 0x23 - SONG 12
+#_02D5B6: db $10 ; 0x24 - SONG 10
+#_02D5B7: db $16 ; 0x25 - SONG 16
+#_02D5B8: db $16 ; 0x26 - SONG 16
+#_02D5B9: db $16 ; 0x27 - SONG 16
+#_02D5BA: db $16 ; 0x28 - SONG 16
+#_02D5BB: db $16 ; 0x29 - SONG 16
+#_02D5BC: db $16 ; 0x2A - SONG 16
+#_02D5BD: db $16 ; 0x2B - SONG 16
+#_02D5BE: db $18 ; 0x2C - SONG 18
+#_02D5BF: db $16 ; 0x2D - SONG 16
+#_02D5C0: db $12 ; 0x2E - SONG 12
+#_02D5C1: db $12 ; 0x2F - SONG 12
+#_02D5C2: db $12 ; 0x30 - SONG 12
+#_02D5C3: db $12 ; 0x31 - SONG 12
+#_02D5C4: db $03 ; 0x32 - SONG 03
+#_02D5C5: db $11 ; 0x33 - SONG 11
+#_02D5C6: db $16 ; 0x34 - SONG 16
+#_02D5C7: db $16 ; 0x35 - SONG 16
+#_02D5C8: db $1C ; 0x36 - SONG 1C
+#_02D5C9: db $16 ; 0x37 - SONG 16
+#_02D5CA: db $1B ; 0x38 - SONG 1B
+#_02D5CB: db $12 ; 0x39 - SONG 12
+#_02D5CC: db $12 ; 0x3A - SONG 12
+#_02D5CD: db $12 ; 0x3B - SONG 12
+#_02D5CE: db $0E ; 0x3C - SONG 0E
+#_02D5CF: db $12 ; 0x3D - SONG 12
+#_02D5D0: db $F2 ; 0x3E - SONG F2
+#_02D5D1: db $F2 ; 0x3F - SONG F2
+#_02D5D2: db $F2 ; 0x40 - SONG F2
+#_02D5D3: db $12 ; 0x41 - SONG 12
+#_02D5D4: db $F2 ; 0x42 - SONG F2
+#_02D5D5: db $F2 ; 0x43 - SONG F2
+#_02D5D6: db $F2 ; 0x44 - SONG F2
+#_02D5D7: db $18 ; 0x45 - SONG 18
+#_02D5D8: db $17 ; 0x46 - SONG 17
+#_02D5D9: db $0E ; 0x47 - SONG 0E
+#_02D5DA: db $F2 ; 0x48 - SONG F2
+#_02D5DB: db $F2 ; 0x49 - SONG F2
+#_02D5DC: db $F2 ; 0x4A - SONG F2
+#_02D5DD: db $F2 ; 0x4B - SONG F2
+#_02D5DE: db $F2 ; 0x4C - SONG F2
+#_02D5DF: db $18 ; 0x4D - SONG 18
+#_02D5E0: db $18 ; 0x4E - SONG 18
+#_02D5E1: db $12 ; 0x4F - SONG 12
+#_02D5E2: db $12 ; 0x50 - SONG 12
+#_02D5E3: db $18 ; 0x51 - SONG 18
+#_02D5E4: db $18 ; 0x52 - SONG 18
+#_02D5E5: db $F2 ; 0x53 - SONG F2
+#_02D5E6: db $F2 ; 0x54 - SONG F2
+#_02D5E7: db $1B ; 0x55 - SONG 1B
+#_02D5E8: db $1B ; 0x56 - SONG 1B
+#_02D5E9: db $17 ; 0x57 - SONG 17
+#_02D5EA: db $12 ; 0x58 - SONG 12
+#_02D5EB: db $0E ; 0x59 - SONG 0E
+#_02D5EC: db $12 ; 0x5A - SONG 12
+#_02D5ED: db $18 ; 0x5B - SONG 18
+#_02D5EE: db $18 ; 0x5C - SONG 18
+#_02D5EF: db $18 ; 0x5D - SONG 18
+#_02D5F0: db $1B ; 0x5E - SONG 1B
+#_02D5F1: db $12 ; 0x5F - SONG 12
+#_02D5F2: db $17 ; 0x60 - SONG 17
+#_02D5F3: db $F2 ; 0x61 - SONG F2
+#_02D5F4: db $12 ; 0x62 - SONG 12
+#_02D5F5: db $18 ; 0x63 - SONG 18
+#_02D5F6: db $F2 ; 0x64 - SONG F2
+#_02D5F7: db $17 ; 0x65 - SONG 17
+#_02D5F8: db $17 ; 0x66 - SONG 17
+#_02D5F9: db $0E ; 0x67 - SONG 0E
+#_02D5FA: db $18 ; 0x68 - SONG 18
+#_02D5FB: db $12 ; 0x69 - SONG 12
+#_02D5FC: db $12 ; 0x6A - SONG 12
+#_02D5FD: db $F2 ; 0x6B - SONG F2
+#_02D5FE: db $12 ; 0x6C - SONG 12
+#_02D5FF: db $12 ; 0x6D - SONG 12
+#_02D600: db $12 ; 0x6E - SONG 12
+#_02D601: db $12 ; 0x6F - SONG 12
+#_02D602: db $12 ; 0x70 - SONG 12
+#_02D603: db $1B ; 0x71 - SONG 1B
+#_02D604: db $12 ; 0x72 - SONG 12
+#_02D605: db $FF ; 0x73 - SONG FF
+#_02D606: db $FF ; 0x74 - SONG FF
+#_02D607: db $FF ; 0x75 - SONG FF
+#_02D608: db $16 ; 0x76 - SONG 16
+#_02D609: db $16 ; 0x77 - SONG 16
+#_02D60A: db $16 ; 0x78 - SONG 16
+#_02D60B: db $16 ; 0x79 - SONG 16
+#_02D60C: db $18 ; 0x7A - SONG 18
+#_02D60D: db $15 ; 0x7B - SONG 15
+#_02D60E: db $1B ; 0x7C - SONG 1B
+#_02D60F: db $03 ; 0x7D - SONG 03
+#_02D610: db $18 ; 0x7E - SONG 18
+#_02D611: db $1B ; 0x7F - SONG 1B
+#_02D612: db $12 ; 0x80 - SONG 12
+#_02D613: db $10 ; 0x81 - SONG 10
+#_02D614: db $12 ; 0x82 - SONG 12
+#_02D615: db $12 ; 0x83 - SONG 12
+#_02D616: db $1B ; 0x84 - SONG 1B
 
 ;===================================================================================================
 
@@ -15437,7 +15422,7 @@ Underworld_LoadEntrance:
 #_02D6E8: STZ.w $010A
 
 #_02D6EB: LDA.l $7EF3CC
-#_02D6EF: CMP.w #!FOLLOWER_04
+#_02D6EF: CMP.w #$04 ; FOLLOWER 04
 #_02D6F2: BEQ .have_old_man
 
 #_02D6F4: LDA.w $04AA
@@ -15586,14 +15571,16 @@ Underworld_LoadEntrance:
 #_02D7DE: LDA.w EntranceData_song,X
 #_02D7E1: STA.w $0132
 
-#_02D7E4: CMP.b #!SONG_03 ; was the song requested the legends theme?
+; was the song requested the legends theme?
+#_02D7E4: CMP.b #$03 ; SONG 03
 #_02D7E6: BNE .no_song_override
 
 #_02D7E8: LDA.l $7EF3C5 ; have we rescued zelda?
 #_02D7EC: CMP.b #$02
 #_02D7EE: BCC .no_song_override
 
-#_02D7F0: LDA.b #!SONG_12 ; change it to caves theme
+; change it to caves theme
+#_02D7F0: LDA.b #$12 ; SONG 12
 #_02D7F2: STA.w $0132
 
 .no_song_override
@@ -15639,8 +15626,9 @@ Underworld_LoadEntrance:
 #_02D832: AND.b #$0F
 #_02D834: STA.b $AA
 
+; Single entrance caves are always floor 1F
 #_02D836: LDX.b $A0
-#_02D838: CPX.w #$0100 ; are we in room 256+?
+#_02D838: CPX.w #$0100
 #_02D83B: BCC Underworld_LoadEntrance_DoPotsBlocksTorches
 
 #_02D83D: STZ.b $A4
@@ -15695,7 +15683,7 @@ Underworld_LoadEntrance_DoPotsBlocksTorches:
 #_02D884: STA.w $7EFBC0,X
 
 #_02D887: LDA.l SpecialUnderworldObjects_torch+2*128,X
-#_02D88B: STA.w $7EFC40,X ; this leaks a bit
+#_02D88B: STA.w $7EFC40,X ; this leaks a bit too
 
 #_02D88E: INX
 #_02D88F: INX
@@ -15710,7 +15698,7 @@ Underworld_LoadEntrance_DoPotsBlocksTorches:
 .next_pot ; clears pot items that have been grabbed
 #_02D899: STA.w $7EF800,X ; TODO what's being cleared here?
 #_02D89C: STA.w $7EF840,X ; it's supposedly overworld stuff, but who cares?
-#_02D89F: STA.w $7EF880,X
+#_02D89F: STA.w $7EF880,X ; maybe I care?
 #_02D8A2: STA.w $7EF8C0,X
 
 #_02D8A5: STA.w $7EF580,X ; this is clearing pot item grabs
@@ -15758,7 +15746,7 @@ SpawnPointData:
 ;---------------------------------------------------------------------------------------------------
 
 .camera_scroll_boundaries
-; to $0600   +$1, +$3, +$5, +$7, +$9, +$B, +$D, +$F
+; to $060x   +$1, +$3, +$5, +$7, +$9, +$B, +$D, +$F
 #_02D8E0: db $21, $20, $21, $21, $09, $09, $09, $0A ; 0x00 - Link's house
 #_02D8E8: db $02, $02, $02, $03, $04, $04, $04, $05 ; 0x01 - Sanctuary
 #_02D8F0: db $10, $10, $10, $11, $01, $00, $01, $01 ; 0x02 - Prison
@@ -15826,6 +15814,8 @@ SpawnPointData:
 #_02D958: dw $009A ; 0x04 - Throne
 #_02D95A: dw $0103 ; 0x05 - Old man cave
 #_02D95C: dw $0187 ; 0x06 - Old man home
+
+;---------------------------------------------------------------------------------------------------
 
 .camera_trigger_x
 ; writes to $061C, incremented twice, writes to $061E
@@ -15940,13 +15930,13 @@ SpawnPointData:
 
 .song
 ; writes to $0132
-#_02D9B2: db !SONG_07 ; 0x00 - Link's house
-#_02D9B3: db !SONG_14 ; 0x01 - Sanctuary
-#_02D9B4: db !SONG_10 ; 0x02 - Prison
-#_02D9B5: db !SONG_03 ; 0x03 - Uncle
-#_02D9B6: db !SONG_10 ; 0x04 - Throne
-#_02D9B7: db !SONG_12 ; 0x05 - Old man cave
-#_02D9B8: db !SONG_12 ; 0x06 - Old man home
+#_02D9B2: db $07 ; 0x00 - Link's house - SONG 07
+#_02D9B3: db $14 ; 0x01 - Sanctuary    - SONG 14
+#_02D9B4: db $10 ; 0x02 - Prison       - SONG 10
+#_02D9B5: db $03 ; 0x03 - Uncle        - SONG 03
+#_02D9B6: db $10 ; 0x04 - Throne       - SONG 10
+#_02D9B7: db $12 ; 0x05 - Old man cave - SONG 12
+#_02D9B8: db $12 ; 0x06 - Old man home - SONG 12
 
 ;===================================================================================================
 
@@ -16127,7 +16117,7 @@ Underworld_LoadSpawnEntrance:
 #_02DADD: LDA.l $7EF3C5 ; are we in pre-uncle game state?
 #_02DAE1: BNE .dont_lower_song_volume
 
-#_02DAE3: LDA.b #!SONG_FF
+#_02DAE3: LDA.b #$FF ; SONG FF
 #_02DAE5: STA.w $0132
 
 .dont_lower_song_volume
@@ -17470,7 +17460,7 @@ LoadCachedEntranceProperties:
 #_02E369: LDA.l $7EC148
 #_02E36D: STA.b $20
 
-; These rooms are all stairs
+; These rooms are all stairs on the overworld
 #_02E36F: LDA.b $A0
 #_02E371: CMP.w #$0124
 #_02E374: BCS .normal_exit
