@@ -2,7 +2,7 @@
 
 Transfers (+4 for first byte of data)
 ----------------------------------------------------------------------------------------------------
- ROM       Size     ARAM     Data
+ROM        Size     ARAM     Data
 ----------------------------------------------------------------------------------------------------
 $198000    $0070    $3C00    Sample pointers
 $198074    $7AA0    $4000    Sample data
@@ -28,7 +28,7 @@ $1AF420    $0000    $0800    End transfer
 
 Free APU RAM
 ----------------------------------------------------------------------------------------------------
- Addr     Size
+Addr     Size
 ----------------------------------------------------------------------------------------------------
 $040F    $03F1    After variables
 $2850    $0030    Before fairy theme
@@ -38,25 +38,37 @@ $BAA0    $0560    After sample data
 
 ====================================================================================================
 
+Track commands
+----------------------------------------------------------------------------------------------------
+Command  Action
+----------------------------------------------------------------------------------------------------
+F0       Mute
+F1       Fade out
+F2       Half volume
+F3       Max volume
+FF       Initiate transfer
+
+====================================================================================================
+
 Overworld song bank
 
 Song       ARAM     ROM         Name
 ----------------------------------------------------------------------------------------------------
 SONG 01    $D036    $1A9F2F     Triforce opening
-SONG 02    $D0FF    $1A9FF8     Light world
-SONG 03    $D86A    $1AA763     Legend theme (rain state)
-SONG 04    $DCA7    $1AB4D5     Bunny link
+SONG 02    $D0FF    $1A9FF8     Light World
+SONG 03    $D86A    $1AA763     Rain
+SONG 04    $DCA7    $1AB4D5     Bunny Link
 SONG 05    $DEE5    $1AADDE     Lost woods
-SONG 06    $E36A    $1AB263     Legend theme (attract mode)
-SONG 07    $E8DC    $1AB7D5     Kakariko village
+SONG 06    $E36A    $1AB263     Legends theme (attract mode)
+SONG 07    $E8DC    $1AB7D5     Kakariko Village
 SONG 08    $EE11    $1ABD0A     Mirror warp
-SONG 09    $EF6D    $1ABE66     Dark world
-SONG 0A    $F813    $1AC70C     Restoring the master sword
+SONG 09    $EF6D    $1ABE66     Dark World
+SONG 0A    $F813    $1AC70C     Restoring the Master Sword
 SONG 0B    $2880    $1A9CE9     Faerie theme
 SONG 0C    $F8F6    $1AC7EF     Chase theme
-SONG 0D    $2B00    $1ACCAB     Skull woods
+SONG 0D    $2B00    $1ACCAB     Skull Woods
 SONG 0E    $2FA6    $1AD151     Game theme
-SONG 0F    $FAFA    $1AC9F3     Intro no triforce
+SONG 0F    $FAFA    $1AC9F3     Intro no Triforce
 SONG 10    $0000    -------     nothing
 SONG 11    $0000    -------     nothing
 SONG 12    $0000    -------     nothing
@@ -91,25 +103,25 @@ SONG 0C    $0000    -------     nothing
 SONG 0D    $0000    -------     nothing
 SONG 0E    $0000    -------     nothing
 SONG 0F    $0000    -------     nothing
-SONG 10    $D046    $1B804A     Hyrule castle
-SONG 11    $DBEC    $1B8BF0     Pendant dungeon
+SONG 10    $D046    $1B804A     Hyrule Castle
+SONG 11    $DBEC    $1B8BF0     Light World dungeon
 SONG 12    $E13A    $1B913E     Caves
 SONG 13    $E431    $1B9435     Fanfare
 SONG 14    $E6F9    $1B96FD     Sanctuary
 SONG 15    $E91E    $1B9922     Boss theme
-SONG 16    $EC0B    $1B9C0F     Dark world dungeon
+SONG 16    $EC0B    $1B9C0F     Dark World dungeon
 SONG 17    $F1D1    $1BA1D5     Fortune teller
 SONG 18    $E13A    $1B913E     Caves
 SONG 19    $F304    $1BA308     Zelda rescue
 SONG 1A    $F580    $1BA584     Crystal theme
 SONG 1B    $F909    $1BA90D     Faerie theme w/ arpeggio
-SONG 1C    $FB6A    $1BAB6E     Pre aga theme
+SONG 1C    $FB6A    $1BAB6E     Pre-Agahnim theme
 SONG 1D    $2B00    $1BACC7     Agahnim escape
-SONG 1E    $2F59    $1BB120     Pre ganon theme
+SONG 1E    $2F59    $1BB120     Pre-Ganon theme
 SONG 1F    $2BB3    $1BAD7A     Ganondorf the Thief
 SONG 20    $0000    -------     nothing
 SONG 21    $2B00    $1BACC7     Agahnim escape duplicate (unused)
-SONG 22    $2F59    $1BB120     Pre ganon theme duplicate (unused)
+SONG 22    $2F59    $1BB120     Pre-Ganon theme duplicate (unused)
 SONG 23    $2BB3    $1BAD7A     Ganondorf the Thief duplicate (unused)
 
 ----------------------------------------------------------------------------------------------------

@@ -11758,7 +11758,7 @@ Overworld_EntranceScreens:
 #_1BBA47: dw $006E ; 0x6C - Big fairy (South of Kiki)
 #_1BBA49: dw $0045 ; 0x6D - Dark Death Mountain shop
 #_1BBA4B: dw $0056 ; 0x6E - Dark World witch shop
-#_1BBA4D: dw $0043 ; 0x6F - Dark West Death Mountain Big fairy
+#_1BBA4D: dw $0043 ; 0x6F - Dark West Death Mountain big fairy
 #_1BBA4F: dw $0030 ; 0x70 - Aginah's cave
 #_1BBA51: dw $003A ; 0x71 - Desert big fairy
 #_1BBA53: dw $0035 ; 0x72 - Light World fortune teller (Lake Hylia)
@@ -11770,7 +11770,7 @@ Overworld_EntranceScreens:
 #_1BBA5F: dw $003A ; 0x78 - Desert thief hideout
 #_1BBA61: dw $0013 ; 0x79 - Bonk rocks heart piece cave
 #_1BBA63: dw $0037 ; 0x7A - Lake Hylia falls thief hideout
-#_1BBA65: dw $0077 ; 0x7B - Dark Lake Hylia falls dev cave
+#_1BBA65: dw $0077 ; 0x7B - Dark Lake Hylia falls spike cave
 #_1BBA67: dw $0035 ; 0x7C - Mini moldorm cave
 #_1BBA69: dw $0030 ; 0x7D - Checkerboard cave heart piece
 #_1BBA6B: dw $0062 ; 0x7E - Stake puzzle heart piece cave
@@ -11891,7 +11891,7 @@ Overworld_EntranceTileIndex:
 #_1BBB49: dw $0224 ; 0x6C - Big fairy (South of Kiki)
 #_1BBB4B: dw $1274 ; 0x6D - Dark Death Mountain shop
 #_1BBB4D: dw $0A9A ; 0x6E - Dark World witch shop
-#_1BBB4F: dw $178E ; 0x6F - Dark West Death Mountain Big fairy
+#_1BBB4F: dw $178E ; 0x6F - Dark West Death Mountain big fairy
 #_1BBB51: dw $0964 ; 0x70 - Aginah's cave
 #_1BBB53: dw $018C ; 0x71 - Desert big fairy
 #_1BBB55: dw $060A ; 0x72 - Light World fortune teller (Lake Hylia)
@@ -11903,7 +11903,7 @@ Overworld_EntranceTileIndex:
 #_1BBB61: dw $0A1E ; 0x78 - Desert thief hideout
 #_1BBB63: dw $0506 ; 0x79 - Bonk rocks heart piece cave
 #_1BBB65: dw $040C ; 0x7A - Lake Hylia falls thief hideout
-#_1BBB67: dw $040C ; 0x7B - Dark Lake Hylia falls dev cave
+#_1BBB67: dw $040C ; 0x7B - Dark Lake Hylia falls spike cave
 #_1BBB69: dw $178C ; 0x7C - Mini moldorm cave
 #_1BBB6B: dw $0358 ; 0x7D - Checkerboard cave heart piece
 #_1BBB6D: dw $0D20 ; 0x7E - Stake puzzle heart piece cave
@@ -12024,7 +12024,7 @@ Overworld_Entrance_ID:
 #_1BBBDF: db $5E ; 0x6C - Big fairy (South of Kiki)
 #_1BBBE0: db $58 ; 0x6D - Dark Death Mountain shop
 #_1BBBE1: db $60 ; 0x6E - Dark World witch shop
-#_1BBBE2: db $5E ; 0x6F - Dark West Death Mountain Big fairy
+#_1BBBE2: db $5E ; 0x6F - Dark West Death Mountain big fairy
 #_1BBBE3: db $4D ; 0x70 - Aginah's cave
 #_1BBBE4: db $5E ; 0x71 - Desert big fairy
 #_1BBBE5: db $65 ; 0x72 - Light World fortune teller (Lake Hylia)
@@ -12036,7 +12036,7 @@ Overworld_Entrance_ID:
 #_1BBBEB: db $6D ; 0x78 - Desert thief hideout
 #_1BBBEC: db $6E ; 0x79 - Bonk rocks heart piece cave
 #_1BBBED: db $6F ; 0x7A - Lake Hylia falls thief hideout
-#_1BBBEE: db $70 ; 0x7B - Dark Lake Hylia falls dev cave
+#_1BBBEE: db $70 ; 0x7B - Dark Lake Hylia falls spike cave
 #_1BBBEF: db $6C ; 0x7C - Mini moldorm cave
 #_1BBBF0: db $72 ; 0x7D - Checkerboard cave heart piece
 #_1BBBF1: db $83 ; 0x7E - Stake puzzle heart piece cave
@@ -12539,8 +12539,8 @@ OverworldTileAction_Bush:
 #_1BBE9D: ASL A
 #_1BBE9E: ASL A
 #_1BBE9F: ASL A
-
 #_1BBEA0: PHA
+
 #_1BBEA1: LDA.b $00
 #_1BBEA3: AND.w #$FFF0
 #_1BBEA6: STA.b $74
@@ -12858,8 +12858,8 @@ Overworld_HandleLiftableTiles:
 #_1BC030: LSR A
 #_1BC031: LSR A
 #_1BC032: TSB.b $06 ; TODO figure out what these TSBs do
-#_1BC034: LDA.b $00
 
+#_1BC034: LDA.b $00
 #_1BC036: LSR A
 #_1BC037: LSR A
 #_1BC038: LSR A
@@ -12930,6 +12930,9 @@ Overworld_SmashRockPileFromAbove:
 #_1BC07B: LDA.b $00
 #_1BC07D: PHA
 
+; A poem:
+;   No PEI
+;   Makes me cry
 #_1BC07E: LDA.b $02
 #_1BC080: PHA
 
@@ -13347,7 +13350,10 @@ CreatePyramidHole:
 ;===================================================================================================
 
 OverworldData_HiddenItems:
+
+;---------------------------------------------------------------------------------------------------
 ; Light World
+;---------------------------------------------------------------------------------------------------
 #_1BC2F9: dw OverworldData_HiddenItems_Screen_00 ; 0x00 - Lost Woods
 #_1BC2FB: dw OverworldData_HiddenItems_Screen_00 ; 0x01 - Lost Woods
 #_1BC2FD: dw OverworldData_HiddenItems_Screen_02 ; 0x02 - Lumberjacks
@@ -13414,8 +13420,8 @@ OverworldData_HiddenItems:
 #_1BC377: dw OverworldData_HiddenItems_Screen_3F ; 0x3F - Lake Hylia Waterfall
 
 ;---------------------------------------------------------------------------------------------------
-
 ; Dark World
+;---------------------------------------------------------------------------------------------------
 #_1BC379: dw OverworldData_HiddenItems_Screen_40 ; 0x40 - Skull Woods
 #_1BC37B: dw OverworldData_HiddenItems_Screen_40 ; 0x41 - Skull Woods
 #_1BC37D: dw OverworldData_HiddenItems_Screen_42 ; 0x42 - Dark Lumberjacks
@@ -18257,7 +18263,7 @@ Palettes_LoadForFileSelect:
 
 #_1BF027: INX
 #_1BF028: INX
-#_1BF029: CPX.w #$000E
+#_1BF029: CPX.w #$000E ; This should be $0010, otherwise the fairy doesn't have her skin
 #_1BF02C: BNE .next_low_color
 
 #_1BF02E: SEP #$30
@@ -18932,3 +18938,5 @@ NULL_1BFFB0:
 #_1BFFE8: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_1BFFF0: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_1BFFF8: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
+
+;===================================================================================================

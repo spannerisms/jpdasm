@@ -4866,7 +4866,7 @@ Credits_ScrollScene_Overworld:
 #_0EC3C7: SEP #$20
 
 #_0EC3C9: PHX
-#_0EC3CA: JSL Credits_OperateScrollingAndTileMap
+#_0EC3CA: JSL Credits_OperateScrollingAndTilemap
 #_0EC3CE: PLX
 
 #_0EC3CF: JSR (Credits_SpriteDraw_vectors,X)
@@ -7032,21 +7032,21 @@ Credits_SpriteDraw_Single:
 #_0ED13C: JSL Sprite_Get16BitCoords_long
 
 #_0ED140: PLA
-#_0ED141: STA.w CPUMULTA
+#_0ED141: STA.w WRMPYA
 
 #_0ED144: LDA.b #$08
-#_0ED146: STA.w CPUMULTB
+#_0ED146: STA.w WRMPYB
 
 #_0ED149: NOP
 #_0ED14A: NOP
 #_0ED14B: NOP
 #_0ED14C: NOP
 
-#_0ED14D: LDA.w CPUPRODUCT
-#_0ED150: STA.w CPUMULTA
+#_0ED14D: LDA.w RDMPY
+#_0ED150: STA.w WRMPYA
 
 #_0ED153: LDA.w $0DC0,X
-#_0ED156: STA.w CPUMULTB
+#_0ED156: STA.w WRMPYB
 
 #_0ED159: REP #$20
 
@@ -7054,7 +7054,7 @@ Credits_SpriteDraw_Single:
 #_0ED15C: LDA.w .group_pointers,Y
 
 #_0ED15F: CLC
-#_0ED160: ADC.w CPUPRODUCT
+#_0ED160: ADC.w RDMPY
 #_0ED163: STA.b $08
 
 #_0ED165: SEP #$20
@@ -10245,7 +10245,7 @@ pool off
 
 Credits_InitializeTheActualCredits:
 #_0EE645: JSL EnableForceBlank
-#_0EE649: JSL EraseTileMaps_triforce
+#_0EE649: JSL EraseTilemaps_triforce
 
 #_0EE64D: JSL DecompressFontGFX
 #_0EE651: JSL TransferFontToVRAM
@@ -14785,7 +14785,7 @@ GameOver_InitializeLetters:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0EFFDA: INC A ; TODO somaria blast???
+#_0EFFDA: INC A
 #_0EFFDB: STA.w $0C4A
 
 #_0EFFDE: LDA.b #$06
@@ -14803,3 +14803,5 @@ NULL_0EFFE5:
 #_0EFFED: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_0EFFF5: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_0EFFFD: db $FF, $FF, $FF
+
+;===================================================================================================

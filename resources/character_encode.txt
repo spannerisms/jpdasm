@@ -199,7 +199,7 @@ C5       』
 C6       ?
 C7       !
 C8       ,
-C9       －
+C9       ー
 CA       🡸
 CB       🡺
 CC       ⋯
@@ -251,20 +251,20 @@ FD 01    城		shiro - Castle
 FD 02    行		行く - iku - Move/Walk/Act
 FD 03    教		教会 - kyoukai - Church
 FD 04    会		教会 - kyoukai - Church
-FD 05    神		kami - God
+FD 05    神		kami - God / 神殿 - temple
 FD 06    父		chichi - Father
 FD 07    訪		
 FD 08    頼		
 FD 09    通		
-FD 0A    願		
+FD 0A    願		wish
 FD 0B    平		
 FD 0C    和		
 FD 0D    司		
 FD 0E    書		
 FD 0F    戻		
-FD 10    様		
-FD 11    子		
-FD 12    湖		
+FD 10    様		父様 - father
+FD 11    子		kid
+FD 12    湖		lake
 FD 13    達		
 FD 14    彼		
 FD 15    女		
@@ -272,22 +272,22 @@ FD 16    言
 FD 17    祭		
 FD 18    早		
 FD 19    雨		
-FD 1A    剣		
+FD 1A    剣		sword
 FD 1B    盾		
 FD 1C    解		
 FD 1D    抜		
-FD 1E    者		
+FD 1E    者		person (who)
 FD 1F    味		
 FD 20    方		
 FD 21    無		
-FD 22    事		
-FD 23    出		
+FD 22    事		incident
+FD 23    出		leaving
 FD 24    本		
 FD 25    当		
-FD 26    私		
+FD 26    私		I
 FD 27    他		
 FD 28    救		
-FD 29    倒		
+FD 29    倒		collapse/fall/destroy
 FD 2A    度		
 FD 2B    国		
 FD 2C    退		
@@ -297,19 +297,19 @@ FD 2F    説
 FD 30    必		
 FD 31    要		
 FD 32    良		
-FD 33    地		
-FD 34    図		
+FD 33    地		area/region
+FD 34    図		map
 FD 35    印		
 FD 36    思		
 FD 37    気		
-FD 38    人		
+FD 38    人		adult/person
 FD 39    間		
 FD 3A    兵		
 FD 3B    病		
 FD 3C    法		
-FD 3D    屋		
+FD 3D    屋		shop
 FD 3E    手		
-FD 3F    住		
+FD 3F    住		residence
 FD 40    連		
 FD 41    恵		
 FD 42    表		
@@ -319,15 +319,15 @@ FD 45    信
 FD 46    裏		
 FD 47    取		
 FD 48    引		
-FD 49    入		
-FD 4A    口		
-FD 4B    開		
-FD 4C    見		
+FD 49    入		enter (as in a building)
+FD 4A    口		entrance
+FD 4B    開		open (as in chest)
+FD 4C    見		look
 FD 4D    正		
 FD 4E    幸		
 FD 4F    運		
 FD 50    呼		
-FD 51    物		
+FD 51    物		thing/stuff
 FD 52    付		
 FD 53    紋		
 FD 54    章		
@@ -341,7 +341,7 @@ FD 5B    札
 FD 5C    穴		
 FD 5D    道		
 FD 5E    男		
-FD 5F    大		
+FD 5F    大		older
 FD 60    声		
 FD 61    下		
 FD 62    犯		
@@ -353,22 +353,22 @@ FD 67    若
 FD 68    美		
 FD 69    探		
 FD 6A    今		
-FD 6B    士		
+FD 6B    士		knight
 FD 6C    店		
-FD 6D    好		
+FD 6D    好		good/okay/your choice
 FD 6E    代		
 FD 6F    名		
 FD 70    迷		
 FD 71    立		
-FD 72    上		
+FD 72    上		above/top
 FD 73    光		
 FD 74    点		
 FD 75    目		
 FD 76    的		
 FD 77    押		
-FD 78    前		
-FD 79    夜		
-FD 7A    十		
+FD 78    前		before
+FD 79    夜		night
+FD 7A    十		cross
 FD 7B    字		
 FD 7C    北		
 FD 7D    急		
@@ -376,33 +376,33 @@ FD 7E    昔
 FD 7F    果		
 FD 80    奥		
 FD 81    選		
-FD 82    続		
+FD 82    続		continue
 FD 83    結		
 FD 84    定		
 FD 85    悪		
 FD 86    向		
 FD 87    歩		
-FD 88    時		
+FD 88    時		opportunity
 FD 89    使		
 FD 8A    古		
-FD 8B    何		
+FD 8B    何		what?/huh?/thing/penis
 FD 8C    村		
 FD 8D    長		
-FD 8E    配		
+FD 8E    配		take this
 FD 8F    匹		
-FD 90    殿		
+FD 90    殿		神殿 - temple
 FD 91    守		
 FD 92    精		
-FD 93    知		
+FD 93    知		knowledge/wisdom
 FD 94    山		
 FD 95    誰		
-FD 96    足		
+FD 96    足		coin
 FD 97    冷		
 FD 98    黄		
-FD 99    力		
-FD 9A    宝		
+FD 99    力		power
+FD 9A    宝		treasure
 FD 9B    求		
-FD 9C    先		
+FD 9C    先		this way/ahead
 FD 9D    消		
 FD 9E    封		
 FD 9F    捕		
@@ -411,7 +411,7 @@ FD A1    年
 FD A2    姿		
 FD A3    話		
 FD A4    色		
-FD A5    々		
+FD A5    々		[repeat]
 FD A6    真		
 FD A7    紅		
 FD A8    場		
@@ -430,7 +430,7 @@ FD B4    生
 FD B5    庭		
 FD B6    路		
 FD B7    部		
-FD B8    川		
+FD B8    川		river
 FD B9    血		
 FD BA    完		
 FD BB    矢		
@@ -455,7 +455,7 @@ FD CD    火
 FD CE    注		
 FD CF    意		
 FD D0    走		
-FD D1    敵		
+FD D1    敵		enemy
 FD D2    玉		
 FD D3    復		
 FD D4    活		
@@ -463,11 +463,11 @@ FD D5    塔
 FD D6    来		
 FD D7    帰		
 FD D8    忘		
-FD D9    東		
+FD D9    東		east/eastern
 FD DA    青		
 FD DB    持		
 FD DC    込		
-FD DD    逃		
+FD DD    逃		flee/set free
 FD DE    銀		
 FD DF    勝		
 FD E0    集		
@@ -480,23 +480,23 @@ FD E6    心
 FD E7    新		
 FD E8    世		
 FD E9    界		
-FD EA    箱		
+FD EA    箱		chest
 FD EB    木		
 FD EC    対		
 FD ED    特		
 FD EE    賊		
-FD EF    洞		
+FD EF    洞		cave/hole
 FD F0    支		
 FD F1    盗		
 FD F2    族		
 FD F3    能		
-FD F4    力		
+FD F4    力		power (character is a duplicate of kanji 99, but drawn slightly different)
 FD F5    多		
 FD F6    聖		
 FD F7    両		
 FD F8    民		
 FD F9    予		
-FD FA    小		
+FD FA    小		small
 FD FB    強		
 FD FC    投		
 FD FD    服		

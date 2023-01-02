@@ -672,6 +672,7 @@ Sprite_SpawnSecret:
 #_0682DA: PHX
 
 #_0682DB: TYX
+
 #_0682DC: JSR SpritePrep_SmallKey
 
 #_0682DF: PLX
@@ -1521,7 +1522,7 @@ SpriteModule_Initialize:
 #_068737: dw SpritePrep_Rope                          ; 0x6E - SNAKE
 #_068739: dw SpritePrep_Keese                         ; 0x6F - KEESE
 #_06873B: dw SpritePrep_DoNothingG                    ; 0x70 - KING HELMASAUR FIREBALL
-#_06873D: dw SpritePrep_FairyPond                     ; 0x71 - LEEVER
+#_06873D: dw SpritePrep_Leever                        ; 0x71 - LEEVER
 #_06873F: dw SpritePrep_IgnoreProjectiles             ; 0x72 - FAERIE POND TRIGGER
 #_068741: dw SpritePrep_UncleAndPriest_bounce         ; 0x73 - UNCLE / PRIEST / MANTLE
 #_068743: dw SpritePrep_RunningBoy_bounce             ; 0x74 - RUNNING MAN
@@ -1971,6 +1972,7 @@ SpritePrep_Vitreous:
 #_068959: STA.w $0D00,X
 
 #_06895C: JSL Vitreous_SpawnMinions
+
 #_068960: JMP.w SpritePrep_IgnoreProjectiles
 
 ;===================================================================================================
@@ -2403,8 +2405,8 @@ SpritePrep_DebirandoPit:
 #_068B4E: STA.w $0DC0,X
 
 #_068B51: JSR SpritePrep_IgnoreProjectiles
-#_068B54: LDA.b #$64 ; SPRITE 64
 
+#_068B54: LDA.b #$64 ; SPRITE 64
 #_068B56: JSL Sprite_SpawnDynamically
 #_068B5A: BMI .no_space
 
@@ -2457,7 +2459,7 @@ SpritePrep_WeakGuard:
 SpritePrep_WallCannon:
 #_068B8D: LDA.w $0E20,X
 #_068B90: SEC
-#_068B91: SBC.b #$66 ; SPRITE 66 base wall cannon ID
+#_068B91: SBC.b #$66 ; SPRITE 66 - base wall cannon ID
 #_068B93: STA.w $0DE0,X
 
 #_068B96: AND.b #$02
@@ -3063,7 +3065,7 @@ SpritePrep_FortuneTeller:
 
 ;===================================================================================================
 
-pool SpritePrep_FairyPond
+pool SpritePrep_Leever
 
 .palette
 #_068DEE: db $0A, $02
@@ -3072,7 +3074,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-SpritePrep_FairyPond:
+SpritePrep_Leever:
 #_068DF0: LDA.w $0D10,X
 
 #_068DF3: LSR A
@@ -3857,11 +3859,11 @@ SpritePrep_HardhatBeetle:
 
 #_06912B: LDA.w $0D10,X
 #_06912E: AND.b #$10
-#_069130: BEQ .blue
+#_069130: BEQ .red
 
 #_069132: INY
 
-.blue
+.red
 #_069133: LDA.w .palette,Y
 #_069136: STA.w $0F50,X
 
@@ -4126,7 +4128,7 @@ SpritePrep_AntifairyCircle_bounce:
 #_069253: RTS
 
 ;===================================================================================================
-; This routine is found at SNES $06:9254 in ROM.
+; This routine is found at SNES $06:9254.
 ;===================================================================================================
 SpritePrep_DoNothingH:
 #_069254: RTS
@@ -8976,7 +8978,7 @@ DarkWorldHintNPC_HandlePayment:
 
 ; 20 rupees
 #_06AEB5: LDA.l $7EF360
-#_06AEB9: CMP.w #20
+#_06AEB9: CMP.w #$14
 #_06AEBC: BCC .too_poor
 
 ; take 20 rupees
@@ -10130,7 +10132,7 @@ Smithy_ItAintFreeKid:
 
 ; 10 rupees
 #_06B4C8: LDA.l $7EF360
-#_06B4CC: CMP.w #10
+#_06B4CC: CMP.w #$0A
 
 #_06B4CF: SEP #$30
 #_06B4D1: BCS .paid_in_cash
@@ -13846,7 +13848,7 @@ LakeHyliaFairy_RefundRupees:
 ; 100 rupees
 #_06C75C: LDA.l $7EF360
 #_06C760: CLC
-#_06C761: ADC.w #100
+#_06C761: ADC.w #$64
 #_06C764: STA.l $7EF360
 
 #_06C768: SEP #$30
@@ -14879,8 +14881,7 @@ UNREACHABLE_06CCB6:
 #_06CCB6: RTS
 
 ;===================================================================================================
-; TODO FORMAT INTO GROUPS
-;===================================================================================================
+
 pool SpriteDraw_Leever
 
 .offset_x
@@ -14920,35 +14921,56 @@ pool SpriteDraw_Leever
 ;---------------------------------------------------------------------------------------------------
 
 .char
-#_06CD97: db $28, $28, $28, $28, $28, $28, $28, $28
-#_06CD9F: db $38, $38, $38, $38, $08, $09, $28, $28
-#_06CDA7: db $08, $09, $D9, $D9, $08, $08, $D8, $D8
-#_06CDAF: db $08, $08, $DA, $DA, $06, $06, $D9, $D9
-#_06CDB7: db $26, $26, $D8, $D8, $6C, $06, $06, $00
-#_06CDBF: db $6C, $26, $26, $00, $6C, $06, $06, $00
-#_06CDC7: db $6C, $26, $26, $00, $6C, $08, $08, $00
+#_06CD97: db $28, $28, $28, $28
+#_06CD9B: db $28, $28, $28, $28
+#_06CD9F: db $38, $38, $38, $38
+#_06CDA3: db $08, $09, $28, $28
+#_06CDA7: db $08, $09, $D9, $D9
+#_06CDAB: db $08, $08, $D8, $D8
+#_06CDAF: db $08, $08, $DA, $DA
+#_06CDB3: db $06, $06, $D9, $D9
+#_06CDB7: db $26, $26, $D8, $D8
+#_06CDBB: db $6C, $06, $06, $00
+#_06CDBF: db $6C, $26, $26, $00
+#_06CDC3: db $6C, $06, $06, $00
+#_06CDC7: db $6C, $26, $26, $00
+#_06CDCB: db $6C, $08, $08, $00
 
 ;---------------------------------------------------------------------------------------------------
 
 .prop
-#_06CDCF: db $01, $41, $41, $41, $01, $41, $41, $41
-#_06CDD7: db $01, $41, $41, $41, $01, $01, $01, $41
-#_06CDDF: db $01, $01, $00, $40, $01, $01, $00, $40
-#_06CDE7: db $01, $01, $00, $40, $01, $01, $00, $40
-#_06CDEF: db $00, $01, $00, $40, $06, $41, $41, $00
-#_06CDF7: db $06, $41, $41, $00, $06, $01, $01, $00
-#_06CDFF: db $06, $01, $01, $00, $06, $01, $01, $00
+#_06CDCF: db $01, $41, $41, $41
+#_06CDD3: db $01, $41, $41, $41
+#_06CDD7: db $01, $41, $41, $41
+#_06CDDB: db $01, $01, $01, $41
+#_06CDDF: db $01, $01, $00, $40
+#_06CDE3: db $01, $01, $00, $40
+#_06CDE7: db $01, $01, $00, $40
+#_06CDEB: db $01, $01, $00, $40
+#_06CDEF: db $00, $01, $00, $40
+#_06CDF3: db $06, $41, $41, $00
+#_06CDF7: db $06, $41, $41, $00
+#_06CDFB: db $06, $01, $01, $00
+#_06CDFF: db $06, $01, $01, $00
+#_06CE03: db $06, $01, $01, $00
 
 ;---------------------------------------------------------------------------------------------------
 
 .size
-#_06CE07: db $00, $00, $00, $00, $00, $00, $00, $00
-#_06CE0F: db $00, $00, $00, $00, $00, $00, $00, $00
-#_06CE17: db $00, $00, $00, $00, $02, $02, $00, $00
-#_06CE1F: db $02, $02, $00, $00, $02, $02, $00, $00
-#_06CE27: db $02, $02, $00, $00, $02, $02, $02, $00
-#_06CE2F: db $02, $02, $02, $00, $02, $02, $02, $00
-#_06CE37: db $02, $02, $02, $00, $02, $02, $02, $00
+#_06CE07: db $00, $00, $00, $00
+#_06CE0B: db $00, $00, $00, $00
+#_06CE0F: db $00, $00, $00, $00
+#_06CE13: db $00, $00, $00, $00
+#_06CE17: db $00, $00, $00, $00
+#_06CE1B: db $02, $02, $00, $00
+#_06CE1F: db $02, $02, $00, $00
+#_06CE23: db $02, $02, $00, $00
+#_06CE27: db $02, $02, $00, $00
+#_06CE2B: db $02, $02, $02, $00
+#_06CE2F: db $02, $02, $02, $00
+#_06CE33: db $02, $02, $02, $00
+#_06CE37: db $02, $02, $02, $00
+#_06CE3B: db $02, $02, $02, $00
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17517,10 +17539,10 @@ SpriteDraw_IDtoClass:
 ; 0x62 - Aga balls
 #_06DA73: db $C6, $CC, $CE
 
-; 0x65 - Fire snake
+; 0x65 - Fire snake, sparks
 #_06DA76: db $28
 
-; 0x66 - Spark
+; 0x66 - Hover
 #_06DA77: db $84, $82, $80
 
 ; 0x69 - Apple
@@ -21038,7 +21060,7 @@ Sprite_IsBelowLink_long:
 
 ;===================================================================================================
 
-Sprite_IsBelowLink:
+Sprite_IsBelowLink: 
 #_06EAEE: LDY.b #$00
 
 #_06EAF0: LDA.b $20
@@ -21341,7 +21363,7 @@ Sprite_AttemptZapDamage:
 ;---------------------------------------------------------------------------------------------------
 
 .no_damage
-; TODO??? Slower recoil for charged sword?
+; Slower recoil for charged sword?
 #_06EC40: LDA.b #$50
 
 #_06EC42: LDY.b $3C
@@ -24617,14 +24639,14 @@ ForcePrizeDrop_long:
 ; 1 = 50%
 ;===================================================================================================
 PrizePackRarities:
-#_06FA62: db 1 ; pack 1 :  50%
-#_06FA63: db 1 ; pack 2 :  50%
-#_06FA64: db 1 ; pack 3 :  50%
-#_06FA65: db 0 ; pack 4 : 100%
-#_06FA66: db 1 ; pack 5 :  50%
-#_06FA67: db 1 ; pack 6 :  50%
-#_06FA68: db 1 ; pack 7 :  50%
-#_06FA69: db 0 ; pack 8 : 100% - doesn't exist
+#_06FA62: db $01 ; pack 1 :  50%
+#_06FA63: db $01 ; pack 2 :  50%
+#_06FA64: db $01 ; pack 3 :  50%
+#_06FA65: db $00 ; pack 4 : 100%
+#_06FA66: db $01 ; pack 5 :  50%
+#_06FA67: db $01 ; pack 6 :  50%
+#_06FA68: db $01 ; pack 7 :  50%
+#_06FA69: db $00 ; pack 8 : 100% - doesn't exist
 
 ;===================================================================================================
 ; Upper nibble is used for z-speed
@@ -25647,3 +25669,5 @@ Sprite_CheckIfRecoiling_Bank06:
 ;===================================================================================================
 NULL_06FFFE:
 #_06FFFE: db $FF, $FF
+
+;===================================================================================================

@@ -3805,7 +3805,7 @@ SongBank_Overworld_Main:
 base SONG_POINTERS
 #_1A9EF9: #_D000o: dw Song01_TriforceIntro
 #_1A9EFB: #_D002o: dw Song02_LightWorldOverture
-#_1A9EFD: #_D004o: dw Song03_LegendsTheme_Rain
+#_1A9EFD: #_D004o: dw Song03_Rain
 #_1A9EFF: #_D006o: dw Song04_BunnyTheme
 #_1A9F01: #_D008o: dw Song05_LostWoods
 #_1A9F03: #_D00Ao: dw Song06_LegendsTheme_Attract
@@ -5548,7 +5548,7 @@ Song02_Sub_D865:
 
 ;===================================================================================================
 
-Song03_LegendsTheme_Rain:
+Song03_Rain:
 #_1AA763: #_D86Ao: dw Song03_Segment0
 
 Song03_Loop:
@@ -24653,3 +24653,5 @@ SpawnHammerWaterSplash:
 ;===================================================================================================
 NULL_1AFFFE:
 #_1AFFFE: db $FF, $FF
+
+;===================================================================================================

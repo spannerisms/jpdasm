@@ -1316,6 +1316,9 @@ Lynel_Fire:
 #_1D8756: BNE .dont_fire
 
 #_1D8758: JSL Sprite_SpawnFirePhlegm
+
+; THIS NEVER BRANCHES!!!!!!!!!
+; The routine above ends with a PLB, so even on failure, the N flag will not be set
 #_1D875C: BMI .dont_fire
 
 ; Makes the fire blockable with the mirror shield
@@ -2420,17 +2423,18 @@ Ganon_HandleFireBatCircle:
 #_1D8DF7: PLX
 
 #_1D8DF8: LDA.b $04
-#_1D8DFA: STA.w CPUMULTA
+#_1D8DFA: STA.w WRMPYA
 
 #_1D8DFD: LDA.b $0F
 #_1D8DFF: LDY.b $05
 #_1D8E01: BNE .nonzero_a
 
-#_1D8E03: STA.w CPUMULTB
+#_1D8E03: STA.w WRMPYB
+
 #_1D8E06: JSR Six_NOP
 
-#_1D8E09: ASL.w CPUPRODUCTL ; carry = round up
-#_1D8E0C: LDA.w CPUPRODUCTH
+#_1D8E09: ASL.w RDMPYL ; carry = round up
+#_1D8E0C: LDA.w RDMPYH
 #_1D8E0F: ADC.b #$00
 
 .nonzero_a
@@ -2460,19 +2464,19 @@ Ganon_HandleFireBatCircle:
 ;---------------------------------------------------------------------------------------------------
 
 #_1D8E2F: LDA.b $06
-#_1D8E31: STA.w CPUMULTA
+#_1D8E31: STA.w WRMPYA
 
 #_1D8E34: LDA.b $0F
 
 #_1D8E36: LDY.b $07
 #_1D8E38: BNE .nonzero_b
 
-#_1D8E3A: STA.w CPUMULTB
+#_1D8E3A: STA.w WRMPYB
 
 #_1D8E3D: JSR Six_NOP
 
-#_1D8E40: ASL.w CPUPRODUCTL ; carry = round up
-#_1D8E43: LDA.w CPUPRODUCTH
+#_1D8E40: ASL.w RDMPYL ; carry = round up
+#_1D8E43: LDA.w RDMPYH
 #_1D8E46: ADC.b #$00
 
 .nonzero_b
@@ -5349,15 +5353,19 @@ SpritePrep_Blind_PrepareBattle:
 #_1DA090: LDA.b #$60
 #_1DA092: STA.w $0E10,X
 
+; AI mode
 #_1DA095: LDA.b #$01
 #_1DA097: STA.w $0DB0,X
 
+; Direction
 #_1DA09A: LDA.b #$02
 #_1DA09C: STA.w $0DE0,X
 
+; head direction
 #_1DA09F: LDA.b #$04
 #_1DA0A1: STA.w $0EB0,X
 
+; head direction
 #_1DA0A4: LDA.b #$07
 #_1DA0A6: STA.w $0DC0,X
 
@@ -5552,16 +5560,16 @@ Blind_Head:
 ; this always fails
 #_1DA192: LDA.w $0E80,X
 #_1DA195: AND.b #$00
-#_1DA197: BNE .dont_shake_x
+#_1DA197: BNE .dont_accelerate_x
 
-; TODO what is this even for?
+; check if moving left or right
 #_1DA199: LDA.w $0ED0,X
 #_1DA19C: AND.b #$01
 #_1DA19E: TAY
 
 #_1DA19F: LDA.w $0D50,X
 #_1DA1A2: CMP.w .speed_limit_x,Y
-#_1DA1A5: BEQ .dont_shake_x
+#_1DA1A5: BEQ .dont_accelerate_x
 
 #_1DA1A7: CLC
 #_1DA1A8: ADC.w Sprite_ApplyConveyor_shake_x,Y
@@ -5569,7 +5577,7 @@ Blind_Head:
 
 ;---------------------------------------------------------------------------------------------------
 
-.dont_shake_x
+.dont_accelerate_x
 #_1DA1AE: LDA.w $0D10,X
 #_1DA1B1: AND.b #$FE
 #_1DA1B3: CMP.w .pos_limit_x,Y
@@ -5580,15 +5588,16 @@ Blind_Head:
 .dont_invert_accel_x
 #_1DA1BB: LDA.w $0E80,X
 #_1DA1BE: AND.b #$00
-#_1DA1C0: BNE .dont_shake_y
+#_1DA1C0: BNE .dont_accelerate_y
 
+; check if moving up or down
 #_1DA1C2: LDA.w $0EC0,X
 #_1DA1C5: AND.b #$01
 #_1DA1C7: TAY
 
 #_1DA1C8: LDA.w $0D40,X
 #_1DA1CB: CMP.w .speed_limit_y,Y
-#_1DA1CE: BEQ .dont_shake_y
+#_1DA1CE: BEQ .dont_accelerate_y
 
 #_1DA1D0: CLC
 #_1DA1D1: ADC.w Sprite_ApplyConveyor_shake_x,Y
@@ -5596,7 +5605,7 @@ Blind_Head:
 
 ;---------------------------------------------------------------------------------------------------
 
-.dont_shake_y
+.dont_accelerate_y
 #_1DA1D7: LDA.w $0D00,X
 #_1DA1DA: AND.b #$FE
 #_1DA1DC: CMP.w .pos_limit_y,Y
@@ -5794,18 +5803,18 @@ Blind_Blind_Blind:
 ;---------------------------------------------------------------------------------------------------
 
 #_1DA2E5: LDA.w $0EA0,X
-#_1DA2E8: BEQ .no_attack
+#_1DA2E8: BEQ .not_hit
 
 #_1DA2EA: DEC.w $0EA0,X
 
 #_1DA2ED: CMP.b #$0B
-#_1DA2EF: BNE .no_attack
+#_1DA2EF: BNE .not_hit
 
 #_1DA2F1: STZ.w $0EF0,X
 #_1DA2F4: STZ.w $0E70,X
 
 #_1DA2F7: LDA.w $0F10,X
-#_1DA2FA: BNE .no_attack
+#_1DA2FA: BNE .not_hit
 
 #_1DA2FC: LDA.b #$80
 #_1DA2FE: STA.w $0E50,X
@@ -5829,7 +5838,7 @@ Blind_Blind_Blind:
 #_1DA31D: LDA.b #$01
 #_1DA31F: STA.w $0E30,X
 
-#_1DA322: BRA .no_attack
+#_1DA322: BRA .not_hit
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5839,7 +5848,7 @@ Blind_Blind_Blind:
 #_1DA327: INC.w $0B6A
 
 #_1DA32A: LDA.w $0B6A
-#_1DA32D: CMP.b #3
+#_1DA32D: CMP.b #$03
 #_1DA32F: BNE .spawn_head
 
 #_1DA331: JSL Sprite_KillFriends
@@ -5870,7 +5879,7 @@ Blind_Blind_Blind:
 
 #_1DA35A: JSR Blind_SpawnHead
 
-.no_attack
+.not_hit
 #_1DA35D: LDA.w $0D90,X
 #_1DA360: BEQ Blind_Blind_Blind_Blind
 
@@ -6130,7 +6139,9 @@ Blind_FireballFlurry:
 #_1DA49B: LDA.b #$0F
 
 ;===================================================================================================
-
+; Enters with:
+;   A - bit mask for frequency
+;===================================================================================================
 Blind_SpitFireball:
 #_1DA49D: LDY.b #$FF
 
@@ -6194,6 +6205,7 @@ Blind_THELIGHT:
 #_1DA4E9: STA.w $1CF1
 
 #_1DA4EC: JSL Sprite_ShowMessageMinimal
+
 #_1DA4F0: PLA
 
 ;---------------------------------------------------------------------------------------------------
@@ -6384,13 +6396,13 @@ Blind_Shimmy:
 #_1DA5E4: JSR Sprite_Move_XY_Bank1D
 
 #_1DA5E7: LDA.w $0E70,X
-#_1DA5EA: BEQ .didnt_hit_tile
+#_1DA5EA: BEQ .do_not_flurry
 
 #_1DA5EC: JMP.w Blind_FireballFlurry
 
 ;---------------------------------------------------------------------------------------------------
 
-.didnt_hit_tile
+.do_not_flurry
 #_1DA5EF: LDA.w $0E80,X
 #_1DA5F2: AND.b #$07
 #_1DA5F4: BNE .exit
@@ -8677,10 +8689,10 @@ SpriteDraw_TrinexxRockHeadAndBody:
 
 ; Multiply segment by offset
 #_1DB5CC: LDA.b $0A
-#_1DB5CE: STA.w CPUMULTA
+#_1DB5CE: STA.w WRMPYA
 
 #_1DB5D1: LDA.w .neck_pos_offset_multipliers,Y
-#_1DB5D4: STA.w CPUMULTB
+#_1DB5D4: STA.w WRMPYB
 
 #_1DB5D7: NOP ; 8 NOP
 #_1DB5D8: NOP
@@ -8691,8 +8703,8 @@ SpriteDraw_TrinexxRockHeadAndBody:
 #_1DB5DD: NOP
 #_1DB5DE: NOP
 
-#_1DB5DF: ASL.w CPUPRODUCTL ; carry = round up
-#_1DB5E2: LDA.w CPUPRODUCTH
+#_1DB5DF: ASL.w RDMPYL ; carry = round up
+#_1DB5E2: LDA.w RDMPYH
 #_1DB5E5: ADC.b #$00
 
 ; make sure the sign matches
@@ -8713,10 +8725,10 @@ SpriteDraw_TrinexxRockHeadAndBody:
 #_1DB5F6: LDY.w $0FB5
 
 #_1DB5F9: LDA.b $0B
-#_1DB5FB: STA.w CPUMULTA
+#_1DB5FB: STA.w WRMPYA
 
 #_1DB5FE: LDA.w .neck_pos_offset_multipliers,Y
-#_1DB601: STA.w CPUMULTB
+#_1DB601: STA.w WRMPYB
 
 #_1DB604: NOP ; 8 NOP
 #_1DB605: NOP
@@ -8727,8 +8739,8 @@ SpriteDraw_TrinexxRockHeadAndBody:
 #_1DB60A: NOP
 #_1DB60B: NOP
 
-#_1DB60C: ASL.w CPUPRODUCTL ; carry = round up
-#_1DB60F: LDA.w CPUPRODUCTH
+#_1DB60C: ASL.w RDMPYL ; carry = round up
+#_1DB60F: LDA.w RDMPYH
 #_1DB612: ADC.b #$00
 
 ; make sure the sign matches
@@ -9808,14 +9820,14 @@ SpriteDraw_Sidenexx:
 #_1DBBE1: PLX
 
 #_1DBBE2: LDA.b $0A
-#_1DBBE4: STA.w CPUMULTA
+#_1DBBE4: STA.w WRMPYA
 
 #_1DBBE7: LDA.b $0F
 
 #_1DBBE9: LDY.b $0B
 #_1DBBEB: BNE .nonzero_a
 
-#_1DBBED: STA.w CPUMULTB
+#_1DBBED: STA.w WRMPYB
 
 #_1DBBF0: NOP ; 8 NOP
 #_1DBBF1: NOP
@@ -9826,8 +9838,8 @@ SpriteDraw_Sidenexx:
 #_1DBBF6: NOP
 #_1DBBF7: NOP
 
-#_1DBBF8: ASL.w CPUPRODUCTL ; carry = round up
-#_1DBBFB: LDA.w CPUPRODUCTH
+#_1DBBF8: ASL.w RDMPYL ; carry = round up
+#_1DBBFB: LDA.w RDMPYH
 #_1DBBFE: ADC.b #$00
 
 .nonzero_a
@@ -9843,13 +9855,13 @@ SpriteDraw_Sidenexx:
 ;---------------------------------------------------------------------------------------------------
 
 #_1DBC0A: LDA.b $0C
-#_1DBC0C: STA.w CPUMULTA
+#_1DBC0C: STA.w WRMPYA
 
 #_1DBC0F: LDA.b $0F
 #_1DBC11: LDY.b $0D
 #_1DBC13: BNE .nonzero_b
 
-#_1DBC15: STA.w CPUMULTB
+#_1DBC15: STA.w WRMPYB
 
 #_1DBC18: NOP ; 8 NOP
 #_1DBC19: NOP
@@ -9860,8 +9872,8 @@ SpriteDraw_Sidenexx:
 #_1DBC1E: NOP
 #_1DBC1F: NOP
 
-#_1DBC20: ASL.w CPUPRODUCTL ; carry = round up
-#_1DBC23: LDA.w CPUPRODUCTH
+#_1DBC20: ASL.w RDMPYL ; carry = round up
+#_1DBC23: LDA.w RDMPYH
 #_1DBC26: ADC.b #$00
 
 .nonzero_b
@@ -10698,7 +10710,7 @@ ChainChomp_MoveChain:
 #_1DC062: INC A
 
 .pos_x
-#_1DC063: STA.w CPUMULTA
+#_1DC063: STA.w WRMPYA
 
 #_1DC066: PHX
 
@@ -10707,7 +10719,7 @@ ChainChomp_MoveChain:
 #_1DC06A: TAX
 
 #_1DC06B: LDA.w .operand-2,X
-#_1DC06E: STA.w CPUMULTB
+#_1DC06E: STA.w WRMPYB
 
 #_1DC071: PLX
 
@@ -10719,7 +10731,7 @@ ChainChomp_MoveChain:
 #_1DC077: NOP
 #_1DC078: NOP
 
-#_1DC079: LDA.w CPUPRODUCTH
+#_1DC079: LDA.w RDMPYH
 #_1DC07C: LDY.b #$00
 
 #_1DC07E: PLP
@@ -10747,7 +10759,7 @@ ChainChomp_MoveChain:
 #_1DC095: INC A
 
 .pos_y
-#_1DC096: STA.w CPUMULTA
+#_1DC096: STA.w WRMPYA
 
 #_1DC099: PHX
 
@@ -10756,7 +10768,7 @@ ChainChomp_MoveChain:
 #_1DC09D: TAX
 
 #_1DC09E: LDA.w .operand-2,X
-#_1DC0A1: STA.w CPUMULTB
+#_1DC0A1: STA.w WRMPYB
 
 #_1DC0A4: PLX
 
@@ -10768,7 +10780,7 @@ ChainChomp_MoveChain:
 #_1DC0AA: NOP
 #_1DC0AB: NOP
 
-#_1DC0AC: LDA.w CPUPRODUCTH
+#_1DC0AC: LDA.w RDMPYH
 #_1DC0AF: LDY.b #$00
 
 #_1DC0B1: PLP
@@ -14438,7 +14450,7 @@ SpriteDraw_CutsceneAgahnimSpell:
 
 .pointless
 ; wtf? why is this an indirect read?
-; juse use the actual address
+; just use the actual address
 #_1DD570: LDA.b ($0A),Y
 #_1DD572: STA.b ($92),Y
 
@@ -14524,7 +14536,7 @@ CutsceneAgahnim_Zelda:
 #_1DD5D2: JSR Sprite_DrawMultiple_Bank1D
 
 ; using sublabels makes my life easier here
-#_1DD5D5: JSR .draw_body
+#_1DD5D5: JSR .draw_buttshaped_shadow
 
 #_1DD5D8: RTS
 
@@ -14536,7 +14548,7 @@ CutsceneAgahnim_Zelda:
 
 ;---------------------------------------------------------------------------------------------------
 
-.draw_body
+.draw_buttshaped_shadow
 #_1DD5E9: LDA.b #$08
 #_1DD5EB: JSL OAM_AllocateFromRegionA
 
@@ -18677,14 +18689,14 @@ ArmosCoordinator_Rotate:
 #_1DED2B: PLX
 
 #_1DED2C: LDA.b $04
-#_1DED2E: STA.w CPUMULTA
+#_1DED2E: STA.w WRMPYA
 
 #_1DED31: LDA.b $0F
 
 #_1DED33: LDY.b $05
 #_1DED35: BNE .nonzero_x
 
-#_1DED37: STA.w CPUMULTB
+#_1DED37: STA.w WRMPYB
 
 #_1DED3A: NOP ; 8 NOP
 #_1DED3B: NOP
@@ -18695,8 +18707,8 @@ ArmosCoordinator_Rotate:
 #_1DED40: NOP
 #_1DED41: NOP
 
-#_1DED42: ASL.w CPUPRODUCTL ; carry = round up
-#_1DED45: LDA.w CPUPRODUCTH
+#_1DED42: ASL.w RDMPYL ; carry = round up
+#_1DED45: LDA.w RDMPYH
 #_1DED48: ADC.b #$00
 
 .nonzero_x
@@ -18727,14 +18739,14 @@ ArmosCoordinator_Rotate:
 #_1DED68: STA.w $0B20,Y
 
 #_1DED6B: LDA.b $06
-#_1DED6D: STA.w CPUMULTA
+#_1DED6D: STA.w WRMPYA
 
 #_1DED70: LDA.b $0F
 
 #_1DED72: LDY.b $07
 #_1DED74: BNE .nonzero_y
 
-#_1DED76: STA.w CPUMULTB
+#_1DED76: STA.w WRMPYB
 
 #_1DED79: NOP ; 8 NOP
 #_1DED7A: NOP
@@ -18745,8 +18757,8 @@ ArmosCoordinator_Rotate:
 #_1DED7F: NOP
 #_1DED80: NOP
 
-#_1DED81: ASL.w CPUPRODUCTL ; carry = round up
-#_1DED84: LDA.w CPUPRODUCTH
+#_1DED81: ASL.w RDMPYL ; carry = round up
+#_1DED84: LDA.w RDMPYH
 #_1DED87: ADC.b #$00
 
 .nonzero_y
@@ -21753,3 +21765,5 @@ SpriteDraw_Falling:
 ;===================================================================================================
 NULL_1DFFF8:
 #_1DFFF8: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
+
+;===================================================================================================

@@ -7212,7 +7212,7 @@ Intro_InitializeMemory_darken:
 
 #Intro_InitializeDefaultGFX:
 #_0CC208: JSL EnableForceBlank
-#_0CC20C: JSL EraseTileMaps_normal
+#_0CC20C: JSL EraseTilemaps_normal
 
 #_0CC210: LDA.b #$02
 #_0CC212: STA.w OBSEL
@@ -9354,7 +9354,7 @@ FileSelect_EraseTriforce:
 #_0CCD9A: STA.w $0710
 
 #_0CCD9D: JSL EnableForceBlank
-#_0CCDA1: JSL EraseTileMaps_triforce
+#_0CCDA1: JSL EraseTilemaps_triforce
 #_0CCDA5: JSL Palettes_LoadForFileSelect
 
 #_0CCDA9: INC.b $15
@@ -10355,7 +10355,7 @@ CopyFile_TargetSelectionAndBlink:
 #_0CD245: DEX
 #_0CD246: BPL .next_confirm_stripe
 
-; Which file name is erased on tilemap?
+; Which file name is erased on tilemap
 #_0CD248: LDA.b $C8
 #_0CD24A: BNE .dont_reposition_deleted_name
 
@@ -10608,6 +10608,7 @@ KILLFile_HandleSelection:
 
 .selecting_exit
 #_0CD382: JSR KILLFile_ChooseTarget
+
 #_0CD385: JMP.w FileSelect_TriggerTheStripes
 
 ;===================================================================================================
@@ -10618,6 +10619,7 @@ KILLFile_HandleConfirmation:
 #_0CD38A: PLB
 
 #_0CD38B: JSR KILLFile_VerifyDeletion
+
 #_0CD38E: JMP.w FileSelect_TriggerTheStripes
 
 ;===================================================================================================
@@ -12337,7 +12339,7 @@ NameFile_DrawSelectedCharacter:
 
 ;===================================================================================================
 
-IntroLogoTileMap:
+IntroLogoTilemap:
 #_0CDCC7: dw $0010, $7E47 ; VRAM $2000 | 1920 bytes | Fixed horizontal
 #_0CDCCB: dw $0976
 
@@ -12380,7 +12382,7 @@ IntroLogoTileMap:
 
 ;===================================================================================================
 
-FileSelectTileMap:
+FileSelectTilemap:
 #_0CDDE8: dw $6260, $3700 ; VRAM $C0C4 | 56 bytes | Horizontal
 #_0CDDEC: dw $1D8A, $0188, $1D69, $0188, $1D65, $0188, $1D4A, $0188
 #_0CDDFC: dw $1D82, $0188, $1D4E, $0188, $1D6B, $0188, $0188, $1D6C
@@ -12448,7 +12450,7 @@ FileSelectNamesTilemap:
 
 ;===================================================================================================
 
-FileSelectKILLFileTileMap:
+FileSelectKILLFileTilemap:
 #_0CDFFE: dw $6760, $2100 ; VRAM $C0CE | 34 bytes | Horizontal
 #_0CE002: dw $1D8A, $0188, $1D64, $0188, $1D62, $0188, $1D65, $0188
 #_0CE012: dw $1D65, $0188, $1D04, $0188, $1D89, $0188, $1D07, $0188
@@ -12521,7 +12523,7 @@ KILLFile_BlankNameStripes:
 
 ;===================================================================================================
 
-FileSelectCopyFileTileMap:
+FileSelectCopyFileTilemap:
 #_0CE224: dw $6860, $1D00 ; VRAM $C0D0 | 30 bytes | Horizontal
 #_0CE228: dw $1D8A, $0188, $1CAC, $0188, $1D23, $0188, $1D89, $0188
 #_0CE238: dw $1D04, $0188, $1D89, $0188, $1D07, $0188, $1D8B
@@ -12637,7 +12639,7 @@ CopyFile_TargetHeaderStripes:
 
 ;===================================================================================================
 
-NamePlayerTileMap:
+NamePlayerTilemap:
 #_0CE415: dw $0010, $7E41 ; VRAM $2000 | 384 bytes | Fixed horizontal
 #_0CE419: dw $0890
 
@@ -13085,7 +13087,7 @@ Attract_Initialize:
 #_0CED77: DEX
 #_0CED78: BPL .next
 
-#_0CED7A: JSL EraseTileMaps_normal
+#_0CED7A: JSL EraseTilemaps_normal
 #_0CED7E: JSL Attract_LoadBG3GFX
 
 #_0CED82: LDA.b #$01
@@ -13118,6 +13120,7 @@ Attract_Initialize:
 
 #_0CEDB2: STZ.w $1CD8
 
+; Message 0110
 #_0CEDB5: LDX.w #$0110
 #_0CEDB8: STX.w $1CF0
 
@@ -13235,7 +13238,7 @@ Attract_FadeOutSequence:
 
 .advance
 #_0CEE38: JSL EnableForceBlank
-#_0CEE3C: JSL EraseTileMaps_normal
+#_0CEE3C: JSL EraseTilemaps_normal
 
 ;===================================================================================================
 
@@ -13333,7 +13336,7 @@ AttractScene_WorldMap:
 ;===================================================================================================
 
 AttractScene_ThroneRoom:
-#_0CEEAC: STZ.w HDMAENABLE
+#_0CEEAC: STZ.w HDMAEN
 #_0CEEAF: STZ.b $9B
 
 #_0CEEB1: LDA.b #$02
@@ -13581,7 +13584,7 @@ AttractScene_AgahnimAltar:
 
 #_0CF003: STZ.w $1CD8
 
-; Message 0013
+; Message 0113
 #_0CF006: LDA.b #$13
 #_0CF008: STA.w $1CF0
 
@@ -13688,7 +13691,8 @@ AttractDramatize_PolkaDots:
 #_0CF08F: LDA.b $27
 #_0CF091: BEQ .delay_map_update
 
-#_0CF093: JSR Attract_BuildNextImageTileMap
+#_0CF093: JSR Attract_BuildNextImageTilemap
+
 #_0CF096: STZ.b $27
 
 #_0CF098: INC.b $26
@@ -13774,7 +13778,7 @@ AttractDramatize_WorldMap:
 #_0CF0F5: STA.w BGMODE
 #_0CF0F8: STA.b $94
 
-#_0CF0FA: JSL EraseTileMaps_normal
+#_0CF0FA: JSL EraseTilemaps_normal
 
 #_0CF0FE: INC.b $23
 
@@ -15014,7 +15018,7 @@ Attract_SkipToFileSelect:
 
 ;===================================================================================================
 
-pool Attract_BuildNextImageTileMap
+pool Attract_BuildNextImageTilemap
 
 .stripes_pointers
 #_0CF67D: dw AttractImage0Stripes
@@ -15032,7 +15036,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Attract_BuildNextImageTileMap:
+Attract_BuildNextImageTilemap:
 #_0CF68D: REP #$20
 
 #_0CF68F: LDX.b $26
@@ -15043,7 +15047,7 @@ Attract_BuildNextImageTileMap:
 #_0CF697: LDA.l .stripes_pointers,X
 #_0CF69B: STA.b $02
 
-#_0CF69D: LDX.b #Attract_BuildNextImageTileMap>>16
+#_0CF69D: LDX.b #Attract_BuildNextImageTilemap>>16
 #_0CF69F: STX.b $04
 
 #_0CF6A1: REP #$10
@@ -15094,33 +15098,33 @@ Attract_ControlMapZoom:
 #_0CF6CE: REP #$10
 
 #_0CF6D0: LDA.w $0637
-#_0CF6D3: STA.w CPUMULTA
+#_0CF6D3: STA.w WRMPYA
 
 #_0CF6D6: LDX.w #$01BE
 
 .copy_next
 #_0CF6D9: LDA.l WorldMapHDMA_ZoomedOut_Part1+0,X
-#_0CF6DD: STA.w CPUMULTB
+#_0CF6DD: STA.w WRMPYB
 
 #_0CF6E0: NOP
 #_0CF6E1: NOP
 #_0CF6E2: NOP
 #_0CF6E3: NOP
 
-#_0CF6E4: LDA.w CPUPRODUCTH
+#_0CF6E4: LDA.w RDMPYH
 #_0CF6E7: STA.b $00
 
 #_0CF6E9: LDA.l WorldMapHDMA_ZoomedOut_Part1+1,X
-#_0CF6ED: STA.w CPUMULTB
+#_0CF6ED: STA.w WRMPYB
 
 #_0CF6F0: NOP
 
 #_0CF6F1: LDA.b $00
 #_0CF6F3: CLC
-#_0CF6F4: ADC.w CPUPRODUCTL
+#_0CF6F4: ADC.w RDMPYL
 #_0CF6F7: STA.w $1B00,X
 
-#_0CF6FA: LDA.w CPUPRODUCTH
+#_0CF6FA: LDA.w RDMPYH
 #_0CF6FD: ADC.b #$00
 #_0CF6FF: STA.w $1B01,X
 
@@ -15297,7 +15301,7 @@ Attract_TriggerBGDMA:
 #_0CF7E6: STA.w DMA0SIZE
 
 #_0CF7E9: LDY.b #$01
-#_0CF7EB: STY.w DMAENABLE
+#_0CF7EB: STY.w MDMAEN
 
 #_0CF7EE: DEX
 #_0CF7EF: BPL .next

@@ -6,7 +6,7 @@
 ;
 ; Low bytes may be indicated with an "L" suffix
 ; High bytes are indicated with an "H" suffix
-; High bytes that are unused may use a "U" suffix
+; High bytes that are unused may have a "U" suffix
 ;
 ; Bitfields, full or partial, will name each property with a unique letter
 ; If multiple bits share a letter, they are part of the same property
@@ -91,7 +91,7 @@ SUBMODE         = $7E0011
 ; NMI will set this flag to non zero, allowing the loop to exit after NMI
 LAG             = $7E0012
 
-; Queue for INIDISP updates; written to during NMI
+; Queue for INIDISP updates; handled during NMI
 INIDISPQ        = $7E0013
 
 ; NMI update flags
@@ -114,9 +114,9 @@ FRAME           = $7E001A
 ;   0x01 - indoors
 INDOORS         = $7E001B
 
-; PPU register queues written during NMI
-MAINDESQ        = $7E001C
-SUBDESQ         = $7E001D
+; PPU register queues handled during NMI
+TMQ             = $7E001C
+TSQ             = $7E001D
 TMWQ            = $7E001E
 TSWQ            = $7E001F
 
@@ -444,8 +444,8 @@ SCRAP77         = $7E0077
 JUMPSCROLL      = $7E0078
 
 ; Spin attack timer
-; at 48 (0x30), the spin is fully charged
-; hardcapped at 64 (0x40)
+; Fully charged at 48 (0x30)
+; Hardcapped at 64 (0x40)
 SPINTIME        = $7E0079
 
 ; FREE RAM: 0x01
@@ -511,7 +511,7 @@ WOBJSELQ        = $7E0098
 CGWSELQ         = $7E0099
 CGADSUBQ        = $7E009A
 
-; HDMA enable flags
+; HDMA enable queue
 HDMAENQ         = $7E009B
 
 ; These are just written to COLDATA successively
@@ -1340,7 +1340,7 @@ SPRLIFT         = $7E0314
 ; Some type of flag set for collision checks
 COLFLAG         = $7E0315
 
-; Flags which axes are being moved on? TODO
+; Flags which axes moving walls should push or something.
 MVONY           = $7E0316
 MVONX           = $7E0317
 
@@ -1891,7 +1891,7 @@ LINECOUNT       = $7E03F4
 TEMPBUNTM       = $7E03F5
 TEMPBUNTMH      = $7E03F6
 
-; Flag for ticking TEMPBUNTIME
+; Flag for ticking TEMPBUNTM
 TEMPBUN         = $7E03F7
 
 ; Flag for being near a rupee pull.
@@ -2287,7 +2287,7 @@ SSTAIRI3H       = $7E049F
 FLOORTIME       = $7E04A0
 FLOORTIMEH      = $7E04A1
 
-; More stair idnexing for some stupid reason...
+; More stair indexing for some stupid reason...
 STAIRSI7        = $7E04A2
 STAIRSI7H       = $7E04A3
 STAIRSI8        = $7E04A4
@@ -2297,7 +2297,7 @@ STAIRSI9H       = $7E04A7
 STAIRSIA        = $7E04A8
 STAIRSIAH       = $7E04A9
 
-; If set, entrance loading is treated as respawn.
+; If set, entrance loading is treated as respawning.
 RESPAWN         = $7E04AA
 RESPAWNH        = $7E04AB
 
@@ -2314,7 +2314,7 @@ SSTAIRI4H       = $7E04AF
 UTMAP           = $7E04B0
 UTMAPH          = $7E04B1
 
-; Written to with 0x0492 if the flute spot is dug up. Otherwise zeroed.
+; Written to with 0x0492 if the flute spot is dug up. Otherwise zero.
 ; Nonzero values let the flute spawn.
 FLUTEX          = $7E04B2
 FLUTEXH         = $7E04B3
@@ -2354,7 +2354,7 @@ PTIMEICE        = $7E04BF
 SHELLFIRE       = $7E04C0
 SHELLICE        = $7E04C1
 
-; Timer used by milestone items.
+; Timer used by falling items.
 MFALLTIME       = $7E04C2
 
 ; FREE RAM: 0x01
@@ -2414,7 +2414,7 @@ M16BUFF520      = $7E0520
 ;   0x0003 - Done moving push block
 ;   0x0004 - Falling push block
 ;   0x0005 - Push block on switch
-;   0x1010 - Pot requiring lift 1
+;   0x1010 - Pot requiring lift 2
 ;   0x1111 - Normal pot
 ;   0x1212 - Ugly pot
 ;   0x2020 - Big gray rock
@@ -2583,7 +2583,7 @@ MAPZOOM         = $7E0636
 ; Appears to just handle zoom control of the mode 7 map in attract mode.
 AMAPZOOM        = $7E0637
 
-; Mode7 queues written to during NMI.
+; Mode7 queues handled during NMI.
 M7XQL           = $7E0638
 M7XQH           = $7E0639
 M7YQL           = $7E063A
@@ -2854,7 +2854,7 @@ OAMBUFFSX       = $7E0A20
 ;---------------------------------------------------------------------------------------------------
 
 ; GFX sheets
-SHEETAA0        = $7E0AA0
+MAINGFX         = $7E0AA0
 BGSET1          = $7E0AA1
 BGSET2          = $7E0AA2
 SPRSET1         = $7E0AA3
@@ -3162,6 +3162,7 @@ TINKBG          = $7E0B68
 BLINDDIR        = $7E0B69
 
 ; Used by beamos lasers and desert statues to index amongst themselves
+; Also used for Blind's current phase
 LIMSPRCT        = $7E0B6A
 
 ; tttt a.bp
@@ -3244,7 +3245,7 @@ DRYFIRE         = $7E0B9A
 ; There is also no bounds checking for invalid higher indices.
 KEYSLOT         = $7E0B9B
 
-; Controls the secret spawned from bushes, pots, rots, etc
+; Controls the secret spawned from bushes, pots, rocks, etc
 ; See Sprite_SpawnSecret
 SECRETID        = $7E0B9C
 
@@ -3313,7 +3314,7 @@ SPRDSLOT        = $7E0BCD
 SPRESLOT        = $7E0BCE
 SPRFSLOT        = $7E0BCF
 
-; On the overworld, this contains a pointer to the address in OWDEATHS of the sprite.
+; On the overworld, this contains a pointer to the address in OWDEATH of the sprite.
 ; Thus, the table is twice as large on the overworld
 SPR0OWDL        = $7E0BC0
 SPR0OWDH        = $7E0BC1
@@ -3486,7 +3487,7 @@ ANC8SUBX        = $7E0C48
 ANC9SUBX        = $7E0C49
 
 ; Ancilla ID
-; See ANCExecuteObject for values
+; $0C4A is also used as a vector index for GAME OVER letters
 ANC0ID          = $7E0C4A
 ANC1ID          = $7E0C4B
 ANC2ID          = $7E0C4C
@@ -4177,7 +4178,8 @@ SPRF_HP         = $7E0E5F
 ; nios pppt
 ;   n - death anim stuff? TODO
 ;   i - impervious to attacks and collision? TODO
-;   o - shadow (0: no shadow | 1: shadow)
+;   o - shadow size (0: normal | 1: small)
+;   s - shadow (0: no shadow | 1: shadow)
 ;   p - palette used for OAM props
 ;   t - name table used for OAM props
 SPR0_PROPS      = $7E0E60
@@ -4950,8 +4952,8 @@ MIRRORCOUNT     = $7E1AFF
 
 ;---------------------------------------------------------------------------------------------------
 
-; Spotlight pointers for HDMA
-IRISPTR         = $7E1B00
+; Spotlight windowing values for the IRIS HDMA
+IRIS            = $7E1B00
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5092,6 +5094,8 @@ CACHE_0E60      = $7E1DF0
 ;---------------------------------------------------------------------------------------------------
 ; Polyhedral variables used by the intro and ending sequence.
 ;---------------------------------------------------------------------------------------------------
+; Be wary of FREE RAM listed here, as it will be cleared with other values here.
+;---------------------------------------------------------------------------------------------------
 
 ; Cutscene act
 SCENESTEP       = $7E1E00
@@ -5157,8 +5161,12 @@ SCSPRYH         = $7E1E50
 SCSPRVX         = $7E1E58
 SCSPRVY         = $7E1E60
 
-; BIG FREE RAM: 0x98
+; FREE RAM: 0x08
 UNUSED_7E1E68   = $7E1E68
+
+; BIG FREE RAM: 0x90
+; This big block is actually 100% safe
+UNUSED_7E1E70   = $7E1E70
 
 ;===================================================================================================
 ;---------------------------------------------------------------------------------------------------
@@ -5172,13 +5180,15 @@ UNUSED_7E1E68   = $7E1E68
 ; Be wary of FREE RAM listed here, as it will be zeroed whenever the polyhedral thread initializes.
 ;---------------------------------------------------------------------------------------------------
 ;===================================================================================================
+
 ; Tells the polyhedral thread to wait for IRQ.
 POLYWAIT        = $7E1F00
 
 ; Seems to control opacity
 POLYOPAC        = $7E1F01
 
-; Polyhedral distance. Larger numbers = further distance.
+; Polyhedral distance
+; Larger numbers = further distance
 POLYZOOM        = $7E1F02
 
 ; Polyhedral shape ID
@@ -5194,7 +5204,8 @@ POLYROTY        = $7E1F05
 POLYOFFH        = $7E1F06
 POLYOFFV        = $7E1F07
 
-; Seems to be size in some way. Larger numbers = smaller object.
+; Seems to be size in some way.
+; Larger numbers = smaller object.
 POLYSIZEL       = $7E1F08
 POLYSIZEH       = $7E1F09
 
@@ -5454,8 +5465,8 @@ UNUSED_7EC025   = $7EC025
 ; Variable caching for special overworld
 SPO_OWSCR2L     = $7EC100
 SPO_OWSCR2H     = $7EC101
-SPO_MAINDESQ    = $7EC102
-SPO_SUBDESQ     = $7EC103
+SPO_TMQ         = $7EC102
+SPO_TSQ         = $7EC103
 SPO_BG2VERTL    = $7EC104
 SPO_BG2VERTH    = $7EC105
 SPO_BG2HORZL    = $7EC106
@@ -5488,7 +5499,7 @@ SPO_OWTARGWL    = $7EC120
 SPO_OWTARGWH    = $7EC121
 SPO_OWTARGEL    = $7EC122
 SPO_OWTARGEH    = $7EC123
-SPO_AA0         = $7EC124 ; TODO take name from 0AA0
+SPO_MAINGFX     = $7EC124
 SPO_BGSET1      = $7EC125
 SPO_BGSET2      = $7EC126
 SPO_SPRSET1     = $7EC127
@@ -5526,8 +5537,8 @@ UNUSED_7EC13F   = $7EC13F
 ; Used for caching with entrances
 EN_OWSCR2L      = $7EC140
 EN_OWSCR2H      = $7EC141
-EN_MAINDESQ     = $7EC142
-EN_SUBDESQ      = $7EC143
+EN_TMQ          = $7EC142
+EN_TSQ          = $7EC143
 EN_BG2VERTL     = $7EC144
 EN_BG2VERTH     = $7EC145
 EN_BG2HORZL     = $7EC146
@@ -5560,7 +5571,7 @@ EN_OWTARGWL     = $7EC160
 EN_OWTARGWH     = $7EC161
 EN_OWTARGEL     = $7EC162
 EN_OWTARGEH     = $7EC163
-EN_AA0          = $7EC164 ; TODO take name from 0AA0
+EN_MAINGFX      = $7EC164
 EN_BGSET1       = $7EC165
 EN_BGSET2       = $7EC166
 EN_SPRSET1      = $7EC167
@@ -5580,8 +5591,10 @@ EN_SCRMODXBL    = $7EC170
 EN_SCRMODXBH    = $7EC171
 
 ; Peg colors
-; Also used wiith tilemap calculations on overworld
+; Also used with tilemap calculations on overworld
 PEGCOLOR        = $7EC172
+
+OWCALC84L       = $7EC172
 OWCALC84H       = $7EC173
 OWCALC86L       = $7EC174
 OWCALC86H       = $7EC175
@@ -5900,7 +5913,7 @@ DECOMPA         = $7F0000
 ; In the underworld, these arrays contain tile the tile's collision type for each layer.
 ; Layer 1 (COLMAPA)
 ; Layer 2 (COLMAPB)
-; 1 byte per tile. See «defines.asm» for !TILETYPE definitions
+; 1 byte per tile. See «values.asm» for TILETYPE definitions
 ;
 ; In the overworld, this block is used as a buffer for decompiled map16 data before its
 ; transfered stripe-by-stripe into the tilemaps for both BG1 and BG2.
@@ -6032,6 +6045,8 @@ TEXTDECOMP      = $7F5B00
 ; BIG FREE RAM: 0xFE
 UNUSED_7F5F02   = $7F5F02
 
+;---------------------------------------------------------------------------------------------------
+
 ; Damage class to subclass for every enemy
 ; 16 bytes per enemy, including garbage from garbage data for invalid sprites
 ; See «resources/damagetable.asm» for decompressed and decompiled data
@@ -6039,8 +6054,8 @@ DMGTABLE        = $7F6000
 
 ;---------------------------------------------------------------------------------------------------
 
-; TODO
-IRIS            = $7F7000
+; Used as a buffer for writing to IRIS
+IRISBUFFER      = $7F7000
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -6446,7 +6461,7 @@ MSG018B         = $7F74D6 ; $F356
 ;---------------------------------------------------------------------------------------------------
 
 ; MASSIVE FREE RAM: 0x68A8
-UNUSED_7F74D8   = $7F7667
+UNUSED_7F74D8   = $7F74D8
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -6454,11 +6469,15 @@ UNUSED_7F74D8   = $7F7667
 PALSAVE         = $7FDD80
 AUXPALSAVE      = $7FDE00
 
-; Flags sprite deaths in underworld based on slot.
-; Indexed by 2 * room ID.
+; Underworld:
+;    Flags sprite deaths in underworld based on slot.
+;    Indexed by 2 * room ID.
+; Overworld:
+;    Holds ID+1 of sprite with each position being assigned a unique byte
+;    0x00 indicates no sprite in this slot
 UWDEATH         = $7FDF80
 
-; Flags overworld sprite deaths
+; Flags overworld sprite deaths/enemies already spawned
 OWDEATH         = $7FEF80
 
 ;---------------------------------------------------------------------------------------------------
@@ -7120,7 +7139,7 @@ SEGMENTS_7FFD00 = $7FFC00
 ; Used to calculate Ganon's warp location
 ; Seems to have space for multiple slots
 ; even though Ganon only uses 1 slot himself
-; In fact, the trident catch only uses the 1 slot
+; In fact, the trident catch only uses that slot
 GANONWARPXL     = $7FFD5C
 GANONWARPXH     = $7FFD62
 GANONWARPYL     = $7FFD68

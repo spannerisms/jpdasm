@@ -141,6 +141,7 @@ HelmasaurKing_Main:
 #_1E80B8: STA.w $0DF0,X
 
 #_1E80BB: RTS
+
 ;---------------------------------------------------------------------------------------------------
 
 .delay_explosions
@@ -1546,13 +1547,14 @@ KingHelmasaur_OperateTail:
 #_1E894B: INC A
 
 .pos_a
-#_1E894C: STA.w CPUMULTA
+#_1E894C: STA.w WRMPYA
 
 #_1E894F: LDA.w .multiplier_a,Y
-#_1E8952: STA.w CPUMULTB
+#_1E8952: STA.w WRMPYB
 
 #_1E8955: JSR NOP8
-#_1E8958: LDA.w CPUPRODUCTH
+
+#_1E8958: LDA.w RDMPYH
 
 #_1E895B: PLP
 #_1E895C: BPL .pos_b
@@ -1568,14 +1570,14 @@ KingHelmasaur_OperateTail:
 #_1E8966: PLY
 
 #_1E8967: LDA.w $0B2F
-#_1E896A: STA.w CPUMULTA
+#_1E896A: STA.w WRMPYA
 
 #_1E896D: LDA.w .multiplier_c,Y
-#_1E8970: STA.w CPUMULTB
+#_1E8970: STA.w WRMPYB
 
 #_1E8973: JSR NOP8
 
-#_1E8976: LDA.w CPUPRODUCTH
+#_1E8976: LDA.w RDMPYH
 #_1E8979: STA.b $0F
 
 #_1E897B: PHX
@@ -1606,18 +1608,18 @@ KingHelmasaur_OperateTail:
 #_1E89A0: PLX
 
 #_1E89A1: LDA.b $0A
-#_1E89A3: STA.w CPUMULTA
+#_1E89A3: STA.w WRMPYA
 
 #_1E89A6: LDA.b $0F
 #_1E89A8: LDY.b $0B
 #_1E89AA: BNE .nonzero_a
 
-#_1E89AC: STA.w CPUMULTB
+#_1E89AC: STA.w WRMPYB
 
 #_1E89AF: JSR NOP8
 
-#_1E89B2: ASL.w CPUPRODUCTL ; carry = round up
-#_1E89B5: LDA.w CPUPRODUCTH
+#_1E89B2: ASL.w RDMPYL ; carry = round up
+#_1E89B5: LDA.w RDMPYH
 #_1E89B8: ADC.b #$00
 
 .nonzero_a
@@ -1633,19 +1635,19 @@ KingHelmasaur_OperateTail:
 #_1E89C4: STA.w $0B0D,Y
 
 #_1E89C7: LDA.b $0C
-#_1E89C9: STA.w CPUMULTA
+#_1E89C9: STA.w WRMPYA
 
 #_1E89CC: LDA.b $0F
 
 #_1E89CE: LDY.b $0D
 #_1E89D0: BNE .nonzero_b
 
-#_1E89D2: STA.w CPUMULTB
+#_1E89D2: STA.w WRMPYB
 
 #_1E89D5: JSR NOP8
 
-#_1E89D8: ASL.w CPUPRODUCTL ; carry = round up
-#_1E89DB: LDA.w CPUPRODUCTH
+#_1E89D8: ASL.w RDMPYL ; carry = round up
+#_1E89DB: LDA.w RDMPYH
 #_1E89DE: ADC.b #$00
 
 .nonzero_b
@@ -4318,7 +4320,7 @@ Freezor_Waking:
 #_1E9893: STA.b $03
 
 #_1E9895: LDY.b #$08
-#_1E9897: JSL Underworld_UpdateTileMapWithCommonTile
+#_1E9897: JSL Underworld_UpdateTilemapWithCommonTile
 
 #_1E989B: LDA.b #$60
 #_1E989D: STA.w $0E00,X
@@ -9648,19 +9650,19 @@ Arrghus_HandlePuffs:
 #_1EB788: PLX
 
 #_1EB789: LDA.b $04
-#_1EB78B: STA.w CPUMULTA
+#_1EB78B: STA.w WRMPYA
 
 #_1EB78E: LDA.b $0F
 
 #_1EB790: LDY.b $05
 #_1EB792: BNE .nonzero_a
 
-#_1EB794: STA.w CPUMULTB
+#_1EB794: STA.w WRMPYB
 
 #_1EB797: JSR NOP8
 
-#_1EB79A: ASL.w CPUPRODUCTL ; carry = round up
-#_1EB79D: LDA.w CPUPRODUCTH
+#_1EB79A: ASL.w RDMPYL ; carry = round up
+#_1EB79D: LDA.w RDMPYH
 #_1EB7A0: ADC.b #$00
 
 .nonzero_a
@@ -9690,19 +9692,19 @@ Arrghus_HandlePuffs:
 #_1EB7C0: STA.w $0B20,Y
 
 #_1EB7C3: LDA.b $06
-#_1EB7C5: STA.w CPUMULTA
+#_1EB7C5: STA.w WRMPYA
 
 #_1EB7C8: LDA.b $0E
 
 #_1EB7CA: LDY.b $07
 #_1EB7CC: BNE .nonzero_b
 
-#_1EB7CE: STA.w CPUMULTB
+#_1EB7CE: STA.w WRMPYB
 
 #_1EB7D1: JSR NOP8
 
-#_1EB7D4: ASL.w CPUPRODUCTL ; carry = round up
-#_1EB7D7: LDA.w CPUPRODUCTH
+#_1EB7D4: ASL.w RDMPYL ; carry = round up
+#_1EB7D7: LDA.w RDMPYH
 #_1EB7DA: ADC.b #$00
 
 .nonzero_b
@@ -10374,7 +10376,7 @@ Tile_DeleteFloor:
 #_1EBBEA: STA.b $03
 
 #_1EBBEC: LDY.b #$06
-#_1EBBEE: JSL Underworld_UpdateTileMapWithCommonTile
+#_1EBBEE: JSL Underworld_UpdateTilemapWithCommonTile
 
 #_1EBBF2: INC.w $0D80,X
 
@@ -10750,7 +10752,7 @@ SpikeBlock_UpdateTilemap:
 #_1EBE09: LDA.w $0D20,X
 #_1EBE0C: STA.b $03
 
-#_1EBE0E: JSL Underworld_UpdateTileMapWithCommonTile
+#_1EBE0E: JSL Underworld_UpdateTilemapWithCommonTile
 
 #_1EBE12: RTS
 
@@ -13888,19 +13890,19 @@ Firebar_Main:
 #_1ED09A: PLX
 
 #_1ED09B: LDA.b $04
-#_1ED09D: STA.w CPUMULTA
+#_1ED09D: STA.w WRMPYA
 
 #_1ED0A0: LDA.b $0F
 
 #_1ED0A2: LDY.b $05
 #_1ED0A4: BNE .nonzero_a
 
-#_1ED0A6: STA.w CPUMULTB
+#_1ED0A6: STA.w WRMPYB
 
 #_1ED0A9: JSR NOP8
 
-#_1ED0AC: ASL.w CPUPRODUCTL ; carry = round up
-#_1ED0AF: LDA.w CPUPRODUCTH
+#_1ED0AC: ASL.w RDMPYL ; carry = round up
+#_1ED0AF: LDA.w RDMPYH
 #_1ED0B2: ADC.b #$00
 
 .nonzero_a
@@ -13918,19 +13920,19 @@ Firebar_Main:
 ;---------------------------------------------------------------------------------------------------
 
 #_1ED0BF: LDA.b $06
-#_1ED0C1: STA.w CPUMULTA
+#_1ED0C1: STA.w WRMPYA
 
 #_1ED0C4: LDA.b $0F
 
 #_1ED0C6: LDY.b $07
 #_1ED0C8: BNE .nonzero_b
 
-#_1ED0CA: STA.w CPUMULTB
+#_1ED0CA: STA.w WRMPYB
 
 #_1ED0CD: JSR NOP8
 
-#_1ED0D0: ASL.w CPUPRODUCTL ; carry = round up
-#_1ED0D3: LDA.w CPUPRODUCTH
+#_1ED0D0: ASL.w RDMPYL ; carry = round up
+#_1ED0D3: LDA.w RDMPYH
 #_1ED0D6: ADC.b #$00
 
 .nonzero_b
@@ -13993,16 +13995,16 @@ Firebar_Main:
 
 .next_object_a
 #_1ED117: LDA.b $0E
-#_1ED119: STA.w CPUMULTA
+#_1ED119: STA.w WRMPYA
 
 #_1ED11C: LDA.w .mutliplier,X
-#_1ED11F: STA.w CPUMULTB
+#_1ED11F: STA.w WRMPYB
 
 #_1ED122: JSR NOP8
 
 #_1ED125: LDA.b $04
 #_1ED127: ASL A
-#_1ED128: LDA.w CPUPRODUCTH
+#_1ED128: LDA.w RDMPYH
 #_1ED12B: BCC .dont_invert_c
 
 #_1ED12D: EOR.b #$FF
@@ -14014,16 +14016,16 @@ Firebar_Main:
 #_1ED134: STA.b ($90),Y
 
 #_1ED136: LDA.b $0F
-#_1ED138: STA.w CPUMULTA
+#_1ED138: STA.w WRMPYA
 
 #_1ED13B: LDA.w .mutliplier,X
-#_1ED13E: STA.w CPUMULTB
+#_1ED13E: STA.w WRMPYB
 
 #_1ED141: JSR NOP8
 
 #_1ED144: LDA.b $06
 #_1ED146: ASL A
-#_1ED147: LDA.w CPUPRODUCTH
+#_1ED147: LDA.w RDMPYH
 #_1ED14A: BCC .dont_invert_d
 
 #_1ED14C: EOR.b #$FF
@@ -17009,12 +17011,12 @@ BombShop_Bomb:
 #_1EE1A8: BEQ .no_space
 
 ; 100 rupees
-#_1EE1AA: LDA.b #100
+#_1EE1AA: LDA.b #$64
 #_1EE1AC: LDY.b #$00
 #_1EE1AE: JSR ShopItem_HandleCost
 #_1EE1B1: BCC .too_poor
 
-; Doesn't completely top you off... interesting...
+; Doesn't completely top you off...
 #_1EE1B3: LDA.b #27
 #_1EE1B5: STA.l $7EF375
 
@@ -17056,7 +17058,7 @@ BombShop_SuperBomb:
 #_1EE1E6: BCC .exit
 
 ; 100 rupees
-#_1EE1E8: LDA.b #100
+#_1EE1E8: LDA.b #$64
 #_1EE1EA: LDY.b #$00
 #_1EE1EC: JSR ShopItem_HandleCost
 #_1EE1EF: BCC .too_poor
@@ -17430,7 +17432,7 @@ Kiki_OfferToFollowTransaction:
 #_1EE3F1: BNE .offer_rejected
 
 ; 10 rupees
-#_1EE3F3: LDA.b #10
+#_1EE3F3: LDA.b #$0A
 #_1EE3F5: LDY.b #$00
 #_1EE3F7: JSR ShopItem_HandleCost
 #_1EE3FA: BCC .offer_rejected
@@ -17642,7 +17644,7 @@ Kiki_VerifyPurchase:
 
 .offer_rejected
 ; 100 rupees
-#_1EE516: LDA.b #100
+#_1EE516: LDA.b #$64
 #_1EE518: LDY.b #$00
 #_1EE51A: JSR ShopItem_HandleCost
 #_1EE51D: BCC .too_poor
@@ -19566,7 +19568,7 @@ ChestGameGuy_HandlePayment:
 #_1EEFCC: BNE .rejected
 
 ; 30 rupees
-#_1EEFCE: LDA.b #30
+#_1EEFCE: LDA.b #$1E
 #_1EEFD0: LDY.b #$00
 #_1EEFD2: JSR ShopItem_HandleCost
 #_1EEFD5: BCC .rejected
@@ -19737,7 +19739,7 @@ MiniChestGameGuy_VerifyPurchase:
 #_1EF0A9: BNE .rejected
 
 ; 20 rupees
-#_1EF0AB: LDA.b #20
+#_1EF0AB: LDA.b #$14
 #_1EF0AD: LDY.b #$00
 #_1EF0AF: JSR ShopItem_HandleCost
 #_1EF0B2: BCC .rejected
@@ -19836,7 +19838,7 @@ LostWoodsChestGameGuy_VerifyPurchase:
 #_1EF117: BNE .rejected
 
 ; 100 rupees
-#_1EF119: LDA.b #100
+#_1EF119: LDA.b #$64
 #_1EF11B: LDY.b #$00
 #_1EF11D: JSR ShopItem_HandleCost
 #_1EF120: BCC .rejected
@@ -19914,7 +19916,7 @@ ShopItem_RedPotion150:
 #_1EF175: BMI .no_empty_bottle
 
 ; 150 rupees
-#_1EF177: LDA.b #150
+#_1EF177: LDA.b #$96
 #_1EF179: LDY.b #$00
 #_1EF17B: JSR ShopItem_HandleCost
 #_1EF17E: BCC ShopItem_GiveFailureMessage
@@ -20018,7 +20020,7 @@ ShopItem_FighterShield:
 #_1EF1FC: BNE RejectShieldPurchase
 
 ; 50 rupees
-#_1EF1FE: LDA.b #50
+#_1EF1FE: LDA.b #$32
 #_1EF200: LDY.b #$00
 #_1EF202: JSR ShopItem_HandleCost
 #_1EF205: BCC TooPoorForAShield
@@ -20122,7 +20124,7 @@ ShopItem_Heart:
 #_1EF288: BEQ .too_much_health
 
 ; 10 rupees
-#_1EF28A: LDA.b #10
+#_1EF28A: LDA.b #$0A
 #_1EF28C: LDY.b #$00
 #_1EF28E: JSR ShopItem_HandleCost
 #_1EF291: BCC .too_poor
@@ -20167,7 +20169,7 @@ ShopItem_Arrows:
 #_1EF2C1: BEQ TooMuchAmmo
 
 ; 30 rupees
-#_1EF2C3: LDA.b #30
+#_1EF2C3: LDA.b #$1E
 #_1EF2C5: LDY.b #$00
 #_1EF2C7: JSR ShopItem_HandleCost
 #_1EF2CA: BCC RejectMunitionsPurchase
@@ -20219,7 +20221,7 @@ ShopItem_Bombs:
 #_1EF302: BEQ TooMuchAmmo
 
 ; 50 rupees
-#_1EF304: LDA.b #50
+#_1EF304: LDA.b #$32
 #_1EF306: LDY.b #$00
 #_1EF308: JSR ShopItem_HandleCost
 #_1EF30B: BCC RejectMunitionsPurchase
@@ -20246,7 +20248,7 @@ ShopItem_Bee:
 #_1EF329: BMI .no_empty_bottle
 
 ; 10 rupees
-#_1EF32B: LDA.b #10
+#_1EF32B: LDA.b #$0A
 #_1EF32D: LDY.b #$00
 #_1EF32F: JSR ShopItem_HandleCost
 #_1EF332: BCC .too_poor
@@ -22641,3 +22643,5 @@ NULL_1EFFD2:
 #_1EFFEA: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_1EFFF2: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_1EFFFA: db $FF, $FF, $FF, $FF, $FF, $FF
+
+;===================================================================================================

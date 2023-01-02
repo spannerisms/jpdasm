@@ -66,7 +66,7 @@ Module05_LoadFile:
 
 #_02805C: STZ.w $03FD
 
-#_02805F: JSL EraseTileMaps_normal
+#_02805F: JSL EraseTilemaps_normal
 
 #_028063: LDA.b #$02
 #_028065: STA.w OBSEL
@@ -126,7 +126,7 @@ Module05_LoadFile:
 .light_world
 ; !BUG sanc and quit
 ; if mosaic, we're indoors?
-; dumb code
+; dumb code to catch mirroring
 #_0280CD: LDA.l $7EC011
 #_0280D1: BNE LoadUnderworldRoomRebuildHUD
 
@@ -672,6 +672,7 @@ Module08_00_LoadProperties:
 #_0283C9: AND.b #$3F
 #_0283CB: BNE .not_woods
 
+; mushroom
 #_0283CD: LDA.b #$1E
 #_0283CF: JSL WriteTo4BPPBuffer_item_gfx
 
@@ -764,7 +765,7 @@ LoadOWMusicIfNeeded:
 #_02844F: SEI
 
 #_028450: STZ.w NMITIMEN
-#_028453: STZ.w HDMAENABLE
+#_028453: STZ.w HDMAEN
 #_028456: STZ.w $0136
 
 #_028459: LDA.b #$FF ; SONG FF - transfer
@@ -823,7 +824,7 @@ Module1B_SpawnSelect:
 #_02848C: STZ.b $14
 
 #_02848E: JSL EnableForceBlank
-#_028492: JSL EraseTileMaps_normal
+#_028492: JSL EraseTilemaps_normal
 
 #_028496: LDA.l $7EF3C8
 #_02849A: PHA
@@ -933,7 +934,7 @@ pool off
 
 Credits_LoadScene_Overworld_PrepGFX:
 #_028502: JSL EnableForceBlank
-#_028506: JSL EraseTileMaps_normal
+#_028506: JSL EraseTilemaps_normal
 
 #_02850A: LDA.b #$82
 #_02850C: STA.b $99
@@ -1068,7 +1069,7 @@ Credits_LoadScene_Overworld_LoadMap:
 
 ;===================================================================================================
 
-Credits_OperateScrollingAndTileMap:
+Credits_OperateScrollingAndTilemap:
 #_0285B5: JSL Credits_HandleCameraScrollControl
 
 #_0285B9: LDA.w $0416
@@ -1122,7 +1123,7 @@ Credits_LoadCoolBackground:
 
 Credits_LoadScene_Underworld:
 #_0285FF: JSL EnableForceBlank
-#_028603: JSL EraseTileMaps_normal
+#_028603: JSL EraseTilemaps_normal
 
 #_028607: REP #$20
 
@@ -1195,8 +1196,8 @@ pool Module07_Underworld
 
 .submodules
 #_02866E: dw Module07_00_PlayerControl                    ; 0x00
-#_028670: dw Module07_01_SubtileTransition                ; 0x01
-#_028672: dw Module07_02_SupertileTransition              ; 0x02
+#_028670: dw Module07_01_IntraroomTransition              ; 0x01
+#_028672: dw Module07_02_InterroomTransition              ; 0x02
 #_028674: dw Module07_03_OverlayChange                    ; 0x03
 #_028676: dw Module07_04_UnlockDoor                       ; 0x04
 #_028678: dw Module07_05_ControlShutters                  ; 0x05
@@ -1586,23 +1587,23 @@ CrystalBossRooms:
 
 ;===================================================================================================
 
-pool Module07_01_SubtileTransition
+pool Module07_01_IntraroomTransition
 
 .subsubmodules
-#_02886E: dw UnderworldTransition_Subtile_PrepTransition  ; 0x00
-#_028870: dw UnderworldTransition_Subtile_ApplyFilter     ; 0x01
-#_028872: dw UnderworldTransition_Subtile_ResetShutters   ; 0x02
-#_028874: dw UnderworldTransition_ScrollRoom              ; 0x03
-#_028876: dw UnderworldTransition_FindSubtileLanding      ; 0x04
-#_028878: dw UnderworldTransition_HandleFinalMovements    ; 0x05
-#_02887A: dw UnderworldTransition_Subtile_ApplyFilter     ; 0x06
-#_02887C: dw UnderworldTransition_Subtile_TriggerShutters ; 0x07
+#_02886E: dw UnderworldTransition_Intraroom_PrepTransition  ; 0x00
+#_028870: dw UnderworldTransition_Intraroom_ApplyFilter     ; 0x01
+#_028872: dw UnderworldTransition_Intraroom_ResetShutters   ; 0x02
+#_028874: dw UnderworldTransition_ScrollRoom                ; 0x03
+#_028876: dw UnderworldTransition_FindTransitionLanding     ; 0x04
+#_028878: dw UnderworldTransition_HandleFinalMovements      ; 0x05
+#_02887A: dw UnderworldTransition_Intraroom_ApplyFilter     ; 0x06
+#_02887C: dw UnderworldTransition_Intraroom_TriggerShutters ; 0x07
 
 pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Module07_01_SubtileTransition:
+Module07_01_IntraroomTransition:
 #_02887E: REP #$20
 
 #_028880: LDA.b $22
@@ -1623,7 +1624,7 @@ Module07_01_SubtileTransition:
 
 ;===================================================================================================
 
-UnderworldTransition_Subtile_ResetShutters:
+UnderworldTransition_Intraroom_ResetShutters:
 #_028897: STZ.w $0468
 
 #_02889A: LDA.b #$07
@@ -1649,7 +1650,7 @@ UnderworldTransition_Subtile_ResetShutters:
 
 ;===================================================================================================
 
-UnderworldTransition_Subtile_PrepTransition:
+UnderworldTransition_Intraroom_PrepTransition:
 #_0288B8: REP #$20
 
 #_0288BA: LDA.w #$0000
@@ -1672,7 +1673,7 @@ UnderworldTransition_Subtile_PrepTransition:
 
 ;===================================================================================================
 
-UnderworldTransition_Subtile_ApplyFilter:
+UnderworldTransition_Intraroom_ApplyFilter:
 #_0288DA: LDA.l $7EC005
 #_0288DE: BEQ .advance
 
@@ -1693,7 +1694,7 @@ UnderworldTransition_Subtile_ApplyFilter:
 
 ;===================================================================================================
 
-UnderworldTransition_Subtile_TriggerShutters:
+UnderworldTransition_Intraroom_TriggerShutters:
 #_0288F2: JSR ResetThenCacheRoomEntryProperties
 
 #_0288F5: LDA.w $0468
@@ -1712,7 +1713,7 @@ UnderworldTransition_Subtile_TriggerShutters:
 
 ;===================================================================================================
 
-pool Module07_02_SupertileTransition
+pool Module07_02_InterroomTransition
 
 .subsubmodules
 #_028908: dw Module07_02_00_InitializeTransition         ; 0x00
@@ -1720,7 +1721,7 @@ pool Module07_02_SupertileTransition
 #_02890C: dw Module07_02_FadedFilter                     ; 0x02
 #_02890E: dw Module07_02_03                              ; 0x03
 #_028910: dw Underworld_PrepNextQuadrantUploadAndAdvance ; 0x04
-#_028912: dw Underworld_PrepTileMapAndAdvance            ; 0x05
+#_028912: dw Underworld_PrepTilemapAndAdvance            ; 0x05
 #_028914: dw Underworld_PrepNextQuadrantUploadAndAdvance ; 0x06
 #_028916: dw Module07_02_07                              ; 0x07
 #_028918: dw UnderworldTransition_ScrollRoom             ; 0x08
@@ -1736,7 +1737,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Module07_02_SupertileTransition:
+Module07_02_InterroomTransition:
 #_028928: REP #$20
 
 #_02892A: LDA.b $22
@@ -1837,16 +1838,16 @@ Module07_02_03:
 Module07_02_0A:
 #_0289A7: LDA.l $7EC005
 #_0289AB: ORA.l $7EC006
-#_0289AF: BEQ Underworld_PrepTileMapAndAdvance
+#_0289AF: BEQ Underworld_PrepTilemapAndAdvance
 
 ;===================================================================================================
 
-Underworld_FilterPrepTileMapAndAdvance:
+Underworld_FilterPrepTilemapAndAdvance:
 #_0289B1: JSL ApplyPaletteFilter
 
 ;===================================================================================================
 
-Underworld_PrepTileMapAndAdvance:
+Underworld_PrepTilemapAndAdvance:
 #_0289B5: JSL WaterFlood_BuildOneQuadrantForVRAM
 
 #_0289B9: INC.b $B0
@@ -1885,7 +1886,7 @@ Module07_02_0C:
 #_0289DA: CMP.b #$05
 #_0289DC: BNE EXIT_028A2F
 
-#_0289DE: JSR SubtileTransitionCalculateLanding
+#_0289DE: JSR IntraroomTransitionCalculateLanding
 
 #_0289E1: LDA.l $7EC005
 #_0289E5: ORA.l $7EC006
@@ -2205,11 +2206,11 @@ Module07_06_FatInterRoomStairs:
 #_028B62: dw UnderworldTransition_LoadSpriteGFX                  ; 0x05
 #_028B64: dw UnderworldTransition_AdjustForFatStairScroll        ; 0x06
 #_028B66: dw Underworld_PrepNextQuadrantUploadAndAdvance         ; 0x07
-#_028B68: dw Underworld_PrepTileMapAndAdvance                    ; 0x08
+#_028B68: dw Underworld_PrepTilemapAndAdvance                    ; 0x08
 #_028B6A: dw Underworld_PrepNextQuadrantUploadAndAdvance         ; 0x09
-#_028B6C: dw Underworld_FilterPrepTileMapAndAdvance              ; 0x0A
+#_028B6C: dw Underworld_FilterPrepTilemapAndAdvance              ; 0x0A
 #_028B6E: dw Underworld_FilterUploadAndAdvance                   ; 0x0B
-#_028B70: dw Underworld_FilterPrepTileMapAndAdvance              ; 0x0C
+#_028B70: dw Underworld_FilterPrepTilemapAndAdvance              ; 0x0C
 #_028B72: dw Underworld_FilterUploadAndAdvance                   ; 0x0D
 #_028B74: dw Underworld_DoubleApplyAndIncrementGrayscale         ; 0x0E
 #_028B76: dw Underworld_AdvanceAndReset                          ; 0x0F
@@ -2385,7 +2386,7 @@ UnderworldTransition_AdjustForFatStairScroll:
 
 #_028C5B: JSR Underworld_PlayBlipAndCacheQuadrantVisits
 
-#_028C5E: JMP.w Underworld_PrepTileMapAndAdvance
+#_028C5E: JMP.w Underworld_PrepTilemapAndAdvance
 
 ;===================================================================================================
 
@@ -2532,11 +2533,11 @@ Module07_07_FallingTransition:
 #_028D4B: dw UnderworldTransition_LoadSpriteGFX                ; 0x05
 #_028D4D: dw Module07_07_06_SyncBG1and2                        ; 0x06
 #_028D4F: dw Underworld_PrepNextQuadrantUploadAndAdvance       ; 0x07
-#_028D51: dw Underworld_PrepTileMapAndAdvance                  ; 0x08
+#_028D51: dw Underworld_PrepTilemapAndAdvance                  ; 0x08
 #_028D53: dw Underworld_PrepNextQuadrantUploadAndAdvance       ; 0x09
-#_028D55: dw Underworld_PrepTileMapAndAdvance                  ; 0x0A
+#_028D55: dw Underworld_PrepTilemapAndAdvance                  ; 0x0A
 #_028D57: dw Underworld_PrepNextQuadrantUploadAndAdvance       ; 0x0B
-#_028D59: dw Underworld_PrepTileMapAndAdvance                  ; 0x0C
+#_028D59: dw Underworld_PrepTilemapAndAdvance                  ; 0x0C
 #_028D5B: dw Underworld_PrepNextQuadrantUploadAndAdvance       ; 0x0D
 #_028D5D: dw Underworld_AdvanceAndReset                        ; 0x0E
 #_028D5F: dw Module07_07_0F_FallingFadeIn                      ; 0x0F
@@ -2928,10 +2929,10 @@ Module07_0B_DrainSwampPool:
 #_028F36: JSL JumpTableLong
 #_028F3A: dl IncrementallyDrainSwampPool            ; 0x00
 #_028F3D: dl DeleteSwampPoolWaterOverlay            ; 0x01
-#_028F40: dl Underworld_FloodSwampWater_PrepTileMap ; 0x02
-#_028F43: dl Underworld_FloodSwampWater_PrepTileMap ; 0x03
-#_028F46: dl Underworld_FloodSwampWater_PrepTileMap ; 0x04
-#_028F49: dl Underworld_FloodSwampWater_PrepTileMap ; 0x05
+#_028F40: dl Underworld_FloodSwampWater_PrepTilemap ; 0x02
+#_028F43: dl Underworld_FloodSwampWater_PrepTilemap ; 0x03
+#_028F46: dl Underworld_FloodSwampWater_PrepTilemap ; 0x04
+#_028F49: dl Underworld_FloodSwampWater_PrepTilemap ; 0x05
 
 ;===================================================================================================
 
@@ -2971,11 +2972,11 @@ Module07_0E_SpiralStairs:
 #_028F7A: dw UnderworldTransition_LoadSpriteGFX                ; 0x06
 #_028F7C: dw Underworld_SyncBackgroundsFromSpiralStairs        ; 0x07
 #_028F7E: dw Underworld_PrepNextQuadrantUploadAndAdvance       ; 0x08
-#_028F80: dw Underworld_PrepTileMapAndAdvance                  ; 0x09
+#_028F80: dw Underworld_PrepTilemapAndAdvance                  ; 0x09
 #_028F82: dw Underworld_PrepNextQuadrantUploadAndAdvance       ; 0x0A
-#_028F84: dw Underworld_FilterPrepTileMapAndAdvance            ; 0x0B
+#_028F84: dw Underworld_FilterPrepTilemapAndAdvance            ; 0x0B
 #_028F86: dw Underworld_FilterUploadAndAdvance                 ; 0x0C
-#_028F88: dw Underworld_FilterPrepTileMapAndAdvance            ; 0x0D
+#_028F88: dw Underworld_FilterPrepTilemapAndAdvance            ; 0x0D
 #_028F8A: dw Underworld_FilterUploadAndAdvance                 ; 0x0E
 #_028F8C: dw Underworld_DoubleApplyAndIncrementGrayscale       ; 0x0F
 #_028F8E: dw Underworld_AdvanceThenSetBossMusicUnorthodox      ; 0x10
@@ -3134,7 +3135,7 @@ Underworld_SyncBackgroundsFromSpiralStairs:
 #_029053: JSR Underworld_PlayBlipAndCacheQuadrantVisits
 #_029056: JSL RestoreTorchBackground
 
-#_02905A: JMP.w Underworld_PrepTileMapAndAdvance
+#_02905A: JMP.w Underworld_PrepTilemapAndAdvance
 
 ;===================================================================================================
 
@@ -3606,15 +3607,15 @@ Module07_11_StraightInterroomStairs:
 #_02929B: dw Module07_11_02_LoadAndPrepRoom              ; 0x02
 #_02929D: dw Module07_11_03_FilterAndLoadBGChars         ; 0x03
 #_02929F: dw Module07_11_04_FilterDoBGAndResetSprites    ; 0x04
-#_0292A1: dw Underworld_FilterPrepTileMapAndAdvance      ; 0x05
+#_0292A1: dw Underworld_FilterPrepTilemapAndAdvance      ; 0x05
 #_0292A3: dw Underworld_FilterUploadAndAdvance           ; 0x06
-#_0292A5: dw Underworld_FilterPrepTileMapAndAdvance      ; 0x07
+#_0292A5: dw Underworld_FilterPrepTilemapAndAdvance      ; 0x07
 #_0292A7: dw Underworld_FilterUploadAndAdvance           ; 0x08
 #_0292A9: dw Module07_11_09_LoadSpriteGraphics           ; 0x09
 #_0292AB: dw Module07_11_0A_ScrollCamera                 ; 0x0A
 #_0292AD: dw Module07_11_0B_PrepDestination              ; 0x0B
 #_0292AF: dw Underworld_PrepNextQuadrantUploadAndAdvance ; 0x0C
-#_0292B1: dw Underworld_PrepTileMapAndAdvance            ; 0x0D
+#_0292B1: dw Underworld_PrepTilemapAndAdvance            ; 0x0D
 #_0292B3: dw Underworld_PrepNextQuadrantUploadAndAdvance ; 0x0E
 #_0292B5: dw Underworld_DoubleApplyAndIncrementGrayscale ; 0x0F
 #_0292B7: dw Module07_11_19_SetSongAndFilter             ; 0x10
@@ -3862,7 +3863,7 @@ Module07_11_0B_PrepDestination:
 #_0293D8: JSR Underworld_PlayBlipAndCacheQuadrantVisits
 #_0293DB: JSL RestoreTorchBackground
 
-#_0293DF: JMP.w Underworld_PrepTileMapAndAdvance
+#_0293DF: JMP.w Underworld_PrepTilemapAndAdvance
 
 ;===================================================================================================
 
@@ -4112,6 +4113,7 @@ RecoverPositionAfterDrowning:
 #_029538: STZ.w $02F9
 
 #_02953B: JSL Follower_Initialize
+
 #_02953F: STZ.w $0642
 
 #_029542: STZ.w $0200
@@ -4165,11 +4167,11 @@ Module07_15_WarpPad:
 #_02958F: dw UnderworldTransition_LoadSpriteGFX            ; 0x03
 #_029591: dw Module07_15_04_SyncRoomPropsAndBuildOverlay   ; 0x04
 #_029593: dw Underworld_PrepNextQuadrantUploadAndAdvance   ; 0x05
-#_029595: dw Underworld_PrepTileMapAndAdvance              ; 0x06
+#_029595: dw Underworld_PrepTilemapAndAdvance              ; 0x06
 #_029597: dw Underworld_PrepNextQuadrantUploadAndAdvance   ; 0x07
-#_029599: dw Underworld_PrepTileMapAndAdvance              ; 0x08
+#_029599: dw Underworld_PrepTilemapAndAdvance              ; 0x08
 #_02959B: dw Underworld_PrepNextQuadrantUploadAndAdvance   ; 0x09
-#_02959D: dw Underworld_PrepTileMapAndAdvance              ; 0x0A
+#_02959D: dw Underworld_PrepTilemapAndAdvance              ; 0x0A
 #_02959F: dw Underworld_PrepNextQuadrantUploadAndAdvance   ; 0x0B
 #_0295A1: dw Underworld_AdvanceAndReset                    ; 0x0C
 #_0295A3: dw Module07_15_0E_FadeInFromWarp                 ; 0x0D
@@ -4460,7 +4462,7 @@ Module07_17_PressurePlate:
 #_0296E7: SEP #$30
 
 #_0296E9: LDY.b #$0E
-#_0296EB: JSL Underworld_UpdateTileMapWithCommonTile
+#_0296EB: JSL Underworld_UpdateTilemapWithCommonTile
 
 #_0296EF: LDA.w $010C
 #_0296F2: STA.b $11
@@ -4470,7 +4472,7 @@ Module07_17_PressurePlate:
 
 ;===================================================================================================
 
-CrystalGraphicsTileMapLocation:
+CrystalGraphicsTilemapLocation:
 #_0296F5: dw $1618, $1658, $1658, $1618
 #_0296FD: dw $0658, $1618, $1658, $0000
 
@@ -4481,13 +4483,13 @@ Module07_18_RescuedMaiden:
 #_029707: JSL JumpTableLocal
 #_02970B: dw PrepareForCrystalCutscene                   ; 0x00
 #_02970D: dw BuildCrystalCutsceneTilemap                 ; 0x01
-#_02970F: dw Underworld_PrepTileMapAndAdvance            ; 0x02
+#_02970F: dw Underworld_PrepTilemapAndAdvance            ; 0x02
 #_029711: dw Underworld_PrepNextQuadrantUploadAndAdvance ; 0x03
-#_029713: dw Underworld_PrepTileMapAndAdvance            ; 0x04
+#_029713: dw Underworld_PrepTilemapAndAdvance            ; 0x04
 #_029715: dw Underworld_PrepNextQuadrantUploadAndAdvance ; 0x05
-#_029717: dw Underworld_PrepTileMapAndAdvance            ; 0x06
+#_029717: dw Underworld_PrepTilemapAndAdvance            ; 0x06
 #_029719: dw Underworld_PrepNextQuadrantUploadAndAdvance ; 0x07
-#_02971B: dw Underworld_PrepTileMapAndAdvance            ; 0x08
+#_02971B: dw Underworld_PrepTilemapAndAdvance            ; 0x08
 #_02971D: dw Underworld_PrepNextQuadrantUploadAndAdvance ; 0x09
 #_02971F: dw StartCrystalCutscene                        ; 0x0A
 
@@ -4573,7 +4575,7 @@ BuildCrystalCutsceneTilemap:
 #_029798: CMP.l CrystalBossRooms,X
 #_02979C: BNE .next_crystal_check
 
-#_02979E: LDA.l CrystalGraphicsTileMapLocation,X
+#_02979E: LDA.l CrystalGraphicsTilemapLocation,X
 #_0297A2: STA.b $08
 
 ;---------------------------------------------------------------------------------------------------
@@ -5263,7 +5265,7 @@ Underworld_LoadSongBankIfNeeded:
 
 #_029AEE: SEI
 #_029AEF: STZ.w NMITIMEN
-#_029AF2: STZ.w HDMAENABLE
+#_029AF2: STZ.w HDMAEN
 
 #_029AF5: INC.w $0136
 
@@ -6194,7 +6196,7 @@ Module19_02_LoadMusicAndScreen:
 #_029F46: LDA.b #$01
 #_029F48: STA.b $A1
 
-#_029F4A: JSL EraseTileMaps_normal
+#_029F4A: JSL EraseTilemaps_normal
 #_029F4E: JSL Palette_RevertTranslucencySwap
 #_029F52: JSR LoadSpecialOverworld
 
@@ -6342,6 +6344,7 @@ Module19_07_PrepMessage:
 #_02A003: SEP #$20
 
 #_02A005: JSL Interface_PrepAndDisplayMessage
+
 #_02A009: JSL RenderText
 
 #_02A00D: LDA.b #$80
@@ -6358,6 +6361,7 @@ Module19_07_PrepMessage:
 
 Module19_09_TriforceSpeak:
 #_02A018: JSL AdvancePolyhedral
+
 #_02A01C: JSL RenderText
 
 #_02A020: LDA.b $11
@@ -6421,6 +6425,7 @@ Module19_0C_HoldTriforce:
 #_02A061: BNE .exit
 
 #_02A063: JSL PaletteBlackAndWhiteSomething
+
 #_02A067: INC.b $11
 
 .exit
@@ -6942,7 +6947,7 @@ pool Module09_Overworld
 .submodules
 #_02A304: dw Module09_00_PlayerControl              ; 0x00
 #_02A306: dw Module09_LoadAuxGFX                    ; 0x01
-#_02A308: dw Module09_TriggerTileMapUpdate          ; 0x02
+#_02A308: dw Module09_TriggerTilemapUpdate          ; 0x02
 #_02A30A: dw Module09_LoadNewMapAndGFX              ; 0x03
 #_02A30C: dw Module09_LoadNewSprites                ; 0x04
 #_02A30E: dw Overworld_StartScrollTransition        ; 0x05
@@ -6956,7 +6961,7 @@ pool Module09_Overworld
 #_02A31E: dw Overworld_StartMosaicTransition        ; 0x0D
 #_02A320: dw Overworld_LoadSubscreenAndSilenceSFX1  ; 0x0E
 #_02A322: dw Module09_LoadAuxGFX                    ; 0x0F
-#_02A324: dw Module09_TriggerTileMapUpdate          ; 0x10
+#_02A324: dw Module09_TriggerTilemapUpdate          ; 0x10
 #_02A326: dw Module09_LoadNewMapAndGFX              ; 0x11
 #_02A328: dw Module09_LoadNewSprites                ; 0x12
 #_02A32A: dw Overworld_StartScrollTransition        ; 0x13
@@ -6967,7 +6972,7 @@ pool Module09_Overworld
 #_02A334: dw Module09_18                            ; 0x18
 #_02A336: dw Module09_19                            ; 0x19
 #_02A338: dw Module09_LoadAuxGFX                    ; 0x1A
-#_02A33A: dw Module09_TriggerTileMapUpdate          ; 0x1B
+#_02A33A: dw Module09_TriggerTilemapUpdate          ; 0x1B
 #_02A33C: dw Module09_1C                            ; 0x1C
 #_02A33E: dw Module09_1D                            ; 0x1D
 #_02A340: dw Module09_1E                            ; 0x1E
@@ -6979,7 +6984,7 @@ pool Module09_Overworld
 #_02A34C: dw Overworld_StartMosaicTransition        ; 0x24
 #_02A34E: dw Module09_25                            ; 0x25
 #_02A350: dw Module09_LoadAuxGFX                    ; 0x26
-#_02A352: dw Module09_TriggerTileMapUpdate          ; 0x27
+#_02A352: dw Module09_TriggerTilemapUpdate          ; 0x27
 #_02A354: dw Overworld_LoadAndBuildScreen           ; 0x28
 #_02A356: dw Module09_FadeBackInFromMosaic          ; 0x29
 #_02A358: dw Module09_2A_RecoverFromDrowning        ; 0x2A
@@ -7328,7 +7333,7 @@ Overworld_ActualScreenID:
 
 ;===================================================================================================
 
-OverworldScreenTileMapChange:
+OverworldScreenTilemapChange:
 #_02A523: dw $0F80
 #_02A525: dw $0F80
 #_02A527: dw $003F
@@ -7336,7 +7341,7 @@ OverworldScreenTileMapChange:
 
 ;===================================================================================================
 ; TODO organize
-OverworldScreenTileMapChangeByScreen:
+OverworldScreenTilemapChangeByScreen:
 #_02A52B: dw $0060, $0060, $0060, $0060
 #_02A533: dw $0060, $0060, $0060, $0060
 #_02A53B: dw $0060, $0060, $0060, $1060
@@ -7567,7 +7572,7 @@ OverworldHandleTransitions:
 #_02A93B: LDX.b $02
 
 #_02A93D: LDA.b $84
-#_02A93F: AND.l OverworldScreenTileMapChange,X
+#_02A93F: AND.l OverworldScreenTilemapChange,X
 #_02A943: STA.b $84
 
 #_02A945: LDA.w $0700
@@ -7591,7 +7596,7 @@ OverworldHandleTransitions:
 
 #_02A95A: LDA.b $84
 #_02A95C: CLC
-#_02A95D: ADC.l OverworldScreenTileMapChangeByScreen,X
+#_02A95D: ADC.l OverworldScreenTilemapChangeByScreen,X
 #_02A961: STA.b $84
 
 ;---------------------------------------------------------------------------------------------------
@@ -7836,7 +7841,7 @@ Module09_LoadAuxGFX:
 
 ;===================================================================================================
 
-#Module09_TriggerTileMapUpdate:
+#Module09_TriggerTilemapUpdate:
 #_02AABB: LDA.b #$0A
 
 ;---------------------------------------------------------------------------------------------------
@@ -7855,7 +7860,7 @@ Module09_LoadNewMapAndGFX:
 #_02AAC5: STZ.w $04C8
 #_02AAC8: STZ.w $04C9
 
-#_02AACB: JSR SomeTileMapChange
+#_02AACB: JSR SomeTilemapChange
 
 #_02AACE: INC.w $0710
 
@@ -8405,6 +8410,7 @@ OverworldMosaicTransition_HandleScreensAndLoadShroom:
 #_02ADE3: AND.b #$3F
 #_02ADE5: BNE .dont_load
 
+; mushroom
 #_02ADE7: LDA.b #$1E
 #_02ADE9: JSL WriteTo4BPPBuffer_item_gfx
 
@@ -9599,7 +9605,7 @@ Module09_2E_07_LoadAuxGraphics:
 ;===================================================================================================
 
 Module09_2E_08_TriggerTilemapUpdate:
-#_02B3E4: JSR Module09_TriggerTileMapUpdate
+#_02B3E4: JSR Module09_TriggerTilemapUpdate
 
 #_02B3E7: LDA.b #$0F
 #_02B3E9: STA.b $13
@@ -9927,7 +9933,7 @@ HandleEdgeTransitionMovementEast:
 
 #_02B57E: LDX.b #$08
 
-#_02B580: JSR AdjustCameraBoundaries_DownOrRight1Quadrant
+#_02B580: JSR AdjustCameraBoundaries_DownOrRightQuadrant
 #_02B583: JSR Underworld_SaveRoomData
 
 #_02B586: LDA.b $A9
@@ -9942,7 +9948,7 @@ HandleEdgeTransitionMovementEast:
 #_02B594: BNE .continue
 
 #_02B596: LDX.b #$08
-#_02B598: JSR AdjustCameraBoundaries_DownOrRight1Supertile
+#_02B598: JSR AdjustCameraBoundaries_DownOrRightWholeRoom
 
 #_02B59B: LDA.b $A0
 #_02B59D: STA.b $A2
@@ -10061,7 +10067,7 @@ HandleEdgeTransitionMovementWest:
 #_02B61A: JSR Underworld_AdjustQuadrant
 
 #_02B61D: LDX.b #$08
-#_02B61F: JSR AdjustCameraBoundaries_UpOrLeft1Quadrant
+#_02B61F: JSR AdjustCameraBoundaries_UpOrLeftQuadrant
 
 #_02B622: JSR Underworld_SaveRoomData
 
@@ -10078,7 +10084,7 @@ HandleEdgeTransitionMovementWest:
 #_02B635: BEQ .continue
 
 #_02B637: LDX.b #$08
-#_02B639: JSR AdjustCameraBoundaries_UpOrLeft1Supertile
+#_02B639: JSR AdjustCameraBoundaries_UpOrLeftWholeRoom
 
 #_02B63C: LDA.b $A0
 #_02B63E: STA.b $A2
@@ -10193,7 +10199,7 @@ HandleEdgeTransitionMovementSouth:
 #_02B6BB: JSR Underworld_AdjustQuadrant
 
 #_02B6BE: LDX.b #$00
-#_02B6C0: JSR AdjustCameraBoundaries_DownOrRight1Quadrant
+#_02B6C0: JSR AdjustCameraBoundaries_DownOrRightQuadrant
 
 #_02B6C3: JSR Underworld_SaveRoomData
 
@@ -10209,7 +10215,7 @@ HandleEdgeTransitionMovementSouth:
 #_02B6D4: BNE .continue
 
 #_02B6D6: LDX.b #$00
-#_02B6D8: JSR AdjustCameraBoundaries_DownOrRight1Supertile
+#_02B6D8: JSR AdjustCameraBoundaries_DownOrRightWholeRoom
 
 #_02B6DB: LDA.b $A0
 #_02B6DD: STA.b $A2
@@ -10321,7 +10327,7 @@ HandleEdgeTransitionMovementNorth:
 #_02B75D: JSR Underworld_AdjustQuadrant
 
 #_02B760: LDX.b #$00
-#_02B762: JSR AdjustCameraBoundaries_UpOrLeft1Quadrant
+#_02B762: JSR AdjustCameraBoundaries_UpOrLeftQuadrant
 
 #_02B765: JSR Underworld_SaveRoomData
 
@@ -10338,7 +10344,7 @@ HandleEdgeTransitionMovementNorth:
 #_02B778: BEQ .continue
 
 #_02B77A: LDX.b #$00
-#_02B77C: JSR AdjustCameraBoundaries_UpOrLeft1Supertile
+#_02B77C: JSR AdjustCameraBoundaries_UpOrLeftWholeRoom
 
 #_02B77F: LDA.b $A0
 #_02B781: STA.b $A2
@@ -10445,7 +10451,7 @@ AdjustQuadrantAndCamera_right:
 #_02B7FB: JSR Underworld_AdjustQuadrant
 
 #_02B7FE: LDX.b #$08
-#_02B800: JSR AdjustCameraBoundaries_DownOrRight1Quadrant
+#_02B800: JSR AdjustCameraBoundaries_DownOrRightQuadrant
 
 ;===================================================================================================
 
@@ -10493,7 +10499,7 @@ AdjustQuadrantAndCamera_left:
 #_02B837: JSR Underworld_AdjustQuadrant
 
 #_02B83A: LDX.b #$08
-#_02B83C: JSR AdjustCameraBoundaries_UpOrLeft1Quadrant
+#_02B83C: JSR AdjustCameraBoundaries_UpOrLeftQuadrant
 
 #_02B83F: BRA SetAndSaveVisitedQuadrantFlags
 
@@ -10507,7 +10513,7 @@ AdjustQuadrantAndCamera_down:
 #_02B847: JSR Underworld_AdjustQuadrant
 
 #_02B84A: LDX.b #$00
-#_02B84C: JSR AdjustCameraBoundaries_DownOrRight1Quadrant
+#_02B84C: JSR AdjustCameraBoundaries_DownOrRightQuadrant
 
 #_02B84F: BRA SetAndSaveVisitedQuadrantFlags
 
@@ -10521,7 +10527,7 @@ AdjustQuadrantAndCamera_up:
 #_02B857: JSR Underworld_AdjustQuadrant
 
 #_02B85A: LDX.b #$00
-#_02B85C: JSR AdjustCameraBoundaries_UpOrLeft1Quadrant
+#_02B85C: JSR AdjustCameraBoundaries_UpOrLeftQuadrant
 
 #_02B85F: BRA SetAndSaveVisitedQuadrantFlags
 
@@ -10578,7 +10584,7 @@ Underworld_SaveRoomData:
 
 ;===================================================================================================
 
-AdjustCameraBoundaries_DownOrRight1Quadrant:
+AdjustCameraBoundaries_DownOrRightQuadrant:
 #_02B8A0: REP #$20
 
 #_02B8A2: LDA.w $0600,X
@@ -10597,7 +10603,7 @@ AdjustCameraBoundaries_DownOrRight1Quadrant:
 
 ;===================================================================================================
 
-AdjustCameraBoundaries_DownOrRight1Supertile:
+AdjustCameraBoundaries_DownOrRightWholeRoom:
 #_02B8B9: REP #$20
 
 #_02B8BB: LDA.w $0602,X
@@ -10616,7 +10622,7 @@ AdjustCameraBoundaries_DownOrRight1Supertile:
 
 ;===================================================================================================
 
-AdjustCameraBoundaries_UpOrLeft1Quadrant:
+AdjustCameraBoundaries_UpOrLeftQuadrant:
 #_02B8D2: REP #$20
 
 #_02B8D4: LDA.w $0600,X
@@ -10635,7 +10641,7 @@ AdjustCameraBoundaries_UpOrLeft1Quadrant:
 
 ;===================================================================================================
 
-AdjustCameraBoundaries_UpOrLeft1Supertile:
+AdjustCameraBoundaries_UpOrLeftWholeRoom:
 #_02B8EB: REP #$20
 
 #_02B8ED: LDA.w $0602,X
@@ -11981,9 +11987,9 @@ UnderworldTransitionLandingCoordinate:
 
 ;===================================================================================================
 
-UnderworldTransition_FindSubtileLanding:
+UnderworldTransition_FindTransitionLanding:
 #_02C048: JSR DeleteCertainAncillaeStopDashing
-#_02C04B: JSR SubtileTransitionCalculateLanding
+#_02C04B: JSR IntraroomTransitionCalculateLanding
 
 #_02C04E: INC.b $B0
 
@@ -12003,7 +12009,7 @@ UnderworldTransition_FindSubtileLanding:
 
 ;===================================================================================================
 
-SubtileTransitionCalculateLanding:
+IntraroomTransitionCalculateLanding:
 #_02C064: LDA.w $0418
 #_02C067: AND.b #$02
 #_02C069: PHA
@@ -12537,7 +12543,7 @@ Underworld_LoadAndDrawRoom:
 #_02C2EB: LDA.b $9B
 #_02C2ED: PHA
 
-#_02C2EE: STZ.w HDMAENABLE
+#_02C2EE: STZ.w HDMAEN
 #_02C2F1: STZ.b $9B
 
 #_02C2F3: JSL Underworld_LoadRoom
@@ -12549,7 +12555,7 @@ Underworld_LoadAndDrawRoom:
 ;---------------------------------------------------------------------------------------------------
 
 .next_quadrant
-#_02C300: JSL TileMapPrep_NotWaterOnTag
+#_02C300: JSL TilemapPrep_NotWaterOnTag
 #_02C304: JSL NMI_UploadTilemap_long
 
 #_02C308: JSL Underworld_PrepareNextRoomQuadrantUpload
@@ -12960,8 +12966,8 @@ CleanUpAndPrepDesertPrayerHDMA:
 ;===================================================================================================
 EntranceData:
 
-.room_id
 ; writes to $A0, $048E
+.room_id
 #_02C577: dw $0104 ; 0x00
 #_02C579: dw $0104 ; 0x01
 #_02C57B: dw $0012 ; 0x02
@@ -13098,8 +13104,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.camera_scroll_boundaries
 ; to $0600   +$1, +$3, +$5, +$7, +$9, +$B, +$D, +$F
+.camera_scroll_boundaries
 #_02C681: db $21, $20, $21, $21, $09, $09, $09, $0A ; 0x00
 #_02C689: db $21, $20, $21, $21, $09, $09, $09, $0A ; 0x01
 #_02C691: db $03, $02, $03, $03, $04, $04, $04, $05 ; 0x02
@@ -13236,8 +13242,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.horizontal_scroll
 ; writes to $E0, $E2, $011E, $0120
+.horizontal_scroll
 #_02CAA9: dw $0900 ; 0x00
 #_02CAAB: dw $0900 ; 0x01
 #_02CAAD: dw $0480 ; 0x02
@@ -13374,8 +13380,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.vertical_scroll
 ; writes to $E6, $E8, $0122, $0124
+.vertical_scroll
 #_02CBB3: dw $2110 ; 0x00
 #_02CBB5: dw $2110 ; 0x01
 #_02CBB7: dw $0310 ; 0x02
@@ -13512,8 +13518,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.y_coordinate
 ; writes to $20
+.y_coordinate
 #_02CCBD: dw $2178 ; 0x00
 #_02CCBF: dw $21D8 ; 0x01
 #_02CCC1: dw $03C0 ; 0x02
@@ -13650,8 +13656,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.x_coordinate
 ; writes to $22
+.x_coordinate
 #_02CDC7: dw $0978 ; 0x00
 #_02CDC9: dw $0978 ; 0x01
 #_02CDCB: dw $04F8 ; 0x02
@@ -13788,8 +13794,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
+; writes to $0618, increments twice, writes to $061A
 .camera_trigger_y
-; writes to $0618, incremented twice, writes to $061A
 #_02CED1: dw $0187 ; 0x00
 #_02CED3: dw $0187 ; 0x01
 #_02CED5: dw $0187 ; 0x02
@@ -13926,8 +13932,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
+; writes to $061C, increments twice, writes to $061E
 .camera_trigger_x
-; writes to $061C, incremented twice, writes to $061E
 #_02CFDB: dw $017F ; 0x00
 #_02CFDD: dw $017F ; 0x01
 #_02CFDF: dw $00FF ; 0x02
@@ -14064,8 +14070,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.main_GFX
 ; writes to $0AA1
+.main_GFX
 #_02D0E5: db $03 ; 0x00
 #_02D0E6: db $03 ; 0x01
 #_02D0E7: db $04 ; 0x02
@@ -14202,8 +14208,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.floor_indicator
 ; writes to $A4
+.floor
 #_02D16A: db $00 ; 0x00
 #_02D16B: db $00 ; 0x01
 #_02D16C: db $00 ; 0x02
@@ -14340,8 +14346,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.dungeon_id
 ; writes to $040C
+.dungeon_id
 #_02D1EF: db $FF ; 0x00
 #_02D1F0: db $FF ; 0x01
 #_02D1F1: db $00 ; 0x02
@@ -14478,8 +14484,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.in_door
 ; writes to $6C
+.in_door
 #_02D274: db $00 ; 0x00
 #_02D275: db $01 ; 0x01
 #_02D276: db $01 ; 0x02
@@ -14616,9 +14622,9 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.layer
 ; writes upper nibble to $EE
 ; writes lower nibble to $0476
+.layer
 #_02D2F9: db $00 ; 0x00
 #_02D2FA: db $00 ; 0x01
 #_02D2FB: db $01 ; 0x02
@@ -14755,9 +14761,9 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.camera_scroll_controller
 ; writes upper nibble to $A6
 ; writes lower nibble to $A7
+.camera_scroll_controller
 #_02D37E: db $00 ; 0x00
 #_02D37F: db $00 ; 0x01
 #_02D380: db $22 ; 0x02
@@ -14894,9 +14900,9 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.quadrant
 ; writes upper nibble to $A9
 ; writes lower nibble to $AA
+.quadrant
 #_02D403: db $02 ; 0x00
 #_02D404: db $02 ; 0x01
 #_02D405: db $02 ; 0x02
@@ -15033,8 +15039,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.overworld_door_tilemap
 ; writes to $0696
+.overworld_door_tilemap
 #_02D488: dw $0816 ; 0x00
 #_02D48A: dw $0816 ; 0x01
 #_02D48C: dw $0000 ; 0x02
@@ -15171,8 +15177,8 @@ EntranceData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.song
 ; writes to $0132
+.song
 #_02D592: db $FF ; 0x00 - SONG FF
 #_02D593: db $07 ; 0x01 - SONG 07
 #_02D594: db $14 ; 0x02 - SONG 14
@@ -15584,7 +15590,7 @@ Underworld_LoadEntrance:
 #_02D7F2: STA.w $0132
 
 .no_song_override
-#_02D7F5: LDA.w EntranceData_floor_indicator,X
+#_02D7F5: LDA.w EntranceData_floor,X
 #_02D7F8: STA.b $A4
 
 #_02D7FA: LDA.w EntranceData_dungeon_id,X
@@ -15733,8 +15739,8 @@ Underworld_LoadEntrance_DoPotsBlocksTorches:
 
 SpawnPointData:
 
-.room_id
 ; writes to $A0, $048E
+.room_id
 #_02D8D2: dw $0104 ; 0x00 - Link's house
 #_02D8D4: dw $0012 ; 0x01 - Sanctuary
 #_02D8D6: dw $0080 ; 0x02 - Prison
@@ -15745,8 +15751,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
+; to $0600   +$1, +$3, +$5, +$7, +$9, +$B, +$D, +$F
 .camera_scroll_boundaries
-; to $060x   +$1, +$3, +$5, +$7, +$9, +$B, +$D, +$F
 #_02D8E0: db $21, $20, $21, $21, $09, $09, $09, $0A ; 0x00 - Link's house
 #_02D8E8: db $02, $02, $02, $03, $04, $04, $04, $05 ; 0x01 - Sanctuary
 #_02D8F0: db $10, $10, $10, $11, $01, $00, $01, $01 ; 0x02 - Prison
@@ -15757,8 +15763,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.horizontal_scroll
 ; writes to $E0, $E2, $011E, $0120
+.horizontal_scroll
 #_02D918: dw $0900 ; 0x00 - Link's house
 #_02D91A: dw $0480 ; 0x01 - Sanctuary
 #_02D91C: dw $00DB ; 0x02 - Prison
@@ -15769,8 +15775,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.vertical_scroll
 ; writes to $E6, $E8, $0122, $0124
+.vertical_scroll
 #_02D926: dw $2110 ; 0x00 - Link's house
 #_02D928: dw $0231 ; 0x01 - Sanctuary
 #_02D92A: dw $1000 ; 0x02 - Prison
@@ -15781,8 +15787,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.y_coordinate
 ; writes to $20
+.y_coordinate
 #_02D934: dw $2178 ; 0x00 - Link's house
 #_02D936: dw $029C ; 0x01 - Sanctuary
 #_02D938: dw $1041 ; 0x02 - Prison
@@ -15793,8 +15799,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.x_coordinate
 ; writes to 22
+.x_coordinate
 #_02D942: dw $0978 ; 0x00 - Link's house
 #_02D944: dw $04F8 ; 0x01 - Sanctuary
 #_02D946: dw $0160 ; 0x02 - Prison
@@ -15805,8 +15811,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
+; writes to $0618, increments twice, writes to $061A
 .camera_trigger_y
-; writes to $0618, incremented twice, writes to $061A
 #_02D950: dw $017F ; 0x00 - Link's house
 #_02D952: dw $00A7 ; 0x01 - Sanctuary
 #_02D954: dw $0083 ; 0x02 - Prison
@@ -15817,8 +15823,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
+; writes to $061C, increments twice, writes to $061E
 .camera_trigger_x
-; writes to $061C, incremented twice, writes to $061E
 #_02D95E: dw $017F ; 0x00 - Link's house
 #_02D960: dw $00FF ; 0x01 - Sanctuary
 #_02D962: dw $0167 ; 0x02 - Prison
@@ -15829,8 +15835,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.main_GFX
 ; writes to $0AA1
+.main_GFX
 #_02D96C: db $03 ; 0x00 - Link's house
 #_02D96D: db $04 ; 0x01 - Sanctuary
 #_02D96E: db $04 ; 0x02 - Prison
@@ -15841,8 +15847,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.floor_indicator
 ; writes to $A4
+.floor
 #_02D973: db $00 ; 0x00 - Link's house
 #_02D974: db $00 ; 0x01 - Sanctuary
 #_02D975: db $FD ; 0x02 - Prison
@@ -15853,8 +15859,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.dungeon_id
 ; writes to $040C
+.dungeon_id
 #_02D97A: db $FF ; 0x00 - Link's house
 #_02D97B: db $00 ; 0x01 - Sanctuary
 #_02D97C: db $02 ; 0x02 - Prison
@@ -15865,9 +15871,9 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.layer
 ; writes upper nibble to $EE
 ; writes lower nibble to $0476
+.layer
 #_02D981: db $00 ; 0x00 - Link's house
 #_02D982: db $00 ; 0x01 - Sanctuary
 #_02D983: db $00 ; 0x02 - Prison
@@ -15878,9 +15884,9 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.camera_scroll_controller
 ; writes upper nibble to $A6
 ; writes lower nibble to $A7
+.camera_scroll_controller
 #_02D988: db $00 ; 0x00 - Link's house
 #_02D989: db $22 ; 0x01 - Sanctuary
 #_02D98A: db $20 ; 0x02 - Prison
@@ -15891,9 +15897,9 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.quadrant
 ; writes upper nibble to $A9
 ; writes lower nibble to $AA
+.quadrant
 #_02D98F: db $02 ; 0x00 - Link's house
 #_02D990: db $00 ; 0x01 - Sanctuary
 #_02D991: db $10 ; 0x02 - Prison
@@ -15904,8 +15910,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.overworld_door_tilemap
 ; writes to $0696
+.overworld_door_tilemap
 #_02D996: dw $0816 ; 0x00 - Link's house
 #_02D998: dw $0000 ; 0x01 - Sanctuary
 #_02D99A: dw $0000 ; 0x02 - Prison
@@ -15916,8 +15922,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.entrance_id
 ; writes to $010E
+.entrance_id
 #_02D9A4: dw $0000 ; 0x00 - Link's house
 #_02D9A6: dw $0002 ; 0x01 - Sanctuary
 #_02D9A8: dw $0002 ; 0x02 - Prison
@@ -15928,8 +15934,8 @@ SpawnPointData:
 
 ;---------------------------------------------------------------------------------------------------
 
-.song
 ; writes to $0132
+.song
 #_02D9B2: db $07 ; 0x00 - Link's house - SONG 07
 #_02D9B3: db $14 ; 0x01 - Sanctuary    - SONG 14
 #_02D9B4: db $10 ; 0x02 - Prison       - SONG 10
@@ -16065,7 +16071,7 @@ Underworld_LoadSpawnEntrance:
 #_02DA8E: LDA.w SpawnPointData_main_GFX,X
 #_02DA91: STA.w $0AA1
 
-#_02DA94: LDA.w SpawnPointData_floor_indicator,X
+#_02DA94: LDA.w SpawnPointData_floor,X
 #_02DA97: STA.b $A4
 
 #_02DA99: LDA.w SpawnPointData_dungeon_id,X
@@ -18808,7 +18814,7 @@ TriggerAndFinishMapLoadStripe_Horizontal:
 
 ;===================================================================================================
 ; TODO figure out
-SomeTileMapChange:
+SomeTilemapChange:
 #_02ED4C: REP #$30
 
 #_02ED4E: JSR Overworld_DecompressAndDrawAllQuadrants
@@ -22135,3 +22141,5 @@ NULL_02FFC7:
 #_02FFEF: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_02FFF7: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_02FFFF: db $FF
+
+;===================================================================================================

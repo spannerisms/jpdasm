@@ -6884,8 +6884,8 @@ Module0E_03_00_DarkenAndPrep:
 #_18BC0C: DEC.b $13 ; get to a fully darkened screen
 #_18BC0E: BNE EXIT_18BC0B
 
-#_18BC10: LDA.b #$03 ; not sure what this accomplishes
-#_18BC12: STA.b $95 ; sets the mosaic level to 3, but for none of the BGs
+#_18BC10: LDA.b #$03
+#_18BC12: STA.b $95
 
 #_18BC14: LDA.b $9B ; cache HDMA
 #_18BC16: STA.l $7EC229
@@ -6971,7 +6971,7 @@ Module0E_03_00_DarkenAndPrep:
 #_18BCA1: LDX.b #$00
 #_18BCA3: LDA.w #$0300
 
-.tilemapfill
+.tilemap_fill
 #_18BCA6: STA.l $7F0000,X
 #_18BCAA: STA.l $7F0100,X
 #_18BCAE: STA.l $7F0200,X
@@ -6994,7 +6994,7 @@ Module0E_03_00_DarkenAndPrep:
 
 #_18BCE6: DEX
 #_18BCE7: DEX
-#_18BCE8: BNE .tilemapfill
+#_18BCE8: BNE .tilemap_fill
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -7080,7 +7080,7 @@ UnderworldMap_RecoverLightCone:
 
 ;===================================================================================================
 
-DungeonMap_BG3TileMap:
+DungeonMap_BG3Tilemap:
 #_18BD5C: dw $4260, $0100 ; VRAM $C084 | 2 bytes | Horizontal
 #_18BD60: dw $2100
 

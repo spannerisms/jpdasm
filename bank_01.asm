@@ -924,7 +924,7 @@ DoorDrawRoutines:
 
 ;===================================================================================================
 
-RoomData_TileMapPointers:
+RoomData_TilemapPointers:
 .upper_layer
 #_0186F8: dl $7E2000+$000
 #_0186FB: dl $7E2000+$002
@@ -1105,6 +1105,8 @@ Underworld_LoadRoom:
 #_018838: INY
 #_018839: STY.b $BA
 
+;---------------------------------------------------------------------------------------------------
+
 #_01883B: LDX.w $0110
 
 #_01883E: LDA.l RoomData_ObjectDataPointers+1,X
@@ -1123,7 +1125,7 @@ Underworld_LoadRoom:
 #_018851: LDX.w #$001E
 
 .save_next_lower_layer_pointer
-#_018854: LDA.l RoomData_TileMapPointers_lower_layer+1,X
+#_018854: LDA.l RoomData_TilemapPointers_lower_layer+1,X
 #_018858: STA.b $C0,X
 
 #_01885A: DEX
@@ -1141,7 +1143,7 @@ Underworld_LoadRoom:
 #_018866: LDX.w #$001E
 
 .save_next_upper_layer_pointer
-#_018869: LDA.l RoomData_TileMapPointers_upper_layer+1,X
+#_018869: LDA.l RoomData_TilemapPointers_upper_layer+1,X
 #_01886D: STA.b $C0,X
 
 #_01886F: DEX
@@ -1167,7 +1169,7 @@ Underworld_LoadRoom:
 
 #_018889: TAY
 
-#_01888A: JSR DrawObjects_PushableBlock
+#_01888A: JSR RoomDraw_PushableBlock
 
 .block_not_in_this_room
 #_01888D: LDA.b $BA
@@ -1227,7 +1229,7 @@ Underworld_LoadRoom:
 #_0188D0: INX
 #_0188D1: STX.b $BA
 
-#_0188D3: JSR DrawObjects_LightableTorch
+#_0188D3: JSR RoomDraw_LightableTorch
 
 #_0188D6: LDX.b $BA
 
@@ -1260,7 +1262,7 @@ RoomDraw_DrawAllObjects:
 #_0188F3: CMP.w #$FFF0
 #_0188F6: BEQ .start_doors
 
-#_0188F8: JSR RoomData_DrawObject
+#_0188F8: JSR RoomDraw_RoomObject
 
 #_0188FB: BRA .next
 
@@ -1282,7 +1284,7 @@ RoomDraw_DrawAllObjects:
 
 #_01890B: STA.b $00
 
-#_01890D: JSR RoomData_DrawObject_Door
+#_01890D: JSR RoomDraw_DoorObject
 
 #_018910: INC.b $BA
 #_018912: INC.b $BA
@@ -1291,7 +1293,7 @@ RoomDraw_DrawAllObjects:
 
 ;===================================================================================================
 
-RoomData_DrawObject_Door:
+RoomDraw_DoorObject:
 #_018916: AND.w #$00F0
 #_018919: LSR A
 #_01891A: LSR A
@@ -1313,14 +1315,13 @@ RoomData_DrawObject_Door:
 #_018933: STA.b $0E
 
 #_018935: LDX.b $02
-
 #_018937: LDA.b $04
 
 #_018939: JMP.w ($000E)
 
 ;===================================================================================================
 
-RoomData_DrawObject:
+RoomDraw_RoomObject:
 #_01893C: SEP #$20
 
 #_01893E: AND.b #$FC
@@ -1456,10 +1457,10 @@ RoomDraw_DrawFloors:
 #_0189DC: LDX.w #$001E
 
 .next_pointer_a
-#_0189DF: LDA.l RoomData_TileMapPointers_lower_layer+0,X
+#_0189DF: LDA.l RoomData_TilemapPointers_lower_layer+0,X
 #_0189E3: STA.b $BF,X
 
-#_0189E5: LDA.l RoomData_TileMapPointers_lower_layer+1,X
+#_0189E5: LDA.l RoomData_TilemapPointers_lower_layer+1,X
 #_0189E9: STA.b $C0,X
 
 #_0189EB: DEX
@@ -1490,7 +1491,7 @@ RoomDraw_DrawFloors:
 #_018A03: LDX.w #$001E
 
 .next_pointer_b
-#_018A06: LDA.l RoomData_TileMapPointers_upper_layer+1,X
+#_018A06: LDA.l RoomData_TilemapPointers_upper_layer+1,X
 #_018A0A: STA.b $C0,X
 
 #_018A0C: DEX
@@ -1515,6 +1516,7 @@ RoomDraw_DrawFloors:
 ;===================================================================================================
 
 RoomDraw_FloorChunks:
+
 .next_super
 #_018A1F: LDY.b $0C
 
@@ -7408,7 +7410,7 @@ RoomDraw_VitreousGooDamage:
 ;===================================================================================================
 
 RoomDraw_Door_North:
-#_01A81C: LDY.w DoorTileMapPositions_NorthWall,X
+#_01A81C: LDY.w DoorTilemapPositions_NorthWall,X
 #_01A81F: STY.b $08
 
 #_01A821: CMP.w #$0030
@@ -7492,7 +7494,7 @@ RoomDraw_Door_North:
 #_01A877: BNE .not_waterfall_door
 
 #_01A879: JSR RoomDraw_NormalRangedDoors_North
-#_01A87C: BRA RoomDraw_ChangeTileMapAddressToLowerLayer
+#_01A87C: BRA RoomDraw_ChangeTilemapAddressToLowerLayer
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -7585,7 +7587,7 @@ RoomDraw_Door_North:
 
 ;===================================================================================================
 
-#RoomDraw_ChangeTileMapAddressToLowerLayer:
+#RoomDraw_ChangeTilemapAddressToLowerLayer:
 #_01A8FA: LDX.w $0460
 
 #_01A8FD: LDA.w $199E,X
@@ -7617,7 +7619,7 @@ RoomDraw_NormalRangedDoors_North:
 #_01A91B: ORA.w #$0010
 #_01A91E: STA.w $0460
 
-#_01A921: LDY.w DoorTileMapPositions_NorthMiddle,X
+#_01A921: LDY.w DoorTilemapPositions_NorthMiddle,X
 
 #_01A924: LDA.b $04
 #_01A926: JSR RoomDraw_CheckIfLowerLayerDoors_Vertical
@@ -7695,7 +7697,7 @@ RoomDraw_OneSidedShutters_North:
 ;===================================================================================================
 
 RoomDraw_Door_South:
-#_01A984: LDY.w DoorTileMapPositions_SouthMiddle,X
+#_01A984: LDY.w DoorTilemapPositions_SouthMiddle,X
 #_01A987: STY.b $08
 
 #_01A989: CMP.w #$0016
@@ -7894,7 +7896,7 @@ RoomDraw_CheckIfLowerLayerDoors_Vertical:
 #_01AA78: BNE RoomDraw_OneSidedShutters_South
 
 #_01AA7A: JSR RoomDraw_OneSidedShutters_South
-#_01AA7D: JMP.w RoomDraw_ChangeTileMapAddressToLowerLayer
+#_01AA7D: JMP.w RoomDraw_ChangeTilemapAddressToLowerLayer
 
 ;===================================================================================================
 
@@ -7962,7 +7964,7 @@ RoomDraw_OneSidedShutters_South:
 ;===================================================================================================
 
 RoomDraw_Door_West:
-#_01AAD7: LDY.w DoorTileMapPositions_WestWall,X
+#_01AAD7: LDY.w DoorTilemapPositions_WestWall,X
 #_01AADA: STY.b $08
 
 #_01AADC: CMP.w #$0016
@@ -8013,7 +8015,7 @@ RoomDraw_Door_West:
 
 #_01AB11: JSR RoomDraw_NormalRangedDoors_West
 
-#_01AB14: JMP.w RoomDraw_ChangeTileMapAddressToLowerLayer
+#_01AB14: JMP.w RoomDraw_ChangeTilemapAddressToLowerLayer
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -8038,7 +8040,7 @@ RoomDraw_NormalRangedDoors_West:
 #_01AB2B: ORA.w #$0010
 #_01AB2E: STA.w $0460
 
-#_01AB31: LDY.w DoorTileMapPositions_WestMiddle,X
+#_01AB31: LDY.w DoorTilemapPositions_WestMiddle,X
 
 #_01AB34: LDA.b $04
 #_01AB36: JSR RoomDraw_NormalRangedDoors_East
@@ -8121,7 +8123,7 @@ RoomDraw_NormalRangedDoors_West:
 ;===================================================================================================
 
 RoomDraw_Door_East:
-#_01AB99: LDY.w DoorTileMapPositions_EastMiddle,X
+#_01AB99: LDY.w DoorTilemapPositions_EastMiddle,X
 #_01AB9C: STY.b $08
 
 #_01AB9E: CMP.w #$0016
@@ -8182,7 +8184,7 @@ RoomDraw_NormalRangedDoors_East:
 
 #_01ABDC: JSR RoomDraw_OneSidedShutters_East
 
-#_01ABDF: JMP.w RoomDraw_ChangeTileMapAddressToLowerLayer
+#_01ABDF: JMP.w RoomDraw_ChangeTilemapAddressToLowerLayer
 
 ;===================================================================================================
 
@@ -8303,7 +8305,7 @@ ExplodingWallNotOpen:
 ;===================================================================================================
 
 RoomDraw_Door_ExplodingWall:
-#_01AC70: LDY.w ExplodingWallTileMapPosition,X
+#_01AC70: LDY.w ExplodingWallTilemapPosition,X
 #_01AC73: STY.b $08
 
 #_01AC75: LDX.w $0460
@@ -8476,7 +8478,7 @@ RoomDraw_HighRangeDoor_North:
 #_01AD54: ORA.w #$0010
 #_01AD57: STA.w $0460
 
-#_01AD5A: LDY.w DoorTileMapPositions_NorthMiddle,X
+#_01AD5A: LDY.w DoorTilemapPositions_NorthMiddle,X
 #_01AD5D: JSR RoomDraw_OneSidedLowerShutters_South
 
 #_01AD60: PLA
@@ -8651,7 +8653,7 @@ RoomDraw_HighRangeDoor_West:
 #_01AE4C: ORA.w #$0010
 #_01AE4F: STA.w $0460
 
-#_01AE52: LDY.w DoorTileMapPositions_WestMiddle,X
+#_01AE52: LDY.w DoorTilemapPositions_WestMiddle,X
 #_01AE55: JSR RoomDraw_OneSidedLowerShutters_East
 
 #_01AE58: PLA
@@ -9897,7 +9899,7 @@ RoomDraw_HammerPegSingle:
 
 ;===================================================================================================
 
-DrawObjects_PushableBlock:
+RoomDraw_PushableBlock:
 #_01B4D6: LDX.w $042C
 
 #_01B4D9: INC.w $042C
@@ -9932,7 +9934,7 @@ DrawObjects_PushableBlock:
 
 ;===================================================================================================
 
-DrawObjects_LightableTorch:
+RoomDraw_LightableTorch:
 #_01B509: LDY.w $042E
 
 #_01B50C: STA.w $0540,Y
@@ -10116,7 +10118,6 @@ Underworld_LoadHeader:
 
 #_01B618: REP #$20
 
-
 ; Palette
 #_01B61A: INY
 
@@ -10154,7 +10155,7 @@ Underworld_LoadHeader:
 #_01B64B: ADC.b #$40
 #_01B64D: STA.w $0AA3
 
-; BGMOVE
+; Layer effect
 #_01B650: INY
 
 #_01B651: LDA.b [$0D],Y
@@ -10273,7 +10274,7 @@ Underworld_LoadHeader:
 
 #_01B6E5: LDA.l $7EF000,X
 #_01B6E9: AND.w #$0FF0
-#_01B6EC: ASL A ; x16
+#_01B6EC: ASL A
 #_01B6ED: ASL A
 #_01B6EE: ASL A
 #_01B6EF: ASL A
@@ -10601,7 +10602,7 @@ Underworld_ApplyRoomOverlay:
 #_01B88B: LDA.b $08
 #_01B88D: PHA
 
-#_01B88E: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01B88E: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01B891: PLA
 #_01B892: JSR Underworld_DrawRoomOverlay_Apply
@@ -13052,7 +13053,7 @@ PushPressurePlate:
 
 ; pressure switch down
 #_01C620: LDY.b #$10
-#_01C622: JSL Underworld_UpdateTileMapWithCommonTile
+#_01C622: JSL Underworld_UpdateTilemapWithCommonTile
 
 .exit
 #_01C626: SEP #$30
@@ -15071,7 +15072,7 @@ DontOpenDoor:
 #_01D031: TAY
 
 #_01D032: JSR DrawEyeWatchDoor
-#_01D035: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01D035: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01D038: LDY.w $0460
 #_01D03B: JSR Underworld_LoadSingleDoorTileAttribute_from_parameter
@@ -15355,7 +15356,7 @@ SlashSwordAgainstVinesAndDoors:
 ;---------------------------------------------------------------------------------------------------
 
 .run_dma_and_sfx
-#_01D1CE: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01D1CE: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01D1D1: SEP #$30
 
@@ -15629,22 +15630,22 @@ DrawEyeWatchDoor:
 #_01D348: AND.w #$0003
 #_01D34B: BNE .not_north_door
 
-#_01D34D: JMP.w DrawDoorToTileMap_North
+#_01D34D: JMP.w DrawDoorToTilemap_North
 
 .not_north_door
 #_01D350: CMP.w #$0001
 #_01D353: BNE .not_south_door
 
-#_01D355: JMP.w DrawDoorToTileMap_South
+#_01D355: JMP.w DrawDoorToTilemap_South
 
 .not_south_door
 #_01D358: CMP.w #$0002
 #_01D35B: BNE .not_west_door
 
-#_01D35D: JMP.w DrawDoorToTileMap_West
+#_01D35D: JMP.w DrawDoorToTilemap_West
 
 .not_west_door
-#_01D360: JMP.w DrawDoorToTileMap_East
+#_01D360: JMP.w DrawDoorToTilemap_East
 
 ;===================================================================================================
 
@@ -15655,7 +15656,7 @@ IndexAndClearCurtainDoor:
 #_01D368: STY.w $0460
 #_01D36B: STY.w $0694
 
-#_01D36E: JMP.w ClearDoorCurtainsFromTileMap
+#_01D36E: JMP.w ClearDoorCurtainsFromTilemap
 
 ;===================================================================================================
 
@@ -15675,7 +15676,7 @@ IndexAndClearExplodingWall:
 #_01D386: TXA
 #_01D387: STA.w $19A0,Y
 
-#_01D38A: JMP.w ClearExplodingWallFromTileMap
+#_01D38A: JMP.w ClearExplodingWallFromTilemap
 
 ;===================================================================================================
 
@@ -15795,7 +15796,7 @@ OperateShutterDoors:
 
 .skip_sfx
 #_01D421: JSR DrawShutterDoorSteps
-#_01D424: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01D424: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01D427: LDA.w $0690
 #_01D42A: CMP.w #$0008
@@ -15909,7 +15910,7 @@ OpenCrackedDoor:
 #_01D4B9: TAY
 
 #_01D4BA: JSR DrawDoorOpening_Step1
-#_01D4BD: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01D4BD: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01D4C0: LDY.b $0C
 
@@ -19392,7 +19393,7 @@ RevealPotItem:
 
 ;===================================================================================================
 
-pool Underworld_UpdateTileMapWithCommonTile
+pool Underworld_UpdateTilemapWithCommonTile
 
 .replacement_tiles
 #_01E793: dw $00E0 ; Y=00 - TODO ???
@@ -19410,7 +19411,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Underworld_UpdateTileMapWithCommonTile:
+Underworld_UpdateTilemapWithCommonTile:
 #_01E7A7: PHX
 
 #_01E7A8: STY.b $0E
@@ -20740,7 +20741,7 @@ IncrementallyDrainSwampPool:
 #_01EF97: LDA.b #$32
 #_01EF99: STA.b $9A
 
-#_01EF9B: STZ.w SUBDES
+#_01EF9B: STZ.w TS
 #_01EF9E: STZ.b $1D
 
 #_01EFA0: STZ.b $96
@@ -20846,7 +20847,7 @@ DeleteSwampPoolWaterOverlay:
 
 ;===================================================================================================
 
-Underworld_FloodSwampWater_PrepTileMap:
+Underworld_FloodSwampWater_PrepTilemap:
 #_01F044: JSL WaterFlood_BuildOneQuadrantForVRAM
 
 #_01F048: LDA.w $045C
@@ -20895,10 +20896,10 @@ WaterDrainSpeed:
 pool Underworld_FloodSwampWater
 
 .vectors
-#_01F079: dw Underworld_FloodSwampWater_PrepTileMap  ; 0x00
-#_01F07B: dw Underworld_FloodSwampWater_PrepTileMap  ; 0x01
-#_01F07D: dw Underworld_FloodSwampWater_PrepTileMap  ; 0x02
-#_01F07F: dw Underworld_FloodSwampWater_PrepTileMap  ; 0x03
+#_01F079: dw Underworld_FloodSwampWater_PrepTilemap  ; 0x00
+#_01F07B: dw Underworld_FloodSwampWater_PrepTilemap  ; 0x01
+#_01F07D: dw Underworld_FloodSwampWater_PrepTilemap  ; 0x02
+#_01F07F: dw Underworld_FloodSwampWater_PrepTilemap  ; 0x03
 #_01F081: dw Underworld_FloodSwampWater_VomitWater   ; 0x04
 #_01F083: dw Underworld_FloodSwampWater_VomitWater   ; 0x05
 #_01F085: dw Underworld_FloodSwampWater_VomitWater   ; 0x06
@@ -21845,7 +21846,7 @@ SpiralStairs_MakeNearbyWallsHighPriority_Entering:
 #_01F578: ADC.w #$0008
 #_01F57B: STA.b $08
 
-#_01F57D: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01F57D: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01F580: JMP.w RoomDraw_CloseStripes
 
@@ -21895,7 +21896,7 @@ SpiralStairs_MakeNearbyWallsLowPriority:
 #_01F5C4: ADC.w #$0008
 #_01F5C7: STA.b $08
 
-#_01F5C9: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01F5C9: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01F5CC: JMP.w RoomDraw_CloseStripes
 
@@ -22191,7 +22192,7 @@ RoomTag_WaterOff_AdjustOverlay:
 
 ;===================================================================================================
 
-Underworld_PrepNextTileMapUpdateDMA:
+Underworld_PrepNextTilemapUpdateDMA:
 #_01F762: LDA.w #$0004
 #_01F765: STA.b $0A
 
@@ -22693,7 +22694,7 @@ DoorDoorStep1_North:
 
 #_01FA5B: TXA
 #_01FA5C: AND.w #$1FFF
-#_01FA5F: CMP.w DoorTileMapPositions_NorthMiddle
+#_01FA5F: CMP.w DoorTilemapPositions_NorthMiddle
 #_01FA62: BCC .one_sided_door
 
 #_01FA64: TXA
@@ -22721,7 +22722,7 @@ DoorDoorStep1_North:
 #_01FA88: STA.w $0460
 
 #_01FA8B: JSR GetDoorDrawDataIndex_South
-#_01FA8E: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01FA8E: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01FA91: LDY.w $0460
 #_01FA94: JSR Underworld_LoadSingleDoorAttribute
@@ -22742,10 +22743,10 @@ GetDoorDrawDataIndex_North:
 #_01FAA4: AND.w #$00FE
 
 #_01FAA7: LDX.w $0692
-#_01FAAA: BEQ DrawDoorToTileMap_North
+#_01FAAA: BEQ DrawDoorToTilemap_North
 
 #_01FAAC: CPX.w #$0004
-#_01FAAF: BEQ DrawDoorToTileMap_North
+#_01FAAF: BEQ DrawDoorToTilemap_North
 
 #_01FAB1: CMP.w #$0024
 #_01FAB4: BEQ .advance_data_index
@@ -22780,7 +22781,7 @@ GetDoorDrawDataIndex_North:
 
 ;===================================================================================================
 
-#DrawDoorToTileMap_North:
+#DrawDoorToTilemap_North:
 #_01FAD5: JSR GetDoorGraphicsIndex
 
 #_01FAD8: LDY.w DoorGFXDataOffset_North,X
@@ -22839,7 +22840,7 @@ DoorDoorStep1_South:
 
 #_01FB1C: TXA
 #_01FB1D: AND.w #$1FFF
-#_01FB20: CMP.w DoorTileMapPositions_LowerLayerEntrance
+#_01FB20: CMP.w DoorTilemapPositions_LowerLayerEntrance
 #_01FB23: BCS .one_sided_door
 
 #_01FB25: TXA
@@ -22867,7 +22868,7 @@ DoorDoorStep1_South:
 #_01FB49: STA.w $0460
 
 #_01FB4C: JSR GetDoorDrawDataIndex_North
-#_01FB4F: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01FB4F: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01FB52: LDY.w $0460
 #_01FB55: JSR Underworld_LoadSingleDoorAttribute
@@ -22888,10 +22889,10 @@ GetDoorDrawDataIndex_South:
 #_01FB65: AND.w #$00FE
 
 #_01FB68: LDX.w $0692
-#_01FB6B: BEQ DrawDoorToTileMap_South
+#_01FB6B: BEQ DrawDoorToTilemap_South
 
 #_01FB6D: CPX.w #$0004
-#_01FB70: BEQ DrawDoorToTileMap_South
+#_01FB70: BEQ DrawDoorToTilemap_South
 
 #_01FB72: CMP.w #$0042
 #_01FB75: BCC .dont_advance_data_index
@@ -22919,7 +22920,7 @@ GetDoorDrawDataIndex_South:
 
 ;===================================================================================================
 
-#DrawDoorToTileMap_South:
+#DrawDoorToTilemap_South:
 #_01FB8C: JSR GetDoorGraphicsIndex
 
 #_01FB8F: LDY.w DoorGFXDataOffset_South,X
@@ -22976,7 +22977,7 @@ DoorDoorStep1_West:
 
 #_01FBD3: TXA
 #_01FBD4: AND.w #$07FF
-#_01FBD7: CMP.w DoorTileMapPositions_WestMiddle
+#_01FBD7: CMP.w DoorTilemapPositions_WestMiddle
 #_01FBDA: BCC .one_sided_door
 
 #_01FBDC: TXA
@@ -23004,7 +23005,7 @@ DoorDoorStep1_West:
 #_01FC00: STA.w $0460
 
 #_01FC03: JSR GetDoorDrawDataIndex_East
-#_01FC06: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01FC06: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01FC09: LDY.w $0460
 #_01FC0C: JSR Underworld_LoadSingleDoorAttribute
@@ -23025,10 +23026,10 @@ GetDoorDrawDataIndex_West:
 #_01FC1C: AND.w #$00FE
 
 #_01FC1F: LDX.w $0692
-#_01FC22: BEQ DrawDoorToTileMap_West
+#_01FC22: BEQ DrawDoorToTilemap_West
 
 #_01FC24: CPX.w #$0004
-#_01FC27: BEQ DrawDoorToTileMap_West
+#_01FC27: BEQ DrawDoorToTilemap_West
 
 #_01FC29: CMP.w #$0042
 #_01FC2C: BCC .dont_advance_data_index
@@ -23056,7 +23057,7 @@ GetDoorDrawDataIndex_West:
 
 ;===================================================================================================
 
-#DrawDoorToTileMap_West:
+#DrawDoorToTilemap_West:
 #_01FC43: JSR GetDoorGraphicsIndex
 
 #_01FC46: LDY.w DoorGFXDataOffset_West,X
@@ -23117,7 +23118,7 @@ DoorDoorStep1_East:
 #_01FC91: TXA
 
 #_01FC92: AND.w #$07FF
-#_01FC95: CMP.w DoorTileMapPositions_EastWall
+#_01FC95: CMP.w DoorTilemapPositions_EastWall
 #_01FC98: BCS .one_sided_door
 
 #_01FC9A: TXA
@@ -23145,7 +23146,7 @@ DoorDoorStep1_East:
 #_01FCBE: STA.w $0460
 
 #_01FCC1: JSR GetDoorDrawDataIndex_West
-#_01FCC4: JSR Underworld_PrepNextTileMapUpdateDMA
+#_01FCC4: JSR Underworld_PrepNextTilemapUpdateDMA
 
 #_01FCC7: LDY.w $0460
 #_01FCCA: JSR Underworld_LoadSingleDoorAttribute
@@ -23166,10 +23167,10 @@ GetDoorDrawDataIndex_East:
 #_01FCDA: AND.w #$00FE
 
 #_01FCDD: LDX.w $0692
-#_01FCE0: BEQ DrawDoorToTileMap_East
+#_01FCE0: BEQ DrawDoorToTilemap_East
 
 #_01FCE2: CPX.w #$0004
-#_01FCE5: BEQ DrawDoorToTileMap_East
+#_01FCE5: BEQ DrawDoorToTilemap_East
 
 #_01FCE7: CMP.w #$0042
 #_01FCEA: BCC .dont_advance_data_index
@@ -23197,7 +23198,7 @@ GetDoorDrawDataIndex_East:
 
 ;===================================================================================================
 
-#DrawDoorToTileMap_East:
+#DrawDoorToTilemap_East:
 #_01FD01: JSR GetDoorGraphicsIndex
 
 #_01FD04: LDY.w DoorGFXDataOffset_East,X
@@ -23239,7 +23240,7 @@ GetDoorDrawDataIndex_East:
 
 ;===================================================================================================
 
-ClearDoorCurtainsFromTileMap:
+ClearDoorCurtainsFromTilemap:
 #_01FD3C: LDX.w #$0056
 
 #_01FD3F: LDY.w DoorGFXDataOffset_North,X
@@ -23303,10 +23304,10 @@ GetDoorGraphicsIndex:
 
 ;===================================================================================================
 
-ClearExplodingWallFromTileMap:
+ClearExplodingWallFromTilemap:
 #_01FD90: LDY.w #$31EA
 
-#_01FD93: JSR ClearExplodingWallFromTileMap_ClearOnePair
+#_01FD93: JSR ClearExplodingWallFromTilemap_ClearOnePair
 
 #_01FD96: LDA.w $0454
 #_01FD99: DEC A
@@ -23347,7 +23348,7 @@ ClearExplodingWallFromTileMap:
 
 ;===================================================================================================
 
-ClearExplodingWallFromTileMap_ClearOnePair:
+ClearExplodingWallFromTilemap_ClearOnePair:
 #_01FDD9: LDA.w #$0002
 #_01FDDC: STA.b $0E
 
@@ -23731,3 +23732,5 @@ TakeDamageFromPit:
 ;===================================================================================================
 NULL_01FFFD:
 #_01FFFD: db $FF, $FF, $FF
+
+;===================================================================================================

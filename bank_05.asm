@@ -7180,7 +7180,7 @@ SubspriteIndices_Bank05:
 #_05A5DA: db $00, $40, $80, $C0
 
 ;===================================================================================================
-; TODO fuck this routine
+
 pool SpriteDraw_Lanmola
 
 .oam_a_offset
@@ -9570,18 +9570,19 @@ SpriteDraw_BNCFlail:
 #_05B4D2: PLX
 
 #_05B4D3: LDA.b $04
-#_05B4D5: STA.w CPUMULTA
+#_05B4D5: STA.w WRMPYA
 
 #_05B4D8: LDA.b $0F
 
 #_05B4DA: LDY.b $05
 #_05B4DC: BNE .not_swinging_b
 
-#_05B4DE: STA.w CPUMULTB
+#_05B4DE: STA.w WRMPYB
+
 #_05B4E1: JSR NOP4
 
-#_05B4E4: ASL.w CPUPRODUCTL ; carry = round up
-#_05B4E7: LDA.w CPUPRODUCTH
+#_05B4E4: ASL.w RDMPYL ; carry = round up
+#_05B4E7: LDA.w RDMPYH
 #_05B4EA: ADC.b #$00
 
 .not_swinging_b
@@ -9599,18 +9600,19 @@ SpriteDraw_BNCFlail:
 ;---------------------------------------------------------------------------------------------------
 
 #_05B4F7: LDA.b $06
-#_05B4F9: STA.w CPUMULTA
+#_05B4F9: STA.w WRMPYA
 
 #_05B4FC: LDA.b $0F
 
 #_05B4FE: LDY.b $07
 #_05B500: BNE .this_was_nonzero
 
-#_05B502: STA.w CPUMULTB
+#_05B502: STA.w WRMPYB
+
 #_05B505: JSR NOP4
 
-#_05B508: ASL.w CPUPRODUCTL ; carry = round up
-#_05B50B: LDA.w CPUPRODUCTH
+#_05B508: ASL.w RDMPYL ; carry = round up
+#_05B50B: LDA.w RDMPYH
 #_05B50E: ADC.b #$00
 
 .this_was_nonzero
@@ -9675,17 +9677,17 @@ SpriteDraw_BNCFlail:
 
 .next_object_flail
 #_05B553: LDA.b $0E
-#_05B555: STA.w CPUMULTA
+#_05B555: STA.w WRMPYA
 
 #_05B558: LDA.w .chain_multiplicand,X
-#_05B55B: STA.w CPUMULTB
+#_05B55B: STA.w WRMPYB
 
 #_05B55E: JSR NOP4
 
 #_05B561: LDA.b $04
 #_05B563: ASL A
 
-#_05B564: LDA.w CPUPRODUCTH
+#_05B564: LDA.w RDMPYH
 #_05B567: BCC .dont_invert_a
 
 #_05B569: EOR.b #$FF
@@ -9701,17 +9703,17 @@ SpriteDraw_BNCFlail:
 ;---------------------------------------------------------------------------------------------------
 
 #_05B575: LDA.b $0F
-#_05B577: STA.w CPUMULTA
+#_05B577: STA.w WRMPYA
 
 #_05B57A: LDA.w .chain_multiplicand,X
-#_05B57D: STA.w CPUMULTB
+#_05B57D: STA.w WRMPYB
 
 #_05B580: JSR NOP4
 
 #_05B583: LDA.b $06
 #_05B585: ASL A
 
-#_05B586: LDA.w CPUPRODUCTH
+#_05B586: LDA.w RDMPYH
 #_05B589: BCC .dont_invert_b
 
 #_05B58B: EOR.b #$FF
@@ -12135,7 +12137,7 @@ Probe:
 #_05C203: LDA.b #$03
 #_05C205: STA.w $0D80,X
 
-; Don't trigger Blind
+; Don't change Blind's timer
 #_05C208: LDA.w $0E20,X
 #_05C20B: CMP.b #$CE ; SPRITE CE
 #_05C20D: BEQ .dont_trigger_parent
@@ -12292,8 +12294,8 @@ Guard_NotFalling:
 #_05C2C6: dw Guard_Idle
 #_05C2C8: dw Guard_OnPatrol
 #_05C2CA: dw Guard_Surveying
-#_05C2CC: dw Guard_InPursuit
-#_05C2CE: dw Guard_FallingToDeath
+#_05C2CC: dw Guard_NoticeKouhai
+#_05C2CE: dw Guard_InPursuit
 
 ;===================================================================================================
 
@@ -12620,7 +12622,7 @@ Guard_Surveying:
 
 ;===================================================================================================
 
-Guard_InPursuit:
+Guard_NoticeKouhai:
 #_05C4C1: JSR Sprite_ZeroVelocity_XY_Bank05
 #_05C4C4: JSR Sprite_DirectionToFaceLink_Bank05
 
@@ -12652,7 +12654,7 @@ Guard_InPursuit:
 
 ;===================================================================================================
 
-Guard_FallingToDeath:
+Guard_InPursuit:
 #_05C4E8: LDA.w $0DF0,X
 #_05C4EB: BNE .delay
 
@@ -12677,7 +12679,7 @@ Guard_FallingToDeath:
 #_05C500: TXA
 #_05C501: EOR.b $1A
 #_05C503: AND.b #$1F
-#_05C505: BNE .dont_attempt_chase
+#_05C505: BNE .dont_update_trajectory
 
 #_05C507: LDA.w $0ED0,X
 #_05C50A: BNE .dont_whistle
@@ -12706,8 +12708,8 @@ Guard_FallingToDeath:
 #_05C52B: STA.w $0DE0,X
 #_05C52E: STA.w $0EB0,X
 
-.dont_attempt_chase
-#_05C531: JSL Guard_ApplySpeedInDirection
+.dont_update_trajectory
+#_05C531: JSL Guard_ChaseLinkOnOneAxis
 
 ;===================================================================================================
 
@@ -12728,7 +12730,7 @@ GuardAppliedSpeeds_Y:
 
 ;===================================================================================================
 
-Guard_ApplySpeedInDirection:
+Guard_ChaseLinkOnOneAxis:
 #_05C542: PHB
 #_05C543: PHK
 #_05C544: PLB
@@ -15285,6 +15287,13 @@ Sprite_3F_TutorialGuard:
 #_05D597: LDA.w $0B69
 #_05D59A: PHA
 
+; This all accounts for:
+; Message 000D
+; Message 000E
+; Message 000F
+; Message 0010
+; Message 0011
+; Message 0012
 #_05D59B: CLC
 #_05D59C: ADC.b #$0D
 
@@ -15451,7 +15460,7 @@ SpriteDraw_TutorialGuard:
 #_05D6BB: RTS
 
 ;===================================================================================================
-; TODO these are bad, look at poke rewrite
+
 Sprite_04_PullSwitch:
 Sprite_05_PullSwitch:
 Sprite_06_PullSwitch:
@@ -19380,7 +19389,7 @@ BottleVendor_OfferSale:
 
 ; 100 rupees
 #_05EAF4: LDA.l $7EF360
-#_05EAF8: CMP.w #100
+#_05EAF8: CMP.w #$64
 
 #_05EAFB: SEP #$30
 
@@ -20322,6 +20331,7 @@ Sprite_EA_HeartContainer:
 #_05EF61: PLX
 
 #_05EF62: JSL Sprite_Get16BitCoords_long
+
 #_05EF66: INC.w $0ED0,X
 
 .gfx_loaded
@@ -21820,7 +21830,7 @@ Sprite_GreenCauldron:
 
 ; 60 rupees
 #_05F6BC: LDA.l $7EF360
-#_05F6C0: CMP.w #60
+#_05F6C0: CMP.w #$3C
 
 #_05F6C3: SEP #$30
 #_05F6C5: BCC .too_poor
@@ -21929,7 +21939,7 @@ Sprite_BlueCauldron:
 
 ; 160 rupees
 #_05F759: LDA.l $7EF360
-#_05F75D: CMP.w #160
+#_05F75D: CMP.w #$A0
 
 #_05F760: SEP #$30
 #_05F762: BCC .too_poor
@@ -22039,7 +22049,7 @@ Sprite_RedCauldron:
 
 ; 120 rupees
 #_05F7FE: LDA.l $7EF360
-#_05F802: CMP.w #120
+#_05F802: CMP.w #$78
 
 #_05F805: SEP #$30
 #_05F807: BCC PotionCauldron_PovertyDisclaimer
@@ -23522,7 +23532,7 @@ Sprite_3C_KidInKak:
 #_05FF81: CMP.b #$03
 #_05FF83: BCS .dont_discuss_quest
 
-; Mssage 0145
+; Message 0145
 #_05FF85: LDA.b #$45
 #_05FF87: LDY.b #$01
 #_05FF89: JSL Sprite_ShowSolicitedMessage
@@ -23538,7 +23548,7 @@ Sprite_3C_KidInKak:
 ;---------------------------------------------------------------------------------------------------
 
 .dont_discuss_quest
-; Mssage 0146
+; Message 0146
 #_05FF96: LDA.b #$46
 #_05FF98: LDY.b #$01
 #_05FF9A: JSL Sprite_ShowSolicitedMessage
@@ -23549,7 +23559,7 @@ Sprite_3C_KidInKak:
 
 pool SpriteDraw_KidInKak
 
-.oam_groups:
+.oam_groups
 ; group00
 #_05FF9F: dw   0,  -8 : db $82, $08, $00, $02
 #_05FFA7: dw   0,   0 : db $AA, $0A, $00, $02
@@ -23599,3 +23609,5 @@ SpriteDraw_KidInKak:
 ;===================================================================================================
 NULL_05FFFF:
 #_05FFFF: db $FF
+
+;===================================================================================================

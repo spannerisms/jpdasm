@@ -12527,17 +12527,17 @@ SpriteDraw_Pikit_Tongue:
 
 .next_tongue_object
 #_0DD7A2: LDA.b $0C
-#_0DD7A4: STA.w CPUMULTA
+#_0DD7A4: STA.w WRMPYA
 
 #_0DD7A7: LDA.w .multipliers,X
-#_0DD7AA: STA.w CPUMULTB
+#_0DD7AA: STA.w WRMPYB
 
 #_0DD7AD: JSR Three_NOP
 
 #_0DD7B0: LDA.b $0E
 #_0DD7B2: ASL A
 
-#_0DD7B3: LDA.w CPUPRODUCTH
+#_0DD7B3: LDA.w RDMPYH
 #_0DD7B6: BCC .positive_x_2
 
 #_0DD7B8: EOR.b #$FF
@@ -12549,17 +12549,17 @@ SpriteDraw_Pikit_Tongue:
 #_0DD7BE: STA.b ($90),Y
 
 #_0DD7C0: LDA.b $0D
-#_0DD7C2: STA.w CPUMULTA
+#_0DD7C2: STA.w WRMPYA
 
 #_0DD7C5: LDA.w .multipliers,X
-#_0DD7C8: STA.w CPUMULTB
+#_0DD7C8: STA.w WRMPYB
 
 #_0DD7CB: JSR Three_NOP
 
 #_0DD7CE: LDA.b $0F
 #_0DD7D0: ASL A
 
-#_0DD7D1: LDA.w CPUPRODUCTH
+#_0DD7D1: LDA.w RDMPYH
 #_0DD7D4: BCC .positive_y_2
 
 #_0DD7D6: EOR.b #$FF
@@ -13138,6 +13138,7 @@ RefreshIcon_long:
 #_0DDB81: PLB
 
 #_0DDB82: JSR SearchForEquippedItem
+
 #_0DDB85: JSR UpdateHUD
 #_0DDB88: JSR RebuildHUD
 
@@ -13465,14 +13466,17 @@ ItemMenu_ClearTilemap:
 #_0DDD64: STA.w $1080,X
 #_0DDD67: STA.w $1100,X
 #_0DDD6A: STA.w $1180,X
+
 #_0DDD6D: STA.w $1200,X
 #_0DDD70: STA.w $1280,X
 #_0DDD73: STA.w $1300,X
 #_0DDD76: STA.w $1380,X
+
 #_0DDD79: STA.w $1400,X
 #_0DDD7C: STA.w $1480,X
 #_0DDD7F: STA.w $1500,X
 #_0DDD82: STA.w $1580,X
+
 #_0DDD85: STA.w $1600,X
 #_0DDD88: STA.w $1680,X
 #_0DDD8B: STA.w $1700,X
@@ -13614,7 +13618,7 @@ ItemMenu_Initialize:
 #_0DDE47: LDA.b #$10
 #_0DDE49: STA.w $0207
 
-; trigger and locate a vram update
+; trigger vram update
 #_0DDE4C: LDA.b #$01
 #_0DDE4E: STA.b $17
 
@@ -16935,11 +16939,11 @@ UpdateHUDBuffer_HEXtoDEC:
 .next_digit
 #_0DF11A: LDA.b $03,X
 #_0DF11C: CMP.b #$7F
-#_0DF11E: BEQ .not_zero
+#_0DF11E: BEQ .draw_blank
 
 #_0DF120: ORA.b #$90
 
-.not_zero
+.draw_blank
 #_0DF122: STA.b $03,X
 
 #_0DF124: DEX
@@ -17944,6 +17948,7 @@ UpdateHUDBuffer:
 #_0DFCE5: ORA.w #$2400
 #_0DFCE8: STA.l $7EC760
 
+; !USELESS
 #_0DFCEC: LDA.w #$007F
 #_0DFCEF: STA.b $05
 
@@ -18254,3 +18259,5 @@ NULL_0DFFE1:
 #_0DFFE9: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_0DFFF1: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_0DFFF9: db $FF, $FF, $FF, $FF, $FF, $FF, $FF
+
+;===================================================================================================

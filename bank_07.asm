@@ -176,7 +176,7 @@ Link_ControlHandler:
 ;---------------------------------------------------------------------------------------------------
 
 .you_died
-#_0780D5: LDA.b $1C ; cache MAINDES and SUBDES queue
+#_0780D5: LDA.b $1C ; cache TM and TS queue
 #_0780D7: STA.l $7EC211
 
 #_0780DB: LDA.b $1D
@@ -4361,7 +4361,6 @@ DetermineConsequencesOfFalling:
 ;---------------------------------------------------------------------------------------------------
 
 .overworld_pit_transition
-
 #_0794DB: JSL Overworld_GetPitDestination
 
 #_0794DF: LDA.b #$11
@@ -6773,7 +6772,7 @@ LinkItem_Bow:
 #_07A04B: LDY.b #$02
 #_07A04D: LDA.b #$09 ; ANCILLA 09
 #_07A04F: JSL AncillaAdd_Arrow
-#_07A053: BCC .no_arrow
+#_07A053: BCC .arrow_handled
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -6796,11 +6795,11 @@ LinkItem_Bow:
 
 #_07A072: DEC A
 #_07A073: STA.l $7EF377
-#_07A077: BNE .no_arrow
+#_07A077: BNE .arrow_handled
 
 #_07A079: JSL RefreshIcon_long
 
-#_07A07D: BRA .no_arrow
+#_07A07D: BRA .arrow_handled
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -6812,7 +6811,7 @@ LinkItem_Bow:
 
 ;---------------------------------------------------------------------------------------------------
 
-.no_arrow
+.arrow_handled
 #_07A087: STZ.w $0300
 #_07A08A: STZ.b $3D
 
@@ -8973,14 +8972,14 @@ LinkItem_Hookshot:
 #_07AB54: RTS
 
 ;===================================================================================================
-; TODO ANALZYE
-HookdragSpeedsA:
+
+Hookdrag_OffsetY:
 #_07AB55: db $F8 ; up
 #_07AB56: db $F0 ; down
 #_07AB57: db $00 ; left
 #_07AB58: db $00 ; right
 
-HookdragSpeedsB:
+Hookdrag_OffsetX:
 #_07AB59: db $00 ; up
 #_07AB5A: db $00 ; down
 #_07AB5B: db $04 ; left
@@ -9110,7 +9109,7 @@ LinkState_Hookshotting:
 
 #_07ABE9: STZ.b $05
 
-#_07ABEB: LDA.w HookdragSpeedsA,Y
+#_07ABEB: LDA.w Hookdrag_OffsetY,Y
 #_07ABEE: STA.b $04
 #_07ABF0: BPL .positive_a
 
@@ -9120,7 +9119,7 @@ LinkState_Hookshotting:
 .positive_a
 #_07ABF6: STZ.b $07
 
-#_07ABF8: LDA.w HookdragSpeedsB,Y
+#_07ABF8: LDA.w Hookdrag_OffsetX,Y
 #_07ABFB: STA.b $06
 #_07ABFD: BPL .positive_b
 
@@ -10991,8 +10990,6 @@ Link_PerformRead:
 
 #_07B502: LDA.w SignText_Overworld,Y
 
-;---------------------------------------------------------------------------------------------------
-
 .set_message
 #_07B505: STA.w $1CF0
 
@@ -11024,13 +11021,13 @@ pool Link_PerformOpenChest
 #_07B51A: db $FF ; HAMMER
 #_07B51B: db $FF ; HOOKSHOT
 #_07B51C: db $FF ; BOW
-#_07B51D: db $44 ; BOOMERANG ⇒ 10 arrows (ITEMGET 44)
+#_07B51D: db $44 ; BOOMERANG => 10 arrows (ITEMGET 44)
 #_07B51E: db $FF ; POWDER
 #_07B51F: db $FF ; BOTTLE REFILL (BEE)
 #_07B520: db $FF ; BOMBOS
 #_07B521: db $FF ; ETHER
 #_07B522: db $FF ; QUAKE
-#_07B523: db $35 ; LAMP ⇒ Blue rupee (ITEMGET 35)
+#_07B523: db $35 ; LAMP => Blue rupee (ITEMGET 35)
 #_07B524: db $FF ; SHOVEL
 #_07B525: db $FF ; FLUTE
 #_07B526: db $FF ; SOMARIA
@@ -11054,7 +11051,7 @@ pool Link_PerformOpenChest
 #_07B538: db $FF ; BOMB
 #_07B539: db $FF ; 3 BOMBS
 #_07B53A: db $FF ; MUSHROOM
-#_07B53B: db $46 ; RED BOOMERANG ⇒ 300 rupees (ITEMGET 46)
+#_07B53B: db $46 ; RED BOOMERANG => 300 rupees (ITEMGET 46)
 #_07B53C: db $FF ; FULL BOTTLE (RED)
 #_07B53D: db $FF ; FULL BOTTLE (GREEN)
 #_07B53E: db $FF ; FULL BOTTLE (BLUE)
@@ -11086,7 +11083,7 @@ pool Link_PerformOpenChest
 #_07B558: db $FF ; 20 RUPEES GREEN
 #_07B559: db $FF ; FULL BOTTLE (GOOD BEE)
 #_07B55A: db $FF ; TOSSED FIGHTER SWORD
-#_07B55B: db $FF ; BOTTLE REFILL (GOOD BEE)
+#_07B55B: db $FF ; FLUTE (ACTIVATED)
 #_07B55C: db $FF ; BOOTS
 
 pool off
@@ -22164,11 +22161,11 @@ DesertHDMA_CalculateIrisShapeLine:
 #_07ECC5: SEP #$30
 
 #_07ECC7: LDA.w $067A
-#_07ECCA: STA.w CPUDIVIDENDH
-#_07ECCD: STZ.w CPUDIVIDENDL
+#_07ECCA: STA.w WRDIVH
+#_07ECCD: STZ.w WRDIVL
 
 #_07ECD0: LDA.w $067C
-#_07ECD3: STA.w CPUDIVISOR
+#_07ECD3: STA.w WRDIVB
 
 #_07ECD6: NOP
 #_07ECD7: NOP
@@ -22179,7 +22176,7 @@ DesertHDMA_CalculateIrisShapeLine:
 
 #_07ECDC: REP #$20
 
-#_07ECDE: LDA.w CPUQUOTIENT
+#_07ECDE: LDA.w RDDIV
 #_07ECE1: LSR A
 
 #_07ECE2: SEP #$20
@@ -22195,17 +22192,17 @@ DesertHDMA_CalculateIrisShapeLine:
 
 .not_opening
 #_07ECF0: STY.b $06
-#_07ECF2: STY.w CPUMULTA
+#_07ECF2: STY.w WRMPYA
 
 #_07ECF5: LDA.w $067C
-#_07ECF8: STA.w CPUMULTB
+#_07ECF8: STA.w WRMPYB
 
 #_07ECFB: NOP
 #_07ECFC: NOP
 #_07ECFD: NOP
 #_07ECFE: NOP
 
-#_07ECFF: LDA.w CPUPRODUCTH
+#_07ECFF: LDA.w RDMPYH
 #_07ED02: STA.b $08
 
 #_07ED04: STZ.b $09
@@ -25333,3 +25330,5 @@ NULL_07FFF4:
 #_07FFF4: db $FF, $FF, $FF, $FF
 #_07FFF8: db $FF, $FF, $FF, $FF
 #_07FFFC: db $FF, $FF, $FF, $FF
+
+;===================================================================================================

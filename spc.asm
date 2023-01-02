@@ -509,6 +509,7 @@ Song_Commands:
 
 #_19FE41: #_0A73: cmp.b A, #$F0 ; SONG F0 - mute
 #_19FE43: #_0A75: beq SongCommand_F0_Mute
+
 #_19FE45: #_0A77: bra Song_NewJam
 
 ;===================================================================================================
@@ -1334,7 +1335,7 @@ TrackCommand_F7_EchoFilter:
 #_1A81DD: #_0E0F: mov.b Y, #FIR0
 
 .set_next_filter
-#_1A81DF: #_0E11: mov.w A, TrackCommand_F7_EchoFilters+X
+#_1A81DF: #_0E11: mov.w A, EchoFilterParameters+X
 #_1A81E2: #_0E14: call WriteToDSP
 
 #_1A81E5: #_0E17: inc X
@@ -1578,41 +1579,36 @@ TrackCommand_Vectors:
 ;===================================================================================================
 
 TrackCommandParamCount:
-#_1A82EE: #_0F20: db 1
-#_1A82EF: #_0F21: db 1
-#_1A82F0: #_0F22: db 2
-#_1A82F1: #_0F23: db 3
+#_1A82EE: #_0F20: db 1 ; E0
+#_1A82EF: #_0F21: db 1 ; E1
+#_1A82F0: #_0F22: db 2 ; E2
+#_1A82F1: #_0F23: db 3 ; E3
+#_1A82F2: #_0F24: db 0 ; E4
+#_1A82F3: #_0F25: db 1 ; E5
+#_1A82F4: #_0F26: db 2 ; E6
+#_1A82F5: #_0F27: db 1 ; E7
+#_1A82F6: #_0F28: db 2 ; E8
+#_1A82F7: #_0F29: db 1 ; E9
+#_1A82F8: #_0F2A: db 1 ; EA
+#_1A82F9: #_0F2B: db 3 ; EB
+#_1A82FA: #_0F2C: db 0 ; EC
+#_1A82FB: #_0F2D: db 1 ; ED
+#_1A82FC: #_0F2E: db 2 ; EE
+#_1A82FD: #_0F2F: db 3 ; EF
+#_1A82FE: #_0F30: db 1 ; F0
+#_1A82FF: #_0F31: db 3 ; F1
+#_1A8300: #_0F32: db 3 ; F2
+#_1A8301: #_0F33: db 0 ; F3
+#_1A8302: #_0F34: db 1 ; F4
+#_1A8303: #_0F35: db 3 ; F5
+#_1A8304: #_0F36: db 0 ; F6
+#_1A8305: #_0F37: db 3 ; F7
+#_1A8306: #_0F38: db 3 ; F8
+#_1A8307: #_0F39: db 3 ; F9
+#_1A8308: #_0F3A: db 1 ; FA
+#_1A8309: #_0F3B: db 2 ; FF
 
-#_1A82F2: #_0F24: db 0
-#_1A82F3: #_0F25: db 1
-#_1A82F4: #_0F26: db 2
-#_1A82F5: #_0F27: db 1
-
-#_1A82F6: #_0F28: db 2
-#_1A82F7: #_0F29: db 1
-#_1A82F8: #_0F2A: db 1
-#_1A82F9: #_0F2B: db 3
-
-#_1A82FA: #_0F2C: db 0
-#_1A82FB: #_0F2D: db 1
-#_1A82FC: #_0F2E: db 2
-#_1A82FD: #_0F2F: db 3
-
-#_1A82FE: #_0F30: db 1
-#_1A82FF: #_0F31: db 3
-#_1A8300: #_0F32: db 3
-#_1A8301: #_0F33: db 0
-
-#_1A8302: #_0F34: db 1
-#_1A8303: #_0F35: db 3
-#_1A8304: #_0F36: db 0
-#_1A8305: #_0F37: db 3
-
-#_1A8306: #_0F38: db 3
-#_1A8307: #_0F39: db 3
-#_1A8308: #_0F3A: db 1
-#_1A8309: #_0F3B: db 2
-
+; extraneous
 #_1A830A: #_0F3C: db 0
 #_1A830B: #_0F3D: db 0
 #_1A830C: #_0F3E: db 0
@@ -2130,7 +2126,7 @@ LogisticFunc:
 ; TODO
 ; Contains values for each of the 8 bytes of filter
 ;===================================================================================================
-TrackCommand_F7_EchoFilters:
+EchoFilterParameters:
 #_1A855B: #_118D: db $7F, $00, $00, $00, $00, $00, $00, $00
 #_1A8563: #_1195: db $58, $BF, $DB, $F0, $FE, $07, $0C, $0C
 #_1A856B: #_119D: db $0C, $21, $2B, $2B, $13, $FE, $F3, $F9

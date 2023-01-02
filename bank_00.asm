@@ -7,8 +7,8 @@ Interrupt_Reset:
 #_008000: SEI
 
 #_008001: STZ.w NMITIMEN
-#_008004: STZ.w HDMAENABLE ;!USELESS
-#_008007: STZ.w DMAENABLE ; !USELESS
+#_008004: STZ.w HDMAEN ; !USELESS
+#_008007: STZ.w MDMAEN ; !USELESS
 
 #_00800A: STZ.w APUIO0 ; !USELESS extremely useless
 #_00800D: STZ.w APUIO1
@@ -30,8 +30,8 @@ Interrupt_Reset:
 
 #_008027: SEP #$30
 
-#_008029: JSR Sound_LoadIntroSongBank
-#_00802C: JSR Startup_InitializeMemory
+#_008029: JSR LoadIntroSongBank
+#_00802C: JSR InitializeMemoryAndSRAM
 
 #_00802F: LDA.b #$81 ; enable NMI and auto joypad read
 #_008031: STA.w NMITIMEN
@@ -49,6 +49,7 @@ MainGameLoop:
 #_008036: BEQ MainGameLoop
 
 #_008038: CLI
+
 #_008039: BRA .do_frame
 
 ;---------------------------------------------------------------------------------------------------
@@ -223,12 +224,12 @@ Module_MainRouting:
 ;===================================================================================================
 Interrupt_NMI:
 #_0080C9: SEI
-
 #_0080CA: REP #$30
 
 #_0080CC: PHA
 #_0080CD: PHX
 #_0080CE: PHY
+
 #_0080CF: PHD
 #_0080D0: PHB
 
@@ -240,7 +241,7 @@ Interrupt_NMI:
 
 #_0080D7: SEP #$30
 
-; this must be read during NMI or you will be arrested
+; This must be read during NMI, or else you will be arrested.
 #_0080D9: LDA.w RDNMI
 
 #_0080DC: LDA.w $012C
@@ -307,7 +308,7 @@ Interrupt_NMI:
 ; prepare for PPU writes
 #_008130: LDA.b #$80
 #_008132: STA.w INIDISP
-#_008135: STZ.w HDMAENABLE
+#_008135: STZ.w HDMAEN
 
 ; if $12 is nonzero
 ; we haven't finished the main code
@@ -355,10 +356,10 @@ NMI_NoIRQThread:
 #_008171: STA.w COLDATA
 
 #_008174: LDA.b $1C
-#_008176: STA.w MAINDES
+#_008176: STA.w TM
 
 #_008179: LDA.b $1D
-#_00817B: STA.w SUBDES
+#_00817B: STA.w TS
 
 #_00817E: LDA.b $1E
 #_008180: STA.w TMW
@@ -457,7 +458,7 @@ NMI_NoIRQThread:
 #_00821D: STA.w INIDISP
 
 #_008220: LDA.b $9B
-#_008222: STA.w HDMAENABLE
+#_008222: STA.w HDMAEN
 
 #_008225: REP #$30
 
@@ -509,10 +510,10 @@ NMI_SwitchThread:
 #_008262: STA.w COLDATA
 
 #_008265: LDA.b $1C
-#_008267: STA.w MAINDES
+#_008267: STA.w TM
 
 #_00826A: LDA.b $1D
-#_00826C: STA.w SUBDES
+#_00826C: STA.w TS
 
 #_00826F: LDA.b $1E
 #_008271: STA.w TMW
@@ -562,7 +563,7 @@ NMI_SwitchThread:
 #_0082BF: STA.w INIDISP
 
 #_0082C2: LDA.b $9B
-#_0082C4: STA.w HDMAENABLE
+#_0082C4: STA.w HDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -578,6 +579,7 @@ NMI_SwitchThread:
 
 #_0082D2: PLB
 #_0082D3: PLD
+
 #_0082D4: PLY
 #_0082D5: PLX
 #_0082D6: PLA
@@ -589,12 +591,12 @@ NMI_SwitchThread:
 ;===================================================================================================
 Interrupt_IRQ:
 #_0082D8: SEI
-
 #_0082D9: REP #$30
 
 #_0082DB: PHA
 #_0082DC: PHX
 #_0082DD: PHY
+
 #_0082DE: PHD
 #_0082DF: PHB
 
@@ -639,6 +641,7 @@ Interrupt_IRQ:
 
 #_008319: PLB
 #_00831A: PLD
+
 #_00831B: PLY
 #_00831C: PLX
 #_00831D: PLA
@@ -662,6 +665,7 @@ Interrupt_IRQ:
 
 #_00832D: PLB
 #_00832E: PLD
+
 #_00832F: PLY
 #_008330: PLX
 #_008331: PLA
@@ -670,7 +674,7 @@ Interrupt_IRQ:
 
 ;===================================================================================================
 
-EraseTileMaps_triforce:
+EraseTilemaps_triforce:
 #_008333: REP #$20
 
 #_008335: LDA.w #$0188
@@ -678,11 +682,11 @@ EraseTileMaps_triforce:
 
 #_00833A: LDA.w #$007F
 
-#_00833D: BRA EraseTileMaps
+#_00833D: BRA EraseTilemaps
 
 ;---------------------------------------------------------------------------------------------------
 
-EraseTileMaps_dungeonmap:
+EraseTilemaps_dungeonmap:
 #_00833F: REP #$20
 
 #_008341: LDA.w #$007F
@@ -690,11 +694,11 @@ EraseTileMaps_dungeonmap:
 
 #_008346: LDA.w #$0300
 
-#_008349: BRA EraseTileMaps
+#_008349: BRA EraseTilemaps
 
 ;---------------------------------------------------------------------------------------------------
 
-EraseTileMaps_normal:
+EraseTilemaps_normal:
 #_00834B: REP #$20
 
 #_00834D: LDA.w #$007F
@@ -705,7 +709,8 @@ EraseTileMaps_normal:
 ;---------------------------------------------------------------------------------------------------
 ; $00 = tile for BG1/BG2
 ; $02 = tile for BG3
-EraseTileMaps:
+;---------------------------------------------------------------------------------------------------
+EraseTilemaps:
 #_008355: STA.b $00
 
 #_008357: STZ.w VMAIN
@@ -723,7 +728,7 @@ EraseTileMaps:
 #_00836F: STA.w DMA1SIZE
 
 #_008372: LDY.b #$02
-#_008374: STY.w DMAENABLE
+#_008374: STY.w MDMAEN
 
 #_008377: LDX.b #$80
 #_008379: STX.w VMAIN
@@ -738,7 +743,7 @@ EraseTileMaps:
 #_008388: LDA.w #$0001
 #_00838B: STA.w DMA1ADDRL
 
-#_00838E: STY.w DMAENABLE
+#_00838E: STY.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -759,7 +764,7 @@ EraseTileMaps:
 #_0083AA: LDA.w #$0800
 #_0083AD: STA.w DMA1SIZE
 
-#_0083B0: STY.w DMAENABLE
+#_0083B0: STY.w MDMAEN
 
 #_0083B3: STX.w VMAIN
 #_0083B6: STA.w DMA1SIZE
@@ -773,7 +778,7 @@ EraseTileMaps:
 #_0083C5: LDA.w #$0001
 #_0083C8: STA.w DMA1ADDRL
 
-#_0083CB: STY.w DMAENABLE
+#_0083CB: STY.w MDMAEN
 
 #_0083CE: SEP #$20
 
@@ -853,8 +858,7 @@ NMI_ReadJoypads:
 #_00841D: RTS
 
 ;===================================================================================================
-; Moves everything in the OAM buffer off screen
-; just sets all the Y-coordinates to 240
+; Moves everything in the OAM buffer off screen by setting all Y-coordinates to 240.
 ;===================================================================================================
 ClearOAMBuffer:
 #_00841E: LDX.b #$60
@@ -913,17 +917,22 @@ ClearOAMBuffer:
 ;===================================================================================================
 
 SaveFileOffsets:
-#_00848A: dw $0000
+#_00848A: dw $700000
+
+;---------------------------------------------------------------------------------------------------
 
 SaveFileCopyOffsets:
-#_00848C: dw $0000, $0500
-#_008490: dw $0A00, $0F00
+#_00848C: dw $700000, $700500
+#_008490: dw $700A00, $700F00
 
 ;===================================================================================================
 ; Addresses for things
 ;===================================================================================================
 DynamicOAM_PushBlockAddresses:
-#_008494: dw $7EA480, $7EA4C0, $7EA500, $7EA540 ; 4/4, 3/4, 2/4, 1/4
+#_008494: dw $7EA480 ; 4/4
+#_008496: dw $7EA4C0 ; 3/4
+#_008498: dw $7EA500 ; 2/4
+#_00849A: dw $7EA540 ; 1/4
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -934,7 +943,9 @@ LinkOAM_SwordAddresses:
 ;---------------------------------------------------------------------------------------------------
 
 LinkOAM_ShieldAddresses:
-#_0084AC: dw $7E9300, $7E9340, $7E9380 ; down, up, side
+#_0084AC: dw $7E9300 ; down
+#_0084AE: dw $7E9340 ; up
+#_0084B0: dw $7E9380 ; side
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -990,7 +1001,12 @@ DynamicOAM_LinkItemAddresses:
 ;===================================================================================================
 
 RupeeTile_anim_step:
-#_0085D2: dw $000E, $0004, $0006, $0010, $0006, $0008
+#_0085D2: dw $000E
+#_0085D4: dw $0004
+#_0085D6: dw $0006
+#_0085D8: dw $0010
+#_0085DA: dw $0006
+#_0085DC: dw $0008
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -1002,7 +1018,9 @@ RupeeTile_anim_stepOffset:
 ;===================================================================================================
 
 StarTileOffset:
-#_0085F6: dw $7EB340, $7EB400, $7EB4C0
+#_0085F6: dw $7EB340
+#_0085F8: dw $7EB400
+#_0085FA: dw $7EB4C0
 
 ;===================================================================================================
 ; also contains Link gfx stuff
@@ -1085,7 +1103,7 @@ NMI_PrepareSprites:
 
 ;---------------------------------------------------------------------------------------------------
 
-; Now we handle dynamic OAM characters.
+; Handle dynamic OAM characters
 #_00865C: REP #$31
 
 ; Link's head and body
@@ -1104,7 +1122,7 @@ NMI_PrepareSprites:
 #_008674: ADC.w #$0200
 #_008677: STA.w $0AD2
 
-; Link's hands, etc
+; Link's hands, etc.
 #_00867A: LDX.w $0102
 
 #_00867D: LDA.w LinkOAM_AuxAddresses,X
@@ -1286,7 +1304,7 @@ JumpTableLocal:
 
 #_008786: REP #$30
 
-; turn our parameter into an offset
+; turn parameter into an offset
 #_008788: AND.w #$00FF
 #_00878B: ASL A
 #_00878C: TAY
@@ -1327,7 +1345,6 @@ JumpTableLong:
 #_0087A3: AND.w #$00FF
 #_0087A6: STA.b $03
 
-; A*2+A
 #_0087A8: ASL A
 #_0087A9: ADC.b $03
 #_0087AB: TAY
@@ -1359,7 +1376,7 @@ JumpTableLong:
 
 ;===================================================================================================
 
-Startup_InitializeMemory:
+InitializeMemoryAndSRAM:
 #_0087C0: REP #$30
 
 ; recover return address
@@ -1368,11 +1385,12 @@ Startup_InitializeMemory:
 #_0087C5: LDX.w #$03FE
 #_0087C8: LDA.w #$0000
 
-.mirrored_wram_loop
+.clear_wram
 #_0087CB: STA.w $0000,X
 #_0087CE: STA.w $0400,X
 #_0087D1: STA.w $0800,X
 #_0087D4: STA.w $0C00,X
+
 #_0087D7: STA.w $1000,X
 #_0087DA: STA.w $1400,X
 #_0087DD: STA.w $1800,X
@@ -1380,7 +1398,7 @@ Startup_InitializeMemory:
 
 #_0087E3: DEX
 #_0087E4: DEX
-#_0087E5: BNE .mirrored_wram_loop
+#_0087E5: BNE .clear_wram
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -1394,8 +1412,6 @@ Startup_InitializeMemory:
 #_0087F8: LDA.w #$0000
 #_0087FB: STA.l $7003E1
 
-;---------------------------------------------------------------------------------------------------
-
 .sram1_valid
 #_0087FF: LDA.l $7008E1
 #_008803: CMP.w #$55AA
@@ -1404,8 +1420,6 @@ Startup_InitializeMemory:
 #_008808: LDA.w #$0000
 #_00880B: STA.l $7008E1
 
-;---------------------------------------------------------------------------------------------------
-
 .sram2_valid
 #_00880F: LDA.l $700DE1
 #_008813: CMP.w #$55AA
@@ -1413,8 +1427,6 @@ Startup_InitializeMemory:
 
 #_008818: LDA.w #$0000
 #_00881B: STA.l $700DE1
-
-;---------------------------------------------------------------------------------------------------
 
 .sram3_valid
 #_00881F: STY.w $01FE
@@ -1610,6 +1622,8 @@ LoadSongBank:
 ; if X>0, transfer more
 #_0088F1: BVS .next_transfer
 
+;---------------------------------------------------------------------------------------------------
+
 #_0088F3: STZ.w APUIO0
 #_0088F6: STZ.w APUIO1
 #_0088F9: STZ.w APUIO2
@@ -1620,9 +1634,9 @@ LoadSongBank:
 #_008900: RTS
 
 ;===================================================================================================
-; Loads the always-loaded material which is followed by the Overworld bank
+; Transfers the always-loaded material which is followed by the Overworld bank
 ;===================================================================================================
-Sound_LoadIntroSongBank:
+LoadIntroSongBank:
 #_008901: LDA.b #SamplePointers>>0
 #_008903: STA.b $00
 
@@ -1697,7 +1711,7 @@ EnableForceBlank:
 #_00893F: STA.w INIDISP
 #_008942: STA.b $13
 
-#_008944: STZ.w HDMAENABLE
+#_008944: STZ.w HDMAEN
 #_008947: STZ.b $9B
 
 #_008949: RTL
@@ -1850,7 +1864,7 @@ NMI_DoUpdates:
 #_008A30: STY.w DMA2SIZE
 
 #_008A33: LDA.b #$07
-#_008A35: STA.w DMAENABLE
+#_008A35: STA.w MDMAEN
 
 #_008A38: STY.w DMA2SIZE
 
@@ -1874,7 +1888,7 @@ NMI_DoUpdates:
 #_008A53: LDY.w $0AD4
 #_008A56: STY.w DMA2ADDRL
 
-#_008A59: STA.w DMAENABLE
+#_008A59: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -1919,7 +1933,7 @@ NMI_DoUpdates:
 
 ; Let 'em rip!
 #_008A9D: LDA.b #$1F
-#_008A9F: STA.w DMAENABLE
+#_008A9F: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -1961,7 +1975,7 @@ NMI_DoUpdates:
 #_008AD5: STX.w DMA4SIZE
 
 ; CHUG! CHUG! CHUG!
-#_008AD8: STA.w DMAENABLE
+#_008AD8: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -1989,7 +2003,7 @@ NMI_DoUpdates:
 
 ; 3 at once nice
 #_008AFC: LDA.b #$07
-#_008AFE: STA.w DMAENABLE
+#_008AFE: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2015,7 +2029,7 @@ NMI_DoUpdates:
 
 #_008B1F: STX.w DMA2SIZE
 
-#_008B22: STA.w DMAENABLE
+#_008B22: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2033,7 +2047,7 @@ NMI_DoUpdates:
 #_008B36: STX.w DMA0SIZE
 
 #_008B39: LDA.b #$01
-#_008B3B: STA.w DMAENABLE
+#_008B3B: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2046,7 +2060,7 @@ NMI_DoUpdates:
 
 #_008B4A: STX.w DMA0SIZE
 
-#_008B4D: STA.w DMAENABLE
+#_008B4D: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2061,7 +2075,7 @@ NMI_DoUpdates:
 #_008B5F: STX.w DMA0SIZE
 
 #_008B62: LDA.b #$01
-#_008B64: STA.w DMAENABLE
+#_008B64: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2082,7 +2096,7 @@ NMI_DoUpdates:
 #_008B7F: STX.w DMA0SIZE
 
 #_008B82: LDA.b #$01
-#_008B84: STA.w DMAENABLE
+#_008B84: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2106,7 +2120,7 @@ NMI_DoUpdates:
 #_008BA2: STY.w DMA1SIZE
 
 #_008BA5: LDA.b #$02
-#_008BA7: STA.w DMAENABLE
+#_008BA7: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2130,7 +2144,7 @@ NMI_DoUpdates:
 #_008BC5: STA.w DMA0SIZE
 
 #_008BC8: LDY.b #$01
-#_008BCA: STY.w DMAENABLE
+#_008BCA: STY.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2187,7 +2201,7 @@ NMI_DoUpdates:
 #_008C16: STX.w DMA0SIZE
 
 #_008C19: LDA.b #$01
-#_008C1B: STA.w DMAENABLE
+#_008C1B: STA.w MDMAEN
 
 #_008C1E: STZ.b $19
 
@@ -2234,7 +2248,7 @@ NMI_DoUpdates:
 #_008C58: STA.w VMAIN
 
 #_008C5B: LDA.b #$02
-#_008C5D: STA.w DMAENABLE
+#_008C5D: STA.w MDMAEN
 
 #_008C60: REP #$21
 
@@ -2271,7 +2285,7 @@ NMI_DoUpdates:
 #_008C84: dw NMI_UpdateOWScroll                ; 0x03
 #_008C86: dw NMI_UpdateSubscreenOverlay        ; 0x04
 #_008C88: dw NMI_UpdateBG1Wall                 ; 0x05
-#_008C8A: dw NMI_TileMapNothing                ; 0x06
+#_008C8A: dw NMI_TilemapNothing                ; 0x06
 #_008C8C: dw NMI_UpdateLoadLightWorldMap       ; 0x07
 #_008C8E: dw NMI_UpdateBG2Left                 ; 0x08
 #_008C90: dw NMI_UpdateBGChar3and4             ; 0x09
@@ -2316,7 +2330,7 @@ NMI_UploadTilemap:
 #_008CD3: STA.w DMA0SIZE
 
 #_008CD6: LDY.b #$01
-#_008CD8: STY.w DMAENABLE
+#_008CD8: STY.w MDMAEN
 
 #_008CDB: STZ.w $1000
 
@@ -2353,7 +2367,7 @@ NMI_UploadBG3Text:
 #_008D05: STX.w DMA0SIZE
 
 #_008D08: LDA.b #$01
-#_008D0A: STA.w DMAENABLE
+#_008D0A: STA.w MDMAEN
 
 #_008D0D: SEP #$10
 
@@ -2409,7 +2423,7 @@ NMI_UpdateOWScroll:
 #_008D50: SEP #$20
 
 #_008D52: LDA.b #$01
-#_008D54: STA.w DMAENABLE
+#_008D54: STA.w MDMAEN
 
 #_008D57: LDA.w $1103,Y
 #_008D5A: BPL .next_transfer
@@ -2436,7 +2450,7 @@ NMI_UpdateSubscreenOverlay:
 
 #_008D74: LDX.w #$0000 ; start at $7F4000
 #_008D77: LDA.w #$0080 ; 16 chunks
-#_008D7A: BRA NMI_HandleArbitraryTileMap
+#_008D7A: BRA NMI_HandleArbitraryTilemap
 
 ;===================================================================================================
 
@@ -2455,7 +2469,7 @@ NMI_UploadSubscreenOverlayFormer:
 #_008D8E: LDX.w #$0000 ; start at $7F4000
 #_008D91: LDA.w #$0040 ; 8 chunks
 
-#_008D94: BRA NMI_HandleArbitraryTileMap
+#_008D94: BRA NMI_HandleArbitraryTilemap
 
 ;===================================================================================================
 
@@ -2479,7 +2493,7 @@ NMI_UploadSubscreenOverlayLatter:
 ;    A = Number of chunks * 8
 ;    X = Offset into 7F4000
 ;===================================================================================================
-NMI_HandleArbitraryTileMap:
+NMI_HandleArbitraryTilemap:
 #_008DAE: STA.b $02
 
 #_008DB0: LDA.w #$1801
@@ -2502,7 +2516,7 @@ NMI_HandleArbitraryTileMap:
 #_008DC5: STY.w DMA0SIZE
 
 #_008DC8: LDA.b $00
-#_008DCA: STA.w DMAENABLE
+#_008DCA: STA.w MDMAEN
 
 #_008DCD: LDA.l $7F4002,X
 #_008DD1: STA.w VMADDR
@@ -2510,7 +2524,7 @@ NMI_HandleArbitraryTileMap:
 #_008DD4: STY.w DMA0SIZE
 
 #_008DD7: LDA.b $00
-#_008DD9: STA.w DMAENABLE
+#_008DD9: STA.w MDMAEN
 
 #_008DDC: LDA.l $7F4004,X
 #_008DE0: STA.w VMADDR
@@ -2518,7 +2532,7 @@ NMI_HandleArbitraryTileMap:
 #_008DE3: STY.w DMA0SIZE
 
 #_008DE6: LDA.b $00
-#_008DE8: STA.w DMAENABLE
+#_008DE8: STA.w MDMAEN
 
 #_008DEB: LDA.l $7F4006,X
 #_008DEF: STA.w VMADDR
@@ -2526,7 +2540,7 @@ NMI_HandleArbitraryTileMap:
 #_008DF2: STY.w DMA0SIZE
 
 #_008DF5: LDA.b $00
-#_008DF7: STA.w DMAENABLE
+#_008DF7: STA.w MDMAEN
 
 #_008DFA: TXA
 #_008DFB: ADC.w #$0008
@@ -2565,7 +2579,7 @@ NMI_UpdateBG1Wall:
 #_008E2A: STA.w DMA0SIZE
 
 #_008E2D: LDY.b #$01
-#_008E2F: STY.w DMAENABLE
+#_008E2F: STY.w MDMAEN
 
 #_008E32: STA.w DMA0SIZE
 
@@ -2577,7 +2591,7 @@ NMI_UpdateBG1Wall:
 #_008E3F: LDA.w #$7EC8C0
 #_008E42: STA.w DMA0ADDRL
 
-#_008E45: STY.w DMAENABLE
+#_008E45: STY.w MDMAEN
 
 #_008E48: SEP #$20
 
@@ -2585,7 +2599,7 @@ NMI_UpdateBG1Wall:
 
 ;===================================================================================================
 
-NMI_TileMapNothing:
+NMI_TilemapNothing:
 #_008E4B: RTS
 
 ;===================================================================================================
@@ -2603,7 +2617,7 @@ pool off
 NMI_UpdateLoadLightWorldMap:
 #_008E54: STZ.w VMAIN
 
-#_008E57: LDA.b #WorldMap_LightWorldTileMap>>16
+#_008E57: LDA.b #WorldMap_LightWorldTilemap>>16
 #_008E59: STA.w DMA0ADDRB
 
 #_008E5C: REP #$20
@@ -2637,13 +2651,13 @@ NMI_UpdateLoadLightWorldMap:
 
 #_008E81: LDA.b $02
 #_008E83: CLC
-#_008E84: ADC.w #WorldMap_LightWorldTileMap
+#_008E84: ADC.w #WorldMap_LightWorldTilemap
 #_008E87: STA.w DMA0ADDRL
 
 #_008E8A: LDA.w #$0020
 #_008E8D: STA.w DMA0SIZE
 
-#_008E90: STY.w DMAENABLE
+#_008E90: STY.w MDMAEN
 
 #_008E93: CLC
 #_008E94: ADC.b $02
@@ -2688,7 +2702,7 @@ NMI_UpdateBG2Left:
 #_008ECA: STY.w DMA1SIZE
 
 #_008ECD: LDA.b #$02
-#_008ECF: STA.w DMAENABLE
+#_008ECF: STA.w MDMAEN
 
 #_008ED2: STY.w DMA1SIZE
 
@@ -2698,7 +2712,7 @@ NMI_UpdateBG2Left:
 #_008EDB: LDY.w #$7F0800
 #_008EDE: STY.w DMA1ADDRL
 
-#_008EE1: STA.w DMAENABLE
+#_008EE1: STA.w MDMAEN
 
 #_008EE4: SEP #$10
 
@@ -2728,7 +2742,7 @@ NMI_UpdateBGChar3and4:
 #_008F08: STA.w DMA0SIZE
 
 #_008F0B: LDY.b #$01
-#_008F0D: STY.w DMAENABLE
+#_008F0D: STY.w MDMAEN
 
 #_008F10: SEP #$20
 
@@ -2760,7 +2774,7 @@ NMI_UpdateBGChar5and6:
 #_008F37: STA.w DMA0SIZE
 
 #_008F3A: LDY.b #$01
-#_008F3C: STY.w DMAENABLE
+#_008F3C: STY.w MDMAEN
 
 #_008F3F: SEP #$20
 
@@ -2792,7 +2806,7 @@ NMI_UpdateBGCharHalf:
 #_008F67: STX.w DMA0SIZE
 
 #_008F6A: LDA.b #$01
-#_008F6C: STA.w DMAENABLE
+#_008F6C: STA.w MDMAEN
 
 #_008F6F: SEP #$10
 
@@ -2804,8 +2818,7 @@ NMI_UpdateBGChar0:
 #_008F72: REP #$20
 
 #_008F74: LDA.w #$2000 ; VRAM $4000
-
-#_008F77: BRA NMI_RunTileMapUpdateDMA
+#_008F77: BRA NMI_RunTilemapUpdateDMA
 
 ;===================================================================================================
 
@@ -2813,8 +2826,7 @@ NMI_UpdateBGChar1:
 #_008F79: REP #$20
 
 #_008F7B: LDA.w #$2800 ; VRAM $5000
-
-#_008F7E: BRA NMI_RunTileMapUpdateDMA
+#_008F7E: BRA NMI_RunTilemapUpdateDMA
 
 ;===================================================================================================
 
@@ -2822,8 +2834,7 @@ NMI_UpdateBGChar2:
 #_008F80: REP #$20
 
 #_008F82: LDA.w #$3000 ; VRAM $6000
-
-#_008F85: BRA NMI_RunTileMapUpdateDMA
+#_008F85: BRA NMI_RunTilemapUpdateDMA
 
 ;===================================================================================================
 
@@ -2831,8 +2842,7 @@ NMI_UpdateBGChar3:
 #_008F87: REP #$20
 
 #_008F89: LDA.w #$3800 ; VRAM $7000
-
-#_008F8C: BRA NMI_RunTileMapUpdateDMA
+#_008F8C: BRA NMI_RunTilemapUpdateDMA
 
 ;===================================================================================================
 
@@ -2858,7 +2868,7 @@ NMI_UpdateObjChar0:
 #_008FAF: STA.w DMA0SIZE
 
 #_008FB2: LDY.b #$01
-#_008FB4: STY.w DMAENABLE
+#_008FB4: STY.w MDMAEN
 
 #_008FB7: SEP #$20
 
@@ -2873,7 +2883,7 @@ NMI_UpdateObjChar2:
 
 #_008FBF: LDA.w #$5000 ; VRAM $A000
 
-#_008FC2: BRA NMI_RunTileMapUpdateDMA
+#_008FC2: BRA NMI_RunTilemapUpdateDMA
 
 ;===================================================================================================
 
@@ -2884,7 +2894,7 @@ NMI_UpdateObjChar3:
 
 ;===================================================================================================
 
-NMI_RunTileMapUpdateDMA:
+NMI_RunTilemapUpdateDMA:
 #_008FC9: STA.w VMADDR
 
 #_008FCC: LDA.w #$7F0000
@@ -2903,7 +2913,7 @@ NMI_RunTileMapUpdateDMA:
 #_008FE5: STA.w DMA0SIZE
 
 #_008FE8: LDY.b #$01
-#_008FEA: STY.w DMAENABLE
+#_008FEA: STY.w MDMAEN
 
 #_008FED: SEP #$20
 
@@ -2918,6 +2928,7 @@ NMI_RunTileMapUpdateDMA:
 ;===================================================================================================
 NMI_UploadDarkWorldMap:
 #_008FF3: STZ.w VMAIN
+
 #_008FF6: STZ.w DMA0ADDRB
 
 #_008FF9: REP #$20
@@ -2953,7 +2964,7 @@ NMI_UploadDarkWorldMap:
 #_009023: LDA.w #$0020
 #_009026: STA.w DMA0SIZE
 
-#_009029: STY.w DMAENABLE
+#_009029: STY.w MDMAEN
 
 #_00902C: CLC
 #_00902D: ADC.b $02
@@ -2990,7 +3001,7 @@ NMI_UploadGameOverText:
 #_009059: STA.w DMA0SIZE
 
 #_00905C: LDY.b #$01
-#_00905E: STY.w DMAENABLE
+#_00905E: STY.w MDMAEN
 
 #_009061: LDA.w #$7D00 ; VRAM $FA00
 #_009064: STA.w VMADDR
@@ -3011,7 +3022,7 @@ NMI_UploadGameOverText:
 #_009080: STA.w DMA0SIZE
 
 #_009083: LDY.b #$01
-#_009085: STY.w DMAENABLE
+#_009085: STY.w MDMAEN
 
 #_009088: SEP #$20
 
@@ -3041,7 +3052,7 @@ NMI_UpdatePegTiles:
 #_0090AC: STX.w DMA0SIZE
 
 #_0090AF: LDA.b #$01
-#_0090B1: STA.w DMAENABLE
+#_0090B1: STA.w MDMAEN
 
 #_0090B4: SEP #$10
 
@@ -3071,7 +3082,7 @@ NMI_UpdateStarTiles:
 #_0090D8: STX.w DMA0SIZE
 
 #_0090DB: LDA.b #$01
-#_0090DD: STA.w DMAENABLE
+#_0090DD: STA.w MDMAEN
 
 #_0090E0: SEP #$10
 
@@ -3234,7 +3245,7 @@ Underworld_PrepareNextRoomQuadrantUpload:
 WaterFlood_BuildOneQuadrantForVRAM:
 #_0091C4: LDA.b $AE
 #_0091C6: CMP.b #$19
-#_0091C8: BNE TileMapPrep_NotWaterOnTag
+#_0091C8: BNE TilemapPrep_NotWaterOnTag
 
 #_0091CA: LDA.w $0405
 #_0091CD: AND.l DungeonMask+1
@@ -3242,7 +3253,7 @@ WaterFlood_BuildOneQuadrantForVRAM:
 
 ;===================================================================================================
 
-TileMapPrep_NotWaterOnTag:
+TilemapPrep_NotWaterOnTag:
 #_0091D3: REP #$31
 
 #_0091D5: LDA.w $0418
@@ -3492,7 +3503,7 @@ HandleStripes14:
 #_009307: STA.w VMAIN
 
 #_00930A: LDA.b #$02 ; enable DMA channel for stripe
-#_00930C: STA.w DMAENABLE
+#_00930C: STA.w MDMAEN
 
 #_00930F: LDA.b #VMDATAH ; swap to the other port
 #_009311: STA.w DMA1PORT
@@ -3526,7 +3537,7 @@ HandleStripes14:
 #_009335: STA.w VMAIN
 
 #_009338: LDA.b #$02 ; enable DMA channel for stripe
-#_00933A: STA.w DMAENABLE
+#_00933A: STA.w MDMAEN
 
 ; just jumping (no BMI) to the first check would have used less code
 #_00933D: LDA.b [$00],Y
@@ -3571,7 +3582,7 @@ NMI_UpdateIRQGFX:
 #_009370: SEP #$20
 
 #_009372: LDA.b #$01
-#_009374: STA.w DMAENABLE
+#_009374: STA.w MDMAEN
 
 #_009377: STZ.w $1F0C
 
@@ -3586,35 +3597,35 @@ Stripes14_SourceAddress:
 .low
 #_00937B: db $001002>>0
 #_00937C: db $001000>>0
-#_00937D: db IntroLogoTileMap>>0
+#_00937D: db IntroLogoTilemap>>0
 #_00937E: db $00021B>>0
-#_00937F: db NamePlayerTileMap>>0
-#_009380: db FileSelectTileMap>>0
-#_009381: db FileSelectCopyFileTileMap>>0
-#_009382: db FileSelectKILLFileTileMap>>0
-#_009383: db DungeonMap_BG3TileMap>>0
+#_00937F: db NamePlayerTilemap>>0
+#_009380: db FileSelectTilemap>>0
+#_009381: db FileSelectCopyFileTilemap>>0
+#_009382: db FileSelectKILLFileTilemap>>0
+#_009383: db DungeonMap_BG3Tilemap>>0
 
 .high
 #_009384: db $001002>>8
 #_009385: db $001000>>8
-#_009386: db IntroLogoTileMap>>8
+#_009386: db IntroLogoTilemap>>8
 #_009387: db $00021B>>8
-#_009388: db NamePlayerTileMap>>8
-#_009389: db FileSelectTileMap>>8
-#_00938A: db FileSelectCopyFileTileMap>>8
-#_00938B: db FileSelectKILLFileTileMap>>8
-#_00938C: db DungeonMap_BG3TileMap>>8
+#_009388: db NamePlayerTilemap>>8
+#_009389: db FileSelectTilemap>>8
+#_00938A: db FileSelectCopyFileTilemap>>8
+#_00938B: db FileSelectKILLFileTilemap>>8
+#_00938C: db DungeonMap_BG3Tilemap>>8
 
 .bank
 #_00938D: db $001002>>16
 #_00938E: db $001000>>16
-#_00938F: db IntroLogoTileMap>>16
+#_00938F: db IntroLogoTilemap>>16
 #_009390: db $00021B>>16
-#_009391: db NamePlayerTileMap>>16
-#_009392: db FileSelectTileMap>>16
-#_009393: db FileSelectCopyFileTileMap>>16
-#_009394: db FileSelectKILLFileTileMap>>16
-#_009395: db DungeonMap_BG3TileMap>>16
+#_009391: db NamePlayerTilemap>>16
+#_009392: db FileSelectTilemap>>16
+#_009393: db FileSelectCopyFileTilemap>>16
+#_009394: db FileSelectKILLFileTilemap>>16
+#_009395: db DungeonMap_BG3Tilemap>>16
 
 ;===================================================================================================
 ; Bank10 addresses of where to get head, body, and aux part graphics
@@ -4423,7 +4434,7 @@ RoomsWithPitDamage:
 
 ;===================================================================================================
 
-DoorTileMapPositions_NorthWall:
+DoorTilemapPositions_NorthWall:
 #_00997E: dw $021C
 #_009980: dw $023C
 #_009982: dw $025C
@@ -4431,7 +4442,7 @@ DoorTileMapPositions_NorthWall:
 #_009986: dw $03BC
 #_009988: dw $03DC
 
-DoorTileMapPositions_NorthMiddle:
+DoorTilemapPositions_NorthMiddle:
 #_00998A: dw $121C
 #_00998C: dw $123C
 #_00998E: dw $125C
@@ -4439,7 +4450,7 @@ DoorTileMapPositions_NorthMiddle:
 #_009992: dw $13BC
 #_009994: dw $13DC
 
-DoorTileMapPositions_SouthMiddle:
+DoorTilemapPositions_SouthMiddle:
 #_009996: dw $0D1C
 #_009998: dw $0D3C
 #_00999A: dw $0D5C
@@ -4450,12 +4461,12 @@ DoorTileMapPositions_SouthMiddle:
 #_0099A4: dw $1D3C
 #_0099A6: dw $1D5C
 
-DoorTileMapPositions_LowerLayerEntrance:
+DoorTilemapPositions_LowerLayerEntrance:
 #_0099A8: dw $1B9C
 #_0099AA: dw $1BBC
 #_0099AC: dw $1BDC
 
-DoorTileMapPositions_WestWall:
+DoorTilemapPositions_WestWall:
 #_0099AE: dw $0784
 #_0099B0: dw $0F84
 #_0099B2: dw $1784
@@ -4463,7 +4474,7 @@ DoorTileMapPositions_WestWall:
 #_0099B6: dw $0F8A
 #_0099B8: dw $178A
 
-DoorTileMapPositions_WestMiddle:
+DoorTilemapPositions_WestMiddle:
 #_0099BA: dw $07C4
 #_0099BC: dw $0FC4
 #_0099BE: dw $17C4
@@ -4471,7 +4482,7 @@ DoorTileMapPositions_WestMiddle:
 #_0099C2: dw $0FCA
 #_0099C4: dw $17CA
 
-DoorTileMapPositions_EastMiddle:
+DoorTilemapPositions_EastMiddle:
 #_0099C6: dw $07B4
 #_0099C8: dw $0FB4
 #_0099CA: dw $17B4
@@ -4479,7 +4490,7 @@ DoorTileMapPositions_EastMiddle:
 #_0099CE: dw $0FAE
 #_0099D0: dw $17AE
 
-DoorTileMapPositions_EastWall:
+DoorTilemapPositions_EastWall:
 #_0099D2: dw $07F4
 #_0099D4: dw $0FF4
 #_0099D6: dw $17F4
@@ -4489,7 +4500,7 @@ DoorTileMapPositions_EastWall:
 
 ;===================================================================================================
 
-ExplodingWallTileMapPosition:
+ExplodingWallTilemapPosition:
 #_0099DE: dw $0D8A
 #_0099E0: dw $0DAA
 #_0099E2: dw $0DCA
@@ -6061,7 +6072,7 @@ RoomDrawObjectData:
 #_00AE42: dw $4984, $49A7, $4843, $4853
 
 ;---------------------------------------------------------------------------------------------------
-; FROM FloodGateTileOffsets
+; from FloodGateTileOffsets
 #_00AE4A: dw $0984, $09A7, $0843, $0853
 #_00AE52: dw $0984, $0994, $09A8, $0854
 #_00AE5A: dw $0985, $0995, $09A5, $09A8
@@ -6113,7 +6124,7 @@ RoomDrawObjectData:
 #_00AF82: dw $4986, $49A7, $4843, $4853
 
 ;---------------------------------------------------------------------------------------------------
-; FROM RoomTag_WaterOff_AdjustWater
+; from RoomTag_WaterOff_AdjustWater
 #_00AF8A: dw $18CA, $18CB, $18CA, $18CB
 #_00AF92: dw $18DA, $0974, $4974, $18DB
 #_00AF9A: dw $18CA, $8974, $C974, $18CB
@@ -6252,7 +6263,7 @@ RoomDrawObjectData:
 #_00B1D6: dw $1DB5, $1DB5, $1DB5, $1DB5
 
 ;---------------------------------------------------------------------------------------------------
-; FROM Underworld_FloodSwampWater_RiseInLevel
+; from Underworld_FloodSwampWater_RiseInLevel
 #_00B1DE: dw $09A0, $1DB2, $5DB2, $49A0
 #_00B1E6: dw $1DB3, $1DB3, $1DB3, $1DB3
 #_00B1EE: dw $1DB3, $1DB3, $1DB3, $1DB3
@@ -6266,7 +6277,7 @@ RoomDrawObjectData:
 #_00B226: dw $18CA, $18CB, $18CA, $18CB
 
 ;---------------------------------------------------------------------------------------------------
-; FROM RoomDraw_LampCones
+; from RoomDraw_LampCones
 #_00B22E: dw $01EC, $853E, $853F, $853D
 #_00B236: dw $853D, $853D, $C53D, $C53D
 #_00B23E: dw $C53D, $C53F, $C53E, $01EC
@@ -6421,7 +6432,7 @@ RoomDrawObjectData:
 #_00B694: dw $C53D, $453F, $453E, $01EC
 
 ;---------------------------------------------------------------------------------------------------
-; FROM RoomDraw_AgahnimsAltar
+; from RoomDraw_AgahnimsAltar
 #_00B69C: dw $099D, $098E, $098E, $098E
 #_00B6A4: dw $098E, $098E, $098E, $098E
 #_00B6AC: dw $098E, $098E, $098E, $098E
@@ -6445,7 +6456,7 @@ RoomDrawObjectData:
 #_00B73C: dw $18C6, $18C6, $0972, $0972
 
 ;---------------------------------------------------------------------------------------------------
-; FROM RoomDraw_AgahnimsWindows
+; from RoomDraw_AgahnimsWindows
 #_00B744: dw $0995, $1D99, $0994, $0CAC
 #_00B74C: dw $0995, $1D99, $0994, $0CAC
 #_00B754: dw $0980, $0990, $0986, $09A6
@@ -6825,13 +6836,13 @@ RoomDrawObjectData:
 #_00BEC0: dw $4968, $4969, $C969, $C968
 
 ;---------------------------------------------------------------------------------------------------
-; FROM RoomDraw_EmptyWaterFace
+; from RoomDraw_EmptyWaterFace
 #_00BEC8: dw $113D, $113D, $113D, $113D
 #_00BED0: dw $113D, $113D, $113D, $113D
 #_00BED8: dw $113D, $113D, $113D, $113D
 #_00BEE0: dw $113D, $113D, $113D, $113D
 
-; FROM RoomDraw_SpittingWaterFace
+; from RoomDraw_SpittingWaterFace
 #_00BEE8: dw $1164, $1164, $1164, $1174
 #_00BEF0: dw $1165, $1165, $1165, $1175
 #_00BEF8: dw $5165, $5165, $5165, $5175
@@ -6937,7 +6948,7 @@ RoomDrawObjectData:
 #_00C1A0: dw $49AC, $4994, $5D8C, $5D8C
 
 ;---------------------------------------------------------------------------------------------------
-; FROM RoomDraw_NormalRangedDoors_South
+; from RoomDraw_NormalRangedDoors_South
 #_00C1A8: dw $08D0, $08D0, $08D0, $08D0
 #_00C1B0: dw $08D0, $48D0, $48D0, $48D0
 #_00C1B8: dw $48D0, $48D0, $08D0, $14C0
@@ -6960,7 +6971,7 @@ RoomDrawObjectData:
 #_00C240: dw $E888, $494F, $494D, $494C
 
 ;---------------------------------------------------------------------------------------------------
-; FROM RoomDraw_CaveExitLight
+; from RoomDraw_CaveExitLight
 ; TODO doors drawing
 #_00C248: dw $14C8, $097E, $096E, $295E
 #_00C250: dw $14D8, $14C9, $14D9, $294E
@@ -7431,7 +7442,7 @@ RoomDrawObjectData:
 #_00CD34: dw $68B2, $68B3, $E8B3, $E8B2
 
 ;---------------------------------------------------------------------------------------------------
-; FROM ClearExplodingWallFromTileMap
+; from ClearExplodingWallFromTilemap
 #_00CD3C: dw $8875, $8874, $8873, $8872
 #_00CD44: dw $8872, $8872, $0872, $8872
 #_00CD4C: dw $8872, $0873, $0874, $0875
@@ -10421,86 +10432,86 @@ SheetsTable_AA3:
 #_00DC8B: db $00, $00, $00, $00 ; 0x3D
 #_00DC8F: db $00, $00, $00, $00 ; 0x3E
 #_00DC93: db $00, $00, $00, $00 ; 0x3F
-#_00DC97: db $47, $49, $2B, $2D ; 0x40
-#_00DC9B: db $46, $49, $1C, $52 ; 0x41
-#_00DC9F: db $00, $49, $1C, $52 ; 0x42
-#_00DCA3: db $5D, $49, $00, $52 ; 0x43
-#_00DCA7: db $46, $49, $13, $52 ; 0x44
-#_00DCAB: db $4B, $4D, $4A, $5A ; 0x45
-#_00DCAF: db $47, $49, $1C, $52 ; 0x46
-#_00DCB3: db $4B, $4D, $39, $36 ; 0x47
-#_00DCB7: db $1F, $2C, $2E, $52 ; 0x48
-#_00DCBB: db $1F, $2C, $2E, $1D ; 0x49
-#_00DCBF: db $2F, $2C, $2E, $52 ; 0x4A
-#_00DCC3: db $2F, $2C, $2E, $31 ; 0x4B
-#_00DCC7: db $1F, $1E, $30, $52 ; 0x4C
-#_00DCCB: db $51, $49, $13, $00 ; 0x4D
-#_00DCCF: db $4F, $49, $13, $50 ; 0x4E
-#_00DCD3: db $4F, $4D, $4A, $50 ; 0x4F
-#_00DCD7: db $4B, $49, $4C, $2B ; 0x50
-#_00DCDB: db $1F, $20, $22, $53 ; 0x51
-#_00DCDF: db $55, $3D, $42, $43 ; 0x52
-#_00DCE3: db $1F, $1E, $23, $52 ; 0x53
-#_00DCE7: db $1F, $1E, $39, $3A ; 0x54
-#_00DCEB: db $1F, $1E, $3A, $3E ; 0x55
-#_00DCEF: db $1F, $1E, $3C, $3D ; 0x56
-#_00DCF3: db $40, $1E, $27, $3F ; 0x57
-#_00DCF7: db $55, $1A, $42, $43 ; 0x58
-#_00DCFB: db $1F, $1E, $2A, $52 ; 0x59
-#_00DCFF: db $1F, $1E, $38, $52 ; 0x5A
-#_00DD03: db $1F, $20, $28, $52 ; 0x5B
-#_00DD07: db $1F, $20, $26, $52 ; 0x5C
-#_00DD0B: db $1F, $2C, $25, $52 ; 0x5D
-#_00DD0F: db $1F, $20, $27, $52 ; 0x5E
-#_00DD13: db $1F, $1E, $29, $52 ; 0x5F
-#_00DD17: db $1F, $2C, $3B, $52 ; 0x60
-#_00DD1B: db $46, $49, $24, $52 ; 0x61
-#_00DD1F: db $21, $41, $45, $33 ; 0x62
-#_00DD23: db $1F, $2C, $28, $31 ; 0x63
-#_00DD27: db $1F, $0D, $29, $52 ; 0x64
-#_00DD2B: db $1F, $1E, $27, $52 ; 0x65
-#_00DD2F: db $1F, $20, $27, $53 ; 0x66
-#_00DD33: db $48, $49, $13, $52 ; 0x67
-#_00DD37: db $0E, $1E, $4A, $50 ; 0x68
-#_00DD3B: db $1F, $20, $26, $53 ; 0x69
-#_00DD3F: db $15, $00, $00, $00 ; 0x6A
-#_00DD43: db $1F, $00, $2A, $52 ; 0x6B
-#_00DD47: db $00, $00, $00, $00 ; 0x6C
-#_00DD4B: db $00, $00, $00, $00 ; 0x6D
-#_00DD4F: db $00, $00, $00, $00 ; 0x6E
-#_00DD53: db $00, $00, $00, $00 ; 0x6F
-#_00DD57: db $00, $00, $00, $00 ; 0x70
-#_00DD5B: db $00, $00, $00, $00 ; 0x71
-#_00DD5F: db $00, $00, $00, $00 ; 0x72
-#_00DD63: db $00, $00, $00, $00 ; 0x73
-#_00DD67: db $00, $00, $00, $00 ; 0x74
-#_00DD6B: db $00, $00, $00, $00 ; 0x75
-#_00DD6F: db $00, $00, $00, $00 ; 0x76
-#_00DD73: db $00, $00, $00, $00 ; 0x77
-#_00DD77: db $00, $00, $00, $00 ; 0x78
-#_00DD7B: db $00, $00, $00, $00 ; 0x79
-#_00DD7F: db $00, $00, $00, $00 ; 0x7A
-#_00DD83: db $00, $00, $00, $00 ; 0x7B
-#_00DD87: db $00, $00, $00, $00 ; 0x7C
-#_00DD8B: db $00, $00, $00, $08 ; 0x7D
-#_00DD8F: db $5D, $49, $00, $52 ; 0x7E
-#_00DD93: db $55, $49, $42, $43 ; 0x7F
-#_00DD97: db $61, $62, $63, $50 ; 0x80
-#_00DD9B: db $61, $62, $63, $50 ; 0x81
-#_00DD9F: db $61, $62, $63, $50 ; 0x82
-#_00DDA3: db $61, $62, $63, $50 ; 0x83
-#_00DDA7: db $61, $62, $63, $50 ; 0x84
-#_00DDAB: db $61, $62, $63, $50 ; 0x85
-#_00DDAF: db $61, $56, $57, $50 ; 0x86
-#_00DDB3: db $61, $62, $63, $50 ; 0x87
-#_00DDB7: db $61, $62, $63, $50 ; 0x88
-#_00DDBB: db $61, $56, $57, $50 ; 0x89
-#_00DDBF: db $61, $56, $63, $50 ; 0x8A
-#_00DDC3: db $61, $56, $57, $50 ; 0x8B
-#_00DDC7: db $61, $56, $33, $50 ; 0x8C
-#_00DDCB: db $61, $56, $57, $50 ; 0x8D
-#_00DDCF: db $61, $62, $63, $50 ; 0x8E
-#_00DDD3: db $61, $62, $63, $50 ; 0x8F
+#_00DC97: db $47, $49, $2B, $2D ; 0x40 - 0x00 for underworld
+#_00DC9B: db $46, $49, $1C, $52 ; 0x41 - 0x01 for underworld
+#_00DC9F: db $00, $49, $1C, $52 ; 0x42 - 0x02 for underworld
+#_00DCA3: db $5D, $49, $00, $52 ; 0x43 - 0x03 for underworld
+#_00DCA7: db $46, $49, $13, $52 ; 0x44 - 0x04 for underworld
+#_00DCAB: db $4B, $4D, $4A, $5A ; 0x45 - 0x05 for underworld
+#_00DCAF: db $47, $49, $1C, $52 ; 0x46 - 0x06 for underworld
+#_00DCB3: db $4B, $4D, $39, $36 ; 0x47 - 0x07 for underworld
+#_00DCB7: db $1F, $2C, $2E, $52 ; 0x48 - 0x08 for underworld
+#_00DCBB: db $1F, $2C, $2E, $1D ; 0x49 - 0x09 for underworld
+#_00DCBF: db $2F, $2C, $2E, $52 ; 0x4A - 0x0A for underworld
+#_00DCC3: db $2F, $2C, $2E, $31 ; 0x4B - 0x0B for underworld
+#_00DCC7: db $1F, $1E, $30, $52 ; 0x4C - 0x0C for underworld
+#_00DCCB: db $51, $49, $13, $00 ; 0x4D - 0x0D for underworld
+#_00DCCF: db $4F, $49, $13, $50 ; 0x4E - 0x0E for underworld
+#_00DCD3: db $4F, $4D, $4A, $50 ; 0x4F - 0x0F for underworld
+#_00DCD7: db $4B, $49, $4C, $2B ; 0x50 - 0x10 for underworld
+#_00DCDB: db $1F, $20, $22, $53 ; 0x51 - 0x11 for underworld
+#_00DCDF: db $55, $3D, $42, $43 ; 0x52 - 0x12 for underworld
+#_00DCE3: db $1F, $1E, $23, $52 ; 0x53 - 0x13 for underworld
+#_00DCE7: db $1F, $1E, $39, $3A ; 0x54 - 0x14 for underworld
+#_00DCEB: db $1F, $1E, $3A, $3E ; 0x55 - 0x15 for underworld
+#_00DCEF: db $1F, $1E, $3C, $3D ; 0x56 - 0x16 for underworld
+#_00DCF3: db $40, $1E, $27, $3F ; 0x57 - 0x17 for underworld
+#_00DCF7: db $55, $1A, $42, $43 ; 0x58 - 0x18 for underworld
+#_00DCFB: db $1F, $1E, $2A, $52 ; 0x59 - 0x19 for underworld
+#_00DCFF: db $1F, $1E, $38, $52 ; 0x5A - 0x1A for underworld
+#_00DD03: db $1F, $20, $28, $52 ; 0x5B - 0x1B for underworld
+#_00DD07: db $1F, $20, $26, $52 ; 0x5C - 0x1C for underworld
+#_00DD0B: db $1F, $2C, $25, $52 ; 0x5D - 0x1D for underworld
+#_00DD0F: db $1F, $20, $27, $52 ; 0x5E - 0x1E for underworld
+#_00DD13: db $1F, $1E, $29, $52 ; 0x5F - 0x1F for underworld
+#_00DD17: db $1F, $2C, $3B, $52 ; 0x60 - 0x20 for underworld
+#_00DD1B: db $46, $49, $24, $52 ; 0x61 - 0x21 for underworld
+#_00DD1F: db $21, $41, $45, $33 ; 0x62 - 0x22 for underworld
+#_00DD23: db $1F, $2C, $28, $31 ; 0x63 - 0x23 for underworld
+#_00DD27: db $1F, $0D, $29, $52 ; 0x64 - 0x24 for underworld
+#_00DD2B: db $1F, $1E, $27, $52 ; 0x65 - 0x25 for underworld
+#_00DD2F: db $1F, $20, $27, $53 ; 0x66 - 0x26 for underworld
+#_00DD33: db $48, $49, $13, $52 ; 0x67 - 0x27 for underworld
+#_00DD37: db $0E, $1E, $4A, $50 ; 0x68 - 0x28 for underworld
+#_00DD3B: db $1F, $20, $26, $53 ; 0x69 - 0x29 for underworld
+#_00DD3F: db $15, $00, $00, $00 ; 0x6A - 0x2A for underworld
+#_00DD43: db $1F, $00, $2A, $52 ; 0x6B - 0x2B for underworld
+#_00DD47: db $00, $00, $00, $00 ; 0x6C - 0x2C for underworld
+#_00DD4B: db $00, $00, $00, $00 ; 0x6D - 0x2D for underworld
+#_00DD4F: db $00, $00, $00, $00 ; 0x6E - 0x2E for underworld
+#_00DD53: db $00, $00, $00, $00 ; 0x6F - 0x2F for underworld
+#_00DD57: db $00, $00, $00, $00 ; 0x70 - 0x30 for underworld
+#_00DD5B: db $00, $00, $00, $00 ; 0x71 - 0x31 for underworld
+#_00DD5F: db $00, $00, $00, $00 ; 0x72 - 0x32 for underworld
+#_00DD63: db $00, $00, $00, $00 ; 0x73 - 0x33 for underworld
+#_00DD67: db $00, $00, $00, $00 ; 0x74 - 0x34 for underworld
+#_00DD6B: db $00, $00, $00, $00 ; 0x75 - 0x35 for underworld
+#_00DD6F: db $00, $00, $00, $00 ; 0x76 - 0x36 for underworld
+#_00DD73: db $00, $00, $00, $00 ; 0x77 - 0x37 for underworld
+#_00DD77: db $00, $00, $00, $00 ; 0x78 - 0x38 for underworld
+#_00DD7B: db $00, $00, $00, $00 ; 0x79 - 0x39 for underworld
+#_00DD7F: db $00, $00, $00, $00 ; 0x7A - 0x3A for underworld
+#_00DD83: db $00, $00, $00, $00 ; 0x7B - 0x3B for underworld
+#_00DD87: db $00, $00, $00, $00 ; 0x7C - 0x3C for underworld
+#_00DD8B: db $00, $00, $00, $08 ; 0x7D - 0x3D for underworld
+#_00DD8F: db $5D, $49, $00, $52 ; 0x7E - 0x3E for underworld
+#_00DD93: db $55, $49, $42, $43 ; 0x7F - 0x3F for underworld
+#_00DD97: db $61, $62, $63, $50 ; 0x80 - 0x40 for underworld
+#_00DD9B: db $61, $62, $63, $50 ; 0x81 - 0x41 for underworld
+#_00DD9F: db $61, $62, $63, $50 ; 0x82 - 0x42 for underworld
+#_00DDA3: db $61, $62, $63, $50 ; 0x83 - 0x43 for underworld
+#_00DDA7: db $61, $62, $63, $50 ; 0x84 - 0x44 for underworld
+#_00DDAB: db $61, $62, $63, $50 ; 0x85 - 0x45 for underworld
+#_00DDAF: db $61, $56, $57, $50 ; 0x86 - 0x46 for underworld
+#_00DDB3: db $61, $62, $63, $50 ; 0x87 - 0x47 for underworld
+#_00DDB7: db $61, $62, $63, $50 ; 0x88 - 0x48 for underworld
+#_00DDBB: db $61, $56, $57, $50 ; 0x89 - 0x49 for underworld
+#_00DDBF: db $61, $56, $63, $50 ; 0x8A - 0x4A for underworld
+#_00DDC3: db $61, $56, $57, $50 ; 0x8B - 0x4B for underworld
+#_00DDC7: db $61, $56, $33, $50 ; 0x8C - 0x4C for underworld
+#_00DDCB: db $61, $56, $57, $50 ; 0x8D - 0x4D for underworld
+#_00DDCF: db $61, $62, $63, $50 ; 0x8E - 0x4E for underworld
+#_00DDD3: db $61, $62, $63, $50 ; 0x8F - 0x4F for underworld
 
 ;===================================================================================================
 
@@ -11332,7 +11343,7 @@ LoadCommonSprites_long:
 
 #_00E3CC: STZ.w VMADDL
 
-#_00E3CF: LDA.b #$44 ; VRA $8800
+#_00E3CF: LDA.b #$44 ; VRAM $8800
 #_00E3D1: STA.w VMADDH
 
 #_00E3D4: JSR LoadCommonSprites
@@ -12286,11 +12297,14 @@ Decompress:
 #_00E81E: ASL A
 #_00E81F: BPL .repeatingword
 
+;---------------------------------------------------------------------------------------------------
+
+.incremental
 #_00E821: JSR Decompression_GetNextByte
 
 #_00E824: LDX.b $CB
 
-.loop_a
+.next_incremental
 #_00E826: STA.b [$00],Y
 
 #_00E828: INC A
@@ -12298,7 +12312,7 @@ Decompress:
 #_00E829: INY
 
 #_00E82A: DEX
-#_00E82B: BNE .loop_a
+#_00E82B: BNE .next_incremental
 
 #_00E82D: BRA .next_command
 
@@ -12325,14 +12339,14 @@ Decompress:
 
 #_00E841: LDX.b $CB
 
-.loop_b
+.next_repeating
 #_00E843: STA.b [$00],Y
 
 #_00E845: INY
 
 #_00E846: DEX
 
-#_00E847: BNE .loop_b
+#_00E847: BNE .next_repeating
 
 #_00E849: BRA .next_command
 
@@ -12345,14 +12359,14 @@ Decompress:
 
 #_00E852: LDX.b $CB
 
-.loop_c
+.next_word
 #_00E854: XBA
 #_00E855: STA.b [$00],Y
 
 #_00E857: INY
 
 #_00E858: DEX
-#_00E859: BEQ .done_a
+#_00E859: BEQ .done_words
 
 #_00E85B: XBA
 #_00E85C: STA.b [$00],Y
@@ -12361,9 +12375,9 @@ Decompress:
 
 #_00E85F: DEX
 
-#_00E860: BNE .loop_c
+#_00E860: BNE .next_word
 
-.done_a
+.done_words
 #_00E862: JMP.w .next_command
 
 ;---------------------------------------------------------------------------------------------------
@@ -12377,7 +12391,7 @@ Decompress:
 
 #_00E86D: TAX
 
-.loop_d
+.next_copy
 #_00E86E: PHY
 #_00E86F: TXY
 
@@ -12397,7 +12411,7 @@ Decompress:
 
 #_00E87C: SEP #$20
 
-#_00E87E: BNE .loop_d
+#_00E87E: BNE .next_copy
 
 #_00E880: JMP.w .next_command
 
@@ -13652,7 +13666,7 @@ PaletteFilter_StartBlindingWhite:
 #_00EF6E: CMP.b #$15
 #_00EF70: BNE .exit
 
-#_00EF72: STZ.w HDMAENABLE
+#_00EF72: STZ.w HDMAEN
 #_00EF75: STZ.b $9B
 
 #_00EF77: REP #$20
@@ -14284,7 +14298,7 @@ IrisSpotlight_close:
 
 #_00F29B: STX.w $067C
 
-#_00F29E: STZ.w HDMAENABLE
+#_00F29E: STZ.w HDMAEN
 
 #_00F2A1: LDX.w #$2641
 #_00F2A4: STX.w DMA6MODE
@@ -14458,6 +14472,7 @@ IrisSpotlight_ConfigureTable:
 #_00F379: BCS .skip_update_a
 
 #_00F37B: TAX
+
 #_00F37C: LDA.b $08
 #_00F37E: STA.l $7F7000,X
 
@@ -14643,11 +14658,11 @@ pool off
 IrisSpotlight_CalculateCircleValue:
 #_00F4CD: SEP #$30
 
-#_00F4CF: STA.w CPUDIVIDENDH
-#_00F4D2: STZ.w CPUDIVIDENDL
+#_00F4CF: STA.w WRDIVH
+#_00F4D2: STZ.w WRDIVL
 
 #_00F4D5: LDA.w $067C
-#_00F4D8: STA.w CPUDIVISOR
+#_00F4D8: STA.w WRDIVB
 
 #_00F4DB: NOP
 #_00F4DC: NOP
@@ -14658,7 +14673,7 @@ IrisSpotlight_CalculateCircleValue:
 
 #_00F4E1: REP #$20
 
-#_00F4E3: LDA.w CPUQUOTIENT
+#_00F4E3: LDA.w RDDIV
 #_00F4E6: LSR A
 
 #_00F4E7: SEP #$20
@@ -14668,10 +14683,10 @@ IrisSpotlight_CalculateCircleValue:
 ; !DUMB why Y? A is free as well
 #_00F4EA: LDY.w .multiplicand,X
 #_00F4ED: STY.b $0A
-#_00F4EF: STY.w CPUMULTA
+#_00F4EF: STY.w WRMPYA
 
 #_00F4F2: LDA.w $067C
-#_00F4F5: STA.w CPUMULTB
+#_00F4F5: STA.w WRMPYB
 
 #_00F4F8: NOP
 #_00F4F9: NOP
@@ -14679,7 +14694,7 @@ IrisSpotlight_CalculateCircleValue:
 #_00F4FA: STZ.b $01
 #_00F4FC: STZ.b $0B
 
-#_00F4FE: LDA.w CPUPRODUCTH
+#_00F4FE: LDA.w RDMPYH
 #_00F501: STA.b $00
 
 #_00F503: REP #$30
@@ -15689,6 +15704,7 @@ SaveDeathCount:
 #_00F9E3: LDA.l $7EF3FF
 #_00F9E7: STA.l $7EF3E3,X
 
+; why is this skipped??
 #_00F9EB: CPX.b #$08
 #_00F9ED: BEQ .aga_tower
 
@@ -16379,8 +16395,8 @@ InternalROMHeader:
 #_00FFDA: db $01 ; Header type: v2
 #_00FFDB: db $00 ; Version: 1.0
 
-#_00FFDC: dw $3237 ; checksum
-#_00FFDE: dw $CDC8 ; complement
+#_00FFDC: dw $3237 ; complement
+#_00FFDE: dw $CDC8 ; checksum
 
 ; native mode interrupt vectors
 #_00FFE0: dw $FFFF ; Unused
@@ -16405,4 +16421,6 @@ InternalROMHeader:
 ; Due to the high byte of the IRQ vector
 ; the unused and BRK vectors essentially point to
 ; #_00FFFF: BRL ????
-; where ???? is the volatile memory mirrored from $7E:0000
+; where ???? is the memory mirrored from $7E:0000
+
+;===================================================================================================

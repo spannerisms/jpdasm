@@ -6166,7 +6166,7 @@ WorldMap_LoadDarkWorldMap:
 #_0ABAA1: LDX.w #$03FE
 
 .copy_next
-#_0ABAA4: LDA.l WorldMap_DarkWorldTileMap,X
+#_0ABAA4: LDA.l WorldMap_DarkWorldTilemap,X
 #_0ABAA8: STA.w $1000,X
 
 #_0ABAAB: DEX
@@ -6798,7 +6798,7 @@ WorldMap_FillTilemapWithEF:
 #_0ABDD6: STA.w DMA1SIZE
 
 #_0ABDD9: LDY.b #$02
-#_0ABDDB: STY.w DMAENABLE
+#_0ABDDB: STY.w MDMAEN
 
 #_0ABDDE: SEP #$20
 
@@ -8334,18 +8334,18 @@ WorldMap_HandleSpriteBlink:
 ; With A and B being the respective accumulators
 ;===================================================================================================
 WorldMap_MultiplyAxB:
-#_0AC57F: STA.w CPUMULTA
+#_0AC57F: STA.w WRMPYA
 #_0AC582: XBA
-#_0AC583: STA.w CPUMULTB
+#_0AC583: STA.w WRMPYB
 
 #_0AC586: NOP
 #_0AC587: NOP
 #_0AC588: NOP
 #_0AC589: NOP
 
-#_0AC58A: LDA.w CPUPRODUCTH
+#_0AC58A: LDA.w RDMPYH
 #_0AC58D: XBA
-#_0AC58E: LDA.w CPUPRODUCTL
+#_0AC58E: LDA.w RDMPYL
 
 #_0AC591: RTS
 
@@ -8498,7 +8498,7 @@ WorldMap_SpritePositions:
 
 ;===================================================================================================
 
-WorldMap_LightWorldTileMap:
+WorldMap_LightWorldTilemap:
 #_0AC739: db $28, $28, $28, $28, $28, $28, $28, $28 ; Quadrant 0, Row 00, Strip 0
 #_0AC741: db $28, $28, $28, $28, $28, $28, $28, $28 ; Quadrant 0, Row 00, Strip 1
 #_0AC749: db $28, $28, $28, $28, $28, $2C, $09, $08 ; Quadrant 0, Row 00, Strip 2
@@ -9023,7 +9023,7 @@ WorldMap_LightWorldTileMap:
 
 ;===================================================================================================
 
-WorldMap_DarkWorldTileMap:
+WorldMap_DarkWorldTilemap:
 #_0AD739: db $26, $27, $14, $14, $14, $A5, $14, $26 ; Row 00, Strip 0
 #_0AD741: db $24, $25, $56, $35, $5B, $73, $74, $28 ; Row 00, Strip 1
 #_0AD749: db $72, $99, $63, $73, $73, $74, $2C, $72 ; Row 00, Strip 2
@@ -9741,7 +9741,7 @@ Module0E_03_01_00_PrepMapGraphics:
 #_0AE0F4: LDA.b $9B
 #_0AE0F6: PHA
 
-#_0AE0F7: STZ.w HDMAENABLE
+#_0AE0F7: STZ.w HDMAEN
 #_0AE0FA: STZ.b $9B
 
 #_0AE0FC: LDA.w $0AA1 ; cache tilesets
@@ -9780,7 +9780,7 @@ Module0E_03_01_00_PrepMapGraphics:
 #_0AE134: LDA.b #$01 ; BG1 on subscreen
 #_0AE136: STA.b $1D
 
-#_0AE138: JSL EraseTileMaps_dungeonmap
+#_0AE138: JSL EraseTilemaps_dungeonmap
 #_0AE13C: JSL InitializeTilesets
 
 #_0AE140: LDA.b #$02
@@ -12757,10 +12757,10 @@ UnderworldMap_RecoverGFX:
 #_0AEF29: LDA.b $9B
 #_0AEF2B: PHA
 
-#_0AEF2C: STZ.w HDMAENABLE
+#_0AEF2C: STZ.w HDMAEN
 #_0AEF2F: STZ.b $9B
 
-#_0AEF31: JSL EraseTileMaps_normal
+#_0AEF31: JSL EraseTilemaps_normal
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -14104,9 +14104,9 @@ HUD_HandleBigTimer:
 
 .draw_numbers
 #_0AFDEB: LDA.w $04B4
-#_0AFDEE: STA.w CPUDIVIDENDL
+#_0AFDEE: STA.w WRDIVL
 
-#_0AFDF1: STZ.w CPUDIVIDENDH
+#_0AFDF1: STZ.w WRDIVH
 
 #_0AFDF4: LDA.b #10
 #_0AFDF6: STA.w $4206
@@ -14120,11 +14120,11 @@ HUD_HandleBigTimer:
 #_0AFDFF: NOP
 #_0AFE00: NOP
 
-#_0AFE01: LDA.w CPUQUOTIENT
+#_0AFE01: LDA.w RDDIV
 #_0AFE04: ASL A
 #_0AFE05: STA.b $00
 
-#_0AFE07: LDA.w CPUREMAINDER
+#_0AFE07: LDA.w RDMPY
 #_0AFE0A: ASL A
 #_0AFE0B: STA.b $02
 
@@ -14514,3 +14514,5 @@ LayerEffect_WaterRapids:
 ;===================================================================================================
 NULL_0AFFFB:
 #_0AFFFB: db $FF, $FF, $FF, $FF, $FF
+
+;===================================================================================================

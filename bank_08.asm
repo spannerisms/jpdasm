@@ -4467,7 +4467,7 @@ Bomb_HandleState:
 #_089750: LDY.b #$00 ; no ancilla
 
 #_089752: LDA.w $0C54,X
-#_089755: BEQ .dont_become_debris ; except b/c is 0, you could have gone to 975A
+#_089755: BEQ .dont_become_debris ; except A already is 0, you could have gone to 975A
 
 #_089757: LDY.b #$08 ; ANCILLA 08
 
@@ -4649,8 +4649,6 @@ Bomb_CheckSpriteAndPlayerDamage:
 
 .no_damage
 #_089837: BRL EXIT_0897AE
-
-;---------------------------------------------------------------------------------------------------
 
 .link_vulnerable
 #_08983A: LDA.b $4D
@@ -13063,7 +13061,7 @@ pool Ancilla22_ItemReceipt ItemReceipt
 #_08C38F: dw $FFFF ; 20 RUPEES GREEN
 #_08C391: dw $FFFF ; FULL BOTTLE (GOOD BEE)
 #_08C393: dw $00D9 ; TOSSED FIGHTER SWORD      - Message 00D9
-#_08C395: dw $0065 ; BOTTLE REFILL (GOOD BEE)  - Message 0065
+#_08C395: dw $0065 ; FLUTE (ACTIVATED)         - Message 0065
 #_08C397: dw $007A ; BOOTS                     - Message 007A
 
 ;---------------------------------------------------------------------------------------------------
@@ -24041,7 +24039,7 @@ Hookshot_CheckForTileAllowanceUnderworld:
 ; This calculation and the corresponding one below are weird.
 ; They make sure the hookshot's 9th bit matches Link's.
 ; This appears to be an extra sanity check for if the hookshot goes
-; offscreen at the edge of the supertile, since the above bitmasks only
+; offscreen at the edge of the room, since the above bitmasks only
 ; check for 8 bits of precision.
 ; But, it appears to have implications for when Link's position is out
 ; of sync with the rest of the game. Though, I can't produce any examples
@@ -24103,18 +24101,18 @@ Ancilla_GetRadialProjection:
 #_08FAF0: TAX
 
 #_08FAF1: LDA.l .multiplier_y,X
-#_08FAF5: STA.w CPUMULTA
+#_08FAF5: STA.w WRMPYA
 
 #_08FAF8: LDA.b $08
-#_08FAFA: STA.w CPUMULTB
+#_08FAFA: STA.w WRMPYB
 
 #_08FAFD: LDA.l .meta_sign_y,X
 #_08FB01: STA.b $02
 #_08FB03: STZ.b $03
 
-#_08FB05: LDA.w CPUPRODUCTL
+#_08FB05: LDA.w RDMPYL
 #_08FB08: ASL A
-#_08FB09: LDA.w CPUPRODUCTH
+#_08FB09: LDA.w RDMPYH
 
 #_08FB0C: ADC.b #$00
 #_08FB0E: STA.b $00
@@ -24123,18 +24121,18 @@ Ancilla_GetRadialProjection:
 ;---------------------------------------------------------------------------------------------------
 
 #_08FB12: LDA.l .multiplier_x,X
-#_08FB16: STA.w CPUMULTA
+#_08FB16: STA.w WRMPYA
 
 #_08FB19: LDA.b $08
-#_08FB1B: STA.w CPUMULTB
+#_08FB1B: STA.w WRMPYB
 
 #_08FB1E: LDA.l .meta_sign_x,X
 #_08FB22: STA.b $06
 #_08FB24: STZ.b $07
 
-#_08FB26: LDA.w CPUPRODUCTL
+#_08FB26: LDA.w RDMPYL
 #_08FB29: ASL A
-#_08FB2A: LDA.w CPUPRODUCTH
+#_08FB2A: LDA.w RDMPYH
 
 #_08FB2D: ADC.b #$00
 #_08FB2F: STA.b $04
@@ -24945,3 +24943,5 @@ NULL_08FFEC:
 #_08FFEC: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_08FFF4: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_08FFFC: db $FF, $FF, $FF, $FF
+
+;===================================================================================================
