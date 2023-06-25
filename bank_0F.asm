@@ -3839,14 +3839,14 @@ NULL_0FF4F0:
 
 ;===================================================================================================
 
-CustomTileAttributesOffset:
+CustomTileTypesOffset:
 #_0FF780: dw $0000, $0000, $0000, $0080, $0080, $0100, $0100, $0100
 #_0FF790: dw $0180, $0000, $0100, $0200, $0280, $0300, $0380, $0100
 #_0FF7A0: dw $0100, $0080, $0100, $0380, $0100
 
 ;===================================================================================================
 
-UnderworldTileAttributes:
+UnderworldTileTypes:
 #_0FF7AA: db $01, $01, $01, $00, $02, $01, $02, $00
 #_0FF7B2: db $01, $01, $02, $02, $02, $02, $02, $02
 #_0FF7BA: db $02, $02, $02, $00, $00, $01, $00, $00
@@ -3898,7 +3898,7 @@ UnderworldTileAttributes:
 
 ;===================================================================================================
 
-CustomUnderworldTileAttributes:
+CustomUnderworldTileTypes:
 ; set 00
 #_0FF92A: db $02, $02, $02, $02, $02, $02, $6E, $6F
 #_0FF932: db $01, $6C, $02, $01, $01, $01, $01, $01
@@ -4045,28 +4045,28 @@ CustomUnderworldTileAttributes:
 
 ;===================================================================================================
 
-LoadDefaultTileAttributes:
+LoadDefaultTileTypes:
 #_0FFD2A: REP #$20
 
 #_0FFD2C: LDX.b #$3E
 
 .copy_next
-#_0FFD2E: LDA.l UnderworldTileAttributes+$000,X
+#_0FFD2E: LDA.l UnderworldTileTypes+$000,X
 #_0FFD32: STA.l $7EFE00,X
 
-#_0FFD36: LDA.l UnderworldTileAttributes+$040,X
+#_0FFD36: LDA.l UnderworldTileTypes+$040,X
 #_0FFD3A: STA.l $7EFE40,X
 
-#_0FFD3E: LDA.l UnderworldTileAttributes+$080,X
+#_0FFD3E: LDA.l UnderworldTileTypes+$080,X
 #_0FFD42: STA.l $7EFE80,X
 
-#_0FFD46: LDA.l UnderworldTileAttributes+$0C0,X
+#_0FFD46: LDA.l UnderworldTileTypes+$0C0,X
 #_0FFD4A: STA.l $7EFEC0,X
 
-#_0FFD4E: LDA.l UnderworldTileAttributes+$100,X
+#_0FFD4E: LDA.l UnderworldTileTypes+$100,X
 #_0FFD52: STA.l $7EFF00,X
 
-#_0FFD56: LDA.l UnderworldTileAttributes+$140,X
+#_0FFD56: LDA.l UnderworldTileTypes+$140,X
 #_0FFD5A: STA.l $7EFFC0,X
 
 #_0FFD5E: DEX
@@ -4079,7 +4079,7 @@ LoadDefaultTileAttributes:
 
 ;===================================================================================================
 
-Underworld_LoadCustomTileAttributes:
+Underworld_LoadCustomTileTypes:
 #_0FFD65: PHB
 #_0FFD66: PHK
 #_0FFD67: PLB
@@ -4091,16 +4091,16 @@ Underworld_LoadCustomTileAttributes:
 #_0FFD70: ASL A
 #_0FFD71: TAX
 
-#_0FFD72: LDA.w CustomTileAttributesOffset,X
+#_0FFD72: LDA.w CustomTileTypesOffset,X
 #_0FFD75: TAY
 
 #_0FFD76: LDX.w #$0000
 
 .copy_next
-#_0FFD79: LDA.w CustomUnderworldTileAttributes+$00,Y
+#_0FFD79: LDA.w CustomUnderworldTileTypes+$00,Y
 #_0FFD7C: STA.l $7EFF40,X
 
-#_0FFD80: LDA.w CustomUnderworldTileAttributes+$40,Y
+#_0FFD80: LDA.w CustomUnderworldTileTypes+$40,Y
 #_0FFD83: STA.l $7EFF80,X
 
 #_0FFD87: INY
@@ -4120,7 +4120,7 @@ Underworld_LoadCustomTileAttributes:
 
 ;===================================================================================================
 
-OverworldTileAttributes:
+OverworldTileTypes:
 #_0FFD94: db $27, $27, $27, $27, $27, $27, $02, $02
 #_0FFD9C: db $01, $01, $01, $00, $00, $00, $00, $00
 #_0FFDA4: db $27, $01, $01, $01, $01, $01, $02, $02

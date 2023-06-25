@@ -700,15 +700,15 @@ Ancilla_ExecuteOne:
 #_088349: LDY.w $0C7C,X
 #_08834C: BNE .bg1
 
-#_08834E: JSL OAM_AllocateFromRegionD
+#_08834E: JSL SpriteDraw_AllocateOAMFromRegionD
 #_088352: BRA .save_oam
 
 .bg1
-#_088354: JSL OAM_AllocateFromRegionF
+#_088354: JSL SpriteDraw_AllocateOAMFromRegionF
 #_088358: BRA .save_oam
 
 .ignore_layer
-#_08835A: JSL OAM_AllocateFromRegionA
+#_08835A: JSL SpriteDraw_AllocateOAMFromRegionA
 
 .save_oam
 #_08835E: TYA
@@ -881,15 +881,15 @@ Ancilla13_IceRodSparkle:
 #_088466: LDY.w $0C7C,X ; check layer for OAM region
 #_088469: BNE .lower_layer
 
-#_08846B: JSL OAM_AllocateFromRegionD
+#_08846B: JSL SpriteDraw_AllocateOAMFromRegionD
 #_08846F: BRA .draw
 
 .lower_layer
-#_088471: JSL OAM_AllocateFromRegionE
+#_088471: JSL SpriteDraw_AllocateOAMFromRegionE
 #_088475: BRA .draw
 
 .ignore_layer
-#_088477: JSL OAM_AllocateFromRegionA
+#_088477: JSL SpriteDraw_AllocateOAMFromRegionA
 
 .draw
 #_08847B: LDY.b #$00
@@ -1227,7 +1227,7 @@ Ancilla_Killa:
 
 ;===================================================================================================
 
-pool Ancilla_BoundsCheck ; TODO wtf is this and why is it different in US? and better name
+pool Ancilla_BoundsCheck ; TODO better name
 
 .data
 #_088628: db $20, $10
@@ -1576,7 +1576,7 @@ FireRodShot_Dissipate:
 #_0887D3: BEQ .no_burn
 
 #_0887D5: LDA.b $8A
-#_0887D7: CMP.b #$40
+#_0887D7: CMP.b #$40 ; OW 40
 #_0887D9: BNE .no_burn
 
 #_0887DB: LDA.w $03E4,X
@@ -1695,38 +1695,262 @@ Ancilla03:
 Ancilla_TileCollisionBehaviorClass1:
 
 .interaction
-#_088853: db 0, 1, 0, 3, 0, 0, 0, 0
-#_08885B: db 0, 0, 3, 0, 0, 0, 0, 0
-#_088863: db 1, 1, 1, 1, 0, 0, 0, 0
-#_08886B: db 2, 2, 2, 2, 0, 3, 3, 3
-#_088873: db 0, 0, 0, 0, 0, 0, 1, 1
-#_08887B: db 4, 4, 4, 4, 4, 4, 4, 4
-#_088883: db 1, 1, 1, 1, 1, 1, 1, 1
-#_08888B: db 0, 0, 0, 0, 0, 3, 3, 3
-#_088893: db 0, 0, 0, 1, 0, 0, 0, 0
-#_08889B: db 0, 0, 0, 0, 4, 4, 4, 4
-#_0888A3: db 0, 0, 0, 0, 0, 0, 0, 0
-#_0888AB: db 1, 1, 1, 1, 1, 1, 0, 0
-#_0888B3: db 0, 0, 0, 1, 0, 0, 0, 0
-#_0888BB: db 0, 0, 0, 0, 1, 1, 1, 1
-#_0888C3: db 1, 1, 1, 1, 1, 1, 1, 1
-#_0888CB: db 1, 1, 1, 1, 1, 1, 1, 1
-#_0888D3: db 0, 0, 0, 0, 0, 0, 0, 0
-#_0888DB: db 1, 1, 1, 1, 1, 1, 0, 1
-#_0888E3: db 0, 0, 0, 0, 0, 0, 0, 0
-#_0888EB: db 0, 0, 0, 0, 0, 0, 0, 0
-#_0888F3: db 0, 0, 0, 0, 0, 0, 0, 0
-#_0888FB: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088903: db 0, 0, 0, 0, 0, 0, 0, 0
-#_08890B: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088913: db 1, 1, 1, 1, 1, 1, 1, 1
-#_08891B: db 1, 1, 1, 1, 1, 1, 1, 1
-#_088923: db 0, 0, 0, 0, 0, 0, 0, 0
-#_08892B: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088933: db 0, 0, 0, 0, 0, 0, 0, 0
-#_08893B: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088943: db 1, 1, 1, 1, 1, 1, 1, 1
-#_08894B: db 1, 1, 1, 1, 1, 1, 1, 1
+#_088853: db $00 ; 00
+#_088854: db $01 ; 01
+#_088855: db $00 ; 02
+#_088856: db $03 ; 03
+#_088857: db $00 ; 04
+#_088858: db $00 ; 05
+#_088859: db $00 ; 06
+#_08885A: db $00 ; 07
+#_08885B: db $00 ; 08
+#_08885C: db $00 ; 09
+#_08885D: db $03 ; 0A
+#_08885E: db $00 ; 0B
+#_08885F: db $00 ; 0C
+#_088860: db $00 ; 0D
+#_088861: db $00 ; 0E
+#_088862: db $00 ; 0F
+#_088863: db $01 ; 10
+#_088864: db $01 ; 11
+#_088865: db $01 ; 12
+#_088866: db $01 ; 13
+#_088867: db $00 ; 14
+#_088868: db $00 ; 15
+#_088869: db $00 ; 16
+#_08886A: db $00 ; 17
+#_08886B: db $02 ; 18
+#_08886C: db $02 ; 19
+#_08886D: db $02 ; 1A
+#_08886E: db $02 ; 1B
+#_08886F: db $00 ; 1C
+#_088870: db $03 ; 1D
+#_088871: db $03 ; 1E
+#_088872: db $03 ; 1F
+#_088873: db $00 ; 20
+#_088874: db $00 ; 21
+#_088875: db $00 ; 22
+#_088876: db $00 ; 23
+#_088877: db $00 ; 24
+#_088878: db $00 ; 25
+#_088879: db $01 ; 26
+#_08887A: db $01 ; 27
+#_08887B: db $04 ; 28
+#_08887C: db $04 ; 29
+#_08887D: db $04 ; 2A
+#_08887E: db $04 ; 2B
+#_08887F: db $04 ; 2C
+#_088880: db $04 ; 2D
+#_088881: db $04 ; 2E
+#_088882: db $04 ; 2F
+#_088883: db $01 ; 30
+#_088884: db $01 ; 31
+#_088885: db $01 ; 32
+#_088886: db $01 ; 33
+#_088887: db $01 ; 34
+#_088888: db $01 ; 35
+#_088889: db $01 ; 36
+#_08888A: db $01 ; 37
+#_08888B: db $00 ; 38
+#_08888C: db $00 ; 39
+#_08888D: db $00 ; 3A
+#_08888E: db $00 ; 3B
+#_08888F: db $00 ; 3C
+#_088890: db $03 ; 3D
+#_088891: db $03 ; 3E
+#_088892: db $03 ; 3F
+#_088893: db $00 ; 40
+#_088894: db $00 ; 41
+#_088895: db $00 ; 42
+#_088896: db $01 ; 43
+#_088897: db $00 ; 44
+#_088898: db $00 ; 45
+#_088899: db $00 ; 46
+#_08889A: db $00 ; 47
+#_08889B: db $00 ; 48
+#_08889C: db $00 ; 49
+#_08889D: db $00 ; 4A
+#_08889E: db $00 ; 4B
+#_08889F: db $04 ; 4C
+#_0888A0: db $04 ; 4D
+#_0888A1: db $04 ; 4E
+#_0888A2: db $04 ; 4F
+#_0888A3: db $00 ; 50
+#_0888A4: db $00 ; 51
+#_0888A5: db $00 ; 52
+#_0888A6: db $00 ; 53
+#_0888A7: db $00 ; 54
+#_0888A8: db $00 ; 55
+#_0888A9: db $00 ; 56
+#_0888AA: db $00 ; 57
+#_0888AB: db $01 ; 58
+#_0888AC: db $01 ; 59
+#_0888AD: db $01 ; 5A
+#_0888AE: db $01 ; 5B
+#_0888AF: db $01 ; 5C
+#_0888B0: db $01 ; 5D
+#_0888B1: db $00 ; 5E
+#_0888B2: db $00 ; 5F
+#_0888B3: db $00 ; 60
+#_0888B4: db $00 ; 61
+#_0888B5: db $00 ; 62
+#_0888B6: db $01 ; 63
+#_0888B7: db $00 ; 64
+#_0888B8: db $00 ; 65
+#_0888B9: db $00 ; 66
+#_0888BA: db $00 ; 67
+#_0888BB: db $00 ; 68
+#_0888BC: db $00 ; 69
+#_0888BD: db $00 ; 6A
+#_0888BE: db $00 ; 6B
+#_0888BF: db $01 ; 6C
+#_0888C0: db $01 ; 6D
+#_0888C1: db $01 ; 6E
+#_0888C2: db $01 ; 6F
+#_0888C3: db $01 ; 70
+#_0888C4: db $01 ; 71
+#_0888C5: db $01 ; 72
+#_0888C6: db $01 ; 73
+#_0888C7: db $01 ; 74
+#_0888C8: db $01 ; 75
+#_0888C9: db $01 ; 76
+#_0888CA: db $01 ; 77
+#_0888CB: db $01 ; 78
+#_0888CC: db $01 ; 79
+#_0888CD: db $01 ; 7A
+#_0888CE: db $01 ; 7B
+#_0888CF: db $01 ; 7C
+#_0888D0: db $01 ; 7D
+#_0888D1: db $01 ; 7E
+#_0888D2: db $01 ; 7F
+#_0888D3: db $00 ; 80
+#_0888D4: db $00 ; 81
+#_0888D5: db $00 ; 82
+#_0888D6: db $00 ; 83
+#_0888D7: db $00 ; 84
+#_0888D8: db $00 ; 85
+#_0888D9: db $00 ; 86
+#_0888DA: db $00 ; 87
+#_0888DB: db $01 ; 88
+#_0888DC: db $01 ; 89
+#_0888DD: db $01 ; 8A
+#_0888DE: db $01 ; 8B
+#_0888DF: db $01 ; 8C
+#_0888E0: db $01 ; 8D
+#_0888E1: db $00 ; 8E
+#_0888E2: db $01 ; 8F
+#_0888E3: db $00 ; 90
+#_0888E4: db $00 ; 91
+#_0888E5: db $00 ; 92
+#_0888E6: db $00 ; 93
+#_0888E7: db $00 ; 94
+#_0888E8: db $00 ; 95
+#_0888E9: db $00 ; 96
+#_0888EA: db $00 ; 97
+#_0888EB: db $00 ; 98
+#_0888EC: db $00 ; 99
+#_0888ED: db $00 ; 9A
+#_0888EE: db $00 ; 9B
+#_0888EF: db $00 ; 9C
+#_0888F0: db $00 ; 9D
+#_0888F1: db $00 ; 9E
+#_0888F2: db $00 ; 9F
+#_0888F3: db $00 ; A0
+#_0888F4: db $00 ; A1
+#_0888F5: db $00 ; A2
+#_0888F6: db $00 ; A3
+#_0888F7: db $00 ; A4
+#_0888F8: db $00 ; A5
+#_0888F9: db $00 ; A6
+#_0888FA: db $00 ; A7
+#_0888FB: db $00 ; A8
+#_0888FC: db $00 ; A9
+#_0888FD: db $00 ; AA
+#_0888FE: db $00 ; AB
+#_0888FF: db $00 ; AC
+#_088900: db $00 ; AD
+#_088901: db $00 ; AE
+#_088902: db $00 ; AF
+#_088903: db $00 ; B0
+#_088904: db $00 ; B1
+#_088905: db $00 ; B2
+#_088906: db $00 ; B3
+#_088907: db $00 ; B4
+#_088908: db $00 ; B5
+#_088909: db $00 ; B6
+#_08890A: db $00 ; B7
+#_08890B: db $00 ; B8
+#_08890C: db $00 ; B9
+#_08890D: db $00 ; BA
+#_08890E: db $00 ; BB
+#_08890F: db $00 ; BC
+#_088910: db $00 ; BD
+#_088911: db $00 ; BE
+#_088912: db $00 ; BF
+#_088913: db $01 ; C0
+#_088914: db $01 ; C1
+#_088915: db $01 ; C2
+#_088916: db $01 ; C3
+#_088917: db $01 ; C4
+#_088918: db $01 ; C5
+#_088919: db $01 ; C6
+#_08891A: db $01 ; C7
+#_08891B: db $01 ; C8
+#_08891C: db $01 ; C9
+#_08891D: db $01 ; CA
+#_08891E: db $01 ; CB
+#_08891F: db $01 ; CC
+#_088920: db $01 ; CD
+#_088921: db $01 ; CE
+#_088922: db $01 ; CF
+#_088923: db $00 ; D0
+#_088924: db $00 ; D1
+#_088925: db $00 ; D2
+#_088926: db $00 ; D3
+#_088927: db $00 ; D4
+#_088928: db $00 ; D5
+#_088929: db $00 ; D6
+#_08892A: db $00 ; D7
+#_08892B: db $00 ; D8
+#_08892C: db $00 ; D9
+#_08892D: db $00 ; DA
+#_08892E: db $00 ; DB
+#_08892F: db $00 ; DC
+#_088930: db $00 ; DD
+#_088931: db $00 ; DE
+#_088932: db $00 ; DF
+#_088933: db $00 ; E0
+#_088934: db $00 ; E1
+#_088935: db $00 ; E2
+#_088936: db $00 ; E3
+#_088937: db $00 ; E4
+#_088938: db $00 ; E5
+#_088939: db $00 ; E6
+#_08893A: db $00 ; E7
+#_08893B: db $00 ; E8
+#_08893C: db $00 ; E9
+#_08893D: db $00 ; EA
+#_08893E: db $00 ; EB
+#_08893F: db $00 ; EC
+#_088940: db $00 ; ED
+#_088941: db $00 ; EE
+#_088942: db $00 ; EF
+#_088943: db $01 ; F0
+#_088944: db $01 ; F1
+#_088945: db $01 ; F2
+#_088946: db $01 ; F3
+#_088947: db $01 ; F4
+#_088948: db $01 ; F5
+#_088949: db $01 ; F6
+#_08894A: db $01 ; F7
+#_08894B: db $01 ; F8
+#_08894C: db $01 ; F9
+#_08894D: db $01 ; FA
+#_08894E: db $01 ; FB
+#_08894F: db $01 ; FC
+#_088950: db $01 ; FD
+#_088951: db $01 ; FE
+#_088952: db $01 ; FF
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -1933,7 +2157,7 @@ Ancilla_CheckTileCollision_targeted:
 #_088A4C: LSR.b $02
 
 #_088A4E: PHX
-#_088A4F: JSL Overworld_GetTileAttributeAtLocation
+#_088A4F: JSL Overworld_GetTileTypeAtLocation
 #_088A53: PLX
 
 #_088A54: BRA .continue
@@ -1942,7 +2166,7 @@ Ancilla_CheckTileCollision_targeted:
 
 .indoors
 #_088A56: LDA.w $0C7C,X
-#_088A59: JSL GetTileAttribute_long
+#_088A59: JSL GetTileType_long
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2045,38 +2269,262 @@ Ancilla_SpriteAlert:
 Ancilla_TileCollisionBehaviorClass2:
 
 .interaction
-#_088ABF: db 0, 1, 0, 0, 1, 0, 0, 0
-#_088AC7: db 0, 0, 3, 0, 0, 0, 0, 0
-#_088ACF: db 1, 1, 1, 1, 0, 0, 0, 0
-#_088AD7: db 2, 2, 2, 2, 0, 3, 3, 3
-#_088ADF: db 0, 0, 0, 0, 0, 0, 1, 1
-#_088AE7: db 4, 4, 4, 4, 4, 4, 4, 4
-#_088AEF: db 1, 1, 1, 1, 1, 1, 1, 1
-#_088AF7: db 0, 0, 0, 0, 0, 3, 3, 3
-#_088AFF: db 0, 0, 0, 1, 0, 0, 0, 0
-#_088B07: db 0, 0, 0, 0, 4, 4, 4, 4
-#_088B0F: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B17: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B1F: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B27: db 0, 0, 0, 0, 1, 1, 1, 1
-#_088B2F: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B37: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B3F: db 1, 1, 1, 1, 1, 1, 1, 1
-#_088B47: db 1, 1, 1, 1, 1, 1, 0, 1
-#_088B4F: db 1, 1, 1, 1, 1, 1, 1, 1
-#_088B57: db 1, 1, 1, 1, 1, 1, 1, 1
-#_088B5F: db 1, 1, 1, 1, 1, 1, 1, 1
-#_088B67: db 1, 1, 1, 1, 1, 1, 1, 1
-#_088B6F: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B77: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B7F: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B87: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B8F: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B97: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088B9F: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088BA7: db 0, 0, 0, 0, 0, 0, 0, 0
-#_088BAF: db 1, 1, 1, 1, 1, 1, 1, 1
-#_088BB7: db 1, 1, 1, 1, 1, 1, 1, 1
+#_088ABF: db $00 ; 00
+#_088AC0: db $01 ; 01
+#_088AC1: db $00 ; 02
+#_088AC2: db $00 ; 03
+#_088AC3: db $01 ; 04
+#_088AC4: db $00 ; 05
+#_088AC5: db $00 ; 06
+#_088AC6: db $00 ; 07
+#_088AC7: db $00 ; 08
+#_088AC8: db $00 ; 09
+#_088AC9: db $03 ; 0A
+#_088ACA: db $00 ; 0B
+#_088ACB: db $00 ; 0C
+#_088ACC: db $00 ; 0D
+#_088ACD: db $00 ; 0E
+#_088ACE: db $00 ; 0F
+#_088ACF: db $01 ; 10
+#_088AD0: db $01 ; 11
+#_088AD1: db $01 ; 12
+#_088AD2: db $01 ; 13
+#_088AD3: db $00 ; 14
+#_088AD4: db $00 ; 15
+#_088AD5: db $00 ; 16
+#_088AD6: db $00 ; 17
+#_088AD7: db $02 ; 18
+#_088AD8: db $02 ; 19
+#_088AD9: db $02 ; 1A
+#_088ADA: db $02 ; 1B
+#_088ADB: db $00 ; 1C
+#_088ADC: db $03 ; 1D
+#_088ADD: db $03 ; 1E
+#_088ADE: db $03 ; 1F
+#_088ADF: db $00 ; 20
+#_088AE0: db $00 ; 21
+#_088AE1: db $00 ; 22
+#_088AE2: db $00 ; 23
+#_088AE3: db $00 ; 24
+#_088AE4: db $00 ; 25
+#_088AE5: db $01 ; 26
+#_088AE6: db $01 ; 27
+#_088AE7: db $04 ; 28
+#_088AE8: db $04 ; 29
+#_088AE9: db $04 ; 2A
+#_088AEA: db $04 ; 2B
+#_088AEB: db $04 ; 2C
+#_088AEC: db $04 ; 2D
+#_088AED: db $04 ; 2E
+#_088AEE: db $04 ; 2F
+#_088AEF: db $01 ; 30
+#_088AF0: db $01 ; 31
+#_088AF1: db $01 ; 32
+#_088AF2: db $01 ; 33
+#_088AF3: db $01 ; 34
+#_088AF4: db $01 ; 35
+#_088AF5: db $01 ; 36
+#_088AF6: db $01 ; 37
+#_088AF7: db $00 ; 38
+#_088AF8: db $00 ; 39
+#_088AF9: db $00 ; 3A
+#_088AFA: db $00 ; 3B
+#_088AFB: db $00 ; 3C
+#_088AFC: db $03 ; 3D
+#_088AFD: db $03 ; 3E
+#_088AFE: db $03 ; 3F
+#_088AFF: db $00 ; 40
+#_088B00: db $00 ; 41
+#_088B01: db $00 ; 42
+#_088B02: db $01 ; 43
+#_088B03: db $00 ; 44
+#_088B04: db $00 ; 45
+#_088B05: db $00 ; 46
+#_088B06: db $00 ; 47
+#_088B07: db $00 ; 48
+#_088B08: db $00 ; 49
+#_088B09: db $00 ; 4A
+#_088B0A: db $00 ; 4B
+#_088B0B: db $04 ; 4C
+#_088B0C: db $04 ; 4D
+#_088B0D: db $04 ; 4E
+#_088B0E: db $04 ; 4F
+#_088B0F: db $00 ; 50
+#_088B10: db $00 ; 51
+#_088B11: db $00 ; 52
+#_088B12: db $00 ; 53
+#_088B13: db $00 ; 54
+#_088B14: db $00 ; 55
+#_088B15: db $00 ; 56
+#_088B16: db $00 ; 57
+#_088B17: db $00 ; 58
+#_088B18: db $00 ; 59
+#_088B19: db $00 ; 5A
+#_088B1A: db $00 ; 5B
+#_088B1B: db $00 ; 5C
+#_088B1C: db $00 ; 5D
+#_088B1D: db $00 ; 5E
+#_088B1E: db $00 ; 5F
+#_088B1F: db $00 ; 60
+#_088B20: db $00 ; 61
+#_088B21: db $00 ; 62
+#_088B22: db $00 ; 63
+#_088B23: db $00 ; 64
+#_088B24: db $00 ; 65
+#_088B25: db $00 ; 66
+#_088B26: db $00 ; 67
+#_088B27: db $00 ; 68
+#_088B28: db $00 ; 69
+#_088B29: db $00 ; 6A
+#_088B2A: db $00 ; 6B
+#_088B2B: db $01 ; 6C
+#_088B2C: db $01 ; 6D
+#_088B2D: db $01 ; 6E
+#_088B2E: db $01 ; 6F
+#_088B2F: db $00 ; 70
+#_088B30: db $00 ; 71
+#_088B31: db $00 ; 72
+#_088B32: db $00 ; 73
+#_088B33: db $00 ; 74
+#_088B34: db $00 ; 75
+#_088B35: db $00 ; 76
+#_088B36: db $00 ; 77
+#_088B37: db $00 ; 78
+#_088B38: db $00 ; 79
+#_088B39: db $00 ; 7A
+#_088B3A: db $00 ; 7B
+#_088B3B: db $00 ; 7C
+#_088B3C: db $00 ; 7D
+#_088B3D: db $00 ; 7E
+#_088B3E: db $00 ; 7F
+#_088B3F: db $01 ; 80
+#_088B40: db $01 ; 81
+#_088B41: db $01 ; 82
+#_088B42: db $01 ; 83
+#_088B43: db $01 ; 84
+#_088B44: db $01 ; 85
+#_088B45: db $01 ; 86
+#_088B46: db $01 ; 87
+#_088B47: db $01 ; 88
+#_088B48: db $01 ; 89
+#_088B49: db $01 ; 8A
+#_088B4A: db $01 ; 8B
+#_088B4B: db $01 ; 8C
+#_088B4C: db $01 ; 8D
+#_088B4D: db $00 ; 8E
+#_088B4E: db $01 ; 8F
+#_088B4F: db $01 ; 90
+#_088B50: db $01 ; 91
+#_088B51: db $01 ; 92
+#_088B52: db $01 ; 93
+#_088B53: db $01 ; 94
+#_088B54: db $01 ; 95
+#_088B55: db $01 ; 96
+#_088B56: db $01 ; 97
+#_088B57: db $01 ; 98
+#_088B58: db $01 ; 99
+#_088B59: db $01 ; 9A
+#_088B5A: db $01 ; 9B
+#_088B5B: db $01 ; 9C
+#_088B5C: db $01 ; 9D
+#_088B5D: db $01 ; 9E
+#_088B5E: db $01 ; 9F
+#_088B5F: db $01 ; A0
+#_088B60: db $01 ; A1
+#_088B61: db $01 ; A2
+#_088B62: db $01 ; A3
+#_088B63: db $01 ; A4
+#_088B64: db $01 ; A5
+#_088B65: db $01 ; A6
+#_088B66: db $01 ; A7
+#_088B67: db $01 ; A8
+#_088B68: db $01 ; A9
+#_088B69: db $01 ; AA
+#_088B6A: db $01 ; AB
+#_088B6B: db $01 ; AC
+#_088B6C: db $01 ; AD
+#_088B6D: db $01 ; AE
+#_088B6E: db $01 ; AF
+#_088B6F: db $00 ; B0
+#_088B70: db $00 ; B1
+#_088B71: db $00 ; B2
+#_088B72: db $00 ; B3
+#_088B73: db $00 ; B4
+#_088B74: db $00 ; B5
+#_088B75: db $00 ; B6
+#_088B76: db $00 ; B7
+#_088B77: db $00 ; B8
+#_088B78: db $00 ; B9
+#_088B79: db $00 ; BA
+#_088B7A: db $00 ; BB
+#_088B7B: db $00 ; BC
+#_088B7C: db $00 ; BD
+#_088B7D: db $00 ; BE
+#_088B7E: db $00 ; BF
+#_088B7F: db $00 ; C0
+#_088B80: db $00 ; C1
+#_088B81: db $00 ; C2
+#_088B82: db $00 ; C3
+#_088B83: db $00 ; C4
+#_088B84: db $00 ; C5
+#_088B85: db $00 ; C6
+#_088B86: db $00 ; C7
+#_088B87: db $00 ; C8
+#_088B88: db $00 ; C9
+#_088B89: db $00 ; CA
+#_088B8A: db $00 ; CB
+#_088B8B: db $00 ; CC
+#_088B8C: db $00 ; CD
+#_088B8D: db $00 ; CE
+#_088B8E: db $00 ; CF
+#_088B8F: db $00 ; D0
+#_088B90: db $00 ; D1
+#_088B91: db $00 ; D2
+#_088B92: db $00 ; D3
+#_088B93: db $00 ; D4
+#_088B94: db $00 ; D5
+#_088B95: db $00 ; D6
+#_088B96: db $00 ; D7
+#_088B97: db $00 ; D8
+#_088B98: db $00 ; D9
+#_088B99: db $00 ; DA
+#_088B9A: db $00 ; DB
+#_088B9B: db $00 ; DC
+#_088B9C: db $00 ; DD
+#_088B9D: db $00 ; DE
+#_088B9E: db $00 ; DF
+#_088B9F: db $00 ; E0
+#_088BA0: db $00 ; E1
+#_088BA1: db $00 ; E2
+#_088BA2: db $00 ; E3
+#_088BA3: db $00 ; E4
+#_088BA4: db $00 ; E5
+#_088BA5: db $00 ; E6
+#_088BA6: db $00 ; E7
+#_088BA7: db $00 ; E8
+#_088BA8: db $00 ; E9
+#_088BA9: db $00 ; EA
+#_088BAA: db $00 ; EB
+#_088BAB: db $00 ; EC
+#_088BAC: db $00 ; ED
+#_088BAD: db $00 ; EE
+#_088BAE: db $00 ; EF
+#_088BAF: db $01 ; F0
+#_088BB0: db $01 ; F1
+#_088BB1: db $01 ; F2
+#_088BB2: db $01 ; F3
+#_088BB3: db $01 ; F4
+#_088BB4: db $01 ; F5
+#_088BB5: db $01 ; F6
+#_088BB6: db $01 ; F7
+#_088BB7: db $01 ; F8
+#_088BB8: db $01 ; F9
+#_088BB9: db $01 ; FA
+#_088BBA: db $01 ; FB
+#_088BBB: db $01 ; FC
+#_088BBC: db $01 ; FD
+#_088BBD: db $01 ; FE
+#_088BBE: db $01 ; FF
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2252,7 +2700,7 @@ Ancilla_CheckTileCollision_Class2:
 #_088C8E: LSR.b $02
 
 #_088C90: PHX
-#_088C91: JSL Overworld_GetTileAttributeAtLocation
+#_088C91: JSL Overworld_GetTileTypeAtLocation
 #_088C95: PLX
 
 #_088C96: BRA .save_tile
@@ -2261,7 +2709,7 @@ Ancilla_CheckTileCollision_Class2:
 
 .check_indoors
 #_088C98: LDA.w $0C7C,X
-#_088C9B: JSL GetTileAttribute_long
+#_088C9B: JSL GetTileType_long
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2981,15 +3429,15 @@ Ancilla_WeaponTink:
 #_088FA7: LDY.w $0B68
 #_088FAA: BNE .bg1
 
-#_088FAC: JSL OAM_AllocateFromRegionD
+#_088FAC: JSL SpriteDraw_AllocateOAMFromRegionD
 #_088FB0: BRA .screen_check
 
 .bg1
-#_088FB2: JSL OAM_AllocateFromRegionF
+#_088FB2: JSL SpriteDraw_AllocateOAMFromRegionF
 #_088FB6: BRA .screen_check
 
 .ignore_layer
-#_088FB8: JSL OAM_AllocateFromRegionA
+#_088FB8: JSL SpriteDraw_AllocateOAMFromRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -4253,7 +4701,7 @@ Ancilla07_Bomb:
 #_089638: STA.w $0280,X
 
 ;---------------------------------------------------------------------------------------------------
-; TODO ANALYZE
+
 #_08963B: LDA.w $03E4,X
 #_08963E: CMP.b #$26 ; TILETYPE 26
 #_089640: BEQ .tile_staircase
@@ -7673,12 +8121,12 @@ AncillaDraw_BlastWallBlast:
 #_08A7A6: LDY.w $0FB3
 #_08A7A9: BEQ .use_region_a
 
-#_08A7AB: JSL OAM_AllocateFromRegionD
+#_08A7AB: JSL SpriteDraw_AllocateOAMFromRegionD
 
 #_08A7AF: BRA .continue
 
 .use_region_a
-#_08A7B1: JSL OAM_AllocateFromRegionA
+#_08A7B1: JSL SpriteDraw_AllocateOAMFromRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -8337,11 +8785,11 @@ AncillaDraw_BlastWallFireball:
 #_08AA84: LDY.w $0FB3
 #_08AA87: BEQ .use_region_a
 
-#_08AA89: JSL OAM_AllocateFromRegionD
+#_08AA89: JSL SpriteDraw_AllocateOAMFromRegionD
 #_08AA8D: BRA .continue
 
 .use_region_a
-#_08AA8F: JSL OAM_AllocateFromRegionA
+#_08AA8F: JSL SpriteDraw_AllocateOAMFromRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -8794,7 +9242,7 @@ EtherSpell_HandleRadialSpin:
 #_08ACC5: STZ.w $0FC1
 
 #_08ACC8: LDA.b $8A
-#_08ACCA: CMP.b #$70
+#_08ACCA: CMP.b #$70 ; OW 70
 #_08ACCC: BNE .dont_open_mire
 
 #_08ACCE: LDA.l $7EF2F0
@@ -10702,7 +11150,7 @@ QuakeSpell_FinishingTouches:
 ;---------------------------------------------------------------------------------------------------
 
 #_08B6EA: LDA.b $8A
-#_08B6EC: CMP.b #$47
+#_08B6EC: CMP.b #$47 ; OW 47
 #_08B6EE: BNE .no_turtle_rock_trigger
 
 #_08B6F0: LDA.l $7EF2C7
@@ -11488,7 +11936,7 @@ Powder_ApplyDamageToSprites:
 #_08BBAC: LDA.b $1B ; this gets compared to #$0D weirdly...
 #_08BBAE: BEQ .not_cucco_easter_egg
 
-#_08BBB0: LDA.w $048E
+#_08BBB0: LDA.w $048E ; ROOM 0101
 #_08BBB3: DEC A
 #_08BBB4: BNE .not_cucco_easter_egg
 
@@ -12426,13 +12874,13 @@ Ancilla20_Blanket:
 #_08C04C: BNE .im_awake
 
 #_08C04E: LDA.b #$10
-#_08C050: JSL OAM_AllocateFromRegionB
+#_08C050: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_08C054: BRA .continue
 
 .im_awake
 #_08C056: LDA.b #$10
-#_08C058: JSL OAM_AllocateFromRegionA
+#_08C058: JSL SpriteDraw_AllocateOAMFromRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -12988,69 +13436,69 @@ pool Ancilla22_ItemReceipt ItemReceipt
 
 .message
 #_08C301: dw $FFFF ; FIGHTER SWORD
-#_08C303: dw $006E ; MASTER SWORD              - Message 006E
-#_08C305: dw $0075 ; TEMPERED SWORD            - Message 0075
-#_08C307: dw $0050 ; BUTTER SWORD              - Message 0050 TODO WTF??
+#_08C303: dw $006E ; MASTER SWORD              - MESSAGE 006E
+#_08C305: dw $0075 ; TEMPERED SWORD            - MESSAGE 0075
+#_08C307: dw $0050 ; BUTTER SWORD              - MESSAGE 0050 - !WTF??
 #_08C309: dw $FFFF ; FIGHTER SHIELD
-#_08C30B: dw $0076 ; FIRE SHIELD               - Message 0076 TODO ???
-#_08C30D: dw $0076 ; MIRROR SHIELD             - Message 0076
-#_08C30F: dw $0060 ; FIRE ROD                  - Message 0060
-#_08C311: dw $005F ; ICE ROD                   - Message 005F
-#_08C313: dw $0064 ; HAMMER                    - Message 0064
-#_08C315: dw $0067 ; HOOKSHOT                  - Message 0067
-#_08C317: dw $0051 ; BOW                       - Message 0051
-#_08C319: dw $0050 ; BOOMERANG                 - Message 0050
-#_08C31B: dw $0054 ; POWDER                    - Message 0054
+#_08C30B: dw $0076 ; FIRE SHIELD               - MESSAGE 0076 - WRONG MESSAGE
+#_08C30D: dw $0076 ; MIRROR SHIELD             - MESSAGE 0076
+#_08C30F: dw $0060 ; FIRE ROD                  - MESSAGE 0060
+#_08C311: dw $005F ; ICE ROD                   - MESSAGE 005F
+#_08C313: dw $0064 ; HAMMER                    - MESSAGE 0064
+#_08C315: dw $0067 ; HOOKSHOT                  - MESSAGE 0067
+#_08C317: dw $0051 ; BOW                       - MESSAGE 0051
+#_08C319: dw $0050 ; BOOMERANG                 - MESSAGE 0050
+#_08C31B: dw $0054 ; POWDER                    - MESSAGE 0054
 #_08C31D: dw $FFFF ; BOTTLE REFILL (BEE)
-#_08C31F: dw $0062 ; BOMBOS                    - Message 0062
-#_08C321: dw $0061 ; ETHER                     - Message 0061
-#_08C323: dw $0063 ; QUAKE                     - Message 0063
-#_08C325: dw $004F ; LAMP                      - Message 004F
-#_08C327: dw $0052 ; SHOVEL                    - Message 0052
-#_08C329: dw $0065 ; FLUTE                     - Message 0065
-#_08C32B: dw $0066 ; SOMARIA                   - Message 0066
-#_08C32D: dw $0069 ; BOTTLE                    - Message 0069
-#_08C32F: dw $0075 ; HEART PIECE               - Message 0075 TODO WTF NO
-#_08C331: dw $0077 ; BYRNA                     - Message 0077
-#_08C333: dw $0053 ; CAPE                      - Message 0053
-#_08C335: dw $006C ; MIRROR                    - Message 006C
-#_08C337: dw $0056 ; GLOVE                     - Message 0056
-#_08C339: dw $006B ; MITTS                     - Message 006B
-#_08C33B: dw $005B ; BOOK                      - Message 005B
-#_08C33D: dw $0055 ; FLIPPERS                  - Message 0055
-#_08C33F: dw $005C ; PEARL                     - Message 005C
+#_08C31F: dw $0062 ; BOMBOS                    - MESSAGE 0062
+#_08C321: dw $0061 ; ETHER                     - MESSAGE 0061
+#_08C323: dw $0063 ; QUAKE                     - MESSAGE 0063
+#_08C325: dw $004F ; LAMP                      - MESSAGE 004F
+#_08C327: dw $0052 ; SHOVEL                    - MESSAGE 0052
+#_08C329: dw $0065 ; FLUTE                     - MESSAGE 0065
+#_08C32B: dw $0066 ; SOMARIA                   - MESSAGE 0066
+#_08C32D: dw $0069 ; BOTTLE                    - MESSAGE 0069
+#_08C32F: dw $0075 ; HEART PIECE               - MESSAGE 0075 - !WTF NO
+#_08C331: dw $0077 ; BYRNA                     - MESSAGE 0077
+#_08C333: dw $0053 ; CAPE                      - MESSAGE 0053
+#_08C335: dw $006C ; MIRROR                    - MESSAGE 006C
+#_08C337: dw $0056 ; GLOVE                     - MESSAGE 0056
+#_08C339: dw $006B ; MITTS                     - MESSAGE 006B
+#_08C33B: dw $005B ; BOOK                      - MESSAGE 005B
+#_08C33D: dw $0055 ; FLIPPERS                  - MESSAGE 0055
+#_08C33F: dw $005C ; PEARL                     - MESSAGE 005C
 #_08C341: dw $FFFF ; CRYSTAL
-#_08C343: dw $0072 ; NET                       - Message 0072
-#_08C345: dw $0073 ; BLUE MAIL                 - Message 0073
-#_08C347: dw $0074 ; RED MAIL                  - Message 0074
+#_08C343: dw $0072 ; NET                       - MESSAGE 0072
+#_08C345: dw $0073 ; BLUE MAIL                 - MESSAGE 0073
+#_08C347: dw $0074 ; RED MAIL                  - MESSAGE 0074
 #_08C349: dw $FFFF ; SMALL KEY
-#_08C34B: dw $005D ; COMPASS                   - Message 005D
-#_08C34D: dw $0156 ; HEART CONTAINER FROM 4/4  - Message 0156
+#_08C34B: dw $005D ; COMPASS                   - MESSAGE 005D
+#_08C34D: dw $0156 ; HEART CONTAINER FROM 4/4  - MESSAGE 0156
 #_08C34F: dw $FFFF ; BOMB
-#_08C351: dw $0068 ; 3 BOMBS                   - Message 0068
-#_08C353: dw $005A ; MUSHROOM                  - Message 005A
-#_08C355: dw $008D ; RED BOOMERANG             - Message 008D
-#_08C357: dw $006F ; FULL BOTTLE (RED)         - Message 006F
-#_08C359: dw $0070 ; FULL BOTTLE (GREEN)       - Message 0070
-#_08C35B: dw $0071 ; FULL BOTTLE (BLUE)        - Message 0071
-#_08C35D: dw $006F ; POTION REFILL (RED)       - Message 006F
-#_08C35F: dw $0070 ; POTION REFILL (GREEN)     - Message 0070
-#_08C361: dw $0071 ; POTION REFILL (BLUE)      - Message 0071
-#_08C363: dw $0068 ; 10 BOMBS                  - Message 0068
-#_08C365: dw $006A ; BIG KEY                   - Message 006A
-#_08C367: dw $005E ; MAP                       - Message 005E
+#_08C351: dw $0068 ; 3 BOMBS                   - MESSAGE 0068
+#_08C353: dw $005A ; MUSHROOM                  - MESSAGE 005A
+#_08C355: dw $008D ; RED BOOMERANG             - MESSAGE 008D
+#_08C357: dw $006F ; FULL BOTTLE (RED)         - MESSAGE 006F
+#_08C359: dw $0070 ; FULL BOTTLE (GREEN)       - MESSAGE 0070
+#_08C35B: dw $0071 ; FULL BOTTLE (BLUE)        - MESSAGE 0071
+#_08C35D: dw $006F ; POTION REFILL (RED)       - MESSAGE 006F
+#_08C35F: dw $0070 ; POTION REFILL (GREEN)     - MESSAGE 0070
+#_08C361: dw $0071 ; POTION REFILL (BLUE)      - MESSAGE 0071
+#_08C363: dw $0068 ; 10 BOMBS                  - MESSAGE 0068
+#_08C365: dw $006A ; BIG KEY                   - MESSAGE 006A
+#_08C367: dw $005E ; MAP                       - MESSAGE 005E
 #_08C369: dw $FFFF ; 1 RUPEE
 #_08C36B: dw $FFFF ; 5 RUPEES
 #_08C36D: dw $FFFF ; 20 RUPEES
-#_08C36F: dw $0057 ; GREEN PENDANT             - Message 0057
-#_08C371: dw $0082 ; BLUE PENDANT              - Message 0082
-#_08C373: dw $0058 ; RED PENDANT               - Message 0058
+#_08C36F: dw $0057 ; GREEN PENDANT             - MESSAGE 0057
+#_08C371: dw $0082 ; BLUE PENDANT              - MESSAGE 0082
+#_08C373: dw $0058 ; RED PENDANT               - MESSAGE 0058
 #_08C375: dw $FFFF ; TOSSED BOW
 #_08C377: dw $FFFF ; SILVERS
 #_08C379: dw $FFFF ; FULL BOTTLE (BEE)
 #_08C37B: dw $FFFF ; FULL BOTTLE (FAIRY)
 #_08C37D: dw $FFFF ; BOSS HC
-#_08C37F: dw $0157 ; SANC HC                   - Message 0157
+#_08C37F: dw $0157 ; SANC HC                   - MESSAGE 0157
 #_08C381: dw $FFFF ; 100 RUPEES
 #_08C383: dw $FFFF ; 50 RUPEES
 #_08C385: dw $FFFF ; HEART
@@ -13060,9 +13508,9 @@ pool Ancilla22_ItemReceipt ItemReceipt
 #_08C38D: dw $FFFF ; 300 RUPEES
 #_08C38F: dw $FFFF ; 20 RUPEES GREEN
 #_08C391: dw $FFFF ; FULL BOTTLE (GOOD BEE)
-#_08C393: dw $00D9 ; TOSSED FIGHTER SWORD      - Message 00D9
-#_08C395: dw $0065 ; FLUTE (ACTIVATED)         - Message 0065
-#_08C397: dw $007A ; BOOTS                     - Message 007A
+#_08C393: dw $00D9 ; TOSSED FIGHTER SWORD      - MESSAGE 00D9
+#_08C395: dw $0065 ; FLUTE (ACTIVATED)         - MESSAGE 0065
+#_08C397: dw $007A ; BOOTS                     - MESSAGE 007A
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -13077,13 +13525,13 @@ pool Ancilla22_ItemReceipt ItemReceipt
 
 .heart_piece_message
 #_08C3A2: dw $FFFF
-#_08C3A4: dw $0153 ; Message 0153
-#_08C3A6: dw $0154 ; Message 0154
-#_08C3A8: dw $0155 ; Message 0155
+#_08C3A4: dw $0153 ; MESSAGE 0153
+#_08C3A6: dw $0154 ; MESSAGE 0154
+#_08C3A8: dw $0155 ; MESSAGE 0155
 
 .pendant_message
-#_08C3AA: dw $0059 ; Message 0059
-#_08C3AC: dw $0081 ; Message 0081
+#_08C3AA: dw $0059 ; MESSAGE 0059
+#_08C3AC: dw $0081 ; MESSAGE 0081
 
 pool off
 
@@ -13436,19 +13884,19 @@ Ancilla22_ItemReceipt:
 #_08C56E: REP #$20
 
 #_08C570: LDA.b $A0
-#_08C572: CMP.w #$00FF
+#_08C572: CMP.w #$00FF ; ROOM 00FF
 #_08C575: BEQ .is_a_shop
 
-#_08C577: CMP.w #$010F
+#_08C577: CMP.w #$010F ; ROOM 010F
 #_08C57A: BEQ .is_a_shop
 
-#_08C57C: CMP.w #$0110
+#_08C57C: CMP.w #$0110 ; ROOM 0110
 #_08C57F: BEQ .is_a_shop
 
-#_08C581: CMP.w #$0112
+#_08C581: CMP.w #$0112 ; ROOM 0112
 #_08C584: BEQ .is_a_shop
 
-#_08C586: CMP.w #$011F
+#_08C586: CMP.w #$011F ; ROOM 011F
 #_08C589: BNE .not_a_shop
 
 .is_a_shop
@@ -13533,8 +13981,7 @@ Ancilla22_ItemReceipt:
 
 #_08C5ED: STA.w $1CF0
 
-; Message 006E
-#_08C5F0: CMP.w #$006E
+#_08C5F0: CMP.w #$006E ; MESSAGE 006E
 #_08C5F3: BNE .no_sfx_just_text
 
 #_08C5F5: SEP #$20
@@ -13622,8 +14069,6 @@ ItemReceipt_Animate:
 .wait_for_flashy_sword
 #_08C666: LDA.b #$00
 
-;---------------------------------------------------------------------------------------------------
-
 .no_wrap_flashy_sword
 #_08C668: STA.w $03A4,X
 
@@ -13631,6 +14076,8 @@ ItemReceipt_Animate:
 
 #_08C66C: LDA.w ItemReceipt_default_oam_props,Y
 #_08C66F: STA.w $0BF0,X
+
+;---------------------------------------------------------------------------------------------------
 
 .not_a_flashy_sword
 #_08C672: LDA.w $0C5E,X
@@ -14687,7 +15134,7 @@ Ancilla29_MilestoneItemReceipt:
 #_08CBD6: LDX.b #$00
 
 #_08CBD8: LDA.b $A0
-#_08CBDA: CMP.b #$06
+#_08CBDA: CMP.b #$06 ; ROOM 0006
 #_08CBDC: BNE .no_water_draw
 
 #_08CBDE: LDA.b $A1
@@ -14944,8 +15391,7 @@ Ancilla43_GanonsTowerCutscene:
 
 #_08CD30: REP #$20
 
-; Message 0139
-#_08CD32: LDA.w #$0139
+#_08CD32: LDA.w #$0139 ; MESSAGE 0139
 #_08CD35: STA.w $1CF0
 
 #_08CD38: SEP #$20
@@ -16525,7 +16971,7 @@ Ancilla3F_BushPoof:
 
 .draw
 #_08D555: LDA.b #$10
-#_08D557: JSL OAM_AllocateFromRegionC
+#_08D557: JSL SpriteDraw_AllocateOAMFromRegionC
 
 #_08D55B: JSR Ancilla_PrepOAMCoord
 
@@ -18195,7 +18641,6 @@ Ancilla27_Duck:
 .dont_pick_up
 #_08DE74: BRL .continue_from_pickup
 
-; TODO comments
 .picking_up
 #_08DE77: LDY.b #$01
 #_08DE79: JSR Ancilla_CheckLinkCollision
@@ -18411,7 +18856,6 @@ Ancilla27_Duck:
 
 #_08DF9A: REP #$20
 
-; TODO analyze
 #_08DF9C: LDA.w $029E,X
 #_08DF9F: AND.w #$00FF
 #_08DFA2: BEQ .positive_altitiude
@@ -19440,7 +19884,7 @@ Ancilla2C_SomariaBlock:
 #_08E50D: STA.w $0280,X
 
 ;---------------------------------------------------------------------------------------------------
-; TODO analyze
+
 #_08E510: LDA.w $03E4,X
 
 #_08E513: CMP.b #$26 ; TILETYPE 26
@@ -20007,8 +20451,7 @@ SomariaBlock_CheckForSwitch:
 #_08E7D1: RTS
 
 ;===================================================================================================
-; TODO
-;===================================================================================================
+
 pool SomariaBlock_HandlePlayerInteraction
 
 .push_speed_positive
@@ -21374,7 +21817,7 @@ Ancilla24_Gravestone:
 #_08EE1D: SEP #$20
 
 #_08EE1F: LDA.b #$10
-#_08EE21: JSL OAM_AllocateFromRegionB
+#_08EE21: JSL SpriteDraw_AllocateOAMFromRegionB
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -22374,7 +22817,7 @@ RevivalFairy_Main:
 
 .draw
 #_08F35E: LDA.b #$0C
-#_08F360: JSL OAM_AllocateFromRegionC
+#_08F360: JSL SpriteDraw_AllocateOAMFromRegionC
 
 #_08F364: JSR Ancilla_PrepOAMCoord
 
@@ -22507,11 +22950,11 @@ RevivalFairy_Dust:
 #_08F3FA: LDY.w $0FB3
 #_08F3FD: BNE .use_region_d
 
-#_08F3FF: JSL OAM_AllocateFromRegionA
+#_08F3FF: JSL SpriteDraw_AllocateOAMFromRegionA
 #_08F403: BRA .oam_allocated
 
 .use_region_d
-#_08F405: JSL OAM_AllocateFromRegionD
+#_08F405: JSL SpriteDraw_AllocateOAMFromRegionD
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -23654,18 +24097,17 @@ AncillaDraw_Shadow:
 #_08F91B: RTS
 
 ;===================================================================================================
-; TODO
-;===================================================================================================
+
 Ancilla_AllocateOAMFromRegion_B_or_E:
 #_08F91C: LDY.w $0FB3
 #_08F91F: BNE .use_region_E
 
 .use_region_B
-#_08F921: JSL OAM_AllocateFromRegionB
+#_08F921: JSL SpriteDraw_AllocateOAMFromRegionB
 #_08F925: BRA .exit
 
 .use_region_E
-#_08F927: JSL OAM_AllocateFromRegionE
+#_08F927: JSL SpriteDraw_AllocateOAMFromRegionE
 
 .exit
 #_08F92B: RTS
@@ -23791,8 +24233,7 @@ Follower_MoveTowardsLink:
 #_08F9CB: RTL
 
 ;===================================================================================================
-; TODO
-;===================================================================================================
+
 Ancilla_AllocateOAMFromCustomRegion:
 #_08F9CC: PHA
 #_08F9CD: PHX
@@ -24156,13 +24597,12 @@ Ancilla_GetRadialProjection_long:
 #_08FB3C: RTL
 
 ;===================================================================================================
-; TODO
-;===================================================================================================
+
 Ancilla_AllocateOAMFromRegion_A_or_D_or_F:
 #_08FB3D: LDY.w $0FB3
 #_08FB40: BNE .consider_layer
 
-#_08FB42: JSL OAM_AllocateFromRegionA
+#_08FB42: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_08FB46: RTS
 
@@ -24170,12 +24610,12 @@ Ancilla_AllocateOAMFromRegion_A_or_D_or_F:
 #_08FB47: LDY.w $0C7C,X
 #_08FB4A: BNE .lower_layer
 
-#_08FB4C: JSL OAM_AllocateFromRegionD
+#_08FB4C: JSL SpriteDraw_AllocateOAMFromRegionD
 
 #_08FB50: RTS
 
 .lower_layer
-#_08FB51: JSL OAM_AllocateFromRegionF
+#_08FB51: JSL SpriteDraw_AllocateOAMFromRegionF
 
 #_08FB55: RTS
 

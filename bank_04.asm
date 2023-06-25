@@ -4464,7 +4464,7 @@ TRPegLocations:
 HandlePegPuzzles:
 ; Are we on the LW Turtle Rock portal screen?
 #_04E7A7: LDA.b $8A
-#_04E7A9: CMP.w #$0007
+#_04E7A9: CMP.w #$0007 ; OW 07
 #_04E7AC: BNE HandleStakeField
 
 #_04E7AE: LDA.l $7EF287
@@ -4617,10 +4617,10 @@ pool Overworld_CheckForSpecialOverworldTrigger
 #_04E86F: dw $00B9
 
 .screen_id
-#_04E871: dw $0000
-#_04E873: dw $002D
-#_04E875: dw $000F
-#_04E877: dw $0081
+#_04E871: dw $0000 ; OW 00
+#_04E873: dw $002D ; OW 2D
+#_04E875: dw $000F ; OW 0F
+#_04E877: dw $0081 ; OW 81
 
 .direction
 #_04E879: dw $0008
@@ -4629,10 +4629,10 @@ pool Overworld_CheckForSpecialOverworldTrigger
 #_04E87F: dw $0008
 
 .special_id
-#_04E881: dw $0180
-#_04E883: dw $0181
-#_04E885: dw $0182
-#_04E887: dw $0189
+#_04E881: dw $0180 ; OW 80
+#_04E883: dw $0181 ; OW 81
+#_04E885: dw $0182 ; OW 82
+#_04E887: dw $0189 ; OW 89
 
 pool off
 
@@ -4753,9 +4753,9 @@ pool SpecialOverworld_CheckForReturnTrigger
 #_04E912: dw $00AD
 
 .screen_id
-#_04E914: dw $0080
-#_04E916: dw $0080
-#_04E918: dw $0081
+#_04E914: dw $0080 ; OW 80
+#_04E916: dw $0080 ; OW 80
+#_04E918: dw $0081 ; OW 81
 
 .direction
 #_04E91A: dw $0004
@@ -5175,22 +5175,22 @@ LayoutData_00:
 #_04EC54: db $78, $00, $60 ; 0x060: Ceiling ↕ | { 1E, 00 } | Size: 00
 #_04EC57: db $80, $00, $60 ; 0x060: Ceiling ↕ | { 20, 00 } | Size: 00
 #_04EC5A: db $F8, $00, $60 ; 0x060: Ceiling ↕ | { 3E, 00 } | Size: 00
-#_04EC5D: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 } | Size: 00
-#_04EC60: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 } | Size: 00
-#_04EC63: db $FC, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 24 } | Size: 00
-#_04EC66: db $FE, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 24 } | Size: 00
-#_04EC69: db $FC, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 1A } | Size: 00
-#_04EC6C: db $FE, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 1A } | Size: 00
-#_04EC6F: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A } | Size: 00
-#_04EC72: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A } | Size: 00
-#_04EC75: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 } | Size: 00
-#_04EC78: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 } | Size: 00
-#_04EC7B: db $FD, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 24 } | Size: 00
-#_04EC7E: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 } | Size: 00
-#_04EC81: db $FD, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 1A } | Size: 00
-#_04EC84: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
-#_04EC87: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A } | Size: 00
-#_04EC8A: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
+#_04EC5D: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 }
+#_04EC60: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 }
+#_04EC63: db $FC, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 24 }
+#_04EC66: db $FE, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 24 }
+#_04EC69: db $FC, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 1A }
+#_04EC6C: db $FE, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 1A }
+#_04EC6F: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A }
+#_04EC72: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A }
+#_04EC75: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 }
+#_04EC78: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 }
+#_04EC7B: db $FD, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 24 }
+#_04EC7E: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 }
+#_04EC81: db $FD, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 1A }
+#_04EC84: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A }
+#_04EC87: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A }
+#_04EC8A: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A }
 #_04EC8D: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
@@ -5209,14 +5209,14 @@ LayoutData_01:
 #_04ECAD: db $78, $00, $60 ; 0x060: Ceiling ↕ | { 1E, 00 } | Size: 00
 #_04ECB0: db $80, $00, $60 ; 0x060: Ceiling ↕ | { 20, 00 } | Size: 00
 #_04ECB3: db $F8, $00, $60 ; 0x060: Ceiling ↕ | { 3E, 00 } | Size: 00
-#_04ECB6: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 } | Size: 00
-#_04ECB9: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 } | Size: 00
-#_04ECBC: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A } | Size: 00
-#_04ECBF: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A } | Size: 00
-#_04ECC2: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 } | Size: 00
-#_04ECC5: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 } | Size: 00
-#_04ECC8: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A } | Size: 00
-#_04ECCB: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
+#_04ECB6: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 }
+#_04ECB9: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 }
+#_04ECBC: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A }
+#_04ECBF: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A }
+#_04ECC2: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 }
+#_04ECC5: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 }
+#_04ECC8: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A }
+#_04ECCB: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A }
 #_04ECCE: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
@@ -5240,18 +5240,18 @@ LayoutData_02:
 #_04ECFD: db $78, $00, $60 ; 0x060: Ceiling ↕ | { 1E, 00 } | Size: 00
 #_04ED00: db $80, $00, $60 ; 0x060: Ceiling ↕ | { 20, 00 } | Size: 00
 #_04ED03: db $F8, $00, $60 ; 0x060: Ceiling ↕ | { 3E, 00 } | Size: 00
-#_04ED06: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 } | Size: 00
-#_04ED09: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 } | Size: 00
-#_04ED0C: db $FC, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 24 } | Size: 00
-#_04ED0F: db $FC, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 1A } | Size: 00
-#_04ED12: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A } | Size: 00
-#_04ED15: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A } | Size: 00
-#_04ED18: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 } | Size: 00
-#_04ED1B: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 } | Size: 00
-#_04ED1E: db $FD, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 24 } | Size: 00
-#_04ED21: db $FD, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 1A } | Size: 00
-#_04ED24: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
-#_04ED27: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A } | Size: 00
+#_04ED06: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 }
+#_04ED09: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 }
+#_04ED0C: db $FC, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 24 }
+#_04ED0F: db $FC, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 1A }
+#_04ED12: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A }
+#_04ED15: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A }
+#_04ED18: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 }
+#_04ED1B: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 }
+#_04ED1E: db $FD, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 24 }
+#_04ED21: db $FD, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 1A }
+#_04ED24: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A }
+#_04ED27: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A }
 #_04ED2A: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
@@ -5275,18 +5275,18 @@ LayoutData_03:
 #_04ED59: db $78, $00, $60 ; 0x060: Ceiling ↕ | { 1E, 00 } | Size: 00
 #_04ED5C: db $80, $00, $60 ; 0x060: Ceiling ↕ | { 20, 00 } | Size: 00
 #_04ED5F: db $F8, $00, $60 ; 0x060: Ceiling ↕ | { 3E, 00 } | Size: 00
-#_04ED62: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 } | Size: 00
-#_04ED65: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 } | Size: 00
-#_04ED68: db $FE, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 24 } | Size: 00
-#_04ED6B: db $FE, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 1A } | Size: 00
-#_04ED6E: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A } | Size: 00
-#_04ED71: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A } | Size: 00
-#_04ED74: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 } | Size: 00
-#_04ED77: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 } | Size: 00
-#_04ED7A: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 } | Size: 00
-#_04ED7D: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
-#_04ED80: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A } | Size: 00
-#_04ED83: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
+#_04ED62: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 }
+#_04ED65: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 }
+#_04ED68: db $FE, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 24 }
+#_04ED6B: db $FE, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 1A }
+#_04ED6E: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A }
+#_04ED71: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A }
+#_04ED74: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 }
+#_04ED77: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 }
+#_04ED7A: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 }
+#_04ED7D: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A }
+#_04ED80: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A }
+#_04ED83: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A }
 #_04ED86: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
@@ -5306,14 +5306,14 @@ LayoutData_04:
 #_04EDA9: db $00, $F8, $00 ; 0x000: Ceiling ↔ | { 00, 3E } | Size: 00
 #_04EDAC: db $00, $00, $60 ; 0x060: Ceiling ↕ | { 00, 00 } | Size: 00
 #_04EDAF: db $F8, $00, $60 ; 0x060: Ceiling ↕ | { 3E, 00 } | Size: 00
-#_04EDB2: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 } | Size: 00
-#_04EDB5: db $FC, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 24 } | Size: 00
-#_04EDB8: db $FC, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 1A } | Size: 00
-#_04EDBB: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A } | Size: 00
-#_04EDBE: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 } | Size: 00
-#_04EDC1: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 } | Size: 00
-#_04EDC4: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
-#_04EDC7: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
+#_04EDB2: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 }
+#_04EDB5: db $FC, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 24 }
+#_04EDB8: db $FC, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 1A }
+#_04EDBB: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A }
+#_04EDBE: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 }
+#_04EDC1: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 }
+#_04EDC4: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A }
+#_04EDC7: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A }
 #_04EDCA: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
@@ -5337,18 +5337,18 @@ LayoutData_05:
 #_04EDF9: db $7B, $11, $60 ; 0x060: Ceiling ↕ | { 1E, 04 } | Size: 0D
 #_04EDFC: db $83, $11, $60 ; 0x060: Ceiling ↕ | { 20, 04 } | Size: 0D
 #_04EDFF: db $F8, $00, $60 ; 0x060: Ceiling ↕ | { 3E, 00 } | Size: 00
-#_04EE02: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 } | Size: 00
-#_04EE05: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 } | Size: 00
-#_04EE08: db $FC, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 24 } | Size: 00
-#_04EE0B: db $FC, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 1A } | Size: 00
-#_04EE0E: db $FE, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 1A } | Size: 00
-#_04EE11: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A } | Size: 00
-#_04EE14: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 } | Size: 00
-#_04EE17: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 } | Size: 00
-#_04EE1A: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 } | Size: 00
-#_04EE1D: db $FD, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 1A } | Size: 00
-#_04EE20: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
-#_04EE23: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
+#_04EE02: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 }
+#_04EE05: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 }
+#_04EE08: db $FC, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 24 }
+#_04EE0B: db $FC, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 1A }
+#_04EE0E: db $FE, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 1A }
+#_04EE11: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A }
+#_04EE14: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 }
+#_04EE17: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 }
+#_04EE1A: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 }
+#_04EE1D: db $FD, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 1A }
+#_04EE20: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A }
+#_04EE23: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A }
 #_04EE26: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
@@ -5372,18 +5372,18 @@ LayoutData_06:
 #_04EE55: db $7B, $91, $60 ; 0x060: Ceiling ↕ | { 1E, 24 } | Size: 0D
 #_04EE58: db $83, $91, $60 ; 0x060: Ceiling ↕ | { 20, 24 } | Size: 0D
 #_04EE5B: db $F8, $00, $60 ; 0x060: Ceiling ↕ | { 3E, 00 } | Size: 00
-#_04EE5E: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 } | Size: 00
-#_04EE61: db $FC, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 24 } | Size: 00
-#_04EE64: db $FE, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 24 } | Size: 00
-#_04EE67: db $FC, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 1A } | Size: 00
-#_04EE6A: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A } | Size: 00
-#_04EE6D: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A } | Size: 00
-#_04EE70: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 } | Size: 00
-#_04EE73: db $FD, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 24 } | Size: 00
-#_04EE76: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 } | Size: 00
-#_04EE79: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
-#_04EE7C: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A } | Size: 00
-#_04EE7F: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
+#_04EE5E: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 }
+#_04EE61: db $FC, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 24 }
+#_04EE64: db $FE, $29, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 24 }
+#_04EE67: db $FC, $26, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 1A }
+#_04EE6A: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A }
+#_04EE6D: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A }
+#_04EE70: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 }
+#_04EE73: db $FD, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 24 }
+#_04EE76: db $FF, $A9, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 24 }
+#_04EE79: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A }
+#_04EE7C: db $FD, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 3A }
+#_04EE7F: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A }
 #_04EE82: db $FF, $FF ; End
 
 ;---------------------------------------------------------------------------------------------------
@@ -5398,10 +5398,10 @@ LayoutData_07:
 #_04EE96: db $00, $F8, $00 ; 0x000: Ceiling ↔ | { 00, 3E } | Size: 00
 #_04EE99: db $00, $00, $60 ; 0x060: Ceiling ↕ | { 00, 00 } | Size: 00
 #_04EE9C: db $F8, $00, $60 ; 0x060: Ceiling ↕ | { 3E, 00 } | Size: 00
-#_04EE9F: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 } | Size: 00
-#_04EEA2: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A } | Size: 00
-#_04EEA5: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 } | Size: 00
-#_04EEA8: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A } | Size: 00
+#_04EE9F: db $FC, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 04 }
+#_04EEA2: db $FC, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 3A }
+#_04EEA5: db $FF, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 04 }
+#_04EEA8: db $FF, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 3A }
 #_04EEAB: db $FF, $FF ; End
 
 ;===================================================================================================
@@ -5418,42 +5418,42 @@ WaterOverlayData:
 
 SpecialUnderworldObjects_pushable_block:
 ;           roomID, tilemap index
-#_04EEBE: dw $010B, $193A
+#_04EEBE: dw $010B, $193A ; ROOM 010B
 #_04EEC2: dw $010B, $193E
 
-#_04EEC6: dw $00A8, $36E0
+#_04EEC6: dw $00A8, $36E0 ; ROOM 00A8
 
-#_04EECA: dw $0063, $162A
+#_04EECA: dw $0063, $162A ; ROOM 0063
 
-#_04EECE: dw $0083, $1514
+#_04EECE: dw $0083, $1514 ; ROOM 0083
 
-#_04EED2: dw $00CA, $56B2
+#_04EED2: dw $00CA, $56B2 ; ROOM 00CA
 #_04EED6: dw $00CA, $56BA
 
-#_04EEDA: dw $0034, $5722
+#_04EEDA: dw $0034, $5722 ; ROOM 0034
 #_04EEDE: dw $0034, $572A
 #_04EEE2: dw $0034, $5826
 #_04EEE6: dw $0034, $5926
 
-#_04EEEA: dw $0054, $482A
+#_04EEEA: dw $0054, $482A ; ROOM 0054
 #_04EEEE: dw $0054, $484A
 #_04EEF2: dw $0054, $542A
 
-#_04EEF6: dw $0066, $383C
+#_04EEF6: dw $0066, $383C ; ROOM 0066
 
-#_04EEFA: dw $0011, $465E
+#_04EEFA: dw $0011, $465E ; ROOM 0011
 
-#_04EEFE: dw $002C, $2814
+#_04EEFE: dw $002C, $2814 ; ROOM 002C
 
-#_04EF02: dw $002A, $1328
+#_04EF02: dw $002A, $1328 ; ROOM 002A
 
-#_04EF06: dw $010B, $1942
+#_04EF06: dw $010B, $1942 ; ROOM 010B
 
-#_04EF0A: dw $001F, $5B52
+#_04EF0A: dw $001F, $5B52 ; ROOM 001F
 
-#_04EF0E: dw $0019, $100C
+#_04EF0E: dw $0019, $100C ; ROOM 0019
 
-#_04EF12: dw $010D, $4718
+#_04EF12: dw $010D, $4718 ; ROOM 010D
 #_04EF16: dw $010D, $4724
 #_04EF1A: dw $010D, $4918
 #_04EF1E: dw $010D, $491C
@@ -5461,14 +5461,14 @@ SpecialUnderworldObjects_pushable_block:
 #_04EF26: dw $010D, $4A18
 #_04EF2A: dw $010D, $4A20
 
-#_04EF2E: dw $001E, $585E
+#_04EF2E: dw $001E, $585E ; ROOM 001E
 
-#_04EF32: dw $009E, $13A4
+#_04EF32: dw $009E, $13A4 ; ROOM 009E
 #_04EF36: dw $009E, $1858
 #_04EF3A: dw $009E, $179C
 #_04EF3E: dw $009E, $1CA4
 
-#_04EF42: dw $0097, $5418
+#_04EF42: dw $0097, $5418 ; ROOM 0097
 #_04EF46: dw $0097, $5424
 #_04EF4A: dw $0097, $4A18
 #_04EF4E: dw $0097, $4A24
@@ -5477,19 +5477,19 @@ SpecialUnderworldObjects_pushable_block:
 #_04EF5A: dw $0097, $4C18
 #_04EF5E: dw $0097, $4C24
 
-#_04EF62: dw $0126, $5868
+#_04EF62: dw $0126, $5868 ; ROOM 0126
 
-#_04EF66: dw $001F, $5A52
+#_04EF66: dw $001F, $5A52 ; ROOM 001F
 
-#_04EF6A: dw $008D, $4AEE
+#_04EF6A: dw $008D, $4AEE ; ROOM 008D
 
-#_04EF6E: dw $0004, $5A5E
+#_04EF6E: dw $0004, $5A5E ; ROOM 0004
 
-#_04EF72: dw $000B, $5760
+#_04EF72: dw $000B, $5760 ; ROOM 000B
 
-#_04EF76: dw $004B, $4960
+#_04EF76: dw $004B, $4960 ; ROOM 004B
 
-#_04EF7A: dw $00F8, $4522
+#_04EF7A: dw $00F8, $4522 ; ROOM 00F8
 #_04EF7E: dw $00F8, $449E
 #_04EF82: dw $00F8, $4B1E
 #_04EF86: dw $00F8, $4B22
@@ -5498,42 +5498,42 @@ SpecialUnderworldObjects_pushable_block:
 #_04EF92: dw $00F8, $4BEA
 #_04EF96: dw $00F8, $4CEE
 
-#_04EF9A: dw $0046, $0624
+#_04EF9A: dw $0046, $0624 ; ROOM 0046
 
-#_04EF9E: dw $00C0, $0710
+#_04EF9E: dw $00C0, $0710 ; ROOM 00C0
 
-#_04EFA2: dw $00D0, $1C16
+#_04EFA2: dw $00D0, $1C16 ; ROOM 00D0
 
-#_04EFA6: dw $007D, $0938
+#_04EFA6: dw $007D, $0938 ; ROOM 007D
 
-#_04EFAA: dw $00B2, $175E
+#_04EFAA: dw $00B2, $175E ; ROOM 00B2
 
-#_04EFAE: dw $00FF, $5A60
+#_04EFAE: dw $00FF, $5A60 ; ROOM 00FF
 
-#_04EFB2: dw $009E, $5764
+#_04EFB2: dw $009E, $5764 ; ROOM 009E
 
-#_04EFB6: dw $008B, $0860
+#_04EFB6: dw $008B, $0860 ; ROOM 008B
 
-#_04EFBA: dw $00B6, $0A96
+#_04EFBA: dw $00B6, $0A96 ; ROOM 00B6
 
-#_04EFBE: dw $008D, $5718
+#_04EFBE: dw $008D, $5718 ; ROOM 008D
 
-#_04EFC2: dw $006B, $060C
+#_04EFC2: dw $006B, $060C ; ROOM 006B
 
-#_04EFC6: dw $009D, $4914
+#_04EFC6: dw $009D, $4914 ; ROOM 009D
 
-#_04EFCA: dw $008C, $5414
+#_04EFCA: dw $008C, $5414 ; ROOM 008C
 
-#_04EFCE: dw $00B6, $0AA6
+#_04EFCE: dw $00B6, $0AA6 ; ROOM 00B6
 
-#_04EFD2: dw $008D, $5720
+#_04EFD2: dw $008D, $5720 ; ROOM 008D
 #_04EFD6: dw $008D, $5824
 #_04EFDA: dw $008D, $5918
 #_04EFDE: dw $008D, $5920
 
-#_04EFE2: dw $003A, $4E60
+#_04EFE2: dw $003A, $4E60 ; ROOM 003A
 
-#_04EFE6: dw $011D, $583C
+#_04EFE6: dw $011D, $583C ; ROOM 011D
 #_04EFEA: dw $011D, $5840
 #_04EFEE: dw $011D, $5A34
 #_04EFF2: dw $011D, $5A38
@@ -5543,12 +5543,12 @@ SpecialUnderworldObjects_pushable_block:
 #_04F002: dw $011D, $5B40
 #_04F006: dw $011D, $5B44
 
-#_04F00A: dw $0097, $5518
+#_04F00A: dw $0097, $5518 ; ROOM 0097
 #_04F00E: dw $0097, $5524
 #_04F012: dw $0097, $5618
 #_04F016: dw $0097, $5624
 
-#_04F01A: dw $0126, $5460
+#_04F01A: dw $0126, $5460 ; ROOM 0126
 #_04F01E: dw $0126, $5468
 #_04F022: dw $0126, $555C
 #_04F026: dw $0126, $5860
@@ -5558,7 +5558,7 @@ SpecialUnderworldObjects_pushable_block:
 #_04F036: dw $0126, $5670
 #_04F03A: dw $0126, $575C
 
-#_04F03E: dw $004D, $5BA0
+#_04F03E: dw $004D, $5BA0 ; ROOM 004D
 #_04F042: dw $004D, $5BB0
 #_04F046: dw $004D, $5CA8
 
@@ -5566,35 +5566,35 @@ SpecialUnderworldObjects_pushable_block:
 
 SpecialUnderworldObjects_torch:
 ;         dw  room : dw tilemap index, ...                : terminator
-#_04F04A: dw $0043 : dw $03AA, $03B6, $09AA, $09B6        : dw $FFFF
-#_04F056: dw $00CA : dw $14B2, $16AA, $18B2               : dw $FFFF
-#_04F060: dw $0099 : dw $13BE, $1CAA, $1CD2               : dw $FFFF
-#_04F06A: dw $0000 : dw $8CCA, $8CF2                      : dw $FFFF
-#_04F072: dw $0074 : dw $07B8, $07C4                      : dw $FFFF
-#_04F07A: dw $008D : dw $0470, $0E72, $1970, $1B4C        : dw $FFFF
-#_04F086: dw $0021 : dw $0C92, $0CEA, $138A, $1C8A        : dw $FFFF
-#_04F092: dw $0022 : dw $13CC, $1CCC                      : dw $FFFF
-#_04F09A: dw $0053 : dw $08E2, $1368, $1864               : dw $FFFF
-#_04F0A4: dw $0073 : dw $0C8A, $0CB2                      : dw $FFFF
-#_04F0AC: dw $000B : dw $1814, $1828, $1854, $1864        : dw $FFFF
-#_04F0B8: dw $0032 : dw $0B8A, $0BF2, $0FF2               : dw $FFFF
-#_04F0C2: dw $0042 : dw $07B6, $07F2                      : dw $FFFF
-#_04F0CA: dw $0083 : dw $1914, $191E, $1928               : dw $FFFF
-#_04F0D4: dw $006A : dw $03CA, $03F2                      : dw $FFFF
-#_04F0DC: dw $00C0 : dw $06D8, $06E4, $0D24, $1518, $1A10 : dw $FFFF
-#_04F0EA: dw $00D0 : dw $0A1E, $0D24, $1012               : dw $FFFF
-#_04F0F4: dw $0055 : dw $1850                             : dw $FFFF
-#_04F0FA: dw $0041 : dw $053E, $0E70, $1590               : dw $FFFF
-#_04F104: dw $0049 : dw $055C, $0FCE, $0FEE, $1870        : dw $FFFF
-#_04F110: dw $0087 : dw $1850, $186C, $1B50, $1B6C        : dw $FFFF
-#_04F11C: dw $00C7 : dw $0932, $094A, $0DB2, $0DCA        : dw $FFFF
-#_04F128: dw $0096 : dw $0420, $0B0C, $0B32, $1220        : dw $FFFF
+#_04F04A: dw $0043 : dw $03AA, $03B6, $09AA, $09B6        : dw $FFFF ; ROOM 0043
+#_04F056: dw $00CA : dw $14B2, $16AA, $18B2               : dw $FFFF ; ROOM 00CA
+#_04F060: dw $0099 : dw $13BE, $1CAA, $1CD2               : dw $FFFF ; ROOM 0099
+#_04F06A: dw $0000 : dw $8CCA, $8CF2                      : dw $FFFF ; ROOM 0000
+#_04F072: dw $0074 : dw $07B8, $07C4                      : dw $FFFF ; ROOM 0074
+#_04F07A: dw $008D : dw $0470, $0E72, $1970, $1B4C        : dw $FFFF ; ROOM 008D
+#_04F086: dw $0021 : dw $0C92, $0CEA, $138A, $1C8A        : dw $FFFF ; ROOM 0021
+#_04F092: dw $0022 : dw $13CC, $1CCC                      : dw $FFFF ; ROOM 0022
+#_04F09A: dw $0053 : dw $08E2, $1368, $1864               : dw $FFFF ; ROOM 0053
+#_04F0A4: dw $0073 : dw $0C8A, $0CB2                      : dw $FFFF ; ROOM 0073
+#_04F0AC: dw $000B : dw $1814, $1828, $1854, $1864        : dw $FFFF ; ROOM 000B
+#_04F0B8: dw $0032 : dw $0B8A, $0BF2, $0FF2               : dw $FFFF ; ROOM 0032
+#_04F0C2: dw $0042 : dw $07B6, $07F2                      : dw $FFFF ; ROOM 0042
+#_04F0CA: dw $0083 : dw $1914, $191E, $1928               : dw $FFFF ; ROOM 0083
+#_04F0D4: dw $006A : dw $03CA, $03F2                      : dw $FFFF ; ROOM 006A
+#_04F0DC: dw $00C0 : dw $06D8, $06E4, $0D24, $1518, $1A10 : dw $FFFF ; ROOM 00C0
+#_04F0EA: dw $00D0 : dw $0A1E, $0D24, $1012               : dw $FFFF ; ROOM 00D0
+#_04F0F4: dw $0055 : dw $1850                             : dw $FFFF ; ROOM 0055
+#_04F0FA: dw $0041 : dw $053E, $0E70, $1590               : dw $FFFF ; ROOM 0041
+#_04F104: dw $0049 : dw $055C, $0FCE, $0FEE, $1870        : dw $FFFF ; ROOM 0049
+#_04F110: dw $0087 : dw $1850, $186C, $1B50, $1B6C        : dw $FFFF ; ROOM 0087
+#_04F11C: dw $00C7 : dw $0932, $094A, $0DB2, $0DCA        : dw $FFFF ; ROOM 00C7
+#_04F128: dw $0096 : dw $0420, $0B0C, $0B32, $1220        : dw $FFFF ; ROOM 0096
 #_04F134: dw $FFFF                                        : dw $FFFF ; deleted
-#_04F138: dw $00C1 : dw $140C, $1430, $1C0C, $1C30        : dw $FFFF
-#_04F144: dw $0097 : dw $0C0C, $0C30, $140C, $1430        : dw $FFFF
-#_04F150: dw $009C : dw $0550                             : dw $FFFF
-#_04F156: dw $009D : dw $150C, $1668                      : dw $FFFF
-#_04F15E: dw $003D : dw $154C, $1570, $1C50, $1C6C        : dw $FFFF
+#_04F138: dw $00C1 : dw $140C, $1430, $1C0C, $1C30        : dw $FFFF ; ROOM 00C1
+#_04F144: dw $0097 : dw $0C0C, $0C30, $140C, $1430        : dw $FFFF ; ROOM 0097
+#_04F150: dw $009C : dw $0550                             : dw $FFFF ; ROOM 009C
+#_04F156: dw $009D : dw $150C, $1668                      : dw $FFFF ; ROOM 009D
+#_04F15E: dw $003D : dw $154C, $1570, $1C50, $1C6C        : dw $FFFF ; ROOM 003D
 
 ;===================================================================================================
 
@@ -6098,11 +6098,11 @@ RoomHeader_RoomToPointer:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x10
-; STAIRS0   0xC0 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x04 - leaked value
+; WARP      0x10 => ROOM 0010
+; STAIRS0   0xC0 => ROOM 00C0 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x04 => ROOM 0004 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0000:
 #_04F462: db $41, $21, $13, $22, $07, $3D, $00, $00, $00, $10
@@ -6117,11 +6117,11 @@ RoomHeader_Room0000:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x72
-; STAIRS1   0x00
-; STAIRS2   0x50
-; STAIRS3   0x52
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x72 => ROOM 0072
+; STAIRS1   0x00 => ROOM 0000
+; STAIRS2   0x50 => ROOM 0050
+; STAIRS3   0x52 => ROOM 0052
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0001:
 #_04F46C: db $C0, $00, $00, $04, $00, $00, $00, $00, $00, $00, $72, $00, $50, $52
@@ -6136,11 +6136,11 @@ RoomHeader_Room0001:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x11
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x18 - leaked value
-; STAIRS3   0x0D - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x11 => ROOM 0011
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x18 => ROOM 0018 - leaked value
+; STAIRS3   0x0D => ROOM 000D - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0002:
 #_04F47A: db $C0, $1D, $04, $06, $00, $14, $00, $00, $00, $00, $11
@@ -6155,11 +6155,11 @@ RoomHeader_Room0002:
 ; EFFECT2   0x14 - Pull switch door
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xB5
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x08 - leaked value
-; STAIRS3   0x08 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xB5 => ROOM 00B5
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x08 => ROOM 0008 - leaked value
+; STAIRS3   0x08 => ROOM 0008 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0004:
 #_04F485: db $00, $18, $0D, $26, $00, $26, $14, $00, $00, $00, $B5
@@ -6174,11 +6174,11 @@ RoomHeader_Room0004:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x20 - leaked value
 ; PLANES2   0x06 - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x0C - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x25 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x0C => ROOM 000C - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x25 => ROOM 0025 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0005:
 RoomHeader_Room0006:
@@ -6194,11 +6194,11 @@ RoomHeader_Room0006:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x17
-; STAIRS0   0x17
-; STAIRS1   0xC0 - leaked value
-; STAIRS2   0x07 - leaked value
-; STAIRS3   0x06 - leaked value
+; WARP      0x17 => ROOM 0017
+; STAIRS0   0x17 => ROOM 0017
+; STAIRS1   0xC0 => ROOM 00C0 - leaked value
+; STAIRS2   0x07 => ROOM 0007 - leaked value
+; STAIRS3   0x06 => ROOM 0006 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0007:
 #_04F497: db $20, $06, $05, $0C, $00, $25, $00, $00, $00, $17, $17
@@ -6213,11 +6213,11 @@ RoomHeader_Room0007:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0F - leaked value
-; WARP      0x07 - leaked value
-; STAIRS0   0x19 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x27 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x07 => ROOM 0007 - leaked value
+; STAIRS0   0x19 => ROOM 0019 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x27 => ROOM 0027 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0008:
 #_04F4A2: db $C0, $07, $06, $07, $00, $00, $00
@@ -6232,11 +6232,11 @@ RoomHeader_Room0008:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x4B
-; STAIRS0   0x4A
-; STAIRS1   0x4A
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x0F - leaked value
+; WARP      0x4B => ROOM 004B
+; STAIRS0   0x4A => ROOM 004A
+; STAIRS1   0x4A => ROOM 004A
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x0F => ROOM 000F - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0009:
 #_04F4A9: db $00, $0F, $07, $19, $00, $27, $00, $00, $00, $4B, $4A, $4A
@@ -6251,11 +6251,11 @@ RoomHeader_Room0009:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x09
-; STAIRS0   0x3A
-; STAIRS1   0x01 - leaked value
-; STAIRS2   0x0F - leaked value
-; STAIRS3   0x07 - leaked value
+; WARP      0x09 => ROOM 0009
+; STAIRS0   0x3A => ROOM 003A
+; STAIRS1   0x01 => ROOM 0001 - leaked value
+; STAIRS2   0x0F => ROOM 000F - leaked value
+; STAIRS3   0x07 => ROOM 0007 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room000A:
 #_04F4B5: db $00, $0F, $07, $19, $00, $27, $00, $00, $00, $09, $3A
@@ -6270,11 +6270,11 @@ RoomHeader_Room000A:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x6A
-; STAIRS0   0x1B
-; STAIRS1   0xC0 - leaked value
-; STAIRS2   0x28 - leaked value
-; STAIRS3   0x0E - leaked value
+; WARP      0x6A => ROOM 006A
+; STAIRS0   0x1B => ROOM 001B
+; STAIRS1   0xC0 => ROOM 00C0 - leaked value
+; STAIRS2   0x28 => ROOM 0028 - leaked value
+; STAIRS3   0x0E => ROOM 000E - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room000B:
 #_04F4C0: db $01, $0F, $07, $19, $00, $03, $00, $00, $00, $6A, $1B
@@ -6289,11 +6289,11 @@ RoomHeader_Room000B:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x6B
-; STAIRS1   0x8C
-; STAIRS2   0x8C
-; STAIRS3   0x40 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x6B => ROOM 006B
+; STAIRS1   0x8C => ROOM 008C
+; STAIRS2   0x8C => ROOM 008C
+; STAIRS3   0x40 => ROOM 0040 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room000C:
 #_04F4CB: db $C0, $28, $0E, $13, $00, $00, $00, $00, $00, $00, $6B, $8C, $8C
@@ -6308,11 +6308,11 @@ RoomHeader_Room000C:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x13 - leaked value
-; WARP      0x0B - leaked value
-; STAIRS0   0x1C - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x08 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0B => ROOM 000B - leaked value
+; STAIRS0   0x1C => ROOM 001C - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x08 => ROOM 0008 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room000D:
 #_04F4D8: db $40, $1B, $0E, $18, $05, $38, $00
@@ -6327,11 +6327,11 @@ RoomHeader_Room000D:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x1E
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x21 - leaked value
-; STAIRS3   0x13 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x1E => ROOM 001E
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x21 => ROOM 0021 - leaked value
+; STAIRS3   0x13 => ROOM 0013 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room000E:
 #_04F4DF: db $00, $13, $0B, $1C, $00, $08, $00, $00, $00, $00, $1E
@@ -6346,11 +6346,11 @@ RoomHeader_Room000E:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x01 - leaked value
-; WARP      0x01 - leaked value
-; STAIRS0   0x01 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x01 => ROOM 0001 - leaked value
+; STAIRS0   0x01 => ROOM 0001 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room000F:
 RoomHeader_Room0010:
@@ -6366,11 +6366,11 @@ RoomHeader_Room0010:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x08
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x02
-; STAIRS1   0xC0 - leaked value
-; STAIRS2   0x1D - leaked value
-; STAIRS3   0x04 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x02 => ROOM 0002
+; STAIRS1   0xC0 => ROOM 00C0 - leaked value
+; STAIRS2   0x1D => ROOM 001D - leaked value
+; STAIRS3   0x04 => ROOM 0004 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0011:
 #_04F4F1: db $00, $01, $01, $01, $00, $00, $00, $08, $00, $00, $02
@@ -6385,11 +6385,11 @@ RoomHeader_Room0011:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x18 - leaked value
-; WARP      0x0D - leaked value
-; STAIRS0   0x26 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0D => ROOM 000D - leaked value
+; STAIRS0   0x26 => ROOM 0026 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0012:
 #_04F4FC: db $C0, $1D, $04, $06, $00, $00, $00
@@ -6404,11 +6404,11 @@ RoomHeader_Room0012:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x18 - leaked value
-; WARP      0x0D - leaked value
-; STAIRS0   0x1E - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0D => ROOM 000D - leaked value
+; STAIRS0   0x1E => ROOM 001E - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0013:
 RoomHeader_Room0023:
@@ -6424,11 +6424,11 @@ RoomHeader_Room0023:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x20 - leaked value
 ; PLANES2   0x18 - leaked value
-; WARP      0x0D - leaked value
-; STAIRS0   0x26 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0D => ROOM 000D - leaked value
+; STAIRS0   0x26 => ROOM 0026 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00B7:
 RoomHeader_Room00C6:
@@ -6445,11 +6445,11 @@ RoomHeader_Room00D6:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x18 - leaked value
-; WARP      0x0D - leaked value
-; STAIRS0   0x26 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0D => ROOM 000D - leaked value
+; STAIRS0   0x26 => ROOM 0026 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0014:
 #_04F511: db $20, $18, $0D, $26, $00, $00, $00
@@ -6464,11 +6464,11 @@ RoomHeader_Room0014:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xB6
-; STAIRS1   0x90 - leaked value
-; STAIRS2   0x08 - leaked value
-; STAIRS3   0x08 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xB6 => ROOM 00B6
+; STAIRS1   0x90 => ROOM 0090 - leaked value
+; STAIRS2   0x08 => ROOM 0008 - leaked value
+; STAIRS3   0x08 => ROOM 0008 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0015:
 #_04F518: db $C0, $18, $0D, $26, $00, $00, $00, $00, $00, $00, $B6
@@ -6483,11 +6483,11 @@ RoomHeader_Room0015:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x66
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x06 - leaked value
-; STAIRS3   0x05 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x66 => ROOM 0066
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x06 => ROOM 0006 - leaked value
+; STAIRS3   0x05 => ROOM 0005 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0016:
 #_04F523: db $90, $08, $08, $11, $03, $00, $00, $00, $00, $00, $66
@@ -6502,11 +6502,11 @@ RoomHeader_Room0016:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x27
-; STAIRS0   0x07
-; STAIRS1   0x27
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x0F - leaked value
+; WARP      0x27 => ROOM 0027
+; STAIRS0   0x07 => ROOM 0007
+; STAIRS1   0x27 => ROOM 0027
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x0F => ROOM 000F - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0017:
 #_04F52E: db $20, $06, $05, $19, $00, $35, $00, $00, $00, $27, $07, $27
@@ -6521,11 +6521,11 @@ RoomHeader_Room0017:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0F - leaked value
-; WARP      0x07 - leaked value
-; STAIRS0   0x19 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x16 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x07 => ROOM 0007 - leaked value
+; STAIRS0   0x19 => ROOM 0019 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x16 => ROOM 0016 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0019:
 #_04F53A: db $01, $0F, $07, $19, $00, $00, $00
@@ -6540,11 +6540,11 @@ RoomHeader_Room0019:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x6A
-; STAIRS1   0x6A
-; STAIRS2   0x68 - leaked value
-; STAIRS3   0x0F - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x6A => ROOM 006A
+; STAIRS1   0x6A => ROOM 006A
+; STAIRS2   0x68 => ROOM 0068 - leaked value
+; STAIRS3   0x0F => ROOM 000F - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room001A:
 #_04F541: db $00, $0F, $07, $19, $00, $16, $00, $00, $00, $00, $6A, $6A
@@ -6559,11 +6559,11 @@ RoomHeader_Room001A:
 ; EFFECT2   0x1C - Moving wall east
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x0B
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x1A - leaked value
-; STAIRS3   0x0E - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x0B => ROOM 000B
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x1A => ROOM 001A - leaked value
+; STAIRS3   0x0E => ROOM 000E - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room001B:
 #_04F54D: db $68, $0F, $07, $08, $00, $03, $1C, $00, $00, $00, $0B
@@ -6578,11 +6578,11 @@ RoomHeader_Room001B:
 ; EFFECT2   0x3F - Rekillable boss
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x8C
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x1B - leaked value
-; STAIRS3   0x0E - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x8C => ROOM 008C
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x1B => ROOM 001B - leaked value
+; STAIRS3   0x0E => ROOM 000E - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room001C:
 #_04F558: db $00, $1A, $0E, $09, $00, $04, $3F, $00, $00, $00, $8C
@@ -6597,11 +6597,11 @@ RoomHeader_Room001C:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x4C
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x4C => ROOM 004C
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room001D:
 #_04F563: db $00, $1B, $0E, $18, $00, $00, $00, $00, $00, $00, $4C
@@ -6616,11 +6616,11 @@ RoomHeader_Room001D:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x3E
-; STAIRS0   0x0E
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x3E => ROOM 003E
+; STAIRS0   0x0E => ROOM 000E
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room001E:
 #_04F56E: db $20, $13, $0B, $1C, $00, $17, $00, $00, $00, $3E, $0E
@@ -6635,11 +6635,11 @@ RoomHeader_Room001E:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x3F
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x0C - leaked value
-; STAIRS3   0x02 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x3F => ROOM 003F
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x0C => ROOM 000C - leaked value
+; STAIRS3   0x02 => ROOM 0002 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room001F:
 #_04F579: db $00, $13, $0B, $29, $00, $17, $00, $00, $00, $00, $3F
@@ -6654,11 +6654,11 @@ RoomHeader_Room001F:
 ; EFFECT2   0x25 - Dungeon prize
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x01 - leaked value
-; WARP      0x01 - leaked value
-; STAIRS0   0x01 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x01 => ROOM 0001 - leaked value
+; STAIRS0   0x01 => ROOM 0001 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0020:
 #_04F584: db $20, $0C, $02, $12, $00, $15, $25
@@ -6673,11 +6673,11 @@ RoomHeader_Room0020:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x18 - leaked value
-; WARP      0x0D - leaked value
-; STAIRS0   0x26 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0D => ROOM 000D - leaked value
+; STAIRS0   0x26 => ROOM 0026 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0021:
 RoomHeader_Room0022:
@@ -6693,11 +6693,11 @@ RoomHeader_Room0022:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0A - leaked value
-; WARP      0x08 - leaked value
-; STAIRS0   0x11 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x16 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x08 => ROOM 0008 - leaked value
+; STAIRS0   0x11 => ROOM 0011 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x16 => ROOM 0016 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0024:
 #_04F592: db $00, $18, $0D, $26, $00, $01, $00
@@ -6712,11 +6712,11 @@ RoomHeader_Room0024:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x76
-; STAIRS1   0x76
-; STAIRS2   0x76
-; STAIRS3   0x20 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x76 => ROOM 0076
+; STAIRS1   0x76 => ROOM 0076
+; STAIRS2   0x76 => ROOM 0076
+; STAIRS3   0x20 => ROOM 0020 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0025:
 RoomHeader_Room0026:
@@ -6732,11 +6732,11 @@ RoomHeader_Room0026:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x31
-; STAIRS0   0x17
-; STAIRS1   0x31
-; STAIRS2   0x80 - leaked value
-; STAIRS3   0x0A - leaked value
+; WARP      0x31 => ROOM 0031
+; STAIRS0   0x17 => ROOM 0017
+; STAIRS1   0x31 => ROOM 0031
+; STAIRS2   0x80 => ROOM 0080 - leaked value
+; STAIRS3   0x0A => ROOM 000A - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0027:
 #_04F5A6: db $20, $06, $05, $19, $00, $36, $00, $00, $00, $31, $17, $31
@@ -6751,11 +6751,11 @@ RoomHeader_Room0027:
 ; EFFECT2   0x1B - Water gate twin
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x38
-; STAIRS1   0xCC - leaked value
-; STAIRS2   0x0E - leaked value
-; STAIRS3   0x09 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x38 => ROOM 0038
+; STAIRS1   0xCC => ROOM 00CC - leaked value
+; STAIRS2   0x0E => ROOM 000E - leaked value
+; STAIRS3   0x09 => ROOM 0009 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0028:
 #_04F5B2: db $80, $0A, $08, $11, $00, $32, $1B, $00, $00, $00, $38
@@ -6770,11 +6770,11 @@ RoomHeader_Room0028:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0F - leaked value
-; WARP      0x07 - leaked value
-; STAIRS0   0x19 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x07 => ROOM 0007 - leaked value
+; STAIRS0   0x19 => ROOM 0019 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0029:
 #_04F5BD: db $CC, $0E, $09, $1A, $02, $25, $00
@@ -6789,11 +6789,11 @@ RoomHeader_Room0029:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x0F - leaked value
-; WARP      0x07 - leaked value
-; STAIRS0   0x2B - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x16 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x07 => ROOM 0007 - leaked value
+; STAIRS0   0x2B => ROOM 002B - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x16 => ROOM 0016 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room002A:
 #_04F5C4: db $00, $0F, $07, $19, $00, $00, $00
@@ -6808,11 +6808,11 @@ RoomHeader_Room002A:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x3B
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x3B => ROOM 003B
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room002B:
 #_04F5CB: db $C0, $0F, $07, $2B, $00, $16, $00, $00, $00, $00, $3B
@@ -6827,11 +6827,11 @@ RoomHeader_Room002B:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x19 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0006 - leaked value
+; STAIRS0   0x19 => ROOM 0019 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room002D:
 RoomHeader_Room002E:
@@ -6847,11 +6847,11 @@ RoomHeader_Room002E:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0C - leaked value
-; WARP      0x02 - leaked value
-; STAIRS0   0x12 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x02 => ROOM 0002 - leaked value
+; STAIRS0   0x12 => ROOM 0012 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0003:
 RoomHeader_Room002F:
@@ -6867,11 +6867,11 @@ RoomHeader_Room002F:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x40
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x06 - leaked value
-; STAIRS3   0x05 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x40 => ROOM 0040
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x06 => ROOM 0006 - leaked value
+; STAIRS3   0x05 => ROOM 0005 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0030:
 #_04F5E4: db $00, $0C, $02, $12, $00, $00, $00, $00, $00, $00, $40
@@ -6886,11 +6886,11 @@ RoomHeader_Room0030:
 ; EFFECT2   0x04 - SE kill door
 ; PLANES1   0x22
 ; PLANES2   0x00
-; WARP      0x77
-; STAIRS0   0x27
-; STAIRS1   0x77
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x01 - leaked value
+; WARP      0x77 => ROOM 0077
+; STAIRS0   0x27 => ROOM 0027
+; STAIRS1   0x77 => ROOM 0077
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x01 => ROOM 0001 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0031:
 #_04F5EF: db $20, $06, $05, $19, $00, $37, $04, $22, $00, $77, $27, $77
@@ -6905,11 +6905,11 @@ RoomHeader_Room0031:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x42
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x04 - leaked value
-; STAIRS3   0x05 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x42 => ROOM 0042
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x04 => ROOM 0004 - leaked value
+; STAIRS3   0x05 => ROOM 0005 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0032:
 #_04F5FB: db $01, $01, $01, $01, $00, $00, $00, $00, $00, $00, $42
@@ -6924,11 +6924,11 @@ RoomHeader_Room0032:
 ; EFFECT2   0x25 - Dungeon prize
 ; PLANES1   0x80 - leaked value
 ; PLANES2   0x0A - leaked value
-; WARP      0x08 - leaked value
-; STAIRS0   0x11 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x08 => ROOM 0008 - leaked value
+; STAIRS0   0x11 => ROOM 0011 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0033:
 #_04F606: db $00, $04, $05, $0B, $00, $15, $25
@@ -6943,11 +6943,11 @@ RoomHeader_Room0033:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x54
-; STAIRS1   0x80 - leaked value
-; STAIRS2   0x0A - leaked value
-; STAIRS3   0x08 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x54 => ROOM 0054
+; STAIRS1   0x80 => ROOM 0080 - leaked value
+; STAIRS2   0x0A => ROOM 000A - leaked value
+; STAIRS3   0x08 => ROOM 0008 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0034:
 #_04F60D: db $80, $0A, $08, $11, $00, $00, $00, $00, $00, $00, $54
@@ -6962,11 +6962,11 @@ RoomHeader_Room0034:
 ; EFFECT2   0x19 - Fill water
 ; PLANES1   0x80 - leaked value
 ; PLANES2   0x0A - leaked value
-; WARP      0x08 - leaked value
-; STAIRS0   0x11 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x08 => ROOM 0008 - leaked value
+; STAIRS0   0x11 => ROOM 0011 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0035:
 RoomHeader_Room0037:
@@ -6982,11 +6982,11 @@ RoomHeader_Room0037:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x80 - leaked value
 ; PLANES2   0x0A - leaked value
-; WARP      0x08 - leaked value
-; STAIRS0   0x11 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x08 => ROOM 0008 - leaked value
+; STAIRS0   0x11 => ROOM 0011 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0036:
 #_04F61F: db $80, $0A, $08, $11, $00, $00, $00
@@ -7001,11 +7001,11 @@ RoomHeader_Room0036:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x28
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x0D - leaked value
-; STAIRS3   0x09 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x28 => ROOM 0028
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x0D => ROOM 000D - leaked value
+; STAIRS3   0x09 => ROOM 0009 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0038:
 #_04F626: db $80, $0A, $08, $11, $00, $00, $00, $00, $00, $00, $28
@@ -7020,11 +7020,11 @@ RoomHeader_Room0038:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x29
-; STAIRS0   0x20 - leaked value
-; STAIRS1   0x0F - leaked value
-; STAIRS2   0x07 - leaked value
-; STAIRS3   0x19 - leaked value
+; WARP      0x29 => ROOM 0029
+; STAIRS0   0x20 => ROOM 0020 - leaked value
+; STAIRS1   0x0F => ROOM 000F - leaked value
+; STAIRS2   0x07 => ROOM 0007 - leaked value
+; STAIRS3   0x19 => ROOM 0019 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0039:
 #_04F631: db $20, $0D, $09, $13, $00, $00, $00, $00, $00, $29
@@ -7039,11 +7039,11 @@ RoomHeader_Room0039:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x0A
-; STAIRS0   0x0A
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x0F - leaked value
-; STAIRS3   0x07 - leaked value
+; WARP      0x0A => ROOM 000A
+; STAIRS0   0x0A => ROOM 000A
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x0F => ROOM 000F - leaked value
+; STAIRS3   0x07 => ROOM 0007 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room003A:
 #_04F63B: db $20, $0F, $07, $19, $00, $00, $00, $00, $00, $0A, $0A
@@ -7058,11 +7058,11 @@ RoomHeader_Room003A:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x2B
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x07 - leaked value
-; STAIRS3   0x06 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x2B => ROOM 002B
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x07 => ROOM 0007 - leaked value
+; STAIRS3   0x06 => ROOM 0006 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room003B:
 #_04F646: db $00, $0F, $07, $08, $00, $00, $00, $00, $00, $00, $2B
@@ -7077,11 +7077,11 @@ RoomHeader_Room003B:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x20 - leaked value
 ; PLANES2   0x1A - leaked value
-; WARP      0x0E - leaked value
-; STAIRS0   0x0C - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x33 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0E => ROOM 000E - leaked value
+; STAIRS0   0x0C => ROOM 000C - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x33 => ROOM 0033 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room003C:
 #_04F651: db $00, $07, $06, $13, $00, $00, $00
@@ -7096,11 +7096,11 @@ RoomHeader_Room003C:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x96
-; STAIRS0   0x96
-; STAIRS1   0xCC - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x96 => ROOM 0096
+; STAIRS0   0x96 => ROOM 0096
+; STAIRS1   0xCC => ROOM 00CC - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room003D:
 #_04F658: db $20, $1A, $0E, $0C, $00, $33, $00, $00, $00, $96, $96
@@ -7115,11 +7115,11 @@ RoomHeader_Room003D:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x1E
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x1E => ROOM 001E
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room003E:
 #_04F663: db $CC, $13, $0B, $29, $02, $02, $00, $00, $00, $00, $1E
@@ -7134,11 +7134,11 @@ RoomHeader_Room003E:
 ; EFFECT2   0x14 - Pull switch door
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x1F
-; STAIRS1   0x5F
-; STAIRS2   0xC0 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x1F => ROOM 001F
+; STAIRS1   0x5F => ROOM 005F
+; STAIRS2   0xC0 => ROOM 00C0 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room003F:
 #_04F66E: db $00, $13, $0B, $29, $00, $27, $14, $00, $00, $00, $1F, $5F
@@ -7153,11 +7153,11 @@ RoomHeader_Room003F:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x30
-; STAIRS1   0xB0
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x30 => ROOM 0030
+; STAIRS1   0xB0 => ROOM 00B0
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0040:
 #_04F67A: db $C0, $00, $02, $27, $00, $00, $00, $00, $00, $00, $30, $B0
@@ -7172,11 +7172,11 @@ RoomHeader_Room0040:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x42
-; STAIRS1   0x01 - leaked value
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x01 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x42 => ROOM 0042
+; STAIRS1   0x01 => ROOM 0001 - leaked value
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x01 => ROOM 0001 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0041:
 #_04F686: db $01, $00, $00, $02, $00, $13, $00, $00, $00, $00, $42
@@ -7191,11 +7191,11 @@ RoomHeader_Room0041:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x41
-; STAIRS1   0x32
-; STAIRS2   0x68 - leaked value
-; STAIRS3   0x04 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x41 => ROOM 0041
+; STAIRS1   0x32 => ROOM 0032
+; STAIRS2   0x68 => ROOM 0068 - leaked value
+; STAIRS3   0x04 => ROOM 0004 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0042:
 #_04F691: db $01, $01, $01, $01, $00, $00, $00, $00, $00, $00, $41, $32
@@ -7210,11 +7210,11 @@ RoomHeader_Room0042:
 ; EFFECT2   0x1D - Moving wall west
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x17 - leaked value
-; WARP      0x0A - leaked value
-; STAIRS0   0x1B - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0A => ROOM 000A - leaked value
+; STAIRS0   0x1B => ROOM 001B - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0043:
 #_04F69D: db $68, $04, $05, $0A, $00, $00, $1D
@@ -7229,11 +7229,11 @@ RoomHeader_Room0043:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x60 - leaked value
 ; PLANES2   0x17 - leaked value
-; WARP      0x0A - leaked value
-; STAIRS0   0x1B - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0A => ROOM 000A - leaked value
+; STAIRS0   0x1B => ROOM 001B - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0044:
 #_04F6A4: db $00, $17, $0A, $1B, $00, $01, $00
@@ -7248,11 +7248,11 @@ RoomHeader_Room0044:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xBC
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x0A - leaked value
-; STAIRS3   0x08 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xBC => ROOM 00BC
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x0A => ROOM 000A - leaked value
+; STAIRS3   0x08 => ROOM 0008 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0045:
 #_04F6AB: db $60, $17, $0A, $1B, $00, $01, $00, $00, $00, $00, $BC
@@ -7267,11 +7267,11 @@ RoomHeader_Room0045:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0D - leaked value
-; WARP      0x09 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x33 - leaked value
-; STAIRS3   0x34 - leaked value
+; WARP      0x09 => ROOM 0009 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x33 => ROOM 0033 - leaked value
+; STAIRS3   0x34 => ROOM 0034 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0046:
 #_04F6B6: db $00, $0A, $08, $11, $00, $3C, $00
@@ -7286,11 +7286,11 @@ RoomHeader_Room0046:
 ; EFFECT2   0x34 - Holes 3
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0F - leaked value
-; WARP      0x07 - leaked value
-; STAIRS0   0x19 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x17 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x07 => ROOM 0007 - leaked value
+; STAIRS0   0x19 => ROOM 0019 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x17 => ROOM 0017 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0047:
 RoomHeader_Room0048:
@@ -7307,11 +7307,11 @@ RoomHeader_Room0049:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x09
-; STAIRS1   0x09
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x0F - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x09 => ROOM 0009
+; STAIRS1   0x09 => ROOM 0009
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x0F => ROOM 000F - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room004A:
 #_04F6C4: db $00, $0F, $07, $19, $00, $17, $00, $00, $00, $00, $09, $09
@@ -7326,11 +7326,11 @@ RoomHeader_Room004A:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x09
-; STAIRS0   0x00 - leaked value
-; STAIRS1   0x1A - leaked value
-; STAIRS2   0x0E - leaked value
-; STAIRS3   0x0C - leaked value
+; WARP      0x09 => ROOM 0009
+; STAIRS0   0x00 => ROOM 0000 - leaked value
+; STAIRS1   0x1A => ROOM 001A - leaked value
+; STAIRS2   0x0E => ROOM 000E - leaked value
+; STAIRS3   0x0C => ROOM 000C - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room004B:
 #_04F6D0: db $00, $0F, $07, $08, $00, $01, $00, $00, $00, $09
@@ -7345,11 +7345,11 @@ RoomHeader_Room004B:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x1D
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x1A - leaked value
-; STAIRS3   0x0E - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x1D => ROOM 001D
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x1A => ROOM 001A - leaked value
+; STAIRS3   0x0E => ROOM 000E - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room004C:
 #_04F6DA: db $00, $1A, $0E, $0C, $00, $00, $00, $00, $00, $00, $1D
@@ -7364,11 +7364,11 @@ RoomHeader_Room004C:
 ; EFFECT2   0x3F - Rekillable boss
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xA6
-; STAIRS0   0xA6
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0xA6 => ROOM 00A6
+; STAIRS0   0xA6 => ROOM 00A6
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room004D:
 #_04F6E5: db $20, $1A, $0E, $0C, $00, $32, $3F, $00, $00, $A6, $A6
@@ -7383,11 +7383,11 @@ RoomHeader_Room004D:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x6E
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x6E => ROOM 006E
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room004E:
 #_04F6F0: db $00, $13, $0B, $29, $00, $17, $00, $00, $00, $00, $6E
@@ -7402,11 +7402,11 @@ RoomHeader_Room004E:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xBE
-; STAIRS0   0xC0 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x04 - leaked value
+; WARP      0xBE => ROOM 00BE
+; STAIRS0   0xC0 => ROOM 00C0 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x04 => ROOM 0004 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room004F:
 #_04F6FB: db $00, $13, $0B, $1C, $00, $00, $00, $00, $00, $BE
@@ -7421,11 +7421,11 @@ RoomHeader_Room004F:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x00
-; STAIRS1   0x00
-; STAIRS2   0x01
-; STAIRS3   0x01
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x00 => ROOM 0000
+; STAIRS1   0x00 => ROOM 0000
+; STAIRS2   0x01 => ROOM 0001
+; STAIRS3   0x01 => ROOM 0001
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0050:
 #_04F705: db $C0, $00, $00, $04, $00, $00, $00, $00, $00, $00, $00, $00, $01, $01
@@ -7440,11 +7440,11 @@ RoomHeader_Room0050:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x61
-; STAIRS1   0xC0 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x61 => ROOM 0061
+; STAIRS1   0xC0 => ROOM 00C0 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0051:
 #_04F713: db $C0, $00, $00, $03, $00, $00, $00, $00, $00, $00, $61
@@ -7459,11 +7459,11 @@ RoomHeader_Room0051:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x00
-; STAIRS1   0x00
-; STAIRS2   0x01
-; STAIRS3   0x01
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x00 => ROOM 0000
+; STAIRS1   0x00 => ROOM 0000
+; STAIRS2   0x01 => ROOM 0001
+; STAIRS3   0x01 => ROOM 0001
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0052:
 #_04F71E: db $C0, $00, $00, $04, $00, $00, $00, $00, $00, $00, $00, $00, $01, $01
@@ -7478,11 +7478,11 @@ RoomHeader_Room0052:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x63
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x0A - leaked value
-; STAIRS3   0x08 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x63 => ROOM 0063
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x0A => ROOM 000A - leaked value
+; STAIRS3   0x08 => ROOM 0008 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0053:
 #_04F72C: db $C0, $04, $05, $0A, $00, $03, $00, $00, $00, $00, $63
@@ -7497,11 +7497,11 @@ RoomHeader_Room0053:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x34
-; STAIRS0   0x34
-; STAIRS1   0x01 - leaked value
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x10 - leaked value
+; WARP      0x34 => ROOM 0034
+; STAIRS0   0x34 => ROOM 0034
+; STAIRS1   0x01 => ROOM 0001 - leaked value
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x10 => ROOM 0010 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0054:
 #_04F737: db $20, $0A, $08, $11, $00, $00, $00, $00, $00, $34, $34
@@ -7516,11 +7516,11 @@ RoomHeader_Room0054:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0D - leaked value
-; WARP      0x09 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x23 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x09 => ROOM 0009 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x23 => ROOM 0023 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0055:
 #_04F742: db $01, $01, $10, $0D, $00, $00, $00
@@ -7535,11 +7535,11 @@ RoomHeader_Room0055:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0D - leaked value
-; WARP      0x09 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x16 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x09 => ROOM 0009 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x16 => ROOM 0016 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0056:
 #_04F749: db $00, $0D, $09, $13, $00, $23, $00
@@ -7554,11 +7554,11 @@ RoomHeader_Room0056:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0D - leaked value
-; WARP      0x09 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x21 - leaked value
-; STAIRS3   0x28 - leaked value
+; WARP      0x09 => ROOM 0009 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x21 => ROOM 0021 - leaked value
+; STAIRS3   0x28 => ROOM 0028 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0057:
 #_04F750: db $00, $0D, $09, $13, $00, $16, $00
@@ -7573,11 +7573,11 @@ RoomHeader_Room0057:
 ; EFFECT2   0x28 - Pull switch bomb wall
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x0D - leaked value'
-; WARP      0x09 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x09 => ROOM 0009 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0058:
 #_04F757: db $00, $0D, $09, $13, $00, $21, $28
@@ -7592,11 +7592,11 @@ RoomHeader_Room0058:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x10 - leaked value
-; WARP      0x07 - leaked value
-; STAIRS0   0x15 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x25 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x07 => ROOM 0007 - leaked value
+; STAIRS0   0x15 => ROOM 0015 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x25 => ROOM 0025 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0059:
 #_04F75E: db $C0, $0D, $09, $13, $00, $00, $00
@@ -7611,11 +7611,11 @@ RoomHeader_Room0059:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x1B - leaked value
-; WARP      0x0E - leaked value
-; STAIRS0   0x0A - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x17 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0E => ROOM 000E - leaked value
+; STAIRS0   0x0A => ROOM 000A - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x17 => ROOM 0017 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room005A:
 #_04F765: db $00, $10, $07, $15, $00, $25, $00
@@ -7630,11 +7630,11 @@ RoomHeader_Room005A:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x1B - leaked value
-; WARP      0x0E - leaked value
-; STAIRS0   0x0A - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0E => ROOM 000E - leaked value
+; STAIRS0   0x0A => ROOM 000A - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room005B:
 #_04F76C: db $C0, $1B, $0E, $0A, $00, $17, $00
@@ -7649,11 +7649,11 @@ RoomHeader_Room005B:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x5D
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x24 - leaked value
-; STAIRS3   0x0E - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x5D => ROOM 005D
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x24 => ROOM 0024 - leaked value
+; STAIRS3   0x0E => ROOM 000E - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room005C:
 #_04F773: db $00, $1B, $0E, $0A, $00, $00, $00, $00, $00, $00, $5D
@@ -7668,11 +7668,11 @@ RoomHeader_Room005C:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x5C
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x5C => ROOM 005C
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room005D:
 #_04F77E: db $00, $24, $0E, $23, $00, $09, $00, $00, $00, $00, $5C
@@ -7687,11 +7687,11 @@ RoomHeader_Room005D:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x7E
-; STAIRS0   0x7E
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x7E => ROOM 007E
+; STAIRS0   0x7E => ROOM 007E
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room005E:
 #_04F789: db $20, $13, $0B, $1C, $00, $00, $00, $00, $00, $7E, $7E
@@ -7706,11 +7706,11 @@ RoomHeader_Room005E:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x3F
-; STAIRS1   0x7F
-; STAIRS2   0xC0 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x3F => ROOM 003F
+; STAIRS1   0x7F => ROOM 007F
+; STAIRS2   0xC0 => ROOM 00C0 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room005F:
 #_04F794: db $00, $13, $0B, $1C, $00, $27, $00, $00, $00, $00, $3F, $7F
@@ -7725,11 +7725,11 @@ RoomHeader_Room005F:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x00 - leaked value
-; WARP      0x00 - leaked value
-; STAIRS0   0x04 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x00 => ROOM 0000 - leaked value
+; STAIRS0   0x04 => ROOM 0004 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0060:
 RoomHeader_Room0062:
@@ -7745,11 +7745,11 @@ RoomHeader_Room0062:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x08
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x51
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x09 - leaked value
-; STAIRS3   0x05 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x51 => ROOM 0051
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x09 => ROOM 0009 - leaked value
+; STAIRS3   0x05 => ROOM 0005 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0061:
 #_04F7A7: db $C0, $00, $00, $04, $00, $00, $00, $08, $00, $00, $51
@@ -7764,11 +7764,11 @@ RoomHeader_Room0061:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x53
-; STAIRS1   0xE0 - leaked value
-; STAIRS2   0x23 - leaked value
-; STAIRS3   0x0A - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x53 => ROOM 0053
+; STAIRS1   0xE0 => ROOM 00E0 - leaked value
+; STAIRS2   0x23 => ROOM 0023 - leaked value
+; STAIRS3   0x0A => ROOM 000A - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0063:
 #_04F7B2: db $00, $09, $05, $0A, $00, $0D, $00, $00, $00, $00, $53
@@ -7783,11 +7783,11 @@ RoomHeader_Room0063:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xAB
-; STAIRS1   0xE0 - leaked value
-; STAIRS2   0x23 - leaked value
-; STAIRS3   0x0A - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xAB => ROOM 00AB
+; STAIRS1   0xE0 => ROOM 00E0 - leaked value
+; STAIRS2   0x23 => ROOM 0023 - leaked value
+; STAIRS3   0x0A => ROOM 000A - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0064:
 #_04F7BD: db $E0, $23, $0A, $21, $00, $17, $00, $00, $00, $00, $AB
@@ -7802,11 +7802,11 @@ RoomHeader_Room0064:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xAC
-; STAIRS0   0xC0 - leaked value
-; STAIRS1   0x0A - leaked value
-; STAIRS2   0x08 - leaked value
-; STAIRS3   0x11 - leaked value
+; WARP      0xAC => ROOM 00AC
+; STAIRS0   0xC0 => ROOM 00C0 - leaked value
+; STAIRS1   0x0A => ROOM 000A - leaked value
+; STAIRS2   0x08 => ROOM 0008 - leaked value
+; STAIRS3   0x11 => ROOM 0011 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0065:
 #_04F7C8: db $E0, $23, $0A, $21, $00, $00, $00, $00, $00, $AC
@@ -7821,11 +7821,11 @@ RoomHeader_Room0065:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x16
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x0D - leaked value
-; STAIRS3   0x09 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x16 => ROOM 0016
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x0D => ROOM 000D - leaked value
+; STAIRS3   0x09 => ROOM 0009 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0066:
 #_04F7D2: db $C0, $0A, $08, $11, $00, $3C, $00, $00, $00, $00, $16
@@ -7840,11 +7840,11 @@ RoomHeader_Room0066:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0D - leaked value
-; WARP      0x09 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x09 => ROOM 0009 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0067:
 #_04F7DD: db $00, $0D, $09, $13, $00, $22, $00
@@ -7859,11 +7859,11 @@ RoomHeader_Room0067:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x0F - leaked value
-; WARP      0x07 - leaked value
-; STAIRS0   0x19 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x07 => ROOM 0007 - leaked value
+; STAIRS0   0x19 => ROOM 0019 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0068:
 #_04F7E4: db $00, $0D, $09, $13, $00, $00, $00
@@ -7878,11 +7878,11 @@ RoomHeader_Room0068:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x1A
-; STAIRS1   0x1A
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x1B - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x1A => ROOM 001A
+; STAIRS1   0x1A => ROOM 001A
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x1B => ROOM 001B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0069:
 RoomHeader_Room006A:
@@ -7898,11 +7898,11 @@ RoomHeader_Room006A:
 ; EFFECT2   0x0B - NW block door
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x0C
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x24 - leaked value
-; STAIRS3   0x0E - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x0C => ROOM 000C
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x24 => ROOM 0024 - leaked value
+; STAIRS3   0x0E => ROOM 000E - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room006B:
 #_04F7F7: db $00, $1B, $0E, $0A, $00, $08, $0B, $00, $00, $00, $0C
@@ -7917,11 +7917,11 @@ RoomHeader_Room006B:
 ; EFFECT2   0x3F - Rekillable boss
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xA5
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x24 - leaked value
-; STAIRS3   0x0E - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xA5 => ROOM 00A5
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x24 => ROOM 0024 - leaked value
+; STAIRS3   0x0E => ROOM 000E - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room006C:
 #_04F802: db $00, $24, $0E, $23, $00, $03, $3F, $00, $00, $00, $A5
@@ -7936,11 +7936,11 @@ RoomHeader_Room006C:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x13 - leaked value
-; WARP      0x0B - leaked value
-; STAIRS0   0x1C - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x02 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0B => ROOM 000B - leaked value
+; STAIRS0   0x1C => ROOM 001C - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x02 => ROOM 0002 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room006D:
 #_04F80D: db $00, $24, $0E, $23, $00, $05, $00
@@ -7955,11 +7955,11 @@ RoomHeader_Room006D:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x4E
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x01 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x4E => ROOM 004E
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x01 => ROOM 0001 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room006E:
 #_04F814: db $00, $13, $0B, $1C, $00, $02, $00, $00, $00, $00, $4E
@@ -7974,11 +7974,11 @@ RoomHeader_Room006E:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x08
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x71
-; STAIRS1   0x80
-; STAIRS2   0xC0 - leaked value
-; STAIRS3   0x01 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x71 => ROOM 0071
+; STAIRS1   0x80 => ROOM 0080
+; STAIRS2   0xC0 => ROOM 00C0 - leaked value
+; STAIRS3   0x01 => ROOM 0001 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room006F:
 RoomHeader_Room0070:
@@ -7994,11 +7994,11 @@ RoomHeader_Room0070:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x70
-; STAIRS1   0xC0 - leaked value
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x01 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x70 => ROOM 0070
+; STAIRS1   0xC0 => ROOM 00C0 - leaked value
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x01 => ROOM 0001 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0071:
 #_04F82B: db $C0, $01, $01, $04, $00, $08, $00, $00, $00, $00, $70
@@ -8013,11 +8013,11 @@ RoomHeader_Room0071:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x08
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x01
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x09 - leaked value
-; STAIRS3   0x05 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x01 => ROOM 0001
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x09 => ROOM 0009 - leaked value
+; STAIRS3   0x05 => ROOM 0005 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0072:
 #_04F836: db $C0, $01, $01, $04, $00, $00, $00, $08, $00, $00, $01
@@ -8032,11 +8032,11 @@ RoomHeader_Room0072:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x09 - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x0A - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x27 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x0A => ROOM 000A - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x27 => ROOM 0027 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0073:
 #_04F841: db $00, $09, $05, $0A, $00, $17, $00
@@ -8051,11 +8051,11 @@ RoomHeader_Room0073:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x09 - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x0A - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x0A => ROOM 000A - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0074:
 #_04F848: db $00, $09, $05, $0A, $00, $27, $00
@@ -8070,11 +8070,11 @@ RoomHeader_Room0074:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x80 - leaked value
 ; PLANES2   0x0A - leaked value
-; WARP      0x08 - leaked value
-; STAIRS0   0x11 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x18 - leaked value
+; WARP      0x08 => ROOM 0008 - leaked value
+; STAIRS0   0x11 => ROOM 0011 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x18 => ROOM 0018 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0075:
 #_04F84F: db $00, $09, $05, $0A, $00, $01, $00
@@ -8089,11 +8089,11 @@ RoomHeader_Room0075:
 ; EFFECT2   0x18 - Water drain
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x26
-; STAIRS1   0x26
-; STAIRS2   0x26
-; STAIRS3   0xC0 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x26 => ROOM 0026
+; STAIRS1   0x26 => ROOM 0026
+; STAIRS2   0x26 => ROOM 0026
+; STAIRS3   0xC0 => ROOM 00C0 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0076:
 #_04F856: db $80, $0A, $08, $11, $00, $00, $18, $00, $00, $00, $26, $26, $26
@@ -8108,11 +8108,11 @@ RoomHeader_Room0076:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xA7
-; STAIRS0   0x31
-; STAIRS1   0x87
-; STAIRS2   0x87
-; STAIRS3   0x00 - leaked value
+; WARP      0xA7 => ROOM 00A7
+; STAIRS0   0x31 => ROOM 0031
+; STAIRS1   0x87 => ROOM 0087
+; STAIRS2   0x87 => ROOM 0087
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0077:
 #_04F863: db $C0, $06, $05, $19, $00, $00, $00, $00, $00, $A7, $31, $87, $87
@@ -8127,11 +8127,11 @@ RoomHeader_Room0077:
 ; EFFECT2   0x39 - Holes 7
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x9D
-; STAIRS0   0x00 - leaked value
-; STAIRS1   0x28 - leaked value
-; STAIRS2   0x0E - leaked value
-; STAIRS3   0x13 - leaked value
+; WARP      0x9D => ROOM 009D
+; STAIRS0   0x00 => ROOM 0000 - leaked value
+; STAIRS1   0x28 => ROOM 0028 - leaked value
+; STAIRS2   0x0E => ROOM 000E - leaked value
+; STAIRS3   0x13 => ROOM 0013 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0078:
 RoomHeader_Room0079:
@@ -8149,11 +8149,11 @@ RoomHeader_Room007B:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x28 - leaked value
-; WARP      0x0E - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x04 - leaked value
-; STAIRS3   0x3C - leaked value
+; WARP      0x0E => ROOM 000E - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x04 => ROOM 0004 - leaked value
+; STAIRS3   0x3C => ROOM 003C - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room007C:
 #_04F87A: db $00, $28, $0E, $13, $00, $20, $00
@@ -8168,11 +8168,11 @@ RoomHeader_Room007C:
 ; EFFECT2   0x3C - Push block chest
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x9B
-; STAIRS0   0x20 - leaked value
-; STAIRS1   0x13 - leaked value
-; STAIRS2   0x0B - leaked value
-; STAIRS3   0x1C - leaked value
+; WARP      0x9B => ROOM 009B
+; STAIRS0   0x20 => ROOM 0020 - leaked value
+; STAIRS1   0x13 => ROOM 0013 - leaked value
+; STAIRS2   0x0B => ROOM 000B - leaked value
+; STAIRS3   0x1C => ROOM 001C - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room007D:
 #_04F881: db $00, $28, $0E, $13, $00, $04, $3C, $00, $00, $9B
@@ -8187,11 +8187,11 @@ RoomHeader_Room007D:
 ; EFFECT2   0x17 - Toggle switch door
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x9E
-; STAIRS0   0x5E
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x9E => ROOM 009E
+; STAIRS0   0x5E => ROOM 005E
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room007E:
 #_04F88B: db $20, $13, $0B, $1C, $00, $2B, $17, $00, $00, $9E, $5E
@@ -8206,11 +8206,11 @@ RoomHeader_Room007E:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x5F
-; STAIRS1   0x60 - leaked value
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x01 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x5F => ROOM 005F
+; STAIRS1   0x60 => ROOM 0060 - leaked value
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x01 => ROOM 0001 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room007F:
 #_04F896: db $00, $13, $0B, $1C, $00, $00, $00, $00, $00, $00, $5F
@@ -8225,11 +8225,11 @@ RoomHeader_Room007F:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x70
-; STAIRS1   0xC0 - leaked value
-; STAIRS2   0x01 - leaked value
-; STAIRS3   0x01 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x70 => ROOM 0070
+; STAIRS1   0xC0 => ROOM 00C0 - leaked value
+; STAIRS2   0x01 => ROOM 0001 - leaked value
+; STAIRS3   0x01 => ROOM 0001 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0080:
 #_04F8A1: db $60, $01, $01, $04, $00, $00, $00, $00, $00, $00, $70
@@ -8244,11 +8244,11 @@ RoomHeader_Room0080:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x09 - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x0A - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x0D - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x0A => ROOM 000A - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x0D => ROOM 000D - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0081:
 RoomHeader_Room0082:
@@ -8264,11 +8264,11 @@ RoomHeader_Room0082:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x09 - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x0A - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x0A => ROOM 000A - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0083:
 #_04F8B3: db $00, $09, $05, $0A, $00, $0D, $00
@@ -8283,11 +8283,11 @@ RoomHeader_Room0083:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x09 - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x0A - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x02 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x0A => ROOM 000A - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x02 => ROOM 0002 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0084:
 #_04F8BA: db $00, $09, $05, $0A, $00, $00, $00
@@ -8302,11 +8302,11 @@ RoomHeader_Room0084:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x06 - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x19 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x3E - leaked value
-; STAIRS3   0x01 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x19 => ROOM 0019 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x3E => ROOM 003E - leaked value
+; STAIRS3   0x01 => ROOM 0001 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0085:
 #_04F8C1: db $00, $09, $05, $0A, $00, $02, $00
@@ -8321,11 +8321,11 @@ RoomHeader_Room0085:
 ; EFFECT2   0x01 - NW kill door
 ; PLANES1   0x28
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x77
-; STAIRS1   0x77
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x77 => ROOM 0077
+; STAIRS1   0x77 => ROOM 0077
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0086:
 RoomHeader_Room0087:
@@ -8341,11 +8341,11 @@ RoomHeader_Room0087:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x02
 ; PLANES2   0x00
-; WARP      0xA9
-; STAIRS0   0x00 - leaked value
-; STAIRS1   0x28 - leaked value
-; STAIRS2   0x0E - leaked value
-; STAIRS3   0x13 - leaked value
+; WARP      0xA9 => ROOM 00A9
+; STAIRS0   0x00 => ROOM 0000 - leaked value
+; STAIRS1   0x28 => ROOM 0028 - leaked value
+; STAIRS2   0x0E => ROOM 000E - leaked value
+; STAIRS3   0x13 => ROOM 0013 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0088:
 RoomHeader_Room0089:
@@ -8357,15 +8357,15 @@ RoomHeader_Room0089:
 ; BLKSET    0x0E
 ; SPRSET    0x13
 ; BGMOVE    0x00
-; EFFECT1   0x3A - Agahnim 2
+; EFFECT1   0x3A - Holes 8
 ; EFFECT2   0x0C - NE block door
 ; PLANES1   0x20 - leaked value
 ; PLANES2   0x28 - leaked value
-; WARP      0x0E - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x16 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0E => ROOM 000E - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x16 => ROOM 0016 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room008A:
 RoomHeader_Room008B:
@@ -8381,11 +8381,11 @@ RoomHeader_Room008B:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x28
 ; PLANES2   0x00
-; WARP      0x1C
-; STAIRS0   0x0C
-; STAIRS1   0x0C
-; STAIRS2   0x1C
-; STAIRS3   0x00 - leaked value
+; WARP      0x1C => ROOM 001C
+; STAIRS0   0x0C => ROOM 000C
+; STAIRS1   0x0C => ROOM 000C
+; STAIRS2   0x1C => ROOM 001C
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room008C:
 #_04F8E5: db $20, $28, $0E, $13, $00, $16, $00, $28, $00, $1C, $0C, $0C, $1C
@@ -8400,11 +8400,11 @@ RoomHeader_Room008C:
 ; EFFECT2   0x29 - NW kill chest
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x13 - leaked value
-; WARP      0x0B - leaked value
-; STAIRS0   0x1C - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0B => ROOM 000B - leaked value
+; STAIRS0   0x1C => ROOM 001C - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room008D:
 #_04F8F2: db $00, $28, $0E, $13, $00, $33, $29
@@ -8419,11 +8419,11 @@ RoomHeader_Room008D:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xAE
-; STAIRS1   0x80 - leaked value
-; STAIRS2   0x12 - leaked value
-; STAIRS3   0x0C - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xAE => ROOM 00AE
+; STAIRS1   0x80 => ROOM 0080 - leaked value
+; STAIRS2   0x12 => ROOM 0012 - leaked value
+; STAIRS3   0x0C => ROOM 000C - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room008E:
 #_04F8F9: db $00, $13, $0B, $1C, $00, $00, $00, $00, $00, $00, $AE
@@ -8438,11 +8438,11 @@ RoomHeader_Room008E:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x11 - leaked value
-; WARP      0x0C - leaked value
-; STAIRS0   0x1C - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0C => ROOM 000C - leaked value
+; STAIRS0   0x1C => ROOM 001C - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room008F:
 RoomHeader_Room0090:
@@ -8458,11 +8458,11 @@ RoomHeader_Room0090:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xA0
-; STAIRS1   0x01 - leaked value
-; STAIRS2   0x11 - leaked value
-; STAIRS3   0x0C - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xA0 => ROOM 00A0
+; STAIRS1   0x01 => ROOM 0001 - leaked value
+; STAIRS2   0x11 => ROOM 0011 - leaked value
+; STAIRS3   0x0C => ROOM 000C - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0091:
 #_04F90B: db $00, $11, $0C, $1C, $00, $00, $00, $00, $00, $00, $A0
@@ -8477,11 +8477,11 @@ RoomHeader_Room0091:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x11 - leaked value
-; WARP      0x0C - leaked value
-; STAIRS0   0x1C - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x16 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0C => ROOM 000C - leaked value
+; STAIRS0   0x1C => ROOM 001C - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x16 => ROOM 0016 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0092:
 #_04F916: db $01, $11, $0C, $1C, $00, $00, $00
@@ -8496,11 +8496,11 @@ RoomHeader_Room0092:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x08
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xA2
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x25 - leaked value
-; STAIRS3   0x0E - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xA2 => ROOM 00A2
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x25 => ROOM 0025 - leaked value
+; STAIRS3   0x0E => ROOM 000E - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0093:
 #_04F91D: db $01, $11, $0C, $1C, $00, $16, $00, $08, $00, $00, $A2
@@ -8515,11 +8515,11 @@ RoomHeader_Room0093:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x25 - leaked value
-; WARP      0x0E - leaked value
-; STAIRS0   0x24 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x33 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0E => ROOM 000E - leaked value
+; STAIRS0   0x24 => ROOM 0024 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x33 => ROOM 0033 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0094:
 RoomHeader_Room0095:
@@ -8535,11 +8535,11 @@ RoomHeader_Room0095:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x3D
-; STAIRS1   0x68 - leaked value
-; STAIRS2   0x11 - leaked value
-; STAIRS3   0x0C - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x3D => ROOM 003D
+; STAIRS1   0x68 => ROOM 0068 - leaked value
+; STAIRS2   0x11 => ROOM 0011 - leaked value
+; STAIRS3   0x0C => ROOM 000C - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0096:
 #_04F92F: db $00, $25, $0E, $24, $00, $33, $00, $00, $00, $00, $3D
@@ -8554,11 +8554,11 @@ RoomHeader_Room0096:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xD1
-; STAIRS0   0xD1
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x11 - leaked value
-; STAIRS3   0x0C - leaked value
+; WARP      0xD1 => ROOM 00D1
+; STAIRS0   0xD1 => ROOM 00D1
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x11 => ROOM 0011 - leaked value
+; STAIRS3   0x0C => ROOM 000C - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0097:
 #_04F93A: db $68, $11, $0C, $1D, $00, $1C, $00, $00, $00, $D1, $D1
@@ -8573,11 +8573,11 @@ RoomHeader_Room0097:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xD2
-; STAIRS1   0x01 - leaked value
-; STAIRS2   0x0B - leaked value
-; STAIRS3   0x05 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xD2 => ROOM 00D2
+; STAIRS1   0x01 => ROOM 0001 - leaked value
+; STAIRS2   0x0B => ROOM 000B - leaked value
+; STAIRS3   0x05 => ROOM 0005 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0098:
 #_04F945: db $00, $11, $0C, $1C, $00, $00, $00, $00, $00, $00, $D2
@@ -8592,11 +8592,11 @@ RoomHeader_Room0098:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xDA
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x28 - leaked value
-; STAIRS3   0x0E - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xDA => ROOM 00DA
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x28 => ROOM 0028 - leaked value
+; STAIRS3   0x0E => ROOM 000E - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0099:
 #_04F950: db $01, $0B, $05, $08, $00, $00, $00, $00, $00, $00, $DA
@@ -8611,11 +8611,11 @@ RoomHeader_Room0099:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x7D
-; STAIRS0   0x00 - leaked value
-; STAIRS1   0x28 - leaked value
-; STAIRS2   0x0E - leaked value
-; STAIRS3   0x13 - leaked value
+; WARP      0x7D => ROOM 007D
+; STAIRS0   0x00 => ROOM 0000 - leaked value
+; STAIRS1   0x28 => ROOM 0028 - leaked value
+; STAIRS2   0x0E => ROOM 000E - leaked value
+; STAIRS3   0x13 => ROOM 0013 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room009A:
 RoomHeader_Room009B:
@@ -8631,11 +8631,11 @@ RoomHeader_Room009B:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x28 - leaked value
-; WARP      0x0E - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x06 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x3B - leaked value
+; WARP      0x0E => ROOM 000E - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x06 => ROOM 0006 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x3B => ROOM 003B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room009C:
 #_04F965: db $00, $28, $0E, $13, $06, $00, $00
@@ -8647,14 +8647,14 @@ RoomHeader_Room009C:
 ; SPRSET    0x13
 ; BGMOVE    0x06
 ; EFFECT1   0x00 - Nothing
-; EFFECT2   0x3B - Holes 8
+; EFFECT2   0x3B - Chest holes 8
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x7B
-; STAIRS0   0x20 - leaked value
-; STAIRS1   0x13 - leaked value
-; STAIRS2   0x0B - leaked value
-; STAIRS3   0x1C - leaked value
+; WARP      0x7B => ROOM 007B
+; STAIRS0   0x20 => ROOM 0020 - leaked value
+; STAIRS1   0x13 => ROOM 0013 - leaked value
+; STAIRS2   0x0B => ROOM 000B - leaked value
+; STAIRS3   0x1C => ROOM 001C - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room009D:
 #_04F96C: db $00, $28, $0E, $13, $06, $00, $3B, $00, $00, $7B
@@ -8669,11 +8669,11 @@ RoomHeader_Room009D:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xBE
-; STAIRS0   0xBE
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0xBE => ROOM 00BE
+; STAIRS0   0xBE => ROOM 00BE
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room009E:
 #_04F976: db $20, $13, $0B, $1C, $00, $00, $00, $00, $00, $BE, $BE
@@ -8688,11 +8688,11 @@ RoomHeader_Room009E:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x12 - leaked value
-; WARP      0x0C - leaked value
-; STAIRS0   0x1D - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0C => ROOM 000C - leaked value
+; STAIRS0   0x1D => ROOM 001D - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room009F:
 #_04F981: db $00, $13, $0B, $1C, $00, $17, $00
@@ -8707,11 +8707,11 @@ RoomHeader_Room009F:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x91
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x11 - leaked value
-; STAIRS3   0x0C - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x91 => ROOM 0091
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x11 => ROOM 0011 - leaked value
+; STAIRS3   0x0C => ROOM 000C - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00A0:
 #_04F988: db $00, $12, $0C, $1D, $00, $00, $00, $00, $00, $00, $91
@@ -8726,11 +8726,11 @@ RoomHeader_Room00A0:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x11 - leaked value
-; WARP      0x0C - leaked value
-; STAIRS0   0x1D - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0C => ROOM 000C - leaked value
+; STAIRS0   0x1D => ROOM 001D - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00A1:
 RoomHeader_Room00A3:
@@ -8746,11 +8746,11 @@ RoomHeader_Room00A3:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x93
-; STAIRS1   0x60 - leaked value
-; STAIRS2   0x19 - leaked value
-; STAIRS3   0x0D - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x93 => ROOM 0093
+; STAIRS1   0x60 => ROOM 0060 - leaked value
+; STAIRS2   0x19 => ROOM 0019 - leaked value
+; STAIRS3   0x0D => ROOM 000D - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00A2:
 #_04F99A: db $C0, $11, $0C, $1D, $00, $00, $00, $00, $00, $00, $93
@@ -8765,11 +8765,11 @@ RoomHeader_Room00A2:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x25 - leaked value
-; WARP      0x0E - leaked value
-; STAIRS0   0x24 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x07 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0E => ROOM 000E - leaked value
+; STAIRS0   0x24 => ROOM 0024 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x07 => ROOM 0007 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00A4:
 #_04F9A5: db $60, $19, $0D, $17, $04, $25, $00
@@ -8784,11 +8784,11 @@ RoomHeader_Room00A4:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x6C
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x25 - leaked value
-; STAIRS3   0x0E - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x6C => ROOM 006C
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x25 => ROOM 0025 - leaked value
+; STAIRS3   0x0E => ROOM 000E - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00A5:
 #_04F9AC: db $00, $25, $0E, $24, $00, $07, $00, $00, $00, $00, $6C
@@ -8803,11 +8803,11 @@ RoomHeader_Room00A5:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x4D
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x06 - leaked value
-; STAIRS3   0x05 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x4D => ROOM 004D
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x06 => ROOM 0006 - leaked value
+; STAIRS3   0x05 => ROOM 0005 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00A6:
 #_04F9B7: db $00, $25, $0E, $24, $00, $00, $00, $00, $00, $00, $4D
@@ -8822,11 +8822,11 @@ RoomHeader_Room00A6:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x17
-; STAIRS0   0xC0 - leaked value
-; STAIRS1   0x0B - leaked value
-; STAIRS2   0x05 - leaked value
-; STAIRS3   0x08 - leaked value
+; WARP      0x17 => ROOM 0017
+; STAIRS0   0xC0 => ROOM 00C0 - leaked value
+; STAIRS1   0x0B => ROOM 000B - leaked value
+; STAIRS2   0x05 => ROOM 0005 - leaked value
+; STAIRS3   0x08 => ROOM 0008 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00A7:
 #_04F9C2: db $00, $06, $05, $19, $00, $00, $00, $00, $00, $17
@@ -8841,11 +8841,11 @@ RoomHeader_Room00A7:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x0B - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x08 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x17 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x08 => ROOM 0008 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x17 => ROOM 0017 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00A8:
 #_04F9CC: db $C0, $0B, $05, $08, $00, $03, $00
@@ -8860,11 +8860,11 @@ RoomHeader_Room00A8:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x89
-; STAIRS0   0xC0 - leaked value
-; STAIRS1   0x0B - leaked value
-; STAIRS2   0x05 - leaked value
-; STAIRS3   0x08 - leaked value
+; WARP      0x89 => ROOM 0089
+; STAIRS0   0xC0 => ROOM 00C0 - leaked value
+; STAIRS1   0x0B => ROOM 000B - leaked value
+; STAIRS2   0x05 => ROOM 0005 - leaked value
+; STAIRS3   0x08 => ROOM 0008 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00A9:
 #_04F9D3: db $C0, $0B, $05, $08, $00, $17, $00, $00, $00, $89
@@ -8879,11 +8879,11 @@ RoomHeader_Room00A9:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x17 - leaked value
-; WARP      0x0A - leaked value
-; STAIRS0   0x1B - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0A => ROOM 000A - leaked value
+; STAIRS0   0x1B => ROOM 001B - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00AA:
 #_04F9DD: db $C0, $0B, $05, $08, $00, $17, $00
@@ -8898,11 +8898,11 @@ RoomHeader_Room00AA:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x64
-; STAIRS1   0xE0 - leaked value
-; STAIRS2   0x17 - leaked value
-; STAIRS3   0x0A - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x64 => ROOM 0064
+; STAIRS1   0xE0 => ROOM 00E0 - leaked value
+; STAIRS2   0x17 => ROOM 0017 - leaked value
+; STAIRS3   0x0A => ROOM 000A - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00AB:
 #_04F9E4: db $00, $17, $0A, $1B, $00, $00, $00, $00, $00, $00, $64
@@ -8917,11 +8917,11 @@ RoomHeader_Room00AB:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x13 - leaked value
-; WARP      0x0B - leaked value
-; STAIRS0   0x1C - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x27 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0B => ROOM 000B - leaked value
+; STAIRS0   0x1C => ROOM 001C - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x27 => ROOM 0027 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00AC:
 #_04F9EF: db $E0, $17, $0A, $20, $00, $25, $00
@@ -8936,11 +8936,11 @@ RoomHeader_Room00AC:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x8E
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x8E => ROOM 008E
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00AD:
 RoomHeader_Room00AE:
@@ -8956,11 +8956,11 @@ RoomHeader_Room00AE:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x26 - leaked value
-; WARP      0x02 - leaked value
-; STAIRS0   0x21 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x05 - leaked value
-; STAIRS3   0x02 - leaked value
+; WARP      0x02 => ROOM 0002 - leaked value
+; STAIRS0   0x21 => ROOM 0021 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x05 => ROOM 0005 - leaked value
+; STAIRS3   0x02 => ROOM 0002 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00AF:
 #_04FA01: db $00, $13, $0B, $1C, $00, $00, $00
@@ -8975,11 +8975,11 @@ RoomHeader_Room00AF:
 ; EFFECT2   0x02 - NE kill door
 ; PLANES1   0x08
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x40
-; STAIRS1   0xC0
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x11 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x40 => ROOM 0040
+; STAIRS1   0xC0 => ROOM 00C0
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x11 => ROOM 0011 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00B0:
 #_04FA08: db $00, $26, $02, $21, $00, $05, $02, $08, $00, $00, $40, $C0
@@ -8994,11 +8994,11 @@ RoomHeader_Room00B0:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x02
 ; PLANES2   0x00
-; WARP      0xB2
-; STAIRS0   0xC0 - leaked value
-; STAIRS1   0x11 - leaked value
-; STAIRS2   0x0C - leaked value
-; STAIRS3   0x1D - leaked value
+; WARP      0xB2 => ROOM 00B2
+; STAIRS0   0xC0 => ROOM 00C0 - leaked value
+; STAIRS1   0x11 => ROOM 0011 - leaked value
+; STAIRS2   0x0C => ROOM 000C - leaked value
+; STAIRS3   0x1D => ROOM 001D - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00B1:
 #_04FA14: db $00, $11, $0C, $1D, $00, $00, $00, $02, $00, $B2
@@ -9013,11 +9013,11 @@ RoomHeader_Room00B1:
 ; EFFECT2   0x0E - SE block door
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x11 - leaked value
-; WARP      0x0C - leaked value
-; STAIRS0   0x1D - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x27 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0C => ROOM 000C - leaked value
+; STAIRS0   0x1D => ROOM 001D - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x27 => ROOM 0027 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00B2:
 #_04FA1E: db $C0, $11, $0C, $1D, $00, $03, $0E
@@ -9032,11 +9032,11 @@ RoomHeader_Room00B2:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x19 - leaked value
-; WARP      0x0D - leaked value
-; STAIRS0   0x17 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0D => ROOM 000D - leaked value
+; STAIRS0   0x17 => ROOM 0017 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00B3:
 #_04FA25: db $C0, $11, $0C, $1D, $00, $27, $00
@@ -9051,11 +9051,11 @@ RoomHeader_Room00B3:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xC4
-; STAIRS1   0x01 - leaked value
-; STAIRS2   0x18 - leaked value
-; STAIRS3   0x0D - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xC4 => ROOM 00C4
+; STAIRS1   0x01 => ROOM 0001 - leaked value
+; STAIRS2   0x18 => ROOM 0018 - leaked value
+; STAIRS3   0x0D => ROOM 000D - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00B4:
 #_04FA2C: db $00, $19, $0D, $17, $00, $00, $00, $00, $00, $00, $C4
@@ -9070,11 +9070,11 @@ RoomHeader_Room00B4:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x04
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x18 - leaked value
-; STAIRS3   0x0D - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x04 => ROOM 0004
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x18 => ROOM 0018 - leaked value
+; STAIRS3   0x0D => ROOM 000D - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00B5:
 #_04FA37: db $01, $18, $0D, $25, $00, $17, $00, $00, $00, $00, $04
@@ -9089,11 +9089,11 @@ RoomHeader_Room00B5:
 ; EFFECT2   0x3C - Push block chest
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x15
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x0B - leaked value
-; STAIRS3   0x05 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x15 => ROOM 0015
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x0B => ROOM 000B - leaked value
+; STAIRS3   0x05 => ROOM 0005 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00B6:
 #_04FA42: db $00, $18, $0D, $1E, $00, $04, $3C, $00, $00, $00, $15
@@ -9108,11 +9108,11 @@ RoomHeader_Room00B6:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x0B - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x08 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x08 => ROOM 0008 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00B8:
 #_04FA4D: db $00, $0B, $05, $08, $00, $27, $00
@@ -9127,11 +9127,11 @@ RoomHeader_Room00B8:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x0B - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x08 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x17 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x08 => ROOM 0008 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x17 => ROOM 0017 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00B9:
 #_04FA54: db $C0, $0B, $05, $08, $00, $00, $00
@@ -9146,11 +9146,11 @@ RoomHeader_Room00B9:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x40 - leaked value
 ; PLANES2   0x17 - leaked value
-; WARP      0x0A - leaked value
-; STAIRS0   0x1B - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0A => ROOM 000A - leaked value
+; STAIRS0   0x1B => ROOM 001B - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00BA:
 #_04FA5B: db $01, $0B, $05, $08, $00, $17, $00
@@ -9165,11 +9165,11 @@ RoomHeader_Room00BA:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x17 - leaked value
-; WARP      0x0A - leaked value
-; STAIRS0   0x1B - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x17 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0A => ROOM 000A - leaked value
+; STAIRS0   0x1B => ROOM 001B - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x17 => ROOM 0017 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00BB:
 #_04FA62: db $40, $17, $0A, $1B, $00, $00, $00
@@ -9184,11 +9184,11 @@ RoomHeader_Room00BB:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x45
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x45 => ROOM 0045
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00BC:
 #_04FA69: db $00, $17, $0A, $1B, $00, $17, $00, $00, $00, $00, $45
@@ -9203,11 +9203,11 @@ RoomHeader_Room00BC:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x4F
-; STAIRS0   0x9E
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x13 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x4F => ROOM 004F
+; STAIRS0   0x9E => ROOM 009E
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x13 => ROOM 0013 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00BD:
 RoomHeader_Room00BE:
@@ -9223,11 +9223,11 @@ RoomHeader_Room00BE:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x00 - leaked value
-; WARP      0x02 - leaked value
-; STAIRS0   0x27 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x02 - leaked value
-; STAIRS3   0x0F - leaked value
+; WARP      0x02 => ROOM 0002 - leaked value
+; STAIRS0   0x27 => ROOM 0027 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x02 => ROOM 0002 - leaked value
+; STAIRS3   0x0F => ROOM 000F - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00BF:
 #_04FA7F: db $00, $13, $0B, $29, $00, $00, $00
@@ -9242,11 +9242,11 @@ RoomHeader_Room00BF:
 ; EFFECT2   0x0F - W block door
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xB0
-; STAIRS1   0xD0
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x11 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xB0 => ROOM 00B0
+; STAIRS1   0xD0 => ROOM 00D0
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x11 => ROOM 0011 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00C0:
 #_04FA86: db $01, $00, $02, $27, $00, $02, $0F, $00, $00, $00, $B0, $D0
@@ -9261,11 +9261,11 @@ RoomHeader_Room00C0:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x11 - leaked value
-; WARP      0x0C - leaked value
-; STAIRS0   0x1D - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x27 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0C => ROOM 000C - leaked value
+; STAIRS0   0x1D => ROOM 001D - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x27 => ROOM 0027 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00C1:
 #_04FA92: db $00, $11, $0C, $1D, $00, $33, $00
@@ -9280,11 +9280,11 @@ RoomHeader_Room00C1:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x11 - leaked value
-; WARP      0x0C - leaked value
-; STAIRS0   0x1D - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0C => ROOM 000C - leaked value
+; STAIRS0   0x1D => ROOM 001D - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00C2:
 #_04FA99: db $C0, $11, $0C, $1D, $00, $27, $00
@@ -9299,11 +9299,11 @@ RoomHeader_Room00C2:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x18 - leaked value
-; WARP      0x0D - leaked value
-; STAIRS0   0x25 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0D => ROOM 000D - leaked value
+; STAIRS0   0x25 => ROOM 0025 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00C3:
 #_04FAA0: db $C0, $11, $0C, $1D, $00, $00, $00
@@ -9318,11 +9318,11 @@ RoomHeader_Room00C3:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xB4
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x18 - leaked value
-; STAIRS3   0x0D - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xB4 => ROOM 00B4
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x18 => ROOM 0018 - leaked value
+; STAIRS3   0x0D => ROOM 000D - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00C4:
 #_04FAA7: db $00, $18, $0D, $25, $00, $00, $00, $00, $00, $00, $B4
@@ -9337,11 +9337,11 @@ RoomHeader_Room00C4:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x18 - leaked value
-; WARP      0x0D - leaked value
-; STAIRS0   0x1E - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x33 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0D => ROOM 000D - leaked value
+; STAIRS0   0x1E => ROOM 001E - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x33 => ROOM 0033 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00C5:
 RoomHeader_Room00D5:
@@ -9357,11 +9357,11 @@ RoomHeader_Room00D5:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0B - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x09 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x15 - leaked value
-; STAIRS3   0x25 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x09 => ROOM 0009 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x15 => ROOM 0015 - leaked value
+; STAIRS3   0x25 => ROOM 0025 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00C7:
 #_04FAB9: db $00, $18, $0D, $1E, $00, $33, $00
@@ -9376,11 +9376,11 @@ RoomHeader_Room00C7:
 ; EFFECT2   0x25 - Dungeon prize
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0B - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x08 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x17 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x08 => ROOM 0008 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x17 => ROOM 0017 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00C8:
 #_04FAC0: db $00, $0B, $05, $09, $00, $15, $25
@@ -9395,11 +9395,11 @@ RoomHeader_Room00C8:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x17 - leaked value
-; WARP      0x0A - leaked value
-; STAIRS0   0x1B - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0A => ROOM 000A - leaked value
+; STAIRS0   0x1B => ROOM 001B - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00C9:
 #_04FAC7: db $00, $0B, $05, $08, $00, $17, $00
@@ -9414,11 +9414,11 @@ RoomHeader_Room00C9:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x20 - leaked value
 ; PLANES2   0x13 - leaked value
-; WARP      0x0B - leaked value
-; STAIRS0   0x29 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x14 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0B => ROOM 000B - leaked value
+; STAIRS0   0x29 => ROOM 0029 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x14 => ROOM 0014 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00CA:
 RoomHeader_Room00CB:
@@ -9437,11 +9437,11 @@ RoomHeader_Room00DC:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xDE
-; STAIRS0   0x01 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x02 - leaked value
-; STAIRS3   0x21 - leaked value
+; WARP      0xDE => ROOM 00DE
+; STAIRS0   0x01 => ROOM 0001 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x02 => ROOM 0002 - leaked value
+; STAIRS3   0x21 => ROOM 0021 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00CD:
 RoomHeader_Room00CE:
@@ -9457,11 +9457,11 @@ RoomHeader_Room00CE:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xC0
-; STAIRS1   0xE0
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x11 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xC0 => ROOM 00C0
+; STAIRS1   0xE0 => ROOM 00E0
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x11 => ROOM 0011 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00CF:
 RoomHeader_Room00D0:
@@ -9477,11 +9477,11 @@ RoomHeader_Room00D0:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xB1
-; STAIRS0   0x97
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x11 - leaked value
-; STAIRS3   0x0C - leaked value
+; WARP      0xB1 => ROOM 00B1
+; STAIRS0   0x97 => ROOM 0097
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x11 => ROOM 0011 - leaked value
+; STAIRS3   0x0C => ROOM 000C - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00D1:
 #_04FAEB: db $00, $11, $0C, $1D, $00, $00, $00, $00, $00, $B1, $97
@@ -9496,11 +9496,11 @@ RoomHeader_Room00D1:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x98
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x0B - leaked value
-; STAIRS3   0x05 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x98 => ROOM 0098
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x0B => ROOM 000B - leaked value
+; STAIRS3   0x05 => ROOM 0005 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00D2:
 #_04FAF6: db $00, $11, $0C, $1D, $00, $0A, $00, $00, $00, $00, $98
@@ -9515,11 +9515,11 @@ RoomHeader_Room00D2:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0B - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x08 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x17 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x08 => ROOM 0008 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x17 => ROOM 0017 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00D3:
 RoomHeader_Room00D4:
@@ -9537,11 +9537,11 @@ RoomHeader_Room00D8:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0B - leaked value
-; WARP      0x05 - leaked value
-; STAIRS0   0x08 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x17 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x05 => ROOM 0005 - leaked value
+; STAIRS0   0x08 => ROOM 0008 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x17 => ROOM 0017 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00D9:
 #_04FB08: db $00, $0B, $05, $08, $00, $17, $00
@@ -9556,11 +9556,11 @@ RoomHeader_Room00D9:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x99
-; STAIRS1   0xE0 - leaked value
-; STAIRS2   0x14 - leaked value
-; STAIRS3   0x0B - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0x99 => ROOM 0099
+; STAIRS1   0xE0 => ROOM 00E0 - leaked value
+; STAIRS2   0x14 => ROOM 0014 - leaked value
+; STAIRS3   0x0B => ROOM 000B - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00DA:
 #_04FB0F: db $00, $0B, $05, $08, $00, $17, $00, $00, $00, $00, $99
@@ -9575,11 +9575,11 @@ RoomHeader_Room00DA:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x20 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0006 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00DD:
 RoomHeader_Room00DE:
@@ -9595,11 +9595,11 @@ RoomHeader_Room00DE:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xEF
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x26 - leaked value
-; STAIRS3   0x02 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xEF => ROOM 00EF
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x26 => ROOM 0026 - leaked value
+; STAIRS3   0x02 => ROOM 0002 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00DF:
 #_04FB21: db $C0, $20, $06, $13, $00, $00, $00, $00, $00, $00, $EF
@@ -9614,11 +9614,11 @@ RoomHeader_Room00DF:
 ; EFFECT2   0x2A - NE kill chest
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xD0
-; STAIRS1   0xC0 - leaked value
-; STAIRS2   0x07 - leaked value
-; STAIRS3   0x06 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xD0 => ROOM 00D0
+; STAIRS1   0xC0 => ROOM 00C0 - leaked value
+; STAIRS2   0x07 => ROOM 0007 - leaked value
+; STAIRS3   0x06 => ROOM 0006 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00E0:
 #_04FB2C: db $00, $26, $02, $21, $00, $01, $2A, $00, $00, $00, $D0
@@ -9633,11 +9633,11 @@ RoomHeader_Room00E0:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x20 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0006 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00E1:
 #_04FB37: db $C0, $07, $06, $28, $00, $00, $00
@@ -9652,11 +9652,11 @@ RoomHeader_Room00E1:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x20 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x09 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0006 - leaked value
+; STAIRS0   0x09 => ROOM 0009 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00E2:
 #_04FB3E: db $00, $20, $06, $13, $00, $00, $00
@@ -9671,11 +9671,11 @@ RoomHeader_Room00E2:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x14 - leaked value
-; STAIRS0   0x01 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x14 => ROOM 0014 - leaked value
+; STAIRS0   0x01 => ROOM 0001 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00E3:
 #_04FB45: db $C0, $20, $06, $09, $00, $00, $00
@@ -9690,11 +9690,11 @@ RoomHeader_Room00E3:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x01 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0006 - leaked value
+; STAIRS0   0x01 => ROOM 0001 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00E4:
 RoomHeader_Room00E5:
@@ -9710,11 +9710,11 @@ RoomHeader_Room00E5:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x20 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0006 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00E6:
 RoomHeader_Room00E7:
@@ -9732,11 +9732,11 @@ RoomHeader_Room00F1:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xF8
-; STAIRS0   0xF8
-; STAIRS1   0xF8
-; STAIRS2   0xF8
-; STAIRS3   0xF8
+; WARP      0xF8 => ROOM 00F8
+; STAIRS0   0xF8 => ROOM 00F8
+; STAIRS1   0xF8 => ROOM 00F8
+; STAIRS2   0xF8 => ROOM 00F8
+; STAIRS3   0xF8 => ROOM 00F8
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00E8:
 #_04FB5A: db $20, $07, $06, $13, $00, $00, $00, $00, $00, $F8, $F8, $F8, $F8, $F8
@@ -9751,11 +9751,11 @@ RoomHeader_Room00E8:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xFA
-; STAIRS0   0xFA
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x07 - leaked value
-; STAIRS3   0x06 - leaked value
+; WARP      0xFA => ROOM 00FA
+; STAIRS0   0xFA => ROOM 00FA
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x07 => ROOM 0007 - leaked value
+; STAIRS3   0x06 => ROOM 0006 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00E9:
 RoomHeader_Room00EA:
@@ -9771,11 +9771,11 @@ RoomHeader_Room00EA:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xFB
-; STAIRS0   0xFB
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x20 - leaked value
-; STAIRS3   0x06 - leaked value
+; WARP      0xFB => ROOM 00FB
+; STAIRS0   0xFB => ROOM 00FB
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x20 => ROOM 0020 - leaked value
+; STAIRS3   0x06 => ROOM 0006 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00EB:
 #_04FB73: db $20, $07, $06, $19, $00, $00, $00, $00, $00, $FB, $FB
@@ -9790,11 +9790,11 @@ RoomHeader_Room00EB:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xFD
-; STAIRS0   0xFD
-; STAIRS1   0xFD
-; STAIRS2   0x20 - leaked value
-; STAIRS3   0x20 - leaked value
+; WARP      0xFD => ROOM 00FD
+; STAIRS0   0xFD => ROOM 00FD
+; STAIRS1   0xFD => ROOM 00FD
+; STAIRS2   0x20 => ROOM 0020 - leaked value
+; STAIRS3   0x20 => ROOM 0020 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00EC:
 RoomHeader_Room00ED:
@@ -9810,11 +9810,11 @@ RoomHeader_Room00ED:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0xFE
-; STAIRS0   0x20 - leaked value
-; STAIRS1   0x20 - leaked value
-; STAIRS2   0x06 - leaked value
-; STAIRS3   0x13 - leaked value
+; WARP      0xFE => ROOM 00FE
+; STAIRS0   0x20 => ROOM 0020 - leaked value
+; STAIRS1   0x20 => ROOM 0020 - leaked value
+; STAIRS2   0x06 => ROOM 0006 - leaked value
+; STAIRS3   0x13 => ROOM 0013 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00EE:
 #_04FB8A: db $20, $20, $06, $13, $00, $00, $00, $00, $00, $FE
@@ -9829,11 +9829,11 @@ RoomHeader_Room00EE:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x08
 ; PLANES2   0x00
-; WARP      0xFF
-; STAIRS0   0xDF
-; STAIRS1   0xFF
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x02 - leaked value
+; WARP      0xFF => ROOM 00FF
+; STAIRS0   0xDF => ROOM 00DF
+; STAIRS1   0xFF => ROOM 00FF
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x02 => ROOM 0002 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00EF:
 #_04FB94: db $20, $20, $06, $13, $00, $02, $00, $08, $00, $FF, $DF, $FF
@@ -9845,14 +9845,14 @@ RoomHeader_Room00EF:
 ; SPRSET    0x05
 ; BGMOVE    0x00
 ; EFFECT1   0x00 - Nothing - leaked value
-; EFFECT2   0x02 - leaked value
+; EFFECT2   0x02 - NE kill door - leaked value
 ; PLANES1   0x03 - leaked value
 ; PLANES2   0x0F - leaked value
-; WARP      0x00 - leaked value
-; STAIRS0   0x00 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x07 - leaked value
+; WARP      0x00 => ROOM 0000 - leaked value
+; STAIRS0   0x00 => ROOM 0000 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x07 => ROOM 0007 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00F2:
 RoomHeader_Room00F3:
@@ -9868,11 +9868,11 @@ RoomHeader_Room00F3:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0006 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00F4:
 RoomHeader_Room00F5:
@@ -9888,11 +9888,11 @@ RoomHeader_Room00F5:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xE8
-; STAIRS1   0xE8
-; STAIRS2   0xE8
-; STAIRS3   0xE8
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xE8 => ROOM 00E8
+; STAIRS1   0xE8 => ROOM 00E8
+; STAIRS2   0xE8 => ROOM 00E8
+; STAIRS3   0xE8 => ROOM 00E8
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00F6:
 RoomHeader_Room00F7:
@@ -9909,11 +9909,11 @@ RoomHeader_Room00F8:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x20 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0006 - leaked value
+; STAIRS0   0x13 => ROOM 0013 - leaked value
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x00 => ROOM 0000 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00F9:
 RoomHeader_Room00FE:
@@ -9929,11 +9929,11 @@ RoomHeader_Room00FE:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xEA
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x07 - leaked value
-; STAIRS3   0x06 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xEA => ROOM 00EA
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x07 => ROOM 0007 - leaked value
+; STAIRS3   0x06 => ROOM 0006 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00FA:
 #_04FBC1: db $C0, $20, $06, $13, $00, $00, $00, $00, $00, $00, $EA
@@ -9948,11 +9948,11 @@ RoomHeader_Room00FA:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xEB
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x20 - leaked value
-; STAIRS3   0x06 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xEB => ROOM 00EB
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x20 => ROOM 0020 - leaked value
+; STAIRS3   0x06 => ROOM 0006 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00FB:
 
@@ -9967,11 +9967,11 @@ RoomHeader_Room00FB:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xED
-; STAIRS1   0xED
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x07 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xED => ROOM 00ED
+; STAIRS1   0xED => ROOM 00ED
+; STAIRS2   0x00 => ROOM 0000 - leaked value
+; STAIRS3   0x07 => ROOM 0007 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00FC:
 RoomHeader_Room00FD:
@@ -9987,11 +9987,11 @@ RoomHeader_Room00FD:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0xEF
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x05 - leaked value
-; STAIRS3   0x03 - leaked value
+; WARP      0x00 => ROOM 0000
+; STAIRS0   0xEF => ROOM 00EF
+; STAIRS1   0x00 => ROOM 0000 - leaked value
+; STAIRS2   0x05 => ROOM 0005 - leaked value
+; STAIRS3   0x03 => ROOM 0003 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room00FF:
 #_04FBE3: db $00, $07, $06, $05, $00, $00, $00, $00, $00, $00, $EF
@@ -10006,11 +10006,11 @@ RoomHeader_Room00FF:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x1F - leaked value
-; WARP      0x03 - leaked value
-; STAIRS0   0x05 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x03 => ROOM 0103 - leaked value
+; STAIRS0   0x05 => ROOM 0105 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0100:
 #_04FBEE: db $00, $05, $03, $28, $00, $00, $00
@@ -10025,11 +10025,11 @@ RoomHeader_Room0100:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x02 - leaked value
-; WARP      0x03 - leaked value
-; STAIRS0   0x0F - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x03 => ROOM 0103 - leaked value
+; STAIRS0   0x0F => ROOM 010F - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room010F:
 RoomHeader_Room0110:
@@ -10046,11 +10046,11 @@ RoomHeader_Room011C:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x15 - leaked value
-; WARP      0x03 - leaked value
-; STAIRS0   0x0D - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x03 => ROOM 0103 - leaked value
+; STAIRS0   0x0D => ROOM 010D - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0101:
 #_04FBFC: db $00, $02, $03, $0F, $00, $00, $00
@@ -10065,11 +10065,11 @@ RoomHeader_Room0101:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x05 - leaked value
-; WARP      0x03 - leaked value
-; STAIRS0   0x0F - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x03 => ROOM 0103 - leaked value
+; STAIRS0   0x0F => ROOM 010F - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0102:
 #_04FC03: db $00, $15, $03, $0D, $00, $00, $00
@@ -10084,11 +10084,11 @@ RoomHeader_Room0102:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x15 - leaked value
-; WARP      0x03 - leaked value
-; STAIRS0   0x0D - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x03 => ROOM 0103 - leaked value
+; STAIRS0   0x0D => ROOM 010D - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0103:
 RoomHeader_Room0118:
@@ -10104,11 +10104,11 @@ RoomHeader_Room0118:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x1C - leaked value
-; WARP      0x0F - leaked value
-; STAIRS0   0x10 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0F => ROOM 010F - leaked value
+; STAIRS0   0x10 => ROOM 0110 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0104:
 #_04FC11: db $01, $15, $03, $0D, $00, $00, $00
@@ -10123,11 +10123,11 @@ RoomHeader_Room0104:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x1F - leaked value
-; WARP      0x03 - leaked value
-; STAIRS0   0x0F - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x03 => ROOM 0103 - leaked value
+; STAIRS0   0x0F => ROOM 010F - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0105:
 #_04FC18: db $00, $1C, $0F, $10, $00, $00, $00
@@ -10142,11 +10142,11 @@ RoomHeader_Room0105:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x02 - leaked value
-; WARP      0x03 - leaked value
-; STAIRS0   0x01 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x03 => ROOM 0103 - leaked value
+; STAIRS0   0x01 => ROOM 0101 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0106:
 #_04FC1F: db $00, $1F, $03, $0F, $00, $00, $00
@@ -10161,11 +10161,11 @@ RoomHeader_Room0106:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x02 - leaked value
-; WARP      0x03 - leaked value
-; STAIRS0   0x0E - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x03 => ROOM 0103 - leaked value
+; STAIRS0   0x0E => ROOM 010E - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0107:
 #_04FC26: db $00, $02, $03, $01, $00, $00, $00
@@ -10180,11 +10180,11 @@ RoomHeader_Room0107:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x05 - leaked value
-; WARP      0x03 - leaked value
-; STAIRS0   0x05 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x03 => ROOM 0103 - leaked value
+; STAIRS0   0x05 => ROOM 0105 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0108:
 #_04FC2D: db $00, $02, $03, $0E, $00, $00, $00
@@ -10199,11 +10199,11 @@ RoomHeader_Room0108:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x01 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x10 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0106 - leaked value
+; STAIRS0   0x10 => ROOM 0110 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0109:
 #_04FC34: db $01, $05, $03, $05, $00, $00, $00
@@ -10218,11 +10218,11 @@ RoomHeader_Room0109:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x80 - leaked value
 ; PLANES2   0x0A - leaked value
-; WARP      0x08 - leaked value
-; STAIRS0   0x08 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x1A - leaked value
+; WARP      0x08 => ROOM 0108 - leaked value
+; STAIRS0   0x08 => ROOM 0108 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x1A => ROOM 011A - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room010A:
 #_04FC3B: db $01, $07, $06, $10, $00, $00, $00
@@ -10237,11 +10237,11 @@ RoomHeader_Room010A:
 ; EFFECT2   0x1A - Water gate
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x27 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x08 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x03 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0106 - leaked value
+; STAIRS0   0x08 => ROOM 0108 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x03 => ROOM 0103 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room010B:
 #_04FC42: db $80, $0A, $08, $08, $00, $00, $1A
@@ -10256,11 +10256,11 @@ RoomHeader_Room010B:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x0A - leaked value
-; WARP      0x08 - leaked value
-; STAIRS0   0x11 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x08 => ROOM 0108 - leaked value
+; STAIRS0   0x11 => ROOM 0111 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room010C:
 #_04FC49: db $00, $27, $06, $08, $00, $03, $00
@@ -10275,11 +10275,11 @@ RoomHeader_Room010C:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x14 - leaked value
-; STAIRS0   0x05 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x14 => ROOM 0114 - leaked value
+; STAIRS0   0x05 => ROOM 0105 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room010D:
 #_04FC50: db $00, $0A, $08, $11, $00, $00, $00
@@ -10294,11 +10294,11 @@ RoomHeader_Room010D:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x1E - leaked value
-; WARP      0x11 - leaked value
-; STAIRS0   0x05 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x11 => ROOM 0111 - leaked value
+; STAIRS0   0x05 => ROOM 0105 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room010E:
 #_04FC57: db $00, $07, $14, $05, $00, $00, $00
@@ -10313,11 +10313,11 @@ RoomHeader_Room010E:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x14 - leaked value
-; STAIRS0   0x05 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x14 => ROOM 0114 - leaked value
+; STAIRS0   0x05 => ROOM 0105 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0111:
 RoomHeader_Room0121:
@@ -10334,11 +10334,11 @@ RoomHeader_Room0122:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x03 - leaked value
-; WARP      0x10 - leaked value
-; STAIRS0   0x08 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x10 => ROOM 0110 - leaked value
+; STAIRS0   0x08 => ROOM 0108 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0112:
 #_04FC65: db $00, $07, $14, $05, $00, $00, $00
@@ -10353,11 +10353,11 @@ RoomHeader_Room0112:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x07 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0106 - leaked value
+; STAIRS0   0x07 => ROOM 0107 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0113:
 #_04FC6C: db $00, $03, $10, $08, $00, $00, $00
@@ -10372,11 +10372,11 @@ RoomHeader_Room0113:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x22 - leaked value
-; WARP      0x12 - leaked value
-; STAIRS0   0x07 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x12 => ROOM 0112 - leaked value
+; STAIRS0   0x07 => ROOM 0107 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0018:
 RoomHeader_Room002C:
@@ -10394,11 +10394,11 @@ RoomHeader_Room0115:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x20 - leaked value
-; WARP      0x14 - leaked value
-; STAIRS0   0x05 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x14 => ROOM 0114 - leaked value
+; STAIRS0   0x05 => ROOM 0105 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0116:
 #_04FC7A: db $00, $22, $12, $07, $00, $00, $00
@@ -10413,11 +10413,11 @@ RoomHeader_Room0116:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xE0 - leaked value
 ; PLANES2   0x23 - leaked value
-; WARP      0x0A - leaked value
-; STAIRS0   0x0F - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0A => ROOM 010A - leaked value
+; STAIRS0   0x0F => ROOM 010F - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0117:
 #_04FC81: db $00, $20, $14, $05, $00, $00, $00
@@ -10432,11 +10432,11 @@ RoomHeader_Room0117:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x1D
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x1C - leaked value
-; STAIRS3   0x0F - leaked value
+; WARP      0x00 => ROOM 0100
+; STAIRS0   0x1D => ROOM 011D
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x1C => ROOM 011C - leaked value
+; STAIRS3   0x0F => ROOM 010F - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0119:
 #_04FC88: db $E0, $23, $0A, $0F, $00, $00, $00, $00, $00, $00, $1D
@@ -10451,11 +10451,11 @@ RoomHeader_Room0119:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xC0 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x08 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0106 - leaked value
+; STAIRS0   0x08 => ROOM 0108 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room011A:
 #_04FC93: db $00, $1C, $0F, $05, $00, $00, $00
@@ -10470,11 +10470,11 @@ RoomHeader_Room011A:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x23 - leaked value
-; WARP      0x0A - leaked value
-; STAIRS0   0x0F - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x0A => ROOM 010A - leaked value
+; STAIRS0   0x0F => ROOM 010F - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room011B:
 #_04FC9A: db $C0, $07, $06, $08, $00, $00, $00
@@ -10489,11 +10489,11 @@ RoomHeader_Room011B:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00
 ; PLANES2   0x00
-; WARP      0x00
-; STAIRS0   0x19
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x20 - leaked value
-; STAIRS3   0x06 - leaked value
+; WARP      0x00 => ROOM 0100
+; STAIRS0   0x19 => ROOM 0119
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x20 => ROOM 0120 - leaked value
+; STAIRS3   0x06 => ROOM 0106 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room011D:
 #_04FCA1: db $00, $23, $0A, $0F, $00, $00, $00, $00, $00, $00, $19
@@ -10508,11 +10508,11 @@ RoomHeader_Room011D:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x05 - leaked value
-; WARP      0x03 - leaked value
-; STAIRS0   0x05 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x03 => ROOM 0103 - leaked value
+; STAIRS0   0x05 => ROOM 0105 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room011E:
 RoomHeader_Room0127:
@@ -10528,11 +10528,11 @@ RoomHeader_Room0127:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x13 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x13 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0106 - leaked value
+; STAIRS0   0x13 => ROOM 0113 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room011F:
 #_04FCB3: db $00, $05, $03, $05, $00, $00, $00
@@ -10547,11 +10547,11 @@ RoomHeader_Room011F:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x28 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x03 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0106 - leaked value
+; STAIRS0   0x28 => ROOM 0128 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x03 => ROOM 0103 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0120:
 #_04FCBA: db $00, $13, $06, $13, $00, $00, $00
@@ -10566,11 +10566,11 @@ RoomHeader_Room0120:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0x00 - leaked value
 ; PLANES2   0x07 - leaked value
-; WARP      0x06 - leaked value
-; STAIRS0   0x28 - leaked value
-; STAIRS1   0x00 - leaked value
-; STAIRS2   0x00 - leaked value
-; STAIRS3   0x00 - leaked value
+; WARP      0x06 => ROOM 0106 - leaked value
+; STAIRS0   0x28 => ROOM 0128 - leaked value
+; STAIRS1   0x00 => ROOM 0100 - leaked value
+; STAIRS2   0x00 => ROOM 0100 - leaked value
+; STAIRS3   0x00 => ROOM 0100 - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0123:
 #_04FCC1: db $00, $07, $06, $28, $00, $03, $00
@@ -10585,11 +10585,11 @@ RoomHeader_Room0123:
 ; EFFECT2   0x00 - Nothing
 ; PLANES1   0xFF - leaked value
 ; PLANES2   0xFF - leaked value
-; WARP      0xFF - leaked value
-; STAIRS0   0xFF - leaked value
-; STAIRS1   0xFF - leaked value
-; STAIRS2   0xFF - leaked value
-; STAIRS3   0xFF - leaked value
+; WARP      0xFF => ROOM 01FF - leaked value
+; STAIRS0   0xFF => ROOM 01FF - leaked value
+; STAIRS1   0xFF => ROOM 01FF - leaked value
+; STAIRS2   0xFF => ROOM 01FF - leaked value
+; STAIRS3   0xFF => ROOM 01FF - leaked value
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0124:
 RoomHeader_Room0125:
@@ -10606,11 +10606,11 @@ RoomHeader_Room0126:
 ; EFFECT2   0xFF
 ; PLANES1   0xFF
 ; PLANES2   0xFF
-; WARP      0xFF
-; STAIRS0   0xFF
-; STAIRS1   0xFF
-; STAIRS2   0xFF
-; STAIRS3   0xFF
+; WARP      0xFF => ROOM 01FF
+; STAIRS0   0xFF => ROOM 01FF
+; STAIRS1   0xFF => ROOM 01FF
+; STAIRS2   0xFF => ROOM 01FF
+; STAIRS3   0xFF => ROOM 01FF
 ;---------------------------------------------------------------------------------------------------
 RoomHeader_Room0128:
 RoomHeader_Room0129:
@@ -10652,510 +10652,510 @@ NULL_04FCDD:
 ;===================================================================================================
 
 EnemyDamageCompressed:
-#_04FCE0: db $22 ; Byte Fill
+#_04FCE0: db $22 ; Repeat byte
 #_04FCE1: db $11
-#_04FCE2: db $03 ; Direct Copy
+#_04FCE2: db $03 ; Raw block
 #_04FCE3: db $12, $11, $03, $13
-#_04FCE7: db $23 ; Byte Fill
+#_04FCE7: db $23 ; Repeat byte
 #_04FCE8: db $11
-#_04FCE9: db $83 ; Repeat Fill
-#_04FCEA: db $00, $03 ; Repeat Fill bytes
-#_04FCEC: db $23 ; Byte Fill
+#_04FCE9: db $83 ; Copy past
+#_04FCEA: dw $0300
+#_04FCEC: db $23 ; Repeat byte
 #_04FCED: db $11
-#_04FCEE: db $E4, $2C ; EXT Byte Fill
+#_04FCEE: db $E4, $2C ; EXT Repeat byte
 #_04FCF0: db $00
-#_04FCF1: db $00 ; Direct Copy
+#_04FCF1: db $00 ; Raw block
 #_04FCF2: db $31
-#_04FCF3: db $23 ; Byte Fill
+#_04FCF3: db $23 ; Repeat byte
 #_04FCF4: db $11
-#_04FCF5: db $0B ; Direct Copy
+#_04FCF5: db $0B ; Raw block
 #_04FCF6: db $23, $33, $17, $01, $33, $33, $11, $11
 #_04FCFE: db $01, $10, $00, $31
-#_04FD02: db $23 ; Byte Fill
+#_04FD02: db $23 ; Repeat byte
 #_04FD03: db $11
-#_04FD04: db $02 ; Direct Copy
+#_04FD04: db $02 ; Raw block
 #_04FD05: db $23, $33, $17
-#_04FD08: db $22 ; Byte Fill
+#_04FD08: db $22 ; Repeat byte
 #_04FD09: db $11
-#_04FD0A: db $00 ; Direct Copy
+#_04FD0A: db $00 ; Raw block
 #_04FD0B: db $12
-#_04FD0C: db $83 ; Repeat Fill
-#_04FD0D: db $00, $4C ; Repeat Fill bytes
-#_04FD0F: db $22 ; Byte Fill
+#_04FD0C: db $83 ; Copy past
+#_04FD0D: dw $4C00
+#_04FD0F: db $22 ; Repeat byte
 #_04FD10: db $11
-#_04FD11: db $05 ; Direct Copy
+#_04FD11: db $05 ; Raw block
 #_04FD12: db $12, $11, $01, $11, $31, $31
-#_04FD18: db $23 ; Byte Fill
+#_04FD18: db $23 ; Repeat byte
 #_04FD19: db $11
-#_04FD1A: db $03 ; Direct Copy
+#_04FD1A: db $03 ; Raw block
 #_04FD1B: db $13, $33, $13, $31
-#_04FD1F: db $23 ; Byte Fill
+#_04FD1F: db $23 ; Repeat byte
 #_04FD20: db $11
-#_04FD21: db $02 ; Direct Copy
+#_04FD21: db $02 ; Raw block
 #_04FD22: db $23, $33, $27
-#_04FD25: db $22 ; Byte Fill
+#_04FD25: db $22 ; Repeat byte
 #_04FD26: db $11
-#_04FD27: db $83 ; Repeat Fill
-#_04FD28: db $00, $03 ; Repeat Fill bytes
-#_04FD2A: db $00 ; Direct Copy
+#_04FD27: db $83 ; Copy past
+#_04FD28: dw $0300
+#_04FD2A: db $00 ; Raw block
 #_04FD2B: db $32
-#_04FD2C: db $24 ; Byte Fill
+#_04FD2C: db $24 ; Repeat byte
 #_04FD2D: db $11
-#_04FD2E: db $0B ; Direct Copy
+#_04FD2E: db $0B ; Raw block
 #_04FD2F: db $01, $11, $31, $41, $11, $12, $10, $21
 #_04FD37: db $01, $33, $17, $31
-#_04FD3B: db $22 ; Byte Fill
+#_04FD3B: db $22 ; Repeat byte
 #_04FD3C: db $11
-#_04FD3D: db $00 ; Direct Copy
+#_04FD3D: db $00 ; Raw block
 #_04FD3E: db $21
-#_04FD3F: db $83 ; Repeat Fill
-#_04FD40: db $00, $45 ; Repeat Fill bytes
-#_04FD42: db $06 ; Direct Copy
+#_04FD3F: db $83 ; Copy past
+#_04FD40: dw $4500
+#_04FD42: db $06 ; Raw block
 #_04FD43: db $11, $11, $13, $23, $20, $03, $27
-#_04FD4A: db $2C ; Byte Fill
+#_04FD4A: db $2C ; Repeat byte
 #_04FD4B: db $00
-#_04FD4C: db $00 ; Direct Copy
+#_04FD4C: db $00 ; Raw block
 #_04FD4D: db $10
-#_04FD4E: db $29 ; Byte Fill
+#_04FD4E: db $29 ; Repeat byte
 #_04FD4F: db $00
-#_04FD50: db $24 ; Byte Fill
+#_04FD50: db $24 ; Repeat byte
 #_04FD51: db $11
-#_04FD52: db $03 ; Direct Copy
+#_04FD52: db $03 ; Raw block
 #_04FD53: db $22, $22, $27, $01
-#_04FD57: db $83 ; Repeat Fill
-#_04FD58: db $00, $01 ; Repeat Fill bytes
-#_04FD5A: db $02 ; Direct Copy
+#_04FD57: db $83 ; Copy past
+#_04FD58: dw $0100
+#_04FD5A: db $02 ; Raw block
 #_04FD5B: db $23, $13, $37
-#_04FD5E: db $44 ; Word Fill
-#_04FD5F: db $11, $12 ;  Word Fill
-#_04FD61: db $02 ; Direct Copy
+#_04FD5E: db $44 ; Repeat word
+#_04FD5F: dw $1211
+#_04FD61: db $02 ; Raw block
 #_04FD62: db $01, $13, $23
-#_04FD65: db $27 ; Byte Fill
+#_04FD65: db $27 ; Repeat byte
 #_04FD66: db $00
-#_04FD67: db $24 ; Byte Fill
+#_04FD67: db $24 ; Repeat byte
 #_04FD68: db $22
-#_04FD69: db $02 ; Direct Copy
+#_04FD69: db $02 ; Raw block
 #_04FD6A: db $02, $22, $32
-#_04FD6D: db $3F ; Byte Fill
+#_04FD6D: db $3F ; Repeat byte
 #_04FD6E: db $00
-#_04FD6F: db $00 ; Direct Copy
+#_04FD6F: db $00 ; Raw block
 #_04FD70: db $31
-#_04FD71: db $22 ; Byte Fill
+#_04FD71: db $22 ; Repeat byte
 #_04FD72: db $11
-#_04FD73: db $03 ; Direct Copy
+#_04FD73: db $03 ; Raw block
 #_04FD74: db $01, $23, $33, $17
-#_04FD78: db $27 ; Byte Fill
+#_04FD78: db $27 ; Repeat byte
 #_04FD79: db $00
-#_04FD7A: db $00 ; Direct Copy
+#_04FD7A: db $00 ; Raw block
 #_04FD7B: db $31
-#_04FD7C: db $23 ; Byte Fill
+#_04FD7C: db $23 ; Repeat byte
 #_04FD7D: db $11
-#_04FD7E: db $01 ; Direct Copy
+#_04FD7E: db $01 ; Raw block
 #_04FD7F: db $23, $33
-#_04FD81: db $85 ; Repeat Fill
-#_04FD82: db $00, $BF ; Repeat Fill bytes
-#_04FD84: db $02 ; Direct Copy
+#_04FD81: db $85 ; Copy past
+#_04FD82: dw $BF00
+#_04FD84: db $02 ; Raw block
 #_04FD85: db $03, $23, $23
-#_04FD88: db $87 ; Repeat Fill
-#_04FD89: db $01, $18 ; Repeat Fill bytes
-#_04FD8B: db $27 ; Byte Fill
+#_04FD88: db $87 ; Copy past
+#_04FD89: dw $1801
+#_04FD8B: db $27 ; Repeat byte
 #_04FD8C: db $00
-#_04FD8D: db $07 ; Direct Copy
+#_04FD8D: db $07 ; Raw block
 #_04FD8E: db $01, $11, $11, $03, $31, $00, $03, $13
-#_04FD96: db $24 ; Byte Fill
+#_04FD96: db $24 ; Repeat byte
 #_04FD97: db $00
-#_04FD98: db $02 ; Direct Copy
+#_04FD98: db $02 ; Raw block
 #_04FD99: db $20, $00, $07
-#_04FD9C: db $34 ; Byte Fill
+#_04FD9C: db $34 ; Repeat byte
 #_04FD9D: db $00
-#_04FD9E: db $00 ; Direct Copy
+#_04FD9E: db $00 ; Raw block
 #_04FD9F: db $10
-#_04FDA0: db $E4, $99 ; EXT Byte Fill
+#_04FDA0: db $E4, $99 ; EXT Repeat byte
 #_04FDA2: db $00
-#_04FDA3: db $24 ; Byte Fill
+#_04FDA3: db $24 ; Repeat byte
 #_04FDA4: db $11
-#_04FDA5: db $04 ; Direct Copy
+#_04FDA5: db $04 ; Raw block
 #_04FDA6: db $21, $22, $27, $00, $21
-#_04FDAB: db $22 ; Byte Fill
+#_04FDAB: db $22 ; Repeat byte
 #_04FDAC: db $11
-#_04FDAD: db $05 ; Direct Copy
+#_04FDAD: db $05 ; Raw block
 #_04FDAE: db $01, $11, $11, $00, $11, $11
-#_04FDB4: db $24 ; Byte Fill
+#_04FDB4: db $24 ; Repeat byte
 #_04FDB5: db $00
-#_04FDB6: db $00 ; Direct Copy
+#_04FDB6: db $00 ; Raw block
 #_04FDB7: db $31
-#_04FDB8: db $23 ; Byte Fill
+#_04FDB8: db $23 ; Repeat byte
 #_04FDB9: db $11
-#_04FDBA: db $03 ; Direct Copy
+#_04FDBA: db $03 ; Raw block
 #_04FDBB: db $03, $13, $17, $31
-#_04FDBF: db $23 ; Byte Fill
+#_04FDBF: db $23 ; Repeat byte
 #_04FDC0: db $11
-#_04FDC1: db $04 ; Direct Copy
+#_04FDC1: db $04 ; Raw block
 #_04FDC2: db $23, $33, $17, $31, $43
-#_04FDC7: db $22 ; Byte Fill
+#_04FDC7: db $22 ; Repeat byte
 #_04FDC8: db $11
-#_04FDC9: db $03 ; Direct Copy
+#_04FDC9: db $03 ; Raw block
 #_04FDCA: db $03, $03, $17, $31
-#_04FDCE: db $23 ; Byte Fill
+#_04FDCE: db $23 ; Repeat byte
 #_04FDCF: db $11
-#_04FDD0: db $83 ; Repeat Fill
-#_04FDD1: db $02, $1D ; Repeat Fill bytes
-#_04FDD3: db $00 ; Direct Copy
+#_04FDD0: db $83 ; Copy past
+#_04FDD1: dw $1D02
+#_04FDD3: db $00 ; Raw block
 #_04FDD4: db $43
-#_04FDD5: db $22 ; Byte Fill
+#_04FDD5: db $22 ; Repeat byte
 #_04FDD6: db $11
-#_04FDD7: db $83 ; Repeat Fill
-#_04FDD8: db $02, $1D ; Repeat Fill bytes
-#_04FDDA: db $23 ; Byte Fill
+#_04FDD7: db $83 ; Copy past
+#_04FDD8: dw $1D02
+#_04FDDA: db $23 ; Repeat byte
 #_04FDDB: db $11
-#_04FDDC: db $03 ; Direct Copy
+#_04FDDC: db $03 ; Raw block
 #_04FDDD: db $03, $33, $17, $31
-#_04FDE1: db $23 ; Byte Fill
+#_04FDE1: db $23 ; Repeat byte
 #_04FDE2: db $11
-#_04FDE3: db $04 ; Direct Copy
+#_04FDE3: db $04 ; Raw block
 #_04FDE4: db $03, $13, $27, $31, $43
-#_04FDE9: db $22 ; Byte Fill
+#_04FDE9: db $22 ; Repeat byte
 #_04FDEA: db $11
-#_04FDEB: db $84 ; Repeat Fill
-#_04FDEC: db $02, $25 ; Repeat Fill bytes
-#_04FDEE: db $22 ; Byte Fill
+#_04FDEB: db $84 ; Copy past
+#_04FDEC: dw $2502
+#_04FDEE: db $22 ; Repeat byte
 #_04FDEF: db $11
-#_04FDF0: db $04 ; Direct Copy
+#_04FDF0: db $04 ; Raw block
 #_04FDF1: db $03, $03, $27, $31, $43
-#_04FDF6: db $22 ; Byte Fill
+#_04FDF6: db $22 ; Repeat byte
 #_04FDF7: db $11
-#_04FDF8: db $83 ; Repeat Fill
-#_04FDF9: db $02, $35 ; Repeat Fill bytes
-#_04FDFB: db $23 ; Byte Fill
+#_04FDF8: db $83 ; Copy past
+#_04FDF9: dw $3502
+#_04FDFB: db $23 ; Repeat byte
 #_04FDFC: db $11
-#_04FDFD: db $02 ; Direct Copy
+#_04FDFD: db $02 ; Raw block
 #_04FDFE: db $23, $33, $17
-#_04FE01: db $22 ; Byte Fill
+#_04FE01: db $22 ; Repeat byte
 #_04FE02: db $11
-#_04FE03: db $04 ; Direct Copy
+#_04FE03: db $04 ; Raw block
 #_04FE04: db $21, $11, $01, $13, $33
-#_04FE09: db $24 ; Byte Fill
+#_04FE09: db $24 ; Repeat byte
 #_04FE0A: db $11
-#_04FE0B: db $03 ; Direct Copy
+#_04FE0B: db $03 ; Raw block
 #_04FE0C: db $03, $23, $23, $31
-#_04FE10: db $84 ; Repeat Fill
-#_04FE11: db $00, $C1 ; Repeat Fill bytes
-#_04FE13: db $84 ; Repeat Fill
-#_04FE14: db $00, $8E ; Repeat Fill bytes
-#_04FE16: db $84 ; Repeat Fill
-#_04FE17: db $02, $73 ; Repeat Fill bytes
-#_04FE19: db $27 ; Byte Fill
+#_04FE10: db $84 ; Copy past
+#_04FE11: dw $C100
+#_04FE13: db $84 ; Copy past
+#_04FE14: dw $8E00
+#_04FE16: db $84 ; Copy past
+#_04FE17: dw $7302
+#_04FE19: db $27 ; Repeat byte
 #_04FE1A: db $00
-#_04FE1B: db $00 ; Direct Copy
+#_04FE1B: db $00 ; Raw block
 #_04FE1C: db $31
-#_04FE1D: db $84 ; Repeat Fill
-#_04FE1E: db $02, $61 ; Repeat Fill bytes
-#_04FE20: db $01 ; Direct Copy
+#_04FE1D: db $84 ; Copy past
+#_04FE1E: dw $6102
+#_04FE20: db $01 ; Raw block
 #_04FE21: db $33, $33
-#_04FE23: db $27 ; Byte Fill
+#_04FE23: db $27 ; Repeat byte
 #_04FE24: db $00
-#_04FE25: db $03 ; Direct Copy
+#_04FE25: db $03 ; Raw block
 #_04FE26: db $13, $33, $33, $30
-#_04FE2A: db $83 ; Repeat Fill
-#_04FE2B: db $00, $4C ; Repeat Fill bytes
-#_04FE2D: db $03 ; Direct Copy
+#_04FE2A: db $83 ; Copy past
+#_04FE2B: dw $4C00
+#_04FE2D: db $03 ; Raw block
 #_04FE2E: db $01, $33, $33, $10
-#_04FE32: db $83 ; Repeat Fill
-#_04FE33: db $00, $4C ; Repeat Fill bytes
-#_04FE35: db $24 ; Byte Fill
+#_04FE32: db $83 ; Copy past
+#_04FE33: dw $4C00
+#_04FE35: db $24 ; Repeat byte
 #_04FE36: db $11
-#_04FE37: db $03 ; Direct Copy
+#_04FE37: db $03 ; Raw block
 #_04FE38: db $03, $13, $21, $31
-#_04FE3C: db $23 ; Byte Fill
+#_04FE3C: db $23 ; Repeat byte
 #_04FE3D: db $11
-#_04FE3E: db $02 ; Direct Copy
+#_04FE3E: db $02 ; Raw block
 #_04FE3F: db $03, $13, $21
-#_04FE42: db $27 ; Byte Fill
+#_04FE42: db $27 ; Repeat byte
 #_04FE43: db $00
-#_04FE44: db $07 ; Direct Copy
+#_04FE44: db $07 ; Raw block
 #_04FE45: db $31, $11, $11, $13, $11, $21, $33, $17
-#_04FE4D: db $35 ; Byte Fill
+#_04FE4D: db $35 ; Repeat byte
 #_04FE4E: db $00
-#_04FE4F: db $01 ; Direct Copy
+#_04FE4F: db $01 ; Raw block
 #_04FE50: db $03, $03
-#_04FE52: db $25 ; Byte Fill
+#_04FE52: db $25 ; Repeat byte
 #_04FE53: db $00
-#_04FE54: db $01 ; Direct Copy
+#_04FE54: db $01 ; Raw block
 #_04FE55: db $03, $03
-#_04FE57: db $E4, $37 ; EXT Byte Fill
+#_04FE57: db $E4, $37 ; EXT Repeat byte
 #_04FE59: db $00
-#_04FE5A: db $24 ; Byte Fill
+#_04FE5A: db $24 ; Repeat byte
 #_04FE5B: db $11
-#_04FE5C: db $02 ; Direct Copy
+#_04FE5C: db $02 ; Raw block
 #_04FE5D: db $01, $13, $33
-#_04FE60: db $E4, $27 ; EXT Byte Fill
+#_04FE60: db $E4, $27 ; EXT Repeat byte
 #_04FE62: db $00
-#_04FE63: db $01 ; Direct Copy
+#_04FE63: db $01 ; Raw block
 #_04FE64: db $51, $31
-#_04FE66: db $22 ; Byte Fill
+#_04FE66: db $22 ; Repeat byte
 #_04FE67: db $11
-#_04FE68: db $83 ; Repeat Fill
-#_04FE69: db $02, $1D ; Repeat Fill bytes
-#_04FE6B: db $23 ; Byte Fill
+#_04FE68: db $83 ; Copy past
+#_04FE69: dw $1D02
+#_04FE6B: db $23 ; Repeat byte
 #_04FE6C: db $11
-#_04FE6D: db $02 ; Direct Copy
+#_04FE6D: db $02 ; Raw block
 #_04FE6E: db $01, $11, $11
-#_04FE71: db $27 ; Byte Fill
+#_04FE71: db $27 ; Repeat byte
 #_04FE72: db $00
-#_04FE73: db $8F ; Repeat Fill
-#_04FE74: db $02, $70 ; Repeat Fill bytes
-#_04FE76: db $22 ; Byte Fill
+#_04FE73: db $8F ; Copy past
+#_04FE74: dw $7002
+#_04FE76: db $22 ; Repeat byte
 #_04FE77: db $11
-#_04FE78: db $04 ; Direct Copy
+#_04FE78: db $04 ; Raw block
 #_04FE79: db $12, $11, $03, $33, $13
-#_04FE7E: db $27 ; Byte Fill
+#_04FE7E: db $27 ; Repeat byte
 #_04FE7F: db $00
-#_04FE80: db $84 ; Repeat Fill
-#_04FE81: db $02, $C0 ; Repeat Fill bytes
-#_04FE83: db $02 ; Direct Copy
+#_04FE80: db $84 ; Copy past
+#_04FE81: dw $C002
+#_04FE83: db $02 ; Raw block
 #_04FE84: db $03, $33, $13
-#_04FE87: db $E4, $37 ; EXT Byte Fill
+#_04FE87: db $E4, $37 ; EXT Repeat byte
 #_04FE89: db $00
-#_04FE8A: db $22 ; Byte Fill
+#_04FE8A: db $22 ; Repeat byte
 #_04FE8B: db $11
-#_04FE8C: db $00 ; Direct Copy
+#_04FE8C: db $00 ; Raw block
 #_04FE8D: db $12
-#_04FE8E: db $22 ; Byte Fill
+#_04FE8E: db $22 ; Repeat byte
 #_04FE8F: db $11
-#_04FE90: db $00 ; Direct Copy
+#_04FE90: db $00 ; Raw block
 #_04FE91: db $31
-#_04FE92: db $2F ; Byte Fill
+#_04FE92: db $2F ; Repeat byte
 #_04FE93: db $00
-#_04FE94: db $07 ; Direct Copy
+#_04FE94: db $07 ; Raw block
 #_04FE95: db $01, $11, $11, $10, $21, $03, $33, $33
-#_04FE9D: db $3F ; Byte Fill
+#_04FE9D: db $3F ; Repeat byte
 #_04FE9E: db $00
-#_04FE9F: db $85 ; Repeat Fill
-#_04FEA0: db $01, $18 ; Repeat Fill bytes
-#_04FEA2: db $01 ; Direct Copy
+#_04FE9F: db $85 ; Copy past
+#_04FEA0: dw $1801
+#_04FEA2: db $01 ; Raw block
 #_04FEA3: db $32, $32
-#_04FEA5: db $27 ; Byte Fill
+#_04FEA5: db $27 ; Repeat byte
 #_04FEA6: db $00
-#_04FEA7: db $04 ; Direct Copy
+#_04FEA7: db $04 ; Raw block
 #_04FEA8: db $01, $12, $21, $20, $12
-#_04FEAD: db $25 ; Byte Fill
+#_04FEAD: db $25 ; Repeat byte
 #_04FEAE: db $00
-#_04FEAF: db $01 ; Direct Copy
+#_04FEAF: db $01 ; Raw block
 #_04FEB0: db $10, $01
-#_04FEB2: db $22 ; Byte Fill
+#_04FEB2: db $22 ; Repeat byte
 #_04FEB3: db $00
-#_04FEB4: db $24 ; Byte Fill
+#_04FEB4: db $24 ; Repeat byte
 #_04FEB5: db $11
-#_04FEB6: db $00 ; Direct Copy
+#_04FEB6: db $00 ; Raw block
 #_04FEB7: db $01
-#_04FEB8: db $84 ; Repeat Fill
-#_04FEB9: db $01, $1E ; Repeat Fill bytes
-#_04FEBB: db $04 ; Direct Copy
+#_04FEB8: db $84 ; Copy past
+#_04FEB9: dw $1E01
+#_04FEBB: db $04 ; Raw block
 #_04FEBC: db $10, $01, $01, $33, $17
-#_04FEC1: db $27 ; Byte Fill
+#_04FEC1: db $27 ; Repeat byte
 #_04FEC2: db $00
-#_04FEC3: db $01 ; Direct Copy
+#_04FEC3: db $01 ; Raw block
 #_04FEC4: db $01, $11
-#_04FEC6: db $22 ; Byte Fill
+#_04FEC6: db $22 ; Repeat byte
 #_04FEC7: db $00
-#_04FEC8: db $00 ; Direct Copy
+#_04FEC8: db $00 ; Raw block
 #_04FEC9: db $04
-#_04FECA: db $31 ; Byte Fill
+#_04FECA: db $31 ; Repeat byte
 #_04FECB: db $00
-#_04FECC: db $00 ; Direct Copy
+#_04FECC: db $00 ; Raw block
 #_04FECD: db $31
-#_04FECE: db $83 ; Repeat Fill
-#_04FECF: db $01, $FE ; Repeat Fill bytes
-#_04FED1: db $03 ; Direct Copy
+#_04FECE: db $83 ; Copy past
+#_04FECF: dw $FE01
+#_04FED1: db $03 ; Raw block
 #_04FED2: db $03, $33, $23, $00
-#_04FED6: db $84 ; Repeat Fill
-#_04FED7: db $04, $31 ; Repeat Fill bytes
-#_04FED9: db $00 ; Direct Copy
+#_04FED6: db $84 ; Copy past
+#_04FED7: dw $3104
+#_04FED9: db $00 ; Raw block
 #_04FEDA: db $10
-#_04FEDB: db $83 ; Repeat Fill
-#_04FEDC: db $00, $B6 ; Repeat Fill bytes
-#_04FEDE: db $00 ; Direct Copy
+#_04FEDB: db $83 ; Copy past
+#_04FEDC: dw $B600
+#_04FEDE: db $00 ; Raw block
 #_04FEDF: db $00
-#_04FEE0: db $83 ; Repeat Fill
-#_04FEE1: db $00, $4C ; Repeat Fill bytes
-#_04FEE3: db $23 ; Byte Fill
+#_04FEE0: db $83 ; Copy past
+#_04FEE1: dw $4C00
+#_04FEE3: db $23 ; Repeat byte
 #_04FEE4: db $11
-#_04FEE5: db $02 ; Direct Copy
+#_04FEE5: db $02 ; Raw block
 #_04FEE6: db $21, $01, $32
-#_04FEE9: db $84 ; Repeat Fill
-#_04FEEA: db $02, $6F ; Repeat Fill bytes
-#_04FEEC: db $03 ; Direct Copy
+#_04FEE9: db $84 ; Copy past
+#_04FEEA: dw $6F02
+#_04FEEC: db $03 ; Raw block
 #_04FEED: db $21, $03, $33, $12
-#_04FEF1: db $22 ; Byte Fill
+#_04FEF1: db $22 ; Repeat byte
 #_04FEF2: db $11
-#_04FEF3: db $04 ; Direct Copy
+#_04FEF3: db $04 ; Raw block
 #_04FEF4: db $10, $11, $01, $13, $32
-#_04FEF9: db $22 ; Byte Fill
+#_04FEF9: db $22 ; Repeat byte
 #_04FEFA: db $11
-#_04FEFB: db $25 ; Byte Fill
+#_04FEFB: db $25 ; Repeat byte
 #_04FEFC: db $00
-#_04FEFD: db $83 ; Repeat Fill
-#_04FEFE: db $04, $81 ; Repeat Fill bytes
-#_04FF00: db $2A ; Byte Fill
+#_04FEFD: db $83 ; Copy past
+#_04FEFE: dw $8104
+#_04FF00: db $2A ; Repeat byte
 #_04FF01: db $00
-#_04FF02: db $22 ; Byte Fill
+#_04FF02: db $22 ; Repeat byte
 #_04FF03: db $11
-#_04FF04: db $83 ; Repeat Fill
-#_04FF05: db $00, $03 ; Repeat Fill bytes
-#_04FF07: db $00 ; Direct Copy
+#_04FF04: db $83 ; Copy past
+#_04FF05: dw $0300
+#_04FF07: db $00 ; Raw block
 #_04FF08: db $23
-#_04FF09: db $3F ; Byte Fill
+#_04FF09: db $3F ; Repeat byte
 #_04FF0A: db $00
-#_04FF0B: db $22 ; Byte Fill
+#_04FF0B: db $22 ; Repeat byte
 #_04FF0C: db $11
-#_04FF0D: db $04 ; Direct Copy
+#_04FF0D: db $04 ; Raw block
 #_04FF0E: db $12, $21, $01, $03, $12
-#_04FF13: db $22 ; Byte Fill
+#_04FF13: db $22 ; Repeat byte
 #_04FF14: db $11
-#_04FF15: db $03 ; Direct Copy
+#_04FF15: db $03 ; Raw block
 #_04FF16: db $12, $11, $02, $32
-#_04FF1A: db $83 ; Repeat Fill
-#_04FF1B: db $01, $FC ; Repeat Fill bytes
-#_04FF1D: db $04 ; Direct Copy
+#_04FF1A: db $83 ; Copy past
+#_04FF1B: dw $FC01
+#_04FF1D: db $04 ; Raw block
 #_04FF1E: db $10, $01, $01, $12, $32
-#_04FF23: db $86 ; Repeat Fill
-#_04FF24: db $01, $18 ; Repeat Fill bytes
-#_04FF26: db $00 ; Direct Copy
+#_04FF23: db $86 ; Copy past
+#_04FF24: dw $1801
+#_04FF26: db $00 ; Raw block
 #_04FF27: db $22
-#_04FF28: db $87 ; Repeat Fill
-#_04FF29: db $04, $E0 ; Repeat Fill bytes
-#_04FF2B: db $39 ; Byte Fill
+#_04FF28: db $87 ; Copy past
+#_04FF29: dw $E004
+#_04FF2B: db $39 ; Repeat byte
 #_04FF2C: db $00
-#_04FF2D: db $04 ; Direct Copy
+#_04FF2D: db $04 ; Raw block
 #_04FF2E: db $11, $00, $00, $02, $02
-#_04FF33: db $84 ; Repeat Fill
-#_04FF34: db $04, $67 ; Repeat Fill bytes
-#_04FF36: db $01 ; Direct Copy
+#_04FF33: db $84 ; Copy past
+#_04FF34: dw $6704
+#_04FF36: db $01 ; Raw block
 #_04FF37: db $00, $05
-#_04FF39: db $26 ; Byte Fill
+#_04FF39: db $26 ; Repeat byte
 #_04FF3A: db $00
-#_04FF3B: db $01 ; Direct Copy
+#_04FF3B: db $01 ; Raw block
 #_04FF3C: db $01, $02
-#_04FF3E: db $84 ; Repeat Fill
-#_04FF3F: db $03, $DF ; Repeat Fill bytes
-#_04FF41: db $04 ; Direct Copy
+#_04FF3E: db $84 ; Copy past
+#_04FF3F: dw $DF03
+#_04FF41: db $04 ; Raw block
 #_04FF42: db $11, $03, $01, $31, $31
-#_04FF47: db $22 ; Byte Fill
+#_04FF47: db $22 ; Repeat byte
 #_04FF48: db $11
-#_04FF49: db $04 ; Direct Copy
+#_04FF49: db $04 ; Raw block
 #_04FF4A: db $21, $03, $33, $13, $31
-#_04FF4F: db $22 ; Byte Fill
+#_04FF4F: db $22 ; Repeat byte
 #_04FF50: db $11
-#_04FF51: db $83 ; Repeat Fill
-#_04FF52: db $05, $2C ; Repeat Fill bytes
-#_04FF54: db $24 ; Byte Fill
+#_04FF51: db $83 ; Copy past
+#_04FF52: dw $2C05
+#_04FF54: db $24 ; Repeat byte
 #_04FF55: db $11
-#_04FF56: db $01 ; Direct Copy
+#_04FF56: db $01 ; Raw block
 #_04FF57: db $21, $23
-#_04FF59: db $86 ; Repeat Fill
-#_04FF5A: db $01, $17 ; Repeat Fill bytes
-#_04FF5C: db $00 ; Direct Copy
+#_04FF59: db $86 ; Copy past
+#_04FF5A: dw $1701
+#_04FF5C: db $00 ; Raw block
 #_04FF5D: db $33
-#_04FF5E: db $83 ; Repeat Fill
-#_04FF5F: db $01, $FC ; Repeat Fill bytes
-#_04FF61: db $83 ; Repeat Fill
-#_04FF62: db $03, $7B ; Repeat Fill bytes
-#_04FF64: db $25 ; Byte Fill
+#_04FF5E: db $83 ; Copy past
+#_04FF5F: dw $FC01
+#_04FF61: db $83 ; Copy past
+#_04FF62: dw $7B03
+#_04FF64: db $25 ; Repeat byte
 #_04FF65: db $11
-#_04FF66: db $02 ; Direct Copy
+#_04FF66: db $02 ; Raw block
 #_04FF67: db $03, $13, $13
-#_04FF6A: db $24 ; Byte Fill
+#_04FF6A: db $24 ; Repeat byte
 #_04FF6B: db $11
-#_04FF6C: db $01 ; Direct Copy
+#_04FF6C: db $01 ; Raw block
 #_04FF6D: db $01, $10
-#_04FF6F: db $E4, $30 ; EXT Byte Fill
+#_04FF6F: db $E4, $30 ; EXT Repeat byte
 #_04FF71: db $00
-#_04FF72: db $22 ; Byte Fill
+#_04FF72: db $22 ; Repeat byte
 #_04FF73: db $11
-#_04FF74: db $84 ; Repeat Fill
-#_04FF75: db $00, $63 ; Repeat Fill bytes
-#_04FF77: db $E4, $50 ; EXT Byte Fill
+#_04FF74: db $84 ; Copy past
+#_04FF75: dw $6300
+#_04FF77: db $E4, $50 ; EXT Repeat byte
 #_04FF79: db $00
-#_04FF7A: db $03 ; Direct Copy
+#_04FF7A: db $03 ; Raw block
 #_04FF7B: db $11, $11, $30, $11
-#_04FF7F: db $23 ; Byte Fill
+#_04FF7F: db $23 ; Repeat byte
 #_04FF80: db $00
-#_04FF81: db $83 ; Repeat Fill
-#_04FF82: db $05, $E9 ; Repeat Fill bytes
-#_04FF84: db $E4, $22 ; EXT Byte Fill
+#_04FF81: db $83 ; Copy past
+#_04FF82: dw $E905
+#_04FF84: db $E4, $22 ; EXT Repeat byte
 #_04FF86: db $00
-#_04FF87: db $00 ; Direct Copy
+#_04FF87: db $00 ; Raw block
 #_04FF88: db $01
-#_04FF89: db $83 ; Repeat Fill
-#_04FF8A: db $05, $E9 ; Repeat Fill bytes
-#_04FF8C: db $30 ; Byte Fill
+#_04FF89: db $83 ; Copy past
+#_04FF8A: dw $E905
+#_04FF8C: db $30 ; Repeat byte
 #_04FF8D: db $00
-#_04FF8E: db $01 ; Direct Copy
+#_04FF8E: db $01 ; Raw block
 #_04FF8F: db $01, $31
-#_04FF91: db $25 ; Byte Fill
+#_04FF91: db $25 ; Repeat byte
 #_04FF92: db $00
-#_04FF93: db $01 ; Direct Copy
+#_04FF93: db $01 ; Raw block
 #_04FF94: db $01, $31
-#_04FF96: db $83 ; Repeat Fill
-#_04FF97: db $03, $E0 ; Repeat Fill bytes
-#_04FF99: db $03 ; Direct Copy
+#_04FF96: db $83 ; Copy past
+#_04FF97: dw $E003
+#_04FF99: db $03 ; Raw block
 #_04FF9A: db $12, $03, $13, $13
-#_04FF9E: db $27 ; Byte Fill
+#_04FF9E: db $27 ; Repeat byte
 #_04FF9F: db $00
-#_04FFA0: db $08 ; Direct Copy
+#_04FFA0: db $08 ; Raw block
 #_04FFA1: db $51, $11, $11, $30, $21, $03, $31, $31
 #_04FFA9: db $50
-#_04FFAA: db $27 ; Byte Fill
+#_04FFAA: db $27 ; Repeat byte
 #_04FFAB: db $00
-#_04FFAC: db $01 ; Direct Copy
+#_04FFAC: db $01 ; Raw block
 #_04FFAD: db $11, $11
-#_04FFAF: db $25 ; Byte Fill
+#_04FFAF: db $25 ; Repeat byte
 #_04FFB0: db $00
-#_04FFB1: db $01 ; Direct Copy
+#_04FFB1: db $01 ; Raw block
 #_04FFB2: db $11, $11
-#_04FFB4: db $22 ; Byte Fill
+#_04FFB4: db $22 ; Repeat byte
 #_04FFB5: db $00
-#_04FFB6: db $00 ; Direct Copy
+#_04FFB6: db $00 ; Raw block
 #_04FFB7: db $40
-#_04FFB8: db $85 ; Repeat Fill
-#_04FFB9: db $05, $0F ; Repeat Fill bytes
-#_04FFBB: db $00 ; Direct Copy
+#_04FFB8: db $85 ; Copy past
+#_04FFB9: dw $0F05
+#_04FFBB: db $00 ; Raw block
 #_04FFBC: db $04
-#_04FFBD: db $84 ; Repeat Fill
-#_04FFBE: db $01, $2E ; Repeat Fill bytes
-#_04FFC0: db $24 ; Byte Fill
+#_04FFBD: db $84 ; Copy past
+#_04FFBE: dw $2E01
+#_04FFC0: db $24 ; Repeat byte
 #_04FFC1: db $00
-#_04FFC2: db $22 ; Byte Fill
+#_04FFC2: db $22 ; Repeat byte
 #_04FFC3: db $11
-#_04FFC4: db $83 ; Repeat Fill
-#_04FFC5: db $00, $63 ; Repeat Fill bytes
-#_04FFC7: db $00 ; Direct Copy
+#_04FFC4: db $83 ; Copy past
+#_04FFC5: dw $6300
+#_04FFC7: db $00 ; Raw block
 #_04FFC8: db $21
-#_04FFC9: db $83 ; Repeat Fill
-#_04FFCA: db $04, $3F ; Repeat Fill bytes
-#_04FFCC: db $00 ; Direct Copy
+#_04FFC9: db $83 ; Copy past
+#_04FFCA: dw $3F04
+#_04FFCC: db $00 ; Raw block
 #_04FFCD: db $02
-#_04FFCE: db $27 ; Byte Fill
+#_04FFCE: db $27 ; Repeat byte
 #_04FFCF: db $00
-#_04FFD0: db $02 ; Direct Copy
+#_04FFD0: db $02 ; Raw block
 #_04FFD1: db $10, $02, $22
-#_04FFD4: db $24 ; Byte Fill
+#_04FFD4: db $24 ; Repeat byte
 #_04FFD5: db $00
-#_04FFD6: db $02 ; Direct Copy
+#_04FFD6: db $02 ; Raw block
 #_04FFD7: db $20, $00, $07
-#_04FFDA: db $24 ; Byte Fill
+#_04FFDA: db $24 ; Repeat byte
 #_04FFDB: db $11
-#_04FFDC: db $02 ; Direct Copy
+#_04FFDC: db $02 ; Raw block
 #_04FFDD: db $21, $11, $27
-#_04FFE0: db $30 ; Byte Fill
+#_04FFE0: db $30 ; Repeat byte
 #_04FFE1: db $00
-#_04FFE2: db $01 ; Direct Copy
+#_04FFE2: db $01 ; Raw block
 #_04FFE3: db $03, $33
-#_04FFE5: db $28 ; Byte Fill
+#_04FFE5: db $28 ; Repeat byte
 #_04FFE6: db $00
-#_04FFE7: db $00 ; Direct Copy
+#_04FFE7: db $00 ; Raw block
 #_04FFE8: db $02
-#_04FFE9: db $22 ; Byte Fill
+#_04FFE9: db $22 ; Repeat byte
 #_04FFEA: db $00
 #_04FFEB: db $FF ; End
 

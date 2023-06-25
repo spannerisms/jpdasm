@@ -1,6 +1,7 @@
 ;===================================================================================================
-; Using this symbols map:
-;
+;---------------------------------------------------------------------------------------------------
+; USING THIS SYMBOLS MAP
+;---------------------------------------------------------------------------------------------------
 ; Except for larger blocks of data, every address will be given at least one symbol
 ; Symbols are each given a unique name with focus on hierarchy by nature of usage
 ;
@@ -27,16 +28,15 @@
 ;---------------------------------------------------------------------------------------------------
 ; DIRECT PAGE
 ;---------------------------------------------------------------------------------------------------
-; Reminder that direct page is always an address in Bank00.
-; For ALTTP's mapping and functionality this will always be a mirror of Bank7E page 00 or page 1F.
+; Reminder that direct page is always an address in bank 00.
+; For ALTTP's mapping and functionality this will always be a mirror of bank 7E page 00 or page 1F.
 ; For the most part, ALTTP leaves the direct page register (D) at $0000.
 ; The polyhedral code that draws the triforce and crystals will change this register during IRQ.
-; The symbols here mirror page 00 of Bank7E.
+; The symbols here mirror page 00 of bank 7E.
 ;---------------------------------------------------------------------------------------------------
 ;===================================================================================================
 
 ; Any use of these addresses should be considered incredibly volatile.
-; Note that due to the location of the BRK vector $0000 and $0001 form the operand of its BRL.
 ; LENGTH: 0x10
 SCRAP00         = $7E0000
 SCRAP01         = $7E0001
@@ -346,6 +346,17 @@ FALLTIMER       = $7E005C
 LINKDO          = $7E005D
 
 ; Link's main speed handler
+; Only the base values that are possible to see are documented here
+; For the full table, see SubVelocityValues in «bank_07.asm»
+;   0x00 - Walking on ground
+;   0x02 - Walking on stairs
+;   0x04 - Slipping into pit
+;   0x06 - Harder slipping into pit/Entering underworld
+;   0x08 - Pushing statue
+;   0x0C - Walking with sword out/carrying item
+;   0x10 - Dashing
+;   0x12 - Pushing somaria block
+;   0x14 - Pulling statue/Walking to triforce
 SPEED           = $7E005E
 
 ; Bitfield used by manipulable tiles
@@ -530,7 +541,6 @@ UNUSED_9F       = $7E009F
 ; Room ID for underworld
 ; Copied to $0483
 ; There are only 2 "maps", so $A1 is only expected to be 0 or 1
-; However, there are various references to room in the 0x03.. range
 ROOM            = $7E00A0
 ROOMH           = $7E00A1
 
@@ -689,6 +699,9 @@ TRANTOG         = $7E00EF
 ; NEW input is only the current frame
 ; OLD input is unfiltered from the previous frame
 ; Joypad 2 code exists but is unreachable
+;
+;  JOY#A      JOY#B
+; BYsSudlr   AXLR....
 JOY1A_ALL       = $7E00F0
 JOY2A_ALL       = $7E00F1
 JOY1B_ALL       = $7E00F2
@@ -718,8 +731,9 @@ NMIVTIME        = $7E00FF
 ;---------------------------------------------------------------------------------------------------
 ; WRAM MIRROR
 ;---------------------------------------------------------------------------------------------------
-; Pages 0x00–0x1F of Bank7E are mirrored to every program bank ALTTP uses.
-; These addresses can be accessed with absolute addressing, as long as the data bank is not 0x70 or 0x7F.
+; Pages 0x00–0x1F of bank 7E are mirrored to every program bank ALTTP uses.
+; These addresses can be accessed with absolute addressing,
+; as long as the data bank is not 0x70 or 0x7F.
 ;---------------------------------------------------------------------------------------------------
 ;===================================================================================================
 
@@ -1444,11 +1458,12 @@ TACTDEEPW       = $7E0341
 TACTDEEPWH      = $7E0342
 
 ; Tile act bitfield used by tile 0A and another nothing
+; Used to detect whether Link should jump in or out of water.
 ; High byte unused but written.
 ; .... aaaa
 ; SEE TILE ACT NOTES
-TACT0A          = $7E0343
-TACT0AH         = $7E0344
+TACTJW          = $7E0343
+TACTJWH         = $7E0344
 
 ; Set when on deep water.
 DEEPWATER       = $7E0345
@@ -2251,9 +2266,9 @@ STAIRIDH        = $7E048B
 STAIRT          = $7E048C
 STAIRTH         = $7E048D
 
-; Mirrors ROOMID
-ROOMIDCOPY      = $7E048E
-ROOMIDCOPYH     = $7E048F
+; Mirrors ROOM
+ROOMCOPY        = $7E048E
+ROOMCOPYH       = $7E048F
 
 ; Floor 2 type
 FLOOR2          = $7E0490
@@ -2894,10 +2909,12 @@ PALAB1          = $7E0AB1
 
 ; Used for loading BG3 colors
 PALHUD          = $7E0AB2
+
 PALAB3          = $7E0AB3
 PALAB4          = $7E0AB4
 PALAB5          = $7E0AB5
-PALAB6          = $7E0AB6
+
+PALBG           = $7E0AB6
 
 ; Read in one place but never used
 PALAB7          = $7E0AB7
@@ -2922,7 +2939,7 @@ COLROOMH        = $7E0ABE
 OWTRAN          = $7E0ABF
 
 ; These are OAM addresses in various banks for DMA transfers
-; Link parts come from Bank10
+; Link parts come from bank 10
 ; Other parts come from decompressed 4bpp caches in bank 7E
 ; a couple of these in here are actually unused
 ; T = Top
@@ -3237,7 +3254,7 @@ FREESHOT        = $7E0B99
 ; Only used by archery game.
 DRYFIRE         = $7E0B9A
 
-; Used to index whch key slot a standing or bonkable key occupies.
+; Used to index which key slot a standing or bonkable key occupies.
 ; This slot controls which bit is used for flagging collection.
 ;   0x00 = bit 6 (0x40)
 ;   0x01 = bit 5 (0x20)
@@ -3880,41 +3897,40 @@ SPRD_VX         = $7E0D5D
 SPRE_VX         = $7E0D5E
 SPRF_VX         = $7E0D5F
 
-; TODO
-SPR0_0D60       = $7E0D60
-SPR1_0D60       = $7E0D61
-SPR2_0D60       = $7E0D62
-SPR3_0D60       = $7E0D63
-SPR4_0D60       = $7E0D64
-SPR5_0D60       = $7E0D65
-SPR6_0D60       = $7E0D66
-SPR7_0D60       = $7E0D67
-SPR8_0D60       = $7E0D68
-SPR9_0D60       = $7E0D69
-SPRA_0D60       = $7E0D6A
-SPRB_0D60       = $7E0D6B
-SPRC_0D60       = $7E0D6C
-SPRD_0D60       = $7E0D6D
-SPRE_0D60       = $7E0D6E
-SPRF_0D60       = $7E0D6F
+; subpixels
+SPR0_SUBVY      = $7E0D60
+SPR1_SUBVY      = $7E0D61
+SPR2_SUBVY      = $7E0D62
+SPR3_SUBVY      = $7E0D63
+SPR4_SUBVY      = $7E0D64
+SPR5_SUBVY      = $7E0D65
+SPR6_SUBVY      = $7E0D66
+SPR7_SUBVY      = $7E0D67
+SPR8_SUBVY      = $7E0D68
+SPR9_SUBVY      = $7E0D69
+SPRA_SUBVY      = $7E0D6A
+SPRB_SUBVY      = $7E0D6B
+SPRC_SUBVY      = $7E0D6C
+SPRD_SUBVY      = $7E0D6D
+SPRE_SUBVY      = $7E0D6E
+SPRF_SUBVY      = $7E0D6F
 
-; TODO
-SPR0_0D70       = $7E0D70
-SPR1_0D70       = $7E0D71
-SPR2_0D70       = $7E0D72
-SPR3_0D70       = $7E0D73
-SPR4_0D70       = $7E0D74
-SPR5_0D70       = $7E0D75
-SPR6_0D70       = $7E0D76
-SPR7_0D70       = $7E0D77
-SPR8_0D70       = $7E0D78
-SPR9_0D70       = $7E0D79
-SPRA_0D70       = $7E0D7A
-SPRB_0D70       = $7E0D7B
-SPRC_0D70       = $7E0D7C
-SPRD_0D70       = $7E0D7D
-SPRE_0D70       = $7E0D7E
-SPRF_0D70       = $7E0D7F
+SPR0_SUBVX      = $7E0D70
+SPR1_SUBVX      = $7E0D71
+SPR2_SUBVX      = $7E0D72
+SPR3_SUBVX      = $7E0D73
+SPR4_SUBVX      = $7E0D74
+SPR5_SUBVX      = $7E0D75
+SPR6_SUBVX      = $7E0D76
+SPR7_SUBVX      = $7E0D77
+SPR8_SUBVX      = $7E0D78
+SPR9_SUBVX      = $7E0D79
+SPRA_SUBVX      = $7E0D7A
+SPRB_SUBVX      = $7E0D7B
+SPRC_SUBVX      = $7E0D7C
+SPRD_SUBVX      = $7E0D7D
+SPRE_SUBVX      = $7E0D7E
+SPRF_SUBVX      = $7E0D7F
 
 ; TODO
 SPR0_0D80       = $7E0D80
@@ -4912,7 +4928,7 @@ FLUTENUMYL      = $7E1AD0
 ; FREE RAM: 0x07
 UNUSED_7E1AD8   = $7E1AD8
 
-; mirror y l
+; mirror y low
 MIRRORYL        = $7E1ADF
 
 ; y high
@@ -5412,8 +5428,8 @@ STAIR2TO        = $7EC003
 STAIR3TO        = $7EC004
 
 ; Flags fade to black on room transitions
-RMFADE          = $7EC006
-RMFADE2         = $7EC005
+RMFADE          = $7EC005
+RMFADE2         = $7EC006
 
 ; Timer for transition fading and mosaics
 FADETIME        = $7EC007
@@ -5901,7 +5917,7 @@ TILEATTR        = $7EFE00
 
 ;===================================================================================================
 ;---------------------------------------------------------------------------------------------------
-; Bank7F
+; Bank 7F
 ;---------------------------------------------------------------------------------------------------
 ;===================================================================================================
 
@@ -6059,7 +6075,7 @@ IRISBUFFER      = $7F7000
 
 ;---------------------------------------------------------------------------------------------------
 
-; Text pointers in bank1C, built procedurally.
+; Text pointers in bank 1C, built procedurally.
 ; Expected vanilla values for JP1.0 listed as comment.
 MSG0000         = $7F71C0 ; $8000
 MSG0001         = $7F71C2 ; $8001

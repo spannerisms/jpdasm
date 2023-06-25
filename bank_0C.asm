@@ -3,127 +3,127 @@ org $0C8000
 ;===================================================================================================
 
 OverworldMap32_Screen62_High:
-#_0C8000: db $01 ; Direct Copy
+#_0C8000: db $01 ; Raw block
 #_0C8001: db $0B, $04
-#_0C8003: db $2A ; Byte Fill
+#_0C8003: db $2A ; Repeat byte
 #_0C8004: db $00
-#_0C8005: db $04 ; Direct Copy
+#_0C8005: db $04 ; Raw block
 #_0C8006: db $0B, $05, $06, $0B, $06
-#_0C800B: db $22 ; Byte Fill
+#_0C800B: db $22 ; Repeat byte
 #_0C800C: db $00
-#_0C800D: db $07 ; Direct Copy
+#_0C800D: db $07 ; Raw block
 #_0C800E: db $0B, $01, $06, $06, $01, $00, $00, $01
-#_0C8016: db $83 ; Repeat Fill
-#_0C8017: db $00, $0D ; Repeat Fill bytes
-#_0C8019: db $03 ; Direct Copy
+#_0C8016: db $83 ; Copy past
+#_0C8017: dw $0D00
+#_0C8019: db $03 ; Raw block
 #_0C801A: db $01, $01, $00, $01
-#_0C801E: db $23 ; Byte Fill
+#_0C801E: db $23 ; Repeat byte
 #_0C801F: db $19
-#_0C8020: db $23 ; Byte Fill
+#_0C8020: db $23 ; Repeat byte
 #_0C8021: db $01
-#_0C8022: db $03 ; Direct Copy
+#_0C8022: db $03 ; Raw block
 #_0C8023: db $05, $05, $07, $0B
-#_0C8027: db $43 ; Word Fill
-#_0C8028: db $00, $01 ;  Word Fill
-#_0C802A: db $0F ; Direct Copy
+#_0C8027: db $43 ; Repeat word
+#_0C8028: dw $0100
+#_0C802A: db $0F ; Raw block
 #_0C802B: db $15, $19, $19, $0D, $00, $00, $06, $01
 #_0C8033: db $05, $05, $06, $04, $03, $0B, $07, $0B
-#_0C803B: db $22 ; Byte Fill
+#_0C803B: db $22 ; Repeat byte
 #_0C803C: db $19
-#_0C803D: db $02 ; Direct Copy
+#_0C803D: db $02 ; Raw block
 #_0C803E: db $0B, $16, $03
-#_0C8041: db $22 ; Byte Fill
+#_0C8041: db $22 ; Repeat byte
 #_0C8042: db $02
-#_0C8043: db $22 ; Byte Fill
+#_0C8043: db $22 ; Repeat byte
 #_0C8044: db $05
-#_0C8045: db $25 ; Byte Fill
+#_0C8045: db $25 ; Repeat byte
 #_0C8046: db $0B
-#_0C8047: db $1E ; Direct Copy
+#_0C8047: db $1E ; Raw block
 #_0C8048: db $19, $05, $01, $01, $02, $0B, $01, $05
 #_0C8050: db $07, $0B, $0B, $00, $00, $0B, $03, $10
 #_0C8058: db $10, $19, $01, $01, $02, $05, $07, $07
 #_0C8060: db $0B, $0B, $09, $01, $01, $0B, $0B
-#_0C8067: db $83 ; Repeat Fill
-#_0C8068: db $00, $27 ; Repeat Fill bytes
-#_0C806A: db $0D ; Direct Copy
+#_0C8067: db $83 ; Copy past
+#_0C8068: dw $2700
+#_0C806A: db $0D ; Raw block
 #_0C806B: db $02, $17, $0B, $08, $07, $07, $05, $01
 #_0C8073: db $0F, $0B, $19, $19, $0B, $0B
-#_0C8079: db $25 ; Byte Fill
+#_0C8079: db $25 ; Repeat byte
 #_0C807A: db $02
-#_0C807B: db $02 ; Direct Copy
+#_0C807B: db $02 ; Raw block
 #_0C807C: db $08, $07, $08
-#_0C807F: db $22 ; Byte Fill
+#_0C807F: db $22 ; Repeat byte
 #_0C8080: db $0B
-#_0C8081: db $02 ; Direct Copy
+#_0C8081: db $02 ; Raw block
 #_0C8082: db $19, $19, $0B
-#_0C8085: db $25 ; Byte Fill
+#_0C8085: db $25 ; Repeat byte
 #_0C8086: db $02
-#_0C8087: db $09 ; Direct Copy
+#_0C8087: db $09 ; Raw block
 #_0C8088: db $0B, $03, $06, $08, $0B, $02, $08, $19
 #_0C8090: db $19, $05
-#_0C8092: db $25 ; Byte Fill
+#_0C8092: db $25 ; Repeat byte
 #_0C8093: db $02
-#_0C8094: db $01 ; Direct Copy
+#_0C8094: db $01 ; Raw block
 #_0C8095: db $0B, $07
-#_0C8097: db $22 ; Byte Fill
+#_0C8097: db $22 ; Repeat byte
 #_0C8098: db $0B
-#_0C8099: db $04 ; Direct Copy
+#_0C8099: db $04 ; Raw block
 #_0C809A: db $08, $0B, $16, $19, $07
-#_0C809F: db $22 ; Byte Fill
+#_0C809F: db $22 ; Repeat byte
 #_0C80A0: db $02
-#_0C80A1: db $0C ; Direct Copy
+#_0C80A1: db $0C ; Raw block
 #_0C80A2: db $08, $08, $04, $0B, $0B, $0C, $04, $08
 #_0C80AA: db $08, $0B, $16, $00, $09
-#_0C80AF: db $22 ; Byte Fill
+#_0C80AF: db $22 ; Repeat byte
 #_0C80B0: db $02
-#_0C80B1: db $0F ; Direct Copy
+#_0C80B1: db $0F ; Raw block
 #_0C80B2: db $08, $08, $04, $08, $08, $04, $04, $08
 #_0C80BA: db $08, $01, $00, $01, $01, $06, $00, $01
-#_0C80C2: db $88 ; Repeat Fill
-#_0C80C3: db $00, $CA ; Repeat Fill bytes
-#_0C80C5: db $28 ; Byte Fill
+#_0C80C2: db $88 ; Copy past
+#_0C80C3: dw $CA00
+#_0C80C5: db $28 ; Repeat byte
 #_0C80C6: db $0C
-#_0C80C7: db $86 ; Repeat Fill
-#_0C80C8: db $00, $CC ; Repeat Fill bytes
-#_0C80CA: db $83 ; Repeat Fill
-#_0C80CB: db $00, $CC ; Repeat Fill bytes
-#_0C80CD: db $88 ; Repeat Fill
-#_0C80CE: db $00, $F1 ; Repeat Fill bytes
+#_0C80C7: db $86 ; Copy past
+#_0C80C8: dw $CC00
+#_0C80CA: db $83 ; Copy past
+#_0C80CB: dw $CC00
+#_0C80CD: db $88 ; Copy past
+#_0C80CE: dw $F100
 #_0C80D0: db $FF ; End of Map 62
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen62_Low:
-#_0C80D1: db $02 ; Direct Copy
+#_0C80D1: db $02 ; Raw block
 #_0C80D2: db $C0, $1E, $0B
-#_0C80D5: db $62 ; Increasing Fill
-#_0C80D6: db $09 ; Increasing Fill Start
-#_0C80D7: db $01 ; Direct Copy
+#_0C80D5: db $62 ; Increment fill
+#_0C80D6: db $09
+#_0C80D7: db $01 ; Raw block
 #_0C80D8: db $09, $0A
-#_0C80DA: db $84 ; Repeat Fill
-#_0C80DB: db $00, $02 ; Repeat Fill bytes
-#_0C80DD: db $04 ; Direct Copy
+#_0C80DA: db $84 ; Copy past
+#_0C80DB: dw $0200
+#_0C80DD: db $04 ; Raw block
 #_0C80DE: db $C1, $8A, $09, $C0, $2C
-#_0C80E3: db $62 ; Increasing Fill
-#_0C80E4: db $06 ; Increasing Fill Start
-#_0C80E5: db $0F ; Direct Copy
+#_0C80E3: db $62 ; Increment fill
+#_0C80E4: db $06
+#_0C80E5: db $0F ; Raw block
 #_0C80E6: db $C2, $0E, $5E, $AC, $31, $08, $06, $10
 #_0C80EE: db $C3, $8A, $09, $C0, $19, $1A, $00, $04
-#_0C80F6: db $63 ; Increasing Fill
-#_0C80F7: db $66 ; Increasing Fill Start
-#_0C80F8: db $1B ; Direct Copy
+#_0C80F6: db $63 ; Increment fill
+#_0C80F7: db $66
+#_0C80F8: db $1B ; Raw block
 #_0C80F9: db $39, $3A, $1B, $1C, $6F, $8A, $5C, $C6
 #_0C8101: db $99, $27, $09, $07, $C0, $6A, $6B, $B8
 #_0C8109: db $91, $8E, $33, $29, $16, $8A, $09, $8E
 #_0C8111: db $B2, $CA, $ED, $CB
-#_0C8115: db $62 ; Increasing Fill
-#_0C8116: db $6C ; Increasing Fill Start
-#_0C8117: db $08 ; Direct Copy
+#_0C8115: db $62 ; Increment fill
+#_0C8116: db $6C
+#_0C8117: db $08 ; Raw block
 #_0C8118: db $42, $E6, $FF, $A1, $07, $AA, $92, $C5
 #_0C8120: db $A2
-#_0C8121: db $65 ; Increasing Fill
-#_0C8122: db $D0 ; Increasing Fill Start
-#_0C8123: db $E0, $30 ; EXT Direct Copy
+#_0C8121: db $65 ; Increment fill
+#_0C8122: db $D0
+#_0C8123: db $E0, $30 ; EXT Raw block
 #_0C8125: db $6F, $46, $AB, $AC, $AA, $D8, $ED, $99
 #_0C812D: db $1F, $D9, $DA, $EE, $09, $DC, $B1, $F7
 #_0C8135: db $F8, $70, $B3, $B4, $7A, $6F, $1E, $1F
@@ -131,231 +131,231 @@ OverworldMap32_Screen62_Low:
 #_0C8145: db $72, $22, $22, $04, $00, $E6, $6B, $43
 #_0C814D: db $20, $6E, $CC, $09, $E8, $73, $74, $EA
 #_0C8155: db $EB
-#_0C8156: db $24 ; Byte Fill
+#_0C8156: db $24 ; Repeat byte
 #_0C8157: db $E9
-#_0C8158: db $03 ; Direct Copy
+#_0C8158: db $03 ; Raw block
 #_0C8159: db $3E, $6F, $54, $0A
-#_0C815D: db $62 ; Increasing Fill
-#_0C815E: db $ED ; Increasing Fill Start
-#_0C815F: db $03 ; Direct Copy
+#_0C815D: db $62 ; Increment fill
+#_0C815E: db $ED
+#_0C815F: db $03 ; Raw block
 #_0C8160: db $75, $76, $F1, $A7
-#_0C8164: db $24 ; Byte Fill
+#_0C8164: db $24 ; Repeat byte
 #_0C8165: db $E9
-#_0C8166: db $09 ; Direct Copy
+#_0C8166: db $09 ; Raw block
 #_0C8167: db $F3, $32, $09, $61, $F4, $A7, $97, $77
 #_0C816F: db $78, $04
-#_0C8171: db $25 ; Byte Fill
+#_0C8171: db $25 ; Repeat byte
 #_0C8172: db $E9
-#_0C8173: db $09 ; Direct Copy
+#_0C8173: db $09 ; Raw block
 #_0C8174: db $F9, $3A, $94, $FA, $FB, $B9, $FC, $E6
 #_0C817C: db $17, $6D
-#_0C817E: db $22 ; Byte Fill
+#_0C817E: db $22 ; Repeat byte
 #_0C817F: db $E9
-#_0C8180: db $0C ; Direct Copy
+#_0C8180: db $0C ; Raw block
 #_0C8181: db $B8, $B9, $2E, $FE, $FF, $00, $39, $9F
 #_0C8189: db $4B, $43, $E6, $1F, $B2
-#_0C818E: db $22 ; Byte Fill
+#_0C818E: db $22 ; Repeat byte
 #_0C818F: db $E9
-#_0C8190: db $18 ; Direct Copy
+#_0C8190: db $18 ; Raw block
 #_0C8191: db $BD, $4B, $39, $9F, $4B, $39, $42, $D2
 #_0C8199: db $D3, $62, $1F, $61, $62, $70, $99, $1E
 #_0C81A1: db $4D, $4E, $42, $D2, $D3, $42, $4A, $99
 #_0C81A9: db $44
-#_0C81AA: db $62 ; Increasing Fill
-#_0C81AB: db $02 ; Increasing Fill Start
-#_0C81AC: db $00 ; Direct Copy
+#_0C81AA: db $62 ; Increment fill
+#_0C81AB: db $02
+#_0C81AC: db $00 ; Raw block
 #_0C81AD: db $02
-#_0C81AE: db $62 ; Increasing Fill
-#_0C81AF: db $05 ; Increasing Fill Start
-#_0C81B0: db $05 ; Direct Copy
+#_0C81AE: db $62 ; Increment fill
+#_0C81AF: db $05
+#_0C81B0: db $05 ; Raw block
 #_0C81B1: db $05, $04, $4A, $99, $44, $4A
-#_0C81B7: db $83 ; Repeat Fill
-#_0C81B8: db $00, $CC ; Repeat Fill bytes
-#_0C81BA: db $00 ; Direct Copy
+#_0C81B7: db $83 ; Copy past
+#_0C81B8: dw $CC00
+#_0C81BA: db $00 ; Raw block
 #_0C81BB: db $9F
-#_0C81BC: db $84 ; Repeat Fill
-#_0C81BD: db $00, $CB ; Repeat Fill bytes
-#_0C81BF: db $85 ; Repeat Fill
-#_0C81C0: db $00, $F1 ; Repeat Fill bytes
+#_0C81BC: db $84 ; Copy past
+#_0C81BD: dw $CB00
+#_0C81BF: db $85 ; Copy past
+#_0C81C0: dw $F100
 #_0C81C2: db $FF ; End of Map 62
 
 ;===================================================================================================
 
 OverworldMap32_Screen63_High:
-#_0C81C3: db $04 ; Direct Copy
+#_0C81C3: db $04 ; Raw block
 #_0C81C4: db $05, $07, $17, $19, $17
-#_0C81C9: db $43 ; Word Fill
-#_0C81CA: db $17, $19 ;  Word Fill
-#_0C81CC: db $01 ; Direct Copy
+#_0C81C9: db $43 ; Repeat word
+#_0C81CA: dw $1917
+#_0C81CC: db $01 ; Raw block
 #_0C81CD: db $19, $17
-#_0C81CF: db $24 ; Byte Fill
+#_0C81CF: db $24 ; Repeat byte
 #_0C81D0: db $19
-#_0C81D1: db $01 ; Direct Copy
+#_0C81D1: db $01 ; Raw block
 #_0C81D2: db $05, $07
-#_0C81D4: db $22 ; Byte Fill
+#_0C81D4: db $22 ; Repeat byte
 #_0C81D5: db $19
-#_0C81D6: db $22 ; Byte Fill
+#_0C81D6: db $22 ; Repeat byte
 #_0C81D7: db $17
-#_0C81D8: db $45 ; Word Fill
-#_0C81D9: db $19, $17 ;  Word Fill
-#_0C81DB: db $06 ; Direct Copy
+#_0C81D8: db $45 ; Repeat word
+#_0C81D9: dw $1719
+#_0C81DB: db $06 ; Raw block
 #_0C81DC: db $17, $19, $05, $07, $08, $15, $19
-#_0C81E3: db $23 ; Byte Fill
+#_0C81E3: db $23 ; Repeat byte
 #_0C81E4: db $06
-#_0C81E5: db $43 ; Word Fill
-#_0C81E6: db $19, $06 ;  Word Fill
-#_0C81E8: db $22 ; Byte Fill
+#_0C81E5: db $43 ; Repeat word
+#_0C81E6: dw $0619
+#_0C81E8: db $22 ; Repeat byte
 #_0C81E9: db $19
-#_0C81EA: db $05 ; Direct Copy
+#_0C81EA: db $05 ; Raw block
 #_0C81EB: db $05, $07, $08, $06, $19, $19
-#_0C81F1: db $23 ; Byte Fill
+#_0C81F1: db $23 ; Repeat byte
 #_0C81F2: db $06
-#_0C81F3: db $00 ; Direct Copy
+#_0C81F3: db $00 ; Raw block
 #_0C81F4: db $09
-#_0C81F5: db $22 ; Byte Fill
+#_0C81F5: db $22 ; Repeat byte
 #_0C81F6: db $06
-#_0C81F7: db $85 ; Repeat Fill
-#_0C81F8: db $00, $2E ; Repeat Fill bytes
-#_0C81FA: db $01 ; Direct Copy
+#_0C81F7: db $85 ; Copy past
+#_0C81F8: dw $2E00
+#_0C81FA: db $01 ; Raw block
 #_0C81FB: db $06, $09
-#_0C81FD: db $24 ; Byte Fill
+#_0C81FD: db $24 ; Repeat byte
 #_0C81FE: db $06
-#_0C81FF: db $02 ; Direct Copy
+#_0C81FF: db $02 ; Raw block
 #_0C8200: db $16, $16, $19
-#_0C8203: db $83 ; Repeat Fill
-#_0C8204: db $00, $1E ; Repeat Fill bytes
-#_0C8206: db $04 ; Direct Copy
+#_0C8203: db $83 ; Copy past
+#_0C8204: dw $1E00
+#_0C8206: db $04 ; Raw block
 #_0C8207: db $19, $19, $06, $0C, $07
-#_0C820C: db $23 ; Byte Fill
+#_0C820C: db $23 ; Repeat byte
 #_0C820D: db $06
-#_0C820E: db $01 ; Direct Copy
+#_0C820E: db $01 ; Raw block
 #_0C820F: db $16, $16
-#_0C8211: db $22 ; Byte Fill
+#_0C8211: db $22 ; Repeat byte
 #_0C8212: db $19
-#_0C8213: db $05 ; Direct Copy
+#_0C8213: db $05 ; Raw block
 #_0C8214: db $05, $07, $05, $19, $01, $00
-#_0C821A: db $83 ; Repeat Fill
-#_0C821B: db $00, $34 ; Repeat Fill bytes
-#_0C821D: db $01 ; Direct Copy
+#_0C821A: db $83 ; Copy past
+#_0C821B: dw $3400
+#_0C821D: db $01 ; Raw block
 #_0C821E: db $09, $07
-#_0C8220: db $83 ; Repeat Fill
-#_0C8221: db $00, $2B ; Repeat Fill bytes
-#_0C8223: db $03 ; Direct Copy
+#_0C8220: db $83 ; Copy past
+#_0C8221: dw $2B00
+#_0C8223: db $03 ; Raw block
 #_0C8224: db $05, $05, $19, $19
-#_0C8228: db $2B ; Byte Fill
+#_0C8228: db $2B ; Repeat byte
 #_0C8229: db $0C
-#_0C822A: db $22 ; Byte Fill
+#_0C822A: db $22 ; Repeat byte
 #_0C822B: db $05
-#_0C822C: db $00 ; Direct Copy
+#_0C822C: db $00 ; Raw block
 #_0C822D: db $07
-#_0C822E: db $2B ; Byte Fill
+#_0C822E: db $2B ; Repeat byte
 #_0C822F: db $02
-#_0C8230: db $22 ; Byte Fill
+#_0C8230: db $22 ; Repeat byte
 #_0C8231: db $05
-#_0C8232: db $3C ; Byte Fill
+#_0C8232: db $3C ; Repeat byte
 #_0C8233: db $07
-#_0C8234: db $00 ; Direct Copy
+#_0C8234: db $00 ; Raw block
 #_0C8235: db $19
-#_0C8236: db $2E ; Byte Fill
+#_0C8236: db $2E ; Repeat byte
 #_0C8237: db $07
-#_0C8238: db $00 ; Direct Copy
+#_0C8238: db $00 ; Raw block
 #_0C8239: db $04
-#_0C823A: db $2D ; Byte Fill
+#_0C823A: db $2D ; Repeat byte
 #_0C823B: db $0C
-#_0C823C: db $06 ; Direct Copy
+#_0C823C: db $06 ; Raw block
 #_0C823D: db $19, $04, $04, $01, $19, $06, $06
-#_0C8244: db $28 ; Byte Fill
+#_0C8244: db $28 ; Repeat byte
 #_0C8245: db $0C
-#_0C8246: db $0F ; Direct Copy
+#_0C8246: db $0F ; Raw block
 #_0C8247: db $19, $08, $0C, $0C, $04, $00, $0C, $08
 #_0C824F: db $08, $04, $08, $08, $04, $08, $08, $04
-#_0C8257: db $22 ; Byte Fill
+#_0C8257: db $22 ; Repeat byte
 #_0C8258: db $08
-#_0C8259: db $04 ; Direct Copy
+#_0C8259: db $04 ; Raw block
 #_0C825A: db $04, $04, $07, $01, $0B
-#_0C825F: db $88 ; Repeat Fill
-#_0C8260: db $00, $E7 ; Repeat Fill bytes
+#_0C825F: db $88 ; Copy past
+#_0C8260: dw $E700
 #_0C8262: db $FF ; End of Map 63
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen63_Low:
-#_0C8263: db $0C ; Direct Copy
+#_0C8263: db $0C ; Raw block
 #_0C8264: db $E1, $6E, $5C, $79, $59, $75, $7A, $6F
 #_0C826C: db $7B, $7C, $D9, $7D, $7C
-#_0C8271: db $62 ; Increasing Fill
-#_0C8272: db $7E ; Increasing Fill Start
-#_0C8273: db $07 ; Direct Copy
+#_0C8271: db $62 ; Increment fill
+#_0C8272: db $7E
+#_0C8273: db $07 ; Raw block
 #_0C8274: db $E1, $6E, $81, $82, $7C, $76, $75, $D9
-#_0C827C: db $45 ; Word Fill
-#_0C827D: db $7C, $8F ;  Word Fill
-#_0C827F: db $06 ; Direct Copy
+#_0C827C: db $45 ; Repeat word
+#_0C827D: dw $8F7C
+#_0C827F: db $06 ; Raw block
 #_0C8280: db $5B, $80, $E1, $6E, $F5, $DA, $83
-#_0C8287: db $23 ; Byte Fill
+#_0C8287: db $23 ; Repeat byte
 #_0C8288: db $7C
-#_0C8289: db $44 ; Word Fill
-#_0C828A: db $84, $7C ;  Word Fill
-#_0C828C: db $07 ; Direct Copy
+#_0C8289: db $44 ; Repeat word
+#_0C828A: dw $7C84
+#_0C828C: db $07 ; Raw block
 #_0C828D: db $85, $86, $E1, $6E, $F5, $70, $87, $83
-#_0C8295: db $23 ; Byte Fill
+#_0C8295: db $23 ; Repeat byte
 #_0C8296: db $7C
-#_0C8297: db $04 ; Direct Copy
+#_0C8297: db $04 ; Raw block
 #_0C8298: db $25, $91, $90, $7C, $86
-#_0C829D: db $83 ; Repeat Fill
-#_0C829E: db $00, $2F ; Repeat Fill bytes
-#_0C82A0: db $02 ; Direct Copy
+#_0C829D: db $83 ; Copy past
+#_0C829E: dw $2F00
+#_0C82A0: db $02 ; Raw block
 #_0C82A1: db $66, $66, $1C
-#_0C82A4: db $23 ; Byte Fill
+#_0C82A4: db $23 ; Repeat byte
 #_0C82A5: db $7C
-#_0C82A6: db $0C ; Direct Copy
+#_0C82A6: db $0C ; Raw block
 #_0C82A7: db $CD, $E7, $E8, $88, $8F, $86, $E1, $6E
 #_0C82AF: db $89, $8A, $70, $23, $65
-#_0C82B4: db $23 ; Byte Fill
+#_0C82B4: db $23 ; Repeat byte
 #_0C82B5: db $7C
-#_0C82B6: db $0A ; Direct Copy
+#_0C82B6: db $0A ; Raw block
 #_0C82B7: db $E9, $EA, $8B, $8C, $86, $E1, $37, $1B
 #_0C82BF: db $8D, $1E, $AA
-#_0C82C2: db $83 ; Repeat Fill
-#_0C82C3: db $00, $34 ; Repeat Fill bytes
-#_0C82C5: db $02 ; Direct Copy
+#_0C82C2: db $83 ; Copy past
+#_0C82C3: dw $3400
+#_0C82C5: db $02 ; Raw block
 #_0C82C6: db $25, $4E, $8E
-#_0C82C9: db $83 ; Repeat Fill
-#_0C82CA: db $00, $3D ; Repeat Fill bytes
-#_0C82CC: db $02 ; Direct Copy
+#_0C82C9: db $83 ; Copy past
+#_0C82CA: dw $3D00
+#_0C82CC: db $02 ; Raw block
 #_0C82CD: db $AB, $8F, $90
-#_0C82D0: db $2B ; Byte Fill
+#_0C82D0: db $2B ; Repeat byte
 #_0C82D1: db $30
-#_0C82D2: db $03 ; Direct Copy
+#_0C82D2: db $03 ; Raw block
 #_0C82D3: db $E1, $E1, $AB, $3F
-#_0C82D7: db $2B ; Byte Fill
+#_0C82D7: db $2B ; Repeat byte
 #_0C82D8: db $FB
-#_0C82D9: db $22 ; Byte Fill
+#_0C82D9: db $22 ; Repeat byte
 #_0C82DA: db $E1
-#_0C82DB: db $00 ; Direct Copy
+#_0C82DB: db $00 ; Raw block
 #_0C82DC: db $44
-#_0C82DD: db $2B ; Byte Fill
+#_0C82DD: db $2B ; Repeat byte
 #_0C82DE: db $79
-#_0C82DF: db $2F ; Byte Fill
+#_0C82DF: db $2F ; Repeat byte
 #_0C82E0: db $22
-#_0C82E1: db $00 ; Direct Copy
+#_0C82E1: db $00 ; Raw block
 #_0C82E2: db $91
-#_0C82E3: db $2E ; Byte Fill
+#_0C82E3: db $2E ; Repeat byte
 #_0C82E4: db $27
-#_0C82E5: db $00 ; Direct Copy
+#_0C82E5: db $00 ; Raw block
 #_0C82E6: db $3A
-#_0C82E7: db $62 ; Increasing Fill
-#_0C82E8: db $37 ; Increasing Fill Start
-#_0C82E9: db $00 ; Direct Copy
+#_0C82E7: db $62 ; Increment fill
+#_0C82E8: db $37
+#_0C82E9: db $00 ; Raw block
 #_0C82EA: db $39
-#_0C82EB: db $29 ; Byte Fill
+#_0C82EB: db $29 ; Repeat byte
 #_0C82EC: db $3A
-#_0C82ED: db $06 ; Direct Copy
+#_0C82ED: db $06 ; Raw block
 #_0C82EE: db $92, $43, $44, $62, $93, $B3, $90
-#_0C82F5: db $63 ; Increasing Fill
-#_0C82F6: db $3C ; Increasing Fill Start
-#_0C82F7: db $62 ; Increasing Fill
-#_0C82F8: db $3D ; Increasing Fill Start
-#_0C82F9: db $E0, $22 ; EXT Direct Copy
+#_0C82F5: db $63 ; Increment fill
+#_0C82F6: db $3C
+#_0C82F7: db $62 ; Increment fill
+#_0C82F8: db $3D
+#_0C82F9: db $E0, $22 ; EXT Raw block
 #_0C82FB: db $3D, $40, $94, $99, $42, $43, $2F, $1D
 #_0C8303: db $28, $BD, $4B, $39, $9F, $4B, $39, $9F
 #_0C830B: db $4B, $39, $9F, $9F, $4B, $39, $3A, $9E
@@ -366,94 +366,94 @@ OverworldMap32_Screen63_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen64_High:
-#_0C831F: db $2B ; Byte Fill
+#_0C831F: db $2B ; Repeat byte
 #_0C8320: db $19
-#_0C8321: db $05 ; Direct Copy
+#_0C8321: db $05 ; Raw block
 #_0C8322: db $17, $03, $05, $05, $19, $19
-#_0C8328: db $24 ; Byte Fill
+#_0C8328: db $24 ; Repeat byte
 #_0C8329: db $17
-#_0C832A: db $01 ; Direct Copy
+#_0C832A: db $01 ; Raw block
 #_0C832B: db $19, $19
-#_0C832D: db $23 ; Byte Fill
+#_0C832D: db $23 ; Repeat byte
 #_0C832E: db $17
-#_0C832F: db $02 ; Direct Copy
+#_0C832F: db $02 ; Raw block
 #_0C8330: db $03, $05, $10
-#_0C8333: db $22 ; Byte Fill
+#_0C8333: db $22 ; Repeat byte
 #_0C8334: db $19
-#_0C8335: db $05 ; Direct Copy
+#_0C8335: db $05 ; Raw block
 #_0C8336: db $06, $19, $00, $19, $19, $07
-#_0C833C: db $22 ; Byte Fill
+#_0C833C: db $22 ; Repeat byte
 #_0C833D: db $06
-#_0C833E: db $04 ; Direct Copy
+#_0C833E: db $04 ; Raw block
 #_0C833F: db $19, $08, $09, $07, $19
-#_0C8344: db $43 ; Word Fill
-#_0C8345: db $19, $06 ;  Word Fill
-#_0C8347: db $01 ; Direct Copy
+#_0C8344: db $43 ; Repeat word
+#_0C8345: dw $0619
+#_0C8347: db $01 ; Raw block
 #_0C8348: db $06, $19
-#_0C834A: db $22 ; Byte Fill
+#_0C834A: db $22 ; Repeat byte
 #_0C834B: db $06
-#_0C834C: db $02 ; Direct Copy
+#_0C834C: db $02 ; Raw block
 #_0C834D: db $19, $00, $19
-#_0C8350: db $22 ; Byte Fill
+#_0C8350: db $22 ; Repeat byte
 #_0C8351: db $0C
-#_0C8352: db $04 ; Direct Copy
+#_0C8352: db $04 ; Raw block
 #_0C8353: db $19, $17, $06, $16, $16
-#_0C8358: db $22 ; Byte Fill
+#_0C8358: db $22 ; Repeat byte
 #_0C8359: db $06
-#_0C835A: db $10 ; Direct Copy
+#_0C835A: db $10 ; Raw block
 #_0C835B: db $19, $00, $00, $18, $06, $19, $0C, $01
 #_0C8363: db $19, $19, $06, $16, $16, $19, $06, $19
 #_0C836B: db $03
-#_0C836C: db $23 ; Byte Fill
+#_0C836C: db $23 ; Repeat byte
 #_0C836D: db $00
-#_0C836E: db $84 ; Repeat Fill
-#_0C836F: db $00, $4D ; Repeat Fill bytes
-#_0C8371: db $03 ; Direct Copy
+#_0C836E: db $84 ; Copy past
+#_0C836F: dw $4D00
+#_0C8371: db $03 ; Raw block
 #_0C8372: db $00, $03, $04, $00
-#_0C8376: db $23 ; Byte Fill
+#_0C8376: db $23 ; Repeat byte
 #_0C8377: db $10
-#_0C8378: db $05 ; Direct Copy
+#_0C8378: db $05 ; Raw block
 #_0C8379: db $00, $00, $19, $19, $01, $01
-#_0C837F: db $2B ; Byte Fill
+#_0C837F: db $2B ; Repeat byte
 #_0C8380: db $0C
-#_0C8381: db $03 ; Direct Copy
+#_0C8381: db $03 ; Raw block
 #_0C8382: db $19, $0C, $06, $06
-#_0C8386: db $2B ; Byte Fill
+#_0C8386: db $2B ; Repeat byte
 #_0C8387: db $02
-#_0C8388: db $05 ; Direct Copy
+#_0C8388: db $05 ; Raw block
 #_0C8389: db $07, $05, $05, $10, $0C, $07
-#_0C838F: db $43 ; Word Fill
-#_0C8390: db $07, $0C ;  Word Fill
-#_0C8392: db $22 ; Byte Fill
+#_0C838F: db $43 ; Repeat word
+#_0C8390: dw $0C07
+#_0C8392: db $22 ; Repeat byte
 #_0C8393: db $07
-#_0C8394: db $06 ; Direct Copy
+#_0C8394: db $06 ; Raw block
 #_0C8395: db $0C, $0C, $07, $07, $10, $05, $05
-#_0C839C: db $2C ; Byte Fill
+#_0C839C: db $2C ; Repeat byte
 #_0C839D: db $07
-#_0C839E: db $02 ; Direct Copy
+#_0C839E: db $02 ; Raw block
 #_0C839F: db $05, $05, $10
-#_0C83A2: db $29 ; Byte Fill
+#_0C83A2: db $29 ; Repeat byte
 #_0C83A3: db $07
-#_0C83A4: db $07 ; Direct Copy
+#_0C83A4: db $07 ; Raw block
 #_0C83A5: db $0C, $0C, $19, $07, $05, $05, $0C, $19
-#_0C83AD: db $27 ; Byte Fill
+#_0C83AD: db $27 ; Repeat byte
 #_0C83AE: db $0C
-#_0C83AF: db $05 ; Direct Copy
+#_0C83AF: db $05 ; Raw block
 #_0C83B0: db $04, $01, $19, $08, $07, $10
-#_0C83B6: db $24 ; Byte Fill
+#_0C83B6: db $24 ; Repeat byte
 #_0C83B7: db $0C
-#_0C83B8: db $43 ; Word Fill
-#_0C83B9: db $02, $0C ;  Word Fill
-#_0C83BB: db $0E ; Direct Copy
+#_0C83B8: db $43 ; Repeat word
+#_0C83B9: dw $0C02
+#_0C83BB: db $0E ; Raw block
 #_0C83BC: db $0C, $06, $06, $19, $19, $08, $07, $08
 #_0C83C4: db $04, $08, $08, $0B, $00, $07, $01
-#_0C83CB: db $22 ; Byte Fill
+#_0C83CB: db $22 ; Repeat byte
 #_0C83CC: db $0C
-#_0C83CD: db $04 ; Direct Copy
+#_0C83CD: db $04 ; Raw block
 #_0C83CE: db $06, $06, $01, $03, $05
-#_0C83D3: db $83 ; Repeat Fill
-#_0C83D4: db $00, $E0 ; Repeat Fill bytes
-#_0C83D6: db $0B ; Direct Copy
+#_0C83D3: db $83 ; Copy past
+#_0C83D4: dw $E000
+#_0C83D6: db $0B ; Raw block
 #_0C83D7: db $01, $00, $00, $06, $00, $02, $0C, $05
 #_0C83DF: db $00, $00, $03, $05
 #_0C83E3: db $FF ; End of Map 64
@@ -461,92 +461,92 @@ OverworldMap32_Screen64_High:
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen64_Low:
-#_0C83E4: db $00 ; Direct Copy
+#_0C83E4: db $00 ; Raw block
 #_0C83E5: db $80
-#_0C83E6: db $64 ; Increasing Fill
-#_0C83E7: db $95 ; Increasing Fill Start
-#_0C83E8: db $62 ; Increasing Fill
-#_0C83E9: db $97 ; Increasing Fill Start
-#_0C83EA: db $62 ; Increasing Fill
-#_0C83EB: db $99 ; Increasing Fill Start
-#_0C83EC: db $05 ; Direct Copy
+#_0C83E6: db $64 ; Increment fill
+#_0C83E7: db $95
+#_0C83E8: db $62 ; Increment fill
+#_0C83E9: db $97
+#_0C83EA: db $62 ; Increment fill
+#_0C83EB: db $99
+#_0C83EC: db $05 ; Raw block
 #_0C83ED: db $C0, $32, $C5, $E1, $80, $9C
-#_0C83F3: db $44 ; Word Fill
-#_0C83F4: db $8F, $72 ;  Word Fill
-#_0C83F6: db $01 ; Direct Copy
+#_0C83F3: db $44 ; Repeat word
+#_0C83F4: dw $728F
+#_0C83F6: db $01 ; Raw block
 #_0C83F7: db $9D, $98
-#_0C83F9: db $22 ; Byte Fill
+#_0C83F9: db $22 ; Repeat byte
 #_0C83FA: db $72
-#_0C83FB: db $0C ; Direct Copy
+#_0C83FB: db $0C ; Raw block
 #_0C83FC: db $C4, $32, $C5, $FF, $86, $9E, $84, $7C
 #_0C8404: db $9F, $1D, $A0, $A1, $39
-#_0C8409: db $22 ; Byte Fill
+#_0C8409: db $22 ; Repeat byte
 #_0C840A: db $7C
-#_0C840B: db $0A ; Direct Copy
+#_0C840B: db $0A ; Raw block
 #_0C840C: db $A2, $69, $46, $22, $86, $86, $7C, $A3
 #_0C8414: db $91, $74, $A4
-#_0C8417: db $22 ; Byte Fill
+#_0C8417: db $22 ; Repeat byte
 #_0C8418: db $7C
-#_0C8419: db $02 ; Direct Copy
+#_0C8419: db $02 ; Raw block
 #_0C841A: db $A5, $1C, $A6
-#_0C841D: db $62 ; Increasing Fill
-#_0C841E: db $56 ; Increasing Fill Start
-#_0C841F: db $04 ; Direct Copy
+#_0C841D: db $62 ; Increment fill
+#_0C841E: db $56
+#_0C841F: db $04 ; Raw block
 #_0C8420: db $86, $8F, $7C, $E7, $E8
-#_0C8425: db $22 ; Byte Fill
+#_0C8425: db $22 ; Repeat byte
 #_0C8426: db $7C
-#_0C8427: db $11 ; Direct Copy
+#_0C8427: db $11 ; Raw block
 #_0C8428: db $A5, $A5, $1D, $0B, $66, $A7, $5E, $8B
 #_0C8430: db $86, $8C, $83, $E9, $EA, $A8, $7C, $A5
 #_0C8438: db $E2, $A5
-#_0C843A: db $22 ; Byte Fill
+#_0C843A: db $22 ; Repeat byte
 #_0C843B: db $1D
-#_0C843C: db $08 ; Direct Copy
+#_0C843C: db $08 ; Raw block
 #_0C843D: db $A9, $66, $AB, $86, $86, $1D, $DB, $25
 #_0C8445: db $1D
-#_0C8446: db $43 ; Word Fill
-#_0C8447: db $83, $84 ;  Word Fill
-#_0C8449: db $05 ; Direct Copy
+#_0C8446: db $43 ; Repeat word
+#_0C8447: dw $8483
+#_0C8449: db $05 ; Raw block
 #_0C844A: db $1D, $1D, $AA, $AB, $B3, $B3
-#_0C8450: db $2B ; Byte Fill
+#_0C8450: db $2B ; Repeat byte
 #_0C8451: db $72
-#_0C8452: db $03 ; Direct Copy
+#_0C8452: db $03 ; Raw block
 #_0C8453: db $AC, $74, $A0, $A0
-#_0C8457: db $2B ; Byte Fill
+#_0C8457: db $2B ; Repeat byte
 #_0C8458: db $FB
-#_0C8459: db $05 ; Direct Copy
+#_0C8459: db $05 ; Raw block
 #_0C845A: db $1B, $9F, $E1, $FF, $76, $79
-#_0C8460: db $43 ; Word Fill
-#_0C8461: db $79, $76 ;  Word Fill
-#_0C8463: db $22 ; Byte Fill
+#_0C8460: db $43 ; Repeat word
+#_0C8461: dw $7679
+#_0C8463: db $22 ; Repeat byte
 #_0C8464: db $79
-#_0C8465: db $06 ; Direct Copy
+#_0C8465: db $06 ; Raw block
 #_0C8466: db $76, $76, $79, $31, $FF, $E1, $E1
-#_0C846D: db $2B ; Byte Fill
+#_0C846D: db $2B ; Repeat byte
 #_0C846E: db $22
-#_0C846F: db $03 ; Direct Copy
+#_0C846F: db $03 ; Raw block
 #_0C8470: db $3D, $E1, $E1, $FF
-#_0C8474: db $29 ; Byte Fill
+#_0C8474: db $29 ; Repeat byte
 #_0C8475: db $27
-#_0C8476: db $08 ; Direct Copy
+#_0C8476: db $08 ; Raw block
 #_0C8477: db $78, $79, $AD, $43, $E1, $E1, $7C, $AE
 #_0C847F: db $7B
-#_0C8480: db $25 ; Byte Fill
+#_0C8480: db $25 ; Repeat byte
 #_0C8481: db $7C
-#_0C8482: db $06 ; Direct Copy
+#_0C8482: db $06 ; Raw block
 #_0C8483: db $7D, $1E, $74, $AF, $6B, $43, $FF
-#_0C848A: db $62 ; Increasing Fill
-#_0C848B: db $80 ; Increasing Fill Start
-#_0C848C: db $01 ; Direct Copy
+#_0C848A: db $62 ; Increment fill
+#_0C848B: db $80
+#_0C848C: db $01 ; Raw block
 #_0C848D: db $80, $83
-#_0C848F: db $43 ; Word Fill
-#_0C8490: db $5B, $84 ;  Word Fill
-#_0C8492: db $0E ; Direct Copy
+#_0C848F: db $43 ; Repeat word
+#_0C8490: dw $845B
+#_0C8492: db $0E ; Raw block
 #_0C8493: db $85, $2F, $30, $B0, $B1, $6F, $54, $4B
 #_0C849B: db $39, $9F, $4B, $43, $1D, $C5, $1E
-#_0C84A2: db $62 ; Increasing Fill
-#_0C84A3: db $89 ; Increasing Fill Start
-#_0C84A4: db $14 ; Direct Copy
+#_0C84A2: db $62 ; Increment fill
+#_0C84A3: db $89
+#_0C84A4: db $14 ; Raw block
 #_0C84A5: db $8A, $66, $1E, $32, $C5, $D3, $42, $D2
 #_0C84AD: db $D3, $62, $1D, $1D, $66, $AA, $5E, $8C
 #_0C84B5: db $4F, $1D, $FB, $32, $C5
@@ -555,669 +555,669 @@ OverworldMap32_Screen64_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen25_High:
-#_0C84BB: db $03 ; Direct Copy
+#_0C84BB: db $03 ; Raw block
 #_0C84BC: db $07, $01, $0F, $02
-#_0C84C0: db $43 ; Word Fill
-#_0C84C1: db $0B, $19 ;  Word Fill
-#_0C84C3: db $0B ; Direct Copy
+#_0C84C0: db $43 ; Repeat word
+#_0C84C1: dw $190B
+#_0C84C3: db $0B ; Raw block
 #_0C84C4: db $06, $04, $07, $04, $03, $00, $01, $0A
 #_0C84CC: db $07, $01, $00, $02
-#_0C84D0: db $25 ; Byte Fill
+#_0C84D0: db $25 ; Repeat byte
 #_0C84D1: db $19
-#_0C84D2: db $08 ; Direct Copy
+#_0C84D2: db $08 ; Raw block
 #_0C84D3: db $0F, $19, $04, $00, $01, $19, $19, $07
 #_0C84DB: db $02
-#_0C84DC: db $24 ; Byte Fill
+#_0C84DC: db $24 ; Repeat byte
 #_0C84DD: db $19
-#_0C84DE: db $03 ; Direct Copy
+#_0C84DE: db $03 ; Raw block
 #_0C84DF: db $01, $19, $0F, $0F
-#_0C84E3: db $83 ; Repeat Fill
-#_0C84E4: db $00, $26 ; Repeat Fill bytes
-#_0C84E6: db $01 ; Direct Copy
+#_0C84E3: db $83 ; Copy past
+#_0C84E4: dw $2600
+#_0C84E6: db $01 ; Raw block
 #_0C84E7: db $19, $03
-#_0C84E9: db $24 ; Byte Fill
+#_0C84E9: db $24 ; Repeat byte
 #_0C84EA: db $19
-#_0C84EB: db $00 ; Direct Copy
+#_0C84EB: db $00 ; Raw block
 #_0C84EC: db $10
-#_0C84ED: db $22 ; Byte Fill
+#_0C84ED: db $22 ; Repeat byte
 #_0C84EE: db $01
-#_0C84EF: db $22 ; Byte Fill
+#_0C84EF: db $22 ; Repeat byte
 #_0C84F0: db $19
-#_0C84F1: db $04 ; Direct Copy
+#_0C84F1: db $04 ; Raw block
 #_0C84F2: db $01, $19, $03, $19, $02
-#_0C84F7: db $22 ; Byte Fill
+#_0C84F7: db $22 ; Repeat byte
 #_0C84F8: db $19
-#_0C84F9: db $01 ; Direct Copy
+#_0C84F9: db $01 ; Raw block
 #_0C84FA: db $10, $0C
-#_0C84FC: db $24 ; Byte Fill
+#_0C84FC: db $24 ; Repeat byte
 #_0C84FD: db $19
-#_0C84FE: db $05 ; Direct Copy
+#_0C84FE: db $05 ; Raw block
 #_0C84FF: db $04, $01, $01, $04, $00, $02
-#_0C8505: db $22 ; Byte Fill
+#_0C8505: db $22 ; Repeat byte
 #_0C8506: db $19
-#_0C8507: db $00 ; Direct Copy
+#_0C8507: db $00 ; Raw block
 #_0C8508: db $10
-#_0C8509: db $26 ; Byte Fill
+#_0C8509: db $26 ; Repeat byte
 #_0C850A: db $19
-#_0C850B: db $03 ; Direct Copy
+#_0C850B: db $03 ; Raw block
 #_0C850C: db $01, $01, $19, $01
-#_0C8510: db $24 ; Byte Fill
+#_0C8510: db $24 ; Repeat byte
 #_0C8511: db $19
-#_0C8512: db $00 ; Direct Copy
+#_0C8512: db $00 ; Raw block
 #_0C8513: db $01
-#_0C8514: db $24 ; Byte Fill
+#_0C8514: db $24 ; Repeat byte
 #_0C8515: db $19
-#_0C8516: db $22 ; Byte Fill
+#_0C8516: db $22 ; Repeat byte
 #_0C8517: db $01
-#_0C8518: db $01 ; Direct Copy
+#_0C8518: db $01 ; Raw block
 #_0C8519: db $07, $07
-#_0C851B: db $24 ; Byte Fill
+#_0C851B: db $24 ; Repeat byte
 #_0C851C: db $19
-#_0C851D: db $00 ; Direct Copy
+#_0C851D: db $00 ; Raw block
 #_0C851E: db $01
-#_0C851F: db $23 ; Byte Fill
+#_0C851F: db $23 ; Repeat byte
 #_0C8520: db $19
-#_0C8521: db $05 ; Direct Copy
+#_0C8521: db $05 ; Raw block
 #_0C8522: db $06, $01, $01, $04, $07, $01
-#_0C8528: db $23 ; Byte Fill
+#_0C8528: db $23 ; Repeat byte
 #_0C8529: db $19
-#_0C852A: db $01 ; Direct Copy
+#_0C852A: db $01 ; Raw block
 #_0C852B: db $10, $01
-#_0C852D: db $22 ; Byte Fill
+#_0C852D: db $22 ; Repeat byte
 #_0C852E: db $19
-#_0C852F: db $07 ; Direct Copy
+#_0C852F: db $07 ; Raw block
 #_0C8530: db $10, $19, $19, $01, $04, $09, $01, $06
-#_0C8538: db $84 ; Repeat Fill
-#_0C8539: db $00, $8A ; Repeat Fill bytes
-#_0C853B: db $01 ; Direct Copy
+#_0C8538: db $84 ; Copy past
+#_0C8539: dw $8A00
+#_0C853B: db $01 ; Raw block
 #_0C853C: db $19, $10
-#_0C853E: db $24 ; Byte Fill
+#_0C853E: db $24 ; Repeat byte
 #_0C853F: db $19
-#_0C8540: db $03 ; Direct Copy
+#_0C8540: db $03 ; Raw block
 #_0C8541: db $04, $07, $01, $02
-#_0C8545: db $86 ; Repeat Fill
-#_0C8546: db $00, $93 ; Repeat Fill bytes
-#_0C8548: db $22 ; Byte Fill
+#_0C8545: db $86 ; Copy past
+#_0C8546: dw $9300
+#_0C8548: db $22 ; Repeat byte
 #_0C8549: db $19
-#_0C854A: db $05 ; Direct Copy
+#_0C854A: db $05 ; Raw block
 #_0C854B: db $10, $19, $04, $19, $01, $09
-#_0C8551: db $23 ; Byte Fill
+#_0C8551: db $23 ; Repeat byte
 #_0C8552: db $19
-#_0C8553: db $00 ; Direct Copy
+#_0C8553: db $00 ; Raw block
 #_0C8554: db $01
-#_0C8555: db $23 ; Byte Fill
+#_0C8555: db $23 ; Repeat byte
 #_0C8556: db $19
-#_0C8557: db $83 ; Repeat Fill
-#_0C8558: db $00, $1E ; Repeat Fill bytes
-#_0C855A: db $02 ; Direct Copy
+#_0C8557: db $83 ; Copy past
+#_0C8558: dw $1E00
+#_0C855A: db $02 ; Raw block
 #_0C855B: db $09, $01, $09
-#_0C855E: db $23 ; Byte Fill
+#_0C855E: db $23 ; Repeat byte
 #_0C855F: db $19
-#_0C8560: db $00 ; Direct Copy
+#_0C8560: db $00 ; Raw block
 #_0C8561: db $01
-#_0C8562: db $23 ; Byte Fill
+#_0C8562: db $23 ; Repeat byte
 #_0C8563: db $19
-#_0C8564: db $06 ; Direct Copy
+#_0C8564: db $06 ; Raw block
 #_0C8565: db $01, $19, $04, $01, $07, $01, $09
-#_0C856C: db $22 ; Byte Fill
+#_0C856C: db $22 ; Repeat byte
 #_0C856D: db $19
-#_0C856E: db $01 ; Direct Copy
+#_0C856E: db $01 ; Raw block
 #_0C856F: db $10, $01
-#_0C8571: db $22 ; Byte Fill
+#_0C8571: db $22 ; Repeat byte
 #_0C8572: db $19
-#_0C8573: db $00 ; Direct Copy
+#_0C8573: db $00 ; Raw block
 #_0C8574: db $10
-#_0C8575: db $85 ; Repeat Fill
-#_0C8576: db $00, $CC ; Repeat Fill bytes
-#_0C8578: db $05 ; Direct Copy
+#_0C8575: db $85 ; Copy past
+#_0C8576: dw $CC00
+#_0C8578: db $05 ; Raw block
 #_0C8579: db $19, $0E, $0E, $0D, $19, $0D
-#_0C857F: db $23 ; Byte Fill
+#_0C857F: db $23 ; Repeat byte
 #_0C8580: db $01
-#_0C8581: db $83 ; Repeat Fill
-#_0C8582: db $00, $4B ; Repeat Fill bytes
-#_0C8584: db $08 ; Direct Copy
+#_0C8581: db $83 ; Copy past
+#_0C8582: dw $4B00
+#_0C8584: db $08 ; Raw block
 #_0C8585: db $07, $01, $00, $00, $0B, $0B, $01, $19
 #_0C858D: db $0B
-#_0C858E: db $22 ; Byte Fill
+#_0C858E: db $22 ; Repeat byte
 #_0C858F: db $01
-#_0C8590: db $03 ; Direct Copy
+#_0C8590: db $03 ; Raw block
 #_0C8591: db $0B, $19, $04, $01
 #_0C8595: db $FF ; End of Map 25
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen25_Low:
-#_0C8596: db $13 ; Direct Copy
+#_0C8596: db $13 ; Raw block
 #_0C8597: db $4C, $93, $19, $4F, $56, $B2, $56, $B3
 #_0C859F: db $8F, $8D, $38, $C2, $D5, $A5, $2E, $03
 #_0C85A7: db $56, $93, $AA, $4F
-#_0C85AB: db $63 ; Increasing Fill
-#_0C85AC: db $B4 ; Increasing Fill Start
-#_0C85AD: db $0A ; Direct Copy
+#_0C85AB: db $63 ; Increment fill
+#_0C85AC: db $B4
+#_0C85AD: db $0A ; Raw block
 #_0C85AE: db $B3, $B8, $42, $B9, $C4, $1D, $2E, $BA
 #_0C85B6: db $BB, $5E, $6F
-#_0C85B9: db $64 ; Increasing Fill
-#_0C85BA: db $BC ; Increasing Fill Start
-#_0C85BB: db $0F ; Direct Copy
+#_0C85B9: db $64 ; Increment fill
+#_0C85BA: db $BC
+#_0C85BB: db $0F ; Raw block
 #_0C85BC: db $06, $C1, $A4, $A1, $C2, $C3, $2E, $C4
 #_0C85C4: db $C5, $49, $C6, $B4, $C7, $C8, $C1, $C1
-#_0C85CC: db $22 ; Byte Fill
+#_0C85CC: db $22 ; Repeat byte
 #_0C85CD: db $06
-#_0C85CE: db $0C ; Direct Copy
+#_0C85CE: db $0C ; Raw block
 #_0C85CF: db $C1, $C9, $CA, $08, $CB, $5E, $CC, $4F
 #_0C85D7: db $BD, $BE, $CD, $B6, $ED
-#_0C85DC: db $43 ; Word Fill
-#_0C85DD: db $CE, $CF ;  Word Fill
-#_0C85DF: db $06 ; Direct Copy
+#_0C85DC: db $43 ; Repeat word
+#_0C85DD: dw $CFCE
+#_0C85DF: db $06 ; Raw block
 #_0C85E0: db $D0, $86, $E4, $03, $95, $1D, $4F
-#_0C85E7: db $62 ; Increasing Fill
-#_0C85E8: db $D1 ; Increasing Fill Start
-#_0C85E9: db $01 ; Direct Copy
+#_0C85E7: db $62 ; Increment fill
+#_0C85E8: db $D1
+#_0C85E9: db $01 ; Raw block
 #_0C85EA: db $B9, $D4
-#_0C85EC: db $43 ; Word Fill
-#_0C85ED: db $D5, $D6 ;  Word Fill
-#_0C85EF: db $06 ; Direct Copy
+#_0C85EC: db $43 ; Repeat word
+#_0C85ED: dw $D6D5
+#_0C85EF: db $06 ; Raw block
 #_0C85F0: db $D0, $D7, $DB, $E4, $D8, $A0, $D9
-#_0C85F7: db $83 ; Repeat Fill
-#_0C85F8: db $00, $14 ; Repeat Fill bytes
-#_0C85FA: db $00 ; Direct Copy
+#_0C85F7: db $83 ; Copy past
+#_0C85F8: dw $1400
+#_0C85FA: db $00 ; Raw block
 #_0C85FB: db $06
-#_0C85FC: db $83 ; Repeat Fill
-#_0C85FD: db $00, $14 ; Repeat Fill bytes
-#_0C85FF: db $06 ; Direct Copy
+#_0C85FC: db $83 ; Copy past
+#_0C85FD: dw $1400
+#_0C85FF: db $06 ; Raw block
 #_0C8600: db $D5, $03, $E6, $DB, $1C, $6C, $DA
-#_0C8607: db $84 ; Repeat Fill
-#_0C8608: db $00, $24 ; Repeat Fill bytes
-#_0C860A: db $83 ; Repeat Fill
-#_0C860B: db $00, $24 ; Repeat Fill bytes
-#_0C860D: db $05 ; Direct Copy
+#_0C8607: db $84 ; Copy past
+#_0C8608: dw $2400
+#_0C860A: db $83 ; Copy past
+#_0C860B: dw $2400
+#_0C860D: db $05 ; Raw block
 #_0C860E: db $A2, $01, $03, $80, $4C, $93
-#_0C8614: db $62 ; Increasing Fill
-#_0C8615: db $DA ; Increasing Fill Start
-#_0C8616: db $12 ; Direct Copy
+#_0C8614: db $62 ; Increment fill
+#_0C8615: db $DA
+#_0C8616: db $12 ; Raw block
 #_0C8617: db $C1, $C1, $06, $DB, $C8, $C1, $C1, $B6
 #_0C861F: db $B7, $0D, $86, $DB, $93, $7E, $CD, $B6
 #_0C8627: db $CE, $CF, $06
-#_0C862A: db $83 ; Repeat Fill
-#_0C862B: db $00, $93 ; Repeat Fill bytes
-#_0C862D: db $0B ; Direct Copy
+#_0C862A: db $83 ; Copy past
+#_0C862B: dw $9300
+#_0C862D: db $0B ; Raw block
 #_0C862E: db $BF, $C0, $D0, $86, $56, $93, $4F, $D3
 #_0C8636: db $B9, $D5, $D6, $06
-#_0C863A: db $83 ; Repeat Fill
-#_0C863B: db $00, $A3 ; Repeat Fill bytes
-#_0C863D: db $07 ; Direct Copy
+#_0C863A: db $83 ; Copy past
+#_0C863B: dw $A300
+#_0C863D: db $07 ; Raw block
 #_0C863E: db $C1, $C1, $DD, $86, $DE, $93, $B0, $DF
-#_0C8646: db $87 ; Repeat Fill
-#_0C8647: db $00, $64 ; Repeat Fill bytes
-#_0C8649: db $06 ; Direct Copy
+#_0C8646: db $87 ; Copy past
+#_0C8647: dw $6400
+#_0C8649: db $06 ; Raw block
 #_0C864A: db $06, $E0, $E1, $C7, $DB, $93, $B0
-#_0C8651: db $88 ; Repeat Fill
-#_0C8652: db $00, $73 ; Repeat Fill bytes
-#_0C8654: db $07 ; Direct Copy
+#_0C8651: db $88 ; Copy past
+#_0C8652: dw $7300
+#_0C8654: db $07 ; Raw block
 #_0C8655: db $06, $D0, $86, $52, $4C, $93, $C1, $E2
-#_0C865D: db $83 ; Repeat Fill
-#_0C865E: db $00, $35 ; Repeat Fill bytes
-#_0C8660: db $83 ; Repeat Fill
-#_0C8661: db $00, $88 ; Repeat Fill bytes
-#_0C8663: db $0B ; Direct Copy
+#_0C865D: db $83 ; Copy past
+#_0C865E: dw $3500
+#_0C8660: db $83 ; Copy past
+#_0C8661: dw $8800
+#_0C8663: db $0B ; Raw block
 #_0C8664: db $06, $D0, $86, $77, $4C, $93, $E3, $34
 #_0C866C: db $35, $4C, $E4, $A2
-#_0C8670: db $23 ; Byte Fill
+#_0C8670: db $23 ; Repeat byte
 #_0C8671: db $06
-#_0C8672: db $00 ; Direct Copy
+#_0C8672: db $00 ; Raw block
 #_0C8673: db $B2
-#_0C8674: db $84 ; Repeat Fill
-#_0C8675: db $00, $DD ; Repeat Fill bytes
-#_0C8677: db $06 ; Direct Copy
+#_0C8674: db $84 ; Copy past
+#_0C8675: dw $DD00
+#_0C8677: db $06 ; Raw block
 #_0C8678: db $1D, $AA, $32, $56, $06, $D4, $56
-#_0C867F: db $22 ; Byte Fill
+#_0C867F: db $22 ; Repeat byte
 #_0C8680: db $06
-#_0C8681: db $03 ; Direct Copy
+#_0C8681: db $03 ; Raw block
 #_0C8682: db $56, $D0, $86, $77
 #_0C8686: db $FF ; End of Map 25
 
 ;===================================================================================================
 
 OverworldMap32_Screen66_High:
-#_0C8687: db $27 ; Byte Fill
+#_0C8687: db $27 ; Repeat byte
 #_0C8688: db $18
-#_0C8689: db $02 ; Direct Copy
+#_0C8689: db $02 ; Raw block
 #_0C868A: db $19, $19, $18
-#_0C868D: db $24 ; Byte Fill
+#_0C868D: db $24 ; Repeat byte
 #_0C868E: db $19
-#_0C868F: db $01 ; Direct Copy
+#_0C868F: db $01 ; Raw block
 #_0C8690: db $18, $18
-#_0C8692: db $2D ; Byte Fill
+#_0C8692: db $2D ; Repeat byte
 #_0C8693: db $19
-#_0C8694: db $00 ; Direct Copy
+#_0C8694: db $00 ; Raw block
 #_0C8695: db $18
-#_0C8696: db $29 ; Byte Fill
+#_0C8696: db $29 ; Repeat byte
 #_0C8697: db $19
-#_0C8698: db $00 ; Direct Copy
+#_0C8698: db $00 ; Raw block
 #_0C8699: db $18
-#_0C869A: db $44 ; Word Fill
-#_0C869B: db $18, $1A ;  Word Fill
-#_0C869D: db $28 ; Byte Fill
+#_0C869A: db $44 ; Repeat word
+#_0C869B: dw $1A18
+#_0C869D: db $28 ; Repeat byte
 #_0C869E: db $1A
-#_0C869F: db $02 ; Direct Copy
+#_0C869F: db $02 ; Raw block
 #_0C86A0: db $18, $18, $1A
-#_0C86A3: db $43 ; Word Fill
-#_0C86A4: db $1A, $18 ;  Word Fill
-#_0C86A6: db $28 ; Byte Fill
+#_0C86A3: db $43 ; Repeat word
+#_0C86A4: dw $181A
+#_0C86A6: db $28 ; Repeat byte
 #_0C86A7: db $1A
-#_0C86A8: db $83 ; Repeat Fill
-#_0C86A9: db $00, $3A ; Repeat Fill bytes
-#_0C86AB: db $23 ; Byte Fill
+#_0C86A8: db $83 ; Copy past
+#_0C86A9: dw $3A00
+#_0C86AB: db $23 ; Repeat byte
 #_0C86AC: db $18
-#_0C86AD: db $02 ; Direct Copy
+#_0C86AD: db $02 ; Raw block
 #_0C86AE: db $1A, $1A, $19
-#_0C86B1: db $24 ; Byte Fill
+#_0C86B1: db $24 ; Repeat byte
 #_0C86B2: db $1A
-#_0C86B3: db $01 ; Direct Copy
+#_0C86B3: db $01 ; Raw block
 #_0C86B4: db $18, $18
-#_0C86B6: db $22 ; Byte Fill
+#_0C86B6: db $22 ; Repeat byte
 #_0C86B7: db $1A
-#_0C86B8: db $2A ; Byte Fill
+#_0C86B8: db $2A ; Repeat byte
 #_0C86B9: db $18
-#_0C86BA: db $01 ; Direct Copy
+#_0C86BA: db $01 ; Raw block
 #_0C86BB: db $19, $18
-#_0C86BD: db $2B ; Byte Fill
+#_0C86BD: db $2B ; Repeat byte
 #_0C86BE: db $1A
-#_0C86BF: db $23 ; Byte Fill
+#_0C86BF: db $23 ; Repeat byte
 #_0C86C0: db $18
-#_0C86C1: db $85 ; Repeat Fill
-#_0C86C2: db $00, $38 ; Repeat Fill bytes
-#_0C86C4: db $04 ; Direct Copy
+#_0C86C1: db $85 ; Copy past
+#_0C86C2: dw $3800
+#_0C86C4: db $04 ; Raw block
 #_0C86C5: db $0B, $1A, $1A, $0B, $07
-#_0C86CA: db $26 ; Byte Fill
+#_0C86CA: db $26 ; Repeat byte
 #_0C86CB: db $1A
-#_0C86CC: db $83 ; Repeat Fill
-#_0C86CD: db $00, $7F ; Repeat Fill bytes
-#_0C86CF: db $23 ; Byte Fill
+#_0C86CC: db $83 ; Copy past
+#_0C86CD: dw $7F00
+#_0C86CF: db $23 ; Repeat byte
 #_0C86D0: db $1A
-#_0C86D1: db $02 ; Direct Copy
+#_0C86D1: db $02 ; Raw block
 #_0C86D2: db $02, $1A, $18
-#_0C86D5: db $23 ; Byte Fill
+#_0C86D5: db $23 ; Repeat byte
 #_0C86D6: db $1A
-#_0C86D7: db $03 ; Direct Copy
+#_0C86D7: db $03 ; Raw block
 #_0C86D8: db $18, $18, $1A, $0C
-#_0C86DC: db $24 ; Byte Fill
+#_0C86DC: db $24 ; Repeat byte
 #_0C86DD: db $1A
-#_0C86DE: db $02 ; Direct Copy
+#_0C86DE: db $02 ; Raw block
 #_0C86DF: db $02, $1A, $18
-#_0C86E2: db $23 ; Byte Fill
+#_0C86E2: db $23 ; Repeat byte
 #_0C86E3: db $1A
-#_0C86E4: db $03 ; Direct Copy
+#_0C86E4: db $03 ; Raw block
 #_0C86E5: db $18, $18, $1A, $03
-#_0C86E9: db $84 ; Repeat Fill
-#_0C86EA: db $00, $8C ; Repeat Fill bytes
-#_0C86EC: db $00 ; Direct Copy
+#_0C86E9: db $84 ; Copy past
+#_0C86EA: dw $8C00
+#_0C86EC: db $00 ; Raw block
 #_0C86ED: db $02
-#_0C86EE: db $28 ; Byte Fill
+#_0C86EE: db $28 ; Repeat byte
 #_0C86EF: db $1A
-#_0C86F0: db $01 ; Direct Copy
+#_0C86F0: db $01 ; Raw block
 #_0C86F1: db $03, $0C
-#_0C86F3: db $24 ; Byte Fill
+#_0C86F3: db $24 ; Repeat byte
 #_0C86F4: db $1A
-#_0C86F5: db $22 ; Byte Fill
+#_0C86F5: db $22 ; Repeat byte
 #_0C86F6: db $0B
-#_0C86F7: db $01 ; Direct Copy
+#_0C86F7: db $01 ; Raw block
 #_0C86F8: db $1A, $1A
-#_0C86FA: db $22 ; Byte Fill
+#_0C86FA: db $22 ; Repeat byte
 #_0C86FB: db $0B
-#_0C86FC: db $0F ; Direct Copy
+#_0C86FC: db $0F ; Raw block
 #_0C86FD: db $1A, $00, $0C, $0C, $1A, $1A, $00, $00
 #_0C8705: db $06, $0C, $03, $03, $0C, $1A, $00, $07
-#_0C870D: db $22 ; Byte Fill
+#_0C870D: db $22 ; Repeat byte
 #_0C870E: db $0C
-#_0C870F: db $02 ; Direct Copy
+#_0C870F: db $02 ; Raw block
 #_0C8710: db $1A, $02, $06
-#_0C8713: db $43 ; Word Fill
-#_0C8714: db $02, $05 ;  Word Fill
-#_0C8716: db $05 ; Direct Copy
+#_0C8713: db $43 ; Repeat word
+#_0C8714: dw $0502
+#_0C8716: db $05 ; Raw block
 #_0C8717: db $1A, $03, $03, $1A, $02, $1A
-#_0C871D: db $22 ; Byte Fill
+#_0C871D: db $22 ; Repeat byte
 #_0C871E: db $03
-#_0C871F: db $09 ; Direct Copy
+#_0C871F: db $09 ; Raw block
 #_0C8720: db $0C, $0C, $00, $02, $04, $01, $01, $0C
 #_0C8728: db $0C, $06
-#_0C872A: db $22 ; Byte Fill
+#_0C872A: db $22 ; Repeat byte
 #_0C872B: db $01
-#_0C872C: db $00 ; Direct Copy
+#_0C872C: db $00 ; Raw block
 #_0C872D: db $0C
 #_0C872E: db $FF ; End of Map 66
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen66_Low:
-#_0C872F: db $01 ; Direct Copy
+#_0C872F: db $01 ; Raw block
 #_0C8730: db $39, $96
-#_0C8732: db $25 ; Byte Fill
+#_0C8732: db $25 ; Repeat byte
 #_0C8733: db $17
-#_0C8734: db $09 ; Direct Copy
+#_0C8734: db $09 ; Raw block
 #_0C8735: db $E5, $E6, $AF, $E7, $E8, $E7, $E9, $EA
 #_0C873D: db $39, $A1
-#_0C873F: db $63 ; Increasing Fill
-#_0C8740: db $EB ; Increasing Fill Start
-#_0C8741: db $02 ; Direct Copy
+#_0C873F: db $63 ; Increment fill
+#_0C8740: db $EB
+#_0C8741: db $02 ; Raw block
 #_0C8742: db $EC, $EF, $EE
-#_0C8745: db $63 ; Increasing Fill
-#_0C8746: db $F0 ; Increasing Fill Start
-#_0C8747: db $03 ; Direct Copy
+#_0C8745: db $63 ; Increment fill
+#_0C8746: db $F0
+#_0C8747: db $03 ; Raw block
 #_0C8748: db $F2, $F4, $F5, $39
-#_0C874C: db $69 ; Increasing Fill
-#_0C874D: db $F6 ; Increasing Fill Start
-#_0C874E: db $05 ; Direct Copy
+#_0C874C: db $69 ; Increment fill
+#_0C874D: db $F6
+#_0C874E: db $05 ; Raw block
 #_0C874F: db $52, $D6, $00, $30, $01, $39
-#_0C8755: db $68 ; Increasing Fill
-#_0C8756: db $02 ; Increasing Fill Start
-#_0C8757: db $06 ; Direct Copy
+#_0C8755: db $68 ; Increment fill
+#_0C8756: db $02
+#_0C8757: db $06 ; Raw block
 #_0C8758: db $27, $5C, $0B, $0C, $2C, $0D, $39
-#_0C875F: db $68 ; Increasing Fill
-#_0C8760: db $0E ; Increasing Fill Start
-#_0C8761: db $0F ; Direct Copy
+#_0C875F: db $68 ; Increment fill
+#_0C8760: db $0E
+#_0C8761: db $0F ; Raw block
 #_0C8762: db $27, $2C, $17, $18, $2C, $57, $39, $2C
 #_0C876A: db $19, $1A, $04, $1B, $1A, $1C, $1B, $1D
-#_0C8772: db $83 ; Repeat Fill
-#_0C8773: db $00, $4A ; Repeat Fill bytes
-#_0C8775: db $06 ; Direct Copy
+#_0C8772: db $83 ; Copy past
+#_0C8773: dw $4A00
+#_0C8775: db $06 ; Raw block
 #_0C8776: db $1E, $27, $3F, $65, $84, $D6, $ED
-#_0C877D: db $24 ; Byte Fill
+#_0C877D: db $24 ; Repeat byte
 #_0C877E: db $84
-#_0C877F: db $03 ; Direct Copy
+#_0C877F: db $03 ; Raw block
 #_0C8780: db $0C, $40, $17, $18
-#_0C8784: db $63 ; Increasing Fill
-#_0C8785: db $1F ; Increasing Fill Start
-#_0C8786: db $62 ; Increasing Fill
-#_0C8787: db $22 ; Increasing Fill Start
-#_0C8788: db $02 ; Direct Copy
+#_0C8784: db $63 ; Increment fill
+#_0C8785: db $1F
+#_0C8786: db $62 ; Increment fill
+#_0C8787: db $22
+#_0C8788: db $02 ; Raw block
 #_0C8789: db $22, $22, $25
-#_0C878C: db $22 ; Byte Fill
+#_0C878C: db $22 ; Repeat byte
 #_0C878D: db $70
-#_0C878E: db $0B ; Direct Copy
+#_0C878E: db $0B ; Raw block
 #_0C878F: db $82, $17, $18, $38, $17, $26, $27, $EF
 #_0C8797: db $28, $29, $EF, $00
-#_0C879B: db $66 ; Increasing Fill
-#_0C879C: db $2A ; Increasing Fill Start
-#_0C879D: db $0A ; Direct Copy
+#_0C879B: db $66 ; Increment fill
+#_0C879C: db $2A
+#_0C879D: db $0A ; Raw block
 #_0C879E: db $2C, $31, $32, $46, $33, $34, $34, $35
 #_0C87A6: db $27, $36, $2C
-#_0C87A9: db $63 ; Increasing Fill
-#_0C87AA: db $37 ; Increasing Fill Start
-#_0C87AB: db $03 ; Direct Copy
+#_0C87A9: db $63 ; Increment fill
+#_0C87AA: db $37
+#_0C87AB: db $03 ; Raw block
 #_0C87AC: db $A0, $2C, $3B, $E6
-#_0C87B0: db $64 ; Increasing Fill
-#_0C87B1: db $3C ; Increasing Fill Start
-#_0C87B2: db $02 ; Direct Copy
+#_0C87B0: db $64 ; Increment fill
+#_0C87B1: db $3C
+#_0C87B2: db $02 ; Raw block
 #_0C87B3: db $27, $41, $40
-#_0C87B6: db $62 ; Increasing Fill
-#_0C87B7: db $37 ; Increasing Fill Start
-#_0C87B8: db $0A ; Direct Copy
+#_0C87B6: db $62 ; Increment fill
+#_0C87B7: db $37
+#_0C87B8: db $0A ; Raw block
 #_0C87B9: db $42, $16, $18, $43, $D5, $44, $45, $FA
 #_0C87C1: db $46, $47, $27
-#_0C87C4: db $68 ; Increasing Fill
-#_0C87C5: db $48 ; Increasing Fill Start
-#_0C87C6: db $01 ; Direct Copy
+#_0C87C4: db $68 ; Increment fill
+#_0C87C5: db $48
+#_0C87C6: db $01 ; Raw block
 #_0C87C7: db $D5, $D7
-#_0C87C9: db $62 ; Increasing Fill
-#_0C87CA: db $51 ; Increasing Fill Start
-#_0C87CB: db $01 ; Direct Copy
+#_0C87C9: db $62 ; Increment fill
+#_0C87CA: db $51
+#_0C87CB: db $01 ; Raw block
 #_0C87CC: db $40, $54
-#_0C87CE: db $22 ; Byte Fill
+#_0C87CE: db $22 ; Repeat byte
 #_0C87CF: db $EF
-#_0C87D0: db $01 ; Direct Copy
+#_0C87D0: db $01 ; Raw block
 #_0C87D1: db $28, $29
-#_0C87D3: db $22 ; Byte Fill
+#_0C87D3: db $22 ; Repeat byte
 #_0C87D4: db $EF
-#_0C87D5: db $0F ; Direct Copy
+#_0C87D5: db $0F ; Raw block
 #_0C87D6: db $55, $1D, $DD, $DE, $56, $57, $1D, $B2
 #_0C87DE: db $66, $E3, $44, $44, $E4, $58, $1D, $8F
-#_0C87E6: db $62 ; Increasing Fill
-#_0C87E7: db $E4 ; Increasing Fill Start
-#_0C87E8: db $15 ; Direct Copy
+#_0C87E6: db $62 ; Increment fill
+#_0C87E7: db $E4
+#_0C87E8: db $15 ; Raw block
 #_0C87E9: db $59, $D3, $66, $8D, $57, $4C, $58, $5A
 #_0C87F1: db $4B, $4B, $5B, $4C, $5C, $4B, $8D, $D5
 #_0C87F9: db $DD, $EB, $B2, $97, $E6, $EB
-#_0C87FF: db $62 ; Increasing Fill
-#_0C8800: db $EB ; Increasing Fill Start
-#_0C8801: db $00 ; Direct Copy
+#_0C87FF: db $62 ; Increment fill
+#_0C8800: db $EB
+#_0C8801: db $00 ; Raw block
 #_0C8802: db $A3
-#_0C8803: db $62 ; Increasing Fill
-#_0C8804: db $EA ; Increasing Fill Start
-#_0C8805: db $00 ; Direct Copy
+#_0C8803: db $62 ; Increment fill
+#_0C8804: db $EA
+#_0C8805: db $00 ; Raw block
 #_0C8806: db $EE
 #_0C8807: db $FF ; End of Map 66
 
 ;===================================================================================================
 
 OverworldMap32_Screen67_High:
-#_0C8808: db $15 ; Direct Copy
+#_0C8808: db $15 ; Raw block
 #_0C8809: db $05, $18, $1A, $18, $18, $05, $18, $18
 #_0C8811: db $05, $1A, $1A, $05, $1A, $18, $1A, $01
 #_0C8819: db $19, $1A, $19, $18, $18, $05
-#_0C881F: db $43 ; Word Fill
-#_0C8820: db $1A, $18 ;  Word Fill
-#_0C8822: db $83 ; Repeat Fill
-#_0C8823: db $00, $04 ; Repeat Fill bytes
-#_0C8825: db $83 ; Repeat Fill
-#_0C8826: db $00, $09 ; Repeat Fill bytes
-#_0C8828: db $00 ; Direct Copy
+#_0C881F: db $43 ; Repeat word
+#_0C8820: dw $181A
+#_0C8822: db $83 ; Copy past
+#_0C8823: dw $0400
+#_0C8825: db $83 ; Copy past
+#_0C8826: dw $0900
+#_0C8828: db $00 ; Raw block
 #_0C8829: db $0A
-#_0C882A: db $84 ; Repeat Fill
-#_0C882B: db $00, $13 ; Repeat Fill bytes
-#_0C882D: db $00 ; Direct Copy
+#_0C882A: db $84 ; Copy past
+#_0C882B: dw $1300
+#_0C882D: db $00 ; Raw block
 #_0C882E: db $18
-#_0C882F: db $25 ; Byte Fill
+#_0C882F: db $25 ; Repeat byte
 #_0C8830: db $1A
-#_0C8831: db $01 ; Direct Copy
+#_0C8831: db $01 ; Raw block
 #_0C8832: db $01, $18
-#_0C8834: db $22 ; Byte Fill
+#_0C8834: db $22 ; Repeat byte
 #_0C8835: db $1A
-#_0C8836: db $00 ; Direct Copy
+#_0C8836: db $00 ; Raw block
 #_0C8837: db $18
-#_0C8838: db $26 ; Byte Fill
+#_0C8838: db $26 ; Repeat byte
 #_0C8839: db $1A
-#_0C883A: db $03 ; Direct Copy
+#_0C883A: db $03 ; Raw block
 #_0C883B: db $07, $1A, $1A, $01
-#_0C883F: db $28 ; Byte Fill
+#_0C883F: db $28 ; Repeat byte
 #_0C8840: db $1A
-#_0C8841: db $02 ; Direct Copy
+#_0C8841: db $02 ; Raw block
 #_0C8842: db $12, $06, $00
-#_0C8845: db $22 ; Byte Fill
+#_0C8845: db $22 ; Repeat byte
 #_0C8846: db $1A
-#_0C8847: db $00 ; Direct Copy
+#_0C8847: db $00 ; Raw block
 #_0C8848: db $01
-#_0C8849: db $24 ; Byte Fill
+#_0C8849: db $24 ; Repeat byte
 #_0C884A: db $18
-#_0C884B: db $01 ; Direct Copy
+#_0C884B: db $01 ; Raw block
 #_0C884C: db $1A, $07
-#_0C884E: db $22 ; Byte Fill
+#_0C884E: db $22 ; Repeat byte
 #_0C884F: db $0B
-#_0C8850: db $00 ; Direct Copy
+#_0C8850: db $00 ; Raw block
 #_0C8851: db $12
-#_0C8852: db $23 ; Byte Fill
+#_0C8852: db $23 ; Repeat byte
 #_0C8853: db $1A
-#_0C8854: db $00 ; Direct Copy
+#_0C8854: db $00 ; Raw block
 #_0C8855: db $01
-#_0C8856: db $26 ; Byte Fill
+#_0C8856: db $26 ; Repeat byte
 #_0C8857: db $1A
-#_0C8858: db $03 ; Direct Copy
+#_0C8858: db $03 ; Raw block
 #_0C8859: db $00, $06, $0D, $06
-#_0C885D: db $23 ; Byte Fill
+#_0C885D: db $23 ; Repeat byte
 #_0C885E: db $1A
-#_0C885F: db $01 ; Direct Copy
+#_0C885F: db $01 ; Raw block
 #_0C8860: db $01, $18
-#_0C8862: db $22 ; Byte Fill
+#_0C8862: db $22 ; Repeat byte
 #_0C8863: db $1A
-#_0C8864: db $0B ; Direct Copy
+#_0C8864: db $0B ; Raw block
 #_0C8865: db $02, $1A, $0B, $0D, $07, $0D, $06, $06
 #_0C886D: db $02, $1A, $18, $01
-#_0C8871: db $23 ; Byte Fill
+#_0C8871: db $23 ; Repeat byte
 #_0C8872: db $1A
-#_0C8873: db $23 ; Byte Fill
+#_0C8873: db $23 ; Repeat byte
 #_0C8874: db $0D
-#_0C8875: db $02 ; Direct Copy
+#_0C8875: db $02 ; Raw block
 #_0C8876: db $07, $0D, $06
-#_0C8879: db $23 ; Byte Fill
+#_0C8879: db $23 ; Repeat byte
 #_0C887A: db $1A
-#_0C887B: db $04 ; Direct Copy
+#_0C887B: db $04 ; Raw block
 #_0C887C: db $01, $0B, $1A, $02, $1A
-#_0C8881: db $23 ; Byte Fill
+#_0C8881: db $23 ; Repeat byte
 #_0C8882: db $0D
-#_0C8883: db $01 ; Direct Copy
+#_0C8883: db $01 ; Raw block
 #_0C8884: db $01, $01
-#_0C8886: db $24 ; Byte Fill
+#_0C8886: db $24 ; Repeat byte
 #_0C8887: db $1A
-#_0C8888: db $02 ; Direct Copy
+#_0C8888: db $02 ; Raw block
 #_0C8889: db $01, $0D, $06
-#_0C888C: db $22 ; Byte Fill
+#_0C888C: db $22 ; Repeat byte
 #_0C888D: db $0D
-#_0C888E: db $02 ; Direct Copy
+#_0C888E: db $02 ; Raw block
 #_0C888F: db $06, $0D, $02
-#_0C8892: db $26 ; Byte Fill
+#_0C8892: db $26 ; Repeat byte
 #_0C8893: db $1A
-#_0C8894: db $00 ; Direct Copy
+#_0C8894: db $00 ; Raw block
 #_0C8895: db $01
-#_0C8896: db $22 ; Byte Fill
+#_0C8896: db $22 ; Repeat byte
 #_0C8897: db $06
-#_0C8898: db $22 ; Byte Fill
+#_0C8898: db $22 ; Repeat byte
 #_0C8899: db $0D
-#_0C889A: db $03 ; Direct Copy
+#_0C889A: db $03 ; Raw block
 #_0C889B: db $06, $02, $12, $12
-#_0C889F: db $24 ; Byte Fill
+#_0C889F: db $24 ; Repeat byte
 #_0C88A0: db $1A
-#_0C88A1: db $00 ; Direct Copy
+#_0C88A1: db $00 ; Raw block
 #_0C88A2: db $01
-#_0C88A3: db $22 ; Byte Fill
+#_0C88A3: db $22 ; Repeat byte
 #_0C88A4: db $06
-#_0C88A5: db $22 ; Byte Fill
+#_0C88A5: db $22 ; Repeat byte
 #_0C88A6: db $0D
-#_0C88A7: db $00 ; Direct Copy
+#_0C88A7: db $00 ; Raw block
 #_0C88A8: db $06
-#_0C88A9: db $22 ; Byte Fill
+#_0C88A9: db $22 ; Repeat byte
 #_0C88AA: db $1A
-#_0C88AB: db $0B ; Direct Copy
+#_0C88AB: db $0B ; Raw block
 #_0C88AC: db $02, $1A, $0B, $0B, $1A, $01, $03, $07
 #_0C88B4: db $00, $00, $06, $01
-#_0C88B8: db $27 ; Byte Fill
+#_0C88B8: db $27 ; Repeat byte
 #_0C88B9: db $00
-#_0C88BA: db $03 ; Direct Copy
+#_0C88BA: db $03 ; Raw block
 #_0C88BB: db $1A, $01, $03, $1A
-#_0C88BF: db $29 ; Byte Fill
+#_0C88BF: db $29 ; Repeat byte
 #_0C88C0: db $02
-#_0C88C1: db $01 ; Direct Copy
+#_0C88C1: db $01 ; Raw block
 #_0C88C2: db $09, $05
-#_0C88C4: db $22 ; Byte Fill
+#_0C88C4: db $22 ; Repeat byte
 #_0C88C5: db $1A
-#_0C88C6: db $01 ; Direct Copy
+#_0C88C6: db $01 ; Raw block
 #_0C88C7: db $01, $01
-#_0C88C9: db $22 ; Byte Fill
+#_0C88C9: db $22 ; Repeat byte
 #_0C88CA: db $1A
-#_0C88CB: db $00 ; Direct Copy
+#_0C88CB: db $00 ; Raw block
 #_0C88CC: db $01
-#_0C88CD: db $43 ; Word Fill
-#_0C88CE: db $01, $1A ;  Word Fill
-#_0C88D0: db $00 ; Direct Copy
+#_0C88CD: db $43 ; Repeat word
+#_0C88CE: dw $1A01
+#_0C88D0: db $00 ; Raw block
 #_0C88D1: db $0D
-#_0C88D2: db $83 ; Repeat Fill
-#_0C88D3: db $00, $3D ; Repeat Fill bytes
+#_0C88D2: db $83 ; Copy past
+#_0C88D3: dw $3D00
 #_0C88D5: db $FF ; End of Map 67
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen67_Low:
-#_0C88D6: db $E0, $2B ; EXT Direct Copy
+#_0C88D6: db $E0, $2B ; EXT Raw block
 #_0C88D8: db $FB, $F8, $5D, $A0, $A1, $FB, $E3, $A1
 #_0C88E0: db $FB, $5E, $5F, $FB, $60, $21, $61, $71
 #_0C88E8: db $02, $03, $02, $A0, $A1, $FB, $62, $E9
 #_0C88F0: db $63, $7F, $82, $FB, $16, $17, $64, $65
 #_0C88F8: db $FB, $03, $0C, $E3, $A1, $FB, $66, $70
 #_0C8900: db $C1, $31, $67, $4E
-#_0C8904: db $62 ; Increasing Fill
-#_0C8905: db $68 ; Increasing Fill Start
-#_0C8906: db $01 ; Direct Copy
+#_0C8904: db $62 ; Increment fill
+#_0C8905: db $68
+#_0C8906: db $01 ; Raw block
 #_0C8907: db $71, $20
-#_0C8909: db $62 ; Increasing Fill
-#_0C890A: db $6B ; Increasing Fill Start
-#_0C890B: db $03 ; Direct Copy
+#_0C8909: db $62 ; Increment fill
+#_0C890A: db $6B
+#_0C890B: db $03 ; Raw block
 #_0C890C: db $8E, $6E, $6F, $5F
-#_0C8910: db $63 ; Increasing Fill
-#_0C8911: db $70 ; Increasing Fill Start
-#_0C8912: db $03 ; Direct Copy
+#_0C8910: db $63 ; Increment fill
+#_0C8911: db $70
+#_0C8912: db $03 ; Raw block
 #_0C8913: db $00, $74, $75, $71
-#_0C8917: db $66 ; Increasing Fill
-#_0C8918: db $76 ; Increasing Fill Start
-#_0C8919: db $0F ; Direct Copy
+#_0C8917: db $66 ; Increment fill
+#_0C8918: db $76
+#_0C8919: db $0F ; Raw block
 #_0C891A: db $49, $71, $85, $8E, $1D, $7D, $2A, $61
 #_0C8922: db $71, $38, $29, $2A, $17, $17, $7E, $02
-#_0C892A: db $22 ; Byte Fill
+#_0C892A: db $22 ; Repeat byte
 #_0C892B: db $EF
-#_0C892C: db $00 ; Direct Copy
+#_0C892C: db $00 ; Raw block
 #_0C892D: db $E2
-#_0C892E: db $63 ; Increasing Fill
-#_0C892F: db $7F ; Increasing Fill Start
-#_0C8930: db $00 ; Direct Copy
+#_0C892E: db $63 ; Increment fill
+#_0C892F: db $7F
+#_0C8930: db $00 ; Raw block
 #_0C8931: db $71
-#_0C8932: db $62 ; Increasing Fill
-#_0C8933: db $83 ; Increasing Fill Start
-#_0C8934: db $07 ; Direct Copy
+#_0C8932: db $62 ; Increment fill
+#_0C8933: db $83
+#_0C8934: db $07 ; Raw block
 #_0C8935: db $69, $69, $86, $87, $1D, $66, $10, $5A
-#_0C893D: db $63 ; Increasing Fill
-#_0C893E: db $88 ; Increasing Fill Start
-#_0C893F: db $01 ; Direct Copy
+#_0C893D: db $63 ; Increment fill
+#_0C893E: db $88
+#_0C893F: db $01 ; Raw block
 #_0C8940: db $71, $18
-#_0C8942: db $62 ; Increasing Fill
-#_0C8943: db $8C ; Increasing Fill Start
-#_0C8944: db $0F ; Direct Copy
+#_0C8942: db $62 ; Increment fill
+#_0C8943: db $8C
+#_0C8944: db $0F ; Raw block
 #_0C8945: db $5B, $8F, $3D, $14, $A5, $15, $61, $64
 #_0C894D: db $42, $90, $E7, $71, $69, $91, $8D, $92
-#_0C8955: db $63 ; Increasing Fill
-#_0C8956: db $1B ; Increasing Fill Start
-#_0C8957: db $0B ; Direct Copy
+#_0C8955: db $63 ; Increment fill
+#_0C8956: db $1B
+#_0C8957: db $0B ; Raw block
 #_0C8958: db $AC, $1F, $6B, $93, $94, $2A, $95, $71
 #_0C8960: db $EF, $96, $5B, $97
-#_0C8964: db $63 ; Increasing Fill
-#_0C8965: db $23 ; Increasing Fill Start
-#_0C8966: db $01 ; Direct Copy
+#_0C8964: db $63 ; Increment fill
+#_0C8965: db $23
+#_0C8966: db $01 ; Raw block
 #_0C8967: db $58, $65
-#_0C8969: db $62 ; Increasing Fill
-#_0C896A: db $98 ; Increasing Fill Start
-#_0C896B: db $04 ; Direct Copy
+#_0C8969: db $62 ; Increment fill
+#_0C896A: db $98
+#_0C896B: db $04 ; Raw block
 #_0C896C: db $36, $9B, $71, $10, $5A
-#_0C8971: db $62 ; Increasing Fill
-#_0C8972: db $29 ; Increasing Fill Start
-#_0C8973: db $02 ; Direct Copy
+#_0C8971: db $62 ; Increment fill
+#_0C8972: db $29
+#_0C8973: db $02 ; Raw block
 #_0C8974: db $61, $2C, $6F
-#_0C8977: db $66 ; Increasing Fill
-#_0C8978: db $9C ; Increasing Fill Start
-#_0C8979: db $03 ; Direct Copy
+#_0C8977: db $66 ; Increment fill
+#_0C8978: db $9C
+#_0C8979: db $03 ; Raw block
 #_0C897A: db $71, $60, $61, $64
-#_0C897E: db $62 ; Increasing Fill
-#_0C897F: db $33 ; Increasing Fill Start
-#_0C8980: db $0C ; Direct Copy
+#_0C897E: db $62 ; Increment fill
+#_0C897F: db $33
+#_0C8980: db $0C ; Raw block
 #_0C8981: db $6E, $4F, $85, $85, $A3, $A4, $4E, $7C
 #_0C8989: db $A5, $71, $6A, $6B, $6E
-#_0C898E: db $62 ; Increasing Fill
-#_0C898F: db $3D ; Increasing Fill Start
-#_0C8990: db $12 ; Direct Copy
+#_0C898E: db $62 ; Increment fill
+#_0C898F: db $3D
+#_0C8990: db $12 ; Raw block
 #_0C8991: db $66, $A6, $27, $A7, $5B, $27, $EF, $EF
 #_0C8999: db $A8, $71, $44, $BB, $1C, $1D, $33, $29
 #_0C89A1: db $1C, $1D, $9F
-#_0C89A4: db $24 ; Byte Fill
+#_0C89A4: db $24 ; Repeat byte
 #_0C89A5: db $1D
-#_0C89A6: db $03 ; Direct Copy
+#_0C89A6: db $03 ; Raw block
 #_0C89A7: db $A9, $71, $4B, $5B
-#_0C89AB: db $27 ; Byte Fill
+#_0C89AB: db $27 ; Repeat byte
 #_0C89AC: db $4C
-#_0C89AD: db $03 ; Direct Copy
+#_0C89AD: db $03 ; Raw block
 #_0C89AE: db $CC, $D3, $F4, $57
-#_0C89B2: db $62 ; Increasing Fill
-#_0C89B3: db $AA ; Increasing Fill Start
-#_0C89B4: db $01 ; Direct Copy
+#_0C89B2: db $62 ; Increment fill
+#_0C89B3: db $AA
+#_0C89B4: db $01 ; Raw block
 #_0C89B5: db $EA, $EB
-#_0C89B7: db $62 ; Increasing Fill
-#_0C89B8: db $AD ; Increasing Fill Start
-#_0C89B9: db $09 ; Direct Copy
+#_0C89B7: db $62 ; Increment fill
+#_0C89B8: db $AD
+#_0C89B9: db $09 ; Raw block
 #_0C89BA: db $EB, $EB, $AE, $EB, $B0, $4D, $B1, $B2
 #_0C89C2: db $EB, $B3
 #_0C89C4: db $FF ; End of Map 67
@@ -1225,159 +1225,159 @@ OverworldMap32_Screen67_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen68_High:
-#_0C89C5: db $0A ; Direct Copy
+#_0C89C5: db $0A ; Raw block
 #_0C89C6: db $0D, $0D, $0A, $01, $0D, $08, $08, $04
 #_0C89CE: db $08, $08, $04
-#_0C89D1: db $84 ; Repeat Fill
-#_0C89D2: db $00, $05 ; Repeat Fill bytes
-#_0C89D4: db $24 ; Byte Fill
+#_0C89D1: db $84 ; Copy past
+#_0C89D2: dw $0500
+#_0C89D4: db $24 ; Repeat byte
 #_0C89D5: db $0D
-#_0C89D6: db $8A ; Repeat Fill
-#_0C89D7: db $00, $05 ; Repeat Fill bytes
-#_0C89D9: db $03 ; Direct Copy
+#_0C89D6: db $8A ; Copy past
+#_0C89D7: dw $0500
+#_0C89D9: db $03 ; Raw block
 #_0C89DA: db $0B, $0D, $0A, $0B
-#_0C89DE: db $88 ; Repeat Fill
-#_0C89DF: db $00, $07 ; Repeat Fill bytes
-#_0C89E1: db $06 ; Direct Copy
+#_0C89DE: db $88 ; Copy past
+#_0C89DF: dw $0700
+#_0C89E1: db $06 ; Raw block
 #_0C89E2: db $04, $08, $08, $03, $0A, $0D, $01
-#_0C89E9: db $28 ; Byte Fill
+#_0C89E9: db $28 ; Repeat byte
 #_0C89EA: db $08
-#_0C89EB: db $00 ; Direct Copy
+#_0C89EB: db $00 ; Raw block
 #_0C89EC: db $0D
-#_0C89ED: db $85 ; Repeat Fill
-#_0C89EE: db $00, $2E ; Repeat Fill bytes
-#_0C89F0: db $03 ; Direct Copy
+#_0C89ED: db $85 ; Copy past
+#_0C89EE: dw $2E00
+#_0C89F0: db $03 ; Raw block
 #_0C89F1: db $1A, $0C, $0C, $1A
-#_0C89F5: db $22 ; Byte Fill
+#_0C89F5: db $22 ; Repeat byte
 #_0C89F6: db $0C
-#_0C89F7: db $22 ; Byte Fill
+#_0C89F7: db $22 ; Repeat byte
 #_0C89F8: db $1A
-#_0C89F9: db $01 ; Direct Copy
+#_0C89F9: db $01 ; Raw block
 #_0C89FA: db $08, $08
-#_0C89FC: db $22 ; Byte Fill
+#_0C89FC: db $22 ; Repeat byte
 #_0C89FD: db $0D
-#_0C89FE: db $09 ; Direct Copy
+#_0C89FE: db $09 ; Raw block
 #_0C89FF: db $01, $07, $03, $00, $1A, $02, $1A, $00
 #_0C8A07: db $06, $04
-#_0C8A09: db $83 ; Repeat Fill
-#_0C8A0A: db $00, $2D ; Repeat Fill bytes
-#_0C8A0C: db $05 ; Direct Copy
+#_0C8A09: db $83 ; Copy past
+#_0C8A0A: dw $2D00
+#_0C8A0C: db $05 ; Raw block
 #_0C8A0D: db $0D, $0A, $01, $07, $03, $06
-#_0C8A13: db $22 ; Byte Fill
+#_0C8A13: db $22 ; Repeat byte
 #_0C8A14: db $00
-#_0C8A15: db $0A ; Direct Copy
+#_0C8A15: db $0A ; Raw block
 #_0C8A16: db $1A, $00, $1A, $0D, $08, $08, $0C, $1A
 #_0C8A1E: db $1A, $03, $07
-#_0C8A21: db $22 ; Byte Fill
+#_0C8A21: db $22 ; Repeat byte
 #_0C8A22: db $00
-#_0C8A23: db $03 ; Direct Copy
+#_0C8A23: db $03 ; Raw block
 #_0C8A24: db $1A, $06, $04, $02
-#_0C8A28: db $83 ; Repeat Fill
-#_0C8A29: db $00, $4C ; Repeat Fill bytes
-#_0C8A2B: db $05 ; Direct Copy
+#_0C8A28: db $83 ; Copy past
+#_0C8A29: dw $4C00
+#_0C8A2B: db $05 ; Raw block
 #_0C8A2C: db $1A, $0D, $0D, $03, $0D, $1A
-#_0C8A32: db $25 ; Byte Fill
+#_0C8A32: db $25 ; Repeat byte
 #_0C8A33: db $0D
-#_0C8A34: db $83 ; Repeat Fill
-#_0C8A35: db $00, $6C ; Repeat Fill bytes
-#_0C8A37: db $04 ; Direct Copy
+#_0C8A34: db $83 ; Copy past
+#_0C8A35: dw $6C00
+#_0C8A37: db $04 ; Raw block
 #_0C8A38: db $01, $03, $04, $03, $00
-#_0C8A3D: db $22 ; Byte Fill
+#_0C8A3D: db $22 ; Repeat byte
 #_0C8A3E: db $0D
-#_0C8A3F: db $01 ; Direct Copy
+#_0C8A3F: db $01 ; Raw block
 #_0C8A40: db $1A, $0D
-#_0C8A42: db $22 ; Byte Fill
+#_0C8A42: db $22 ; Repeat byte
 #_0C8A43: db $00
-#_0C8A44: db $E0, $21 ; EXT Direct Copy
+#_0C8A44: db $E0, $21 ; EXT Raw block
 #_0C8A46: db $01, $0B, $08, $01, $03, $1A, $02, $02
 #_0C8A4E: db $10, $10, $02, $02, $0B, $1A, $00, $17
 #_0C8A56: db $1A, $01, $08, $03, $0D, $0D, $01, $01
 #_0C8A5E: db $16, $16, $01, $01, $03, $0B, $0D, $1A
 #_0C8A66: db $1A, $01
-#_0C8A68: db $22 ; Byte Fill
+#_0C8A68: db $22 ; Repeat byte
 #_0C8A69: db $0D
-#_0C8A6A: db $19 ; Direct Copy
+#_0C8A6A: db $19 ; Raw block
 #_0C8A6B: db $0C, $01, $08, $01, $03, $06, $00, $03
 #_0C8A73: db $03, $0D, $0D, $02, $0D, $0D, $01, $0D
 #_0C8A7B: db $02, $07, $0D, $0D, $07, $03, $03, $07
 #_0C8A83: db $03, $03
-#_0C8A85: db $25 ; Byte Fill
+#_0C8A85: db $25 ; Repeat byte
 #_0C8A86: db $01
-#_0C8A87: db $01 ; Direct Copy
+#_0C8A87: db $01 ; Raw block
 #_0C8A88: db $0D, $0D
-#_0C8A8A: db $24 ; Byte Fill
+#_0C8A8A: db $24 ; Repeat byte
 #_0C8A8B: db $03
-#_0C8A8C: db $01 ; Direct Copy
+#_0C8A8C: db $01 ; Raw block
 #_0C8A8D: db $0B, $07
-#_0C8A8F: db $24 ; Byte Fill
+#_0C8A8F: db $24 ; Repeat byte
 #_0C8A90: db $03
-#_0C8A91: db $05 ; Direct Copy
+#_0C8A91: db $05 ; Raw block
 #_0C8A92: db $01, $0B, $01, $01, $0D, $01
-#_0C8A98: db $24 ; Byte Fill
+#_0C8A98: db $24 ; Repeat byte
 #_0C8A99: db $0D
-#_0C8A9A: db $24 ; Byte Fill
+#_0C8A9A: db $24 ; Repeat byte
 #_0C8A9B: db $03
 #_0C8A9C: db $FF ; End of Map 68
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen68_Low:
-#_0C8A9D: db $0A ; Direct Copy
+#_0C8A9D: db $0A ; Raw block
 #_0C8A9E: db $4F, $50, $39, $E3, $51, $D2, $D3, $42
 #_0C8AA6: db $D2, $D3, $42
-#_0C8AA9: db $84 ; Repeat Fill
-#_0C8AAA: db $00, $05 ; Repeat Fill bytes
-#_0C8AAC: db $01 ; Direct Copy
+#_0C8AA9: db $84 ; Copy past
+#_0C8AAA: dw $0500
+#_0C8AAC: db $01 ; Raw block
 #_0C8AAD: db $52, $4F
-#_0C8AAF: db $62 ; Increasing Fill
-#_0C8AB0: db $53 ; Increasing Fill Start
-#_0C8AB1: db $05 ; Direct Copy
+#_0C8AAF: db $62 ; Increment fill
+#_0C8AB0: db $53
+#_0C8AB1: db $05 ; Raw block
 #_0C8AB2: db $99, $44, $4A, $99, $44, $4A
-#_0C8AB8: db $84 ; Repeat Fill
-#_0C8AB9: db $00, $15 ; Repeat Fill bytes
-#_0C8ABB: db $09 ; Direct Copy
+#_0C8AB8: db $84 ; Copy past
+#_0C8AB9: dw $1500
+#_0C8ABB: db $09 ; Raw block
 #_0C8ABC: db $4D, $56, $39, $58, $39, $9F, $4B, $39
 #_0C8AC4: db $9F, $4B
-#_0C8AC6: db $85 ; Repeat Fill
-#_0C8AC7: db $00, $24 ; Repeat Fill bytes
-#_0C8AC9: db $0F ; Direct Copy
+#_0C8AC6: db $85 ; Copy past
+#_0C8AC7: dw $2400
+#_0C8AC9: db $0F ; Raw block
 #_0C8ACA: db $63, $09, $53, $E3, $9C, $A5, $A6, $9C
 #_0C8AD2: db $A5, $A6, $9C, $A5, $A6, $51, $D2, $D3
-#_0C8ADA: db $83 ; Repeat Fill
-#_0C8ADB: db $00, $30 ; Repeat Fill bytes
-#_0C8ADD: db $03 ; Direct Copy
+#_0C8ADA: db $83 ; Copy past
+#_0C8ADB: dw $3000
+#_0C8ADD: db $03 ; Raw block
 #_0C8ADE: db $B4, $39, $39, $B5
-#_0C8AE2: db $22 ; Byte Fill
+#_0C8AE2: db $22 ; Repeat byte
 #_0C8AE3: db $39
-#_0C8AE4: db $62 ; Increasing Fill
-#_0C8AE5: db $B6 ; Increasing Fill Start
-#_0C8AE6: db $18 ; Direct Copy
+#_0C8AE4: db $62 ; Increment fill
+#_0C8AE5: db $B6
+#_0C8AE6: db $18 ; Raw block
 #_0C8AE7: db $99, $44, $5C, $5D, $53, $E3, $6D, $D5
 #_0C8AEF: db $1D, $B9, $DE, $BA, $1D, $66, $38, $39
 #_0C8AF7: db $9F, $4B, $9C, $64, $39, $E3, $6D, $FF
 #_0C8AFF: db $66
-#_0C8B00: db $22 ; Byte Fill
+#_0C8B00: db $22 ; Repeat byte
 #_0C8B01: db $1D
-#_0C8B02: db $0A ; Direct Copy
+#_0C8B02: db $0A ; Raw block
 #_0C8B03: db $BB, $1D, $BC, $51, $D2, $D3, $90, $BD
 #_0C8B0B: db $BE, $95, $6D
-#_0C8B0E: db $22 ; Byte Fill
+#_0C8B0E: db $22 ; Repeat byte
 #_0C8B0F: db $1D
-#_0C8B10: db $0F ; Direct Copy
+#_0C8B10: db $0F ; Raw block
 #_0C8B11: db $BB, $66, $BB, $DE, $BF, $C0, $43, $44
 #_0C8B19: db $C1, $78, $6F, $9D, $7A, $C2, $58, $69
-#_0C8B21: db $22 ; Byte Fill
+#_0C8B21: db $22 ; Repeat byte
 #_0C8B22: db $6C
-#_0C8B23: db $09 ; Direct Copy
+#_0C8B23: db $09 ; Raw block
 #_0C8B24: db $7C, $C3, $81, $4A, $4B, $F8, $9C, $84
 #_0C8B2C: db $A8, $97
-#_0C8B2E: db $62 ; Increasing Fill
-#_0C8B2F: db $83 ; Increasing Fill Start
-#_0C8B30: db $01 ; Direct Copy
+#_0C8B2E: db $62 ; Increment fill
+#_0C8B2F: db $83
+#_0C8B30: db $01 ; Raw block
 #_0C8B31: db $C4, $86
-#_0C8B33: db $22 ; Byte Fill
+#_0C8B33: db $22 ; Repeat byte
 #_0C8B34: db $1D
-#_0C8B35: db $E0, $3E ; EXT Direct Copy
+#_0C8B35: db $E0, $3E ; EXT Raw block
 #_0C8B37: db $42, $47, $D3, $E5, $BB, $C5, $61, $61
 #_0C8B3F: db $F7, $F8, $61, $61, $D4, $C6, $B2, $2A
 #_0C8B47: db $C7, $4E, $41, $5C, $91, $92, $22, $22
@@ -1386,790 +1386,790 @@ OverworldMap32_Screen68_Low:
 #_0C8B5F: db $1E, $D5, $66, $1D, $56, $B1, $99, $9D
 #_0C8B67: db $08, $9D, $9D, $06, $9E, $D2, $BF, $9F
 #_0C8B6F: db $A0, $90, $44, $44, $BB, $56, $BA
-#_0C8B76: db $23 ; Byte Fill
+#_0C8B76: db $23 ; Repeat byte
 #_0C8B77: db $E5
-#_0C8B78: db $03 ; Direct Copy
+#_0C8B78: db $03 ; Raw block
 #_0C8B79: db $06, $06, $9E, $A1
-#_0C8B7D: db $24 ; Byte Fill
+#_0C8B7D: db $24 ; Repeat byte
 #_0C8B7E: db $4B
-#_0C8B7F: db $01 ; Direct Copy
+#_0C8B7F: db $01 ; Raw block
 #_0C8B80: db $45, $BF
-#_0C8B82: db $24 ; Byte Fill
+#_0C8B82: db $24 ; Repeat byte
 #_0C8B83: db $44
-#_0C8B84: db $02 ; Direct Copy
+#_0C8B84: db $02 ; Raw block
 #_0C8B85: db $06, $4B, $06
-#_0C8B88: db $43 ; Word Fill
-#_0C8B89: db $06, $A2 ;  Word Fill
-#_0C8B8B: db $03 ; Direct Copy
+#_0C8B88: db $43 ; Repeat word
+#_0C8B89: dw $A206
+#_0C8B8B: db $03 ; Raw block
 #_0C8B8C: db $A3, $4B, $9E, $A1
-#_0C8B90: db $24 ; Byte Fill
+#_0C8B90: db $24 ; Repeat byte
 #_0C8B91: db $4B
 #_0C8B92: db $FF ; End of Map 68
 
 ;===================================================================================================
 
 OverworldMap32_Screen69_High:
-#_0C8B93: db $06 ; Direct Copy
+#_0C8B93: db $06 ; Raw block
 #_0C8B94: db $04, $08, $08, $04, $08, $08, $04
-#_0C8B9B: db $23 ; Byte Fill
+#_0C8B9B: db $23 ; Repeat byte
 #_0C8B9C: db $08
-#_0C8B9D: db $22 ; Byte Fill
+#_0C8B9D: db $22 ; Repeat byte
 #_0C8B9E: db $0D
-#_0C8B9F: db $87 ; Repeat Fill
-#_0C8BA0: db $00, $01 ; Repeat Fill bytes
-#_0C8BA2: db $08 ; Direct Copy
+#_0C8B9F: db $87 ; Copy past
+#_0C8BA0: dw $0100
+#_0C8BA2: db $08 ; Raw block
 #_0C8BA3: db $1A, $01, $08, $01, $0D, $0D, $12, $01
 #_0C8BAB: db $01
-#_0C8BAC: db $88 ; Repeat Fill
-#_0C8BAD: db $00, $0F ; Repeat Fill bytes
-#_0C8BAF: db $04 ; Direct Copy
+#_0C8BAC: db $88 ; Copy past
+#_0C8BAD: dw $0F00
+#_0C8BAF: db $04 ; Raw block
 #_0C8BB0: db $0D, $04, $06, $04, $02
-#_0C8BB5: db $22 ; Byte Fill
+#_0C8BB5: db $22 ; Repeat byte
 #_0C8BB6: db $0D
-#_0C8BB7: db $25 ; Byte Fill
+#_0C8BB7: db $25 ; Repeat byte
 #_0C8BB8: db $08
-#_0C8BB9: db $00 ; Direct Copy
+#_0C8BB9: db $00 ; Raw block
 #_0C8BBA: db $1A
-#_0C8BBB: db $23 ; Byte Fill
+#_0C8BBB: db $23 ; Repeat byte
 #_0C8BBC: db $02
-#_0C8BBD: db $0C ; Direct Copy
+#_0C8BBD: db $0C ; Raw block
 #_0C8BBE: db $03, $01, $1A, $0D, $0D, $01, $00, $1A
 #_0C8BC6: db $1A, $05, $16, $02, $02
-#_0C8BCB: db $22 ; Byte Fill
+#_0C8BCB: db $22 ; Repeat byte
 #_0C8BCC: db $01
-#_0C8BCD: db $43 ; Word Fill
-#_0C8BCE: db $1A, $01 ;  Word Fill
-#_0C8BD0: db $0E ; Direct Copy
+#_0C8BCD: db $43 ; Repeat word
+#_0C8BCE: dw $011A
+#_0C8BD0: db $0E ; Raw block
 #_0C8BD1: db $08, $0D, $02, $04, $1A, $00, $16, $02
 #_0C8BD9: db $06, $04, $02, $10, $1A, $01, $1A
-#_0C8BE0: db $22 ; Byte Fill
+#_0C8BE0: db $22 ; Repeat byte
 #_0C8BE1: db $0D
-#_0C8BE2: db $23 ; Byte Fill
+#_0C8BE2: db $23 ; Repeat byte
 #_0C8BE3: db $01
-#_0C8BE4: db $04 ; Direct Copy
+#_0C8BE4: db $04 ; Raw block
 #_0C8BE5: db $00, $00, $09, $0D, $0D
-#_0C8BEA: db $23 ; Byte Fill
+#_0C8BEA: db $23 ; Repeat byte
 #_0C8BEB: db $1A
-#_0C8BEC: db $1A ; Direct Copy
+#_0C8BEC: db $1A ; Raw block
 #_0C8BED: db $0D, $0D, $0C, $04, $00, $01, $01, $1A
 #_0C8BF5: db $07, $03, $1A, $06, $0D, $1A, $1A, $01
 #_0C8BFD: db $08, $08, $04, $04, $03, $00, $01, $05
 #_0C8C05: db $02, $03, $1A
-#_0C8C08: db $45 ; Word Fill
-#_0C8C09: db $1A, $08 ;  Word Fill
-#_0C8C0B: db $0E ; Direct Copy
+#_0C8C08: db $45 ; Repeat word
+#_0C8C09: dw $081A
+#_0C8C0B: db $0E ; Raw block
 #_0C8C0C: db $08, $04, $04, $01, $03, $06, $01, $01
 #_0C8C14: db $03, $0D, $0D, $08, $1A, $08, $0D
-#_0C8C1B: db $22 ; Byte Fill
+#_0C8C1B: db $22 ; Repeat byte
 #_0C8C1C: db $08
-#_0C8C1D: db $00 ; Direct Copy
+#_0C8C1D: db $00 ; Raw block
 #_0C8C1E: db $01
-#_0C8C1F: db $22 ; Byte Fill
+#_0C8C1F: db $22 ; Repeat byte
 #_0C8C20: db $1A
-#_0C8C21: db $22 ; Byte Fill
+#_0C8C21: db $22 ; Repeat byte
 #_0C8C22: db $0C
-#_0C8C23: db $0E ; Direct Copy
+#_0C8C23: db $0E ; Raw block
 #_0C8C24: db $0D, $0D, $1A, $0D, $02, $04, $06, $01
 #_0C8C2C: db $08, $01, $01, $0C, $05, $04, $02
-#_0C8C33: db $62 ; Increasing Fill
-#_0C8C34: db $02 ; Increasing Fill Start
-#_0C8C35: db $22 ; Byte Fill
+#_0C8C33: db $62 ; Increment fill
+#_0C8C34: db $02
+#_0C8C35: db $22 ; Repeat byte
 #_0C8C36: db $01
-#_0C8C37: db $02 ; Direct Copy
+#_0C8C37: db $02 ; Raw block
 #_0C8C38: db $04, $01, $03
-#_0C8C3B: db $22 ; Byte Fill
+#_0C8C3B: db $22 ; Repeat byte
 #_0C8C3C: db $0D
-#_0C8C3D: db $08 ; Direct Copy
+#_0C8C3D: db $08 ; Raw block
 #_0C8C3E: db $1A, $02, $04, $01, $01, $03, $03, $00
 #_0C8C46: db $07
-#_0C8C47: db $23 ; Byte Fill
+#_0C8C47: db $23 ; Repeat byte
 #_0C8C48: db $06
-#_0C8C49: db $23 ; Byte Fill
+#_0C8C49: db $23 ; Repeat byte
 #_0C8C4A: db $01
-#_0C8C4B: db $0B ; Direct Copy
+#_0C8C4B: db $0B ; Raw block
 #_0C8C4C: db $02, $03, $01, $03, $03, $0D, $08, $00
 #_0C8C54: db $00, $06, $00, $00
-#_0C8C58: db $25 ; Byte Fill
+#_0C8C58: db $25 ; Repeat byte
 #_0C8C59: db $03
-#_0C8C5A: db $03 ; Direct Copy
+#_0C8C5A: db $03 ; Raw block
 #_0C8C5B: db $01, $0C, $03, $03
-#_0C8C5F: db $25 ; Byte Fill
+#_0C8C5F: db $25 ; Repeat byte
 #_0C8C60: db $00
-#_0C8C61: db $25 ; Byte Fill
+#_0C8C61: db $25 ; Repeat byte
 #_0C8C62: db $03
-#_0C8C63: db $22 ; Byte Fill
+#_0C8C63: db $22 ; Repeat byte
 #_0C8C64: db $0D
-#_0C8C65: db $01 ; Direct Copy
+#_0C8C65: db $01 ; Raw block
 #_0C8C66: db $06, $06
-#_0C8C68: db $24 ; Byte Fill
+#_0C8C68: db $24 ; Repeat byte
 #_0C8C69: db $00
 #_0C8C6A: db $FF ; End of Map 69
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen69_Low:
-#_0C8C6B: db $E0, $2F ; EXT Direct Copy
+#_0C8C6B: db $E0, $2F ; EXT Raw block
 #_0C8C6D: db $42, $D2, $D3, $42, $D2, $D3, $42, $D2
 #_0C8C75: db $D3, $A4, $9D, $A4, $A5, $51, $D2, $D3
 #_0C8C7D: db $4A, $99, $44, $4A, $99, $44, $CA, $4E
 #_0C8C85: db $41, $68, $A6, $A7, $E2, $4D, $4E, $41
 #_0C8C8D: db $39, $9F, $4B, $39, $9F, $4B, $CB, $58
 #_0C8C95: db $AF, $25, $66, $81, $61, $C6, $B3, $B4
-#_0C8C9D: db $62 ; Increasing Fill
-#_0C8C9E: db $A4 ; Increasing Fill Start
-#_0C8C9F: db $04 ; Direct Copy
+#_0C8C9D: db $62 ; Increment fill
+#_0C8C9E: db $A4
+#_0C8C9F: db $04 ; Raw block
 #_0C8CA0: db $9C, $A5, $A6, $CC, $60
-#_0C8CA5: db $22 ; Byte Fill
+#_0C8CA5: db $22 ; Repeat byte
 #_0C8CA6: db $61
-#_0C8CA7: db $0C ; Direct Copy
+#_0C8CA7: db $0C ; Raw block
 #_0C8CA8: db $B4, $22, $CD, $BC, $BD, $68, $99, $CE
 #_0C8CB0: db $CF, $52, $1B, $79, $02
-#_0C8CB5: db $22 ; Byte Fill
+#_0C8CB5: db $22 ; Repeat byte
 #_0C8CB6: db $22
-#_0C8CB7: db $1E ; Direct Copy
+#_0C8CB7: db $1E ; Raw block
 #_0C8CB8: db $D0, $AB, $D1, $4E, $41, $C4, $61, $7C
 #_0C8CC0: db $D2, $1D, $23, $7A, $66, $81, $61, $F7
 #_0C8CC8: db $D3, $B3, $D4, $B3, $B4, $C7, $22, $23
 #_0C8CD0: db $E6, $DB, $1D, $FB, $ED, $92, $C9
-#_0C8CD7: db $62 ; Increasing Fill
-#_0C8CD8: db $D5 ; Increasing Fill Start
-#_0C8CD9: db $E0, $22 ; EXT Direct Copy
+#_0C8CD7: db $62 ; Increment fill
+#_0C8CD8: db $D5
+#_0C8CD9: db $E0, $22 ; EXT Raw block
 #_0C8CDB: db $CD, $BC, $BD, $43, $2F, $1D, $E4, $E6
 #_0C8CE3: db $D8, $E6, $AB, $D9, $7C, $CD, $DA, $DB
 #_0C8CEB: db $4D, $43, $44, $39, $3A, $FF, $1D, $E4
 #_0C8CF3: db $5A, $61, $B4, $DC, $DD, $0F, $DE, $11
 #_0C8CFB: db $DF, $4A, $4B
-#_0C8CFE: db $62 ; Increasing Fill
-#_0C8CFF: db $42 ; Increasing Fill Start
-#_0C8D00: db $11 ; Direct Copy
+#_0C8CFE: db $62 ; Increment fill
+#_0C8CFF: db $42
+#_0C8D00: db $11 ; Raw block
 #_0C8D01: db $BE, $66, $1F, $22, $A8, $D6, $D7, $1B
 #_0C8D09: db $E0, $1D, $D8, $4D, $4E, $42, $4E, $E1
 #_0C8D11: db $E2, $B4
-#_0C8D13: db $22 ; Byte Fill
+#_0C8D13: db $22 ; Repeat byte
 #_0C8D14: db $39
-#_0C8D15: db $17 ; Direct Copy
+#_0C8D15: db $17 ; Raw block
 #_0C8D16: db $DD, $DE, $E3, $E0, $08, $BA, $66, $67
 #_0C8D1E: db $49, $58, $65, $39, $0C, $7D, $08, $08
 #_0C8D26: db $B3, $82, $E5, $F9, $E5, $BC, $1E, $DB
-#_0C8D2E: db $22 ; Byte Fill
+#_0C8D2E: db $22 ; Repeat byte
 #_0C8D2F: db $9D
-#_0C8D30: db $08 ; Direct Copy
+#_0C8D30: db $08 ; Raw block
 #_0C8D31: db $E4, $60, $82, $E5, $E5, $BB, $A8, $1D
 #_0C8D39: db $E5
-#_0C8D3A: db $23 ; Byte Fill
+#_0C8D3A: db $23 ; Repeat byte
 #_0C8D3B: db $9C
-#_0C8D3C: db $23 ; Byte Fill
+#_0C8D3C: db $23 ; Repeat byte
 #_0C8D3D: db $E5
-#_0C8D3E: db $0B ; Direct Copy
+#_0C8D3E: db $0B ; Raw block
 #_0C8D3F: db $02, $A8, $41, $44, $44, $E8, $A1, $B6
 #_0C8D47: db $B7, $3B, $B6, $B7
-#_0C8D4B: db $25 ; Byte Fill
+#_0C8D4B: db $25 ; Repeat byte
 #_0C8D4C: db $44
-#_0C8D4D: db $04 ; Direct Copy
+#_0C8D4D: db $04 ; Raw block
 #_0C8D4E: db $48, $E8, $8C, $8D, $EE
-#_0C8D53: db $62 ; Increasing Fill
-#_0C8D54: db $09 ; Increasing Fill Start
-#_0C8D55: db $01 ; Direct Copy
+#_0C8D53: db $62 ; Increment fill
+#_0C8D54: db $09
+#_0C8D55: db $01 ; Raw block
 #_0C8D56: db $09, $0A
-#_0C8D58: db $25 ; Byte Fill
+#_0C8D58: db $25 ; Repeat byte
 #_0C8D59: db $4B
-#_0C8D5A: db $62 ; Increasing Fill
-#_0C8D5B: db $E9 ; Increasing Fill Start
-#_0C8D5C: db $03 ; Direct Copy
+#_0C8D5A: db $62 ; Increment fill
+#_0C8D5B: db $E9
+#_0C8D5C: db $03 ; Raw block
 #_0C8D5D: db $49, $45, $07, $08
-#_0C8D61: db $62 ; Increasing Fill
-#_0C8D62: db $06 ; Increasing Fill Start
+#_0C8D61: db $62 ; Increment fill
+#_0C8D62: db $06
 #_0C8D63: db $FF ; End of Map 69
 
 ;===================================================================================================
 
 OverworldMap32_Screen2A_High:
-#_0C8D64: db $05 ; Direct Copy
+#_0C8D64: db $05 ; Raw block
 #_0C8D65: db $04, $08, $08, $04, $08, $08
-#_0C8D6B: db $89 ; Repeat Fill
-#_0C8D6C: db $00, $00 ; Repeat Fill bytes
-#_0C8D6E: db $85 ; Repeat Fill
-#_0C8D6F: db $00, $00 ; Repeat Fill bytes
-#_0C8D71: db $02 ; Direct Copy
+#_0C8D6B: db $89 ; Copy past
+#_0C8D6C: dw $0000
+#_0C8D6E: db $85 ; Copy past
+#_0C8D6F: dw $0000
+#_0C8D71: db $02 ; Raw block
 #_0C8D72: db $1A, $01, $1A
-#_0C8D75: db $97 ; Repeat Fill
-#_0C8D76: db $00, $09 ; Repeat Fill bytes
-#_0C8D78: db $24 ; Byte Fill
+#_0C8D75: db $97 ; Copy past
+#_0C8D76: dw $0900
+#_0C8D78: db $24 ; Repeat byte
 #_0C8D79: db $08
-#_0C8D7A: db $02 ; Direct Copy
+#_0C8D7A: db $02 ; Raw block
 #_0C8D7B: db $1A, $01, $1A
-#_0C8D7E: db $22 ; Byte Fill
+#_0C8D7E: db $22 ; Repeat byte
 #_0C8D7F: db $08
-#_0C8D80: db $00 ; Direct Copy
+#_0C8D80: db $00 ; Raw block
 #_0C8D81: db $0D
-#_0C8D82: db $83 ; Repeat Fill
-#_0C8D83: db $00, $0D ; Repeat Fill bytes
-#_0C8D85: db $22 ; Byte Fill
+#_0C8D82: db $83 ; Copy past
+#_0C8D83: dw $0D00
+#_0C8D85: db $22 ; Repeat byte
 #_0C8D86: db $08
-#_0C8D87: db $00 ; Direct Copy
+#_0C8D87: db $00 ; Raw block
 #_0C8D88: db $06
-#_0C8D89: db $23 ; Byte Fill
+#_0C8D89: db $23 ; Repeat byte
 #_0C8D8A: db $01
-#_0C8D8B: db $03 ; Direct Copy
+#_0C8D8B: db $03 ; Raw block
 #_0C8D8C: db $00, $06, $01, $01
-#_0C8D90: db $85 ; Repeat Fill
-#_0C8D91: db $00, $0D ; Repeat Fill bytes
-#_0C8D93: db $09 ; Direct Copy
+#_0C8D90: db $85 ; Copy past
+#_0C8D91: dw $0D00
+#_0C8D93: db $09 ; Raw block
 #_0C8D94: db $1A, $00, $01, $01, $1A, $01, $04, $00
 #_0C8D9C: db $1A, $1A
-#_0C8D9E: db $84 ; Repeat Fill
-#_0C8D9F: db $00, $0D ; Repeat Fill bytes
-#_0C8DA1: db $05 ; Direct Copy
+#_0C8D9E: db $84 ; Copy past
+#_0C8D9F: dw $0D00
+#_0C8DA1: db $05 ; Raw block
 #_0C8DA2: db $15, $1A, $00, $01, $12, $09
-#_0C8DA8: db $22 ; Byte Fill
+#_0C8DA8: db $22 ; Repeat byte
 #_0C8DA9: db $00
-#_0C8DAA: db $01 ; Direct Copy
+#_0C8DAA: db $01 ; Raw block
 #_0C8DAB: db $01, $06
-#_0C8DAD: db $84 ; Repeat Fill
-#_0C8DAE: db $00, $0D ; Repeat Fill bytes
-#_0C8DB0: db $22 ; Byte Fill
+#_0C8DAD: db $84 ; Copy past
+#_0C8DAE: dw $0D00
+#_0C8DB0: db $22 ; Repeat byte
 #_0C8DB1: db $01
-#_0C8DB2: db $02 ; Direct Copy
+#_0C8DB2: db $02 ; Raw block
 #_0C8DB3: db $06, $1A, $00
-#_0C8DB6: db $22 ; Byte Fill
+#_0C8DB6: db $22 ; Repeat byte
 #_0C8DB7: db $01
-#_0C8DB8: db $03 ; Direct Copy
+#_0C8DB8: db $03 ; Raw block
 #_0C8DB9: db $06, $08, $01, $0E
-#_0C8DBD: db $83 ; Repeat Fill
-#_0C8DBE: db $00, $0F ; Repeat Fill bytes
-#_0C8DC0: db $0B ; Direct Copy
+#_0C8DBD: db $83 ; Copy past
+#_0C8DBE: dw $0F00
+#_0C8DC0: db $0B ; Raw block
 #_0C8DC1: db $01, $1A, $00, $06, $08, $06, $1A, $03
 #_0C8DC9: db $06, $01, $1A, $0E
-#_0C8DCD: db $22 ; Byte Fill
+#_0C8DCD: db $22 ; Repeat byte
 #_0C8DCE: db $04
-#_0C8DCF: db $24 ; Byte Fill
+#_0C8DCF: db $24 ; Repeat byte
 #_0C8DD0: db $01
-#_0C8DD1: db $07 ; Direct Copy
+#_0C8DD1: db $07 ; Raw block
 #_0C8DD2: db $06, $01, $02, $01, $01, $07, $00, $01
-#_0C8DDA: db $83 ; Repeat Fill
-#_0C8DDB: db $00, $13 ; Repeat Fill bytes
-#_0C8DDD: db $02 ; Direct Copy
+#_0C8DDA: db $83 ; Copy past
+#_0C8DDB: dw $1300
+#_0C8DDD: db $02 ; Raw block
 #_0C8DDE: db $1A, $01, $01
-#_0C8DE1: db $23 ; Byte Fill
+#_0C8DE1: db $23 ; Repeat byte
 #_0C8DE2: db $00
-#_0C8DE3: db $05 ; Direct Copy
+#_0C8DE3: db $05 ; Raw block
 #_0C8DE4: db $01, $01, $00, $08, $0C, $04
-#_0C8DEA: db $22 ; Byte Fill
+#_0C8DEA: db $22 ; Repeat byte
 #_0C8DEB: db $08
-#_0C8DEC: db $01 ; Direct Copy
+#_0C8DEC: db $01 ; Raw block
 #_0C8DED: db $1A, $01
-#_0C8DEF: db $83 ; Repeat Fill
-#_0C8DF0: db $00, $43 ; Repeat Fill bytes
-#_0C8DF2: db $0D ; Direct Copy
+#_0C8DEF: db $83 ; Copy past
+#_0C8DF0: dw $4300
+#_0C8DF2: db $0D ; Raw block
 #_0C8DF3: db $09, $03, $04, $03, $08, $08, $04, $07
 #_0C8DFB: db $08, $08, $04, $01, $01, $00
-#_0C8E01: db $22 ; Byte Fill
+#_0C8E01: db $22 ; Repeat byte
 #_0C8E02: db $01
-#_0C8E03: db $11 ; Direct Copy
+#_0C8E03: db $11 ; Raw block
 #_0C8E04: db $06, $06, $01, $0B, $08, $04, $03, $00
 #_0C8E0C: db $01, $08, $08, $1A, $08, $03, $1A, $1A
 #_0C8E14: db $0B, $1A
-#_0C8E16: db $83 ; Repeat Fill
-#_0C8E17: db $00, $3C ; Repeat Fill bytes
-#_0C8E19: db $02 ; Direct Copy
+#_0C8E16: db $83 ; Copy past
+#_0C8E17: dw $3C00
+#_0C8E19: db $02 ; Raw block
 #_0C8E1A: db $01, $00, $03
-#_0C8E1D: db $22 ; Byte Fill
+#_0C8E1D: db $22 ; Repeat byte
 #_0C8E1E: db $08
-#_0C8E1F: db $01 ; Direct Copy
+#_0C8E1F: db $01 ; Raw block
 #_0C8E20: db $0B, $00
-#_0C8E22: db $86 ; Repeat Fill
-#_0C8E23: db $00, $0F ; Repeat Fill bytes
-#_0C8E25: db $23 ; Byte Fill
+#_0C8E22: db $86 ; Copy past
+#_0C8E23: dw $0F00
+#_0C8E25: db $23 ; Repeat byte
 #_0C8E26: db $04
-#_0C8E27: db $03 ; Direct Copy
+#_0C8E27: db $03 ; Raw block
 #_0C8E28: db $01, $0B, $08, $01
-#_0C8E2C: db $84 ; Repeat Fill
-#_0C8E2D: db $00, $9D ; Repeat Fill bytes
-#_0C8E2F: db $83 ; Repeat Fill
-#_0C8E30: db $00, $00 ; Repeat Fill bytes
+#_0C8E2C: db $84 ; Copy past
+#_0C8E2D: dw $9D00
+#_0C8E2F: db $83 ; Copy past
+#_0C8E30: dw $0000
 #_0C8E32: db $FF ; End of Map 2A
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen2A_Low:
-#_0C8E33: db $05 ; Direct Copy
+#_0C8E33: db $05 ; Raw block
 #_0C8E34: db $42, $D2, $D3, $42, $D2, $D3
-#_0C8E3A: db $89 ; Repeat Fill
-#_0C8E3B: db $00, $00 ; Repeat Fill bytes
-#_0C8E3D: db $08 ; Direct Copy
+#_0C8E3A: db $89 ; Copy past
+#_0C8E3B: dw $0000
+#_0C8E3D: db $08 ; Raw block
 #_0C8E3E: db $4A, $99, $44, $4A, $99, $44, $CA, $4E
 #_0C8E46: db $E5
-#_0C8E47: db $85 ; Repeat Fill
-#_0C8E48: db $00, $10 ; Repeat Fill bytes
-#_0C8E4A: db $09 ; Direct Copy
+#_0C8E47: db $85 ; Copy past
+#_0C8E48: dw $1000
+#_0C8E4A: db $09 ; Raw block
 #_0C8E4B: db $4A, $39, $9F, $4B, $39, $9F, $4B, $CB
 #_0C8E53: db $58, $E6
-#_0C8E55: db $85 ; Repeat Fill
-#_0C8E56: db $00, $20 ; Repeat Fill bytes
-#_0C8E58: db $03 ; Direct Copy
+#_0C8E55: db $85 ; Copy past
+#_0C8E56: dw $2000
+#_0C8E58: db $03 ; Raw block
 #_0C8E59: db $39, $42, $D2, $D3
-#_0C8E5D: db $62 ; Increasing Fill
-#_0C8E5E: db $A4 ; Increasing Fill Start
-#_0C8E5F: db $06 ; Direct Copy
+#_0C8E5D: db $62 ; Increment fill
+#_0C8E5E: db $A4
+#_0C8E5F: db $06 ; Raw block
 #_0C8E60: db $E7, $43, $E8, $9C, $A5, $A6, $51
-#_0C8E67: db $85 ; Repeat Fill
-#_0C8E68: db $00, $0D ; Repeat Fill bytes
-#_0C8E6A: db $02 ; Direct Copy
+#_0C8E67: db $85 ; Copy past
+#_0C8E68: dw $0D00
+#_0C8E6A: db $02 ; Raw block
 #_0C8E6B: db $9A, $70, $1E
-#_0C8E6E: db $62 ; Increasing Fill
-#_0C8E6F: db $4D ; Increasing Fill Start
-#_0C8E70: db $04 ; Direct Copy
+#_0C8E6E: db $62 ; Increment fill
+#_0C8E6F: db $4D
+#_0C8E70: db $04 ; Raw block
 #_0C8E71: db $1D, $70, $1E, $4D, $43
-#_0C8E76: db $84 ; Repeat Fill
-#_0C8E77: db $00, $1E ; Repeat Fill bytes
-#_0C8E79: db $0A ; Direct Copy
+#_0C8E76: db $84 ; Copy past
+#_0C8E77: dw $1E00
+#_0C8E79: db $0A ; Raw block
 #_0C8E7A: db $E9, $B6, $26, $57, $EA, $65, $56, $B6
 #_0C8E82: db $EB, $EC, $4A
-#_0C8E85: db $83 ; Repeat Fill
-#_0C8E86: db $00, $2E ; Repeat Fill bytes
-#_0C8E88: db $E0, $2D ; EXT Direct Copy
+#_0C8E85: db $83 ; Copy past
+#_0C8E86: dw $2E00
+#_0C8E88: db $E0, $2D ; EXT Raw block
 #_0C8E8A: db $E4, $ED, $09, $2F, $26, $B4, $1D, $EE
 #_0C8E92: db $09, $2F, $70, $4D, $4E, $42, $4A, $BB
 #_0C8E9A: db $4F, $30, $0E, $2B, $EE, $99, $1E, $30
 #_0C8EA2: db $0E, $2B, $2D, $1E, $F7, $4A, $39, $BE
 #_0C8EAA: db $C8, $1E, $EF, $9F, $70, $2D, $70, $F0
 #_0C8EB2: db $E2, $66, $3C, $F1, $F8, $39
-#_0C8EB8: db $62 ; Increasing Fill
-#_0C8EB9: db $42 ; Increasing Fill Start
-#_0C8EBA: db $62 ; Increasing Fill
-#_0C8EBB: db $42 ; Increasing Fill Start
-#_0C8EBC: db $19 ; Direct Copy
+#_0C8EB8: db $62 ; Increment fill
+#_0C8EB9: db $42
+#_0C8EBA: db $62 ; Increment fill
+#_0C8EBB: db $42
+#_0C8EBC: db $19 ; Raw block
 #_0C8EBD: db $3C, $70, $5A, $DE, $61, $62, $9E, $1D
 #_0C8EC5: db $61, $42, $42, $43, $F2, $F3, $4E, $4F
 #_0C8ECD: db $1C, $1C, $B2, $AA, $67, $68, $A5, $B8
 #_0C8ED5: db $04, $4A
-#_0C8ED7: db $62 ; Increasing Fill
-#_0C8ED8: db $49 ; Increasing Fill Start
-#_0C8ED9: db $E0, $2F ; EXT Direct Copy
+#_0C8ED7: db $62 ; Increment fill
+#_0C8ED8: db $49
+#_0C8ED9: db $E0, $2F ; EXT Raw block
 #_0C8EDB: db $F4, $58, $C8, $66, $61, $62, $B4, $DB
 #_0C8EE3: db $25, $D5, $BD, $4B, $39, $E6, $4D, $4E
 #_0C8EEB: db $45, $43, $44, $1D, $67, $68, $3C, $70
 #_0C8EF3: db $66, $42, $47, $D3, $42, $FB, $1D, $67
 #_0C8EFB: db $42, $43, $F5, $CC, $DB, $F6, $F7, $FE
 #_0C8F03: db $F8, $55, $99, $44, $4A, $74, $1D, $DB
-#_0C8F0B: db $62 ; Increasing Fill
-#_0C8F0C: db $49 ; Increasing Fill Start
-#_0C8F0D: db $02 ; Direct Copy
+#_0C8F0B: db $62 ; Increment fill
+#_0C8F0C: db $49
+#_0C8F0D: db $02 ; Raw block
 #_0C8F0E: db $43, $1D, $38
-#_0C8F11: db $86 ; Repeat Fill
-#_0C8F12: db $00, $29 ; Repeat Fill bytes
-#_0C8F14: db $08 ; Direct Copy
+#_0C8F11: db $86 ; Copy past
+#_0C8F12: dw $2900
+#_0C8F14: db $08 ; Raw block
 #_0C8F15: db $07, $60, $2C, $42, $47, $D3, $62, $AA
 #_0C8F1D: db $61
-#_0C8F1E: db $86 ; Repeat Fill
-#_0C8F1F: db $00, $00 ; Repeat Fill bytes
+#_0C8F1E: db $86 ; Copy past
+#_0C8F1F: dw $0000
 #_0C8F21: db $FF ; End of Map 2A
 
 ;===================================================================================================
 
 OverworldMap32_Screen2B_High:
-#_0C8F22: db $23 ; Byte Fill
+#_0C8F22: db $23 ; Repeat byte
 #_0C8F23: db $08
-#_0C8F24: db $0A ; Direct Copy
+#_0C8F24: db $0A ; Raw block
 #_0C8F25: db $06, $01, $08, $08, $04, $08, $08, $04
 #_0C8F2D: db $08, $08, $04
-#_0C8F30: db $23 ; Byte Fill
+#_0C8F30: db $23 ; Repeat byte
 #_0C8F31: db $08
-#_0C8F32: db $22 ; Byte Fill
+#_0C8F32: db $22 ; Repeat byte
 #_0C8F33: db $1A
-#_0C8F34: db $88 ; Repeat Fill
-#_0C8F35: db $00, $06 ; Repeat Fill bytes
-#_0C8F37: db $23 ; Byte Fill
+#_0C8F34: db $88 ; Copy past
+#_0C8F35: dw $0600
+#_0C8F37: db $23 ; Repeat byte
 #_0C8F38: db $08
-#_0C8F39: db $02 ; Direct Copy
+#_0C8F39: db $02 ; Raw block
 #_0C8F3A: db $06, $08, $01
-#_0C8F3D: db $27 ; Byte Fill
+#_0C8F3D: db $27 ; Repeat byte
 #_0C8F3E: db $08
-#_0C8F3F: db $00 ; Direct Copy
+#_0C8F3F: db $00 ; Raw block
 #_0C8F40: db $04
-#_0C8F41: db $22 ; Byte Fill
+#_0C8F41: db $22 ; Repeat byte
 #_0C8F42: db $08
-#_0C8F43: db $0C ; Direct Copy
+#_0C8F43: db $0C ; Raw block
 #_0C8F44: db $01, $01, $04, $04, $0B, $0B, $1A, $16
 #_0C8F4C: db $01, $01, $03, $0E, $04
-#_0C8F51: db $22 ; Byte Fill
+#_0C8F51: db $22 ; Repeat byte
 #_0C8F52: db $08
-#_0C8F53: db $02 ; Direct Copy
+#_0C8F53: db $02 ; Raw block
 #_0C8F54: db $0C, $1A, $04
-#_0C8F57: db $83 ; Repeat Fill
-#_0C8F58: db $00, $08 ; Repeat Fill bytes
-#_0C8F5A: db $05 ; Direct Copy
+#_0C8F57: db $83 ; Copy past
+#_0C8F58: dw $0800
+#_0C8F5A: db $05 ; Raw block
 #_0C8F5B: db $04, $03, $1A, $01, $1A, $04
-#_0C8F61: db $22 ; Byte Fill
+#_0C8F61: db $22 ; Repeat byte
 #_0C8F62: db $08
-#_0C8F63: db $03 ; Direct Copy
+#_0C8F63: db $03 ; Raw block
 #_0C8F64: db $04, $04, $1B, $0D
-#_0C8F68: db $84 ; Repeat Fill
-#_0C8F69: db $00, $50 ; Repeat Fill bytes
-#_0C8F6B: db $02 ; Direct Copy
+#_0C8F68: db $84 ; Copy past
+#_0C8F69: dw $5000
+#_0C8F6B: db $02 ; Raw block
 #_0C8F6C: db $1B, $01, $1B
-#_0C8F6F: db $25 ; Byte Fill
+#_0C8F6F: db $25 ; Repeat byte
 #_0C8F70: db $08
-#_0C8F71: db $00 ; Direct Copy
+#_0C8F71: db $00 ; Raw block
 #_0C8F72: db $1B
-#_0C8F73: db $22 ; Byte Fill
+#_0C8F73: db $22 ; Repeat byte
 #_0C8F74: db $08
-#_0C8F75: db $07 ; Direct Copy
+#_0C8F75: db $07 ; Raw block
 #_0C8F76: db $04, $08, $1B, $00, $01, $06, $00, $1B
-#_0C8F7E: db $22 ; Byte Fill
+#_0C8F7E: db $22 ; Repeat byte
 #_0C8F7F: db $08
-#_0C8F80: db $01 ; Direct Copy
+#_0C8F80: db $01 ; Raw block
 #_0C8F81: db $00, $1B
-#_0C8F83: db $84 ; Repeat Fill
-#_0C8F84: db $00, $08 ; Repeat Fill bytes
-#_0C8F86: db $01 ; Direct Copy
+#_0C8F83: db $84 ; Copy past
+#_0C8F84: dw $0800
+#_0C8F86: db $01 ; Raw block
 #_0C8F87: db $1B, $01
-#_0C8F89: db $23 ; Byte Fill
+#_0C8F89: db $23 ; Repeat byte
 #_0C8F8A: db $1B
-#_0C8F8B: db $22 ; Byte Fill
+#_0C8F8B: db $22 ; Repeat byte
 #_0C8F8C: db $08
-#_0C8F8D: db $08 ; Direct Copy
+#_0C8F8D: db $08 ; Raw block
 #_0C8F8E: db $00, $01, $04, $08, $15, $08, $08, $00
 #_0C8F96: db $07
-#_0C8F97: db $22 ; Byte Fill
+#_0C8F97: db $22 ; Repeat byte
 #_0C8F98: db $1B
-#_0C8F99: db $10 ; Direct Copy
+#_0C8F99: db $10 ; Raw block
 #_0C8F9A: db $06, $08, $08, $01, $08, $14, $04, $08
 #_0C8FA2: db $1B, $08, $06, $00, $03, $1B, $1B, $06
 #_0C8FAA: db $00
-#_0C8FAB: db $24 ; Byte Fill
+#_0C8FAB: db $24 ; Repeat byte
 #_0C8FAC: db $08
-#_0C8FAD: db $06 ; Direct Copy
+#_0C8FAD: db $06 ; Raw block
 #_0C8FAE: db $04, $08, $08, $1B, $00, $00, $1B
-#_0C8FB5: db $62 ; Increasing Fill
-#_0C8FB6: db $03 ; Increasing Fill Start
-#_0C8FB7: db $00 ; Direct Copy
+#_0C8FB5: db $62 ; Increment fill
+#_0C8FB6: db $03
+#_0C8FB7: db $00 ; Raw block
 #_0C8FB8: db $1B
-#_0C8FB9: db $27 ; Byte Fill
+#_0C8FB9: db $27 ; Repeat byte
 #_0C8FBA: db $08
-#_0C8FBB: db $0A ; Direct Copy
+#_0C8FBB: db $0A ; Raw block
 #_0C8FBC: db $1B, $00, $0F, $03, $1B, $1B, $05, $1B
 #_0C8FC4: db $08, $15, $14
-#_0C8FC7: db $43 ; Word Fill
-#_0C8FC8: db $04, $00 ;  Word Fill
-#_0C8FCA: db $00 ; Direct Copy
+#_0C8FC7: db $43 ; Repeat word
+#_0C8FC8: dw $0004
+#_0C8FCA: db $00 ; Raw block
 #_0C8FCB: db $06
-#_0C8FCC: db $22 ; Byte Fill
+#_0C8FCC: db $22 ; Repeat byte
 #_0C8FCD: db $1B
-#_0C8FCE: db $01 ; Direct Copy
+#_0C8FCE: db $01 ; Raw block
 #_0C8FCF: db $05, $02
-#_0C8FD1: db $22 ; Byte Fill
+#_0C8FD1: db $22 ; Repeat byte
 #_0C8FD2: db $1B
-#_0C8FD3: db $05 ; Direct Copy
+#_0C8FD3: db $05 ; Raw block
 #_0C8FD4: db $08, $1B, $04, $04, $00, $00
-#_0C8FDA: db $23 ; Byte Fill
+#_0C8FDA: db $23 ; Repeat byte
 #_0C8FDB: db $1B
-#_0C8FDC: db $01 ; Direct Copy
+#_0C8FDC: db $01 ; Raw block
 #_0C8FDD: db $10, $15
-#_0C8FDF: db $23 ; Byte Fill
+#_0C8FDF: db $23 ; Repeat byte
 #_0C8FE0: db $1B
-#_0C8FE1: db $83 ; Repeat Fill
-#_0C8FE2: db $00, $46 ; Repeat Fill bytes
-#_0C8FE4: db $0A ; Direct Copy
+#_0C8FE1: db $83 ; Copy past
+#_0C8FE2: dw $4600
+#_0C8FE4: db $0A ; Raw block
 #_0C8FE5: db $02, $1B, $1B, $10, $01, $1B, $01, $0D
 #_0C8FED: db $01, $1A, $01
-#_0C8FF0: db $83 ; Repeat Fill
-#_0C8FF1: db $00, $05 ; Repeat Fill bytes
-#_0C8FF3: db $08 ; Direct Copy
+#_0C8FF0: db $83 ; Copy past
+#_0C8FF1: dw $0500
+#_0C8FF3: db $08 ; Raw block
 #_0C8FF4: db $04, $07, $06, $10, $1B, $0D, $01, $0C
 #_0C8FFC: db $0B
-#_0C8FFD: db $22 ; Byte Fill
+#_0C8FFD: db $22 ; Repeat byte
 #_0C8FFE: db $01
-#_0C8FFF: db $00 ; Direct Copy
+#_0C8FFF: db $00 ; Raw block
 #_0C9000: db $19
 #_0C9001: db $FF ; End of Map 2B
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen2B_Low:
-#_0C9002: db $09 ; Direct Copy
+#_0C9002: db $09 ; Raw block
 #_0C9003: db $D2, $D3, $A4, $9D, $66, $4D, $43, $44
 #_0C900B: db $4A, $99
-#_0C900D: db $85 ; Repeat Fill
-#_0C900E: db $00, $07 ; Repeat Fill bytes
-#_0C9010: db $02 ; Direct Copy
+#_0C900D: db $85 ; Copy past
+#_0C900E: dw $0700
+#_0C9010: db $02 ; Raw block
 #_0C9011: db $99, $44, $9A
-#_0C9014: db $62 ; Increasing Fill
-#_0C9015: db $F9 ; Increasing Fill Start
-#_0C9016: db $03 ; Direct Copy
+#_0C9014: db $62 ; Increment fill
+#_0C9015: db $F9
+#_0C9016: db $03 ; Raw block
 #_0C9017: db $4A, $4B, $39, $9F
-#_0C901B: db $85 ; Repeat Fill
-#_0C901C: db $00, $17 ; Repeat Fill bytes
-#_0C901E: db $1D ; Direct Copy
+#_0C901B: db $85 ; Copy past
+#_0C901C: dw $1700
+#_0C901E: db $1D ; Raw block
 #_0C901F: db $9F, $4B, $A0, $70, $2D, $1E, $4D, $A6
 #_0C9027: db $9C, $A5, $4E, $A4, $A5, $4E, $42, $D2
 #_0C902F: db $D2, $D3, $62, $1E, $2D, $2E, $FE, $3A
 #_0C9037: db $FC, $00, $67, $68, $5F, $F7
-#_0C903D: db $83 ; Repeat Fill
-#_0C903E: db $00, $0E ; Repeat Fill bytes
-#_0C9040: db $02 ; Direct Copy
+#_0C903D: db $83 ; Copy past
+#_0C903E: dw $0E00
+#_0C9040: db $02 ; Raw block
 #_0C9041: db $43, $FD, $38
-#_0C9044: db $83 ; Repeat Fill
-#_0C9045: db $00, $18 ; Repeat Fill bytes
-#_0C9047: db $04 ; Direct Copy
+#_0C9044: db $83 ; Copy past
+#_0C9045: dw $1800
+#_0C9047: db $04 ; Raw block
 #_0C9048: db $3A, $DB, $FE, $1E, $FF
-#_0C904D: db $83 ; Repeat Fill
-#_0C904E: db $00, $1E ; Repeat Fill bytes
-#_0C9050: db $0D ; Direct Copy
+#_0C904D: db $83 ; Copy past
+#_0C904E: dw $1E00
+#_0C9050: db $0D ; Raw block
 #_0C9051: db $39, $3A, $00, $51, $D2, $D3, $42, $43
 #_0C9059: db $01, $02, $26, $03, $9C, $A5
-#_0C905F: db $83 ; Repeat Fill
-#_0C9060: db $00, $00 ; Repeat Fill bytes
-#_0C9062: db $10 ; Direct Copy
+#_0C905F: db $83 ; Copy past
+#_0C9060: dw $0000
+#_0C9062: db $10 ; Raw block
 #_0C9063: db $04, $BA, $99, $44, $4A, $BB, $05, $09
 #_0C906B: db $2F, $66, $9F, $06, $99, $44, $9A, $AA
 #_0C9073: db $07
-#_0C9074: db $83 ; Repeat Fill
-#_0C9075: db $00, $18 ; Repeat Fill bytes
-#_0C9077: db $02 ; Direct Copy
+#_0C9074: db $83 ; Copy past
+#_0C9075: dw $1800
+#_0C9077: db $02 ; Raw block
 #_0C9078: db $BE, $08, $0E
-#_0C907B: db $63 ; Increasing Fill
-#_0C907C: db $09 ; Increasing Fill Start
-#_0C907D: db $0B ; Direct Copy
+#_0C907B: db $63 ; Increment fill
+#_0C907C: db $09
+#_0C907D: db $0B ; Raw block
 #_0C907E: db $9F, $4B, $A0, $B2, $61, $42, $D2, $E4
 #_0C9086: db $9C, $9D, $AA, $9F
-#_0C908A: db $62 ; Increasing Fill
-#_0C908B: db $0D ; Increasing Fill Start
-#_0C908C: db $14 ; Direct Copy
+#_0C908A: db $62 ; Increment fill
+#_0C908B: db $0D
+#_0C908C: db $14 ; Raw block
 #_0C908D: db $66, $D2, $D3, $62, $B8, $F2, $4A, $99
 #_0C9095: db $10, $CC, $66, $AA, $8E, $11, $12, $66
 #_0C909D: db $BE, $99, $44, $9A, $BD
-#_0C90A2: db $83 ; Repeat Fill
-#_0C90A3: db $00, $17 ; Repeat Fill bytes
-#_0C90A5: db $0A ; Direct Copy
+#_0C90A2: db $83 ; Copy past
+#_0C90A3: dw $1700
+#_0C90A5: db $0A ; Raw block
 #_0C90A6: db $13, $98, $9F, $14, $B2, $BA, $55, $15
 #_0C90AE: db $9F, $4B, $A0
-#_0C90B1: db $83 ; Repeat Fill
-#_0C90B2: db $00, $26 ; Repeat Fill bytes
-#_0C90B4: db $0B ; Direct Copy
+#_0C90B1: db $83 ; Copy past
+#_0C90B2: dw $2600
+#_0C90B4: db $0B ; Raw block
 #_0C90B5: db $A6, $16, $A1, $08, $56, $17, $18, $59
 #_0C90BD: db $19, $D2, $E4, $F3
-#_0C90C1: db $43 ; Word Fill
-#_0C90C2: db $20, $1F ;  Word Fill
-#_0C90C4: db $00 ; Direct Copy
+#_0C90C1: db $43 ; Repeat word
+#_0C90C2: dw $1F20
+#_0C90C4: db $00 ; Raw block
 #_0C90C5: db $F5
-#_0C90C6: db $62 ; Increasing Fill
-#_0C90C7: db $1A ; Increasing Fill Start
-#_0C90C8: db $01 ; Direct Copy
+#_0C90C6: db $62 ; Increment fill
+#_0C90C7: db $1A
+#_0C90C8: db $01 ; Raw block
 #_0C90C9: db $E5, $57
-#_0C90CB: db $62 ; Increasing Fill
-#_0C90CC: db $1D ; Increasing Fill Start
-#_0C90CD: db $05 ; Direct Copy
+#_0C90CB: db $62 ; Increment fill
+#_0C90CC: db $1D
+#_0C90CD: db $05 ; Raw block
 #_0C90CE: db $99, $20, $2E, $2F, $A0, $A2
-#_0C90D4: db $63 ; Increasing Fill
-#_0C90D5: db $21 ; Increasing Fill Start
-#_0C90D6: db $01 ; Direct Copy
+#_0C90D4: db $63 ; Increment fill
+#_0C90D5: db $21
+#_0C90D6: db $01 ; Raw block
 #_0C90D7: db $F6, $92
-#_0C90D9: db $63 ; Increasing Fill
-#_0C90DA: db $25 ; Increasing Fill Start
-#_0C90DB: db $83 ; Repeat Fill
-#_0C90DC: db $00, $46 ; Repeat Fill bytes
-#_0C90DE: db $0B ; Direct Copy
+#_0C90D9: db $63 ; Increment fill
+#_0C90DA: db $25
+#_0C90DB: db $83 ; Copy past
+#_0C90DC: dw $4600
+#_0C90DE: db $0B ; Raw block
 #_0C90DF: db $4F, $29, $2A, $F6, $EB, $2B, $06, $97
 #_0C90E7: db $EB, $AE, $EB, $EB
-#_0C90EB: db $83 ; Repeat Fill
-#_0C90EC: db $00, $56 ; Repeat Fill bytes
-#_0C90EE: db $07 ; Direct Copy
+#_0C90EB: db $83 ; Copy past
+#_0C90EC: dw $5600
+#_0C90EE: db $07 ; Raw block
 #_0C90EF: db $50, $8E, $6E, $2C, $4C, $06, $ED, $56
-#_0C90F7: db $22 ; Byte Fill
+#_0C90F7: db $22 ; Repeat byte
 #_0C90F8: db $06
-#_0C90F9: db $00 ; Direct Copy
+#_0C90F9: db $00 ; Raw block
 #_0C90FA: db $E4
 #_0C90FB: db $FF ; End of Map 2B
 
 ;===================================================================================================
 
 OverworldMap32_Screen2C_High:
-#_0C90FC: db $01 ; Direct Copy
+#_0C90FC: db $01 ; Raw block
 #_0C90FD: db $08, $04
-#_0C90FF: db $22 ; Byte Fill
+#_0C90FF: db $22 ; Repeat byte
 #_0C9100: db $08
-#_0C9101: db $0C ; Direct Copy
+#_0C9101: db $0C ; Raw block
 #_0C9102: db $00, $1B, $06, $00, $00, $07, $00, $06
 #_0C910A: db $04, $03, $06, $08, $04
-#_0C910F: db $22 ; Byte Fill
+#_0C910F: db $22 ; Repeat byte
 #_0C9110: db $08
-#_0C9111: db $0A ; Direct Copy
+#_0C9111: db $0A ; Raw block
 #_0C9112: db $06, $02, $1B, $06, $00, $0C, $06, $04
 #_0C911A: db $04, $08, $09
-#_0C911D: db $23 ; Byte Fill
+#_0C911D: db $23 ; Repeat byte
 #_0C911E: db $08
-#_0C911F: db $23 ; Byte Fill
+#_0C911F: db $23 ; Repeat byte
 #_0C9120: db $1B
-#_0C9121: db $00 ; Direct Copy
+#_0C9121: db $00 ; Raw block
 #_0C9122: db $06
-#_0C9123: db $22 ; Byte Fill
+#_0C9123: db $22 ; Repeat byte
 #_0C9124: db $1B
-#_0C9125: db $07 ; Direct Copy
+#_0C9125: db $07 ; Raw block
 #_0C9126: db $04, $0C, $16, $0C, $08, $08, $00, $0E
-#_0C912E: db $22 ; Byte Fill
+#_0C912E: db $22 ; Repeat byte
 #_0C912F: db $03
-#_0C9130: db $23 ; Byte Fill
+#_0C9130: db $23 ; Repeat byte
 #_0C9131: db $1B
-#_0C9132: db $04 ; Direct Copy
+#_0C9132: db $04 ; Raw block
 #_0C9133: db $05, $1B, $08, $10, $07
-#_0C9138: db $83 ; Repeat Fill
-#_0C9139: db $00, $22 ; Repeat Fill bytes
-#_0C913B: db $22 ; Byte Fill
+#_0C9138: db $83 ; Copy past
+#_0C9139: dw $2200
+#_0C913B: db $22 ; Repeat byte
 #_0C913C: db $0A
-#_0C913D: db $0B ; Direct Copy
+#_0C913D: db $0B ; Raw block
 #_0C913E: db $03, $03, $1B, $0E, $06, $03, $05, $08
 #_0C9146: db $07, $08, $14, $01
-#_0C914A: db $22 ; Byte Fill
+#_0C914A: db $22 ; Repeat byte
 #_0C914B: db $1B
-#_0C914C: db $0A ; Direct Copy
+#_0C914C: db $0A ; Raw block
 #_0C914D: db $15, $16, $03, $03, $07, $01, $08, $08
 #_0C9155: db $05, $07, $00
-#_0C9158: db $22 ; Byte Fill
+#_0C9158: db $22 ; Repeat byte
 #_0C9159: db $1B
-#_0C915A: db $23 ; Byte Fill
+#_0C915A: db $23 ; Repeat byte
 #_0C915B: db $15
-#_0C915C: db $07 ; Direct Copy
+#_0C915C: db $07 ; Raw block
 #_0C915D: db $03, $02, $07, $00, $02, $08, $07, $09
-#_0C9165: db $22 ; Byte Fill
+#_0C9165: db $22 ; Repeat byte
 #_0C9166: db $1B
-#_0C9167: db $04 ; Direct Copy
+#_0C9167: db $04 ; Raw block
 #_0C9168: db $0D, $1B, $16, $16, $0D
-#_0C916D: db $23 ; Byte Fill
+#_0C916D: db $23 ; Repeat byte
 #_0C916E: db $1B
-#_0C916F: db $06 ; Direct Copy
+#_0C916F: db $06 ; Raw block
 #_0C9170: db $00, $03, $05, $07, $02, $1B, $0D
-#_0C9177: db $23 ; Byte Fill
+#_0C9177: db $23 ; Repeat byte
 #_0C9178: db $1B
-#_0C9179: db $01 ; Direct Copy
+#_0C9179: db $01 ; Raw block
 #_0C917A: db $19, $03
-#_0C917C: db $43 ; Word Fill
-#_0C917D: db $1B, $01 ;  Word Fill
-#_0C917F: db $16 ; Direct Copy
+#_0C917C: db $43 ; Repeat word
+#_0C917D: dw $011B
+#_0C917F: db $16 ; Raw block
 #_0C9180: db $03, $05, $05, $00, $00, $06, $01, $07
 #_0C9188: db $1B, $07, $07, $03, $10, $06, $0B, $00
 #_0C9190: db $07, $07, $1B, $02, $1B, $0F, $05
-#_0C9197: db $83 ; Repeat Fill
-#_0C9198: db $00, $71 ; Repeat Fill bytes
-#_0C919A: db $07 ; Direct Copy
+#_0C9197: db $83 ; Copy past
+#_0C9198: dw $7100
+#_0C919A: db $07 ; Raw block
 #_0C919B: db $07, $1B, $0B, $1B, $06, $1B, $07, $0B
-#_0C91A3: db $24 ; Byte Fill
+#_0C91A3: db $24 ; Repeat byte
 #_0C91A4: db $1B
-#_0C91A5: db $22 ; Byte Fill
+#_0C91A5: db $22 ; Repeat byte
 #_0C91A6: db $0F
-#_0C91A7: db $03 ; Direct Copy
+#_0C91A7: db $03 ; Raw block
 #_0C91A8: db $1B, $19, $06, $01
-#_0C91AC: db $22 ; Byte Fill
+#_0C91AC: db $22 ; Repeat byte
 #_0C91AD: db $1B
-#_0C91AE: db $09 ; Direct Copy
+#_0C91AE: db $09 ; Raw block
 #_0C91AF: db $0B, $06, $06, $0F, $06, $06, $1B, $01
 #_0C91B7: db $09, $1B
-#_0C91B9: db $23 ; Byte Fill
+#_0C91B9: db $23 ; Repeat byte
 #_0C91BA: db $02
-#_0C91BB: db $22 ; Byte Fill
+#_0C91BB: db $22 ; Repeat byte
 #_0C91BC: db $06
-#_0C91BD: db $03 ; Direct Copy
+#_0C91BD: db $03 ; Raw block
 #_0C91BE: db $03, $03, $1B, $03
-#_0C91C2: db $24 ; Byte Fill
+#_0C91C2: db $24 ; Repeat byte
 #_0C91C3: db $1B
-#_0C91C4: db $26 ; Byte Fill
+#_0C91C4: db $26 ; Repeat byte
 #_0C91C5: db $02
-#_0C91C6: db $07 ; Direct Copy
+#_0C91C6: db $07 ; Raw block
 #_0C91C7: db $0F, $01, $1B, $0D, $11, $15, $03, $06
-#_0C91CF: db $22 ; Byte Fill
+#_0C91CF: db $22 ; Repeat byte
 #_0C91D0: db $01
-#_0C91D1: db $00 ; Direct Copy
+#_0C91D1: db $00 ; Raw block
 #_0C91D2: db $0A
-#_0C91D3: db $22 ; Byte Fill
+#_0C91D3: db $22 ; Repeat byte
 #_0C91D4: db $01
-#_0C91D5: db $08 ; Direct Copy
+#_0C91D5: db $08 ; Raw block
 #_0C91D6: db $0E, $01, $01, $0F, $0D, $01, $03, $02
 #_0C91DE: db $00
-#_0C91DF: db $84 ; Repeat Fill
-#_0C91E0: db $00, $ED ; Repeat Fill bytes
-#_0C91E2: db $02 ; Direct Copy
+#_0C91DF: db $84 ; Copy past
+#_0C91E0: dw $ED00
+#_0C91E2: db $02 ; Raw block
 #_0C91E3: db $0D, $01, $01
 #_0C91E6: db $FF ; End of Map 2C
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen2C_Low:
-#_0C91E7: db $E0, $20 ; EXT Direct Copy
+#_0C91E7: db $E0, $20 ; EXT Raw block
 #_0C91E9: db $44, $4A, $99, $44, $9A, $1C, $2D, $8A
 #_0C91F1: db $1D, $1D, $41, $1D, $66, $8A, $32, $09
 #_0C91F9: db $4B, $39, $9F, $4B, $A0, $3A, $4F, $2E
 #_0C9201: db $3A, $1D, $8A, $8F, $8A, $AA, $88, $83
 #_0C9209: db $D3
-#_0C920A: db $62 ; Increasing Fill
-#_0C920B: db $A4 ; Increasing Fill Start
-#_0C920C: db $63 ; Increasing Fill
-#_0C920D: db $2F ; Increasing Fill Start
-#_0C920E: db $0B ; Direct Copy
+#_0C920A: db $62 ; Increment fill
+#_0C920B: db $A4
+#_0C920C: db $63 ; Increment fill
+#_0C920D: db $2F
+#_0C920E: db $0B ; Raw block
 #_0C920F: db $8C, $33, $34, $29, $AA, $74, $95, $4C
 #_0C9217: db $44, $9A, $1D, $5A
-#_0C921B: db $22 ; Byte Fill
+#_0C921B: db $22 ; Repeat byte
 #_0C921C: db $88
-#_0C921D: db $63 ; Increasing Fill
-#_0C921E: db $35 ; Increasing Fill Start
-#_0C921F: db $08 ; Direct Copy
+#_0C921D: db $63 ; Increment fill
+#_0C921E: db $35
+#_0C921F: db $08 ; Raw block
 #_0C9220: db $4F, $39, $8F, $F9, $36, $4B, $A0, $3A
 #_0C9228: db $0E
-#_0C9229: db $22 ; Byte Fill
+#_0C9229: db $22 ; Repeat byte
 #_0C922A: db $01
-#_0C922B: db $0B ; Direct Copy
+#_0C922B: db $0B ; Raw block
 #_0C922C: db $91, $92, $3B, $3D, $66, $32, $C5, $AA
 #_0C9234: db $36, $A6, $F3, $77
-#_0C9238: db $62 ; Increasing Fill
-#_0C9239: db $3C ; Increasing Fill Start
-#_0C923A: db $0A ; Direct Copy
+#_0C9238: db $62 ; Increment fill
+#_0C9239: db $3C
+#_0C923A: db $0A ; Raw block
 #_0C923B: db $B9, $82, $98, $99, $41, $1E, $69, $6A
 #_0C9243: db $E1, $19, $1D
-#_0C9246: db $62 ; Increasing Fill
-#_0C9247: db $3F ; Increasing Fill Start
-#_0C9248: db $63 ; Increasing Fill
-#_0C9249: db $BC ; Increasing Fill Start
-#_0C924A: db $0F ; Direct Copy
+#_0C9246: db $62 ; Increment fill
+#_0C9247: db $3F
+#_0C9248: db $63 ; Increment fill
+#_0C9249: db $BC
+#_0C924A: db $0F ; Raw block
 #_0C924B: db $A1, $DD, $41, $FB, $3E, $6F, $54, $90
 #_0C9253: db $0C, $42, $43, $DD, $44, $87, $88, $B8
-#_0C925B: db $63 ; Increasing Fill
-#_0C925C: db $45 ; Increasing Fill Start
-#_0C925D: db $06 ; Direct Copy
+#_0C925B: db $63 ; Increment fill
+#_0C925C: db $45
+#_0C925D: db $06 ; Raw block
 #_0C925E: db $FB, $32, $C5, $89, $DE, $49, $DD
-#_0C9265: db $63 ; Increasing Fill
-#_0C9266: db $4A ; Increasing Fill Start
-#_0C9267: db $E0, $29 ; EXT Direct Copy
+#_0C9265: db $63 ; Increment fill
+#_0C9266: db $4A
+#_0C9267: db $E0, $29 ; EXT Raw block
 #_0C9269: db $40, $A1, $4E, $06, $4F, $1E, $32, $C5
 #_0C9271: db $E1, $A5, $1F, $66, $4B, $C5, $50, $E6
 #_0C9279: db $C5, $A1, $C3, $A2, $33, $A9, $3A, $3B
 #_0C9281: db $51, $08, $52, $92, $55, $53, $54, $E1
 #_0C9289: db $53, $26, $55, $4B, $56, $8A, $57, $3A
 #_0C9291: db $94, $19
-#_0C9293: db $62 ; Increasing Fill
-#_0C9294: db $58 ; Increasing Fill Start
-#_0C9295: db $00 ; Direct Copy
+#_0C9293: db $62 ; Increment fill
+#_0C9294: db $58
+#_0C9295: db $00 ; Raw block
 #_0C9296: db $19
-#_0C9297: db $22 ; Byte Fill
+#_0C9297: db $22 ; Repeat byte
 #_0C9298: db $44
-#_0C9299: db $10 ; Direct Copy
+#_0C9299: db $10 ; Raw block
 #_0C929A: db $5B, $C8, $A3, $06, $5C, $5D, $57, $9F
 #_0C92A2: db $9C, $9C, $10, $93, $9C, $5E, $06, $D5
 #_0C92AA: db $5F
-#_0C92AB: db $23 ; Byte Fill
+#_0C92AB: db $23 ; Repeat byte
 #_0C92AC: db $59
-#_0C92AD: db $06 ; Direct Copy
+#_0C92AD: db $06 ; Raw block
 #_0C92AE: db $93, $9C, $9C, $88, $88, $60, $5C
-#_0C92B5: db $62 ; Increasing Fill
-#_0C92B6: db $61 ; Increasing Fill Start
-#_0C92B7: db $02 ; Direct Copy
+#_0C92B5: db $62 ; Increment fill
+#_0C92B6: db $61
+#_0C92B7: db $02 ; Raw block
 #_0C92B8: db $63, $64, $4B
-#_0C92BB: db $25 ; Byte Fill
+#_0C92BB: db $25 ; Repeat byte
 #_0C92BC: db $4C
-#_0C92BD: db $0B ; Direct Copy
+#_0C92BD: db $0B ; Raw block
 #_0C92BE: db $3E, $EB, $65, $97, $24, $92, $5D, $66
 #_0C92C6: db $48, $49, $EB, $79
-#_0C92CA: db $22 ; Byte Fill
+#_0C92CA: db $22 ; Repeat byte
 #_0C92CB: db $EB
-#_0C92CC: db $10 ; Direct Copy
+#_0C92CC: db $10 ; Raw block
 #_0C92CD: db $3B, $06, $06, $12, $4B, $06, $63, $DD
 #_0C92D5: db $1D, $2E, $00, $40, $06, $06, $A2, $06
 #_0C92DD: db $06
@@ -2178,142 +2178,142 @@ OverworldMap32_Screen2C_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen6D_High:
-#_0C92DF: db $04 ; Direct Copy
+#_0C92DF: db $04 ; Raw block
 #_0C92E0: db $07, $01, $00, $00, $1B
-#_0C92E5: db $43 ; Word Fill
-#_0C92E6: db $1B, $12 ;  Word Fill
-#_0C92E8: db $18 ; Direct Copy
+#_0C92E5: db $43 ; Repeat word
+#_0C92E6: dw $121B
+#_0C92E8: db $18 ; Raw block
 #_0C92E9: db $18, $1B, $18, $12, $1B, $0D, $01, $07
 #_0C92F1: db $01, $06, $00, $0D, $1B, $1B, $12, $07
 #_0C92F9: db $1B, $1B, $0B, $1A, $0D, $04, $02, $07
 #_0C9301: db $01
-#_0C9302: db $22 ; Byte Fill
+#_0C9302: db $22 ; Repeat byte
 #_0C9303: db $1B
-#_0C9304: db $43 ; Word Fill
-#_0C9305: db $12, $1B ;  Word Fill
-#_0C9307: db $00 ; Direct Copy
+#_0C9304: db $43 ; Repeat word
+#_0C9305: dw $1B12
+#_0C9307: db $00 ; Raw block
 #_0C9308: db $06
-#_0C9309: db $22 ; Byte Fill
+#_0C9309: db $22 ; Repeat byte
 #_0C930A: db $0D
-#_0C930B: db $08 ; Direct Copy
+#_0C930B: db $08 ; Raw block
 #_0C930C: db $03, $03, $01, $07, $01, $1B, $10, $1B
 #_0C9314: db $02
-#_0C9315: db $22 ; Byte Fill
+#_0C9315: db $22 ; Repeat byte
 #_0C9316: db $1B
-#_0C9317: db $23 ; Byte Fill
+#_0C9317: db $23 ; Repeat byte
 #_0C9318: db $0E
-#_0C9319: db $03 ; Direct Copy
+#_0C9319: db $03 ; Raw block
 #_0C931A: db $00, $0E, $0E, $07
-#_0C931E: db $23 ; Byte Fill
+#_0C931E: db $23 ; Repeat byte
 #_0C931F: db $1B
-#_0C9320: db $04 ; Direct Copy
+#_0C9320: db $04 ; Raw block
 #_0C9321: db $01, $0E, $0E, $02, $02
-#_0C9326: db $23 ; Byte Fill
+#_0C9326: db $23 ; Repeat byte
 #_0C9327: db $0E
-#_0C9328: db $0B ; Direct Copy
+#_0C9328: db $0B ; Raw block
 #_0C9329: db $02, $02, $07, $06, $01, $01, $06, $00
 #_0C9331: db $0E, $0E, $00, $06
-#_0C9335: db $23 ; Byte Fill
+#_0C9335: db $23 ; Repeat byte
 #_0C9336: db $0E
-#_0C9337: db $15 ; Direct Copy
+#_0C9337: db $15 ; Raw block
 #_0C9338: db $00, $06, $05, $07, $06, $01, $02, $02
 #_0C9340: db $1B, $1B, $00, $1B, $1B, $02, $15, $15
 #_0C9348: db $02, $02, $05, $05, $08, $06
-#_0C934E: db $84 ; Repeat Fill
-#_0C934F: db $00, $64 ; Repeat Fill bytes
-#_0C9351: db $09 ; Direct Copy
+#_0C934E: db $84 ; Copy past
+#_0C934F: dw $6400
+#_0C9351: db $09 ; Raw block
 #_0C9352: db $0D, $03, $02, $0F, $0F, $02, $02, $0E
 #_0C935A: db $05, $0C
-#_0C935C: db $22 ; Byte Fill
+#_0C935C: db $22 ; Repeat byte
 #_0C935D: db $07
-#_0C935E: db $10 ; Direct Copy
+#_0C935E: db $10 ; Raw block
 #_0C935F: db $1B, $1B, $02, $1B, $03, $1B, $0F, $1B
 #_0C9367: db $07, $0C, $09, $07, $05, $05, $08, $05
 #_0C936F: db $07
-#_0C9370: db $22 ; Byte Fill
+#_0C9370: db $22 ; Repeat byte
 #_0C9371: db $1B
-#_0C9372: db $05 ; Direct Copy
+#_0C9372: db $05 ; Raw block
 #_0C9373: db $03, $07, $08, $1B, $1B, $0F
-#_0C9379: db $25 ; Byte Fill
+#_0C9379: db $25 ; Repeat byte
 #_0C937A: db $07
-#_0C937B: db $83 ; Repeat Fill
-#_0C937C: db $00, $76 ; Repeat Fill bytes
-#_0C937E: db $00 ; Direct Copy
+#_0C937B: db $83 ; Copy past
+#_0C937C: dw $7600
+#_0C937E: db $00 ; Raw block
 #_0C937F: db $08
-#_0C9380: db $22 ; Byte Fill
+#_0C9380: db $22 ; Repeat byte
 #_0C9381: db $1B
-#_0C9382: db $27 ; Byte Fill
+#_0C9382: db $27 ; Repeat byte
 #_0C9383: db $05
-#_0C9384: db $83 ; Repeat Fill
-#_0C9385: db $00, $76 ; Repeat Fill bytes
-#_0C9387: db $01 ; Direct Copy
+#_0C9384: db $83 ; Copy past
+#_0C9385: dw $7600
+#_0C9387: db $01 ; Raw block
 #_0C9388: db $1B, $0E
-#_0C938A: db $43 ; Word Fill
-#_0C938B: db $07, $09 ;  Word Fill
-#_0C938D: db $22 ; Byte Fill
+#_0C938A: db $43 ; Repeat word
+#_0C938B: dw $0907
+#_0C938D: db $22 ; Repeat byte
 #_0C938E: db $06
-#_0C938F: db $00 ; Direct Copy
+#_0C938F: db $00 ; Raw block
 #_0C9390: db $07
-#_0C9391: db $23 ; Byte Fill
+#_0C9391: db $23 ; Repeat byte
 #_0C9392: db $1B
-#_0C9393: db $0F ; Direct Copy
+#_0C9393: db $0F ; Raw block
 #_0C9394: db $06, $1B, $00, $02, $07, $0B, $07, $07
 #_0C939C: db $02, $02, $0E, $1B, $12, $1B, $1B, $05
-#_0C93A4: db $43 ; Word Fill
-#_0C93A5: db $00, $01 ;  Word Fill
-#_0C93A7: db $00 ; Direct Copy
+#_0C93A4: db $43 ; Repeat word
+#_0C93A5: dw $0100
+#_0C93A7: db $00 ; Raw block
 #_0C93A8: db $0E
-#_0C93A9: db $83 ; Repeat Fill
-#_0C93AA: db $00, $37 ; Repeat Fill bytes
-#_0C93AC: db $08 ; Direct Copy
+#_0C93A9: db $83 ; Copy past
+#_0C93AA: dw $3700
+#_0C93AC: db $08 ; Raw block
 #_0C93AD: db $01, $0E, $03, $02, $1B, $05, $00, $00
 #_0C93B5: db $02
-#_0C93B6: db $22 ; Byte Fill
+#_0C93B6: db $22 ; Repeat byte
 #_0C93B7: db $01
-#_0C93B8: db $06 ; Direct Copy
+#_0C93B8: db $06 ; Raw block
 #_0C93B9: db $0E, $03, $0E, $0D, $01, $0B, $01
-#_0C93C0: db $25 ; Byte Fill
+#_0C93C0: db $25 ; Repeat byte
 #_0C93C1: db $00
-#_0C93C2: db $22 ; Byte Fill
+#_0C93C2: db $22 ; Repeat byte
 #_0C93C3: db $01
-#_0C93C4: db $02 ; Direct Copy
+#_0C93C4: db $02 ; Raw block
 #_0C93C5: db $0E, $0B, $0E
 #_0C93C8: db $FF ; End of Map 6D
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen6D_Low:
-#_0C93C9: db $E0, $21 ; EXT Direct Copy
+#_0C93C9: db $E0, $21 ; EXT Raw block
 #_0C93CB: db $4C, $93, $1C, $1D, $66, $67, $85, $68
 #_0C93D3: db $85, $08, $69, $08, $85, $6A, $EF, $FC
 #_0C93DB: db $4C, $93, $66, $A9, $F0, $6B, $67, $85
 #_0C93E3: db $01, $6C, $6D, $EF, $96, $F1, $8E, $61
 #_0C93EB: db $4C, $93
-#_0C93ED: db $62 ; Increasing Fill
-#_0C93EE: db $6E ; Increasing Fill Start
-#_0C93EF: db $04 ; Direct Copy
+#_0C93ED: db $62 ; Increment fill
+#_0C93EE: db $6E
+#_0C93EF: db $04 ; Raw block
 #_0C93F0: db $7E, $67, $85, $71, $8E
-#_0C93F5: db $62 ; Increasing Fill
-#_0C93F6: db $F8 ; Increasing Fill Start
-#_0C93F7: db $0B ; Direct Copy
+#_0C93F5: db $62 ; Increment fill
+#_0C93F6: db $F8
+#_0C93F7: db $0B ; Raw block
 #_0C93F8: db $56, $57, $15, $56, $93, $72, $AD, $73
 #_0C9400: db $5E, $74, $75, $67
-#_0C9404: db $63 ; Increasing Fill
-#_0C9405: db $01 ; Increasing Fill Start
-#_0C9406: db $03 ; Direct Copy
+#_0C9404: db $63 ; Increment fill
+#_0C9405: db $01
+#_0C9406: db $03 ; Raw block
 #_0C9407: db $A1, $05, $06, $4C
-#_0C940B: db $63 ; Increasing Fill
-#_0C940C: db $76 ; Increasing Fill Start
-#_0C940D: db $04 ; Direct Copy
+#_0C940B: db $63 ; Increment fill
+#_0C940C: db $76
+#_0C940D: db $04 ; Raw block
 #_0C940E: db $1E, $0B, $0C, $5B, $5B
-#_0C9413: db $62 ; Increasing Fill
-#_0C9414: db $0D ; Increasing Fill Start
-#_0C9415: db $0D ; Direct Copy
+#_0C9413: db $62 ; Increment fill
+#_0C9414: db $0D
+#_0C9415: db $0D ; Raw block
 #_0C9416: db $0D, $5B, $5B, $14, $16, $D9, $A0, $66
 #_0C941E: db $1D, $10, $11, $B2, $66, $12
-#_0C9424: db $62 ; Increasing Fill
-#_0C9425: db $10 ; Increasing Fill Start
-#_0C9426: db $E0, $41 ; EXT Direct Copy
+#_0C9424: db $62 ; Increment fill
+#_0C9425: db $10
+#_0C9426: db $E0, $41 ; EXT Raw block
 #_0C9428: db $FB, $66, $E1, $14, $16, $D9, $07, $07
 #_0C9430: db $7A, $7B, $1D, $7C, $7D, $07, $DE, $DF
 #_0C9438: db $07, $07, $E0, $E1, $B5, $16, $FB, $FB
@@ -2323,26 +2323,26 @@ OverworldMap32_Screen6D_Low:
 #_0C9458: db $79, $76, $36, $20, $E1, $E1, $AA, $E1
 #_0C9460: db $6E, $81, $85, $86, $32, $5C, $AA, $87
 #_0C9468: db $88, $D3
-#_0C946A: db $25 ; Byte Fill
+#_0C946A: db $25 ; Repeat byte
 #_0C946B: db $84
-#_0C946C: db $04 ; Direct Copy
+#_0C946C: db $04 ; Raw block
 #_0C946D: db $89, $8A, $1D, $6A, $69
-#_0C9472: db $62 ; Increasing Fill
-#_0C9473: db $8B ; Increasing Fill Start
-#_0C9474: db $01 ; Direct Copy
+#_0C9472: db $62 ; Increment fill
+#_0C9473: db $8B
+#_0C9474: db $01 ; Raw block
 #_0C9475: db $D5, $E1
-#_0C9477: db $25 ; Byte Fill
+#_0C9477: db $25 ; Repeat byte
 #_0C9478: db $6D
-#_0C9479: db $09 ; Direct Copy
+#_0C9479: db $09 ; Raw block
 #_0C947A: db $8E, $8F, $1D, $71, $90, $2F, $3B, $52
 #_0C9482: db $36, $9D
-#_0C9484: db $22 ; Byte Fill
+#_0C9484: db $22 ; Repeat byte
 #_0C9485: db $9C
-#_0C9486: db $00 ; Direct Copy
+#_0C9486: db $00 ; Raw block
 #_0C9487: db $04
-#_0C9488: db $63 ; Increasing Fill
-#_0C9489: db $91 ; Increasing Fill Start
-#_0C948A: db $E0, $37 ; EXT Direct Copy
+#_0C9488: db $63 ; Increment fill
+#_0C9489: db $91
+#_0C948A: db $E0, $37 ; EXT Raw block
 #_0C948C: db $9C, $95, $A5, $30, $3A, $94, $84, $84
 #_0C9494: db $4C, $4C, $33, $96, $7E, $97, $98, $4F
 #_0C949C: db $FB, $1E, $B2, $41, $37, $99, $9A, $3A
@@ -2355,337 +2355,337 @@ OverworldMap32_Screen6D_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen2E_High:
-#_0C94C5: db $06 ; Direct Copy
+#_0C94C5: db $06 ; Raw block
 #_0C94C6: db $02, $1B, $16, $02, $06, $04, $05
-#_0C94CD: db $22 ; Byte Fill
+#_0C94CD: db $22 ; Repeat byte
 #_0C94CE: db $03
-#_0C94CF: db $02 ; Direct Copy
+#_0C94CF: db $02 ; Raw block
 #_0C94D0: db $1B, $01, $0F
-#_0C94D3: db $22 ; Byte Fill
+#_0C94D3: db $22 ; Repeat byte
 #_0C94D4: db $01
-#_0C94D5: db $05 ; Direct Copy
+#_0C94D5: db $05 ; Raw block
 #_0C94D6: db $0D, $09, $01, $02, $06, $04
-#_0C94DC: db $22 ; Byte Fill
+#_0C94DC: db $22 ; Repeat byte
 #_0C94DD: db $0F
-#_0C94DE: db $03 ; Direct Copy
+#_0C94DE: db $03 ; Raw block
 #_0C94DF: db $1B, $0F, $01, $0F
-#_0C94E3: db $22 ; Byte Fill
+#_0C94E3: db $22 ; Repeat byte
 #_0C94E4: db $01
-#_0C94E5: db $00 ; Direct Copy
+#_0C94E5: db $00 ; Raw block
 #_0C94E6: db $0D
-#_0C94E7: db $22 ; Byte Fill
+#_0C94E7: db $22 ; Repeat byte
 #_0C94E8: db $1B
-#_0C94E9: db $00 ; Direct Copy
+#_0C94E9: db $00 ; Raw block
 #_0C94EA: db $08
-#_0C94EB: db $23 ; Byte Fill
+#_0C94EB: db $23 ; Repeat byte
 #_0C94EC: db $1B
-#_0C94ED: db $00 ; Direct Copy
+#_0C94ED: db $00 ; Raw block
 #_0C94EE: db $04
-#_0C94EF: db $84 ; Repeat Fill
-#_0C94F0: db $00, $0A ; Repeat Fill bytes
-#_0C94F2: db $01 ; Direct Copy
+#_0C94EF: db $84 ; Copy past
+#_0C94F0: dw $0A00
+#_0C94F2: db $01 ; Raw block
 #_0C94F3: db $02, $0E
-#_0C94F5: db $22 ; Byte Fill
+#_0C94F5: db $22 ; Repeat byte
 #_0C94F6: db $1B
-#_0C94F7: db $00 ; Direct Copy
+#_0C94F7: db $00 ; Raw block
 #_0C94F8: db $01
-#_0C94F9: db $22 ; Byte Fill
+#_0C94F9: db $22 ; Repeat byte
 #_0C94FA: db $1B
-#_0C94FB: db $05 ; Direct Copy
+#_0C94FB: db $05 ; Raw block
 #_0C94FC: db $08, $08, $01, $01, $1B, $01
-#_0C9502: db $22 ; Byte Fill
+#_0C9502: db $22 ; Repeat byte
 #_0C9503: db $02
-#_0C9504: db $05 ; Direct Copy
+#_0C9504: db $05 ; Raw block
 #_0C9505: db $1B, $09, $01, $01, $1B, $00
-#_0C950B: db $83 ; Repeat Fill
-#_0C950C: db $00, $33 ; Repeat Fill bytes
-#_0C950E: db $43 ; Word Fill
-#_0C950F: db $01, $02 ;  Word Fill
-#_0C9511: db $04 ; Direct Copy
+#_0C950B: db $83 ; Copy past
+#_0C950C: dw $3300
+#_0C950E: db $43 ; Repeat word
+#_0C950F: dw $0201
+#_0C9511: db $04 ; Raw block
 #_0C9512: db $02, $10, $00, $00, $01
-#_0C9517: db $45 ; Word Fill
-#_0C9518: db $01, $1B ;  Word Fill
-#_0C951A: db $00 ; Direct Copy
+#_0C9517: db $45 ; Repeat word
+#_0C9518: dw $1B01
+#_0C951A: db $00 ; Raw block
 #_0C951B: db $00
-#_0C951C: db $22 ; Byte Fill
+#_0C951C: db $22 ; Repeat byte
 #_0C951D: db $1B
-#_0C951E: db $24 ; Byte Fill
+#_0C951E: db $24 ; Repeat byte
 #_0C951F: db $02
-#_0C9520: db $03 ; Direct Copy
+#_0C9520: db $03 ; Raw block
 #_0C9521: db $01, $1B, $06, $06
-#_0C9525: db $22 ; Byte Fill
+#_0C9525: db $22 ; Repeat byte
 #_0C9526: db $1B
-#_0C9527: db $0A ; Direct Copy
+#_0C9527: db $0A ; Raw block
 #_0C9528: db $01, $1B, $01, $06, $02, $05, $0E, $0E
 #_0C9530: db $1B, $01, $01
-#_0C9533: db $23 ; Byte Fill
+#_0C9533: db $23 ; Repeat byte
 #_0C9534: db $1B
-#_0C9535: db $06 ; Direct Copy
+#_0C9535: db $06 ; Raw block
 #_0C9536: db $01, $04, $03, $06, $1B, $05, $05
-#_0C953D: db $22 ; Byte Fill
+#_0C953D: db $22 ; Repeat byte
 #_0C953E: db $07
-#_0C953F: db $01 ; Direct Copy
+#_0C953F: db $01 ; Raw block
 #_0C9540: db $06, $09
-#_0C9542: db $24 ; Byte Fill
+#_0C9542: db $24 ; Repeat byte
 #_0C9543: db $1B
-#_0C9544: db $0A ; Direct Copy
+#_0C9544: db $0A ; Raw block
 #_0C9545: db $19, $01, $03, $03, $05, $0F, $07, $05
 #_0C954D: db $1B, $07, $09
-#_0C9550: db $24 ; Byte Fill
+#_0C9550: db $24 ; Repeat byte
 #_0C9551: db $06
-#_0C9552: db $19 ; Direct Copy
+#_0C9552: db $19 ; Raw block
 #_0C9553: db $07, $01, $08, $03, $10, $1B, $05, $09
 #_0C955B: db $05, $05, $08, $09, $07, $07, $09, $09
 #_0C9563: db $08, $1B, $1B, $06, $01, $02, $07, $05
 #_0C956B: db $07, $07
-#_0C956D: db $24 ; Byte Fill
+#_0C956D: db $24 ; Repeat byte
 #_0C956E: db $1B
-#_0C956F: db $01 ; Direct Copy
+#_0C956F: db $01 ; Raw block
 #_0C9570: db $09, $05
-#_0C9572: db $22 ; Byte Fill
+#_0C9572: db $22 ; Repeat byte
 #_0C9573: db $1B
-#_0C9574: db $04 ; Direct Copy
+#_0C9574: db $04 ; Raw block
 #_0C9575: db $01, $1B, $07, $07, $09
-#_0C957A: db $83 ; Repeat Fill
-#_0C957B: db $00, $33 ; Repeat Fill bytes
-#_0C957D: db $03 ; Direct Copy
+#_0C957A: db $83 ; Copy past
+#_0C957B: dw $3300
+#_0C957D: db $03 ; Raw block
 #_0C957E: db $0F, $0F, $05, $0C
-#_0C9582: db $22 ; Byte Fill
+#_0C9582: db $22 ; Repeat byte
 #_0C9583: db $1B
-#_0C9584: db $01 ; Direct Copy
+#_0C9584: db $01 ; Raw block
 #_0C9585: db $02, $02
-#_0C9587: db $22 ; Byte Fill
+#_0C9587: db $22 ; Repeat byte
 #_0C9588: db $0E
-#_0C9589: db $07 ; Direct Copy
+#_0C9589: db $07 ; Raw block
 #_0C958A: db $1B, $01, $10, $02, $1B, $0F, $07, $08
-#_0C9592: db $83 ; Repeat Fill
-#_0C9593: db $00, $49 ; Repeat Fill bytes
-#_0C9595: db $00 ; Direct Copy
+#_0C9592: db $83 ; Copy past
+#_0C9593: dw $4900
+#_0C9595: db $00 ; Raw block
 #_0C9596: db $02
-#_0C9597: db $22 ; Byte Fill
+#_0C9597: db $22 ; Repeat byte
 #_0C9598: db $0E
-#_0C9599: db $04 ; Direct Copy
+#_0C9599: db $04 ; Raw block
 #_0C959A: db $1B, $05, $01, $0B, $02
-#_0C959F: db $83 ; Repeat Fill
-#_0C95A0: db $00, $8F ; Repeat Fill bytes
-#_0C95A2: db $06 ; Direct Copy
+#_0C959F: db $83 ; Copy past
+#_0C95A0: dw $8F00
+#_0C95A2: db $06 ; Raw block
 #_0C95A3: db $09, $01, $02, $02, $01, $06, $01
-#_0C95AA: db $43 ; Word Fill
-#_0C95AB: db $01, $0B ;  Word Fill
-#_0C95AD: db $84 ; Repeat Fill
-#_0C95AE: db $00, $E7 ; Repeat Fill bytes
-#_0C95B0: db $03 ; Direct Copy
+#_0C95AA: db $43 ; Repeat word
+#_0C95AB: dw $0B01
+#_0C95AD: db $84 ; Copy past
+#_0C95AE: dw $E700
+#_0C95B0: db $03 ; Raw block
 #_0C95B1: db $08, $01, $02, $02
 #_0C95B5: db $FF ; End of Map 2E
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen2E_Low:
-#_0C95B6: db $06 ; Direct Copy
+#_0C95B6: db $06 ; Raw block
 #_0C95B7: db $7A, $9B, $AE, $DD, $66, $8D, $61
-#_0C95BE: db $22 ; Byte Fill
+#_0C95BE: db $22 ; Repeat byte
 #_0C95BF: db $20
-#_0C95C0: db $02 ; Direct Copy
+#_0C95C0: db $02 ; Raw block
 #_0C95C1: db $9C, $03, $43
-#_0C95C4: db $22 ; Byte Fill
+#_0C95C4: db $22 ; Repeat byte
 #_0C95C5: db $03
-#_0C95C6: db $0C ; Direct Copy
+#_0C95C6: db $0C ; Raw block
 #_0C95C7: db $F2, $F3, $ED, $91, $70, $93, $42, $43
 #_0C95CF: db $43, $9D, $43, $03, $43
-#_0C95D4: db $22 ; Byte Fill
+#_0C95D4: db $22 ; Repeat byte
 #_0C95D5: db $03
-#_0C95D6: db $00 ; Direct Copy
+#_0C95D6: db $00 ; Raw block
 #_0C95D7: db $FB
-#_0C95D8: db $62 ; Increasing Fill
-#_0C95D9: db $9E ; Increasing Fill Start
-#_0C95DA: db $06 ; Direct Copy
+#_0C95D8: db $62 ; Increment fill
+#_0C95D9: db $9E
+#_0C95DA: db $06 ; Raw block
 #_0C95DB: db $2D, $A1, $17, $19, $19, $74, $19
-#_0C95E2: db $83 ; Repeat Fill
-#_0C95E3: db $00, $0B ; Repeat Fill bytes
-#_0C95E5: db $01 ; Direct Copy
+#_0C95E2: db $83 ; Copy past
+#_0C95E3: dw $0B00
+#_0C95E5: db $01 ; Raw block
 #_0C95E6: db $75, $06
-#_0C95E8: db $62 ; Increasing Fill
-#_0C95E9: db $A2 ; Increasing Fill Start
-#_0C95EA: db $00 ; Direct Copy
+#_0C95E8: db $62 ; Increment fill
+#_0C95E9: db $A2
+#_0C95EA: db $00 ; Raw block
 #_0C95EB: db $43
-#_0C95EC: db $62 ; Increasing Fill
-#_0C95ED: db $A5 ; Increasing Fill Start
-#_0C95EE: db $E0, $22 ; EXT Direct Copy
+#_0C95EC: db $62 ; Increment fill
+#_0C95ED: db $A5
+#_0C95EE: db $E0, $22 ; EXT Raw block
 #_0C95F0: db $2D, $2D, $1E, $E4, $19, $03, $75, $82
 #_0C95F8: db $5B, $A8, $DD, $4D, $4E, $05, $09, $A9
 #_0C9600: db $43, $01, $AA, $26, $DE, $F3, $82, $82
 #_0C9608: db $73, $A5, $1C, $57, $58, $08, $0E, $AB
 #_0C9610: db $4E, $05, $09
-#_0C9613: db $62 ; Increasing Fill
-#_0C9614: db $AC ; Increasing Fill Start
-#_0C9615: db $01 ; Direct Copy
+#_0C9613: db $62 ; Increment fill
+#_0C9614: db $AC
+#_0C9615: db $01 ; Raw block
 #_0C9616: db $82, $82
-#_0C9618: db $22 ; Byte Fill
+#_0C9618: db $22 ; Repeat byte
 #_0C9619: db $07
-#_0C961A: db $1C ; Direct Copy
+#_0C961A: db $1C ; Raw block
 #_0C961B: db $A0, $AF, $7C, $7C, $B0, $B1, $08, $0E
 #_0C9623: db $B2, $1B, $A5, $82, $60, $17, $17, $B3
 #_0C962B: db $D9, $AA, $B4, $B5, $B5, $B6, $AB, $95
 #_0C9633: db $D5, $33, $B7, $60, $63
-#_0C9638: db $22 ; Byte Fill
+#_0C9638: db $22 ; Repeat byte
 #_0C9639: db $79
-#_0C963A: db $01 ; Direct Copy
+#_0C963A: db $01 ; Raw block
 #_0C963B: db $16, $F0
-#_0C963D: db $24 ; Byte Fill
+#_0C963D: db $24 ; Repeat byte
 #_0C963E: db $B8
-#_0C963F: db $0A ; Direct Copy
+#_0C963F: db $0A ; Raw block
 #_0C9640: db $D8, $A0, $E2, $50, $63, $B8, $36, $E1
 #_0C9648: db $B9, $14, $F7
-#_0C964B: db $24 ; Byte Fill
+#_0C964B: db $24 ; Repeat byte
 #_0C964C: db $A0
-#_0C964D: db $1A ; Direct Copy
+#_0C964D: db $1A ; Raw block
 #_0C964E: db $1C, $D9, $B3, $56, $6B, $BA, $E1, $9D
 #_0C9656: db $E1, $E1, $D7, $47, $22, $22, $49, $90
 #_0C965E: db $B5, $BB, $BC, $C1, $77, $82, $36, $E1
 #_0C9666: db $36, $67, $BD
-#_0C9669: db $22 ; Byte Fill
+#_0C9669: db $22 ; Repeat byte
 #_0C966A: db $BE
-#_0C966B: db $02 ; Direct Copy
+#_0C966B: db $02 ; Raw block
 #_0C966C: db $BF, $52, $E1
-#_0C966F: db $62 ; Increasing Fill
-#_0C9670: db $C0 ; Increasing Fill Start
-#_0C9671: db $11 ; Direct Copy
+#_0C966F: db $62 ; Increment fill
+#_0C9670: db $C0
+#_0C9671: db $11 ; Raw block
 #_0C9672: db $5B, $C3, $84, $84, $FC, $C4, $54, $C5
 #_0C967A: db $C6, $36, $C8, $DF, $4C, $C0, $C1, $C7
 #_0C9682: db $98, $98
-#_0C9684: db $22 ; Byte Fill
+#_0C9684: db $22 ; Repeat byte
 #_0C9685: db $3A
-#_0C9686: db $0C ; Direct Copy
+#_0C9686: db $0C ; Raw block
 #_0C9687: db $C8, $55, $F6, $D1, $C9, $56, $8E, $AA
 #_0C968F: db $C0, $CA, $77, $82, $82
-#_0C9694: db $22 ; Byte Fill
+#_0C9694: db $22 ; Repeat byte
 #_0C9695: db $3E
-#_0C9696: db $0F ; Direct Copy
+#_0C9696: db $0F ; Raw block
 #_0C9697: db $CB, $9D, $06, $4B, $DC, $61, $8E, $E1
 #_0C969F: db $C0, $B1, $77, $82, $82, $06, $A2, $06
-#_0C96A7: db $43 ; Word Fill
-#_0C96A8: db $06, $4B ;  Word Fill
-#_0C96AA: db $84 ; Repeat Fill
-#_0C96AB: db $00, $E7 ; Repeat Fill bytes
-#_0C96AD: db $03 ; Direct Copy
+#_0C96A7: db $43 ; Repeat word
+#_0C96A8: dw $4B06
+#_0C96AA: db $84 ; Copy past
+#_0C96AB: dw $E700
+#_0C96AD: db $03 ; Raw block
 #_0C96AE: db $B7, $77, $82, $82
 #_0C96B2: db $FF ; End of Map 2E
 
 ;===================================================================================================
 
 OverworldMap32_Screen2F_High:
-#_0C96B3: db $22 ; Byte Fill
+#_0C96B3: db $22 ; Repeat byte
 #_0C96B4: db $03
-#_0C96B5: db $22 ; Byte Fill
+#_0C96B5: db $22 ; Repeat byte
 #_0C96B6: db $01
-#_0C96B7: db $09 ; Direct Copy
+#_0C96B7: db $09 ; Raw block
 #_0C96B8: db $05, $05, $01, $1B, $05, $1B, $1B, $01
 #_0C96C0: db $01, $1B
-#_0C96C2: db $22 ; Byte Fill
+#_0C96C2: db $22 ; Repeat byte
 #_0C96C3: db $03
-#_0C96C4: db $04 ; Direct Copy
+#_0C96C4: db $04 ; Raw block
 #_0C96C5: db $01, $06, $0A, $05, $05
-#_0C96CA: db $22 ; Byte Fill
+#_0C96CA: db $22 ; Repeat byte
 #_0C96CB: db $01
-#_0C96CC: db $1E ; Direct Copy
+#_0C96CC: db $1E ; Raw block
 #_0C96CD: db $1B, $1B, $06, $01, $1B, $1B, $03, $04
 #_0C96D5: db $01, $1B, $1B, $05, $05, $01, $02, $10
 #_0C96DD: db $05, $1B, $01, $06, $02, $1B, $1B, $03
 #_0C96E5: db $06, $01, $0A, $0A, $05, $0A, $0A
-#_0C96EC: db $22 ; Byte Fill
+#_0C96EC: db $22 ; Repeat byte
 #_0C96ED: db $05
-#_0C96EE: db $0D ; Direct Copy
+#_0C96EE: db $0D ; Raw block
 #_0C96EF: db $1B, $01, $02, $01, $1B, $00, $06, $01
 #_0C96F7: db $0A, $16, $05, $05, $06, $05
-#_0C96FD: db $83 ; Repeat Fill
-#_0C96FE: db $00, $0A ; Repeat Fill bytes
-#_0C9700: db $01 ; Direct Copy
+#_0C96FD: db $83 ; Copy past
+#_0C96FE: dw $0A00
+#_0C9700: db $01 ; Raw block
 #_0C9701: db $0E, $01
-#_0C9703: db $84 ; Repeat Fill
-#_0C9704: db $00, $0B ; Repeat Fill bytes
-#_0C9706: db $22 ; Byte Fill
+#_0C9703: db $84 ; Copy past
+#_0C9704: dw $0B00
+#_0C9706: db $22 ; Repeat byte
 #_0C9707: db $05
-#_0C9708: db $0F ; Direct Copy
+#_0C9708: db $0F ; Raw block
 #_0C9709: db $0A, $10, $0F, $1B, $01, $01, $19, $01
 #_0C9711: db $1B, $1B, $10, $01, $1B, $0C, $05, $05
-#_0C9719: db $24 ; Byte Fill
+#_0C9719: db $24 ; Repeat byte
 #_0C971A: db $1B
-#_0C971B: db $0D ; Direct Copy
+#_0C971B: db $0D ; Raw block
 #_0C971C: db $01, $0C, $01, $02, $1B, $15, $1B, $1B
 #_0C9724: db $11, $1B, $06, $1B, $1B, $03
-#_0C972A: db $22 ; Byte Fill
+#_0C972A: db $22 ; Repeat byte
 #_0C972B: db $01
-#_0C972C: db $08 ; Direct Copy
+#_0C972C: db $08 ; Raw block
 #_0C972D: db $1B, $01, $0C, $02, $07, $12, $1B, $1B
 #_0C9735: db $16
-#_0C9736: db $22 ; Byte Fill
+#_0C9736: db $22 ; Repeat byte
 #_0C9737: db $1B
-#_0C9738: db $43 ; Word Fill
-#_0C9739: db $03, $01 ;  Word Fill
-#_0C973B: db $04 ; Direct Copy
+#_0C9738: db $43 ; Repeat word
+#_0C9739: dw $0103
+#_0C973B: db $04 ; Raw block
 #_0C973C: db $01, $05, $1B, $1B, $0D
-#_0C9741: db $22 ; Byte Fill
+#_0C9741: db $22 ; Repeat byte
 #_0C9742: db $1B
-#_0C9743: db $06 ; Direct Copy
+#_0C9743: db $06 ; Raw block
 #_0C9744: db $05, $1B, $1B, $12, $0F, $01, $1B
-#_0C974B: db $23 ; Byte Fill
+#_0C974B: db $23 ; Repeat byte
 #_0C974C: db $01
-#_0C974D: db $02 ; Direct Copy
+#_0C974D: db $02 ; Raw block
 #_0C974E: db $02, $02, $1A
-#_0C9751: db $22 ; Byte Fill
+#_0C9751: db $22 ; Repeat byte
 #_0C9752: db $1B
-#_0C9753: db $05 ; Direct Copy
+#_0C9753: db $05 ; Raw block
 #_0C9754: db $1C, $1C, $0B, $1C, $02, $02
-#_0C975A: db $23 ; Byte Fill
+#_0C975A: db $23 ; Repeat byte
 #_0C975B: db $01
-#_0C975C: db $0C ; Direct Copy
+#_0C975C: db $0C ; Raw block
 #_0C975D: db $1C, $04, $06, $02, $02, $1C, $1C, $06
 #_0C9765: db $00, $02, $0F, $02, $00
-#_0C976A: db $22 ; Byte Fill
+#_0C976A: db $22 ; Repeat byte
 #_0C976B: db $01
-#_0C976C: db $00 ; Direct Copy
+#_0C976C: db $00 ; Raw block
 #_0C976D: db $02
-#_0C976E: db $23 ; Byte Fill
+#_0C976E: db $23 ; Repeat byte
 #_0C976F: db $00
-#_0C9770: db $03 ; Direct Copy
+#_0C9770: db $03 ; Raw block
 #_0C9771: db $01, $02, $02, $0E
-#_0C9775: db $22 ; Byte Fill
+#_0C9775: db $22 ; Repeat byte
 #_0C9776: db $1C
-#_0C9777: db $07 ; Direct Copy
+#_0C9777: db $07 ; Raw block
 #_0C9778: db $02, $1C, $01, $01, $0C, $00, $02, $10
-#_0C9780: db $23 ; Byte Fill
+#_0C9780: db $23 ; Repeat byte
 #_0C9781: db $01
-#_0C9782: db $0B ; Direct Copy
+#_0C9782: db $0B ; Raw block
 #_0C9783: db $0E, $07, $02, $02, $1C, $05, $01, $1C
 #_0C978B: db $02, $07, $03, $03
-#_0C978F: db $22 ; Byte Fill
+#_0C978F: db $22 ; Repeat byte
 #_0C9790: db $01
-#_0C9791: db $01 ; Direct Copy
+#_0C9791: db $01 ; Raw block
 #_0C9792: db $1C, $1C
-#_0C9794: db $23 ; Byte Fill
+#_0C9794: db $23 ; Repeat byte
 #_0C9795: db $01
-#_0C9796: db $08 ; Direct Copy
+#_0C9796: db $08 ; Raw block
 #_0C9797: db $1C, $1C, $10, $1C, $0D, $03, $03, $0D
 #_0C979F: db $01
-#_0C97A0: db $24 ; Byte Fill
+#_0C97A0: db $24 ; Repeat byte
 #_0C97A1: db $1C
-#_0C97A2: db $02 ; Direct Copy
+#_0C97A2: db $02 ; Raw block
 #_0C97A3: db $0F, $1C, $1C
 #_0C97A6: db $FF ; End of Map 2F
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen2F_Low:
-#_0C97A7: db $22 ; Byte Fill
+#_0C97A7: db $22 ; Repeat byte
 #_0C97A8: db $6C
-#_0C97A9: db $22 ; Byte Fill
+#_0C97A9: db $22 ; Repeat byte
 #_0C97AA: db $15
-#_0C97AB: db $09 ; Direct Copy
+#_0C97AB: db $09 ; Raw block
 #_0C97AC: db $B1, $A6, $06, $CC, $89, $CD, $CE, $71
 #_0C97B4: db $06, $CF
-#_0C97B6: db $22 ; Byte Fill
+#_0C97B6: db $22 ; Repeat byte
 #_0C97B7: db $6C
-#_0C97B8: db $E0, $42 ; EXT Direct Copy
+#_0C97B8: db $E0, $42 ; EXT Raw block
 #_0C97BA: db $15, $AD, $1D, $D0, $B1, $0A, $FD, $ED
 #_0C97C2: db $D0, $D1, $12, $0C, $D2, $D3, $6C, $84
 #_0C97CA: db $22, $D4, $D5, $DC, $D0, $15, $01, $8B
@@ -2695,605 +2695,605 @@ OverworldMap32_Screen2F_Low:
 #_0C97EA: db $70, $77, $CF, $98, $FB, $E8, $05, $E8
 #_0C97F2: db $F5, $DB, $DC, $5C, $D9, $D6, $DD, $DE
 #_0C97FA: db $1E, $77, $DF
-#_0C97FD: db $22 ; Byte Fill
+#_0C97FD: db $22 ; Repeat byte
 #_0C97FE: db $FB
-#_0C97FF: db $0F ; Direct Copy
+#_0C97FF: db $0F ; Raw block
 #_0C9800: db $0C, $8F, $FB, $E0, $49, $6A, $C1, $D6
 #_0C9808: db $E1, $E2, $74, $77, $E3, $96, $E8, $FD
-#_0C9810: db $64 ; Increasing Fill
-#_0C9811: db $E4 ; Increasing Fill Start
-#_0C9812: db $19 ; Direct Copy
+#_0C9810: db $64 ; Increment fill
+#_0C9811: db $E4
+#_0C9812: db $19 ; Raw block
 #_0C9813: db $0C, $ED, $D6, $DD, $E9, $F6, $EA, $EB
 #_0C981B: db $16, $EC, $06, $ED, $EE, $5A, $F8, $F8
 #_0C9823: db $17, $EF, $D6, $DE, $42, $01, $7F, $F0
 #_0C982B: db $F1, $C3
-#_0C982D: db $62 ; Increasing Fill
-#_0C982E: db $F2 ; Increasing Fill Start
-#_0C982F: db $07 ; Direct Copy
+#_0C982D: db $62 ; Increment fill
+#_0C982E: db $F2
+#_0C982F: db $07 ; Raw block
 #_0C9830: db $5A, $F8, $7B, $03, $17, $D2, $F5, $F6
-#_0C9838: db $63 ; Increasing Fill
-#_0C9839: db $F6 ; Increasing Fill Start
-#_0C983A: db $0D ; Direct Copy
+#_0C9838: db $63 ; Increment fill
+#_0C9839: db $F6
+#_0C983A: db $0D ; Raw block
 #_0C983B: db $E8, $FA, $FB, $7F, $A4, $E5, $FC, $03
 #_0C9843: db $03, $D6, $D6, $DD, $5E, $27
-#_0C9849: db $62 ; Increasing Fill
-#_0C984A: db $FD ; Increasing Fill Start
-#_0C984B: db $E0, $22 ; EXT Direct Copy
+#_0C9849: db $62 ; Increment fill
+#_0C984A: db $FD
+#_0C984B: db $E0, $22 ; EXT Raw block
 #_0C984D: db $00, $01, $EF, $02, $DA, $D4, $E4, $24
 #_0C9855: db $D6, $D6, $03, $BB, $66, $5E, $5B, $04
 #_0C985D: db $05, $66, $1D, $E6, $FF, $E6, $1D, $2E
 #_0C9865: db $D6, $D6, $DD, $1D, $FB, $1D, $AA, $41
 #_0C986D: db $4B, $4C, $33
-#_0C9870: db $62 ; Increasing Fill
-#_0C9871: db $06 ; Increasing Fill Start
-#_0C9872: db $1C ; Direct Copy
+#_0C9870: db $62 ; Increment fill
+#_0C9871: db $06
+#_0C9872: db $1C ; Raw block
 #_0C9873: db $8D, $09, $D6, $D6, $DE, $1D, $8A, $79
 #_0C987B: db $41, $48, $49, $EB, $3C, $CF, $4C, $4C
 #_0C9883: db $0A, $9D, $D6, $0B, $D2, $BF, $44, $44
 #_0C988B: db $48, $49, $6A, $0C, $0D
-#_0C9890: db $22 ; Byte Fill
+#_0C9890: db $22 ; Repeat byte
 #_0C9891: db $EB
-#_0C9892: db $0A ; Direct Copy
+#_0C9892: db $0A ; Raw block
 #_0C9893: db $EC, $0C, $0E, $70, $0F, $A1, $4B, $4B
 #_0C989B: db $E9, $6A, $0C
-#_0C989E: db $63 ; Increasing Fill
-#_0C989F: db $10 ; Increasing Fill Start
-#_0C98A0: db $02 ; Direct Copy
+#_0C989E: db $63 ; Increment fill
+#_0C989F: db $10
+#_0C98A0: db $02 ; Raw block
 #_0C98A1: db $2C, $14, $15
 #_0C98A4: db $FF ; End of Map 2F
 
 ;===================================================================================================
 
 OverworldMap32_Screen70_High:
-#_0C98A5: db $02 ; Direct Copy
+#_0C98A5: db $02 ; Raw block
 #_0C98A6: db $1C, $03, $04
-#_0C98A9: db $22 ; Byte Fill
+#_0C98A9: db $22 ; Repeat byte
 #_0C98AA: db $01
-#_0C98AB: db $00 ; Direct Copy
+#_0C98AB: db $00 ; Raw block
 #_0C98AC: db $03
-#_0C98AD: db $25 ; Byte Fill
+#_0C98AD: db $25 ; Repeat byte
 #_0C98AE: db $01
-#_0C98AF: db $05 ; Direct Copy
+#_0C98AF: db $05 ; Raw block
 #_0C98B0: db $1C, $01, $01, $03, $03, $0E
-#_0C98B6: db $22 ; Byte Fill
+#_0C98B6: db $22 ; Repeat byte
 #_0C98B7: db $01
-#_0C98B8: db $00 ; Direct Copy
+#_0C98B8: db $00 ; Raw block
 #_0C98B9: db $03
-#_0C98BA: db $28 ; Byte Fill
+#_0C98BA: db $28 ; Repeat byte
 #_0C98BB: db $01
-#_0C98BC: db $06 ; Direct Copy
+#_0C98BC: db $06 ; Raw block
 #_0C98BD: db $1C, $0E, $19, $03, $1C, $0A, $0C
-#_0C98C4: db $28 ; Byte Fill
+#_0C98C4: db $28 ; Repeat byte
 #_0C98C5: db $0A
-#_0C98C6: db $03 ; Direct Copy
+#_0C98C6: db $03 ; Raw block
 #_0C98C7: db $1C, $19, $1C, $10
-#_0C98CB: db $23 ; Byte Fill
+#_0C98CB: db $23 ; Repeat byte
 #_0C98CC: db $1C
-#_0C98CD: db $23 ; Byte Fill
+#_0C98CD: db $23 ; Repeat byte
 #_0C98CE: db $05
-#_0C98CF: db $23 ; Byte Fill
+#_0C98CF: db $23 ; Repeat byte
 #_0C98D0: db $1C
-#_0C98D1: db $02 ; Direct Copy
+#_0C98D1: db $02 ; Raw block
 #_0C98D2: db $02, $06, $03
-#_0C98D5: db $2C ; Byte Fill
+#_0C98D5: db $2C ; Repeat byte
 #_0C98D6: db $1C
-#_0C98D7: db $02 ; Direct Copy
+#_0C98D7: db $02 ; Raw block
 #_0C98D8: db $02, $01, $03
-#_0C98DB: db $25 ; Byte Fill
+#_0C98DB: db $25 ; Repeat byte
 #_0C98DC: db $1C
-#_0C98DD: db $02 ; Direct Copy
+#_0C98DD: db $02 ; Raw block
 #_0C98DE: db $05, $1C, $05
-#_0C98E1: db $22 ; Byte Fill
+#_0C98E1: db $22 ; Repeat byte
 #_0C98E2: db $1C
-#_0C98E3: db $03 ; Direct Copy
+#_0C98E3: db $03 ; Raw block
 #_0C98E4: db $05, $02, $01, $03
-#_0C98E8: db $22 ; Byte Fill
+#_0C98E8: db $22 ; Repeat byte
 #_0C98E9: db $1C
-#_0C98EA: db $00 ; Direct Copy
+#_0C98EA: db $00 ; Raw block
 #_0C98EB: db $11
-#_0C98EC: db $28 ; Byte Fill
+#_0C98EC: db $28 ; Repeat byte
 #_0C98ED: db $1C
-#_0C98EE: db $06 ; Direct Copy
+#_0C98EE: db $06 ; Raw block
 #_0C98EF: db $02, $0C, $10, $1C, $1C, $10, $07
-#_0C98F6: db $23 ; Byte Fill
+#_0C98F6: db $23 ; Repeat byte
 #_0C98F7: db $1C
-#_0C98F8: db $00 ; Direct Copy
+#_0C98F8: db $00 ; Raw block
 #_0C98F9: db $0F
-#_0C98FA: db $23 ; Byte Fill
+#_0C98FA: db $23 ; Repeat byte
 #_0C98FB: db $1C
-#_0C98FC: db $06 ; Direct Copy
+#_0C98FC: db $06 ; Raw block
 #_0C98FD: db $02, $01, $0F, $1C, $10, $05, $07
-#_0C9904: db $25 ; Byte Fill
+#_0C9904: db $25 ; Repeat byte
 #_0C9905: db $1C
-#_0C9906: db $04 ; Direct Copy
+#_0C9906: db $04 ; Raw block
 #_0C9907: db $05, $05, $1C, $02, $06
-#_0C990C: db $2A ; Byte Fill
+#_0C990C: db $2A ; Repeat byte
 #_0C990D: db $1C
-#_0C990E: db $09 ; Direct Copy
+#_0C990E: db $09 ; Raw block
 #_0C990F: db $05, $11, $05, $02, $01, $0D, $06, $1C
 #_0C9917: db $1C, $05
-#_0C9919: db $24 ; Byte Fill
+#_0C9919: db $24 ; Repeat byte
 #_0C991A: db $1C
-#_0C991B: db $04 ; Direct Copy
+#_0C991B: db $04 ; Raw block
 #_0C991C: db $05, $10, $07, $0F, $0F
-#_0C9921: db $24 ; Byte Fill
+#_0C9921: db $24 ; Repeat byte
 #_0C9922: db $1C
-#_0C9923: db $00 ; Direct Copy
+#_0C9923: db $00 ; Raw block
 #_0C9924: db $05
-#_0C9925: db $24 ; Byte Fill
+#_0C9925: db $24 ; Repeat byte
 #_0C9926: db $1C
-#_0C9927: db $0A ; Direct Copy
+#_0C9927: db $0A ; Raw block
 #_0C9928: db $10, $05, $0E, $1C, $0D, $1C, $1C, $0E
 #_0C9930: db $1C, $1C, $05
-#_0C9933: db $24 ; Byte Fill
+#_0C9933: db $24 ; Repeat byte
 #_0C9934: db $1C
-#_0C9935: db $0A ; Direct Copy
+#_0C9935: db $0A ; Raw block
 #_0C9936: db $11, $07, $1C, $1C, $0C, $03, $1C, $0E
 #_0C993E: db $06, $1C, $05
-#_0C9941: db $22 ; Byte Fill
+#_0C9941: db $22 ; Repeat byte
 #_0C9942: db $1C
-#_0C9943: db $0A ; Direct Copy
+#_0C9943: db $0A ; Raw block
 #_0C9944: db $11, $1C, $11, $05, $1C, $1C, $06, $03
 #_0C994C: db $0E, $0E, $1C
-#_0C994F: db $46 ; Word Fill
-#_0C9950: db $1C, $05 ;  Word Fill
-#_0C9952: db $05 ; Direct Copy
+#_0C994F: db $46 ; Repeat word
+#_0C9950: dw $051C
+#_0C9952: db $05 ; Raw block
 #_0C9953: db $11, $15, $1C, $1C, $19, $03
-#_0C9959: db $23 ; Byte Fill
+#_0C9959: db $23 ; Repeat byte
 #_0C995A: db $1C
-#_0C995B: db $00 ; Direct Copy
+#_0C995B: db $00 ; Raw block
 #_0C995C: db $05
-#_0C995D: db $24 ; Byte Fill
+#_0C995D: db $24 ; Repeat byte
 #_0C995E: db $1C
-#_0C995F: db $83 ; Repeat Fill
-#_0C9960: db $00, $EC ; Repeat Fill bytes
+#_0C995F: db $83 ; Copy past
+#_0C9960: dw $EC00
 #_0C9962: db $FF ; End of Map 70
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen70_Low:
-#_0C9963: db $02 ; Direct Copy
+#_0C9963: db $02 ; Raw block
 #_0C9964: db $16, $6A, $92
-#_0C9967: db $22 ; Byte Fill
+#_0C9967: db $22 ; Repeat byte
 #_0C9968: db $F8
-#_0C9969: db $00 ; Direct Copy
+#_0C9969: db $00 ; Raw block
 #_0C996A: db $9C
-#_0C996B: db $25 ; Byte Fill
+#_0C996B: db $25 ; Repeat byte
 #_0C996C: db $15
-#_0C996D: db $09 ; Direct Copy
+#_0C996D: db $09 ; Raw block
 #_0C996E: db $17, $0A, $0A, $6A, $6B, $4F, $02, $02
 #_0C9976: db $F8, $9C
-#_0C9978: db $28 ; Byte Fill
+#_0C9978: db $28 ; Repeat byte
 #_0C9979: db $15
-#_0C997A: db $06 ; Direct Copy
+#_0C997A: db $06 ; Raw block
 #_0C997B: db $18, $56, $C8, $6A, $19, $08, $90
-#_0C9982: db $28 ; Byte Fill
+#_0C9982: db $28 ; Repeat byte
 #_0C9983: db $1D
-#_0C9984: db $07 ; Direct Copy
+#_0C9984: db $07 ; Raw block
 #_0C9985: db $1A, $C8, $1B, $C9, $1C, $1D, $1D, $1E
-#_0C998D: db $23 ; Byte Fill
+#_0C998D: db $23 ; Repeat byte
 #_0C998E: db $FB
-#_0C998F: db $00 ; Direct Copy
+#_0C998F: db $00 ; Raw block
 #_0C9990: db $1F
-#_0C9991: db $22 ; Byte Fill
+#_0C9991: db $22 ; Repeat byte
 #_0C9992: db $1D
-#_0C9993: db $02 ; Direct Copy
+#_0C9993: db $02 ; Raw block
 #_0C9994: db $DC, $A2, $63
-#_0C9997: db $64 ; Increasing Fill
-#_0C9998: db $20 ; Increasing Fill Start
-#_0C9999: db $23 ; Byte Fill
+#_0C9997: db $64 ; Increment fill
+#_0C9998: db $20
+#_0C9999: db $23 ; Repeat byte
 #_0C999A: db $1D
-#_0C999B: db $06 ; Direct Copy
+#_0C999B: db $06 ; Raw block
 #_0C999C: db $25, $26, $22, $27, $DC, $06, $63
-#_0C99A3: db $65 ; Increasing Fill
-#_0C99A4: db $28 ; Increasing Fill Start
-#_0C99A5: db $06 ; Direct Copy
+#_0C99A3: db $65 ; Increment fill
+#_0C99A4: db $28
+#_0C99A5: db $06 ; Raw block
 #_0C99A6: db $A4, $2E, $A4, $2F, $29, $2A, $A4
-#_0C99AD: db $83 ; Repeat Fill
-#_0C99AE: db $00, $50 ; Repeat Fill bytes
-#_0C99B0: db $02 ; Direct Copy
+#_0C99AD: db $83 ; Copy past
+#_0C99AE: dw $5000
+#_0C99B0: db $02 ; Raw block
 #_0C99B1: db $30, $31, $01
-#_0C99B4: db $63 ; Increasing Fill
-#_0C99B5: db $32 ; Increasing Fill Start
-#_0C99B6: db $01 ; Direct Copy
+#_0C99B4: db $63 ; Increment fill
+#_0C99B5: db $32
+#_0C99B6: db $01 ; Raw block
 #_0C99B7: db $32, $32
-#_0C99B9: db $62 ; Increasing Fill
-#_0C99BA: db $30 ; Increasing Fill Start
-#_0C99BB: db $06 ; Direct Copy
+#_0C99B9: db $62 ; Increment fill
+#_0C99BA: db $30
+#_0C99BB: db $06 ; Raw block
 #_0C99BC: db $DC, $ED, $63, $36, $27, $AE, $89
-#_0C99C3: db $63 ; Increasing Fill
-#_0C99C4: db $37 ; Increasing Fill Start
-#_0C99C5: db $00 ; Direct Copy
+#_0C99C3: db $63 ; Increment fill
+#_0C99C4: db $37
+#_0C99C5: db $00 ; Raw block
 #_0C99C6: db $9A
-#_0C99C7: db $63 ; Increasing Fill
-#_0C99C8: db $3B ; Increasing Fill Start
-#_0C99C9: db $06 ; Direct Copy
+#_0C99C7: db $63 ; Increment fill
+#_0C99C8: db $3B
+#_0C99C9: db $06 ; Raw block
 #_0C99CA: db $DC, $06, $24, $3F, $BB, $E1, $36
-#_0C99D1: db $65 ; Increasing Fill
-#_0C99D2: db $40 ; Increasing Fill Start
-#_0C99D3: db $04 ; Direct Copy
+#_0C99D1: db $65 ; Increment fill
+#_0C99D2: db $40
+#_0C99D3: db $04 ; Raw block
 #_0C99D4: db $A4, $A4, $32, $DC, $A2
-#_0C99D9: db $69 ; Increasing Fill
-#_0C99DA: db $46 ; Increasing Fill Start
-#_0C99DB: db $0A ; Direct Copy
+#_0C99D9: db $69 ; Increment fill
+#_0C99DA: db $46
+#_0C99DB: db $0A ; Raw block
 #_0C99DC: db $2E, $A4, $01, $C9, $DC, $06, $97, $0E
 #_0C99E4: db $50, $51, $A4
-#_0C99E7: db $63 ; Increasing Fill
-#_0C99E8: db $52 ; Increasing Fill Start
-#_0C99E9: db $05 ; Direct Copy
+#_0C99E7: db $63 ; Increment fill
+#_0C99E8: db $52
+#_0C99E9: db $05 ; Raw block
 #_0C99EA: db $4F, $A4, $AE, $36, $70, $0A
-#_0C99F0: db $62 ; Increasing Fill
-#_0C99F1: db $56 ; Increasing Fill Start
-#_0C99F2: db $03 ; Direct Copy
+#_0C99F0: db $62 ; Increment fill
+#_0C99F1: db $56
+#_0C99F2: db $03 ; Raw block
 #_0C99F3: db $28, $27, $A4, $52
-#_0C99F7: db $62 ; Increasing Fill
-#_0C99F8: db $59 ; Increasing Fill Start
-#_0C99F9: db $0B ; Direct Copy
+#_0C99F7: db $62 ; Increment fill
+#_0C99F8: db $59
+#_0C99F9: db $0B ; Raw block
 #_0C99FA: db $4F, $BB, $E1, $23, $5C, $97, $5D, $5E
 #_0C9A02: db $9A, $5F, $60, $A4
-#_0C9A06: db $64 ; Increasing Fill
-#_0C9A07: db $61 ; Increasing Fill Start
-#_0C9A08: db $0A ; Direct Copy
+#_0C9A06: db $64 ; Increment fill
+#_0C9A07: db $61
+#_0C9A08: db $0A ; Raw block
 #_0C9A09: db $0A, $89, $66, $67, $ED, $63, $68, $9A
 #_0C9A11: db $20, $69, $A4
-#_0C9A14: db $62 ; Increasing Fill
-#_0C9A15: db $6A ; Increasing Fill Start
-#_0C9A16: db $1C ; Direct Copy
+#_0C9A14: db $62 ; Increment fill
+#_0C9A15: db $6A
+#_0C9A16: db $1C ; Raw block
 #_0C9A17: db $0B, $6A, $0A, $E1, $6D, $6E, $A2, $63
 #_0C9A1F: db $AE, $9A, $6F, $70, $A4, $32, $A4, $71
 #_0C9A27: db $A4, $32, $0A, $64, $72, $73, $B2, $63
 #_0C9A2F: db $74, $75, $28, $2C, $A4
-#_0C9A34: db $63 ; Increasing Fill
-#_0C9A35: db $76 ; Increasing Fill Start
-#_0C9A36: db $04 ; Direct Copy
+#_0C9A34: db $63 ; Increment fill
+#_0C9A35: db $76
+#_0C9A36: db $04 ; Raw block
 #_0C9A37: db $77, $0A, $7D, $24, $7A
 #_0C9A3C: db $FF ; End of Map 70
 
 ;===================================================================================================
 
 OverworldMap32_Screen71_High:
-#_0C9A3D: db $26 ; Byte Fill
+#_0C9A3D: db $26 ; Repeat byte
 #_0C9A3E: db $01
-#_0C9A3F: db $00 ; Direct Copy
+#_0C9A3F: db $00 ; Raw block
 #_0C9A40: db $05
-#_0C9A41: db $2E ; Byte Fill
+#_0C9A41: db $2E ; Repeat byte
 #_0C9A42: db $01
-#_0C9A43: db $01 ; Direct Copy
+#_0C9A43: db $01 ; Raw block
 #_0C9A44: db $05, $05
-#_0C9A46: db $26 ; Byte Fill
+#_0C9A46: db $26 ; Repeat byte
 #_0C9A47: db $01
-#_0C9A48: db $26 ; Byte Fill
+#_0C9A48: db $26 ; Repeat byte
 #_0C9A49: db $0A
-#_0C9A4A: db $01 ; Direct Copy
+#_0C9A4A: db $01 ; Raw block
 #_0C9A4B: db $1C, $0E
-#_0C9A4D: db $26 ; Byte Fill
+#_0C9A4D: db $26 ; Repeat byte
 #_0C9A4E: db $01
-#_0C9A4F: db $23 ; Byte Fill
+#_0C9A4F: db $23 ; Repeat byte
 #_0C9A50: db $1C
-#_0C9A51: db $03 ; Direct Copy
+#_0C9A51: db $03 ; Raw block
 #_0C9A52: db $05, $1B, $10, $1B
-#_0C9A56: db $27 ; Byte Fill
+#_0C9A56: db $27 ; Repeat byte
 #_0C9A57: db $01
-#_0C9A58: db $02 ; Direct Copy
+#_0C9A58: db $02 ; Raw block
 #_0C9A59: db $1C, $1C, $10
-#_0C9A5C: db $22 ; Byte Fill
+#_0C9A5C: db $22 ; Repeat byte
 #_0C9A5D: db $1C
-#_0C9A5E: db $01 ; Direct Copy
+#_0C9A5E: db $01 ; Raw block
 #_0C9A5F: db $10, $0D
-#_0C9A61: db $27 ; Byte Fill
+#_0C9A61: db $27 ; Repeat byte
 #_0C9A62: db $01
-#_0C9A63: db $04 ; Direct Copy
+#_0C9A63: db $04 ; Raw block
 #_0C9A64: db $05, $1C, $15, $1C, $1C
-#_0C9A69: db $2A ; Byte Fill
+#_0C9A69: db $2A ; Repeat byte
 #_0C9A6A: db $01
-#_0C9A6B: db $01 ; Direct Copy
+#_0C9A6B: db $01 ; Raw block
 #_0C9A6C: db $10, $15
-#_0C9A6E: db $22 ; Byte Fill
+#_0C9A6E: db $22 ; Repeat byte
 #_0C9A6F: db $1C
-#_0C9A70: db $2A ; Byte Fill
+#_0C9A70: db $2A ; Repeat byte
 #_0C9A71: db $01
-#_0C9A72: db $01 ; Direct Copy
+#_0C9A72: db $01 ; Raw block
 #_0C9A73: db $15, $15
-#_0C9A75: db $22 ; Byte Fill
+#_0C9A75: db $22 ; Repeat byte
 #_0C9A76: db $1C
-#_0C9A77: db $26 ; Byte Fill
+#_0C9A77: db $26 ; Repeat byte
 #_0C9A78: db $03
-#_0C9A79: db $23 ; Byte Fill
+#_0C9A79: db $23 ; Repeat byte
 #_0C9A7A: db $01
-#_0C9A7B: db $07 ; Direct Copy
+#_0C9A7B: db $07 ; Raw block
 #_0C9A7C: db $0F, $1C, $05, $1C, $1C, $05, $03, $01
-#_0C9A84: db $43 ; Word Fill
-#_0C9A85: db $01, $0E ;  Word Fill
-#_0C9A87: db $00 ; Direct Copy
+#_0C9A84: db $43 ; Repeat word
+#_0C9A85: dw $0E01
+#_0C9A87: db $00 ; Raw block
 #_0C9A88: db $05
-#_0C9A89: db $22 ; Byte Fill
+#_0C9A89: db $22 ; Repeat byte
 #_0C9A8A: db $01
-#_0C9A8B: db $22 ; Byte Fill
+#_0C9A8B: db $22 ; Repeat byte
 #_0C9A8C: db $1C
-#_0C9A8D: db $43 ; Word Fill
-#_0C9A8E: db $05, $1C ;  Word Fill
-#_0C9A90: db $00 ; Direct Copy
+#_0C9A8D: db $43 ; Repeat word
+#_0C9A8E: dw $1C05
+#_0C9A90: db $00 ; Raw block
 #_0C9A91: db $0A
-#_0C9A92: db $43 ; Word Fill
-#_0C9A93: db $0A, $0E ;  Word Fill
-#_0C9A95: db $83 ; Repeat Fill
-#_0C9A96: db $00, $17 ; Repeat Fill bytes
-#_0C9A98: db $22 ; Byte Fill
+#_0C9A92: db $43 ; Repeat word
+#_0C9A93: dw $0E0A
+#_0C9A95: db $83 ; Copy past
+#_0C9A96: dw $1700
+#_0C9A98: db $22 ; Repeat byte
 #_0C9A99: db $1C
-#_0C9A9A: db $03 ; Direct Copy
+#_0C9A9A: db $03 ; Raw block
 #_0C9A9B: db $10, $1C, $1C, $05
-#_0C9A9F: db $23 ; Byte Fill
+#_0C9A9F: db $23 ; Repeat byte
 #_0C9AA0: db $1C
-#_0C9AA1: db $00 ; Direct Copy
+#_0C9AA1: db $00 ; Raw block
 #_0C9AA2: db $05
-#_0C9AA3: db $83 ; Repeat Fill
-#_0C9AA4: db $00, $27 ; Repeat Fill bytes
-#_0C9AA6: db $00 ; Direct Copy
+#_0C9AA3: db $83 ; Copy past
+#_0C9AA4: dw $2700
+#_0C9AA6: db $00 ; Raw block
 #_0C9AA7: db $1C
-#_0C9AA8: db $43 ; Word Fill
-#_0C9AA9: db $1C, $05 ;  Word Fill
-#_0C9AAB: db $22 ; Byte Fill
+#_0C9AA8: db $43 ; Repeat word
+#_0C9AA9: dw $051C
+#_0C9AAB: db $22 ; Repeat byte
 #_0C9AAC: db $1C
-#_0C9AAD: db $83 ; Repeat Fill
-#_0C9AAE: db $00, $82 ; Repeat Fill bytes
-#_0C9AB0: db $03 ; Direct Copy
+#_0C9AAD: db $83 ; Copy past
+#_0C9AAE: dw $8200
+#_0C9AB0: db $03 ; Raw block
 #_0C9AB1: db $05, $06, $01, $0F
-#_0C9AB5: db $23 ; Byte Fill
+#_0C9AB5: db $23 ; Repeat byte
 #_0C9AB6: db $1C
-#_0C9AB7: db $02 ; Direct Copy
+#_0C9AB7: db $02 ; Raw block
 #_0C9AB8: db $05, $1C, $05
-#_0C9ABB: db $25 ; Byte Fill
+#_0C9ABB: db $25 ; Repeat byte
 #_0C9ABC: db $1C
-#_0C9ABD: db $22 ; Byte Fill
+#_0C9ABD: db $22 ; Repeat byte
 #_0C9ABE: db $01
-#_0C9ABF: db $22 ; Byte Fill
+#_0C9ABF: db $22 ; Repeat byte
 #_0C9AC0: db $1C
-#_0C9AC1: db $04 ; Direct Copy
+#_0C9AC1: db $04 ; Raw block
 #_0C9AC2: db $10, $1C, $11, $05, $11
-#_0C9AC7: db $84 ; Repeat Fill
-#_0C9AC8: db $00, $40 ; Repeat Fill bytes
-#_0C9ACA: db $00 ; Direct Copy
+#_0C9AC7: db $84 ; Copy past
+#_0C9AC8: dw $4000
+#_0C9ACA: db $00 ; Raw block
 #_0C9ACB: db $0C
-#_0C9ACC: db $84 ; Repeat Fill
-#_0C9ACD: db $00, $AE ; Repeat Fill bytes
-#_0C9ACF: db $23 ; Byte Fill
+#_0C9ACC: db $84 ; Copy past
+#_0C9ACD: dw $AE00
+#_0C9ACF: db $23 ; Repeat byte
 #_0C9AD0: db $1C
-#_0C9AD1: db $02 ; Direct Copy
+#_0C9AD1: db $02 ; Raw block
 #_0C9AD2: db $15, $1C, $05
-#_0C9AD5: db $23 ; Byte Fill
+#_0C9AD5: db $23 ; Repeat byte
 #_0C9AD6: db $1C
-#_0C9AD7: db $01 ; Direct Copy
+#_0C9AD7: db $01 ; Raw block
 #_0C9AD8: db $0D, $01
-#_0C9ADA: db $24 ; Byte Fill
+#_0C9ADA: db $24 ; Repeat byte
 #_0C9ADB: db $1C
-#_0C9ADC: db $01 ; Direct Copy
+#_0C9ADC: db $01 ; Raw block
 #_0C9ADD: db $0F, $1C
-#_0C9ADF: db $43 ; Word Fill
-#_0C9AE0: db $1C, $05 ;  Word Fill
-#_0C9AE2: db $04 ; Direct Copy
+#_0C9ADF: db $43 ; Repeat word
+#_0C9AE0: dw $051C
+#_0C9AE2: db $04 ; Raw block
 #_0C9AE3: db $05, $1C, $1C, $0D, $1C
 #_0C9AE8: db $FF ; End of Map 71
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen71_Low:
-#_0C9AE9: db $26 ; Byte Fill
+#_0C9AE9: db $26 ; Repeat byte
 #_0C9AEA: db $0A
-#_0C9AEB: db $00 ; Direct Copy
+#_0C9AEB: db $00 ; Raw block
 #_0C9AEC: db $A6
-#_0C9AED: db $27 ; Byte Fill
+#_0C9AED: db $27 ; Repeat byte
 #_0C9AEE: db $06
-#_0C9AEF: db $26 ; Byte Fill
+#_0C9AEF: db $26 ; Repeat byte
 #_0C9AF0: db $15
-#_0C9AF1: db $01 ; Direct Copy
+#_0C9AF1: db $01 ; Raw block
 #_0C9AF2: db $B1, $A6
-#_0C9AF4: db $26 ; Byte Fill
+#_0C9AF4: db $26 ; Repeat byte
 #_0C9AF5: db $06
-#_0C9AF6: db $26 ; Byte Fill
+#_0C9AF6: db $26 ; Repeat byte
 #_0C9AF7: db $1D
-#_0C9AF8: db $01 ; Direct Copy
+#_0C9AF8: db $01 ; Raw block
 #_0C9AF9: db $7B, $EE
-#_0C9AFB: db $26 ; Byte Fill
+#_0C9AFB: db $26 ; Repeat byte
 #_0C9AFC: db $06
-#_0C9AFD: db $22 ; Byte Fill
+#_0C9AFD: db $22 ; Repeat byte
 #_0C9AFE: db $1D
-#_0C9AFF: db $05 ; Direct Copy
+#_0C9AFF: db $05 ; Raw block
 #_0C9B00: db $1E, $FB, $DB, $EC, $DC, $5C
-#_0C9B06: db $26 ; Byte Fill
+#_0C9B06: db $26 ; Repeat byte
 #_0C9B07: db $06
-#_0C9B08: db $02 ; Direct Copy
+#_0C9B08: db $02 ; Raw block
 #_0C9B09: db $45, $27, $AE
-#_0C9B0C: db $62 ; Increasing Fill
-#_0C9B0D: db $7C ; Increasing Fill Start
-#_0C9B0E: db $02 ; Direct Copy
+#_0C9B0C: db $62 ; Increment fill
+#_0C9B0D: db $7C
+#_0C9B0E: db $02 ; Raw block
 #_0C9B0F: db $54, $E9, $6A
-#_0C9B12: db $26 ; Byte Fill
+#_0C9B12: db $26 ; Repeat byte
 #_0C9B13: db $06
-#_0C9B14: db $05 ; Direct Copy
+#_0C9B14: db $05 ; Raw block
 #_0C9B15: db $A4, $7F, $61, $80, $81, $53
-#_0C9B1B: db $29 ; Byte Fill
+#_0C9B1B: db $29 ; Repeat byte
 #_0C9B1C: db $06
-#_0C9B1D: db $05 ; Direct Copy
+#_0C9B1D: db $05 ; Raw block
 #_0C9B1E: db $AE, $7D, $32, $45, $82, $71
-#_0C9B24: db $29 ; Byte Fill
+#_0C9B24: db $29 ; Repeat byte
 #_0C9B25: db $06
-#_0C9B26: db $01 ; Direct Copy
+#_0C9B26: db $01 ; Raw block
 #_0C9B27: db $61, $61
-#_0C9B29: db $62 ; Increasing Fill
-#_0C9B2A: db $83 ; Increasing Fill Start
-#_0C9B2B: db $01 ; Direct Copy
+#_0C9B29: db $62 ; Increment fill
+#_0C9B2A: db $83
+#_0C9B2B: db $01 ; Raw block
 #_0C9B2C: db $51, $52
-#_0C9B2E: db $23 ; Byte Fill
+#_0C9B2E: db $23 ; Repeat byte
 #_0C9B2F: db $20
-#_0C9B30: db $00 ; Direct Copy
+#_0C9B30: db $00 ; Raw block
 #_0C9B31: db $21
-#_0C9B32: db $23 ; Byte Fill
+#_0C9B32: db $23 ; Repeat byte
 #_0C9B33: db $06
-#_0C9B34: db $0C ; Direct Copy
+#_0C9B34: db $0C ; Raw block
 #_0C9B35: db $86, $86, $A4, $27, $87, $D0, $5A, $F8
 #_0C9B3D: db $F8, $E4, $F8, $E5, $A6
-#_0C9B42: db $22 ; Byte Fill
+#_0C9B42: db $22 ; Repeat byte
 #_0C9B43: db $06
-#_0C9B44: db $0B ; Direct Copy
+#_0C9B44: db $0B ; Raw block
 #_0C9B45: db $88, $80, $71, $A4, $89, $DC, $8A, $08
 #_0C9B4D: db $08, $E9, $08, $83
-#_0C9B51: db $83 ; Repeat Fill
-#_0C9B52: db $00, $17 ; Repeat Fill bytes
-#_0C9B54: db $0B ; Direct Copy
+#_0C9B51: db $83 ; Copy past
+#_0C9B52: dw $1700
+#_0C9B54: db $0B ; Raw block
 #_0C9B55: db $8B, $27, $45, $AD, $24, $1E, $FB, $1F
 #_0C9B5D: db $1D, $1D, $8C, $DC
-#_0C9B61: db $83 ; Repeat Fill
-#_0C9B62: db $00, $27 ; Repeat Fill bytes
-#_0C9B64: db $19 ; Direct Copy
+#_0C9B61: db $83 ; Copy past
+#_0C9B62: dw $2700
+#_0C9B64: db $19 ; Raw block
 #_0C9B65: db $8D, $2F, $A4, $84, $A4, $8E, $1D, $25
 #_0C9B6D: db $A4, $8F, $90, $FB, $E9, $12, $0C, $12
 #_0C9B75: db $91, $92, $78, $93, $A4, $2F, $A4, $27
 #_0C9B7D: db $94, $27
-#_0C9B7F: db $62 ; Increasing Fill
-#_0C9B80: db $95 ; Increasing Fill Start
-#_0C9B81: db $E0, $2C ; EXT Direct Copy
+#_0C9B7F: db $62 ; Increment fill
+#_0C9B80: db $95
+#_0C9B81: db $E0, $2C ; EXT Raw block
 #_0C9B83: db $03, $17, $0C, $98, $99, $45, $AD, $9A
 #_0C9B8B: db $01, $C9, $02, $9B, $45, $AD, $9C, $96
 #_0C9B93: db $8E, $24, $00, $9D, $36, $A4, $84, $2F
 #_0C9B9B: db $9E, $9F, $7D, $A0, $A4, $84, $27, $9C
 #_0C9BA3: db $96, $01, $00, $A1, $A2, $27, $45, $84
 #_0C9BAB: db $9C, $49, $80, $A4, $A3
-#_0C9BB0: db $22 ; Byte Fill
+#_0C9BB0: db $22 ; Repeat byte
 #_0C9BB1: db $A4
-#_0C9BB2: db $02 ; Direct Copy
+#_0C9BB2: db $02 ; Raw block
 #_0C9BB3: db $A5, $01, $A6
 #_0C9BB6: db $FF ; End of Map 71
 
 ;===================================================================================================
 
 OverworldMap32_Screen72_High:
-#_0C9BB7: db $03 ; Direct Copy
+#_0C9BB7: db $03 ; Raw block
 #_0C9BB8: db $00, $01, $07, $01
-#_0C9BBC: db $22 ; Byte Fill
+#_0C9BBC: db $22 ; Repeat byte
 #_0C9BBD: db $08
-#_0C9BBE: db $08 ; Direct Copy
+#_0C9BBE: db $08 ; Raw block
 #_0C9BBF: db $02, $0E, $04, $08, $08, $04, $08, $08
 #_0C9BC7: db $04
-#_0C9BC8: db $83 ; Repeat Fill
-#_0C9BC9: db $00, $00 ; Repeat Fill bytes
-#_0C9BCB: db $22 ; Byte Fill
+#_0C9BC8: db $83 ; Copy past
+#_0C9BC9: dw $0000
+#_0C9BCB: db $22 ; Repeat byte
 #_0C9BCC: db $08
-#_0C9BCD: db $00 ; Direct Copy
+#_0C9BCD: db $00 ; Raw block
 #_0C9BCE: db $06
-#_0C9BCF: db $86 ; Repeat Fill
-#_0C9BD0: db $00, $08 ; Repeat Fill bytes
-#_0C9BD2: db $22 ; Byte Fill
+#_0C9BCF: db $86 ; Copy past
+#_0C9BD0: dw $0800
+#_0C9BD2: db $22 ; Repeat byte
 #_0C9BD3: db $04
-#_0C9BD4: db $06 ; Direct Copy
+#_0C9BD4: db $06 ; Raw block
 #_0C9BD5: db $07, $06, $08, $08, $01, $00, $01
-#_0C9BDC: db $26 ; Byte Fill
+#_0C9BDC: db $26 ; Repeat byte
 #_0C9BDD: db $08
-#_0C9BDE: db $0A ; Direct Copy
+#_0C9BDE: db $0A ; Raw block
 #_0C9BDF: db $01, $01, $0C, $06, $00, $01, $01, $06
 #_0C9BE7: db $01, $01, $06
-#_0C9BEA: db $83 ; Repeat Fill
-#_0C9BEB: db $00, $0E ; Repeat Fill bytes
-#_0C9BED: db $00 ; Direct Copy
+#_0C9BEA: db $83 ; Copy past
+#_0C9BEB: dw $0E00
+#_0C9BED: db $00 ; Raw block
 #_0C9BEE: db $03
-#_0C9BEF: db $23 ; Byte Fill
+#_0C9BEF: db $23 ; Repeat byte
 #_0C9BF0: db $0E
-#_0C9BF1: db $1F ; Direct Copy
+#_0C9BF1: db $1F ; Raw block
 #_0C9BF2: db $06, $03, $04, $00, $03, $04, $0E, $01
 #_0C9BFA: db $00, $00, $01, $06, $01, $02, $02, $0E
 #_0C9C02: db $0E, $0F, $0C, $00, $01, $00, $07, $03
 #_0C9C0A: db $06, $01, $06, $07, $01, $01, $02, $02
-#_0C9C12: db $26 ; Byte Fill
+#_0C9C12: db $26 ; Repeat byte
 #_0C9C13: db $0F
-#_0C9C14: db $01 ; Direct Copy
+#_0C9C14: db $01 ; Raw block
 #_0C9C15: db $07, $0F
-#_0C9C17: db $22 ; Byte Fill
+#_0C9C17: db $22 ; Repeat byte
 #_0C9C18: db $00
-#_0C9C19: db $03 ; Direct Copy
+#_0C9C19: db $03 ; Raw block
 #_0C9C1A: db $0E, $06, $02, $02
-#_0C9C1E: db $23 ; Byte Fill
+#_0C9C1E: db $23 ; Repeat byte
 #_0C9C1F: db $1C
-#_0C9C20: db $1C ; Direct Copy
+#_0C9C20: db $1C ; Raw block
 #_0C9C21: db $02, $0F, $0F, $06, $0F, $0F, $02, $02
 #_0C9C29: db $01, $03, $06, $03, $1B, $10, $15, $03
 #_0C9C31: db $06, $0F, $00, $00, $01, $01, $00, $06
 #_0C9C39: db $03, $03, $04, $03, $1C
-#_0C9C3E: db $22 ; Byte Fill
+#_0C9C3E: db $22 ; Repeat byte
 #_0C9C3F: db $03
-#_0C9C40: db $02 ; Direct Copy
+#_0C9C40: db $02 ; Raw block
 #_0C9C41: db $07, $03, $03
-#_0C9C44: db $83 ; Repeat Fill
-#_0C9C45: db $00, $8B ; Repeat Fill bytes
-#_0C9C47: db $09 ; Direct Copy
+#_0C9C44: db $83 ; Copy past
+#_0C9C45: dw $8B00
+#_0C9C47: db $09 ; Raw block
 #_0C9C48: db $02, $0F, $1B, $03, $01, $01, $1B, $1C
 #_0C9C50: db $1C, $0D
-#_0C9C52: db $23 ; Byte Fill
+#_0C9C52: db $23 ; Repeat byte
 #_0C9C53: db $03
-#_0C9C54: db $04 ; Direct Copy
+#_0C9C54: db $04 ; Raw block
 #_0C9C55: db $04, $06, $00, $02, $02
-#_0C9C5A: db $22 ; Byte Fill
+#_0C9C5A: db $22 ; Repeat byte
 #_0C9C5B: db $01
-#_0C9C5C: db $07 ; Direct Copy
+#_0C9C5C: db $07 ; Raw block
 #_0C9C5D: db $00, $09, $10, $05, $0D, $0E, $03, $03
-#_0C9C65: db $83 ; Repeat Fill
-#_0C9C66: db $00, $60 ; Repeat Fill bytes
-#_0C9C68: db $15 ; Direct Copy
+#_0C9C65: db $83 ; Copy past
+#_0C9C66: dw $6000
+#_0C9C68: db $15 ; Raw block
 #_0C9C69: db $0C, $06, $1B, $03, $03, $09, $01, $0C
 #_0C9C71: db $01, $03, $01, $00, $03, $03, $00, $0F
 #_0C9C79: db $02, $07, $1C, $03, $07, $10
-#_0C9C7F: db $24 ; Byte Fill
+#_0C9C7F: db $24 ; Repeat byte
 #_0C9C80: db $0F
-#_0C9C81: db $0B ; Direct Copy
+#_0C9C81: db $0B ; Raw block
 #_0C9C82: db $0B, $03, $00, $03, $0F, $0F, $0D, $03
 #_0C9C8A: db $03, $1C, $0F, $01
-#_0C9C8E: db $22 ; Byte Fill
+#_0C9C8E: db $22 ; Repeat byte
 #_0C9C8F: db $0F
-#_0C9C90: db $01 ; Direct Copy
+#_0C9C90: db $01 ; Raw block
 #_0C9C91: db $0D, $0F
-#_0C9C93: db $22 ; Byte Fill
+#_0C9C93: db $22 ; Repeat byte
 #_0C9C94: db $02
-#_0C9C95: db $08 ; Direct Copy
+#_0C9C95: db $08 ; Raw block
 #_0C9C96: db $0E, $0F, $0F, $0B, $0E, $01, $0F, $0F
 #_0C9C9E: db $01
-#_0C9C9F: db $43 ; Word Fill
-#_0C9CA0: db $0B, $0F ;  Word Fill
-#_0C9CA2: db $02 ; Direct Copy
+#_0C9C9F: db $43 ; Repeat word
+#_0C9CA0: dw $0F0B
+#_0C9CA2: db $02 ; Raw block
 #_0C9CA3: db $0F, $01, $0A
 #_0C9CA6: db $FF ; End of Map 72
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen72_Low:
-#_0C9CA7: db $E0, $28 ; EXT Direct Copy
+#_0C9CA7: db $E0, $28 ; EXT Raw block
 #_0C9CA9: db $83, $1C, $41, $4D, $43, $44, $9A, $DE
 #_0C9CB1: db $F7, $4A, $99, $44, $4A, $99, $44, $4A
 #_0C9CB9: db $8C, $29, $41, $57, $4A, $4B, $A0, $66
 #_0C9CC1: db $F8, $39, $9F, $4B, $39, $9F, $4B, $39
 #_0C9CC9: db $07, $60, $41, $66, $4D, $4E, $62, $1D
 #_0C9CD1: db $61
-#_0C9CD2: db $62 ; Increasing Fill
-#_0C9CD3: db $A4 ; Increasing Fill Start
-#_0C9CD4: db $13 ; Direct Copy
+#_0C9CD2: db $62 ; Increment fill
+#_0C9CD3: db $A4
+#_0C9CD4: db $13 ; Raw block
 #_0C9CD5: db $9C, $A5, $A6, $9C, $1B, $1C, $8A, $8F
 #_0C9CDD: db $1D, $67, $68, $B3, $67, $68, $70, $2D
 #_0C9CE5: db $56, $B6, $26, $D5
-#_0C9CE9: db $63 ; Increasing Fill
-#_0C9CEA: db $F9 ; Increasing Fill Start
-#_0C9CEB: db $1F ; Direct Copy
+#_0C9CE9: db $63 ; Increment fill
+#_0C9CEA: db $F9
+#_0C9CEB: db $1F ; Raw block
 #_0C9CEC: db $8F, $DB, $25, $1F, $DB, $25, $FD, $1E
 #_0C9CF4: db $EE, $09, $2F, $66, $EB, $D1, $D2, $FE
 #_0C9CFC: db $FF, $00, $28, $1F, $4C, $1C, $C5, $FF
 #_0C9D04: db $2D, $0E, $2B, $2B, $06, $06, $DC, $DD
-#_0C9D0C: db $66 ; Increasing Fill
-#_0C9D0D: db $02 ; Increasing Fill Start
-#_0C9D0E: db $01 ; Direct Copy
+#_0C9D0C: db $66 ; Increment fill
+#_0C9D0D: db $02
+#_0C9D0E: db $01 ; Raw block
 #_0C9D0F: db $C5, $09
-#_0C9D11: db $22 ; Byte Fill
+#_0C9D11: db $22 ; Repeat byte
 #_0C9D12: db $A1
-#_0C9D13: db $03 ; Direct Copy
+#_0C9D13: db $03 ; Raw block
 #_0C9D14: db $40, $A3, $DC, $DD
-#_0C9D18: db $63 ; Increasing Fill
-#_0C9D19: db $A7 ; Increasing Fill Start
-#_0C9D1A: db $E0, $5E ; EXT Direct Copy
+#_0C9D18: db $63 ; Increment fill
+#_0C9D19: db $A7
+#_0C9D1A: db $E0, $5E ; EXT Raw block
 #_0C9D1C: db $5B, $0E, $0F, $9C, $10, $11, $5A, $5B
 #_0C9D24: db $06, $6A, $AA, $AC, $2A, $F6, $92, $5D
 #_0C9D2C: db $66, $19, $A5, $1D, $61, $62, $B2, $66
@@ -3306,18 +3306,18 @@ OverworldMap32_Screen72_Low:
 #_0C9D64: db $DC, $DE, $39, $4A, $FF, $E2, $EB, $71
 #_0C9D6C: db $ED, $06, $63, $E3, $1D, $FF, $FF, $1C
 #_0C9D74: db $29, $D2, $BF, $AE, $44, $C0, $8D
-#_0C9D7B: db $64 ; Increasing Fill
-#_0C9D7C: db $2B ; Increasing Fill Start
-#_0C9D7D: db $0B ; Direct Copy
+#_0C9D7B: db $64 ; Increment fill
+#_0C9D7C: db $2B
+#_0C9D7D: db $0B ; Raw block
 #_0C9D7E: db $46, $E2, $1D, $D5, $30, $29, $A1, $4B
 #_0C9D86: db $4B, $AF, $2B, $69
-#_0C9D8A: db $62 ; Increasing Fill
-#_0C9D8B: db $34 ; Increasing Fill Start
-#_0C9D8C: db $01 ; Direct Copy
+#_0C9D8A: db $62 ; Increment fill
+#_0C9D8B: db $34
+#_0C9D8C: db $01 ; Raw block
 #_0C9D8D: db $9E, $38
-#_0C9D8F: db $22 ; Byte Fill
+#_0C9D8F: db $22 ; Repeat byte
 #_0C9D90: db $4C
-#_0C9D91: db $0F ; Direct Copy
+#_0C9D91: db $0F ; Raw block
 #_0C9D92: db $3C, $30, $39, $4B, $40, $06, $3A, $3B
 #_0C9D9A: db $6A, $4D, $3C, $4B, $3D, $3E, $EB, $79
 #_0C9DA2: db $FF ; End of Map 72
@@ -3325,463 +3325,463 @@ OverworldMap32_Screen72_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen33_High:
-#_0C9DA3: db $0B ; Direct Copy
+#_0C9DA3: db $0B ; Raw block
 #_0C9DA4: db $08, $08, $04, $08, $07, $06, $10, $01
 #_0C9DAC: db $01, $10, $1C, $03
-#_0C9DB0: db $23 ; Byte Fill
+#_0C9DB0: db $23 ; Repeat byte
 #_0C9DB1: db $01
-#_0C9DB2: db $87 ; Repeat Fill
-#_0C9DB3: db $00, $00 ; Repeat Fill bytes
-#_0C9DB5: db $01 ; Direct Copy
+#_0C9DB2: db $87 ; Copy past
+#_0C9DB3: dw $0000
+#_0C9DB5: db $01 ; Raw block
 #_0C9DB6: db $1C, $1C
-#_0C9DB8: db $25 ; Byte Fill
+#_0C9DB8: db $25 ; Repeat byte
 #_0C9DB9: db $01
-#_0C9DBA: db $23 ; Byte Fill
+#_0C9DBA: db $23 ; Repeat byte
 #_0C9DBB: db $08
-#_0C9DBC: db $02 ; Direct Copy
+#_0C9DBC: db $02 ; Raw block
 #_0C9DBD: db $02, $06, $10
-#_0C9DC0: db $23 ; Byte Fill
+#_0C9DC0: db $23 ; Repeat byte
 #_0C9DC1: db $1C
-#_0C9DC2: db $11 ; Direct Copy
+#_0C9DC2: db $11 ; Raw block
 #_0C9DC3: db $06, $1C, $05, $03, $03, $00, $07, $06
 #_0C9DCB: db $00, $19, $06, $10, $03, $1B, $06, $1C
 #_0C9DD3: db $16, $1C
-#_0C9DD5: db $22 ; Byte Fill
+#_0C9DD5: db $22 ; Repeat byte
 #_0C9DD6: db $1B
-#_0C9DD7: db $08 ; Direct Copy
+#_0C9DD7: db $08 ; Raw block
 #_0C9DD8: db $0D, $1C, $09, $0D, $1C, $05, $10, $03
 #_0C9DE0: db $1B
-#_0C9DE1: db $22 ; Byte Fill
+#_0C9DE1: db $22 ; Repeat byte
 #_0C9DE2: db $1C
-#_0C9DE3: db $05 ; Direct Copy
+#_0C9DE3: db $05 ; Raw block
 #_0C9DE4: db $16, $1C, $1B, $06, $00, $09
-#_0C9DEA: db $22 ; Byte Fill
+#_0C9DEA: db $22 ; Repeat byte
 #_0C9DEB: db $1C
-#_0C9DEC: db $02 ; Direct Copy
+#_0C9DEC: db $02 ; Raw block
 #_0C9DED: db $01, $10, $03
-#_0C9DF0: db $28 ; Byte Fill
+#_0C9DF0: db $28 ; Repeat byte
 #_0C9DF1: db $1C
-#_0C9DF2: db $06 ; Direct Copy
+#_0C9DF2: db $06 ; Raw block
 #_0C9DF3: db $00, $19, $1B, $1C, $03, $01, $03
-#_0C9DFA: db $27 ; Byte Fill
+#_0C9DFA: db $27 ; Repeat byte
 #_0C9DFB: db $1C
-#_0C9DFC: db $06 ; Direct Copy
+#_0C9DFC: db $06 ; Raw block
 #_0C9DFD: db $12, $0E, $1B, $09, $00, $07, $01
-#_0C9E04: db $26 ; Byte Fill
+#_0C9E04: db $26 ; Repeat byte
 #_0C9E05: db $1C
-#_0C9E06: db $09 ; Direct Copy
+#_0C9E06: db $09 ; Raw block
 #_0C9E07: db $0E, $05, $06, $1C, $1C, $00, $06, $07
 #_0C9E0F: db $01, $0F
-#_0C9E11: db $24 ; Byte Fill
+#_0C9E11: db $24 ; Repeat byte
 #_0C9E12: db $1C
-#_0C9E13: db $18 ; Direct Copy
+#_0C9E13: db $18 ; Raw block
 #_0C9E14: db $05, $1C, $07, $00, $0B, $02, $1C, $0B
 #_0C9E1C: db $01, $10, $0F, $1C, $10, $1C, $05, $07
 #_0C9E24: db $1C, $0C, $05, $03, $00, $02, $16, $1C
 #_0C9E2C: db $00
-#_0C9E2D: db $83 ; Repeat Fill
-#_0C9E2E: db $00, $56 ; Repeat Fill bytes
-#_0C9E30: db $00 ; Direct Copy
+#_0C9E2D: db $83 ; Copy past
+#_0C9E2E: dw $5600
+#_0C9E30: db $00 ; Raw block
 #_0C9E31: db $05
-#_0C9E32: db $24 ; Byte Fill
+#_0C9E32: db $24 ; Repeat byte
 #_0C9E33: db $1C
-#_0C9E34: db $08 ; Direct Copy
+#_0C9E34: db $08 ; Raw block
 #_0C9E35: db $00, $01, $01, $16, $01, $07, $10, $03
 #_0C9E3D: db $1B
-#_0C9E3E: db $26 ; Byte Fill
+#_0C9E3E: db $26 ; Repeat byte
 #_0C9E3F: db $1C
-#_0C9E40: db $07 ; Direct Copy
+#_0C9E40: db $07 ; Raw block
 #_0C9E41: db $00, $0E, $01, $16, $01, $00, $10, $03
-#_0C9E49: db $27 ; Byte Fill
+#_0C9E49: db $27 ; Repeat byte
 #_0C9E4A: db $1C
-#_0C9E4B: db $84 ; Repeat Fill
-#_0C9E4C: db $00, $B0 ; Repeat Fill bytes
-#_0C9E4E: db $03 ; Direct Copy
+#_0C9E4B: db $84 ; Copy past
+#_0C9E4C: dw $B000
+#_0C9E4E: db $03 ; Raw block
 #_0C9E4F: db $00, $10, $01, $02
-#_0C9E53: db $26 ; Byte Fill
+#_0C9E53: db $26 ; Repeat byte
 #_0C9E54: db $1C
-#_0C9E55: db $0F ; Direct Copy
+#_0C9E55: db $0F ; Raw block
 #_0C9E56: db $02, $05, $01, $1C, $01, $06, $03, $02
 #_0C9E5E: db $1C, $07, $06, $1C, $1D, $07, $1D, $1D
-#_0C9E66: db $22 ; Byte Fill
+#_0C9E66: db $22 ; Repeat byte
 #_0C9E67: db $01
-#_0C9E68: db $03 ; Direct Copy
+#_0C9E68: db $03 ; Raw block
 #_0C9E69: db $03, $01, $1D, $07
-#_0C9E6D: db $24 ; Byte Fill
+#_0C9E6D: db $24 ; Repeat byte
 #_0C9E6E: db $06
-#_0C9E6F: db $03 ; Direct Copy
+#_0C9E6F: db $03 ; Raw block
 #_0C9E70: db $1B, $06, $1D, $1D
 #_0C9E74: db $FF ; End of Map 33
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen33_Low:
-#_0C9E75: db $0C ; Direct Copy
+#_0C9E75: db $0C ; Raw block
 #_0C9E76: db $99, $44, $4A, $BB, $59, $8E, $6E, $06
 #_0C9E7E: db $06, $BE, $B0, $20, $0C
-#_0C9E83: db $22 ; Byte Fill
+#_0C9E83: db $22 ; Repeat byte
 #_0C9E84: db $06
-#_0C9E85: db $17 ; Direct Copy
+#_0C9E85: db $17 ; Raw block
 #_0C9E86: db $9F, $4B, $39, $BE, $63, $8E, $6E, $06
 #_0C9E8E: db $B1, $B2, $E5, $E5, $17, $0C, $06, $06
 #_0C9E96: db $A5, $A6, $9C, $9D, $4F, $8E, $6E, $1B
-#_0C9E9E: db $62 ; Increasing Fill
-#_0C9E9F: db $B3 ; Increasing Fill Start
-#_0C9EA0: db $E0, $26 ; EXT Direct Copy
+#_0C9E9E: db $62 ; Increment fill
+#_0C9E9F: db $B3
+#_0C9EA0: db $E0, $26 ; EXT Raw block
 #_0C9EA2: db $CD, $B6, $61, $20, $20, $1D, $DD, $66
 #_0C9EAA: db $A0, $BC, $8E, $6E, $63, $DD, $7C, $B7
 #_0C9EB2: db $4D, $B8, $17, $19, $19, $A6, $B9, $E9
 #_0C9EBA: db $A4, $BA, $4F, $6E, $63, $DD, $B7, $BB
 #_0C9EC2: db $BC, $4D, $BD, $AF, $7C, $B2, $E4
-#_0C9EC9: db $62 ; Increasing Fill
-#_0C9ECA: db $BE ; Increasing Fill Start
-#_0C9ECB: db $07 ; Direct Copy
+#_0C9EC9: db $62 ; Increment fill
+#_0C9ECA: db $BE
+#_0C9ECB: db $07 ; Raw block
 #_0C9ECC: db $D2, $6E, $63, $C1, $BB, $C2, $C3, $BC
-#_0C9ED4: db $63 ; Increasing Fill
-#_0C9ED5: db $C4 ; Increasing Fill Start
-#_0C9ED6: db $06 ; Direct Copy
+#_0C9ED4: db $63 ; Increment fill
+#_0C9ED5: db $C4
+#_0C9ED6: db $06 ; Raw block
 #_0C9ED7: db $A1, $BC, $5F, $C8, $96, $5E, $65
-#_0C9EDE: db $62 ; Increasing Fill
-#_0C9EDF: db $C9 ; Increasing Fill Start
-#_0C9EE0: db $64 ; Increasing Fill
-#_0C9EE1: db $CB ; Increasing Fill Start
-#_0C9EE2: db $06 ; Direct Copy
+#_0C9EDE: db $62 ; Increment fill
+#_0C9EDF: db $C9
+#_0C9EE0: db $64 ; Increment fill
+#_0C9EE1: db $CB
+#_0C9EE2: db $06 ; Raw block
 #_0C9EE3: db $87, $00, $5F, $DD, $1D, $B0, $00
-#_0C9EEA: db $63 ; Increasing Fill
-#_0C9EEB: db $D0 ; Increasing Fill Start
-#_0C9EEC: db $62 ; Increasing Fill
-#_0C9EED: db $D3 ; Increasing Fill Start
-#_0C9EEE: db $09 ; Direct Copy
+#_0C9EEA: db $63 ; Increment fill
+#_0C9EEB: db $D0
+#_0C9EEC: db $62 ; Increment fill
+#_0C9EED: db $D3
+#_0C9EEE: db $09 ; Raw block
 #_0C9EEF: db $29, $C9, $66, $D6, $D7, $1C, $66, $B0
 #_0C9EF7: db $00, $83
-#_0C9EF9: db $64 ; Increasing Fill
-#_0C9EFA: db $D8 ; Increasing Fill Start
-#_0C9EFB: db $1F ; Direct Copy
+#_0C9EF9: db $64 ; Increment fill
+#_0C9EFA: db $D8
+#_0C9EFB: db $1F ; Raw block
 #_0C9EFC: db $E1, $DD, $19, $A5, $F9, $8D, $DE, $46
 #_0C9F04: db $FC, $67, $C8, $DF, $B7, $E0, $E1, $89
 #_0C9F0C: db $E1, $4C, $E1, $E2, $FB, $97, $B3, $E2
 #_0C9F14: db $1D, $6E, $63, $E3, $E4, $D5, $DB, $DC
-#_0C9F1C: db $62 ; Increasing Fill
-#_0C9F1D: db $E5 ; Increasing Fill Start
-#_0C9F1E: db $08 ; Direct Copy
+#_0C9F1C: db $62 ; Increment fill
+#_0C9F1D: db $E5
+#_0C9F1E: db $08 ; Raw block
 #_0C9F1F: db $A9, $1E, $2E, $BC, $E3, $AF, $6E, $63
 #_0C9F27: db $DA
-#_0C9F28: db $62 ; Increasing Fill
-#_0C9F29: db $E8 ; Increasing Fill Start
-#_0C9F2A: db $63 ; Increasing Fill
-#_0C9F2B: db $EA ; Increasing Fill Start
-#_0C9F2C: db $07 ; Direct Copy
+#_0C9F28: db $62 ; Increment fill
+#_0C9F29: db $E8
+#_0C9F2A: db $63 ; Increment fill
+#_0C9F2B: db $EA
+#_0C9F2C: db $07 ; Raw block
 #_0C9F2D: db $1D, $FD, $2E, $BC, $E3, $1D, $6E, $63
-#_0C9F35: db $67 ; Increasing Fill
-#_0C9F36: db $EE ; Increasing Fill Start
-#_0C9F37: db $01 ; Direct Copy
+#_0C9F35: db $67 ; Increment fill
+#_0C9F36: db $EE
+#_0C9F37: db $01 ; Raw block
 #_0C9F38: db $9F, $41
-#_0C9F3A: db $83 ; Repeat Fill
-#_0C9F3B: db $00, $C2 ; Repeat Fill bytes
-#_0C9F3D: db $02 ; Direct Copy
+#_0C9F3A: db $83 ; Copy past
+#_0C9F3B: dw $C200
+#_0C9F3D: db $02 ; Raw block
 #_0C9F3E: db $77, $FD, $91
-#_0C9F41: db $66 ; Increasing Fill
-#_0C9F42: db $F6 ; Increasing Fill Start
-#_0C9F43: db $16 ; Direct Copy
+#_0C9F41: db $66 ; Increment fill
+#_0C9F42: db $F6
+#_0C9F43: db $16 ; Raw block
 #_0C9F44: db $4C, $58, $49, $FD, $E3, $66, $56, $04
 #_0C9F4C: db $FE, $39, $CD, $FF, $00, $39, $01, $02
 #_0C9F54: db $EB, $EB, $6A, $63, $E3, $03, $39
-#_0C9F5B: db $23 ; Byte Fill
+#_0C9F5B: db $23 ; Repeat byte
 #_0C9F5C: db $7C
-#_0C9F5D: db $04 ; Direct Copy
+#_0C9F5D: db $04 ; Raw block
 #_0C9F5E: db $CF, $AF, $7C, $04, $05
 #_0C9F63: db $FF ; End of Map 33
 
 ;===================================================================================================
 
 OverworldMap32_Screen34_High:
-#_0C9F64: db $0A ; Direct Copy
+#_0C9F64: db $0A ; Raw block
 #_0C9F65: db $0B, $19, $0C, $0C, $19, $03, $02, $06
 #_0C9F6D: db $01, $01, $0D
-#_0C9F70: db $43 ; Word Fill
-#_0C9F71: db $0E, $01 ;  Word Fill
-#_0C9F73: db $1F ; Direct Copy
+#_0C9F70: db $43 ; Repeat word
+#_0C9F71: dw $010E
+#_0C9F73: db $1F ; Raw block
 #_0C9F74: db $0D, $19, $1D, $06, $09, $01, $03, $1D
 #_0C9F7C: db $08, $04, $11, $0E, $0F, $1D, $03, $1B
 #_0C9F84: db $0E, $03, $1D, $1D, $03, $1D, $1D, $03
 #_0C9F8C: db $01, $04, $05, $0F, $1D, $1B, $0F, $01
-#_0C9F94: db $24 ; Byte Fill
+#_0C9F94: db $24 ; Repeat byte
 #_0C9F95: db $1B
-#_0C9F96: db $07 ; Direct Copy
+#_0C9F96: db $07 ; Raw block
 #_0C9F97: db $1C, $03, $1C, $07, $1C, $03, $0D, $1B
-#_0C9F9F: db $43 ; Word Fill
-#_0C9FA0: db $1D, $01 ;  Word Fill
-#_0C9FA2: db $0A ; Direct Copy
+#_0C9F9F: db $43 ; Repeat word
+#_0C9FA0: dw $011D
+#_0C9FA2: db $0A ; Raw block
 #_0C9FA3: db $06, $19, $0F, $01, $1C, $06, $1C, $1D
 #_0C9FAB: db $06, $03, $01
-#_0C9FAE: db $22 ; Byte Fill
+#_0C9FAE: db $22 ; Repeat byte
 #_0C9FAF: db $1D
-#_0C9FB0: db $00 ; Direct Copy
+#_0C9FB0: db $00 ; Raw block
 #_0C9FB1: db $01
-#_0C9FB2: db $22 ; Byte Fill
+#_0C9FB2: db $22 ; Repeat byte
 #_0C9FB3: db $1D
-#_0C9FB4: db $01 ; Direct Copy
+#_0C9FB4: db $01 ; Raw block
 #_0C9FB5: db $19, $06
-#_0C9FB7: db $23 ; Byte Fill
+#_0C9FB7: db $23 ; Repeat byte
 #_0C9FB8: db $1D
-#_0C9FB9: db $00 ; Direct Copy
+#_0C9FB9: db $00 ; Raw block
 #_0C9FBA: db $07
-#_0C9FBB: db $24 ; Byte Fill
+#_0C9FBB: db $24 ; Repeat byte
 #_0C9FBC: db $06
-#_0C9FBD: db $12 ; Direct Copy
+#_0C9FBD: db $12 ; Raw block
 #_0C9FBE: db $05, $01, $1D, $1D, $0D, $06, $1D, $1D
 #_0C9FC6: db $06, $06, $07, $06, $06, $0D, $06, $06
 #_0C9FCE: db $1D, $01, $05
-#_0C9FD1: db $22 ; Byte Fill
+#_0C9FD1: db $22 ; Repeat byte
 #_0C9FD2: db $1D
-#_0C9FD3: db $05 ; Direct Copy
+#_0C9FD3: db $05 ; Raw block
 #_0C9FD4: db $0D, $1D, $1C, $16, $06, $0D
-#_0C9FDA: db $83 ; Repeat Fill
-#_0C9FDB: db $00, $64 ; Repeat Fill bytes
-#_0C9FDD: db $05 ; Direct Copy
+#_0C9FDA: db $83 ; Copy past
+#_0C9FDB: dw $6400
+#_0C9FDD: db $05 ; Raw block
 #_0C9FDE: db $1D, $01, $07, $1D, $06, $06
-#_0C9FE4: db $25 ; Byte Fill
+#_0C9FE4: db $25 ; Repeat byte
 #_0C9FE5: db $1D
-#_0C9FE6: db $22 ; Byte Fill
+#_0C9FE6: db $22 ; Repeat byte
 #_0C9FE7: db $06
-#_0C9FE8: db $25 ; Byte Fill
+#_0C9FE8: db $25 ; Repeat byte
 #_0C9FE9: db $1D
-#_0C9FEA: db $00 ; Direct Copy
+#_0C9FEA: db $00 ; Raw block
 #_0C9FEB: db $06
-#_0C9FEC: db $25 ; Byte Fill
+#_0C9FEC: db $25 ; Repeat byte
 #_0C9FED: db $1D
-#_0C9FEE: db $03 ; Direct Copy
+#_0C9FEE: db $03 ; Raw block
 #_0C9FEF: db $06, $09, $1D, $1B
-#_0C9FF3: db $25 ; Byte Fill
+#_0C9FF3: db $25 ; Repeat byte
 #_0C9FF4: db $1D
-#_0C9FF5: db $00 ; Direct Copy
+#_0C9FF5: db $00 ; Raw block
 #_0C9FF6: db $0E
-#_0C9FF7: db $23 ; Byte Fill
+#_0C9FF7: db $23 ; Repeat byte
 #_0C9FF8: db $1D
-#_0C9FF9: db $04 ; Direct Copy
+#_0C9FF9: db $04 ; Raw block
 #_0C9FFA: db $0E, $06, $06, $03, $01
-#_0C9FFF: db $25 ; Byte Fill
+#_0C9FFF: db $25 ; Repeat byte
 #_0CA000: db $1D
-#_0CA001: db $00 ; Direct Copy
+#_0CA001: db $00 ; Raw block
 #_0CA002: db $06
-#_0CA003: db $23 ; Byte Fill
+#_0CA003: db $23 ; Repeat byte
 #_0CA004: db $1D
-#_0CA005: db $22 ; Byte Fill
+#_0CA005: db $22 ; Repeat byte
 #_0CA006: db $06
-#_0CA007: db $05 ; Direct Copy
+#_0CA007: db $05 ; Raw block
 #_0CA008: db $1D, $11, $19, $10, $00, $07
-#_0CA00E: db $87 ; Repeat Fill
-#_0CA00F: db $00, $72 ; Repeat Fill bytes
-#_0CA011: db $0C ; Direct Copy
+#_0CA00E: db $87 ; Copy past
+#_0CA00F: dw $7200
+#_0CA011: db $0C ; Raw block
 #_0CA012: db $06, $06, $03, $0E, $05, $02, $1D, $06
 #_0CA01A: db $0D, $06, $1D, $06, $1C
-#_0CA01F: db $43 ; Word Fill
-#_0CA020: db $1D, $06 ;  Word Fill
-#_0CA022: db $02 ; Direct Copy
+#_0CA01F: db $43 ; Repeat word
+#_0CA020: dw $061D
+#_0CA022: db $02 ; Raw block
 #_0CA023: db $0D, $1D, $03
-#_0CA026: db $24 ; Byte Fill
+#_0CA026: db $24 ; Repeat byte
 #_0CA027: db $1D
-#_0CA028: db $27 ; Byte Fill
+#_0CA028: db $27 ; Repeat byte
 #_0CA029: db $06
-#_0CA02A: db $06 ; Direct Copy
+#_0CA02A: db $06 ; Raw block
 #_0CA02B: db $1D, $06, $06, $10, $01, $1D, $1D
-#_0CA032: db $2B ; Byte Fill
+#_0CA032: db $2B ; Repeat byte
 #_0CA033: db $06
-#_0CA034: db $01 ; Direct Copy
+#_0CA034: db $01 ; Raw block
 #_0CA035: db $10, $0E
 #_0CA037: db $FF ; End of Map 34
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen34_Low:
-#_0CA038: db $0A ; Direct Copy
+#_0CA038: db $0A ; Raw block
 #_0CA039: db $56, $B2, $ED, $ED, $B2, $63, $E8, $66
 #_0CA041: db $2E, $00, $4C
-#_0CA044: db $43 ; Word Fill
-#_0CA045: db $40, $06 ;  Word Fill
-#_0CA047: db $E0, $20 ; EXT Direct Copy
+#_0CA044: db $43 ; Repeat word
+#_0CA045: dw $0640
+#_0CA047: db $E0, $20 ; EXT Raw block
 #_0CA049: db $4C, $D4, $06, $A3, $D5, $06, $65, $07
 #_0CA051: db $2D, $8D, $05, $40, $4C, $08, $20, $EF
 #_0CA059: db $40, $20, $08, $09, $20, $0A, $0B, $A8
 #_0CA061: db $1E, $93, $B1, $3F, $0C, $9D, $44, $17
 #_0CA069: db $EF
-#_0CA06A: db $23 ; Byte Fill
+#_0CA06A: db $23 ; Repeat byte
 #_0CA06B: db $19
-#_0CA06C: db $16 ; Direct Copy
+#_0CA06C: db $16 ; Raw block
 #_0CA06D: db $AC, $A8, $FE, $39, $B8, $57, $FB, $9E
 #_0CA075: db $0D, $17, $0E, $17, $7C, $A5, $01, $4C
 #_0CA07D: db $FE, $C1, $EF, $0F, $7C, $56, $22
-#_0CA084: db $62 ; Increasing Fill
-#_0CA085: db $10 ; Increasing Fill Start
-#_0CA086: db $00 ; Direct Copy
+#_0CA084: db $62 ; Increment fill
+#_0CA085: db $10
+#_0CA086: db $00 ; Raw block
 #_0CA087: db $17
-#_0CA088: db $62 ; Increasing Fill
-#_0CA089: db $13 ; Increasing Fill Start
-#_0CA08A: db $02 ; Direct Copy
+#_0CA088: db $62 ; Increment fill
+#_0CA089: db $13
+#_0CA08A: db $02 ; Raw block
 #_0CA08B: db $8B, $7C, $16
-#_0CA08E: db $62 ; Increasing Fill
-#_0CA08F: db $16 ; Increasing Fill Start
-#_0CA090: db $00 ; Direct Copy
+#_0CA08E: db $62 ; Increment fill
+#_0CA08F: db $16
+#_0CA090: db $00 ; Raw block
 #_0CA091: db $65
-#_0CA092: db $23 ; Byte Fill
+#_0CA092: db $23 ; Repeat byte
 #_0CA093: db $7C
-#_0CA094: db $13 ; Direct Copy
+#_0CA094: db $13 ; Raw block
 #_0CA095: db $CD, $50, $25, $19, $1A, $F8, $7C, $1B
 #_0CA09D: db $1B, $7C, $CD, $39, $7C, $7C, $F8, $7C
 #_0CA0A5: db $7C, $1C, $25, $C9
-#_0CA0A9: db $62 ; Increasing Fill
-#_0CA0AA: db $1D ; Increasing Fill Start
-#_0CA0AB: db $07 ; Direct Copy
+#_0CA0A9: db $62 ; Increment fill
+#_0CA0AA: db $1D
+#_0CA0AB: db $07 ; Raw block
 #_0CA0AC: db $F8, $20, $B7, $4D, $7C, $F8, $1B, $1E
-#_0CA0B4: db $83 ; Repeat Fill
-#_0CA0B5: db $00, $6C ; Repeat Fill bytes
-#_0CA0B7: db $04 ; Direct Copy
+#_0CA0B4: db $83 ; Copy past
+#_0CA0B5: dw $6C00
+#_0CA0B7: db $04 ; Raw block
 #_0CA0B8: db $36, $21, $7C, $7C, $1E
-#_0CA0BD: db $63 ; Increasing Fill
-#_0CA0BE: db $22 ; Increasing Fill Start
-#_0CA0BF: db $00 ; Direct Copy
+#_0CA0BD: db $63 ; Increment fill
+#_0CA0BE: db $22
+#_0CA0BF: db $00 ; Raw block
 #_0CA0C0: db $1E
-#_0CA0C1: db $22 ; Byte Fill
+#_0CA0C1: db $22 ; Repeat byte
 #_0CA0C2: db $7C
-#_0CA0C3: db $63 ; Increasing Fill
-#_0CA0C4: db $26 ; Increasing Fill Start
-#_0CA0C5: db $02 ; Direct Copy
+#_0CA0C3: db $63 ; Increment fill
+#_0CA0C4: db $26
+#_0CA0C5: db $02 ; Raw block
 #_0CA0C6: db $21, $2A, $7C
-#_0CA0C9: db $64 ; Increasing Fill
-#_0CA0CA: db $2B ; Increasing Fill Start
-#_0CA0CB: db $04 ; Direct Copy
+#_0CA0C9: db $64 ; Increment fill
+#_0CA0CA: db $2B
+#_0CA0CB: db $04 ; Raw block
 #_0CA0CC: db $2B, $7C, $25, $30, $2A
-#_0CA0D1: db $65 ; Increasing Fill
-#_0CA0D2: db $31 ; Increasing Fill Start
-#_0CA0D3: db $01 ; Direct Copy
+#_0CA0D1: db $65 ; Increment fill
+#_0CA0D2: db $31
+#_0CA0D3: db $01 ; Raw block
 #_0CA0D4: db $12, $2C
-#_0CA0D6: db $62 ; Increasing Fill
-#_0CA0D7: db $37 ; Increasing Fill Start
-#_0CA0D8: db $04 ; Direct Copy
+#_0CA0D6: db $62 ; Increment fill
+#_0CA0D7: db $37
+#_0CA0D8: db $04 ; Raw block
 #_0CA0D9: db $12, $7C, $CD, $96, $5E
-#_0CA0DE: db $63 ; Increasing Fill
-#_0CA0DF: db $3A ; Increasing Fill Start
-#_0CA0E0: db $02 ; Direct Copy
+#_0CA0DE: db $63 ; Increment fill
+#_0CA0DF: db $3A
+#_0CA0E0: db $02 ; Raw block
 #_0CA0E1: db $2C, $3E, $7C
-#_0CA0E4: db $63 ; Increasing Fill
-#_0CA0E5: db $3F ; Increasing Fill Start
-#_0CA0E6: db $22 ; Byte Fill
+#_0CA0E4: db $63 ; Increment fill
+#_0CA0E5: db $3F
+#_0CA0E6: db $22 ; Repeat byte
 #_0CA0E7: db $7C
-#_0CA0E8: db $09 ; Direct Copy
+#_0CA0E8: db $09 ; Raw block
 #_0CA0E9: db $43, $05, $D5, $67, $1D, $39, $44, $45
 #_0CA0F1: db $F8, $46
-#_0CA0F3: db $83 ; Repeat Fill
-#_0CA0F4: db $00, $76 ; Repeat Fill bytes
-#_0CA0F6: db $18 ; Direct Copy
+#_0CA0F3: db $83 ; Copy past
+#_0CA0F4: dw $7600
+#_0CA0F6: db $18 ; Raw block
 #_0CA0F7: db $7C, $7C, $56, $C0, $A6, $69, $46, $7C
 #_0CA0FF: db $F8, $7C, $47, $7C, $C3, $48, $7C, $1E
 #_0CA107: db $7C, $F8, $49, $56, $4A, $4B, $02, $4C
 #_0CA10F: db $1E
-#_0CA110: db $27 ; Byte Fill
+#_0CA110: db $27 ; Repeat byte
 #_0CA111: db $7C
-#_0CA112: db $06 ; Direct Copy
+#_0CA112: db $06 ; Raw block
 #_0CA113: db $1E, $7C, $C1, $6E, $01, $4D, $4E
-#_0CA11A: db $2A ; Byte Fill
+#_0CA11A: db $2A ; Repeat byte
 #_0CA11B: db $7C
-#_0CA11C: db $02 ; Direct Copy
+#_0CA11C: db $02 ; Raw block
 #_0CA11D: db $CD, $6E, $40
 #_0CA120: db $FF ; End of Map 34
 
 ;===================================================================================================
 
 OverworldMap32_Screen75_High:
-#_0CA121: db $03 ; Direct Copy
+#_0CA121: db $03 ; Raw block
 #_0CA122: db $0D, $0B, $03, $01
-#_0CA126: db $25 ; Byte Fill
+#_0CA126: db $25 ; Repeat byte
 #_0CA127: db $00
-#_0CA128: db $03 ; Direct Copy
+#_0CA128: db $03 ; Raw block
 #_0CA129: db $03, $03, $01, $01
-#_0CA12D: db $25 ; Byte Fill
+#_0CA12D: db $25 ; Repeat byte
 #_0CA12E: db $03
-#_0CA12F: db $00 ; Direct Copy
+#_0CA12F: db $00 ; Raw block
 #_0CA130: db $00
-#_0CA131: db $44 ; Word Fill
-#_0CA132: db $06, $07 ;  Word Fill
-#_0CA134: db $84 ; Repeat Fill
-#_0CA135: db $00, $0A ; Repeat Fill bytes
-#_0CA137: db $22 ; Byte Fill
+#_0CA131: db $44 ; Repeat word
+#_0CA132: dw $0706
+#_0CA134: db $84 ; Copy past
+#_0CA135: dw $0A00
+#_0CA137: db $22 ; Repeat byte
 #_0CA138: db $01
-#_0CA139: db $0A ; Direct Copy
+#_0CA139: db $0A ; Raw block
 #_0CA13A: db $03, $03, $00, $0F, $0F, $00, $02, $0F
 #_0CA142: db $00, $03, $1D
-#_0CA145: db $43 ; Word Fill
-#_0CA146: db $01, $0F ;  Word Fill
-#_0CA148: db $18 ; Direct Copy
+#_0CA145: db $43 ; Repeat word
+#_0CA146: dw $0F01
+#_0CA148: db $18 ; Raw block
 #_0CA149: db $07, $03, $03, $0F, $07, $0F, $0F, $07
 #_0CA151: db $09, $0F, $0F, $05, $04, $1D, $01, $03
 #_0CA159: db $02, $00, $00, $0F, $07, $0F, $00, $00
 #_0CA161: db $0F
-#_0CA162: db $22 ; Byte Fill
+#_0CA162: db $22 ; Repeat byte
 #_0CA163: db $02
-#_0CA164: db $01 ; Direct Copy
+#_0CA164: db $01 ; Raw block
 #_0CA165: db $04, $0C
-#_0CA167: db $22 ; Byte Fill
+#_0CA167: db $22 ; Repeat byte
 #_0CA168: db $1D
-#_0CA169: db $22 ; Byte Fill
+#_0CA169: db $22 ; Repeat byte
 #_0CA16A: db $01
-#_0CA16B: db $04 ; Direct Copy
+#_0CA16B: db $04 ; Raw block
 #_0CA16C: db $04, $0F, $0F, $03, $0F
-#_0CA171: db $22 ; Byte Fill
+#_0CA171: db $22 ; Repeat byte
 #_0CA172: db $02
-#_0CA173: db $03 ; Direct Copy
+#_0CA173: db $03 ; Raw block
 #_0CA174: db $07, $05, $1D, $0F
-#_0CA178: db $22 ; Byte Fill
+#_0CA178: db $22 ; Repeat byte
 #_0CA179: db $1D
-#_0CA17A: db $05 ; Direct Copy
+#_0CA17A: db $05 ; Raw block
 #_0CA17B: db $01, $0F, $0F, $02, $07, $0F
-#_0CA181: db $23 ; Byte Fill
+#_0CA181: db $23 ; Repeat byte
 #_0CA182: db $07
-#_0CA183: db $0D ; Direct Copy
+#_0CA183: db $0D ; Raw block
 #_0CA184: db $1D, $1D, $0F, $02, $0B, $0B, $00, $0F
 #_0CA18C: db $02, $05, $07, $05, $15, $1D
-#_0CA192: db $43 ; Word Fill
-#_0CA193: db $05, $07 ;  Word Fill
-#_0CA195: db $05 ; Direct Copy
+#_0CA192: db $43 ; Repeat word
+#_0CA193: dw $0705
+#_0CA195: db $05 ; Raw block
 #_0CA196: db $0F, $0F, $01, $08, $08, $0F
-#_0CA19C: db $22 ; Byte Fill
+#_0CA19C: db $22 ; Repeat byte
 #_0CA19D: db $07
-#_0CA19E: db $01 ; Direct Copy
+#_0CA19E: db $01 ; Raw block
 #_0CA19F: db $1D, $08
-#_0CA1A1: db $43 ; Word Fill
-#_0CA1A2: db $1D, $05 ;  Word Fill
-#_0CA1A4: db $02 ; Direct Copy
+#_0CA1A1: db $43 ; Repeat word
+#_0CA1A2: dw $051D
+#_0CA1A4: db $02 ; Raw block
 #_0CA1A5: db $08, $10, $0D
-#_0CA1A8: db $83 ; Repeat Fill
-#_0CA1A9: db $00, $46 ; Repeat Fill bytes
-#_0CA1AB: db $0C ; Direct Copy
+#_0CA1A8: db $83 ; Copy past
+#_0CA1A9: dw $4600
+#_0CA1AB: db $0C ; Raw block
 #_0CA1AC: db $07, $0C, $05, $05, $1D, $1D, $1C, $0F
 #_0CA1B4: db $1D, $05, $0F, $0B, $0F
-#_0CA1B9: db $83 ; Repeat Fill
-#_0CA1BA: db $00, $83 ; Repeat Fill bytes
-#_0CA1BC: db $08 ; Direct Copy
+#_0CA1B9: db $83 ; Copy past
+#_0CA1BA: dw $8300
+#_0CA1BC: db $08 ; Raw block
 #_0CA1BD: db $05, $08, $1D, $1D, $05, $10, $05, $11
 #_0CA1C5: db $07
-#_0CA1C6: db $22 ; Byte Fill
+#_0CA1C6: db $22 ; Repeat byte
 #_0CA1C7: db $0F
-#_0CA1C8: db $13 ; Direct Copy
+#_0CA1C8: db $13 ; Raw block
 #_0CA1C9: db $00, $00, $0F, $08, $09, $07, $1D, $0F
 #_0CA1D1: db $05, $1D, $05, $10, $07, $0F, $07, $02
 #_0CA1D9: db $00, $03, $02, $04
-#_0CA1DD: db $22 ; Byte Fill
+#_0CA1DD: db $22 ; Repeat byte
 #_0CA1DE: db $05
-#_0CA1DF: db $83 ; Repeat Fill
-#_0CA1E0: db $00, $B9 ; Repeat Fill bytes
-#_0CA1E2: db $0C ; Direct Copy
+#_0CA1DF: db $83 ; Copy past
+#_0CA1E0: dw $B900
+#_0CA1E2: db $0C ; Raw block
 #_0CA1E3: db $1D, $07, $0F, $02, $05, $01, $1D, $0F
 #_0CA1EB: db $05, $07, $07, $0F, $15
-#_0CA1F0: db $43 ; Word Fill
-#_0CA1F1: db $1D, $05 ;  Word Fill
-#_0CA1F3: db $0C ; Direct Copy
+#_0CA1F0: db $43 ; Repeat word
+#_0CA1F1: dw $051D
+#_0CA1F3: db $0C ; Raw block
 #_0CA1F4: db $08, $0F, $1D, $04, $04, $0D, $00, $05
 #_0CA1FC: db $07, $0E, $1D, $1D, $0F
-#_0CA201: db $84 ; Repeat Fill
-#_0CA202: db $00, $D5 ; Repeat Fill bytes
-#_0CA204: db $0E ; Direct Copy
+#_0CA201: db $84 ; Copy past
+#_0CA202: dw $D500
+#_0CA204: db $0E ; Raw block
 #_0CA205: db $0F, $02, $1D, $03, $00, $0F, $07, $10
 #_0CA20D: db $10, $1D, $05, $11, $07, $07, $05
 #_0CA214: db $FF ; End of Map 75
@@ -3789,15 +3789,15 @@ OverworldMap32_Screen75_High:
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen75_Low:
-#_0CA215: db $05 ; Direct Copy
+#_0CA215: db $05 ; Raw block
 #_0CA216: db $4B, $56, $63, $E3, $1D, $1C
-#_0CA21C: db $23 ; Byte Fill
+#_0CA21C: db $23 ; Repeat byte
 #_0CA21D: db $1D
-#_0CA21E: db $04 ; Direct Copy
+#_0CA21E: db $04 ; Raw block
 #_0CA21F: db $50, $51, $0A, $0A, $52
-#_0CA224: db $22 ; Byte Fill
+#_0CA224: db $22 ; Repeat byte
 #_0CA225: db $20
-#_0CA226: db $E0, $37 ; EXT Direct Copy
+#_0CA226: db $E0, $37 ; EXT Raw block
 #_0CA228: db $94, $95, $1D, $8B, $05, $9C, $04, $8F
 #_0CA230: db $56, $57, $15, $15, $5A, $F8, $02, $02
 #_0CA238: db $9C, $9D, $1D, $46, $47, $1D, $5E, $48
@@ -3805,25 +3805,25 @@ OverworldMap32_Screen75_Low:
 #_0CA248: db $BB, $A8, $4D, $41, $4E, $4F, $09, $B2
 #_0CA250: db $50, $50, $0C, $8A, $50, $0A, $63, $86
 #_0CA258: db $1D, $1D, $4D, $41, $4E, $1D, $1D, $53
-#_0CA260: db $22 ; Byte Fill
+#_0CA260: db $22 ; Repeat byte
 #_0CA261: db $08
-#_0CA262: db $01 ; Direct Copy
+#_0CA262: db $01 ; Raw block
 #_0CA263: db $90, $74
-#_0CA265: db $62 ; Increasing Fill
-#_0CA266: db $51 ; Increasing Fill Start
-#_0CA267: db $07 ; Direct Copy
+#_0CA265: db $62 ; Increment fill
+#_0CA266: db $51
+#_0CA267: db $07 ; Raw block
 #_0CA268: db $2B, $2B, $2C, $37, $5B, $5C, $B3, $5D
-#_0CA270: db $22 ; Byte Fill
+#_0CA270: db $22 ; Repeat byte
 #_0CA271: db $FB
-#_0CA272: db $03 ; Direct Copy
+#_0CA272: db $03 ; Raw block
 #_0CA273: db $1B, $9F, $54, $61
-#_0CA277: db $62 ; Increasing Fill
-#_0CA278: db $55 ; Increasing Fill Start
-#_0CA279: db $05 ; Direct Copy
+#_0CA277: db $62 ; Increment fill
+#_0CA278: db $55
+#_0CA279: db $05 ; Raw block
 #_0CA27A: db $40, $5B, $66, $79, $1B, $68
-#_0CA280: db $22 ; Byte Fill
+#_0CA280: db $22 ; Repeat byte
 #_0CA281: db $79
-#_0CA282: db $E0, $92 ; EXT Direct Copy
+#_0CA282: db $E0, $92 ; EXT Raw block
 #_0CA284: db $31, $58, $59, $61, $DD, $3E, $3F, $1D
 #_0CA28C: db $66, $79, $99, $31, $E1, $62, $5A, $E1
 #_0CA294: db $19, $E1, $36, $73, $74, $D5, $2D, $2D
@@ -3848,100 +3848,100 @@ OverworldMap32_Screen75_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen76_High:
-#_0CA318: db $12 ; Direct Copy
+#_0CA318: db $12 ; Raw block
 #_0CA319: db $03, $06, $0F, $03, $03, $01, $0B, $02
 #_0CA321: db $0F, $07, $05, $07, $08, $01, $02, $02
 #_0CA329: db $0E, $03, $07
-#_0CA32C: db $22 ; Byte Fill
+#_0CA32C: db $22 ; Repeat byte
 #_0CA32D: db $01
-#_0CA32E: db $01 ; Direct Copy
+#_0CA32E: db $01 ; Raw block
 #_0CA32F: db $07, $06
-#_0CA331: db $87 ; Repeat Fill
-#_0CA332: db $00, $08 ; Repeat Fill bytes
-#_0CA334: db $01 ; Direct Copy
+#_0CA331: db $87 ; Copy past
+#_0CA332: dw $0800
+#_0CA334: db $01 ; Raw block
 #_0CA335: db $0F, $03
-#_0CA337: db $23 ; Byte Fill
+#_0CA337: db $23 ; Repeat byte
 #_0CA338: db $01
-#_0CA339: db $0E ; Direct Copy
+#_0CA339: db $0E ; Raw block
 #_0CA33A: db $03, $0E, $0F, $07, $05, $09, $02, $01
 #_0CA342: db $02, $02, $1D, $0F, $0F, $01, $01
-#_0CA349: db $22 ; Byte Fill
+#_0CA349: db $22 ; Repeat byte
 #_0CA34A: db $0F
-#_0CA34B: db $14 ; Direct Copy
+#_0CA34B: db $14 ; Raw block
 #_0CA34C: db $05, $0F, $05, $09, $0F, $01, $02, $02
 #_0CA354: db $07, $01, $0F, $06, $06, $0F, $01, $05
 #_0CA35C: db $07, $07, $04, $01, $06
-#_0CA361: db $83 ; Repeat Fill
-#_0CA362: db $00, $3D ; Repeat Fill bytes
-#_0CA364: db $00 ; Direct Copy
+#_0CA361: db $83 ; Copy past
+#_0CA362: dw $3D00
+#_0CA364: db $00 ; Raw block
 #_0CA365: db $09
-#_0CA366: db $24 ; Byte Fill
+#_0CA366: db $24 ; Repeat byte
 #_0CA367: db $05
-#_0CA368: db $22 ; Byte Fill
+#_0CA368: db $22 ; Repeat byte
 #_0CA369: db $07
-#_0CA36A: db $02 ; Direct Copy
+#_0CA36A: db $02 ; Raw block
 #_0CA36B: db $09, $06, $00
-#_0CA36E: db $83 ; Repeat Fill
-#_0CA36F: db $00, $3D ; Repeat Fill bytes
-#_0CA371: db $02 ; Direct Copy
+#_0CA36E: db $83 ; Copy past
+#_0CA36F: dw $3D00
+#_0CA371: db $02 ; Raw block
 #_0CA372: db $07, $05, $07
-#_0CA375: db $24 ; Byte Fill
+#_0CA375: db $24 ; Repeat byte
 #_0CA376: db $05
-#_0CA377: db $06 ; Direct Copy
+#_0CA377: db $06 ; Raw block
 #_0CA378: db $07, $07, $01, $04, $01, $0F, $0F
-#_0CA37F: db $22 ; Byte Fill
+#_0CA37F: db $22 ; Repeat byte
 #_0CA380: db $1D
-#_0CA381: db $0C ; Direct Copy
+#_0CA381: db $0C ; Raw block
 #_0CA382: db $05, $0F, $1D, $11, $09, $0B, $05, $07
 #_0CA38A: db $07, $0F, $1D, $05, $0F
-#_0CA38F: db $26 ; Byte Fill
+#_0CA38F: db $26 ; Repeat byte
 #_0CA390: db $1D
-#_0CA391: db $09 ; Direct Copy
+#_0CA391: db $09 ; Raw block
 #_0CA392: db $1C, $0F, $1C, $1D, $07, $0F, $05, $0F
 #_0CA39A: db $0F, $05
-#_0CA39C: db $28 ; Byte Fill
+#_0CA39C: db $28 ; Repeat byte
 #_0CA39D: db $1D
-#_0CA39E: db $22 ; Byte Fill
+#_0CA39E: db $22 ; Repeat byte
 #_0CA39F: db $0F
-#_0CA3A0: db $02 ; Direct Copy
+#_0CA3A0: db $02 ; Raw block
 #_0CA3A1: db $0B, $0F, $02
-#_0CA3A4: db $2C ; Byte Fill
+#_0CA3A4: db $2C ; Repeat byte
 #_0CA3A5: db $1D
-#_0CA3A6: db $02 ; Direct Copy
+#_0CA3A6: db $02 ; Raw block
 #_0CA3A7: db $07, $0F, $02
-#_0CA3AA: db $2C ; Byte Fill
+#_0CA3AA: db $2C ; Repeat byte
 #_0CA3AB: db $1D
-#_0CA3AC: db $02 ; Direct Copy
+#_0CA3AC: db $02 ; Raw block
 #_0CA3AD: db $07, $0F, $0F
-#_0CA3B0: db $2B ; Byte Fill
+#_0CA3B0: db $2B ; Repeat byte
 #_0CA3B1: db $1D
-#_0CA3B2: db $02 ; Direct Copy
+#_0CA3B2: db $02 ; Raw block
 #_0CA3B3: db $07, $07, $0F
-#_0CA3B6: db $2C ; Byte Fill
+#_0CA3B6: db $2C ; Repeat byte
 #_0CA3B7: db $1D
-#_0CA3B8: db $03 ; Direct Copy
+#_0CA3B8: db $03 ; Raw block
 #_0CA3B9: db $05, $07, $01, $0F
-#_0CA3BD: db $2B ; Byte Fill
+#_0CA3BD: db $2B ; Repeat byte
 #_0CA3BE: db $1D
-#_0CA3BF: db $03 ; Direct Copy
+#_0CA3BF: db $03 ; Raw block
 #_0CA3C0: db $1C, $07, $0F, $0F
-#_0CA3C4: db $2C ; Byte Fill
+#_0CA3C4: db $2C ; Repeat byte
 #_0CA3C5: db $1D
-#_0CA3C6: db $02 ; Direct Copy
+#_0CA3C6: db $02 ; Raw block
 #_0CA3C7: db $0B, $0F, $01
 #_0CA3CA: db $FF ; End of Map 76
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen76_Low:
-#_0CA3CB: db $18 ; Direct Copy
+#_0CA3CB: db $18 ; Raw block
 #_0CA3CC: db $21, $A2, $4C, $20, $20, $0C, $4B, $DC
 #_0CA3D4: db $61, $8E, $E1, $6E, $B7, $77, $82, $82
 #_0CA3DC: db $E5, $52, $6F, $F8, $F8, $17, $0E, $AA
 #_0CA3E4: db $A0
-#_0CA3E5: db $86 ; Repeat Fill
-#_0CA3E6: db $00, $09 ; Repeat Fill bytes
-#_0CA3E8: db $E0, $3B ; EXT Direct Copy
+#_0CA3E5: db $86 ; Copy past
+#_0CA3E6: dw $0900
+#_0CA3E8: db $E0, $3B ; EXT Raw block
 #_0CA3EA: db $A1, $5A, $ED, $02, $02, $03, $9C, $56
 #_0CA3F2: db $A2, $13, $E2, $15, $41, $77, $82, $82
 #_0CA3FA: db $6A, $A4, $A5, $0A, $0A, $A6, $A7, $A2
@@ -3950,206 +3950,206 @@ OverworldMap32_Screen76_Low:
 #_0CA412: db $1F, $32, $FA, $CC, $66, $77, $82, $82
 #_0CA41A: db $14, $F7, $9F, $E1, $E1, $AB, $AC, $18
 #_0CA422: db $36, $6E, $B7, $66
-#_0CA426: db $83 ; Repeat Fill
-#_0CA427: db $00, $3C ; Repeat Fill bytes
-#_0CA429: db $03 ; Direct Copy
+#_0CA426: db $83 ; Copy past
+#_0CA427: dw $3C00
+#_0CA429: db $03 ; Raw block
 #_0CA42A: db $89, $20, $E1, $3E
-#_0CA42E: db $24 ; Byte Fill
+#_0CA42E: db $24 ; Repeat byte
 #_0CA42F: db $E1
-#_0CA430: db $06 ; Direct Copy
+#_0CA430: db $06 ; Raw block
 #_0CA431: db $37, $38, $F0, $C2, $77, $AD, $B1
-#_0CA438: db $62 ; Increasing Fill
-#_0CA439: db $6B ; Increasing Fill Start
-#_0CA43A: db $0C ; Direct Copy
+#_0CA438: db $62 ; Increment fill
+#_0CA439: db $6B
+#_0CA43A: db $0C ; Raw block
 #_0CA43B: db $E1, $70, $6E, $03, $9D, $DF, $AB, $3F
 #_0CA443: db $28, $B3, $6F, $63, $B5
-#_0CA448: db $66 ; Increasing Fill
-#_0CA449: db $70 ; Increasing Fill Start
-#_0CA44A: db $09 ; Direct Copy
+#_0CA448: db $66 ; Increment fill
+#_0CA449: db $70
+#_0CA44A: db $09 ; Raw block
 #_0CA44B: db $49, $60, $49, $77, $30, $B7, $A2, $B8
 #_0CA453: db $B9, $E1
-#_0CA455: db $68 ; Increasing Fill
-#_0CA456: db $78 ; Increasing Fill Start
-#_0CA457: db $05 ; Direct Copy
+#_0CA455: db $68 ; Increment fill
+#_0CA456: db $78
+#_0CA457: db $05 ; Raw block
 #_0CA458: db $9C, $94, $95, $D9, $BC, $82
-#_0CA45E: db $63 ; Increasing Fill
-#_0CA45F: db $81 ; Increasing Fill Start
-#_0CA460: db $02 ; Direct Copy
+#_0CA45E: db $63 ; Increment fill
+#_0CA45F: db $81
+#_0CA460: db $02 ; Raw block
 #_0CA461: db $84, $85, $84
-#_0CA464: db $65 ; Increasing Fill
-#_0CA465: db $86 ; Increasing Fill Start
-#_0CA466: db $02 ; Direct Copy
+#_0CA464: db $65 ; Increment fill
+#_0CA465: db $86
+#_0CA466: db $02 ; Raw block
 #_0CA467: db $4C, $C1, $82
-#_0CA46A: db $66 ; Increasing Fill
-#_0CA46B: db $8C ; Increasing Fill Start
-#_0CA46C: db $01 ; Direct Copy
+#_0CA46A: db $66 ; Increment fill
+#_0CA46B: db $8C
+#_0CA46C: db $01 ; Raw block
 #_0CA46D: db $90, $90
-#_0CA46F: db $63 ; Increasing Fill
-#_0CA470: db $93 ; Increasing Fill Start
-#_0CA471: db $07 ; Direct Copy
+#_0CA46F: db $63 ; Increment fill
+#_0CA470: db $93
+#_0CA471: db $07 ; Raw block
 #_0CA472: db $4C, $C1, $C5, $97, $98, $8E, $99, $92
-#_0CA47A: db $62 ; Increasing Fill
-#_0CA47B: db $9A ; Increasing Fill Start
-#_0CA47C: db $09 ; Direct Copy
+#_0CA47A: db $62 ; Increment fill
+#_0CA47B: db $9A
+#_0CA47C: db $09 ; Raw block
 #_0CA47D: db $92, $93, $9D, $9E, $36, $4C, $C1, $9F
 #_0CA485: db $A0, $8D
-#_0CA487: db $64 ; Increasing Fill
-#_0CA488: db $A1 ; Increasing Fill Start
-#_0CA489: db $00 ; Direct Copy
+#_0CA487: db $64 ; Increment fill
+#_0CA488: db $A1
+#_0CA489: db $00 ; Raw block
 #_0CA48A: db $A2
-#_0CA48B: db $63 ; Increasing Fill
-#_0CA48C: db $A6 ; Increasing Fill Start
-#_0CA48D: db $03 ; Direct Copy
+#_0CA48B: db $63 ; Increment fill
+#_0CA48C: db $A6
+#_0CA48D: db $03 ; Raw block
 #_0CA48E: db $E1, $32, $53, $CD
-#_0CA492: db $6B ; Increasing Fill
-#_0CA493: db $AA ; Increasing Fill Start
-#_0CA494: db $06 ; Direct Copy
+#_0CA492: db $6B ; Increment fill
+#_0CA493: db $AA
+#_0CA494: db $06 ; Raw block
 #_0CA495: db $9E, $37, $D1, $D2, $B6, $B7, $AC
-#_0CA49C: db $62 ; Increasing Fill
-#_0CA49D: db $B8 ; Increasing Fill Start
-#_0CA49E: db $62 ; Increasing Fill
-#_0CA49F: db $BA ; Increasing Fill Start
-#_0CA4A0: db $06 ; Direct Copy
+#_0CA49C: db $62 ; Increment fill
+#_0CA49D: db $B8
+#_0CA49E: db $62 ; Increment fill
+#_0CA49F: db $BA
+#_0CA4A0: db $06 ; Raw block
 #_0CA4A1: db $AC, $94, $BD, $BE, $D9, $BC, $25
 #_0CA4A8: db $FF ; End of Map 76
 
 ;===================================================================================================
 
 OverworldMap32_Screen37_High:
-#_0CA4A9: db $01 ; Direct Copy
+#_0CA4A9: db $01 ; Raw block
 #_0CA4AA: db $01, $01
-#_0CA4AC: db $24 ; Byte Fill
+#_0CA4AC: db $24 ; Repeat byte
 #_0CA4AD: db $0F
-#_0CA4AE: db $03 ; Direct Copy
+#_0CA4AE: db $03 ; Raw block
 #_0CA4AF: db $1D, $0D, $03, $0D
-#_0CA4B3: db $22 ; Byte Fill
+#_0CA4B3: db $22 ; Repeat byte
 #_0CA4B4: db $01
-#_0CA4B5: db $E0, $24 ; EXT Direct Copy
+#_0CA4B5: db $E0, $24 ; EXT Raw block
 #_0CA4B7: db $02, $05, $01, $01, $1B, $0F, $1D, $1D
 #_0CA4BF: db $0F, $1D, $0D, $04, $01, $01, $02, $02
 #_0CA4C7: db $05, $1D, $1D, $01, $1D, $1B, $1D, $1D
 #_0CA4CF: db $1B, $02, $01, $03, $06, $01, $01, $05
 #_0CA4D7: db $1D, $1B, $01, $02, $19
-#_0CA4DC: db $23 ; Byte Fill
+#_0CA4DC: db $23 ; Repeat byte
 #_0CA4DD: db $06
-#_0CA4DE: db $11 ; Direct Copy
+#_0CA4DE: db $11 ; Raw block
 #_0CA4DF: db $1D, $06, $00, $04, $0E, $04, $1D, $1B
 #_0CA4E7: db $02, $05, $1D, $00, $07, $06, $09, $06
 #_0CA4EF: db $01, $08
-#_0CA4F1: db $23 ; Byte Fill
+#_0CA4F1: db $23 ; Repeat byte
 #_0CA4F2: db $1D
-#_0CA4F3: db $0B ; Direct Copy
+#_0CA4F3: db $0B ; Raw block
 #_0CA4F4: db $1B, $02, $05, $0F, $15, $03, $1B, $02
 #_0CA4FC: db $01, $1D, $01, $01
-#_0CA500: db $23 ; Byte Fill
+#_0CA500: db $23 ; Repeat byte
 #_0CA501: db $1D
-#_0CA502: db $0B ; Direct Copy
+#_0CA502: db $0B ; Raw block
 #_0CA503: db $02, $05, $01, $10, $1D, $1D, $02, $1B
 #_0CA50B: db $07, $02, $01, $01
-#_0CA50F: db $23 ; Byte Fill
+#_0CA50F: db $23 ; Repeat byte
 #_0CA510: db $1D
-#_0CA511: db $06 ; Direct Copy
+#_0CA511: db $06 ; Raw block
 #_0CA512: db $05, $01, $01, $10, $03, $1D, $05
-#_0CA519: db $22 ; Byte Fill
+#_0CA519: db $22 ; Repeat byte
 #_0CA51A: db $07
-#_0CA51B: db $00 ; Direct Copy
+#_0CA51B: db $00 ; Raw block
 #_0CA51C: db $06
-#_0CA51D: db $22 ; Byte Fill
+#_0CA51D: db $22 ; Repeat byte
 #_0CA51E: db $1D
-#_0CA51F: db $11 ; Direct Copy
+#_0CA51F: db $11 ; Raw block
 #_0CA520: db $1C, $19, $01, $01, $14, $1D, $03, $06
 #_0CA528: db $09, $07, $05, $07, $07, $1D, $10, $1D
 #_0CA530: db $09, $06
-#_0CA532: db $22 ; Byte Fill
+#_0CA532: db $22 ; Repeat byte
 #_0CA533: db $01
-#_0CA534: db $0D ; Direct Copy
+#_0CA534: db $0D ; Raw block
 #_0CA535: db $1D, $1D, $05, $07, $1D, $0E, $09, $05
 #_0CA53D: db $0F, $06, $1D, $1D, $01, $1C
-#_0CA543: db $22 ; Byte Fill
+#_0CA543: db $22 ; Repeat byte
 #_0CA544: db $01
-#_0CA545: db $22 ; Byte Fill
+#_0CA545: db $22 ; Repeat byte
 #_0CA546: db $07
-#_0CA547: db $08 ; Direct Copy
+#_0CA547: db $08 ; Raw block
 #_0CA548: db $1D, $0F, $0F, $09, $05, $1D, $06, $1D
 #_0CA550: db $1D
-#_0CA551: db $23 ; Byte Fill
+#_0CA551: db $23 ; Repeat byte
 #_0CA552: db $01
-#_0CA553: db $02 ; Direct Copy
+#_0CA553: db $02 ; Raw block
 #_0CA554: db $07, $05, $07
-#_0CA557: db $43 ; Word Fill
-#_0CA558: db $1D, $05 ;  Word Fill
-#_0CA55A: db $00 ; Direct Copy
+#_0CA557: db $43 ; Repeat word
+#_0CA558: dw $051D
+#_0CA55A: db $00 ; Raw block
 #_0CA55B: db $07
-#_0CA55C: db $85 ; Repeat Fill
-#_0CA55D: db $00, $A8 ; Repeat Fill bytes
-#_0CA55F: db $03 ; Direct Copy
+#_0CA55C: db $85 ; Copy past
+#_0CA55D: dw $A800
+#_0CA55F: db $03 ; Raw block
 #_0CA560: db $0F, $01, $07, $07
-#_0CA564: db $22 ; Byte Fill
+#_0CA564: db $22 ; Repeat byte
 #_0CA565: db $06
-#_0CA566: db $06 ; Direct Copy
+#_0CA566: db $06 ; Raw block
 #_0CA567: db $10, $07, $09, $07, $0B, $1D, $16
-#_0CA56E: db $83 ; Repeat Fill
-#_0CA56F: db $00, $56 ; Repeat Fill bytes
-#_0CA571: db $00 ; Direct Copy
+#_0CA56E: db $83 ; Copy past
+#_0CA56F: dw $5600
+#_0CA571: db $00 ; Raw block
 #_0CA572: db $0F
-#_0CA573: db $83 ; Repeat Fill
-#_0CA574: db $00, $C1 ; Repeat Fill bytes
-#_0CA576: db $0B ; Direct Copy
+#_0CA573: db $83 ; Copy past
+#_0CA574: dw $C100
+#_0CA576: db $0B ; Raw block
 #_0CA577: db $1D, $10, $07, $07, $19, $1D, $05, $0C
 #_0CA57F: db $01, $06, $01, $0F
-#_0CA583: db $83 ; Repeat Fill
-#_0CA584: db $00, $D1 ; Repeat Fill bytes
-#_0CA586: db $0C ; Direct Copy
+#_0CA583: db $83 ; Copy past
+#_0CA584: dw $D100
+#_0CA586: db $0C ; Raw block
 #_0CA587: db $1D, $10, $10, $1D, $1D, $05, $1D, $1D
 #_0CA58F: db $1B, $01, $0C, $03, $05
-#_0CA594: db $22 ; Byte Fill
+#_0CA594: db $22 ; Repeat byte
 #_0CA595: db $1D
-#_0CA596: db $02 ; Direct Copy
+#_0CA596: db $02 ; Raw block
 #_0CA597: db $0A, $05, $10
-#_0CA59A: db $22 ; Byte Fill
+#_0CA59A: db $22 ; Repeat byte
 #_0CA59B: db $05
-#_0CA59C: db $83 ; Repeat Fill
-#_0CA59D: db $00, $6B ; Repeat Fill bytes
+#_0CA59C: db $83 ; Copy past
+#_0CA59D: dw $6B00
 #_0CA59F: db $FF ; End of Map 37
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen37_Low:
-#_0CA5A0: db $01 ; Direct Copy
+#_0CA5A0: db $01 ; Raw block
 #_0CA5A1: db $ED, $ED
-#_0CA5A3: db $24 ; Byte Fill
+#_0CA5A3: db $24 ; Repeat byte
 #_0CA5A4: db $43
-#_0CA5A5: db $E0, $2B ; EXT Direct Copy
+#_0CA5A5: db $E0, $2B ; EXT Raw block
 #_0CA5A7: db $BF, $FB, $6C, $FB, $16, $03, $24, $82
 #_0CA5AF: db $60, $ED, $ED, $9D, $43, $C0, $C1, $43
 #_0CA5B7: db $BF, $FB, $84, $22, $23, $75, $82, $60
 #_0CA5BF: db $C2, $C3, $ED, $0D, $19, $C4, $C5, $19
 #_0CA5C7: db $02, $22, $A8, $66, $1E, $2E, $60, $C2
 #_0CA5CF: db $BA, $D6, $86, $A8
-#_0CA5D3: db $23 ; Byte Fill
+#_0CA5D3: db $23 ; Repeat byte
 #_0CA5D4: db $7C
-#_0CA5D5: db $11 ; Direct Copy
+#_0CA5D5: db $11 ; Raw block
 #_0CA5D6: db $C6, $66, $99, $BE, $FD, $8D, $C2, $BA
 #_0CA5DE: db $82, $83, $C7, $1D, $AF, $7C, $25, $83
 #_0CA5E6: db $60, $2D
-#_0CA5E8: db $63 ; Increasing Fill
-#_0CA5E9: db $C8 ; Increasing Fill Start
-#_0CA5EA: db $0B ; Direct Copy
+#_0CA5E8: db $63 ; Increment fill
+#_0CA5E9: db $C8
+#_0CA5EA: db $0B ; Raw block
 #_0CA5EB: db $BA, $82, $DE, $8A, $92, $5D, $9B, $08
 #_0CA5F3: db $F0, $CC, $DB, $75
-#_0CA5F7: db $63 ; Increasing Fill
-#_0CA5F8: db $CD ; Increasing Fill Start
-#_0CA5F9: db $0B ; Direct Copy
+#_0CA5F7: db $63 ; Increment fill
+#_0CA5F8: db $CD
+#_0CA5F9: db $0B ; Raw block
 #_0CA5FA: db $82, $DE, $03, $C3, $D1, $D2, $79, $B3
 #_0CA602: db $28, $FB, $E6, $DB
-#_0CA606: db $63 ; Increasing Fill
-#_0CA607: db $D3 ; Increasing Fill Start
-#_0CA608: db $0A ; Direct Copy
+#_0CA606: db $63 ; Increment fill
+#_0CA607: db $D3
+#_0CA608: db $0A ; Raw block
 #_0CA609: db $DE, $03, $03, $C3, $65, $D7, $99, $79
 #_0CA611: db $30, $79, $16
-#_0CA614: db $62 ; Increasing Fill
-#_0CA615: db $D8 ; Increasing Fill Start
-#_0CA616: db $E0, $3D ; EXT Direct Copy
+#_0CA614: db $62 ; Increment fill
+#_0CA615: db $D8
+#_0CA616: db $E0, $3D ; EXT Raw block
 #_0CA618: db $BF, $D5, $03, $03, $E8, $DB, $6B, $13
 #_0CA620: db $83, $20, $E1, $35, $4C, $DC, $DA, $DD
 #_0CA628: db $D5, $A2, $01, $24, $73, $DE, $DF, $9F
@@ -4158,9 +4158,9 @@ OverworldMap32_Screen37_Low:
 #_0CA640: db $67, $E3, $80, $81, $52, $AB, $E4, $07
 #_0CA648: db $E5, $E6, $69, $49, $73, $D6, $8E, $E1
 #_0CA650: db $6E, $E7, $FB, $E8, $C5, $35
-#_0CA656: db $83 ; Repeat Fill
-#_0CA657: db $00, $A8 ; Repeat Fill bytes
-#_0CA659: db $E0, $35 ; EXT Direct Copy
+#_0CA656: db $83 ; Copy past
+#_0CA657: dw $A800
+#_0CA659: db $E0, $35 ; EXT Raw block
 #_0CA65B: db $E9, $00, $C5, $D6, $8E, $35, $0A, $0B
 #_0CA663: db $01, $E4, $3B, $52, $20, $D9, $EA, $98
 #_0CA66B: db $EB, $17, $01, $EC, $C4, $43, $14, $16
@@ -4168,9 +4168,9 @@ OverworldMap32_Screen37_Low:
 #_0CA67B: db $8E, $03, $1B, $06, $C8, $C9, $54, $14
 #_0CA683: db $16, $EF, $E3, $E4, $F0, $F1, $F4, $F2
 #_0CA68B: db $F3, $D9, $71, $ED, $63, $8A
-#_0CA691: db $62 ; Increasing Fill
-#_0CA692: db $F4 ; Increasing Fill Start
-#_0CA693: db $09 ; Direct Copy
+#_0CA691: db $62 ; Increment fill
+#_0CA692: db $F4
+#_0CA693: db $09 ; Raw block
 #_0CA694: db $04, $FB, $E3, $FA, $FC, $FB, $F7, $F8
 #_0CA69C: db $E9, $71
 #_0CA69E: db $FF ; End of Map 37
@@ -4178,102 +4178,102 @@ OverworldMap32_Screen37_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen78_High:
-#_0CA69F: db $07 ; Direct Copy
+#_0CA69F: db $07 ; Raw block
 #_0CA6A0: db $0D, $03, $10, $03, $1C, $05, $1C, $0F
-#_0CA6A8: db $22 ; Byte Fill
+#_0CA6A8: db $22 ; Repeat byte
 #_0CA6A9: db $1D
-#_0CA6AA: db $08 ; Direct Copy
+#_0CA6AA: db $08 ; Raw block
 #_0CA6AB: db $05, $11, $15, $05, $10, $0B, $03, $0F
 #_0CA6B3: db $0F
-#_0CA6B4: db $22 ; Byte Fill
+#_0CA6B4: db $22 ; Repeat byte
 #_0CA6B5: db $1C
-#_0CA6B6: db $1D ; Direct Copy
+#_0CA6B6: db $1D ; Raw block
 #_0CA6B7: db $11, $05, $07, $1D, $05, $10, $1C, $05
 #_0CA6BF: db $05, $1D, $10, $1D, $1D, $1C, $1C, $1E
 #_0CA6C7: db $1E, $0F, $07, $05, $1D, $11, $11, $05
 #_0CA6CF: db $1C, $03, $06, $1E, $1E, $06
-#_0CA6D5: db $83 ; Repeat Fill
-#_0CA6D6: db $00, $25 ; Repeat Fill bytes
-#_0CA6D8: db $0D ; Direct Copy
+#_0CA6D5: db $83 ; Copy past
+#_0CA6D6: dw $2500
+#_0CA6D8: db $0D ; Raw block
 #_0CA6D9: db $1C, $1C, $0F, $1E, $0F, $05, $05, $03
 #_0CA6E1: db $0F, $1E, $03, $06, $1C, $11
-#_0CA6E7: db $23 ; Byte Fill
+#_0CA6E7: db $23 ; Repeat byte
 #_0CA6E8: db $1E
-#_0CA6E9: db $E0, $20 ; EXT Direct Copy
+#_0CA6E9: db $E0, $20 ; EXT Raw block
 #_0CA6EB: db $05, $1C, $10, $11, $05, $03, $1E, $1E
 #_0CA6F3: db $03, $16, $1E, $05, $15, $1D, $11, $05
 #_0CA6FB: db $05, $1E, $05, $1C, $1C, $1E, $0F, $03
 #_0CA703: db $16, $1E, $1E, $15, $10, $11, $0F, $1E
 #_0CA70B: db $05
-#_0CA70C: db $22 ; Byte Fill
+#_0CA70C: db $22 ; Repeat byte
 #_0CA70D: db $1E
-#_0CA70E: db $0A ; Direct Copy
+#_0CA70E: db $0A ; Raw block
 #_0CA70F: db $05, $03, $1E, $16, $1E, $1C, $1D, $15
 #_0CA717: db $1C, $1E, $05
-#_0CA71A: db $22 ; Byte Fill
+#_0CA71A: db $22 ; Repeat byte
 #_0CA71B: db $1C
-#_0CA71C: db $22 ; Byte Fill
+#_0CA71C: db $22 ; Repeat byte
 #_0CA71D: db $05
-#_0CA71E: db $06 ; Direct Copy
+#_0CA71E: db $06 ; Raw block
 #_0CA71F: db $0F, $1E, $0C, $1E, $05, $05, $15
-#_0CA726: db $44 ; Word Fill
-#_0CA727: db $1E, $1C ;  Word Fill
-#_0CA729: db $0A ; Direct Copy
+#_0CA726: db $44 ; Repeat word
+#_0CA727: dw $1C1E
+#_0CA729: db $0A ; Raw block
 #_0CA72A: db $1E, $05, $1C, $05, $02, $06, $1E, $1E
 #_0CA732: db $10, $1C, $05
-#_0CA735: db $43 ; Word Fill
-#_0CA736: db $1C, $1E ;  Word Fill
-#_0CA738: db $0D ; Direct Copy
+#_0CA735: db $43 ; Repeat word
+#_0CA736: dw $1E1C
+#_0CA738: db $0D ; Raw block
 #_0CA739: db $1E, $1C, $1E, $05, $0F, $02, $06, $1E
 #_0CA741: db $10, $1C, $1C, $10, $1C, $1C
-#_0CA747: db $2D ; Byte Fill
+#_0CA747: db $2D ; Repeat byte
 #_0CA748: db $1E
-#_0CA749: db $01 ; Direct Copy
+#_0CA749: db $01 ; Raw block
 #_0CA74A: db $1C, $1C
-#_0CA74C: db $23 ; Byte Fill
+#_0CA74C: db $23 ; Repeat byte
 #_0CA74D: db $1E
-#_0CA74E: db $04 ; Direct Copy
+#_0CA74E: db $04 ; Raw block
 #_0CA74F: db $05, $1E, $1E, $0F, $0C
-#_0CA754: db $23 ; Byte Fill
+#_0CA754: db $23 ; Repeat byte
 #_0CA755: db $0F
-#_0CA756: db $84 ; Repeat Fill
-#_0CA757: db $00, $9A ; Repeat Fill bytes
-#_0CA759: db $24 ; Byte Fill
+#_0CA756: db $84 ; Copy past
+#_0CA757: dw $9A00
+#_0CA759: db $24 ; Repeat byte
 #_0CA75A: db $1E
-#_0CA75B: db $01 ; Direct Copy
+#_0CA75B: db $01 ; Raw block
 #_0CA75C: db $0F, $01
-#_0CA75E: db $23 ; Byte Fill
+#_0CA75E: db $23 ; Repeat byte
 #_0CA75F: db $00
-#_0CA760: db $00 ; Direct Copy
+#_0CA760: db $00 ; Raw block
 #_0CA761: db $0C
-#_0CA762: db $24 ; Byte Fill
+#_0CA762: db $24 ; Repeat byte
 #_0CA763: db $1E
-#_0CA764: db $23 ; Byte Fill
+#_0CA764: db $23 ; Repeat byte
 #_0CA765: db $0F
-#_0CA766: db $03 ; Direct Copy
+#_0CA766: db $03 ; Raw block
 #_0CA767: db $0D, $0F, $01, $06
-#_0CA76B: db $22 ; Byte Fill
+#_0CA76B: db $22 ; Repeat byte
 #_0CA76C: db $00
-#_0CA76D: db $01 ; Direct Copy
+#_0CA76D: db $01 ; Raw block
 #_0CA76E: db $0C, $1E
-#_0CA770: db $23 ; Byte Fill
+#_0CA770: db $23 ; Repeat byte
 #_0CA771: db $10
-#_0CA772: db $04 ; Direct Copy
+#_0CA772: db $04 ; Raw block
 #_0CA773: db $01, $0A, $1A, $1E, $1E
-#_0CA778: db $25 ; Byte Fill
+#_0CA778: db $25 ; Repeat byte
 #_0CA779: db $10
-#_0CA77A: db $07 ; Direct Copy
+#_0CA77A: db $07 ; Raw block
 #_0CA77B: db $1E, $10, $10, $05, $0B, $0B, $01, $09
 #_0CA783: db $FF ; End of Map 78
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen78_Low:
-#_0CA784: db $07 ; Direct Copy
+#_0CA784: db $07 ; Raw block
 #_0CA785: db $4C, $63, $C3, $63, $28, $A4, $2F, $86
-#_0CA78D: db $62 ; Increasing Fill
-#_0CA78E: db $F9 ; Increasing Fill Start
-#_0CA78F: db $E0, $3B ; EXT Direct Copy
+#_0CA78D: db $62 ; Increment fill
+#_0CA78E: db $F9
+#_0CA78F: db $E0, $3B ; EXT Raw block
 #_0CA791: db $A4, $0A, $7D, $A4, $AD, $56, $65, $DC
 #_0CA799: db $DD, $28, $78, $93, $0A, $E1, $4B, $FC
 #_0CA7A1: db $C9, $CC, $80, $A4, $A4, $FD, $C9, $FE
@@ -4282,17 +4282,17 @@ OverworldMap32_Screen78_Low:
 #_0CA7B9: db $03, $20, $69, $04, $05, $9C, $E7, $49
 #_0CA7C1: db $60, $06, $77, $A4, $A4, $63, $E6, $07
 #_0CA7C9: db $63, $20, $69, $01
-#_0CA7CD: db $63 ; Increasing Fill
-#_0CA7CE: db $08 ; Increasing Fill Start
-#_0CA7CF: db $E0, $20 ; EXT Direct Copy
+#_0CA7CD: db $63 ; Increment fill
+#_0CA7CE: db $08
+#_0CA7CF: db $E0, $20 ; EXT Raw block
 #_0CA7D1: db $A4, $2F, $AD, $0C, $A4, $63, $0C, $0D
 #_0CA7D9: db $65, $90, $0E, $E1, $61, $FC, $07, $A4
 #_0CA7E1: db $BD, $0F, $A4, $27, $32, $10, $EA, $6A
 #_0CA7E9: db $97, $11, $12, $7D, $AD, $03, $77, $13
 #_0CA7F1: db $A4
-#_0CA7F2: db $62 ; Increasing Fill
-#_0CA7F3: db $14 ; Increasing Fill Start
-#_0CA7F4: db $E0, $3D ; EXT Direct Copy
+#_0CA7F2: db $62 ; Increment fill
+#_0CA7F3: db $14
+#_0CA7F4: db $E0, $3D ; EXT Raw block
 #_0CA7F6: db $A4, $65, $17, $97, $11, $A2, $96, $7D
 #_0CA7FE: db $71, $18, $A4, $78, $93, $32, $A4, $A4
 #_0CA806: db $BD, $ED, $19, $91, $1A, $A4, $AA, $61
@@ -4301,216 +4301,216 @@ OverworldMap32_Screen78_Low:
 #_0CA81E: db $3D, $0A, $2F, $1D, $20, $2F, $0F, $A4
 #_0CA826: db $AE, $DC, $20, $1A, $AD, $32, $27, $AD
 #_0CA82E: db $2F, $71, $1D, $1D, $21, $21
-#_0CA834: db $62 ; Increasing Fill
-#_0CA835: db $14 ; Increasing Fill Start
-#_0CA836: db $62 ; Increasing Fill
-#_0CA837: db $22 ; Increasing Fill Start
-#_0CA838: db $23 ; Byte Fill
+#_0CA834: db $62 ; Increment fill
+#_0CA835: db $14
+#_0CA836: db $62 ; Increment fill
+#_0CA837: db $22
+#_0CA838: db $23 ; Repeat byte
 #_0CA839: db $25
-#_0CA83A: db $0B ; Direct Copy
+#_0CA83A: db $0B ; Raw block
 #_0CA83B: db $60, $2F, $1D, $0F, $26, $26, $A4, $14
 #_0CA843: db $15, $83, $E6, $F4
-#_0CA847: db $22 ; Byte Fill
+#_0CA847: db $22 ; Repeat byte
 #_0CA848: db $F5
-#_0CA849: db $10 ; Direct Copy
+#_0CA849: db $10 ; Raw block
 #_0CA84A: db $27, $24, $60, $20, $A4, $28, $29, $25
 #_0CA852: db $2A, $2B, $83, $D5, $9F, $FB, $1D, $9F
 #_0CA85A: db $E6
-#_0CA85B: db $62 ; Increasing Fill
-#_0CA85C: db $2C ; Increasing Fill Start
-#_0CA85D: db $02 ; Direct Copy
+#_0CA85B: db $62 ; Increment fill
+#_0CA85C: db $2C
+#_0CA85D: db $02 ; Raw block
 #_0CA85E: db $2E, $2F, $FB
-#_0CA861: db $22 ; Byte Fill
+#_0CA861: db $22 ; Repeat byte
 #_0CA862: db $FC
-#_0CA863: db $12 ; Direct Copy
+#_0CA863: db $12 ; Raw block
 #_0CA864: db $9E, $7A, $D5, $66, $1C, $1D, $1D, $E6
 #_0CA86C: db $30, $EC, $99, $03, $F6, $EB, $79, $AD
 #_0CA874: db $31, $32, $06
-#_0CA877: db $24 ; Byte Fill
+#_0CA877: db $24 ; Repeat byte
 #_0CA878: db $07
-#_0CA879: db $07 ; Direct Copy
+#_0CA879: db $07 ; Raw block
 #_0CA87A: db $33, $09, $0A, $9D, $4B, $4B, $06, $D5
 #_0CA882: db $FF ; End of Map 78
 
 ;===================================================================================================
 
 OverworldMap32_Screen79_High:
-#_0CA883: db $08 ; Direct Copy
+#_0CA883: db $08 ; Raw block
 #_0CA884: db $1C, $05, $05, $1E, $1E, $1C, $05, $1E
 #_0CA88C: db $05
-#_0CA88D: db $24 ; Byte Fill
+#_0CA88D: db $24 ; Repeat byte
 #_0CA88E: db $1E
-#_0CA88F: db $00 ; Direct Copy
+#_0CA88F: db $00 ; Raw block
 #_0CA890: db $01
-#_0CA891: db $23 ; Byte Fill
+#_0CA891: db $23 ; Repeat byte
 #_0CA892: db $1E
-#_0CA893: db $01 ; Direct Copy
+#_0CA893: db $01 ; Raw block
 #_0CA894: db $1C, $05
-#_0CA896: db $22 ; Byte Fill
+#_0CA896: db $22 ; Repeat byte
 #_0CA897: db $1C
-#_0CA898: db $01 ; Direct Copy
+#_0CA898: db $01 ; Raw block
 #_0CA899: db $05, $1E
-#_0CA89B: db $22 ; Byte Fill
+#_0CA89B: db $22 ; Repeat byte
 #_0CA89C: db $10
-#_0CA89D: db $02 ; Direct Copy
+#_0CA89D: db $02 ; Raw block
 #_0CA89E: db $0D, $01, $01
-#_0CA8A1: db $83 ; Repeat Fill
-#_0CA8A2: db $00, $03 ; Repeat Fill bytes
-#_0CA8A4: db $07 ; Direct Copy
+#_0CA8A1: db $83 ; Copy past
+#_0CA8A2: dw $0300
+#_0CA8A4: db $07 ; Raw block
 #_0CA8A5: db $05, $1E, $05, $1C, $1E, $1E, $10, $1E
-#_0CA8AD: db $23 ; Byte Fill
+#_0CA8AD: db $23 ; Repeat byte
 #_0CA8AE: db $01
-#_0CA8AF: db $23 ; Byte Fill
+#_0CA8AF: db $23 ; Repeat byte
 #_0CA8B0: db $1E
-#_0CA8B1: db $0B ; Direct Copy
+#_0CA8B1: db $0B ; Raw block
 #_0CA8B2: db $05, $05, $1E, $10, $1E, $05, $0D, $01
 #_0CA8BA: db $19, $1E, $1E, $19
-#_0CA8BE: db $22 ; Byte Fill
+#_0CA8BE: db $22 ; Repeat byte
 #_0CA8BF: db $1E
-#_0CA8C0: db $01 ; Direct Copy
+#_0CA8C0: db $01 ; Raw block
 #_0CA8C1: db $1D, $1E
-#_0CA8C3: db $83 ; Repeat Fill
-#_0CA8C4: db $00, $07 ; Repeat Fill bytes
-#_0CA8C6: db $0A ; Direct Copy
+#_0CA8C3: db $83 ; Copy past
+#_0CA8C4: dw $0700
+#_0CA8C6: db $0A ; Raw block
 #_0CA8C7: db $05, $0D, $01, $1D, $04, $1E, $1E, $10
 #_0CA8CF: db $1C, $0F, $05
-#_0CA8D2: db $84 ; Repeat Fill
-#_0CA8D3: db $00, $22 ; Repeat Fill bytes
-#_0CA8D5: db $0B ; Direct Copy
+#_0CA8D2: db $84 ; Copy past
+#_0CA8D3: dw $2200
+#_0CA8D5: db $0B ; Raw block
 #_0CA8D6: db $05, $0D, $01, $1E, $01, $03, $10, $0F
 #_0CA8DE: db $1C, $15, $1C, $0F
-#_0CA8E2: db $84 ; Repeat Fill
-#_0CA8E3: db $00, $55 ; Repeat Fill bytes
-#_0CA8E5: db $08 ; Direct Copy
+#_0CA8E2: db $84 ; Copy past
+#_0CA8E3: dw $5500
+#_0CA8E5: db $08 ; Raw block
 #_0CA8E6: db $10, $11, $19, $1E, $01, $10, $1C, $05
 #_0CA8EE: db $1E
-#_0CA8EF: db $22 ; Byte Fill
+#_0CA8EF: db $22 ; Repeat byte
 #_0CA8F0: db $05
-#_0CA8F1: db $00 ; Direct Copy
+#_0CA8F1: db $00 ; Raw block
 #_0CA8F2: db $1C
-#_0CA8F3: db $85 ; Repeat Fill
-#_0CA8F4: db $00, $54 ; Repeat Fill bytes
-#_0CA8F6: db $09 ; Direct Copy
+#_0CA8F3: db $85 ; Copy past
+#_0CA8F4: dw $5400
+#_0CA8F6: db $09 ; Raw block
 #_0CA8F7: db $19, $10, $01, $05, $05, $1C, $10, $05
 #_0CA8FF: db $1E, $1C
-#_0CA901: db $23 ; Byte Fill
+#_0CA901: db $23 ; Repeat byte
 #_0CA902: db $1E
-#_0CA903: db $22 ; Byte Fill
+#_0CA903: db $22 ; Repeat byte
 #_0CA904: db $05
-#_0CA905: db $03 ; Direct Copy
+#_0CA905: db $03 ; Raw block
 #_0CA906: db $01, $01, $1C, $05
-#_0CA90A: db $22 ; Byte Fill
+#_0CA90A: db $22 ; Repeat byte
 #_0CA90B: db $1E
-#_0CA90C: db $22 ; Byte Fill
+#_0CA90C: db $22 ; Repeat byte
 #_0CA90D: db $1C
-#_0CA90E: db $83 ; Repeat Fill
-#_0CA90F: db $00, $07 ; Repeat Fill bytes
-#_0CA911: db $22 ; Byte Fill
+#_0CA90E: db $83 ; Copy past
+#_0CA90F: dw $0700
+#_0CA911: db $22 ; Repeat byte
 #_0CA912: db $05
-#_0CA913: db $00 ; Direct Copy
+#_0CA913: db $00 ; Raw block
 #_0CA914: db $01
-#_0CA915: db $83 ; Repeat Fill
-#_0CA916: db $00, $24 ; Repeat Fill bytes
-#_0CA918: db $43 ; Word Fill
-#_0CA919: db $1C, $1E ;  Word Fill
-#_0CA91B: db $02 ; Direct Copy
+#_0CA915: db $83 ; Copy past
+#_0CA916: dw $2400
+#_0CA918: db $43 ; Repeat word
+#_0CA919: dw $1E1C
+#_0CA91B: db $02 ; Raw block
 #_0CA91C: db $1E, $1C, $0F
-#_0CA91F: db $84 ; Repeat Fill
-#_0CA920: db $00, $44 ; Repeat Fill bytes
-#_0CA922: db $00 ; Direct Copy
+#_0CA91F: db $84 ; Copy past
+#_0CA920: dw $4400
+#_0CA922: db $00 ; Raw block
 #_0CA923: db $1C
-#_0CA924: db $84 ; Repeat Fill
-#_0CA925: db $00, $25 ; Repeat Fill bytes
-#_0CA927: db $22 ; Byte Fill
+#_0CA924: db $84 ; Copy past
+#_0CA925: dw $2500
+#_0CA927: db $22 ; Repeat byte
 #_0CA928: db $1C
-#_0CA929: db $04 ; Direct Copy
+#_0CA929: db $04 ; Raw block
 #_0CA92A: db $05, $1E, $15, $1E, $05
-#_0CA92F: db $83 ; Repeat Fill
-#_0CA930: db $00, $0D ; Repeat Fill bytes
-#_0CA932: db $84 ; Repeat Fill
-#_0CA933: db $00, $B2 ; Repeat Fill bytes
-#_0CA935: db $83 ; Repeat Fill
-#_0CA936: db $00, $93 ; Repeat Fill bytes
-#_0CA938: db $84 ; Repeat Fill
-#_0CA939: db $00, $47 ; Repeat Fill bytes
-#_0CA93B: db $00 ; Direct Copy
+#_0CA92F: db $83 ; Copy past
+#_0CA930: dw $0D00
+#_0CA932: db $84 ; Copy past
+#_0CA933: dw $B200
+#_0CA935: db $83 ; Copy past
+#_0CA936: dw $9300
+#_0CA938: db $84 ; Copy past
+#_0CA939: dw $4700
+#_0CA93B: db $00 ; Raw block
 #_0CA93C: db $10
-#_0CA93D: db $25 ; Byte Fill
+#_0CA93D: db $25 ; Repeat byte
 #_0CA93E: db $1E
-#_0CA93F: db $22 ; Byte Fill
+#_0CA93F: db $22 ; Repeat byte
 #_0CA940: db $1C
-#_0CA941: db $02 ; Direct Copy
+#_0CA941: db $02 ; Raw block
 #_0CA942: db $1E, $1E, $10
-#_0CA945: db $22 ; Byte Fill
+#_0CA945: db $22 ; Repeat byte
 #_0CA946: db $1E
-#_0CA947: db $01 ; Direct Copy
+#_0CA947: db $01 ; Raw block
 #_0CA948: db $02, $0D
-#_0CA94A: db $23 ; Byte Fill
+#_0CA94A: db $23 ; Repeat byte
 #_0CA94B: db $10
-#_0CA94C: db $23 ; Byte Fill
+#_0CA94C: db $23 ; Repeat byte
 #_0CA94D: db $1E
-#_0CA94E: db $23 ; Byte Fill
+#_0CA94E: db $23 ; Repeat byte
 #_0CA94F: db $10
-#_0CA950: db $03 ; Direct Copy
+#_0CA950: db $03 ; Raw block
 #_0CA951: db $05, $01, $01, $0D
-#_0CA955: db $28 ; Byte Fill
+#_0CA955: db $28 ; Repeat byte
 #_0CA956: db $10
-#_0CA957: db $04 ; Direct Copy
+#_0CA957: db $04 ; Raw block
 #_0CA958: db $01, $1E, $0D, $01, $01
 #_0CA95D: db $FF ; End of Map 79
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen79_Low:
-#_0CA95E: db $0A ; Direct Copy
+#_0CA95E: db $0A ; Raw block
 #_0CA95F: db $32, $A4, $A4, $34, $16, $2B, $A4, $35
 #_0CA967: db $A4, $36, $2E
-#_0CA96A: db $62 ; Increasing Fill
-#_0CA96B: db $37 ; Increasing Fill Start
-#_0CA96C: db $01 ; Direct Copy
+#_0CA96A: db $62 ; Increment fill
+#_0CA96B: db $37
+#_0CA96C: db $01 ; Raw block
 #_0CA96D: db $49, $3A
-#_0CA96F: db $62 ; Increasing Fill
-#_0CA970: db $14 ; Increasing Fill Start
-#_0CA971: db $18 ; Direct Copy
+#_0CA96F: db $62 ; Increment fill
+#_0CA970: db $14
+#_0CA971: db $18 ; Raw block
 #_0CA972: db $2E, $A4, $9A, $2E, $2B, $A4, $3B, $8F
 #_0CA97A: db $10, $09, $E9, $6A, $06, $3C, $3D, $60
 #_0CA982: db $A4, $A4, $3E, $A4, $2E, $36, $3F, $14
 #_0CA98A: db $40
-#_0CA98B: db $23 ; Byte Fill
+#_0CA98B: db $23 ; Repeat byte
 #_0CA98C: db $06
-#_0CA98D: db $63 ; Increasing Fill
-#_0CA98E: db $41 ; Increasing Fill Start
-#_0CA98F: db $0B ; Direct Copy
+#_0CA98D: db $63 ; Increment fill
+#_0CA98E: db $41
+#_0CA98F: db $0B ; Raw block
 #_0CA990: db $A4, $A4, $45, $BA, $3B, $FB, $01, $00
 #_0CA998: db $B6, $46, $47, $B5
-#_0CA99C: db $62 ; Increasing Fill
-#_0CA99D: db $48 ; Increasing Fill Start
-#_0CA99E: db $E0, $21 ; EXT Direct Copy
+#_0CA99C: db $62 ; Increment fill
+#_0CA99D: db $48
+#_0CA99E: db $E0, $21 ; EXT Raw block
 #_0CA9A0: db $F9, $4B, $4C, $A4, $36, $3F, $FB, $01
 #_0CA9A8: db $00, $3A, $E6, $4D, $4E, $BB, $D3, $8D
 #_0CA9B0: db $E1, $37, $A4, $A4, $4F, $FB, $FB, $01
 #_0CA9B8: db $00, $50, $00, $63, $C3, $9C, $49, $61
 #_0CA9C0: db $4A, $77
-#_0CA9C2: db $84 ; Repeat Fill
-#_0CA9C3: db $00, $55 ; Repeat Fill bytes
-#_0CA9C5: db $08 ; Direct Copy
+#_0CA9C2: db $84 ; Copy past
+#_0CA9C3: dw $5500
+#_0CA9C5: db $08 ; Raw block
 #_0CA9C6: db $19, $05, $D5, $51, $FD, $B9, $2E, $A4
 #_0CA9CE: db $1C
-#_0CA9CF: db $22 ; Byte Fill
+#_0CA9CF: db $22 ; Repeat byte
 #_0CA9D0: db $A4
-#_0CA9D1: db $11 ; Direct Copy
+#_0CA9D1: db $11 ; Raw block
 #_0CA9D2: db $23, $95, $FB, $FB, $52, $B1, $A6, $DB
 #_0CA9DA: db $C1, $06, $A4, $A4, $2F, $AD, $A4, $1C
 #_0CA9E2: db $27, $1D
-#_0CA9E4: db $62 ; Increasing Fill
-#_0CA9E5: db $53 ; Increasing Fill Start
-#_0CA9E6: db $10 ; Direct Copy
+#_0CA9E4: db $62 ; Increment fill
+#_0CA9E5: db $53
+#_0CA9E6: db $10 ; Raw block
 #_0CA9E7: db $D0, $B1, $A6, $06, $06, $2B, $A4, $56
 #_0CA9EF: db $34, $16, $32, $2F, $32, $57, $A4, $58
 #_0CA9F7: db $59
-#_0CA9F8: db $83 ; Repeat Fill
-#_0CA9F9: db $00, $8B ; Repeat Fill bytes
-#_0CA9FB: db $E0, $3C ; EXT Direct Copy
+#_0CA9F8: db $83 ; Copy past
+#_0CA9F9: dw $8B00
+#_0CA9FB: db $E0, $3C ; EXT Raw block
 #_0CA9FD: db $A4, $5A, $A4, $32, $93, $5B, $79, $5C
 #_0CAA05: db $5D, $32, $86, $5E, $5F, $D0, $60, $61
 #_0CAA0D: db $93, $62, $A4, $8F, $63, $64, $23, $84
@@ -4519,134 +4519,134 @@ OverworldMap32_Screen79_Low:
 #_0CAA25: db $69, $71, $93, $6B, $6C, $FB, $01, $00
 #_0CAA2D: db $45, $6D, $6E, $25, $6F, $29, $68, $78
 #_0CAA35: db $93, $A4, $70, $38, $EC
-#_0CAA3A: db $62 ; Increasing Fill
-#_0CAA3B: db $71 ; Increasing Fill Start
-#_0CAA3C: db $02 ; Direct Copy
+#_0CAA3A: db $62 ; Increment fill
+#_0CAA3B: db $71
+#_0CAA3C: db $02 ; Raw block
 #_0CAA3D: db $D1, $52, $F5
-#_0CAA40: db $22 ; Byte Fill
+#_0CAA40: db $22 ; Repeat byte
 #_0CAA41: db $EC
-#_0CAA42: db $0C ; Direct Copy
+#_0CAA42: db $0C ; Raw block
 #_0CAA43: db $74, $75, $75, $38, $53, $54, $09, $0A
 #_0CAA4B: db $9D, $06, $06, $9E, $56
-#_0CAA50: db $26 ; Byte Fill
+#_0CAA50: db $26 ; Repeat byte
 #_0CAA51: db $09
-#_0CAA52: db $05 ; Direct Copy
+#_0CAA52: db $05 ; Raw block
 #_0CAA53: db $57, $06, $76, $4C, $06, $06
 #_0CAA59: db $FF ; End of Map 79
 
 ;===================================================================================================
 
 OverworldMap32_Screen7A_High:
-#_0CAA5A: db $02 ; Direct Copy
+#_0CAA5A: db $02 ; Raw block
 #_0CAA5B: db $01, $01, $03
-#_0CAA5E: db $29 ; Byte Fill
+#_0CAA5E: db $29 ; Repeat byte
 #_0CAA5F: db $01
-#_0CAA60: db $0C ; Direct Copy
+#_0CAA60: db $0C ; Raw block
 #_0CAA61: db $05, $1E, $06, $01, $03, $03, $01, $01
 #_0CAA69: db $10, $10, $1E, $1E, $10
-#_0CAA6E: db $22 ; Byte Fill
+#_0CAA6E: db $22 ; Repeat byte
 #_0CAA6F: db $01
-#_0CAA70: db $04 ; Direct Copy
+#_0CAA70: db $04 ; Raw block
 #_0CAA71: db $05, $05, $01, $01, $02
-#_0CAA76: db $22 ; Byte Fill
+#_0CAA76: db $22 ; Repeat byte
 #_0CAA77: db $1E
-#_0CAA78: db $0E ; Direct Copy
+#_0CAA78: db $0E ; Raw block
 #_0CAA79: db $01, $10, $19, $10, $02, $10, $01, $01
 #_0CAA81: db $10, $0E, $0E, $01, $02, $10, $01
-#_0CAA88: db $43 ; Word Fill
-#_0CAA89: db $10, $0B ;  Word Fill
-#_0CAA8B: db $13 ; Direct Copy
+#_0CAA88: db $43 ; Repeat word
+#_0CAA89: dw $0B10
+#_0CAA8B: db $13 ; Raw block
 #_0CAA8C: db $0F, $01, $06, $00, $04, $01, $01, $06
 #_0CAA94: db $0F, $05, $1E, $0E, $1E, $10, $10, $06
 #_0CAA9C: db $0F, $10, $00, $02
-#_0CAAA0: db $23 ; Byte Fill
+#_0CAAA0: db $23 ; Repeat byte
 #_0CAAA1: db $01
-#_0CAAA2: db $0B ; Direct Copy
+#_0CAAA2: db $0B ; Raw block
 #_0CAAA3: db $07, $01, $02, $1E, $0B, $03, $10, $01
 #_0CAAAB: db $10, $02, $02, $10
-#_0CAAAF: db $22 ; Byte Fill
+#_0CAAAF: db $22 ; Repeat byte
 #_0CAAB0: db $01
-#_0CAAB1: db $0C ; Direct Copy
+#_0CAAB1: db $0C ; Raw block
 #_0CAAB2: db $0C, $1E, $02, $00, $1E, $0B, $06, $03
 #_0CAABA: db $01, $10, $02, $10, $00
-#_0CAABF: db $23 ; Byte Fill
+#_0CAABF: db $23 ; Repeat byte
 #_0CAAC0: db $03
-#_0CAAC1: db $0B ; Direct Copy
+#_0CAAC1: db $0B ; Raw block
 #_0CAAC2: db $01, $1E, $00, $1E, $0B, $02, $10, $10
 #_0CAACA: db $00, $10, $0F, $04
-#_0CAACE: db $22 ; Byte Fill
+#_0CAACE: db $22 ; Repeat byte
 #_0CAACF: db $03
-#_0CAAD0: db $01 ; Direct Copy
+#_0CAAD0: db $01 ; Raw block
 #_0CAAD1: db $01, $01
-#_0CAAD3: db $22 ; Byte Fill
+#_0CAAD3: db $22 ; Repeat byte
 #_0CAAD4: db $1E
-#_0CAAD5: db $02 ; Direct Copy
+#_0CAAD5: db $02 ; Raw block
 #_0CAAD6: db $19, $03, $0F
-#_0CAAD9: db $22 ; Byte Fill
+#_0CAAD9: db $22 ; Repeat byte
 #_0CAADA: db $10
-#_0CAADB: db $0E ; Direct Copy
+#_0CAADB: db $0E ; Raw block
 #_0CAADC: db $0F, $10, $10, $09, $03, $01, $01, $00
 #_0CAAE4: db $00, $1E, $01, $02, $0F, $06, $00
-#_0CAAEB: db $83 ; Repeat Fill
-#_0CAAEC: db $00, $89 ; Repeat Fill bytes
-#_0CAAEE: db $0A ; Direct Copy
+#_0CAAEB: db $83 ; Copy past
+#_0CAAEC: dw $8900
+#_0CAAEE: db $0A ; Raw block
 #_0CAAEF: db $02, $05, $02, $01, $02, $1E, $19, $01
 #_0CAAF7: db $02, $0F, $00
-#_0CAAFA: db $83 ; Repeat Fill
-#_0CAAFB: db $00, $78 ; Repeat Fill bytes
-#_0CAAFD: db $0F ; Direct Copy
+#_0CAAFA: db $83 ; Copy past
+#_0CAAFB: dw $7800
+#_0CAAFD: db $0F ; Raw block
 #_0CAAFE: db $09, $10, $10, $0A, $01, $00, $19, $01
 #_0CAB06: db $1C, $1E, $10, $0B, $01, $10, $0F, $10
-#_0CAB0E: db $43 ; Word Fill
-#_0CAB0F: db $01, $06 ;  Word Fill
-#_0CAB11: db $00 ; Direct Copy
+#_0CAB0E: db $43 ; Repeat word
+#_0CAB0F: dw $0601
+#_0CAB11: db $00 ; Raw block
 #_0CAB12: db $10
-#_0CAB13: db $43 ; Word Fill
-#_0CAB14: db $1C, $01 ;  Word Fill
-#_0CAB16: db $07 ; Direct Copy
+#_0CAB13: db $43 ; Repeat word
+#_0CAB14: dw $011C
+#_0CAB16: db $07 ; Raw block
 #_0CAB17: db $10, $02, $0F, $05, $10, $10, $03, $10
-#_0CAB1F: db $22 ; Byte Fill
+#_0CAB1F: db $22 ; Repeat byte
 #_0CAB20: db $01
-#_0CAB21: db $06 ; Direct Copy
+#_0CAB21: db $06 ; Raw block
 #_0CAB22: db $0E, $10, $1E, $01, $05, $01, $0E
-#_0CAB29: db $22 ; Byte Fill
+#_0CAB29: db $22 ; Repeat byte
 #_0CAB2A: db $01
-#_0CAB2B: db $01 ; Direct Copy
+#_0CAB2B: db $01 ; Raw block
 #_0CAB2C: db $0D, $0E
-#_0CAB2E: db $83 ; Repeat Fill
-#_0CAB2F: db $00, $CB ; Repeat Fill bytes
-#_0CAB31: db $0A ; Direct Copy
+#_0CAB2E: db $83 ; Copy past
+#_0CAB2F: dw $CB00
+#_0CAB31: db $0A ; Raw block
 #_0CAB32: db $0D, $03, $1B, $05, $01, $0B, $01, $06
 #_0CAB3A: db $06, $01, $0D
-#_0CAB3D: db $83 ; Repeat Fill
-#_0CAB3E: db $00, $DA ; Repeat Fill bytes
-#_0CAB40: db $00 ; Direct Copy
+#_0CAB3D: db $83 ; Copy past
+#_0CAB3E: dw $DA00
+#_0CAB40: db $00 ; Raw block
 #_0CAB41: db $10
-#_0CAB42: db $24 ; Byte Fill
+#_0CAB42: db $24 ; Repeat byte
 #_0CAB43: db $01
-#_0CAB44: db $07 ; Direct Copy
+#_0CAB44: db $07 ; Raw block
 #_0CAB45: db $0E, $06, $01, $0D, $06, $0C, $01, $1E
-#_0CAB4D: db $22 ; Byte Fill
+#_0CAB4D: db $22 ; Repeat byte
 #_0CAB4E: db $03
 #_0CAB4F: db $FF ; End of Map 7A
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen7A_Low:
-#_0CAB50: db $02 ; Direct Copy
+#_0CAB50: db $02 ; Raw block
 #_0CAB51: db $06, $06, $6A
-#_0CAB54: db $29 ; Byte Fill
+#_0CAB54: db $29 ; Repeat byte
 #_0CAB55: db $0A
-#_0CAB56: db $0C ; Direct Copy
+#_0CAB56: db $0C ; Raw block
 #_0CAB57: db $A6, $77, $A3, $06, $6A, $6B, $15, $15
 #_0CAB5F: db $5F, $60, $78, $79, $5E
-#_0CAB64: db $22 ; Byte Fill
+#_0CAB64: db $22 ; Repeat byte
 #_0CAB65: db $15
-#_0CAB66: db $04 ; Direct Copy
+#_0CAB66: db $04 ; Raw block
 #_0CAB67: db $B1, $A6, $06, $06, $DC
-#_0CAB6C: db $62 ; Increasing Fill
-#_0CAB6D: db $7A ; Increasing Fill Start
-#_0CAB6E: db $E0, $46 ; EXT Direct Copy
+#_0CAB6C: db $62 ; Increment fill
+#_0CAB6D: db $7A
+#_0CAB6E: db $E0, $46 ; EXT Raw block
 #_0CAB70: db $23, $67, $E4, $63, $02, $69, $22, $22
 #_0CAB78: db $6B, $EE, $40, $06, $DC, $C3, $06, $6D
 #_0CAB80: db $F9, $6E, $4B, $83, $1E, $66, $1D, $BB
@@ -4656,9 +4656,9 @@ OverworldMap32_Screen7A_Low:
 #_0CABA0: db $E2, $77, $0A, $78, $8A, $8A, $79, $52
 #_0CABA8: db $53, $6A, $ED, $80, $7A, $1D, $81, $33
 #_0CABB0: db $66, $56, $22, $7D, $F8, $7E, $1D
-#_0CABB7: db $62 ; Increasing Fill
-#_0CABB8: db $50 ; Increasing Fill Start
-#_0CABB9: db $E0, $80 ; EXT Direct Copy
+#_0CABB7: db $62 ; Increment fill
+#_0CABB8: db $50
+#_0CABB9: db $E0, $80 ; EXT Raw block
 #_0CABBB: db $20, $E3, $82, $1D, $81, $33, $F8, $7E
 #_0CABC3: db $80, $1D, $6E, $83, $C1, $56, $57, $5A
 #_0CABCB: db $F8, $E3, $83, $83, $81, $B3, $02, $83
@@ -4676,9 +4676,9 @@ OverworldMap32_Screen7A_Low:
 #_0CAC2B: db $15, $97, $4A, $CB, $9D, $06, $4B, $06
 #_0CAC33: db $A2, $A3, $06, $A2, $97, $3C, $8D, $9E
 #_0CAC3B: db $9F
-#_0CAC3C: db $24 ; Byte Fill
+#_0CAC3C: db $24 ; Repeat byte
 #_0CAC3D: db $06
-#_0CAC3E: db $0A ; Direct Copy
+#_0CAC3E: db $0A ; Raw block
 #_0CAC3F: db $3F, $A2, $06, $A2, $A2, $ED, $06, $87
 #_0CAC47: db $4A, $4B, $4B
 #_0CAC4A: db $FF ; End of Map 7A
@@ -4686,76 +4686,76 @@ OverworldMap32_Screen7A_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen3B_High:
-#_0CAC4B: db $06 ; Direct Copy
+#_0CAC4B: db $06 ; Raw block
 #_0CAC4C: db $06, $01, $1E, $03, $01, $06, $07
-#_0CAC53: db $24 ; Byte Fill
+#_0CAC53: db $24 ; Repeat byte
 #_0CAC54: db $06
-#_0CAC55: db $0A ; Direct Copy
+#_0CAC55: db $0A ; Raw block
 #_0CAC56: db $07, $06, $1E, $1D, $0C, $06, $0F, $07
 #_0CAC5E: db $1E, $04, $09
-#_0CAC61: db $24 ; Byte Fill
+#_0CAC61: db $24 ; Repeat byte
 #_0CAC62: db $06
-#_0CAC63: db $0B ; Direct Copy
+#_0CAC63: db $0B ; Raw block
 #_0CAC64: db $18, $06, $1E, $1E, $06, $0F, $07, $01
 #_0CAC6C: db $02, $1E, $1E, $07
-#_0CAC70: db $23 ; Byte Fill
+#_0CAC70: db $23 ; Repeat byte
 #_0CAC71: db $06
-#_0CAC72: db $1B ; Direct Copy
+#_0CAC72: db $1B ; Raw block
 #_0CAC73: db $00, $00, $09, $06, $01, $03, $1E, $02
 #_0CAC7B: db $00, $1E, $0B, $00, $19, $06, $06, $1E
 #_0CAC83: db $05, $00, $07, $07, $0B, $03, $01, $06
 #_0CAC8B: db $1E, $19, $0B, $00
-#_0CAC8F: db $26 ; Byte Fill
+#_0CAC8F: db $26 ; Repeat byte
 #_0CAC90: db $1E
-#_0CAC91: db $0A ; Direct Copy
+#_0CAC91: db $0A ; Raw block
 #_0CAC92: db $06, $06, $1E, $01, $00, $09, $02, $09
 #_0CAC9A: db $1E, $1E, $05
-#_0CAC9D: db $23 ; Byte Fill
+#_0CAC9D: db $23 ; Repeat byte
 #_0CAC9E: db $1E
-#_0CAC9F: db $0B ; Direct Copy
+#_0CAC9F: db $0B ; Raw block
 #_0CACA0: db $1D, $06, $03, $07, $1E, $00, $06, $19
 #_0CACA8: db $01, $1E, $1E, $11
-#_0CACAC: db $23 ; Byte Fill
+#_0CACAC: db $23 ; Repeat byte
 #_0CACAD: db $1E
-#_0CACAE: db $06 ; Direct Copy
+#_0CACAE: db $06 ; Raw block
 #_0CACAF: db $1D, $06, $0F, $01, $02, $09, $1E
-#_0CACB6: db $83 ; Repeat Fill
-#_0CACB7: db $00, $46 ; Repeat Fill bytes
-#_0CACB9: db $01 ; Direct Copy
+#_0CACB6: db $83 ; Copy past
+#_0CACB7: dw $4600
+#_0CACB9: db $01 ; Raw block
 #_0CACBA: db $1C, $05
-#_0CACBC: db $23 ; Byte Fill
+#_0CACBC: db $23 ; Repeat byte
 #_0CACBD: db $1E
-#_0CACBE: db $08 ; Direct Copy
+#_0CACBE: db $08 ; Raw block
 #_0CACBF: db $19, $1B, $02, $02, $07, $06, $00, $07
 #_0CACC7: db $06
-#_0CACC8: db $26 ; Byte Fill
+#_0CACC8: db $26 ; Repeat byte
 #_0CACC9: db $1E
-#_0CACCA: db $06 ; Direct Copy
+#_0CACCA: db $06 ; Raw block
 #_0CACCB: db $19, $02, $0E, $03, $06, $06, $07
-#_0CACD2: db $22 ; Byte Fill
+#_0CACD2: db $22 ; Repeat byte
 #_0CACD3: db $06
-#_0CACD4: db $24 ; Byte Fill
+#_0CACD4: db $24 ; Repeat byte
 #_0CACD5: db $1E
-#_0CACD6: db $07 ; Direct Copy
+#_0CACD6: db $07 ; Raw block
 #_0CACD7: db $1D, $06, $01, $0E, $03, $00, $02, $19
-#_0CACDF: db $23 ; Byte Fill
+#_0CACDF: db $23 ; Repeat byte
 #_0CACE0: db $06
-#_0CACE1: db $E0, $2F ; EXT Direct Copy
+#_0CACE1: db $E0, $2F ; EXT Raw block
 #_0CACE3: db $1D, $06, $00, $1E, $06, $06, $19, $1E
 #_0CACEB: db $03, $00, $00, $06, $19, $07, $06, $06
 #_0CACF3: db $0E, $06, $00, $0E, $06, $06, $0F, $03
 #_0CACFB: db $03, $00, $00, $1E, $00, $00, $07, $1E
 #_0CAD03: db $1E, $03, $03, $07, $19, $06, $0D, $04
 #_0CAD0B: db $03, $06, $00, $0C, $03, $03, $07, $0D
-#_0CAD13: db $24 ; Byte Fill
+#_0CAD13: db $24 ; Repeat byte
 #_0CAD14: db $03
-#_0CAD15: db $10 ; Direct Copy
+#_0CAD15: db $10 ; Raw block
 #_0CAD16: db $07, $10, $1E, $0C, $03, $03, $01, $0C
 #_0CAD1E: db $03, $1C, $0F, $16, $1B, $1E, $0E, $07
 #_0CAD26: db $02
-#_0CAD27: db $24 ; Byte Fill
+#_0CAD27: db $24 ; Repeat byte
 #_0CAD28: db $03
-#_0CAD29: db $0A ; Direct Copy
+#_0CAD29: db $0A ; Raw block
 #_0CAD2A: db $0D, $01, $16, $1E, $1E, $01, $02, $1B
 #_0CAD32: db $1E, $01, $01
 #_0CAD35: db $FF ; End of Map 3B
@@ -4763,57 +4763,57 @@ OverworldMap32_Screen3B_High:
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen3B_Low:
-#_0CAD36: db $06 ; Direct Copy
+#_0CAD36: db $06 ; Raw block
 #_0CAD37: db $A2, $06, $88, $63, $E3, $90, $65
-#_0CAD3E: db $23 ; Byte Fill
+#_0CAD3E: db $23 ; Repeat byte
 #_0CAD3F: db $7C
-#_0CAD40: db $0B ; Direct Copy
+#_0CAD40: db $0B ; Raw block
 #_0CAD41: db $CD, $34, $7C, $89, $4D, $ED, $A3, $4C
 #_0CAD49: db $6F, $8A, $2C, $1C
-#_0CAD4D: db $24 ; Byte Fill
+#_0CAD4D: db $24 ; Repeat byte
 #_0CAD4E: db $7C
-#_0CAD4F: db $0B ; Direct Copy
+#_0CAD4F: db $0B ; Raw block
 #_0CAD50: db $0B, $66, $8B, $8C, $A2, $4C, $6F, $ED
 #_0CAD58: db $7A, $8D, $8E, $65
-#_0CAD5C: db $23 ; Byte Fill
+#_0CAD5C: db $23 ; Repeat byte
 #_0CAD5D: db $7C
-#_0CAD5E: db $1B ; Direct Copy
+#_0CAD5E: db $1B ; Raw block
 #_0CAD5F: db $9F, $1D, $1C, $7C, $06, $63, $8F, $7A
 #_0CAD67: db $1D, $90, $33, $9F, $A8, $7C, $7C, $91
 #_0CAD6F: db $CB, $1C, $34, $65, $56, $63, $E3, $66
 #_0CAD77: db $92, $BC, $33, $1D
-#_0CAD7B: db $66 ; Increasing Fill
-#_0CAD7C: db $93 ; Increasing Fill Start
-#_0CAD7D: db $0A ; Direct Copy
+#_0CAD7B: db $66 ; Increment fill
+#_0CAD7C: db $93
+#_0CAD7D: db $0A ; Raw block
 #_0CAD7E: db $74, $A2, $9A, $E3, $A9, $C1, $59, $DD
 #_0CAD86: db $9B, $9C, $BD
-#_0CAD89: db $63 ; Increasing Fill
-#_0CAD8A: db $9D ; Increasing Fill Start
-#_0CAD8B: db $0B ; Direct Copy
+#_0CAD89: db $63 ; Increment fill
+#_0CAD8A: db $9D
+#_0CAD8B: db $0B ; Raw block
 #_0CAD8C: db $3E, $7C, $20, $6F, $8A, $1D, $3E, $93
 #_0CAD94: db $4B, $A1, $A2, $01
-#_0CAD98: db $63 ; Increasing Fill
-#_0CAD99: db $A3 ; Increasing Fill Start
-#_0CAD9A: db $0C ; Direct Copy
+#_0CAD98: db $63 ; Increment fill
+#_0CAD99: db $A3
+#_0CAD9A: db $0C ; Raw block
 #_0CAD9B: db $2F, $7C, $43, $ED, $7A, $16, $A7, $F9
 #_0CADA3: db $1D, $A8, $A9, $6B, $E1
-#_0CADA8: db $63 ; Increasing Fill
-#_0CADA9: db $AA ; Increasing Fill Start
-#_0CADAA: db $08 ; Direct Copy
+#_0CADA8: db $63 ; Increment fill
+#_0CADA9: db $AA
+#_0CADAA: db $08 ; Raw block
 #_0CADAB: db $88, $19, $7A, $DE, $39, $7C, $B2, $39
 #_0CADB3: db $CD
-#_0CADB4: db $66 ; Increasing Fill
-#_0CADB5: db $AE ; Increasing Fill Start
-#_0CADB6: db $09 ; Direct Copy
+#_0CADB4: db $66 ; Increment fill
+#_0CADB5: db $AE
+#_0CADB6: db $09 ; Raw block
 #_0CADB7: db $8B, $4C, $33, $86, $90, $83, $2C, $7C
 #_0CADBF: db $7C, $ED
-#_0CADC1: db $64 ; Increasing Fill
-#_0CADC2: db $B5 ; Increasing Fill Start
-#_0CADC3: db $07 ; Direct Copy
+#_0CADC1: db $64 ; Increment fill
+#_0CADC2: db $B5
+#_0CADC3: db $07 ; Raw block
 #_0CADC4: db $3D, $7C, $EB, $3C, $8D, $1D, $8A, $8B
-#_0CADCC: db $23 ; Byte Fill
+#_0CADCC: db $23 ; Repeat byte
 #_0CADCD: db $7C
-#_0CADCE: db $E0, $45 ; EXT Direct Copy
+#_0CADCE: db $E0, $45 ; EXT Raw block
 #_0CADD0: db $2B, $89, $1D, $BA, $7C, $7C, $D4, $BB
 #_0CADD8: db $95, $A5, $1D, $7C, $A3, $65, $7C, $7C
 #_0CADE0: db $12, $91, $1D, $12, $7C, $7C, $3F, $6B
@@ -4823,9 +4823,9 @@ OverworldMap32_Screen3B_Low:
 #_0CAE00: db $4B, $4B, $8C, $8D, $86, $65, $9F, $BF
 #_0CAE08: db $E4, $44, $44, $48, $E8, $4B, $AF, $2B
 #_0CAE10: db $E3, $C6, $C0, $3C, $CF, $4C
-#_0CAE16: db $24 ; Byte Fill
+#_0CAE16: db $24 ; Repeat byte
 #_0CAE17: db $4B
-#_0CAE18: db $0A ; Direct Copy
+#_0CAE18: db $0A ; Raw block
 #_0CAE19: db $E9, $63, $E3, $C1, $C2, $49, $D1, $C9
 #_0CAE21: db $C0, $EB, $EB
 #_0CAE24: db $FF ; End of Map 3B
@@ -4833,88 +4833,88 @@ OverworldMap32_Screen3B_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen3C_High:
-#_0CAE25: db $01 ; Direct Copy
+#_0CAE25: db $01 ; Raw block
 #_0CAE26: db $1D, $1D
-#_0CAE28: db $2A ; Byte Fill
+#_0CAE28: db $2A ; Repeat byte
 #_0CAE29: db $06
-#_0CAE2A: db $07 ; Direct Copy
+#_0CAE2A: db $07 ; Raw block
 #_0CAE2B: db $1D, $10, $0D, $1E, $1E, $06, $1D, $1E
-#_0CAE33: db $43 ; Word Fill
-#_0CAE34: db $06, $1D ;  Word Fill
-#_0CAE36: db $23 ; Byte Fill
+#_0CAE33: db $43 ; Repeat word
+#_0CAE34: dw $1D06
+#_0CAE36: db $23 ; Repeat byte
 #_0CAE37: db $06
-#_0CAE38: db $02 ; Direct Copy
+#_0CAE38: db $02 ; Raw block
 #_0CAE39: db $1E, $05, $0B
-#_0CAE3C: db $22 ; Byte Fill
+#_0CAE3C: db $22 ; Repeat byte
 #_0CAE3D: db $06
-#_0CAE3E: db $11 ; Direct Copy
+#_0CAE3E: db $11 ; Raw block
 #_0CAE3F: db $1E, $05, $06, $0E, $0D, $0E, $06, $04
 #_0CAE47: db $1E, $1B, $10, $0D, $01, $06, $1E, $04
 #_0CAE4F: db $00, $1D
-#_0CAE51: db $22 ; Byte Fill
+#_0CAE51: db $22 ; Repeat byte
 #_0CAE52: db $1E
-#_0CAE53: db $15 ; Direct Copy
+#_0CAE53: db $15 ; Raw block
 #_0CAE54: db $00, $04, $02, $19, $1E, $01, $0B, $01
 #_0CAE5C: db $1E, $04, $1C, $07, $1E, $1D, $1D, $1E
 #_0CAE64: db $04, $1E, $0A, $0A, $1E, $01
-#_0CAE6A: db $22 ; Byte Fill
+#_0CAE6A: db $22 ; Repeat byte
 #_0CAE6B: db $06
-#_0CAE6C: db $1D ; Direct Copy
+#_0CAE6C: db $1D ; Raw block
 #_0CAE6D: db $1E, $06, $06, $1E, $1D, $1E, $09, $1E
 #_0CAE75: db $0C, $0A, $16, $1E, $03, $05, $01, $06
 #_0CAE7D: db $06, $1E, $1E, $09, $06, $04, $03, $06
 #_0CAE85: db $0A, $18, $18, $05, $1C, $0E
-#_0CAE8B: db $84 ; Repeat Fill
-#_0CAE8C: db $00, $5F ; Repeat Fill bytes
-#_0CAE8E: db $0B ; Direct Copy
+#_0CAE8B: db $84 ; Copy past
+#_0CAE8C: dw $5F00
+#_0CAE8E: db $0B ; Raw block
 #_0CAE8F: db $06, $1E, $01, $03, $06, $0A, $1E, $16
 #_0CAE97: db $18, $05, $01, $0B
-#_0CAE9B: db $22 ; Byte Fill
+#_0CAE9B: db $22 ; Repeat byte
 #_0CAE9C: db $06
-#_0CAE9D: db $11 ; Direct Copy
+#_0CAE9D: db $11 ; Raw block
 #_0CAE9E: db $04, $04, $1E, $15, $04, $1E, $05, $0A
 #_0CAEA6: db $1E, $0A, $05, $06, $03, $06, $19, $1E
 #_0CAEAE: db $04, $04
-#_0CAEB0: db $22 ; Byte Fill
+#_0CAEB0: db $22 ; Repeat byte
 #_0CAEB1: db $1E
-#_0CAEB2: db $00 ; Direct Copy
+#_0CAEB2: db $00 ; Raw block
 #_0CAEB3: db $05
-#_0CAEB4: db $22 ; Byte Fill
+#_0CAEB4: db $22 ; Repeat byte
 #_0CAEB5: db $11
-#_0CAEB6: db $06 ; Direct Copy
+#_0CAEB6: db $06 ; Raw block
 #_0CAEB7: db $05, $05, $1E, $10, $1D, $07, $02
-#_0CAEBE: db $24 ; Byte Fill
+#_0CAEBE: db $24 ; Repeat byte
 #_0CAEBF: db $1E
-#_0CAEC0: db $01 ; Direct Copy
+#_0CAEC0: db $01 ; Raw block
 #_0CAEC1: db $0C, $18
-#_0CAEC3: db $22 ; Byte Fill
+#_0CAEC3: db $22 ; Repeat byte
 #_0CAEC4: db $11
-#_0CAEC5: db $04 ; Direct Copy
+#_0CAEC5: db $04 ; Raw block
 #_0CAEC6: db $1E, $1E, $0C, $06, $00
-#_0CAECB: db $25 ; Byte Fill
+#_0CAECB: db $25 ; Repeat byte
 #_0CAECC: db $1E
-#_0CAECD: db $1F ; Direct Copy
+#_0CAECD: db $1F ; Raw block
 #_0CAECE: db $0A, $05, $05, $16, $06, $05, $1E, $10
 #_0CAED6: db $06, $06, $1E, $0F, $05, $1E, $05, $05
 #_0CAEDE: db $1E, $0A, $1E, $1E, $0A, $1E, $05, $05
 #_0CAEE6: db $06, $09, $07, $1E, $0F, $0A, $0A, $1B
-#_0CAEEE: db $22 ; Byte Fill
+#_0CAEEE: db $22 ; Repeat byte
 #_0CAEEF: db $10
-#_0CAEF0: db $06 ; Direct Copy
+#_0CAEF0: db $06 ; Raw block
 #_0CAEF1: db $1E, $05, $0A, $05, $06, $02, $02
-#_0CAEF8: db $22 ; Byte Fill
+#_0CAEF8: db $22 ; Repeat byte
 #_0CAEF9: db $1E
-#_0CAEFA: db $25 ; Byte Fill
+#_0CAEFA: db $25 ; Repeat byte
 #_0CAEFB: db $10
-#_0CAEFC: db $00 ; Direct Copy
+#_0CAEFC: db $00 ; Raw block
 #_0CAEFD: db $1E
-#_0CAEFE: db $23 ; Byte Fill
+#_0CAEFE: db $23 ; Repeat byte
 #_0CAEFF: db $0F
-#_0CAF00: db $02 ; Direct Copy
+#_0CAF00: db $02 ; Raw block
 #_0CAF01: db $1A, $1A, $01
-#_0CAF04: db $83 ; Repeat Fill
-#_0CAF05: db $00, $E3 ; Repeat Fill bytes
-#_0CAF07: db $08 ; Direct Copy
+#_0CAF04: db $83 ; Copy past
+#_0CAF05: dw $E300
+#_0CAF07: db $08 ; Raw block
 #_0CAF08: db $0D, $01, $01, $19, $01, $0E, $11, $1E
 #_0CAF10: db $0E
 #_0CAF11: db $FF ; End of Map 3C
@@ -4922,27 +4922,27 @@ OverworldMap32_Screen3C_High:
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen3C_Low:
-#_0CAF12: db $01 ; Direct Copy
+#_0CAF12: db $01 ; Raw block
 #_0CAF13: db $4D, $4E
-#_0CAF15: db $2A ; Byte Fill
+#_0CAF15: db $2A ; Repeat byte
 #_0CAF16: db $7C
-#_0CAF17: db $07 ; Direct Copy
+#_0CAF17: db $07 ; Raw block
 #_0CAF18: db $26, $6E, $A2, $8C, $C3, $7C, $35, $C4
-#_0CAF20: db $43 ; Word Fill
-#_0CAF21: db $7C, $2B ;  Word Fill
-#_0CAF23: db $23 ; Byte Fill
+#_0CAF20: db $43 ; Repeat word
+#_0CAF21: dw $2B7C
+#_0CAF23: db $23 ; Repeat byte
 #_0CAF24: db $7C
-#_0CAF25: db $02 ; Direct Copy
+#_0CAF25: db $02 ; Raw block
 #_0CAF26: db $C5, $9D, $4B
-#_0CAF29: db $22 ; Byte Fill
+#_0CAF29: db $22 ; Repeat byte
 #_0CAF2A: db $7C
-#_0CAF2B: db $10 ; Direct Copy
+#_0CAF2B: db $10 ; Raw block
 #_0CAF2C: db $C6, $B6, $7C, $12, $F8, $12, $83, $BB
 #_0CAF34: db $C7, $B6, $6E, $A2, $06, $7C, $C8, $BE
 #_0CAF3C: db $1D
-#_0CAF3D: db $63 ; Increasing Fill
-#_0CAF3E: db $C8 ; Increasing Fill Start
-#_0CAF3F: db $E0, $5C ; EXT Direct Copy
+#_0CAF3D: db $63 ; Increment fill
+#_0CAF3E: db $C8
+#_0CAF3F: db $E0, $5C ; EXT Raw block
 #_0CAF41: db $1D, $81, $61, $70, $CC, $71, $4B, $06
 #_0CAF49: db $A7, $BE, $FE, $39, $CD, $4D, $CF, $CE
 #_0CAF51: db $81, $CF, $1D, $1D, $D0, $71, $A2, $A2
@@ -4955,34 +4955,34 @@ OverworldMap32_Screen3C_Low:
 #_0CAF89: db $7C, $7C, $CD, $B5, $B6, $DC, $EC, $C5
 #_0CAF91: db $DD, $FB, $97, $DE, $0B, $E9, $12, $20
 #_0CAF99: db $7C, $A3, $DF, $B7, $B8
-#_0CAF9E: db $62 ; Increasing Fill
-#_0CAF9F: db $E0 ; Increasing Fill Start
-#_0CAFA0: db $0A ; Direct Copy
+#_0CAF9E: db $62 ; Increment fill
+#_0CAF9F: db $E0
+#_0CAFA0: db $0A ; Raw block
 #_0CAFA1: db $FB, $23, $21, $21, $E8, $E9, $E3, $C5
 #_0CAFA9: db $1F, $AF, $65
-#_0CAFAC: db $64 ; Increasing Fill
-#_0CAFAD: db $E4 ; Increasing Fill Start
-#_0CAFAE: db $09 ; Direct Copy
+#_0CAFAC: db $64 ; Increment fill
+#_0CAFAD: db $E4
+#_0CAFAE: db $09 ; Raw block
 #_0CAFAF: db $96, $33, $23, $21, $21, $D5, $E9, $AD
 #_0CAFB7: db $7C, $1D
-#_0CAFB9: db $65 ; Increasing Fill
-#_0CAFBA: db $EA ; Increasing Fill Start
-#_0CAFBB: db $1F ; Direct Copy
+#_0CAFB9: db $65 ; Increment fill
+#_0CAFBA: db $EA
+#_0CAFBB: db $1F ; Raw block
 #_0CAFBC: db $E8, $FB, $E8, $98, $05, $DC, $F0, $C5
 #_0CAFC4: db $7C, $CD, $F1, $27, $FB, $F2, $FB, $FB
 #_0CAFCC: db $F3, $0D, $DB, $F4, $0D, $F5, $E8, $FB
 #_0CAFD4: db $7C, $25, $3A, $F6, $27, $0B, $0B, $DB
-#_0CAFDC: db $22 ; Byte Fill
+#_0CAFDC: db $22 ; Repeat byte
 #_0CAFDD: db $EC
-#_0CAFDE: db $06 ; Direct Copy
+#_0CAFDE: db $06 ; Raw block
 #_0CAFDF: db $F7, $FB, $0C, $FB, $05, $4C, $4C
-#_0CAFE6: db $62 ; Increasing Fill
-#_0CAFE7: db $F8 ; Increasing Fill Start
-#_0CAFE8: db $06 ; Direct Copy
+#_0CAFE6: db $62 ; Increment fill
+#_0CAFE7: db $F8
+#_0CAFE8: db $06 ; Raw block
 #_0CAFE9: db $EC, $EC, $53, $54, $09, $09, $FB
-#_0CAFF0: db $23 ; Byte Fill
+#_0CAFF0: db $23 ; Repeat byte
 #_0CAFF1: db $FC
-#_0CAFF2: db $0F ; Direct Copy
+#_0CAFF2: db $0F ; Raw block
 #_0CAFF3: db $AE, $AE, $EB, $4D, $FC, $09, $09, $E9
 #_0CAFFB: db $6A, $06, $D4, $EA, $3B, $24, $FD, $3B
 #_0CB003: db $FF ; End of Map 3C
@@ -4990,7 +4990,7 @@ OverworldMap32_Screen3C_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen7D_High:
-#_0CB004: db $E0, $40 ; EXT Direct Copy
+#_0CB004: db $E0, $40 ; EXT Raw block
 #_0CB006: db $0F, $0F, $0B, $00, $06, $03, $10, $1E
 #_0CB00E: db $1D, $11, $10, $0F, $10, $09, $07, $05
 #_0CB016: db $10, $10, $02, $07, $03, $03, $1E, $1F
@@ -5000,77 +5000,77 @@ OverworldMap32_Screen7D_High:
 #_0CB036: db $01, $02, $01, $10, $0E, $10, $10, $02
 #_0CB03E: db $0A, $1F, $0F, $0F, $05, $0F, $0F, $09
 #_0CB046: db $10
-#_0CB047: db $43 ; Word Fill
-#_0CB048: db $0E, $01 ;  Word Fill
-#_0CB04A: db $04 ; Direct Copy
+#_0CB047: db $43 ; Repeat word
+#_0CB048: dw $010E
+#_0CB04A: db $04 ; Raw block
 #_0CB04B: db $01, $10, $02, $0A, $1C
-#_0CB050: db $83 ; Repeat Fill
-#_0CB051: db $00, $39 ; Repeat Fill bytes
-#_0CB053: db $00 ; Direct Copy
+#_0CB050: db $83 ; Copy past
+#_0CB051: dw $3900
+#_0CB053: db $00 ; Raw block
 #_0CB054: db $05
-#_0CB055: db $26 ; Byte Fill
+#_0CB055: db $26 ; Repeat byte
 #_0CB056: db $10
-#_0CB057: db $14 ; Direct Copy
+#_0CB057: db $14 ; Raw block
 #_0CB058: db $0F, $05, $0A, $1F, $1C, $11, $1F, $1E
 #_0CB060: db $1F, $1F, $10, $03, $1C, $0A, $1F, $01
 #_0CB068: db $01, $1F, $0A, $05, $1F
-#_0CB06D: db $22 ; Byte Fill
+#_0CB06D: db $22 ; Repeat byte
 #_0CB06E: db $1E
-#_0CB06F: db $06 ; Direct Copy
+#_0CB06F: db $06 ; Raw block
 #_0CB070: db $1C, $1F, $10, $10, $0D, $06, $10
-#_0CB077: db $23 ; Byte Fill
+#_0CB077: db $23 ; Repeat byte
 #_0CB078: db $0A
-#_0CB079: db $0A ; Direct Copy
+#_0CB079: db $0A ; Raw block
 #_0CB07A: db $1F, $1F, $0A, $05, $05, $1F, $11, $03
 #_0CB082: db $10, $1F, $0A
-#_0CB085: db $22 ; Byte Fill
+#_0CB085: db $22 ; Repeat byte
 #_0CB086: db $06
-#_0CB087: db $13 ; Direct Copy
+#_0CB087: db $13 ; Raw block
 #_0CB088: db $1C, $1F, $1F, $1C, $1C, $05, $1C, $1F
 #_0CB090: db $10, $0C, $10, $06, $06, $05, $0A, $0A
 #_0CB098: db $1F, $07, $05, $15
-#_0CB09C: db $22 ; Byte Fill
+#_0CB09C: db $22 ; Repeat byte
 #_0CB09D: db $1C
-#_0CB09E: db $08 ; Direct Copy
+#_0CB09E: db $08 ; Raw block
 #_0CB09F: db $11, $05, $0C, $0F, $1E, $05, $06, $05
 #_0CB0A7: db $05
-#_0CB0A8: db $83 ; Repeat Fill
-#_0CB0A9: db $00, $97 ; Repeat Fill bytes
-#_0CB0AB: db $0F ; Direct Copy
+#_0CB0A8: db $83 ; Copy past
+#_0CB0A9: dw $9700
+#_0CB0AB: db $0F ; Raw block
 #_0CB0AC: db $05, $11, $10, $10, $07, $0A, $10, $0A
 #_0CB0B4: db $0A, $06, $0A, $0A, $10, $08, $09, $0F
-#_0CB0BC: db $22 ; Byte Fill
+#_0CB0BC: db $22 ; Repeat byte
 #_0CB0BD: db $10
-#_0CB0BE: db $04 ; Direct Copy
+#_0CB0BE: db $04 ; Raw block
 #_0CB0BF: db $05, $09, $05, $05, $0A
-#_0CB0C4: db $22 ; Byte Fill
+#_0CB0C4: db $22 ; Repeat byte
 #_0CB0C5: db $05
-#_0CB0C6: db $22 ; Byte Fill
+#_0CB0C6: db $22 ; Repeat byte
 #_0CB0C7: db $10
-#_0CB0C8: db $09 ; Direct Copy
+#_0CB0C8: db $09 ; Raw block
 #_0CB0C9: db $07, $1B, $07, $1C, $05, $05, $09, $05
 #_0CB0D1: db $06, $06
-#_0CB0D3: db $22 ; Byte Fill
+#_0CB0D3: db $22 ; Repeat byte
 #_0CB0D4: db $10
-#_0CB0D5: db $83 ; Repeat Fill
-#_0CB0D6: db $00, $4D ; Repeat Fill bytes
-#_0CB0D8: db $00 ; Direct Copy
+#_0CB0D5: db $83 ; Copy past
+#_0CB0D6: dw $4D00
+#_0CB0D8: db $00 ; Raw block
 #_0CB0D9: db $07
-#_0CB0DA: db $43 ; Word Fill
-#_0CB0DB: db $09, $05 ;  Word Fill
-#_0CB0DD: db $00 ; Direct Copy
+#_0CB0DA: db $43 ; Repeat word
+#_0CB0DB: dw $0509
+#_0CB0DD: db $00 ; Raw block
 #_0CB0DE: db $07
-#_0CB0DF: db $22 ; Byte Fill
+#_0CB0DF: db $22 ; Repeat byte
 #_0CB0E0: db $0F
-#_0CB0E1: db $23 ; Byte Fill
+#_0CB0E1: db $23 ; Repeat byte
 #_0CB0E2: db $10
-#_0CB0E3: db $05 ; Direct Copy
+#_0CB0E3: db $05 ; Raw block
 #_0CB0E4: db $1F, $10, $1F, $1F, $05, $0F
-#_0CB0EA: db $22 ; Byte Fill
+#_0CB0EA: db $22 ; Repeat byte
 #_0CB0EB: db $1F
-#_0CB0EC: db $23 ; Byte Fill
+#_0CB0EC: db $23 ; Repeat byte
 #_0CB0ED: db $01
-#_0CB0EE: db $0B ; Direct Copy
+#_0CB0EE: db $0B ; Raw block
 #_0CB0EF: db $0D, $03, $10, $0D, $03, $10, $10, $1F
 #_0CB0F7: db $0F, $1F, $10, $01
 #_0CB0FB: db $FF ; End of Map 7D
@@ -5078,7 +5078,7 @@ OverworldMap32_Screen7D_High:
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen7D_Low:
-#_0CB0FC: db $E0, $4F ; EXT Direct Copy
+#_0CB0FC: db $E0, $4F ; EXT Raw block
 #_0CB0FE: db $73, $2F, $46, $B2, $66, $B6, $A4, $FE
 #_0CB106: db $FC, $07, $AD, $86, $CC, $90, $20, $E1
 #_0CB10E: db $A7, $A8, $D2, $BF, $44, $44, $FF, $00
@@ -5089,9 +5089,9 @@ OverworldMap32_Screen7D_Low:
 #_0CB136: db $09, $04, $9C, $9D, $E1, $60, $94, $4A
 #_0CB13E: db $B8, $74, $06, $D9, $0A, $FD, $B9, $DC
 #_0CB146: db $09, $69, $05, $9C, $9B, $A4, $A4, $B7
-#_0CB14E: db $65 ; Increasing Fill
-#_0CB14F: db $BC ; Increasing Fill Start
-#_0CB150: db $E0, $6F ; EXT Direct Copy
+#_0CB14E: db $65 ; Increment fill
+#_0CB14F: db $BC
+#_0CB150: db $E0, $6F ; EXT Raw block
 #_0CB152: db $4C, $89, $09, $06, $60, $0C, $07, $3D
 #_0CB15A: db $08, $09, $C3, $6A, $19, $08, $0A, $0A
 #_0CB162: db $FD, $0B, $09, $FB, $0C, $29, $6F, $3F
@@ -5106,27 +5106,27 @@ OverworldMap32_Screen7D_Low:
 #_0CB1AA: db $A6, $19, $08, $8B, $0C, $0C, $05, $E8
 #_0CB1B2: db $0C, $DF, $C0, $52, $B0, $AB, $BA, $AE
 #_0CB1BA: db $E1, $4A, $FB, $E8, $0C, $FB, $E8, $FB
-#_0CB1C2: db $62 ; Increasing Fill
-#_0CB1C3: db $E2 ; Increasing Fill Start
-#_0CB1C4: db $09 ; Direct Copy
+#_0CB1C2: db $62 ; Increment fill
+#_0CB1C3: db $E2
+#_0CB1C4: db $09 ; Raw block
 #_0CB1C5: db $3B, $51, $89, $D3, $E1, $E1, $9D, $FB
 #_0CB1CD: db $05, $05
-#_0CB1CF: db $62 ; Increasing Fill
-#_0CB1D0: db $EB ; Increasing Fill Start
-#_0CB1D1: db $09 ; Direct Copy
+#_0CB1CF: db $62 ; Increment fill
+#_0CB1D0: db $EB
+#_0CB1D1: db $09 ; Raw block
 #_0CB1D2: db $FB, $FB, $E3, $E4, $3B, $52, $E1, $0B
 #_0CB1DA: db $E1, $19
-#_0CB1DC: db $22 ; Byte Fill
+#_0CB1DC: db $22 ; Repeat byte
 #_0CB1DD: db $FC
-#_0CB1DE: db $62 ; Increasing Fill
-#_0CB1DF: db $F0 ; Increasing Fill Start
-#_0CB1E0: db $06 ; Direct Copy
+#_0CB1DE: db $62 ; Increment fill
+#_0CB1DF: db $F0
+#_0CB1E0: db $06 ; Raw block
 #_0CB1E1: db $EC, $17, $F4, $18, $19, $D3, $BA
-#_0CB1E8: db $62 ; Increasing Fill
-#_0CB1E9: db $1A ; Increasing Fill Start
-#_0CB1EA: db $22 ; Byte Fill
+#_0CB1E8: db $62 ; Increment fill
+#_0CB1E9: db $1A
+#_0CB1EA: db $22 ; Repeat byte
 #_0CB1EB: db $EB
-#_0CB1EC: db $0C ; Direct Copy
+#_0CB1EC: db $0C ; Raw block
 #_0CB1ED: db $EC, $97, $4A, $09, $E9, $4A, $0A, $F6
 #_0CB1F5: db $1D, $BF, $1E, $F6, $EB
 #_0CB1FA: db $FF ; End of Map 7D
@@ -5134,108 +5134,108 @@ OverworldMap32_Screen7D_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen7E_High:
-#_0CB1FB: db $05 ; Direct Copy
+#_0CB1FB: db $05 ; Raw block
 #_0CB1FC: db $1F, $1D, $1F, $1F, $1D, $1F
-#_0CB202: db $86 ; Repeat Fill
-#_0CB203: db $00, $00 ; Repeat Fill bytes
-#_0CB205: db $04 ; Direct Copy
+#_0CB202: db $86 ; Copy past
+#_0CB203: dw $0000
+#_0CB205: db $04 ; Raw block
 #_0CB206: db $07, $0F, $01, $1D, $1D
-#_0CB20B: db $2A ; Byte Fill
+#_0CB20B: db $2A ; Repeat byte
 #_0CB20C: db $1F
-#_0CB20D: db $03 ; Direct Copy
+#_0CB20D: db $03 ; Raw block
 #_0CB20E: db $0F, $01, $10, $1D
-#_0CB212: db $2A ; Byte Fill
+#_0CB212: db $2A ; Repeat byte
 #_0CB213: db $1F
-#_0CB214: db $05 ; Direct Copy
+#_0CB214: db $05 ; Raw block
 #_0CB215: db $0F, $01, $01, $10, $07, $10
-#_0CB21B: db $28 ; Byte Fill
+#_0CB21B: db $28 ; Repeat byte
 #_0CB21C: db $1F
-#_0CB21D: db $01 ; Direct Copy
+#_0CB21D: db $01 ; Raw block
 #_0CB21E: db $07, $0F
-#_0CB220: db $43 ; Word Fill
-#_0CB221: db $01, $0E ;  Word Fill
-#_0CB223: db $02 ; Direct Copy
+#_0CB220: db $43 ; Repeat word
+#_0CB221: dw $0E01
+#_0CB223: db $02 ; Raw block
 #_0CB224: db $1D, $1F, $05
-#_0CB227: db $24 ; Byte Fill
+#_0CB227: db $24 ; Repeat byte
 #_0CB228: db $1F
-#_0CB229: db $0A ; Direct Copy
+#_0CB229: db $0A ; Raw block
 #_0CB22A: db $1D, $1F, $1F, $11, $11, $01, $0C, $0F
 #_0CB232: db $1F, $1F, $0F
-#_0CB235: db $25 ; Byte Fill
+#_0CB235: db $25 ; Repeat byte
 #_0CB236: db $1F
-#_0CB237: db $01 ; Direct Copy
+#_0CB237: db $01 ; Raw block
 #_0CB238: db $11, $1F
-#_0CB23A: db $22 ; Byte Fill
+#_0CB23A: db $22 ; Repeat byte
 #_0CB23B: db $05
-#_0CB23C: db $0B ; Direct Copy
+#_0CB23C: db $0B ; Raw block
 #_0CB23D: db $0E, $07, $0F, $11, $10, $05, $09, $1D
 #_0CB245: db $11, $1F, $10, $11
-#_0CB249: db $23 ; Byte Fill
+#_0CB249: db $23 ; Repeat byte
 #_0CB24A: db $05
-#_0CB24B: db $12 ; Direct Copy
+#_0CB24B: db $12 ; Raw block
 #_0CB24C: db $03, $05, $07, $09, $05, $09, $1F, $09
 #_0CB254: db $10, $1F, $1F, $0F, $1C, $1F, $05, $05
 #_0CB25C: db $03, $07, $07
-#_0CB25F: db $23 ; Byte Fill
+#_0CB25F: db $23 ; Repeat byte
 #_0CB260: db $1F
-#_0CB261: db $01 ; Direct Copy
+#_0CB261: db $01 ; Raw block
 #_0CB262: db $10, $1D
-#_0CB264: db $83 ; Repeat Fill
-#_0CB265: db $00, $5A ; Repeat Fill bytes
-#_0CB267: db $05 ; Direct Copy
+#_0CB264: db $83 ; Copy past
+#_0CB265: dw $5A00
+#_0CB267: db $05 ; Raw block
 #_0CB268: db $1F, $1C, $1F, $07, $07, $05
-#_0CB26E: db $22 ; Byte Fill
+#_0CB26E: db $22 ; Repeat byte
 #_0CB26F: db $1F
-#_0CB270: db $22 ; Byte Fill
+#_0CB270: db $22 ; Repeat byte
 #_0CB271: db $05
-#_0CB272: db $09 ; Direct Copy
+#_0CB272: db $09 ; Raw block
 #_0CB273: db $1D, $05, $05, $10, $1F, $1F, $10, $07
 #_0CB27B: db $05, $08
-#_0CB27D: db $23 ; Byte Fill
+#_0CB27D: db $23 ; Repeat byte
 #_0CB27E: db $1F
-#_0CB27F: db $06 ; Direct Copy
+#_0CB27F: db $06 ; Raw block
 #_0CB280: db $05, $05, $07, $05, $1B, $11, $1F
-#_0CB287: db $22 ; Byte Fill
+#_0CB287: db $22 ; Repeat byte
 #_0CB288: db $0F
-#_0CB289: db $00 ; Direct Copy
+#_0CB289: db $00 ; Raw block
 #_0CB28A: db $07
-#_0CB28B: db $22 ; Byte Fill
+#_0CB28B: db $22 ; Repeat byte
 #_0CB28C: db $05
-#_0CB28D: db $06 ; Direct Copy
+#_0CB28D: db $06 ; Raw block
 #_0CB28E: db $09, $1B, $05, $08, $05, $05, $07
-#_0CB295: db $24 ; Byte Fill
+#_0CB295: db $24 ; Repeat byte
 #_0CB296: db $11
-#_0CB297: db $05 ; Direct Copy
+#_0CB297: db $05 ; Raw block
 #_0CB298: db $05, $07, $09, $08, $07, $1D
-#_0CB29E: db $22 ; Byte Fill
+#_0CB29E: db $22 ; Repeat byte
 #_0CB29F: db $05
-#_0CB2A0: db $00 ; Direct Copy
+#_0CB2A0: db $00 ; Raw block
 #_0CB2A1: db $1F
-#_0CB2A2: db $22 ; Byte Fill
+#_0CB2A2: db $22 ; Repeat byte
 #_0CB2A3: db $11
-#_0CB2A4: db $01 ; Direct Copy
+#_0CB2A4: db $01 ; Raw block
 #_0CB2A5: db $05, $1F
-#_0CB2A7: db $43 ; Word Fill
-#_0CB2A8: db $1F, $05 ;  Word Fill
-#_0CB2AA: db $05 ; Direct Copy
+#_0CB2A7: db $43 ; Repeat word
+#_0CB2A8: dw $051F
+#_0CB2AA: db $05 ; Raw block
 #_0CB2AB: db $05, $1D, $05, $0C, $05, $07
-#_0CB2B1: db $22 ; Byte Fill
+#_0CB2B1: db $22 ; Repeat byte
 #_0CB2B2: db $1F
-#_0CB2B3: db $03 ; Direct Copy
+#_0CB2B3: db $03 ; Raw block
 #_0CB2B4: db $10, $05, $1F, $11
-#_0CB2B8: db $23 ; Byte Fill
+#_0CB2B8: db $23 ; Repeat byte
 #_0CB2B9: db $1F
-#_0CB2BA: db $22 ; Byte Fill
+#_0CB2BA: db $22 ; Repeat byte
 #_0CB2BB: db $0F
-#_0CB2BC: db $04 ; Direct Copy
+#_0CB2BC: db $04 ; Raw block
 #_0CB2BD: db $1F, $1F, $05, $10, $0E
-#_0CB2C2: db $22 ; Byte Fill
+#_0CB2C2: db $22 ; Repeat byte
 #_0CB2C3: db $10
-#_0CB2C4: db $04 ; Direct Copy
+#_0CB2C4: db $04 ; Raw block
 #_0CB2C5: db $0F, $0F, $11, $11, $1F
-#_0CB2CA: db $22 ; Byte Fill
+#_0CB2CA: db $22 ; Repeat byte
 #_0CB2CB: db $0F
-#_0CB2CC: db $08 ; Direct Copy
+#_0CB2CC: db $08 ; Raw block
 #_0CB2CD: db $1F, $05, $05, $06, $0D, $03, $10, $0D
 #_0CB2D5: db $01
 #_0CB2D6: db $FF ; End of Map 7E
@@ -5243,38 +5243,38 @@ OverworldMap32_Screen7E_High:
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen7E_Low:
-#_0CB2D7: db $13 ; Direct Copy
+#_0CB2D7: db $13 ; Raw block
 #_0CB2D8: db $1F, $B7, $20, $21, $84, $22, $23, $84
 #_0CB2E0: db $24, $25, $9D, $26, $27, $4C, $C1, $25
 #_0CB2E8: db $A0, $8D, $28, $29
-#_0CB2EC: db $62 ; Increasing Fill
-#_0CB2ED: db $29 ; Increasing Fill Start
-#_0CB2EE: db $01 ; Direct Copy
+#_0CB2EC: db $62 ; Increment fill
+#_0CB2ED: db $29
+#_0CB2EE: db $01 ; Raw block
 #_0CB2EF: db $29, $29
-#_0CB2F1: db $63 ; Increasing Fill
-#_0CB2F2: db $2C ; Increasing Fill Start
-#_0CB2F3: db $03 ; Direct Copy
+#_0CB2F1: db $63 ; Increment fill
+#_0CB2F2: db $2C
+#_0CB2F3: db $03 ; Raw block
 #_0CB2F4: db $BD, $49, $FA, $FC
-#_0CB2F8: db $6A ; Increasing Fill
-#_0CB2F9: db $30 ; Increasing Fill Start
-#_0CB2FA: db $05 ; Direct Copy
+#_0CB2F8: db $6A ; Increment fill
+#_0CB2F9: db $30
+#_0CB2FA: db $05 ; Raw block
 #_0CB2FB: db $BD, $49, $6A, $FC, $20, $D8
-#_0CB301: db $68 ; Increasing Fill
-#_0CB302: db $3B ; Increasing Fill Start
-#_0CB303: db $08 ; Direct Copy
+#_0CB301: db $68 ; Increment fill
+#_0CB302: db $3B
+#_0CB303: db $08 ; Raw block
 #_0CB304: db $4C, $C1, $00, $40, $01, $23, $74, $44
 #_0CB30C: db $A4
-#_0CB30D: db $64 ; Increasing Fill
-#_0CB30E: db $45 ; Increasing Fill Start
-#_0CB30F: db $02 ; Direct Copy
+#_0CB30D: db $64 ; Increment fill
+#_0CB30E: db $45
+#_0CB30F: db $02 ; Raw block
 #_0CB310: db $B5, $4A, $4B
-#_0CB313: db $62 ; Increasing Fill
-#_0CB314: db $04 ; Increasing Fill Start
-#_0CB315: db $04 ; Direct Copy
+#_0CB313: db $62 ; Increment fill
+#_0CB314: db $04
+#_0CB315: db $04 ; Raw block
 #_0CB316: db $ED, $85, $4C, $4D, $86
-#_0CB31B: db $65 ; Increasing Fill
-#_0CB31C: db $4E ; Increasing Fill Start
-#_0CB31D: db $E0, $37 ; EXT Direct Copy
+#_0CB31B: db $65 ; Increment fill
+#_0CB31C: db $4E
+#_0CB31D: db $E0, $37 ; EXT Raw block
 #_0CB31F: db $0A, $54, $98, $B1, $A6, $40, $20, $72
 #_0CB327: db $02, $A6, $E1, $36, $FC, $07, $55, $AD
 #_0CB32F: db $0A, $E1, $AB, $A2, $B1, $52, $E1, $89
@@ -5282,53 +5282,53 @@ OverworldMap32_Screen7E_Low:
 #_0CB33F: db $9C, $49, $59, $AB, $A2, $5A, $89, $20
 #_0CB347: db $5A, $59, $5B, $5C, $DE, $FC, $07, $41
 #_0CB34F: db $A4, $A4, $5D, $E7, $5E, $3F, $20, $E1
-#_0CB357: db $62 ; Increasing Fill
-#_0CB358: db $5F ; Increasing Fill Start
-#_0CB359: db $22 ; Byte Fill
+#_0CB357: db $62 ; Increment fill
+#_0CB358: db $5F
+#_0CB359: db $22 ; Repeat byte
 #_0CB35A: db $E1
-#_0CB35B: db $09 ; Direct Copy
+#_0CB35B: db $09 ; Raw block
 #_0CB35C: db $FC, $C9, $B3, $BA, $62, $63, $A6, $44
 #_0CB364: db $E1, $AA
-#_0CB366: db $63 ; Increasing Fill
-#_0CB367: db $64 ; Increasing Fill Start
-#_0CB368: db $06 ; Direct Copy
+#_0CB366: db $63 ; Increment fill
+#_0CB367: db $64
+#_0CB368: db $06 ; Raw block
 #_0CB369: db $E0, $E1, $20, $E1, $8D, $0D, $68
-#_0CB370: db $22 ; Byte Fill
+#_0CB370: db $22 ; Repeat byte
 #_0CB371: db $BA
-#_0CB372: db $00 ; Direct Copy
+#_0CB372: db $00 ; Raw block
 #_0CB373: db $20
-#_0CB374: db $22 ; Byte Fill
+#_0CB374: db $22 ; Repeat byte
 #_0CB375: db $E1
-#_0CB376: db $08 ; Direct Copy
+#_0CB376: db $08 ; Raw block
 #_0CB377: db $9D, $B9, $E1, $AA, $E1, $E1, $67, $0E
 #_0CB37F: db $0F
-#_0CB380: db $22 ; Byte Fill
+#_0CB380: db $22 ; Repeat byte
 #_0CB381: db $10
-#_0CB382: db $05 ; Direct Copy
+#_0CB382: db $05 ; Raw block
 #_0CB383: db $E1, $89, $90, $AA, $20, $5C
-#_0CB389: db $22 ; Byte Fill
+#_0CB389: db $22 ; Repeat byte
 #_0CB38A: db $E1
-#_0CB38B: db $00 ; Direct Copy
+#_0CB38B: db $00 ; Raw block
 #_0CB38C: db $69
-#_0CB38D: db $62 ; Increasing Fill
-#_0CB38E: db $12 ; Increasing Fill Start
-#_0CB38F: db $0B ; Direct Copy
+#_0CB38D: db $62 ; Increment fill
+#_0CB38E: db $12
+#_0CB38F: db $0B ; Raw block
 #_0CB390: db $FB, $6A, $6B, $E1, $6C, $E1, $E1, $5B
 #_0CB398: db $E1, $4C, $E1, $67
-#_0CB39C: db $62 ; Increasing Fill
-#_0CB39D: db $6D ; Increasing Fill Start
-#_0CB39E: db $04 ; Direct Copy
+#_0CB39C: db $62 ; Increment fill
+#_0CB39D: db $6D
+#_0CB39E: db $04 ; Raw block
 #_0CB39F: db $ED, $FB, $70, $21, $1C
-#_0CB3A4: db $62 ; Increasing Fill
-#_0CB3A5: db $71 ; Increasing Fill Start
-#_0CB3A6: db $22 ; Byte Fill
+#_0CB3A4: db $62 ; Increment fill
+#_0CB3A5: db $71
+#_0CB3A6: db $22 ; Repeat byte
 #_0CB3A7: db $BA
-#_0CB3A8: db $0C ; Direct Copy
+#_0CB3A8: db $0C ; Raw block
 #_0CB3A9: db $1A, $6D, $9C, $F6, $3C, $F2, $EC, $F3
 #_0CB3B1: db $FC, $3E, $24, $25, $74
-#_0CB3B6: db $22 ; Byte Fill
+#_0CB3B6: db $22 ; Repeat byte
 #_0CB3B7: db $BF
-#_0CB3B8: db $08 ; Direct Copy
+#_0CB3B8: db $08 ; Raw block
 #_0CB3B9: db $75, $9C, $9D, $A3, $97, $4A, $09, $E9
 #_0CB3C1: db $EB
 #_0CB3C2: db $FF ; End of Map 7E
@@ -5336,7 +5336,7 @@ OverworldMap32_Screen7E_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen3F_High:
-#_0CB3C3: db $E0, $41 ; EXT Direct Copy
+#_0CB3C3: db $E0, $41 ; EXT Raw block
 #_0CB3C5: db $01, $03, $05, $1F, $15, $1F, $0A, $05
 #_0CB3CD: db $11, $11, $1E, $05, $05, $16, $05, $01
 #_0CB3D5: db $01, $03, $01, $07, $07, $1F, $11, $0A
@@ -5346,83 +5346,83 @@ OverworldMap32_Screen3F_High:
 #_0CB3F5: db $0F, $1F, $01, $07, $05, $07, $06, $06
 #_0CB3FD: db $05, $1F, $1D, $11, $1F, $01, $01, $0C
 #_0CB405: db $01, $02
-#_0CB407: db $22 ; Byte Fill
+#_0CB407: db $22 ; Repeat byte
 #_0CB408: db $07
-#_0CB409: db $0D ; Direct Copy
+#_0CB409: db $0D ; Raw block
 #_0CB40A: db $06, $01, $1F, $05, $1F, $06, $05, $05
 #_0CB412: db $06, $01, $0E, $1F, $02, $07
-#_0CB418: db $83 ; Repeat Fill
-#_0CB419: db $00, $33 ; Repeat Fill bytes
-#_0CB41B: db $22 ; Byte Fill
+#_0CB418: db $83 ; Copy past
+#_0CB419: dw $3300
+#_0CB41B: db $22 ; Repeat byte
 #_0CB41C: db $01
-#_0CB41D: db $02 ; Direct Copy
+#_0CB41D: db $02 ; Raw block
 #_0CB41E: db $06, $1F, $1C
-#_0CB421: db $22 ; Byte Fill
+#_0CB421: db $22 ; Repeat byte
 #_0CB422: db $01
-#_0CB423: db $83 ; Repeat Fill
-#_0CB424: db $00, $49 ; Repeat Fill bytes
-#_0CB426: db $0C ; Direct Copy
+#_0CB423: db $83 ; Copy past
+#_0CB424: dw $4900
+#_0CB426: db $0C ; Raw block
 #_0CB427: db $08, $09, $07, $09, $1F, $07, $01, $1B
 #_0CB42F: db $16, $0C, $01, $01, $0F
-#_0CB434: db $23 ; Byte Fill
+#_0CB434: db $23 ; Repeat byte
 #_0CB435: db $05
-#_0CB436: db $00 ; Direct Copy
+#_0CB436: db $00 ; Raw block
 #_0CB437: db $1F
-#_0CB438: db $22 ; Byte Fill
+#_0CB438: db $22 ; Repeat byte
 #_0CB439: db $0F
-#_0CB43A: db $22 ; Byte Fill
+#_0CB43A: db $22 ; Repeat byte
 #_0CB43B: db $1F
-#_0CB43C: db $08 ; Direct Copy
+#_0CB43C: db $08 ; Raw block
 #_0CB43D: db $05, $10, $1E, $1E, $07, $16, $07, $05
 #_0CB445: db $07
-#_0CB446: db $22 ; Byte Fill
+#_0CB446: db $22 ; Repeat byte
 #_0CB447: db $11
-#_0CB448: db $07 ; Direct Copy
+#_0CB448: db $07 ; Raw block
 #_0CB449: db $1F, $1F, $11, $05, $10, $10, $05, $1C
-#_0CB451: db $22 ; Byte Fill
+#_0CB451: db $22 ; Repeat byte
 #_0CB452: db $07
-#_0CB453: db $00 ; Direct Copy
+#_0CB453: db $00 ; Raw block
 #_0CB454: db $08
-#_0CB455: db $86 ; Repeat Fill
-#_0CB456: db $00, $88 ; Repeat Fill bytes
-#_0CB458: db $04 ; Direct Copy
+#_0CB455: db $86 ; Copy past
+#_0CB456: dw $8800
+#_0CB458: db $04 ; Raw block
 #_0CB459: db $0A, $10, $01, $19, $01
-#_0CB45E: db $22 ; Byte Fill
+#_0CB45E: db $22 ; Repeat byte
 #_0CB45F: db $0F
-#_0CB460: db $26 ; Byte Fill
+#_0CB460: db $26 ; Repeat byte
 #_0CB461: db $1F
-#_0CB462: db $05 ; Direct Copy
+#_0CB462: db $05 ; Raw block
 #_0CB463: db $11, $05, $0D, $01, $19, $01
-#_0CB469: db $22 ; Byte Fill
+#_0CB469: db $22 ; Repeat byte
 #_0CB46A: db $11
-#_0CB46B: db $83 ; Repeat Fill
-#_0CB46C: db $00, $25 ; Repeat Fill bytes
-#_0CB46E: db $0B ; Direct Copy
+#_0CB46B: db $83 ; Copy past
+#_0CB46C: dw $2500
+#_0CB46E: db $0B ; Raw block
 #_0CB46F: db $1E, $1F, $11, $05, $0A, $0D, $01, $1F
 #_0CB477: db $01, $11, $11, $1E
-#_0CB47B: db $22 ; Byte Fill
+#_0CB47B: db $22 ; Repeat byte
 #_0CB47C: db $05
-#_0CB47D: db $05 ; Direct Copy
+#_0CB47D: db $05 ; Raw block
 #_0CB47E: db $1D, $1F, $1F, $05, $1F, $1B
-#_0CB484: db $83 ; Repeat Fill
-#_0CB485: db $00, $AC ; Repeat Fill bytes
-#_0CB487: db $83 ; Repeat Fill
-#_0CB488: db $00, $C8 ; Repeat Fill bytes
-#_0CB48A: db $04 ; Direct Copy
+#_0CB484: db $83 ; Copy past
+#_0CB485: dw $AC00
+#_0CB487: db $83 ; Copy past
+#_0CB488: dw $C800
+#_0CB48A: db $04 ; Raw block
 #_0CB48B: db $10, $10, $0D, $05, $1B
-#_0CB490: db $22 ; Byte Fill
+#_0CB490: db $22 ; Repeat byte
 #_0CB491: db $10
-#_0CB492: db $22 ; Byte Fill
+#_0CB492: db $22 ; Repeat byte
 #_0CB493: db $01
-#_0CB494: db $00 ; Direct Copy
+#_0CB494: db $00 ; Raw block
 #_0CB495: db $05
-#_0CB496: db $22 ; Byte Fill
+#_0CB496: db $22 ; Repeat byte
 #_0CB497: db $0F
-#_0CB498: db $04 ; Direct Copy
+#_0CB498: db $04 ; Raw block
 #_0CB499: db $1B, $01, $11, $1F, $0F
-#_0CB49E: db $83 ; Repeat Fill
-#_0CB49F: db $00, $D3 ; Repeat Fill bytes
-#_0CB4A1: db $13 ; Direct Copy
+#_0CB49E: db $83 ; Copy past
+#_0CB49F: dw $D300
+#_0CB4A1: db $13 ; Raw block
 #_0CB4A2: db $01, $01, $05, $0B, $0A, $0E, $1A, $1E
 #_0CB4AA: db $1F, $06, $01, $11, $01, $1F, $06, $1C
 #_0CB4B2: db $01, $11, $0D, $0D
@@ -5431,7 +5431,7 @@ OverworldMap32_Screen3F_High:
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen3F_Low:
-#_0CB4B7: db $E0, $41 ; EXT Direct Copy
+#_0CB4B7: db $E0, $41 ; EXT Raw block
 #_0CB4B9: db $06, $63, $8A, $76, $62, $77, $04, $FB
 #_0CB4C1: db $18, $21, $DE, $FB, $FB, $98, $E9, $71
 #_0CB4C9: db $06, $63, $D6, $0B, $0C, $78, $15, $0B
@@ -5441,9 +5441,9 @@ OverworldMap32_Screen3F_Low:
 #_0CB4E9: db $44, $7C, $ED, $13, $E1, $6E, $00, $01
 #_0CB4F1: db $FB, $7D, $F7, $21, $7E, $53, $6A, $ED
 #_0CB4F9: db $06, $DC
-#_0CB4FB: db $62 ; Increasing Fill
-#_0CB4FC: db $1E ; Increasing Fill Start
-#_0CB4FD: db $E0, $30 ; EXT Direct Copy
+#_0CB4FB: db $62 ; Increment fill
+#_0CB4FC: db $1E
+#_0CB4FD: db $E0, $30 ; EXT Raw block
 #_0CB4FF: db $0A, $03, $7F, $CD, $80, $01, $FB, $E9
 #_0CB507: db $12, $0C, $3F, $81, $DC, $8E, $20, $E1
 #_0CB50F: db $14, $16, $13, $F9, $16, $0B, $82, $97
@@ -5451,39 +5451,39 @@ OverworldMap32_Screen3F_Low:
 #_0CB51F: db $36, $14, $F7, $84, $1C, $24, $E3, $98
 #_0CB527: db $8E, $24, $00, $45, $9E, $9F, $E1, $E1
 #_0CB52F: db $85
-#_0CB530: db $22 ; Byte Fill
+#_0CB530: db $22 ; Repeat byte
 #_0CB531: db $BA
-#_0CB532: db $62 ; Increasing Fill
-#_0CB533: db $86 ; Increasing Fill Start
-#_0CB534: db $08 ; Direct Copy
+#_0CB532: db $62 ; Increment fill
+#_0CB533: db $86
+#_0CB534: db $08 ; Raw block
 #_0CB535: db $FB, $8F, $72, $73, $1B, $95, $20, $E1
 #_0CB53D: db $67
-#_0CB53E: db $62 ; Increasing Fill
-#_0CB53F: db $0E ; Increasing Fill Start
-#_0CB540: db $17 ; Direct Copy
+#_0CB53E: db $62 ; Increment fill
+#_0CB53F: db $0E
+#_0CB540: db $17 ; Raw block
 #_0CB541: db $89, $8A, $13, $FA, $8F, $03, $9D, $0C
 #_0CB549: db $31, $20, $36, $C1, $8B, $8C, $14, $FB
 #_0CB551: db $E3, $EE, $FA, $0D, $14, $5E, $E0, $55
-#_0CB559: db $22 ; Byte Fill
+#_0CB559: db $22 ; Repeat byte
 #_0CB55A: db $BA
-#_0CB55B: db $62 ; Increasing Fill
-#_0CB55C: db $86 ; Increasing Fill Start
-#_0CB55D: db $63 ; Increasing Fill
-#_0CB55E: db $8D ; Increasing Fill Start
-#_0CB55F: db $05 ; Direct Copy
+#_0CB55B: db $62 ; Increment fill
+#_0CB55C: db $86
+#_0CB55D: db $63 ; Increment fill
+#_0CB55E: db $8D
+#_0CB55F: db $05 ; Raw block
 #_0CB560: db $20, $FB, $01, $00, $D0, $71
-#_0CB566: db $22 ; Byte Fill
+#_0CB566: db $22 ; Repeat byte
 #_0CB567: db $10
-#_0CB568: db $E0, $2C ; EXT Direct Copy
+#_0CB568: db $E0, $2C ; EXT Raw block
 #_0CB56A: db $91, $13, $FA, $92, $E7, $93, $19, $FB
 #_0CB572: db $0D, $01, $00, $94, $71, $21, $21, $DE
 #_0CB57A: db $C2, $FA, $FB, $E5, $95, $96, $FB, $97
 #_0CB582: db $DB, $01, $00, $DD, $71, $98, $FB, $98
 #_0CB58A: db $DB, $F3, $45, $4F, $FB, $DB, $EC, $EC
 #_0CB592: db $53, $49, $54, $55, $9D
-#_0CB597: db $22 ; Byte Fill
+#_0CB597: db $22 ; Repeat byte
 #_0CB598: db $FC
-#_0CB599: db $1C ; Direct Copy
+#_0CB599: db $1C ; Raw block
 #_0CB59A: db $E0, $49, $25, $99, $FC, $E0, $54, $09
 #_0CB5A2: db $E9, $54, $55, $9D, $4B, $79, $3B, $AD
 #_0CB5AA: db $FD, $9A, $A3, $EA, $24, $EB, $9A, $A3
@@ -5493,278 +5493,278 @@ OverworldMap32_Screen3F_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen9E_High:
-#_0CB5B8: db $E4, $FF ; EXT Byte Fill
+#_0CB5B8: db $E4, $FF ; EXT Repeat byte
 #_0CB5BA: db $1F
 #_0CB5BB: db $FF ; End of Map 9E
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen9E_Low:
-#_0CB5BC: db $22 ; Byte Fill
+#_0CB5BC: db $22 ; Repeat byte
 #_0CB5BD: db $B4
-#_0CB5BE: db $01 ; Direct Copy
+#_0CB5BE: db $01 ; Raw block
 #_0CB5BF: db $B5, $B6
-#_0CB5C1: db $25 ; Byte Fill
+#_0CB5C1: db $25 ; Repeat byte
 #_0CB5C2: db $B4
-#_0CB5C3: db $01 ; Direct Copy
+#_0CB5C3: db $01 ; Raw block
 #_0CB5C4: db $B5, $B6
-#_0CB5C6: db $25 ; Byte Fill
+#_0CB5C6: db $25 ; Repeat byte
 #_0CB5C7: db $B4
-#_0CB5C8: db $63 ; Increasing Fill
-#_0CB5C9: db $B7 ; Increasing Fill Start
-#_0CB5CA: db $23 ; Byte Fill
+#_0CB5C8: db $63 ; Increment fill
+#_0CB5C9: db $B7
+#_0CB5CA: db $23 ; Repeat byte
 #_0CB5CB: db $B4
-#_0CB5CC: db $84 ; Repeat Fill
-#_0CB5CD: db $00, $13 ; Repeat Fill bytes
-#_0CB5CF: db $01 ; Direct Copy
+#_0CB5CC: db $84 ; Copy past
+#_0CB5CD: dw $1300
+#_0CB5CF: db $01 ; Raw block
 #_0CB5D0: db $B5, $B6
-#_0CB5D2: db $22 ; Byte Fill
+#_0CB5D2: db $22 ; Repeat byte
 #_0CB5D3: db $B4
-#_0CB5D4: db $01 ; Direct Copy
+#_0CB5D4: db $01 ; Raw block
 #_0CB5D5: db $B7, $B8
-#_0CB5D7: db $62 ; Increasing Fill
-#_0CB5D8: db $B4 ; Increasing Fill Start
-#_0CB5D9: db $22 ; Byte Fill
+#_0CB5D7: db $62 ; Increment fill
+#_0CB5D8: db $B4
+#_0CB5D9: db $22 ; Repeat byte
 #_0CB5DA: db $B4
-#_0CB5DB: db $04 ; Direct Copy
+#_0CB5DB: db $04 ; Raw block
 #_0CB5DC: db $B7, $B8, $B4, $B7, $B8
-#_0CB5E1: db $23 ; Byte Fill
+#_0CB5E1: db $23 ; Repeat byte
 #_0CB5E2: db $B4
-#_0CB5E3: db $03 ; Direct Copy
+#_0CB5E3: db $03 ; Raw block
 #_0CB5E4: db $B9, $BA, $B7, $B8
-#_0CB5E8: db $23 ; Byte Fill
+#_0CB5E8: db $23 ; Repeat byte
 #_0CB5E9: db $B4
-#_0CB5EA: db $84 ; Repeat Fill
-#_0CB5EB: db $00, $1D ; Repeat Fill bytes
-#_0CB5ED: db $22 ; Byte Fill
+#_0CB5EA: db $84 ; Copy past
+#_0CB5EB: dw $1D00
+#_0CB5ED: db $22 ; Repeat byte
 #_0CB5EE: db $B4
-#_0CB5EF: db $01 ; Direct Copy
+#_0CB5EF: db $01 ; Raw block
 #_0CB5F0: db $BB, $BC
-#_0CB5F2: db $62 ; Increasing Fill
-#_0CB5F3: db $B4 ; Increasing Fill Start
-#_0CB5F4: db $22 ; Byte Fill
+#_0CB5F2: db $62 ; Increment fill
+#_0CB5F3: db $B4
+#_0CB5F4: db $22 ; Repeat byte
 #_0CB5F5: db $B4
-#_0CB5F6: db $04 ; Direct Copy
+#_0CB5F6: db $04 ; Raw block
 #_0CB5F7: db $BB, $BC, $B4, $B7, $B8
-#_0CB5FC: db $22 ; Byte Fill
+#_0CB5FC: db $22 ; Repeat byte
 #_0CB5FD: db $B4
-#_0CB5FE: db $84 ; Repeat Fill
-#_0CB5FF: db $00, $2D ; Repeat Fill bytes
-#_0CB601: db $22 ; Byte Fill
+#_0CB5FE: db $84 ; Copy past
+#_0CB5FF: dw $2D00
+#_0CB601: db $22 ; Repeat byte
 #_0CB602: db $B4
-#_0CB603: db $01 ; Direct Copy
+#_0CB603: db $01 ; Raw block
 #_0CB604: db $B7, $B8
-#_0CB606: db $23 ; Byte Fill
+#_0CB606: db $23 ; Repeat byte
 #_0CB607: db $B4
-#_0CB608: db $01 ; Direct Copy
+#_0CB608: db $01 ; Raw block
 #_0CB609: db $B5, $B6
-#_0CB60B: db $25 ; Byte Fill
+#_0CB60B: db $25 ; Repeat byte
 #_0CB60C: db $B4
-#_0CB60D: db $01 ; Direct Copy
+#_0CB60D: db $01 ; Raw block
 #_0CB60E: db $B5, $B6
-#_0CB610: db $25 ; Byte Fill
+#_0CB610: db $25 ; Repeat byte
 #_0CB611: db $B4
-#_0CB612: db $01 ; Direct Copy
+#_0CB612: db $01 ; Raw block
 #_0CB613: db $B7, $B8
-#_0CB615: db $25 ; Byte Fill
+#_0CB615: db $25 ; Repeat byte
 #_0CB616: db $B4
-#_0CB617: db $01 ; Direct Copy
+#_0CB617: db $01 ; Raw block
 #_0CB618: db $B7, $B8
-#_0CB61A: db $24 ; Byte Fill
+#_0CB61A: db $24 ; Repeat byte
 #_0CB61B: db $B4
-#_0CB61C: db $01 ; Direct Copy
+#_0CB61C: db $01 ; Raw block
 #_0CB61D: db $B5, $B6
-#_0CB61F: db $25 ; Byte Fill
+#_0CB61F: db $25 ; Repeat byte
 #_0CB620: db $B4
-#_0CB621: db $01 ; Direct Copy
+#_0CB621: db $01 ; Raw block
 #_0CB622: db $B5, $B6
-#_0CB624: db $25 ; Byte Fill
+#_0CB624: db $25 ; Repeat byte
 #_0CB625: db $B4
-#_0CB626: db $83 ; Repeat Fill
-#_0CB627: db $00, $13 ; Repeat Fill bytes
-#_0CB629: db $23 ; Byte Fill
+#_0CB626: db $83 ; Copy past
+#_0CB627: dw $1300
+#_0CB629: db $23 ; Repeat byte
 #_0CB62A: db $B4
-#_0CB62B: db $86 ; Repeat Fill
-#_0CB62C: db $00, $1B ; Repeat Fill bytes
-#_0CB62E: db $22 ; Byte Fill
+#_0CB62B: db $86 ; Copy past
+#_0CB62C: dw $1B00
+#_0CB62E: db $22 ; Repeat byte
 #_0CB62F: db $B4
-#_0CB630: db $84 ; Repeat Fill
-#_0CB631: db $00, $25 ; Repeat Fill bytes
-#_0CB633: db $22 ; Byte Fill
+#_0CB630: db $84 ; Copy past
+#_0CB631: dw $2500
+#_0CB633: db $22 ; Repeat byte
 #_0CB634: db $B4
-#_0CB635: db $84 ; Repeat Fill
-#_0CB636: db $00, $2D ; Repeat Fill bytes
-#_0CB638: db $23 ; Byte Fill
+#_0CB635: db $84 ; Copy past
+#_0CB636: dw $2D00
+#_0CB638: db $23 ; Repeat byte
 #_0CB639: db $B4
-#_0CB63A: db $83 ; Repeat Fill
-#_0CB63B: db $00, $36 ; Repeat Fill bytes
-#_0CB63D: db $23 ; Byte Fill
+#_0CB63A: db $83 ; Copy past
+#_0CB63B: dw $3600
+#_0CB63D: db $23 ; Repeat byte
 #_0CB63E: db $B4
-#_0CB63F: db $84 ; Repeat Fill
-#_0CB640: db $00, $1D ; Repeat Fill bytes
-#_0CB642: db $22 ; Byte Fill
+#_0CB63F: db $84 ; Copy past
+#_0CB640: dw $1D00
+#_0CB642: db $22 ; Repeat byte
 #_0CB643: db $B4
-#_0CB644: db $84 ; Repeat Fill
-#_0CB645: db $00, $46 ; Repeat Fill bytes
-#_0CB647: db $22 ; Byte Fill
+#_0CB644: db $84 ; Copy past
+#_0CB645: dw $4600
+#_0CB647: db $22 ; Repeat byte
 #_0CB648: db $B4
-#_0CB649: db $84 ; Repeat Fill
-#_0CB64A: db $00, $4E ; Repeat Fill bytes
-#_0CB64C: db $22 ; Byte Fill
+#_0CB649: db $84 ; Copy past
+#_0CB64A: dw $4E00
+#_0CB64C: db $22 ; Repeat byte
 #_0CB64D: db $B4
-#_0CB64E: db $84 ; Repeat Fill
-#_0CB64F: db $00, $2D ; Repeat Fill bytes
-#_0CB651: db $22 ; Byte Fill
+#_0CB64E: db $84 ; Copy past
+#_0CB64F: dw $2D00
+#_0CB651: db $22 ; Repeat byte
 #_0CB652: db $B4
-#_0CB653: db $01 ; Direct Copy
+#_0CB653: db $01 ; Raw block
 #_0CB654: db $B7, $B8
-#_0CB656: db $23 ; Byte Fill
+#_0CB656: db $23 ; Repeat byte
 #_0CB657: db $B4
-#_0CB658: db $01 ; Direct Copy
+#_0CB658: db $01 ; Raw block
 #_0CB659: db $B5, $B6
-#_0CB65B: db $25 ; Byte Fill
+#_0CB65B: db $25 ; Repeat byte
 #_0CB65C: db $B4
-#_0CB65D: db $01 ; Direct Copy
+#_0CB65D: db $01 ; Raw block
 #_0CB65E: db $B5, $B6
-#_0CB660: db $25 ; Byte Fill
+#_0CB660: db $25 ; Repeat byte
 #_0CB661: db $B4
-#_0CB662: db $01 ; Direct Copy
+#_0CB662: db $01 ; Raw block
 #_0CB663: db $B7, $B8
-#_0CB665: db $25 ; Byte Fill
+#_0CB665: db $25 ; Repeat byte
 #_0CB666: db $B4
-#_0CB667: db $83 ; Repeat Fill
-#_0CB668: db $00, $30 ; Repeat Fill bytes
+#_0CB667: db $83 ; Copy past
+#_0CB668: dw $3000
 #_0CB66A: db $FF ; End of Map 9E
 
 ;===================================================================================================
 
 OverworldMap32_Screen97_High:
-#_0CB66B: db $E4, $FF ; EXT Byte Fill
+#_0CB66B: db $E4, $FF ; EXT Repeat byte
 #_0CB66D: db $1F
 #_0CB66E: db $FF ; End of Map 97
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen97_Low:
-#_0CB66F: db $67 ; Increasing Fill
-#_0CB670: db $9B ; Increasing Fill Start
-#_0CB671: db $87 ; Repeat Fill
-#_0CB672: db $00, $00 ; Repeat Fill bytes
-#_0CB674: db $66 ; Increasing Fill
-#_0CB675: db $A3 ; Increasing Fill Start
-#_0CB676: db $00 ; Direct Copy
+#_0CB66F: db $67 ; Increment fill
+#_0CB670: db $9B
+#_0CB671: db $87 ; Copy past
+#_0CB672: dw $0000
+#_0CB674: db $66 ; Increment fill
+#_0CB675: db $A3
+#_0CB676: db $00 ; Raw block
 #_0CB677: db $A9
-#_0CB678: db $87 ; Repeat Fill
-#_0CB679: db $00, $10 ; Repeat Fill bytes
-#_0CB67B: db $62 ; Increasing Fill
-#_0CB67C: db $AA ; Increasing Fill Start
-#_0CB67D: db $01 ; Direct Copy
+#_0CB678: db $87 ; Copy past
+#_0CB679: dw $1000
+#_0CB67B: db $62 ; Increment fill
+#_0CB67C: db $AA
+#_0CB67D: db $01 ; Raw block
 #_0CB67E: db $A9, $9B
-#_0CB680: db $62 ; Increasing Fill
-#_0CB681: db $AD ; Increasing Fill Start
-#_0CB682: db $87 ; Repeat Fill
-#_0CB683: db $00, $20 ; Repeat Fill bytes
-#_0CB685: db $07 ; Direct Copy
+#_0CB680: db $62 ; Increment fill
+#_0CB681: db $AD
+#_0CB682: db $87 ; Copy past
+#_0CB683: dw $2000
+#_0CB685: db $07 ; Raw block
 #_0CB686: db $B0, $B1, $A2, $9B, $9C, $B2, $B3, $9C
-#_0CB68E: db $87 ; Repeat Fill
-#_0CB68F: db $00, $30 ; Repeat Fill bytes
-#_0CB691: db $8B ; Repeat Fill
-#_0CB692: db $00, $04 ; Repeat Fill bytes
-#_0CB694: db $83 ; Repeat Fill
-#_0CB695: db $00, $00 ; Repeat Fill bytes
-#_0CB697: db $8B ; Repeat Fill
-#_0CB698: db $00, $14 ; Repeat Fill bytes
-#_0CB69A: db $83 ; Repeat Fill
-#_0CB69B: db $00, $10 ; Repeat Fill bytes
-#_0CB69D: db $8B ; Repeat Fill
-#_0CB69E: db $00, $24 ; Repeat Fill bytes
-#_0CB6A0: db $83 ; Repeat Fill
-#_0CB6A1: db $00, $20 ; Repeat Fill bytes
-#_0CB6A3: db $8B ; Repeat Fill
-#_0CB6A4: db $00, $34 ; Repeat Fill bytes
-#_0CB6A6: db $83 ; Repeat Fill
-#_0CB6A7: db $00, $30 ; Repeat Fill bytes
-#_0CB6A9: db $F0, $7F ; EXT Repeat Fill
-#_0CB6AB: db $00, $00 ; Repeat Fill bytes
+#_0CB68E: db $87 ; Copy past
+#_0CB68F: dw $3000
+#_0CB691: db $8B ; Copy past
+#_0CB692: dw $0400
+#_0CB694: db $83 ; Copy past
+#_0CB695: dw $0000
+#_0CB697: db $8B ; Copy past
+#_0CB698: dw $1400
+#_0CB69A: db $83 ; Copy past
+#_0CB69B: dw $1000
+#_0CB69D: db $8B ; Copy past
+#_0CB69E: dw $2400
+#_0CB6A0: db $83 ; Copy past
+#_0CB6A1: dw $2000
+#_0CB6A3: db $8B ; Copy past
+#_0CB6A4: dw $3400
+#_0CB6A6: db $83 ; Copy past
+#_0CB6A7: dw $3000
+#_0CB6A9: db $F0, $7F ; EXT Copy past
+#_0CB6AB: dw $0000
 #_0CB6AD: db $FF ; End of Map 97
 
 ;===================================================================================================
 
 OverworldMap32_Screen9F_High:
-#_0CB6AE: db $E4, $B7 ; EXT Byte Fill
+#_0CB6AE: db $E4, $B7 ; EXT Repeat byte
 #_0CB6B0: db $1F
-#_0CB6B1: db $01 ; Direct Copy
+#_0CB6B1: db $01 ; Raw block
 #_0CB6B2: db $20, $20
-#_0CB6B4: db $22 ; Byte Fill
+#_0CB6B4: db $22 ; Repeat byte
 #_0CB6B5: db $1F
-#_0CB6B6: db $00 ; Direct Copy
+#_0CB6B6: db $00 ; Raw block
 #_0CB6B7: db $20
-#_0CB6B8: db $22 ; Byte Fill
+#_0CB6B8: db $22 ; Repeat byte
 #_0CB6B9: db $1F
-#_0CB6BA: db $03 ; Direct Copy
+#_0CB6BA: db $03 ; Raw block
 #_0CB6BB: db $20, $1F, $1F, $20
-#_0CB6BF: db $23 ; Byte Fill
+#_0CB6BF: db $23 ; Repeat byte
 #_0CB6C0: db $1F
-#_0CB6C1: db $01 ; Direct Copy
+#_0CB6C1: db $01 ; Raw block
 #_0CB6C2: db $20, $1F
-#_0CB6C4: db $47 ; Word Fill
-#_0CB6C5: db $1F, $20 ;  Word Fill
-#_0CB6C7: db $29 ; Byte Fill
+#_0CB6C4: db $47 ; Repeat word
+#_0CB6C5: dw $201F
+#_0CB6C7: db $29 ; Repeat byte
 #_0CB6C8: db $1F
-#_0CB6C9: db $00 ; Direct Copy
+#_0CB6C9: db $00 ; Raw block
 #_0CB6CA: db $20
-#_0CB6CB: db $23 ; Byte Fill
+#_0CB6CB: db $23 ; Repeat byte
 #_0CB6CC: db $1F
-#_0CB6CD: db $46 ; Word Fill
-#_0CB6CE: db $20, $1F ;  Word Fill
-#_0CB6D0: db $22 ; Byte Fill
+#_0CB6CD: db $46 ; Repeat word
+#_0CB6CE: dw $1F20
+#_0CB6D0: db $22 ; Repeat byte
 #_0CB6D1: db $1F
-#_0CB6D2: db $01 ; Direct Copy
+#_0CB6D2: db $01 ; Raw block
 #_0CB6D3: db $20, $20
-#_0CB6D5: db $24 ; Byte Fill
+#_0CB6D5: db $24 ; Repeat byte
 #_0CB6D6: db $1F
-#_0CB6D7: db $00 ; Direct Copy
+#_0CB6D7: db $00 ; Raw block
 #_0CB6D8: db $20
-#_0CB6D9: db $26 ; Byte Fill
+#_0CB6D9: db $26 ; Repeat byte
 #_0CB6DA: db $1F
-#_0CB6DB: db $00 ; Direct Copy
+#_0CB6DB: db $00 ; Raw block
 #_0CB6DC: db $20
-#_0CB6DD: db $23 ; Byte Fill
+#_0CB6DD: db $23 ; Repeat byte
 #_0CB6DE: db $1F
 #_0CB6DF: db $FF ; End of Map 9F
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen9F_Low:
-#_0CB6E0: db $66 ; Increasing Fill
-#_0CB6E1: db $BD ; Increasing Fill Start
-#_0CB6E2: db $06 ; Direct Copy
+#_0CB6E0: db $66 ; Increment fill
+#_0CB6E1: db $BD
+#_0CB6E2: db $06 ; Raw block
 #_0CB6E3: db $C0, $C2, $C4, $C5, $C3, $C2, $C6
-#_0CB6EA: db $43 ; Word Fill
-#_0CB6EB: db $C1, $C3 ;  Word Fill
-#_0CB6ED: db $00 ; Direct Copy
+#_0CB6EA: db $43 ; Repeat word
+#_0CB6EB: dw $C3C1
+#_0CB6ED: db $00 ; Raw block
 #_0CB6EE: db $C0
-#_0CB6EF: db $64 ; Increasing Fill
-#_0CB6F0: db $C7 ; Increasing Fill Start
-#_0CB6F1: db $15 ; Direct Copy
+#_0CB6EF: db $64 ; Increment fill
+#_0CB6F0: db $C7
+#_0CB6F1: db $15 ; Raw block
 #_0CB6F2: db $C2, $CC, $C1, $CD, $C3, $CE, $C1, $CF
 #_0CB6FA: db $BE, $BF, $BF, $D0, $D1, $C3, $C0, $C0
 #_0CB702: db $C4, $C5, $CA, $D2, $D3, $BD
-#_0CB708: db $65 ; Increasing Fill
-#_0CB709: db $D4 ; Increasing Fill Start
-#_0CB70A: db $0C ; Direct Copy
+#_0CB708: db $65 ; Increment fill
+#_0CB709: db $D4
+#_0CB70A: db $0C ; Raw block
 #_0CB70B: db $C9, $DA, $DB, $C6, $CC, $DC, $CD, $C2
 #_0CB713: db $C2, $DD, $DE, $C0, $C0
-#_0CB718: db $63 ; Increasing Fill
-#_0CB719: db $DF ; Increasing Fill Start
-#_0CB71A: db $18 ; Direct Copy
+#_0CB718: db $63 ; Increment fill
+#_0CB719: db $DF
+#_0CB71A: db $18 ; Raw block
 #_0CB71B: db $C0, $E3, $E4, $C3, $E5, $D2, $E6, $E7
 #_0CB723: db $C7, $E8, $C3, $D6, $E7, $E9, $C4, $EA
 #_0CB72B: db $CE, $EB, $C2, $D5, $E6, $EC, $C7, $ED
 #_0CB733: db $CA
-#_0CB734: db $62 ; Increasing Fill
-#_0CB735: db $EE ; Increasing Fill Start
-#_0CB736: db $E0, $48 ; EXT Direct Copy
+#_0CB734: db $62 ; Increment fill
+#_0CB735: db $EE
+#_0CB736: db $E0, $48 ; EXT Raw block
 #_0CB738: db $C1, $DC, $C4, $F1, $C7, $F2, $C0, $C3
 #_0CB740: db $C2, $E7, $E7, $DB, $F3, $F4, $DB, $E7
 #_0CB748: db $C3, $C3, $F5, $C3, $BD, $C2, $C3, $E6
@@ -5775,9 +5775,9 @@ OverworldMap32_Screen9F_Low:
 #_0CB770: db $C2, $DB, $F8, $F9, $D4, $DB, $E7, $DB
 #_0CB778: db $C2, $C1, $FA, $F0, $CE, $C9, $C3, $C0
 #_0CB780: db $C6
-#_0CB781: db $62 ; Increasing Fill
-#_0CB782: db $FB ; Increasing Fill Start
-#_0CB783: db $E0, $48 ; EXT Direct Copy
+#_0CB781: db $62 ; Increment fill
+#_0CB782: db $FB
+#_0CB783: db $E0, $48 ; EXT Raw block
 #_0CB785: db $C0, $CE, $FE, $FF, $C1, $D4, $DB, $C3
 #_0CB78D: db $C2, $C2, $BE, $00, $01, $C4, $CF, $E6
 #_0CB795: db $02, $E7, $C4, $C3, $03, $FA, $DF, $02
@@ -5788,380 +5788,380 @@ OverworldMap32_Screen9F_Low:
 #_0CB7BD: db $F9, $0C, $C0, $0D, $E7, $D7, $FA, $0E
 #_0CB7C5: db $0F, $D4, $C6, $FC, $DB, $C3, $10, $C3
 #_0CB7CD: db $D4
-#_0CB7CE: db $22 ; Byte Fill
+#_0CB7CE: db $22 ; Repeat byte
 #_0CB7CF: db $C3
-#_0CB7D0: db $06 ; Direct Copy
+#_0CB7D0: db $06 ; Raw block
 #_0CB7D1: db $D4, $D4, $11, $C1, $C4, $BD, $C3
 #_0CB7D8: db $FF ; End of Map 9F
 
 ;===================================================================================================
 
 OverworldMap32_Screen80_High:
-#_0CB7D9: db $27 ; Byte Fill
+#_0CB7D9: db $27 ; Repeat byte
 #_0CB7DA: db $20
-#_0CB7DB: db $07 ; Direct Copy
+#_0CB7DB: db $07 ; Raw block
 #_0CB7DC: db $01, $20, $20, $01, $01, $20, $20, $01
-#_0CB7E4: db $2B ; Byte Fill
+#_0CB7E4: db $2B ; Repeat byte
 #_0CB7E5: db $20
-#_0CB7E6: db $00 ; Direct Copy
+#_0CB7E6: db $00 ; Raw block
 #_0CB7E7: db $00
-#_0CB7E8: db $24 ; Byte Fill
+#_0CB7E8: db $24 ; Repeat byte
 #_0CB7E9: db $20
-#_0CB7EA: db $02 ; Direct Copy
+#_0CB7EA: db $02 ; Raw block
 #_0CB7EB: db $00, $20, $00
-#_0CB7EE: db $23 ; Byte Fill
+#_0CB7EE: db $23 ; Repeat byte
 #_0CB7EF: db $20
-#_0CB7F0: db $06 ; Direct Copy
+#_0CB7F0: db $06 ; Raw block
 #_0CB7F1: db $05, $04, $00, $20, $04, $02, $08
-#_0CB7F8: db $28 ; Byte Fill
+#_0CB7F8: db $28 ; Repeat byte
 #_0CB7F9: db $20
-#_0CB7FA: db $05 ; Direct Copy
+#_0CB7FA: db $05 ; Raw block
 #_0CB7FB: db $09, $0C, $10, $10, $0F, $05
-#_0CB801: db $29 ; Byte Fill
+#_0CB801: db $29 ; Repeat byte
 #_0CB802: db $20
-#_0CB803: db $05 ; Direct Copy
+#_0CB803: db $05 ; Raw block
 #_0CB804: db $05, $05, $09, $09, $0F, $07
-#_0CB80A: db $29 ; Byte Fill
+#_0CB80A: db $29 ; Repeat byte
 #_0CB80B: db $20
-#_0CB80C: db $05 ; Direct Copy
+#_0CB80C: db $05 ; Raw block
 #_0CB80D: db $05, $05, $08, $07, $07, $05
-#_0CB813: db $29 ; Byte Fill
+#_0CB813: db $29 ; Repeat byte
 #_0CB814: db $20
-#_0CB815: db $05 ; Direct Copy
+#_0CB815: db $05 ; Raw block
 #_0CB816: db $07, $09, $1B, $1B, $20, $1F
-#_0CB81C: db $23 ; Byte Fill
+#_0CB81C: db $23 ; Repeat byte
 #_0CB81D: db $20
-#_0CB81E: db $22 ; Byte Fill
+#_0CB81E: db $22 ; Repeat byte
 #_0CB81F: db $00
-#_0CB820: db $2C ; Byte Fill
+#_0CB820: db $2C ; Repeat byte
 #_0CB821: db $20
-#_0CB822: db $02 ; Direct Copy
+#_0CB822: db $02 ; Raw block
 #_0CB823: db $04, $00, $03
-#_0CB826: db $2B ; Byte Fill
+#_0CB826: db $2B ; Repeat byte
 #_0CB827: db $20
-#_0CB828: db $03 ; Direct Copy
+#_0CB828: db $03 ; Raw block
 #_0CB829: db $06, $20, $00, $00
-#_0CB82D: db $2B ; Byte Fill
+#_0CB82D: db $2B ; Repeat byte
 #_0CB82E: db $20
-#_0CB82F: db $02 ; Direct Copy
+#_0CB82F: db $02 ; Raw block
 #_0CB830: db $0E, $20, $06
-#_0CB833: db $2C ; Byte Fill
+#_0CB833: db $2C ; Repeat byte
 #_0CB834: db $20
-#_0CB835: db $03 ; Direct Copy
+#_0CB835: db $03 ; Raw block
 #_0CB836: db $00, $02, $1A, $00
-#_0CB83A: db $2D ; Byte Fill
+#_0CB83A: db $2D ; Repeat byte
 #_0CB83B: db $20
-#_0CB83C: db $01 ; Direct Copy
+#_0CB83C: db $01 ; Raw block
 #_0CB83D: db $1B, $00
-#_0CB83F: db $2C ; Byte Fill
+#_0CB83F: db $2C ; Repeat byte
 #_0CB840: db $20
-#_0CB841: db $02 ; Direct Copy
+#_0CB841: db $02 ; Raw block
 #_0CB842: db $0E, $12, $03
-#_0CB845: db $E4, $29 ; EXT Byte Fill
+#_0CB845: db $E4, $29 ; EXT Repeat byte
 #_0CB847: db $20
 #_0CB848: db $FF ; End of Map 80
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen80_Low:
-#_0CB849: db $01 ; Direct Copy
+#_0CB849: db $01 ; Raw block
 #_0CB84A: db $12, $13
-#_0CB84C: db $22 ; Byte Fill
+#_0CB84C: db $22 ; Repeat byte
 #_0CB84D: db $14
-#_0CB84E: db $02 ; Direct Copy
+#_0CB84E: db $02 ; Raw block
 #_0CB84F: db $15, $12, $12
-#_0CB852: db $62 ; Increasing Fill
-#_0CB853: db $15 ; Increasing Fill Start
-#_0CB854: db $06 ; Direct Copy
+#_0CB852: db $62 ; Increment fill
+#_0CB853: db $15
+#_0CB854: db $06 ; Raw block
 #_0CB855: db $E5, $E5, $18, $19, $15, $13, $1A
-#_0CB85C: db $22 ; Byte Fill
+#_0CB85C: db $22 ; Repeat byte
 #_0CB85D: db $1B
-#_0CB85E: db $02 ; Direct Copy
+#_0CB85E: db $02 ; Raw block
 #_0CB85F: db $1C, $15, $12
-#_0CB862: db $63 ; Increasing Fill
-#_0CB863: db $1D ; Increasing Fill Start
-#_0CB864: db $00 ; Direct Copy
+#_0CB862: db $63 ; Increment fill
+#_0CB863: db $1D
+#_0CB864: db $00 ; Raw block
 #_0CB865: db $1D
-#_0CB866: db $64 ; Increasing Fill
-#_0CB867: db $21 ; Increasing Fill Start
-#_0CB868: db $0D ; Direct Copy
+#_0CB866: db $64 ; Increment fill
+#_0CB867: db $21
+#_0CB868: db $0D ; Raw block
 #_0CB869: db $AA, $26, $1D, $27, $1C, $15, $28, $5A
 #_0CB871: db $C4, $1D, $29, $7D, $79, $63
-#_0CB877: db $65 ; Increasing Fill
-#_0CB878: db $2A ; Increasing Fill Start
-#_0CB879: db $08 ; Direct Copy
+#_0CB877: db $65 ; Increment fill
+#_0CB878: db $2A
+#_0CB879: db $08 ; Raw block
 #_0CB87A: db $27, $1C, $30, $F7, $2E, $F7, $F8, $5D
 #_0CB882: db $99
-#_0CB883: db $69 ; Increasing Fill
-#_0CB884: db $31 ; Increasing Fill Start
-#_0CB885: db $07 ; Direct Copy
+#_0CB883: db $69 ; Increment fill
+#_0CB884: db $31
+#_0CB885: db $07 ; Raw block
 #_0CB886: db $E1, $AB, $F8, $F9, $68, $1F, $3B, $2A
-#_0CB88E: db $67 ; Increasing Fill
-#_0CB88F: db $3C ; Increasing Fill Start
-#_0CB890: db $07 ; Direct Copy
+#_0CB88E: db $67 ; Increment fill
+#_0CB88F: db $3C
+#_0CB890: db $07 ; Raw block
 #_0CB891: db $E1, $E1, $D7, $22, $3D, $E1, $3B, $32
-#_0CB899: db $67 ; Increasing Fill
-#_0CB89A: db $44 ; Increasing Fill Start
-#_0CB89B: db $05 ; Direct Copy
+#_0CB899: db $67 ; Increment fill
+#_0CB89A: db $44
+#_0CB89B: db $05 ; Raw block
 #_0CB89C: db $83, $FC, $BD, $BE, $4C, $73
-#_0CB8A2: db $63 ; Increasing Fill
-#_0CB8A3: db $4D ; Increasing Fill Start
-#_0CB8A4: db $22 ; Byte Fill
+#_0CB8A2: db $63 ; Increment fill
+#_0CB8A3: db $4D
+#_0CB8A4: db $22 ; Repeat byte
 #_0CB8A5: db $1D
-#_0CB8A6: db $68 ; Increasing Fill
-#_0CB8A7: db $51 ; Increasing Fill Start
-#_0CB8A8: db $00 ; Direct Copy
+#_0CB8A6: db $68 ; Increment fill
+#_0CB8A7: db $51
+#_0CB8A8: db $00 ; Raw block
 #_0CB8A9: db $53
-#_0CB8AA: db $62 ; Increasing Fill
-#_0CB8AB: db $5A ; Increasing Fill Start
-#_0CB8AC: db $06 ; Direct Copy
+#_0CB8AA: db $62 ; Increment fill
+#_0CB8AB: db $5A
+#_0CB8AC: db $06 ; Raw block
 #_0CB8AD: db $2C, $1D, $D5, $38, $39, $5D, $5E
-#_0CB8B4: db $23 ; Byte Fill
+#_0CB8B4: db $23 ; Repeat byte
 #_0CB8B5: db $5F
-#_0CB8B6: db $0B ; Direct Copy
+#_0CB8B6: db $0B ; Raw block
 #_0CB8B7: db $60, $5D, $61, $62, $8B, $63, $1D, $1D
 #_0CB8BF: db $64, $65, $5D, $5D
-#_0CB8C3: db $24 ; Byte Fill
+#_0CB8C3: db $24 ; Repeat byte
 #_0CB8C4: db $5F
-#_0CB8C5: db $0B ; Direct Copy
+#_0CB8C5: db $0B ; Raw block
 #_0CB8C6: db $5D, $66, $67, $34, $68, $8F, $26, $69
 #_0CB8CE: db $4A, $5D, $5D, $6A
-#_0CB8D2: db $23 ; Byte Fill
+#_0CB8D2: db $23 ; Repeat byte
 #_0CB8D3: db $5F
-#_0CB8D4: db $62 ; Increasing Fill
-#_0CB8D5: db $6B ; Increasing Fill Start
-#_0CB8D6: db $09 ; Direct Copy
+#_0CB8D4: db $62 ; Increment fill
+#_0CB8D5: db $6B
+#_0CB8D6: db $09 ; Raw block
 #_0CB8D7: db $1D, $27, $87, $1D, $51, $52, $5D, $5D
 #_0CB8DF: db $6E, $6F
-#_0CB8E1: db $22 ; Byte Fill
+#_0CB8E1: db $22 ; Repeat byte
 #_0CB8E2: db $5F
-#_0CB8E3: db $64 ; Increasing Fill
-#_0CB8E4: db $70 ; Increasing Fill Start
-#_0CB8E5: db $03 ; Direct Copy
+#_0CB8E3: db $64 ; Increment fill
+#_0CB8E4: db $70
+#_0CB8E5: db $03 ; Raw block
 #_0CB8E6: db $29, $1D, $38, $39
-#_0CB8EA: db $22 ; Byte Fill
+#_0CB8EA: db $22 ; Repeat byte
 #_0CB8EB: db $5D
-#_0CB8EC: db $00 ; Direct Copy
+#_0CB8EC: db $00 ; Raw block
 #_0CB8ED: db $75
-#_0CB8EE: db $22 ; Byte Fill
+#_0CB8EE: db $22 ; Repeat byte
 #_0CB8EF: db $5F
-#_0CB8F0: db $00 ; Direct Copy
+#_0CB8F0: db $00 ; Raw block
 #_0CB8F1: db $70
-#_0CB8F2: db $62 ; Increasing Fill
-#_0CB8F3: db $76 ; Increasing Fill Start
-#_0CB8F4: db $04 ; Direct Copy
+#_0CB8F2: db $62 ; Increment fill
+#_0CB8F3: db $76
+#_0CB8F4: db $04 ; Raw block
 #_0CB8F5: db $34, $E2, $D5, $79, $65
-#_0CB8FA: db $22 ; Byte Fill
+#_0CB8FA: db $22 ; Repeat byte
 #_0CB8FB: db $5D
-#_0CB8FC: db $00 ; Direct Copy
+#_0CB8FC: db $00 ; Raw block
 #_0CB8FD: db $7A
-#_0CB8FE: db $22 ; Byte Fill
+#_0CB8FE: db $22 ; Repeat byte
 #_0CB8FF: db $5F
-#_0CB900: db $00 ; Direct Copy
+#_0CB900: db $00 ; Raw block
 #_0CB901: db $70
-#_0CB902: db $63 ; Increasing Fill
-#_0CB903: db $7B ; Increasing Fill Start
-#_0CB904: db $63 ; Increasing Fill
-#_0CB905: db $7E ; Increasing Fill Start
-#_0CB906: db $03 ; Direct Copy
+#_0CB902: db $63 ; Increment fill
+#_0CB903: db $7B
+#_0CB904: db $63 ; Increment fill
+#_0CB905: db $7E
+#_0CB906: db $03 ; Raw block
 #_0CB907: db $5D, $5D, $82, $83
-#_0CB90B: db $22 ; Byte Fill
+#_0CB90B: db $22 ; Repeat byte
 #_0CB90C: db $5F
-#_0CB90D: db $68 ; Increasing Fill
-#_0CB90E: db $84 ; Increasing Fill Start
-#_0CB90F: db $02 ; Direct Copy
+#_0CB90D: db $68 ; Increment fill
+#_0CB90E: db $84
+#_0CB90F: db $02 ; Raw block
 #_0CB910: db $5D, $5D, $8D
-#_0CB913: db $22 ; Byte Fill
+#_0CB913: db $22 ; Repeat byte
 #_0CB914: db $5F
-#_0CB915: db $01 ; Direct Copy
+#_0CB915: db $01 ; Raw block
 #_0CB916: db $8E, $8F
 #_0CB918: db $FF ; End of Map 80
 
 ;===================================================================================================
 
 OverworldMap32_Screen81_High:
-#_0CB919: db $E4, $2B ; EXT Byte Fill
+#_0CB919: db $E4, $2B ; EXT Repeat byte
 #_0CB91B: db $20
-#_0CB91C: db $00 ; Direct Copy
+#_0CB91C: db $00 ; Raw block
 #_0CB91D: db $06
-#_0CB91E: db $2C ; Byte Fill
+#_0CB91E: db $2C ; Repeat byte
 #_0CB91F: db $20
-#_0CB920: db $00 ; Direct Copy
+#_0CB920: db $00 ; Raw block
 #_0CB921: db $1C
-#_0CB922: db $2A ; Byte Fill
+#_0CB922: db $2A ; Repeat byte
 #_0CB923: db $20
-#_0CB924: db $02 ; Direct Copy
+#_0CB924: db $02 ; Raw block
 #_0CB925: db $06, $06, $07
-#_0CB928: db $22 ; Byte Fill
+#_0CB928: db $22 ; Repeat byte
 #_0CB929: db $20
-#_0CB92A: db $02 ; Direct Copy
+#_0CB92A: db $02 ; Raw block
 #_0CB92B: db $1C, $20, $05
-#_0CB92E: db $25 ; Byte Fill
+#_0CB92E: db $25 ; Repeat byte
 #_0CB92F: db $20
-#_0CB930: db $04 ; Direct Copy
+#_0CB930: db $04 ; Raw block
 #_0CB931: db $07, $20, $20, $05, $05
-#_0CB936: db $83 ; Repeat Fill
-#_0CB937: db $00, $4B ; Repeat Fill bytes
-#_0CB939: db $26 ; Byte Fill
+#_0CB936: db $83 ; Copy past
+#_0CB937: dw $4B00
+#_0CB939: db $26 ; Repeat byte
 #_0CB93A: db $20
-#_0CB93B: db $09 ; Direct Copy
+#_0CB93B: db $09 ; Raw block
 #_0CB93C: db $07, $03, $09, $08, $0E, $20, $20, $0F
 #_0CB944: db $20, $05
-#_0CB946: db $25 ; Byte Fill
+#_0CB946: db $25 ; Repeat byte
 #_0CB947: db $20
-#_0CB948: db $04 ; Direct Copy
+#_0CB948: db $04 ; Raw block
 #_0CB949: db $06, $04, $20, $05, $10
-#_0CB94E: db $23 ; Byte Fill
+#_0CB94E: db $23 ; Repeat byte
 #_0CB94F: db $20
-#_0CB950: db $00 ; Direct Copy
+#_0CB950: db $00 ; Raw block
 #_0CB951: db $05
-#_0CB952: db $23 ; Byte Fill
+#_0CB952: db $23 ; Repeat byte
 #_0CB953: db $20
-#_0CB954: db $05 ; Direct Copy
+#_0CB954: db $05 ; Raw block
 #_0CB955: db $1C, $20, $07, $07, $20, $07
-#_0CB95B: db $22 ; Byte Fill
+#_0CB95B: db $22 ; Repeat byte
 #_0CB95C: db $20
-#_0CB95D: db $00 ; Direct Copy
+#_0CB95D: db $00 ; Raw block
 #_0CB95E: db $05
-#_0CB95F: db $27 ; Byte Fill
+#_0CB95F: db $27 ; Repeat byte
 #_0CB960: db $20
-#_0CB961: db $83 ; Repeat Fill
-#_0CB962: db $00, $85 ; Repeat Fill bytes
-#_0CB964: db $05 ; Direct Copy
+#_0CB961: db $83 ; Copy past
+#_0CB962: dw $8500
+#_0CB964: db $05 ; Raw block
 #_0CB965: db $05, $20, $20, $1C, $05, $05
-#_0CB96B: db $25 ; Byte Fill
+#_0CB96B: db $25 ; Repeat byte
 #_0CB96C: db $20
-#_0CB96D: db $01 ; Direct Copy
+#_0CB96D: db $01 ; Raw block
 #_0CB96E: db $07, $07
-#_0CB970: db $83 ; Repeat Fill
-#_0CB971: db $00, $93 ; Repeat Fill bytes
-#_0CB973: db $22 ; Byte Fill
+#_0CB970: db $83 ; Copy past
+#_0CB971: dw $9300
+#_0CB973: db $22 ; Repeat byte
 #_0CB974: db $20
-#_0CB975: db $00 ; Direct Copy
+#_0CB975: db $00 ; Raw block
 #_0CB976: db $05
-#_0CB977: db $25 ; Byte Fill
+#_0CB977: db $25 ; Repeat byte
 #_0CB978: db $20
-#_0CB979: db $04 ; Direct Copy
+#_0CB979: db $04 ; Raw block
 #_0CB97A: db $07, $07, $20, $0C, $20
-#_0CB97F: db $22 ; Byte Fill
+#_0CB97F: db $22 ; Repeat byte
 #_0CB980: db $07
-#_0CB981: db $02 ; Direct Copy
+#_0CB981: db $02 ; Raw block
 #_0CB982: db $09, $20, $1C
-#_0CB985: db $22 ; Byte Fill
+#_0CB985: db $22 ; Repeat byte
 #_0CB986: db $20
-#_0CB987: db $85 ; Repeat Fill
-#_0CB988: db $00, $83 ; Repeat Fill bytes
-#_0CB98A: db $29 ; Byte Fill
+#_0CB987: db $85 ; Copy past
+#_0CB988: dw $8300
+#_0CB98A: db $29 ; Repeat byte
 #_0CB98B: db $20
-#_0CB98C: db $04 ; Direct Copy
+#_0CB98C: db $04 ; Raw block
 #_0CB98D: db $05, $20, $07, $20, $02
-#_0CB992: db $27 ; Byte Fill
+#_0CB992: db $27 ; Repeat byte
 #_0CB993: db $20
-#_0CB994: db $85 ; Repeat Fill
-#_0CB995: db $00, $55 ; Repeat Fill bytes
-#_0CB997: db $02 ; Direct Copy
+#_0CB994: db $85 ; Copy past
+#_0CB995: dw $5500
+#_0CB997: db $02 ; Raw block
 #_0CB998: db $06, $02, $01
-#_0CB99B: db $27 ; Byte Fill
+#_0CB99B: db $27 ; Repeat byte
 #_0CB99C: db $20
-#_0CB99D: db $08 ; Direct Copy
+#_0CB99D: db $08 ; Raw block
 #_0CB99E: db $08, $10, $1C, $05, $20, $20, $07, $06
 #_0CB9A6: db $01
-#_0CB9A7: db $25 ; Byte Fill
+#_0CB9A7: db $25 ; Repeat byte
 #_0CB9A8: db $20
 #_0CB9A9: db $FF ; End of Map 81
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen81_Low:
-#_0CB9AA: db $62 ; Increasing Fill
-#_0CB9AB: db $12 ; Increasing Fill Start
-#_0CB9AC: db $62 ; Increasing Fill
-#_0CB9AD: db $90 ; Increasing Fill Start
-#_0CB9AE: db $62 ; Increasing Fill
-#_0CB9AF: db $90 ; Increasing Fill Start
-#_0CB9B0: db $85 ; Repeat Fill
-#_0CB9B1: db $00, $03 ; Repeat Fill bytes
-#_0CB9B3: db $03 ; Direct Copy
+#_0CB9AA: db $62 ; Increment fill
+#_0CB9AB: db $12
+#_0CB9AC: db $62 ; Increment fill
+#_0CB9AD: db $90
+#_0CB9AE: db $62 ; Increment fill
+#_0CB9AF: db $90
+#_0CB9B0: db $85 ; Copy past
+#_0CB9B1: dw $0300
+#_0CB9B3: db $03 ; Raw block
 #_0CB9B4: db $14, $13, $1A, $1B
-#_0CB9B8: db $62 ; Increasing Fill
-#_0CB9B9: db $93 ; Increasing Fill Start
-#_0CB9BA: db $62 ; Increasing Fill
-#_0CB9BB: db $93 ; Increasing Fill Start
-#_0CB9BC: db $85 ; Repeat Fill
-#_0CB9BD: db $00, $13 ; Repeat Fill bytes
-#_0CB9BF: db $01 ; Direct Copy
+#_0CB9B8: db $62 ; Increment fill
+#_0CB9B9: db $93
+#_0CB9BA: db $62 ; Increment fill
+#_0CB9BB: db $93
+#_0CB9BC: db $85 ; Copy past
+#_0CB9BD: dw $1300
+#_0CB9BF: db $01 ; Raw block
 #_0CB9C0: db $1B, $1A
-#_0CB9C2: db $64 ; Increasing Fill
-#_0CB9C3: db $96 ; Increasing Fill Start
-#_0CB9C4: db $22 ; Byte Fill
+#_0CB9C2: db $64 ; Increment fill
+#_0CB9C3: db $96
+#_0CB9C4: db $22 ; Repeat byte
 #_0CB9C5: db $98
-#_0CB9C6: db $62 ; Increasing Fill
-#_0CB9C7: db $9B ; Increasing Fill Start
-#_0CB9C8: db $03 ; Direct Copy
+#_0CB9C6: db $62 ; Increment fill
+#_0CB9C7: db $9B
+#_0CB9C8: db $03 ; Raw block
 #_0CB9C9: db $39, $9E, $9A, $98
-#_0CB9CD: db $69 ; Increasing Fill
-#_0CB9CE: db $9F ; Increasing Fill Start
-#_0CB9CF: db $00 ; Direct Copy
+#_0CB9CD: db $69 ; Increment fill
+#_0CB9CE: db $9F
+#_0CB9CF: db $00 ; Raw block
 #_0CB9D0: db $2D
-#_0CB9D1: db $62 ; Increasing Fill
-#_0CB9D2: db $A9 ; Increasing Fill Start
-#_0CB9D3: db $00 ; Direct Copy
+#_0CB9D1: db $62 ; Increment fill
+#_0CB9D2: db $A9
+#_0CB9D3: db $00 ; Raw block
 #_0CB9D4: db $A4
-#_0CB9D5: db $66 ; Increasing Fill
-#_0CB9D6: db $AC ; Increasing Fill Start
-#_0CB9D7: db $02 ; Direct Copy
+#_0CB9D5: db $66 ; Increment fill
+#_0CB9D6: db $AC
+#_0CB9D7: db $02 ; Raw block
 #_0CB9D8: db $1D, $1E, $43
-#_0CB9DB: db $62 ; Increasing Fill
-#_0CB9DC: db $B3 ; Increasing Fill Start
-#_0CB9DD: db $02 ; Direct Copy
+#_0CB9DB: db $62 ; Increment fill
+#_0CB9DC: db $B3
+#_0CB9DD: db $02 ; Raw block
 #_0CB9DE: db $2D, $A4, $E1
-#_0CB9E1: db $63 ; Increasing Fill
-#_0CB9E2: db $B6 ; Increasing Fill Start
-#_0CB9E3: db $0A ; Direct Copy
+#_0CB9E1: db $63 ; Increment fill
+#_0CB9E2: db $B6
+#_0CB9E3: db $0A ; Raw block
 #_0CB9E4: db $A1, $A4, $5D, $BA, $BB, $96, $E1, $BC
 #_0CB9EC: db $2D, $BD, $E1
-#_0CB9EF: db $66 ; Increasing Fill
-#_0CB9F0: db $BE ; Increasing Fill Start
-#_0CB9F1: db $E0, $2E ; EXT Direct Copy
+#_0CB9EF: db $66 ; Increment fill
+#_0CB9F0: db $BE
+#_0CB9F1: db $E0, $2E ; EXT Raw block
 #_0CB9F3: db $6E, $A0, $8B, $8F, $23, $C5, $BF, $9C
 #_0CB9FB: db $C6, $A4, $C7, $AD, $AE, $C8, $B5, $C4
 #_0CBA03: db $0A, $80, $C9, $DF, $D8, $A2, $A3, $CA
 #_0CBA0B: db $CB, $A4, $CC, $B7, $B8, $AF, $2D, $C4
 #_0CBA13: db $4C, $4D, $CD, $8E, $CE, $B0, $B1, $AA
 #_0CBA1B: db $CF, $D0, $A8, $C0, $C1, $B9, $A1
-#_0CBA22: db $84 ; Repeat Fill
-#_0CBA23: db $00, $84 ; Repeat Fill bytes
-#_0CBA25: db $11 ; Direct Copy
+#_0CBA22: db $84 ; Copy past
+#_0CBA23: dw $8400
+#_0CBA25: db $11 ; Raw block
 #_0CBA26: db $E1, $D1, $BF, $2D, $A4, $AA, $D2, $AD
 #_0CBA2E: db $AE, $26, $C8, $C4, $4C, $4D, $D3, $D4
 #_0CBA36: db $3C, $22
-#_0CBA38: db $62 ; Increasing Fill
-#_0CBA39: db $D5 ; Increasing Fill Start
-#_0CBA3A: db $0B ; Direct Copy
+#_0CBA38: db $62 ; Increment fill
+#_0CBA39: db $D5
+#_0CBA3A: db $0B ; Raw block
 #_0CBA3B: db $A4, $D8, $B7, $B8, $D9, $DA, $C4, $4C
 #_0CBA43: db $4D, $26, $E6, $DB
-#_0CBA47: db $22 ; Byte Fill
+#_0CBA47: db $22 ; Repeat byte
 #_0CBA48: db $27
-#_0CBA49: db $02 ; Direct Copy
+#_0CBA49: db $02 ; Raw block
 #_0CBA4A: db $51, $DC, $2D
-#_0CBA4D: db $62 ; Increasing Fill
-#_0CBA4E: db $DD ; Increasing Fill Start
-#_0CBA4F: db $83 ; Repeat Fill
-#_0CBA50: db $00, $83 ; Repeat Fill bytes
-#_0CBA52: db $03 ; Direct Copy
+#_0CBA4D: db $62 ; Increment fill
+#_0CBA4E: db $DD
+#_0CBA4F: db $83 ; Copy past
+#_0CBA50: dw $8300
+#_0CBA52: db $03 ; Raw block
 #_0CBA53: db $26, $9E, $E0, $E1
-#_0CBA57: db $66 ; Increasing Fill
-#_0CBA58: db $E1 ; Increasing Fill Start
-#_0CBA59: db $05 ; Direct Copy
+#_0CBA57: db $66 ; Increment fill
+#_0CBA58: db $E1
+#_0CBA59: db $05 ; Raw block
 #_0CBA5A: db $BF, $A4, $C4, $4C, $E8, $08
-#_0CBA60: db $65 ; Increasing Fill
-#_0CBA61: db $E9 ; Increasing Fill Start
-#_0CBA62: db $0C ; Direct Copy
+#_0CBA60: db $65 ; Increment fill
+#_0CBA61: db $E9
+#_0CBA62: db $0C ; Raw block
 #_0CBA63: db $E3, $EF, $5B, $F0, $F1, $A4, $AA, $F2
 #_0CBA6B: db $16, $FB, $E6, $F3, $1C
-#_0CBA70: db $62 ; Increasing Fill
-#_0CBA71: db $F4 ; Increasing Fill Start
-#_0CBA72: db $11 ; Direct Copy
+#_0CBA70: db $62 ; Increment fill
+#_0CBA71: db $F4
+#_0CBA72: db $11 ; Raw block
 #_0CBA73: db $EE, $F7, $F8, $6A, $D8, $2D, $A4, $BF
 #_0CBA7B: db $F9, $79, $16, $E6, $F3, $1C, $15, $F5
 #_0CBA83: db $F6, $FA
@@ -6170,175 +6170,175 @@ OverworldMap32_Screen81_Low:
 ;===================================================================================================
 
 OverworldMap32_Screen82_High:
-#_0CBA86: db $29 ; Byte Fill
+#_0CBA86: db $29 ; Repeat byte
 #_0CBA87: db $20
-#_0CBA88: db $01 ; Direct Copy
+#_0CBA88: db $01 ; Raw block
 #_0CBA89: db $03, $20
-#_0CBA8B: db $22 ; Byte Fill
+#_0CBA8B: db $22 ; Repeat byte
 #_0CBA8C: db $07
-#_0CBA8D: db $00 ; Direct Copy
+#_0CBA8D: db $00 ; Raw block
 #_0CBA8E: db $1F
-#_0CBA8F: db $29 ; Byte Fill
+#_0CBA8F: db $29 ; Repeat byte
 #_0CBA90: db $20
-#_0CBA91: db $02 ; Direct Copy
+#_0CBA91: db $02 ; Raw block
 #_0CBA92: db $03, $21, $21
-#_0CBA95: db $83 ; Repeat Fill
-#_0CBA96: db $00, $0D ; Repeat Fill bytes
-#_0CBA98: db $00 ; Direct Copy
+#_0CBA95: db $83 ; Copy past
+#_0CBA96: dw $0D00
+#_0CBA98: db $00 ; Raw block
 #_0CBA99: db $01
-#_0CBA9A: db $22 ; Byte Fill
+#_0CBA9A: db $22 ; Repeat byte
 #_0CBA9B: db $20
-#_0CBA9C: db $06 ; Direct Copy
+#_0CBA9C: db $06 ; Raw block
 #_0CBA9D: db $21, $20, $20, $21, $21, $03, $07
-#_0CBAA4: db $22 ; Byte Fill
+#_0CBAA4: db $22 ; Repeat byte
 #_0CBAA5: db $05
-#_0CBAA6: db $00 ; Direct Copy
+#_0CBAA6: db $00 ; Raw block
 #_0CBAA7: db $07
-#_0CBAA8: db $22 ; Byte Fill
+#_0CBAA8: db $22 ; Repeat byte
 #_0CBAA9: db $21
-#_0CBAAA: db $25 ; Byte Fill
+#_0CBAAA: db $25 ; Repeat byte
 #_0CBAAB: db $20
-#_0CBAAC: db $02 ; Direct Copy
+#_0CBAAC: db $02 ; Raw block
 #_0CBAAD: db $21, $05, $09
-#_0CBAB0: db $22 ; Byte Fill
+#_0CBAB0: db $22 ; Repeat byte
 #_0CBAB1: db $21
-#_0CBAB2: db $04 ; Direct Copy
+#_0CBAB2: db $04 ; Raw block
 #_0CBAB3: db $07, $21, $0F, $05, $0E
-#_0CBAB8: db $83 ; Repeat Fill
-#_0CBAB9: db $00, $31 ; Repeat Fill bytes
-#_0CBABB: db $07 ; Direct Copy
+#_0CBAB8: db $83 ; Copy past
+#_0CBAB9: dw $3100
+#_0CBABB: db $07 ; Raw block
 #_0CBABC: db $05, $07, $09, $05, $15, $21, $21, $07
-#_0CBAC4: db $44 ; Word Fill
-#_0CBAC5: db $21, $0F ;  Word Fill
-#_0CBAC7: db $0B ; Direct Copy
+#_0CBAC4: db $44 ; Repeat word
+#_0CBAC5: dw $0F21
+#_0CBAC7: db $0B ; Raw block
 #_0CBAC8: db $05, $20, $20, $05, $20, $21, $05, $15
 #_0CBAD0: db $20, $21, $07, $20
-#_0CBAD4: db $23 ; Byte Fill
+#_0CBAD4: db $23 ; Repeat byte
 #_0CBAD5: db $21
-#_0CBAD6: db $43 ; Word Fill
-#_0CBAD7: db $20, $21 ;  Word Fill
-#_0CBAD9: db $03 ; Direct Copy
+#_0CBAD6: db $43 ; Repeat word
+#_0CBAD7: dw $2120
+#_0CBAD9: db $03 ; Raw block
 #_0CBADA: db $21, $0F, $0F, $05
-#_0CBADE: db $83 ; Repeat Fill
-#_0CBADF: db $00, $3D ; Repeat Fill bytes
-#_0CBAE1: db $01 ; Direct Copy
+#_0CBADE: db $83 ; Copy past
+#_0CBADF: dw $3D00
+#_0CBAE1: db $01 ; Raw block
 #_0CBAE2: db $20, $20
-#_0CBAE4: db $22 ; Byte Fill
+#_0CBAE4: db $22 ; Repeat byte
 #_0CBAE5: db $05
-#_0CBAE6: db $00 ; Direct Copy
+#_0CBAE6: db $00 ; Raw block
 #_0CBAE7: db $20
-#_0CBAE8: db $83 ; Repeat Fill
-#_0CBAE9: db $00, $31 ; Repeat Fill bytes
-#_0CBAEB: db $00 ; Direct Copy
+#_0CBAE8: db $83 ; Copy past
+#_0CBAE9: dw $3100
+#_0CBAEB: db $00 ; Raw block
 #_0CBAEC: db $21
-#_0CBAED: db $83 ; Repeat Fill
-#_0CBAEE: db $00, $6C ; Repeat Fill bytes
-#_0CBAF0: db $01 ; Direct Copy
+#_0CBAED: db $83 ; Copy past
+#_0CBAEE: dw $6C00
+#_0CBAF0: db $01 ; Raw block
 #_0CBAF1: db $20, $20
-#_0CBAF3: db $2A ; Byte Fill
+#_0CBAF3: db $2A ; Repeat byte
 #_0CBAF4: db $21
-#_0CBAF5: db $00 ; Direct Copy
+#_0CBAF5: db $00 ; Raw block
 #_0CBAF6: db $0F
-#_0CBAF7: db $83 ; Repeat Fill
-#_0CBAF8: db $00, $6E ; Repeat Fill bytes
-#_0CBAFA: db $01 ; Direct Copy
+#_0CBAF7: db $83 ; Copy past
+#_0CBAF8: dw $6E00
+#_0CBAFA: db $01 ; Raw block
 #_0CBAFB: db $21, $1C
-#_0CBAFD: db $83 ; Repeat Fill
-#_0CBAFE: db $00, $66 ; Repeat Fill bytes
-#_0CBB00: db $23 ; Byte Fill
+#_0CBAFD: db $83 ; Copy past
+#_0CBAFE: dw $6600
+#_0CBB00: db $23 ; Repeat byte
 #_0CBB01: db $20
-#_0CBB02: db $01 ; Direct Copy
+#_0CBB02: db $01 ; Raw block
 #_0CBB03: db $21, $20
-#_0CBB05: db $83 ; Repeat Fill
-#_0CBB06: db $00, $6E ; Repeat Fill bytes
-#_0CBB08: db $05 ; Direct Copy
+#_0CBB05: db $83 ; Copy past
+#_0CBB06: dw $6E00
+#_0CBB08: db $05 ; Raw block
 #_0CBB09: db $1C, $21, $20, $1D, $07, $0E
-#_0CBB0F: db $84 ; Repeat Fill
-#_0CBB10: db $00, $6D ; Repeat Fill bytes
-#_0CBB12: db $83 ; Repeat Fill
-#_0CBB13: db $00, $7D ; Repeat Fill bytes
-#_0CBB15: db $22 ; Byte Fill
+#_0CBB0F: db $84 ; Copy past
+#_0CBB10: dw $6D00
+#_0CBB12: db $83 ; Copy past
+#_0CBB13: dw $7D00
+#_0CBB15: db $22 ; Repeat byte
 #_0CBB16: db $21
-#_0CBB17: db $00 ; Direct Copy
+#_0CBB17: db $00 ; Raw block
 #_0CBB18: db $07
-#_0CBB19: db $22 ; Byte Fill
+#_0CBB19: db $22 ; Repeat byte
 #_0CBB1A: db $21
-#_0CBB1B: db $05 ; Direct Copy
+#_0CBB1B: db $05 ; Raw block
 #_0CBB1C: db $20, $07, $03, $07, $21, $15
-#_0CBB22: db $24 ; Byte Fill
+#_0CBB22: db $24 ; Repeat byte
 #_0CBB23: db $21
-#_0CBB24: db $00 ; Direct Copy
+#_0CBB24: db $00 ; Raw block
 #_0CBB25: db $07
-#_0CBB26: db $24 ; Byte Fill
+#_0CBB26: db $24 ; Repeat byte
 #_0CBB27: db $21
-#_0CBB28: db $02 ; Direct Copy
+#_0CBB28: db $02 ; Raw block
 #_0CBB29: db $07, $21, $0C
-#_0CBB2C: db $84 ; Repeat Fill
-#_0CBB2D: db $00, $4B ; Repeat Fill bytes
-#_0CBB2F: db $01 ; Direct Copy
+#_0CBB2C: db $84 ; Copy past
+#_0CBB2D: dw $4B00
+#_0CBB2F: db $01 ; Raw block
 #_0CBB30: db $07, $09
-#_0CBB32: db $23 ; Byte Fill
+#_0CBB32: db $23 ; Repeat byte
 #_0CBB33: db $21
-#_0CBB34: db $03 ; Direct Copy
+#_0CBB34: db $03 ; Raw block
 #_0CBB35: db $20, $21, $05, $03
-#_0CBB39: db $43 ; Word Fill
-#_0CBB3A: db $21, $07 ;  Word Fill
-#_0CBB3C: db $2A ; Byte Fill
+#_0CBB39: db $43 ; Repeat word
+#_0CBB3A: dw $0721
+#_0CBB3C: db $2A ; Repeat byte
 #_0CBB3D: db $21
-#_0CBB3E: db $83 ; Repeat Fill
-#_0CBB3F: db $00, $DA ; Repeat Fill bytes
-#_0CBB41: db $83 ; Repeat Fill
-#_0CBB42: db $00, $7E ; Repeat Fill bytes
-#_0CBB44: db $29 ; Byte Fill
+#_0CBB3E: db $83 ; Copy past
+#_0CBB3F: dw $DA00
+#_0CBB41: db $83 ; Copy past
+#_0CBB42: dw $7E00
+#_0CBB44: db $29 ; Repeat byte
 #_0CBB45: db $21
-#_0CBB46: db $83 ; Repeat Fill
-#_0CBB47: db $00, $EC ; Repeat Fill bytes
+#_0CBB46: db $83 ; Copy past
+#_0CBB47: dw $EC00
 #_0CBB49: db $FF ; End of Map 82
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen82_Low:
-#_0CBB4A: db $62 ; Increasing Fill
-#_0CBB4B: db $90 ; Increasing Fill Start
-#_0CBB4C: db $62 ; Increasing Fill
-#_0CBB4D: db $90 ; Increasing Fill Start
-#_0CBB4E: db $05 ; Direct Copy
+#_0CBB4A: db $62 ; Increment fill
+#_0CBB4B: db $90
+#_0CBB4C: db $62 ; Increment fill
+#_0CBB4D: db $90
+#_0CBB4E: db $05 ; Raw block
 #_0CBB4F: db $FB, $FB, $90, $FC, $A0, $FD
-#_0CBB55: db $22 ; Byte Fill
+#_0CBB55: db $22 ; Repeat byte
 #_0CBB56: db $0C
-#_0CBB57: db $00 ; Direct Copy
+#_0CBB57: db $00 ; Raw block
 #_0CBB58: db $78
-#_0CBB59: db $62 ; Increasing Fill
-#_0CBB5A: db $93 ; Increasing Fill Start
-#_0CBB5B: db $62 ; Increasing Fill
-#_0CBB5C: db $93 ; Increasing Fill Start
-#_0CBB5D: db $19 ; Direct Copy
+#_0CBB59: db $62 ; Increment fill
+#_0CBB5A: db $93
+#_0CBB5B: db $62 ; Increment fill
+#_0CBB5C: db $93
+#_0CBB5D: db $19 ; Raw block
 #_0CBB5E: db $FE, $FE, $93, $FF, $A0, $00, $01, $7A
 #_0CBB66: db $7A, $7B, $9D, $4B, $D9, $98, $9B, $02
 #_0CBB6E: db $9C, $9B, $03, $04, $A0, $5B, $C5, $E1
 #_0CBB76: db $E1, $6E
-#_0CBB78: db $62 ; Increasing Fill
-#_0CBB79: db $05 ; Increasing Fill Start
-#_0CBB7A: db $25 ; Byte Fill
+#_0CBB78: db $62 ; Increment fill
+#_0CBB79: db $05
+#_0CBB7A: db $25 ; Repeat byte
 #_0CBB7B: db $AC
-#_0CBB7C: db $02 ; Direct Copy
+#_0CBB7C: db $02 ; Raw block
 #_0CBB7D: db $08, $5A, $82
-#_0CBB80: db $62 ; Increasing Fill
-#_0CBB81: db $09 ; Increasing Fill Start
-#_0CBB82: db $E0, $21 ; EXT Direct Copy
+#_0CBB80: db $62 ; Increment fill
+#_0CBB81: db $09
+#_0CBB82: db $E0, $21 ; EXT Raw block
 #_0CBB84: db $6E, $0C, $9D, $D5, $23, $0C, $0D, $CF
 #_0CBB8C: db $CF, $E1, $14, $F7, $9F, $7D, $0E, $0F
 #_0CBB94: db $6E, $10, $9C, $11, $77, $12, $A4, $A2
 #_0CBB9C: db $A3, $AA, $CF, $13, $E1, $7D, $BF, $14
 #_0CBBA4: db $6E, $A7
-#_0CBBA6: db $63 ; Increasing Fill
-#_0CBBA7: db $15 ; Increasing Fill Start
-#_0CBBA8: db $0D ; Direct Copy
+#_0CBBA6: db $63 ; Increment fill
+#_0CBBA7: db $15
+#_0CBBA8: db $0D ; Raw block
 #_0CBBA9: db $A7, $19, $B1, $1A, $1B, $9C, $9D, $E1
 #_0CBBB1: db $1C, $1D, $6E, $1E, $CF, $CF
-#_0CBBB7: db $22 ; Byte Fill
+#_0CBBB7: db $22 ; Repeat byte
 #_0CBBB8: db $E1
-#_0CBBB9: db $E0, $3E ; EXT Direct Copy
+#_0CBBB9: db $E0, $3E ; EXT Raw block
 #_0CBBBB: db $D2, $1F, $18, $AC, $D1, $20, $E1, $21
 #_0CBBC3: db $1D, $6E, $A2, $A3, $22, $23, $0C, $0C
 #_0CBBCB: db $24, $24, $0C, $0C, $0D, $25, $26, $77
@@ -6347,229 +6347,229 @@ OverworldMap32_Screen82_Low:
 #_0CBBE3: db $1D, $6E, $2A, $AC, $80, $2B, $A4, $E0
 #_0CBBEB: db $84, $27, $2C, $2D, $83, $2E, $AC, $2F
 #_0CBBF3: db $30, $6E, $BF, $31, $0E, $32, $67
-#_0CBBFA: db $62 ; Increasing Fill
-#_0CBBFB: db $33 ; Increasing Fill Start
-#_0CBBFC: db $0C ; Direct Copy
+#_0CBBFA: db $62 ; Increment fill
+#_0CBBFB: db $33
+#_0CBBFC: db $0C ; Raw block
 #_0CBBFD: db $EF, $96, $8F, $53, $36, $59, $37, $38
 #_0CBC05: db $17, $17, $39, $67, $33
-#_0CBC0A: db $63 ; Increasing Fill
-#_0CBC0B: db $3A ; Increasing Fill Start
-#_0CBC0C: db $16 ; Direct Copy
+#_0CBC0A: db $63 ; Increment fill
+#_0CBC0B: db $3A
+#_0CBC0C: db $16 ; Raw block
 #_0CBC0D: db $9D, $3E, $DD, $8F, $5B, $3F, $40, $84
 #_0CBC15: db $84, $FC, $33, $3A, $41, $42, $9F, $3C
 #_0CBC1D: db $55, $B3, $43, $8E, $44, $4C, $45
-#_0CBC24: db $22 ; Byte Fill
+#_0CBC24: db $22 ; Repeat byte
 #_0CBC25: db $46
-#_0CBC26: db $01 ; Direct Copy
+#_0CBC26: db $01 ; Raw block
 #_0CBC27: db $47, $41
-#_0CBC29: db $64 ; Increasing Fill
-#_0CBC2A: db $48 ; Increasing Fill Start
-#_0CBC2B: db $0C ; Direct Copy
+#_0CBC29: db $64 ; Increment fill
+#_0CBC2A: db $48
+#_0CBC2B: db $0C ; Raw block
 #_0CBC2C: db $BB, $4D, $8E, $4E, $4F, $4D, $FA, $FA
 #_0CBC34: db $50, $51, $48, $49, $49
-#_0CBC39: db $64 ; Increasing Fill
-#_0CBC3A: db $52 ; Increasing Fill Start
-#_0CBC3B: db $83 ; Repeat Fill
-#_0CBC3C: db $00, $EC ; Repeat Fill bytes
+#_0CBC39: db $64 ; Increment fill
+#_0CBC3A: db $52
+#_0CBC3B: db $83 ; Copy past
+#_0CBC3C: dw $EC00
 #_0CBC3E: db $FF ; End of Map 82
 
 ;===================================================================================================
 
 OverworldMap32_Screen89_High:
-#_0CBC3F: db $01 ; Direct Copy
+#_0CBC3F: db $01 ; Raw block
 #_0CBC40: db $21, $20
-#_0CBC42: db $23 ; Byte Fill
+#_0CBC42: db $23 ; Repeat byte
 #_0CBC43: db $21
-#_0CBC44: db $04 ; Direct Copy
+#_0CBC44: db $04 ; Raw block
 #_0CBC45: db $20, $21, $21, $06, $01
-#_0CBC4A: db $23 ; Byte Fill
+#_0CBC4A: db $23 ; Repeat byte
 #_0CBC4B: db $20
-#_0CBC4C: db $00 ; Direct Copy
+#_0CBC4C: db $00 ; Raw block
 #_0CBC4D: db $21
-#_0CBC4E: db $22 ; Byte Fill
+#_0CBC4E: db $22 ; Repeat byte
 #_0CBC4F: db $20
-#_0CBC50: db $05 ; Direct Copy
+#_0CBC50: db $05 ; Raw block
 #_0CBC51: db $07, $21, $07, $0E, $21, $0F
-#_0CBC57: db $84 ; Repeat Fill
-#_0CBC58: db $00, $08 ; Repeat Fill bytes
-#_0CBC5A: db $02 ; Direct Copy
+#_0CBC57: db $84 ; Copy past
+#_0CBC58: dw $0800
+#_0CBC5A: db $02 ; Raw block
 #_0CBC5B: db $21, $21, $20
-#_0CBC5E: db $22 ; Byte Fill
+#_0CBC5E: db $22 ; Repeat byte
 #_0CBC5F: db $21
-#_0CBC60: db $84 ; Repeat Fill
-#_0CBC61: db $00, $1D ; Repeat Fill bytes
-#_0CBC63: db $03 ; Direct Copy
+#_0CBC60: db $84 ; Copy past
+#_0CBC61: dw $1D00
+#_0CBC63: db $03 ; Raw block
 #_0CBC64: db $0F, $21, $06, $04
-#_0CBC68: db $22 ; Byte Fill
+#_0CBC68: db $22 ; Repeat byte
 #_0CBC69: db $21
-#_0CBC6A: db $00 ; Direct Copy
+#_0CBC6A: db $00 ; Raw block
 #_0CBC6B: db $20
-#_0CBC6C: db $26 ; Byte Fill
+#_0CBC6C: db $26 ; Repeat byte
 #_0CBC6D: db $21
-#_0CBC6E: db $05 ; Direct Copy
+#_0CBC6E: db $05 ; Raw block
 #_0CBC6F: db $05, $20, $0F, $21, $07, $07
-#_0CBC75: db $29 ; Byte Fill
+#_0CBC75: db $29 ; Repeat byte
 #_0CBC76: db $21
-#_0CBC77: db $04 ; Direct Copy
+#_0CBC77: db $04 ; Raw block
 #_0CBC78: db $05, $1C, $21, $21, $20
-#_0CBC7D: db $2A ; Byte Fill
+#_0CBC7D: db $2A ; Repeat byte
 #_0CBC7E: db $21
-#_0CBC7F: db $00 ; Direct Copy
+#_0CBC7F: db $00 ; Raw block
 #_0CBC80: db $05
-#_0CBC81: db $29 ; Byte Fill
+#_0CBC81: db $29 ; Repeat byte
 #_0CBC82: db $21
-#_0CBC83: db $00 ; Direct Copy
+#_0CBC83: db $00 ; Raw block
 #_0CBC84: db $02
-#_0CBC85: db $22 ; Byte Fill
+#_0CBC85: db $22 ; Repeat byte
 #_0CBC86: db $21
-#_0CBC87: db $06 ; Direct Copy
+#_0CBC87: db $06 ; Raw block
 #_0CBC88: db $05, $1D, $20, $21, $07, $21, $21
-#_0CBC8F: db $22 ; Byte Fill
+#_0CBC8F: db $22 ; Repeat byte
 #_0CBC90: db $20
-#_0CBC91: db $08 ; Direct Copy
+#_0CBC91: db $08 ; Raw block
 #_0CBC92: db $21, $02, $08, $07, $07, $05, $21, $0F
 #_0CBC9A: db $1C
-#_0CBC9B: db $24 ; Byte Fill
+#_0CBC9B: db $24 ; Repeat byte
 #_0CBC9C: db $21
-#_0CBC9D: db $00 ; Direct Copy
+#_0CBC9D: db $00 ; Raw block
 #_0CBC9E: db $20
-#_0CBC9F: db $22 ; Byte Fill
+#_0CBC9F: db $22 ; Repeat byte
 #_0CBCA0: db $21
-#_0CBCA1: db $03 ; Direct Copy
+#_0CBCA1: db $03 ; Raw block
 #_0CBCA2: db $05, $07, $21, $1C
-#_0CBCA6: db $22 ; Byte Fill
+#_0CBCA6: db $22 ; Repeat byte
 #_0CBCA7: db $20
-#_0CBCA8: db $03 ; Direct Copy
+#_0CBCA8: db $03 ; Raw block
 #_0CBCA9: db $05, $05, $07, $02
-#_0CBCAD: db $83 ; Repeat Fill
-#_0CBCAE: db $00, $1B ; Repeat Fill bytes
-#_0CBCB0: db $83 ; Repeat Fill
-#_0CBCB1: db $00, $6B ; Repeat Fill bytes
-#_0CBCB3: db $04 ; Direct Copy
+#_0CBCAD: db $83 ; Copy past
+#_0CBCAE: dw $1B00
+#_0CBCB0: db $83 ; Copy past
+#_0CBCB1: dw $6B00
+#_0CBCB3: db $04 ; Raw block
 #_0CBCB4: db $1C, $20, $20, $21, $1E
-#_0CBCB9: db $22 ; Byte Fill
+#_0CBCB9: db $22 ; Repeat byte
 #_0CBCBA: db $21
-#_0CBCBB: db $0B ; Direct Copy
+#_0CBCBB: db $0B ; Raw block
 #_0CBCBC: db $06, $05, $20, $21, $07, $10, $20, $1C
 #_0CBCC4: db $20, $21, $1C, $20
-#_0CBCC8: db $22 ; Byte Fill
+#_0CBCC8: db $22 ; Repeat byte
 #_0CBCC9: db $21
-#_0CBCCA: db $0D ; Direct Copy
+#_0CBCCA: db $0D ; Raw block
 #_0CBCCB: db $0F, $21, $09, $21, $21, $07, $20, $11
 #_0CBCD3: db $21, $1D, $0E, $21, $21, $07
-#_0CBCD9: db $83 ; Repeat Fill
-#_0CBCDA: db $00, $15 ; Repeat Fill bytes
-#_0CBCDC: db $22 ; Byte Fill
+#_0CBCD9: db $83 ; Copy past
+#_0CBCDA: dw $1500
+#_0CBCDC: db $22 ; Repeat byte
 #_0CBCDD: db $21
-#_0CBCDE: db $02 ; Direct Copy
+#_0CBCDE: db $02 ; Raw block
 #_0CBCDF: db $20, $08, $10
-#_0CBCE2: db $22 ; Byte Fill
+#_0CBCE2: db $22 ; Repeat byte
 #_0CBCE3: db $21
-#_0CBCE4: db $01 ; Direct Copy
+#_0CBCE4: db $01 ; Raw block
 #_0CBCE5: db $20, $07
-#_0CBCE7: db $22 ; Byte Fill
+#_0CBCE7: db $22 ; Repeat byte
 #_0CBCE8: db $21
-#_0CBCE9: db $00 ; Direct Copy
+#_0CBCE9: db $00 ; Raw block
 #_0CBCEA: db $20
-#_0CBCEB: db $23 ; Byte Fill
+#_0CBCEB: db $23 ; Repeat byte
 #_0CBCEC: db $21
-#_0CBCED: db $01 ; Direct Copy
+#_0CBCED: db $01 ; Raw block
 #_0CBCEE: db $03, $07
-#_0CBCF0: db $26 ; Byte Fill
+#_0CBCF0: db $26 ; Repeat byte
 #_0CBCF1: db $21
-#_0CBCF2: db $23 ; Byte Fill
+#_0CBCF2: db $23 ; Repeat byte
 #_0CBCF3: db $20
-#_0CBCF4: db $00 ; Direct Copy
+#_0CBCF4: db $00 ; Raw block
 #_0CBCF5: db $07
-#_0CBCF6: db $83 ; Repeat Fill
-#_0CBCF7: db $00, $D0 ; Repeat Fill bytes
-#_0CBCF9: db $00 ; Direct Copy
+#_0CBCF6: db $83 ; Copy past
+#_0CBCF7: dw $D000
+#_0CBCF9: db $00 ; Raw block
 #_0CBCFA: db $10
-#_0CBCFB: db $26 ; Byte Fill
+#_0CBCFB: db $26 ; Repeat byte
 #_0CBCFC: db $21
-#_0CBCFD: db $22 ; Byte Fill
+#_0CBCFD: db $22 ; Repeat byte
 #_0CBCFE: db $20
-#_0CBCFF: db $22 ; Byte Fill
+#_0CBCFF: db $22 ; Repeat byte
 #_0CBD00: db $21
-#_0CBD01: db $00 ; Direct Copy
+#_0CBD01: db $00 ; Raw block
 #_0CBD02: db $03
-#_0CBD03: db $28 ; Byte Fill
+#_0CBD03: db $28 ; Repeat byte
 #_0CBD04: db $21
-#_0CBD05: db $23 ; Byte Fill
+#_0CBD05: db $23 ; Repeat byte
 #_0CBD06: db $20
 #_0CBD07: db $FF ; End of Map 89
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen89_Low:
-#_0CBD08: db $01 ; Direct Copy
+#_0CBD08: db $01 ; Raw block
 #_0CBD09: db $57, $D4
-#_0CBD0B: db $63 ; Increasing Fill
-#_0CBD0C: db $58 ; Increasing Fill Start
-#_0CBD0D: db $12 ; Direct Copy
+#_0CBD0B: db $63 ; Increment fill
+#_0CBD0C: db $58
+#_0CBD0D: db $12 ; Raw block
 #_0CBD0E: db $CB, $0A, $5C, $16, $E6, $F3, $1C, $15
 #_0CBD16: db $F5, $5D, $EE, $E3, $DB, $27, $5E, $84
 #_0CBD1E: db $27, $5F, $9C
-#_0CBD21: db $84 ; Repeat Fill
-#_0CBD22: db $00, $08 ; Repeat Fill bytes
-#_0CBD24: db $02 ; Direct Copy
+#_0CBD21: db $84 ; Copy past
+#_0CBD22: dw $0800
+#_0CBD24: db $02 ; Raw block
 #_0CBD25: db $60, $61, $F6
-#_0CBD28: db $62 ; Increasing Fill
-#_0CBD29: db $62 ; Increasing Fill Start
-#_0CBD2A: db $03 ; Direct Copy
+#_0CBD28: db $62 ; Increment fill
+#_0CBD29: db $62
+#_0CBD2A: db $03 ; Raw block
 #_0CBD2B: db $F7, $65, $66, $E4
-#_0CBD2F: db $83 ; Repeat Fill
-#_0CBD30: db $00, $17 ; Repeat Fill bytes
-#_0CBD32: db $00 ; Direct Copy
+#_0CBD2F: db $83 ; Copy past
+#_0CBD30: dw $1700
+#_0CBD32: db $00 ; Raw block
 #_0CBD33: db $80
-#_0CBD34: db $62 ; Increasing Fill
-#_0CBD35: db $67 ; Increasing Fill Start
-#_0CBD36: db $00 ; Direct Copy
+#_0CBD34: db $62 ; Increment fill
+#_0CBD35: db $67
+#_0CBD36: db $00 ; Raw block
 #_0CBD37: db $F5
-#_0CBD38: db $62 ; Increasing Fill
-#_0CBD39: db $6A ; Increasing Fill Start
-#_0CBD3A: db $00 ; Direct Copy
+#_0CBD38: db $62 ; Increment fill
+#_0CBD39: db $6A
+#_0CBD3A: db $00 ; Raw block
 #_0CBD3B: db $50
-#_0CBD3C: db $62 ; Increasing Fill
-#_0CBD3D: db $6D ; Increasing Fill Start
-#_0CBD3E: db $05 ; Direct Copy
+#_0CBD3C: db $62 ; Increment fill
+#_0CBD3D: db $6D
+#_0CBD3E: db $05 ; Raw block
 #_0CBD3F: db $DF, $D1, $9C, $70, $4D, $6D
-#_0CBD45: db $69 ; Increasing Fill
-#_0CBD46: db $71 ; Increasing Fill Start
-#_0CBD47: db $04 ; Direct Copy
+#_0CBD45: db $69 ; Increment fill
+#_0CBD46: db $71
+#_0CBD47: db $04 ; Raw block
 #_0CBD48: db $96, $80, $22, $7B, $BA
-#_0CBD4D: db $67 ; Increasing Fill
-#_0CBD4E: db $7C ; Increasing Fill Start
-#_0CBD4F: db $03 ; Direct Copy
+#_0CBD4D: db $67 ; Increment fill
+#_0CBD4E: db $7C
+#_0CBD4F: db $03 ; Raw block
 #_0CBD50: db $79, $84, $85, $9F
-#_0CBD54: db $62 ; Increasing Fill
-#_0CBD55: db $86 ; Increasing Fill Start
-#_0CBD56: db $00 ; Direct Copy
+#_0CBD54: db $62 ; Increment fill
+#_0CBD55: db $86
+#_0CBD56: db $00 ; Raw block
 #_0CBD57: db $3A
-#_0CBD58: db $63 ; Increasing Fill
-#_0CBD59: db $89 ; Increasing Fill Start
-#_0CBD5A: db $0A ; Direct Copy
+#_0CBD58: db $63 ; Increment fill
+#_0CBD59: db $89
+#_0CBD5A: db $0A ; Raw block
 #_0CBD5B: db $81, $8D, $60, $8E, $8F, $85, $9F, $60
 #_0CBD63: db $BF, $4F, $4D
-#_0CBD66: db $62 ; Increasing Fill
-#_0CBD67: db $90 ; Increasing Fill Start
-#_0CBD68: db $10 ; Direct Copy
+#_0CBD66: db $62 ; Increment fill
+#_0CBD67: db $90
+#_0CBD68: db $10 ; Raw block
 #_0CBD69: db $F4, $1A, $92, $65, $63, $3F, $1B, $9F
 #_0CBD71: db $93, $77, $2D, $94, $95, $8E, $96, $97
 #_0CBD79: db $1C
-#_0CBD7A: db $62 ; Increasing Fill
-#_0CBD7B: db $98 ; Increasing Fill Start
-#_0CBD7C: db $03 ; Direct Copy
+#_0CBD7A: db $62 ; Increment fill
+#_0CBD7B: db $98
+#_0CBD7C: db $03 ; Raw block
 #_0CBD7D: db $C5, $44, $9B, $80
-#_0CBD81: db $62 ; Increasing Fill
-#_0CBD82: db $A2 ; Increasing Fill Start
-#_0CBD83: db $10 ; Direct Copy
+#_0CBD81: db $62 ; Increment fill
+#_0CBD82: db $A2
+#_0CBD83: db $10 ; Raw block
 #_0CBD84: db $E1, $AB, $3F, $FB, $E6, $F3, $32, $9C
 #_0CBD8C: db $1E, $9D, $9E, $BF, $2D, $B0, $B1, $0A
 #_0CBD94: db $06
-#_0CBD95: db $62 ; Increasing Fill
-#_0CBD96: db $9F ; Increasing Fill Start
-#_0CBD97: db $E0, $35 ; EXT Direct Copy
+#_0CBD95: db $62 ; Increment fill
+#_0CBD96: db $9F
+#_0CBD97: db $E0, $35 ; EXT Raw block
 #_0CBD99: db $16, $5A, $2A, $9C, $8E, $D8, $BF, $2D
 #_0CBDA1: db $CA, $A2, $2D, $BF, $A3, $17, $A2, $9C
 #_0CBDA9: db $5C, $F7, $A4, $A5, $53, $F0, $07, $A6
@@ -6577,184 +6577,184 @@ OverworldMap32_Screen89_Low:
 #_0CBDB9: db $9C, $0D, $AA, $AB, $F8, $6A, $D8, $AC
 #_0CBDC1: db $88, $AD, $DB, $8B, $AE, $46, $66, $E4
 #_0CBDC9: db $AF, $17, $B0, $B1, $A1, $8E
-#_0CBDCF: db $64 ; Increasing Fill
-#_0CBDD0: db $B2 ; Increasing Fill Start
-#_0CBDD1: db $0C ; Direct Copy
+#_0CBDCF: db $64 ; Increment fill
+#_0CBDD0: db $B2
+#_0CBDD1: db $0C ; Raw block
 #_0CBDD2: db $55, $B7, $FA, $EE, $E3, $EF, $84, $B8
 #_0CBDDA: db $B9, $A1, $8E, $D8, $B3
-#_0CBDDF: db $65 ; Increasing Fill
-#_0CBDE0: db $BA ; Increasing Fill Start
-#_0CBDE1: db $06 ; Direct Copy
+#_0CBDDF: db $65 ; Increment fill
+#_0CBDE0: db $BA
+#_0CBDE1: db $06 ; Raw block
 #_0CBDE2: db $F6, $EE, $F7, $46, $AA, $AB, $A1
-#_0CBDE9: db $64 ; Increasing Fill
-#_0CBDEA: db $C0 ; Increasing Fill Start
-#_0CBDEB: db $00 ; Direct Copy
+#_0CBDE9: db $64 ; Increment fill
+#_0CBDEA: db $C0
+#_0CBDEB: db $00 ; Raw block
 #_0CBDEC: db $B7
-#_0CBDED: db $62 ; Increasing Fill
-#_0CBDEE: db $C5 ; Increasing Fill Start
-#_0CBDEF: db $03 ; Direct Copy
+#_0CBDED: db $62 ; Increment fill
+#_0CBDEE: db $C5
+#_0CBDEF: db $03 ; Raw block
 #_0CBDF0: db $F5, $F6, $FA, $FA
 #_0CBDF4: db $FF ; End of Map 89
 
 ;===================================================================================================
 
 OverworldMap32_Screen8A_High:
-#_0CBDF5: db $2B ; Byte Fill
+#_0CBDF5: db $2B ; Repeat byte
 #_0CBDF6: db $21
-#_0CBDF7: db $03 ; Direct Copy
+#_0CBDF7: db $03 ; Raw block
 #_0CBDF8: db $07, $21, $21, $07
-#_0CBDFC: db $2B ; Byte Fill
+#_0CBDFC: db $2B ; Repeat byte
 #_0CBDFD: db $21
-#_0CBDFE: db $00 ; Direct Copy
+#_0CBDFE: db $00 ; Raw block
 #_0CBDFF: db $07
-#_0CBE00: db $22 ; Byte Fill
+#_0CBE00: db $22 ; Repeat byte
 #_0CBE01: db $21
-#_0CBE02: db $22 ; Byte Fill
+#_0CBE02: db $22 ; Repeat byte
 #_0CBE03: db $20
-#_0CBE04: db $28 ; Byte Fill
+#_0CBE04: db $28 ; Repeat byte
 #_0CBE05: db $21
-#_0CBE06: db $03 ; Direct Copy
+#_0CBE06: db $03 ; Raw block
 #_0CBE07: db $05, $21, $21, $07
-#_0CBE0B: db $22 ; Byte Fill
+#_0CBE0B: db $22 ; Repeat byte
 #_0CBE0C: db $20
-#_0CBE0D: db $07 ; Direct Copy
+#_0CBE0D: db $07 ; Raw block
 #_0CBE0E: db $21, $04, $21, $21, $02, $03, $02, $02
-#_0CBE16: db $23 ; Byte Fill
+#_0CBE16: db $23 ; Repeat byte
 #_0CBE17: db $21
-#_0CBE18: db $09 ; Direct Copy
+#_0CBE18: db $09 ; Raw block
 #_0CBE19: db $07, $21, $21, $0D, $21, $04, $04, $16
 #_0CBE21: db $01, $03
-#_0CBE23: db $25 ; Byte Fill
+#_0CBE23: db $25 ; Repeat byte
 #_0CBE24: db $21
-#_0CBE25: db $00 ; Direct Copy
+#_0CBE25: db $00 ; Raw block
 #_0CBE26: db $07
-#_0CBE27: db $22 ; Byte Fill
+#_0CBE27: db $22 ; Repeat byte
 #_0CBE28: db $21
-#_0CBE29: db $00 ; Direct Copy
+#_0CBE29: db $00 ; Raw block
 #_0CBE2A: db $02
-#_0CBE2B: db $23 ; Byte Fill
+#_0CBE2B: db $23 ; Repeat byte
 #_0CBE2C: db $21
-#_0CBE2D: db $00 ; Direct Copy
+#_0CBE2D: db $00 ; Raw block
 #_0CBE2E: db $20
-#_0CBE2F: db $25 ; Byte Fill
+#_0CBE2F: db $25 ; Repeat byte
 #_0CBE30: db $21
-#_0CBE31: db $01 ; Direct Copy
+#_0CBE31: db $01 ; Raw block
 #_0CBE32: db $07, $20
-#_0CBE34: db $28 ; Byte Fill
+#_0CBE34: db $28 ; Repeat byte
 #_0CBE35: db $21
-#_0CBE36: db $07 ; Direct Copy
+#_0CBE36: db $07 ; Raw block
 #_0CBE37: db $0E, $21, $05, $20, $05, $07, $20, $21
-#_0CBE3F: db $22 ; Byte Fill
+#_0CBE3F: db $22 ; Repeat byte
 #_0CBE40: db $22
-#_0CBE41: db $22 ; Byte Fill
+#_0CBE41: db $22 ; Repeat byte
 #_0CBE42: db $15
-#_0CBE43: db $01 ; Direct Copy
+#_0CBE43: db $01 ; Raw block
 #_0CBE44: db $22, $21
-#_0CBE46: db $22 ; Byte Fill
+#_0CBE46: db $22 ; Repeat byte
 #_0CBE47: db $22
-#_0CBE48: db $83 ; Repeat Fill
-#_0CBE49: db $00, $77 ; Repeat Fill bytes
-#_0CBE4B: db $03 ; Direct Copy
+#_0CBE48: db $83 ; Copy past
+#_0CBE49: dw $7700
+#_0CBE4B: db $03 ; Raw block
 #_0CBE4C: db $1E, $22, $22, $05
-#_0CBE50: db $22 ; Byte Fill
+#_0CBE50: db $22 ; Repeat byte
 #_0CBE51: db $15
-#_0CBE52: db $E0, $28 ; EXT Direct Copy
+#_0CBE52: db $E0, $28 ; EXT Raw block
 #_0CBE54: db $05, $19, $07, $22, $05, $15, $21, $22
 #_0CBE5C: db $04, $02, $22, $22, $05, $21, $20, $21
 #_0CBE64: db $06, $01, $03, $22, $09, $1F, $07, $0F
 #_0CBE6C: db $07, $02, $02, $05, $22, $0F, $1C, $22
 #_0CBE74: db $21, $06, $07, $05, $1C, $1C, $21, $0F
 #_0CBE7C: db $20
-#_0CBE7D: db $22 ; Byte Fill
+#_0CBE7D: db $22 ; Repeat byte
 #_0CBE7E: db $22
-#_0CBE7F: db $01 ; Direct Copy
+#_0CBE7F: db $01 ; Raw block
 #_0CBE80: db $0F, $05
-#_0CBE82: db $23 ; Byte Fill
+#_0CBE82: db $23 ; Repeat byte
 #_0CBE83: db $22
-#_0CBE84: db $05 ; Direct Copy
+#_0CBE84: db $05 ; Raw block
 #_0CBE85: db $21, $1C, $1C, $20, $21, $0F
-#_0CBE8B: db $2A ; Byte Fill
+#_0CBE8B: db $2A ; Repeat byte
 #_0CBE8C: db $21
-#_0CBE8D: db $04 ; Direct Copy
+#_0CBE8D: db $04 ; Raw block
 #_0CBE8E: db $20, $20, $22, $07, $22
-#_0CBE93: db $2D ; Byte Fill
+#_0CBE93: db $2D ; Repeat byte
 #_0CBE94: db $07
-#_0CBE95: db $01 ; Direct Copy
+#_0CBE95: db $01 ; Raw block
 #_0CBE96: db $22, $22
-#_0CBE98: db $2C ; Byte Fill
+#_0CBE98: db $2C ; Repeat byte
 #_0CBE99: db $21
-#_0CBE9A: db $02 ; Direct Copy
+#_0CBE9A: db $02 ; Raw block
 #_0CBE9B: db $22, $22, $21
-#_0CBE9E: db $2C ; Byte Fill
+#_0CBE9E: db $2C ; Repeat byte
 #_0CBE9F: db $20
-#_0CBEA0: db $02 ; Direct Copy
+#_0CBEA0: db $02 ; Raw block
 #_0CBEA1: db $22, $21, $21
 #_0CBEA4: db $FF ; End of Map 8A
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen8A_Low:
-#_0CBEA5: db $00 ; Direct Copy
+#_0CBEA5: db $00 ; Raw block
 #_0CBEA6: db $C8
-#_0CBEA7: db $62 ; Increasing Fill
-#_0CBEA8: db $C8 ; Increasing Fill Start
-#_0CBEA9: db $22 ; Byte Fill
+#_0CBEA7: db $62 ; Increment fill
+#_0CBEA8: db $C8
+#_0CBEA9: db $22 ; Repeat byte
 #_0CBEAA: db $49
-#_0CBEAB: db $00 ; Direct Copy
+#_0CBEAB: db $00 ; Raw block
 #_0CBEAC: db $CB
-#_0CBEAD: db $63 ; Increasing Fill
-#_0CBEAE: db $CB ; Increasing Fill Start
-#_0CBEAF: db $03 ; Direct Copy
+#_0CBEAD: db $63 ; Increment fill
+#_0CBEAE: db $CB
+#_0CBEAF: db $03 ; Raw block
 #_0CBEB0: db $8E, $4E, $4F, $4D
-#_0CBEB4: db $62 ; Increasing Fill
-#_0CBEB5: db $CF ; Increasing Fill Start
-#_0CBEB6: db $00 ; Direct Copy
+#_0CBEB4: db $62 ; Increment fill
+#_0CBEB5: db $CF
+#_0CBEB6: db $00 ; Raw block
 #_0CBEB7: db $CF
-#_0CBEB8: db $66 ; Increasing Fill
-#_0CBEB9: db $D2 ; Increasing Fill Start
-#_0CBEBA: db $07 ; Direct Copy
+#_0CBEB8: db $66 ; Increment fill
+#_0CBEB9: db $D2
+#_0CBEBA: db $07 ; Raw block
 #_0CBEBB: db $CE, $8E, $4E, $94, $D9, $91, $92, $90
-#_0CBEC3: db $67 ; Increasing Fill
-#_0CBEC4: db $DA ; Increasing Fill Start
-#_0CBEC5: db $1D ; Direct Copy
+#_0CBEC3: db $67 ; Increment fill
+#_0CBEC4: db $DA
+#_0CBEC5: db $1D ; Raw block
 #_0CBEC6: db $7A, $96, $E2, $14, $6E, $94, $95, $93
 #_0CBECE: db $E3, $B5, $E4, $E5, $08, $B3, $61, $61
 #_0CBED6: db $85, $E6, $E7, $27, $6E, $E8, $E9, $69
 #_0CBEDE: db $EA, $B7, $B8, $23, $E5, $BB
-#_0CBEE4: db $63 ; Increasing Fill
-#_0CBEE5: db $EB ; Increasing Fill Start
-#_0CBEE6: db $02 ; Direct Copy
+#_0CBEE4: db $63 ; Increment fill
+#_0CBEE5: db $EB
+#_0CBEE6: db $02 ; Raw block
 #_0CBEE7: db $2B, $27, $6E
-#_0CBEEA: db $62 ; Increasing Fill
-#_0CBEEB: db $EF ; Increasing Fill Start
-#_0CBEEC: db $00 ; Direct Copy
+#_0CBEEA: db $62 ; Increment fill
+#_0CBEEB: db $EF
+#_0CBEEC: db $00 ; Raw block
 #_0CBEED: db $79
-#_0CBEEE: db $62 ; Increasing Fill
-#_0CBEEF: db $F2 ; Increasing Fill Start
-#_0CBEF0: db $01 ; Direct Copy
+#_0CBEEE: db $62 ; Increment fill
+#_0CBEEF: db $F2
+#_0CBEF0: db $01 ; Raw block
 #_0CBEF1: db $02, $9C
-#_0CBEF3: db $64 ; Increasing Fill
-#_0CBEF4: db $F5 ; Increasing Fill Start
-#_0CBEF5: db $02 ; Direct Copy
+#_0CBEF3: db $64 ; Increment fill
+#_0CBEF4: db $F5
+#_0CBEF5: db $02 ; Raw block
 #_0CBEF6: db $28, $6E, $71
-#_0CBEF9: db $63 ; Increasing Fill
-#_0CBEFA: db $FA ; Increasing Fill Start
-#_0CBEFB: db $0C ; Direct Copy
+#_0CBEF9: db $63 ; Increment fill
+#_0CBEFA: db $FA
+#_0CBEFB: db $0C ; Raw block
 #_0CBEFC: db $17, $18, $2F, $5B, $FE, $27, $2C, $E1
 #_0CBF04: db $B3, $E1, $6E, $1A, $FF
-#_0CBF09: db $62 ; Increasing Fill
-#_0CBF0A: db $00 ; Increasing Fill Start
-#_0CBF0B: db $22 ; Byte Fill
+#_0CBF09: db $62 ; Increment fill
+#_0CBF0A: db $00
+#_0CBF0B: db $22 ; Repeat byte
 #_0CBF0C: db $59
-#_0CBF0D: db $01 ; Direct Copy
+#_0CBF0D: db $01 ; Raw block
 #_0CBF0E: db $03, $88
-#_0CBF10: db $62 ; Increasing Fill
-#_0CBF11: db $04 ; Increasing Fill Start
-#_0CBF12: db $07 ; Direct Copy
+#_0CBF10: db $62 ; Increment fill
+#_0CBF11: db $04
+#_0CBF12: db $07 ; Raw block
 #_0CBF13: db $59, $07, $38, $08, $DC, $09, $0A, $FE
-#_0CBF1B: db $22 ; Byte Fill
+#_0CBF1B: db $22 ; Repeat byte
 #_0CBF1C: db $5B
-#_0CBF1D: db $E0, $37 ; EXT Direct Copy
+#_0CBF1D: db $E0, $37 ; EXT Raw block
 #_0CBF1F: db $FF, $D7, $26, $0B, $FE, $5B, $3F, $0C
 #_0CBF27: db $7C, $08, $0D, $0E, $C5, $44, $CF, $13
 #_0CBF2F: db $0A, $03, $9C, $0F, $83, $56, $4C, $C1
@@ -6762,268 +6762,268 @@ OverworldMap32_Screen8A_Low:
 #_0CBF3F: db $5C, $16, $1B, $9F, $80, $2D, $4F, $C1
 #_0CBF47: db $F2, $12, $12, $13, $77, $A4, $14, $15
 #_0CBF4F: db $11, $16, $9B, $80, $2D, $BF, $4F, $C1
-#_0CBF57: db $26 ; Byte Fill
+#_0CBF57: db $26 ; Repeat byte
 #_0CBF58: db $17
-#_0CBF59: db $08 ; Direct Copy
+#_0CBF59: db $08 ; Raw block
 #_0CBF5A: db $5B, $17, $5B, $5B, $CB, $CA, $17, $29
 #_0CBF62: db $18
-#_0CBF63: db $2C ; Byte Fill
+#_0CBF63: db $2C ; Repeat byte
 #_0CBF64: db $84
-#_0CBF65: db $02 ; Direct Copy
+#_0CBF65: db $02 ; Raw block
 #_0CBF66: db $96, $19, $1A
-#_0CBF69: db $2C ; Byte Fill
+#_0CBF69: db $2C ; Repeat byte
 #_0CBF6A: db $46
-#_0CBF6B: db $02 ; Direct Copy
+#_0CBF6B: db $02 ; Raw block
 #_0CBF6C: db $1B, $1C, $3B
-#_0CBF6F: db $2C ; Byte Fill
+#_0CBF6F: db $2C ; Repeat byte
 #_0CBF70: db $FA
-#_0CBF71: db $02 ; Direct Copy
+#_0CBF71: db $02 ; Raw block
 #_0CBF72: db $1D, $41, $C8
 #_0CBF75: db $FF ; End of Map 8A
 
 ;===================================================================================================
 
 OverworldMap32_Screen96_High:
-#_0CBF76: db $E4, $5F ; EXT Byte Fill
+#_0CBF76: db $E4, $5F ; EXT Repeat byte
 #_0CBF78: db $22
-#_0CBF79: db $E4, $9F ; EXT Byte Fill
+#_0CBF79: db $E4, $9F ; EXT Repeat byte
 #_0CBF7B: db $00
 #_0CBF7C: db $FF ; End of Map 96
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen96_Low:
-#_0CBF7D: db $27 ; Byte Fill
+#_0CBF7D: db $27 ; Repeat byte
 #_0CBF7E: db $1E
-#_0CBF7F: db $01 ; Direct Copy
+#_0CBF7F: db $01 ; Raw block
 #_0CBF80: db $1F, $20
-#_0CBF82: db $25 ; Byte Fill
+#_0CBF82: db $25 ; Repeat byte
 #_0CBF83: db $1E
-#_0CBF84: db $66 ; Increasing Fill
-#_0CBF85: db $21 ; Increasing Fill Start
-#_0CBF86: db $00 ; Direct Copy
+#_0CBF84: db $66 ; Increment fill
+#_0CBF85: db $21
+#_0CBF86: db $00 ; Raw block
 #_0CBF87: db $24
-#_0CBF88: db $63 ; Increasing Fill
-#_0CBF89: db $28 ; Increasing Fill Start
-#_0CBF8A: db $03 ; Direct Copy
+#_0CBF88: db $63 ; Increment fill
+#_0CBF89: db $28
+#_0CBF8A: db $03 ; Raw block
 #_0CBF8B: db $23, $23, $2C, $29
-#_0CBF8F: db $2F ; Byte Fill
+#_0CBF8F: db $2F ; Repeat byte
 #_0CBF90: db $2D
-#_0CBF91: db $3F ; Byte Fill
+#_0CBF91: db $3F ; Repeat byte
 #_0CBF92: db $2E
-#_0CBF93: db $2F ; Byte Fill
+#_0CBF93: db $2F ; Repeat byte
 #_0CBF94: db $2F
-#_0CBF95: db $E4, $9F ; EXT Byte Fill
+#_0CBF95: db $E4, $9F ; EXT Repeat byte
 #_0CBF97: db $1D
 #_0CBF98: db $FF ; End of Map 96
 
 ;===================================================================================================
 
 OverworldMap32_Screen95_High:
-#_0CBF99: db $E4, $20 ; EXT Byte Fill
+#_0CBF99: db $E4, $20 ; EXT Repeat byte
 #_0CBF9B: db $22
-#_0CBF9C: db $01 ; Direct Copy
+#_0CBF9C: db $01 ; Raw block
 #_0CBF9D: db $13, $12
-#_0CBF9F: db $25 ; Byte Fill
+#_0CBF9F: db $25 ; Repeat byte
 #_0CBFA0: db $22
-#_0CBFA1: db $01 ; Direct Copy
+#_0CBFA1: db $01 ; Raw block
 #_0CBFA2: db $13, $12
-#_0CBFA4: db $25 ; Byte Fill
+#_0CBFA4: db $25 ; Repeat byte
 #_0CBFA5: db $22
-#_0CBFA6: db $00 ; Direct Copy
+#_0CBFA6: db $00 ; Raw block
 #_0CBFA7: db $13
-#_0CBFA8: db $26 ; Byte Fill
+#_0CBFA8: db $26 ; Repeat byte
 #_0CBFA9: db $22
-#_0CBFAA: db $00 ; Direct Copy
+#_0CBFAA: db $00 ; Raw block
 #_0CBFAB: db $13
-#_0CBFAC: db $26 ; Byte Fill
+#_0CBFAC: db $26 ; Repeat byte
 #_0CBFAD: db $22
-#_0CBFAE: db $00 ; Direct Copy
+#_0CBFAE: db $00 ; Raw block
 #_0CBFAF: db $13
-#_0CBFB0: db $26 ; Byte Fill
+#_0CBFB0: db $26 ; Repeat byte
 #_0CBFB1: db $22
-#_0CBFB2: db $00 ; Direct Copy
+#_0CBFB2: db $00 ; Raw block
 #_0CBFB3: db $13
-#_0CBFB4: db $26 ; Byte Fill
+#_0CBFB4: db $26 ; Repeat byte
 #_0CBFB5: db $22
-#_0CBFB6: db $00 ; Direct Copy
+#_0CBFB6: db $00 ; Raw block
 #_0CBFB7: db $13
-#_0CBFB8: db $26 ; Byte Fill
+#_0CBFB8: db $26 ; Repeat byte
 #_0CBFB9: db $22
-#_0CBFBA: db $00 ; Direct Copy
+#_0CBFBA: db $00 ; Raw block
 #_0CBFBB: db $13
-#_0CBFBC: db $E4, $46 ; EXT Byte Fill
+#_0CBFBC: db $E4, $46 ; EXT Repeat byte
 #_0CBFBE: db $22
-#_0CBFBF: db $01 ; Direct Copy
+#_0CBFBF: db $01 ; Raw block
 #_0CBFC0: db $13, $12
-#_0CBFC2: db $25 ; Byte Fill
+#_0CBFC2: db $25 ; Repeat byte
 #_0CBFC3: db $22
-#_0CBFC4: db $01 ; Direct Copy
+#_0CBFC4: db $01 ; Raw block
 #_0CBFC5: db $13, $12
-#_0CBFC7: db $25 ; Byte Fill
+#_0CBFC7: db $25 ; Repeat byte
 #_0CBFC8: db $22
-#_0CBFC9: db $00 ; Direct Copy
+#_0CBFC9: db $00 ; Raw block
 #_0CBFCA: db $13
-#_0CBFCB: db $26 ; Byte Fill
+#_0CBFCB: db $26 ; Repeat byte
 #_0CBFCC: db $22
-#_0CBFCD: db $00 ; Direct Copy
+#_0CBFCD: db $00 ; Raw block
 #_0CBFCE: db $13
-#_0CBFCF: db $26 ; Byte Fill
+#_0CBFCF: db $26 ; Repeat byte
 #_0CBFD0: db $22
-#_0CBFD1: db $00 ; Direct Copy
+#_0CBFD1: db $00 ; Raw block
 #_0CBFD2: db $13
-#_0CBFD3: db $26 ; Byte Fill
+#_0CBFD3: db $26 ; Repeat byte
 #_0CBFD4: db $22
-#_0CBFD5: db $00 ; Direct Copy
+#_0CBFD5: db $00 ; Raw block
 #_0CBFD6: db $13
-#_0CBFD7: db $26 ; Byte Fill
+#_0CBFD7: db $26 ; Repeat byte
 #_0CBFD8: db $22
-#_0CBFD9: db $00 ; Direct Copy
+#_0CBFD9: db $00 ; Raw block
 #_0CBFDA: db $13
-#_0CBFDB: db $26 ; Byte Fill
+#_0CBFDB: db $26 ; Repeat byte
 #_0CBFDC: db $22
-#_0CBFDD: db $00 ; Direct Copy
+#_0CBFDD: db $00 ; Raw block
 #_0CBFDE: db $13
-#_0CBFDF: db $E4, $25 ; EXT Byte Fill
+#_0CBFDF: db $E4, $25 ; EXT Repeat byte
 #_0CBFE1: db $22
 #_0CBFE2: db $FF ; End of Map 95
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen95_Low:
-#_0CBFE3: db $67 ; Increasing Fill
-#_0CBFE4: db $30 ; Increasing Fill Start
-#_0CBFE5: db $87 ; Repeat Fill
-#_0CBFE6: db $00, $00 ; Repeat Fill bytes
-#_0CBFE8: db $64 ; Increasing Fill
-#_0CBFE9: db $38 ; Increasing Fill Start
-#_0CBFEA: db $02 ; Direct Copy
+#_0CBFE3: db $67 ; Increment fill
+#_0CBFE4: db $30
+#_0CBFE5: db $87 ; Copy past
+#_0CBFE6: dw $0000
+#_0CBFE8: db $64 ; Increment fill
+#_0CBFE9: db $38
+#_0CBFEA: db $02 ; Raw block
 #_0CBFEB: db $30, $3D, $3E
-#_0CBFEE: db $87 ; Repeat Fill
-#_0CBFEF: db $00, $10 ; Repeat Fill bytes
-#_0CBFF1: db $07 ; Direct Copy
+#_0CBFEE: db $87 ; Copy past
+#_0CBFEF: dw $1000
+#_0CBFF1: db $07 ; Raw block
 #_0CBFF2: db $3B, $D9, $59, $3F, $3E, $40, $41, $3B
-#_0CBFFA: db $87 ; Repeat Fill
-#_0CBFFB: db $00, $20 ; Repeat Fill bytes
-#_0CBFFD: db $07 ; Direct Copy
+#_0CBFFA: db $87 ; Copy past
+#_0CBFFB: dw $2000
+#_0CBFFD: db $07 ; Raw block
 #_0CBFFE: db $42, $1D, $43, $44, $3B, $37, $45, $46
-#_0CC006: db $87 ; Repeat Fill
-#_0CC007: db $00, $30 ; Repeat Fill bytes
-#_0CC009: db $07 ; Direct Copy
+#_0CC006: db $87 ; Copy past
+#_0CC007: dw $3000
+#_0CC009: db $07 ; Raw block
 #_0CC00A: db $3D, $D9, $47, $44, $48, $3E, $38, $34
-#_0CC012: db $87 ; Repeat Fill
-#_0CC013: db $00, $40 ; Repeat Fill bytes
-#_0CC015: db $07 ; Direct Copy
+#_0CC012: db $87 ; Copy past
+#_0CC013: dw $4000
+#_0CC015: db $07 ; Raw block
 #_0CC016: db $41, $1D, $49, $44, $4A, $3B, $3B, $4B
-#_0CC01E: db $87 ; Repeat Fill
-#_0CC01F: db $00, $50 ; Repeat Fill bytes
-#_0CC021: db $07 ; Direct Copy
+#_0CC01E: db $87 ; Copy past
+#_0CC01F: dw $5000
+#_0CC021: db $07 ; Raw block
 #_0CC022: db $3B, $3B, $4C, $4D, $45, $46, $42, $48
-#_0CC02A: db $87 ; Repeat Fill
-#_0CC02B: db $00, $60 ; Repeat Fill bytes
-#_0CC02D: db $01 ; Direct Copy
+#_0CC02A: db $87 ; Copy past
+#_0CC02B: dw $6000
+#_0CC02D: db $01 ; Raw block
 #_0CC02E: db $4E, $45
-#_0CC030: db $23 ; Byte Fill
+#_0CC030: db $23 ; Repeat byte
 #_0CC031: db $30
-#_0CC032: db $03 ; Direct Copy
+#_0CC032: db $03 ; Raw block
 #_0CC033: db $3D, $4A, $4E, $45
-#_0CC037: db $23 ; Byte Fill
+#_0CC037: db $23 ; Repeat byte
 #_0CC038: db $30
-#_0CC039: db $01 ; Direct Copy
+#_0CC039: db $01 ; Raw block
 #_0CC03A: db $3D, $4A
-#_0CC03C: db $F0, $71 ; EXT Repeat Fill
-#_0CC03E: db $00, $00 ; Repeat Fill bytes
-#_0CC040: db $23 ; Byte Fill
+#_0CC03C: db $F0, $71 ; EXT Copy past
+#_0CC03E: dw $0000
+#_0CC040: db $23 ; Repeat byte
 #_0CC041: db $30
-#_0CC042: db $83 ; Repeat Fill
-#_0CC043: db $00, $76 ; Repeat Fill bytes
-#_0CC045: db $23 ; Byte Fill
+#_0CC042: db $83 ; Copy past
+#_0CC043: dw $7600
+#_0CC045: db $23 ; Repeat byte
 #_0CC046: db $30
-#_0CC047: db $01 ; Direct Copy
+#_0CC047: db $01 ; Raw block
 #_0CC048: db $3D, $4A
 #_0CC04A: db $FF ; End of Map 95
 
 ;===================================================================================================
 
 OverworldMap32_Screen9C_High:
-#_0CC04B: db $E4, $FF ; EXT Byte Fill
+#_0CC04B: db $E4, $FF ; EXT Repeat byte
 #_0CC04D: db $22
 #_0CC04E: db $FF ; End of Map 9C
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen9C_Low:
-#_0CC04F: db $E4, $FF ; EXT Byte Fill
+#_0CC04F: db $E4, $FF ; EXT Repeat byte
 #_0CC051: db $4F
 #_0CC052: db $FF ; End of Map 9C
 
 ;===================================================================================================
 
 OverworldMap32_Screen88_High:
-#_0CC053: db $E4, $FF ; EXT Byte Fill
+#_0CC053: db $E4, $FF ; EXT Repeat byte
 #_0CC055: db $22
 #_0CC056: db $FF ; End of Map 88
 
 ;---------------------------------------------------------------------------------------------------
 
 OverworldMap32_Screen88_Low:
-#_0CC057: db $00 ; Direct Copy
+#_0CC057: db $00 ; Raw block
 #_0CC058: db $50
-#_0CC059: db $64 ; Increasing Fill
-#_0CC05A: db $50 ; Increasing Fill Start
-#_0CC05B: db $01 ; Direct Copy
+#_0CC059: db $64 ; Increment fill
+#_0CC05A: db $50
+#_0CC05B: db $01 ; Raw block
 #_0CC05C: db $50, $50
-#_0CC05E: db $63 ; Increasing Fill
-#_0CC05F: db $55 ; Increasing Fill Start
-#_0CC060: db $63 ; Increasing Fill
-#_0CC061: db $58 ; Increasing Fill Start
-#_0CC062: db $09 ; Direct Copy
+#_0CC05E: db $63 ; Increment fill
+#_0CC05F: db $55
+#_0CC060: db $63 ; Increment fill
+#_0CC061: db $58
+#_0CC062: db $09 ; Raw block
 #_0CC063: db $50, $50, $5C, $58, $58, $5D, $50, $50
 #_0CC06B: db $55, $5E
-#_0CC06D: db $23 ; Byte Fill
+#_0CC06D: db $23 ; Repeat byte
 #_0CC06E: db $58
-#_0CC06F: db $0B ; Direct Copy
+#_0CC06F: db $0B ; Raw block
 #_0CC070: db $5F, $5B, $50, $60, $61, $58, $58, $62
 #_0CC078: db $60, $50, $63, $64
-#_0CC07C: db $23 ; Byte Fill
+#_0CC07C: db $23 ; Repeat byte
 #_0CC07D: db $58
-#_0CC07E: db $63 ; Increasing Fill
-#_0CC07F: db $65 ; Increasing Fill Start
-#_0CC080: db $23 ; Byte Fill
+#_0CC07E: db $63 ; Increment fill
+#_0CC07F: db $65
+#_0CC080: db $23 ; Repeat byte
 #_0CC081: db $58
-#_0CC082: db $02 ; Direct Copy
+#_0CC082: db $02 ; Raw block
 #_0CC083: db $68, $67, $5E
-#_0CC086: db $25 ; Byte Fill
+#_0CC086: db $25 ; Repeat byte
 #_0CC087: db $58
-#_0CC088: db $00 ; Direct Copy
+#_0CC088: db $00 ; Raw block
 #_0CC089: db $5F
-#_0CC08A: db $27 ; Byte Fill
+#_0CC08A: db $27 ; Repeat byte
 #_0CC08B: db $58
-#_0CC08C: db $00 ; Direct Copy
+#_0CC08C: db $00 ; Raw block
 #_0CC08D: db $64
-#_0CC08E: db $25 ; Byte Fill
+#_0CC08E: db $25 ; Repeat byte
 #_0CC08F: db $58
-#_0CC090: db $00 ; Direct Copy
+#_0CC090: db $00 ; Raw block
 #_0CC091: db $65
-#_0CC092: db $66 ; Increasing Fill
-#_0CC093: db $69 ; Increasing Fill Start
-#_0CC094: db $00 ; Direct Copy
+#_0CC092: db $66 ; Increment fill
+#_0CC093: db $69
+#_0CC094: db $00 ; Raw block
 #_0CC095: db $69
-#_0CC096: db $27 ; Byte Fill
+#_0CC096: db $27 ; Repeat byte
 #_0CC097: db $58
-#_0CC098: db $65 ; Increasing Fill
-#_0CC099: db $70 ; Increasing Fill Start
-#_0CC09A: db $01 ; Direct Copy
+#_0CC098: db $65 ; Increment fill
+#_0CC099: db $70
+#_0CC09A: db $01 ; Raw block
 #_0CC09B: db $71, $70
-#_0CC09D: db $27 ; Byte Fill
+#_0CC09D: db $27 ; Repeat byte
 #_0CC09E: db $58
-#_0CC09F: db $01 ; Direct Copy
+#_0CC09F: db $01 ; Raw block
 #_0CC0A0: db $70, $70
-#_0CC0A2: db $63 ; Increasing Fill
-#_0CC0A3: db $76 ; Increasing Fill Start
-#_0CC0A4: db $01 ; Direct Copy
+#_0CC0A2: db $63 ; Increment fill
+#_0CC0A3: db $76
+#_0CC0A4: db $01 ; Raw block
 #_0CC0A5: db $70, $70
-#_0CC0A7: db $E4, $87 ; EXT Byte Fill
+#_0CC0A7: db $E4, $87 ; EXT Repeat byte
 #_0CC0A9: db $58
 #_0CC0AA: db $FF ; End of Map 88
 
@@ -7168,18 +7168,18 @@ Intro_Clear1kbBlocksOfWRAM:
 #_0CC1B6: STA.l $7E2000,X
 #_0CC1BA: STA.l $7E4000,X
 #_0CC1BE: STA.l $7E6000,X
-#_0CC1C2: STA.l $7E8000,X
 
+#_0CC1C2: STA.l $7E8000,X
 #_0CC1C6: STA.l $7EA000,X
 #_0CC1CA: STA.l $7EC000,X
 #_0CC1CE: STA.l $7EE000,X
-#_0CC1D2: STA.l $7F0000,X
 
+#_0CC1D2: STA.l $7F0000,X
 #_0CC1D6: STA.l $7F2000,X
 #_0CC1DA: STA.l $7F4000,X
 #_0CC1DE: STA.l $7F6000,X
-#_0CC1E2: STA.l $7F8000,X
 
+#_0CC1E2: STA.l $7F8000,X
 #_0CC1E6: STA.l $7FA000,X
 #_0CC1EA: STA.l $7FC000,X
 #_0CC1EE: STA.l $7FE000,X
@@ -11081,17 +11081,17 @@ pool FileSelect_DrawLink
 #_0CD589: db $CA ; fire shield
 #_0CD58A: db $E0 ; mirror shield
 
-.link_props
+.sword_props
 #_0CD58B: db $72 ; file 1
 #_0CD58C: db $76 ; file 2
 #_0CD58D: db $7A ; file 3
 
-.sword_props
+.shield_props
 #_0CD58E: db $32 ; file 1
 #_0CD58F: db $36 ; file 2
 #_0CD590: db $3A ; file 3
 
-.shield_props
+.link_props
 #_0CD591: db $30 ; file 1
 #_0CD592: db $34 ; file 2
 #_0CD593: db $38 ; file 3
@@ -11138,7 +11138,7 @@ FileSelect_DrawLink:
 #_0CD5C5: ADC.b #$08
 #_0CD5C7: STA.w $0805,X
 
-#_0CD5CA: LDA.w .link_props,Y
+#_0CD5CA: LDA.w .sword_props,Y
 #_0CD5CD: STA.w $0803,X
 #_0CD5D0: STA.w $0807,X
 
@@ -11203,7 +11203,7 @@ FileSelect_DrawLink:
 #_0CD615: ADC.b #$0A
 #_0CD617: STA.w $0801,X
 
-#_0CD61A: LDA.w .sword_props,Y
+#_0CD61A: LDA.w .shield_props,Y
 #_0CD61D: STA.w $0803,X
 
 ;---------------------------------------------------------------------------------------------------
@@ -11263,7 +11263,7 @@ FileSelect_DrawLink:
 #_0CD65A: LDA.b #$02
 #_0CD65C: STA.w $0806,X
 
-#_0CD65F: LDA.w .shield_props,Y
+#_0CD65F: LDA.w .link_props,Y
 #_0CD662: STA.w $0803,X
 
 #_0CD665: ORA.b #$40
@@ -13120,8 +13120,7 @@ Attract_Initialize:
 
 #_0CEDB2: STZ.w $1CD8
 
-; Message 0110
-#_0CEDB5: LDX.w #$0110
+#_0CEDB5: LDX.w #$0110 ; MESSAGE 0110
 #_0CEDB8: STX.w $1CF0
 
 #_0CEDBB: STZ.b $E8
@@ -13401,8 +13400,7 @@ AttractScene_ThroneRoom:
 
 #_0CEF04: STZ.w $1CD8
 
-; Message 0111
-#_0CEF07: LDA.b #$11
+#_0CEF07: LDA.b #$11 ; MESSAGE 0111
 #_0CEF09: STA.w $1CF0
 
 #_0CEF0C: LDA.b #$01
@@ -13498,8 +13496,7 @@ AttractScene_Prison:
 
 #_0CEF86: STZ.w $1CD8
 
-; Message 0112
-#_0CEF89: LDA.b #$12
+#_0CEF89: LDA.b #$12 ; MESSAGE 0112
 #_0CEF8B: STA.w $1CF0
 
 #_0CEF8E: LDA.b #$01
@@ -13584,8 +13581,7 @@ AttractScene_AgahnimAltar:
 
 #_0CF003: STZ.w $1CD8
 
-; Message 0113
-#_0CF006: LDA.b #$13
+#_0CF006: LDA.b #$13 ; MESSAGE 0113
 #_0CF008: STA.w $1CF0
 
 #_0CF00B: LDA.b #$01
@@ -16142,19 +16138,17 @@ Overworld_SetScreenBGColor:
 #_0CFF93: LDX.w #$2669 ; RGB: #489848
 
 #_0CFF96: LDA.b $8A
-
-#_0CFF98: CMP.w #$0080
+#_0CFF98: CMP.w #$0080 ; SPOW
 #_0CFF9B: BCC .normal_overworld
 
 #_0CFF9D: LDA.b $A0
-
-#_0CFF9F: CMP.w #$0183
+#_0CFF9F: CMP.w #$0183 ; OW 83
 #_0CFFA2: BEQ .special_area
 
-#_0CFFA4: CMP.w #$0182
+#_0CFFA4: CMP.w #$0182 ; OW 82
 #_0CFFA7: BEQ .special_area
 
-#_0CFFA9: CMP.w #$0180
+#_0CFFA9: CMP.w #$0180 ; OW 80
 #_0CFFAC: BNE .set_color
 
 .special_area
@@ -16184,19 +16178,17 @@ Overworld_SetScreenBGColorCacheOnly:
 #_0CFFC5: LDX.w #$2669 ; RGB: #489848
 
 #_0CFFC8: LDA.b $8A
-
-#_0CFFCA: CMP.w #$0080
+#_0CFFCA: CMP.w #$0080 ; SPOW
 #_0CFFCD: BCC .normal_overworld
 
 #_0CFFCF: LDA.b $A0
-
-#_0CFFD1: CMP.w #$0183
+#_0CFFD1: CMP.w #$0183 ; OW 83
 #_0CFFD4: BEQ .special_area
 
-#_0CFFD6: CMP.w #$0182
+#_0CFFD6: CMP.w #$0182 ; OW 82
 #_0CFFD9: BEQ .special_area
 
-#_0CFFDB: CMP.w #$0180
+#_0CFFDB: CMP.w #$0180 ; OW 80
 #_0CFFDE: BNE .set_color
 
 .special_area

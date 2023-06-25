@@ -13,7 +13,7 @@
 0C       こ		ko
 0D       わ		wa
 0E       を		wo
-0F       ん		nn
+0F       ん		n
 10       さ		sa
 11       し		si
 12       す		su
@@ -93,7 +93,7 @@
 5C       コ		ko
 5D       ワ		wa
 5E       ヲ		wo
-5F       ン		nn
+5F       ン		n
 60       サ		sa
 61       シ		si
 62       ス		su
@@ -473,7 +473,7 @@ FD DF    勝
 FD E0    集		
 FD E1    始		
 FD E2    攻		
-FD E3    撃		
+FD E3    撃		attack
 FD E4    命		
 FD E5    老		
 FD E6    心		

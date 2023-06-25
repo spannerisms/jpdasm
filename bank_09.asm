@@ -1735,8 +1735,6 @@ AncillaAdd_ItemReceipt:
 
 #_098788: BRA .extract_graphics
 
-;---------------------------------------------------------------------------------------------------
-
 .null
 #_09878A: LDA.b #$00
 
@@ -2508,6 +2506,7 @@ AddHappinessPondRupees:
 pool AncillaAdd_FallingPrize
 
 .receipt_ids
+
 .ether_id
 #_098B7C: db $10 ; ITEMGET 10
 
@@ -2639,7 +2638,7 @@ AncillaAdd_FallingPrize:
 #_098C0B: BEQ .was_medallion
 
 #_098C0D: LDA.w $040C
-#_098C10: CMP.b #$14
+#_098C10: CMP.b #$14 ; DUNGEON 14
 #_098C12: BNE .not_hera
 
 ;---------------------------------------------------------------------------------------------------
@@ -6716,9 +6715,9 @@ Follower_Main:
 #_099FA8: dw $0DF3 ; 3571
 
 .message_id
-#_099FAA: dw $001E ; Message 001E
-#_099FAC: dw $0106 ; Message 0106
-#_099FAE: dw $011B ; Message 011B
+#_099FAA: dw $001E ; MESSAGE 001E
+#_099FAC: dw $0106 ; MESSAGE 0106
+#_099FAE: dw $011B ; MESSAGE 011B
 
 ;===================================================================================================
 
@@ -7187,7 +7186,7 @@ Follower_BasicMover:
 
 ; Check room ID
 #_09A1DA: LDA.b $A0
-#_09A1DC: CMP.w #$00AC
+#_09A1DC: CMP.w #$00AC ; ROOM 00AC
 #_09A1DF: BNE .no_blind_transform
 
 ; Hole not opened
@@ -7778,51 +7777,51 @@ Follower_CheckProximityToLink:
 pool Follower_HandleTrigger
 
 .room_id
-#_09A4B4: dw $00F1 ; old man cave
-#_09A4B6: dw $0061 ; castle lobby
-#_09A4B8: dw $0051 ; castle throne room
-#_09A4BA: dw $0002 ; pre-sanc
-#_09A4BC: dw $00DB ; TT entrance
-#_09A4BE: dw $00AB ; to TT attic
-#_09A4C0: dw $0022 ; sewer rats
+#_09A4B4: dw $00F1 ; ROOM 00F1 - old man cave
+#_09A4B6: dw $0061 ; ROOM 0061 - castle lobby
+#_09A4B8: dw $0051 ; ROOM 0051 - castle throne room
+#_09A4BA: dw $0002 ; ROOM 0002 - pre-sanc
+#_09A4BC: dw $00DB ; ROOM 00DB - TT entrance
+#_09A4BE: dw $00AB ; ROOM 00AB - to TT attic
+#_09A4C0: dw $0022 ; ROOM 0022 - sewer rats
 
 .coordinates_uw
 ;              Y      X     ID     MSG   Follower
-#_09A4C2: dw $1EF0, $0288, $0001, $0097, $0004 ; Old man - Message 0097
-#_09A4CC: dw $1E58, $02F0, $0002, $0098, $0004 ; Old man - Message 0098
-#_09A4D6: dw $1EA8, $03B8, $0004, $0099, $0004 ; Old man - Message 0099
+#_09A4C2: dw $1EF0, $0288, $0001, $0097, $0004 ; Old man - MESSAGE 0097
+#_09A4CC: dw $1E58, $02F0, $0002, $0098, $0004 ; Old man - MESSAGE 0098
+#_09A4D6: dw $1EA8, $03B8, $0004, $0099, $0004 ; Old man - MESSAGE 0099
 
-#_09A4E0: dw $0CF8, $025B, $0001, $001F, $0001 ; Zelda - Message 001F
-#_09A4EA: dw $0CF8, $039D, $0002, $001F, $0001 ; Zelda - Message 001F
-#_09A4F4: dw $0C78, $0238, $0004, $001F, $0001 ; Zelda - Message 001F
+#_09A4E0: dw $0CF8, $025B, $0001, $001F, $0001 ; Zelda - MESSAGE 001F
+#_09A4EA: dw $0CF8, $039D, $0002, $001F, $0001 ; Zelda - MESSAGE 001F
+#_09A4F4: dw $0C78, $0238, $0004, $001F, $0001 ; Zelda - MESSAGE 001F
 
-#_09A4FE: dw $0A30, $02F8, $0001, $0020, $0001 ; Zelda - Message 0020
+#_09A4FE: dw $0A30, $02F8, $0001, $0020, $0001 ; Zelda - MESSAGE 0020
 
-#_09A508: dw $0178, $0550, $0001, $0021, $0001 ; Zelda - Message 0021
-#_09A512: dw $0168, $04F8, $0002, $0028, $0001 ; Zelda - Message 0028
+#_09A508: dw $0178, $0550, $0001, $0021, $0001 ; Zelda - MESSAGE 0021
+#_09A512: dw $0168, $04F8, $0002, $0028, $0001 ; Zelda - MESSAGE 0028
 
-#_09A51C: dw $1BD8, $16FC, $0001, $0122, $0006 ; Blind maiden - Message 0122
+#_09A51C: dw $1BD8, $16FC, $0001, $0122, $0006 ; Blind maiden - MESSAGE 0122
 
-#_09A526: dw $1520, $167C, $0001, $0122, $0006 ; Blind maiden - Message 0122
+#_09A526: dw $1520, $167C, $0001, $0122, $0006 ; Blind maiden - MESSAGE 0122
 
-#_09A530: dw $05AC, $04FC, $0001, $0027, $0001 ; Zelda - Message 0027
+#_09A530: dw $05AC, $04FC, $0001, $0027, $0001 ; Zelda - MESSAGE 0027
 
 ;---------------------------------------------------------------------------------------------------
 
 .overworld_id
-#_09A53A: dw $0003 ; West DM
-#_09A53C: dw $005E ; POD
-#_09A53E: dw $0000 ; Lost woods
+#_09A53A: dw $0003 ; OW 03 - West DM
+#_09A53C: dw $005E ; OW 5E - POD
+#_09A53E: dw $0000 ; OW 00 - Lost woods
 
 .coordinates_ow
 ;              Y      X     ID     MSG   Follower
-#_09A540: dw $03C0, $0730, $0001, $009B, $0004 ; Old man - Message 009B
+#_09A540: dw $03C0, $0730, $0001, $009B, $0004 ; Old man - MESSAGE 009B
 
 #_09A54A: dw $0648, $0F50, $0000, $FFFF, $000A ; Kiki
 #_09A554: dw $06C8, $0D78, $0001, $FFFF, $000A ; Kiki
 #_09A55E: dw $0688, $0C78, $0002, $FFFF, $000A ; Kiki
 
-#_09A568: dw $00E8, $0090, $0000, $0026, $000E ; MS telepathy - Message 0026
+#_09A568: dw $00E8, $0090, $0000, $0026, $000E ; MS telepathy - MESSAGE 0026
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -7997,13 +7996,11 @@ Follower_HandleTrigger:
 #_09A658: CMP.w #$FFFF
 #_09A65B: BEQ .no_message
 
-; Message 009B
-#_09A65D: CMP.w #$009B
+#_09A65D: CMP.w #$009B ; MESSAGE 009B
 #_09A660: BEQ .old_man_ow_message
 
 ; MS Telepathy
-; Message 0026
-#_09A662: CMP.w #$0026
+#_09A662: CMP.w #$0026 ; MESSAGE 0026
 #_09A665: BNE .continue_with_message_id
 
 #_09A667: SEP #$20
@@ -9383,7 +9380,7 @@ DashDust_Motive:
 #_09AE00: BNE .not_behind
 
 #_09AE02: LDA.b #$04
-#_09AE04: JSL OAM_AllocateFromRegionB
+#_09AE04: JSL SpriteDraw_AllocateOAMFromRegionB
 
 .not_behind
 #_09AE08: JSL Ancilla_PrepOAMCoord_long
@@ -10009,7 +10006,7 @@ Garnish_ExecuteSingle:
 #_09B0EC: TAY
 
 #_09B0ED: LDA.w .object_allocation-1,Y
-#_09B0F0: JSL OAM_AllocateFromRegionF
+#_09B0F0: JSL SpriteDraw_AllocateOAMFromRegionF
 
 #_09B0F4: BRA .run_ai
 
@@ -10020,7 +10017,7 @@ Garnish_ExecuteSingle:
 #_09B0FA: TAY
 
 #_09B0FB: LDA.w .object_allocation-1,Y
-#_09B0FE: JSL OAM_AllocateFromRegionD
+#_09B0FE: JSL SpriteDraw_AllocateOAMFromRegionD
 
 #_09B102: BRA .run_ai
 
@@ -10031,7 +10028,7 @@ Garnish_ExecuteSingle:
 #_09B108: TAY
 
 #_09B109: LDA.w .object_allocation-1,Y
-#_09B10C: JSL OAM_AllocateFromRegionA
+#_09B10C: JSL SpriteDraw_AllocateOAMFromRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -10699,7 +10696,7 @@ Garnish09_LightningTrail:
 
 ; !HARDCODED room check
 #_09B43F: LDX.w $048E
-#_09B442: CPX.b #$20
+#_09B442: CPX.b #$20 ; ROOM 0020
 #_09B444: BNE .not_aga1
 
 #_09B446: SEC
@@ -11722,7 +11719,7 @@ Overlord16_ZoroSpawner:
 #_09B8F0: STA.b $03
 
 #_09B8F2: LDA.w $0B40,X
-#_09B8F5: JSL GetTileAttribute_long
+#_09B8F5: JSL GetTileType_long
 
 ; Check if door
 #_09B8F9: CMP.b #$82 ; TILETYPE 82
@@ -14023,8 +14020,7 @@ Sprite_LoadAll_Overworld:
 #_09C4AB: RTL
 
 ;===================================================================================================
-; TODO
-;===================================================================================================
+
 Overworld_LoadSprites:
 #_09C4AC: LDA.w $040A
 #_09C4AF: AND.b #$07
@@ -14184,8 +14180,7 @@ Overworld_LoadSprites:
 #_09C55D: RTS
 
 ;===================================================================================================
-; TODO VERIFY ALL PROXIMITY ROUTINES
-;===================================================================================================
+
 Sprite_ActivateAllProxima:
 #_09C55E: LDA.b $E2
 #_09C560: PHA
@@ -20216,7 +20211,7 @@ SpriteModule_Explode:
 #_09EDE6: SEP #$20
 
 #_09EDE8: LDA.b #$04
-#_09EDEA: JSL Sprite_DrawMultiple
+#_09EDEA: JSL SpriteDraw_Tabulated
 
 #_09EDEE: RTS
 
@@ -21479,18 +21474,18 @@ GameOver_FadeAndRevive:
 
 #_09F520: LDA.l $7EF3C5
 #_09F524: CMP.b #$03
-#_09F526: BCS .dont_skip_bunnyness
+#_09F526: BCS .dont_skip_bunniness
 
 #_09F528: LDA.b #$00
 #_09F52A: STA.l $7EF3CA
 
 #_09F52E: LDA.l $7EF357
-#_09F532: BNE .dont_skip_bunnyness
+#_09F532: BNE .dont_skip_bunniness
 
 #_09F534: JSL ForceNonbunnyStatus
 
-.dont_skip_bunnyness
-#_09F538: LDA.b $A0
+.dont_skip_bunniness
+#_09F538: LDA.b $A0 ; ROOM 0000
 #_09F53A: ORA.b $A1
 #_09F53C: BNE .not_ganon
 
@@ -21533,14 +21528,14 @@ GameOver_FadeAndRevive:
 
 ; handle keys
 #_09F571: LDA.w $040C
-#_09F574: CMP.b #$FF
+#_09F574: CMP.b #$FF ; DUNGEON FF
 #_09F576: BEQ .cave
 
 ; merge castle and sewers keys
-#_09F578: CMP.b #$02
+#_09F578: CMP.b #$02 ; DUNGEON 02
 #_09F57A: BNE .castle
 
-#_09F57C: LDA.b #$00
+#_09F57C: LDA.b #$00 ; DUNGEON 00
 
 .castle
 #_09F57E: LSR A
@@ -21584,7 +21579,7 @@ GameOver_FadeAndRevive:
 #_09F5B5: BEQ .use_this_spawn
 
 #_09F5B7: LDA.w $040C
-#_09F5BA: CMP.b #$FF
+#_09F5BA: CMP.b #$FF ; DUNGEON FF
 #_09F5BC: BEQ .died_in_cave
 
 #_09F5BE: STZ.w $04AA

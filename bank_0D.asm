@@ -3,10 +3,11 @@ org $0D8000
 ;===================================================================================================
 ; This holds data for Link's primary poses
 ; y, x, ab
-;   y - y offset
-;   x - x offset
+;   y - y offset of head
+;   x - x offset of head
 ;   a - head oam props high nibble
 ;   b - body oam props high nibble
+;       F - don't draw
 ;===================================================================================================
 LinkOAM_PoseData:
 #_0D8000: db  0,  0, $00 ; 0x0000
@@ -415,14 +416,17 @@ LinkOAM_ShieldTiles:
 #_0D8581: dw $6A07, $FFFF, $FFFF
 #_0D8587: dw $2A07, $FFFF, $FFFF
 #_0D858D: dw $6A07, $FFFF, $FFFF
+
 #_0D8593: dw $2809, $FFFF, $2819
 #_0D8599: dw $2809, $FFFF, $2819
 #_0D859F: dw $281A, $FFFF, $2819
 #_0D85A5: dw $A819, $FFFF, $A809
+
 #_0D85AB: dw $2809, $FFFF, $2819
 #_0D85B1: dw $2809, $FFFF, $FFFF
 #_0D85B7: dw $2809, $FFFF, $FFFF
 #_0D85BD: dw $2819, $2809, $FFFF
+
 #_0D85C3: dw $6809, $FFFF, $FFFF
 #_0D85C9: dw $6809, $6819, $FFFF
 
@@ -520,7 +524,8 @@ LinkOAM_AnimationSteps:
 #_0D875F: dw $007D, $007E, $007F, $0080
 
 ; shovel
-#_0D8767: dw $0053, $0054, $0055, $0056, $0057, $0058
+#_0D8767: dw $0053, $0054, $0055 ; left
+#_0D876D: dw $0056, $0057, $0058 ; right
 
 ; walk carrying item
 #_0D8773: dw $0059, $005A, $005B, $0059, $005C, $005D ; up
@@ -583,15 +588,16 @@ LinkOAM_AnimationSteps:
 #_0D8897: dw $006B, $00CB, $005E, $00CD, $00CD
 
 ; pushing
+; last item seems unused?
 #_0D88A1: dw $00E0, $00E1, $00E2, $00E0, $00E3, $00E4 ; up
 #_0D88AD: dw $00E5, $00E6, $00E7, $00E5, $00E8, $00E9 ; down
 #_0D88B9: dw $00EA, $00EB, $00EC, $00EA, $00EB, $00EC ; left
 #_0D88C5: dw $00ED, $00EE, $00EF, $00ED, $00EE, $00EF ; right
 
-; pull switch
+; pull switch down
 #_0D88D1: dw $0101, $0117, $0117, $0117, $0117
 
-; TODO
+; pull switch up
 #_0D88DB: dw $00F0, $00F1, $00FF, $005E
 
 ; ped pull
@@ -614,7 +620,7 @@ LinkOAM_AnimationSteps:
 ; death
 #_0D891F: dw $0005, $000A, $0000, $000D, $0110, $0111
 
-; TODO
+; unused? arm swing
 #_0D892B: dw $0000, $0021, $0074 ; up
 #_0D8931: dw $0005, $0075, $0076 ; down
 #_0D8937: dw $002A, $001A, $0077 ; left
@@ -647,14 +653,17 @@ LinkOAM_AnimationSteps:
 #_0D8985: dw $0127, $0066, $001E ; right
 
 ; net
-; TODO I think these first and last words are unreachable
-#_0D898B: dw $0069
+#_0D898B: dw $0069 ; this first pose is unreachable
 #_0D898D: dw $00CB, $006B, $000A, $000A, $006D
 #_0D8997: dw $006D, $000D, $000D, $0070, $0072, $006E
+
+; sword up
 #_0D89A3: dw $00CB
 
+; book
+#_0D89A5: dw $0129
+
 ; tree pull
-#_0D89A5: dw $0129 ; TODO seems unused but it's blank, so I think tree pull?
 #_0D89A7: dw $012B, $012C, $012D, $012E, $003F
 
 ; sword slash
@@ -697,10 +706,10 @@ LinkOAM_Aux1GFXIndex:
 ; quake
 #_0D8A31: db $FF, $FF, $FF, $FF, $FF
 
-; pull switch
+; pull switch down
 #_0D8A36: db $FF, $17, $17, $FF, $FF
 
-; TODO
+; pull switch up
 #_0D8A3B: db $FF, $FF, $FF, $FF
 
 ; ped pull
@@ -752,10 +761,10 @@ LinkOAM_Aux2GFXIndex:
 ; quake
 #_0D8AAD: db $FF, $FF, $FF, $FF, $FF
 
-; pull switch
+; pull switch down
 #_0D8AB2: db $FF, $18, $18, $FF, $FF
 
-; TODO
+; pull switch up
 #_0D8AB7: db $FF, $FF, $FF, $FF
 
 ; ped pull
@@ -843,7 +852,8 @@ LinkOAM_WeaponGFXIndex:
 #_0D8BA3: db $FF, $FF, $FF, $FF
 
 ; shovel
-#_0D8BA7: db $31, $31, $32, $2F, $2F, $30
+#_0D8BA7: db $31, $31, $32 ; left
+#_0D8BAA: db $2F, $2F, $30 ; right
 
 ; walk carrying item
 #_0D8BAD: db $FF, $FF, $FF, $FF, $FF, $FF ; up
@@ -910,10 +920,10 @@ LinkOAM_WeaponGFXIndex:
 #_0D8C50: db $FF, $FF, $FF, $FF, $FF, $FF ; left
 #_0D8C56: db $FF, $FF, $FF, $FF, $FF, $FF ; right
 
-; pull switch
+; pull switch down
 #_0D8C5C: db $FF, $FF, $FF, $FF, $FF
 
-; TODO
+; pull switch up
 #_0D8C61: db $FF, $FF, $FF, $FF
 
 ; ped pull
@@ -936,7 +946,7 @@ LinkOAM_WeaponGFXIndex:
 ; death
 #_0D8C83: db $FF, $FF, $FF, $FF, $FF, $FF
 
-; TODO
+; unused? arm swing
 #_0D8C89: db $FF, $FF, $FF ; up
 #_0D8C8C: db $FF, $FF, $FF ; down
 #_0D8C8F: db $FF, $FF, $FF ; left
@@ -972,10 +982,14 @@ LinkOAM_WeaponGFXIndex:
 #_0D8CB9: db $37
 #_0D8CBA: db $37, $38, $39, $3A, $3B
 #_0D8CBF: db $3C, $3D, $3E, $3F, $40, $41
+
+; sword up
 #_0D8CC5: db $06
 
-; tree pull
+; book
 #_0D8CC6: db $4B
+
+; tree pull
 #_0D8CC7: db $FF, $FF, $FF, $FF, $FF
 
 ; sword slash
@@ -1054,7 +1068,8 @@ LinkOAM_ShieldGFXIndex:
 #_0D8DA2: db $FF, $FF, $FF, $FF
 
 ; shovel
-#_0D8DA6: db $FF, $FF, $FF, $FF, $FF, $FF
+#_0D8DA6: db $FF, $FF, $FF ; left
+#_0D8DA9: db $FF, $FF, $FF ; right
 
 ; walk carrying item
 #_0D8DAC: db $FF, $FF, $FF, $FF, $FF, $FF ; up
@@ -1121,10 +1136,10 @@ LinkOAM_ShieldGFXIndex:
 #_0D8E4F: db $FF, $FF, $FF, $FF, $FF, $FF ; left
 #_0D8E55: db $FF, $FF, $FF, $FF, $FF, $FF ; right
 
-; pull switch
+; pull switch down
 #_0D8E5B: db $FF, $FF, $FF, $FF, $FF
 
-; TODO
+; pull switch up
 #_0D8E60: db $FF, $FF, $FF, $FF
 
 ; ped pull
@@ -1147,7 +1162,7 @@ LinkOAM_ShieldGFXIndex:
 ; death
 #_0D8E82: db $FF, $FF, $FF, $FF, $FF, $FF
 
-; TODO
+; unused? arm swing
 #_0D8E88: db $FF, $FF, $FF ; up
 #_0D8E8B: db $FF, $FF, $FF ; down
 #_0D8E8E: db $FF, $FF, $FF ; left
@@ -1183,10 +1198,14 @@ LinkOAM_ShieldGFXIndex:
 #_0D8EB8: db $FF
 #_0D8EB9: db $FF, $FF, $FF, $FF, $FF
 #_0D8EBE: db $FF, $FF, $FF, $FF, $FF, $FF
+
+; sword up
 #_0D8EC4: db $FF
 
-; tree pull
+; book
 #_0D8EC5: db $FF
+
+; tree pull
 #_0D8EC6: db $FF, $FF, $FF, $FF, $FF
 
 ; sword slash
@@ -1265,7 +1284,8 @@ LinkOAM_SwordOffsetY:
 #_0D8FA1: db  -1,  -1,  -1,  -1
 
 ; shovel
-#_0D8FA5: db  10,  11,  -4,  10,  11,  -4
+#_0D8FA5: db  10,  11,  -4 ; left
+#_0D8FA8: db  10,  11,  -4 ; right
 
 ; walk carrying item
 #_0D8FAB: db  -1,  -1,  -1,  -1,  -1,  -1 ; up
@@ -1332,10 +1352,10 @@ LinkOAM_SwordOffsetY:
 #_0D904E: db  -1,  -1,  -1,  -1,  -1,  -1 ; left
 #_0D9054: db  -1,  -1,  -1,  -1,  -1,  -1 ; right
 
-; pull switch
+; pull switch down
 #_0D905A: db  -1,  -1,  -1,  -1,  -1
 
-; TODO
+; pull switch up
 #_0D905F: db  -1,  -1,  -1,  -1
 
 ; ped pull
@@ -1358,7 +1378,7 @@ LinkOAM_SwordOffsetY:
 ; death
 #_0D9081: db  -1,  -1,  -1,  -1,  -1,  -1
 
-; TODO
+; unused? arm swing
 #_0D9087: db  -1,  -1,  -1 ; up
 #_0D908A: db  -1,  -1,  -1 ; down
 #_0D908D: db  -1,  -1,  -1 ; left
@@ -1394,10 +1414,14 @@ LinkOAM_SwordOffsetY:
 #_0D90B7: db  -4
 #_0D90B8: db  -5,   4,  14,  20,  15
 #_0D90BD: db   8,  -3,  -8,  14,  -3,  15
+
+; sword up
 #_0D90C3: db  -5
 
-; tree pull
+; book
 #_0D90C4: db   0
+
+; tree pull
 #_0D90C5: db  -1,  -1,  -1,  -1,  -1
 
 ; sword slash
@@ -1476,7 +1500,8 @@ LinkOAM_SwordOffsetX:
 #_0D91A0: db  -1,  -1,  -1,  -1
 
 ; shovel
-#_0D91A4: db  -3,  -7,   8,   3,   7,   0
+#_0D91A4: db  -3,  -7,   8 ; left
+#_0D91A7: db   3,   7,   0 ; right
 
 ; walk carrying item
 #_0D91AA: db  -1,  -1,  -1,  -1,  -1,  -1 ; up
@@ -1543,10 +1568,10 @@ LinkOAM_SwordOffsetX:
 #_0D924D: db  -1,  -1,  -1,  -1,  -1,  -1 ; left
 #_0D9253: db  -1,  -1,  -1,  -1,  -1,  -1 ; right
 
-; pull switch
+; pull switch down
 #_0D9259: db  -1,  -1,  -1,  -1,  -1
 
-; TODO
+; pull switch up
 #_0D925E: db  -1,  -1,  -1,  -1
 
 ; ped pull
@@ -1569,7 +1594,7 @@ LinkOAM_SwordOffsetX:
 ; death
 #_0D9280: db  -1,  -1,  -1,  -1,  -1,  -1
 
-; TODO
+; unused? arm swing
 #_0D9286: db  -1,  -1,  -1 ; up
 #_0D9289: db  -1,  -1,  -1 ; down
 #_0D928C: db  -1,  -1,  -1 ; left
@@ -1605,10 +1630,14 @@ LinkOAM_SwordOffsetX:
 #_0D92B6: db  13
 #_0D92B7: db  13,  16,  11,   2, -11
 #_0D92BC: db -16,  -9,   0,   8,  -9, -11
+
+; sword up
 #_0D92C2: db  12
 
-; tree pull
+; book
 #_0D92C3: db  -7
+
+; tree pull
 #_0D92C4: db  -1,  -1,  -1,  -1,  -1
 
 ; sword slash
@@ -1651,10 +1680,10 @@ LinkOAM_Aux1Offset_Y:
 ; quake
 #_0D9325: db  -1,  -1,  -1,  -1,  -1
 
-; pull switch
+; pull switch down
 #_0D932A: db  -1,   5,  11,  -1,  -1
 
-; TODO
+; pull switch up
 #_0D932F: db  -1,  -1,  -1,  -1
 
 ; ped pull
@@ -1706,10 +1735,10 @@ LinkOAM_Aux1Offset_X:
 ; quake
 #_0D93A1: db  -1,  -1,  -1,  -1,  -1
 
-; pull switch
+; pull switch down
 #_0D93A6: db  -1,  -5,  -8,  -1,  -1
 
-; TODO
+; pull switch up
 #_0D93AB: db  -1,  -1,  -1,  -1
 
 ; ped pull
@@ -1761,10 +1790,10 @@ LinkOAM_Aux2Offset_Y:
 ; quake
 #_0D941D: db  -1,  -1,  -1,  -1,  -1
 
-; pull switch
+; pull switch down
 #_0D9422: db  -1,   5,  11,  -1,  -1
 
-; TODO
+; pull switch up
 #_0D9427: db  -1,  -1,  -1,  -1
 
 ; ped pull
@@ -1816,10 +1845,10 @@ LinkOAM_Aux2Offset_X:
 ; quake
 #_0D9499: db  -1,  -1,  -1,  -1,  -1
 
-; pull switch
+; pull switch down
 #_0D949E: db  -1,  13,  16,  -1,  -1
 
-; TODO
+; pull switch up
 #_0D94A3: db  -1,  -1,  -1,  -1
 
 ; ped pull
@@ -1907,7 +1936,8 @@ LinkOAM_ShieldOffsetY:
 #_0D958F: db  -1,  -1,  -1,  -1
 
 ; shovel
-#_0D9593: db  -1,  -1,  -1,  -1,  -1,  -1
+#_0D9593: db  -1,  -1,  -1 ; left
+#_0D9496: db  -1,  -1,  -1 ; right
 
 ; walk carrying item
 #_0D9599: db  -1,  -1,  -1,  -1,  -1,  -1 ; up
@@ -1974,10 +2004,10 @@ LinkOAM_ShieldOffsetY:
 #_0D963C: db  -1,  -1,  -1,  -1,  -1,  -1 ; left
 #_0D9642: db  -1,  -1,  -1,  -1,  -1,  -1 ; right
 
-; pull switch
+; pull switch down
 #_0D9648: db  -1,  -1,  -1,  -1,  -1
 
-; TODO
+; pull switch up
 #_0D964D: db  -1,  -1,  -1,  -1
 
 ; ped pull
@@ -2000,7 +2030,7 @@ LinkOAM_ShieldOffsetY:
 ; death
 #_0D966F: db  -1,  -1,  -1,  -1,  -1,  -1
 
-; TODO
+; unused? arm swing
 #_0D9675: db   5,   5,   5 ; up
 #_0D9678: db   7,   7,   7 ; down
 #_0D967B: db  -1,  -1,  -1 ; left
@@ -2036,10 +2066,14 @@ LinkOAM_ShieldOffsetY:
 #_0D96A5: db  -1
 #_0D96A6: db  -1,  -1,  -1,  -1,  -1
 #_0D96AB: db  -1,  -1,  -1,  -1,  -1,  -1
+
+; sword up
 #_0D96B1: db  -1
 
-; tree pull
+; book
 #_0D96B2: db  -1
+
+; tree pull
 #_0D96B3: db  -1,  -1,  -1,  -1,  -1
 
 ; sword slash
@@ -2118,7 +2152,8 @@ LinkOAM_ShieldOffsetX:
 #_0D978E: db  -1,  -1,  -1,  -1
 
 ; shovel
-#_0D9792: db  -1,  -1,  -1,  -1,  -1,  -1
+#_0D9792: db  -1,  -1,  -1 ; left
+#_0D9795: db  -1,  -1,  -1 ; right
 
 ; walk carrying item
 #_0D9798: db  -1,  -1,  -1,  -1,  -1,  -1 ; up
@@ -2185,10 +2220,10 @@ LinkOAM_ShieldOffsetX:
 #_0D983B: db  -1,  -1,  -1,  -1,  -1,  -1 ; left
 #_0D9841: db  -1,  -1,  -1,  -1,  -1,  -1 ; right
 
-; pull switch
+; pull switch down
 #_0D9847: db  -1,  -1,  -1,  -1,  -1
 
-; TODO
+; pull switch up
 #_0D984C: db  -1,  -1,  -1,  -1
 
 ; ped pull
@@ -2211,7 +2246,7 @@ LinkOAM_ShieldOffsetX:
 ; death
 #_0D986E: db  -1,  -1,  -1,  -1,  -1,  -1
 
-; TODO
+; unused? arm swing
 #_0D9874: db   9,   9,   9 ; up
 #_0D9877: db -10, -10, -10 ; down
 #_0D987A: db  -1,  -1,  -1 ; left
@@ -2247,10 +2282,14 @@ LinkOAM_ShieldOffsetX:
 #_0D98A4: db  -1
 #_0D98A5: db  -1,  -1,  -1,  -1,  -1
 #_0D98AA: db  -1,  -1,  -1,  -1,  -1,  -1
+
+; sword up
 #_0D98B0: db  -1
 
-; tree pull
+; book
 #_0D98B1: db  -1
+
+; tree pull
 #_0D98B2: db  -1,  -1,  -1,  -1,  -1
 
 ; sword slash
@@ -2343,7 +2382,8 @@ AttackHitboxOffset_Y:
 #_0D99A5: db $80, $80, $80, $80
 
 ; shovel
-#_0D99A9: db $80, $80, $80, $80, $80, $80
+#_0D99A9: db $80, $80, $80 ; left
+#_0D99AC: db $80, $80, $80 ; right
 
 ; walk carrying item
 #_0D99AF: db $80, $80, $80, $80, $80, $80 ; up
@@ -2410,10 +2450,10 @@ AttackHitboxOffset_Y:
 #_0D9A52: db $80, $80, $80, $80, $80, $80 ; left
 #_0D9A58: db $80, $80, $80, $80, $80, $80 ; right
 
-; pull switch
+; pull switch down
 #_0D9A5E: db $80, $80, $80, $80, $80
 
-; TODO
+; pull switch up
 #_0D9A63: db $80, $80, $80, $80
 
 ; ped pull
@@ -2436,7 +2476,7 @@ AttackHitboxOffset_Y:
 ; death
 #_0D9A85: db $80, $80, $80, $80, $80, $80
 
-; TODO
+; unused? arm swing
 #_0D9A8B: db $80, $80, $80 ; up
 #_0D9A8E: db $80, $80, $80 ; down
 #_0D9A91: db $80, $80, $80 ; left
@@ -2472,10 +2512,14 @@ AttackHitboxOffset_Y:
 #_0D9ABB: db  -4
 #_0D9ABC: db  -5,   4,  14,  20,  15
 #_0D9AC1: db   8,  -3,  -8,  14,  -3,  15
+
+; sword up
 #_0D9AC7: db $80
 
-; tree pull
+; book
 #_0D9AC8: db $80
+
+; tree pull
 #_0D9AC9: db $80, $80, $80, $80, $80
 
 ; sword slash
@@ -2554,7 +2598,8 @@ AttackHitboxOffset_X:
 #_0D9BA4: db $80, $80, $80, $80
 
 ; shovel
-#_0D9BA8: db $80, $80, $80, $80, $80, $80
+#_0D9BA8: db $80, $80, $80 ; left
+#_0D9BAB: db $80, $80, $80 ; right
 
 ; walk carrying item
 #_0D9BAE: db $80, $80, $80, $80, $80, $80 ; up
@@ -2621,10 +2666,10 @@ AttackHitboxOffset_X:
 #_0D9C51: db $80, $80, $80, $80, $80, $80 ; left
 #_0D9C57: db $80, $80, $80, $80, $80, $80 ; right
 
-; pull switch
+; pull switch down
 #_0D9C5D: db $80, $80, $80, $80, $80
 
-; TODO
+; pull switch up
 #_0D9C62: db $80, $80, $80, $80
 
 ; ped pull
@@ -2647,7 +2692,7 @@ AttackHitboxOffset_X:
 ; death
 #_0D9C84: db $80, $80, $80, $80, $80, $80
 
-; TODO
+; unused? arm swing
 #_0D9C8A: db $80, $80, $80 ; up
 #_0D9C8D: db $80, $80, $80 ; down
 #_0D9C90: db $80, $80, $80 ; left
@@ -2683,10 +2728,14 @@ AttackHitboxOffset_X:
 #_0D9CBA: db  13
 #_0D9CBB: db  13,  16,  11,   2, -11
 #_0D9CC0: db -16,  -9,   0,  11,  -9, -11
+
+; sword up
 #_0D9CC6: db $80
 
-; tree pull
+; book
 #_0D9CC7: db $80
+
+; tree pull
 #_0D9CC8: db $80, $80, $80, $80, $80
 
 ; sword slash
@@ -2765,7 +2814,8 @@ LinkOAM_Priority:
 #_0D9DA3: db   3,   3,   3,   3
 
 ; shovel
-#_0D9DA7: db   1,   1,   2,   1,   1,   2
+#_0D9DA7: db   1,   1,   2 ; left
+#_0D9DAA: db   1,   1,   2 ; right
 
 ; walk carrying item
 #_0D9DAD: db   4,   4,   4,   4,   4,   4 ; up
@@ -2832,10 +2882,10 @@ LinkOAM_Priority:
 #_0D9E50: db   0,   0,   0,   0,   0,   0 ; left
 #_0D9E56: db   0,   0,   0,   0,   0,   0 ; right
 
-; pull switch
+; pull switch down
 #_0D9E5C: db   2,   2,   2,   2,   2
 
-; TODO
+; pull switch up
 #_0D9E61: db   2,   2,   2,   2
 
 ; ped pull
@@ -2858,7 +2908,7 @@ LinkOAM_Priority:
 ; death
 #_0D9E83: db   2,   2,   2,   2,   2,   2
 
-; TODO
+; unused? arm swing
 #_0D9E89: db   2,   2,   2 ; up
 #_0D9E8C: db   2,   2,   2 ; down
 #_0D9E8F: db   2,   2,   2 ; left
@@ -2894,10 +2944,14 @@ LinkOAM_Priority:
 #_0D9EB9: db   2
 #_0D9EBA: db   2,   0,   0,   0,   0
 #_0D9EBF: db   0,   2,   2,   0,   2,   0
+
+; sword up
 #_0D9EC5: db   5
 
-; tree pull
+; book
 #_0D9EC6: db   2
+
+; tree pull
 #_0D9EC7: db   0,   0,   0,   0,   0
 
 ; sword slash
@@ -2909,8 +2963,9 @@ LinkOAM_Priority:
 ;===================================================================================================
 
 LinkOAM_AnimationStepDataOffsets:
+; up
 #_0D9EF0: dw $0000 ; 0x00 - Walking
-#_0D9EF2: dw $0024 ; 0x01 - TODO same as powder unused?
+#_0D9EF2: dw $0024 ; 0x01 - Powder duplicate unused?
 #_0D9EF4: dw $0048 ; 0x02 - Sword out/Dashing
 #_0D9EF6: dw $0060 ; 0x03 - Sword poke
 #_0D9EF8: dw $006C ; 0x04 - Falling
@@ -2937,7 +2992,7 @@ LinkOAM_AnimationStepDataOffsets:
 #_0D9F22: dw $0186 ; 0x19 - Diagonally up stairs
 #_0D9F24: dw $018C ; 0x1A - Diagonally down stairs
 #_0D9F26: dw $0192 ; 0x1B - Spin and die
-#_0D9F28: dw $0198 ; 0x1C - TODO unused?
+#_0D9F28: dw $0198 ; 0x1C - Arm swing (unused?)
 #_0D9F2A: dw $01A4 ; 0x1D - Item get
 #_0D9F2C: dw $01A5 ; 0x1E - 2 handed item get
 #_0D9F2E: dw $01A6 ; 0x1F - Sleeping
@@ -2952,8 +3007,9 @@ LinkOAM_AnimationStepDataOffsets:
 
 ;---------------------------------------------------------------------------------------------------
 
+; down
 #_0D9F40: dw $0009 ; 0x00 - Walking
-#_0D9F42: dw $002D ; 0x01 - TODO same as powder unused?
+#_0D9F42: dw $002D ; 0x01 - Powder duplicate unused?
 #_0D9F44: dw $004E ; 0x02 - Sword out/Dashing
 #_0D9F46: dw $0063 ; 0x03 - Sword poke
 #_0D9F48: dw $006C ; 0x04 - Falling
@@ -2980,7 +3036,7 @@ LinkOAM_AnimationStepDataOffsets:
 #_0D9F72: dw $0189 ; 0x19 - Diagonally up stairs
 #_0D9F74: dw $018F ; 0x1A - Diagonally down stairs
 #_0D9F76: dw $0192 ; 0x1B - Spin and die
-#_0D9F78: dw $019B ; 0x1C - TODO unused?
+#_0D9F78: dw $019B ; 0x1C - Arm swing (unused?)
 #_0D9F7A: dw $01A4 ; 0x1D - Item get
 #_0D9F7C: dw $01A5 ; 0x1E - 2 handed item get
 #_0D9F7E: dw $01A6 ; 0x1F - Sleeping
@@ -2995,8 +3051,9 @@ LinkOAM_AnimationStepDataOffsets:
 
 ;---------------------------------------------------------------------------------------------------
 
+; left
 #_0D9F90: dw $0012 ; 0x00 - Walking
-#_0D9F92: dw $0036 ; 0x01 - TODO same as powder unused?
+#_0D9F92: dw $0036 ; 0x01 - Powder duplicate unused?
 #_0D9F94: dw $0054 ; 0x02 - Sword out/Dashing
 #_0D9F96: dw $0066 ; 0x03 - Sword poke
 #_0D9F98: dw $006C ; 0x04 - Falling
@@ -3023,7 +3080,7 @@ LinkOAM_AnimationStepDataOffsets:
 #_0D9FC2: dw $0186 ; 0x19 - Diagonally up stairs
 #_0D9FC4: dw $018C ; 0x1A - Diagonally down stairs
 #_0D9FC6: dw $0192 ; 0x1B - Spin and die
-#_0D9FC8: dw $019E ; 0x1C - TODO unused?
+#_0D9FC8: dw $019E ; 0x1C - Arm swing (unused?)
 #_0D9FCA: dw $01A4 ; 0x1D - Item get
 #_0D9FCC: dw $01A5 ; 0x1E - 2 handed item get
 #_0D9FCE: dw $01A6 ; 0x1F - Sleeping
@@ -3038,8 +3095,9 @@ LinkOAM_AnimationStepDataOffsets:
 
 ;---------------------------------------------------------------------------------------------------
 
+; right
 #_0D9FE0: dw $001B ; 0x00 - Walking
-#_0D9FE2: dw $003F ; 0x01 - TODO same as powder unused?
+#_0D9FE2: dw $003F ; 0x01 - Powder duplicate unused?
 #_0D9FE4: dw $005A ; 0x02 - Sword out/Dashing
 #_0D9FE6: dw $0069 ; 0x03 - Sword poke
 #_0D9FE8: dw $006C ; 0x04 - Falling
@@ -3066,7 +3124,7 @@ LinkOAM_AnimationStepDataOffsets:
 #_0DA012: dw $0189 ; 0x19 - Diagonally up stairs
 #_0DA014: dw $018F ; 0x1A - Diagonally down stairs
 #_0DA016: dw $0192 ; 0x1B - Spin and die
-#_0DA018: dw $01A1 ; 0x1C - TODO unused?
+#_0DA018: dw $01A1 ; 0x1C - Arm swing (unused?)
 #_0DA01A: dw $01A4 ; 0x1D - Item get
 #_0DA01C: dw $01A5 ; 0x1E - 2 handed item get
 #_0DA01E: dw $01A6 ; 0x1F - Sleeping
@@ -3339,7 +3397,7 @@ LinkOAM_Main:
 
 #_0DA199: LDY.b #$18
 #_0DA19B: CMP.b #$13
-#_0DA19D: BNE .notstairs
+#_0DA19D: BNE .not_stairs
 
 .stairs
 #_0DA19F: STY.b $00
@@ -3387,7 +3445,7 @@ LinkOAM_Main:
 
 ;---------------------------------------------------------------------------------------------------
 
-.notstairs
+.not_stairs
 ; calculate a camera based offset
 #_0DA1D1: LDA.b $20 ; Y coord
 #_0DA1D3: SEC
@@ -4394,7 +4452,7 @@ LinkOAM_NoAux:
 
 #_0DA6DC: PHA
 
-#_0DA6DD: JSR LinkOAM_CalculateSwordSparklePosition
+#_0DA6DD: JSR LinkOAM_DrawSwordSwingTip
 
 #_0DA6E0: PLA
 
@@ -4402,7 +4460,7 @@ LinkOAM_NoAux:
 
 ;---------------------------------------------------------------------------------------------------
 
-.merge_with_weapon_read
+.next_weapon_object
 #_0DA6E3: REP #$20
 
 #_0DA6E5: LDA.w LinkOAM_WeaponTiles,Y
@@ -4515,11 +4573,11 @@ LinkOAM_NoAux:
 .no_offset
 #_0DA775: LDA.b $06
 #_0DA777: CMP.b #$03
-#_0DA779: BEQ .clear_index_high
+#_0DA779: BEQ .weapon_loop_done
 
-#_0DA77B: BRL .merge_with_weapon_read
+#_0DA77B: BRL .next_weapon_object
 
-.clear_index_high
+.weapon_loop_done
 #_0DA77E: SEP #$10 ; !USELESS ? might be clearing high byte
 
 ;===================================================================================================
@@ -4593,8 +4651,6 @@ LinkOAM_DrawShield:
 #_0DA7D9: LDA.b #$06
 #_0DA7DB: STA.b $0F
 
-;---------------------------------------------------------------------------------------------------
-
 .leave_shield_palette
 #_0DA7DD: REP #$30
 
@@ -4628,7 +4684,7 @@ LinkOAM_DrawShield:
 
 ;---------------------------------------------------------------------------------------------------
 
-.merge_with_tile_check
+.next_shield_object
 #_0DA802: REP #$20
 
 #_0DA804: STZ.b $74
@@ -4665,8 +4721,6 @@ LinkOAM_DrawShield:
 #_0DA82F: INX
 #_0DA830: INX
 
-;---------------------------------------------------------------------------------------------------
-
 .no_shield_to_draw
 #_0DA831: SEP #$20
 
@@ -4695,7 +4749,7 @@ LinkOAM_DrawShield:
 .no_offset
 #_0DA84F: LDA.b $06
 #_0DA851: CMP.b #$03
-#_0DA853: BNE .merge_with_tile_check
+#_0DA853: BNE .next_shield_object
 
 #_0DA855: SEP #$10
 
@@ -4817,14 +4871,14 @@ LinkOAM_DrawShadow:
 #_0DA8DF: ADC.w LinkOAM_ShadowOffset_X,Y
 #_0DA8E2: STA.b $06
 
+;---------------------------------------------------------------------------------------------------
+
 #_0DA8E4: REP #$30
 
 #_0DA8E6: LDX.b $72
 
 #_0DA8E8: LDA.w LinkOAM_ShadowBufferOffsetPointers,X
 #_0DA8EB: STA.b $74
-
-;---------------------------------------------------------------------------------------------------
 
 #_0DA8ED: LDA.b $04
 #_0DA8EF: AND.w #$00FF
@@ -5190,16 +5244,82 @@ FindMostSignificantBit:
 ;===================================================================================================
 ; TODO analyze, format, annotate
 LinkOAM_WeaponOffsetID:
-#_0DAACC: db $06, $06, $04, $04, $04, $04, $00, $00
-#_0DAAD4: db $08, $08, $08, $08, $02, $02, $02, $02
-#_0DAADC: db $0A, $0A, $0A, $0A, $0C, $0C, $0C, $0C
-#_0DAAE4: db $0E, $0E, $0E, $0E, $00, $09, $0C, $09
-#_0DAAEC: db $0C, $0E, $0A, $08, $0D, $08, $0D, $12
-#_0DAAF4: db $12, $11, $11, $10, $10, $10, $10, $40
-#_0DAAFC: db $41, $40, $41, $18, $18, $19, $19, $24
-#_0DAB04: db $21, $25, $23, $22, $20, $26, $23, $25
-#_0DAB0C: db $26, $22, $28, $2A, $29, $29, $2C, $28
-#_0DAB14: db $2B, $28, $2B, $30
+#_0DAACC: db $06
+#_0DAACD: db $06
+#_0DAACE: db $04
+#_0DAACF: db $04
+#_0DAAD0: db $04
+#_0DAAD1: db $04
+#_0DAAD2: db $00
+#_0DAAD3: db $00
+#_0DAAD4: db $08
+#_0DAAD5: db $08
+#_0DAAD6: db $08
+#_0DAAD7: db $08
+#_0DAAD8: db $02
+#_0DAAD9: db $02
+#_0DAADA: db $02
+#_0DAADB: db $02
+#_0DAADC: db $0A
+#_0DAADD: db $0A
+#_0DAADE: db $0A
+#_0DAADF: db $0A
+#_0DAAE0: db $0C
+#_0DAAE1: db $0C
+#_0DAAE2: db $0C
+#_0DAAE3: db $0C
+#_0DAAE4: db $0E
+#_0DAAE5: db $0E
+#_0DAAE6: db $0E
+#_0DAAE7: db $0E
+#_0DAAE8: db $00
+#_0DAAE9: db $09
+#_0DAAEA: db $0C
+#_0DAAEB: db $09
+#_0DAAEC: db $0C
+#_0DAAED: db $0E
+#_0DAAEE: db $0A
+#_0DAAEF: db $08
+#_0DAAF0: db $0D
+#_0DAAF1: db $08
+#_0DAAF2: db $0D
+#_0DAAF3: db $12
+#_0DAAF4: db $12
+#_0DAAF5: db $11
+#_0DAAF6: db $11
+#_0DAAF7: db $10
+#_0DAAF8: db $10
+#_0DAAF9: db $10
+#_0DAAFA: db $10
+#_0DAAFB: db $40
+#_0DAAFC: db $41
+#_0DAAFD: db $40
+#_0DAAFE: db $41
+#_0DAAFF: db $18
+#_0DAB00: db $18
+#_0DAB01: db $19
+#_0DAB02: db $19
+#_0DAB03: db $24
+#_0DAB04: db $21
+#_0DAB05: db $25
+#_0DAB06: db $23
+#_0DAB07: db $22
+#_0DAB08: db $20
+#_0DAB09: db $26
+#_0DAB0A: db $23
+#_0DAB0B: db $25
+#_0DAB0C: db $26
+#_0DAB0D: db $22
+#_0DAB0E: db $28
+#_0DAB0F: db $2A
+#_0DAB10: db $29
+#_0DAB11: db $29
+#_0DAB12: db $2C
+#_0DAB13: db $28
+#_0DAB14: db $2B
+#_0DAB15: db $28
+#_0DAB16: db $2B
+#_0DAB17: db $30
 
 ;===================================================================================================
 
@@ -5210,16 +5330,82 @@ LinkOAM_RodOffsetID:
 ;===================================================================================================
 
 LinkOAM_WeaponSize:
-#_0DAB22: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DAB2A: db $00, $00, $00, $00, $02, $02, $02, $02
-#_0DAB32: db $02, $02, $02, $02, $02, $02, $02, $02
-#_0DAB3A: db $02, $02, $02, $02, $00, $00, $00, $00
-#_0DAB42: db $00, $00, $00, $02, $00, $02, $00, $00
-#_0DAB4A: db $00, $00, $00, $02, $02, $02, $02, $02
-#_0DAB52: db $00, $02, $00, $00, $00, $00, $00, $02
-#_0DAB5A: db $02, $02, $02, $02, $02, $02, $02, $02
-#_0DAB62: db $02, $02, $02, $00, $00, $00, $00, $02
-#_0DAB6A: db $00, $02, $00, $02
+#_0DAB22: db $00
+#_0DAB23: db $00
+#_0DAB24: db $00
+#_0DAB25: db $00
+#_0DAB26: db $00
+#_0DAB27: db $00
+#_0DAB28: db $00
+#_0DAB29: db $00
+#_0DAB2A: db $00
+#_0DAB2B: db $00
+#_0DAB2C: db $00
+#_0DAB2D: db $00
+#_0DAB2E: db $02
+#_0DAB2F: db $02
+#_0DAB30: db $02
+#_0DAB31: db $02
+#_0DAB32: db $02
+#_0DAB33: db $02
+#_0DAB34: db $02
+#_0DAB35: db $02
+#_0DAB36: db $02
+#_0DAB37: db $02
+#_0DAB38: db $02
+#_0DAB39: db $02
+#_0DAB3A: db $02
+#_0DAB3B: db $02
+#_0DAB3C: db $02
+#_0DAB3D: db $02
+#_0DAB3E: db $00
+#_0DAB3F: db $00
+#_0DAB40: db $00
+#_0DAB41: db $00
+#_0DAB42: db $00
+#_0DAB43: db $00
+#_0DAB44: db $00
+#_0DAB45: db $02
+#_0DAB46: db $00
+#_0DAB47: db $02
+#_0DAB48: db $00
+#_0DAB49: db $00
+#_0DAB4A: db $00
+#_0DAB4B: db $00
+#_0DAB4C: db $00
+#_0DAB4D: db $02
+#_0DAB4E: db $02
+#_0DAB4F: db $02
+#_0DAB50: db $02
+#_0DAB51: db $02
+#_0DAB52: db $00
+#_0DAB53: db $02
+#_0DAB54: db $00
+#_0DAB55: db $00
+#_0DAB56: db $00
+#_0DAB57: db $00
+#_0DAB58: db $00
+#_0DAB59: db $02
+#_0DAB5A: db $02
+#_0DAB5B: db $02
+#_0DAB5C: db $02
+#_0DAB5D: db $02
+#_0DAB5E: db $02
+#_0DAB5F: db $02
+#_0DAB60: db $02
+#_0DAB61: db $02
+#_0DAB62: db $02
+#_0DAB63: db $02
+#_0DAB64: db $02
+#_0DAB65: db $00
+#_0DAB66: db $00
+#_0DAB67: db $00
+#_0DAB68: db $00
+#_0DAB69: db $02
+#_0DAB6A: db $00
+#_0DAB6B: db $02
+#_0DAB6C: db $00
+#_0DAB6D: db $02
 
 ;===================================================================================================
 
@@ -5390,7 +5576,7 @@ LinkOAM_SetEquipmentVRAMOffsets:
 
 ;===================================================================================================
 
-LinkOAM_SwordSwingSparkleTile:
+LinkOAM_SwordSwingTipTile:
 .up
 #_0DAC45: dw $FFFF
 #_0DAC47: dw $FFFF
@@ -5531,7 +5717,7 @@ LinkOAM_SwordSwingTipOffsetX:
 
 ;===================================================================================================
 
-LinkOAM_CalculateSwordSparklePosition:
+LinkOAM_DrawSwordSwingTip:
 #_0DACD5: LDA.b $0A
 #_0DACD7: PHA
 
@@ -5585,7 +5771,7 @@ LinkOAM_CalculateSwordSparklePosition:
 #_0DAD17: ADC.b $0A
 #_0DAD19: TAY
 
-#_0DAD1A: LDA.w LinkOAM_SwordSwingSparkleTile,Y
+#_0DAD1A: LDA.w LinkOAM_SwordSwingTipTile,Y
 #_0DAD1D: CMP.w #$FFFF
 #_0DAD20: BEQ .reset_and_exit
 
@@ -5704,8 +5890,8 @@ LinkOAM_UnusedWeaponSettings:
 #_0DADB6: SEP #$30
 
 ; The usage here doesn't make much sense either.
-; If this routine were reachable, it would always enter with A=0x04.
-; That means X will always be 0x00.
+; If this routine were reachable, it would always enter with A=04.
+; That means X will always be 00.
 #_0DADB8: LSR A
 #_0DADB9: LSR A
 #_0DADBA: JSR FindMostSignificantBit
@@ -6279,7 +6465,7 @@ SpriteData_OAMHarm:
 #_0DB0AA: db $A2 ; h.w $02 | 0x2A - SWEEPING LADY
 #_0DB0AB: db $A3 ; h.w $03 | 0x2B - HOBO
 #_0DB0AC: db $AA ; h.w $0A | 0x2C - LUMBERJACKS
-#_0DB0AD: db $A3 ; h.w $03 | 0x2D - TELEPATHIC TILE
+#_0DB0AD: db $A3 ; h.w $03 | 0x2D - NECKLESS MAN
 #_0DB0AE: db $A4 ; h.w $04 | 0x2E - FLUTE KID
 #_0DB0AF: db $82 ; h.. $02 | 0x2F - RACE GAME LADY
 #_0DB0B0: db $82 ; h.. $02 | 0x30 - RACE GAME GUY
@@ -6348,7 +6534,7 @@ SpriteData_OAMHarm:
 #_0DB0EF: db $00 ; ... $00 | 0x6F - KEESE
 #_0DB0F0: db $00 ; ... $00 | 0x70 - KING HELMASAUR FIREBALL
 #_0DB0F1: db $03 ; ... $03 | 0x71 - LEEVER
-#_0DB0F2: db $8B ; h.. $0B | 0x72 - FAERIE POND TRIGGER
+#_0DB0F2: db $8B ; h.. $0B | 0x72 - FAIRY POND TRIGGER
 #_0DB0F3: db $86 ; h.. $06 | 0x73 - UNCLE / PRIEST / MANTLE
 #_0DB0F4: db $C2 ; hm. $02 | 0x74 - RUNNING MAN
 #_0DB0F5: db $82 ; h.. $02 | 0x75 - BOTTLE MERCHANT
@@ -6434,7 +6620,7 @@ SpriteData_OAMHarm:
 #_0DB145: db $00 ; ... $00 | 0xC5 - MEDUSA
 #_0DB146: db $00 ; ... $00 | 0xC6 - 4WAY SHOOTER
 #_0DB147: db $05 ; ... $05 | 0xC7 - POKEY
-#_0DB148: db $04 ; ... $04 | 0xC8 - BIG FAERIE
+#_0DB148: db $04 ; ... $04 | 0xC8 - BIG FAIRY
 #_0DB149: db $04 ; ... $04 | 0xC9 - TEKTITE / FIREBAT
 #_0DB14A: db $07 ; ... $07 | 0xCA - CHAIN CHOMP
 #_0DB14B: db $0B ; ... $0B | 0xCB - TRINEXX ROCK HEAD
@@ -6461,7 +6647,7 @@ SpriteData_OAMHarm:
 #_0DB160: db $82 ; h.. $02 | 0xE0 - LARGE MAGIC DECANTER
 #_0DB161: db $83 ; h.. $03 | 0xE1 - ARROW REFILL 5
 #_0DB162: db $83 ; h.. $03 | 0xE2 - ARROW REFILL 10
-#_0DB163: db $81 ; h.. $01 | 0xE3 - FAERIE
+#_0DB163: db $81 ; h.. $01 | 0xE3 - FAIRY
 #_0DB164: db $82 ; h.. $02 | 0xE4 - SMALL KEY
 #_0DB165: db $81 ; h.. $01 | 0xE5 - BIG KEY
 #_0DB166: db $82 ; h.. $02 | 0xE6 - STOLEN SHIELD
@@ -6527,7 +6713,7 @@ SpriteData_Health:
 #_0DB19D: db   3 ; 0x2A - SWEEPING LADY
 #_0DB19E: db   3 ; 0x2B - HOBO
 #_0DB19F: db   3 ; 0x2C - LUMBERJACKS
-#_0DB1A0: db   3 ; 0x2D - TELEPATHIC TILE
+#_0DB1A0: db   3 ; 0x2D - NECKLESS MAN
 #_0DB1A1: db   3 ; 0x2E - FLUTE KID
 #_0DB1A2: db   3 ; 0x2F - RACE GAME LADY
 #_0DB1A3: db   3 ; 0x30 - RACE GAME GUY
@@ -6596,7 +6782,7 @@ SpriteData_Health:
 #_0DB1E2: db   1 ; 0x6F - KEESE
 #_0DB1E3: db 255 ; 0x70 - KING HELMASAUR FIREBALL
 #_0DB1E4: db   4 ; 0x71 - LEEVER
-#_0DB1E5: db 255 ; 0x72 - FAERIE POND TRIGGER
+#_0DB1E5: db 255 ; 0x72 - FAIRY POND TRIGGER
 #_0DB1E6: db   0 ; 0x73 - UNCLE / PRIEST / MANTLE
 #_0DB1E7: db   0 ; 0x74 - RUNNING MAN
 #_0DB1E8: db   0 ; 0x75 - BOTTLE MERCHANT
@@ -6682,7 +6868,7 @@ SpriteData_Health:
 #_0DB238: db   0 ; 0xC5 - MEDUSA
 #_0DB239: db   0 ; 0xC6 - 4WAY SHOOTER
 #_0DB23A: db  32 ; 0xC7 - POKEY
-#_0DB23B: db   0 ; 0xC8 - BIG FAERIE
+#_0DB23B: db   0 ; 0xC8 - BIG FAIRY
 #_0DB23C: db   8 ; 0xC9 - TEKTITE / FIREBAT
 #_0DB23D: db   5 ; 0xCA - CHAIN CHOMP
 #_0DB23E: db  40 ; 0xCB - TRINEXX ROCK HEAD
@@ -6709,7 +6895,7 @@ SpriteData_Health:
 #_0DB253: db   0 ; 0xE0 - LARGE MAGIC DECANTER
 #_0DB254: db   0 ; 0xE1 - ARROW REFILL 5
 #_0DB255: db   0 ; 0xE2 - ARROW REFILL 10
-#_0DB256: db   0 ; 0xE3 - FAERIE
+#_0DB256: db   0 ; 0xE3 - FAIRY
 #_0DB257: db   0 ; 0xE4 - SMALL KEY
 #_0DB258: db   0 ; 0xE5 - BIG KEY
 #_0DB259: db   0 ; 0xE6 - STOLEN SHIELD
@@ -6780,7 +6966,7 @@ SpriteData_Bump:
 #_0DB290: db $00 ; .... $0 | 0x2A - SWEEPING LADY
 #_0DB291: db $00 ; .... $0 | 0x2B - HOBO
 #_0DB292: db $00 ; .... $0 | 0x2C - LUMBERJACKS
-#_0DB293: db $00 ; .... $0 | 0x2D - TELEPATHIC TILE
+#_0DB293: db $00 ; .... $0 | 0x2D - NECKLESS MAN
 #_0DB294: db $00 ; .... $0 | 0x2E - FLUTE KID
 #_0DB295: db $00 ; .... $0 | 0x2F - RACE GAME LADY
 #_0DB296: db $00 ; .... $0 | 0x30 - RACE GAME GUY
@@ -6849,7 +7035,7 @@ SpriteData_Bump:
 #_0DB2D5: db $80 ; t... $0 | 0x6F - KEESE
 #_0DB2D6: db $05 ; .... $5 | 0x70 - KING HELMASAUR FIREBALL
 #_0DB2D7: db $01 ; .... $1 | 0x71 - LEEVER
-#_0DB2D8: db $00 ; .... $0 | 0x72 - FAERIE POND TRIGGER
+#_0DB2D8: db $00 ; .... $0 | 0x72 - FAIRY POND TRIGGER
 #_0DB2D9: db $00 ; .... $0 | 0x73 - UNCLE / PRIEST / MANTLE
 #_0DB2DA: db $00 ; .... $0 | 0x74 - RUNNING MAN
 #_0DB2DB: db $40 ; .z.. $0 | 0x75 - BOTTLE MERCHANT
@@ -6935,7 +7121,7 @@ SpriteData_Bump:
 #_0DB32B: db $10 ; ...d $0 | 0xC5 - MEDUSA
 #_0DB32C: db $00 ; .... $0 | 0xC6 - 4WAY SHOOTER
 #_0DB32D: db $06 ; .... $6 | 0xC7 - POKEY
-#_0DB32E: db $00 ; .... $0 | 0xC8 - BIG FAERIE
+#_0DB32E: db $00 ; .... $0 | 0xC8 - BIG FAIRY
 #_0DB32F: db $05 ; .... $5 | 0xC9 - TEKTITE / FIREBAT
 #_0DB330: db $07 ; .... $7 | 0xCA - CHAIN CHOMP
 #_0DB331: db $17 ; ...d $7 | 0xCB - TRINEXX ROCK HEAD
@@ -6962,7 +7148,7 @@ SpriteData_Bump:
 #_0DB346: db $00 ; .... $0 | 0xE0 - LARGE MAGIC DECANTER
 #_0DB347: db $00 ; .... $0 | 0xE1 - ARROW REFILL 5
 #_0DB348: db $00 ; .... $0 | 0xE2 - ARROW REFILL 10
-#_0DB349: db $10 ; ...d $0 | 0xE3 - FAERIE
+#_0DB349: db $10 ; ...d $0 | 0xE3 - FAIRY
 #_0DB34A: db $00 ; .... $0 | 0xE4 - SMALL KEY
 #_0DB34B: db $00 ; .... $0 | 0xE5 - BIG KEY
 #_0DB34C: db $00 ; .... $0 | 0xE6 - STOLEN SHIELD
@@ -7034,7 +7220,7 @@ SpriteData_OAMProp:
 #_0DB383: db $0F ; .... $7, 1 | 0x2A - SWEEPING LADY
 #_0DB384: db $49 ; .i.. $1, 1 | 0x2B - HOBO
 #_0DB385: db $4B ; .i.. $3, 1 | 0x2C - LUMBERJACKS
-#_0DB386: db $4D ; .i.. $5, 1 | 0x2D - TELEPATHIC TILE
+#_0DB386: db $4D ; .i.. $5, 1 | 0x2D - NECKLESS MAN
 #_0DB387: db $41 ; .i.. $1, 1 | 0x2E - FLUTE KID
 #_0DB388: db $47 ; .i.. $7, 1 | 0x2F - RACE GAME LADY
 #_0DB389: db $49 ; .i.. $1, 1 | 0x30 - RACE GAME GUY
@@ -7103,7 +7289,7 @@ SpriteData_OAMProp:
 #_0DB3C8: db $09 ; .... $1, 1 | 0x6F - KEESE
 #_0DB3C9: db $03 ; .... $3, 1 | 0x70 - KING HELMASAUR FIREBALL
 #_0DB3CA: db $03 ; .... $3, 1 | 0x71 - LEEVER
-#_0DB3CB: db $4B ; .i.. $3, 1 | 0x72 - FAERIE POND TRIGGER
+#_0DB3CB: db $4B ; .i.. $3, 1 | 0x72 - FAIRY POND TRIGGER
 #_0DB3CC: db $47 ; .i.. $7, 1 | 0x73 - UNCLE / PRIEST / MANTLE
 #_0DB3CD: db $47 ; .i.. $7, 1 | 0x74 - RUNNING MAN
 #_0DB3CE: db $49 ; .i.. $1, 1 | 0x75 - BOTTLE MERCHANT
@@ -7189,7 +7375,7 @@ SpriteData_OAMProp:
 #_0DB41E: db $00 ; .... $0, 0 | 0xC5 - MEDUSA
 #_0DB41F: db $00 ; .... $0, 0 | 0xC6 - 4WAY SHOOTER
 #_0DB420: db $0D ; .... $5, 1 | 0xC7 - POKEY
-#_0DB421: db $4B ; .i.. $3, 1 | 0xC8 - BIG FAERIE
+#_0DB421: db $4B ; .i.. $3, 1 | 0xC8 - BIG FAIRY
 #_0DB422: db $0B ; .... $3, 1 | 0xC9 - TEKTITE / FIREBAT
 #_0DB423: db $59 ; .i.s $1, 1 | 0xCA - CHAIN CHOMP
 #_0DB424: db $41 ; .i.. $1, 1 | 0xCB - TRINEXX ROCK HEAD
@@ -7216,7 +7402,7 @@ SpriteData_OAMProp:
 #_0DB439: db $F8 ; nios $0, 0 | 0xE0 - LARGE MAGIC DECANTER
 #_0DB43A: db $F4 ; nios $4, 0 | 0xE1 - ARROW REFILL 5
 #_0DB43B: db $F4 ; nios $4, 0 | 0xE2 - ARROW REFILL 10
-#_0DB43C: db $D8 ; ni.s $0, 0 | 0xE3 - FAERIE
+#_0DB43C: db $D8 ; ni.s $0, 0 | 0xE3 - FAIRY
 #_0DB43D: db $F8 ; nios $0, 0 | 0xE4 - SMALL KEY
 #_0DB43E: db $D8 ; ni.s $0, 0 | 0xE5 - BIG KEY
 #_0DB43F: db $DF ; ni.s $7, 1 | 0xE6 - STOLEN SHIELD
@@ -7286,7 +7472,7 @@ SpriteData_HitBox:
 #_0DB476: db $07 ; ... $07 | 0x2A - SWEEPING LADY
 #_0DB477: db $07 ; ... $07 | 0x2B - HOBO
 #_0DB478: db $07 ; ... $07 | 0x2C - LUMBERJACKS
-#_0DB479: db $07 ; ... $07 | 0x2D - TELEPATHIC TILE
+#_0DB479: db $07 ; ... $07 | 0x2D - NECKLESS MAN
 #_0DB47A: db $0D ; ... $0D | 0x2E - FLUTE KID
 #_0DB47B: db $07 ; ... $07 | 0x2F - RACE GAME LADY
 #_0DB47C: db $07 ; ... $07 | 0x30 - RACE GAME GUY
@@ -7355,7 +7541,7 @@ SpriteData_HitBox:
 #_0DB4BB: db $40 ; .s. $00 | 0x6F - KEESE
 #_0DB4BC: db $19 ; ... $19 | 0x70 - KING HELMASAUR FIREBALL
 #_0DB4BD: db $00 ; ... $00 | 0x71 - LEEVER
-#_0DB4BE: db $00 ; ... $00 | 0x72 - FAERIE POND TRIGGER
+#_0DB4BE: db $00 ; ... $00 | 0x72 - FAIRY POND TRIGGER
 #_0DB4BF: db $0A ; ... $0A | 0x73 - UNCLE / PRIEST / MANTLE
 #_0DB4C0: db $0D ; ... $0D | 0x74 - RUNNING MAN
 #_0DB4C1: db $0A ; ... $0A | 0x75 - BOTTLE MERCHANT
@@ -7441,7 +7627,7 @@ SpriteData_HitBox:
 #_0DB511: db $40 ; .s. $00 | 0xC5 - MEDUSA
 #_0DB512: db $40 ; .s. $00 | 0xC6 - 4WAY SHOOTER
 #_0DB513: db $00 ; ... $00 | 0xC7 - POKEY
-#_0DB514: db $00 ; ... $00 | 0xC8 - BIG FAERIE
+#_0DB514: db $00 ; ... $00 | 0xC8 - BIG FAIRY
 #_0DB515: db $00 ; ... $00 | 0xC9 - TEKTITE / FIREBAT
 #_0DB516: db $00 ; ... $00 | 0xCA - CHAIN CHOMP
 #_0DB517: db $89 ; i.. $09 | 0xCB - TRINEXX ROCK HEAD
@@ -7468,7 +7654,7 @@ SpriteData_HitBox:
 #_0DB52C: db $44 ; .s. $04 | 0xE0 - LARGE MAGIC DECANTER
 #_0DB52D: db $44 ; .s. $04 | 0xE1 - ARROW REFILL 5
 #_0DB52E: db $44 ; .s. $04 | 0xE2 - ARROW REFILL 10
-#_0DB52F: db $43 ; .s. $03 | 0xE3 - FAERIE
+#_0DB52F: db $43 ; .s. $03 | 0xE3 - FAIRY
 #_0DB530: db $44 ; .s. $04 | 0xE4 - SMALL KEY
 #_0DB531: db $43 ; .s. $03 | 0xE5 - BIG KEY
 #_0DB532: db $40 ; .s. $00 | 0xE6 - STOLEN SHIELD
@@ -7542,7 +7728,7 @@ SpriteData_TileInteraction:
 #_0DB569: db $00 ; .... $0 | 0x2A - SWEEPING LADY
 #_0DB56A: db $00 ; .... $0 | 0x2B - HOBO
 #_0DB56B: db $00 ; .... $0 | 0x2C - LUMBERJACKS
-#_0DB56C: db $00 ; .... $0 | 0x2D - TELEPATHIC TILE
+#_0DB56C: db $00 ; .... $0 | 0x2D - NECKLESS MAN
 #_0DB56D: db $00 ; .... $0 | 0x2E - FLUTE KID
 #_0DB56E: db $00 ; .... $0 | 0x2F - RACE GAME LADY
 #_0DB56F: db $00 ; .... $0 | 0x30 - RACE GAME GUY
@@ -7611,7 +7797,7 @@ SpriteData_TileInteraction:
 #_0DB5AE: db $00 ; .... $0 | 0x6F - KEESE
 #_0DB5AF: db $00 ; .... $0 | 0x70 - KING HELMASAUR FIREBALL
 #_0DB5B0: db $00 ; .... $0 | 0x71 - LEEVER
-#_0DB5B1: db $00 ; .... $0 | 0x72 - FAERIE POND TRIGGER
+#_0DB5B1: db $00 ; .... $0 | 0x72 - FAIRY POND TRIGGER
 #_0DB5B2: db $00 ; .... $0 | 0x73 - UNCLE / PRIEST / MANTLE
 #_0DB5B3: db $00 ; .... $0 | 0x74 - RUNNING MAN
 #_0DB5B4: db $00 ; .... $0 | 0x75 - BOTTLE MERCHANT
@@ -7697,7 +7883,7 @@ SpriteData_TileInteraction:
 #_0DB604: db $00 ; .... $0 | 0xC5 - MEDUSA
 #_0DB605: db $00 ; .... $0 | 0xC6 - 4WAY SHOOTER
 #_0DB606: db $00 ; .... $0 | 0xC7 - POKEY
-#_0DB607: db $00 ; .... $0 | 0xC8 - BIG FAERIE
+#_0DB607: db $00 ; .... $0 | 0xC8 - BIG FAIRY
 #_0DB608: db $00 ; .... $0 | 0xC9 - TEKTITE / FIREBAT
 #_0DB609: db $00 ; .... $0 | 0xCA - CHAIN CHOMP
 #_0DB60A: db $02 ; ..b. $0 | 0xCB - TRINEXX ROCK HEAD
@@ -7724,7 +7910,7 @@ SpriteData_TileInteraction:
 #_0DB61F: db $10 ; .... $0 | 0xE0 - LARGE MAGIC DECANTER
 #_0DB620: db $10 ; .... $0 | 0xE1 - ARROW REFILL 5
 #_0DB621: db $10 ; .... $0 | 0xE2 - ARROW REFILL 10
-#_0DB622: db $00 ; .... $0 | 0xE3 - FAERIE
+#_0DB622: db $00 ; .... $0 | 0xE3 - FAIRY
 #_0DB623: db $10 ; .... $0 | 0xE4 - SMALL KEY
 #_0DB624: db $00 ; .... $0 | 0xE5 - BIG KEY
 #_0DB625: db $00 ; .... $0 | 0xE6 - STOLEN SHIELD
@@ -7795,7 +7981,7 @@ SpriteData_PrizePack:
 #_0DB65C: db $80 ; i... $0 | 0x2A - SWEEPING LADY
 #_0DB65D: db $80 ; i... $0 | 0x2B - HOBO
 #_0DB65E: db $80 ; i... $0 | 0x2C - LUMBERJACKS
-#_0DB65F: db $80 ; i... $0 | 0x2D - TELEPATHIC TILE
+#_0DB65F: db $80 ; i... $0 | 0x2D - NECKLESS MAN
 #_0DB660: db $80 ; i... $0 | 0x2E - FLUTE KID
 #_0DB661: db $80 ; i... $0 | 0x2F - RACE GAME LADY
 #_0DB662: db $80 ; i... $0 | 0x30 - RACE GAME GUY
@@ -7864,7 +8050,7 @@ SpriteData_PrizePack:
 #_0DB6A1: db $81 ; i... $1 | 0x6F - KEESE
 #_0DB6A2: db $80 ; i... $0 | 0x70 - KING HELMASAUR FIREBALL
 #_0DB6A3: db $81 ; i... $1 | 0x71 - LEEVER
-#_0DB6A4: db $80 ; i... $0 | 0x72 - FAERIE POND TRIGGER
+#_0DB6A4: db $80 ; i... $0 | 0x72 - FAIRY POND TRIGGER
 #_0DB6A5: db $80 ; i... $0 | 0x73 - UNCLE / PRIEST / MANTLE
 #_0DB6A6: db $80 ; i... $0 | 0x74 - RUNNING MAN
 #_0DB6A7: db $80 ; i... $0 | 0x75 - BOTTLE MERCHANT
@@ -7950,7 +8136,7 @@ SpriteData_PrizePack:
 #_0DB6F7: db $00 ; .... $0 | 0xC5 - MEDUSA
 #_0DB6F8: db $00 ; .... $0 | 0xC6 - 4WAY SHOOTER
 #_0DB6F9: db $17 ; ...s $7 | 0xC7 - POKEY
-#_0DB6FA: db $00 ; .... $0 | 0xC8 - BIG FAERIE
+#_0DB6FA: db $00 ; .... $0 | 0xC8 - BIG FAIRY
 #_0DB6FB: db $12 ; ...s $2 | 0xC9 - TEKTITE / FIREBAT
 #_0DB6FC: db $00 ; .... $0 | 0xCA - CHAIN CHOMP
 #_0DB6FD: db $00 ; .... $0 | 0xCB - TRINEXX ROCK HEAD
@@ -7977,7 +8163,7 @@ SpriteData_PrizePack:
 #_0DB712: db $00 ; .... $0 | 0xE0 - LARGE MAGIC DECANTER
 #_0DB713: db $00 ; .... $0 | 0xE1 - ARROW REFILL 5
 #_0DB714: db $00 ; .... $0 | 0xE2 - ARROW REFILL 10
-#_0DB715: db $40 ; .w.. $0 | 0xE3 - FAERIE
+#_0DB715: db $40 ; .w.. $0 | 0xE3 - FAIRY
 #_0DB716: db $00 ; .... $0 | 0xE4 - SMALL KEY
 #_0DB717: db $00 ; .... $0 | 0xE5 - BIG KEY
 #_0DB718: db $00 ; .... $0 | 0xE6 - STOLEN SHIELD
@@ -8000,7 +8186,7 @@ SpriteData_PrizePack:
 ;   i - always die if off screen
 ;   s - marks statues and things that move, but seems unused
 ;   p - deflect many projectiles (unused?)
-;   c - use simplified tile properties
+;   c - run collision as a projectile
 ;   h - immune to sword and hammer
 ;   b - immune to arrows, boss friendly kill; prone to rumbling
 ;   x - prevents permadeath in underworld
@@ -8051,7 +8237,7 @@ SpriteData_Deflection:
 #_0DB74F: db $00 ; .... .... | 0x2A - SWEEPING LADY
 #_0DB750: db $00 ; .... .... | 0x2B - HOBO
 #_0DB751: db $00 ; .... .... | 0x2C - LUMBERJACKS
-#_0DB752: db $00 ; .... .... | 0x2D - TELEPATHIC TILE
+#_0DB752: db $00 ; .... .... | 0x2D - NECKLESS MAN
 #_0DB753: db $00 ; .... .... | 0x2E - FLUTE KID
 #_0DB754: db $80 ; a... .... | 0x2F - RACE GAME LADY
 #_0DB755: db $80 ; a... .... | 0x30 - RACE GAME GUY
@@ -8120,7 +8306,7 @@ SpriteData_Deflection:
 #_0DB794: db $00 ; .... .... | 0x6F - KEESE
 #_0DB795: db $40 ; .i.. .... | 0x70 - KING HELMASAUR FIREBALL
 #_0DB796: db $00 ; .... .... | 0x71 - LEEVER
-#_0DB797: db $00 ; .... .... | 0x72 - FAERIE POND TRIGGER
+#_0DB797: db $00 ; .... .... | 0x72 - FAIRY POND TRIGGER
 #_0DB798: db $00 ; .... .... | 0x73 - UNCLE / PRIEST / MANTLE
 #_0DB799: db $00 ; .... .... | 0x74 - RUNNING MAN
 #_0DB79A: db $00 ; .... .... | 0x75 - BOTTLE MERCHANT
@@ -8206,7 +8392,7 @@ SpriteData_Deflection:
 #_0DB7EA: db $00 ; .... .... | 0xC5 - MEDUSA
 #_0DB7EB: db $00 ; .... .... | 0xC6 - 4WAY SHOOTER
 #_0DB7EC: db $00 ; .... .... | 0xC7 - POKEY
-#_0DB7ED: db $00 ; .... .... | 0xC8 - BIG FAERIE
+#_0DB7ED: db $00 ; .... .... | 0xC8 - BIG FAIRY
 #_0DB7EE: db $00 ; .... .... | 0xC9 - TEKTITE / FIREBAT
 #_0DB7EF: db $04 ; .... .h.. | 0xCA - CHAIN CHOMP
 #_0DB7F0: db $05 ; .... .h.x | 0xCB - TRINEXX ROCK HEAD
@@ -8233,7 +8419,7 @@ SpriteData_Deflection:
 #_0DB805: db $02 ; .... ..b. | 0xE0 - LARGE MAGIC DECANTER
 #_0DB806: db $02 ; .... ..b. | 0xE1 - ARROW REFILL 5
 #_0DB807: db $02 ; .... ..b. | 0xE2 - ARROW REFILL 10
-#_0DB808: db $02 ; .... ..b. | 0xE3 - FAERIE
+#_0DB808: db $02 ; .... ..b. | 0xE3 - FAIRY
 #_0DB809: db $02 ; .... ..b. | 0xE4 - SMALL KEY
 #_0DB80A: db $02 ; .... ..b. | 0xE5 - BIG KEY
 #_0DB80B: db $02 ; .... ..b. | 0xE6 - STOLEN SHIELD
@@ -8398,40 +8584,269 @@ DamageSubclassValue:
 #_0DB969: db $00, $20, $40, $FF, $00, $00, $00, $FA ; 0x0F - Quake
 
 ;===================================================================================================
-
-SimplifiedTileAttributes:
-#_0DB971: db $00, $01, $00, $00, $00, $00, $00, $00
-#_0DB979: db $00, $00, $03, $00, $00, $00, $00, $00
-#_0DB981: db $01, $01, $01, $01, $00, $00, $00, $00
-#_0DB989: db $01, $01, $01, $01, $00, $03, $03, $03
-#_0DB991: db $00, $00, $00, $00, $00, $00, $01, $01
-#_0DB999: db $04, $04, $04, $04, $04, $04, $04, $04
-#_0DB9A1: db $01, $01, $01, $01, $01, $01, $01, $01
-#_0DB9A9: db $01, $01, $00, $00, $01, $01, $01, $01
-#_0DB9B1: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DB9B9: db $00, $00, $00, $00, $04, $04, $04, $04
-#_0DB9C1: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DB9C9: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DB9D1: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DB9D9: db $00, $00, $00, $00, $01, $01, $01, $01
-#_0DB9E1: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DB9E9: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DB9F1: db $01, $01, $01, $01, $01, $01, $01, $01
-#_0DB9F9: db $01, $01, $01, $01, $01, $01, $01, $01
-#_0DBA01: db $01, $01, $01, $01, $01, $01, $01, $01
-#_0DBA09: db $01, $01, $01, $01, $01, $01, $01, $01
-#_0DBA11: db $01, $01, $01, $01, $01, $01, $01, $01
-#_0DBA19: db $01, $01, $01, $01, $01, $01, $01, $01
-#_0DBA21: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DBA29: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DBA31: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DBA39: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DBA41: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DBA49: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DBA51: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DBA59: db $00, $00, $00, $00, $00, $00, $00, $00
-#_0DBA61: db $01, $01, $01, $01, $01, $01, $01, $01
-#_0DBA69: db $01, $01, $01, $01, $01, $01, $01, $01
+; 00 - nothing
+; 01 - collision
+; 02 - short collision
+; 03 - stairs
+; 04 - ledges
+;===================================================================================================
+GeneralizedProjectileTileInteraction:
+#_0DB971: db $00 ; 00
+#_0DB972: db $01 ; 01
+#_0DB973: db $00 ; 02
+#_0DB974: db $00 ; 03
+#_0DB975: db $00 ; 04
+#_0DB976: db $00 ; 05
+#_0DB977: db $00 ; 06
+#_0DB978: db $00 ; 07
+#_0DB979: db $00 ; 08
+#_0DB97A: db $00 ; 09
+#_0DB97B: db $03 ; 0A
+#_0DB97C: db $00 ; 0B
+#_0DB97D: db $00 ; 0C
+#_0DB97E: db $00 ; 0D
+#_0DB97F: db $00 ; 0E
+#_0DB980: db $00 ; 0F
+#_0DB981: db $01 ; 10
+#_0DB982: db $01 ; 11
+#_0DB983: db $01 ; 12
+#_0DB984: db $01 ; 13
+#_0DB985: db $00 ; 14
+#_0DB986: db $00 ; 15
+#_0DB987: db $00 ; 16
+#_0DB988: db $00 ; 17
+#_0DB989: db $01 ; 18
+#_0DB98A: db $01 ; 19
+#_0DB98B: db $01 ; 1A
+#_0DB98C: db $01 ; 1B
+#_0DB98D: db $00 ; 1C
+#_0DB98E: db $03 ; 1D
+#_0DB98F: db $03 ; 1E
+#_0DB990: db $03 ; 1F
+#_0DB991: db $00 ; 20
+#_0DB992: db $00 ; 21
+#_0DB993: db $00 ; 22
+#_0DB994: db $00 ; 23
+#_0DB995: db $00 ; 24
+#_0DB996: db $00 ; 25
+#_0DB997: db $01 ; 26
+#_0DB998: db $01 ; 27
+#_0DB999: db $04 ; 28
+#_0DB99A: db $04 ; 29
+#_0DB99B: db $04 ; 2A
+#_0DB99C: db $04 ; 2B
+#_0DB99D: db $04 ; 2C
+#_0DB99E: db $04 ; 2D
+#_0DB99F: db $04 ; 2E
+#_0DB9A0: db $04 ; 2F
+#_0DB9A1: db $01 ; 30
+#_0DB9A2: db $01 ; 31
+#_0DB9A3: db $01 ; 32
+#_0DB9A4: db $01 ; 33
+#_0DB9A5: db $01 ; 34
+#_0DB9A6: db $01 ; 35
+#_0DB9A7: db $01 ; 36
+#_0DB9A8: db $01 ; 37
+#_0DB9A9: db $01 ; 38
+#_0DB9AA: db $01 ; 39
+#_0DB9AB: db $00 ; 3A
+#_0DB9AC: db $00 ; 3B
+#_0DB9AD: db $01 ; 3C
+#_0DB9AE: db $01 ; 3D
+#_0DB9AF: db $01 ; 3E
+#_0DB9B0: db $01 ; 3F
+#_0DB9B1: db $00 ; 40
+#_0DB9B2: db $00 ; 41
+#_0DB9B3: db $00 ; 42
+#_0DB9B4: db $00 ; 43
+#_0DB9B5: db $00 ; 44
+#_0DB9B6: db $00 ; 45
+#_0DB9B7: db $00 ; 46
+#_0DB9B8: db $00 ; 47
+#_0DB9B9: db $00 ; 48
+#_0DB9BA: db $00 ; 49
+#_0DB9BB: db $00 ; 4A
+#_0DB9BC: db $00 ; 4B
+#_0DB9BD: db $04 ; 4C
+#_0DB9BE: db $04 ; 4D
+#_0DB9BF: db $04 ; 4E
+#_0DB9C0: db $04 ; 4F
+#_0DB9C1: db $00 ; 50
+#_0DB9C2: db $00 ; 51
+#_0DB9C3: db $00 ; 52
+#_0DB9C4: db $00 ; 53
+#_0DB9C5: db $00 ; 54
+#_0DB9C6: db $00 ; 55
+#_0DB9C7: db $00 ; 56
+#_0DB9C8: db $00 ; 57
+#_0DB9C9: db $00 ; 58
+#_0DB9CA: db $00 ; 59
+#_0DB9CB: db $00 ; 5A
+#_0DB9CC: db $00 ; 5B
+#_0DB9CD: db $00 ; 5C
+#_0DB9CE: db $00 ; 5D
+#_0DB9CF: db $00 ; 5E
+#_0DB9D0: db $00 ; 5F
+#_0DB9D1: db $00 ; 60
+#_0DB9D2: db $00 ; 61
+#_0DB9D3: db $00 ; 62
+#_0DB9D4: db $00 ; 63
+#_0DB9D5: db $00 ; 64
+#_0DB9D6: db $00 ; 65
+#_0DB9D7: db $00 ; 66
+#_0DB9D8: db $00 ; 67
+#_0DB9D9: db $00 ; 68
+#_0DB9DA: db $00 ; 69
+#_0DB9DB: db $00 ; 6A
+#_0DB9DC: db $00 ; 6B
+#_0DB9DD: db $01 ; 6C
+#_0DB9DE: db $01 ; 6D
+#_0DB9DF: db $01 ; 6E
+#_0DB9E0: db $01 ; 6F
+#_0DB9E1: db $00 ; 70
+#_0DB9E2: db $00 ; 71
+#_0DB9E3: db $00 ; 72
+#_0DB9E4: db $00 ; 73
+#_0DB9E5: db $00 ; 74
+#_0DB9E6: db $00 ; 75
+#_0DB9E7: db $00 ; 76
+#_0DB9E8: db $00 ; 77
+#_0DB9E9: db $00 ; 78
+#_0DB9EA: db $00 ; 79
+#_0DB9EB: db $00 ; 7A
+#_0DB9EC: db $00 ; 7B
+#_0DB9ED: db $00 ; 7C
+#_0DB9EE: db $00 ; 7D
+#_0DB9EF: db $00 ; 7E
+#_0DB9F0: db $00 ; 7F
+#_0DB9F1: db $01 ; 80
+#_0DB9F2: db $01 ; 81
+#_0DB9F3: db $01 ; 82
+#_0DB9F4: db $01 ; 83
+#_0DB9F5: db $01 ; 84
+#_0DB9F6: db $01 ; 85
+#_0DB9F7: db $01 ; 86
+#_0DB9F8: db $01 ; 87
+#_0DB9F9: db $01 ; 88
+#_0DB9FA: db $01 ; 89
+#_0DB9FB: db $01 ; 8A
+#_0DB9FC: db $01 ; 8B
+#_0DB9FD: db $01 ; 8C
+#_0DB9FE: db $01 ; 8D
+#_0DB9FF: db $01 ; 8E
+#_0DBA00: db $01 ; 8F
+#_0DBA01: db $01 ; 90
+#_0DBA02: db $01 ; 91
+#_0DBA03: db $01 ; 92
+#_0DBA04: db $01 ; 93
+#_0DBA05: db $01 ; 94
+#_0DBA06: db $01 ; 95
+#_0DBA07: db $01 ; 96
+#_0DBA08: db $01 ; 97
+#_0DBA09: db $01 ; 98
+#_0DBA0A: db $01 ; 99
+#_0DBA0B: db $01 ; 9A
+#_0DBA0C: db $01 ; 9B
+#_0DBA0D: db $01 ; 9C
+#_0DBA0E: db $01 ; 9D
+#_0DBA0F: db $01 ; 9E
+#_0DBA10: db $01 ; 9F
+#_0DBA11: db $01 ; A0
+#_0DBA12: db $01 ; A1
+#_0DBA13: db $01 ; A2
+#_0DBA14: db $01 ; A3
+#_0DBA15: db $01 ; A4
+#_0DBA16: db $01 ; A5
+#_0DBA17: db $01 ; A6
+#_0DBA18: db $01 ; A7
+#_0DBA19: db $01 ; A8
+#_0DBA1A: db $01 ; A9
+#_0DBA1B: db $01 ; AA
+#_0DBA1C: db $01 ; AB
+#_0DBA1D: db $01 ; AC
+#_0DBA1E: db $01 ; AD
+#_0DBA1F: db $01 ; AE
+#_0DBA20: db $01 ; AF
+#_0DBA21: db $00 ; B0
+#_0DBA22: db $00 ; B1
+#_0DBA23: db $00 ; B2
+#_0DBA24: db $00 ; B3
+#_0DBA25: db $00 ; B4
+#_0DBA26: db $00 ; B5
+#_0DBA27: db $00 ; B6
+#_0DBA28: db $00 ; B7
+#_0DBA29: db $00 ; B8
+#_0DBA2A: db $00 ; B9
+#_0DBA2B: db $00 ; BA
+#_0DBA2C: db $00 ; BB
+#_0DBA2D: db $00 ; BC
+#_0DBA2E: db $00 ; BD
+#_0DBA2F: db $00 ; BE
+#_0DBA30: db $00 ; BF
+#_0DBA31: db $00 ; C0
+#_0DBA32: db $00 ; C1
+#_0DBA33: db $00 ; C2
+#_0DBA34: db $00 ; C3
+#_0DBA35: db $00 ; C4
+#_0DBA36: db $00 ; C5
+#_0DBA37: db $00 ; C6
+#_0DBA38: db $00 ; C7
+#_0DBA39: db $00 ; C8
+#_0DBA3A: db $00 ; C9
+#_0DBA3B: db $00 ; CA
+#_0DBA3C: db $00 ; CB
+#_0DBA3D: db $00 ; CC
+#_0DBA3E: db $00 ; CD
+#_0DBA3F: db $00 ; CE
+#_0DBA40: db $00 ; CF
+#_0DBA41: db $00 ; D0
+#_0DBA42: db $00 ; D1
+#_0DBA43: db $00 ; D2
+#_0DBA44: db $00 ; D3
+#_0DBA45: db $00 ; D4
+#_0DBA46: db $00 ; D5
+#_0DBA47: db $00 ; D6
+#_0DBA48: db $00 ; D7
+#_0DBA49: db $00 ; D8
+#_0DBA4A: db $00 ; D9
+#_0DBA4B: db $00 ; DA
+#_0DBA4C: db $00 ; DB
+#_0DBA4D: db $00 ; DC
+#_0DBA4E: db $00 ; DD
+#_0DBA4F: db $00 ; DE
+#_0DBA50: db $00 ; DF
+#_0DBA51: db $00 ; E0
+#_0DBA52: db $00 ; E1
+#_0DBA53: db $00 ; E2
+#_0DBA54: db $00 ; E3
+#_0DBA55: db $00 ; E4
+#_0DBA56: db $00 ; E5
+#_0DBA57: db $00 ; E6
+#_0DBA58: db $00 ; E7
+#_0DBA59: db $00 ; E8
+#_0DBA5A: db $00 ; E9
+#_0DBA5B: db $00 ; EA
+#_0DBA5C: db $00 ; EB
+#_0DBA5D: db $00 ; EC
+#_0DBA5E: db $00 ; ED
+#_0DBA5F: db $00 ; EE
+#_0DBA60: db $00 ; EF
+#_0DBA61: db $01 ; F0
+#_0DBA62: db $01 ; F1
+#_0DBA63: db $01 ; F2
+#_0DBA64: db $01 ; F3
+#_0DBA65: db $01 ; F4
+#_0DBA66: db $01 ; F5
+#_0DBA67: db $01 ; F6
+#_0DBA68: db $01 ; F7
+#_0DBA69: db $01 ; F8
+#_0DBA6A: db $01 ; F9
+#_0DBA6B: db $01 ; FA
+#_0DBA6C: db $01 ; FB
+#_0DBA6D: db $01 ; FC
+#_0DBA6E: db $01 ; FD
+#_0DBA6F: db $01 ; FE
+#_0DBA70: db $01 ; FF
 
 ;===================================================================================================
 ; A psuedo-psuedo-psuedo-psuedo-RNG
@@ -8449,55 +8864,53 @@ GetRandomNumber:
 
 ;===================================================================================================
 
-OAM_AllocateFromRegionA:
+SpriteDraw_AllocateOAMFromRegionA:
 #_0DBA80: LDY.b #$00
-#_0DBA82: BRA OAM_AllocateFromRegion
+#_0DBA82: BRA SpriteDraw_AllocateOAMFromRegion
 
 ;===================================================================================================
 
-OAM_AllocateFromRegionB:
+SpriteDraw_AllocateOAMFromRegionB:
 #_0DBA84: LDY.b #$02
-#_0DBA86: BRA OAM_AllocateFromRegion
+#_0DBA86: BRA SpriteDraw_AllocateOAMFromRegion
 
 ;===================================================================================================
 
-OAM_AllocateFromRegionC:
+SpriteDraw_AllocateOAMFromRegionC:
 #_0DBA88: LDY.b #$04
-#_0DBA8A: BRA OAM_AllocateFromRegion
+#_0DBA8A: BRA SpriteDraw_AllocateOAMFromRegion
 
 ;===================================================================================================
 
-OAM_AllocateFromRegionD:
+SpriteDraw_AllocateOAMFromRegionD:
 #_0DBA8C: LDY.b #$06
-#_0DBA8E: BRA OAM_AllocateFromRegion
+#_0DBA8E: BRA SpriteDraw_AllocateOAMFromRegion
 
 ;===================================================================================================
 
-OAM_AllocateFromRegionE:
+SpriteDraw_AllocateOAMFromRegionE:
 #_0DBA90: LDY.b #$08
-#_0DBA92: BRA OAM_AllocateFromRegion
+#_0DBA92: BRA SpriteDraw_AllocateOAMFromRegion
 
 ;===================================================================================================
 
-OAM_AllocateFromRegionF:
+SpriteDraw_AllocateOAMFromRegionF:
 #_0DBA94: LDY.b #$0A
 
 ;===================================================================================================
 
-OAM_AllocateFromRegion:
+SpriteDraw_AllocateOAMFromRegion:
 #_0DBA96: PHB
 #_0DBA97: PHK
 #_0DBA98: PLB
 
-#_0DBA99: JSR OAM_GetBufferPosition
+#_0DBA99: JSR .execute
 
 #_0DBA9C: PLB
 
 #_0DBA9D: RTL
 
-;===================================================================================================
-
-pool OAM_GetBufferPosition
+;---------------------------------------------------------------------------------------------------
 
 .region_location
 #_0DBA9E: dw $0171 ; Region A
@@ -8528,11 +8941,9 @@ pool OAM_GetBufferPosition
 #_0DBAFA: dw $0140, $0150, $0160, $0170 ; Region F
 #_0DBB02: dw $0180, $0190, $01A0, $01B8
 
-pool off
-
 ;---------------------------------------------------------------------------------------------------
 
-OAM_GetBufferPosition:
+.execute
 #_0DBB0A: STA.b $0E
 #_0DBB0C: STZ.w $000F
 
@@ -8868,7 +9279,7 @@ SpriteDraw_Babasu:
 #_0DBD36: SEP #$20
 
 #_0DBD38: LDA.b #$02
-#_0DBD3A: JSL Sprite_DrawMultiple
+#_0DBD3A: JSL SpriteDraw_Tabulated
 
 #_0DBD3E: PLB
 
@@ -8956,7 +9367,7 @@ SpriteDraw_Wizzrobe:
 #_0DBE1E: SEP #$20
 
 #_0DBE20: LDA.b #$03
-#_0DBE22: JSL Sprite_DrawMultiple
+#_0DBE22: JSL SpriteDraw_Tabulated
 
 #_0DBE26: PLB
 
@@ -9008,7 +9419,7 @@ SpriteDraw_WizzrobeBeam:
 #_0DBE7C: SEP #$20
 
 #_0DBE7E: LDA.b #$02
-#_0DBE80: JSL Sprite_DrawMultiple
+#_0DBE80: JSL SpriteDraw_Tabulated
 
 #_0DBE84: PLB
 
@@ -9104,7 +9515,7 @@ SpriteDraw_Freezor:
 #_0DBFC1: LDA.b #$04
 
 .do_draw
-#_0DBFC3: JSL Sprite_DrawMultiple
+#_0DBFC3: JSL SpriteDraw_Tabulated
 
 #_0DBFC7: PLB
 
@@ -9218,7 +9629,7 @@ SpriteDraw_Zazak:
 #_0DC0BE: SEP #$20
 
 #_0DC0C0: LDA.b #$03
-#_0DC0C2: JSL Sprite_DrawMultiple
+#_0DC0C2: JSL SpriteDraw_Tabulated
 
 #_0DC0C6: LDA.w $0F00,X
 #_0DC0C9: BNE .no_head_adjustment
@@ -9368,7 +9779,7 @@ SpriteDraw_Stalfos:
 #_0DC239: SEP #$20
 
 #_0DC23B: LDA.b #$03
-#_0DC23D: JSL Sprite_DrawMultiple
+#_0DC23D: JSL SpriteDraw_Tabulated
 
 #_0DC241: LDA.w $0DC0,X
 #_0DC244: CMP.b #$08
@@ -9475,7 +9886,7 @@ Probe_CheckTileSolidity:
 
 #_0DC2B8: SEP #$30
 
-#_0DC2BA: JSL Overworld_ReadTileAttribute
+#_0DC2BA: JSL Overworld_ReadTileType
 
 #_0DC2BE: REP #$10
 
@@ -9493,7 +9904,7 @@ Probe_CheckTileSolidity:
 
 #_0DC2C8: TAX
 
-#_0DC2C9: LDA.l SimplifiedTileAttributes,X
+#_0DC2C9: LDA.l GeneralizedProjectileTileInteraction,X
 
 #_0DC2CD: PLX
 
@@ -9534,8 +9945,7 @@ Sprite_BlindsHutGuy:
 
 #_0DC2F4: STZ.w $0EB0,X
 
-; Message 0170
-#_0DC2F7: LDA.b #$70
+#_0DC2F7: LDA.b #$70 ; MESSAGE 0170
 #_0DC2F9: LDY.b #$01
 #_0DC2FB: JSL Sprite_ShowSolicitedMessage
 #_0DC2FF: BCC .exit
@@ -9571,13 +9981,12 @@ Sprite_ThiefHideoutGuy:
 #_0DC321: LDA.b #$0F
 #_0DC323: STA.w $0F50,X
 
-#_0DC326: JSL OAM_AllocateDeferToPlayer_long
+#_0DC326: JSL SpriteDraw_AllocateOAMDeferToPlayer_long
 #_0DC32A: JSL SpriteDraw_Thief
 #_0DC32E: JSR Sprite_CheckIfActive_Bank0D
 #_0DC331: JSL Sprite_BehaveAsBarrier
 
-; Message 016F
-#_0DC335: LDA.b #$6F
+#_0DC335: LDA.b #$6F ; MESSAGE 016F
 #_0DC337: LDY.b #$01
 #_0DC339: JSL Sprite_ShowSolicitedMessage
 
@@ -9615,8 +10024,7 @@ Sprite_FluteDad:
 #_0DC367: CMP.b #$02
 #_0DC369: BCS .have_flute
 
-; Message 009F
-#_0DC36B: LDA.b #$9F
+#_0DC36B: LDA.b #$9F ; MESSAGE 009F
 #_0DC36D: LDY.b #$00
 #_0DC36F: JSL Sprite_ShowSolicitedMessage
 #_0DC373: BCC .useless_branch
@@ -9625,8 +10033,7 @@ Sprite_FluteDad:
 #_0DC375: RTS
 
 .have_flute
-; Message 00A2
-#_0DC376: LDA.b #$A2
+#_0DC376: LDA.b #$A2 ; MESSAGE 00A2
 #_0DC378: LDY.b #$00
 #_0DC37A: JSL Sprite_ShowSolicitedMessage
 #_0DC37E: BCC .not_talking
@@ -9644,8 +10051,7 @@ Sprite_FluteDad:
 #_0DC38C: JSL Sprite_CheckDamageToLink_same_layer_long
 #_0DC390: BCC .exit
 
-; Message 00A0
-#_0DC392: LDA.b #$A0
+#_0DC392: LDA.b #$A0 ; MESSAGE 00A0
 #_0DC394: LDY.b #$00
 #_0DC396: JSL Sprite_ShowMessageUnconditional
 
@@ -9660,8 +10066,7 @@ Sprite_FluteDad:
 ;---------------------------------------------------------------------------------------------------
 
 .aware_of_situation
-; Message 00A1
-#_0DC3A3: LDA.b #$A1
+#_0DC3A3: LDA.b #$A1 ; MESSAGE 00A1
 #_0DC3A5: LDY.b #$00
 #_0DC3A7: JSL Sprite_ShowSolicitedMessage
 
@@ -9709,7 +10114,7 @@ SpriteDraw_FluteDad:
 #_0DC3F4: ADC.b #$00
 #_0DC3F6: STA.b $09
 
-#_0DC3F8: JSL Sprite_DrawMultiple_player_deferred
+#_0DC3F8: JSL SpriteDraw_Tabulated_player_deferred
 #_0DC3FC: JSL SpriteDraw_Shadow_long
 
 #_0DC400: RTS
@@ -9777,7 +10182,7 @@ SpriteDraw_BlindsHutGuy:
 #_0DC498: ADC.b #$00
 #_0DC49A: STA.b $09
 
-#_0DC49C: JSL Sprite_DrawMultiple_player_deferred
+#_0DC49C: JSL SpriteDraw_Tabulated_player_deferred
 #_0DC4A0: JSL SpriteDraw_Shadow_long
 
 #_0DC4A4: RTS
@@ -9801,8 +10206,7 @@ Sprite_2A_SweepingLady:
 #_0DC4AD: JSR SpriteDraw_SweepingLady
 #_0DC4B0: JSR Sprite_CheckIfActive_Bank0D
 
-; Message 00A3
-#_0DC4B3: LDA.b #$A3
+#_0DC4B3: LDA.b #$A3 ; MESSAGE 00A3
 #_0DC4B5: LDY.b #$00
 #_0DC4B7: JSL Sprite_ShowSolicitedMessage
 
@@ -9852,7 +10256,7 @@ SpriteDraw_SweepingLady:
 #_0DC4FE: ADC.b #$00
 #_0DC500: STA.b $09
 
-#_0DC502: JSL Sprite_DrawMultiple_player_deferred
+#_0DC502: JSL SpriteDraw_Tabulated_player_deferred
 #_0DC506: JSL SpriteDraw_Shadow_long
 
 #_0DC50A: RTS
@@ -9873,10 +10277,10 @@ Sprite_2C_Lumberjacks:
 ;---------------------------------------------------------------------------------------------------
 
 .message_low
-#_0DC513: db $2A ; Message 012A
-#_0DC514: db $2B ; Message 012B
-#_0DC515: db $2C ; Message 012C
-#_0DC516: db $2B ; Message 012B
+#_0DC513: db $2A ; MESSAGE 012A
+#_0DC514: db $2B ; MESSAGE 012B
+#_0DC515: db $2C ; MESSAGE 012C
+#_0DC516: db $2B ; MESSAGE 012B
 
 .message_high
 #_0DC517: db $01
@@ -10078,13 +10482,14 @@ SpriteDraw_Lumberjack:
 #_0DC6D5: ADC.b #$00
 #_0DC6D7: STA.b $09
 
-#_0DC6D9: JSL Sprite_DrawMultiple_preset_quantity
+#_0DC6D9: JSL SpriteDraw_Tabulated_preset_quantity
 
 #_0DC6DD: RTS
 
 ;===================================================================================================
-
-Sprite_2D_TelepathicTile:
+; Because his draw data has a head really high above the body.
+;===================================================================================================
+Sprite_2D_NecklessMan:
 #_0DC6DE: PHB
 #_0DC6DF: PHK
 #_0DC6E0: PLB
@@ -10098,11 +10503,10 @@ Sprite_2D_TelepathicTile:
 ;---------------------------------------------------------------------------------------------------
 
 .main
-#_0DC6E6: JSR SpriteDraw_TelepathicTile
+#_0DC6E6: JSR SpriteDraw_NecklessMan
 #_0DC6E9: JSR Sprite_CheckIfActive_Bank0D
 
-; Message 00B3
-#_0DC6EC: LDA.b #$B3
+#_0DC6EC: LDA.b #$B3 ; MESSAGE 00B3
 #_0DC6EE: LDY.b #$00
 #_0DC6F0: JSL Sprite_ShowSolicitedMessage
 
@@ -10124,7 +10528,7 @@ Sprite_2D_TelepathicTile:
 
 ;===================================================================================================
 
-pool SpriteDraw_TelepathicTile
+pool SpriteDraw_NecklessMan
 
 .oam_groups
 ; group00
@@ -10141,7 +10545,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-SpriteDraw_TelepathicTile:
+SpriteDraw_NecklessMan:
 #_0DC737: LDA.b #$03
 #_0DC739: STA.b $06
 #_0DC73B: STZ.b $07
@@ -10161,7 +10565,7 @@ SpriteDraw_TelepathicTile:
 #_0DC74D: ADC.b #$00
 #_0DC74F: STA.b $09
 
-#_0DC751: JSL Sprite_DrawMultiple_player_deferred
+#_0DC751: JSL SpriteDraw_Tabulated_player_deferred
 #_0DC755: JSL SpriteDraw_Shadow_long
 
 #_0DC759: RTS
@@ -10277,8 +10681,7 @@ FortuneTeller_LightWorld_PrecognizantResponse:
 ;===================================================================================================
 
 FortuneTeller_LightWorld_Reject:
-; Message 00F0
-#_0DC7DE: LDA.b #$F0
+#_0DC7DE: LDA.b #$F0 ; MESSAGE 00F0
 #_0DC7E0: LDY.b #$00
 #_0DC7E2: JSL Sprite_ShowSolicitedMessage
 
@@ -10287,8 +10690,7 @@ FortuneTeller_LightWorld_Reject:
 ;===================================================================================================
 
 FortuneTeller_LightWorld_OfferReading:
-; Message 00F1
-#_0DC7E7: LDA.b #$F1
+#_0DC7E7: LDA.b #$F1 ; MESSAGE 00F1
 #_0DC7E9: LDY.b #$00
 #_0DC7EB: JSL Sprite_ShowSolicitedMessage
 #_0DC7EF: BCC .exit
@@ -10339,22 +10741,22 @@ FortuneTeller_LightWorld_HandleResponse:
 
 FortuneTellerMessage:
 .low
-#_0DC821: db $E8 ; Message 00E8
-#_0DC822: db $E9 ; Message 00E9
-#_0DC823: db $EA ; Message 00EA
-#_0DC824: db $EB ; Message 00EB
-#_0DC825: db $EC ; Message 00EC
-#_0DC826: db $ED ; Message 00ED
-#_0DC827: db $EE ; Message 00EE
-#_0DC828: db $EF ; Message 00EF
-#_0DC829: db $F4 ; Message 00F4
-#_0DC82A: db $F5 ; Message 00F5
-#_0DC82B: db $F6 ; Message 00F6
-#_0DC82C: db $F7 ; Message 00F7
-#_0DC82D: db $F8 ; Message 00F8
-#_0DC82E: db $F9 ; Message 00F9
-#_0DC82F: db $FA ; Message 00FA
-#_0DC830: db $FB ; Message 00FB
+#_0DC821: db $E8 ; MESSAGE 00E8
+#_0DC822: db $E9 ; MESSAGE 00E9
+#_0DC823: db $EA ; MESSAGE 00EA
+#_0DC824: db $EB ; MESSAGE 00EB
+#_0DC825: db $EC ; MESSAGE 00EC
+#_0DC826: db $ED ; MESSAGE 00ED
+#_0DC827: db $EE ; MESSAGE 00EE
+#_0DC828: db $EF ; MESSAGE 00EF
+#_0DC829: db $F4 ; MESSAGE 00F4
+#_0DC82A: db $F5 ; MESSAGE 00F5
+#_0DC82B: db $F6 ; MESSAGE 00F6
+#_0DC82C: db $F7 ; MESSAGE 00F7
+#_0DC82D: db $F8 ; MESSAGE 00F8
+#_0DC82E: db $F9 ; MESSAGE 00F9
+#_0DC82F: db $FA ; MESSAGE 00FA
+#_0DC830: db $FB ; MESSAGE 00FB
 
 .high
 #_0DC831: db $00
@@ -10683,8 +11085,7 @@ FortuneTeller_DarkWorld_PrecognizantResponse:
 ;===================================================================================================
 
 FortuneTeller_DarkWorld_Reject:
-; Message 00F0
-#_0DC9CA: LDA.b #$F0
+#_0DC9CA: LDA.b #$F0 ; MESSAGE 00F0
 #_0DC9CC: LDY.b #$00
 #_0DC9CE: JSL Sprite_ShowSolicitedMessage
 
@@ -10693,8 +11094,7 @@ FortuneTeller_DarkWorld_Reject:
 ;===================================================================================================
 
 FortuneTeller_DarkWorld_OfferReading:
-; Message 00F1
-#_0DC9D3: LDA.b #$F1
+#_0DC9D3: LDA.b #$F1 ; MESSAGE 00F1
 #_0DC9D5: LDY.b #$00
 #_0DC9D7: JSL Sprite_ShowSolicitedMessage
 #_0DC9DB: BCC .exit
@@ -10827,8 +11227,7 @@ FortuneTeller_DemandPayment:
 #_0DCA60: ORA.b $04
 #_0DCA62: STA.w $1CF3
 
-; Message 00F2
-#_0DCA65: LDA.b #$F2
+#_0DCA65: LDA.b #$F2 ; MESSAGE 00F2
 #_0DCA67: LDY.b #$00
 #_0DCA69: JSL Sprite_ShowMessageUnconditional
 
@@ -10918,7 +11317,7 @@ SpriteDraw_FortuneTeller:
 #_0DCB11: STA.b $09
 
 #_0DCB13: LDA.b #$03
-#_0DCB15: JSL Sprite_DrawMultiple
+#_0DCB15: JSL SpriteDraw_Tabulated
 
 #_0DCB19: RTS
 
@@ -10991,8 +11390,7 @@ RaceGameLady_Idle:
 #_0DCB71: CMP.b $22
 #_0DCB73: BCS .cheater
 
-; Message 00CA
-#_0DCB75: LDA.b #$CA
+#_0DCB75: LDA.b #$CA ; MESSAGE 00CA
 #_0DCB77: LDY.b #$00
 #_0DCB79: JSL Sprite_ShowMessageOnContact
 #_0DCB7D: BCC .exit
@@ -11016,8 +11414,7 @@ RaceGameLady_Idle:
 #_0DCBA0: RTS
 
 .cheater
-; Message 00CE
-#_0DCBA1: LDA.b #$CE
+#_0DCBA1: LDA.b #$CE ; MESSAGE 00CE
 #_0DCBA3: LDY.b #$00
 #_0DCBA5: JSL Sprite_ShowMessageOnContact
 
@@ -11107,8 +11504,7 @@ Sprite_30_RaceGameGuy:
 ;---------------------------------------------------------------------------------------------------
 
 .disqualify_cheater
-; Message 00CE
-#_0DCC14: LDA.b #$CE
+#_0DCC14: LDA.b #$CE ; MESSAGE 00CE
 #_0DCC16: LDY.b #$00
 #_0DCC18: JSL Sprite_ShowMessageOnContact
 
@@ -11202,8 +11598,7 @@ RaceGameGuy_VerifyRun:
 #_0DCC7E: ORA.b $04
 #_0DCC80: STA.w $1CF3
 
-; Message 00C9
-#_0DCC83: LDA.b #$C9
+#_0DCC83: LDA.b #$C9 ; MESSAGE 00C9
 #_0DCC85: LDY.b #$00
 #_0DCC87: JSL Sprite_ShowMessageOnContact
 #_0DCC8B: BCC .exit
@@ -11235,8 +11630,7 @@ RaceGameGuy_MakeModDecision:
 #_0DCCA6: INC.w $0D80,X
 #_0DCCA9: INC.w $0D80,X
 
-; Message 00CD
-#_0DCCAC: LDA.b #$CD
+#_0DCCAC: LDA.b #$CD ; MESSAGE 00CD
 #_0DCCAE: LDY.b #$00
 #_0DCCB0: JSL Sprite_ShowMessageUnconditional
 
@@ -11257,8 +11651,7 @@ RaceGameGuy_MakeModDecision:
 .gg
 #_0DCCC3: INC.w $0D80,X
 
-; Message 00CB
-#_0DCCC6: LDA.b #$CB
+#_0DCCC6: LDA.b #$CB ; MESSAGE 00CB
 #_0DCCC8: LDY.b #$00
 #_0DCCCA: JSL Sprite_ShowMessageUnconditional
 
@@ -11270,8 +11663,7 @@ RaceGameGuy_MakeModDecision:
 ;---------------------------------------------------------------------------------------------------
 
 .run_doesnt_belong_on_boards
-; Message 00CC
-#_0DCCD5: LDA.b #$CC
+#_0DCCD5: LDA.b #$CC ; MESSAGE 00CC
 #_0DCCD7: LDY.b #$00
 #_0DCCD9: JSL Sprite_ShowMessageUnconditional
 
@@ -11283,8 +11675,7 @@ RaceGameGuy_MakeModDecision:
 ;===================================================================================================
 
 RaceGameGuy_RejectRun:
-; Message 00CC
-#_0DCCE4: LDA.b #$CC
+#_0DCCE4: LDA.b #$CC ; MESSAGE 00CC
 #_0DCCE6: LDY.b #$00
 #_0DCCE8: JSL Sprite_ShowMessageOnContact
 #_0DCCEC: BCC .exit
@@ -11298,8 +11689,7 @@ RaceGameGuy_RejectRun:
 ;===================================================================================================
 
 RaceGameGuy_AcceptRun:
-; Message 00CB
-#_0DCCF5: LDA.b #$CB
+#_0DCCF5: LDA.b #$CB ; MESSAGE 00CB
 #_0DCCF7: LDY.b #$00
 #_0DCCF9: JSL Sprite_ShowSolicitedMessage
 #_0DCCFD: BCC .exit
@@ -11313,8 +11703,7 @@ RaceGameGuy_AcceptRun:
 ;===================================================================================================
 
 RaceGameGuy_IdleInDiscord:
-; Message 00CD
-#_0DCD06: LDA.b #$CD
+#_0DCD06: LDA.b #$CD ; MESSAGE 00CD
 #_0DCD08: LDY.b #$00
 #_0DCD0A: JSL Sprite_ShowSolicitedMessage
 #_0DCD0E: BCC .exit
@@ -11391,7 +11780,7 @@ SpriteDraw_YoungGameGuy:
 #_0DCDB1: ADC.b #$00
 #_0DCDB3: STA.b $09
 
-#_0DCDB5: JSL Sprite_DrawMultiple_player_deferred
+#_0DCDB5: JSL SpriteDraw_Tabulated_player_deferred
 #_0DCDB9: JSL SpriteDraw_Shadow_long
 
 #_0DCDBD: PLB
@@ -11484,7 +11873,7 @@ SpriteDraw_Maiden:
 #_0DCE77: ADC.b #$00
 #_0DCE79: STA.b $09
 
-#_0DCE7B: JSL Sprite_DrawMultiple_player_deferred
+#_0DCE7B: JSL SpriteDraw_Tabulated_player_deferred
 
 #_0DCE7F: PLB
 
@@ -11564,7 +11953,7 @@ SpriteDraw_Priest:
 #_0DCF3B: STA.b $06
 #_0DCF3D: STZ.b $07
 
-#_0DCF3F: JSL Sprite_DrawMultiple_player_deferred
+#_0DCF3F: JSL SpriteDraw_Tabulated_player_deferred
 #_0DCF43: JSL SpriteDraw_Shadow_long
 
 #_0DCF47: PLB
@@ -11610,7 +11999,7 @@ SpriteDraw_FluteKid:
 #_0DCFCB: PLB
 
 #_0DCFCC: LDA.b #$10
-#_0DCFCE: JSL OAM_AllocateFromRegionB
+#_0DCFCE: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_0DCFD2: LDA.w $0DE0,X
 #_0DCFD5: ASL A
@@ -11630,7 +12019,7 @@ SpriteDraw_FluteKid:
 #_0DCFE6: STA.b $09
 
 #_0DCFE8: LDA.b #$04
-#_0DCFEA: JSL Sprite_DrawMultiple
+#_0DCFEA: JSL SpriteDraw_Tabulated
 
 #_0DCFEE: PLB
 
@@ -11683,7 +12072,7 @@ SpriteDraw_Stumpy:
 #_0DD046: ADC.b #$00
 #_0DD048: STA.b $09
 
-#_0DD04A: JSL Sprite_DrawMultiple_player_deferred
+#_0DD04A: JSL SpriteDraw_Tabulated_player_deferred
 
 #_0DD04E: PLB
 
@@ -11757,7 +12146,7 @@ SpriteDraw_MedallionTabletDebris:
 #_0DD128: STA.b $09
 
 #_0DD12A: LDA.b #$04
-#_0DD12C: JSL Sprite_DrawMultiple
+#_0DD12C: JSL SpriteDraw_Tabulated
 
 #_0DD130: PLB
 
@@ -11825,7 +12214,7 @@ SpriteDraw_MedallionTablet:
 #_0DD1E9: STA.b $06
 #_0DD1EB: STZ.b $07
 
-#_0DD1ED: JSL Sprite_DrawMultiple_player_deferred
+#_0DD1ED: JSL SpriteDraw_Tabulated_player_deferred
 
 #_0DD1F1: PLB
 
@@ -11932,7 +12321,7 @@ SpriteDraw_Uncle:
 #_0DD383: PLB
 
 #_0DD384: LDA.b #$18
-#_0DD386: JSL OAM_AllocateFromRegionB
+#_0DD386: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_0DD38A: REP #$20
 
@@ -11975,7 +12364,7 @@ SpriteDraw_Uncle:
 #_0DD3C2: LDA.w .source_2,Y
 #_0DD3C5: STA.w $0108
 
-#_0DD3C8: JSL Sprite_DrawMultiple_preset_quantity
+#_0DD3C8: JSL SpriteDraw_Tabulated_preset_quantity
 
 #_0DD3CC: LDA.w $0DE0,X
 #_0DD3CF: BEQ .no_shadow
@@ -12048,7 +12437,7 @@ SpriteDraw_SickKid:
 #_0DD485: ADC.b #$00
 #_0DD487: STA.b $09
 
-#_0DD489: JSL Sprite_DrawMultiple_player_deferred
+#_0DD489: JSL SpriteDraw_Tabulated_player_deferred
 
 #_0DD48D: PLB
 
@@ -12155,7 +12544,7 @@ SpriteDraw_Zirro:
 #_0DD570: SEP #$20
 
 #_0DD572: LDA.b #$02
-#_0DD574: JSL Sprite_DrawMultiple
+#_0DD574: JSL SpriteDraw_Tabulated
 
 #_0DD578: JSL SpriteDraw_Shadow_long
 
@@ -12232,7 +12621,7 @@ SpriteDraw_ZirroBomb:
 #_0DD617: SEP #$20
 
 #_0DD619: LDA.b #$03
-#_0DD61B: JSL Sprite_DrawMultiple
+#_0DD61B: JSL SpriteDraw_Tabulated
 
 #_0DD61F: PLB
 
@@ -12400,7 +12789,7 @@ SpriteDraw_Pikit:
 #_0DD70A: SEP #$20
 
 #_0DD70C: LDA.b #$02
-#_0DD70E: JSL Sprite_DrawMultiple
+#_0DD70E: JSL SpriteDraw_Tabulated
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -12667,7 +13056,7 @@ SpriteDraw_Pikit_Loot:
 #_0DD858: STA.b $02
 
 #_0DD85A: LDA.b #$10
-#_0DD85C: JSL OAM_AllocateFromRegionC
+#_0DD85C: JSL SpriteDraw_AllocateOAMFromRegionC
 
 #_0DD860: LDY.b #$00
 
@@ -12877,7 +13266,7 @@ SpriteDraw_Kholdstare:
 #_0DD9EC: SEP #$20
 
 #_0DD9EE: LDA.b #$04
-#_0DD9F0: JSL Sprite_DrawMultiple
+#_0DD9F0: JSL SpriteDraw_Tabulated
 
 .exit
 #_0DD9F4: PLB
@@ -13016,7 +13405,7 @@ SpriteDraw_ArcheryGame_Host:
 #_0DDAB5: PHK
 #_0DDAB6: PLB
 
-#_0DDAB7: JSL OAM_AllocateDeferToPlayer_long
+#_0DDAB7: JSL SpriteDraw_AllocateOAMDeferToPlayer_long
 #_0DDABB: JSL Sprite_PrepOAMCoord_long
 
 #_0DDABF: LDA.w $0DC0,X
@@ -13075,6 +13464,7 @@ SpriteDraw_ArcheryGame_Host:
 #_0DDAFE: BPL .next_object
 
 #_0DDB00: PLX
+
 #_0DDB01: JSL SpriteDraw_Shadow_long
 
 #_0DDB05: PLB
@@ -16304,7 +16694,7 @@ ItemMenu_DrawEquipment:
 
 #_0DEDCC: LDA.w $040C
 #_0DEDCF: AND.w #$00FF
-#_0DEDD2: CMP.w #$00FF
+#_0DEDD2: CMP.w #$00FF ; DUNGEON FF
 #_0DEDD5: BNE .in_a_dungeon
 
 ;---------------------------------------------------------------------------------------------------
@@ -16413,7 +16803,7 @@ ItemMenu_DrawMapAndBigKey:
 
 #_0DEE59: LDA.w $040C
 #_0DEE5C: AND.w #$00FF
-#_0DEE5F: CMP.w #$00FF
+#_0DEE5F: CMP.w #$00FF ; DUNGEON FF
 #_0DEE62: BEQ .no_big_key
 
 #_0DEE64: LSR A
@@ -16454,7 +16844,7 @@ ItemMenu_DrawMapAndBigKey:
 .no_big_key
 #_0DEE8A: LDA.w $040C
 #_0DEE8D: AND.w #$00FF
-#_0DEE90: CMP.w #$00FF
+#_0DEE90: CMP.w #$00FF ; DUNGEON FF
 #_0DEE93: BEQ .no_map
 
 #_0DEE95: LSR A
@@ -16618,7 +17008,7 @@ ItemMenu_DrawCompass:
 
 #_0DEF3B: LDA.w $040C
 #_0DEF3E: AND.w #$00FF
-#_0DEF41: CMP.w #$00FF
+#_0DEF41: CMP.w #$00FF ; DUNGEON FF
 #_0DEF44: BEQ .no_compass
 
 #_0DEF46: LSR A

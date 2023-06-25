@@ -22891,7 +22891,7 @@ Waterfall:
 #_1AF5BF: BCC .exit
 
 #_1AF5C1: LDA.b $8A
-#_1AF5C3: CMP.b #$43
+#_1AF5C3: CMP.b #$43 ; OW 43
 #_1AF5C5: BEQ .on_gt_screen
 
 #_1AF5C7: PHX
@@ -23381,7 +23381,7 @@ SpriteDraw_BatCrash:
 #_1AF852: STA.b $09
 
 #_1AF854: LDA.w .obj_count,Y
-#_1AF857: JSL Sprite_DrawMultiple
+#_1AF857: JSL SpriteDraw_Tabulated
 
 #_1AF85B: RTS
 
@@ -23488,7 +23488,7 @@ SpriteDraw_RaceGameLady:
 ;---------------------------------------------------------------------------------------------------
 
 #SpriteDraw_Drunkard_continue:
-#_1AF94A: JSL Sprite_DrawMultiple_player_deferred
+#_1AF94A: JSL SpriteDraw_Tabulated_player_deferred
 #_1AF94E: JSL SpriteDraw_Shadow_long
 
 #_1AF952: PLB
@@ -23680,9 +23680,8 @@ Sprite_Cukeman:
 #_1AFA48: INC.w $0E30,X
 #_1AFA4B: AND.b #$01
 
-; Message 0178 or Message 0179
 #_1AFA4D: CLC
-#_1AFA4E: ADC.b #$78
+#_1AFA4E: ADC.b #$78 ; MESSAGE 0178 or MESSAGE 0179
 #_1AFA50: STA.w $1CF0
 
 #_1AFA53: LDA.b #$01
@@ -23712,7 +23711,7 @@ Sprite_Cukeman:
 #_1AFA72: STA.w $0F50,X
 
 #_1AFA75: LDA.b #$10
-#_1AFA77: JSL OAM_AllocateFromRegionA
+#_1AFA77: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_1AFA7B: PLB
 
@@ -23782,7 +23781,7 @@ SpriteDraw_Cukeman:
 #_1AFB23: SEP #$20
 
 #_1AFB25: LDA.b #$03
-#_1AFB27: JSL Sprite_DrawMultiple
+#_1AFB27: JSL SpriteDraw_Tabulated
 
 #_1AFB2B: RTS
 
@@ -24086,7 +24085,7 @@ pool off
 
 SpriteDraw_CastleMantle:
 #_1AFCB3: LDA.b #$20
-#_1AFCB5: JSL OAM_AllocateFromRegionB
+#_1AFCB5: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_1AFCB9: JSL Sprite_PrepOAMCoord_long
 #_1AFCBD: BCS .exit
@@ -24210,7 +24209,7 @@ SpriteDraw_Mothula:
 #_1AFDD2: SEP #$20
 
 #_1AFDD4: LDA.b #$08
-#_1AFDD6: JSL Sprite_DrawMultiple
+#_1AFDD6: JSL SpriteDraw_Tabulated
 
 #_1AFDDA: LDA.w $0F00,X
 #_1AFDDD: BNE .exit
@@ -24340,7 +24339,7 @@ BottleMerchant_BuyBee:
 #_1AFE8B: LDA.b #$13 ; SFX3.13
 #_1AFE8D: JSL SpriteSFX_QueueSFX3WithPan
 
-; Spawns 5 sprites
+; spawns 5 sprites
 #_1AFE91: LDA.b #$04
 #_1AFE93: STA.w $0FB5
 
@@ -24406,12 +24405,12 @@ ChickenLady:
 #_1AFEE2: CMP.b #$01
 #_1AFEE4: BNE .no_message
 
-; Message 017B
-#_1AFEE6: LDA.b #$7B
+#_1AFEE6: LDA.b #$7B ; MESSAGE 017B
 #_1AFEE8: STA.w $1CF0
 
 #_1AFEEB: LDA.b #$01
 #_1AFEED: STA.w $1CF1
+
 #_1AFEF0: JSL Sprite_ShowMessageMinimal
 
 ; Animation with a 16 frame step
@@ -24582,7 +24581,7 @@ SpawnHammerWaterSplash:
 
 #_1AFFA3: SEP #$30
 
-#_1AFFA5: JSL Overworld_ReadTileAttribute
+#_1AFFA5: JSL Overworld_ReadTileType
 
 #_1AFFA9: REP #$10 ; !USELESS
 
@@ -24591,10 +24590,10 @@ SpawnHammerWaterSplash:
 .verify_water
 #_1AFFAB: SEP #$30
 
-#_1AFFAD: CMP.b #$08
+#_1AFFAD: CMP.b #$08 ; TILETYPE 08
 #_1AFFAF: BEQ .is_water
 
-#_1AFFB1: CMP.b #$09
+#_1AFFB1: CMP.b #$09 ; TILETYPE 09
 #_1AFFB3: BNE .no_splash
 
 .is_water

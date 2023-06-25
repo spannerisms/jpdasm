@@ -648,7 +648,7 @@ BYRNA           = $7EF351
 CAPE            = $7EF352
 
 ; 0x00 - Nothing
-; 0x01 - Map (works like mirror)
+; 0x01 - Letter (works like mirror)
 ; 0x02 - Mirror
 ; 0x03 - Deleted triforce item
 MIRROR          = $7EF353

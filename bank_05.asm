@@ -509,8 +509,7 @@ ArcheryGame_Host_Idle:
 #_05828E: LDA.b $F6
 #_058290: BPL .exit
 
-; Message 0083
-#_058292: LDA.b #$83
+#_058292: LDA.b #$83 ; MESSAGE 0083
 #_058294: JSR ArcheryGame_Host_ShowMessage
 
 #_058297: INC.w $0D80,X
@@ -541,8 +540,7 @@ ArcheryGame_Host_TakeMoney:
 
 #_0582B3: INC.w $0D80,X
 
-; Message 0084
-#_0582B6: LDA.b #$84
+#_0582B6: LDA.b #$84 ; MESSAGE 0084
 #_0582B8: BRA ArcheryGame_Host_ShowMessage
 
 ;===================================================================================================
@@ -550,8 +548,7 @@ ArcheryGame_Host_TakeMoney:
 ArcheryGame_Host_GameRejected:
 #_0582BA: STZ.w $0D80,X
 
-; Message 0085
-#_0582BD: LDA.b #$85
+#_0582BD: LDA.b #$85 ; MESSAGE 0085
 
 ;===================================================================================================
 
@@ -569,8 +566,7 @@ ArcheryGame_Host_ShowMessage:
 ArcheryGame_Host_InformLinkOfHisPoverty:
 #_0582CD: STZ.w $0D80,X
 
-; Message 0085
-#_0582D0: LDA.b #$85
+#_0582D0: LDA.b #$85 ; MESSAGE 0085
 #_0582D2: BRA ArcheryGame_Host_ShowMessage
 
 ;===================================================================================================
@@ -604,7 +600,7 @@ ArcheryGame_Host_ProctorGame:
 
 .arrows_on_display
 #_0582FC: LDA.b #$34
-#_0582FE: JSL OAM_AllocateFromRegionA
+#_0582FE: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_058302: JSR Sprite_PrepOAMCoord_Bank05
 
@@ -700,8 +696,7 @@ ArcheryGame_Host_ProctorGame:
 #_058374: LDA.b $F6
 #_058376: BPL .exit_b
 
-; Message 0086
-#_058378: LDA.b #$86
+#_058378: LDA.b #$86 ; MESSAGE 0086
 #_05837A: JSR ArcheryGame_Host_ShowMessage
 
 #_05837D: INC.w $0D80,X
@@ -1097,7 +1092,7 @@ Sprite_63_DebirandoPit:
 #_058544: BCS .ignore_link_priority
 
 #_058546: LDA.b #$10
-#_058548: JSL OAM_AllocateFromRegionB
+#_058548: JSL SpriteDraw_AllocateOAMFromRegionB
 
 .ignore_link_priority
 #_05854C: JSR SpriteDraw_DebirandoPit
@@ -2093,7 +2088,7 @@ pool off
 
 SpriteDraw_LightFountain:
 #_058A94: LDA.b #$04
-#_058A96: JSL OAM_AllocateFromRegionC
+#_058A96: JSL SpriteDraw_AllocateOAMFromRegionC
 
 #_058A9A: LDA.w $0DC0,X
 #_058A9D: ASL A
@@ -2116,8 +2111,8 @@ SpriteDraw_LightFountain:
 
 ;===================================================================================================
 
-Sprite_DrawMultiple_Bank05:
-#_058AB1: JSL Sprite_DrawMultiple
+SpriteDraw_Tabulated_Bank05:
+#_058AB1: JSL SpriteDraw_Tabulated
 
 #_058AB5: RTS
 
@@ -2599,7 +2594,7 @@ MasterSword_SpawnPendantProp:
 
 MasterSword_Prop:
 #_058D29: LDA.b #$04
-#_058D2B: JSL OAM_AllocateFromRegionB
+#_058D2B: JSL SpriteDraw_AllocateOAMFromRegionB
 #_058D2F: JSL SpriteDraw_SingleLarge_long
 
 #_058D33: LDA.w $0D80,X
@@ -3197,14 +3192,14 @@ SpriteDraw_Beamos:
 
 .use_region_b
 #_059074: LDA.b #$0C
-#_059076: JSL OAM_AllocateFromRegionB
+#_059076: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_05907A: LDY.b #$04
 #_05907C: BRA .continue
 
 .use_region_c
 #_05907E: LDA.b #$0C
-#_059080: JSL OAM_AllocateFromRegionC
+#_059080: JSL SpriteDraw_AllocateOAMFromRegionC
 
 #_059084: LDY.b #$00
 
@@ -4348,7 +4343,7 @@ SpriteDraw_DesertStatue:
 #_059654: BCS .use_current_region
 
 #_059656: LDA.b #$10
-#_059658: JSL OAM_AllocateFromRegionB
+#_059658: JSL SpriteDraw_AllocateOAMFromRegionB
 
 .use_current_region
 #_05965C: REP #$20
@@ -4359,7 +4354,7 @@ SpriteDraw_DesertStatue:
 #_059663: SEP #$20
 
 #_059665: LDA.b #$04
-#_059667: JMP.w Sprite_DrawMultiple_Bank05
+#_059667: JMP.w SpriteDraw_Tabulated_Bank05
 
 ;===================================================================================================
 
@@ -4400,7 +4395,7 @@ Fireball:
 #_059689: BEQ .skip_allocation
 
 #_05968B: LDA.b #$04
-#_05968D: JSL OAM_AllocateFromRegionC
+#_05968D: JSL SpriteDraw_AllocateOAMFromRegionC
 
 .skip_allocation
 #_059691: JSL SpriteDraw_SingleSmall_long
@@ -5132,8 +5127,7 @@ KingZora_Talking:
 ;===================================================================================================
 
 KingZora_WelcomeToZoraMart:
-; Message 0140
-#_059A73: LDA.b #$40
+#_059A73: LDA.b #$40 ; MESSAGE 0140
 
 ;===================================================================================================
 
@@ -5153,8 +5147,7 @@ KingZora_SellingFlippers:
 #_059A82: LDA.w $1CE8
 #_059A85: BNE KingZora_OfferRejected
 
-; Message 0141
-#_059A87: LDA.b #$41
+#_059A87: LDA.b #$41 ; MESSAGE 0141
 #_059A89: JSR KingZora_SendYouAMessage
 
 #_059A8C: RTS
@@ -5176,8 +5169,7 @@ KingZora_HandlePayment:
 
 #_059AA2: SEP #$20
 
-; Message 0142
-#_059AA4: LDA.b #$42
+#_059AA4: LDA.b #$42 ; MESSAGE 0142
 #_059AA6: JSR KingZora_SendYouAMessage
 
 #_059AA9: INC.w $0E90,X
@@ -5187,8 +5179,7 @@ KingZora_HandlePayment:
 ;===================================================================================================
 
 KingZora_OfferRejected:
-; Message 0144
-#_059AAD: LDA.b #$44
+#_059AAD: LDA.b #$44 ; MESSAGE 0144
 #_059AAF: JSR KingZora_SendYouAMessage
 
 #_059AB2: LDA.b #$30
@@ -5201,8 +5192,7 @@ KingZora_OfferRejected:
 KingZora_FailedToSell:
 #_059AB8: SEP #$20
 
-; Message 0143
-#_059ABA: LDA.b #$43
+#_059ABA: LDA.b #$43 ; MESSAGE 0143
 #_059ABC: JSR KingZora_SendYouAMessage
 
 #_059ABF: LDA.b #$30
@@ -5554,7 +5544,7 @@ SpriteDraw_KingZora:
 #_059D07: STA.b $06
 
 #_059D09: LDA.b #$10
-#_059D0B: JSL OAM_AllocateFromRegionC
+#_059D0B: JSL SpriteDraw_AllocateOAMFromRegionC
 
 #_059D0F: LDY.b #$00
 
@@ -6137,7 +6127,7 @@ SpriteDraw_WaterRipple:
 #_05A010: STA.b $09
 
 #_05A012: LDA.b #$02
-#_05A014: JSR Sprite_DrawMultiple_Bank05
+#_05A014: JSR SpriteDraw_Tabulated_Bank05
 
 #_05A017: LDY.b #$03
 
@@ -6509,7 +6499,7 @@ SpriteDraw_ArmosKnight:
 #_05A27E: CMP.b #$07
 #_05A280: BEQ .awakening
 
-#_05A282: JSL OAM_AllocateDeferToPlayer_long
+#_05A282: JSL SpriteDraw_AllocateOAMDeferToPlayer_long
 
 #_05A286: LDY.b #$00
 
@@ -7531,13 +7521,13 @@ SpriteDraw_Lanmola:
 #_05A7BA: BEQ .use_region_c
 
 #_05A7BC: LDA.b #$08
-#_05A7BE: JSL OAM_AllocateFromRegionB
+#_05A7BE: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_05A7C2: BRA .region_was_set
 
 .use_region_c
 #_05A7C4: LDA.b #$08
-#_05A7C6: JSL OAM_AllocateFromRegionC
+#_05A7C6: JSL SpriteDraw_AllocateOAMFromRegionC
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -7625,7 +7615,7 @@ SpriteDraw_Lanmola:
 .draw_dirt
 #_05A820: LDA.b #$04
 
-#_05A822: JSL OAM_AllocateFromRegionB
+#_05A822: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_05A826: LDA.w $0D10,X
 #_05A829: SEC
@@ -8808,7 +8798,7 @@ Sprite_6C_MirrorPortal:
 #_05AF79: BNE .in_dark_world
 
 #_05AF7B: LDA.b $8A
-#_05AF7D: CMP.b #$80
+#_05AF7D: CMP.b #$80 ; SPOW
 #_05AF7F: BCC .in_normal_overworld
 
 #_05AF81: RTS
@@ -9153,6 +9143,7 @@ BallNChain_SlowFlail:
 
 SpriteDraw_BallNChain:
 #_05B144: JSR Sprite_PrepOAMCoord_Bank05
+
 #_05B147: JSR SpriteDraw_BNCHead
 #_05B14A: JSR SpriteDraw_BNCBody
 #_05B14D: JSR SpriteDraw_BNCFlail
@@ -10216,7 +10207,7 @@ SpriteDraw_ArmosStatue:
 #_05B7FE: SEP #$20
 
 #_05B800: LDA.b #$02
-#_05B802: JSR Sprite_DrawMultiple_Bank05
+#_05B802: JSR SpriteDraw_Tabulated_Bank05
 
 #_05B805: JSL SpriteDraw_Shadow_long
 
@@ -10908,7 +10899,7 @@ Toppo_VerifyTile:
 #_05BB84: STA.b $03
 
 #_05BB86: LDA.b #$00
-#_05BB88: JSL GetTileAttribute_long
+#_05BB88: JSL GetTileType_long
 
 #_05BB8C: CMP.b #$40
 #_05BB8E: BEQ .exit
@@ -12815,7 +12806,7 @@ Guard_SendOutProbe:
 #_05C5F2: TXA
 #_05C5F3: CLC
 #_05C5F4: ADC.b $1A
-#_05C5F6: STA.b $0F
+#_05C5F6: STA.b $0F ; useless write
 
 #_05C5F8: AND.b #$03
 #_05C5FA: ORA.w $0F00,X
@@ -13627,7 +13618,7 @@ BoltGuard_TriggerChaseTheme:
 #_05CC56: BNE .exit
 
 #_05CC58: LDA.w $040A
-#_05CC5B: CMP.b #$18
+#_05CC5B: CMP.b #$18 ; OW 18
 #_05CC5D: BNE .exit
 
 #_05CC5F: LDA.b #$0C ; SONG 0C
@@ -14442,7 +14433,7 @@ pool Guard_LaunchProjectile
 #_05D0B1: db   0,   0,  48, -48,   0,   0,  32, -32
 #_05D0B9: db   3,   2,   1,   0,   3,   2,   1,   0
 
-.palette
+.hitbox
 #_05D0C1: db $05, $05
 #_05D0C3: db $06, $06
 
@@ -14502,7 +14493,7 @@ Guard_LaunchProjectile:
 
 #_05D116: TAX
 
-#_05D117: LDA.w .palette,X
+#_05D117: LDA.w .hitbox,X
 #_05D11A: STA.w $0F60,Y
 
 #_05D11D: LDA.b #$00
@@ -15261,19 +15252,17 @@ Sprite_3F_TutorialGuard:
 #_05D575: JSL Sprite_CheckDamageFromLink_long
 
 #_05D579: LDA.w $040A
-#_05D57C: CMP.b #$1B
+#_05D57C: CMP.b #$1B ; OW 1B
 #_05D57E: BNE .use_default_messages
 
-; Message 00B0
-#_05D580: LDA.b #$B0
+#_05D580: LDA.b #$B0 ; MESSAGE 00B0
 
 ; !HARDCODED position check
 #_05D582: LDY.w $0D00,X
 #_05D585: CPY.b #$50
 #_05D587: BEQ .soldier_on_walls
 
-; Message 00B1
-#_05D589: LDA.b #$B1
+#_05D589: LDA.b #$B1 ; MESSAGE 00B1
 #_05D58B: CPY.b #$90
 #_05D58D: BNE .use_default_messages
 
@@ -15288,12 +15277,12 @@ Sprite_3F_TutorialGuard:
 #_05D59A: PHA
 
 ; This all accounts for:
-; Message 000D
-; Message 000E
-; Message 000F
-; Message 0010
-; Message 0011
-; Message 0012
+; MESSAGE 000D
+; MESSAGE 000E
+; MESSAGE 000F
+; MESSAGE 0010
+; MESSAGE 0011
+; MESSAGE 0012
 #_05D59B: CLC
 #_05D59C: ADC.b #$0D
 
@@ -15502,7 +15491,6 @@ PullSwitch_FacingUp:
 #_05D6DC: CPY.b #$0B
 #_05D6DE: BEQ .continue
 
-; TODO ????
 #_05D6E0: LDA.w PullSwitch_LinkAnimState,Y
 #_05D6E3: STA.w $0377
 
@@ -15705,7 +15693,7 @@ DrawPullSwitch_data_index:
 
 SpriteDraw_PullSwitch_Good_Up:
 #_05D7F9: JSR Sprite_PrepOAMCoord_Bank05
-#_05D7FC: JSL OAM_AllocateDeferToPlayer_long
+#_05D7FC: JSL SpriteDraw_AllocateOAMDeferToPlayer_long
 
 #_05D800: LDY.w $0DC0,X
 
@@ -15792,7 +15780,7 @@ pool off
 
 SpriteDraw_PullSwitch_Bad_Up:
 #_05D858: JSR Sprite_PrepOAMCoord_Bank05
-#_05D85B: JSL OAM_AllocateDeferToPlayer_long
+#_05D85B: JSL SpriteDraw_AllocateOAMDeferToPlayer_long
 
 #_05D85F: LDY.w $0DC0,X
 
@@ -15981,7 +15969,7 @@ pool off
 
 SpriteDraw_PullSwitch_Down:
 #_05D953: JSR Sprite_PrepOAMCoord_Bank05
-#_05D956: JSL OAM_AllocateDeferToPlayer_long
+#_05D956: JSL SpriteDraw_AllocateOAMDeferToPlayer_long
 
 #_05D95A: LDY.w $0DC0,X
 
@@ -16164,7 +16152,7 @@ pool off
 ;===================================================================================================
 
 UncleOrPriestPrepCheck:
-#_05DA3D: LDA.b $A0
+#_05DA3D: LDA.b $A0 ; ROOM 0012
 #_05DA3F: CMP.b #$12
 #_05DA41: BEQ SpritePrep_Priest
 
@@ -16611,11 +16599,11 @@ SpriteDraw_SanctuaryMantle:
 #_05DC95: BNE .dont_change_region
 
 #_05DC97: LDA.b #$10
-#_05DC99: JSL OAM_AllocateFromRegionB
+#_05DC99: JSL SpriteDraw_AllocateOAMFromRegionB
 
 .dont_change_region
 #_05DC9D: LDA.b #$04
-#_05DC9F: JMP.w Sprite_DrawMultiple_Bank05
+#_05DC9F: JMP.w SpriteDraw_Tabulated_Bank05
 
 ;===================================================================================================
 
@@ -16707,8 +16695,7 @@ Priest_Dying:
 ;===================================================================================================
 
 Priest_LyingOnGround:
-; Message 0019
-#_05DD1F: LDA.b #$19
+#_05DD1F: LDA.b #$19 ; MESSAGE 0019
 #_05DD21: LDY.b #$00
 #_05DD23: JSL Sprite_ShowSolicitedMessage
 #_05DD27: BCC .exit
@@ -16778,8 +16765,7 @@ Priest_WelcomeToSanctuary:
 #_05DD7A: LDA.w $0DF0,X
 #_05DD7D: BNE .exit
 
-; Message 0015
-#_05DD7F: LDA.b #$15
+#_05DD7F: LDA.b #$15 ; MESSAGE 0015
 #_05DD81: LDY.b #$00
 #_05DD83: JSL Sprite_ShowMessageUnconditional
 
@@ -16806,8 +16792,7 @@ Priest_WaitForZelda:
 #_05DDA3: CMP.b #$02
 #_05DDA5: BNE .exit
 
-; Message 0016
-#_05DDA7: LDA.b #$16
+#_05DDA7: LDA.b #$16 ; MESSAGE 0016
 #_05DDA9: LDY.b #$00
 #_05DDAB: JSL Sprite_ShowMessageUnconditional
 
@@ -16842,8 +16827,7 @@ Priest_OfferKisses:
 #_05DDC9: EOR.b #$03
 #_05DDCB: STA.w $0EB0,X
 
-; Message 0014
-#_05DDCE: LDA.b #$14
+#_05DDCE: LDA.b #$14 ; MESSAGE 0014
 #_05DDD0: LDY.b #$00
 #_05DDD2: JSL Sprite_ShowSolicitedMessage
 #_05DDD6: BCC .exit
@@ -16859,9 +16843,9 @@ Priest_OfferKisses:
 pool Priest_Chillin
 
 .messages_low
-#_05DDDF: db $14 ; Message 0014
-#_05DDE0: db $17 ; Message 0017
-#_05DDE1: db $18 ; Message 0018
+#_05DDDF: db $14 ; MESSAGE 0014
+#_05DDE0: db $17 ; MESSAGE 0017
+#_05DDE1: db $18 ; MESSAGE 0018
 
 .messages_high
 #_05DDE2: db $00
@@ -16965,8 +16949,7 @@ Uncle_TriggerTelepathy:
 #_05DE61: LDA.b #$21
 #_05DE63: STA.w $0FC5
 
-; Message 001D
-#_05DE66: LDA.b #$1D
+#_05DE66: LDA.b #$1D ; MESSAGE 001D
 #_05DE68: LDY.b #$00
 #_05DE6A: JSL Sprite_ShowMessageUnconditional
 
@@ -17013,8 +16996,7 @@ Uncle_AwakenLink:
 ;===================================================================================================
 
 Uncle_DeclareCurfew:
-; Message 000B
-#_05DE9A: LDA.b #$0B
+#_05DE9A: LDA.b #$0B ; MESSAGE 000B
 #_05DE9C: LDY.b #$00
 #_05DE9E: JSL Sprite_ShowMessageUnconditional
 
@@ -17126,8 +17108,7 @@ Uncle_LyingInDefeat:
 #_05DF2C: JSL Link_CancelDash_long
 
 .still_waiting
-; Message 000C
-#_05DF30: LDA.b #$0C
+#_05DF30: LDA.b #$0C ; MESSAGE 000C
 #_05DF32: LDY.b #$00
 #_05DF34: JSL Sprite_ShowMessageOnContact
 #_05DF38: BCC Uncle_Dead
@@ -17167,10 +17148,10 @@ Uncle_GrantEquipment:
 #_05DF6B: RTS
 
 ;===================================================================================================
-; ALTTP SpriteDraw format
-;===================================================================================================
-; Pose 1: dw XXXX, YYYY : db CHAR, PROP, ??, ??
-; Pose 2: dw XXXX, YYYY : db CHAR, PROP, ??, ??
+; Format:
+;---------------------------------------------------------------------------------------------------
+; Pose 1: dw XXXX, YYYY : db CHAR, PROP, PAL2, SIZE
+; Pose 2: dw XXXX, YYYY : db CHAR, PROP, PAL2, SIZE
 ; etc...
 ;
 ; XXXX - signed 16-bit offset of object's X position relative to its position
@@ -17178,6 +17159,8 @@ Uncle_GrantEquipment:
 ;
 ; CHAR - 8-bit character name
 ; PROP - object properties
+; PAL2 - some palette override
+; SIZE - size bit ORA'd in with X bit 8
 ;
 ; $00 X position low
 ; $01 X position high
@@ -17195,22 +17178,22 @@ Uncle_GrantEquipment:
 ; $09 Data pointer high
 ;
 ; $0C OAM X low
-; $0D OAM X bit 8 (written to $0A20, X)
+; $0D OAM X bit 8 (written to $0A20,X)
 ;===================================================================================================
-Sprite_DrawMultiple:
+SpriteDraw_Tabulated:
 #_05DF6C: STA.b $06
 #_05DF6E: STZ.b $07
 
 ;---------------------------------------------------------------------------------------------------
 
-#Sprite_DrawMultiple_preset_quantity:
-#_05DF70: JSR Sprite_DrawMultiple_prep_oam
+#SpriteDraw_Tabulated_preset_quantity:
+#_05DF70: JSR SpriteDraw_Tabulated_prep_oam
 #_05DF73: BRA .continue
 
 ;---------------------------------------------------------------------------------------------------
 
-#Sprite_DrawMultiple_player_deferred:
-#_05DF75: JSR Sprite_DrawMultiple_prep_oam_deferred
+#SpriteDraw_Tabulated_player_deferred:
+#_05DF75: JSR SpriteDraw_Tabulated_prep_oam_deferred
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17308,12 +17291,12 @@ Sprite_DrawMultiple:
 
 ;===================================================================================================
 
-Sprite_DrawMultiple_prep_oam_deferred:
-#_05DFE5: JSL OAM_AllocateDeferToPlayer_long
+SpriteDraw_Tabulated_prep_oam_deferred:
+#_05DFE5: JSL SpriteDraw_AllocateOAMDeferToPlayer_long
 
 ;===================================================================================================
 
-Sprite_DrawMultiple_prep_oam:
+SpriteDraw_Tabulated_prep_oam:
 #_05DFE9: JSR Sprite_PrepOAMCoord_Bank05
 
 #_05DFEC: PHP
@@ -17367,13 +17350,13 @@ Sprite_32_ArguingBros:
 
 ;---------------------------------------------------------------------------------------------------
 
+; Checks for ROOM 00F4 or ROOM 00F5
 #_05E026: LDA.b $A0
 #_05E028: AND.b #$01
 #_05E02A: BNE .east_side
 
 .west_side
-; Message 012F
-#_05E02C: LDA.b #$2F
+#_05E02C: LDA.b #$2F ; MESSAGE 012F
 #_05E02E: LDY.b #$01
 #_05E030: JSL Sprite_ShowSolicitedMessage
 #_05E034: BRA .continue
@@ -17381,11 +17364,10 @@ Sprite_32_ArguingBros:
 ;---------------------------------------------------------------------------------------------------
 
 .east_side
-; Message 012D
 #_05E036: LDA.w $0401
 #_05E039: BNE .door_opened
 
-#_05E03B: LDA.b #$2D
+#_05E03B: LDA.b #$2D ; MESSAGE 012D
 #_05E03D: LDY.b #$01
 #_05E03F: JSL Sprite_ShowSolicitedMessage
 #_05E043: BRA .continue
@@ -17393,8 +17375,7 @@ Sprite_32_ArguingBros:
 ;---------------------------------------------------------------------------------------------------
 
 .door_opened
-; Message 012E
-#_05E045: LDA.b #$2E
+#_05E045: LDA.b #$2E ; MESSAGE 012E
 #_05E047: LDY.b #$01
 #_05E049: JSL Sprite_ShowSolicitedMessage
 
@@ -17594,7 +17575,7 @@ SpriteDraw_ArguingBros:
 #_05E196: ADC.b #$00
 #_05E198: STA.b $09
 
-#_05E19A: JSL Sprite_DrawMultiple_player_deferred
+#_05E19A: JSL SpriteDraw_Tabulated_player_deferred
 #_05E19E: JSL SpriteDraw_Shadow_long
 
 #_05E1A2: RTS
@@ -17949,7 +17930,7 @@ SpriteDraw_YoungSnitch:
 #_05E396: ADC.b #$00
 #_05E398: STA.b $09
 
-#_05E39A: JSL Sprite_DrawMultiple_player_deferred
+#_05E39A: JSL SpriteDraw_Tabulated_player_deferred
 #_05E39E: JSL SpriteDraw_Shadow_long
 
 #_05E3A2: RTS
@@ -17959,8 +17940,8 @@ SpriteDraw_YoungSnitch:
 pool Sprite_35_Innkeeper
 
 .messages_low
-#_05E3A3: db $80 ; Message 0180
-#_05E3A4: db $81 ; Message 0181
+#_05E3A3: db $80 ; MESSAGE 0180
+#_05E3A4: db $81 ; MESSAGE 0181
 
 .messages_high
 #_05E3A5: db $01
@@ -18025,7 +18006,7 @@ SpriteDraw_Innkeeper:
 #_05E3E6: LDA.b #.oam_groups>>8
 #_05E3E8: STA.b $09
 
-#_05E3EA: JSL Sprite_DrawMultiple_player_deferred
+#_05E3EA: JSL SpriteDraw_Tabulated_player_deferred
 #_05E3EE: JSL SpriteDraw_Shadow_long
 
 #_05E3F2: RTS
@@ -18149,8 +18130,7 @@ Witch_DiscussMushroom:
 #_05E482: BNE .no_powder
 
 .give_me_shroom
-; Message 0048
-#_05E484: LDA.b #$48
+#_05E484: LDA.b #$48 ; MESSAGE 0048
 #_05E486: LDY.b #$00
 #_05E488: JSL Sprite_ShowSolicitedMessage
 
@@ -18171,8 +18151,7 @@ Witch_DiscussMushroom:
 #_05E49A: CMP.b #$00
 #_05E49C: BPL .give_me_shroom
 
-; Message 0049
-#_05E49E: LDA.b #$49
+#_05E49E: LDA.b #$49 ; MESSAGE 0049
 #_05E4A0: LDY.b #$00
 #_05E4A2: JSL Sprite_ShowSolicitedMessage
 
@@ -18202,8 +18181,7 @@ Witch_YouHaveShroom:
 #_05E4C5: RTS
 
 .no_y_press
-; Message 004A
-#_05E4C6: LDA.b #$4A
+#_05E4C6: LDA.b #$4A ; MESSAGE 004A
 #_05E4C8: LDY.b #$00
 #_05E4CA: JSL Sprite_ShowSolicitedMessage
 
@@ -18237,8 +18215,7 @@ Witch_AcceptShroom:
 
 #_05E4F6: PLX
 
-; Message 0049
-#_05E4F7: LDA.b #$49
+#_05E4F7: LDA.b #$49 ; MESSAGE 0049
 #_05E4F9: LDY.b #$00
 #_05E4FB: JSL Sprite_ShowMessageUnconditional
 
@@ -18305,7 +18282,7 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 SpriteDraw_Witch:
 #_05E55D: JSR Sprite_PrepOAMCoord_Bank05
-#_05E560: JSL OAM_AllocateDeferToPlayer_long
+#_05E560: JSL SpriteDraw_AllocateOAMDeferToPlayer_long
 
 #_05E564: LDA.w $0DC0,X
 #_05E567: STA.b $00
@@ -18606,8 +18583,7 @@ Snitch_Main:
 #_05E6D5: EOR.b #$03
 #_05E6D7: STA.w $0EB0,X
 
-; Message 00AB
-#_05E6DA: LDA.b #$AB
+#_05E6DA: LDA.b #$AB ; MESSAGE 00AB
 #_05E6DC: LDY.b #$00
 #_05E6DE: JSL Sprite_ShowSolicitedMessage
 
@@ -18725,8 +18701,7 @@ Snitch_Meander:
 #_05E76D: LDA.b #$03
 #_05E76F: STA.w $0F60,X
 
-; Message 002D
-#_05E772: LDA.b #$2D
+#_05E772: LDA.b #$2D ; MESSAGE 002D
 #_05E774: LDY.b #$00
 #_05E776: JSL Sprite_ShowMessageOnContact
 
@@ -19167,8 +19142,7 @@ RunningBoy_RunRight:
 ;===================================================================================================
 
 RunningBoy_Caught:
-; Message 00A4
-#_05E998: LDA.b #$A4
+#_05E998: LDA.b #$A4 ; MESSAGE 00A4
 #_05E99A: LDY.b #$00
 #_05E99C: JSL Sprite_ShowMessageUnconditional
 #_05E9A0: BCC .no_talk
@@ -19271,7 +19245,7 @@ SpriteDraw_RunningBoy:
 #_05EA64: ADC.b #$00
 #_05EA66: STA.b $09
 
-#_05EA68: JSL Sprite_DrawMultiple_player_deferred
+#_05EA68: JSL SpriteDraw_Tabulated_player_deferred
 #_05EA6C: JSL SpriteDraw_Shadow_long
 
 #_05EA70: RTS
@@ -19338,8 +19312,7 @@ Sprite_75_BottleMerchant:
 ;===================================================================================================
 
 BottleVendor_OutOfStock:
-; Message 00D2
-#_05EABE: LDA.b #$D2
+#_05EABE: LDA.b #$D2 ; MESSAGE 00D2
 #_05EAC0: LDY.b #$00
 #_05EAC2: JSL Sprite_ShowSolicitedMessage
 
@@ -19368,8 +19341,7 @@ BottleVendor_Idle:
 
 ;---------------------------------------------------------------------------------------------------
 
-; Message 00CF
-#_05EADF: LDA.b #$CF
+#_05EADF: LDA.b #$CF ; MESSAGE 00CF
 #_05EAE1: LDY.b #$00
 #_05EAE3: JSL Sprite_ShowSolicitedMessage
 #_05EAE7: BCC .exit
@@ -19395,8 +19367,7 @@ BottleVendor_OfferSale:
 
 #_05EAFD: BCC .rejected
 
-; Message 00D0
-#_05EAFF: LDA.b #$D0
+#_05EAFF: LDA.b #$D0 ; MESSAGE 00D0
 #_05EB01: LDY.b #$00
 #_05EB03: JSL Sprite_ShowMessageUnconditional
 
@@ -19407,8 +19378,7 @@ BottleVendor_OfferSale:
 ;---------------------------------------------------------------------------------------------------
 
 .rejected
-; Message 00D1
-#_05EB0B: LDA.b #$D1
+#_05EB0B: LDA.b #$D1 ; MESSAGE 00D1
 #_05EB0D: LDY.b #$00
 #_05EB0F: JSL Sprite_ShowMessageUnconditional
 
@@ -19456,8 +19426,7 @@ BottleVendor_BuyingItem:
 ;---------------------------------------------------------------------------------------------------
 
 .buying_bee
-; Message 00D3
-#_05EB45: LDA.b #$D3
+#_05EB45: LDA.b #$D3 ; MESSAGE 00D3
 #_05EB47: LDY.b #$00
 #_05EB49: JSL Sprite_ShowMessageUnconditional
 
@@ -19468,8 +19437,7 @@ BottleVendor_BuyingItem:
 ;---------------------------------------------------------------------------------------------------
 
 .buying_fish
-; Message 00D4
-#_05EB51: LDA.b #$D4
+#_05EB51: LDA.b #$D4 ; MESSAGE 00D4
 #_05EB53: LDY.b #$00
 #_05EB55: JSL Sprite_ShowMessageUnconditional
 
@@ -19549,7 +19517,7 @@ SpriteDraw_BottleMerchant:
 #_05EBBA: ADC.b #$00
 #_05EBBC: STA.b $09
 
-#_05EBBE: JSL Sprite_DrawMultiple_player_deferred
+#_05EBBE: JSL SpriteDraw_Tabulated_player_deferred
 #_05EBC2: JSL SpriteDraw_Shadow_long
 
 #_05EBC6: RTS
@@ -19599,7 +19567,7 @@ SpritePrep_Zelda:
 #_05EBF8: STA.l $7EF3CC
 
 #_05EBFC: LDA.b $A0
-#_05EBFE: CMP.b #$12
+#_05EBFE: CMP.b #$12 ; ROOM 0012
 #_05EC00: BNE .not_sanc
 
 #_05EC02: LDA.b #$02
@@ -19788,8 +19756,7 @@ Zelda_ApproachHero:
 
 #_05ECFF: INC.w $0D80,X
 
-; Message 001A
-#_05ED02: LDA.b #$1A
+#_05ED02: LDA.b #$1A ; MESSAGE 001A
 #_05ED04: LDY.b #$00
 #_05ED06: JSL Sprite_ShowMessageUnconditional
 
@@ -19814,8 +19781,7 @@ Zelda_ApproachHero:
 Zelda_DebaseAgahnim:
 #_05ED20: INC.w $0D80,X
 
-; Message 0023
-#_05ED23: LDA.b #$23
+#_05ED23: LDA.b #$23 ; MESSAGE 0023
 #_05ED25: LDY.b #$00
 #_05ED27: JSL Sprite_ShowMessageUnconditional
 
@@ -19827,8 +19793,7 @@ Zelda_VerifyAttentionSpan:
 #_05ED2C: LDA.w $1CE8
 #_05ED2F: BNE .moron
 
-; Message 0022
-#_05ED31: LDA.b #$22
+#_05ED31: LDA.b #$22 ; MESSAGE 0022
 #_05ED33: LDY.b #$00
 #_05ED35: JSL Sprite_ShowMessageUnconditional
 
@@ -19942,8 +19907,7 @@ Zelda_EnterSanctuary:
 ;===================================================================================================
 
 Zelda_TalkHeadOff:
-; Message 001B
-#_05EDC4: LDA.b #$1B
+#_05EDC4: LDA.b #$1B ; MESSAGE 001B
 #_05EDC6: LDY.b #$00
 #_05EDC8: JSL Sprite_ShowMessageUnconditional
 
@@ -19977,8 +19941,7 @@ Zelda_WellWishes:
 #_05EDF0: EOR.b #$03
 #_05EDF2: STA.w $0EB0,X
 
-; Message 001C
-#_05EDF5: LDA.b #$1C
+#_05EDF5: LDA.b #$1C ; MESSAGE 001C
 #_05EDF7: LDY.b #$00
 #_05EDF9: JSL Sprite_ShowSolicitedMessage
 #_05EDFD: BCC .exit
@@ -19994,9 +19957,9 @@ Zelda_WellWishes:
 pool Zelda_AtSanctuary
 
 .message_low
-#_05EE06: db $1C ; Message 001C
-#_05EE07: db $24 ; Message 0024
-#_05EE08: db $25 ; Message 0025
+#_05EE06: db $1C ; MESSAGE 001C
+#_05EE07: db $24 ; MESSAGE 0024
+#_05EE08: db $25 ; MESSAGE 0025
 
 .message_high
 #_05EE09: db $00
@@ -20171,8 +20134,7 @@ Sprite_E8_FakeMasterSword:
 
 #_05EEC2: INC.w $0DB0,X
 
-; Message 006D
-#_05EEC5: LDA.b #$6D
+#_05EEC5: LDA.b #$6D ; MESSAGE 006D
 #_05EEC7: LDY.b #$00
 #_05EEC9: JSL Sprite_ShowMessageUnconditional
 
@@ -20208,7 +20170,7 @@ SpriteDraw_FakeMasterSword:
 #_05EEF0: LDA.b #.oam_groups>>8
 #_05EEF2: STA.b $09
 
-#_05EEF4: JSL Sprite_DrawMultiple_player_deferred
+#_05EEF4: JSL SpriteDraw_Tabulated_player_deferred
 
 #_05EEF8: RTS
 
@@ -20216,10 +20178,10 @@ SpriteDraw_FakeMasterSword:
 
 HeartPieceMessage:
 .low
-#_05EEF9: db $56 ; Message 0156
-#_05EEFA: db $53 ; Message 0153
-#_05EEFB: db $54 ; Message 0154
-#_05EEFC: db $55 ; Message 0155
+#_05EEF9: db $56 ; MESSAGE 0156
+#_05EEFA: db $53 ; MESSAGE 0153
+#_05EEFB: db $54 ; MESSAGE 0154
+#_05EEFC: db $55 ; MESSAGE 0155
 
 .high
 #_05EEFD: db $01
@@ -20247,7 +20209,7 @@ SpritePrep_HeartContainer:
 #_05EF0B: BNE .indoors
 
 #_05EF0D: LDA.b $8A
-#_05EF0F: CMP.b #$3B
+#_05EF0F: CMP.b #$3B ; OW 3B
 #_05EF11: BNE .not_dam_screen
 
 #_05EF13: LDA.l $7EF2BB
@@ -20310,7 +20272,7 @@ Sprite_EA_HeartContainer:
 
 .main
 #_05EF47: LDA.w $040C
-#_05EF4A: CMP.b #$1A
+#_05EF4A: CMP.b #$1A ; DUNGEON 1A
 #_05EF4C: BNE .not_ganons_tower
 
 #_05EF4E: STZ.w $0DD0,X
@@ -20336,7 +20298,7 @@ Sprite_EA_HeartContainer:
 
 .gfx_loaded
 #_05EF69: LDA.w $048E
-#_05EF6C: CMP.b #$06
+#_05EF6C: CMP.b #$06 ; ROOM 0006
 #_05EF6E: BNE .no_water_ripple
 
 #_05EF70: LDA.w $0F70,X
@@ -20367,7 +20329,7 @@ Sprite_EA_HeartContainer:
 #_05EF99: STA.w $0F80,X
 
 #_05EF9C: LDA.w $048E
-#_05EF9F: CMP.b #$06
+#_05EF9F: CMP.b #$06 ; ROOM 0006
 #_05EFA1: BNE .continue
 
 #_05EFA3: LDA.w $0E30,X
@@ -20647,8 +20609,7 @@ Aginah:
 #_05F0F6: CMP.b #$02
 #_05F0F8: BCC .weak_sword
 
-; Message 0126
-#_05F0FA: LDA.b #$26
+#_05F0FA: LDA.b #$26 ; MESSAGE 0126
 #_05F0FC: LDY.b #$01
 #_05F0FE: JSL Sprite_ShowSolicitedMessage
 
@@ -20662,8 +20623,7 @@ Aginah:
 #_05F10A: CMP.b #$07
 #_05F10C: BNE .missing_pendants
 
-; Message 0124
-#_05F10E: LDA.b #$24
+#_05F10E: LDA.b #$24 ; MESSAGE 0124
 #_05F110: LDY.b #$01
 #_05F112: JSL Sprite_ShowSolicitedMessage
 
@@ -20676,8 +20636,7 @@ Aginah:
 #_05F11A: CMP.b #$02
 #_05F11C: BNE .missing_blue_pendant
 
-; Message 0127
-#_05F11E: LDA.b #$27
+#_05F11E: LDA.b #$27 ; MESSAGE 0127
 #_05F120: LDY.b #$01
 #_05F122: JSL Sprite_ShowSolicitedMessage
 
@@ -20689,8 +20648,7 @@ Aginah:
 #_05F128: LDA.l $7EF34E
 #_05F12C: BEQ .first_message
 
-; Message 0125
-#_05F12E: LDA.b #$25
+#_05F12E: LDA.b #$25 ; MESSAGE 0125
 #_05F130: LDY.b #$01
 #_05F132: JSL Sprite_ShowSolicitedMessage
 
@@ -20699,8 +20657,7 @@ Aginah:
 ;---------------------------------------------------------------------------------------------------
 
 .first_message
-; Message 0123
-#_05F138: LDA.b #$23
+#_05F138: LDA.b #$23 ; MESSAGE 0123
 #_05F13A: LDY.b #$01
 #_05F13C: JSL Sprite_ShowSolicitedMessage
 
@@ -20726,8 +20683,8 @@ Sahasrahla:
 pool Sasha_Idle
 
 .message_low
-#_05F15C: db $37 ; Message 0036
-#_05F15D: db $36 ; Message 0037
+#_05F15C: db $37 ; MESSAGE 0036
+#_05F15D: db $36 ; MESSAGE 0037
 
 .message_high
 #_05F15E: db $00
@@ -20742,8 +20699,7 @@ Sasha_Idle:
 #_05F164: AND.b #$04
 #_05F166: BNE .green_pendant_obtained
 
-; Message 0030
-#_05F168: LDA.b #$30
+#_05F168: LDA.b #$30 ; MESSAGE 0030
 #_05F16A: LDY.b #$00
 #_05F16C: JSL Sprite_ShowSolicitedMessage
 #_05F170: BCC .no_talk
@@ -20787,8 +20743,7 @@ Sasha_Idle:
 #_05F19E: LDA.l $7EF346
 #_05F1A2: BNE .have_ice_rod
 
-; Message 0035
-#_05F1A4: LDA.b #$35
+#_05F1A4: LDA.b #$35 ; MESSAGE 0035
 #_05F1A6: LDY.b #$00
 #_05F1A8: JSL Sprite_ShowSolicitedMessage
 
@@ -20802,8 +20757,7 @@ Sasha_Idle:
 #_05F1B4: CMP.b #$07
 #_05F1B6: BEQ .have_every_pendant
 
-; Message 0032
-#_05F1B8: LDA.b #$32
+#_05F1B8: LDA.b #$32 ; MESSAGE 0032
 #_05F1BA: LDY.b #$00
 #_05F1BC: JSL Sprite_ShowSolicitedMessage
 
@@ -20816,8 +20770,7 @@ Sasha_Idle:
 #_05F1C6: CMP.b #$02
 #_05F1C8: BCS .have_mastersword
 
-; Message 002E
-#_05F1CA: LDA.b #$2E
+#_05F1CA: LDA.b #$2E ; MESSAGE 002E
 #_05F1CC: LDY.b #$00
 #_05F1CE: JSL Sprite_ShowSolicitedMessage
 
@@ -20826,8 +20779,7 @@ Sasha_Idle:
 ;---------------------------------------------------------------------------------------------------
 
 .have_mastersword
-; Message 002F
-#_05F1D4: LDA.b #$2F
+#_05F1D4: LDA.b #$2F ; MESSAGE 002F
 #_05F1D6: LDY.b #$00
 #_05F1D8: JSL Sprite_ShowSolicitedMessage
 
@@ -20850,8 +20802,7 @@ Elder_Animate:
 ;===================================================================================================
 
 Sasha_GiveQuest:
-; Message 0031
-#_05F1E9: LDA.b #$31
+#_05F1E9: LDA.b #$31 ; MESSAGE 0031
 #_05F1EB: LDY.b #$00
 #_05F1ED: JSL Sprite_ShowMessageUnconditional
 
@@ -20879,8 +20830,7 @@ Sasha_GiveBoots:
 ;===================================================================================================
 
 Sasha_PromoteIceRod:
-; Message 0035
-#_05F20E: LDA.b #$35
+#_05F20E: LDA.b #$35 ; MESSAGE 0035
 #_05F210: LDY.b #$00
 #_05F212: JSL Sprite_ShowMessageUnconditional
 
@@ -20924,7 +20874,7 @@ SpriteDraw_Elder:
 #_05F24D: ADC.b #$00
 #_05F24F: STA.b $09
 
-#_05F251: JSL Sprite_DrawMultiple_player_deferred
+#_05F251: JSL SpriteDraw_Tabulated_player_deferred
 #_05F255: JSL SpriteDraw_Shadow_long
 
 #_05F259: RTS
@@ -20948,7 +20898,7 @@ SpritePrep_MedallionTablet:
 #_05F262: INC.w $0BA0,X
 
 #_05F265: LDA.b $8A
-#_05F267: CMP.b #$03
+#_05F267: CMP.b #$03 ; OW 03
 #_05F269: BEQ .ether_tablet
 
 #_05F26B: LDA.w $0D10,X
@@ -21124,8 +21074,8 @@ MedallionTablet_Main:
 
 EtherMessage:
 .low
-#_05F347: db $0B ; Message 010B
-#_05F348: db $0C ; Message 010C
+#_05F347: db $0B ; MESSAGE 010B
+#_05F348: db $0C ; MESSAGE 010C
 
 .high
 #_05F349: db $01
@@ -21135,8 +21085,8 @@ EtherMessage:
 
 BombosMessage:
 .low
-#_05F34B: db $0B ; Message 010B
-#_05F34C: db $0D ; Message 010D
+#_05F34B: db $0B ; MESSAGE 010B
+#_05F34C: db $0D ; MESSAGE 010D
 
 .high
 #_05F34D: db $01
@@ -21146,7 +21096,7 @@ BombosMessage:
 
 MedallionTablet_WaitingToBeRead:
 #_05F34F: LDA.b $8A
-#_05F351: CMP.b #$03
+#_05F351: CMP.b #$03 ; OW 03
 #_05F353: BEQ EtherTablet
 
 ;===================================================================================================
@@ -21408,8 +21358,7 @@ MrsSahasrahla_Idle:
 #_05F48E: CMP.b #$02
 #_05F490: BCS MrsSahasrahla_DiscussMasterSword
 
-; Message 0029
-#_05F492: LDA.b #$29
+#_05F492: LDA.b #$29 ; MESSAGE 0029
 #_05F494: LDY.b #$00
 #_05F496: JSL Sprite_ShowSolicitedMessage
 #_05F49A: BCC MrsSahasrahla_Animate
@@ -21432,8 +21381,7 @@ MrsSahasrahla_Animate:
 ;===================================================================================================
 
 MrsSahasrahla_DiscussMasterSword:
-; Message 002C
-#_05F4AB: LDA.b #$2C
+#_05F4AB: LDA.b #$2C ; MESSAGE 002C
 #_05F4AD: LDY.b #$00
 #_05F4AF: JSL Sprite_ShowSolicitedMessage
 
@@ -21442,8 +21390,7 @@ MrsSahasrahla_DiscussMasterSword:
 ;===================================================================================================
 
 MrsSahasrahla_BabbleOn:
-; Message 002A
-#_05F4B5: LDA.b #$2A
+#_05F4B5: LDA.b #$2A ; MESSAGE 002A
 #_05F4B7: LDY.b #$00
 #_05F4B9: JSL Sprite_ShowMessageUnconditional
 
@@ -21459,8 +21406,7 @@ MrsSahasrahla_QuestionSanity:
 
 #_05F4C6: INC.w $0D80,X
 
-; Message 002B
-#_05F4C9: LDA.b #$2B
+#_05F4C9: LDA.b #$2B ; MESSAGE 002B
 #_05F4CB: LDY.b #$00
 #_05F4CD: JSL Sprite_ShowMessageUnconditional
 
@@ -21469,8 +21415,7 @@ MrsSahasrahla_QuestionSanity:
 ;---------------------------------------------------------------------------------------------------
 
 .confirm_insanity
-; Message 002A
-#_05F4D2: LDA.b #$2A
+#_05F4D2: LDA.b #$2A ; MESSAGE 002A
 #_05F4D4: LDY.b #$00
 #_05F4D6: JSL Sprite_ShowMessageUnconditional
 
@@ -21479,8 +21424,7 @@ MrsSahasrahla_QuestionSanity:
 ;===================================================================================================
 
 MrsSahasrahla_FindMyHubby:
-; Message 002B
-#_05F4DB: LDA.b #$2B
+#_05F4DB: LDA.b #$2B ; MESSAGE 002B
 #_05F4DD: LDY.b #$00
 #_05F4DF: JSL Sprite_ShowSolicitedMessage
 
@@ -21521,7 +21465,7 @@ SpriteDraw_MrsSahasrahla:
 #_05F518: ADC.b #$00
 #_05F51A: STA.b $09
 
-#_05F51C: JSL Sprite_DrawMultiple_player_deferred
+#_05F51C: JSL SpriteDraw_Tabulated_player_deferred
 
 #_05F520: RTS
 
@@ -21789,7 +21733,7 @@ SpriteDraw_BagOfPowder:
 #_05F685: LDA.b #.oam_groups>>8
 #_05F687: STA.b $09
 
-#_05F689: JSL Sprite_DrawMultiple_player_deferred
+#_05F689: JSL SpriteDraw_Tabulated_player_deferred
 
 #_05F68D: RTS
 
@@ -21806,8 +21750,7 @@ Sprite_GreenCauldron:
 #_05F69D: JSR PotionCauldron_CheckBottles
 #_05F6A0: BCS .have_bottles
 
-; Message 004D
-#_05F6A2: LDA.b #$4D
+#_05F6A2: LDA.b #$4D ; MESSAGE 004D
 #_05F6A4: LDY.b #$00
 #_05F6A6: JSL Sprite_ShowMessageOnContact
 #_05F6AA: BCC .exit_a
@@ -21835,7 +21778,7 @@ Sprite_GreenCauldron:
 #_05F6C3: SEP #$30
 #_05F6C5: BCC .too_poor
 
-#_05F6C7: JSL Find_EmptyBottle
+#_05F6C7: JSL FindEmptyBottle
 #_05F6CB: BMI .no_space
 
 #_05F6CD: LDA.b #$1D ; SFX3.1D
@@ -21864,8 +21807,7 @@ Sprite_GreenCauldron:
 ;---------------------------------------------------------------------------------------------------
 
 .no_space
-; Message 004E
-#_05F6F2: LDA.b #$4E
+#_05F6F2: LDA.b #$4E ; MESSAGE 004E
 #_05F6F4: LDY.b #$00
 #_05F6F6: JSL Sprite_ShowMessageUnconditional
 
@@ -21898,7 +21840,7 @@ SpriteDraw_GreenCauldron:
 #_05F722: LDA.b #.oam_groups>>8
 #_05F724: STA.b $09
 
-#_05F726: JSL Sprite_DrawMultiple_player_deferred
+#_05F726: JSL SpriteDraw_Tabulated_player_deferred
 
 #_05F72A: RTS
 
@@ -21915,8 +21857,7 @@ Sprite_BlueCauldron:
 #_05F73A: JSR PotionCauldron_CheckBottles
 #_05F73D: BCS .have_bottles
 
-; Message 004D
-#_05F73F: LDA.b #$4D
+#_05F73F: LDA.b #$4D ; MESSAGE 004D
 #_05F741: LDY.b #$00
 #_05F743: JSL Sprite_ShowMessageOnContact
 #_05F747: BCC .exit_a
@@ -21944,7 +21885,7 @@ Sprite_BlueCauldron:
 #_05F760: SEP #$30
 #_05F762: BCC .too_poor
 
-#_05F764: JSL Find_EmptyBottle
+#_05F764: JSL FindEmptyBottle
 #_05F768: BMI .no_space
 
 #_05F76A: LDA.b #$1D ; SFX3.1D
@@ -21973,8 +21914,7 @@ Sprite_BlueCauldron:
 ;---------------------------------------------------------------------------------------------------
 
 .no_space
-; Message 004E
-#_05F78F: LDA.b #$4E
+#_05F78F: LDA.b #$4E ; MESSAGE 004E
 #_05F791: LDY.b #$00
 #_05F793: JSL Sprite_ShowMessageUnconditional
 
@@ -22008,7 +21948,7 @@ SpriteDraw_BlueCauldron:
 #_05F7C7: LDA.b #.oam_groups>>8
 #_05F7C9: STA.b $09
 
-#_05F7CB: JSL Sprite_DrawMultiple_player_deferred
+#_05F7CB: JSL SpriteDraw_Tabulated_player_deferred
 
 #_05F7CF: RTS
 
@@ -22025,8 +21965,7 @@ Sprite_RedCauldron:
 #_05F7DF: JSR PotionCauldron_CheckBottles
 #_05F7E2: BCS .have_bottles
 
-; Message 004D
-#_05F7E4: LDA.b #$4D
+#_05F7E4: LDA.b #$4D ; MESSAGE 004D
 #_05F7E6: LDY.b #$00
 #_05F7E8: JSL Sprite_ShowMessageOnContact
 #_05F7EC: BCC .exit_a
@@ -22054,7 +21993,7 @@ Sprite_RedCauldron:
 #_05F805: SEP #$30
 #_05F807: BCC PotionCauldron_PovertyDisclaimer
 
-#_05F809: JSL Find_EmptyBottle
+#_05F809: JSL FindEmptyBottle
 #_05F80D: BMI .no_space
 
 #_05F80F: LDA.b #$1D ; SFX3.1D
@@ -22083,8 +22022,7 @@ Sprite_RedCauldron:
 ;---------------------------------------------------------------------------------------------------
 
 .no_space
-; Message 004E
-#_05F834: LDA.b #$4E
+#_05F834: LDA.b #$4E ; MESSAGE 004E
 #_05F836: LDY.b #$00
 #_05F838: JSL Sprite_ShowMessageUnconditional
 
@@ -22093,8 +22031,7 @@ Sprite_RedCauldron:
 ;===================================================================================================
 
 PotionCauldron_PovertyDisclaimer:
-; Message 017A
-#_05F83E: LDA.b #$7A
+#_05F83E: LDA.b #$7A ; MESSAGE 017A
 #_05F840: LDY.b #$01
 #_05F842: JSL Sprite_ShowMessageUnconditional
 
@@ -22131,7 +22068,7 @@ SpriteDraw_RedCauldron:
 #_05F877: LDA.b #.oam_groups>>8
 #_05F879: STA.b $09
 
-#_05F87B: JSL Sprite_DrawMultiple_player_deferred
+#_05F87B: JSL SpriteDraw_Tabulated_player_deferred
 
 #_05F87F: RTS
 
@@ -22194,8 +22131,7 @@ MagicShopAssistant_Main:
 #_05F8DE: LDA.w $0ABF
 #_05F8E1: BEQ .own_bottle
 
-; Message 004B
-#_05F8E3: LDA.b #$4B
+#_05F8E3: LDA.b #$4B ; MESSAGE 004B
 #_05F8E5: LDY.b #$00
 #_05F8E7: JSL Sprite_ShowSolicitedMessage
 
@@ -22212,8 +22148,7 @@ MagicShopAssistant_Main:
 ;---------------------------------------------------------------------------------------------------
 
 .own_bottle
-; Message 004C
-#_05F8F1: LDA.b #$4C
+#_05F8F1: LDA.b #$4C ; MESSAGE 004C
 #_05F8F3: LDY.b #$00
 #_05F8F5: JSL Sprite_ShowSolicitedMessage
 
@@ -22259,7 +22194,7 @@ SpriteDraw_Shopkeeper:
 #_05F931: ADC.b #$00
 #_05F933: STA.b $09
 
-#_05F935: JSL Sprite_DrawMultiple_player_deferred
+#_05F935: JSL SpriteDraw_Tabulated_player_deferred
 #_05F939: JSL SpriteDraw_Shadow_long
 
 #_05F93D: PLB
@@ -22587,7 +22522,7 @@ Sprite_ShowMessageMinimal:
 
 ;===================================================================================================
 
-Overworld_ReadTileAttribute:
+Overworld_ReadTileType:
 #_05FAA2: REP #$30
 
 #_05FAA4: LDA.b $00
@@ -22609,7 +22544,7 @@ Overworld_ReadTileAttribute:
 #_05FABE: LDA.l $7E2000,X
 #_05FAC2: TAX
 
-#_05FAC3: LDA.l OverworldTileAttributeTable,X
+#_05FAC3: LDA.l OverworldTileTypeTable,X
 
 #_05FAC7: SEP #$30
 
@@ -22752,8 +22687,7 @@ MagicBat_Ascend:
 ;---------------------------------------------------------------------------------------------------
 
 .speak
-; Message 010E
-#_05FB6C: LDA.b #$0E
+#_05FB6C: LDA.b #$0E ; MESSAGE 010E
 #_05FB6E: LDY.b #$01
 #_05FB70: JSL Sprite_ShowMessageUnconditional
 
@@ -22816,8 +22750,7 @@ MagicBat_EnhanceMagic:
 #_05FBB9: LDA.w $0E00,X
 #_05FBBC: BNE .delay
 
-; Message 010F
-#_05FBBE: LDA.b #$0F
+#_05FBBE: LDA.b #$0F ; MESSAGE 010F
 #_05FBC0: LDY.b #$01
 #_05FBC2: JSL Sprite_ShowMessageUnconditional
 
@@ -23532,8 +23465,7 @@ Sprite_3C_KidInKak:
 #_05FF81: CMP.b #$03
 #_05FF83: BCS .dont_discuss_quest
 
-; Message 0145
-#_05FF85: LDA.b #$45
+#_05FF85: LDA.b #$45 ; MESSAGE 0145
 #_05FF87: LDY.b #$01
 #_05FF89: JSL Sprite_ShowSolicitedMessage
 
@@ -23548,8 +23480,7 @@ Sprite_3C_KidInKak:
 ;---------------------------------------------------------------------------------------------------
 
 .dont_discuss_quest
-; Message 0146
-#_05FF96: LDA.b #$46
+#_05FF96: LDA.b #$46 ; MESSAGE 0146
 #_05FF98: LDY.b #$01
 #_05FF9A: JSL Sprite_ShowSolicitedMessage
 
@@ -23599,7 +23530,7 @@ SpriteDraw_KidInKak:
 #_05FFF2: ADC.b #$00
 #_05FFF4: STA.b $09
 
-#_05FFF6: JSL Sprite_DrawMultiple_player_deferred
+#_05FFF6: JSL SpriteDraw_Tabulated_player_deferred
 #_05FFFA: JSL SpriteDraw_Shadow_long
 
 #_05FFFE: RTS

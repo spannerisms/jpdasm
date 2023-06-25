@@ -356,6 +356,7 @@ HandleNote:
 #_19FD87: #_09B9: mov.b $14, A
 
 #_19FD89: #_09BB: pop X
+
 #_19FD8A: #_09BC: mov.w A, $0220+X
 #_19FD8D: #_09BF: mov.b Y, $15
 #_19FD8F: #_09C1: mul YA
@@ -364,6 +365,7 @@ HandleNote:
 #_19FD92: #_09C4: mov.w A, $0220+X
 #_19FD95: #_09C7: mov.b Y, $14
 #_19FD97: #_09C9: mul YA
+
 #_19FD98: #_09CA: push Y
 
 #_19FD99: #_09CB: mov.w A, $0221+X
@@ -601,8 +603,8 @@ EngineStartDelay:
 
 #_19FEAE: #_0AE0: dec X
 #_19FEAF: #_0AE1: dec X
-#_19FEB0: #_0AE2: lsr.b $47
 
+#_19FEB0: #_0AE2: lsr.b $47
 #_19FEB2: #_0AE4: bne .next_channel
 
 #_19FEB4: #_0AE6: mov.b $5A, A
@@ -641,12 +643,15 @@ HandleInput_Song:
 
 #_19FEDE: #_0B10: dbnz.b $0C, EngineStartDelay
 
+;---------------------------------------------------------------------------------------------------
+
 .loop
 #_19FEE1: #_0B13: call GetNextPart
 #_19FEE4: #_0B16: bne .valid_pointer
 
 #_19FEE6: #_0B18: mov Y, A
 #_19FEE7: #_0B19: bne .valid_command
+
 #_19FEE9: #_0B1B: jmp SongCommand_F0_Mute
 
 .valid_command
@@ -716,6 +721,8 @@ HandleInput_Song:
 #_19FF37: #_0B69: asl.b $47
 #_19FF39: #_0B6B: bne .next_channel
 
+;---------------------------------------------------------------------------------------------------
+
 .no_delay
 #_19FF3B: #_0B6D: mov.b X, #$00
 #_19FF3D: #_0B6F: mov.b $5E, X
@@ -748,6 +755,8 @@ HandleInput_Song:
 #_19FF64: #_0B96: mov.b $31+X, A
 
 #_19FF66: #_0B98: bra .try_again
+
+;---------------------------------------------------------------------------------------------------
 
 .non_terminating
 #_19FF68: #_0B9A: bmi .note_or_command
@@ -827,7 +836,10 @@ HandleInput_Song:
 #_19FFC3: #_0BF5: inc X
 #_19FFC4: #_0BF6: asl.b $47
 #_19FFC6: #_0BF8: beq .done_with_channels
+
 #_19FFC8: #_0BFA: jmp .loop_2
+
+;---------------------------------------------------------------------------------------------------
 
 .done_with_channels
 #_19FFCB: #_0BFD: mov.b A, $54
@@ -959,12 +971,13 @@ TrackCommand_E0_ChangeInstrument:
 #_1A8050: #_0C82: bne .return
 
 #_1A8052: #_0C84: push X
+
 #_1A8053: #_0C85: mov A, X
 #_1A8054: #_0C86: xcn A
 #_1A8055: #_0C87: lsr A
 #_1A8056: #_0C88: or.b A, #$04
-
 #_1A8058: #_0C8A: mov X, A
+
 #_1A8059: #_0C8B: mov.b Y, #$00
 #_1A805B: #_0C8D: mov.b A, ($14)+Y
 #_1A805D: #_0C8F: bpl .normal_sample
@@ -995,6 +1008,7 @@ TrackCommand_E0_ChangeInstrument:
 #_1A807E: #_0CB0: bne .dsp_write_loop
 
 #_1A8080: #_0CB2: pop X
+
 #_1A8081: #_0CB3: mov.b A, ($14)+Y
 #_1A8083: #_0CB5: mov.w $0221+X, A
 
@@ -1064,10 +1078,11 @@ TrackCommand_E4_VibratoOff:
 
 TrackCommand_F0_VibratoGradient:
 #_1A80CB: #_0CFD: mov.w $02B1+X, A
-
 #_1A80CE: #_0D00: push A
+
 #_1A80CF: #_0D01: mov.b Y, #$00
 #_1A80D1: #_0D03: mov.b A, $B1+X
+
 #_1A80D3: #_0D05: pop X
 
 #_1A80D4: #_0D06: div YA, X
@@ -1211,7 +1226,6 @@ TrackCommand_ED_ChannelVolume:
 
 TrackCommand_EE_ChannelVolumeSlide:
 #_1A8150: #_0D82: mov.b $90+X, A
-
 #_1A8152: #_0D84: push A
 
 #_1A8153: #_0D85: call GetTrackByte
@@ -1522,8 +1536,10 @@ MakeFraction:
 #_1A82A6: #_0ED8: div YA, X
 
 #_1A82A7: #_0ED9: push A
+
 #_1A82A8: #_0EDA: mov.b A, #$00
 #_1A82AA: #_0EDC: div YA, X
+
 #_1A82AB: #_0EDD: pop Y
 
 #_1A82AC: #_0EDE: mov.b X, $44
@@ -1606,12 +1622,12 @@ TrackCommandParamCount:
 #_1A8306: #_0F38: db 3 ; F8
 #_1A8307: #_0F39: db 3 ; F9
 #_1A8308: #_0F3A: db 1 ; FA
-#_1A8309: #_0F3B: db 2 ; FF
 
 ; extraneous
-#_1A830A: #_0F3C: db 0
-#_1A830B: #_0F3D: db 0
-#_1A830C: #_0F3E: db 0
+#_1A8309: #_0F3B: db 2 ; FB
+#_1A830A: #_0F3C: db 0 ; FC
+#_1A830B: #_0F3D: db 0 ; FD
+#_1A830C: #_0F3E: db 0 ; FE
 
 ;===================================================================================================
 
@@ -1633,6 +1649,7 @@ WritePitch:
 #_1A8321: #_0F53: cbne.b $C0+X, .tremelo_not_ready
 
 #_1A8324: #_0F56: or.b $5E, $47
+
 #_1A8327: #_0F59: mov.w A, $02D0+X
 #_1A832A: #_0F5C: bpl .tremelo_accumulate
 
@@ -1688,7 +1705,6 @@ WritePitch:
 .vol_right
 #_1A8367: #_0F99: mov.b Y, $11
 #_1A8369: #_0F9B: mov.w A, LogisticFunc+1+Y
-
 #_1A836C: #_0F9E: setc
 #_1A836D: #_0F9F: sbc.w A, LogisticFunc+0+Y
 
@@ -1697,7 +1713,6 @@ WritePitch:
 
 #_1A8373: #_0FA5: mov A, Y
 #_1A8374: #_0FA6: mov.b Y, $11
-
 #_1A8376: #_0FA8: clrc
 #_1A8377: #_0FA9: adc.w A, LogisticFunc+0+Y
 
@@ -2054,8 +2069,8 @@ AdjustPitchByFrames:
 #_1A8506: #_1138: mov.b Y, $51
 #_1A8508: #_113A: mul YA
 #_1A8509: #_113B: mov.b $14, Y
-
 #_1A850B: #_113D: mov.b $15, #$00
+
 #_1A850E: #_1140: mov.b Y, $51
 
 #_1A8510: #_1142: pop A
@@ -2123,7 +2138,7 @@ LogisticFunc:
 #_1A8556: #_1188: db $7A, $7C, $7D, $7E, $7F
 
 ;===================================================================================================
-; TODO
+; TODO - analyze these
 ; Contains values for each of the 8 bytes of filter
 ;===================================================================================================
 EchoFilterParameters:
@@ -2537,7 +2552,7 @@ SFX1_FadeHandler:
 
 HandleInput_SFX2:
 #_1A8785: #_13B7: mov.b A, $02
-#_1A8787: #_13B9: bne HandleValidSFX2or3
+#_1A8787: #_13B9: bne HandleValidSFX2
 
 #_1A8789: #_13BB: ret
 
@@ -2593,9 +2608,10 @@ HandleInput_SFX3:
 
 ;===================================================================================================
 
-HandleValidSFX2or3:
+HandleValidSFX2:
 #_1A87D1: #_1403: mov.b A, #$FF
 #_1A87D3: #_1405: cbne.b $1A, .not_all_muted
+
 #_1A87D6: #_1408: bra .return
 
 .not_all_muted
@@ -2631,7 +2647,7 @@ HandleValidSFX2or3:
 #_1A880B: #_143D: mov.w A, SFX2_Accomp-1+X
 #_1A880E: #_1440: mov.b $02, A
 
-#_1A8810: #_1442: bne HandleValidSFX2or3
+#_1A8810: #_1442: bne HandleValidSFX2
 
 .return
 #_1A8812: #_1444: ret

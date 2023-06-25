@@ -11,6 +11,11 @@ Raw binaries are not included in this repository due to voiced concerns of poten
 
 Both the Makefile and `binextract.py` Python program can extract the necessary binary files from a JP1.0 ROM file located in the base directory and named `alttp.sfc`.
 
+An accurate assembly of this repository should have the following checksums:
+* Internal (complement): `CDC8` (`3237`)
+* CRC32: `3322EFFC`
+* MD5: `03A63945398191337E896E5771F77173`
+* SHA1: `E7E852F0159CE612E3911164878A9B08B3CB9060`
 
 ---
 

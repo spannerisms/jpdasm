@@ -25,7 +25,7 @@
 ;   w - RAM/DSP write enable (0: disabled; read-only | 1: enabled)
 ;   t - timer enable (0: enabled | 1: not enabled)
 ; The initial value for this register is 0x0A (....d.w.)
-TEST = $00F0
+TEST = $F0
 
 ; SPC IPL BANKING AND COMMUNICATION / TIMER RESET
 ; $00F1 w

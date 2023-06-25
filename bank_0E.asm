@@ -6487,7 +6487,7 @@ Credits_SpriteDraw_Lumberjacks:
 #_0ECDC8: STA.w $0E20,X
 
 #_0ECDCB: LDA.b #$2C
-#_0ECDCD: JSL OAM_AllocateFromRegionA
+#_0ECDCD: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_0ECDD1: LDA.b #$3B
 #_0ECDD3: STA.w $0F50,X
@@ -6832,7 +6832,7 @@ Credits_SpriteDraw_DrawShadow:
 #_0ED02F: JSR Credits_SpriteDraw_SetShadowProp
 
 #_0ED032: LDA.b #$04
-#_0ED034: JSL OAM_AllocateFromRegionA
+#_0ED034: JSL SpriteDraw_AllocateOAMFromRegionA
 #_0ED038: JSL SpriteDraw_Shadow_long
 
 #_0ED03C: RTS
@@ -6940,7 +6940,7 @@ Credits_SpriteDraw_ActivateAndRunSprite_allocate8:
 Credits_SpriteDraw_ActivateAndRunSprite:
 #_0ED0C4: STX.w $0FA0
 
-#_0ED0C7: JSL OAM_AllocateFromRegionA
+#_0ED0C7: JSL SpriteDraw_AllocateOAMFromRegionA
 #_0ED0CB: JSL Sprite_Get16BitCoords_long
 
 #_0ED0CF: LDA.b $11
@@ -6966,7 +6966,7 @@ Credits_SpriteDraw_PreexistingSpriteDraw_eight:
 ;===================================================================================================
 
 Credits_SpriteDraw_PreexistingSpriteDraw:
-#_0ED0E3: JSL OAM_AllocateFromRegionA
+#_0ED0E3: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_0ED0E7: STX.w $0FA0
 
@@ -7028,7 +7028,7 @@ Credits_SpriteDraw_Single:
 #_0ED136: ASL A
 #_0ED137: ASL A
 
-#_0ED138: JSL OAM_AllocateFromRegionA
+#_0ED138: JSL SpriteDraw_AllocateOAMFromRegionA
 #_0ED13C: JSL Sprite_Get16BitCoords_long
 
 #_0ED140: PLA
@@ -7060,7 +7060,7 @@ Credits_SpriteDraw_Single:
 #_0ED165: SEP #$20
 
 #_0ED167: PLA
-#_0ED168: JSL Sprite_DrawMultiple
+#_0ED168: JSL SpriteDraw_Tabulated
 
 #_0ED16C: RTS
 
@@ -7117,7 +7117,7 @@ Credits_SpriteDraw_Zora:
 #_0ED18A: STA.w $0E20,X
 
 #_0ED18D: LDA.w .object_allocation,X
-#_0ED190: JSL OAM_AllocateFromRegionA
+#_0ED190: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_0ED194: LDA.w .sprite_ai,X
 #_0ED197: STA.w $0D80,X
@@ -7518,7 +7518,7 @@ Credits_SpriteDraw_Witch:
 #_0ED40D: STA.w $0E20,X
 
 #_0ED410: LDA.b #$0C
-#_0ED412: JSL OAM_AllocateFromRegionA
+#_0ED412: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_0ED416: LDA.b #$37
 #_0ED418: STA.w $0F50,X
@@ -7564,7 +7564,7 @@ Credits_SpriteDraw_Witch:
 #_0ED44F: STA.w $0E20,X
 
 #_0ED452: LDA.b #$18
-#_0ED454: JSL OAM_AllocateFromRegionA
+#_0ED454: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_0ED458: LDA.b #$39
 #_0ED45A: STA.w $0F50,X
@@ -8440,10 +8440,10 @@ Credits_HandleCameraScrollControl:
 
 ; Look for fog overlays
 #_0ED90B: LDX.b $8C
-#_0ED90D: CPX.b #$97
+#_0ED90D: CPX.b #$97 ; OW 97
 #_0ED90F: BEQ .handle_horizontal
 
-#_0ED911: CPX.b #$9D
+#_0ED911: CPX.b #$9D ; OW 9D
 #_0ED913: BEQ .handle_horizontal
 
 #_0ED915: LDA.b $04
@@ -8458,10 +8458,10 @@ Credits_HandleCameraScrollControl:
 ; These don't seem used in credits
 ; Or at all
 #_0ED91E: LDX.b $8C
-#_0ED920: CPX.b #$B5
+#_0ED920: CPX.b #$B5 ; OW B5
 #_0ED922: BEQ .unused_overlay
 
-#_0ED924: CPX.b #$BE
+#_0ED924: CPX.b #$BE ; OW BE
 #_0ED926: BNE .not_unused_overlay
 
 .unused_overlay
@@ -8540,10 +8540,10 @@ Credits_HandleCameraScrollControl:
 
 ; Check for fog overlays
 #_0ED97E: LDX.b $8C
-#_0ED980: CPX.b #$97
+#_0ED980: CPX.b #$97 ; OW 97
 #_0ED982: BEQ .horizontal_control_done
 
-#_0ED984: CPX.b #$9D
+#_0ED984: CPX.b #$9D ; OW 9D
 #_0ED986: BEQ .horizontal_control_done
 
 #_0ED988: LDA.b $04
@@ -8556,11 +8556,11 @@ Credits_HandleCameraScrollControl:
 ;---------------------------------------------------------------------------------------------------
 
 #_0ED991: LDX.b $8C
-#_0ED993: CPX.b #$95
+#_0ED993: CPX.b #$95 ; OW 95
 #_0ED995: BEQ .dm_overlay
 
 ; Doesn't ever seem used in credits
-#_0ED997: CPX.b #$9E
+#_0ED997: CPX.b #$9E ; OW 9E
 #_0ED999: BNE .not_dm_overlay
 
 .dm_overlay
@@ -8597,14 +8597,14 @@ Credits_HandleCameraScrollControl:
 .horizontal_control_done
 ; Dark DM overlay
 #_0ED9C1: LDX.b $8C
-#_0ED9C3: CPX.b #$9C
+#_0ED9C3: CPX.b #$9C ; OW 9C
 #_0ED9C5: BEQ .extra_adjust_bg2
 
 ; Grove fog overlay
-#_0ED9C7: CPX.b #$97
+#_0ED9C7: CPX.b #$97 ; OW 97
 #_0ED9C9: BEQ .extra_adjust_bg1
 
-#_0ED9CB: CPX.b #$9D
+#_0ED9CB: CPX.b #$9D ; OW 9D
 #_0ED9CD: BNE .continue
 
 ;---------------------------------------------------------------------------------------------------
@@ -8651,7 +8651,7 @@ Credits_HandleCameraScrollControl:
 
 .continue
 #_0EDA0C: LDA.b $A0
-#_0EDA0E: CMP.w #$0181
+#_0EDA0E: CMP.w #$0181 ; OW 81
 #_0EDA11: BNE .exit
 
 #_0EDA13: LDA.b $E8
@@ -10393,8 +10393,9 @@ Credits_InitializeTheActualCredits:
 #_0EE727: db BG2HOFS
 #_0EE728: dl .indirect_table
 
+; Weird how this swaps between camera boundary and actual camera...
 .indirect_table
-#_0EE72B: db  82 : dw $000600 ; TODO document $060X use here
+#_0EE72B: db  82 : dw $000600
 #_0EE72E: db   8 : dw $0000E2
 #_0EE731: db   8 : dw $000602
 #_0EE734: db   5 : dw $000604
@@ -11418,8 +11419,7 @@ RenderText:
 ;===================================================================================================
 
 RenderText_PostDeathSaveOptions:
-; Message 0003
-#_0EEE25: LDA.b #$03
+#_0EEE25: LDA.b #$03 ; MESSAGE 0003
 #_0EEE27: STA.w $1CF0
 
 #_0EEE2A: LDA.b #$00
@@ -13259,8 +13259,8 @@ RenderText_Draw_NextImage:
 pool RenderText_Draw_Choose2LowOr3
 
 .arrow_messages
-#_0EF700: dw $0001 ; Message 0001
-#_0EF702: dw $0002 ; Message 0002
+#_0EF700: dw $0001 ; MESSAGE 0001
+#_0EF702: dw $0002 ; MESSAGE 0002
 
 pool off
 
@@ -13567,9 +13567,9 @@ RenderText_Draw_Choose2HighOr3:
 ;===================================================================================================
 
 Choose3_ArrowMessageID:
-#_0EF867: dw $0006 ; Message 0006
-#_0EF869: dw $0007 ; Message 0007
-#_0EF86B: dw $0008 ; Message 0008
+#_0EF867: dw $0006 ; MESSAGE 0006
+#_0EF869: dw $0007 ; MESSAGE 0007
+#_0EF86B: dw $0008 ; MESSAGE 0008
 
 ;===================================================================================================
 
@@ -13678,8 +13678,8 @@ RenderText_Draw_Choose3:
 pool RenderText_Draw_Choose1Or2
 
 .pointer_message_id
-#_0EF8E1: dw $0009 ; Message 0009
-#_0EF8E3: dw $000A ; Message 000A
+#_0EF8E1: dw $0009 ; MESSAGE 0009
+#_0EF8E3: dw $000A ; MESSAGE 000A
 
 pool off
 

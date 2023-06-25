@@ -196,9 +196,9 @@ Boomerang_CheatWhenNoOnesLooking:
 
 #_0680CB: BRA .done
 
-; this does the same thing as X, but withh the Y displacement
+; this does the same thing as X, but with the Y displacement
 .nowdoY
-#_0680CD: LDY.b #112
+#_0680CD: LDY.b #$70 ; 112
 
 #_0680CF: LDA.b $20
 #_0680D1: SEC
@@ -210,7 +210,7 @@ Boomerang_CheatWhenNoOnesLooking:
 #_0680D8: CMP.w #$01E0
 #_0680DB: BPL .positive_Y_speed
 
-#_0680DD: LDY.b #-112
+#_0680DD: LDY.b #$90 ; -112
 
 .positive_Y_speed
 #_0680DF: BCC .done ; on screen for Y-axis means done
@@ -597,7 +597,7 @@ Sprite_SpawnSecret:
 #_068264: LDA.b $1B ; indoors means pots, so it's always successful
 #_068266: BNE .indoors
 
-#_068268: JSL GetRandomNumber ; outdoors only has a 1/8 chance of success
+#_068268: JSL GetRandomNumber ; outdoors only has a 1/2 chance of success
 #_06826C: AND.b #$08
 #_06826E: BNE .fastexit
 
@@ -686,8 +686,9 @@ Sprite_SpawnSecret:
 #_0682E4: LDA.b #$30 ; SFX2.30
 #_0682E6: STA.w $012E
 
-#_0682E9: LDA.w $048E ; are we in the western snitch house?
-#_0682EC: CMP.b #$01 ; make the cucco powderable
+; are we in the western snitch house?
+#_0682E9: LDA.w $048E ; make the cucco powderable
+#_0682EC: CMP.b #$01 ; ROOM 0101
 #_0682EE: BNE .not_cucco
 
 #_0682F0: STA.w $0E30,Y
@@ -859,8 +860,8 @@ Sprite_Main:
 ;===================================================================================================
 ; Unused debug code
 ;===================================================================================================
-NKUKUKU_bounce:
-#_0683C2: JSL NKUKUKU
+NRURURU_bounce:
+#_0683C2: JSL NRURURU
 
 #_0683C6: RTL
 
@@ -920,7 +921,7 @@ Sprite_SetupHitbox_long:
 
 ;===================================================================================================
 ; Allocates OAM for the sprite to one of regions A, D, or F
-; If sprites aren't paused, TODO
+; If sprites aren't paused, decrement timers and handle taking damage
 ;===================================================================================================
 Sprite_TimersAndOAM:
 #_0683F2: JSR Sprite_Get16BitCoords
@@ -938,15 +939,15 @@ Sprite_TimersAndOAM:
 #_068402: LDY.w $0F20,X ; lower layer uses lower priority region
 #_068405: BEQ .use_regionD
 
-#_068407: JSL OAM_AllocateFromRegionF
+#_068407: JSL SpriteDraw_AllocateOAMFromRegionF
 #_06840B: BRA .oam_done
 
 .use_regionD
-#_06840D: JSL OAM_AllocateFromRegionD
+#_06840D: JSL SpriteDraw_AllocateOAMFromRegionD
 #_068411: BRA .oam_done
 
 .use_regionA
-#_068413: JSL OAM_AllocateFromRegionA
+#_068413: JSL SpriteDraw_AllocateOAMFromRegionA
 
 .oam_done
 #_068417: LDA.b $11 ; are sprites paused?
@@ -1013,8 +1014,7 @@ Sprite_TimersAndOAM:
 #_068469: BCS .not_agahnim2
 
 .aga2_message
-; Message 013E
-#_06846B: LDA.b #$3E
+#_06846B: LDA.b #$3E ; MESSAGE 013E
 #_06846D: STA.w $1CF0
 
 #_068470: LDA.b #$01
@@ -1022,14 +1022,16 @@ Sprite_TimersAndOAM:
 
 #_068475: JSL Sprite_ShowMessageMinimal
 
+;---------------------------------------------------------------------------------------------------
+
 .not_agahnim2
 #_068479: PLA
 
 .delay_damage
-#_06847A: CMP.b #$18 ; SPRITE 18
+#_06847A: CMP.b #$18
 #_06847C: BNE .no_damage
 
-#_06847E: JSR MiniMoldorm_Recoil
+#_06847E: JSR Sprite_HandleSpecialHits
 
 .no_damage
 #_068481: LDA.w $0CE2,X
@@ -1045,8 +1047,6 @@ Sprite_TimersAndOAM:
 #_068491: DEC.w $0EF0,X
 
 #_068494: BRA .hit_continue
-
-;---------------------------------------------------------------------------------------------------
 
 .skip_hit_timer
 #_068496: STZ.w $0EF0,X
@@ -1124,9 +1124,10 @@ Sprite_ExecuteSingle:
 #_0684E5: BEQ SpriteModule_Inactive
 
 #_0684E7: PHA
-#_0684E8: JSR Sprite_TimersAndOAM
-#_0684EB: PLA
 
+#_0684E8: JSR Sprite_TimersAndOAM
+
+#_0684EB: PLA
 #_0684EC: CMP.b #$09
 #_0684EE: BEQ .active
 
@@ -1253,14 +1254,10 @@ pool SpriteModule_Drown
 #_06858F: db $C0
 #_068590: db $80
 
-; TODO grouping?
 .char
-#_068591: db $C0, $C0
-#_068593: db $C0, $C0
-#_068595: db $CD, $CD
-#_068597: db $CD, $CB
-#_068599: db $CB, $CB
-#_06859B: db $CB
+#_068591: db $C0, $C0, $C0, $C0
+#_068595: db $CD, $CD, $CD
+#_068598: db $CB, $CB, $CB, $CB
 
 pool off
 
@@ -1275,7 +1272,7 @@ SpriteModule_Drown:
 #_0685A6: BNE .use_allotted_region
 
 #_0685A8: LDA.b #$08
-#_0685AA: JSL OAM_AllocateFromRegionC
+#_0685AA: JSL SpriteDraw_AllocateOAMFromRegionC
 
 .use_allotted_region
 #_0685AE: LDA.w $0E60,X
@@ -1396,7 +1393,7 @@ Drowning_DrawSprite:
 #_068644: SEP #$20
 
 #_068646: LDA.b #$02
-#_068648: JSL Sprite_DrawMultiple
+#_068648: JSL SpriteDraw_Tabulated
 
 #_06864C: RTS
 
@@ -1454,7 +1451,7 @@ SpriteModule_Initialize:
 #_0686AF: dw SpritePrep_IgnoreProjectiles             ; 0x2A - SWEEPING LADY
 #_0686B1: dw SpritePrep_Hobo                          ; 0x2B - HOBO
 #_0686B3: dw SpritePrep_Lumberjacks                   ; 0x2C - LUMBERJACKS
-#_0686B5: dw SpritePrep_IgnoreProjectiles             ; 0x2D - TELEPATHIC TILE
+#_0686B5: dw SpritePrep_IgnoreProjectiles             ; 0x2D - NECKLESS MAN
 #_0686B7: dw SpritePrep_FluteKid                      ; 0x2E - FLUTE KID
 #_0686B9: dw SpritePrep_IgnoreProjectiles             ; 0x2F - RACE GAME LADY
 #_0686BB: dw SpritePrep_IgnoreProjectiles             ; 0x30 - RACE GAME GUY
@@ -1523,7 +1520,7 @@ SpriteModule_Initialize:
 #_068739: dw SpritePrep_Keese                         ; 0x6F - KEESE
 #_06873B: dw SpritePrep_DoNothingG                    ; 0x70 - KING HELMASAUR FIREBALL
 #_06873D: dw SpritePrep_Leever                        ; 0x71 - LEEVER
-#_06873F: dw SpritePrep_IgnoreProjectiles             ; 0x72 - FAERIE POND TRIGGER
+#_06873F: dw SpritePrep_IgnoreProjectiles             ; 0x72 - FAIRY POND TRIGGER
 #_068741: dw SpritePrep_UncleAndPriest_bounce         ; 0x73 - UNCLE / PRIEST / MANTLE
 #_068743: dw SpritePrep_RunningBoy_bounce             ; 0x74 - RUNNING MAN
 #_068745: dw SpritePrep_IgnoreProjectiles             ; 0x75 - BOTTLE MERCHANT
@@ -1609,7 +1606,7 @@ SpriteModule_Initialize:
 #_0687E5: dw SpritePrep_IgnoreProjectiles             ; 0xC5 - MEDUSA
 #_0687E7: dw SpritePrep_IgnoreProjectiles             ; 0xC6 - 4WAY SHOOTER
 #_0687E9: dw SpritePrep_Pokey                         ; 0xC7 - POKEY
-#_0687EB: dw SpritePrep_BigFairy                      ; 0xC8 - BIG FAERIE
+#_0687EB: dw SpritePrep_BigFairy                      ; 0xC8 - BIG FAIRY
 #_0687ED: dw SpritePrep_Tektite                       ; 0xC9 - TEKTITE / FIREBAT
 #_0687EF: dw SpritePrep_Chainchomp_bounce             ; 0xCA - CHAIN CHOMP
 #_0687F1: dw SpritePrep_Trinexx                       ; 0xCB - TRINEXX ROCK HEAD
@@ -1636,7 +1633,7 @@ SpriteModule_Initialize:
 #_06881B: dw SpritePrep_Absorbable                    ; 0xE0 - LARGE MAGIC DECANTER
 #_06881D: dw SpritePrep_Absorbable                    ; 0xE1 - ARROW REFILL 5
 #_06881F: dw SpritePrep_Absorbable                    ; 0xE2 - ARROW REFILL 10
-#_068821: dw SpritePrep_Fairy                         ; 0xE3 - FAERIE
+#_068821: dw SpritePrep_Fairy                         ; 0xE3 - FAIRY
 #_068823: dw SpritePrep_SmallKey                      ; 0xE4 - SMALL KEY
 #_068825: dw SpritePrep_BigKey                        ; 0xE5 - BIG KEY
 #_068827: dw SpritePrep_DoNothingF                    ; 0xE6 - STOLEN SHIELD
@@ -1685,13 +1682,17 @@ SpritePrep_MedallionTablet_bounce:
 ;===================================================================================================
 SpritePrep_Switch:
 #_068859: LDA.w $048E
-#_06885C: CMP.b #$CE ; ice palace pre-kholdstare
+
+; ice palace pre-kholdstare
+#_06885C: CMP.b #$CE ; ROOM 00CE
 #_06885E: BEQ .tongue_room
 
-#_068860: CMP.b #$04 ; turtle rock rupees
+; turtle rock rupees
+#_068860: CMP.b #$04 ; ROOM 0004
 #_068862: BEQ .tongue_room
 
-#_068864: CMP.b #$3F ; ice palace HP
+; ice palace HP
+#_068864: CMP.b #$3F ; ROOM 003F
 #_068866: BNE SpritePrep_DoNothingB
 
 .tongue_room
@@ -2352,8 +2353,9 @@ SpritePrep_Bari:
 #_068B16: LDA.b #$06
 #_068B18: STA.w $0F70,X
 
+; go under a rock in the room before khold
 #_068B1B: LDA.w $048E
-#_068B1E: CMP.b #$CE ; go under a rock in the room before khold
+#_068B1E: CMP.b #$CE ; ROOM 00CE
 #_068B20: BNE .not_uninformed
 
 #_068B22: DEC.w $0DB0,X
@@ -2541,19 +2543,19 @@ SpritePrep_RupeePull:
 pool SpritePrep_Shopkeeper
 
 .rooms
-#_068BDE: db $0F ; Room 010F - Darkworld Lumberjack / Outcasts shield shop
-#_068BDF: db $10 ; Room 0110 - East of Outcasts
-#_068BE0: db $00 ; Room 0100 - Lost Woods chest game
-#_068BE1: db $06 ; Room 0106 - Village of Outcasts chest game
-#_068BE2: db $18 ; Room 0118 - South of Kak 3 chest game
-#_068BE3: db $12 ; Room 0112 - Common cave shop
-#_068BE4: db $1E ; Room 011E - Swamplands thief cave
-#_068BE5: db $FF ; Room 00FF - Paradox cave shop
-#_068BE6: db $1F ; Room 011F - Kakariko shop
-#_068BE7: db $23 ; Room 0121 - Mini moldorm cave
-#_068BE8: db $24 ; Room 0124 - Outside Desert thief
-#_068BE9: db $25 ; Room 0125 - Ice rod cave thief
-#_068BEA: db $27 ; Room 0127 - Hammer pegs cave
+#_068BDE: db $0F ; ROOM 010F - Darkworld Lumberjack / Outcasts shield shop
+#_068BDF: db $10 ; ROOM 0110 - East of Outcasts
+#_068BE0: db $00 ; ROOM 0100 - Lost Woods chest game
+#_068BE1: db $06 ; ROOM 0106 - Village of Outcasts chest game
+#_068BE2: db $18 ; ROOM 0118 - South of Kak 3 chest game
+#_068BE3: db $12 ; ROOM 0112 - Common cave shop
+#_068BE4: db $1E ; ROOM 011E - Swamplands thief cave
+#_068BE5: db $FF ; ROOM 00FF - Paradox cave shop
+#_068BE6: db $1F ; ROOM 011F - Kakariko shop
+#_068BE7: db $23 ; ROOM 0121 - Mini moldorm cave
+#_068BE8: db $24 ; ROOM 0124 - Outside Desert thief
+#_068BE9: db $25 ; ROOM 0125 - Ice rod cave thief
+#_068BEA: db $27 ; ROOM 0127 - Hammer pegs cave
 
 pool off
 
@@ -2716,11 +2718,11 @@ SpritePrep_NiceThief_Ice:
 pool SpritePrep_Storyteller
 
 .rooms
-#_068CA0: db $0E ; Room 010E - bird
-#_068CA1: db $0E ; Room 010E - hamburger helper
-#_068CA2: db $12 ; Room 0112 - octorok
-#_068CA3: db $1A ; Room 011A - broccoli
-#_068CA4: db $14 ; Room 0114 - watto
+#_068CA0: db $0E ; ROOM 010E - bird
+#_068CA1: db $0E ; ROOM 010E - glover
+#_068CA2: db $12 ; ROOM 0112 - octorok
+#_068CA3: db $1A ; ROOM 011A - broccoli
+#_068CA4: db $14 ; ROOM 0114 - watto
 
 pool off
 
@@ -2761,9 +2763,9 @@ SpritePrep_Storyteller:
 pool SpritePrep_Adults
 
 .rooms
-#_068CC5: db $03 ; Room 0103 - Kakariko Tavern
-#_068CC6: db $E1 ; Room 00E1 - Lost Woods hideout
-#_068CC7: db $19 ; Room 0119 - Blind's Hideout
+#_068CC5: db $03 ; ROOM 0103 - Kakariko Tavern
+#_068CC6: db $E1 ; ROOM 00E1 - Lost Woods hideout
+#_068CC7: db $19 ; ROOM 0119 - Blind's Hideout
 
 pool off
 
@@ -2805,7 +2807,7 @@ SpritePrep_Sage:
 #_068CE5: INC.w $0BA0,X
 
 #_068CE8: LDA.b $A0
-#_068CEA: CMP.b #$0A
+#_068CEA: CMP.b #$0A ; ROOM 010A
 #_068CEC: BNE .not_aginah
 
 #_068CEE: INC.w $0E80,X
@@ -2836,7 +2838,7 @@ SpritePrep_BonkItem:
 
 ; Check if library
 #_068D02: LDA.b $A0
-#_068D04: CMP.b #$07
+#_068D04: CMP.b #$07 ; ROOM 0107
 #_068D06: BNE SpritePrep_BonkKey
 
 #_068D08: LDA.b $A1
@@ -3765,7 +3767,7 @@ SpritePrep_PedestalPlaque:
 #_0690DD: INC.w $0BA0,X
 
 #_0690E0: LDA.b $8A
-#_0690E2: CMP.b #$30
+#_0690E2: CMP.b #$30 ; OW 30
 #_0690E4: BEQ SpritePrep_MoveRight_7px
 
 #_0690E6: RTS
@@ -4238,7 +4240,7 @@ SpriteModule_Active:
 #_0692DE: dw Sprite_2A_SweepingLady_bounce            ; 0x2A - SWEEPING LADY
 #_0692E0: dw Sprite_2B_Hobo                           ; 0x2B - HOBO
 #_0692E2: dw Sprite_2C_Lumberjacks_bounce             ; 0x2C - LUMBERJACKS
-#_0692E4: dw Sprite_2D_TelepathicTile_bounce          ; 0x2D - TELEPATHIC TILE
+#_0692E4: dw Sprite_2D_NecklessMan_bounce             ; 0x2D - NECKLESS MAN
 #_0692E6: dw Sprite_2E_FluteKid                       ; 0x2E - FLUTE KID
 #_0692E8: dw Sprite_2F_RaceGameLady_bounce            ; 0x2F - RACE GAME LADY
 #_0692EA: dw Sprite_30_RaceGameGuy_bounce             ; 0x30 - RACE GAME GUY
@@ -4307,7 +4309,7 @@ SpriteModule_Active:
 #_069368: dw SpriteModule_Active_Bank05_bounce        ; 0x6F - KEESE
 #_06936A: dw SpriteModule_Active_Bank05_bounce        ; 0x70 - KING HELMASAUR FIREBALL
 #_06936C: dw Sprite_71_Leever                         ; 0x71 - LEEVER
-#_06936E: dw Sprite_72_FairyPond                      ; 0x72 - FAERIE POND TRIGGER
+#_06936E: dw Sprite_72_FairyPond                      ; 0x72 - FAIRY POND TRIGGER
 #_069370: dw Sprite_73_UncleAndPriest_bounce          ; 0x73 - UNCLE / PRIEST / MANTLE
 #_069372: dw Sprite_74_RunningBoy_bounce              ; 0x74 - RUNNING MAN
 #_069374: dw Sprite_75_BottleMerchant_bounce          ; 0x75 - BOTTLE MERCHANT
@@ -4393,7 +4395,7 @@ SpriteModule_Active:
 #_069414: dw SpriteModule_Active_Bank1D_bounce        ; 0xC5 - MEDUSA
 #_069416: dw SpriteModule_Active_Bank1D_bounce        ; 0xC6 - 4WAY SHOOTER
 #_069418: dw SpriteModule_Active_Bank1D_bounce        ; 0xC7 - POKEY
-#_06941A: dw SpriteModule_Active_Bank1D_bounce        ; 0xC8 - BIG FAERIE
+#_06941A: dw SpriteModule_Active_Bank1D_bounce        ; 0xC8 - BIG FAIRY
 #_06941C: dw SpriteModule_Active_Bank1D_bounce        ; 0xC9 - TEKTITE / FIREBAT
 #_06941E: dw SpriteModule_Active_Bank1D_bounce        ; 0xCA - CHAIN CHOMP
 #_069420: dw SpriteModule_Active_Bank1D_bounce        ; 0xCB - TRINEXX ROCK HEAD
@@ -4420,7 +4422,7 @@ SpriteModule_Active:
 #_06944A: dw Sprite_E0_LargeMagicDecanter             ; 0xE0 - LARGE MAGIC DECANTER
 #_06944C: dw Sprite_E1_ArrowRefill5                   ; 0xE1 - ARROW REFILL 5
 #_06944E: dw Sprite_E2_ArrowRefill10                  ; 0xE2 - ARROW REFILL 10
-#_069450: dw Sprite_E3_Fairy                          ; 0xE3 - FAERIE
+#_069450: dw Sprite_E3_Fairy                          ; 0xE3 - FAIRY
 #_069452: dw Sprite_E4_SmallKey                       ; 0xE4 - SMALL KEY
 #_069454: dw Sprite_E5_BigKey                         ; 0xE5 - BIG KEY
 #_069456: dw Sprite_E6_StolenShield                   ; 0xE6 - STOLEN SHIELD
@@ -4895,6 +4897,7 @@ Sprite_19_Poe:
 #_0696C1: SEP #$20
 
 #_0696C3: DEC.w $0E40,X
+
 #_0696C6: JSR SpriteDraw_SingleLarge ; who did this
 
 #_0696C9: INC.w $0E40,X
@@ -4922,8 +4925,11 @@ Sprite_19_Poe:
 
 Poe_Main:
 #_0696E5: JSR Sprite_CheckDamageToAndFromLink_Bank06
+
 #_0696E8: INC.w $0E80,X
+
 #_0696EB: JSR Sprite_Move_XY_Bank06
+
 #_0696EE: LDA.b $1A
 #_0696F0: LSR A
 #_0696F1: BCS .continue
@@ -4949,18 +4955,20 @@ Poe_Main:
 
 #_069711: LDA.w $0D80,X
 #_069714: JSL JumpTableLocal
-#_069718: dw Poe_Halted
+#_069718: dw Poe_Pondering
 #_06971A: dw Poe_SpookAround
 
 ;===================================================================================================
 
 Poe_SpeedZ:
-#_06971C: db   1,  -1,   2,  -2
+#_06971C: db   1,  -1
+#_06971E: db   2,  -2
 
 ;===================================================================================================
 
 Poe_MaxSpeedX:
-#_069720: db  16, -16,  28, -28
+#_069720: db  16, -16
+#_069722: db  28, -28
 
 ;===================================================================================================
 
@@ -4969,7 +4977,7 @@ Poe_MaxZ:
 
 ;===================================================================================================
 
-Poe_Halted:
+Poe_Pondering:
 #_069726: LDA.w $0DF0,X
 #_069729: BNE .exit
 
@@ -4980,6 +4988,7 @@ Poe_Halted:
 #_069734: BNE .use_random_direction
 
 #_069736: JSR Sprite_IsBelowLink
+
 #_069739: TYA
 #_06973A: BRA .continue
 
@@ -5685,7 +5694,7 @@ SpriteDraw_Moblin:
 #_069BDD: SEP #$20
 
 #_069BDF: LDA.b #$04
-#_069BE1: JSL Sprite_DrawMultiple
+#_069BE1: JSL SpriteDraw_Tabulated
 
 #_069BE5: LDA.w $0F00,X
 #_069BE8: BNE .exit
@@ -5871,7 +5880,7 @@ Snapdragon_MoveAround:
 #_069CB9: LDA.w $0E70,X
 #_069CBC: BEQ .no_tile_collision
 
-; TODO interesting... need to analyze the consequences of this
+; turn around
 #_069CBE: LDA.w $0DE0,X
 #_069CC1: EOR.b #$03
 #_069CC3: STA.w $0DE0,X
@@ -6000,7 +6009,7 @@ SpriteDraw_Snapdragon:
 #_069E1B: SEP #$20
 
 #_069E1D: LDA.b #$04
-#_069E1F: JSL Sprite_DrawMultiple
+#_069E1F: JSL SpriteDraw_Tabulated
 
 #_069E23: JMP.w SpriteDraw_Shadow
 
@@ -6124,7 +6133,7 @@ SpriteDraw_Ropa:
 #_069F01: SEP #$20
 
 #_069F03: LDA.b #$03
-#_069F05: JSL Sprite_DrawMultiple
+#_069F05: JSL SpriteDraw_Tabulated
 
 #_069F09: JMP.w SpriteDraw_Shadow
 
@@ -6545,7 +6554,7 @@ SpriteDraw_Hinox:
 
 #_06A210: LDA.w .oam_group_size,Y
 
-#_06A213: JSL Sprite_DrawMultiple
+#_06A213: JSL SpriteDraw_Tabulated
 
 #_06A217: JMP.w SpriteDraw_Shadow
 
@@ -6612,7 +6621,7 @@ Bari_Main:
 
 #_06A25D: STZ.w $0E30,X
 
-#_06A260: LDA.w $0FA5
+#_06A260: LDA.w $0FA5 ; TILETYPE 00
 #_06A263: BNE .collision
 
 #_06A265: STZ.w $0DB0,X
@@ -6898,7 +6907,7 @@ SpriteDraw_Bari:
 #_06A3F5: SEP #$20
 
 #_06A3F7: LDA.b #$04
-#_06A3F9: JSL Sprite_DrawMultiple
+#_06A3F9: JSL SpriteDraw_Tabulated
 
 #_06A3FD: JMP.w SpriteDraw_Shadow
 
@@ -7110,7 +7119,7 @@ SpriteDraw_HardhatBeetle:
 #_06A508: STA.b $09
 
 #_06A50A: LDA.b #$02
-#_06A50C: JSL Sprite_DrawMultiple
+#_06A50C: JSL SpriteDraw_Tabulated
 
 #_06A510: JMP.w SpriteDraw_Shadow_Conditional
 
@@ -7154,22 +7163,22 @@ Sprite_77_Antifairy:
 ;===================================================================================================
 
 UNREACHABLE_06A547:
-#_06A547: db $E8, $FF, $F8, $FF, $08, $00, $18, $00
-#_06A54F: db $E8, $FF, $F8, $FF, $08, $00, $18, $00
-#_06A557: db $E8, $FF, $F8, $FF, $08, $00, $18, $00
-#_06A55F: db $E8, $FF, $F8, $FF, $08, $00, $18, $00
-#_06A567: db $EA, $FF, $F9, $FF, $07, $00, $16, $00
-#_06A56F: db $EA, $FF, $F9, $FF, $07, $00, $16, $00
-#_06A577: db $EA, $FF, $F9, $FF, $07, $00, $16, $00
-#_06A57F: db $EA, $FF, $F9, $FF, $07, $00, $16, $00
-#_06A587: db $E8, $FF, $E8, $FF, $E8, $FF, $E8, $FF
-#_06A58F: db $F8, $FF, $F8, $FF, $F8, $FF, $F8, $FF
-#_06A597: db $08, $00, $08, $00, $08, $00, $08, $00
-#_06A59F: db $18, $00, $18, $00, $18, $00, $18, $00
-#_06A5A7: db $EA, $FF, $EA, $FF, $EA, $FF, $EA, $FF
-#_06A5AF: db $F9, $FF, $F9, $FF, $F9, $FF, $F9, $FF
-#_06A5B7: db $07, $00, $07, $00, $07, $00, $07, $00
-#_06A5BF: db $16, $00, $16, $00, $16, $00, $16, $00
+#_06A547: dw $FFE8, $FFF8, $0008, $0018
+#_06A54F: dw $FFE8, $FFF8, $0008, $0018
+#_06A557: dw $FFE8, $FFF8, $0008, $0018
+#_06A55F: dw $FFE8, $FFF8, $0008, $0018
+#_06A567: dw $FFEA, $FFF9, $0007, $0016
+#_06A56F: dw $FFEA, $FFF9, $0007, $0016
+#_06A577: dw $FFEA, $FFF9, $0007, $0016
+#_06A57F: dw $FFEA, $FFF9, $0007, $0016
+#_06A587: dw $FFE8, $FFE8, $FFE8, $FFE8
+#_06A58F: dw $FFF8, $FFF8, $FFF8, $FFF8
+#_06A597: dw $0008, $0008, $0008, $0008
+#_06A59F: dw $0018, $0018, $0018, $0018
+#_06A5A7: dw $FFEA, $FFEA, $FFEA, $FFEA
+#_06A5AF: dw $FFF9, $FFF9, $FFF9, $FFF9
+#_06A5B7: dw $0007, $0007, $0007, $0007
+#_06A5BF: dw $0016, $0016, $0016, $0016
 
 ;===================================================================================================
 
@@ -7466,7 +7475,7 @@ Sprite_DrawDistressSweat:
 
 Sprite_DrawDistress_custom:
 #_06A73B: LDA.b #$10
-#_06A73D: JSL OAM_AllocateFromRegionA
+#_06A73D: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_06A741: LDA.b $06
 #_06A743: AND.b #$18
@@ -8403,7 +8412,7 @@ SpriteDraw_ThrownItem_Gigantic:
 #_06ABD6: PLX
 
 #_06ABD7: LDA.b #$0C
-#_06ABD9: JSL OAM_AllocateFromRegionB
+#_06ABD9: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_06ABDD: LDY.b #$00
 
@@ -8762,8 +8771,7 @@ DarkWorldHintNPC_Bird:
 ;===================================================================================================
 
 DarkWorldHintNPC_Idle:
-; Message 00FC
-#_06ADAF: LDA.b #$FC
+#_06ADAF: LDA.b #$FC ; MESSAGE 00FC
 #_06ADB1: LDY.b #$00
 #_06ADB3: JSL Sprite_ShowSolicitedMessage
 #_06ADB7: BCC .exit
@@ -8792,8 +8800,7 @@ HintBird_TellStory:
 #_06ADCC: JSR DarkWorldHintNPC_HandlePayment
 #_06ADCF: BCC .rejected
 
-; Message 00FD
-#_06ADD1: LDA.b #$FD
+#_06ADD1: LDA.b #$FD ; MESSAGE 00FD
 #_06ADD3: LDY.b #$00
 
 ;---------------------------------------------------------------------------------------------------
@@ -8808,8 +8815,7 @@ HintBird_TellStory:
 ;---------------------------------------------------------------------------------------------------
 
 .rejected
-; Message 00FE
-#_06ADDD: LDA.b #$FE
+#_06ADDD: LDA.b #$FE ; MESSAGE 00FE
 #_06ADDF: LDY.b #$00
 #_06ADE1: JSL Sprite_ShowMessageUnconditional
 
@@ -8835,14 +8841,12 @@ HamburgerHelper_TellStory:
 #_06ADFB: JSR DarkWorldHintNPC_HandlePayment
 #_06ADFE: BCC .rejected
 
-; Message 00FF
-#_06AE00: LDA.b #$FF
+#_06AE00: LDA.b #$FF ; MESSAGE 00FF
 #_06AE02: LDY.b #$00
 #_06AE04: BRA DarkWorldHintNPC_TellStory
 
 .rejected
-; Message 00FE
-#_06AE06: LDA.b #$FE
+#_06AE06: LDA.b #$FE ; MESSAGE 00FE
 #_06AE08: LDY.b #$00
 #_06AE0A: JSL Sprite_ShowMessageUnconditional
 
@@ -8868,16 +8872,14 @@ HintOctopus_TellStory:
 #_06AE24: JSR DarkWorldHintNPC_HandlePayment
 #_06AE27: BCC .rejected
 
-; Message 0100
-#_06AE29: LDA.b #$00
+#_06AE29: LDA.b #$00 ; MESSAGE 0100
 #_06AE2B: LDY.b #$01
 #_06AE2D: JMP.w DarkWorldHintNPC_TellStory
 
 ;---------------------------------------------------------------------------------------------------
 
 .rejected
-; Message 00FE
-#_06AE30: LDA.b #$FE
+#_06AE30: LDA.b #$FE ; MESSAGE 00FE
 #_06AE32: LDY.b #$00
 #_06AE34: JSL Sprite_ShowMessageUnconditional
 
@@ -8907,8 +8909,7 @@ Broccoli:
 #_06AE57: STA.w $0DF0,X
 
 .continue
-; Message 0147
-#_06AE5A: LDA.b #$47
+#_06AE5A: LDA.b #$47 ; MESSAGE 0147
 #_06AE5C: LDY.b #$01
 #_06AE5E: JSL Sprite_ShowSolicitedMessage
 
@@ -8956,14 +8957,12 @@ Watto_TellStory:
 #_06AE9B: JSR DarkWorldHintNPC_HandlePayment
 #_06AE9E: BCC .rejected
 
-; Message 0101
-#_06AEA0: LDA.b #$01
+#_06AEA0: LDA.b #$01 ; MESSAGE 0101
 #_06AEA2: LDY.b #$01
 #_06AEA4: JMP.w DarkWorldHintNPC_TellStory
 
 .rejected
-; Message 00FE
-#_06AEA7: LDA.b #$FE
+#_06AEA7: LDA.b #$FE ; MESSAGE 00FE
 #_06AEA9: LDY.b #$00
 #_06AEAB: JSL Sprite_ShowMessageUnconditional
 
@@ -9051,7 +9050,7 @@ SpriteDraw_DarkWorldHintNPC:
 #_06AF38: STA.b $06
 #_06AF3A: STZ.b $07
 
-#_06AF3C: JSL Sprite_DrawMultiple_player_deferred
+#_06AF3C: JSL SpriteDraw_Tabulated_player_deferred
 
 #_06AF40: JMP.w SpriteDraw_Shadow
 
@@ -9263,8 +9262,7 @@ Stumpy_Initialize:
 ;===================================================================================================
 
 Stumpy_Supplicate:
-; Message 00E3
-#_06B074: LDA.b #$E3
+#_06B074: LDA.b #$E3 ; MESSAGE 00E3
 #_06B076: LDY.b #$00
 #_06B078: JSL Sprite_ShowSolicitedMessage
 #_06B07C: BCC .exit
@@ -9277,8 +9275,7 @@ Stumpy_Supplicate:
 ;===================================================================================================
 
 Stumpy_GetMeMyDamnFlute:
-; Message 00E6
-#_06B082: LDA.b #$E6
+#_06B082: LDA.b #$E6 ; MESSAGE 00E6
 #_06B084: LDY.b #$00
 #_06B086: JSL Sprite_ShowSolicitedMessage
 
@@ -9290,8 +9287,7 @@ Stumpy_ThanksButYouKeepIt:
 #_06B08B: LDA.b #$01
 #_06B08D: STA.w $0DC0,X
 
-; Message 00E7
-#_06B090: LDA.b #$E7
+#_06B090: LDA.b #$E7 ; MESSAGE 00E7
 #_06B092: LDY.b #$00
 #_06B094: JSL Sprite_ShowSolicitedMessage
 #_06B098: BCC .exit
@@ -9316,8 +9312,7 @@ Stumpy_WaitForConvo:
 #_06B0A6: LDA.w $1CE8
 #_06B0A9: BNE .rejected
 
-; Message 00E4
-#_06B0AB: LDA.b #$E4
+#_06B0AB: LDA.b #$E4 ; MESSAGE 00E4
 #_06B0AD: LDY.b #$00
 #_06B0AF: JSL Sprite_ShowMessageUnconditional
 
@@ -9326,8 +9321,7 @@ Stumpy_WaitForConvo:
 #_06B0B6: RTS
 
 .rejected
-; Message 00E5
-#_06B0B7: LDA.b #$E5
+#_06B0B7: LDA.b #$E5 ; MESSAGE 00E5
 #_06B0B9: LDY.b #$00
 #_06B0BB: JSL Sprite_ShowMessageUnconditional
 
@@ -9670,8 +9664,7 @@ Smithy_Homecoming_Walk:
 Smithy_Homecoming_TYVM:
 #_06B25D: JSL Sprite_BehaveAsBarrier
 
-; Message 00E1
-#_06B261: LDA.b #$E1
+#_06B261: LDA.b #$E1 ; MESSAGE 00E1
 #_06B263: LDY.b #$00
 #_06B265: JSL Sprite_ShowSolicitedMessage
 
@@ -9713,8 +9706,7 @@ Smithy_Frog:
 #_06B2A1: LDA.b #$01
 #_06B2A3: STA.w $0DE0,X
 
-; Message 00DF
-#_06B2A6: LDA.b #$DF
+#_06B2A6: LDA.b #$DF ; MESSAGE 00DF
 #_06B2A8: LDY.b #$00
 #_06B2AA: JSL Sprite_ShowSolicitedMessage
 #_06B2AE: BCC .ignored_WOW
@@ -9810,7 +9802,7 @@ SpriteDraw_Smithy_Homecoming:
 #_06B32E: ADC.b #$00
 #_06B330: STA.b $09
 
-#_06B332: JSL Sprite_DrawMultiple_player_deferred
+#_06B332: JSL SpriteDraw_Tabulated_player_deferred
 
 #_06B336: JMP.w SpriteDraw_Shadow
 
@@ -9836,7 +9828,7 @@ SpriteDraw_Smithy_Frog:
 #_06B34B: LDA.b #.oam_groups>>8
 #_06B34D: STA.b $09
 
-#_06B34F: JSL Sprite_DrawMultiple_player_deferred
+#_06B34F: JSL SpriteDraw_Tabulated_player_deferred
 
 #_06B353: JMP.w SpriteDraw_Shadow
 
@@ -9952,8 +9944,7 @@ Smithy_Smithing:
 #_06B3F6: JSR Smithy_ListenForHammer
 #_06B3F9: BCC .link_not_helping_out
 
-; Message 00E2
-#_06B3FB: LDA.b #$E2
+#_06B3FB: LDA.b #$E2 ; MESSAGE 00E2
 #_06B3FD: LDY.b #$00
 #_06B3FF: JSL Sprite_ShowMessageUnconditional
 
@@ -9971,8 +9962,7 @@ Smithy_Smithing:
 #_06B410: AND.b #$20
 #_06B412: BEQ .not_rescued
 
-; Message 00D6
-#_06B414: LDA.b #$D6
+#_06B414: LDA.b #$D6 ; MESSAGE 00D6
 #_06B416: LDY.b #$00
 #_06B418: JSL Sprite_ShowSolicitedMessage
 #_06B41C: BCC .exit_a
@@ -9986,8 +9976,7 @@ Smithy_Smithing:
 ;---------------------------------------------------------------------------------------------------
 
 .not_rescued
-; Message 00DD
-#_06B425: LDA.b #$DD
+#_06B425: LDA.b #$DD ; MESSAGE 00DD
 #_06B427: LDY.b #$00
 #_06B429: JSL Sprite_ShowSolicitedMessage
 
@@ -10000,8 +9989,7 @@ Smithy_Smithing:
 #_06B430: CMP.b #$C2
 #_06B432: BCS .exit_b
 
-; Message 00DE
-#_06B434: LDA.b #$DE
+#_06B434: LDA.b #$DE ; MESSAGE 00DE
 #_06B436: LDY.b #$00
 
 #_06B438: JSL Sprite_ShowMessageUnconditional
@@ -10048,8 +10036,7 @@ Smithy_WannaTemper:
 #_06B467: LDA.w $1CE8
 #_06B46A: BNE .didnt_make_the_sale
 
-; Message 00D7
-#_06B46C: LDA.b #$D7
+#_06B46C: LDA.b #$D7 ; MESSAGE 00D7
 #_06B46E: LDY.b #$00
 #_06B470: JSL Sprite_ShowMessageUnconditional
 
@@ -10058,8 +10045,7 @@ Smithy_WannaTemper:
 #_06B477: RTS
 
 .didnt_make_the_sale
-; Message 00DA
-#_06B478: LDA.b #$DA
+#_06B478: LDA.b #$DA ; MESSAGE 00DA
 #_06B47A: LDY.b #$00
 #_06B47C: JSL Sprite_ShowMessageUnconditional
 
@@ -10077,8 +10063,7 @@ Smithy_ForRealsies:
 #_06B48D: CMP.b #$03
 #_06B48F: BCS .sword_too_good_already
 
-; Message 00D8
-#_06B491: LDA.b #$D8
+#_06B491: LDA.b #$D8 ; MESSAGE 00D8
 #_06B493: LDY.b #$00
 #_06B495: JSL Sprite_ShowMessageUnconditional
 
@@ -10089,8 +10074,7 @@ Smithy_ForRealsies:
 ;---------------------------------------------------------------------------------------------------
 
 .sword_too_good_already
-; Message 00D9
-#_06B49D: LDA.b #$D9
+#_06B49D: LDA.b #$D9 ; MESSAGE 00D9
 #_06B49F: LDY.b #$00
 #_06B4A1: JSL Sprite_ShowMessageUnconditional
 
@@ -10101,8 +10085,7 @@ Smithy_ForRealsies:
 ;---------------------------------------------------------------------------------------------------
 
 .didnt_make_the_sale
-; Message 00DA
-#_06B4A9: LDA.b #$DA
+#_06B4A9: LDA.b #$DA ; MESSAGE 00DA
 #_06B4AB: LDY.b #$00
 #_06B4AD: JSL Sprite_ShowMessageUnconditional
 
@@ -10116,8 +10099,7 @@ Smithy_ItAintFreeKid:
 #_06B4B5: LDA.w $1CE8
 #_06B4B8: BEQ .made_the_sale
 
-; Message 00DA
-#_06B4BA: LDA.b #$DA
+#_06B4BA: LDA.b #$DA ; MESSAGE 00DA
 #_06B4BC: LDY.b #$00
 
 #_06B4BE: JSL Sprite_ShowMessageUnconditional
@@ -10138,8 +10120,7 @@ Smithy_ItAintFreeKid:
 #_06B4D1: BCS .paid_in_cash
 
 ; Credit not accepted
-; Message 00DA
-#_06B4D3: LDA.b #$DA
+#_06B4D3: LDA.b #$DA ; MESSAGE 00DA
 #_06B4D5: LDY.b #$00
 #_06B4D7: JSL Sprite_ShowMessageUnconditional
 
@@ -10160,8 +10141,7 @@ Smithy_ItAintFreeKid:
 
 #_06B4ED: SEP #$30
 
-; Message 00DB
-#_06B4EF: LDA.b #$DB
+#_06B4EF: LDA.b #$DB ; MESSAGE 00DB
 #_06B4F1: LDY.b #$00
 #_06B4F3: JSL Sprite_ShowMessageUnconditional
 
@@ -10190,8 +10170,7 @@ Smithy_TemperInProgress:
 #_06B519: JSR Smithy_ListenForHammer
 #_06B51C: BCC .link_isnt_helping
 
-; Message 00E2
-#_06B51E: LDA.b #$E2
+#_06B51E: LDA.b #$E2 ; MESSAGE 00E2
 #_06B520: LDY.b #$00
 #_06B522: JSL Sprite_ShowMessageUnconditional
 
@@ -10208,8 +10187,7 @@ Smithy_TemperInProgress:
 #_06B52F: LDA.w $0ABF
 #_06B532: BEQ .not_finished
 
-; Message 00DC
-#_06B534: LDA.b #$DC
+#_06B534: LDA.b #$DC ; MESSAGE 00DC
 #_06B536: LDY.b #$00
 #_06B538: JSL Sprite_ShowSolicitedMessage
 #_06B53C: BCC .exit
@@ -10225,8 +10203,7 @@ Smithy_TemperInProgress:
 ;---------------------------------------------------------------------------------------------------
 
 .not_finished
-; Message 00E0
-#_06B547: LDA.b #$E0
+#_06B547: LDA.b #$E0 ; MESSAGE 00E0
 #_06B549: LDY.b #$00
 #_06B54B: JSL Sprite_ShowSolicitedMessage
 
@@ -10297,8 +10274,7 @@ Smithy_SpawnFriend:
 ;===================================================================================================
 
 Smithy_Thanks:
-; Message 00E1
-#_06B5A5: LDA.b #$E1
+#_06B5A5: LDA.b #$E1 ; MESSAGE 00E1
 #_06B5A7: LDY.b #$00
 #_06B5A9: JSL Sprite_ShowSolicitedMessage
 
@@ -10406,7 +10382,7 @@ SpriteDraw_Smithy:
 #_06B692: ADC.b #$00
 #_06B694: STA.b $09
 
-#_06B696: JSL Sprite_DrawMultiple_player_deferred
+#_06B696: JSL SpriteDraw_Tabulated_player_deferred
 #_06B69A: JSR SpriteDraw_Shadow
 
 #_06B69D: RTS
@@ -10526,7 +10502,7 @@ pool off
 
 SpriteDraw_Smithy_Spark:
 #_06B734: LDA.b #$08
-#_06B736: JSL OAM_AllocateFromRegionB
+#_06B736: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_06B73A: LDA.w $0DC0,X
 
@@ -10543,7 +10519,7 @@ SpriteDraw_Smithy_Spark:
 #_06B749: STA.b $09
 
 #_06B74B: LDA.b #$02
-#_06B74D: JSL Sprite_DrawMultiple
+#_06B74D: JSL SpriteDraw_Tabulated
 
 #_06B751: RTS
 
@@ -10890,7 +10866,7 @@ Sprite_1E_CrystalSwitch:
 #_06B8EA: ORA.w $0F50,X
 #_06B8ED: STA.w $0F50,X
 
-#_06B8F0: JSR OAM_AllocateDeferToPlayer
+#_06B8F0: JSR SpriteDraw_AllocateOAMDeferToPlayer
 #_06B8F3: JSR SpriteDraw_SingleLarge
 
 #_06B8F6: JSR Sprite_CheckIfActive_Bank06
@@ -10994,8 +10970,7 @@ SickKid_ISleep:
 ;---------------------------------------------------------------------------------------------------
 
 .wakeywakey
-; Message 0102
-#_06B990: LDA.b #$02
+#_06B990: LDA.b #$02 ; MESSAGE 0102
 #_06B992: LDY.b #$01
 #_06B994: JSL Sprite_ShowSolicitedMessage
 
@@ -11037,8 +11012,7 @@ SickKid_RealShit:
 ;---------------------------------------------------------------------------------------------------
 
 .speak
-; Message 0103
-#_06B9C2: LDA.b #$03
+#_06B9C2: LDA.b #$03 ; MESSAGE 0103
 #_06B9C4: LDY.b #$01
 #_06B9C6: JSL Sprite_ShowMessageUnconditional
 
@@ -11070,8 +11044,7 @@ SickKid_OutOfShaqMemes:
 #_06B9E0: LDA.b #$01
 #_06B9E2: STA.w $0DC0,X
 
-; Message 0104
-#_06B9E5: LDA.b #$04
+#_06B9E5: LDA.b #$04 ; MESSAGE 0104
 #_06B9E7: LDY.b #$01
 #_06B9E9: JSL Sprite_ShowSolicitedMessage
 
@@ -11261,7 +11234,7 @@ WaterSwitch_OAMDataPointer:
 ;===================================================================================================
 
 WaterSwitch_Main:
-#_06BB2A: JSR OAM_AllocateDeferToPlayer
+#_06BB2A: JSR SpriteDraw_AllocateOAMDeferToPlayer
 #_06BB2D: JSR Sprite_PrepOAMCoord
 
 #_06BB30: LDA.w $0F50,X
@@ -11578,8 +11551,7 @@ Sprite_39_Locksmith:
 ;===================================================================================================
 
 LockSmith_Chillin:
-; Message 0105
-#_06BCD1: LDA.b #$05
+#_06BCD1: LDA.b #$05 ; MESSAGE 0105
 #_06BCD3: LDY.b #$01
 #_06BCD5: JSL Sprite_ShowSolicitedMessage
 
@@ -11647,8 +11619,7 @@ LockSmith_OfferService:
 #_06BD2E: LDA.l $7EF3D3
 #_06BD32: BEQ .dont_have_chest
 
-; Message 0107
-#_06BD34: LDA.b #$07
+#_06BD34: LDA.b #$07 ; MESSAGE 0107
 #_06BD36: LDY.b #$01
 #_06BD38: JSL Sprite_ShowSolicitedMessage
 #_06BD3C: BCC .exit
@@ -11658,8 +11629,7 @@ LockSmith_OfferService:
 ;---------------------------------------------------------------------------------------------------
 
 .dont_have_chest
-; Message 0107
-#_06BD40: LDA.b #$07
+#_06BD40: LDA.b #$07 ; MESSAGE 0107
 #_06BD42: LDY.b #$01
 #_06BD44: JSL Sprite_ShowMessageOnContact
 #_06BD48: BCC .exit
@@ -11679,8 +11649,7 @@ LockSmith_RespondToAnswer:
 #_06BD53: LDA.l $7EF3D3
 #_06BD57: BEQ .give_bottle
 
-; Message 010A
-#_06BD59: LDA.b #$0A
+#_06BD59: LDA.b #$0A ; MESSAGE 010A
 #_06BD5B: LDY.b #$01
 #_06BD5D: JSL Sprite_ShowMessageUnconditional
 
@@ -11710,8 +11679,7 @@ LockSmith_RespondToAnswer:
 ;---------------------------------------------------------------------------------------------------
 
 .rejected
-; Message 0108
-#_06BD84: LDA.b #$08
+#_06BD84: LDA.b #$08 ; MESSAGE 0108
 #_06BD86: LDY.b #$01
 #_06BD88: JSL Sprite_ShowMessageUnconditional
 
@@ -11723,8 +11691,7 @@ LockSmith_RespondToAnswer:
 ;===================================================================================================
 
 LockSmith_JustPromiseOkay:
-; Message 0109
-#_06BD92: LDA.b #$09
+#_06BD92: LDA.b #$09 ; MESSAGE 0109
 #_06BD94: LDY.b #$01
 #_06BD96: JSL Sprite_ShowSolicitedMessage
 
@@ -11733,8 +11700,7 @@ LockSmith_JustPromiseOkay:
 ;===================================================================================================
 
 LockSmith_SilentDismay:
-; Message 0105
-#_06BD9B: LDA.b #$05
+#_06BD9B: LDA.b #$05 ; MESSAGE 0105
 #_06BD9D: LDY.b #$01
 #_06BD9F: JSL Sprite_ShowSolicitedMessage
 
@@ -11763,7 +11729,7 @@ SpriteDraw_Locksmith:
 #_06BDBE: LDA.b #.oam_groups>>8
 #_06BDC0: STA.b $09
 
-#_06BDC2: JSL Sprite_DrawMultiple_player_deferred
+#_06BDC2: JSL SpriteDraw_Tabulated_player_deferred
 
 #_06BDC6: JMP.w SpriteDraw_Shadow
 
@@ -11795,7 +11761,6 @@ Hobo_Bum:
 #_06BDED: STZ.b $5E
 
 #_06BDEF: JSL Link_CancelDash_long
-
 
 .no_contact
 #_06BDF3: LDA.w $0D80,X
@@ -11880,8 +11845,7 @@ Hobo_Awoken:
 ;---------------------------------------------------------------------------------------------------
 
 .fully_awake
-; Message 00D5
-#_06BE5B: LDA.b #$D5
+#_06BE5B: LDA.b #$D5 ; MESSAGE 00D5
 #_06BE5D: LDY.b #$00
 #_06BE5F: JSL Sprite_ShowMessageUnconditional
 
@@ -11961,7 +11925,7 @@ UNREACHABLE_06BEBA:
 
 Hobo_Bubble:
 #_06BEBC: LDA.b #$04
-#_06BEBE: JSL OAM_AllocateFromRegionC
+#_06BEBE: JSL SpriteDraw_AllocateOAMFromRegionC
 
 #_06BEC2: JSR SpriteDraw_SingleSmall
 #_06BEC5: JSR Sprite_CheckIfActive_Bank06
@@ -12487,8 +12451,8 @@ Sprite_2E_FluteKid_bounce:
 
 ;===================================================================================================
 
-Sprite_2D_TelepathicTile_bounce:
-#_06C0BA: JSL Sprite_2D_TelepathicTile
+Sprite_2D_NecklessMan_bounce:
+#_06C0BA: JSL Sprite_2D_NecklessMan
 
 #_06C0BE: RTS
 
@@ -12763,6 +12727,10 @@ pool Statue_CheckForSwitch
 .offset_y
 #_06C203: db   3,   3,  12,  12
 
+; TILETYPE 23
+; TILETYPE 24
+; TILETYPE 25
+; TILETYPE 3B
 .tile_id
 #_06C207: db $23, $24, $25, $3B
 
@@ -12796,7 +12764,7 @@ Statue_CheckForSwitch:
 
 #_06C230: PHY
 
-#_06C231: JSL GetTileAttribute_long
+#_06C231: JSL GetTileType_long
 
 #_06C235: PLY
 
@@ -12855,7 +12823,7 @@ SpriteDraw_Statue:
 
 #_06C278: SEP #$30
 
-#_06C27A: JSL Sprite_DrawMultiple_player_deferred
+#_06C27A: JSL SpriteDraw_Tabulated_player_deferred
 
 #_06C27E: RTS
 
@@ -12957,7 +12925,7 @@ Sprite_1D_FluteQuest:
 #_06C2F0: JSR Sprite_CheckIfActive_Bank06
 
 #_06C2F3: LDA.b $8A
-#_06C2F5: CMP.b #$18
+#_06C2F5: CMP.b #$18 ; OW 18
 #_06C2F7: BNE .not_kakariko
 
 #_06C2F9: LDA.l $7EF34C
@@ -13089,7 +13057,7 @@ FairyPond_Dust:
 #_06C3A6: STA.w $0DC0,X
 
 #_06C3A9: LDA.b #$04
-#_06C3AB: JSL OAM_AllocateFromRegionC
+#_06C3AB: JSL SpriteDraw_AllocateOAMFromRegionC
 
 #_06C3AF: JSR SpriteDraw_SingleSmall
 
@@ -13245,7 +13213,7 @@ FairyPond_Main:
 #_06C428: JSR Sprite_CheckIfActive_Bank06
 
 #_06C42B: LDA.b $A0
-#_06C42D: CMP.b #$15
+#_06C42D: CMP.b #$15 ; ROOM 0115
 #_06C42F: BEQ FairyPond_LakeHylia
 
 ;===================================================================================================
@@ -13317,7 +13285,7 @@ pool SpriteDraw_FairyPondItem
 
 SpriteDraw_FairyPondItem:
 #_06C4BD: LDA.b $A0
-#_06C4BF: CMP.b #$15
+#_06C4BF: CMP.b #$15 ; ROOM 0115
 #_06C4C1: BEQ .exit
 
 #_06C4C3: LDA.w $0D80,X
@@ -13366,7 +13334,7 @@ SpriteDraw_FairyPondItem:
 
 #_06C4FF: PLX
 
-#_06C500: JSL Sprite_DrawMultiple
+#_06C500: JSL SpriteDraw_Tabulated
 
 .exit
 #_06C504: RTS
@@ -13382,8 +13350,7 @@ FairyPond_WaitForLink:
 #_06C50D: JSL CheckIfLinkIsBusy
 #_06C511: BCS .exit
 
-; Message 0087
-#_06C513: LDA.b #$87
+#_06C513: LDA.b #$87 ; MESSAGE 0087
 #_06C515: LDY.b #$00
 #_06C517: JSL Sprite_ShowMessageOnContact
 #_06C51B: BCC .exit
@@ -13429,8 +13396,7 @@ LakeHyliaFairy_WaitForLink:
 #_06C54E: LDA.w FairyPond_PricesBCD+1,Y
 #_06C551: STA.w $1CF3
 
-; Message 014C
-#_06C554: LDA.b #$4C
+#_06C554: LDA.b #$4C ; MESSAGE 014C
 #_06C556: LDY.b #$01
 #_06C558: JSL Sprite_ShowMessageUnconditional
 
@@ -13447,8 +13413,7 @@ LakeHyliaFairy_WaitForLink:
 #_06C565: SEP #$30
 
 .negatory
-; Message 014A
-#_06C567: LDA.b #$4A
+#_06C567: LDA.b #$4A ; MESSAGE 014A
 #_06C569: LDY.b #$01
 #_06C56B: JSL Sprite_ShowMessageUnconditional
 
@@ -13570,8 +13535,7 @@ LakeHyliaFairy_WaitForDonation:
 #_06C60B: LDA.w $0DF0,X
 #_06C60E: BNE .exit
 
-; Message 0092
-#_06C610: LDA.b #$92
+#_06C610: LDA.b #$92 ; MESSAGE 0092
 #_06C612: LDY.b #$00
 #_06C614: JSL Sprite_ShowMessageUnconditional
 
@@ -13652,8 +13616,7 @@ LakeHyliaFairy_Greetings:
 
 #_06C67F: INC.w $0D80,X
 
-; Message 0093
-#_06C682: LDA.b #$93
+#_06C682: LDA.b #$93 ; MESSAGE 0093
 #_06C684: LDY.b #$00
 #_06C686: JSL Sprite_ShowMessageUnconditional
 
@@ -13713,8 +13676,7 @@ LakeHyliaFairy_UpgradeBombs:
 
 #_06C6C5: PLX
 
-; Message 0094
-#_06C6C6: LDA.b #$94
+#_06C6C6: LDA.b #$94 ; MESSAGE 0094
 #_06C6C8: LDY.b #$00
 #_06C6CA: JSL Sprite_ShowMessageUnconditional
 
@@ -13723,8 +13685,7 @@ LakeHyliaFairy_UpgradeBombs:
 ;---------------------------------------------------------------------------------------------------
 
 .at_max
-; Message 0096
-#_06C6CF: LDA.b #$96
+#_06C6CF: LDA.b #$96 ; MESSAGE 0096
 #_06C6D1: LDY.b #$00
 #_06C6D3: JSL Sprite_ShowMessageUnconditional
 
@@ -13825,8 +13786,7 @@ LakeHyliaFairy_UpgradeArrows:
 
 #_06C748: PLX
 
-; Message 0095
-#_06C749: LDA.b #$95
+#_06C749: LDA.b #$95 ; MESSAGE 0095
 #_06C74B: LDY.b #$00
 #_06C74D: JSL Sprite_ShowMessageUnconditional
 
@@ -13835,8 +13795,7 @@ LakeHyliaFairy_UpgradeArrows:
 ;---------------------------------------------------------------------------------------------------
 
 .at_max
-; Message 0096
-#_06C752: LDA.b #$96
+#_06C752: LDA.b #$96 ; MESSAGE 0096
 #_06C754: LDY.b #$00
 #_06C756: JSL Sprite_ShowMessageUnconditional
 
@@ -13858,8 +13817,7 @@ LakeHyliaFairy_RefundRupees:
 ;===================================================================================================
 
 LakeHyliaFairy_GiveDonationStatus:
-; Message 0152
-#_06C76B: LDA.b #$52
+#_06C76B: LDA.b #$52 ; MESSAGE 0152
 #_06C76D: LDY.b #$01
 #_06C76F: JSL Sprite_ShowMessageUnconditional
 
@@ -13872,10 +13830,10 @@ LakeHyliaFairy_GiveDonationStatus:
 pool LakeHyliaFairy_GrantLuck
 
 .message_low
-#_06C777: db $4E ; Message 014E
-#_06C778: db $4F ; Message 014F
-#_06C779: db $50 ; Message 0150
-#_06C77A: db $51 ; Message 0151
+#_06C777: db $4E ; MESSAGE 014E
+#_06C778: db $4F ; MESSAGE 014F
+#_06C779: db $50 ; MESSAGE 0150
+#_06C77A: db $51 ; MESSAGE 0151
 
 .message_high
 #_06C77B: db $01
@@ -13930,8 +13888,7 @@ UpgradeFairy_WaitForLink:
 #_06C7B1: JSL CheckIfLinkIsBusy
 #_06C7B5: BCS .exit
 
-; Message 0148
-#_06C7B7: LDA.b #$48
+#_06C7B7: LDA.b #$48 ; MESSAGE 0148
 #_06C7B9: LDY.b #$01
 #_06C7BB: JSL Sprite_ShowMessageOnContact
 #_06C7BF: BCC .exit
@@ -13953,8 +13910,7 @@ UpgradeFairy_OfferItemToss:
 #_06C7CE: LDA.w $1CE8
 #_06C7D1: BNE .no_toss
 
-; Message 0088
-#_06C7D3: LDA.b #$88
+#_06C7D3: LDA.b #$88 ; MESSAGE 0088
 #_06C7D5: LDY.b #$00
 #_06C7D7: JSL Sprite_ShowMessageUnconditional
 
@@ -13966,8 +13922,7 @@ UpgradeFairy_OfferItemToss:
 #_06C7E3: RTS
 
 .no_toss
-; Message 0149
-#_06C7E4: LDA.b #$49
+#_06C7E4: LDA.b #$49 ; MESSAGE 0149
 #_06C7E6: LDY.b #$01
 #_06C7E8: JSL Sprite_ShowMessageUnconditional
 
@@ -14121,8 +14076,7 @@ UpgradeFairy_AskWhoDidThis:
 
 #_06C8A5: INC.w $0D80,X
 
-; Message 0089
-#_06C8A8: LDA.b #$89
+#_06C8A8: LDA.b #$89 ; MESSAGE 0089
 #_06C8AA: LDY.b #$00
 #_06C8AC: JSL Sprite_ShowMessageUnconditional
 
@@ -14226,8 +14180,7 @@ UpgradeFairy_HandleUpgrade:
 #_06C918: LDA.b #$04
 #_06C91A: STA.w $0EB0,X
 
-; Message 014D
-#_06C91D: LDA.b #$4D
+#_06C91D: LDA.b #$4D ; MESSAGE 014D
 #_06C91F: LDY.b #$01
 #_06C921: JSL Sprite_ShowMessageUnconditional
 
@@ -14269,8 +14222,7 @@ UpgradeFairy_HandleUpgrade:
 ;---------------------------------------------------------------------------------------------------
 
 .what_a_nice_item
-; Message 008A
-#_06C948: LDA.b #$8A
+#_06C948: LDA.b #$8A ; MESSAGE 008A
 #_06C94A: LDY.b #$00
 #_06C94C: JSL Sprite_ShowMessageUnconditional
 
@@ -14279,8 +14231,7 @@ UpgradeFairy_HandleUpgrade:
 ;---------------------------------------------------------------------------------------------------
 
 .what_a_lame_item
-; Message 014B
-#_06C951: LDA.b #$4B
+#_06C951: LDA.b #$4B ; MESSAGE 014B
 #_06C953: LDY.b #$01
 #_06C955: JSL Sprite_ShowMessageUnconditional
 
@@ -14391,11 +14342,11 @@ UpgradeFairy_HandleItemReceipt:
 pool UpgradeFairy_FinalGoodBye
 
 .message_low
-#_06C9C6: db $8D ; Message 008D
-#_06C9C7: db $8E ; Message 008E
-#_06C9C8: db $90 ; Message 0090
-#_06C9C9: db $8F ; Message 008F
-#_06C9CA: db $91 ; Message 0091
+#_06C9C6: db $8D ; MESSAGE 008D
+#_06C9C7: db $8E ; MESSAGE 008E
+#_06C9C8: db $90 ; MESSAGE 0090
+#_06C9C9: db $8F ; MESSAGE 008F
+#_06C9CA: db $91 ; MESSAGE 0091
 
 .message_high
 #_06C9CB: db $00
@@ -14438,8 +14389,7 @@ UpgradeFairy_FinalGoodBye:
 UpgradeFairy_YouLiar:
 #_06C9ED: INC.w $0D80,X
 
-; Message 008B
-#_06C9F0: LDA.b #$8B
+#_06C9F0: LDA.b #$8B ; MESSAGE 008B
 #_06C9F2: LDY.b #$00
 #_06C9F4: JSL Sprite_ShowMessageUnconditional
 
@@ -14464,8 +14414,7 @@ UpgradeFairy_SecondChance:
 ;===================================================================================================
 
 UpgradeFairy_DebaseLink:
-; Message 008C
-#_06CA08: LDA.b #$8C
+#_06CA08: LDA.b #$8C ; MESSAGE 008C
 #_06CA0A: LDY.b #$00
 #_06CA0C: JSL Sprite_ShowMessageUnconditional
 
@@ -14646,7 +14595,7 @@ SpriteDraw_FatFairy:
 #_06CBA1: ADC.b #$00
 #_06CBA3: STA.b $09
 
-#_06CBA5: JSL Sprite_DrawMultiple_preset_quantity
+#_06CBA5: JSL SpriteDraw_Tabulated_preset_quantity
 
 #_06CBA9: RTS
 
@@ -14663,7 +14612,7 @@ Sprite_71_Leever:
 #_06CBB4: JSR Sprite_PrepOAMCoord_wrapper
 
 .respawn
-#_06CBB7: LDA.w $0F00,X ; TODO can this succeed?
+#_06CBB7: LDA.w $0F00,X ; reprep if off screen
 #_06CBBA: BEQ .dont_respawn
 
 #_06CBBC: LDA.b #$08
@@ -15306,6 +15255,7 @@ Sprite_E3_Fairy:
 
 .continue
 #_06CFB2: JSR Fairy_CheckIfTouchable
+
 #_06CFB5: JSR Sprite_CheckIfActive_Bank06
 
 #_06CFB8: LDA.w $0D80,X
@@ -15331,8 +15281,7 @@ Fairy_Prancing:
 
 #_06CFD8: INC.w $0D80,X
 
-; Message 00C7
-#_06CFDB: LDA.b #$C7
+#_06CFDB: LDA.b #$C7 ; MESSAGE 00C7
 #_06CFDD: LDY.b #$00
 #_06CFDF: JSL Sprite_ShowMessageUnconditional
 
@@ -15350,7 +15299,7 @@ Fairy_HandleCapture:
 #_06CFEC: LDA.w $1CE8
 #_06CFEF: BNE .release
 
-#_06CFF1: JSL Find_EmptyBottle
+#_06CFF1: JSL FindEmptyBottle
 #_06CFF5: BMI .no_space
 
 #_06CFF7: PHX
@@ -15371,8 +15320,7 @@ Fairy_HandleCapture:
 ;---------------------------------------------------------------------------------------------------
 
 .no_space
-; Message 00C8
-#_06D008: LDA.b #$C8
+#_06D008: LDA.b #$C8 ; MESSAGE 00C8
 #_06D00A: LDY.b #$00
 #_06D00C: JSL Sprite_ShowMessageUnconditional
 
@@ -15395,12 +15343,10 @@ Fairy_CheckIfTouchable:
 
 #_06D021: LDA.w $1CF0
 
-; Message 00C7
-#_06D024: CMP.w #$00C7
+#_06D024: CMP.w #$00C7 ; MESSAGE 00C7
 #_06D027: BEQ .untouchable
 
-; Message 00C8
-#_06D029: CMP.w #$00C8
+#_06D029: CMP.w #$00C8 ; MESSAGE 00C8
 #_06D02C: BNE .touchable
 
 .untouchable
@@ -15504,10 +15450,10 @@ Absorbable_Main:
 #_06D09C: STA.w $0F80,X
 
 #_06D09F: LDA.l $7FF9C2,X
-#_06D0A3: CMP.b #$08
+#_06D0A3: CMP.b #$08 ; TILETYPE 08
 #_06D0A5: BEQ .water_tile
 
-#_06D0A7: CMP.b #$09
+#_06D0A7: CMP.b #$09 ; TILETYPE 09
 #_06D0A9: BNE .not_water_tile
 
 .water_tile
@@ -15636,7 +15582,7 @@ Absorbable_SFX3:
 #_06D13D: db $0B ; SFX3.0B - full magic
 #_06D13E: db $0B ; SFX3.0B - arrow refill 5
 #_06D13F: db $0B ; SFX3.0B - arrow refill 10
-#_06D140: db $0B ; SFX3.0B - faerie
+#_06D140: db $0B ; SFX3.0B - fairy
 #_06D141: db $2F ; SFX3.2F - small key
 #_06D142: db $2F ; SFX3.2F - big key
 #_06D143: db $0B ; SFX3.0B - stolen shield
@@ -15724,7 +15670,7 @@ Absorb_Fairy:
 #_06D1AD: LDA.b #$31 ; SFX2.31
 #_06D1AF: JSL SpriteSFX_QueueSFX2WithPan
 
-#_06D1B3: LDA.b #$38 ; 7*$08
+#_06D1B3: LDA.b #$38 ; 7*8
 #_06D1B5: BRA Absorb_AddHealth
 
 ;===================================================================================================
@@ -15856,7 +15802,7 @@ pool SpriteDraw_Absorbable
 #_06D21D: db $01 ; full magic
 #_06D21E: db $01 ; arrow refill 5
 #_06D21F: db $02 ; arrow refill 10
-#_06D220: db $02 ; faerie
+#_06D220: db $02 ; fairy
 #_06D221: db $01 ; small key
 #_06D222: db $02 ; big key
 #_06D223: db $02 ; stolen shield
@@ -15873,7 +15819,7 @@ pool SpriteDraw_Absorbable
 #_06D22C: db $00 ; full magic
 #_06D22D: db $04 ; arrow refill 5
 #_06D22E: db $05 ; arrow refill 10
-#_06D22F: db $00 ; faerie
+#_06D22F: db $00 ; fairy
 #_06D230: db $00 ; small key
 #_06D231: db $00 ; big key
 #_06D232: db $00 ; stolen shield
@@ -15911,7 +15857,7 @@ SpriteDraw_Absorbable:
 #_06D252: BEQ .use_selected_region
 
 #_06D254: LDA.b #$0C
-#_06D256: JSL OAM_AllocateFromRegionC
+#_06D256: JSL SpriteDraw_AllocateOAMFromRegionC
 
 .use_selected_region
 #_06D25A: LDA.w $0E90,X
@@ -17804,7 +17750,7 @@ SpriteDraw_ClassToChar:
 #_06DB7B: db $3C ; KEESE
 #_06DB7C: db $81 ; KING HELMASAUR FIREBALL
 #_06DB7D: db $00 ; LEEVER
-#_06DB7E: db $52 ; FAERIE POND TRIGGER
+#_06DB7E: db $52 ; FAIRY POND TRIGGER
 #_06DB7F: db $00 ; UNCLE / PRIEST / MANTLE
 #_06DB80: db $00 ; RUNNING MAN
 #_06DB81: db $00 ; BOTTLE MERCHANT
@@ -17890,7 +17836,7 @@ SpriteDraw_ClassToChar:
 #_06DBD1: db $00 ; MEDUSA
 #_06DBD2: db $00 ; 4WAY SHOOTER
 #_06DBD3: db $D8 ; POKEY
-#_06DBD4: db $00 ; BIG FAERIE
+#_06DBD4: db $00 ; BIG FAIRY
 #_06DBD5: db $00 ; TEKTITE / FIREBAT
 #_06DBD6: db $DE ; CHAIN CHOMP
 #_06DBD7: db $E3 ; TRINEXX ROCK HEAD
@@ -17917,7 +17863,7 @@ SpriteDraw_ClassToChar:
 #_06DBEC: db $22 ; LARGE MAGIC DECANTER
 #_06DBED: db $23 ; ARROW REFILL 5
 #_06DBEE: db $23 ; ARROW REFILL 10
-#_06DBEF: db $25 ; FAERIE
+#_06DBEF: db $25 ; FAIRY
 #_06DBF0: db $28 ; SMALL KEY
 #_06DBF1: db $6A ; BIG KEY
 #_06DBF2: db $F6 ; STOLEN SHIELD
@@ -17928,7 +17874,6 @@ SpriteDraw_ClassToChar:
 #_06DBF7: db $CE ; HEART PIECE
 
 ;===================================================================================================
-; TODO
 ; These routines draw sprites generically using two separate tables:
 ; SpriteDraw_IDtoClass   ($06:DA11)
 ; SpriteDraw_ClassToChar ($06:DB0C)
@@ -18352,7 +18297,7 @@ Sprite_02_StalfosHead:
 #_06DDC7: BEQ .keep_region
 
 #_06DDC9: LDA.b #$08
-#_06DDCB: JSL OAM_AllocateFromRegionC
+#_06DDCB: JSL SpriteDraw_AllocateOAMFromRegionC
 
 .keep_region
 #_06DDCF: LDA.w $0E80,X
@@ -18456,16 +18401,22 @@ Sprite_02_StalfosHead:
 pool SpriteModule_Carried
 
 .offset_x_low
-#_06DE55: db   0,   0,   0,   0,   0,   0,   0,   0
-#_06DE5D: db -13, -10,  -5,   0,  13,  10,   5,   0
+#_06DE55: db   0,   0,   0,   0 ; up
+#_06DE59: db   0,   0,   0,   0 ; down
+#_06DE5D: db -13, -10,  -5,   0 ; left
+#_06DE61: db  13,  10,   5,   0 ; right
 
 .offset_x_high
-#_06DE65: db   0,   0,   0,   0,   0,   0,   0,   0
-#_06DE6D: db  -1,  -1,  -1,   0,   0,   0,   0,   0
+#_06DE65: db   0,   0,   0,   0 ; up
+#_06DE69: db   0,   0,   0,   0 ; down
+#_06DE6D: db  -1,  -1,  -1,   0 ; left
+#_06DE71: db   0,   0,   0,   0 ; right
 
 .offset_z
-#_06DE75: db  13,  14,  15,  16,   0,  10,  22,  16
-#_06DE7D: db   8,  11,  14,  16,   8,  11,  14,  16
+#_06DE75: db  13,  14,  15,  16 ; up
+#_06DE79: db   0,  10,  22,  16 ; down
+#_06DE7D: db   8,  11,  14,  16 ; left
+#_06DE81: db   8,  11,  14,  16 ; right
 
 .offset_y_low
 #_06DE85: db   3,   2,   1,   3,   2,   1
@@ -18551,13 +18502,13 @@ SpriteModule_Carried:
 #_06DEEF: LDA.w .offset_z,Y
 #_06DEF2: STA.w $0F70,X
 
+;---------------------------------------------------------------------------------------------------
+
 #_06DEF5: LDY.b $2E
 #_06DEF7: CPY.b #$06
 #_06DEF9: BCC .valid_animation_step
 
 #_06DEFB: LDY.b #$00
-
-;---------------------------------------------------------------------------------------------------
 
 .valid_animation_step
 #_06DEFD: LDA.b $24
@@ -18789,7 +18740,7 @@ SpriteModule_Stunned:
 
 #_06E028: JSR Sprite_CheckTileCollision
 
-#_06E02B: LDA.w $0DD0,X ; TODO can this even succeed?
+#_06E02B: LDA.w $0DD0,X ; Can this even succeed?
 #_06E02E: BEQ .not_even_here_exit
 
 ;===================================================================================================
@@ -19129,6 +19080,7 @@ ThrownSprite_CheckDamageToSingleSprite:
 #_06E1E2: TYX
 
 #_06E1E3: JSR Sprite_SetupHitBox
+
 #_06E1E6: PLX
 
 #_06E1E7: JSR CheckIfHitBoxesOverlap
@@ -19502,6 +19454,7 @@ SpriteModule_Poof:
 #_06E3C4: LDA.w $0CBA,X
 #_06E3C7: BNE .no_forced_drop
 
+; force magic pack
 #_06E3C9: LDY.b #$02
 #_06E3CB: JMP.w ForcePrizeDrop
 
@@ -19905,11 +19858,11 @@ Sprite_CheckTileCollisionSingleLayer:
 ;---------------------------------------------------------------------------------------------------
 
 .not_pit
-#_06E588: CMP.b #$0C
+#_06E588: CMP.b #$0C ; TILETYPE 0C
 #_06E58A: BNE .sprite_cant_fall
 
 #_06E58C: LDA.l $7FFABC,X
-#_06E590: CMP.b #$1C
+#_06E590: CMP.b #$1C ; TILETYPE 1C
 #_06E592: BNE .exit_c
 
 #_06E594: JSR SpriteFall_AdjustPosition
@@ -20051,36 +20004,36 @@ SpriteFall_AdjustPosition:
 pool Sprite_CheckTileProperty
 
 .offset_x
-#_06E651: db $08, $00, $08, $00, $02, $00, $0E, $00
-#_06E659: db $08, $00, $08, $00, $FE, $FF, $0A, $00
-#_06E661: db $08, $00, $08, $00, $01, $00, $0E, $00
-#_06E669: db $04, $00, $04, $00, $04, $00, $04, $00
-#_06E671: db $04, $00, $04, $00, $FE, $FF, $0A, $00
-#_06E679: db $08, $00, $08, $00, $E7, $FF, $28, $00
-#_06E681: db $08, $00, $08, $00, $02, $00, $0E, $00
-#_06E689: db $08, $00, $08, $00, $F8, $FF, $17, $00
-#_06E691: db $08, $00, $08, $00, $EC, $FF, $24, $00
-#_06E699: db $08, $00, $08, $00, $FF, $FF, $10, $00
-#_06E6A1: db $08, $00, $08, $00, $FF, $FF, $10, $00
-#_06E6A9: db $08, $00, $08, $00, $F8, $FF, $18, $00
-#_06E6B1: db $08, $00, $08, $00, $F8, $FF, $18, $00
-#_06E6B9: db $08, $00, $03, $00
+#_06E651: dw $0008, $0008, $0002, $000E
+#_06E659: dw $0008, $0008, $FFFE, $000A
+#_06E661: dw $0008, $0008, $0001, $000E
+#_06E669: dw $0004, $0004, $0004, $0004
+#_06E671: dw $0004, $0004, $FFFE, $000A
+#_06E679: dw $0008, $0008, $FFE7, $0028
+#_06E681: dw $0008, $0008, $0002, $000E
+#_06E689: dw $0008, $0008, $FFF8, $0017
+#_06E691: dw $0008, $0008, $FFEC, $0024
+#_06E699: dw $0008, $0008, $FFFF, $0010
+#_06E6A1: dw $0008, $0008, $FFFF, $0010
+#_06E6A9: dw $0008, $0008, $FFF8, $0018
+#_06E6B1: dw $0008, $0008, $FFF8, $0018
+#_06E6B9: dw $0008, $0003
 
 .offset_y
-#_06E6BD: db $06, $00, $14, $00, $0D, $00, $0D, $00
-#_06E6C5: db $00, $00, $08, $00, $04, $00, $04, $00
-#_06E6CD: db $01, $00, $0E, $00, $08, $00, $08, $00
-#_06E6D5: db $04, $00, $04, $00, $04, $00, $04, $00
-#_06E6DD: db $FE, $FF, $0A, $00, $04, $00, $04, $00
-#_06E6E5: db $E7, $FF, $28, $00, $08, $00, $08, $00
-#_06E6ED: db $03, $00, $10, $00, $0A, $00, $0A, $00
-#_06E6F5: db $F8, $FF, $19, $00, $08, $00, $08, $00
-#_06E6FD: db $EC, $FF, $24, $00, $08, $00, $08, $00
-#_06E705: db $FF, $FF, $10, $00, $08, $00, $08, $00
-#_06E70D: db $0E, $00, $03, $00, $08, $00, $08, $00
-#_06E715: db $F8, $FF, $18, $00, $08, $00, $08, $00
-#_06E71D: db $F8, $FF, $20, $00, $08, $00, $08, $00
-#_06E725: db $0C, $00, $04, $00
+#_06E6BD: dw $0006, $0014, $000D, $000D
+#_06E6C5: dw $0000, $0008, $0004, $0004
+#_06E6CD: dw $0001, $000E, $0008, $0008
+#_06E6D5: dw $0004, $0004, $0004, $0004
+#_06E6DD: dw $FFFE, $000A, $0004, $0004
+#_06E6E5: dw $FFE7, $0028, $0008, $0008
+#_06E6ED: dw $0003, $0010, $000A, $000A
+#_06E6F5: dw $FFF8, $0019, $0008, $0008
+#_06E6FD: dw $FFEC, $0024, $0008, $0008
+#_06E705: dw $FFFF, $0010, $0008, $0008
+#_06E70D: dw $000E, $0003, $0008, $0008
+#_06E715: dw $FFF8, $0018, $0008, $0008
+#_06E71D: dw $FFF8, $0020, $0008, $0008
+#_06E725: dw $000C, $0004
 
 pool off
 
@@ -20193,7 +20146,7 @@ Sprite_CheckTileProperty:
 #_06E7A1: JMP.w .check_harmlessness
 
 .check_attributes
-#_06E7A4: JSR Sprite_GetTileAttribute
+#_06E7A4: JSR Sprite_GetTileType
 #_06E7A7: TAY
 
 #_06E7A8: LDA.w $0CAA,X
@@ -20205,7 +20158,7 @@ Sprite_CheckTileProperty:
 
 #_06E7B1: LDY.b $08
 
-#_06E7B3: LDA.l SimplifiedTileAttributes,X
+#_06E7B3: LDA.l GeneralizedProjectileTileInteraction,X
 
 #_06E7B7: PLX
 
@@ -20305,7 +20258,7 @@ Sprite_CheckTileProperty:
 #_06E818: PHX
 #_06E819: TYX
 
-#_06E81A: LDA.l Sprite_ReducedTileInteractionTable,X
+#_06E81A: LDA.l GeneralizedSpriteTileInteraction,X
 
 #_06E81E: PLX
 
@@ -20314,7 +20267,6 @@ Sprite_CheckTileProperty:
 #_06E823: BEQ .fail
 
 #_06E825: LDA.w $0FA5
-
 #_06E828: CMP.b #$10 ; TILETYPE 10
 #_06E82A: BCC .not_slope
 
@@ -20404,12 +20356,12 @@ Sprite_CheckTileProperty:
 
 ;===================================================================================================
 
-GetTileAttribute_long:
+GetTileType_long:
 #_06E881: PHB
 #_06E882: PHK
 #_06E883: PLB
 
-#_06E884: JSR GetTileAttribute
+#_06E884: JSR GetTileType
 
 #_06E887: PLB
 
@@ -20417,12 +20369,12 @@ GetTileAttribute_long:
 
 ;===================================================================================================
 
-Sprite_GetTileAttribute:
+Sprite_GetTileType:
 #_06E889: LDA.w $0F20,X
 
 ;===================================================================================================
 
-GetTileAttribute:
+GetTileType:
 #_06E88C: CMP.b #$01
 
 #_06E88E: REP #$30
@@ -20491,7 +20443,7 @@ GetTileAttribute:
 #_06E8CE: PHX
 #_06E8CF: PHY
 
-#_06E8D0: JSL Overworld_GetTileAttributeAtLocation
+#_06E8D0: JSL Overworld_GetTileTypeAtLocation
 
 #_06E8D4: SEP #$30
 
@@ -20667,7 +20619,7 @@ Sprite_Move_Z_Bank06:
 
 ;===================================================================================================
 
-Sprite_ProjectSpeedTowardsLink_instantexit:
+Sprite_ProjectSpeedTowardsLink_instant_exit:
 #_06E994: STZ.b $00
 
 #_06E996: RTS
@@ -20678,7 +20630,7 @@ Sprite_ProjectSpeedTowardsLink:
 #_06E997: STA.b $01
 
 #_06E999: CMP.b #$00
-#_06E99B: BEQ .instantexit
+#_06E99B: BEQ .instant_exit
 
 #_06E99D: PHX
 #_06E99E: PHY
@@ -20768,24 +20720,22 @@ Sprite_ProjectSpeedTowardsLink:
 .dont_flip_axes
 #_06E9F1: LDA.b $00
 #_06E9F3: LDY.b $02
-#_06E9F5: BEQ .sign_correct_a
+#_06E9F5: BEQ .sign_correct_y
 
 #_06E9F7: EOR.b #$FF
 #_06E9F9: INC A
 #_06E9FA: STA.b $00
 
-.sign_correct_a
+.sign_correct_y
 #_06E9FC: LDA.b $01
 #_06E9FE: LDY.b $03
-#_06EA00: BEQ .sign_correct_b
+#_06EA00: BEQ .sign_correct_x
 
 #_06EA02: EOR.b #$FF
 #_06EA04: INC A
 #_06EA05: STA.b $01
 
-;---------------------------------------------------------------------------------------------------
-
-.sign_correct_b
+.sign_correct_x
 #_06EA07: PLY
 #_06EA08: PLX
 
@@ -20949,22 +20899,22 @@ Sprite_ProjectSpeedTowardsLocation:
 .x_was_bigger
 #_06EA8D: LDA.b $00
 #_06EA8F: LDY.b $02
-#_06EA91: BEQ .sign_correct_a
+#_06EA91: BEQ .sign_correct_y
 
 #_06EA93: EOR.b #$FF
 #_06EA95: INC A
 #_06EA96: STA.b $00
 
-.sign_correct_a
+.sign_correct_y
 #_06EA98: LDA.b $01
 #_06EA9A: LDY.b $03
-#_06EA9C: BEQ .sign_correct_b
+#_06EA9C: BEQ .sign_correct_x
 
 #_06EA9E: EOR.b #$FF
 #_06EAA0: INC A
 #_06EAA1: STA.b $01
 
-.sign_correct_b
+.sign_correct_x
 #_06EAA3: PLY
 #_06EAA4: PLX
 
@@ -21198,12 +21148,12 @@ Guard_ParrySwordAttacks:
 ;---------------------------------------------------------------------------------------------------
 
 .recoil_timer_guard
-#_06EB6C: db  15,  15,  24,  15
-#_06EB70: db  15,  19,  15,  15
+#_06EB6C: db 15, 15, 24, 15
+#_06EB70: db 15, 19, 15, 15
 
 .recoil_timer_link
-#_06EB74: db   6,   6,   6,  12
-#_06EB78: db   6,   6,   6,  15
+#_06EB74: db  6,  6,  6, 12
+#_06EB78: db  6,  6,  6, 15
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -21928,7 +21878,7 @@ Sprite_ApplyCalculatedDamage:
 
 ;===================================================================================================
 
-#MiniMoldorm_Recoil:
+#Sprite_HandleSpecialHits:
 #_06EECE: LDA.w $0DD0,X
 #_06EED1: CMP.b #$09
 #_06EED3: BCC .exit_b
@@ -22417,7 +22367,6 @@ NormalMob_TimeToDie:
 
 ;===================================================================================================
 ; Tests if the sprite in slot X overlaps with Link's hitbox
-; TODO explain more
 ;===================================================================================================
 Sprite_CheckDamageToLink_long:
 #_06F127: PHB
@@ -22753,7 +22702,7 @@ Sprite_CheckIfLifted:
 #_06F296: LDA.b #$10
 #_06F298: STA.w $0DF0,X
 
-#_06F29B: LDA.b #$00
+#_06F29B: LDA.b #$00 ; TILETYPE 00
 #_06F29D: STA.l $7FFA1C,X
 #_06F2A1: STA.l $7FF9C2,X
 
@@ -23647,6 +23596,7 @@ SetupActionHitbox:
 ;---------------------------------------------------------------------------------------------------
 ; Fake though
 ; Technically it just exists off screen
+;---------------------------------------------------------------------------------------------------
 .no_hitbox
 #_06F645: LDA.b #$80
 #_06F647: STA.b $08
@@ -23863,7 +23813,10 @@ Link_SetupHitBox_conditional:
 #_06F734: RTS
 
 ;===================================================================================================
-
+; Unused hitboxes:
+;   $16
+;   $17
+;===================================================================================================
 pool Sprite_SetupHitBox
 
 .offset_x_low
@@ -24195,12 +24148,12 @@ CheckIfHitBoxesOverlap:
 
 ;===================================================================================================
 
-OAM_AllocateDeferToPlayer_long:
+SpriteDraw_AllocateOAMDeferToPlayer_long:
 #_06F86A: PHB
 #_06F86B: PHK
 #_06F86C: PLB
 
-#_06F86D: JSR OAM_AllocateDeferToPlayer
+#_06F86D: JSR SpriteDraw_AllocateOAMDeferToPlayer
 
 #_06F870: PLB
 
@@ -24209,7 +24162,7 @@ OAM_AllocateDeferToPlayer_long:
 ;===================================================================================================
 ; TODO analyze
 ;===================================================================================================
-OAM_AllocateDeferToPlayer:
+SpriteDraw_AllocateOAMDeferToPlayer:
 #_06F872: LDA.w $0F20,X
 #_06F875: CMP.b $EE
 #_06F877: BNE .exit
@@ -24242,12 +24195,12 @@ OAM_AllocateDeferToPlayer:
 #_06F89B: BEQ .use_region_b
 
 .use_region_c
-#_06F89D: JSL OAM_AllocateFromRegionC
+#_06F89D: JSL SpriteDraw_AllocateOAMFromRegionC
 
 #_06F8A1: BRA .exit
 
 .use_region_b
-#_06F8A3: JSL OAM_AllocateFromRegionB
+#_06F8A3: JSL SpriteDraw_AllocateOAMFromRegionB
 
 .exit
 #_06F8A7: RTS
@@ -24434,7 +24387,7 @@ Sprite_DoTheDeath:
 #_06F968: BNE .not_snitch_guard
 
 #_06F96A: LDA.w $040A ; are we in kak?
-#_06F96D: CMP.b #$18
+#_06F96D: CMP.b #$18 ; OW 18
 #_06F96F: BNE .not_snitch_guard
 
 #_06F971: LDA.b #$07 ; SONG 07
@@ -24608,7 +24561,7 @@ Sprite_DoTheDeath:
 
 #_06FA45: LDA.w $0E20,X
 #_06FA48: CMP.b #$40 ; SPRITE 40
-#_06FA4A: BNE .not_kyameron
+#_06FA4A: BNE .not_barrier
 
 #_06FA4C: LDA.b #$09 ; keep it alive
 #_06FA4E: STA.w $0DD0,X
@@ -24618,7 +24571,7 @@ Sprite_DoTheDeath:
 
 #_06FA56: JMP.w SpriteModule_Die_kyameron_respawn
 
-.not_kyameron
+.not_barrier
 #_06FA59: RTS
 
 ;===================================================================================================
@@ -24663,7 +24616,7 @@ ItemDropBounceProps:
 #_06FA71: db $24 ; LARGE MAGIC DECANTER
 #_06FA72: db $24 ; ARROW REFILL 5
 #_06FA73: db $24 ; ARROW REFILL 10
-#_06FA74: db $00 ; FAERIE
+#_06FA74: db $00 ; FAIRY
 #_06FA75: db $24 ; SMALL KEY
 #_06FA76: db $20 ; BIG KEY
 #_06FA77: db $20 ; STOLEN SHIELD
@@ -25166,7 +25119,7 @@ SpriteDraw_FallingHelmaBeetle:
 #_06FD32: STA.b $09
 
 #_06FD34: LDA.b #$01
-#_06FD36: JSL Sprite_DrawMultiple
+#_06FD36: JSL SpriteDraw_Tabulated
 
 #_06FD3A: RTS
 
@@ -25407,8 +25360,6 @@ Sprite_CorrectOAMEntries:
 .make_small
 #_06FEDA: STA.b $00,X
 
-;---------------------------------------------------------------------------------------------------
-
 #_06FEDC: LDY.w #$0000
 
 #_06FEDF: LDX.b $0C
@@ -25434,8 +25385,6 @@ Sprite_CorrectOAMEntries:
 
 #_06FEF8: LDX.b $0E
 #_06FEFA: INC.b $00,X
-
-;---------------------------------------------------------------------------------------------------
 
 .not_offscreen_x
 #_06FEFC: LDY.w #$0000
@@ -25465,8 +25414,6 @@ Sprite_CorrectOAMEntries:
 #_06FF19: LDA.b #$F0
 #_06FF1B: STA.b $00,X
 
-;---------------------------------------------------------------------------------------------------
-
 .not_offscreen_y
 #_06FF1D: INX
 #_06FF1E: INX
@@ -25477,6 +25424,8 @@ Sprite_CorrectOAMEntries:
 
 #_06FF24: DEC.b $08
 #_06FF26: BPL .next_object
+
+;---------------------------------------------------------------------------------------------------
 
 #_06FF28: SEP #$10
 

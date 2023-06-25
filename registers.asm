@@ -640,8 +640,7 @@ TIMEUP = $004211
 ; h - horizontal blanking period (0: not hblank | 1: hblank)
 ;     blanking flags are toggled even during fblank
 ;     and irrespective of interrupts
-;
-; j - auto joypad read flag (0: fine | 1: busy with ajpr)
+; j - auto joypad read flag (0: fine | 1: busy)
 HVBJOY = $004212
 
 ; PROGRAMMABLE I/O PORT (READ)

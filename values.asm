@@ -230,7 +230,7 @@
 ; 2A - SWEEPING LADY
 ; 2B - HOBO
 ; 2C - LUMBERJACKS
-; 2D - TELEPATHIC TILE
+; 2D - NECKLESS MAN
 ; 2E - FLUTE KID
 ; 2F - RACE GAME LADY
 ; 30 - RACE GAME GUY
@@ -299,7 +299,7 @@
 ; 6F - KEESE
 ; 70 - KING HELMASAUR FIREBALL
 ; 71 - LEEVER
-; 72 - FAERIE POND TRIGGER
+; 72 - FAIRY POND TRIGGER
 ; 73 - UNCLE / PRIEST / MANTLE
 ; 74 - RUNNING MAN
 ; 75 - BOTTLE MERCHANT
@@ -385,7 +385,7 @@
 ; C5 - MEDUSA
 ; C6 - 4WAY SHOOTER
 ; C7 - POKEY
-; C8 - BIG FAERIE
+; C8 - BIG FAIRY
 ; C9 - TEKTITE / FIREBAT
 ; CA - CHAIN CHOMP
 ; CB - TRINEXX ROCK HEAD
@@ -412,7 +412,7 @@
 ; E0 - LARGE MAGIC DECANTER
 ; E1 - ARROW REFILL 5
 ; E2 - ARROW REFILL 10
-; E3 - FAERIE
+; E3 - FAIRY
 ; E4 - SMALL KEY
 ; E5 - BIG KEY
 ; E6 - STOLEN SHIELD
@@ -689,6 +689,15 @@
 ; 4B - BOOTS
 
 ;===================================================================================================
+; Generalized tile interaction types
+;===================================================================================================
+; 00 - Nothing
+; 01 - Collision
+; 02 - Short collision
+; 03 - Stairs
+; 04 - Ledge
+
+;===================================================================================================
 ; Tile types
 ;===================================================================================================
 ; 00 - Nothing (standard floor)
@@ -702,7 +711,7 @@
 ; 08 - Deep water
 ; 09 - Shallow water
 ; 0A - Short water ladder
-; 0B - Collision (weird, unused deep water in Overworld)
+; 0B - Collision (weird, unused deep water in overworld)
 ; 0C - Overlay mask
 ; 0D - Spike floor
 ; 0E - GT ice

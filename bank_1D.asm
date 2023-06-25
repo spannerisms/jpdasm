@@ -230,7 +230,7 @@ pool off
 
 SpriteDraw_Landmine:
 #_1D810C: LDA.b #$08
-#_1D810E: JSL OAM_AllocateFromRegionB
+#_1D810E: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_1D8112: LDA.w $0FC6
 #_1D8115: CMP.b #$03
@@ -244,7 +244,7 @@ SpriteDraw_Landmine:
 #_1D8120: SEP #$20
 
 #_1D8122: LDA.b #$02
-#_1D8124: JSL Sprite_DrawMultiple
+#_1D8124: JSL SpriteDraw_Tabulated
 
 .bad_gfx
 #_1D8128: RTS
@@ -260,7 +260,7 @@ Sprite_D3_Stal:
 #_1D8133: BNE .ignore_overlap
 
 #_1D8135: LDA.b #$04
-#_1D8137: JSL OAM_AllocateFromRegionB
+#_1D8137: JSL SpriteDraw_AllocateOAMFromRegionB
 
 .ignore_overlap
 #_1D813B: JSR SpriteDraw_Stal
@@ -419,7 +419,7 @@ SpriteDraw_Stal:
 #_1D8226: DEC A
 
 .active
-#_1D8227: JSL Sprite_DrawMultiple
+#_1D8227: JSL SpriteDraw_Tabulated
 
 #_1D822B: LDA.w $0D80,X
 #_1D822E: BEQ .no_shadow
@@ -530,8 +530,7 @@ FloppingFish_Leap:
 #_1D82AC: LDY.w $0D90,X
 #_1D82AF: BEQ .ascending
 
-; Message 0174
-#_1D82B1: LDA.b #$74
+#_1D82B1: LDA.b #$74 ; MESSAGE 0174
 #_1D82B3: STA.w $1CF0
 
 #_1D82B6: LDA.b #$01
@@ -813,7 +812,7 @@ SpriteDraw_FloppingFish:
 #_1D84A1: SEP #$20
 
 #_1D84A3: LDA.b #$02
-#_1D84A5: JSL Sprite_DrawMultiple
+#_1D84A5: JSL SpriteDraw_Tabulated
 
 #_1D84A9: LDA.w $0FDA
 #_1D84AC: CLC
@@ -861,7 +860,7 @@ SpriteDraw_FloppingFish:
 #_1D84E4: SEP #$20
 
 #_1D84E6: LDA.b #$03
-#_1D84E8: JSL Sprite_DrawMultiple
+#_1D84E8: JSL SpriteDraw_Tabulated
 #_1D84EC: JSL Sprite_Get16BitCoords_long
 
 #_1D84F0: RTS
@@ -911,8 +910,8 @@ SpriteDraw_ChimneySmoke:
 
 ;===================================================================================================
 
-#Sprite_DrawMultiple_Bank1D:
-#_1D8549: JSL Sprite_DrawMultiple
+#SpriteDraw_Tabulated_Bank1D:
+#_1D8549: JSL SpriteDraw_Tabulated
 
 #_1D854D: RTS
 
@@ -1423,7 +1422,7 @@ SpriteDraw_Lynel:
 #_1D8895: SEP #$20
 
 #_1D8897: LDA.b #$03
-#_1D8899: JSR Sprite_DrawMultiple_Bank1D
+#_1D8899: JSR SpriteDraw_Tabulated_Bank1D
 #_1D889C: JSL SpriteDraw_Shadow_long
 
 #_1D88A0: RTS
@@ -1475,7 +1474,7 @@ Sprite_PhantomGanon:
 ; move it up 20 pixels
 #_1D88E2: LDA.w $0D00,Y
 #_1D88E5: SEC
-#_1D88E6: SBC.b #20
+#_1D88E6: SBC.b #$14
 #_1D88E8: STA.w $0D00,Y
 
 #_1D88EB: LDA.w $0D20,Y
@@ -1685,7 +1684,7 @@ SpriteDraw_GanonBat:
 #_1D89FD: SEP #$20
 
 #_1D89FF: LDA.b #$02
-#_1D8A01: JMP.w Sprite_DrawMultiple_Bank1D
+#_1D8A01: JMP.w SpriteDraw_Tabulated_Bank1D
 
 ;===================================================================================================
 
@@ -1743,7 +1742,7 @@ SpriteDraw_PhantomGanon:
 #_1D8AA2: SEP #$20
 
 #_1D8AA4: LDA.b #$08
-#_1D8AA6: JMP.w Sprite_DrawMultiple_Bank1D
+#_1D8AA6: JMP.w SpriteDraw_Tabulated_Bank1D
 
 ;===================================================================================================
 
@@ -1944,11 +1943,11 @@ FireBat_Move:
 #_1D8BAA: STA.l $7FF800,X
 
 ; Set a timer, with trailing bats using a longer timer
-#_1D8BAE: LDA.b #79
+#_1D8BAE: LDA.b #$4F
 #_1D8BB0: CPY.b #$05
 #_1D8BB2: BNE .use_longer_timer
 
-#_1D8BB4: LDA.b #47
+#_1D8BB4: LDA.b #$2F
 
 .use_longer_timer
 #_1D8BB6: STA.l $7FF90E,X
@@ -2615,7 +2614,8 @@ Sprite_D7_Ganon:
 #_1D8EE0: CMP.b #$02
 #_1D8EE2: BNE .vulnerable
 
-; !HARDCODED check for room?
+; This looks like a hardcoded room check
+; but this address is actually abused as a vulnerability flag
 #_1D8EE4: CMP.w $0C9A,X
 #_1D8EE7: BEQ .vulnerable
 
@@ -2970,8 +2970,7 @@ Ganon_Phase3_DropTiles:
 #_1D9073: LDA.b #$E0
 #_1D9075: STA.w $0E10,X
 
-; Message 016E
-#_1D9078: LDA.b #$6E
+#_1D9078: LDA.b #$6E ; MESSAGE 016E
 #_1D907A: STA.w $1CF0
 
 #_1D907D: LDA.b #$01
@@ -3331,10 +3330,10 @@ Ganon_Phase3_SabotagePB:
 
 Ganon_Phase2_CircleOfBats:
 #_1D9203: LDA.w $0E50,X
-#_1D9206: CMP.b #161
+#_1D9206: CMP.b #$A1
 #_1D9208: BCS .hp_fine
 
-#_1D920A: LDA.b #160
+#_1D920A: LDA.b #$A0 ; 160 hp
 #_1D920C: STA.w $0E50,X
 
 .hp_fine
@@ -3383,10 +3382,10 @@ pool off
 
 Ganon_Phase2_LaunchSpiralBats:
 #_1D9248: LDA.w $0E50,X
-#_1D924B: CMP.b #161
+#_1D924B: CMP.b #$A1
 #_1D924D: BCS .hp_fine
 
-#_1D924F: LDA.b #160
+#_1D924F: LDA.b #$A0 ; 160 HP
 #_1D9251: STA.w $0E50,X
 
 .hp_fine
@@ -3445,10 +3444,10 @@ Ganon_HandleTridentAndSpiral:
 
 Ganon_Phase2_Warp:
 #_1D928F: LDA.w $0E50,X
-#_1D9292: CMP.b #161
+#_1D9292: CMP.b #$A1
 #_1D9294: BCS .hp_fine
 
-#_1D9296: LDA.b #160
+#_1D9296: LDA.b #$A0 ; 160 HP
 #_1D9298: STA.w $0E50,X
 
 .hp_fine
@@ -3524,8 +3523,7 @@ Ganon_Phase1_IntroduceSelf:
 #_1D92DE: CMP.b #$40
 #_1D92E0: BNE .dont_talk
 
-; Message 016D
-#_1D92E2: LDA.b #$6D
+#_1D92E2: LDA.b #$6D ; MESSAGE 016D
 #_1D92E4: STA.w $1CF0
 
 #_1D92E7: LDA.b #$01
@@ -3616,10 +3614,10 @@ Ganon_Phase1_TryAWarp:
 
 Ganon_Phase1_ThrowTrident:
 #_1D9354: LDA.w $0E50,X
-#_1D9357: CMP.b #209
+#_1D9357: CMP.b #$D1
 #_1D9359: BCS .hp_fine
 
-#_1D935B: LDA.b #208
+#_1D935B: LDA.b #$D0 ; 208 HP
 #_1D935D: STA.w $0E50,X
 
 .hp_fine
@@ -3746,10 +3744,10 @@ pool off
 
 Ganon_Phase1_WaitForTrident:
 #_1D93FD: LDA.w $0E50,X
-#_1D9400: CMP.b #209
+#_1D9400: CMP.b #$D1
 #_1D9402: BCS .hp_fine
 
-#_1D9404: LDA.b #208
+#_1D9404: LDA.b #$D0 ; 208 HP
 #_1D9406: STA.w $0E50,X
 
 .hp_fine
@@ -3788,10 +3786,10 @@ pool off
 
 Ganon_Phase1_MakePhaseDecision:
 #_1D9428: LDA.w $0E50,X
-#_1D942B: CMP.b #209
+#_1D942B: CMP.b #$D1
 #_1D942D: BCS .hp_fine
 
-#_1D942F: LDA.b #208
+#_1D942F: LDA.b #$D0 ; 208 HP
 #_1D9431: STA.w $0E50,X
 
 ;---------------------------------------------------------------------------------------------------
@@ -3803,7 +3801,7 @@ Ganon_Phase1_MakePhaseDecision:
 #_1D9439: LDA.b #$06
 #_1D943B: STA.w $0D80,X
 
-#_1D943E: LDA.b #127
+#_1D943E: LDA.b #$7F
 #_1D9440: STA.w $0DF0,X
 
 ;===================================================================================================
@@ -3844,10 +3842,10 @@ Ganon_HeadShakeStep:
 
 Ganon_Phase1_Warp:
 #_1D946C: LDA.w $0E50,X
-#_1D946F: CMP.b #209
+#_1D946F: CMP.b #$D1
 #_1D9471: BCS .hp_fine
 
-#_1D9473: LDA.b #208
+#_1D9473: LDA.b #$D0 ; 208 HP
 #_1D9475: STA.w $0E50,X
 
 .hp_fine
@@ -3961,10 +3959,10 @@ Ganon_LookAround:
 #_1D9525: BEQ .phase_1
 
 #_1D9527: LDA.w $0E50,X
-#_1D952A: CMP.b #161
+#_1D952A: CMP.b #$A1
 #_1D952C: BCS .phase_2
 
-#_1D952E: CMP.b #97
+#_1D952E: CMP.b #$61
 #_1D9530: BCS .phase_3
 
 ;---------------------------------------------------------------------------------------------------
@@ -3973,7 +3971,7 @@ Ganon_LookAround:
 #_1D9532: LDA.b #$11
 #_1D9534: STA.w $0D80,X
 
-#_1D9537: LDA.b #104
+#_1D9537: LDA.b #$68
 #_1D9539: STA.w $0DF0,X
 
 #_1D953C: RTS
@@ -3984,7 +3982,7 @@ Ganon_LookAround:
 #_1D953D: LDA.b #$0B
 #_1D953F: STA.w $0D80,X
 
-#_1D9542: LDA.b #40
+#_1D9542: LDA.b #$28
 #_1D9544: STA.w $0DF0,X
 
 #_1D9547: RTS
@@ -3995,7 +3993,7 @@ Ganon_LookAround:
 #_1D9548: LDA.b #$0E
 #_1D954A: STA.w $0D80,X
 
-#_1D954D: LDA.b #40
+#_1D954D: LDA.b #$28
 #_1D954F: STA.w $0DF0,X
 
 #_1D9552: RTS
@@ -4006,7 +4004,7 @@ Ganon_LookAround:
 #_1D9553: LDA.b #$02
 #_1D9555: STA.w $0D80,X
 
-#_1D9558: LDA.b #32
+#_1D9558: LDA.b #$20
 #_1D955A: STA.w $0DF0,X
 
 #_1D955D: RTS
@@ -4075,10 +4073,10 @@ Ganon_MoveWithTrident:
 
 Ganon_Phase2_HoldTrident:
 #_1D95AD: LDA.w $0E50,X
-#_1D95B0: CMP.b #209
+#_1D95B0: CMP.b #$D1
 #_1D95B2: BCS .hp_fine
 
-#_1D95B4: LDA.b #208
+#_1D95B4: LDA.b #$D0 ; 208 HP
 #_1D95B6: STA.w $0E50,X
 
 .hp_fine
@@ -4489,7 +4487,7 @@ SpriteDraw_Ganon:
 #_1D9BBD: SEP #$20
 
 #_1D9BBF: LDA.b #$02
-#_1D9BC1: JSR Sprite_DrawMultiple_Bank1D
+#_1D9BC1: JSR SpriteDraw_Tabulated_Bank1D
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -4552,7 +4550,7 @@ SpriteDraw_Ganon:
 #_1D9C0B: STA.w $0B89,X
 
 #_1D9C0E: LDA.b #$03
-#_1D9C10: JSR Sprite_DrawMultiple_Bank1D
+#_1D9C10: JSR SpriteDraw_Tabulated_Bank1D
 
 #_1D9C13: PLA
 #_1D9C14: STA.w $0F50,X
@@ -4628,7 +4626,7 @@ SpriteDraw_GanonTrident:
 #_1D9C69: STA.w $0B89,X
 
 #_1D9C6C: LDA.b #$05
-#_1D9C6E: JSR Sprite_DrawMultiple_Bank1D
+#_1D9C6E: JSR SpriteDraw_Tabulated_Bank1D
 
 #_1D9C71: PLA
 #_1D9C72: STA.w $0B89,X
@@ -5104,7 +5102,7 @@ pool off
 
 SpriteDraw_SwamolaRipples:
 #_1D9F1D: LDA.b #$08
-#_1D9F1F: JSL OAM_AllocateFromRegionB
+#_1D9F1F: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_1D9F23: LDA.b #$00
 #_1D9F25: XBA
@@ -5122,7 +5120,7 @@ SpriteDraw_SwamolaRipples:
 #_1D9F35: SEP #$20
 
 #_1D9F37: LDA.b #$02
-#_1D9F39: JMP.w Sprite_DrawMultiple_Bank1D
+#_1D9F39: JMP.w SpriteDraw_Tabulated_Bank1D
 
 ;===================================================================================================
 
@@ -5309,7 +5307,7 @@ Blind_SpawnFromMaiden:
 
 #_1DA052: LDA.b $02
 #_1DA054: SEC
-#_1DA055: SBC.b #16
+#_1DA055: SBC.b #$10
 #_1DA057: STA.w $0D00,X
 
 #_1DA05A: LDA.b $03
@@ -5365,7 +5363,6 @@ SpritePrep_Blind_PrepareBattle:
 #_1DA09F: LDA.b #$04
 #_1DA0A1: STA.w $0EB0,X
 
-; head direction
 #_1DA0A4: LDA.b #$07
 #_1DA0A6: STA.w $0DC0,X
 
@@ -6197,8 +6194,7 @@ Blind_THELIGHT:
 
 #_1DA4E1: PHA
 
-; Message 0121
-#_1DA4E2: LDA.b #$21
+#_1DA4E2: LDA.b #$21 ; MESSAGE 0121
 #_1DA4E4: STA.w $1CF0
 
 #_1DA4E7: LDA.b #$01
@@ -7000,7 +6996,7 @@ SpriteDraw_BlindPoof:
 #_1DAC3B: PLY
 
 #_1DAC3C: LDA.w .oam_group_size-$0F,Y
-#_1DAC3F: JMP.w Sprite_DrawMultiple_Bank1D
+#_1DAC3F: JMP.w SpriteDraw_Tabulated_Bank1D
 
 ;===================================================================================================
 ; TODO ????
@@ -7048,7 +7044,7 @@ SpriteDraw_Blind:
 #_1DAC89: SEP #$20
 
 #_1DAC8B: LDA.b #$07
-#_1DAC8D: JSR Sprite_DrawMultiple_Bank1D
+#_1DAC8D: JSR SpriteDraw_Tabulated_Bank1D
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -7210,7 +7206,7 @@ Trinexx_RecoverCachedCoords:
 
 #_1DAD55: LDA.w $0DB0,X
 #_1DAD58: CLC
-#_1DAD59: ADC.b #12
+#_1DAD59: ADC.b #$0C
 #_1DAD5B: STA.w $0D00,X
 
 #_1DAD5E: LDA.w $0ED0,X
@@ -7225,11 +7221,11 @@ Trinexx_Initialize_Fire:
 #_1DAD67: LDA.b #$03
 #_1DAD69: STA.w $0DC0,X
 
-#_1DAD6C: LDA.b #128
+#_1DAD6C: LDA.b #$80
 #_1DAD6E: BRA Trinexx_InitializeHead
 
 Trinexx_Initialize_Ice:
-#_1DAD70: LDA.b #255
+#_1DAD70: LDA.b #$FF
 
 ;===================================================================================================
 
@@ -7385,7 +7381,7 @@ Trinexx_FinalPhase:
 #_1DAE3F: CMP.b #$0E
 #_1DAE41: BNE .continue
 
-; is this code unreachable?
+; Unreachable
 ; Trinexx should never be set to $0D80,X=2
 ; Causes a message to display constantly.
 ; But that's just a happy accident from where it reads the vector.
@@ -8620,7 +8616,7 @@ SpriteDraw_TrinexxRockHead:
 
 .low_priority
 #_1DB581: LDA.b #$04
-#_1DB583: JSR Sprite_DrawMultiple_Bank1D
+#_1DB583: JSR SpriteDraw_Tabulated_Bank1D
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -8677,7 +8673,7 @@ SpriteDraw_TrinexxRockHeadAndBody:
 #_1DB5BD: STA.b $0B
 
 ; 8 segments
-#_1DB5BF: LDA.b #7
+#_1DB5BF: LDA.b #$07
 #_1DB5C1: STA.w $0FB5
 
 ; OAM offset
@@ -10452,8 +10448,7 @@ Sprite_CA_ChainChomp:
 #_1DBF0A: dw ChainChomp_Lunge
 
 ;===================================================================================================
-; TODO analyze the extra set
-;===================================================================================================
+
 pool ChainChomp_Idle
 
 .lunge_speed_x
@@ -10650,8 +10645,7 @@ ChainChomp_InvertLunge:
 #_1DC01F: RTS
 
 ;===================================================================================================
-; TODO ANALYZE
-;===================================================================================================
+
 pool ChainChomp_MoveChain
 
 .operand
@@ -11436,7 +11430,7 @@ SpriteDraw_Tektite:
 #_1DC406: SEP #$20
 
 #_1DC408: LDA.b #$02
-#_1DC40A: JSR Sprite_DrawMultiple_Bank1D
+#_1DC40A: JSR SpriteDraw_Tabulated_Bank1D
 #_1DC40D: JSL SpriteDraw_Shadow_long
 
 #_1DC411: RTS
@@ -11640,8 +11634,7 @@ BigFairy_WaitForLink:
 
 #_1DC51A: INC.w $0D80,X
 
-; Message 0158
-#_1DC51D: LDA.b #$58
+#_1DC51D: LDA.b #$58 ; MESSAGE 0158
 #_1DC51F: STA.w $1CF0
 
 #_1DC522: LDA.b #$01
@@ -11730,7 +11723,7 @@ SpriteDraw_BigFairy:
 #_1DC5E2: SEP #$20
 
 #_1DC5E4: LDA.b #$04
-#_1DC5E6: JSR Sprite_DrawMultiple_Bank1D
+#_1DC5E6: JSR SpriteDraw_Tabulated_Bank1D
 #_1DC5E9: JSL SpriteDraw_Shadow_long
 
 #_1DC5ED: RTS
@@ -13028,7 +13021,7 @@ SpriteDraw_Thief:
 #_1DCCB2: SEP #$20
 
 #_1DCCB4: LDA.b #$02
-#_1DCCB6: JSR Sprite_DrawMultiple_Bank1D
+#_1DCCB6: JSR SpriteDraw_Tabulated_Bank1D
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -13491,7 +13484,7 @@ SpriteDraw_Gibo:
 #_1DCFBC: SEP #$20
 
 #_1DCFBE: LDA.b #$04
-#_1DCFC0: JMP.w Sprite_DrawMultiple_Bank1D
+#_1DCFC0: JMP.w SpriteDraw_Tabulated_Bank1D
 
 ;===================================================================================================
 
@@ -13749,7 +13742,7 @@ SpriteDraw_Boulder:
 #_1DD19C: SEP #$20
 
 #_1DD19E: LDA.b #$04
-#_1DD1A0: JSR Sprite_DrawMultiple_Bank1D
+#_1DD1A0: JSR SpriteDraw_Tabulated_Bank1D
 #_1DD1A3: JSL SpriteDraw_BigShadow_with_altitude
 
 #_1DD1A7: RTS
@@ -13821,7 +13814,7 @@ SpriteDraw_BigShadow:
 #_1DD1F0: SEP #$20
 
 #_1DD1F2: LDA.b #$03
-#_1DD1F4: JSR Sprite_DrawMultiple_Bank1D
+#_1DD1F4: JSR SpriteDraw_Tabulated_Bank1D
 #_1DD1F7: JSL Sprite_Get16BitCoords_long
 
 #_1DD1FB: PLB
@@ -13931,8 +13924,7 @@ CutsceneAgahnim_HelloMyNameIs:
 #_1DD28A: LDA.b #$01 ; enable cutscene
 #_1DD28C: STA.w $02E4
 
-; Message 013B
-#_1DD28F: LDA.b #$3B
+#_1DD28F: LDA.b #$3B ; MESSAGE 013B
 #_1DD291: STA.w $1CF0
 
 #_1DD294: LDA.b #$01
@@ -14049,7 +14041,7 @@ CutsceneAgahnim_BanishZelda:
 ;---------------------------------------------------------------------------------------------------
 
 .start_flashing
-#_1DD313: LDA.b #120 ; set flash timer to 2 seconds
+#_1DD313: LDA.b #$78 ; set flash timer to 2 seconds
 #_1DD315: STA.w $0FF9
 
 #_1DD318: RTS
@@ -14110,8 +14102,7 @@ CutsceneAgahnim_Brag:
 #_1DD34F: LDA.w $0DF0,X
 #_1DD352: BNE .exit
 
-; Message 013C
-#_1DD354: LDA.b #$3C
+#_1DD354: LDA.b #$3C ; MESSAGE 013C
 #_1DD356: STA.w $1CF0
 
 #_1DD359: LDA.b #$01
@@ -14284,7 +14275,7 @@ CutsceneAgahnim_Draw_Agahnim:
 #_1DD47F: SEP #$20
 
 #_1DD481: LDA.b #$04
-#_1DD483: JSR Sprite_DrawMultiple_Bank1D
+#_1DD483: JSR SpriteDraw_Tabulated_Bank1D
 
 #_1DD486: LDA.b #$12
 #_1DD488: JSL SpriteDraw_Shadow_custom_long
@@ -14368,7 +14359,7 @@ pool off
 
 SpriteDraw_CutsceneAgahnimSpell:
 #_1DD516: LDA.b #$38
-#_1DD518: JSL OAM_AllocateFromRegionA
+#_1DD518: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_1DD51C: LDA.b $1A
 #_1DD51E: LSR A
@@ -14513,7 +14504,7 @@ CutsceneAgahnim_Zelda:
 
 .draw
 #_1DD5B7: LDA.b #$08
-#_1DD5B9: JSL OAM_AllocateFromRegionA
+#_1DD5B9: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_1DD5BD: LDA.b #$00
 #_1DD5BF: XBA
@@ -14533,7 +14524,7 @@ CutsceneAgahnim_Zelda:
 
 #_1DD5D0: LDA.b #$02
 
-#_1DD5D2: JSR Sprite_DrawMultiple_Bank1D
+#_1DD5D2: JSR SpriteDraw_Tabulated_Bank1D
 
 ; using sublabels makes my life easier here
 #_1DD5D5: JSR .draw_buttshaped_shadow
@@ -14550,7 +14541,7 @@ CutsceneAgahnim_Zelda:
 
 .draw_buttshaped_shadow
 #_1DD5E9: LDA.b #$08
-#_1DD5EB: JSL OAM_AllocateFromRegionA
+#_1DD5EB: JSL SpriteDraw_AllocateOAMFromRegionA
 
 ; they could have saved 8 bytes if they used CMP.b #$0F
 #_1DD5EF: LDA.w $0F70,X
@@ -14680,7 +14671,7 @@ pool off
 
 SpriteDraw_AltarZeldaWarp:
 #_1DD6B1: LDA.b #$08
-#_1DD6B3: JSL OAM_AllocateFromRegionA
+#_1DD6B3: JSL SpriteDraw_AllocateOAMFromRegionA
 
 #_1DD6B7: LDA.b #$00
 #_1DD6B9: XBA
@@ -14702,7 +14693,7 @@ SpriteDraw_AltarZeldaWarp:
 #_1DD6CA: SEP #$20
 
 #_1DD6CC: LDA.b #$02
-#_1DD6CE: JMP.w Sprite_DrawMultiple_Bank1D
+#_1DD6CE: JMP.w SpriteDraw_Tabulated_Bank1D
 
 ;===================================================================================================
 
@@ -15178,7 +15169,7 @@ SpriteDraw_Moldorm_Head:
 #_1DD9B1: SEP #$20
 
 #_1DD9B3: LDA.b #$04
-#_1DD9B5: JMP.w Sprite_DrawMultiple_Bank1D
+#_1DD9B5: JMP.w SpriteDraw_Tabulated_Bank1D
 
 ;===================================================================================================
 
@@ -15263,7 +15254,7 @@ SpriteDraw_Moldorm_LargeSegment:
 #_1DDA49: SEP #$20
 
 #_1DDA4B: LDA.b #$04
-#_1DDA4D: JMP.w Sprite_DrawMultiple_Bank1D
+#_1DDA4D: JMP.w SpriteDraw_Tabulated_Bank1D
 
 ;===================================================================================================
 
@@ -15847,7 +15838,7 @@ SpriteDraw_Vulture:
 #_1DDD6F: SEP #$20
 
 #_1DDD71: LDA.b #$02
-#_1DDD73: JSR Sprite_DrawMultiple_Bank1D
+#_1DDD73: JSR SpriteDraw_Tabulated_Bank1D
 #_1DDD76: JSL SpriteDraw_Shadow_long
 
 #_1DDD7A: RTS
@@ -16102,7 +16093,7 @@ Vitreous_SpawnMinions:
 #_1DDECB: LDA.b #$09
 #_1DDECD: STA.w $0ED0,X
 
-#_1DDED0: LDA.b #$04 ; SPRITE 04
+#_1DDED0: LDA.b #$04
 #_1DDED2: STA.w $0DC0,X
 
 ; This is pointless.
@@ -16233,7 +16224,7 @@ Catfish_QuakeMedallion:
 #_1DDF79: BEQ .keep_oam_allotment
 
 #_1DDF7B: LDA.b #$08
-#_1DDF7D: JSL OAM_AllocateFromRegionC
+#_1DDF7D: JSL SpriteDraw_AllocateOAMFromRegionC
 
 .keep_oam_allotment
 #_1DDF81: JSL SpriteDraw_SingleLarge_long
@@ -16530,14 +16521,12 @@ Catfish_LeaveMeAlone:
 
 #_1DE0FD: STZ.w $02E4
 
-; Message 0128 if you don't have quake
-#_1DE100: LDY.b #$28
+#_1DE100: LDY.b #$28 ; MESSAGE 0128 - if you don't have quake
 
 #_1DE102: LDA.l $7EF349
 #_1DE106: BEQ .give_quake_message
 
-; Message 0129 if you do have quake
-#_1DE108: LDY.b #$29
+#_1DE108: LDY.b #$29 ; MESSAGE 0129 - if you do have quake
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -16867,7 +16856,7 @@ SpriteDraw_Catfish:
 #_1DE335: SEP #$20
 
 #_1DE337: LDA.b #$04
-#_1DE339: JMP.w Sprite_DrawMultiple_Bank1D
+#_1DE339: JMP.w SpriteDraw_Tabulated_Bank1D
 
 .no_draw
 #_1DE33C: RTS
@@ -16922,7 +16911,7 @@ Catfish_SplashOfWater:
 #_1DE396: SEP #$20
 
 #_1DE398: LDA.b #$02
-#_1DE39A: JMP.w Sprite_DrawMultiple_Bank1D
+#_1DE39A: JMP.w SpriteDraw_Tabulated_Bank1D
 
 ;===================================================================================================
 
@@ -16967,7 +16956,7 @@ Sprite_BF_Lightning:
 #_1DE404: LDA.w .anim,Y
 
 #_1DE407: LDY.w $048E
-#_1DE40A: CPY.b #$20
+#_1DE40A: CPY.b #$20 ; ROOM 0020
 #_1DE40C: BNE .use_set_1
 
 #_1DE40E: CLC
@@ -17122,8 +17111,11 @@ Sprite_BD_Vitreous:
 
 .not_lightningening
 #_1DE4D2: JSR SpriteDraw_Vitreous
+
 #_1DE4D5: JSR Sprite_CheckIfActive_Bank1D
+
 #_1DE4D8: JSR Vitreous_SetMinionsForth
+
 #_1DE4DB: JSR Sprite_CheckDamageToAndFromLink_Bank1D
 
 #_1DE4DE: LDA.w $0D80,X
@@ -17324,6 +17316,7 @@ Vitreous_Bouncing:
 ; Eyeball $0D is only in here once.
 ; Lucky guy has half the chance of being drafted as everyone else.
 ; His parents are probably wealthy aristocrats.
+; Eyeball $0C too.
 ;===================================================================================================
 Vitreous_EyeballRoster:
 #_1DE5CA: db $05, $06, $07, $08, $09, $0A, $0B, $0C
@@ -17505,7 +17498,7 @@ SpriteDraw_Vitreous:
 #_1DE748: SEP #$20
 
 #_1DE74A: LDA.b #$04
-#_1DE74C: JSR Sprite_DrawMultiple_Bank1D
+#_1DE74C: JSR SpriteDraw_Tabulated_Bank1D
 
 #_1DE74F: LDA.w $0D80,X
 #_1DE752: CMP.b #$02
@@ -19578,7 +19571,7 @@ SpriteDraw_LightningGate:
 #_1DF26B: SEP #$20
 
 #_1DF26D: LDA.b #$09
-#_1DF26F: JSR Sprite_DrawMultiple_Bank1D
+#_1DF26F: JSR SpriteDraw_Tabulated_Bank1D
 #_1DF272: JSL Sprite_Get16BitCoords_long
 
 #_1DF276: RTS
@@ -19713,7 +19706,7 @@ SpriteDraw_Antfairy:
 #_1DF3CB: SEP #$20
 
 #_1DF3CD: LDA.b #$05
-#_1DF3CF: JSR Sprite_DrawMultiple_Bank1D
+#_1DF3CF: JSR SpriteDraw_Tabulated_Bank1D
 
 #_1DF3D2: PLB
 
@@ -19743,8 +19736,7 @@ Toppo_Flustered:
 
 #_1DF3EF: INC.w $0E30,X
 
-; Message 0172
-#_1DF3F2: LDA.b #$72
+#_1DF3F2: LDA.b #$72 ; MESSAGE 0172
 #_1DF3F4: STA.w $1CF0
 
 #_1DF3F7: LDA.b #$01
@@ -19819,7 +19811,6 @@ Toppo_Flustered:
 ;===================================================================================================
 ; TODO why do these have eyes?
 ;===================================================================================================
-
 pool SpriteDraw_Mimic
 
 .oam_groups
@@ -19951,7 +19942,7 @@ SpriteDraw_Mimic:
 #_1DF5A1: SEP #$20
 
 #_1DF5A3: LDA.b #$01
-#_1DF5A5: JSR Sprite_DrawMultiple_Bank1D
+#_1DF5A5: JSR SpriteDraw_Tabulated_Bank1D
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -19981,7 +19972,7 @@ SpriteDraw_Mimic:
 #_1DF5C1: PLY
 
 #_1DF5C2: LDA.w .group_size,Y
-#_1DF5C5: JSR Sprite_DrawMultiple_Bank1D
+#_1DF5C5: JSR SpriteDraw_Tabulated_Bank1D
 
 #_1DF5C8: DEC.w $0E40,X
 #_1DF5CB: JSL SpriteDraw_Shadow_long
@@ -20194,41 +20185,269 @@ Sprite_SpawnDynamically_slot_limited:
 #_1DF6CE: RTL
 
 ;===================================================================================================
-; TODO analyze and format
+; 00 - nothing
+; 01 - collision
+; 02 - short collision
+; 03 - stairs
+; FF - ledges
 ;===================================================================================================
-Sprite_ReducedTileInteractionTable:
-#_1DF6CF: db $00, $01, $02, $03, $02, $00, $00, $00
-#_1DF6D7: db $00, $01, $00, $01, $00, $00, $00, $00
-#_1DF6DF: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF6E7: db $01, $01, $01, $01, $00, $01, $01, $01
-#_1DF6EF: db $01, $01, $01, $00, $00, $00, $01, $02
-#_1DF6F7: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
-#_1DF6FF: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF707: db $01, $01, $00, $00, $01, $01, $01, $01
-#_1DF70F: db $00, $01, $01, $01, $01, $01, $00, $01
-#_1DF717: db $00, $01, $00, $00, $FF, $FF, $FF, $FF
-#_1DF71F: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF727: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF72F: db $00, $00, $00, $00, $00, $01, $00, $02
-#_1DF737: db $00, $00, $00, $00, $01, $01, $01, $01
-#_1DF73F: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF747: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF74F: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF757: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF75F: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF767: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF76F: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF777: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF77F: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF787: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF78F: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF797: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF79F: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF7A7: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF7AF: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF7B7: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF7BF: db $01, $01, $01, $01, $01, $01, $01, $01
-#_1DF7C7: db $01, $01, $01, $01, $01, $01, $01, $01
+GeneralizedSpriteTileInteraction:
+#_1DF6CF: db $00 ; 00
+#_1DF6D0: db $01 ; 01
+#_1DF6D1: db $02 ; 02
+#_1DF6D2: db $03 ; 03
+#_1DF6D3: db $02 ; 04
+#_1DF6D4: db $00 ; 05
+#_1DF6D5: db $00 ; 06
+#_1DF6D6: db $00 ; 07
+#_1DF6D7: db $00 ; 08
+#_1DF6D8: db $01 ; 09
+#_1DF6D9: db $00 ; 0A
+#_1DF6DA: db $01 ; 0B
+#_1DF6DB: db $00 ; 0C
+#_1DF6DC: db $00 ; 0D
+#_1DF6DD: db $00 ; 0E
+#_1DF6DE: db $00 ; 0F
+#_1DF6DF: db $01 ; 10
+#_1DF6E0: db $01 ; 11
+#_1DF6E1: db $01 ; 12
+#_1DF6E2: db $01 ; 13
+#_1DF6E3: db $01 ; 14
+#_1DF6E4: db $01 ; 15
+#_1DF6E5: db $01 ; 16
+#_1DF6E6: db $01 ; 17
+#_1DF6E7: db $01 ; 18
+#_1DF6E8: db $01 ; 19
+#_1DF6E9: db $01 ; 1A
+#_1DF6EA: db $01 ; 1B
+#_1DF6EB: db $00 ; 1C
+#_1DF6EC: db $01 ; 1D
+#_1DF6ED: db $01 ; 1E
+#_1DF6EE: db $01 ; 1F
+#_1DF6EF: db $01 ; 20
+#_1DF6F0: db $01 ; 21
+#_1DF6F1: db $01 ; 22
+#_1DF6F2: db $00 ; 23
+#_1DF6F3: db $00 ; 24
+#_1DF6F4: db $00 ; 25
+#_1DF6F5: db $01 ; 26
+#_1DF6F6: db $02 ; 27
+#_1DF6F7: db $FF ; 28
+#_1DF6F8: db $FF ; 29
+#_1DF6F9: db $FF ; 2A
+#_1DF6FA: db $FF ; 2B
+#_1DF6FB: db $FF ; 2C
+#_1DF6FC: db $FF ; 2D
+#_1DF6FD: db $FF ; 2E
+#_1DF6FE: db $FF ; 2F
+#_1DF6FF: db $01 ; 30
+#_1DF700: db $01 ; 31
+#_1DF701: db $01 ; 32
+#_1DF702: db $01 ; 33
+#_1DF703: db $01 ; 34
+#_1DF704: db $01 ; 35
+#_1DF705: db $01 ; 36
+#_1DF706: db $01 ; 37
+#_1DF707: db $01 ; 38
+#_1DF708: db $01 ; 39
+#_1DF709: db $00 ; 3A
+#_1DF70A: db $00 ; 3B
+#_1DF70B: db $01 ; 3C
+#_1DF70C: db $01 ; 3D
+#_1DF70D: db $01 ; 3E
+#_1DF70E: db $01 ; 3F
+#_1DF70F: db $00 ; 40
+#_1DF710: db $01 ; 41
+#_1DF711: db $01 ; 42
+#_1DF712: db $01 ; 43
+#_1DF713: db $01 ; 44
+#_1DF714: db $01 ; 45
+#_1DF715: db $00 ; 46
+#_1DF716: db $01 ; 47
+#_1DF717: db $00 ; 48
+#_1DF718: db $01 ; 49
+#_1DF719: db $00 ; 4A
+#_1DF71A: db $00 ; 4B
+#_1DF71B: db $FF ; 4C
+#_1DF71C: db $FF ; 4D
+#_1DF71D: db $FF ; 4E
+#_1DF71E: db $FF ; 4F
+#_1DF71F: db $01 ; 50
+#_1DF720: db $01 ; 51
+#_1DF721: db $01 ; 52
+#_1DF722: db $01 ; 53
+#_1DF723: db $01 ; 54
+#_1DF724: db $01 ; 55
+#_1DF725: db $01 ; 56
+#_1DF726: db $01 ; 57
+#_1DF727: db $01 ; 58
+#_1DF728: db $01 ; 59
+#_1DF729: db $01 ; 5A
+#_1DF72A: db $01 ; 5B
+#_1DF72B: db $01 ; 5C
+#_1DF72C: db $01 ; 5D
+#_1DF72D: db $01 ; 5E
+#_1DF72E: db $01 ; 5F
+#_1DF72F: db $00 ; 60
+#_1DF730: db $00 ; 61
+#_1DF731: db $00 ; 62
+#_1DF732: db $00 ; 63
+#_1DF733: db $00 ; 64
+#_1DF734: db $01 ; 65
+#_1DF735: db $00 ; 66
+#_1DF736: db $02 ; 67
+#_1DF737: db $00 ; 68
+#_1DF738: db $00 ; 69
+#_1DF739: db $00 ; 6A
+#_1DF73A: db $00 ; 6B
+#_1DF73B: db $01 ; 6C
+#_1DF73C: db $01 ; 6D
+#_1DF73D: db $01 ; 6E
+#_1DF73E: db $01 ; 6F
+#_1DF73F: db $01 ; 70
+#_1DF740: db $01 ; 71
+#_1DF741: db $01 ; 72
+#_1DF742: db $01 ; 73
+#_1DF743: db $01 ; 74
+#_1DF744: db $01 ; 75
+#_1DF745: db $01 ; 76
+#_1DF746: db $01 ; 77
+#_1DF747: db $01 ; 78
+#_1DF748: db $01 ; 79
+#_1DF749: db $01 ; 7A
+#_1DF74A: db $01 ; 7B
+#_1DF74B: db $01 ; 7C
+#_1DF74C: db $01 ; 7D
+#_1DF74D: db $01 ; 7E
+#_1DF74E: db $01 ; 7F
+#_1DF74F: db $01 ; 80
+#_1DF750: db $01 ; 81
+#_1DF751: db $01 ; 82
+#_1DF752: db $01 ; 83
+#_1DF753: db $01 ; 84
+#_1DF754: db $01 ; 85
+#_1DF755: db $01 ; 86
+#_1DF756: db $01 ; 87
+#_1DF757: db $01 ; 88
+#_1DF758: db $01 ; 89
+#_1DF759: db $01 ; 8A
+#_1DF75A: db $01 ; 8B
+#_1DF75B: db $01 ; 8C
+#_1DF75C: db $01 ; 8D
+#_1DF75D: db $01 ; 8E
+#_1DF75E: db $01 ; 8F
+#_1DF75F: db $01 ; 90
+#_1DF760: db $01 ; 91
+#_1DF761: db $01 ; 92
+#_1DF762: db $01 ; 93
+#_1DF763: db $01 ; 94
+#_1DF764: db $01 ; 95
+#_1DF765: db $01 ; 96
+#_1DF766: db $01 ; 97
+#_1DF767: db $01 ; 98
+#_1DF768: db $01 ; 99
+#_1DF769: db $01 ; 9A
+#_1DF76A: db $01 ; 9B
+#_1DF76B: db $01 ; 9C
+#_1DF76C: db $01 ; 9D
+#_1DF76D: db $01 ; 9E
+#_1DF76E: db $01 ; 9F
+#_1DF76F: db $01 ; A0
+#_1DF770: db $01 ; A1
+#_1DF771: db $01 ; A2
+#_1DF772: db $01 ; A3
+#_1DF773: db $01 ; A4
+#_1DF774: db $01 ; A5
+#_1DF775: db $01 ; A6
+#_1DF776: db $01 ; A7
+#_1DF777: db $01 ; A8
+#_1DF778: db $01 ; A9
+#_1DF779: db $01 ; AA
+#_1DF77A: db $01 ; AB
+#_1DF77B: db $01 ; AC
+#_1DF77C: db $01 ; AD
+#_1DF77D: db $01 ; AE
+#_1DF77E: db $01 ; AF
+#_1DF77F: db $01 ; B0
+#_1DF780: db $01 ; B1
+#_1DF781: db $01 ; B2
+#_1DF782: db $01 ; B3
+#_1DF783: db $01 ; B4
+#_1DF784: db $01 ; B5
+#_1DF785: db $01 ; B6
+#_1DF786: db $01 ; B7
+#_1DF787: db $01 ; B8
+#_1DF788: db $01 ; B9
+#_1DF789: db $01 ; BA
+#_1DF78A: db $01 ; BB
+#_1DF78B: db $01 ; BC
+#_1DF78C: db $01 ; BD
+#_1DF78D: db $01 ; BE
+#_1DF78E: db $01 ; BF
+#_1DF78F: db $01 ; C0
+#_1DF790: db $01 ; C1
+#_1DF791: db $01 ; C2
+#_1DF792: db $01 ; C3
+#_1DF793: db $01 ; C4
+#_1DF794: db $01 ; C5
+#_1DF795: db $01 ; C6
+#_1DF796: db $01 ; C7
+#_1DF797: db $01 ; C8
+#_1DF798: db $01 ; C9
+#_1DF799: db $01 ; CA
+#_1DF79A: db $01 ; CB
+#_1DF79B: db $01 ; CC
+#_1DF79C: db $01 ; CD
+#_1DF79D: db $01 ; CE
+#_1DF79E: db $01 ; CF
+#_1DF79F: db $01 ; D0
+#_1DF7A0: db $01 ; D1
+#_1DF7A1: db $01 ; D2
+#_1DF7A2: db $01 ; D3
+#_1DF7A3: db $01 ; D4
+#_1DF7A4: db $01 ; D5
+#_1DF7A5: db $01 ; D6
+#_1DF7A6: db $01 ; D7
+#_1DF7A7: db $01 ; D8
+#_1DF7A8: db $01 ; D9
+#_1DF7A9: db $01 ; DA
+#_1DF7AA: db $01 ; DB
+#_1DF7AB: db $01 ; DC
+#_1DF7AC: db $01 ; DD
+#_1DF7AD: db $01 ; DE
+#_1DF7AE: db $01 ; DF
+#_1DF7AF: db $01 ; E0
+#_1DF7B0: db $01 ; E1
+#_1DF7B1: db $01 ; E2
+#_1DF7B2: db $01 ; E3
+#_1DF7B3: db $01 ; E4
+#_1DF7B4: db $01 ; E5
+#_1DF7B5: db $01 ; E6
+#_1DF7B6: db $01 ; E7
+#_1DF7B7: db $01 ; E8
+#_1DF7B8: db $01 ; E9
+#_1DF7B9: db $01 ; EA
+#_1DF7BA: db $01 ; EB
+#_1DF7BB: db $01 ; EC
+#_1DF7BC: db $01 ; ED
+#_1DF7BD: db $01 ; EE
+#_1DF7BE: db $01 ; EF
+#_1DF7BF: db $01 ; F0
+#_1DF7C0: db $01 ; F1
+#_1DF7C1: db $01 ; F2
+#_1DF7C2: db $01 ; F3
+#_1DF7C3: db $01 ; F4
+#_1DF7C4: db $01 ; F5
+#_1DF7C5: db $01 ; F6
+#_1DF7C6: db $01 ; F7
+#_1DF7C7: db $01 ; F8
+#_1DF7C8: db $01 ; F9
+#_1DF7C9: db $01 ; FA
+#_1DF7CA: db $01 ; FB
+#_1DF7CB: db $01 ; FC
+#_1DF7CC: db $01 ; FD
+#_1DF7CD: db $01 ; FE
+#_1DF7CE: db $01 ; FF
 
 ;===================================================================================================
 
@@ -20659,8 +20878,8 @@ TalkingTree_IdleWithoutBomb:
 ;===================================================================================================
 
 TalkingTree_Messages_setA:
-#_1DFA01: db $80 ; Message 0080
-#_1DFA02: db $7B ; Message 007B
+#_1DFA01: db $80 ; MESSAGE 0080
+#_1DFA02: db $7B ; MESSAGE 007B
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -20697,16 +20916,16 @@ TalkingTree_ChooseTalkingPoint:
 ;===================================================================================================
 
 .screen_based_hints
-#_1DFA2B: db $7C ; Message 007C
-#_1DFA2C: db $7D ; Message 007D
-#_1DFA2D: db $7E ; Message 007E
-#_1DFA2E: db $7F ; Message 007F
+#_1DFA2B: db $7C ; MESSAGE 007C
+#_1DFA2C: db $7D ; MESSAGE 007D
+#_1DFA2D: db $7E ; MESSAGE 007E
+#_1DFA2E: db $7F ; MESSAGE 007F
 
 .screen_id
-#_1DFA2F: db $58 ; Village of Outcasts
-#_1DFA30: db $5D ; Dark Hylia River Peninsula
-#_1DFA31: db $72 ; Stumpy Grove Entrance
-#_1DFA32: db $6B ; West of Bomb Shoppe
+#_1DFA2F: db $58 ; OW 58 - Village of Outcasts
+#_1DFA30: db $5D ; OW 5D - Dark Hylia River Peninsula
+#_1DFA31: db $72 ; OW 72 - Stumpy Grove Entrance
+#_1DFA32: db $6B ; OW 6B - West of Bomb Shoppe
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -20815,7 +21034,7 @@ SpriteDraw_TalkingTree:
 #_1DFAF2: STA.b $06
 #_1DFAF4: STZ.b $07
 
-#_1DFAF6: JSL Sprite_DrawMultiple_player_deferred
+#_1DFAF6: JSL SpriteDraw_Tabulated_player_deferred
 
 .exit
 #_1DFAFA: RTS
@@ -21113,8 +21332,7 @@ DigGameGuy_Idle:
 #_1DFC6C: LDA.l $7EF3CC
 #_1DFC70: BNE .no_followers_allowed
 
-; Message 0185
-#_1DFC72: LDA.b #$85
+#_1DFC72: LDA.b #$85 ; MESSAGE 0185
 #_1DFC74: LDY.b #$01
 #_1DFC76: JSL Sprite_ShowSolicitedMessage
 #_1DFC7A: BCC .exit
@@ -21129,8 +21347,7 @@ DigGameGuy_Idle:
 ;---------------------------------------------------------------------------------------------------
 
 .no_followers_allowed
-; Message 018A
-#_1DFC80: LDA.b #$8A
+#_1DFC80: LDA.b #$8A ; MESSAGE 018A
 #_1DFC82: LDY.b #$01
 #_1DFC84: JSL Sprite_ShowSolicitedMessage
 
@@ -21160,8 +21377,7 @@ DigGameGuy_OfferGame:
 
 #_1DFCA0: SEP #$30
 
-; Message 0186
-#_1DFCA2: LDA.b #$86
+#_1DFCA2: LDA.b #$86 ; MESSAGE 0186
 #_1DFCA4: LDY.b #$01
 #_1DFCA6: JSL Sprite_ShowMessageUnconditional
 
@@ -21193,8 +21409,7 @@ DigGameGuy_OfferGame:
 .rejected
 #_1DFCD2: SEP #$30
 
-; Message 0187
-#_1DFCD4: LDA.b #$87
+#_1DFCD4: LDA.b #$87 ; MESSAGE 0187
 #_1DFCD6: LDY.b #$01
 #_1DFCD8: JSL Sprite_ShowMessageUnconditional
 
@@ -21275,8 +21490,7 @@ DigGameGuy_Proctor:
 
 #_1DFD2F: STZ.w $03FC
 
-; Message 0188
-#_1DFD32: LDA.b #$88
+#_1DFD32: LDA.b #$88 ; MESSAGE 0188
 #_1DFD34: STA.w $1CF0
 
 #_1DFD37: LDA.b #$01
@@ -21291,8 +21505,7 @@ DigGameGuy_Proctor:
 ;===================================================================================================
 
 DigGameGuy_ThankYouComeAgain:
-; Message 0189
-#_1DFD42: LDA.b #$89
+#_1DFD42: LDA.b #$89 ; MESSAGE 0189
 #_1DFD44: LDY.b #$01
 #_1DFD46: JSL Sprite_ShowSolicitedMessage
 
@@ -21489,7 +21702,7 @@ SpriteDraw_DigGameGuy:
 #_1DFE61: ADC.b #$00
 #_1DFE63: STA.b $09
 
-#_1DFE65: JSL Sprite_DrawMultiple_player_deferred
+#_1DFE65: JSL SpriteDraw_Tabulated_player_deferred
 #_1DFE69: JSL SpriteDraw_Shadow_long
 
 #_1DFE6D: RTS
@@ -21591,7 +21804,7 @@ SpriteDraw_OldMan:
 #_1DFF3D: ADC.b #$00
 #_1DFF3F: STA.b $09
 
-#_1DFF41: JSL Sprite_DrawMultiple_player_deferred
+#_1DFF41: JSL SpriteDraw_Tabulated_player_deferred
 
 #_1DFF45: PLB
 
@@ -21610,7 +21823,7 @@ SpriteDraw_OldMan:
 #_1DFF51: LDA.b #.oam_groups_static>>8
 #_1DFF53: STA.b $09
 
-#_1DFF55: JSL Sprite_DrawMultiple_player_deferred
+#_1DFF55: JSL SpriteDraw_Tabulated_player_deferred
 
 #_1DFF59: PLB
 

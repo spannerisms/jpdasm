@@ -188,8 +188,8 @@ SFX2.17     $2344     $1A96F4     Staircase
 SFX2.18     $2356     $1A9706     Staircase
 SFX2.19     $236E     $1A971E     Staircase
 SFX2.1A     $2316     $1A96C6     Tall grass / Hammer hitting bush
-SFX2.1B     $2307     $1A96B7     Mire shallow water
-SFX2.1C     $2301     $1A96B1     Shallow water
+SFX2.1B     $2307     $1A96B7     Shallow water
+SFX2.1C     $2301     $1A96B1     Mire shallow water
 SFX2.1D     $22BB     $1A966B     Lifting object
 SFX2.1E     $2577     $1A9927     Cutting grass
 SFX2.1F     $22E9     $1A9699     Item breaking

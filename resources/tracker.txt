@@ -77,7 +77,7 @@ E6 xx yy       Master volume gradual change
    yy          Target
 ----------------------------------------------------------------------------------------------------
 E7 xx          Set tempo
-   xx          Tempo => BPM * 36864 / 60000
+   xx          Tempo => BPM * 15360 / 60000 (for $30 quarter note)
 ----------------------------------------------------------------------------------------------------
 E8 xx yy       Tempo gradual change
    xx          Duration

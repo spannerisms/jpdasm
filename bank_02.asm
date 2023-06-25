@@ -73,7 +73,7 @@ Module05_LoadFile:
 
 #_028068: JSL LoadDefaultGraphics
 #_02806C: JSL Sprite_LoadGraphicsProperties
-#_028070: JSL LoadDefaultTileAttributes
+#_028070: JSL LoadDefaultTileTypes
 
 #_028074: JSL DecompressSwordGraphics
 #_028078: JSL DecompressShieldGraphics
@@ -147,15 +147,15 @@ Module05_LoadFile:
 
 #_0280ED: REP #$10
 
-; Message 0183
-#_0280EF: LDX.w #$0183 ; 2 choice message
+; 2 choice message
+#_0280EF: LDX.w #$0183 ; MESSAGE 0183
 
 #_0280F2: LDA.l $7EF353
 #_0280F6: CMP.b #$02
 #_0280F8: BEQ .no_mirror
 
-; Message 0182
-#_0280FA: LDX.w #$0182 ; 3 choice message
+; 3 choice message
+#_0280FA: LDX.w #$0182 ; MESSAGE 0182
 
 .no_mirror
 #_0280FD: STX.w $1CF0
@@ -214,14 +214,16 @@ Module06_UnderworldLoad:
 
 #_028154: JSR Underworld_LoadEntrance
 
-#_028157: LDA.w $040C ; check dungeon ID
-#_02815A: CMP.b #$FF
+; check dungeon ID
+#_028157: LDA.w $040C
+#_02815A: CMP.b #$FF ; DUNGEON FF
 #_02815C: BEQ .cave ; use -1 keys
 
-#_02815E: CMP.b #$02
+#_02815E: CMP.b #$02 ; DUNGEON 02
 #_028160: BNE .not_castle
 
-#_028162: LDA.b #$00 ; swap to sewers
+; swap to sewers
+#_028162: LDA.b #$00 ; DUNGEON 00
 
 .not_castle
 #_028164: LSR A
@@ -236,7 +238,7 @@ Module06_UnderworldLoad:
 #_028171: STZ.w $0458
 
 #_028174: JSR Underworld_LoadAndDrawRoom
-#_028177: JSL Underworld_LoadCustomTileAttributes
+#_028177: JSL Underworld_LoadCustomTileTypes
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -281,8 +283,8 @@ Module06_UnderworldLoad:
 #_0281BB: XBA
 #_0281BC: STA.w $062E
 
-#_0281BF: LDA.b $A0
-#_0281C1: CMP.w #$0104
+#_0281BF: LDA.b $A0 ; check for Link's house
+#_0281C1: CMP.w #$0104 ; ROOM 0104
 #_0281C4: BNE .use_current_entrance
 
 #_0281C6: LDA.l $7EF3C6
@@ -436,11 +438,12 @@ UnderworldAdjustRainSFX:
 
 #_0282A7: REP #$20
 
-#_0282A9: LDA.b $A0
-#_0282AB: CMP.w #$0002 ; are we in sanctuary?
+;check sanctuary rooms
+#_0282A9: LDA.b $A0 ; ROOM 0002
+#_0282AB: CMP.w #$0002
 #_0282AE: BEQ .exit
 
-#_0282B0: CMP.w #$0012 ; also sanctuary
+#_0282B0: CMP.w #$0012 ; ROOM 0012
 #_0282B3: BEQ .exit
 
 #_0282B5: SEP #$20
@@ -515,29 +518,29 @@ Module08_00_LoadProperties:
 
 ; Check for death mountain screens
 #_0282F8: LDA.b $8A
-#_0282FA: CMP.b #$03
+#_0282FA: CMP.b #$03 ; OW 03
 #_0282FC: BEQ .death_mountain
 
-#_0282FE: CMP.b #$05
+#_0282FE: CMP.b #$05 ; OW 05
 #_028300: BEQ .death_mountain
 
-#_028302: CMP.b #$07
+#_028302: CMP.b #$07 ; OW 07
 #_028304: BEQ .death_mountain
 
 #_028306: LDX.b #$09 ; SONG 09
 
 ; check for dark death mountain screens
 #_028308: LDA.b $8A
-#_02830A: CMP.b #$43
+#_02830A: CMP.b #$43 ; OW 43
 #_02830C: BEQ .death_mountain
 
-#_02830E: CMP.b #$45
+#_02830E: CMP.b #$45 ; OW 45
 #_028310: BEQ .death_mountain
 
-#_028312: CMP.b #$47
+#_028312: CMP.b #$47 ; OW 47
 #_028314: BEQ .death_mountain
 
-#_028316: LDY.b #$5A
+#_028316: LDY.b #$5A ; OW 5A
 
 #_028318: LDA.b $8A
 #_02831A: CMP.b #$40
@@ -546,6 +549,7 @@ Module08_00_LoadProperties:
 ;---------------------------------------------------------------------------------------------------
 
 #_02831E: LDX.b #$07 ; SONG 07
+
 #_028320: LDA.l $7EF3C5
 #_028324: CMP.b #$03
 #_028326: BCC .aga_alive
@@ -555,20 +559,20 @@ Module08_00_LoadProperties:
 .aga_alive
 ; kak well
 #_02832A: LDA.b $A0
-#_02832C: CMP.b #$2F
+#_02832C: CMP.b #$2F ; ROOM 002F
 #_02832E: BEQ .death_mountain
 
-; TODO what is this?
-; A shop, but that doesn't make much sense to me...
 #_028330: LDA.b $A0
-#_028332: CMP.b #$1F
-#_028334: BNE .not_some_shop
+#_028332: CMP.b #$1F ; ROOM 011F
+#_028334: BNE .not_kakariko_shop
 
+; This shop shares a room with the Bumpkin's house
+; check if we're exiting to Kakariko
 #_028336: LDA.b $8A
-#_028338: CMP.b #$18
+#_028338: CMP.b #$18 ; OW 18
 #_02833A: BEQ .death_mountain
 
-.not_some_shop
+.not_kakariko_shop
 #_02833C: LDX.b #$05 ; SONG 05
 
 ; Check for master sword
@@ -579,10 +583,10 @@ Module08_00_LoadProperties:
 #_028346: LDX.b #$02 ; SONG 02
 
 .no_ms
-#_028348: LDA.b $A0
+#_028348: LDA.b $A0 ; ROOM 0100
 #_02834A: BEQ .death_mountain
 
-#_02834C: CMP.b #$E1
+#_02834C: CMP.b #$E1 ; ROOM 00E1
 #_02834E: BEQ .death_mountain
 
 ;---------------------------------------------------------------------------------------------------
@@ -613,16 +617,16 @@ Module08_00_LoadProperties:
 #_02836B: LDX.b #$0D ; SONG 0D
 
 #_02836D: LDA.b $8A
-#_02836F: CMP.b #$40
+#_02836F: CMP.b #$40 ; OW 40
 #_028371: BEQ .use_sw_theme
 
-#_028373: CMP.b #$43
+#_028373: CMP.b #$43 ; OW 43
 #_028375: BEQ .use_sw_theme
 
-#_028377: CMP.b #$45
+#_028377: CMP.b #$45 ; OW 45
 #_028379: BEQ .use_sw_theme
 
-#_02837B: CMP.b #$47
+#_02837B: CMP.b #$47 ; OW 47
 #_02837D: BEQ .use_sw_theme
 
 #_02837F: LDX.b #$09 ; SONG 09
@@ -669,7 +673,7 @@ Module08_00_LoadProperties:
 #_0283C3: JSL Follower_Initialize
 
 #_0283C7: LDA.b $8A
-#_0283C9: AND.b #$3F
+#_0283C9: AND.b #$3F ; OW 00, OW 40
 #_0283CB: BNE .not_woods
 
 ; mushroom
@@ -973,13 +977,13 @@ Credits_LoadScene_Overworld_PrepGFX:
 
 #_028532: LDA.b $8A
 #_028534: AND.b #$BF
-#_028536: CMP.b #$03
+#_028536: CMP.b #$03 ; OW 03, OW 43
 #_028538: BEQ .death_mountain_screen
 
-#_02853A: CMP.b #$05
+#_02853A: CMP.b #$05 ; OW 05, OW 45
 #_02853C: BEQ .death_mountain_screen
 
-#_02853E: CMP.b #$07
+#_02853E: CMP.b #$07 ; OW 07, OW 47
 #_028540: BEQ .death_mountain_screen
 
 #_028542: LDY.b #$5A
@@ -1028,7 +1032,7 @@ Credits_LoadScene_Overworld_PrepGFX:
 #_028584: JSL Overworld_SetFixedColAndScroll
 
 #_028588: LDA.b $8A
-#_02858A: CMP.b #$80
+#_02858A: CMP.b #$80 ; SPOW
 #_02858C: BCC .no_special_bg_color
 
 #_02858E: JSL Overworld_SetScreenBGColor
@@ -1094,7 +1098,7 @@ Credits_LoadCoolBackground:
 
 #_0285D1: JSL InitializeTilesets
 
-#_0285D5: LDX.b #$5B
+#_0285D5: LDX.b #$5B ; OW 5B
 #_0285D7: STX.b $8A
 
 #_0285D9: LDA.b #$13
@@ -1493,10 +1497,11 @@ Module07_00_PlayerControl:
 #_0287FF: BEQ .no_mapping
 
 #_028801: LDA.w $040C ; no mapping in caves
-#_028804: CMP.b #$FF
+#_028804: CMP.b #$FF ; DUNGEON FF
 #_028806: BEQ .no_mapping
 
-#_028808: LDA.b $A0 ; no mapping in Ganon
+; no mapping in Ganon
+#_028808: LDA.b $A0 ; ROOM 0000
 #_02880A: BEQ .no_mapping
 
 #_02880C: STZ.w $0200
@@ -1533,8 +1538,7 @@ Module07_00_PlayerControl:
 
 #_02882F: REP #$20
 
-; Message 0184
-#_028831: LDA.w #$0184
+#_028831: LDA.w #$0184 ; MESSAGE 0184
 #_028834: STA.w $1CF0
 
 #_028837: SEP #$20 ; save module
@@ -1568,22 +1572,22 @@ Underworld_SubscreenEnable:
 ;===================================================================================================
 
 PendantBossRooms:
-#_028856: dw $00C8 ; Armos
-#_028858: dw $0033 ; Lanmolas
-#_02885A: dw $0007 ; Moldorm
-#_02885C: dw $0020 ; Agahnim 1
+#_028856: dw $00C8 ; ROOM 00C8 - Armos
+#_028858: dw $0033 ; ROOM 0033 - Lanmolas
+#_02885A: dw $0007 ; ROOM 0007 - Moldorm
+#_02885C: dw $0020 ; ROOM 0020 - Agahnim 1
 
 ;===================================================================================================
 
 CrystalBossRooms:
-#_02885E: dw $0006 ; Arrghus
-#_028860: dw $005A ; Helmasaur
-#_028862: dw $0029 ; Mothula
-#_028864: dw $0090 ; Vitreous
-#_028866: dw $00DE ; Kholdstare
-#_028868: dw $00A4 ; Trinexx
-#_02886A: dw $00AC ; Blind
-#_02886C: dw $000D ; Agahnim 2
+#_02885E: dw $0006 ; ROOM 0006 - Arrghus
+#_028860: dw $005A ; ROOM 005A - Helmasaur
+#_028862: dw $0029 ; ROOM 0029 - Mothula
+#_028864: dw $0090 ; ROOM 0090 - Vitreous
+#_028866: dw $00DE ; ROOM 00DE - Kholdstare
+#_028868: dw $00A4 ; ROOM 00A4 - Trinexx
+#_02886A: dw $00AC ; ROOM 00AC - Blind
+#_02886C: dw $000D ; ROOM 000D - Agahnim 2
 
 ;===================================================================================================
 
@@ -1966,11 +1970,11 @@ Module07_02_07:
 #_028A3A: LDX.b $A0
 
 ; Swamp big chest?
-#_028A3C: CPX.w #$0036
+#_028A3C: CPX.w #$0036 ; ROOM 0036
 #_028A3F: BEQ .dont_change_mainandsubscreen
 
 ; Swamp 2nd room?
-#_028A41: CPX.w #$0038
+#_028A41: CPX.w #$0038 ; ROOM 0038
 #_028A44: BEQ .dont_change_mainandsubscreen
 
 #_028A46: LDX.w $0414
@@ -2059,7 +2063,7 @@ Module07_02_0F:
 #_028AB8: LDA.b $A0
 
 ; Blind's room?
-#_028ABA: CMP.b #$AC
+#_028ABA: CMP.b #$AC ; ROOM 00AC
 #_028ABC: BNE .not_workable_blinds_room
 
 #_028ABE: LDA.w $0403
@@ -2089,13 +2093,13 @@ Underworld_SetBossOrSancMusicUponEntry:
 #_028ADD: LDA.b $A0
 
 ; Sanc?
-#_028ADF: CMP.w #$0012
+#_028ADF: CMP.w #$0012 ; ROOM 0012
 #_028AE2: BEQ .set_song
 
 #_028AE4: LDX.b #$10 ; SONG 10
 
 ; Pre sanc?
-#_028AE6: CMP.w #$0002
+#_028AE6: CMP.w #$0002 ; ROOM 0002
 #_028AE9: BEQ .set_song
 
 ;---------------------------------------------------------------------------------------------------
@@ -2222,10 +2226,10 @@ Module07_0E_01_HandleMusicAndResetProps:
 #_028B7A: REP #$20
 
 #_028B7C: LDA.b $A0
-#_028B7E: CMP.w #$0007
+#_028B7E: CMP.w #$0007 ; ROOM 0007
 #_028B81: BEQ .not_moldorm_room
 
-#_028B83: CMP.w #$0017
+#_028B83: CMP.w #$0017 ; ROOM 0017
 #_028B86: BNE .dont_fade_music
 
 #_028B88: LDX.w $0130
@@ -2281,6 +2285,8 @@ ResetTransitionPropsAndAdvanceSubmodule:
 #_028BCC: LDA.w $0458
 #_028BCF: BEQ .dark_room
 
+; CGWSEL  : $02 - subscreen color, no clipping
+; CGADSUB : $B3 - subtract on CG0, OAM, BG1, and BG2
 #_028BD1: LDA.w #$B302
 #_028BD4: STA.b $99
 
@@ -2305,7 +2311,7 @@ Underworld_InitializeRoomFromSpecial:
 #_028BEB: JSL ResetStarTileGraphics
 
 #_028BEF: JSL LoadTransAuxGFX
-#_028BF3: JSL Underworld_LoadCustomTileAttributes
+#_028BF3: JSL Underworld_LoadCustomTileTypes
 
 #_028BF7: LDA.b $A0
 #_028BF9: STA.w $048E
@@ -2552,15 +2558,15 @@ Module07_07_00_HandleMusicAndResetRoom:
 #_028D67: LDA.b $A0
 
 ; Ganon fall?
-#_028D69: CMP.w #$0010
+#_028D69: CMP.w #$0010 ; ROOM 0010
 #_028D6C: BEQ .fade_music
 
 ; Moldorm?
-#_028D6E: CMP.w #$0007
+#_028D6E: CMP.w #$0007 ; ROOM 0007
 #_028D71: BEQ .fade_music
 
 ; Hera 5F?
-#_028D73: CMP.w #$0017
+#_028D73: CMP.w #$0017 ; ROOM 0017
 #_028D76: BNE .no_fade
 
 .fade_music
@@ -2621,15 +2627,15 @@ Module07_07_0F_FallingFadeIn:
 #_028DBB: LDA.b $A0
 
 ; EP fairies?
-#_028DBD: CMP.b #$89
+#_028DBD: CMP.b #$89 ; ROOM 0089
 #_028DBF: BEQ .exit
 
 ; Ice palace fairies?
-#_028DC1: CMP.b #$4F
+#_028DC1: CMP.b #$4F ; ROOM 004F
 #_028DC3: BEQ .exit
 
 ; Hera fairies?
-#_028DC5: CMP.b #$A7
+#_028DC5: CMP.b #$A7 ; ROOM 00A7
 #_028DC7: BEQ .is_hera_fairies
 
 #_028DC9: DEC.b $A4
@@ -3030,7 +3036,7 @@ Underworld_SyncBackgroundsFromSpiralStairs:
 #_028FCF: BNE .not_blind_in_attic
 
 #_028FD1: LDA.b $A0
-#_028FD3: CMP.b #$64
+#_028FD3: CMP.b #$64 ; ROOM 0064
 #_028FD5: BNE .not_blind_in_attic
 
 #_028FD7: LDA.b #$00
@@ -3157,19 +3163,19 @@ Underworld_SetBossMusicUnorthodox:
 #_02906B: LDA.b $A0
 
 ; Ganon fall?
-#_02906D: CMP.w #$0010
+#_02906D: CMP.w #$0010 ; ROOM 0010
 #_029070: BEQ .set_song
 
 #_029072: LDX.b #$15 ; SONG 15
 
 ; Moldorm's room?
-#_029074: CMP.w #$0007
+#_029074: CMP.w #$0007 ; ROOM 0007
 #_029077: BEQ .check_last_command
 
 #_029079: LDX.b #$11 ; SONG 11
 
 ; Hera 5F?
-#_02907B: CMP.w #$0017
+#_02907B: CMP.w #$0017 ; ROOM 0017
 #_02907E: BNE .exit
 
 #_029080: CPX.w $0130
@@ -3178,7 +3184,7 @@ Underworld_SetBossMusicUnorthodox:
 .check_last_command
 #_029085: LDA.w $0130
 #_029088: AND.w #$00FF
-#_02908B: CMP.w #$00F1
+#_02908B: CMP.w #$00F1 ; SONG F1 - fade
 #_02908E: BEQ .set_song
 
 ; Check for red pendant
@@ -3652,11 +3658,11 @@ Module07_11_00_PrepAndReset:
 #_0292D9: LDA.b $A0
 
 ; aga cutscene room?
-#_0292DB: CMP.w #$0030
+#_0292DB: CMP.w #$0030 ; ROOM 0030
 #_0292DE: BEQ .do_song_fade
 
 ; aga pre cutscene room?
-#_0292E0: CMP.w #$0040
+#_0292E0: CMP.w #$0040 ; ROOM 0040
 #_0292E3: BNE .no_song_fade
 
 .do_song_fade
@@ -3695,7 +3701,7 @@ Module07_11_02_LoadAndPrepRoom:
 
 #_02930D: JSL ToggleStarTileGraphics
 #_029311: JSL LoadTransAuxGFX
-#_029315: JSL Underworld_LoadCustomTileAttributes
+#_029315: JSL Underworld_LoadCustomTileTypes
 
 #_029319: JSL Underworld_AdjustForRoomLayout
 #_02931D: JSL Follower_Initialize
@@ -3895,11 +3901,11 @@ Module07_11_19_SetSongAndFilter:
 #_029402: LDA.b $A0
 
 ; aga cutscene?
-#_029404: CMP.w #$0030
+#_029404: CMP.w #$0030 ; ROOM 0030
 #_029407: BEQ .set_song
 
 ; pre aga cutscene?
-#_029409: CMP.w #$0040
+#_029409: CMP.w #$0040 ; ROOM 0040
 #_02940C: BNE .skip_song
 
 #_02940E: LDX.b #$10 ; SONG 10
@@ -4196,7 +4202,7 @@ Module07_15_04_SyncRoomPropsAndBuildOverlay:
 #_0295B9: REP #$20
 
 #_0295BB: LDA.b $A0
-#_0295BD: CMP.w #$0017
+#_0295BD: CMP.w #$0017 ; ROOM 0017
 #_0295C0: BNE .not_hera_5F
 
 #_0295C2: LDX.b #$04
@@ -4787,7 +4793,7 @@ Module0F_SpotlightClose:
 #_02988A: BNE .indoors
 
 #_02988C: LDA.b $8A
-#_02988E: CMP.b #$0F
+#_02988E: CMP.b #$0F ; ROOM 010F
 #_029890: BNE .not_waterfall_of_wishing
 
 #_029892: LDA.b #$01
@@ -4813,7 +4819,7 @@ Module0F_SpotlightClose:
 #_0298AB: LDX.b #$00
 
 #_0298AD: LDA.w $010E
-#_0298B0: CMP.b #$43
+#_0298B0: CMP.b #$43 ; ENTRANCE 43
 #_0298B2: BNE .still_indoors
 
 #_0298B4: INX
@@ -4858,7 +4864,7 @@ Underworld_PrepExitWithSpotlight:
 #_0298EE: BCC .rain_state
 
 .check_if_half_vol
-#_0298F0: CMP.b #$F2 ; SONG F2
+#_0298F0: CMP.b #$F2 ; SONG F2 - half volume
 #_0298F2: BNE .fade_song
 
 #_0298F4: LDX.w $0130
@@ -4933,7 +4939,7 @@ Spotlight_ConfigureTableAndControl:
 #_029948: BNE .underworld_2
 
 #_02994A: LDA.b $A0
-#_02994C: CMP.b #$20
+#_02994C: CMP.b #$20 ; ROOM 0020
 #_02994E: BEQ .from_agahnim
 
 .underworld_2
@@ -4997,28 +5003,31 @@ Spotlight_ConfigureTableAndControl:
 
 #_029999: REP #$30
 
+; Fixed color RGB: #606030
 #_02999B: LDX.w #$4C26
 #_02999E: LDY.w #$8C4C
 
 #_0299A1: LDA.b $8A
-#_0299A3: CMP.w #$0003
+#_0299A3: CMP.w #$0003 ; OW 03
 #_0299A6: BEQ .on_dm_screens
 
-#_0299A8: CMP.w #$0005
+#_0299A8: CMP.w #$0005 ; OW 05
 #_0299AB: BEQ .on_dm_screens
 
-#_0299AD: CMP.w #$0007
+#_0299AD: CMP.w #$0007 ; OW 07
 #_0299B0: BEQ .on_dm_screens
 
+; Fixed color RGB: #385030
 #_0299B2: LDX.w #$4A26
 #_0299B5: LDY.w #$874A
-#_0299B8: CMP.w #$0043
+
+#_0299B8: CMP.w #$0043 ; OW 43
 #_0299BB: BEQ .on_dm_screens
 
-#_0299BD: CMP.w #$0045
+#_0299BD: CMP.w #$0045 ; OW 45
 #_0299C0: BEQ .on_dm_screens
 
-#_0299C2: CMP.w #$0047
+#_0299C2: CMP.w #$0047 ; OW 47
 #_0299C5: BNE .not_dm_screen
 
 .on_dm_screens
@@ -5118,13 +5127,13 @@ Module11_02_LoadEntrance:
 #_029A1F: JSR Underworld_LoadEntrance
 
 #_029A22: LDA.w $040C
-#_029A25: CMP.b #$FF
+#_029A25: CMP.b #$FF ; DUNGEON FF
 #_029A27: BEQ .caves
 
-#_029A29: CMP.b #$02
+#_029A29: CMP.b #$02 ; DUNGEON 02
 #_029A2B: BNE .not_castle
 
-#_029A2D: LDA.b #$00
+#_029A2D: LDA.b #$00 ; DUNGEON 00
 
 .not_castle
 #_029A2F: LSR A
@@ -5189,7 +5198,7 @@ Module11_02_LoadEntrance:
 #_029A7A: STZ.w $0458
 
 #_029A7D: JSR Underworld_LoadAndDrawRoom
-#_029A80: JSL Underworld_LoadCustomTileAttributes
+#_029A80: JSL Underworld_LoadCustomTileTypes
 
 #_029A84: LDX.w $0AA1
 
@@ -5596,7 +5605,7 @@ Module15_05:
 
 #_029C8A: SEP #$20
 
-#_029C8C: LDX.w #$0033 ; Message 0033
+#_029C8C: LDX.w #$0033 ; MESSAGE 0033
 #_029C8F: STX.w $1CF0
 
 #_029C92: SEP #$10
@@ -5656,7 +5665,7 @@ Module15_07:
 
 #_029CD5: REP #$20
 
-#_029CD7: LDA.w #$0034 ; Message 0034
+#_029CD7: LDA.w #$0034 ; MESSAGE 0034
 #_029CDA: STA.w $1CF0
 
 #_029CDD: SEP #$20
@@ -6337,8 +6346,7 @@ Module19_07_PrepMessage:
 
 #_029FFB: REP #$20
 
-; Message 0171
-#_029FFD: LDA.w #$0171
+#_029FFD: LDA.w #$0171 ; MESSAGE 0171
 #_02A000: STA.w $1CF0
 
 #_02A003: SEP #$20
@@ -6491,7 +6499,7 @@ RoomTagPrizeChecks:
 
 Mirror_SaveRoomData:
 #_02A0A8: LDA.w $040C
-#_02A0AB: CMP.b #$FF
+#_02A0AB: CMP.b #$FF ; DUNGEON FF
 #_02A0AD: BEQ .play_beep
 
 #_02A0AF: LDA.b #$19
@@ -6507,13 +6515,13 @@ Mirror_SaveRoomData:
 
 #SaveDungeonKeys:
 #_02A0BE: LDA.w $040C
-#_02A0C1: CMP.b #$FF
+#_02A0C1: CMP.b #$FF ; DUNGEON FF
 #_02A0C3: BEQ .exit
 
-#_02A0C5: CMP.b #$02
+#_02A0C5: CMP.b #$02 ; DUNGEON 02
 #_02A0C7: BNE .not_castle
 
-#_02A0C9: LDA.b #$00
+#_02A0C9: LDA.b #$00 ; DUNGEON 00
 
 .not_castle
 #_02A0CB: LSR A
@@ -6586,7 +6594,7 @@ Underworld_HandleTranslucencyAndPalettes:
 #_02A11A: PLX
 
 #_02A11B: LDA.b $A0
-#_02A11D: CMP.b #$0D
+#_02A11D: CMP.b #$0D ; ROOM 000D
 #_02A11F: BNE .not_aga_2
 
 #_02A121: REP #$20
@@ -6838,7 +6846,7 @@ Underworld_AdjustForTeleportDoors:
 #_02A275: STA.w $048E
 #_02A278: STA.b $A2
 
-#_02A27A: LDA.b $A2 ; useless, was already loaded
+#_02A27A: LDA.b $A2 ; !USELESS - it was already loaded
 #_02A27C: AND.b #$0F
 #_02A27E: ASL A
 
@@ -6990,7 +6998,7 @@ pool Module09_Overworld
 #_02A358: dw Module09_2A_RecoverFromDrowning        ; 0x2A
 #_02A35A: dw Module09_2B                            ; 0x2B
 #_02A35C: dw Module09_MirrorWarp                    ; 0x2C
-#_02A35E: dw Module09_2D_DoNothing                  ; 0x2D
+#_02A35E: dw Module09_2D_WaitForBird                ; 0x2D
 #_02A360: dw Module09_2E_Whirlpool                  ; 0x2E
 #_02A362: dw Module09_2F                            ; 0x2F
 
@@ -7086,7 +7094,7 @@ Module09_Overworld:
 
 OverworldOverlay_HandleRain:
 #_02A3C4: LDA.b $8A
-#_02A3C6: CMP.b #$70
+#_02A3C6: CMP.b #$70 ; OW 70
 #_02A3C8: BEQ .mire_screen
 
 #_02A3CA: LDA.l $7EF3C5
@@ -7230,8 +7238,7 @@ Module09_00_PlayerControl:
 
 #_02A474: REP #$20
 
-; Message 0184
-#_02A476: LDA.w #$0184
+#_02A476: LDA.w #$0184 ; MESSAGE 0184
 #_02A479: STA.w $1CF0
 
 #_02A47C: SEP #$20
@@ -7610,7 +7617,7 @@ OverworldHandleTransitions:
 #_02A968: LDA.b $8A
 #_02A96A: PHA
 
-#_02A96B: CMP.b #$2A
+#_02A96B: CMP.b #$2A ; OW 2A
 #_02A96D: BNE .not_haunted_grove
 
 #_02A96F: LDA.b #$80 ; SFX1.80 - fade
@@ -7618,7 +7625,7 @@ OverworldHandleTransitions:
 
 .not_haunted_grove
 #_02A974: LDA.b $8A
-#_02A976: CMP.b #$68
+#_02A976: CMP.b #$68 ; OW 68
 #_02A978: BNE .dont_restore_dw_music
 
 #_02A97A: LDA.w $0130
@@ -7632,7 +7639,7 @@ OverworldHandleTransitions:
 
 .dont_restore_dw_music
 #_02A986: LDA.b $8A
-#_02A988: CMP.b #$18
+#_02A988: CMP.b #$18 ; OW 18
 #_02A98A: BNE .dont_fade_song_a
 
 #_02A98C: LDA.l $7EF3C5
@@ -7649,7 +7656,7 @@ OverworldHandleTransitions:
 #_02A9A3: STA.w $040A
 
 ; Check if Kakariko
-#_02A9A6: CMP.b #$18
+#_02A9A6: CMP.b #$18 ; OW 18
 #_02A9A8: BNE .dont_fade_song_b
 
 #_02A9AA: LDA.l $7EF3C5
@@ -7685,10 +7692,10 @@ OverworldHandleTransitions:
 #_02A9D6: STZ.w $0126
 
 #_02A9D9: PLA
-#_02A9DA: AND.b #$3F
+#_02A9DA: AND.b #$3F ; OW 00, OW 40
 #_02A9DC: BEQ .skip_palettes
 
-#_02A9DE: LDA.b $8A
+#_02A9DE: LDA.b $8A ; OW 00, OW 80
 #_02A9E0: AND.b #$BF
 #_02A9E2: BNE .change_palettes
 
@@ -8166,7 +8173,8 @@ Overworld_DoMapUpdate32x32:
 
 ;---------------------------------------------------------------------------------------------------
 
-#Overworld_DoMapUpdate32x32_16bit_already: ; only accessed from unreachable code
+; only accessed from unreachable code
+#Overworld_DoMapUpdate32x32_16bit_already:
 #_02AC86: PHB
 #_02AC87: PHK
 #_02AC88: PLB
@@ -8313,33 +8321,33 @@ OverworldMosaicTransition_HandleSong:
 #_02AD6E: CMP.b #$0D
 #_02AD70: BEQ .dont_fade_in_lw
 
-#_02AD72: LDA.b $8A
+#_02AD72: LDA.b $8A ; OW 00
 #_02AD74: BEQ .dont_fade_song
 
 .dont_fade_in_lw
 #_02AD76: LDA.b $8A
-#_02AD78: CMP.b #$2D
+#_02AD78: CMP.b #$2D ; OW 2D
 #_02AD7A: BEQ .dont_fade_song
 
-#_02AD7C: CMP.b #$0F
+#_02AD7C: CMP.b #$0F ; OW 0F
 #_02AD7E: BEQ .dont_fade_song
 
-#_02AD80: CMP.b #$81
+#_02AD80: CMP.b #$81 ; OW 81
 #_02AD82: BEQ .dont_fade_song
 
-#_02AD84: CMP.b #$80
+#_02AD84: CMP.b #$80 ; OW 80
 #_02AD86: BEQ .check_for_ms_grab
 
-#_02AD88: CMP.b #$11
+#_02AD88: CMP.b #$11 ; OW 11
 #_02AD8A: BEQ .check_for_ms_grab
 
-#_02AD8C: CMP.b #$10
+#_02AD8C: CMP.b #$10 ; OW 10
 #_02AD8E: BEQ .check_for_ms_grab
 
-#_02AD90: CMP.b #$02
+#_02AD90: CMP.b #$02 ; OW 02
 #_02AD92: BEQ .check_for_ms_grab
 
-#_02AD94: CMP.b #$00
+#_02AD94: CMP.b #$00 ; OW 00
 #_02AD96: BNE .fade_song
 
 ;---------------------------------------------------------------------------------------------------
@@ -8365,7 +8373,7 @@ OverworldMosaicTransition_HandleScreensAndLoadShroom:
 #_02ADAC: STZ.b $B0
 
 #_02ADAE: LDA.b $8A
-#_02ADB0: AND.b #$3F
+#_02ADB0: AND.b #$3F ; OW 00, OW 40
 #_02ADB2: BNE .not_woods_screen
 
 ; Load mushroom graphics into 4BPP buffer
@@ -8407,7 +8415,7 @@ OverworldMosaicTransition_HandleScreensAndLoadShroom:
 #_02ADDE: JSR LoadOverworldFromSpecialOverworld
 
 #_02ADE1: LDA.b $8A
-#_02ADE3: AND.b #$3F
+#_02ADE3: AND.b #$3F ; OW 00, OW 40
 #_02ADE5: BNE .dont_load
 
 ; mushroom
@@ -8489,8 +8497,7 @@ Overworld_LoadSubscreenAndSilenceSFX1:
 #_02AE3D: STA.w $012D
 
 ;===================================================================================================
-; TODO document each screen ID
-;===================================================================================================
+
 Overworld_ReloadSubscreenOverlay:
 #_02AE40: REP #$30
 
@@ -8525,19 +8532,19 @@ Overworld_ReloadSubscreenOverlay:
 #_02AE77: LDY.w #$0390
 
 #_02AE7A: LDA.b $8A
-#_02AE7C: CMP.w #$0080
+#_02AE7C: CMP.w #$0080 ; SPOW
 #_02AE7F: BCC .normal_overworld
 
-#_02AE81: LDX.w #$0097
+#_02AE81: LDX.w #$0097 ; OW 97
 
 #_02AE84: LDA.b $A0
-#_02AE86: CMP.w #$0180
+#_02AE86: CMP.w #$0180 ; OW 80
 #_02AE89: BNE .not_mastersword
 
-#_02AE8B: LDX.w #$0080
+#_02AE8B: LDX.w #$0080 ; OW 80
 #_02AE8E: LDA.l $7EF280,X
 
-#_02AE92: LDX.w #$0097
+#_02AE92: LDX.w #$0097 ; OW 97
 
 #_02AE95: AND.w #$0040
 #_02AE98: BNE .disable_overlay
@@ -8550,18 +8557,18 @@ Overworld_ReloadSubscreenOverlay:
 ;---------------------------------------------------------------------------------------------------
 
 .not_mastersword
-#_02AE9D: LDX.w #$0094
-#_02AEA0: CMP.w #$0181
+#_02AE9D: LDX.w #$0094 ; OW 94
+#_02AEA0: CMP.w #$0181 ; OW 81
 #_02AEA3: BEQ .do_load_special
 
-#_02AEA5: LDX.w #$0093
-#_02AEA8: CMP.w #$0189
+#_02AEA5: LDX.w #$0093 ; OW 93
+#_02AEA8: CMP.w #$0189 ; OW 89
 #_02AEAB: BEQ .do_load_special
 
-#_02AEAD: CMP.w #$0182
+#_02AEAD: CMP.w #$0182 ; OW 82
 #_02AEB0: BEQ .disable_with_sfx
 
-#_02AEB2: CMP.w #$0183
+#_02AEB2: CMP.w #$0183 ; OW 83
 #_02AEB5: BNE .disable_overlay
 
 ;---------------------------------------------------------------------------------------------------
@@ -8586,51 +8593,51 @@ Overworld_ReloadSubscreenOverlay:
 ;---------------------------------------------------------------------------------------------------
 
 .normal_overworld
-#_02AEC5: AND.w #$003F
+#_02AEC5: AND.w #$003F ; OW 00, OW 40
 #_02AEC8: BNE .not_any_woods
 
 #_02AECA: LDA.b $8A
 #_02AECC: AND.w #$0040
 #_02AECF: BNE .skull_woods
 
-#_02AED1: LDX.w #$0080
+#_02AED1: LDX.w #$0080 ; OW 80
 #_02AED4: LDA.l $7EF280,X
 
-#_02AED8: LDX.w #$009E
+#_02AED8: LDX.w #$009E ; OW 9E
 #_02AEDB: AND.w #$0040
 #_02AEDE: BNE .load_overlay
 
 .skull_woods
-#_02AEE0: LDX.w #$009D
+#_02AEE0: LDX.w #$009D ; OW 9D
 #_02AEE3: BRA .load_overlay
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_any_woods
-#_02AEE5: LDX.w #$0095
+#_02AEE5: LDX.w #$0095 ; OW 95
 
 #_02AEE8: LDA.b $8A
-#_02AEEA: CMP.w #$0003
+#_02AEEA: CMP.w #$0003 ; OW 03
 #_02AEED: BEQ .load_overlay
 
-#_02AEEF: CMP.w #$0005
+#_02AEEF: CMP.w #$0005 ; OW 05
 #_02AEF2: BEQ .load_overlay
 
-#_02AEF4: CMP.w #$0007
+#_02AEF4: CMP.w #$0007 ; OW 07
 #_02AEF7: BEQ .load_overlay
 
-#_02AEF9: LDX.w #$009C
+#_02AEF9: LDX.w #$009C ; OW 9C
 
-#_02AEFC: CMP.w #$0043
+#_02AEFC: CMP.w #$0043 ; OW 43
 #_02AEFF: BEQ .load_overlay
 
-#_02AF01: CMP.w #$0045
+#_02AF01: CMP.w #$0045 ; OW 45
 #_02AF04: BEQ .load_overlay
 
-#_02AF06: CMP.w #$0047
+#_02AF06: CMP.w #$0047 ; OW 47
 #_02AF09: BEQ .load_overlay
 
-#_02AF0B: CMP.w #$0070
+#_02AF0B: CMP.w #$0070 ; OW 70
 #_02AF0E: BNE .not_mire
 
 #_02AF10: LDA.l $7EF2F0
@@ -8642,7 +8649,7 @@ Overworld_ReloadSubscreenOverlay:
 ;---------------------------------------------------------------------------------------------------
 
 .not_mire
-#_02AF1B: LDX.w #$0096
+#_02AF1B: LDX.w #$0096 ; OW 96
 
 #_02AF1E: LDA.l $7EF3C5
 #_02AF22: AND.w #$00FF
@@ -8650,7 +8657,7 @@ Overworld_ReloadSubscreenOverlay:
 #_02AF28: BCS .load_overlay
 
 .load_rain
-#_02AF2A: LDX.w #$009F
+#_02AF2A: LDX.w #$009F ; OW 9F
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -8683,6 +8690,7 @@ Overworld_ReloadSubscreenOverlay:
 
 #_02AF55: SEP #$30
 
+; Clip to black inside color window; use subscreen
 #_02AF57: LDA.b #$82
 #_02AF59: STA.b $99
 
@@ -8692,7 +8700,7 @@ Overworld_ReloadSubscreenOverlay:
 #_02AF5F: LDA.b #$01
 #_02AF61: STA.b $1D
 
-#_02AF63: CPX.b #$9F
+#_02AF63: CPX.b #$9F ; OW 9F
 #_02AF65: BNE .no_rain_sfx
 
 #_02AF67: LDA.b #$01 ; SFX1.01
@@ -8701,39 +8709,40 @@ Overworld_ReloadSubscreenOverlay:
 .no_rain_sfx
 #_02AF6C: LDA.b #$72
 
-#_02AF6E: CPX.b #$97
+#_02AF6E: CPX.b #$97 ; OW 97
 #_02AF70: BEQ .continue_with_subscreen
 
-#_02AF72: CPX.b #$94
+#_02AF72: CPX.b #$94 ; OW 94
 #_02AF74: BEQ .continue_with_subscreen
 
-#_02AF76: CPX.b #$93
+#_02AF76: CPX.b #$93 ; OW 93
 #_02AF78: BEQ .continue_with_subscreen
 
-#_02AF7A: CPX.b #$9D
+#_02AF7A: CPX.b #$9D ; OW 9D
 #_02AF7C: BEQ .continue_with_subscreen
 
-#_02AF7E: CPX.b #$9E
+#_02AF7E: CPX.b #$9E ; OW 9E
 #_02AF80: BEQ .continue_with_subscreen
 
-#_02AF82: CPX.b #$9F
+#_02AF82: CPX.b #$9F ; OW 9F
 #_02AF84: BEQ .continue_with_subscreen
 
 #_02AF86: LDA.b #$20
-#_02AF88: CPX.b #$95
+
+#_02AF88: CPX.b #$95 ; OW 95
 #_02AF8A: BEQ .continue_with_subscreen
 
-#_02AF8C: CPX.b #$9C
+#_02AF8C: CPX.b #$9C ; OW 9C
 #_02AF8E: BEQ .continue_with_subscreen
 
 #_02AF90: LDA.l $7EC213
 #_02AF94: TAX
 
 #_02AF95: LDA.b #$20
-#_02AF97: CPX.b #$5B
+#_02AF97: CPX.b #$5B ; OW 5B
 #_02AF99: BEQ .continue_with_subscreen
 
-#_02AF9B: CPX.b #$1B
+#_02AF9B: CPX.b #$1B ; OW 1B
 #_02AF9D: BNE .disable_subscreen
 
 #_02AF9F: LDX.b $11
@@ -8754,7 +8763,7 @@ Overworld_ReloadSubscreenOverlay:
 #_02AFAD: JSR LoadOverworldOverlay
 
 #_02AFB0: LDA.b $8C
-#_02AFB2: CMP.b #$94
+#_02AFB2: CMP.b #$94 ; OW 94
 #_02AFB4: BNE .not_hobo_bridge_shadow
 
 #_02AFB6: LDA.b $E7
@@ -8830,7 +8839,7 @@ OverworldMosaicTransition_RecoverSongAndSetMoving:
 #_02B024: STA.w $0133
 
 #_02B027: LDA.b $8A
-#_02B029: CMP.b #$80
+#_02B029: CMP.b #$80 ; OW 80
 #_02B02B: BEQ .dont_set_song
 
 #_02B02D: LDX.b #$02 ; SONG 02
@@ -8844,7 +8853,7 @@ OverworldMosaicTransition_RecoverSongAndSetMoving:
 #_02B035: STX.w $012C
 
 #_02B038: LDA.b $8A
-#_02B03A: AND.b #$3F
+#_02B03A: AND.b #$3F ; OW 00, OW 40
 #_02B03C: BNE .dont_set_song
 
 #_02B03E: LDX.b #$0D
@@ -8953,7 +8962,7 @@ OverworldMosaicTransition_FilterAndLoadGraphics:
 Module09_1C_02_HandleMusic:
 ; Are we in MS grove?
 #_02B0C4: LDA.b $8A
-#_02B0C6: CMP.b #$80
+#_02B0C6: CMP.b #$80 ; OW 80
 #_02B0C8: BEQ .no_song_change
 
 #_02B0CA: LDA.b #$02 ; SONG 02
@@ -8961,7 +8970,7 @@ Module09_1C_02_HandleMusic:
 
 ; are we in the woods?
 #_02B0CF: LDA.b $8A
-#_02B0D1: AND.b #$3F
+#_02B0D1: AND.b #$3F ; OW 00, OW 40
 #_02B0D3: BNE .no_song_change
 
 #_02B0D5: LDA.b #$05 ; SONG 05
@@ -9073,7 +9082,7 @@ MirrorWarp_Main:
 
 MirrorWarp_Initialize:
 #_02B13D: LDA.b $8A
-#_02B13F: CMP.b #$80
+#_02B13F: CMP.b #$80 ; SPOW
 #_02B141: BCC .not_special
 
 #_02B143: STZ.b $11
@@ -9169,13 +9178,14 @@ MirrorWarp_FinalizeAndLoadDestination:
 .light_world
 ; check screen ID for dark world too
 #_02B1CF: LDX.b #$09 ; SONG 09
+
 #_02B1D1: LDA.b $8A
 #_02B1D3: CMP.b #$40
 #_02B1D5: BCS .set_song
 
 ; check for kak screen
 #_02B1D7: LDX.b #$02 ; SONG 02
-#_02B1D9: CMP.b #$18
+#_02B1D9: CMP.b #$18 ; OW 18
 #_02B1DB: BNE .set_song
 
 ; check for rain state
@@ -9193,17 +9203,17 @@ MirrorWarp_FinalizeAndLoadDestination:
 #_02B1EA: LDA.b $8A
 
 ; skull woods screen
-#_02B1EC: CMP.b #$40
+#_02B1EC: CMP.b #$40 ; OW 40
 #_02B1EE: BEQ .use_sw_march
 
 ; check for dark dm screens
-#_02B1F0: CMP.b #$43
+#_02B1F0: CMP.b #$43 ; OW 43
 #_02B1F2: BEQ .dark_dm
 
-#_02B1F4: CMP.b #$45
+#_02B1F4: CMP.b #$45 ; OW 45
 #_02B1F6: BEQ .dark_dm
 
-#_02B1F8: CMP.b #$47
+#_02B1F8: CMP.b #$47 ; OW 47
 #_02B1FA: BNE .no_second_song_change
 
 .dark_dm
@@ -9241,10 +9251,10 @@ MirrorWarp_HandleCastlePyramidSubscreen:
 #_02B21E: JSR Overworld_LoadSubscreenAndSilenceSFX1
 
 #_02B221: LDA.b $8A
-#_02B223: CMP.b #$1B
+#_02B223: CMP.b #$1B ; OW 1B
 #_02B225: BEQ .is_castle
 
-#_02B227: CMP.b #$5B
+#_02B227: CMP.b #$5B ; OW 5B
 #_02B229: BNE .not_pyramid
 
 .is_castle
@@ -9404,10 +9414,10 @@ MirrorWarp_LoadSpritesAndColors:
 #_02B2E7: JSL Overworld_SetFixedColAndScroll
 
 #_02B2EB: LDA.b $8A
-#_02B2ED: CMP.b #$1B
+#_02B2ED: CMP.b #$1B ; OW 1B
 #_02B2EF: BEQ .is_castle
 
-#_02B2F1: CMP.b #$5B
+#_02B2F1: CMP.b #$5B ; OW 5B
 #_02B2F3: BNE .not_pyramid_a
 
 .is_castle
@@ -9441,7 +9451,7 @@ MirrorWarp_LoadSpritesAndColors:
 ;---------------------------------------------------------------------------------------------------
 
 #_02B322: LDA.b $8A
-#_02B324: CMP.w #$005B
+#_02B324: CMP.w #$005B ; OW 5B
 #_02B327: BNE .not_pyramid_b
 
 #_02B329: LDA.w #$0000 ; RGB: #000000
@@ -9480,7 +9490,7 @@ Module09_2B:
 
 ;===================================================================================================
 
-Module09_2D_DoNothing:
+Module09_2D_WaitForBird:
 #_02B358: RTS
 
 ;===================================================================================================
@@ -9955,7 +9965,7 @@ HandleEdgeTransitionMovementEast:
 
 #_02B59F: LDA.w $0114
 #_02B5A2: AND.b #$CF
-#_02B5A4: CMP.b #$89
+#_02B5A4: CMP.b #$89 ; TILETYPE 89
 #_02B5A6: BNE .not_teleport_door
 
 #_02B5A8: LDA.l $7EC004
@@ -10091,7 +10101,7 @@ HandleEdgeTransitionMovementWest:
 
 #_02B640: LDA.w $0114
 #_02B643: AND.b #$CF
-#_02B645: CMP.b #$89
+#_02B645: CMP.b #$89 ; TILETYPE 89
 #_02B647: BNE .not_teleport_door
 
 #_02B649: LDA.l $7EC003
@@ -10221,7 +10231,7 @@ HandleEdgeTransitionMovementSouth:
 #_02B6DD: STA.b $A2
 
 #_02B6DF: LDA.w $0114
-#_02B6E2: CMP.b #$8E
+#_02B6E2: CMP.b #$8E ; TILETYPE 8E
 #_02B6E4: BNE .not_entrance
 
 ;===================================================================================================
@@ -10350,13 +10360,13 @@ HandleEdgeTransitionMovementNorth:
 #_02B781: STA.b $A2
 
 #_02B783: LDA.w $0114
-#_02B786: CMP.b #$8E
+#_02B786: CMP.b #$8E ; TILETYPE 8E
 #_02B788: BNE .not_entrance
 
 #_02B78A: JMP.w PrepForOverworldExit
 
 .not_entrance
-#_02B78D: LDA.b $A0
+#_02B78D: LDA.b $A0 ; ROOM 0000
 #_02B78F: ORA.b $A1
 #_02B791: BNE .not_ganon_room
 
@@ -11119,10 +11129,10 @@ Overworld_OperateCameraScroll:
 #_02BB36: STA.w $069E
 
 #_02BB39: LDX.b $8C
-#_02BB3B: CPX.b #$97
+#_02BB3B: CPX.b #$97 ; OW 97
 #_02BB3D: BEQ .handle_x_camera
 
-#_02BB3F: CPX.b #$9D
+#_02BB3F: CPX.b #$9D ; OW 9D
 #_02BB41: BEQ .handle_x_camera
 
 #_02BB43: LDA.b $04
@@ -11134,10 +11144,10 @@ Overworld_OperateCameraScroll:
 
 ; Unused overlays that produce garbage
 #_02BB4C: LDX.b $8C
-#_02BB4E: CPX.b #$B5
+#_02BB4E: CPX.b #$B5 ; OW B5
 #_02BB50: BEQ .garbage_overlay
 
-#_02BB52: CPX.b #$BE
+#_02BB52: CPX.b #$BE ; OW BE
 #_02BB54: BNE .not_garbage_overlay
 
 .garbage_overlay
@@ -11169,7 +11179,7 @@ Overworld_OperateCameraScroll:
 
 #_02BB7C: LDA.b $8A
 #_02BB7E: AND.w #$003F
-#_02BB81: CMP.w #$001B
+#_02BB81: CMP.w #$001B ; OW 1B, OW 5B
 #_02BB84: BNE .handle_x_camera
 
 #_02BB86: LDA.w #$0600
@@ -11257,10 +11267,10 @@ Overworld_OperateCameraScroll:
 
 ; check for fog overlays
 #_02BBF0: LDX.b $8C
-#_02BBF2: CPX.b #$97
+#_02BBF2: CPX.b #$97 ; OW 97
 #_02BBF4: BEQ OverworldHandleBGOverlayScroll
 
-#_02BBF6: CPX.b #$9D
+#_02BBF6: CPX.b #$9D ; OW 9D
 #_02BBF8: BEQ OverworldHandleBGOverlayScroll
 
 #_02BBFA: LDA.b $04
@@ -11270,11 +11280,12 @@ Overworld_OperateCameraScroll:
 #_02BC00: LSR A
 #_02BC01: ROR.b $00
 
+; check for mountain overlays
 #_02BC03: LDX.b $8C
-#_02BC05: CPX.b #$95
+#_02BC05: CPX.b #$95 ; OW 95
 #_02BC07: BEQ .dm_overlay
 
-#_02BC09: CPX.b #$9E
+#_02BC09: CPX.b #$9E ; OW 9E
 #_02BC0B: BNE .not_clear_lw_overlay
 
 .dm_overlay
@@ -11308,17 +11319,17 @@ Overworld_OperateCameraScroll:
 
 OverworldHandleBGOverlayScroll:
 #_02BC33: LDX.b $8A
-#_02BC35: CPX.b #$47
+#_02BC35: CPX.b #$47 ; OW 47
 #_02BC37: BEQ .no_overlay_scroll
 
 #_02BC39: LDX.b $8C
-#_02BC3B: CPX.b #$9C
+#_02BC3B: CPX.b #$9C ; OW 9C
 #_02BC3D: BEQ .dark_dm_overlay_scroll
 
-#_02BC3F: CPX.b #$97
+#_02BC3F: CPX.b #$97 ; OW 97
 #_02BC41: BEQ .grove_fog_scroll
 
-#_02BC43: CPX.b #$9D
+#_02BC43: CPX.b #$9D ; OW 9D
 #_02BC45: BNE .no_overlay_scroll
 
 .grove_fog_scroll
@@ -11359,7 +11370,7 @@ OverworldHandleBGOverlayScroll:
 
 .no_overlay_scroll
 #_02BC84: LDA.b $A0
-#_02BC86: CMP.w #$0181
+#_02BC86: CMP.w #$0181 ; OW 81
 #_02BC89: BNE .exit
 
 #_02BC8B: LDA.b $E8
@@ -11812,10 +11823,10 @@ OverworldScrollTransition:
 #_02BF63: STA.b $E2,X
 
 #_02BF65: LDY.b $8A
-#_02BF67: CPY.b #$1B
+#_02BF67: CPY.b #$1B ; OW 1B
 #_02BF69: BEQ .castle_or_pyramid
 
-#_02BF6B: CPY.b #$5B
+#_02BF6B: CPY.b #$5B ; OW 5B
 #_02BF6D: BEQ .castle_or_pyramid
 
 #_02BF6F: STA.b $E0,X
@@ -12224,7 +12235,7 @@ CalculateTransitionLanding:
 
 ; Y=01
 #_02C157: AND.b #$8E
-#_02C159: CMP.b #$80 ; TILETYPE 80
+#_02C159: CMP.b #$80 ; TILETYPE 80, TILETYPE 81
 #_02C15B: BEQ .save
 
 #_02C15D: INY
@@ -12323,14 +12334,14 @@ Overworld_FinalizeEntryOntoScreen:
 
 #_02C1B3: LDA.w $0130
 
-#_02C1B6: CMP.b #$F1 ; SONG F1
+#_02C1B6: CMP.b #$F1 ; SONG F1 - fade
 #_02C1B8: BNE .no_song
 
 #_02C1BA: LDX.b #$02 ; SONG 02
 
 ; Are we in kak?
 #_02C1BC: LDA.b $8A
-#_02C1BE: CMP.b #$18
+#_02C1BE: CMP.b #$18 ; OW 18
 #_02C1C0: BNE .set_song
 
 #_02C1C2: LDA.l $7EF3C5
@@ -12709,13 +12720,13 @@ OverworldLoadScreensPaletteSet:
 
 #_02C3F8: LDA.b $8A
 #_02C3FA: AND.b #$3F
-#_02C3FC: CMP.b #$03
+#_02C3FC: CMP.b #$03 ; OW 03, OW 43
 #_02C3FE: BEQ .not_death_mountain
 
-#_02C400: CMP.b #$05
+#_02C400: CMP.b #$05 ; OW 05, OW 45
 #_02C402: BEQ .not_death_mountain
 
-#_02C404: CMP.b #$07
+#_02C404: CMP.b #$07 ; OW 07, OW 47
 #_02C406: BEQ .not_death_mountain
 
 #_02C408: LDX.b #$00
@@ -12962,7 +12973,7 @@ CleanUpAndPrepDesertPrayerHDMA:
 #_02C576: db $00 ; end
 
 ;===================================================================================================
-; TODO split up individually and name entrances
+; TODO Name entrances
 ;===================================================================================================
 EntranceData:
 
@@ -15632,7 +15643,7 @@ Underworld_LoadEntrance:
 #_02D832: AND.b #$0F
 #_02D834: STA.b $AA
 
-; Single entrance caves are always floor 1F
+; Single entrance rooms are always floor 1F
 #_02D836: LDX.b $A0
 #_02D838: CPX.w #$0100
 #_02D83B: BCC Underworld_LoadEntrance_DoPotsBlocksTorches
@@ -15701,7 +15712,8 @@ Underworld_LoadEntrance_DoPotsBlocksTorches:
 #_02D894: LDX.b #$3E
 #_02D896: LDA.w #$0000
 
-.next_pot ; clears pot items that have been grabbed
+; clears pot items that have been grabbed
+.next_pot
 #_02D899: STA.w $7EF800,X ; TODO what's being cleared here?
 #_02D89C: STA.w $7EF840,X ; it's supposedly overworld stuff, but who cares?
 #_02D89F: STA.w $7EF880,X ; maybe I care?
@@ -15741,13 +15753,13 @@ SpawnPointData:
 
 ; writes to $A0, $048E
 .room_id
-#_02D8D2: dw $0104 ; 0x00 - Link's house
-#_02D8D4: dw $0012 ; 0x01 - Sanctuary
-#_02D8D6: dw $0080 ; 0x02 - Prison
-#_02D8D8: dw $0055 ; 0x03 - Uncle
-#_02D8DA: dw $0051 ; 0x04 - Throne
-#_02D8DC: dw $00F0 ; 0x05 - Old man cave
-#_02D8DE: dw $00E4 ; 0x06 - Old man home
+#_02D8D2: dw $0104 ; 0x00 - Link's house   - ROOM 0104
+#_02D8D4: dw $0012 ; 0x01 - Sanctuary      - ROOM 0012
+#_02D8D6: dw $0080 ; 0x02 - Prison         - ROOM 0080
+#_02D8D8: dw $0055 ; 0x03 - Uncle          - ROOM 0055
+#_02D8DA: dw $0051 ; 0x04 - Throne         - ROOM 0051
+#_02D8DC: dw $00F0 ; 0x05 - Old man cave   - ROOM 00F0
+#_02D8DE: dw $00E4 ; 0x06 - Old man home   - ROOM 00E4
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -17237,11 +17249,11 @@ LoadOverworldFromUnderworld:
 #_02E221: LDA.b $A0
 
 ; Link's house
-#_02E223: CMP.w #$0104
+#_02E223: CMP.w #$0104 ; ROOM 0104
 #_02E226: BEQ .custom_exit
 
 ; Special overworld
-#_02E228: CMP.w #$0180
+#_02E228: CMP.w #$0180 ; SPOW
 #_02E22B: BCS .custom_exit
 
 ; EG1
@@ -17467,7 +17479,7 @@ LoadCachedEntranceProperties:
 #_02E36D: STA.b $20
 
 ; These rooms are all stairs on the overworld
-#_02E36F: LDA.b $A0
+#_02E36F: LDA.b $A0 ; ROOM 0124
 #_02E371: CMP.w #$0124
 #_02E374: BCS .normal_exit
 
@@ -17780,7 +17792,7 @@ LoadSpecialOverworld:
 #_02E677: BNE .not_zora
 
 ; Send us to Zora's domain
-#_02E679: LDA.w #$0182
+#_02E679: LDA.w #$0182 ; OW 82
 #_02E67C: STA.b $A0
 
 .not_zora
@@ -18059,23 +18071,23 @@ LoadOverworldFromSpecialOverworld:
 pool LoadTransport
 
 .screen_id
-#_02E849: dw $0003 ; Flute 1
-#_02E84B: dw $0016 ; Flute 2
-#_02E84D: dw $0018 ; Flute 3
-#_02E84F: dw $002C ; Flute 4
-#_02E851: dw $002F ; Flute 5
-#_02E853: dw $0030 ; Flute 6
-#_02E855: dw $003B ; Flute 7
-#_02E857: dw $003F ; Flute 8
-#_02E859: dw $005B ; Pyramid
-#_02E85B: dw $0035 ; Lake Hylia whirlpool
-#_02E85D: dw $000F ; Waterfall of Wishing whirlpool
-#_02E85F: dw $0015 ; Witch whirlpool
-#_02E861: dw $0033 ; South of Link's house whirlpool
-#_02E863: dw $0012 ; Death Mountain whirlpool
-#_02E865: dw $003F ; Lake Hylia falls whirlpool
-#_02E867: dw $0055 ; Dark witch whirlpool
-#_02E869: dw $007F ; Dark Lake Hylia falls whirlpool
+#_02E849: dw $0003 ; OW 03 - Flute 1
+#_02E84B: dw $0016 ; OW 16 - Flute 2
+#_02E84D: dw $0018 ; OW 18 - Flute 3
+#_02E84F: dw $002C ; OW 2C - Flute 4
+#_02E851: dw $002F ; OW 2F - Flute 5
+#_02E853: dw $0030 ; OW 30 - Flute 6
+#_02E855: dw $003B ; OW 3B - Flute 7
+#_02E857: dw $003F ; OW 3F - Flute 8
+#_02E859: dw $005B ; OW 5B - Pyramid
+#_02E85B: dw $0035 ; OW 35 - Lake Hylia whirlpool
+#_02E85D: dw $000F ; OW 0F - Waterfall of Wishing whirlpool
+#_02E85F: dw $0015 ; OW 15 - Witch whirlpool
+#_02E861: dw $0033 ; OW 33 - South of Link's house whirlpool
+#_02E863: dw $0012 ; OW 12 - Death Mountain whirlpool
+#_02E865: dw $003F ; OW 3F - Lake Hylia falls whirlpool
+#_02E867: dw $0055 ; OW 55 - Dark witch whirlpool
+#_02E869: dw $007F ; OW 7F - Dark Lake Hylia falls whirlpool
 
 .map16_index
 #_02E86B: dw $1600 ; Flute 1
@@ -18377,14 +18389,14 @@ FluteMenu_LoadSelectedScreenPalettes:
 pool FindPartnerWhirlpoolExit
 
 .my_screen_id
-#_02EA5C: dw $000F ; Lake Hylia whirlpool
-#_02EA5E: dw $0035 ; Waterfall of Wishing whirlpool
-#_02EA60: dw $0033 ; Witch whirlpool
-#_02EA62: dw $0015 ; South of Link's house whirlpool
-#_02EA64: dw $003F ; Death Mountain whirlpool
-#_02EA66: dw $0012 ; Lake Hylia falls whirlpool
-#_02EA68: dw $007F ; Dark witch whirlpool
-#_02EA6A: dw $0055 ; Dark Lake Hylia falls whirlpool
+#_02EA5C: dw $000F ; OW 0F - Lake Hylia whirlpool
+#_02EA5E: dw $0035 ; OW 35 - Waterfall of Wishing whirlpool
+#_02EA60: dw $0033 ; OW 33 - Witch whirlpool
+#_02EA62: dw $0015 ; OW 15 - South of Link's house whirlpool
+#_02EA64: dw $003F ; OW 3F - Death Mountain whirlpool
+#_02EA66: dw $0012 ; OW 12 - Lake Hylia falls whirlpool
+#_02EA68: dw $007F ; OW 7F - Dark witch whirlpool
+#_02EA6A: dw $0055 ; OW 55 - Dark Lake Hylia falls whirlpool
 
 pool off
 
@@ -18664,13 +18676,13 @@ Overworld_HandleOverlaysAndBombDoors:
 #_02EC8D: LDA.w #$020F
 
 #_02EC90: LDX.b $8A
-#_02EC92: CPX.w #$0033
+#_02EC92: CPX.w #$0033 ; OW 33
 #_02EC95: BNE .not_swamp_portal
 
 #_02EC97: STA.l $7E22A8
 
 .not_swamp_portal
-#_02EC9B: CPX.w #$002F
+#_02EC9B: CPX.w #$002F ; OW 2F
 #_02EC9E: BNE .not_pod_portal
 
 #_02ECA0: STA.l $7E2BB2
@@ -18681,7 +18693,7 @@ Overworld_HandleOverlaysAndBombDoors:
 #_02ECA4: SEP #$30
 
 #_02ECA6: LDX.b $8A
-#_02ECA8: CPX.b #$80
+#_02ECA8: CPX.b #$80 ; SPOW
 #_02ECAA: BCS .no_overlay
 
 #_02ECAC: LDA.l $7EF280,X
@@ -22063,37 +22075,38 @@ Palette_RestoreFixedColor:
 
 #_02FF6B: LDX.w #$4F33 ; Fixed color RGB: #987848
 #_02FF6E: LDY.w #$894F
-#_02FF71: LDA.b $8A
+
+#_02FF71: LDA.b $8A ; OW 00
 #_02FF73: BEQ .exit
 
-#_02FF75: CMP.b #$40
+#_02FF75: CMP.b #$40 ; OW 40
 #_02FF77: BEQ .exit
 
-#_02FF79: CMP.b #$5B
+#_02FF79: CMP.b #$5B ; OW 5B
 #_02FF7B: BEQ .set_fixedcol
 
 #_02FF7D: LDX.w #$4C26 ; Fixed color RGB: #306060
 #_02FF80: LDY.w #$8C4C
 
-#_02FF83: CMP.b #$03
+#_02FF83: CMP.b #$03 ; OW 03
 #_02FF85: BEQ .set_fixedcol
 
-#_02FF87: CMP.b #$05
+#_02FF87: CMP.b #$05 ; OW 05
 #_02FF89: BEQ .set_fixedcol
 
-#_02FF8B: CMP.b #$07
+#_02FF8B: CMP.b #$07 ; OW 07
 #_02FF8D: BEQ .set_fixedcol
 
 #_02FF8F: LDX.w #$4A26 ; Fixed color RGB: #305038
 #_02FF92: LDY.w #$874A
 
-#_02FF95: CMP.b #$43
+#_02FF95: CMP.b #$43 ; OW 43
 #_02FF97: BEQ .set_fixedcol
 
-#_02FF99: CMP.b #$45
+#_02FF99: CMP.b #$45 ; OW 45
 #_02FF9B: BEQ .set_fixedcol
 
-#_02FF9D: CMP.b #$47
+#_02FF9D: CMP.b #$47 ; OW 47
 #_02FF9F: BNE .exit
 
 .set_fixedcol

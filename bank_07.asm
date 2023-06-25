@@ -86,7 +86,7 @@ pool Link_ControlHandler
 #_078051: dw LinkState_UsingEther               ; 0x08
 #_078053: dw LinkState_UsingBombos              ; 0x09
 #_078055: dw LinkState_UsingQuake               ; 0x0A
-#_078057: dw LinkHop_HoppingSouthOW             ; 0x0B
+#_078057: dw LinkState_HoppingSouthOW           ; 0x0B
 #_078059: dw LinkState_HoppingHorizontallyOW    ; 0x0C
 #_07805B: dw LinkState_HoppingDiagonallyUpOW    ; 0x0D
 #_07805D: dw LinkState_HoppingDiagonallyDownOW  ; 0x0E
@@ -1955,7 +1955,7 @@ Link_HandleChangeInZVelocity:
 
 ;===================================================================================================
 
-LinkHop_HoppingSouthOW:
+LinkState_HoppingSouthOW:
 #_078948: LDA.b #$01
 #_07894A: STA.b $66
 
@@ -4351,7 +4351,7 @@ DetermineConsequencesOfFalling:
 #_0794CE: BNE HandleLayerOfDestination
 
 #_0794D0: LDA.b $8A
-#_0794D2: CMP.b #$05
+#_0794D2: CMP.b #$05 ; OW 05
 #_0794D4: BNE .overworld_pit_transition
 
 #_0794D6: JSL TakeDamageFromPit
@@ -5305,8 +5305,7 @@ LinkState_ShowingOffItem:
 #_07999C: RTS
 
 ;===================================================================================================
-; TODO
-;===================================================================================================
+
 Link_ReceiveItem:
 #_07999D: PHB
 #_07999E: PHK
@@ -6432,7 +6431,7 @@ CalculateSwordHitbox:
 #_079EBE: ADC.b $04
 #_079EC0: TAX
 
-#_079EC1: LDA.l LinkOAM_SwordSwingSparkleTile,X
+#_079EC1: LDA.l LinkOAM_SwordSwingTipTile,X
 #_079EC5: CMP.b #$FF
 #_079EC7: BEQ .no_hitbox
 
@@ -7534,7 +7533,7 @@ LinkItem_Flute:
 #_07A410: REP #$20
 
 #_07A412: LDA.b $8A
-#_07A414: CMP.w #$0018
+#_07A414: CMP.w #$0018 ; OW 18
 #_07A417: BNE .dont_blow_up_weathervane
 
 #_07A419: LDA.b $20
@@ -8496,8 +8495,7 @@ LinkItem_Mirror:
 
 #_07A91B: REP #$20
 
-; Message 011F
-#_07A91D: LDA.w #$011F
+#_07A91D: LDA.w #$011F ; MESSAGE 011F
 #_07A920: STA.w $1CF0
 
 #_07A923: SEP #$20
@@ -8603,6 +8601,7 @@ LinkItem_Mirror:
 
 LinkState_CrossingWorlds:
 #_07A99A: JSL Link_ResetProperties_B
+
 #_07A99E: JSR TileCheckForMirrorBonk
 
 ; check for world and original world
@@ -9422,7 +9421,7 @@ LinkHookshot_GetDragged:
 
 ; different SFX in mire
 #_07AD91: LDA.b $8A
-#_07AD93: CMP.b #$70
+#_07AD93: CMP.b #$70 ; OW 70
 #_07AD95: BNE .not_mire
 
 #_07AD97: LDA.b #$1B ; SFX2.1B
@@ -10092,8 +10091,7 @@ LinkCheckMagicCost:
 
 #_07B0C2: REP #$20
 
-; Message 0079
-#_07B0C4: LDA.w #$0079
+#_07B0C4: LDA.w #$0079 ; MESSAGE 0079
 #_07B0C7: STA.w $1CF0
 
 #_07B0CA: SEP #$20
@@ -10977,8 +10975,7 @@ Link_PerformRead:
 #_07B4F4: CMP.w #$0002
 #_07B4F7: BCS .rain_over
 
-; Message 0038
-#_07B4F9: LDA.w #$0038
+#_07B4F9: LDA.w #$0038 ; MESSAGE 0038
 #_07B4FC: BRA .set_message
 
 ;---------------------------------------------------------------------------------------------------
@@ -12915,7 +12912,7 @@ HandlePushingBonkingSnaps_Vertical:
 #_07BE0C: INC A
 
 .already_negative
-; TODO does this even get hit?
+; just in case it was 0, make it -1
 #_07BE0D: BPL .extra_positive_check
 
 #_07BE0F: LDY.b #$FF
@@ -13921,6 +13918,7 @@ Link_HopInOrOutOfWater_Vertical:
 
 .indoors
 #_07C2B4: LDX.b $1D
+
 #_07C2B6: LDA.w $047A
 #_07C2B9: BEQ .continue
 
@@ -16789,8 +16787,8 @@ TileDetect_MainHandler:
 #_07D197: BCS .no_sound_allowed
 
 #_07D199: LDA.b $8A
-#_07D19B: CMP.b #$70
-#_07D19D: BNE .mire_splash
+#_07D19B: CMP.b #$70 ; OW 70
+#_07D19D: BNE .not_mire_splash
 
 #_07D19F: LDA.b #$1B ; SFX2.1B
 #_07D1A1: JSR PlaySFX_Set2
@@ -16799,7 +16797,7 @@ TileDetect_MainHandler:
 
 ;---------------------------------------------------------------------------------------------------
 
-.mire_splash
+.not_mire_splash
 #_07D1A6: LDA.b $4D
 #_07D1A8: BNE .no_sound_allowed
 
@@ -16829,8 +16827,8 @@ TileDetect_MainHandler:
 #_07D1CA: BCS .no_sloshing_sounds
 
 #_07D1CC: LDA.b $8A
-#_07D1CE: CMP.b #$70
-#_07D1D0: BNE .in_mire_again
+#_07D1CE: CMP.b #$70 ; OW 70
+#_07D1D0: BNE .not_mire_again
 
 #_07D1D2: LDA.b #$1B ; SFX2.1B
 #_07D1D4: JSR PlaySFX_Set2
@@ -16839,7 +16837,7 @@ TileDetect_MainHandler:
 
 ;---------------------------------------------------------------------------------------------------
 
-.in_mire_again
+.not_mire_again
 #_07D1D9: LDA.b $4D
 #_07D1DB: BNE .no_sloshing_sounds
 
@@ -17033,7 +17031,7 @@ Link_PermissionForSloshSounds:
 ;===================================================================================================
 
 pool PushBlock_AttemptToPushTheBlock
-; TODO directional offsets
+
 .target_offset_y_a
 #_07D2CD: dw $FFFC ; up
 #_07D2CF: dw $0014 ; down
@@ -17065,6 +17063,9 @@ pool off
 PushBlock_AttemptToPushTheBlock:
 #_07D2ED: REP #$20
 
+; !WEIRD
+; This always enters with Y=00 though
+; If I change it to 1, I can't push blocks to the left
 #_07D2EF: TYA
 #_07D2F0: ASL A
 #_07D2F1: ASL A
@@ -17099,13 +17100,14 @@ PushBlock_AttemptToPushTheBlock:
 #_07D317: AND.b $EC
 #_07D319: STA.b $00
 
-#_07D31B: JSR PushBlock_GetTargetTileFlag
-#_07D31E: BEQ .unflagged
+#_07D31B: JSR PushBlock_GetGeneralizedTileInteractionOfTarget
+#_07D31E: BEQ .no_blockage
 
-#_07D320: CPX.w #$0009
+; special case for shallow water
+#_07D320: CPX.w #$0009 ; TILETYPE 09
 #_07D323: BNE .cannot_push
 
-.unflagged
+.no_blockage
 #_07D325: LDA.b $08
 #_07D327: CLC
 #_07D328: ADC.w .target_offset_x_b,Y
@@ -17121,10 +17123,11 @@ PushBlock_AttemptToPushTheBlock:
 #_07D338: AND.b $EC
 #_07D33A: STA.b $00
 
-#_07D33C: JSR PushBlock_GetTargetTileFlag
+#_07D33C: JSR PushBlock_GetGeneralizedTileInteractionOfTarget
 #_07D33F: BEQ .can_push
 
-#_07D341: CPX.w #$0009
+; special case for shallow water
+#_07D341: CPX.w #$0009 ; TILETYPE 09
 #_07D344: BNE .cannot_push
 
 ;---------------------------------------------------------------------------------------------------
@@ -17579,7 +17582,7 @@ Hookshot_CheckTileCollision:
 #_07D56D: LDA.w $044A
 #_07D570: BNE .not_eg0
 
-; Room ID+0x10 if EG0
+; Down a room if EG0
 #_07D572: LDA.b $A0
 #_07D574: CLC
 #_07D575: ADC.b #$10
@@ -17902,8 +17905,7 @@ HandleNudgingInADoor:
 #_07D6DC: RTS
 
 ;===================================================================================================
-; TODO VERIFY
-;===================================================================================================
+
 TileCheckForMirrorBonk:
 #_07D6DD: STZ.b $59
 
@@ -18686,7 +18688,7 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 TileDetection_Execute_overworld:
-#_07DC13: JSL Overworld_GetTileAttributeAtLocation
+#_07DC13: JSL Overworld_GetTileTypeAtLocation
 
 .from_item
 #_07DC17: REP #$30
@@ -18950,7 +18952,6 @@ TileBehavior_ShallowWater:
 #_07DD09: RTS
 
 ;===================================================================================================
-; TODO
 ; Things like pots, hammer pegs, blocks, bushes, etc
 ;===================================================================================================
 pool TileBehavior_ManipulablyReplaced
@@ -19084,17 +19085,16 @@ TileBehavior_SouthAutoStairs:
 #_07DD99: RTS
 
 ;===================================================================================================
-; TODO - implications of menu block?
-;===================================================================================================
+
 TileBehavior_Spike:
 #_07DD9A: LDA.w $0FFC
-#_07DD9D: BNE .cant_menu
+#_07DD9D: BNE .no_damage
 
 #_07DD9F: LDA.w $0403
 #_07DDA2: AND.w #$0080
-#_07DDA5: BEQ .no_damage
+#_07DDA5: BEQ .damage
 
-.cant_menu
+.no_damage
 #_07DDA7: LDA.b $0A
 #_07DDA9: TSB.b $0E
 
@@ -19102,7 +19102,7 @@ TileBehavior_Spike:
 
 ;---------------------------------------------------------------------------------------------------
 
-.no_damage
+.damage
 #_07DDAC: LDA.b $0A
 #_07DDAE: XBA
 #_07DDAF: TSB.w $02E7
@@ -19164,7 +19164,7 @@ TileBehavior_RupeeTile:
 
 #_07DDE2: LDA.l $7F2040,X
 #_07DDE6: AND.w #$00FF
-#_07DDE9: CMP.w #$0060
+#_07DDE9: CMP.w #$0060 ; TILETYPE 60
 #_07DDEC: BNE .no_rupees
 
 #_07DDEE: LDA.b $0A
@@ -19274,8 +19274,7 @@ TileBehavior_Entrance:
 #_07DE43: RTS
 
 ;===================================================================================================
-; TODO verify
-;===================================================================================================
+
 TileBehavior_NothingOW:
 #_07DE44: LDA.b $0A
 #_07DE46: TSB.w $0343
@@ -19497,11 +19496,10 @@ TileBehavior_BonkRocks:
 #_07DF0E: RTS
 
 ;===================================================================================================
-; TODO
-;===================================================================================================
-pool PushBlock_GetTargetTileFlag
 
-.tile_flags
+pool PushBlock_GetGeneralizedTileInteractionOfTarget
+
+.generic_type
 #_07DF0F: db $00, $01, $02, $03, $02, $00, $00, $00
 #_07DF17: db $00, $01, $00, $01, $00, $00, $00, $00
 #_07DF1F: db $01, $01, $01, $01, $01, $01, $01, $01
@@ -19539,7 +19537,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-PushBlock_GetTargetTileFlag:
+PushBlock_GetGeneralizedTileInteractionOfTarget:
 #_07E00F: LDA.b $00
 #_07E011: AND.w #$FFF8
 
@@ -19571,7 +19569,7 @@ PushBlock_GetTargetTileFlag:
 #_07E030: AND.w #$00FF
 #_07E033: TAX
 
-#_07E034: LDA.w .tile_flags,X
+#_07E034: LDA.w .generic_type,X
 #_07E037: AND.w #$00FF
 
 #_07E03A: RTS
@@ -19974,12 +19972,12 @@ Link_HandleRecoiling:
 #_07E20F: RTS
 
 ;===================================================================================================
-; TODO update $5E documentation with this
+
 SubVelocityValues:
 #_07E210: db $18 ; 0x00 - walking on ground
 #_07E211: db $10 ; 0x01 - walking diagonally
 #_07E212: db $0A ; 0x02 - walking on stairs
-#_07E213: db $18 ; 0x03 - 
+#_07E213: db $18 ; 0x03 - walking on stairs diagonally, but it's impossible to reach
 #_07E214: db $10 ; 0x04 - soft slipping
 #_07E215: db $08 ; 0x05 - soft slipping diagonally
 #_07E216: db $08 ; 0x06 - entering underworld/hard slipping
@@ -19996,7 +19994,7 @@ SubVelocityValues:
 #_07E221: db $2A ; 0x11 - dashing diagonally
 #_07E222: db $10 ; 0x12 - pushing block
 #_07E223: db $08 ; 0x13 - pushing block diagonally
-#_07E224: db $04 ; 0x14 - pulling statue diagonally
+#_07E224: db $04 ; 0x14 - pulling statue/walking to triforce
 #_07E225: db $02 ; 0x15 - pulling statue diagonally
 #_07E226: db $30 ; 0x16 - slosh dashing
 #_07E227: db $18 ; 0x17 - slosh dashing diagonally
@@ -20014,7 +20012,7 @@ Link_HandleVelocity:
 #_07E22F: PHK
 #_07E230: PLB
 
-; TODO what is this actually checking for? when does it pass?
+; Seems to be checks only involved with the triforce room
 #_07E231: LDA.b $11
 #_07E233: CMP.b #$02
 #_07E235: BNE .no_textbox
@@ -20079,6 +20077,7 @@ Link_HandleVelocity:
 
 #_07E27B: STZ.b $57
 
+; !WEIRD it can never reach below this value
 #_07E27D: LDA.w $02F1
 #_07E280: CMP.b #$10
 #_07E282: BCS .no_dash_stuff
@@ -20109,7 +20108,7 @@ Link_HandleVelocity:
 #_07E2A1: BNE .not_dash_speed
 
 #_07E2A3: LDX.b #$16
-#_07E2A5: BRA .save_scrap
+#_07E2A5: BRA .save_final_speed
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -20119,12 +20118,11 @@ Link_HandleVelocity:
 ; Slosh speed?
 #_07E2A9: LDA.b $5E
 #_07E2AB: CMP.b #$0C
-#_07E2AD: BNE .save_scrap
+#_07E2AD: BNE .save_final_speed
 
 #_07E2AF: LDX.b #$0E
 
-; TODO better label name
-.save_scrap
+.save_final_speed
 #_07E2B1: STX.b $00
 
 ;---------------------------------------------------------------------------------------------------
@@ -20137,6 +20135,7 @@ Link_HandleVelocity:
 
 #_07E2BB: LDX.b #$00
 
+; +1 if moving diagonally
 #_07E2BD: LDA.b $67
 #_07E2BF: TAY
 
@@ -23068,7 +23067,7 @@ Underworld_DrawSinglePushBlock:
 #_07F0C2: PHY
 
 #_07F0C3: LDA.b #$04
-#_07F0C5: JSL OAM_AllocateFromRegionB
+#_07F0C5: JSL SpriteDraw_AllocateOAMFromRegionB
 
 #_07F0C9: PLY
 
@@ -24343,13 +24342,13 @@ FlashGanonTowerPalette:
 #_07FA15: BNE EXIT_07FA11
 
 #_07FA17: LDA.b $8A
-#_07FA19: CMP.b #$43
+#_07FA19: CMP.b #$43 ; OW 43
 #_07FA1B: BEQ .on_dark_dm
 
-#_07FA1D: CMP.b #$45
+#_07FA1D: CMP.b #$45 ; OW 45
 #_07FA1F: BEQ .on_dark_dm
 
-#_07FA21: CMP.b #$47
+#_07FA21: CMP.b #$47 ; OW 47
 #_07FA23: BNE EXIT_07FA11
 
 ;---------------------------------------------------------------------------------------------------
@@ -24455,10 +24454,10 @@ FlashGanonTowerPalette:
 #_07FAB0: LDY.b #$40
 
 #_07FAB2: LDA.b $8A
-#_07FAB4: CMP.b #$43
+#_07FAB4: CMP.b #$43 ; OW 43
 #_07FAB6: BEQ .main_mountain
 
-#_07FAB8: CMP.b #$45
+#_07FAB8: CMP.b #$45 ; OW 45
 #_07FABA: BNE .next_gt
 
 ;---------------------------------------------------------------------------------------------------

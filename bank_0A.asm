@@ -4,101 +4,101 @@ org $0A8000
 
 RoomDataTiles_0104:
 #_0A8000: db $E3, $00 ; Floors and Layout
-#_0A8002: db $FF, $AA, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 28 } | Size: 00
+#_0A8002: db $FF, $AA, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 28 }
 #_0A8005: db $9A, $A2, $01 ; 0x001: Wall (top, north) ↔ | { 26, 28 } | Size: 0A
-#_0A8008: db $FE, $2A, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 28 } | Size: 00
+#_0A8008: db $FE, $2A, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 28 }
 #_0A800B: db $A0, $A0, $3E ; 0x03E: Supports (north) ↔ | { 28, 28 } | Size: 00
 #_0A800E: db $B4, $A1, $4F ; 0x04F: Shelf ↔ | { 2D, 28 } | Size: 01
-#_0A8011: db $FF, $5A, $29 ; 0x129: Fireplace | { 35, 28 } | Size: 00
+#_0A8011: db $FF, $5A, $29 ; 0x129: Fireplace | { 35, 28 }
 #_0A8014: db $98, $EE, $3B ; 0x03B: Wall decors (south) ↔ | { 26, 3B } | Size: 02
-#_0A8017: db $97, $AF, $FA ; 0x22F: Pot | { 25, 2B } | Size: 0F
-#_0A801A: db $97, $B7, $FA ; 0x22F: Pot | { 25, 2D } | Size: 0F
-#_0A801D: db $97, $BF, $FA ; 0x22F: Pot | { 25, 2F } | Size: 0F
-#_0A8020: db $FE, $7A, $E8 ; 0x128: Bed | { 27, 2B } | Size: 00
-#_0A8023: db $E1, $DA, $F9 ; 0x219: Chest | { 38, 36 } | Size: 06
-#_0A8026: db $FE, $7D, $A3 ; 0x123: Table | { 27, 36 } | Size: 00
+#_0A8017: db $97, $AF, $FA ; 0x22F: Pot | { 25, 2B }
+#_0A801A: db $97, $B7, $FA ; 0x22F: Pot | { 25, 2D }
+#_0A801D: db $97, $BF, $FA ; 0x22F: Pot | { 25, 2F }
+#_0A8020: db $FE, $7A, $E8 ; 0x128: Bed | { 27, 2B }
+#_0A8023: db $E1, $DA, $F9 ; 0x219: Chest | { 38, 36 }
+#_0A8026: db $FE, $7D, $A3 ; 0x123: Table | { 27, 36 }
 #_0A8029: db $CD, $C0, $DD ; 0x0DD: Table / Rock ⇲| { 33, 30 } | Size: 04
 #_0A802C: db $D4, $B8, $3C ; 0x03C: Chairs in pairs ↔ | { 35, 2E } | Size: 00
 #_0A802F: db $88, $C4, $76 ; 0x076: Wall decors (west) ↕ | { 22, 31 } | Size: 00
 #_0A8032: db $EC, $C4, $77 ; 0x077: Wall decors (east) ↕ | { 3B, 31 } | Size: 00
-#_0A8035: db $8B, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 24 } | Size: 0C
-#_0A8038: db $CA, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 24 } | Size: 08
-#_0A803B: db $FF, $FF ; Layer01
-#_0A803D: db $FF, $FF ; Layer02
+#_0A8035: db $8B, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 24 } | Size: 0C
+#_0A8038: db $CA, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 24 } | Size: 08
+#_0A803B: db $FF, $FF ; Layer 1
+#_0A803D: db $FF, $FF ; Layer 2
 #_0A803F: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0104:
-#_0A8041: db $81, $00 ; Door 0x00 | Dir:01 | Pos:10
-#_0A8043: db $81, $12 ; Door 0x12 | Dir:01 | Pos:10
-#_0A8045: db $FF, $FF ; Layer03 / End
+#_0A8041: db $81, $00 ; Door 0x00 | South 10
+#_0A8043: db $81, $12 ; Door 0x12 | South 10
+#_0A8045: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0055:
 #_0A8047: db $E5, $10 ; Floors and Layout
-#_0A8049: db $FC, $82, $00 ; 0x100: Corner (top, concave) ▛ | { 08, 08 } | Size: 00
+#_0A8049: db $FC, $82, $00 ; 0x100: Corner (top, concave) ▛ | { 08, 08 }
 #_0A804C: db $33, $23, $01 ; 0x001: Wall (top, north) ↔ | { 0C, 08 } | Size: 0F
 #_0A804F: db $AA, $20, $01 ; 0x001: Wall (top, north) ↔ | { 2A, 08 } | Size: 08
-#_0A8052: db $FF, $A2, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 08 } | Size: 00
+#_0A8052: db $FF, $A2, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 08 }
 #_0A8055: db $21, $33, $61 ; 0x061: Wall (top, west) ↕ | { 08, 0C } | Size: 07
-#_0A8058: db $FC, $86, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 1A } | Size: 00
-#_0A805B: db $FD, $46, $83 ; 0x103: Corner (top, concave) ▟ | { 14, 1A } | Size: 00
+#_0A8058: db $FC, $86, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 1A }
+#_0A805B: db $FD, $46, $83 ; 0x103: Corner (top, concave) ▟ | { 14, 1A }
 #_0A805E: db $50, $61, $62 ; 0x062: Wall (top, east) ↕ | { 14, 18 } | Size: 01
-#_0A8061: db $FD, $45, $07 ; 0x107: Corner (top, convex) ▛ | { 14, 14 } | Size: 00
+#_0A8061: db $FD, $45, $07 ; 0x107: Corner (top, convex) ▛ | { 14, 14 }
 #_0A8064: db $62, $51, $02 ; 0x002: Wall (top, south) ↔ | { 18, 14 } | Size: 09
-#_0A8067: db $FE, $A5, $05 ; 0x105: Corner (top, convex) ▜ | { 2A, 14 } | Size: 00
+#_0A8067: db $FE, $A5, $05 ; 0x105: Corner (top, convex) ▜ | { 2A, 14 }
 #_0A806A: db $A8, $61, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 18 } | Size: 01
-#_0A806D: db $FE, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 1A } | Size: 00
-#_0A8070: db $FC, $B2, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0B, 0B } | Size: 00
+#_0A806D: db $FE, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 1A }
+#_0A8070: db $FC, $B2, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0B, 0B }
 #_0A8073: db $3F, $2F, $03 ; 0x003: Wall (bottom, north) ↔ | { 0F, 0B } | Size: 0F
 #_0A8076: db $BC, $2F, $03 ; 0x003: Wall (bottom, north) ↔ | { 2F, 0B } | Size: 03
-#_0A8079: db $FF, $72, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 0B } | Size: 00
+#_0A8079: db $FF, $72, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 0B }
 #_0A807C: db $DC, $3F, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 0F } | Size: 03
-#_0A807F: db $FF, $75, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 17 } | Size: 00
+#_0A807F: db $FF, $75, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 17 }
 #_0A8082: db $C4, $5E, $04 ; 0x004: Wall (bottom, south) ↔ | { 31, 17 } | Size: 02
-#_0A8085: db $FE, $D5, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 2D, 17 } | Size: 00
+#_0A8085: db $FE, $D5, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 2D, 17 }
 #_0A8088: db $B4, $54, $63 ; 0x063: Wall (bottom, west) ↕ | { 2D, 15 } | Size: 00
-#_0A808B: db $FE, $D4, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 2D, 11 } | Size: 00
+#_0A808B: db $FE, $D4, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 2D, 11 }
 #_0A808E: db $56, $47, $04 ; 0x004: Wall (bottom, south) ↔ | { 15, 11 } | Size: 0B
-#_0A8091: db $FD, $14, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 11, 11 } | Size: 00
+#_0A8091: db $FD, $14, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 11, 11 }
 #_0A8094: db $44, $54, $64 ; 0x064: Wall (bottom, east) ↕ | { 11, 15 } | Size: 00
-#_0A8097: db $FD, $15, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 11, 17 } | Size: 00
+#_0A8097: db $FD, $15, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 11, 17 }
 #_0A809A: db $3C, $5C, $04 ; 0x004: Wall (bottom, south) ↔ | { 0F, 17 } | Size: 00
-#_0A809D: db $FC, $B5, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0B, 17 } | Size: 00
+#_0A809D: db $FC, $B5, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0B, 17 }
 #_0A80A0: db $2C, $3F, $63 ; 0x063: Wall (bottom, west) ↕ | { 0B, 0F } | Size: 03
-#_0A80A3: db $FC, $69, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 24 } | Size: 00
+#_0A80A3: db $FC, $69, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 24 }
 #_0A80A6: db $1A, $A1, $61 ; 0x061: Wall (top, west) ↕ | { 06, 28 } | Size: 09
-#_0A80A9: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A } | Size: 00
-#_0A80AC: db $FF, $89, $02 ; 0x102: Corner (top, concave) ▜ | { 38, 24 } | Size: 00
+#_0A80A9: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A }
+#_0A80AC: db $FF, $89, $02 ; 0x102: Corner (top, concave) ▜ | { 38, 24 }
 #_0A80AF: db $E2, $A0, $62 ; 0x062: Wall (top, east) ↕ | { 38, 28 } | Size: 08
-#_0A80B2: db $FF, $8E, $03 ; 0x103: Corner (top, concave) ▟ | { 38, 38 } | Size: 00
+#_0A80B2: db $FF, $8E, $03 ; 0x103: Corner (top, concave) ▟ | { 38, 38 }
 #_0A80B5: db $9A, $E1, $02 ; 0x002: Wall (top, south) ↔ | { 26, 38 } | Size: 09
-#_0A80B8: db $FE, $2E, $01 ; 0x101: Corner (top, concave) ▙ | { 22, 38 } | Size: 00
+#_0A80B8: db $FE, $2E, $01 ; 0x101: Corner (top, concave) ▙ | { 22, 38 }
 #_0A80BB: db $88, $D2, $61 ; 0x061: Wall (top, west) ↕ | { 22, 34 } | Size: 02
-#_0A80BE: db $FE, $2C, $05 ; 0x105: Corner (top, convex) ▜ | { 22, 30 } | Size: 00
+#_0A80BE: db $FE, $2C, $05 ; 0x105: Corner (top, convex) ▜ | { 22, 30 }
 #_0A80C1: db $69, $C0, $02 ; 0x002: Wall (top, south) ↔ | { 1A, 30 } | Size: 04
-#_0A80C4: db $FD, $6C, $07 ; 0x107: Corner (top, convex) ▛ | { 16, 30 } | Size: 00
+#_0A80C4: db $FD, $6C, $07 ; 0x107: Corner (top, convex) ▛ | { 16, 30 }
 #_0A80C7: db $58, $D3, $62 ; 0x062: Wall (top, east) ↕ | { 16, 34 } | Size: 03
-#_0A80CA: db $FD, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 16, 3A } | Size: 00
-#_0A80CD: db $FC, $99, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 09, 27 } | Size: 00
+#_0A80CA: db $FD, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 16, 3A }
+#_0A80CD: db $FC, $99, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 09, 27 }
 #_0A80D0: db $37, $9F, $03 ; 0x003: Wall (bottom, north) ↔ | { 0D, 27 } | Size: 0F
 #_0A80D3: db $B4, $9F, $03 ; 0x003: Wall (bottom, north) ↔ | { 2D, 27 } | Size: 03
-#_0A80D6: db $FF, $59, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 35, 27 } | Size: 00
+#_0A80D6: db $FF, $59, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 35, 27 }
 #_0A80D9: db $D5, $AC, $64 ; 0x064: Wall (bottom, east) ↕ | { 35, 2B } | Size: 04
-#_0A80DC: db $FF, $5D, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 35, 35 } | Size: 00
+#_0A80DC: db $FF, $5D, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 35, 35 }
 #_0A80DF: db $A5, $D5, $04 ; 0x004: Wall (bottom, south) ↔ | { 29, 35 } | Size: 05
-#_0A80E2: db $FE, $5D, $49 ; 0x109: Corner (bottom, concave) ▙ | { 25, 35 } | Size: 00
+#_0A80E2: db $FE, $5D, $49 ; 0x109: Corner (bottom, concave) ▙ | { 25, 35 }
 #_0A80E5: db $94, $C5, $63 ; 0x063: Wall (bottom, west) ↕ | { 25, 31 } | Size: 01
-#_0A80E8: db $FE, $5B, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 25, 2D } | Size: 00
+#_0A80E8: db $FE, $5B, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 25, 2D }
 #_0A80EB: db $5D, $B6, $04 ; 0x004: Wall (bottom, south) ↔ | { 17, 2D } | Size: 06
-#_0A80EE: db $FD, $3B, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 13, 2D } | Size: 00
+#_0A80EE: db $FD, $3B, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 13, 2D }
 #_0A80F1: db $4C, $C5, $64 ; 0x064: Wall (bottom, east) ↕ | { 13, 31 } | Size: 01
-#_0A80F4: db $FD, $3D, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 13, 34 } | Size: 00
+#_0A80F4: db $FD, $3D, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 13, 34 }
 #_0A80F7: db $34, $D2, $04 ; 0x004: Wall (bottom, south) ↔ | { 0D, 34 } | Size: 02
 #_0A80FA: db $25, $AC, $63 ; 0x063: Wall (bottom, west) ↕ | { 09, 2B } | Size: 04
-#_0A80FD: db $FC, $9D, $09 ; 0x109: Corner (bottom, concave) ▙ | { 09, 34 } | Size: 00
+#_0A80FD: db $FC, $9D, $09 ; 0x109: Corner (bottom, concave) ▙ | { 09, 34 }
 #_0A8100: db $C1, $3D, $C8 ; 0x0C8: Water floor ⇲ | { 30, 0F } | Size: 05
 #_0A8103: db $C1, $39, $3F ; 0x03F: Water edge ┏━┓ (concave) ↔ | { 30, 0E } | Size: 05
 #_0A8106: db $C1, $3F, $79 ; 0x079: Water edge (west) ↕ | { 30, 0F } | Size: 07
@@ -112,36 +112,36 @@ RoomDataTiles_0055:
 #_0A811E: db $44, $94, $55 ; 0x055: Wall torches (north) ↔ | { 11, 25 } | Size: 00
 #_0A8121: db $BC, $94, $55 ; 0x055: Wall torches (north) ↔ | { 2F, 25 } | Size: 00
 #_0A8124: db $B0, $A8, $DC ; 0x0DC: Chest platform (short) ⇲ | { 2C, 2A } | Size: 00
-#_0A8127: db $CF, $C7, $FA ; 0x22F: Pot | { 33, 31 } | Size: 0F
-#_0A812A: db $CF, $CF, $FA ; 0x22F: Pot | { 33, 33 } | Size: 0F
-#_0A812D: db $C1, $B2, $F9 ; 0x219: Chest | { 30, 2C } | Size: 06
-#_0A8130: db $FC, $C1, $60 ; 0x120: Small torch (lit) | { 0C, 05 } | Size: 00
-#_0A8133: db $FC, $A1, $60 ; 0x120: Small torch (lit) | { 0A, 05 } | Size: 00
-#_0A8136: db $39, $D3, $F9 ; 0x21D: Intraroom stairs south (merged layers) | { 0E, 34 } | Size: 07
+#_0A8127: db $CF, $C7, $FA ; 0x22F: Pot | { 33, 31 }
+#_0A812A: db $CF, $CF, $FA ; 0x22F: Pot | { 33, 33 }
+#_0A812D: db $C1, $B2, $F9 ; 0x219: Chest | { 30, 2C }
+#_0A8130: db $FC, $C1, $60 ; 0x120: Small torch (lit) | { 0C, 05 }
+#_0A8133: db $FC, $A1, $60 ; 0x120: Small torch (lit) | { 0A, 05 }
+#_0A8136: db $39, $D3, $F9 ; 0x21D: Intraroom stairs south (merged layers) | { 0E, 34 }
 #_0A8139: db $24, $E1, $22 ; 0x022: Rail ↔ | { 09, 38 } | Size: 01
 #_0A813C: db $48, $E1, $22 ; 0x022: Rail ↔ | { 12, 38 } | Size: 01
-#_0A813F: db $69, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 34 } | Size: 06
+#_0A813F: db $69, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 34 } | Size: 06
 #_0A8142: db $8B, $F2, $00 ; 0x000: Ceiling ↔ | { 22, 3C } | Size: 0E
 #_0A8145: db $F3, $90, $60 ; 0x060: Ceiling ↕ | { 3C, 24 } | Size: 0C
-#_0A8148: db $08, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 03
-#_0A814B: db $08, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 02
-#_0A814E: db $63, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 18, 18 } | Size: 0D
+#_0A8148: db $08, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 03
+#_0A814B: db $08, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 02
+#_0A814E: db $63, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 18, 18 } | Size: 0D
 #_0A8151: db $A0, $63, $60 ; 0x060: Ceiling ↕ | { 28, 18 } | Size: 03
 #_0A8154: db $00, $10, $00 ; 0x000: Ceiling ↔ | { 00, 04 } | Size: 00
 #_0A8157: db $00, $18, $00 ; 0x000: Ceiling ↔ | { 00, 06 } | Size: 00
-#_0A815A: db $01, $23, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 08 } | Size: 07
-#_0A815D: db $01, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 18 } | Size: 05
-#_0A8160: db $FF, $FF ; Layer01
-#_0A8162: db $FF, $FF ; Layer02
+#_0A815A: db $01, $23, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 08 } | Size: 07
+#_0A815D: db $01, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 18 } | Size: 05
+#_0A8160: db $FF, $FF ; Layer 1
+#_0A8162: db $FF, $FF ; Layer 2
 #_0A8164: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0055:
-#_0A8166: db $90, $02 ; Door 0x02 | Dir:00 | Pos:12
-#_0A8168: db $61, $00 ; Door 0x00 | Dir:01 | Pos:0C
-#_0A816A: db $61, $12 ; Door 0x12 | Dir:01 | Pos:0C
-#_0A816C: db $FF, $FF ; Layer03 / End
+#_0A8166: db $90, $02 ; Door 0x02 | North 12
+#_0A8168: db $61, $00 ; Door 0x00 | South 0C
+#_0A816A: db $61, $12 ; Door 0x12 | South 0C
+#_0A816C: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -149,59 +149,59 @@ RoomDataTiles_00E1:
 #_0A816E: db $51, $04 ; Floors and Layout
 #_0A8170: db $19, $84, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 06, 21 } | Size: 04
 #_0A8173: db $41, $61, $01 ; 0x001: Wall (top, north) ↔ | { 10, 18 } | Size: 05
-#_0A8176: db $FD, $A6, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 18 } | Size: 00
+#_0A8176: db $FD, $A6, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 18 }
 #_0A8179: db $1B, $88, $61 ; 0x061: Wall (top, west) ↕ | { 06, 22 } | Size: 0C
-#_0A817C: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A } | Size: 00
-#_0A817F: db $FD, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 16, 3A } | Size: 00
+#_0A817C: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A }
+#_0A817F: db $FD, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 16, 3A }
 #_0A8182: db $58, $A6, $10 ; 0x010: Diagonal wall B ◢ (top) | { 16, 29 } | Size: 02
 #_0A8185: db $5A, $A8, $62 ; 0x062: Wall (top, east) ↕ | { 16, 2A } | Size: 08
 #_0A8188: db $68, $8A, $62 ; 0x062: Wall (top, east) ↕ | { 1A, 22 } | Size: 02
 #_0A818B: db $24, $85, $19 ; 0x019: Diagonal wall B ◤ (bottom) | { 09, 21 } | Size: 01
 #_0A818E: db $25, $8A, $63 ; 0x063: Wall (bottom, west) ↕ | { 09, 22 } | Size: 06
-#_0A8191: db $FC, $9C, $09 ; 0x109: Corner (bottom, concave) ▙ | { 09, 30 } | Size: 00
+#_0A8191: db $FC, $9C, $09 ; 0x109: Corner (bottom, concave) ▙ | { 09, 30 }
 #_0A8194: db $34, $C2, $04 ; 0x004: Wall (bottom, south) ↔ | { 0D, 30 } | Size: 02
-#_0A8197: db $FD, $3C, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 13, 30 } | Size: 00
+#_0A8197: db $FD, $3C, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 13, 30 }
 #_0A819A: db $4C, $A6, $1C ; 0x01C: Diagonal wall B ◢ (bottom) | { 13, 29 } | Size: 02
 #_0A819D: db $4C, $AA, $64 ; 0x064: Wall (bottom, east) ↕ | { 13, 2A } | Size: 02
 #_0A81A0: db $5C, $7B, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 1E } | Size: 03
 #_0A81A3: db $40, $6F, $03 ; 0x003: Wall (bottom, north) ↔ | { 10, 1B } | Size: 03
-#_0A81A6: db $FD, $76, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 1B } | Size: 00
-#_0A81A9: db $FE, $29, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 26 } | Size: 00
+#_0A81A6: db $FD, $76, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 1B }
+#_0A81A9: db $FE, $29, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 26 }
 #_0A81AC: db $9A, $9A, $02 ; 0x002: Wall (top, south) ↔ | { 26, 26 } | Size: 0A
-#_0A81AF: db $FF, $A9, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 26 } | Size: 00
+#_0A81AF: db $FF, $A9, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 26 }
 #_0A81B2: db $94, $81, $63 ; 0x063: Wall (bottom, west) ↕ | { 25, 20 } | Size: 01
-#_0A81B5: db $FE, $58, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 25, 23 } | Size: 00
+#_0A81B5: db $FE, $58, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 25, 23 }
 #_0A81B8: db $A5, $8E, $04 ; 0x004: Wall (bottom, south) ↔ | { 29, 23 } | Size: 06
 #_0A81BB: db $DC, $81, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 20 } | Size: 01
-#_0A81BE: db $FF, $78, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 23 } | Size: 00
-#_0A81C1: db $FE, $57, $08 ; 0x108: Corner (bottom, concave) ▛ | { 25, 1C } | Size: 00
+#_0A81BE: db $FF, $78, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 23 }
+#_0A81C1: db $FE, $57, $08 ; 0x108: Corner (bottom, concave) ▛ | { 25, 1C }
 #_0A81C4: db $A5, $72, $03 ; 0x003: Wall (bottom, north) ↔ | { 29, 1C } | Size: 06
-#_0A81C7: db $FF, $77, $0A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 1C } | Size: 00
+#_0A81C7: db $FF, $77, $0A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 1C }
 #_0A81CA: db $AF, $2A, $DD ; 0x0DD: Table / Rock ⇲| { 2B, 0A } | Size: 0E
 #_0A81CD: db $94, $6E, $22 ; 0x022: Rail ↔ | { 25, 1B } | Size: 02
 #_0A81D0: db $D4, $6E, $22 ; 0x022: Rail ↔ | { 35, 1B } | Size: 02
 #_0A81D3: db $24, $D1, $22 ; 0x022: Rail ↔ | { 09, 34 } | Size: 01
 #_0A81D6: db $48, $D1, $22 ; 0x022: Rail ↔ | { 12, 34 } | Size: 01
-#_0A81D9: db $38, $C3, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 0E, 30 } | Size: 03
-#_0A81DC: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0F
-#_0A81DF: db $4A, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 04 } | Size: 0B
-#_0A81E2: db $08, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 14 } | Size: 03
-#_0A81E5: db $08, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 03
-#_0A81E8: db $08, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 02
+#_0A81D9: db $38, $C3, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 0E, 30 }
+#_0A81DC: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0F
+#_0A81DF: db $4A, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 04 } | Size: 0B
+#_0A81E2: db $08, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 14 } | Size: 03
+#_0A81E5: db $08, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 03
+#_0A81E8: db $08, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 02
 #_0A81EB: db $19, $61, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 06, 18 } | Size: 05
-#_0A81EE: db $1B, $50, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 14 } | Size: 0C
-#_0A81F1: db $59, $50, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 14 } | Size: 04
+#_0A81EE: db $1B, $50, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 14 } | Size: 0C
+#_0A81F1: db $59, $50, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 14 } | Size: 04
 #_0A81F4: db $6C, $A4, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 1B, 29 } | Size: 00
-#_0A81F7: db $68, $AB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 2A } | Size: 03
-#_0A81FA: db $68, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 3A } | Size: 00
-#_0A81FD: db $8B, $AB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 2A } | Size: 0F
-#_0A8200: db $CA, $AB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 2A } | Size: 0B
-#_0A8203: db $8B, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 3A } | Size: 0C
-#_0A8206: db $CA, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 3A } | Size: 08
-#_0A8209: db $FF, $FF ; Layer01
+#_0A81F7: db $68, $AB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 2A } | Size: 03
+#_0A81FA: db $68, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 3A } | Size: 00
+#_0A81FD: db $8B, $AB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 2A } | Size: 0F
+#_0A8200: db $CA, $AB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 2A } | Size: 0B
+#_0A8203: db $8B, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 3A } | Size: 0C
+#_0A8206: db $CA, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 3A } | Size: 08
+#_0A8209: db $FF, $FF ; Layer 1
 #_0A820B: db $6D, $75, $01 ; 0x001: Wall (top, north) ↔ | { 1B, 1D } | Size: 05
 #_0A820E: db $6D, $85, $02 ; 0x002: Wall (top, south) ↔ | { 1B, 21 } | Size: 05
-#_0A8211: db $FF, $FF ; Layer02
+#_0A8211: db $FF, $FF ; Layer 2
 #_0A8213: db $28, $86, $AC ; 0x0AC: Diagonal layer 2 mask B ◢ | { 0A, 21 } | Size: 02
 #_0A8216: db $54, $99, $A9 ; 0x0A9: Diagonal layer 2 mask B ◤ | { 15, 26 } | Size: 01
 #_0A8219: db $41, $6D, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 10, 1B } | Size: 05
@@ -220,9 +220,9 @@ RoomDataTiles_00E1:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00E1:
-#_0A823C: db $A2, $40 ; Door 0x40 | Dir:02 | Pos:14
-#_0A823E: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0A8240: db $FF, $FF ; Layer03 / End
+#_0A823C: db $A2, $40 ; Door 0x40 | West 14
+#_0A823E: db $61, $0E ; Door 0x0E | South 0C
+#_0A8240: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -233,29 +233,29 @@ RoomDataTiles_00E3:
 #_0A824A: db $68, $4A, $62 ; 0x062: Wall (top, east) ↕ | { 1A, 12 } | Size: 02
 #_0A824D: db $68, $A2, $62 ; 0x062: Wall (top, east) ↕ | { 1A, 28 } | Size: 02
 #_0A8250: db $25, $B4, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 2D } | Size: 04
-#_0A8253: db $FC, $59, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 27 } | Size: 00
+#_0A8253: db $FC, $59, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 27 }
 #_0A8256: db $14, $AC, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 2B } | Size: 00
 #_0A8259: db $25, $9E, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 27 } | Size: 06
-#_0A825C: db $FC, $5B, $49 ; 0x109: Corner (bottom, concave) ▙ | { 05, 2D } | Size: 00
-#_0A825F: db $FD, $3B, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 13, 2D } | Size: 00
+#_0A825C: db $FC, $5B, $49 ; 0x109: Corner (bottom, concave) ▙ | { 05, 2D }
+#_0A825F: db $FD, $3B, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 13, 2D }
 #_0A8262: db $4C, $C7, $63 ; 0x063: Wall (bottom, west) ↕ | { 13, 31 } | Size: 03
-#_0A8265: db $FD, $3D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 13, 37 } | Size: 00
-#_0A8268: db $FD, $79, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 27 } | Size: 00
+#_0A8265: db $FD, $3D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 13, 37 }
+#_0A8268: db $FD, $79, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 27 }
 #_0A826B: db $5D, $AD, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 2B } | Size: 05
-#_0A826E: db $FD, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 37 } | Size: 00
-#_0A8271: db $FE, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 26, 04 } | Size: 00
+#_0A826E: db $FD, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 37 }
+#_0A8271: db $FE, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 26, 04 }
 #_0A8274: db $9A, $21, $61 ; 0x061: Wall (top, west) ↕ | { 26, 08 } | Size: 09
-#_0A8277: db $FE, $66, $81 ; 0x101: Corner (top, concave) ▙ | { 26, 1A } | Size: 00
-#_0A827A: db $FF, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 36, 04 } | Size: 00
+#_0A8277: db $FE, $66, $81 ; 0x101: Corner (top, concave) ▙ | { 26, 1A }
+#_0A827A: db $FF, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 36, 04 }
 #_0A827D: db $DA, $21, $62 ; 0x062: Wall (top, east) ↕ | { 36, 08 } | Size: 09
-#_0A8280: db $FF, $66, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 1A } | Size: 00
-#_0A8283: db $FE, $91, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 29, 07 } | Size: 00
+#_0A8280: db $FF, $66, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 1A }
+#_0A8283: db $FE, $91, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 29, 07 }
 #_0A8286: db $A5, $2D, $63 ; 0x063: Wall (bottom, west) ↕ | { 29, 0B } | Size: 05
-#_0A8289: db $FE, $95, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 29, 17 } | Size: 00
+#_0A8289: db $FE, $95, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 29, 17 }
 #_0A828C: db $B4, $1E, $03 ; 0x003: Wall (bottom, north) ↔ | { 2D, 07 } | Size: 02
-#_0A828F: db $FF, $31, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 33, 07 } | Size: 00
+#_0A828F: db $FF, $31, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 33, 07 }
 #_0A8292: db $CD, $2D, $64 ; 0x064: Wall (bottom, east) ↕ | { 33, 0B } | Size: 05
-#_0A8295: db $FF, $35, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 33, 17 } | Size: 00
+#_0A8295: db $FF, $35, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 33, 17 }
 #_0A8298: db $B4, $5E, $04 ; 0x004: Wall (bottom, south) ↔ | { 2D, 17 } | Size: 02
 #_0A829B: db $89, $B4, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 22, 2D } | Size: 04
 #_0A829E: db $89, $C0, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 22, 30 } | Size: 04
@@ -273,25 +273,25 @@ RoomDataTiles_00E3:
 #_0A82C2: db $DC, $BA, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 2E } | Size: 02
 #_0A82C5: db $14, $C5, $22 ; 0x022: Rail ↔ | { 05, 31 } | Size: 01
 #_0A82C8: db $49, $C6, $69 ; 0x069: Rail ↕ | { 12, 31 } | Size: 06
-#_0A82CB: db $30, $B7, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 0C, 2D } | Size: 03
+#_0A82CB: db $30, $B7, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 0C, 2D }
 #_0A82CE: db $09, $D5, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 02, 35 } | Size: 05
-#_0A82D1: db $88, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 04 } | Size: 03
-#_0A82D4: db $88, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 14 } | Size: 02
-#_0A82D7: db $E8, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 04 } | Size: 03
-#_0A82DA: db $E8, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 14 } | Size: 02
+#_0A82D1: db $88, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 04 } | Size: 03
+#_0A82D4: db $88, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 14 } | Size: 02
+#_0A82D7: db $E8, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 04 } | Size: 03
+#_0A82DA: db $E8, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 14 } | Size: 02
 #_0A82DD: db $89, $91, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 22, 24 } | Size: 05
 #_0A82E0: db $89, $D5, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 22, 35 } | Size: 05
 #_0A82E3: db $D5, $91, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 35, 24 } | Size: 05
 #_0A82E6: db $D5, $F5, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 35, 3D } | Size: 05
-#_0A82E9: db $FF, $FF ; Layer01
-#_0A82EB: db $FE, $C2, $BF ; 0x13F: Magic bat altar | { 2C, 0A } | Size: 00
-#_0A82EE: db $B3, $BB, $FA ; 0x22F: Pot | { 2C, 2E } | Size: 0F
-#_0A82F1: db $CB, $CB, $FA ; 0x22F: Pot | { 32, 32 } | Size: 0F
+#_0A82E9: db $FF, $FF ; Layer 1
+#_0A82EB: db $FE, $C2, $BF ; 0x13F: Magic bat altar | { 2C, 0A }
+#_0A82EE: db $B3, $BB, $FA ; 0x22F: Pot | { 2C, 2E }
+#_0A82F1: db $CB, $CB, $FA ; 0x22F: Pot | { 32, 32 }
 #_0A82F4: db $6D, $B5, $01 ; 0x001: Wall (top, north) ↔ | { 1B, 2D } | Size: 05
 #_0A82F7: db $6D, $C5, $02 ; 0x002: Wall (top, south) ↔ | { 1B, 31 } | Size: 05
 #_0A82FA: db $B1, $6E, $61 ; 0x061: Wall (top, west) ↕ | { 2C, 1B } | Size: 06
 #_0A82FD: db $C1, $6E, $62 ; 0x062: Wall (top, east) ↕ | { 30, 1B } | Size: 06
-#_0A8300: db $FF, $FF ; Layer02
+#_0A8300: db $FF, $FF ; Layer 2
 #_0A8302: db $1B, $A1, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 06, 28 } | Size: 0D
 #_0A8305: db $4D, $A3, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 13, 28 } | Size: 07
 #_0A8308: db $4D, $DC, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 13, 37 } | Size: 04
@@ -310,68 +310,68 @@ RoomDataTiles_00E3:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00E3:
-#_0A832B: db $B2, $4A ; Door 0x4A | Dir:02 | Pos:16
-#_0A832D: db $B0, $40 ; Door 0x40 | Dir:00 | Pos:16
-#_0A832F: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0A8331: db $FF, $FF ; Layer03 / End
+#_0A832B: db $B2, $4A ; Door 0x4A | West 16
+#_0A832D: db $B0, $40 ; Door 0x40 | North 16
+#_0A832F: db $61, $0E ; Door 0x0E | South 0C
+#_0A8331: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00E2:
 #_0A8333: db $51, $04 ; Floors and Layout
-#_0A8335: db $FC, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 04 } | Size: 00
+#_0A8335: db $FC, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 04 }
 #_0A8338: db $19, $22, $61 ; 0x061: Wall (top, west) ↕ | { 06, 08 } | Size: 06
-#_0A833B: db $FC, $65, $01 ; 0x101: Corner (top, concave) ▙ | { 06, 14 } | Size: 00
-#_0A833E: db $FC, $A5, $05 ; 0x105: Corner (top, convex) ▜ | { 0A, 14 } | Size: 00
+#_0A833B: db $FC, $65, $01 ; 0x101: Corner (top, concave) ▙ | { 06, 14 }
+#_0A833E: db $FC, $A5, $05 ; 0x105: Corner (top, convex) ▜ | { 0A, 14 }
 #_0A8341: db $2A, $61, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 18 } | Size: 09
-#_0A8344: db $FC, $AA, $84 ; 0x104: Corner (top, convex) ▟ | { 0A, 2A } | Size: 00
-#_0A8347: db $FC, $6A, $80 ; 0x100: Corner (top, concave) ▛ | { 06, 2A } | Size: 00
+#_0A8344: db $FC, $AA, $84 ; 0x104: Corner (top, convex) ▟ | { 0A, 2A }
+#_0A8347: db $FC, $6A, $80 ; 0x100: Corner (top, concave) ▛ | { 06, 2A }
 #_0A834A: db $19, $BA, $61 ; 0x061: Wall (top, west) ↕ | { 06, 2E } | Size: 06
-#_0A834D: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A } | Size: 00
-#_0A8350: db $FC, $91, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 09, 07 } | Size: 00
+#_0A834D: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A }
+#_0A8350: db $FC, $91, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 09, 07 }
 #_0A8353: db $24, $2E, $63 ; 0x063: Wall (bottom, west) ↕ | { 09, 0B } | Size: 02
-#_0A8356: db $FC, $94, $49 ; 0x109: Corner (bottom, concave) ▙ | { 09, 11 } | Size: 00
-#_0A8359: db $FC, $D4, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 0D, 11 } | Size: 00
+#_0A8356: db $FC, $94, $49 ; 0x109: Corner (bottom, concave) ▙ | { 09, 11 }
+#_0A8359: db $FC, $D4, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 0D, 11 }
 #_0A835C: db $34, $55, $63 ; 0x063: Wall (bottom, west) ↕ | { 0D, 15 } | Size: 01
-#_0A835F: db $FC, $D6, $49 ; 0x109: Corner (bottom, concave) ▙ | { 0D, 19 } | Size: 00
+#_0A835F: db $FC, $D6, $49 ; 0x109: Corner (bottom, concave) ▙ | { 0D, 19 }
 #_0A8362: db $44, $66, $04 ; 0x004: Wall (bottom, south) ↔ | { 11, 19 } | Size: 02
-#_0A8365: db $FD, $76, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 17, 19 } | Size: 00
+#_0A8365: db $FD, $76, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 17, 19 }
 #_0A8368: db $5D, $2E, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 0B } | Size: 06
-#_0A836B: db $FD, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 07 } | Size: 00
+#_0A836B: db $FD, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 07 }
 #_0A836E: db $35, $1C, $03 ; 0x003: Wall (bottom, north) ↔ | { 0D, 07 } | Size: 04
-#_0A8371: db $FC, $D9, $48 ; 0x108: Corner (bottom, concave) ▛ | { 0D, 25 } | Size: 00
+#_0A8371: db $FC, $D9, $48 ; 0x108: Corner (bottom, concave) ▛ | { 0D, 25 }
 #_0A8374: db $44, $96, $03 ; 0x003: Wall (bottom, north) ↔ | { 11, 25 } | Size: 02
-#_0A8377: db $FD, $79, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 17, 25 } | Size: 00
+#_0A8377: db $FD, $79, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 17, 25 }
 #_0A837A: db $34, $A5, $63 ; 0x063: Wall (bottom, west) ↕ | { 0D, 29 } | Size: 01
-#_0A837D: db $FC, $DB, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 0D, 2D } | Size: 00
-#_0A8380: db $FC, $9B, $48 ; 0x108: Corner (bottom, concave) ▛ | { 09, 2D } | Size: 00
+#_0A837D: db $FC, $DB, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 0D, 2D }
+#_0A8380: db $FC, $9B, $48 ; 0x108: Corner (bottom, concave) ▛ | { 09, 2D }
 #_0A8383: db $24, $C6, $63 ; 0x063: Wall (bottom, west) ↕ | { 09, 31 } | Size: 02
-#_0A8386: db $FC, $9D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 09, 37 } | Size: 00
+#_0A8386: db $FC, $9D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 09, 37 }
 #_0A8389: db $35, $DC, $04 ; 0x004: Wall (bottom, south) ↔ | { 0D, 37 } | Size: 04
-#_0A838C: db $FD, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 37 } | Size: 00
+#_0A838C: db $FD, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 37 }
 #_0A838F: db $5D, $A6, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 29 } | Size: 06
-#_0A8392: db $FE, $26, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 18 } | Size: 00
+#_0A8392: db $FE, $26, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 18 }
 #_0A8395: db $9A, $62, $01 ; 0x001: Wall (top, north) ↔ | { 26, 18 } | Size: 0A
-#_0A8398: db $FF, $A6, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 18 } | Size: 00
-#_0A839B: db $FE, $2A, $01 ; 0x101: Corner (top, concave) ▙ | { 22, 28 } | Size: 00
+#_0A8398: db $FF, $A6, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 18 }
+#_0A839B: db $FE, $2A, $01 ; 0x101: Corner (top, concave) ▙ | { 22, 28 }
 #_0A839E: db $98, $A2, $02 ; 0x002: Wall (top, south) ↔ | { 26, 28 } | Size: 02
-#_0A83A1: db $FE, $AA, $05 ; 0x105: Corner (top, convex) ▜ | { 2A, 28 } | Size: 00
+#_0A83A1: db $FE, $AA, $05 ; 0x105: Corner (top, convex) ▜ | { 2A, 28 }
 #_0A83A4: db $A9, $B3, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 2C } | Size: 07
-#_0A83A7: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A } | Size: 00
+#_0A83A7: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A }
 #_0A83AA: db $D8, $E6, $10 ; 0x010: Diagonal wall B ◢ (top) | { 36, 39 } | Size: 02
 #_0A83AD: db $E8, $CA, $62 ; 0x062: Wall (top, east) ↕ | { 3A, 32 } | Size: 02
-#_0A83B0: db $FE, $86, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 28, 1B } | Size: 00
+#_0A83B0: db $FE, $86, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 28, 1B }
 #_0A83B3: db $A0, $7E, $63 ; 0x063: Wall (bottom, west) ↕ | { 28, 1F } | Size: 02
-#_0A83B6: db $FE, $89, $49 ; 0x109: Corner (bottom, concave) ▙ | { 28, 25 } | Size: 00
+#_0A83B6: db $FE, $89, $49 ; 0x109: Corner (bottom, concave) ▙ | { 28, 25 }
 #_0A83B9: db $B0, $94, $04 ; 0x004: Wall (bottom, south) ↔ | { 2C, 25 } | Size: 00
-#_0A83BC: db $FE, $D9, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 2D, 25 } | Size: 00
+#_0A83BC: db $FE, $D9, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 2D, 25 }
 #_0A83BF: db $B4, $A5, $63 ; 0x063: Wall (bottom, west) ↕ | { 2D, 29 } | Size: 01
-#_0A83C2: db $FE, $DB, $09 ; 0x109: Corner (bottom, concave) ▙ | { 2D, 2C } | Size: 00
+#_0A83C2: db $FE, $DB, $09 ; 0x109: Corner (bottom, concave) ▙ | { 2D, 2C }
 #_0A83C5: db $C4, $B2, $04 ; 0x004: Wall (bottom, south) ↔ | { 31, 2C } | Size: 02
 #_0A83C8: db $B1, $6D, $03 ; 0x003: Wall (bottom, north) ↔ | { 2C, 1B } | Size: 05
-#_0A83CB: db $FF, $76, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 1B } | Size: 00
+#_0A83CB: db $FF, $76, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 1B }
 #_0A83CE: db $DD, $7E, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 1F } | Size: 06
-#_0A83D1: db $FF, $7B, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 2C } | Size: 00
+#_0A83D1: db $FF, $7B, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 2C }
 #_0A83D4: db $34, $75, $22 ; 0x022: Rail ↔ | { 0D, 1D } | Size: 01
 #_0A83D7: db $34, $91, $22 ; 0x022: Rail ↔ | { 0D, 24 } | Size: 01
 #_0A83DA: db $58, $75, $22 ; 0x022: Rail ↔ | { 16, 1D } | Size: 01
@@ -404,152 +404,152 @@ RoomDataTiles_00E2:
 #_0A842B: db $C1, $9C, $79 ; 0x079: Water edge (west) ↕ | { 30, 27 } | Size: 04
 #_0A842E: db $C1, $B1, $40 ; 0x040: Water edge ┗━┛ (concave) ↔ | { 30, 2C } | Size: 05
 #_0A8431: db $DF, $7C, $7A ; 0x07A: Water edge (east) ↕ | { 37, 1F } | Size: 0C
-#_0A8434: db $49, $67, $F9 ; 0x21D: Intraroom stairs south (merged layers) | { 12, 19 } | Size: 07
-#_0A8437: db $C9, $B3, $F9 ; 0x21D: Intraroom stairs south (merged layers) | { 32, 2C } | Size: 07
-#_0A843A: db $FD, $29, $72 ; 0x132: Intraroom stairs north (merged layers) | { 12, 25 } | Size: 00
+#_0A8434: db $49, $67, $F9 ; 0x21D: Intraroom stairs south (merged layers) | { 12, 19 }
+#_0A8437: db $C9, $B3, $F9 ; 0x21D: Intraroom stairs south (merged layers) | { 32, 2C }
+#_0A843A: db $FD, $29, $72 ; 0x132: Intraroom stairs north (merged layers) | { 12, 25 }
 #_0A843D: db $08, $00, $60 ; 0x060: Ceiling ↕ | { 02, 00 } | Size: 00
 #_0A8440: db $10, $00, $60 ; 0x060: Ceiling ↕ | { 04, 00 } | Size: 00
-#_0A8443: db $18, $63, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 18 } | Size: 03
+#_0A8443: db $18, $63, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 18 } | Size: 03
 #_0A8446: db $18, $A2, $00 ; 0x000: Ceiling ↔ | { 06, 28 } | Size: 02
-#_0A8449: db $8B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 04 } | Size: 0F
-#_0A844C: db $CA, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 04 } | Size: 0B
-#_0A844F: db $8B, $50, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 14 } | Size: 0C
-#_0A8452: db $CA, $50, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 14 } | Size: 08
-#_0A8455: db $89, $B3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 2C } | Size: 07
+#_0A8449: db $8B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 04 } | Size: 0F
+#_0A844C: db $CA, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 04 } | Size: 0B
+#_0A844F: db $8B, $50, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 14 } | Size: 0C
+#_0A8452: db $CA, $50, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 14 } | Size: 08
+#_0A8455: db $89, $B3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 2C } | Size: 07
 #_0A8458: db $89, $F0, $00 ; 0x000: Ceiling ↔ | { 22, 3C } | Size: 04
 #_0A845B: db $DC, $F7, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 37, 3D } | Size: 03
-#_0A845E: db $FF, $FF ; Layer01
-#_0A8460: db $FF, $FF ; Layer02
+#_0A845E: db $FF, $FF ; Layer 1
+#_0A8460: db $FF, $FF ; Layer 2
 #_0A8462: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00E2:
-#_0A8464: db $72, $00 ; Door 0x00 | Dir:02 | Pos:0E
-#_0A8466: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0A8468: db $FF, $FF ; Layer03 / End
+#_0A8464: db $72, $00 ; Door 0x00 | West 0E
+#_0A8466: db $81, $0E ; Door 0x0E | South 10
+#_0A8468: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0000:
 #_0A846A: db $E6, $00 ; Floors and Layout
-#_0A846C: db $FE, $00, $80 ; 0x100: Corner (top, concave) ▛ | { 20, 02 } | Size: 00
+#_0A846C: db $FE, $00, $80 ; 0x100: Corner (top, concave) ▛ | { 20, 02 }
 #_0A846F: db $93, $08, $01 ; 0x001: Wall (top, north) ↔ | { 24, 02 } | Size: 0C
-#_0A8472: db $FF, $C0, $82 ; 0x102: Corner (top, concave) ▜ | { 3C, 02 } | Size: 00
+#_0A8472: db $FF, $C0, $82 ; 0x102: Corner (top, concave) ▜ | { 3C, 02 }
 #_0A8475: db $82, $1B, $61 ; 0x061: Wall (top, west) ↕ | { 20, 06 } | Size: 0B
-#_0A8478: db $FE, $07, $01 ; 0x101: Corner (top, concave) ▙ | { 20, 1C } | Size: 00
-#_0A847B: db $FF, $C7, $03 ; 0x103: Corner (top, concave) ▟ | { 3C, 1C } | Size: 00
+#_0A8478: db $FE, $07, $01 ; 0x101: Corner (top, concave) ▙ | { 20, 1C }
+#_0A847B: db $FF, $C7, $03 ; 0x103: Corner (top, concave) ▟ | { 3C, 1C }
 #_0A847E: db $93, $70, $02 ; 0x002: Wall (top, south) ↔ | { 24, 1C } | Size: 0C
 #_0A8481: db $F2, $1B, $62 ; 0x062: Wall (top, east) ↕ | { 3C, 06 } | Size: 0B
 #_0A8484: db $C6, $17, $C4 ; 0x0C4: Floor 1 ⇲ | { 31, 05 } | Size: 0B
 #_0A8487: db $8F, $55, $C4 ; 0x0C4: Floor 1 ⇲ | { 23, 15 } | Size: 0D
 #_0A848A: db $C6, $55, $C4 ; 0x0C4: Floor 1 ⇲ | { 31, 15 } | Size: 09
 #_0A848D: db $8F, $17, $C4 ; 0x0C4: Floor 1 ⇲ | { 23, 05 } | Size: 0F
-#_0A8490: db $93, $09, $FF ; 0x277: Triforce wall ornament | { 24, 02 } | Size: 0D
-#_0A8493: db $D3, $09, $FF ; 0x277: Triforce wall ornament | { 34, 02 } | Size: 0D
-#_0A8496: db $B2, $09, $FF ; 0x276: Ganon door | { 2C, 02 } | Size: 09
+#_0A8490: db $93, $09, $FF ; 0x277: Triforce wall ornament | { 24, 02 }
+#_0A8493: db $D3, $09, $FF ; 0x277: Triforce wall ornament | { 34, 02 }
+#_0A8496: db $B2, $09, $FF ; 0x276: Ganon door | { 2C, 02 }
 #_0A8499: db $80, $1E, $76 ; 0x076: Wall decors (west) ↕ | { 20, 07 } | Size: 02
 #_0A849C: db $F4, $1E, $77 ; 0x077: Wall decors (east) ↕ | { 3D, 07 } | Size: 02
 #_0A849F: db $AD, $35, $E1 ; 0x0E1: Tiled floor ⇲ | { 2B, 0D } | Size: 05
 #_0A84A2: db $C4, $35, $E1 ; 0x0E1: Tiled floor ⇲ | { 31, 0D } | Size: 01
-#_0A84A5: db $B8, $36, $FF ; 0x278: Triforce floor tiles | { 2E, 0D } | Size: 02
-#_0A84A8: db $FE, $FA, $A0 ; 0x120: Small torch (lit) | { 2F, 2A } | Size: 00
-#_0A84AB: db $8B, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 2E } | Size: 0F
-#_0A84AE: db $CA, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 2E } | Size: 0B
-#_0A84B1: db $FF, $FF ; Layer01
-#_0A84B3: db $FF, $FF ; Layer02
+#_0A84A5: db $B8, $36, $FF ; 0x278: Triforce floor tiles | { 2E, 0D }
+#_0A84A8: db $FE, $FA, $A0 ; 0x120: Small torch (lit) | { 2F, 2A }
+#_0A84AB: db $8B, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 2E } | Size: 0F
+#_0A84AE: db $CA, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 2E } | Size: 0B
+#_0A84B1: db $FF, $FF ; Layer 1
+#_0A84B3: db $FF, $FF ; Layer 2
 #_0A84B5: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0000:
-#_0A84B7: db $FF, $FF ; Layer03 / End
+#_0A84B7: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0010:
 #_0A84B9: db $E1, $04 ; Floors and Layout
-#_0A84BB: db $FC, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 04 } | Size: 00
+#_0A84BB: db $FC, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 04 }
 #_0A84BE: db $2B, $22, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 08 } | Size: 0E
-#_0A84C1: db $FC, $A9, $04 ; 0x104: Corner (top, convex) ▟ | { 0A, 24 } | Size: 00
-#_0A84C4: db $FD, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 04 } | Size: 00
+#_0A84C1: db $FC, $A9, $04 ; 0x104: Corner (top, convex) ▟ | { 0A, 24 }
+#_0A84C4: db $FD, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 04 }
 #_0A84C7: db $4B, $23, $62 ; 0x062: Wall (top, east) ↕ | { 12, 08 } | Size: 0F
-#_0A84CA: db $FC, $69, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 24 } | Size: 00
+#_0A84CA: db $FC, $69, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 24 }
 #_0A84CD: db $1A, $A1, $61 ; 0x061: Wall (top, west) ↕ | { 06, 28 } | Size: 09
-#_0A84D0: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A } | Size: 00
+#_0A84D0: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A }
 #_0A84D3: db $48, $9A, $62 ; 0x062: Wall (top, east) ↕ | { 12, 26 } | Size: 02
-#_0A84D6: db $FD, $2A, $86 ; 0x106: Corner (top, convex) ▙ | { 12, 2A } | Size: 00
+#_0A84D6: db $FD, $2A, $86 ; 0x106: Corner (top, convex) ▙ | { 12, 2A }
 #_0A84D9: db $58, $AA, $01 ; 0x001: Wall (top, north) ↔ | { 16, 2A } | Size: 02
-#_0A84DC: db $FD, $AA, $82 ; 0x102: Corner (top, concave) ▜ | { 1A, 2A } | Size: 00
-#_0A84DF: db $FE, $2A, $80 ; 0x100: Corner (top, concave) ▛ | { 22, 2A } | Size: 00
+#_0A84DC: db $FD, $AA, $82 ; 0x102: Corner (top, concave) ▜ | { 1A, 2A }
+#_0A84DF: db $FE, $2A, $80 ; 0x100: Corner (top, concave) ▛ | { 22, 2A }
 #_0A84E2: db $98, $AA, $01 ; 0x001: Wall (top, north) ↔ | { 26, 2A } | Size: 02
-#_0A84E5: db $FE, $AA, $84 ; 0x104: Corner (top, convex) ▟ | { 2A, 2A } | Size: 00
+#_0A84E5: db $FE, $AA, $84 ; 0x104: Corner (top, convex) ▟ | { 2A, 2A }
 #_0A84E8: db $A9, $81, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 20 } | Size: 05
-#_0A84EB: db $FE, $A7, $05 ; 0x105: Corner (top, convex) ▜ | { 2A, 1C } | Size: 00
+#_0A84EB: db $FE, $A7, $05 ; 0x105: Corner (top, convex) ▜ | { 2A, 1C }
 #_0A84EE: db $90, $73, $02 ; 0x002: Wall (top, south) ↔ | { 24, 1C } | Size: 03
-#_0A84F1: db $FE, $07, $01 ; 0x101: Corner (top, concave) ▙ | { 20, 1C } | Size: 00
+#_0A84F1: db $FE, $07, $01 ; 0x101: Corner (top, concave) ▙ | { 20, 1C }
 #_0A84F4: db $83, $10, $61 ; 0x061: Wall (top, west) ↕ | { 20, 04 } | Size: 0C
-#_0A84F7: db $FE, $00, $00 ; 0x100: Corner (top, concave) ▛ | { 20, 00 } | Size: 00
+#_0A84F7: db $FE, $00, $00 ; 0x100: Corner (top, concave) ▛ | { 20, 00 }
 #_0A84FA: db $93, $00, $01 ; 0x001: Wall (top, north) ↔ | { 24, 00 } | Size: 0C
-#_0A84FD: db $FF, $C0, $02 ; 0x102: Corner (top, concave) ▜ | { 3C, 00 } | Size: 00
+#_0A84FD: db $FF, $C0, $02 ; 0x102: Corner (top, concave) ▜ | { 3C, 00 }
 #_0A8500: db $F3, $10, $62 ; 0x062: Wall (top, east) ↕ | { 3C, 04 } | Size: 0C
-#_0A8503: db $FF, $C7, $03 ; 0x103: Corner (top, concave) ▟ | { 3C, 1C } | Size: 00
+#_0A8503: db $FF, $C7, $03 ; 0x103: Corner (top, concave) ▟ | { 3C, 1C }
 #_0A8506: db $D8, $73, $02 ; 0x002: Wall (top, south) ↔ | { 36, 1C } | Size: 03
-#_0A8509: db $FF, $27, $07 ; 0x107: Corner (top, convex) ▛ | { 32, 1C } | Size: 00
+#_0A8509: db $FF, $27, $07 ; 0x107: Corner (top, convex) ▛ | { 32, 1C }
 #_0A850C: db $CA, $82, $62 ; 0x062: Wall (top, east) ↕ | { 32, 20 } | Size: 0A
-#_0A850F: db $FF, $2D, $03 ; 0x103: Corner (top, concave) ▟ | { 32, 34 } | Size: 00
+#_0A850F: db $FF, $2D, $03 ; 0x103: Corner (top, concave) ▟ | { 32, 34 }
 #_0A8512: db $99, $D2, $02 ; 0x002: Wall (top, south) ↔ | { 26, 34 } | Size: 06
-#_0A8515: db $FE, $2D, $01 ; 0x101: Corner (top, concave) ▙ | { 22, 34 } | Size: 00
+#_0A8515: db $FE, $2D, $01 ; 0x101: Corner (top, concave) ▙ | { 22, 34 }
 #_0A8518: db $93, $13, $C4 ; 0x0C4: Floor 1 ⇲ | { 24, 04 } | Size: 0F
 #_0A851B: db $D1, $13, $C4 ; 0x0C4: Floor 1 ⇲ | { 34, 04 } | Size: 07
 #_0A851E: db $90, $51, $C4 ; 0x0C4: Floor 1 ⇲ | { 24, 14 } | Size: 01
 #_0A8521: db $E0, $51, $C4 ; 0x0C4: Floor 1 ⇲ | { 38, 14 } | Size: 01
-#_0A8524: db $FE, $92, $48 ; 0x108: Corner (bottom, concave) ▛ | { 29, 09 } | Size: 00
+#_0A8524: db $FE, $92, $48 ; 0x108: Corner (bottom, concave) ▛ | { 29, 09 }
 #_0A8527: db $B4, $26, $03 ; 0x003: Wall (bottom, north) ↔ | { 2D, 09 } | Size: 02
-#_0A852A: db $FF, $32, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 33, 09 } | Size: 00
+#_0A852A: db $FF, $32, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 33, 09 }
 #_0A852D: db $A4, $36, $63 ; 0x063: Wall (bottom, west) ↕ | { 29, 0D } | Size: 02
-#_0A8530: db $FE, $94, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 29, 13 } | Size: 00
+#_0A8530: db $FE, $94, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 29, 13 }
 #_0A8533: db $B4, $4E, $04 ; 0x004: Wall (bottom, south) ↔ | { 2D, 13 } | Size: 02
-#_0A8536: db $FF, $34, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 33, 13 } | Size: 00
+#_0A8536: db $FF, $34, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 33, 13 }
 #_0A8539: db $CC, $36, $64 ; 0x064: Wall (bottom, east) ↕ | { 33, 0D } | Size: 02
-#_0A853C: db $FE, $C3, $18 ; 0x118: Deep corner (concave) ▛ | { 2C, 0C } | Size: 00
+#_0A853C: db $FE, $C3, $18 ; 0x118: Deep corner (concave) ▛ | { 2C, 0C }
 #_0A853F: db $B8, $31, $07 ; 0x007: Deep wall (north) ↔ | { 2E, 0C } | Size: 01
-#_0A8542: db $FF, $23, $1A ; 0x11A: Deep corner (concave) ▜ | { 32, 0C } | Size: 00
+#_0A8542: db $FF, $23, $1A ; 0x11A: Deep corner (concave) ▜ | { 32, 0C }
 #_0A8545: db $B0, $39, $67 ; 0x067: Deep wall (west) ↕ | { 2C, 0E } | Size: 01
-#_0A8548: db $FE, $C4, $99 ; 0x119: Deep corner (concave) ▙ | { 2C, 12 } | Size: 00
+#_0A8548: db $FE, $C4, $99 ; 0x119: Deep corner (concave) ▙ | { 2C, 12 }
 #_0A854B: db $B8, $49, $08 ; 0x008: Deep wall (south) ↔ | { 2E, 12 } | Size: 01
-#_0A854E: db $FF, $24, $9B ; 0x11B: Deep corner (concave) ▟ | { 32, 12 } | Size: 00
+#_0A854E: db $FF, $24, $9B ; 0x11B: Deep corner (concave) ▟ | { 32, 12 }
 #_0A8551: db $C8, $39, $68 ; 0x068: Deep wall (east) ↕ | { 32, 0E } | Size: 01
 #_0A8554: db $B8, $38, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 2E, 0E } | Size: 00
 #_0A8557: db $A3, $20, $22 ; 0x022: Rail ↔ | { 28, 08 } | Size: 0C
 #_0A855A: db $A3, $20, $69 ; 0x069: Rail ↕ | { 28, 08 } | Size: 0C
 #_0A855D: db $A3, $5C, $22 ; 0x022: Rail ↔ | { 28, 17 } | Size: 0C
 #_0A8560: db $DF, $20, $69 ; 0x069: Rail ↕ | { 37, 08 } | Size: 0C
-#_0A8563: db $3F, $14, $F9 ; 0x213: Telepathy tile | { 0F, 05 } | Size: 0C
+#_0A8563: db $3F, $14, $F9 ; 0x213: Telepathy tile | { 0F, 05 }
 #_0A8566: db $08, $00, $60 ; 0x060: Ceiling ↕ | { 02, 00 } | Size: 00
 #_0A8569: db $10, $00, $60 ; 0x060: Ceiling ↕ | { 04, 00 } | Size: 00
-#_0A856C: db $18, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 04 } | Size: 03
-#_0A856F: db $18, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 14 } | Size: 03
-#_0A8572: db $59, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 04 } | Size: 07
-#_0A8575: db $59, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 14 } | Size: 07
-#_0A8578: db $59, $89, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 22 } | Size: 05
-#_0A857B: db $89, $81, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 20 } | Size: 05
+#_0A856C: db $18, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 04 } | Size: 03
+#_0A856F: db $18, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 14 } | Size: 03
+#_0A8572: db $59, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 04 } | Size: 07
+#_0A8575: db $59, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 14 } | Size: 07
+#_0A8578: db $59, $89, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 22 } | Size: 05
+#_0A857B: db $89, $81, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 20 } | Size: 05
 #_0A857E: db $89, $A0, $00 ; 0x000: Ceiling ↔ | { 22, 28 } | Size: 04
-#_0A8581: db $8B, $E1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 38 } | Size: 0D
-#_0A8584: db $CA, $E1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 38 } | Size: 09
-#_0A8587: db $D9, $83, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 20 } | Size: 07
-#_0A858A: db $D9, $C1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 30 } | Size: 05
-#_0A858D: db $FF, $FF ; Layer01
-#_0A858F: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 } | Size: 0C
-#_0A8592: db $FF, $FF ; Layer02
+#_0A8581: db $8B, $E1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 38 } | Size: 0D
+#_0A8584: db $CA, $E1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 38 } | Size: 09
+#_0A8587: db $D9, $83, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 20 } | Size: 07
+#_0A858A: db $D9, $C1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 30 } | Size: 05
+#_0A858D: db $FF, $FF ; Layer 1
+#_0A858F: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 }
+#_0A8592: db $FF, $FF ; Layer 2
 #_0A8594: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0010:
-#_0A8596: db $61, $0A ; Door 0x0A | Dir:01 | Pos:0C
-#_0A8598: db $82, $00 ; Door 0x00 | Dir:02 | Pos:10
-#_0A859A: db $FF, $FF ; Layer03 / End
+#_0A8596: db $61, $0A ; Door 0x0A | South 0C
+#_0A8598: db $82, $00 ; Door 0x00 | West 10
+#_0A859A: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -563,35 +563,35 @@ RoomDataTiles_0008:
 #_0A85AD: db $2D, $9C, $03 ; 0x003: Wall (bottom, north) ↔ | { 0B, 27 } | Size: 04
 #_0A85B0: db $54, $9C, $1B ; 0x01B: Diagonal wall B ◥ (bottom) | { 15, 27 } | Size: 00
 #_0A85B3: db $15, $B4, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 2D } | Size: 04
-#_0A85B6: db $FC, $5D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 37 } | Size: 00
+#_0A85B6: db $FC, $5D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 37 }
 #_0A85B9: db $25, $DE, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 37 } | Size: 06
-#_0A85BC: db $FD, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 37 } | Size: 00
+#_0A85BC: db $FD, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 37 }
 #_0A85BF: db $5D, $B4, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 2D } | Size: 04
-#_0A85C2: db $FE, $2A, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 28 } | Size: 00
+#_0A85C2: db $FE, $2A, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 28 }
 #_0A85C5: db $99, $A3, $01 ; 0x001: Wall (top, north) ↔ | { 26, 28 } | Size: 07
-#_0A85C8: db $FF, $4A, $02 ; 0x102: Corner (top, concave) ▜ | { 34, 28 } | Size: 00
+#_0A85C8: db $FF, $4A, $02 ; 0x102: Corner (top, concave) ▜ | { 34, 28 }
 #_0A85CB: db $D1, $B3, $62 ; 0x062: Wall (top, east) ↕ | { 34, 2C } | Size: 07
-#_0A85CE: db $FF, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 3A } | Size: 00
-#_0A85D1: db $FE, $5A, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 25, 2B } | Size: 00
+#_0A85CE: db $FF, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 3A }
+#_0A85D1: db $FE, $5A, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 25, 2B }
 #_0A85D4: db $A4, $AF, $03 ; 0x003: Wall (bottom, north) ↔ | { 29, 2B } | Size: 03
-#_0A85D7: db $FF, $1A, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 31, 2B } | Size: 00
+#_0A85D7: db $FF, $1A, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 31, 2B }
 #_0A85DA: db $94, $BD, $63 ; 0x063: Wall (bottom, west) ↕ | { 25, 2F } | Size: 01
-#_0A85DD: db $FE, $5C, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 25, 33 } | Size: 00
+#_0A85DD: db $FE, $5C, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 25, 33 }
 #_0A85E0: db $A4, $CF, $04 ; 0x004: Wall (bottom, south) ↔ | { 29, 33 } | Size: 03
-#_0A85E3: db $FF, $1C, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 31, 33 } | Size: 00
+#_0A85E3: db $FF, $1C, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 31, 33 }
 #_0A85E6: db $C4, $BD, $64 ; 0x064: Wall (bottom, east) ↕ | { 31, 2F } | Size: 01
 #_0A85E9: db $94, $DD, $22 ; 0x022: Rail ↔ | { 25, 37 } | Size: 01
 #_0A85EC: db $C4, $DC, $22 ; 0x022: Rail ↔ | { 31, 37 } | Size: 00
-#_0A85EF: db $A8, $CF, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2A, 33 } | Size: 03
+#_0A85EF: db $A8, $CF, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2A, 33 }
 #_0A85F2: db $09, $90, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 02, 24 } | Size: 04
 #_0A85F5: db $59, $90, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 16, 24 } | Size: 04
-#_0A85F8: db $8B, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 24 } | Size: 0C
-#_0A85FB: db $CA, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 24 } | Size: 08
-#_0A85FE: db $E1, $A3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 28 } | Size: 07
-#_0A8601: db $E1, $E1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 38 } | Size: 05
-#_0A8604: db $FF, $FF ; Layer01
-#_0A8606: db $FC, $AC, $24 ; 0x124: Fairy statue | { 0A, 30 } | Size: 00
-#_0A8609: db $FD, $2C, $24 ; 0x124: Fairy statue | { 12, 30 } | Size: 00
+#_0A85F8: db $8B, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 24 } | Size: 0C
+#_0A85FB: db $CA, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 24 } | Size: 08
+#_0A85FE: db $E1, $A3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 28 } | Size: 07
+#_0A8601: db $E1, $E1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 38 } | Size: 05
+#_0A8604: db $FF, $FF ; Layer 1
+#_0A8606: db $FC, $AC, $24 ; 0x124: Fairy statue | { 0A, 30 }
+#_0A8609: db $FD, $2C, $24 ; 0x124: Fairy statue | { 12, 30 }
 #_0A860C: db $31, $B0, $C8 ; 0x0C8: Water floor ⇲ | { 0C, 2C } | Size: 04
 #_0A860F: db $38, $B8, $C8 ; 0x0C8: Water floor ⇲ | { 0E, 2E } | Size: 00
 #_0A8612: db $31, $AD, $3F ; 0x03F: Water edge ┏━┓ (concave) ↔ | { 0C, 2B } | Size: 05
@@ -606,7 +606,7 @@ RoomDataTiles_0008:
 #_0A862D: db $6D, $C5, $02 ; 0x002: Wall (top, south) ↔ | { 1B, 31 } | Size: 05
 #_0A8630: db $30, $EE, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 3B } | Size: 02
 #_0A8633: db $40, $EE, $62 ; 0x062: Wall (top, east) ↕ | { 10, 3B } | Size: 02
-#_0A8636: db $FF, $FF ; Layer02
+#_0A8636: db $FF, $FF ; Layer 2
 #_0A8638: db $14, $B7, $AC ; 0x0AC: Diagonal layer 2 mask B ◢ | { 05, 2D } | Size: 03
 #_0A863B: db $50, $9F, $AA ; 0x0AA: Diagonal layer 2 mask B ◣ | { 14, 27 } | Size: 03
 #_0A863E: db $31, $9F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0C, 27 } | Size: 07
@@ -619,35 +619,35 @@ RoomDataTiles_0008:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0008:
-#_0A864F: db $B2, $48 ; Door 0x48 | Dir:02 | Pos:16
-#_0A8651: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0A8653: db $91, $40 ; Door 0x40 | Dir:01 | Pos:12
-#_0A8655: db $91, $16 ; Door 0x16 | Dir:01 | Pos:12
-#_0A8657: db $FF, $FF ; Layer03 / End
+#_0A864F: db $B2, $48 ; Door 0x48 | West 16
+#_0A8651: db $81, $0E ; Door 0x0E | South 10
+#_0A8653: db $91, $40 ; Door 0x40 | South 12
+#_0A8655: db $91, $16 ; Door 0x16 | South 12
+#_0A8657: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0018:
 #_0A8659: db $E5, $04 ; Floors and Layout
-#_0A865B: db $FC, $81, $00 ; 0x100: Corner (top, concave) ▛ | { 08, 04 } | Size: 00
+#_0A865B: db $FC, $81, $00 ; 0x100: Corner (top, concave) ▛ | { 08, 04 }
 #_0A865E: db $09, $94, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 02, 25 } | Size: 04
 #_0A8661: db $09, $A8, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 02, 2A } | Size: 04
 #_0A8664: db $09, $98, $61 ; 0x061: Wall (top, west) ↕ | { 02, 26 } | Size: 04
 #_0A8667: db $23, $20, $61 ; 0x061: Wall (top, west) ↕ | { 08, 08 } | Size: 0C
 #_0A866A: db $31, $D1, $02 ; 0x002: Wall (top, south) ↔ | { 0C, 34 } | Size: 05
-#_0A866D: db $FD, $6D, $03 ; 0x103: Corner (top, concave) ▟ | { 16, 34 } | Size: 00
+#_0A866D: db $FD, $6D, $03 ; 0x103: Corner (top, concave) ▟ | { 16, 34 }
 #_0A8670: db $5B, $23, $62 ; 0x062: Wall (top, east) ↕ | { 16, 08 } | Size: 0F
 #_0A8673: db $59, $9B, $62 ; 0x062: Wall (top, east) ↕ | { 16, 26 } | Size: 07
-#_0A8676: db $FD, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 16, 04 } | Size: 00
+#_0A8676: db $FD, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 16, 04 }
 #_0A8679: db $3C, $1D, $03 ; 0x003: Wall (bottom, north) ↔ | { 0F, 07 } | Size: 01
-#_0A867C: db $FD, $31, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 13, 07 } | Size: 00
+#_0A867C: db $FD, $31, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 13, 07 }
 #_0A867F: db $15, $94, $19 ; 0x019: Diagonal wall B ◤ (bottom) | { 05, 25 } | Size: 04
 #_0A8682: db $14, $A9, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 05, 2A } | Size: 01
 #_0A8685: db $14, $9B, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 26 } | Size: 03
 #_0A8688: db $2E, $2A, $63 ; 0x063: Wall (bottom, west) ↕ | { 0B, 0A } | Size: 0A
-#_0A868B: db $FC, $B1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0B, 07 } | Size: 00
+#_0A868B: db $FC, $B1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0B, 07 }
 #_0A868E: db $30, $C7, $04 ; 0x004: Wall (bottom, south) ↔ | { 0C, 31 } | Size: 03
-#_0A8691: db $FD, $3C, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 13, 31 } | Size: 00
+#_0A8691: db $FD, $3C, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 13, 31 }
 #_0A8694: db $4F, $2F, $64 ; 0x064: Wall (bottom, east) ↕ | { 13, 0B } | Size: 0F
 #_0A8697: db $4C, $AE, $64 ; 0x064: Wall (bottom, east) ↕ | { 13, 2B } | Size: 02
 #_0A869A: db $3C, $39, $C8 ; 0x0C8: Water floor ⇲ | { 0F, 0E } | Size: 01
@@ -665,88 +665,88 @@ RoomDataTiles_0018:
 #_0A86BE: db $3D, $3D, $79 ; 0x079: Water edge (west) ↕ | { 0F, 0F } | Size: 05
 #_0A86C1: db $3C, $55, $40 ; 0x040: Water edge ┗━┛ (concave) ↔ | { 0F, 15 } | Size: 01
 #_0A86C4: db $49, $3D, $7A ; 0x07A: Water edge (east) ↕ | { 12, 0F } | Size: 05
-#_0A86C7: db $01, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 04 } | Size: 07
-#_0A86CA: db $01, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 14 } | Size: 06
+#_0A86C7: db $01, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 04 } | Size: 07
+#_0A86CA: db $01, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 14 } | Size: 06
 #_0A86CD: db $08, $81, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 02, 20 } | Size: 01
 #_0A86D0: db $09, $BD, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 02, 2F } | Size: 05
-#_0A86D3: db $0B, $E1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 38 } | Size: 0D
-#_0A86D6: db $49, $E1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 38 } | Size: 05
+#_0A86D3: db $0B, $E1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 38 } | Size: 0D
+#_0A86D6: db $49, $E1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 38 } | Size: 05
 #_0A86D9: db $68, $00, $60 ; 0x060: Ceiling ↕ | { 1A, 00 } | Size: 00
 #_0A86DC: db $70, $00, $60 ; 0x060: Ceiling ↕ | { 1C, 00 } | Size: 00
-#_0A86DF: db $FF, $FF ; Layer01
-#_0A86E1: db $FF, $FF ; Layer02
+#_0A86DF: db $FF, $FF ; Layer 1
+#_0A86E1: db $FF, $FF ; Layer 2
 #_0A86E3: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0018:
-#_0A86E5: db $30, $02 ; Door 0x02 | Dir:00 | Pos:06
-#_0A86E7: db $30, $16 ; Door 0x16 | Dir:00 | Pos:06
-#_0A86E9: db $FF, $FF ; Layer03 / End
+#_0A86E5: db $30, $02 ; Door 0x02 | North 06
+#_0A86E7: db $30, $16 ; Door 0x16 | North 06
+#_0A86E9: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_002F:
 #_0A86EB: db $51, $14 ; Floors and Layout
-#_0A86ED: db $FC, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 04 } | Size: 00
+#_0A86ED: db $FC, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 04 }
 #_0A86F0: db $2A, $21, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 08 } | Size: 09
-#_0A86F3: db $FC, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 1A } | Size: 00
-#_0A86F6: db $FD, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 04 } | Size: 00
+#_0A86F3: db $FC, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 1A }
+#_0A86F6: db $FD, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 04 }
 #_0A86F9: db $4A, $21, $62 ; 0x062: Wall (top, east) ↕ | { 12, 08 } | Size: 09
-#_0A86FC: db $FD, $26, $83 ; 0x103: Corner (top, concave) ▟ | { 12, 1A } | Size: 00
-#_0A86FF: db $FC, $69, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 24 } | Size: 00
+#_0A86FC: db $FD, $26, $83 ; 0x103: Corner (top, concave) ▟ | { 12, 1A }
+#_0A86FF: db $FC, $69, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 24 }
 #_0A8702: db $18, $CA, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 06, 32 } | Size: 02
 #_0A8705: db $19, $A3, $61 ; 0x061: Wall (top, west) ↕ | { 06, 28 } | Size: 07
 #_0A8708: db $C1, $90, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 30, 24 } | Size: 04
 #_0A870B: db $D9, $BA, $62 ; 0x062: Wall (top, east) ↕ | { 36, 2E } | Size: 06
-#_0A870E: db $FF, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 3A } | Size: 00
+#_0A870E: db $FF, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 3A }
 #_0A8711: db $89, $9E, $03 ; 0x003: Wall (bottom, north) ↔ | { 22, 27 } | Size: 06
-#_0A8714: db $FD, $F9, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 1F, 27 } | Size: 00
+#_0A8714: db $FD, $F9, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 1F, 27 }
 #_0A8717: db $C0, $9D, $1B ; 0x01B: Diagonal wall B ◥ (bottom) | { 30, 27 } | Size: 01
 #_0A871A: db $CC, $B9, $64 ; 0x064: Wall (bottom, east) ↕ | { 33, 2E } | Size: 01
-#_0A871D: db $FF, $3C, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 33, 31 } | Size: 00
+#_0A871D: db $FF, $3C, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 33, 31 }
 #_0A8720: db $AC, $C7, $04 ; 0x004: Wall (bottom, south) ↔ | { 2B, 31 } | Size: 03
-#_0A8723: db $FE, $7C, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 27, 31 } | Size: 00
+#_0A8723: db $FE, $7C, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 27, 31 }
 #_0A8726: db $9C, $D4, $64 ; 0x064: Wall (bottom, east) ↕ | { 27, 35 } | Size: 00
-#_0A8729: db $FE, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 27, 37 } | Size: 00
+#_0A8729: db $FE, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 27, 37 }
 #_0A872C: db $56, $DC, $04 ; 0x004: Wall (bottom, south) ↔ | { 15, 37 } | Size: 08
-#_0A872F: db $FD, $1D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 11, 37 } | Size: 00
+#_0A872F: db $FD, $1D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 11, 37 }
 #_0A8732: db $44, $C6, $63 ; 0x063: Wall (bottom, west) ↕ | { 11, 31 } | Size: 02
-#_0A8735: db $FD, $1B, $48 ; 0x108: Corner (bottom, concave) ▛ | { 11, 2D } | Size: 00
+#_0A8735: db $FD, $1B, $48 ; 0x108: Corner (bottom, concave) ▛ | { 11, 2D }
 #_0A8738: db $55, $B4, $03 ; 0x003: Wall (bottom, north) ↔ | { 15, 2D } | Size: 04
-#_0A873B: db $FD, $FB, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 1F, 2D } | Size: 00
+#_0A873B: db $FD, $FB, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 1F, 2D }
 #_0A873E: db $7C, $AC, $63 ; 0x063: Wall (bottom, west) ↕ | { 1F, 2B } | Size: 00
-#_0A8741: db $3D, $22, $F9 ; 0x219: Chest | { 0F, 08 } | Size: 06
-#_0A8744: db $3B, $3B, $FA ; 0x22F: Pot | { 0E, 0E } | Size: 0F
-#_0A8747: db $43, $3B, $FA ; 0x22F: Pot | { 10, 0E } | Size: 0F
-#_0A874A: db $3B, $4B, $FA ; 0x22F: Pot | { 0E, 12 } | Size: 0F
-#_0A874D: db $43, $4B, $FA ; 0x22F: Pot | { 10, 12 } | Size: 0F
+#_0A8741: db $3D, $22, $F9 ; 0x219: Chest | { 0F, 08 }
+#_0A8744: db $3B, $3B, $FA ; 0x22F: Pot | { 0E, 0E }
+#_0A8747: db $43, $3B, $FA ; 0x22F: Pot | { 10, 0E }
+#_0A874A: db $3B, $4B, $FA ; 0x22F: Pot | { 0E, 12 }
+#_0A874D: db $43, $4B, $FA ; 0x22F: Pot | { 10, 12 }
 #_0A8750: db $34, $A9, $DD ; 0x0DD: Table / Rock ⇲| { 0D, 2A } | Size: 01
 #_0A8753: db $44, $B0, $22 ; 0x022: Rail ↔ | { 11, 2C } | Size: 00
-#_0A8756: db $51, $9E, $F9 ; 0x219: Chest | { 14, 27 } | Size: 06
-#_0A8759: db $61, $9E, $F9 ; 0x219: Chest | { 18, 27 } | Size: 06
-#_0A875C: db $71, $9E, $F9 ; 0x219: Chest | { 1C, 27 } | Size: 06
-#_0A875F: db $3D, $C2, $F9 ; 0x219: Chest | { 0F, 30 } | Size: 06
-#_0A8762: db $5B, $9F, $FA ; 0x22F: Pot | { 16, 27 } | Size: 0F
-#_0A8765: db $6B, $9F, $FA ; 0x22F: Pot | { 1A, 27 } | Size: 0F
+#_0A8756: db $51, $9E, $F9 ; 0x219: Chest | { 14, 27 }
+#_0A8759: db $61, $9E, $F9 ; 0x219: Chest | { 18, 27 }
+#_0A875C: db $71, $9E, $F9 ; 0x219: Chest | { 1C, 27 }
+#_0A875F: db $3D, $C2, $F9 ; 0x219: Chest | { 0F, 30 }
+#_0A8762: db $5B, $9F, $FA ; 0x22F: Pot | { 16, 27 }
+#_0A8765: db $6B, $9F, $FA ; 0x22F: Pot | { 1A, 27 }
 #_0A8768: db $78, $9C, $69 ; 0x069: Rail ↕ | { 1E, 27 } | Size: 00
 #_0A876B: db $40, $DC, $69 ; 0x069: Rail ↕ | { 10, 37 } | Size: 00
-#_0A876E: db $B8, $C7, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2E, 31 } | Size: 03
-#_0A8771: db $D3, $DB, $FA ; 0x22F: Pot | { 34, 36 } | Size: 0F
-#_0A8774: db $D3, $E3, $FA ; 0x22F: Pot | { 34, 38 } | Size: 0F
+#_0A876E: db $B8, $C7, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2E, 31 }
+#_0A8771: db $D3, $DB, $FA ; 0x22F: Pot | { 34, 36 }
+#_0A8774: db $D3, $E3, $FA ; 0x22F: Pot | { 34, 38 }
 #_0A8777: db $C8, $D5, $22 ; 0x022: Rail ↔ | { 32, 35 } | Size: 01
 #_0A877A: db $AC, $D6, $69 ; 0x069: Rail ↕ | { 2B, 35 } | Size: 02
-#_0A877D: db $18, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 04 } | Size: 03
-#_0A8780: db $18, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 14 } | Size: 02
+#_0A877D: db $18, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 04 } | Size: 03
+#_0A8780: db $18, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 14 } | Size: 02
 #_0A8783: db $08, $00, $60 ; 0x060: Ceiling ↕ | { 02, 00 } | Size: 00
 #_0A8786: db $10, $00, $60 ; 0x060: Ceiling ↕ | { 04, 00 } | Size: 00
-#_0A8789: db $59, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 04 } | Size: 07
-#_0A878C: db $59, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 14 } | Size: 06
+#_0A8789: db $59, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 04 } | Size: 07
+#_0A878C: db $59, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 14 } | Size: 06
 #_0A878F: db $18, $DF, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 06, 37 } | Size: 03
 #_0A8792: db $C5, $91, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 31, 24 } | Size: 05
-#_0A8795: db $E8, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 24 } | Size: 03
-#_0A8798: db $E8, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 34 } | Size: 02
-#_0A879B: db $FF, $FF ; Layer01
+#_0A8795: db $E8, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 24 } | Size: 03
+#_0A8798: db $E8, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 34 } | Size: 02
+#_0A879B: db $FF, $FF ; Layer 1
 #_0A879D: db $59, $C8, $C8 ; 0x0C8: Water floor ⇲ | { 16, 32 } | Size: 04
 #_0A87A0: db $55, $C7, $3F ; 0x03F: Water edge ┏━┓ (concave) ↔ | { 15, 31 } | Size: 07
 #_0A87A3: db $54, $CB, $79 ; 0x079: Water edge (west) ↕ | { 15, 32 } | Size: 03
@@ -757,7 +757,7 @@ RoomDataTiles_002F:
 #_0A87B2: db $8E, $B1, $79 ; 0x079: Water edge (west) ↕ | { 23, 2C } | Size: 09
 #_0A87B5: db $8C, $D9, $40 ; 0x040: Water edge ┗━┛ (concave) ↔ | { 23, 36 } | Size: 01
 #_0A87B8: db $9A, $B1, $7A ; 0x07A: Water edge (east) ↕ | { 26, 2C } | Size: 09
-#_0A87BB: db $FF, $FF ; Layer02
+#_0A87BB: db $FF, $FF ; Layer 2
 #_0A87BD: db $C0, $A2, $AA ; 0x0AA: Diagonal layer 2 mask B ◣ | { 30, 28 } | Size: 02
 #_0A87C0: db $4B, $BA, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 12, 2E } | Size: 0E
 #_0A87C3: db $83, $A2, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 20, 28 } | Size: 0E
@@ -769,67 +769,67 @@ RoomDataTiles_002F:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_002F:
-#_0A87D1: db $60, $2E ; Door 0x2E | Dir:00 | Pos:0C
-#_0A87D3: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0A87D5: db $FF, $FF ; Layer03 / End
+#_0A87D1: db $60, $2E ; Door 0x2E | North 0C
+#_0A87D3: db $81, $0E ; Door 0x0E | South 10
+#_0A87D5: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_002C:
 #_0A87D7: db $E0, $00 ; Floors and Layout
-#_0A87D9: db $FC, $25, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 14 } | Size: 00
+#_0A87D9: db $FC, $25, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 14 }
 #_0A87DC: db $18, $52, $02 ; 0x002: Wall (top, south) ↔ | { 06, 14 } | Size: 02
-#_0A87DF: db $FC, $A5, $05 ; 0x105: Corner (top, convex) ▜ | { 0A, 14 } | Size: 00
+#_0A87DF: db $FC, $A5, $05 ; 0x105: Corner (top, convex) ▜ | { 0A, 14 }
 #_0A87E2: db $28, $61, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 18 } | Size: 01
-#_0A87E5: db $FC, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 1A } | Size: 00
-#_0A87E8: db $FD, $26, $83 ; 0x103: Corner (top, concave) ▟ | { 12, 1A } | Size: 00
+#_0A87E5: db $FC, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 1A }
+#_0A87E8: db $FD, $26, $83 ; 0x103: Corner (top, concave) ▟ | { 12, 1A }
 #_0A87EB: db $48, $61, $62 ; 0x062: Wall (top, east) ↕ | { 12, 18 } | Size: 01
-#_0A87EE: db $FD, $25, $07 ; 0x107: Corner (top, convex) ▛ | { 12, 14 } | Size: 00
+#_0A87EE: db $FD, $25, $07 ; 0x107: Corner (top, convex) ▛ | { 12, 14 }
 #_0A87F1: db $58, $52, $02 ; 0x002: Wall (top, south) ↔ | { 16, 14 } | Size: 02
-#_0A87F4: db $FD, $A5, $03 ; 0x103: Corner (top, concave) ▟ | { 1A, 14 } | Size: 00
-#_0A87F7: db $FE, $25, $01 ; 0x101: Corner (top, concave) ▙ | { 22, 14 } | Size: 00
+#_0A87F4: db $FD, $A5, $03 ; 0x103: Corner (top, concave) ▟ | { 1A, 14 }
+#_0A87F7: db $FE, $25, $01 ; 0x101: Corner (top, concave) ▙ | { 22, 14 }
 #_0A87FA: db $98, $52, $02 ; 0x002: Wall (top, south) ↔ | { 26, 14 } | Size: 02
-#_0A87FD: db $FE, $A5, $05 ; 0x105: Corner (top, convex) ▜ | { 2A, 14 } | Size: 00
+#_0A87FD: db $FE, $A5, $05 ; 0x105: Corner (top, convex) ▜ | { 2A, 14 }
 #_0A8800: db $A8, $61, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 18 } | Size: 01
-#_0A8803: db $FE, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 1A } | Size: 00
-#_0A8806: db $FF, $26, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 1A } | Size: 00
+#_0A8803: db $FE, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 1A }
+#_0A8806: db $FF, $26, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 1A }
 #_0A8809: db $C8, $61, $62 ; 0x062: Wall (top, east) ↕ | { 32, 18 } | Size: 01
-#_0A880C: db $FF, $25, $07 ; 0x107: Corner (top, convex) ▛ | { 32, 14 } | Size: 00
+#_0A880C: db $FF, $25, $07 ; 0x107: Corner (top, convex) ▛ | { 32, 14 }
 #_0A880F: db $D8, $52, $02 ; 0x002: Wall (top, south) ↔ | { 36, 14 } | Size: 02
-#_0A8812: db $FF, $A5, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 14 } | Size: 00
-#_0A8815: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 } | Size: 00
+#_0A8812: db $FF, $A5, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 14 }
+#_0A8815: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 }
 #_0A8818: db $2A, $A1, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 28 } | Size: 09
-#_0A881B: db $FC, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 3A } | Size: 00
-#_0A881E: db $FD, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 24 } | Size: 00
+#_0A881B: db $FC, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 3A }
+#_0A881E: db $FD, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 24 }
 #_0A8821: db $48, $A2, $62 ; 0x062: Wall (top, east) ↕ | { 12, 28 } | Size: 02
-#_0A8824: db $FD, $2B, $06 ; 0x106: Corner (top, convex) ▙ | { 12, 2C } | Size: 00
+#_0A8824: db $FD, $2B, $06 ; 0x106: Corner (top, convex) ▙ | { 12, 2C }
 #_0A8827: db $58, $B2, $01 ; 0x001: Wall (top, north) ↔ | { 16, 2C } | Size: 02
-#_0A882A: db $FD, $AB, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 2C } | Size: 00
-#_0A882D: db $FD, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 32 } | Size: 00
+#_0A882A: db $FD, $AB, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 2C }
+#_0A882D: db $FD, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 32 }
 #_0A8830: db $58, $CA, $02 ; 0x002: Wall (top, south) ↔ | { 16, 32 } | Size: 02
-#_0A8833: db $FD, $2C, $87 ; 0x107: Corner (top, convex) ▛ | { 12, 32 } | Size: 00
+#_0A8833: db $FD, $2C, $87 ; 0x107: Corner (top, convex) ▛ | { 12, 32 }
 #_0A8836: db $48, $DA, $62 ; 0x062: Wall (top, east) ↕ | { 12, 36 } | Size: 02
-#_0A8839: db $FD, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 12, 3A } | Size: 00
-#_0A883C: db $FE, $2B, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 2C } | Size: 00
+#_0A8839: db $FD, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 12, 3A }
+#_0A883C: db $FE, $2B, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 2C }
 #_0A883F: db $98, $B2, $01 ; 0x001: Wall (top, north) ↔ | { 26, 2C } | Size: 02
-#_0A8842: db $FE, $AB, $04 ; 0x104: Corner (top, convex) ▟ | { 2A, 2C } | Size: 00
+#_0A8842: db $FE, $AB, $04 ; 0x104: Corner (top, convex) ▟ | { 2A, 2C }
 #_0A8845: db $A8, $A2, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 28 } | Size: 02
-#_0A8848: db $FE, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 24 } | Size: 00
-#_0A884B: db $FF, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 24 } | Size: 00
+#_0A8848: db $FE, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 24 }
+#_0A884B: db $FF, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 24 }
 #_0A884E: db $C8, $A2, $62 ; 0x062: Wall (top, east) ↕ | { 32, 28 } | Size: 02
-#_0A8851: db $FF, $2B, $06 ; 0x106: Corner (top, convex) ▙ | { 32, 2C } | Size: 00
+#_0A8851: db $FF, $2B, $06 ; 0x106: Corner (top, convex) ▙ | { 32, 2C }
 #_0A8854: db $D8, $B2, $01 ; 0x001: Wall (top, north) ↔ | { 36, 2C } | Size: 02
-#_0A8857: db $FF, $AB, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 2C } | Size: 00
-#_0A885A: db $FF, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 32 } | Size: 00
+#_0A8857: db $FF, $AB, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 2C }
+#_0A885A: db $FF, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 32 }
 #_0A885D: db $D8, $CA, $02 ; 0x002: Wall (top, south) ↔ | { 36, 32 } | Size: 02
-#_0A8860: db $FF, $2C, $87 ; 0x107: Corner (top, convex) ▛ | { 32, 32 } | Size: 00
+#_0A8860: db $FF, $2C, $87 ; 0x107: Corner (top, convex) ▛ | { 32, 32 }
 #_0A8863: db $C8, $DA, $62 ; 0x062: Wall (top, east) ↕ | { 32, 36 } | Size: 02
-#_0A8866: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A } | Size: 00
-#_0A8869: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A } | Size: 00
+#_0A8866: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A }
+#_0A8869: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A }
 #_0A886C: db $A8, $DA, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 36 } | Size: 02
-#_0A886F: db $FE, $AC, $85 ; 0x105: Corner (top, convex) ▜ | { 2A, 32 } | Size: 00
+#_0A886F: db $FE, $AC, $85 ; 0x105: Corner (top, convex) ▜ | { 2A, 32 }
 #_0A8872: db $98, $CA, $02 ; 0x002: Wall (top, south) ↔ | { 26, 32 } | Size: 02
-#_0A8875: db $FE, $2C, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 32 } | Size: 00
+#_0A8875: db $FE, $2C, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 32 }
 #_0A8878: db $2A, $21, $C8 ; 0x0C8: Water floor ⇲ | { 0A, 08 } | Size: 09
 #_0A887B: db $26, $23, $3F ; 0x03F: Water edge ┏━┓ (concave) ↔ | { 09, 08 } | Size: 0B
 #_0A887E: db $25, $26, $79 ; 0x079: Water edge (west) ↕ | { 09, 09 } | Size: 06
@@ -840,36 +840,36 @@ RoomDataTiles_002C:
 #_0A888D: db $A5, $26, $79 ; 0x079: Water edge (west) ↕ | { 29, 09 } | Size: 06
 #_0A8890: db $A6, $43, $40 ; 0x040: Water edge ┗━┛ (concave) ↔ | { 29, 10 } | Size: 0B
 #_0A8893: db $D9, $26, $7A ; 0x07A: Water edge (east) ↕ | { 36, 09 } | Size: 06
-#_0A8896: db $FE, $53, $A4 ; 0x124: Fairy statue | { 25, 0E } | Size: 00
-#_0A8899: db $FF, $73, $A4 ; 0x124: Fairy statue | { 37, 0E } | Size: 00
-#_0A889C: db $EE, $BE, $FE ; 0x26A: Wall crack (east) | { 3B, 2F } | Size: 0A
-#_0A889F: db $DB, $C3, $FA ; 0x22F: Pot | { 36, 30 } | Size: 0F
-#_0A88A2: db $E3, $C3, $FA ; 0x22F: Pot | { 38, 30 } | Size: 0F
-#_0A88A5: db $09, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 18 } | Size: 05
-#_0A88A8: db $59, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 18 } | Size: 05
-#_0A88AB: db $09, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 07
-#_0A88AE: db $09, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 06
-#_0A88B1: db $59, $91, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 24 } | Size: 05
-#_0A88B4: db $59, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 36 } | Size: 05
-#_0A88B7: db $89, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 18 } | Size: 05
-#_0A88BA: db $D9, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 18 } | Size: 05
-#_0A88BD: db $89, $91, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 24 } | Size: 05
-#_0A88C0: db $D9, $91, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 24 } | Size: 05
-#_0A88C3: db $89, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 36 } | Size: 05
-#_0A88C6: db $D9, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 36 } | Size: 05
-#_0A88C9: db $FF, $FF ; Layer01
-#_0A88CB: db $FF, $FF ; Layer02
+#_0A8896: db $FE, $53, $A4 ; 0x124: Fairy statue | { 25, 0E }
+#_0A8899: db $FF, $73, $A4 ; 0x124: Fairy statue | { 37, 0E }
+#_0A889C: db $EE, $BE, $FE ; 0x26A: Wall crack (east) | { 3B, 2F }
+#_0A889F: db $DB, $C3, $FA ; 0x22F: Pot | { 36, 30 }
+#_0A88A2: db $E3, $C3, $FA ; 0x22F: Pot | { 38, 30 }
+#_0A88A5: db $09, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 18 } | Size: 05
+#_0A88A8: db $59, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 18 } | Size: 05
+#_0A88AB: db $09, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 07
+#_0A88AE: db $09, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 06
+#_0A88B1: db $59, $91, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 24 } | Size: 05
+#_0A88B4: db $59, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 36 } | Size: 05
+#_0A88B7: db $89, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 18 } | Size: 05
+#_0A88BA: db $D9, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 18 } | Size: 05
+#_0A88BD: db $89, $91, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 24 } | Size: 05
+#_0A88C0: db $D9, $91, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 24 } | Size: 05
+#_0A88C3: db $89, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 36 } | Size: 05
+#_0A88C6: db $D9, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 36 } | Size: 05
+#_0A88C9: db $FF, $FF ; Layer 1
+#_0A88CB: db $FF, $FF ; Layer 2
 #_0A88CD: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_002C:
-#_0A88CF: db $60, $2E ; Door 0x2E | Dir:00 | Pos:0C
-#_0A88D1: db $80, $2E ; Door 0x2E | Dir:00 | Pos:10
-#_0A88D3: db $82, $2E ; Door 0x2E | Dir:02 | Pos:10
-#_0A88D5: db $81, $2E ; Door 0x2E | Dir:01 | Pos:10
-#_0A88D7: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0A88D9: db $FF, $FF ; Layer03 / End
+#_0A88CF: db $60, $2E ; Door 0x2E | North 0C
+#_0A88D1: db $80, $2E ; Door 0x2E | North 10
+#_0A88D3: db $82, $2E ; Door 0x2E | West 10
+#_0A88D5: db $81, $2E ; Door 0x2E | South 10
+#_0A88D7: db $61, $0E ; Door 0x0E | South 0C
+#_0A88D9: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -926,207 +926,207 @@ RoomDataTiles_003C:
 #_0A896D: db $B8, $40, $94 ; 0x094: Invisible floor ↕ | { 2E, 10 } | Size: 00
 #_0A8970: db $C8, $49, $94 ; 0x094: Invisible floor ↕ | { 32, 12 } | Size: 01
 #_0A8973: db $B8, $59, $94 ; 0x094: Invisible floor ↕ | { 2E, 16 } | Size: 01
-#_0A8976: db $C3, $9B, $FA ; 0x22F: Pot | { 30, 26 } | Size: 0F
-#_0A8979: db $33, $43, $FA ; 0x22F: Pot | { 0C, 10 } | Size: 0F
-#_0A897C: db $2B, $73, $FA ; 0x22F: Pot | { 0A, 1C } | Size: 0F
-#_0A897F: db $2B, $9B, $FA ; 0x22F: Pot | { 0A, 26 } | Size: 0F
-#_0A8982: db $89, $42, $F9 ; 0x219: Chest | { 22, 10 } | Size: 06
-#_0A8985: db $51, $6A, $F9 ; 0x219: Chest | { 14, 1A } | Size: 06
-#_0A8988: db $59, $92, $F9 ; 0x219: Chest | { 16, 24 } | Size: 06
-#_0A898B: db $69, $CA, $F9 ; 0x219: Chest | { 1A, 32 } | Size: 06
-#_0A898E: db $83, $63, $FA ; 0x22F: Pot | { 20, 18 } | Size: 0F
+#_0A8976: db $C3, $9B, $FA ; 0x22F: Pot | { 30, 26 }
+#_0A8979: db $33, $43, $FA ; 0x22F: Pot | { 0C, 10 }
+#_0A897C: db $2B, $73, $FA ; 0x22F: Pot | { 0A, 1C }
+#_0A897F: db $2B, $9B, $FA ; 0x22F: Pot | { 0A, 26 }
+#_0A8982: db $89, $42, $F9 ; 0x219: Chest | { 22, 10 }
+#_0A8985: db $51, $6A, $F9 ; 0x219: Chest | { 14, 1A }
+#_0A8988: db $59, $92, $F9 ; 0x219: Chest | { 16, 24 }
+#_0A898B: db $69, $CA, $F9 ; 0x219: Chest | { 1A, 32 }
+#_0A898E: db $83, $63, $FA ; 0x22F: Pot | { 20, 18 }
 #_0A8991: db $50, $78, $DD ; 0x0DD: Table / Rock ⇲| { 14, 1E } | Size: 00
-#_0A8994: db $8B, $93, $FA ; 0x22F: Pot | { 22, 24 } | Size: 0F
-#_0A8997: db $83, $A3, $FA ; 0x22F: Pot | { 20, 28 } | Size: 0F
-#_0A899A: db $83, $D3, $FA ; 0x22F: Pot | { 20, 34 } | Size: 0F
-#_0A899D: db $FF, $FF ; Layer01
-#_0A899F: db $FF, $FF ; Layer02
+#_0A8994: db $8B, $93, $FA ; 0x22F: Pot | { 22, 24 }
+#_0A8997: db $83, $A3, $FA ; 0x22F: Pot | { 20, 28 }
+#_0A899A: db $83, $D3, $FA ; 0x22F: Pot | { 20, 34 }
+#_0A899D: db $FF, $FF ; Layer 1
+#_0A899F: db $FF, $FF ; Layer 2
 #_0A89A1: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_003C:
-#_0A89A3: db $20, $2E ; Door 0x2E | Dir:00 | Pos:04
-#_0A89A5: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0A89A7: db $FF, $FF ; Layer03 / End
+#_0A89A3: db $20, $2E ; Door 0x2E | North 04
+#_0A89A5: db $81, $0E ; Door 0x0E | South 10
+#_0A89A7: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0003:
 #_0A89A9: db $E1, $00 ; Floors and Layout
-#_0A89AB: db $3F, $94, $F9 ; 0x213: Telepathy tile | { 0F, 25 } | Size: 0C
+#_0A89AB: db $3F, $94, $F9 ; 0x213: Telepathy tile | { 0F, 25 }
 #_0A89AE: db $1B, $A3, $E2 ; 0x0E2: Rupee floor ⇲ | { 06, 28 } | Size: 0F
 #_0A89B1: db $58, $A3, $E2 ; 0x0E2: Rupee floor ⇲ | { 16, 28 } | Size: 03
 #_0A89B4: db $1B, $D8, $E2 ; 0x0E2: Rupee floor ⇲ | { 06, 36 } | Size: 0C
 #_0A89B7: db $58, $D8, $E2 ; 0x0E2: Rupee floor ⇲ | { 16, 36 } | Size: 00
-#_0A89BA: db $1A, $A0, $F9 ; 0x212: 9 blue rupees | { 06, 28 } | Size: 08
-#_0A89BD: db $36, $A0, $F9 ; 0x212: 9 blue rupees | { 0D, 28 } | Size: 08
-#_0A89C0: db $52, $A0, $F9 ; 0x212: 9 blue rupees | { 14, 28 } | Size: 08
-#_0A89C3: db $1A, $C8, $F9 ; 0x212: 9 blue rupees | { 06, 32 } | Size: 08
-#_0A89C6: db $52, $C8, $F9 ; 0x212: 9 blue rupees | { 14, 32 } | Size: 08
-#_0A89C9: db $FF, $FF ; Layer01
-#_0A89CB: db $FF, $FF ; Layer02
+#_0A89BA: db $1A, $A0, $F9 ; 0x212: 9 blue rupees | { 06, 28 }
+#_0A89BD: db $36, $A0, $F9 ; 0x212: 9 blue rupees | { 0D, 28 }
+#_0A89C0: db $52, $A0, $F9 ; 0x212: 9 blue rupees | { 14, 28 }
+#_0A89C3: db $1A, $C8, $F9 ; 0x212: 9 blue rupees | { 06, 32 }
+#_0A89C6: db $52, $C8, $F9 ; 0x212: 9 blue rupees | { 14, 32 }
+#_0A89C9: db $FF, $FF ; Layer 1
+#_0A89CB: db $FF, $FF ; Layer 2
 #_0A89CD: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0003:
-#_0A89CF: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0A89D1: db $FF, $FF ; Layer03 / End
+#_0A89CF: db $61, $0E ; Door 0x0E | South 0C
+#_0A89D1: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0012:
 #_0A89D3: db $E2, $1C ; Floors and Layout
-#_0A89D5: db $FC, $E1, $00 ; 0x100: Corner (top, concave) ▛ | { 0E, 04 } | Size: 00
+#_0A89D5: db $FC, $E1, $00 ; 0x100: Corner (top, concave) ▛ | { 0E, 04 }
 #_0A89D8: db $3B, $23, $61 ; 0x061: Wall (top, west) ↕ | { 0E, 08 } | Size: 0F
 #_0A89DB: db $39, $98, $61 ; 0x061: Wall (top, west) ↕ | { 0E, 26 } | Size: 04
-#_0A89DE: db $FC, $EB, $41 ; 0x101: Corner (top, concave) ▙ | { 0E, 2D } | Size: 00
+#_0A89DE: db $FC, $EB, $41 ; 0x101: Corner (top, concave) ▙ | { 0E, 2D }
 #_0A89E1: db $48, $B5, $02 ; 0x002: Wall (top, south) ↔ | { 12, 2D } | Size: 01
 #_0A89E4: db $51, $C1, $61 ; 0x061: Wall (top, west) ↕ | { 14, 30 } | Size: 05
-#_0A89E7: db $FD, $4B, $45 ; 0x105: Corner (top, convex) ▜ | { 14, 2D } | Size: 00
-#_0A89EA: db $FD, $4E, $81 ; 0x101: Corner (top, concave) ▙ | { 14, 3A } | Size: 00
-#_0A89ED: db $FE, $E1, $02 ; 0x102: Corner (top, concave) ▜ | { 2E, 04 } | Size: 00
+#_0A89E7: db $FD, $4B, $45 ; 0x105: Corner (top, convex) ▜ | { 14, 2D }
+#_0A89EA: db $FD, $4E, $81 ; 0x101: Corner (top, concave) ▙ | { 14, 3A }
+#_0A89ED: db $FE, $E1, $02 ; 0x102: Corner (top, concave) ▜ | { 2E, 04 }
 #_0A89F0: db $BB, $23, $62 ; 0x062: Wall (top, east) ↕ | { 2E, 08 } | Size: 0F
 #_0A89F3: db $B9, $98, $62 ; 0x062: Wall (top, east) ↕ | { 2E, 26 } | Size: 04
-#_0A89F6: db $FE, $EB, $43 ; 0x103: Corner (top, concave) ▟ | { 2E, 2D } | Size: 00
+#_0A89F6: db $FE, $EB, $43 ; 0x103: Corner (top, concave) ▟ | { 2E, 2D }
 #_0A89F9: db $B0, $B5, $02 ; 0x002: Wall (top, south) ↔ | { 2C, 2D } | Size: 01
 #_0A89FC: db $A1, $C1, $62 ; 0x062: Wall (top, east) ↕ | { 28, 30 } | Size: 05
-#_0A89FF: db $FE, $8B, $47 ; 0x107: Corner (top, convex) ▛ | { 28, 2D } | Size: 00
-#_0A8A02: db $FE, $8E, $83 ; 0x103: Corner (top, concave) ▟ | { 28, 3A } | Size: 00
-#_0A8A05: db $FD, $11, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 11, 07 } | Size: 00
+#_0A89FF: db $FE, $8B, $47 ; 0x107: Corner (top, convex) ▛ | { 28, 2D }
+#_0A8A02: db $FE, $8E, $83 ; 0x103: Corner (top, concave) ▟ | { 28, 3A }
+#_0A8A05: db $FD, $11, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 11, 07 }
 #_0A8A08: db $56, $1E, $03 ; 0x003: Wall (bottom, north) ↔ | { 15, 07 } | Size: 0A
-#_0A8A0B: db $FE, $B1, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 2B, 07 } | Size: 00
+#_0A8A0B: db $FE, $B1, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 2B, 07 }
 #_0A8A0E: db $47, $2F, $63 ; 0x063: Wall (bottom, west) ↕ | { 11, 0B } | Size: 0F
-#_0A8A11: db $FD, $1A, $89 ; 0x109: Corner (bottom, concave) ▙ | { 11, 2A } | Size: 00
+#_0A8A11: db $FD, $1A, $89 ; 0x109: Corner (bottom, concave) ▙ | { 11, 2A }
 #_0A8A14: db $54, $A8, $04 ; 0x004: Wall (bottom, south) ↔ | { 15, 2A } | Size: 00
 #_0A8A17: db $5D, $B4, $63 ; 0x063: Wall (bottom, west) ↕ | { 17, 2D } | Size: 04
-#_0A8A1A: db $FD, $7A, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 17, 2A } | Size: 00
-#_0A8A1D: db $FD, $7D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 17, 37 } | Size: 00
+#_0A8A1A: db $FD, $7A, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 17, 2A }
+#_0A8A1D: db $FD, $7D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 17, 37 }
 #_0A8A20: db $6D, $DC, $04 ; 0x004: Wall (bottom, south) ↔ | { 1B, 37 } | Size: 04
 #_0A8A23: db $AF, $2F, $64 ; 0x064: Wall (bottom, east) ↕ | { 2B, 0B } | Size: 0F
-#_0A8A26: db $FE, $BA, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 2B, 2A } | Size: 00
+#_0A8A26: db $FE, $BA, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 2B, 2A }
 #_0A8A29: db $A4, $A8, $04 ; 0x004: Wall (bottom, south) ↔ | { 29, 2A } | Size: 00
 #_0A8A2C: db $95, $B4, $64 ; 0x064: Wall (bottom, east) ↕ | { 25, 2D } | Size: 04
-#_0A8A2F: db $FE, $5A, $8F ; 0x10F: Corner (bottom, convex) ▛ | { 25, 2A } | Size: 00
-#_0A8A32: db $FE, $5D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 25, 37 } | Size: 00
-#_0A8A35: db $FD, $41, $3C ; 0x13C: Sanctuary wall (north) | { 14, 04 } | Size: 00
+#_0A8A2F: db $FE, $5A, $8F ; 0x10F: Corner (bottom, convex) ▛ | { 25, 2A }
+#_0A8A32: db $FE, $5D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 25, 37 }
+#_0A8A35: db $FD, $41, $3C ; 0x13C: Sanctuary wall (north) | { 14, 04 }
 #_0A8A38: db $7A, $4C, $70 ; 0x070: Carpet ↕ | { 1E, 13 } | Size: 08
 #_0A8A3B: db $63, $2A, $DC ; 0x0DC: Chest platform (short) ⇲ | { 18, 0A } | Size: 0E
 #_0A8A3E: db $77, $57, $71 ; 0x071: Carpet trim ↕ | { 1D, 15 } | Size: 0F
 #_0A8A41: db $76, $A3, $71 ; 0x071: Carpet trim ↕ | { 1D, 28 } | Size: 0B
 #_0A8A44: db $8B, $57, $71 ; 0x071: Carpet trim ↕ | { 22, 15 } | Size: 0F
 #_0A8A47: db $8A, $A3, $71 ; 0x071: Carpet trim ↕ | { 22, 28 } | Size: 0B
-#_0A8A4A: db $71, $2A, $F9 ; 0x219: Chest | { 1C, 0A } | Size: 06
+#_0A8A4A: db $71, $2A, $F9 ; 0x219: Chest | { 1C, 0A }
 #_0A8A4D: db $64, $40, $3D ; 0x03D: Tall torches ↔ | { 19, 10 } | Size: 00
 #_0A8A50: db $94, $40, $3D ; 0x03D: Tall torches ↔ | { 25, 10 } | Size: 00
 #_0A8A53: db $38, $47, $81 ; 0x081: Wall decors tight A (west) ↕ | { 0E, 11 } | Size: 03
 #_0A8A56: db $44, $47, $83 ; 0x083: Wall decors tight B (west) ↕ | { 11, 11 } | Size: 03
 #_0A8A59: db $BC, $47, $82 ; 0x082: Wall decors tight A (east) ↕ | { 2F, 11 } | Size: 03
 #_0A8A5C: db $B0, $47, $84 ; 0x084: Wall decors tight B (east) ↕ | { 2C, 11 } | Size: 03
-#_0A8A5F: db $FD, $66, $7E ; 0x13E: Pew | { 16, 19 } | Size: 00
-#_0A8A62: db $FD, $67, $BE ; 0x13E: Pew | { 16, 1E } | Size: 00
-#_0A8A65: db $FD, $68, $FE ; 0x13E: Pew | { 16, 23 } | Size: 00
-#_0A8A68: db $FE, $46, $7E ; 0x13E: Pew | { 24, 19 } | Size: 00
-#_0A8A6B: db $FE, $47, $BE ; 0x13E: Pew | { 24, 1E } | Size: 00
-#_0A8A6E: db $FE, $48, $FE ; 0x13E: Pew | { 24, 23 } | Size: 00
-#_0A8A71: db $0A, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0B
-#_0A8A74: db $0A, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 14 } | Size: 0B
-#_0A8A77: db $0A, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 0B
-#_0A8A7A: db $0A, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 0A
-#_0A8A7D: db $31, $C6, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 0C, 31 } | Size: 06
+#_0A8A5F: db $FD, $66, $7E ; 0x13E: Pew | { 16, 19 }
+#_0A8A62: db $FD, $67, $BE ; 0x13E: Pew | { 16, 1E }
+#_0A8A65: db $FD, $68, $FE ; 0x13E: Pew | { 16, 23 }
+#_0A8A68: db $FE, $46, $7E ; 0x13E: Pew | { 24, 19 }
+#_0A8A6B: db $FE, $47, $BE ; 0x13E: Pew | { 24, 1E }
+#_0A8A6E: db $FE, $48, $FE ; 0x13E: Pew | { 24, 23 }
+#_0A8A71: db $0A, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0B
+#_0A8A74: db $0A, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 14 } | Size: 0B
+#_0A8A77: db $0A, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 0B
+#_0A8A7A: db $0A, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 0A
+#_0A8A7D: db $31, $C6, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 0C, 31 } | Size: 06
 #_0A8A80: db $38, $F3, $00 ; 0x000: Ceiling ↔ | { 0E, 3C } | Size: 03
 #_0A8A83: db $B0, $F3, $00 ; 0x000: Ceiling ↔ | { 2C, 3C } | Size: 03
-#_0A8A86: db $B1, $C6, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2C, 31 } | Size: 06
-#_0A8A89: db $CA, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 04 } | Size: 0B
-#_0A8A8C: db $CA, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 14 } | Size: 0B
-#_0A8A8F: db $CA, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 24 } | Size: 0B
-#_0A8A92: db $CA, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 34 } | Size: 0A
-#_0A8A95: db $FF, $FF ; Layer01
-#_0A8A97: db $FF, $FF ; Layer02
+#_0A8A86: db $B1, $C6, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2C, 31 } | Size: 06
+#_0A8A89: db $CA, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 04 } | Size: 0B
+#_0A8A8C: db $CA, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 14 } | Size: 0B
+#_0A8A8F: db $CA, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 24 } | Size: 0B
+#_0A8A92: db $CA, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 34 } | Size: 0A
+#_0A8A95: db $FF, $FF ; Layer 1
+#_0A8A97: db $FF, $FF ; Layer 2
 #_0A8A99: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0012:
-#_0A8A9B: db $40, $02 ; Door 0x02 | Dir:00 | Pos:08
-#_0A8A9D: db $40, $16 ; Door 0x16 | Dir:00 | Pos:08
-#_0A8A9F: db $A1, $02 ; Door 0x02 | Dir:01 | Pos:14
-#_0A8AA1: db $A1, $12 ; Door 0x12 | Dir:01 | Pos:14
-#_0A8AA3: db $FF, $FF ; Layer03 / End
+#_0A8A9B: db $40, $02 ; Door 0x02 | North 08
+#_0A8A9D: db $40, $16 ; Door 0x16 | North 08
+#_0A8A9F: db $A1, $02 ; Door 0x02 | South 14
+#_0A8AA1: db $A1, $12 ; Door 0x12 | South 14
+#_0A8AA3: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0002:
 #_0A8AA5: db $77, $10 ; Floors and Layout
-#_0A8AA7: db $FC, $C1, $00 ; 0x100: Corner (top, concave) ▛ | { 0C, 04 } | Size: 00
+#_0A8AA7: db $FC, $C1, $00 ; 0x100: Corner (top, concave) ▛ | { 0C, 04 }
 #_0A8AAA: db $32, $21, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 08 } | Size: 09
-#_0A8AAD: db $FC, $C6, $81 ; 0x101: Corner (top, concave) ▙ | { 0C, 1A } | Size: 00
-#_0A8AB0: db $FF, $51, $02 ; 0x102: Corner (top, concave) ▜ | { 35, 04 } | Size: 00
+#_0A8AAD: db $FC, $C6, $81 ; 0x101: Corner (top, concave) ▙ | { 0C, 1A }
+#_0A8AB0: db $FF, $51, $02 ; 0x102: Corner (top, concave) ▜ | { 35, 04 }
 #_0A8AB3: db $D6, $21, $62 ; 0x062: Wall (top, east) ↕ | { 35, 08 } | Size: 09
-#_0A8AB6: db $FF, $56, $83 ; 0x103: Corner (top, concave) ▟ | { 35, 1A } | Size: 00
-#_0A8AB9: db $FC, $F1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0F, 07 } | Size: 00
+#_0A8AB6: db $FF, $56, $83 ; 0x103: Corner (top, concave) ▟ | { 35, 1A }
+#_0A8AB9: db $FC, $F1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0F, 07 }
 #_0A8ABC: db $4F, $1F, $03 ; 0x003: Wall (bottom, north) ↔ | { 13, 07 } | Size: 0F
-#_0A8ABF: db $FF, $21, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 32, 07 } | Size: 00
+#_0A8ABF: db $FF, $21, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 32, 07 }
 #_0A8AC2: db $3D, $2D, $63 ; 0x063: Wall (bottom, west) ↕ | { 0F, 0B } | Size: 05
-#_0A8AC5: db $FC, $F5, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0F, 17 } | Size: 00
+#_0A8AC5: db $FC, $F5, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0F, 17 }
 #_0A8AC8: db $4F, $5F, $04 ; 0x004: Wall (bottom, south) ↔ | { 13, 17 } | Size: 0F
 #_0A8ACB: db $C9, $2D, $64 ; 0x064: Wall (bottom, east) ↕ | { 32, 0B } | Size: 05
-#_0A8ACE: db $FF, $25, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 32, 17 } | Size: 00
-#_0A8AD1: db $FD, $59, $00 ; 0x100: Corner (top, concave) ▛ | { 15, 24 } | Size: 00
+#_0A8ACE: db $FF, $25, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 32, 17 }
+#_0A8AD1: db $FD, $59, $00 ; 0x100: Corner (top, concave) ▛ | { 15, 24 }
 #_0A8AD4: db $54, $A1, $61 ; 0x061: Wall (top, west) ↕ | { 15, 28 } | Size: 01
 #_0A8AD7: db $40, $AB, $01 ; 0x001: Wall (top, north) ↔ | { 10, 2A } | Size: 03
-#_0A8ADA: db $FD, $5A, $84 ; 0x104: Corner (top, convex) ▟ | { 15, 2A } | Size: 00
-#_0A8ADD: db $FC, $CA, $80 ; 0x100: Corner (top, concave) ▛ | { 0C, 2A } | Size: 00
+#_0A8ADA: db $FD, $5A, $84 ; 0x104: Corner (top, convex) ▟ | { 15, 2A }
+#_0A8ADD: db $FC, $CA, $80 ; 0x100: Corner (top, concave) ▛ | { 0C, 2A }
 #_0A8AE0: db $31, $BA, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 2E } | Size: 06
-#_0A8AE3: db $FC, $CE, $81 ; 0x101: Corner (top, concave) ▙ | { 0C, 3A } | Size: 00
-#_0A8AE6: db $FE, $79, $02 ; 0x102: Corner (top, concave) ▜ | { 27, 24 } | Size: 00
+#_0A8AE3: db $FC, $CE, $81 ; 0x101: Corner (top, concave) ▙ | { 0C, 3A }
+#_0A8AE6: db $FE, $79, $02 ; 0x102: Corner (top, concave) ▜ | { 27, 24 }
 #_0A8AE9: db $9C, $A1, $62 ; 0x062: Wall (top, east) ↕ | { 27, 28 } | Size: 01
 #_0A8AEC: db $A8, $AB, $01 ; 0x001: Wall (top, north) ↔ | { 2A, 2A } | Size: 03
-#_0A8AEF: db $FE, $7A, $86 ; 0x106: Corner (top, convex) ▙ | { 27, 2A } | Size: 00
-#_0A8AF2: db $FF, $0A, $82 ; 0x102: Corner (top, concave) ▜ | { 30, 2A } | Size: 00
+#_0A8AEF: db $FE, $7A, $86 ; 0x106: Corner (top, convex) ▙ | { 27, 2A }
+#_0A8AF2: db $FF, $0A, $82 ; 0x102: Corner (top, concave) ▜ | { 30, 2A }
 #_0A8AF5: db $C1, $BA, $62 ; 0x062: Wall (top, east) ↕ | { 30, 2E } | Size: 06
-#_0A8AF8: db $FF, $0E, $83 ; 0x103: Corner (top, concave) ▟ | { 30, 3A } | Size: 00
-#_0A8AFB: db $FD, $89, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 18, 27 } | Size: 00
+#_0A8AF8: db $FF, $0E, $83 ; 0x103: Corner (top, concave) ▟ | { 30, 3A }
+#_0A8AFB: db $FD, $89, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 18, 27 }
 #_0A8AFE: db $70, $9F, $03 ; 0x003: Wall (bottom, north) ↔ | { 1C, 27 } | Size: 03
-#_0A8B01: db $FE, $49, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 24, 27 } | Size: 00
+#_0A8B01: db $FE, $49, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 24, 27 }
 #_0A8B04: db $60, $AC, $63 ; 0x063: Wall (bottom, west) ↕ | { 18, 2B } | Size: 00
 #_0A8B07: db $4C, $B6, $03 ; 0x003: Wall (bottom, north) ↔ | { 13, 2D } | Size: 02
-#_0A8B0A: db $FC, $FB, $48 ; 0x108: Corner (bottom, concave) ▛ | { 0F, 2D } | Size: 00
-#_0A8B0D: db $FD, $8B, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 18, 2D } | Size: 00
+#_0A8B0A: db $FC, $FB, $48 ; 0x108: Corner (bottom, concave) ▛ | { 0F, 2D }
+#_0A8B0D: db $FD, $8B, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 18, 2D }
 #_0A8B10: db $3C, $C6, $63 ; 0x063: Wall (bottom, west) ↕ | { 0F, 31 } | Size: 02
-#_0A8B13: db $FC, $FD, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0F, 37 } | Size: 00
+#_0A8B13: db $FC, $FD, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0F, 37 }
 #_0A8B16: db $4F, $DC, $04 ; 0x004: Wall (bottom, south) ↔ | { 13, 37 } | Size: 0C
-#_0A8B19: db $FE, $DD, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 2D, 37 } | Size: 00
+#_0A8B19: db $FE, $DD, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 2D, 37 }
 #_0A8B1C: db $90, $AC, $64 ; 0x064: Wall (bottom, east) ↕ | { 24, 2B } | Size: 00
-#_0A8B1F: db $FE, $4B, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 24, 2D } | Size: 00
+#_0A8B1F: db $FE, $4B, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 24, 2D }
 #_0A8B22: db $A0, $B6, $03 ; 0x003: Wall (bottom, north) ↔ | { 28, 2D } | Size: 02
-#_0A8B25: db $FE, $DB, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 2D, 2D } | Size: 00
+#_0A8B25: db $FE, $DB, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 2D, 2D }
 #_0A8B28: db $B4, $C6, $64 ; 0x064: Wall (bottom, east) ↕ | { 2D, 31 } | Size: 02
 #_0A8B2B: db $08, $00, $60 ; 0x060: Ceiling ↕ | { 02, 00 } | Size: 00
 #_0A8B2E: db $10, $00, $60 ; 0x060: Ceiling ↕ | { 04, 00 } | Size: 00
-#_0A8B31: db $11, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 04, 04 } | Size: 07
-#_0A8B34: db $11, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 04, 14 } | Size: 06
-#_0A8B37: db $17, $89, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 05, 22 } | Size: 0D
-#_0A8B3A: db $11, $AB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 04, 2A } | Size: 07
-#_0A8B3D: db $11, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 04, 3A } | Size: 04
+#_0A8B31: db $11, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 04, 04 } | Size: 07
+#_0A8B34: db $11, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 04, 14 } | Size: 06
+#_0A8B37: db $17, $89, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 05, 22 } | Size: 0D
+#_0A8B3A: db $11, $AB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 04, 2A } | Size: 07
+#_0A8B3D: db $11, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 04, 3A } | Size: 04
 #_0A8B40: db $E4, $00, $60 ; 0x060: Ceiling ↕ | { 39, 00 } | Size: 00
 #_0A8B43: db $EC, $00, $60 ; 0x060: Ceiling ↕ | { 3B, 00 } | Size: 00
 #_0A8B46: db $F0, $00, $60 ; 0x060: Ceiling ↕ | { 3C, 00 } | Size: 00
-#_0A8B49: db $AF, $89, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2B, 22 } | Size: 0D
-#_0A8B4C: db $D1, $AB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 34, 2A } | Size: 07
-#_0A8B4F: db $D1, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 34, 3A } | Size: 04
-#_0A8B52: db $FF, $FF ; Layer01
-#_0A8B54: db $FE, $E1, $FB ; 0x13B: Interroom spiral stairs down (bottom) | { 2E, 07 } | Size: 00
-#_0A8B57: db $A3, $33, $FA ; 0x22F: Pot | { 28, 0C } | Size: 0F
-#_0A8B5A: db $A3, $43, $FA ; 0x22F: Pot | { 28, 10 } | Size: 0F
-#_0A8B5D: db $5B, $43, $FA ; 0x22F: Pot | { 16, 10 } | Size: 0F
-#_0A8B60: db $5B, $53, $FA ; 0x22F: Pot | { 16, 14 } | Size: 0F
+#_0A8B49: db $AF, $89, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2B, 22 } | Size: 0D
+#_0A8B4C: db $D1, $AB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 34, 2A } | Size: 07
+#_0A8B4F: db $D1, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 34, 3A } | Size: 04
+#_0A8B52: db $FF, $FF ; Layer 1
+#_0A8B54: db $FE, $E1, $FB ; 0x13B: Interroom spiral stairs down (bottom) | { 2E, 07 }
+#_0A8B57: db $A3, $33, $FA ; 0x22F: Pot | { 28, 0C }
+#_0A8B5A: db $A3, $43, $FA ; 0x22F: Pot | { 28, 10 }
+#_0A8B5D: db $5B, $43, $FA ; 0x22F: Pot | { 16, 10 }
+#_0A8B60: db $5B, $53, $FA ; 0x22F: Pot | { 16, 14 }
 #_0A8B63: db $71, $6E, $61 ; 0x061: Wall (top, west) ↕ | { 1C, 1B } | Size: 06
 #_0A8B66: db $81, $6E, $62 ; 0x062: Wall (top, east) ↕ | { 20, 1B } | Size: 06
 #_0A8B69: db $70, $EE, $61 ; 0x061: Wall (top, west) ↕ | { 1C, 3B } | Size: 02
 #_0A8B6C: db $80, $EE, $62 ; 0x062: Wall (top, east) ↕ | { 20, 3B } | Size: 02
-#_0A8B6F: db $FF, $FF ; Layer02
+#_0A8B6F: db $FF, $FF ; Layer 2
 #_0A8B71: db $3F, $1F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0F, 07 } | Size: 0F
 #_0A8B74: db $7F, $1F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 1F, 07 } | Size: 0F
 #_0A8B77: db $B9, $1F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 2E, 07 } | Size: 07
@@ -1144,83 +1144,83 @@ RoomDataTiles_0002:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0002:
-#_0A8B97: db $A1, $44 ; Door 0x44 | Dir:01 | Pos:14
-#_0A8B99: db $A0, $40 ; Door 0x40 | Dir:00 | Pos:14
-#_0A8B9B: db $A1, $16 ; Door 0x16 | Dir:01 | Pos:14
-#_0A8B9D: db $FF, $FF ; Layer03 / End
+#_0A8B97: db $A1, $44 ; Door 0x44 | South 14
+#_0A8B99: db $A0, $40 ; Door 0x40 | North 14
+#_0A8B9B: db $A1, $16 ; Door 0x16 | South 14
+#_0A8B9D: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0011:
 #_0A8B9F: db $E1, $04 ; Floors and Layout
-#_0A8BA1: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 } | Size: 00
-#_0A8BA4: db $FF, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 04 } | Size: 00
+#_0A8BA1: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 }
+#_0A8BA4: db $FF, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 04 }
 #_0A8BA7: db $C8, $22, $62 ; 0x062: Wall (top, east) ↕ | { 32, 08 } | Size: 02
-#_0A8BAA: db $FF, $22, $C6 ; 0x106: Corner (top, convex) ▙ | { 32, 0B } | Size: 00
-#_0A8BAD: db $FF, $A2, $C2 ; 0x102: Corner (top, concave) ▜ | { 3A, 0B } | Size: 00
+#_0A8BAA: db $FF, $22, $C6 ; 0x106: Corner (top, convex) ▙ | { 32, 0B }
+#_0A8BAD: db $FF, $A2, $C2 ; 0x102: Corner (top, concave) ▜ | { 3A, 0B }
 #_0A8BB0: db $D8, $2E, $01 ; 0x001: Wall (top, north) ↔ | { 36, 0B } | Size: 02
 #_0A8BB3: db $A8, $22, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 08 } | Size: 02
-#_0A8BB6: db $FE, $A2, $C4 ; 0x104: Corner (top, convex) ▟ | { 2A, 0B } | Size: 00
+#_0A8BB6: db $FE, $A2, $C4 ; 0x104: Corner (top, convex) ▟ | { 2A, 0B }
 #_0A8BB9: db $98, $2E, $01 ; 0x001: Wall (top, north) ↔ | { 26, 0B } | Size: 02
-#_0A8BBC: db $FE, $22, $C0 ; 0x100: Corner (top, concave) ▛ | { 22, 0B } | Size: 00
-#_0A8BBF: db $FE, $24, $C1 ; 0x101: Corner (top, concave) ▙ | { 22, 13 } | Size: 00
+#_0A8BBC: db $FE, $22, $C0 ; 0x100: Corner (top, concave) ▛ | { 22, 0B }
+#_0A8BBF: db $FE, $24, $C1 ; 0x101: Corner (top, concave) ▙ | { 22, 13 }
 #_0A8BC2: db $98, $4E, $02 ; 0x002: Wall (top, south) ↔ | { 26, 13 } | Size: 02
-#_0A8BC5: db $FE, $A4, $C5 ; 0x105: Corner (top, convex) ▜ | { 2A, 13 } | Size: 00
+#_0A8BC5: db $FE, $A4, $C5 ; 0x105: Corner (top, convex) ▜ | { 2A, 13 }
 #_0A8BC8: db $AA, $5E, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 17 } | Size: 0A
-#_0A8BCB: db $FE, $AA, $C4 ; 0x104: Corner (top, convex) ▟ | { 2A, 2B } | Size: 00
+#_0A8BCB: db $FE, $AA, $C4 ; 0x104: Corner (top, convex) ▟ | { 2A, 2B }
 #_0A8BCE: db $98, $AE, $01 ; 0x001: Wall (top, north) ↔ | { 26, 2B } | Size: 02
-#_0A8BD1: db $FE, $2A, $C0 ; 0x100: Corner (top, concave) ▛ | { 22, 2B } | Size: 00
-#_0A8BD4: db $FE, $2C, $C1 ; 0x101: Corner (top, concave) ▙ | { 22, 33 } | Size: 00
+#_0A8BD1: db $FE, $2A, $C0 ; 0x100: Corner (top, concave) ▛ | { 22, 2B }
+#_0A8BD4: db $FE, $2C, $C1 ; 0x101: Corner (top, concave) ▙ | { 22, 33 }
 #_0A8BD7: db $98, $CE, $02 ; 0x002: Wall (top, south) ↔ | { 26, 33 } | Size: 02
-#_0A8BDA: db $FE, $AC, $C5 ; 0x105: Corner (top, convex) ▜ | { 2A, 33 } | Size: 00
+#_0A8BDA: db $FE, $AC, $C5 ; 0x105: Corner (top, convex) ▜ | { 2A, 33 }
 #_0A8BDD: db $A8, $DE, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 37 } | Size: 02
-#_0A8BE0: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A } | Size: 00
-#_0A8BE3: db $FF, $2C, $C7 ; 0x107: Corner (top, convex) ▛ | { 32, 33 } | Size: 00
+#_0A8BE0: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A }
+#_0A8BE3: db $FF, $2C, $C7 ; 0x107: Corner (top, convex) ▛ | { 32, 33 }
 #_0A8BE6: db $C8, $DE, $62 ; 0x062: Wall (top, east) ↕ | { 32, 37 } | Size: 02
-#_0A8BE9: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A } | Size: 00
+#_0A8BE9: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A }
 #_0A8BEC: db $D8, $CE, $02 ; 0x002: Wall (top, south) ↔ | { 36, 33 } | Size: 02
-#_0A8BEF: db $FF, $AC, $C3 ; 0x103: Corner (top, concave) ▟ | { 3A, 33 } | Size: 00
-#_0A8BF2: db $23, $7F, $FA ; 0x22F: Pot | { 08, 1F } | Size: 0F
-#_0A8BF5: db $33, $7F, $FA ; 0x22F: Pot | { 0C, 1F } | Size: 0F
-#_0A8BF8: db $43, $7F, $FA ; 0x22F: Pot | { 10, 1F } | Size: 0F
-#_0A8BFB: db $21, $8E, $F9 ; 0x219: Chest | { 08, 23 } | Size: 06
-#_0A8BFE: db $31, $8E, $F9 ; 0x219: Chest | { 0C, 23 } | Size: 06
-#_0A8C01: db $41, $8E, $F9 ; 0x219: Chest | { 10, 23 } | Size: 06
-#_0A8C04: db $23, $9F, $FA ; 0x22F: Pot | { 08, 27 } | Size: 0F
-#_0A8C07: db $33, $9F, $FA ; 0x22F: Pot | { 0C, 27 } | Size: 0F
-#_0A8C0A: db $43, $9F, $FA ; 0x22F: Pot | { 10, 27 } | Size: 0F
+#_0A8BEF: db $FF, $AC, $C3 ; 0x103: Corner (top, concave) ▟ | { 3A, 33 }
+#_0A8BF2: db $23, $7F, $FA ; 0x22F: Pot | { 08, 1F }
+#_0A8BF5: db $33, $7F, $FA ; 0x22F: Pot | { 0C, 1F }
+#_0A8BF8: db $43, $7F, $FA ; 0x22F: Pot | { 10, 1F }
+#_0A8BFB: db $21, $8E, $F9 ; 0x219: Chest | { 08, 23 }
+#_0A8BFE: db $31, $8E, $F9 ; 0x219: Chest | { 0C, 23 }
+#_0A8C01: db $41, $8E, $F9 ; 0x219: Chest | { 10, 23 }
+#_0A8C04: db $23, $9F, $FA ; 0x22F: Pot | { 08, 27 }
+#_0A8C07: db $33, $9F, $FA ; 0x22F: Pot | { 0C, 27 }
+#_0A8C0A: db $43, $9F, $FA ; 0x22F: Pot | { 10, 27 }
 #_0A8C0D: db $C4, $30, $5E ; 0x05E: Blocks ↔ | { 31, 0C } | Size: 00
 #_0A8C10: db $B4, $39, $5E ; 0x05E: Blocks ↔ | { 2D, 0E } | Size: 01
-#_0A8C13: db $FE, $E1, $38 ; 0x138: Interroom spiral stairs up (top) | { 2E, 04 } | Size: 00
+#_0A8C13: db $FE, $E1, $38 ; 0x138: Interroom spiral stairs up (top) | { 2E, 04 }
 #_0A8C16: db $AC, $60, $7F ; 0x07F: Wall torches (west) ↕ | { 2B, 18 } | Size: 00
 #_0A8C19: db $AC, $98, $7F ; 0x07F: Wall torches (west) ↕ | { 2B, 26 } | Size: 00
 #_0A8C1C: db $EC, $4A, $80 ; 0x080: Wall torches (east) ↕ | { 3B, 12 } | Size: 02
 #_0A8C1F: db $64, $4D, $02 ; 0x002: Wall (top, south) ↔ | { 19, 13 } | Size: 01
-#_0A8C22: db $FD, $54, $C7 ; 0x107: Corner (top, convex) ▛ | { 15, 13 } | Size: 00
+#_0A8C22: db $FD, $54, $C7 ; 0x107: Corner (top, convex) ▛ | { 15, 13 }
 #_0A8C25: db $56, $5E, $62 ; 0x062: Wall (top, east) ↕ | { 15, 17 } | Size: 0A
-#_0A8C28: db $FD, $5A, $C6 ; 0x106: Corner (top, convex) ▙ | { 15, 2B } | Size: 00
+#_0A8C28: db $FD, $5A, $C6 ; 0x106: Corner (top, convex) ▙ | { 15, 2B }
 #_0A8C2B: db $64, $AD, $01 ; 0x001: Wall (top, north) ↔ | { 19, 2B } | Size: 01
-#_0A8C2E: db $FD, $AA, $C2 ; 0x102: Corner (top, concave) ▜ | { 1A, 2B } | Size: 00
-#_0A8C31: db $FD, $A4, $C3 ; 0x103: Corner (top, concave) ▟ | { 1A, 13 } | Size: 00
-#_0A8C34: db $89, $0D, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 03 } | Size: 05
-#_0A8C37: db $D9, $0D, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 03 } | Size: 05
-#_0A8C3A: db $65, $5F, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 19, 17 } | Size: 07
-#_0A8C3D: db $65, $9C, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 19, 27 } | Size: 04
-#_0A8C40: db $89, $5F, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 17 } | Size: 07
-#_0A8C43: db $89, $9C, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 27 } | Size: 04
-#_0A8C46: db $89, $DD, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 37 } | Size: 05
-#_0A8C49: db $D9, $DD, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 37 } | Size: 05
-#_0A8C4C: db $FF, $FF ; Layer01
-#_0A8C4E: db $FF, $FF ; Layer02
+#_0A8C2E: db $FD, $AA, $C2 ; 0x102: Corner (top, concave) ▜ | { 1A, 2B }
+#_0A8C31: db $FD, $A4, $C3 ; 0x103: Corner (top, concave) ▟ | { 1A, 13 }
+#_0A8C34: db $89, $0D, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 03 } | Size: 05
+#_0A8C37: db $D9, $0D, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 03 } | Size: 05
+#_0A8C3A: db $65, $5F, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 19, 17 } | Size: 07
+#_0A8C3D: db $65, $9C, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 19, 27 } | Size: 04
+#_0A8C40: db $89, $5F, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 17 } | Size: 07
+#_0A8C43: db $89, $9C, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 27 } | Size: 04
+#_0A8C46: db $89, $DD, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 37 } | Size: 05
+#_0A8C49: db $D9, $DD, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 37 } | Size: 05
+#_0A8C4C: db $FF, $FF ; Layer 1
+#_0A8C4E: db $FF, $FF ; Layer 2
 #_0A8C50: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0011:
-#_0A8C52: db $62, $28 ; Door 0x28 | Dir:02 | Pos:0C
-#_0A8C54: db $82, $28 ; Door 0x28 | Dir:02 | Pos:10
-#_0A8C56: db $81, $1C ; Door 0x1C | Dir:01 | Pos:10
-#_0A8C58: db $FF, $FF ; Layer03 / End
+#_0A8C52: db $62, $28 ; Door 0x28 | West 0C
+#_0A8C54: db $82, $28 ; Door 0x28 | West 10
+#_0A8C56: db $81, $1C ; Door 0x1C | South 10
+#_0A8C58: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -1233,15 +1233,15 @@ RoomDataTiles_0021:
 #_0A8C68: db $43, $CC, $C8 ; 0x0C8: Water floor ⇲ | { 10, 33 } | Size: 0C
 #_0A8C6B: db $80, $CC, $C8 ; 0x0C8: Water floor ⇲ | { 20, 33 } | Size: 00
 #_0A8C6E: db $E9, $A3, $62 ; 0x062: Wall (top, east) ↕ | { 3A, 28 } | Size: 07
-#_0A8C71: db $43, $A7, $FA ; 0x22F: Pot | { 10, 29 } | Size: 0F
-#_0A8C74: db $CB, $E3, $FA ; 0x22F: Pot | { 32, 38 } | Size: 0F
-#_0A8C77: db $D3, $E3, $FA ; 0x22F: Pot | { 34, 38 } | Size: 0F
-#_0A8C7A: db $53, $C7, $FA ; 0x22F: Pot | { 14, 31 } | Size: 0F
-#_0A8C7D: db $A7, $E3, $FA ; 0x22F: Pot | { 29, 38 } | Size: 0F
-#_0A8C80: db $63, $E3, $FA ; 0x22F: Pot | { 18, 38 } | Size: 0F
-#_0A8C83: db $FF, $6D, $87 ; 0x107: Corner (top, convex) ▛ | { 36, 36 } | Size: 00
-#_0A8C86: db $FF, $AD, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 36 } | Size: 00
-#_0A8C89: db $FF, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 3A } | Size: 00
+#_0A8C71: db $43, $A7, $FA ; 0x22F: Pot | { 10, 29 }
+#_0A8C74: db $CB, $E3, $FA ; 0x22F: Pot | { 32, 38 }
+#_0A8C77: db $D3, $E3, $FA ; 0x22F: Pot | { 34, 38 }
+#_0A8C7A: db $53, $C7, $FA ; 0x22F: Pot | { 14, 31 }
+#_0A8C7D: db $A7, $E3, $FA ; 0x22F: Pot | { 29, 38 }
+#_0A8C80: db $63, $E3, $FA ; 0x22F: Pot | { 18, 38 }
+#_0A8C83: db $FF, $6D, $87 ; 0x107: Corner (top, convex) ▛ | { 36, 36 }
+#_0A8C86: db $FF, $AD, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 36 }
+#_0A8C89: db $FF, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 3A }
 #_0A8C8C: db $20, $B1, $79 ; 0x079: Water edge (west) ↕ | { 08, 2C } | Size: 01
 #_0A8C8F: db $22, $AE, $46 ; 0x046: Water edge ┏━┛ (convex) ↔ | { 08, 2B } | Size: 0A
 #_0A8C92: db $50, $A2, $79 ; 0x079: Water edge (west) ↕ | { 14, 28 } | Size: 02
@@ -1271,51 +1271,51 @@ RoomDataTiles_0021:
 #_0A8CDA: db $7F, $DF, $43 ; 0x043: Water edge ┏━┛ (concave) ↔ | { 1F, 37 } | Size: 0F
 #_0A8CDD: db $BC, $DE, $43 ; 0x043: Water edge ┏━┛ (concave) ↔ | { 2F, 37 } | Size: 02
 #_0A8CE0: db $CC, $D2, $7A ; 0x07A: Water edge (east) ↕ | { 33, 34 } | Size: 02
-#_0A8CE3: db $FC, $62, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 08 } | Size: 00
+#_0A8CE3: db $FC, $62, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 08 }
 #_0A8CE6: db $19, $33, $61 ; 0x061: Wall (top, west) ↕ | { 06, 0C } | Size: 07
-#_0A8CE9: db $FC, $66, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 1A } | Size: 00
+#_0A8CE9: db $FC, $66, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 1A }
 #_0A8CEC: db $28, $21, $01 ; 0x001: Wall (top, north) ↔ | { 0A, 08 } | Size: 01
-#_0A8CEF: db $FC, $C2, $02 ; 0x102: Corner (top, concave) ▜ | { 0C, 08 } | Size: 00
+#_0A8CEF: db $FC, $C2, $02 ; 0x102: Corner (top, concave) ▜ | { 0C, 08 }
 #_0A8CF2: db $30, $31, $62 ; 0x062: Wall (top, east) ↕ | { 0C, 0C } | Size: 01
-#_0A8CF5: db $FC, $C3, $86 ; 0x106: Corner (top, convex) ▙ | { 0C, 0E } | Size: 00
+#_0A8CF5: db $FC, $C3, $86 ; 0x106: Corner (top, convex) ▙ | { 0C, 0E }
 #_0A8CF8: db $42, $3B, $01 ; 0x001: Wall (top, north) ↔ | { 10, 0E } | Size: 0B
-#_0A8CFB: db $FE, $63, $84 ; 0x104: Corner (top, convex) ▟ | { 26, 0E } | Size: 00
+#_0A8CFB: db $FE, $63, $84 ; 0x104: Corner (top, convex) ▟ | { 26, 0E }
 #_0A8CFE: db $98, $23, $61 ; 0x061: Wall (top, west) ↕ | { 26, 08 } | Size: 03
-#_0A8D01: db $FE, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 26, 04 } | Size: 00
-#_0A8D04: db $FF, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 36, 04 } | Size: 00
+#_0A8D01: db $FE, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 26, 04 }
+#_0A8D04: db $FF, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 36, 04 }
 #_0A8D07: db $DA, $21, $62 ; 0x062: Wall (top, east) ↕ | { 36, 08 } | Size: 09
-#_0A8D0A: db $FF, $66, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 1A } | Size: 00
-#_0A8D0D: db $43, $0A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 02 } | Size: 0E
-#_0A8D10: db $79, $0A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1E, 02 } | Size: 06
-#_0A8D13: db $0B, $10, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0C
+#_0A8D0A: db $FF, $66, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 1A }
+#_0A8D0D: db $43, $0A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 02 } | Size: 0E
+#_0A8D10: db $79, $0A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1E, 02 } | Size: 06
+#_0A8D13: db $0B, $10, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0C
 #_0A8D16: db $0A, $23, $60 ; 0x060: Ceiling ↕ | { 02, 08 } | Size: 0B
 #_0A8D19: db $12, $23, $60 ; 0x060: Ceiling ↕ | { 04, 08 } | Size: 0B
 #_0A8D1C: db $EB, $11, $60 ; 0x060: Ceiling ↕ | { 3A, 04 } | Size: 0D
 #_0A8D1F: db $F3, $11, $60 ; 0x060: Ceiling ↕ | { 3C, 04 } | Size: 0D
-#_0A8D22: db $E8, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 3A } | Size: 00
-#_0A8D25: db $FF, $FF ; Layer01
-#_0A8D27: db $36, $42, $FA ; 0x22A: Lamp cones | { 0D, 10 } | Size: 0A
-#_0A8D2A: db $FF, $FF ; Layer02
+#_0A8D22: db $E8, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 3A } | Size: 00
+#_0A8D25: db $FF, $FF ; Layer 1
+#_0A8D27: db $36, $42, $FA ; 0x22A: Lamp cones | { 0D, 10 }
+#_0A8D2A: db $FF, $FF ; Layer 2
 #_0A8D2C: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0021:
-#_0A8D2E: db $20, $1C ; Door 0x1C | Dir:00 | Pos:04
-#_0A8D30: db $70, $00 ; Door 0x00 | Dir:00 | Pos:0E
-#_0A8D32: db $83, $00 ; Door 0x00 | Dir:03 | Pos:10
-#_0A8D34: db $FF, $FF ; Layer03 / End
+#_0A8D2E: db $20, $1C ; Door 0x1C | North 04
+#_0A8D30: db $70, $00 ; Door 0x00 | North 0E
+#_0A8D32: db $83, $00 ; Door 0x00 | East 10
+#_0A8D34: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0022:
 #_0A8D36: db $E1, $10 ; Floors and Layout
 #_0A8D38: db $18, $DB, $02 ; 0x002: Wall (top, south) ↔ | { 06, 36 } | Size: 03
-#_0A8D3B: db $FC, $CD, $85 ; 0x105: Corner (top, convex) ▜ | { 0C, 36 } | Size: 00
-#_0A8D3E: db $FC, $CE, $81 ; 0x101: Corner (top, concave) ▙ | { 0C, 3A } | Size: 00
-#_0A8D41: db $FE, $79, $02 ; 0x102: Corner (top, concave) ▜ | { 27, 24 } | Size: 00
+#_0A8D3B: db $FC, $CD, $85 ; 0x105: Corner (top, convex) ▜ | { 0C, 36 }
+#_0A8D3E: db $FC, $CE, $81 ; 0x101: Corner (top, concave) ▙ | { 0C, 3A }
+#_0A8D41: db $FE, $79, $02 ; 0x102: Corner (top, concave) ▜ | { 27, 24 }
 #_0A8D44: db $9E, $A1, $62 ; 0x062: Wall (top, east) ↕ | { 27, 28 } | Size: 09
-#_0A8D47: db $FE, $7E, $83 ; 0x103: Corner (top, concave) ▟ | { 27, 3A } | Size: 00
+#_0A8D47: db $FE, $7E, $83 ; 0x103: Corner (top, concave) ▟ | { 27, 3A }
 #_0A8D4A: db $10, $BC, $C8 ; 0x0C8: Water floor ⇲ | { 04, 2F } | Size: 00
 #_0A8D4D: db $12, $CC, $C8 ; 0x0C8: Water floor ⇲ | { 04, 33 } | Size: 08
 #_0A8D50: db $12, $AC, $C8 ; 0x0C8: Water floor ⇲ | { 04, 2B } | Size: 08
@@ -1338,7 +1338,7 @@ RoomDataTiles_0022:
 #_0A8D83: db $5C, $CA, $42 ; 0x042: Water edge ┗━┛ (convex) ↔ | { 17, 32 } | Size: 02
 #_0A8D86: db $5C, $C1, $7A ; 0x07A: Water edge (east) ↕ | { 17, 30 } | Size: 01
 #_0A8D89: db $6C, $C1, $79 ; 0x079: Water edge (west) ↕ | { 1B, 30 } | Size: 01
-#_0A8D8C: db $FC, $2D, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 36 } | Size: 00
+#_0A8D8C: db $FC, $2D, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 36 }
 #_0A8D8F: db $09, $A3, $61 ; 0x061: Wall (top, west) ↕ | { 02, 28 } | Size: 07
 #_0A8D92: db $17, $AF, $3F ; 0x03F: Water edge ┏━┓ (concave) ↔ | { 05, 2B } | Size: 0F
 #_0A8D95: db $56, $AD, $3F ; 0x03F: Water edge ┏━┓ (concave) ↔ | { 15, 2B } | Size: 09
@@ -1353,184 +1353,184 @@ RoomDataTiles_0022:
 #_0A8DB0: db $90, $D1, $7A ; 0x07A: Water edge (east) ↕ | { 24, 34 } | Size: 01
 #_0A8DB3: db $90, $CD, $43 ; 0x043: Water edge ┏━┛ (concave) ↔ | { 24, 33 } | Size: 01
 #_0A8DB6: db $9C, $BF, $7A ; 0x07A: Water edge (east) ↕ | { 27, 2F } | Size: 03
-#_0A8DB9: db $02, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 3A } | Size: 08
-#_0A8DBC: db $AF, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2B, 24 } | Size: 0F
-#_0A8DBF: db $AF, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2B, 34 } | Size: 0E
-#_0A8DC2: db $E1, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 24 } | Size: 07
-#_0A8DC5: db $E1, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 34 } | Size: 06
-#_0A8DC8: db $FF, $FF ; Layer01
-#_0A8DCA: db $2E, $3E, $FA ; 0x22A: Lamp cones | { 0B, 0F } | Size: 0A
-#_0A8DCD: db $FF, $FF ; Layer02
+#_0A8DB9: db $02, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 3A } | Size: 08
+#_0A8DBC: db $AF, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2B, 24 } | Size: 0F
+#_0A8DBF: db $AF, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2B, 34 } | Size: 0E
+#_0A8DC2: db $E1, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 24 } | Size: 07
+#_0A8DC5: db $E1, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 34 } | Size: 06
+#_0A8DC8: db $FF, $FF ; Layer 1
+#_0A8DCA: db $2E, $3E, $FA ; 0x22A: Lamp cones | { 0B, 0F }
+#_0A8DCD: db $FF, $FF ; Layer 2
 #_0A8DCF: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0022:
-#_0A8DD1: db $71, $1C ; Door 0x1C | Dir:01 | Pos:0E
-#_0A8DD3: db $22, $00 ; Door 0x00 | Dir:02 | Pos:04
-#_0A8DD5: db $FF, $FF ; Layer03 / End
+#_0A8DD1: db $71, $1C ; Door 0x1C | South 0E
+#_0A8DD3: db $22, $00 ; Door 0x00 | West 04
+#_0A8DD5: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0032:
 #_0A8DD7: db $E1, $1C ; Floors and Layout
-#_0A8DD9: db $FD, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 1A, 04 } | Size: 00
+#_0A8DD9: db $FD, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 1A, 04 }
 #_0A8DDC: db $69, $22, $61 ; 0x061: Wall (top, west) ↕ | { 1A, 08 } | Size: 06
 #_0A8DDF: db $1A, $52, $01 ; 0x001: Wall (top, north) ↔ | { 06, 14 } | Size: 0A
-#_0A8DE2: db $FD, $A5, $04 ; 0x104: Corner (top, convex) ▟ | { 1A, 14 } | Size: 00
-#_0A8DE5: db $FC, $25, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 14 } | Size: 00
-#_0A8DE8: db $FC, $28, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 20 } | Size: 00
+#_0A8DE2: db $FD, $A5, $04 ; 0x104: Corner (top, convex) ▟ | { 1A, 14 }
+#_0A8DE5: db $FC, $25, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 14 }
+#_0A8DE8: db $FC, $28, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 20 }
 #_0A8DEB: db $1A, $82, $02 ; 0x002: Wall (top, south) ↔ | { 06, 20 } | Size: 0A
-#_0A8DEE: db $FD, $A8, $05 ; 0x105: Corner (top, convex) ▜ | { 1A, 20 } | Size: 00
+#_0A8DEE: db $FD, $A8, $05 ; 0x105: Corner (top, convex) ▜ | { 1A, 20 }
 #_0A8DF1: db $6A, $93, $61 ; 0x061: Wall (top, west) ↕ | { 1A, 24 } | Size: 0B
-#_0A8DF4: db $FD, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 1A, 3A } | Size: 00
-#_0A8DF7: db $FE, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 22, 3A } | Size: 00
+#_0A8DF4: db $FD, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 1A, 3A }
+#_0A8DF7: db $FE, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 22, 3A }
 #_0A8DFA: db $8A, $93, $62 ; 0x062: Wall (top, east) ↕ | { 22, 24 } | Size: 0B
 #_0A8DFD: db $9A, $82, $02 ; 0x002: Wall (top, south) ↔ | { 26, 20 } | Size: 0A
-#_0A8E00: db $FE, $28, $07 ; 0x107: Corner (top, convex) ▛ | { 22, 20 } | Size: 00
-#_0A8E03: db $FF, $A8, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 20 } | Size: 00
+#_0A8E00: db $FE, $28, $07 ; 0x107: Corner (top, convex) ▛ | { 22, 20 }
+#_0A8E03: db $FF, $A8, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 20 }
 #_0A8E06: db $9A, $52, $01 ; 0x001: Wall (top, north) ↔ | { 26, 14 } | Size: 0A
-#_0A8E09: db $FF, $A5, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 14 } | Size: 00
-#_0A8E0C: db $FE, $25, $06 ; 0x106: Corner (top, convex) ▙ | { 22, 14 } | Size: 00
-#_0A8E0F: db $78, $E8, $FA ; 0x220: Interroom straight stairs up (south, top) | { 1E, 3A } | Size: 00
-#_0A8E12: db $3B, $6B, $FA ; 0x22F: Pot | { 0E, 1A } | Size: 0F
-#_0A8E15: db $C1, $6A, $F9 ; 0x219: Chest | { 30, 1A } | Size: 06
+#_0A8E09: db $FF, $A5, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 14 }
+#_0A8E0C: db $FE, $25, $06 ; 0x106: Corner (top, convex) ▙ | { 22, 14 }
+#_0A8E0F: db $78, $E8, $FA ; 0x220: Interroom straight stairs up (south, top) | { 1E, 3A }
+#_0A8E12: db $3B, $6B, $FA ; 0x22F: Pot | { 0E, 1A }
+#_0A8E15: db $C1, $6A, $F9 ; 0x219: Chest | { 30, 1A }
 #_0A8E18: db $89, $22, $62 ; 0x062: Wall (top, east) ↕ | { 22, 08 } | Size: 06
-#_0A8E1B: db $FE, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 22, 04 } | Size: 00
-#_0A8E1E: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0F
-#_0A8E21: db $49, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 04 } | Size: 07
-#_0A8E24: db $0B, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 0F
-#_0A8E27: db $0B, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 0E
-#_0A8E2A: db $49, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 24 } | Size: 07
-#_0A8E2D: db $49, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 34 } | Size: 06
-#_0A8E30: db $9B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 04 } | Size: 0F
-#_0A8E33: db $D9, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 04 } | Size: 07
-#_0A8E36: db $9B, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 24 } | Size: 0F
-#_0A8E39: db $9B, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 34 } | Size: 0E
-#_0A8E3C: db $D9, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 24 } | Size: 07
-#_0A8E3F: db $D9, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 34 } | Size: 06
-#_0A8E42: db $FF, $FF ; Layer01
-#_0A8E44: db $2E, $3E, $FA ; 0x22A: Lamp cones | { 0B, 0F } | Size: 0A
-#_0A8E47: db $FF, $FF ; Layer02
+#_0A8E1B: db $FE, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 22, 04 }
+#_0A8E1E: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0F
+#_0A8E21: db $49, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 04 } | Size: 07
+#_0A8E24: db $0B, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 0F
+#_0A8E27: db $0B, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 0E
+#_0A8E2A: db $49, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 24 } | Size: 07
+#_0A8E2D: db $49, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 34 } | Size: 06
+#_0A8E30: db $9B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 04 } | Size: 0F
+#_0A8E33: db $D9, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 04 } | Size: 07
+#_0A8E36: db $9B, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 24 } | Size: 0F
+#_0A8E39: db $9B, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 34 } | Size: 0E
+#_0A8E3C: db $D9, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 24 } | Size: 07
+#_0A8E3F: db $D9, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 34 } | Size: 06
+#_0A8E42: db $FF, $FF ; Layer 1
+#_0A8E44: db $2E, $3E, $FA ; 0x22A: Lamp cones | { 0B, 0F }
+#_0A8E47: db $FF, $FF ; Layer 2
 #_0A8E49: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0032:
-#_0A8E4B: db $10, $1C ; Door 0x1C | Dir:00 | Pos:02
-#_0A8E4D: db $FF, $FF ; Layer03 / End
+#_0A8E4B: db $10, $1C ; Door 0x1C | North 02
+#_0A8E4D: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0042:
 #_0A8E4F: db $E1, $10 ; Floors and Layout
-#_0A8E51: db $FE, $31, $02 ; 0x102: Corner (top, concave) ▜ | { 23, 04 } | Size: 00
-#_0A8E54: db $FE, $32, $06 ; 0x106: Corner (top, convex) ▙ | { 23, 08 } | Size: 00
-#_0A8E57: db $FE, $F2, $04 ; 0x104: Corner (top, convex) ▟ | { 2F, 08 } | Size: 00
-#_0A8E5A: db $FE, $F1, $00 ; 0x100: Corner (top, concave) ▛ | { 2F, 04 } | Size: 00
+#_0A8E51: db $FE, $31, $02 ; 0x102: Corner (top, concave) ▜ | { 23, 04 }
+#_0A8E54: db $FE, $32, $06 ; 0x106: Corner (top, convex) ▙ | { 23, 08 }
+#_0A8E57: db $FE, $F2, $04 ; 0x104: Corner (top, convex) ▟ | { 2F, 08 }
+#_0A8E5A: db $FE, $F1, $00 ; 0x100: Corner (top, concave) ▛ | { 2F, 04 }
 #_0A8E5D: db $9D, $20, $01 ; 0x001: Wall (top, north) ↔ | { 27, 08 } | Size: 04
-#_0A8E60: db $FD, $81, $00 ; 0x100: Corner (top, concave) ▛ | { 18, 04 } | Size: 00
+#_0A8E60: db $FD, $81, $00 ; 0x100: Corner (top, concave) ▛ | { 18, 04 }
 #_0A8E63: db $61, $20, $61 ; 0x061: Wall (top, west) ↕ | { 18, 08 } | Size: 04
-#_0A8E66: db $FD, $84, $01 ; 0x101: Corner (top, concave) ▙ | { 18, 10 } | Size: 00
-#_0A8E69: db $FF, $A4, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 10 } | Size: 00
+#_0A8E66: db $FD, $84, $01 ; 0x101: Corner (top, concave) ▙ | { 18, 10 }
+#_0A8E69: db $FF, $A4, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 10 }
 #_0A8E6C: db $73, $43, $02 ; 0x002: Wall (top, south) ↔ | { 1C, 10 } | Size: 0F
-#_0A8E6F: db $FF, $41, $38 ; 0x138: Interroom spiral stairs up (top) | { 34, 04 } | Size: 00
-#_0A8E72: db $7B, $13, $F9 ; 0x21F: Interroom straight stairs down (north, top) | { 1E, 04 } | Size: 0F
-#_0A8E75: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0F
-#_0A8E78: db $41, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 04 } | Size: 07
-#_0A8E7B: db $0B, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 14 } | Size: 0E
-#_0A8E7E: db $4B, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 14 } | Size: 0E
-#_0A8E81: db $8B, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 14 } | Size: 0E
-#_0A8E84: db $CA, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 14 } | Size: 0A
-#_0A8E87: db $9D, $10, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 27, 04 } | Size: 04
-#_0A8E8A: db $FF, $FF ; Layer01
-#_0A8E8C: db $AE, $32, $FA ; 0x22A: Lamp cones | { 2B, 0C } | Size: 0A
-#_0A8E8F: db $FF, $FF ; Layer02
+#_0A8E6F: db $FF, $41, $38 ; 0x138: Interroom spiral stairs up (top) | { 34, 04 }
+#_0A8E72: db $7B, $13, $F9 ; 0x21F: Interroom straight stairs down (north, top) | { 1E, 04 }
+#_0A8E75: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0F
+#_0A8E78: db $41, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 04 } | Size: 07
+#_0A8E7B: db $0B, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 14 } | Size: 0E
+#_0A8E7E: db $4B, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 14 } | Size: 0E
+#_0A8E81: db $8B, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 14 } | Size: 0E
+#_0A8E84: db $CA, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 14 } | Size: 0A
+#_0A8E87: db $9D, $10, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 27, 04 } | Size: 04
+#_0A8E8A: db $FF, $FF ; Layer 1
+#_0A8E8C: db $AE, $32, $FA ; 0x22A: Lamp cones | { 2B, 0C }
+#_0A8E8F: db $FF, $FF ; Layer 2
 #_0A8E91: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0042:
-#_0A8E93: db $FF, $FF ; Layer03 / End
+#_0A8E93: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0041:
 #_0A8E95: db $E1, $1C ; Floors and Layout
-#_0A8E97: db $FD, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 16, 04 } | Size: 00
+#_0A8E97: db $FD, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 16, 04 }
 #_0A8E9A: db $5B, $23, $61 ; 0x061: Wall (top, west) ↕ | { 16, 08 } | Size: 0F
-#_0A8E9D: db $FD, $69, $44 ; 0x104: Corner (top, convex) ▟ | { 16, 25 } | Size: 00
+#_0A8E9D: db $FD, $69, $44 ; 0x104: Corner (top, convex) ▟ | { 16, 25 }
 #_0A8EA0: db $1A, $94, $01 ; 0x001: Wall (top, north) ↔ | { 06, 25 } | Size: 08
-#_0A8EA3: db $FC, $29, $40 ; 0x100: Corner (top, concave) ▛ | { 02, 25 } | Size: 00
-#_0A8EA6: db $FC, $2B, $C1 ; 0x101: Corner (top, concave) ▙ | { 02, 2F } | Size: 00
+#_0A8EA3: db $FC, $29, $40 ; 0x100: Corner (top, concave) ▛ | { 02, 25 }
+#_0A8EA6: db $FC, $2B, $C1 ; 0x101: Corner (top, concave) ▙ | { 02, 2F }
 #_0A8EA9: db $1A, $BC, $02 ; 0x002: Wall (top, south) ↔ | { 06, 2F } | Size: 08
-#_0A8EAC: db $FD, $6B, $C5 ; 0x105: Corner (top, convex) ▜ | { 16, 2F } | Size: 00
+#_0A8EAC: db $FD, $6B, $C5 ; 0x105: Corner (top, convex) ▜ | { 16, 2F }
 #_0A8EAF: db $59, $CC, $61 ; 0x061: Wall (top, west) ↕ | { 16, 33 } | Size: 04
-#_0A8EB2: db $FD, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 16, 3A } | Size: 00
-#_0A8EB5: db $FE, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 26, 04 } | Size: 00
+#_0A8EB2: db $FD, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 16, 3A }
+#_0A8EB5: db $FE, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 26, 04 }
 #_0A8EB8: db $99, $22, $62 ; 0x062: Wall (top, east) ↕ | { 26, 08 } | Size: 06
-#_0A8EBB: db $FE, $65, $06 ; 0x106: Corner (top, convex) ▙ | { 26, 14 } | Size: 00
+#_0A8EBB: db $FE, $65, $06 ; 0x106: Corner (top, convex) ▙ | { 26, 14 }
 #_0A8EBE: db $A8, $52, $01 ; 0x001: Wall (top, north) ↔ | { 2A, 14 } | Size: 02
-#_0A8EC1: db $FE, $E5, $04 ; 0x104: Corner (top, convex) ▟ | { 2E, 14 } | Size: 00
+#_0A8EC1: db $FE, $E5, $04 ; 0x104: Corner (top, convex) ▟ | { 2E, 14 }
 #_0A8EC4: db $B9, $22, $61 ; 0x061: Wall (top, west) ↕ | { 2E, 08 } | Size: 06
-#_0A8EC7: db $FE, $E1, $00 ; 0x100: Corner (top, concave) ▛ | { 2E, 04 } | Size: 00
-#_0A8ECA: db $FF, $A7, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1E } | Size: 00
+#_0A8EC7: db $FE, $E1, $00 ; 0x100: Corner (top, concave) ▛ | { 2E, 04 }
+#_0A8ECA: db $FF, $A7, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1E }
 #_0A8ECD: db $AA, $78, $02 ; 0x002: Wall (top, south) ↔ | { 2A, 1E } | Size: 08
-#_0A8ED0: db $FE, $67, $87 ; 0x107: Corner (top, convex) ▛ | { 26, 1E } | Size: 00
+#_0A8ED0: db $FE, $67, $87 ; 0x107: Corner (top, convex) ▛ | { 26, 1E }
 #_0A8ED3: db $9B, $88, $62 ; 0x062: Wall (top, east) ↕ | { 26, 22 } | Size: 0C
-#_0A8ED6: db $FE, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 26, 3A } | Size: 00
-#_0A8ED9: db $FF, $41, $39 ; 0x139: Interroom spiral stairs down (top) | { 34, 04 } | Size: 00
-#_0A8EDC: db $CB, $53, $FA ; 0x22F: Pot | { 32, 14 } | Size: 0F
-#_0A8EDF: db $6B, $7B, $FA ; 0x22F: Pot | { 1A, 1E } | Size: 0F
-#_0A8EE2: db $6B, $83, $FA ; 0x22F: Pot | { 1A, 20 } | Size: 0F
-#_0A8EE5: db $2B, $B7, $FA ; 0x22F: Pot | { 0A, 2D } | Size: 0F
-#_0A8EE8: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0F
-#_0A8EEB: db $0B, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 14 } | Size: 0F
-#_0A8EEE: db $48, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 04 } | Size: 03
-#_0A8EF1: db $48, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 14 } | Size: 03
+#_0A8ED6: db $FE, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 26, 3A }
+#_0A8ED9: db $FF, $41, $39 ; 0x139: Interroom spiral stairs down (top) | { 34, 04 }
+#_0A8EDC: db $CB, $53, $FA ; 0x22F: Pot | { 32, 14 }
+#_0A8EDF: db $6B, $7B, $FA ; 0x22F: Pot | { 1A, 1E }
+#_0A8EE2: db $6B, $83, $FA ; 0x22F: Pot | { 1A, 20 }
+#_0A8EE5: db $2B, $B7, $FA ; 0x22F: Pot | { 0A, 2D }
+#_0A8EE8: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0F
+#_0A8EEB: db $0B, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 14 } | Size: 0F
+#_0A8EEE: db $48, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 04 } | Size: 03
+#_0A8EF1: db $48, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 14 } | Size: 03
 #_0A8EF4: db $0A, $8E, $00 ; 0x000: Ceiling ↔ | { 02, 23 } | Size: 0A
-#_0A8EF7: db $0B, $CE, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 33 } | Size: 0E
-#_0A8EFA: db $48, $CE, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 33 } | Size: 02
-#_0A8EFD: db $A8, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2A, 04 } | Size: 03
-#_0A8F00: db $AB, $8B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2A, 22 } | Size: 0F
-#_0A8F03: db $AB, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2A, 32 } | Size: 0E
-#_0A8F06: db $E8, $8B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 22 } | Size: 03
-#_0A8F09: db $E8, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 32 } | Size: 02
-#_0A8F0C: db $FF, $FF ; Layer01
-#_0A8F0E: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 } | Size: 0A
-#_0A8F11: db $FF, $FF ; Layer02
+#_0A8EF7: db $0B, $CE, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 33 } | Size: 0E
+#_0A8EFA: db $48, $CE, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 33 } | Size: 02
+#_0A8EFD: db $A8, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2A, 04 } | Size: 03
+#_0A8F00: db $AB, $8B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2A, 22 } | Size: 0F
+#_0A8F03: db $AB, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2A, 32 } | Size: 0E
+#_0A8F06: db $E8, $8B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 22 } | Size: 03
+#_0A8F09: db $E8, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 32 } | Size: 02
+#_0A8F0C: db $FF, $FF ; Layer 1
+#_0A8F0E: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 }
+#_0A8F11: db $FF, $FF ; Layer 2
 #_0A8F13: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0041:
-#_0A8F15: db $71, $18 ; Door 0x18 | Dir:01 | Pos:0E
-#_0A8F17: db $FF, $FF ; Layer03 / End
+#_0A8F15: db $71, $18 ; Door 0x18 | South 0E
+#_0A8F17: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0051:
 #_0A8F19: db $73, $1C ; Floors and Layout
-#_0A8F1B: db $FD, $09, $04 ; 0x104: Corner (top, convex) ▟ | { 10, 24 } | Size: 00
-#_0A8F1E: db $FC, $69, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 24 } | Size: 00
+#_0A8F1B: db $FD, $09, $04 ; 0x104: Corner (top, convex) ▟ | { 10, 24 }
+#_0A8F1E: db $FC, $69, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 24 }
 #_0A8F21: db $28, $93, $01 ; 0x001: Wall (top, north) ↔ | { 0A, 24 } | Size: 03
 #_0A8F24: db $1A, $A1, $61 ; 0x061: Wall (top, west) ↕ | { 06, 28 } | Size: 09
-#_0A8F27: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A } | Size: 00
-#_0A8F2A: db $FE, $C9, $06 ; 0x106: Corner (top, convex) ▙ | { 2C, 24 } | Size: 00
+#_0A8F27: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A }
+#_0A8F2A: db $FE, $C9, $06 ; 0x106: Corner (top, convex) ▙ | { 2C, 24 }
 #_0A8F2D: db $C0, $93, $01 ; 0x001: Wall (top, north) ↔ | { 30, 24 } | Size: 03
-#_0A8F30: db $FF, $69, $02 ; 0x102: Corner (top, concave) ▜ | { 36, 24 } | Size: 00
+#_0A8F30: db $FF, $69, $02 ; 0x102: Corner (top, concave) ▜ | { 36, 24 }
 #_0A8F33: db $DA, $A1, $62 ; 0x062: Wall (top, east) ↕ | { 36, 28 } | Size: 09
-#_0A8F36: db $FF, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 3A } | Size: 00
+#_0A8F36: db $FF, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 3A }
 #_0A8F39: db $5C, $9B, $22 ; 0x022: Rail ↔ | { 17, 26 } | Size: 03
-#_0A8F3C: db $E8, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 24 } | Size: 03
-#_0A8F3F: db $E8, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 34 } | Size: 02
-#_0A8F42: db $FD, $41, $00 ; 0x100: Corner (top, concave) ▛ | { 14, 04 } | Size: 00
-#_0A8F45: db $FD, $42, $04 ; 0x104: Corner (top, convex) ▟ | { 14, 08 } | Size: 00
-#_0A8F48: db $FD, $02, $00 ; 0x100: Corner (top, concave) ▛ | { 10, 08 } | Size: 00
+#_0A8F3C: db $E8, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 24 } | Size: 03
+#_0A8F3F: db $E8, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 34 } | Size: 02
+#_0A8F42: db $FD, $41, $00 ; 0x100: Corner (top, concave) ▛ | { 14, 04 }
+#_0A8F45: db $FD, $42, $04 ; 0x104: Corner (top, convex) ▟ | { 14, 08 }
+#_0A8F48: db $FD, $02, $00 ; 0x100: Corner (top, concave) ▛ | { 10, 08 }
 #_0A8F4B: db $43, $30, $61 ; 0x061: Wall (top, west) ↕ | { 10, 0C } | Size: 0C
-#_0A8F4E: db $FE, $81, $02 ; 0x102: Corner (top, concave) ▜ | { 28, 04 } | Size: 00
-#_0A8F51: db $FE, $82, $06 ; 0x106: Corner (top, convex) ▙ | { 28, 08 } | Size: 00
-#_0A8F54: db $FE, $C2, $02 ; 0x102: Corner (top, concave) ▜ | { 2C, 08 } | Size: 00
+#_0A8F4E: db $FE, $81, $02 ; 0x102: Corner (top, concave) ▜ | { 28, 04 }
+#_0A8F51: db $FE, $82, $06 ; 0x106: Corner (top, convex) ▙ | { 28, 08 }
+#_0A8F54: db $FE, $C2, $02 ; 0x102: Corner (top, concave) ▜ | { 2C, 08 }
 #_0A8F57: db $B3, $30, $62 ; 0x062: Wall (top, east) ↕ | { 2C, 0C } | Size: 0C
 #_0A8F5A: db $63, $1E, $DC ; 0x0DC: Chest platform (short) ⇲ | { 18, 07 } | Size: 0E
 #_0A8F5D: db $79, $48, $70 ; 0x070: Carpet ↕ | { 1E, 12 } | Size: 04
@@ -1544,17 +1544,17 @@ RoomDataTiles_0051:
 #_0A8F75: db $B0, $3B, $66 ; 0x066: Wall columns (east) ↕ | { 2C, 0E } | Size: 03
 #_0A8F78: db $40, $42, $73 ; 0x073: Drapes (west) ↕ | { 10, 10 } | Size: 02
 #_0A8F7B: db $B0, $42, $74 ; 0x074: Drapes (east) ↕ | { 2C, 10 } | Size: 02
-#_0A8F7E: db $FD, $89, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 18, 27 } | Size: 00
+#_0A8F7E: db $FD, $89, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 18, 27 }
 #_0A8F81: db $70, $9F, $03 ; 0x003: Wall (bottom, north) ↔ | { 1C, 27 } | Size: 03
-#_0A8F84: db $FE, $49, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 24, 27 } | Size: 00
-#_0A8F87: db $FD, $8A, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 18, 2B } | Size: 00
+#_0A8F84: db $FE, $49, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 24, 27 }
+#_0A8F87: db $FD, $8A, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 18, 2B }
 #_0A8F8A: db $40, $AF, $03 ; 0x003: Wall (bottom, north) ↔ | { 10, 2B } | Size: 03
-#_0A8F8D: db $FC, $DA, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0D, 2B } | Size: 00
+#_0A8F8D: db $FC, $DA, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0D, 2B }
 #_0A8F90: db $34, $BE, $63 ; 0x063: Wall (bottom, west) ↕ | { 0D, 2F } | Size: 02
 #_0A8F93: db $61, $DF, $04 ; 0x004: Wall (bottom, south) ↔ | { 18, 37 } | Size: 07
-#_0A8F96: db $FE, $4A, $CE ; 0x10E: Corner (bottom, convex) ▙ | { 24, 2B } | Size: 00
+#_0A8F96: db $FE, $4A, $CE ; 0x10E: Corner (bottom, convex) ▙ | { 24, 2B }
 #_0A8F99: db $A0, $AF, $03 ; 0x003: Wall (bottom, north) ↔ | { 28, 2B } | Size: 03
-#_0A8F9C: db $FE, $FA, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 2F, 2B } | Size: 00
+#_0A8F9C: db $FE, $FA, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 2F, 2B }
 #_0A8F9F: db $BC, $BE, $64 ; 0x064: Wall (bottom, east) ↕ | { 2F, 2F } | Size: 02
 #_0A8FA2: db $78, $98, $34 ; 0x034: Carpet trim ↔ | { 1E, 26 } | Size: 00
 #_0A8FA5: db $5C, $99, $69 ; 0x069: Rail ↕ | { 17, 26 } | Size: 01
@@ -1564,28 +1564,28 @@ RoomDataTiles_0051:
 #_0A8FB1: db $A0, $99, $69 ; 0x069: Rail ↕ | { 28, 26 } | Size: 01
 #_0A8FB4: db $C0, $A8, $22 ; 0x022: Rail ↔ | { 30, 2A } | Size: 00
 #_0A8FB7: db $CC, $A8, $69 ; 0x069: Rail ↕ | { 33, 2A } | Size: 00
-#_0A8FBA: db $0A, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0B
-#_0A8FBD: db $31, $10, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 0C, 04 } | Size: 04
-#_0A8FC0: db $0A, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 14 } | Size: 0B
+#_0A8FBA: db $0A, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0B
+#_0A8FBD: db $31, $10, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 0C, 04 } | Size: 04
+#_0A8FC0: db $0A, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 14 } | Size: 0B
 #_0A8FC3: db $3B, $22, $60 ; 0x060: Ceiling ↕ | { 0E, 08 } | Size: 0E
-#_0A8FC6: db $08, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 03
-#_0A8FC9: db $08, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 02
-#_0A8FCC: db $B1, $10, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2C, 04 } | Size: 04
-#_0A8FCF: db $CA, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 04 } | Size: 0B
-#_0A8FD2: db $CA, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 14 } | Size: 0B
+#_0A8FC6: db $08, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 03
+#_0A8FC9: db $08, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 02
+#_0A8FCC: db $B1, $10, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2C, 04 } | Size: 04
+#_0A8FCF: db $CA, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 04 } | Size: 0B
+#_0A8FD2: db $CA, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 14 } | Size: 0B
 #_0A8FD5: db $C3, $22, $60 ; 0x060: Ceiling ↕ | { 30, 08 } | Size: 0E
-#_0A8FD8: db $FD, $E9, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 1E, 27 } | Size: 00
-#_0A8FDB: db $FD, $A2, $E4 ; 0x124: Fairy statue | { 1A, 0B } | Size: 00
-#_0A8FDE: db $FE, $22, $E4 ; 0x124: Fairy statue | { 22, 0B } | Size: 00
-#_0A8FE1: db $FF, $FF ; Layer01
+#_0A8FD8: db $FD, $E9, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 1E, 27 }
+#_0A8FDB: db $FD, $A2, $E4 ; 0x124: Fairy statue | { 1A, 0B }
+#_0A8FDE: db $FE, $22, $E4 ; 0x124: Fairy statue | { 22, 0B }
+#_0A8FE1: db $FF, $FF ; Layer 1
 #_0A8FE3: db $34, $D5, $61 ; 0x061: Wall (top, west) ↕ | { 0D, 35 } | Size: 01
 #_0A8FE6: db $41, $DC, $02 ; 0x002: Wall (top, south) ↔ | { 10, 37 } | Size: 04
-#_0A8FE9: db $FC, $DD, $C1 ; 0x101: Corner (top, concave) ▙ | { 0D, 37 } | Size: 00
+#_0A8FE9: db $FC, $DD, $C1 ; 0x101: Corner (top, concave) ▙ | { 0D, 37 }
 #_0A8FEC: db $A1, $DC, $02 ; 0x002: Wall (top, south) ↔ | { 28, 37 } | Size: 04
-#_0A8FEF: db $FE, $FD, $C3 ; 0x103: Corner (top, concave) ▟ | { 2F, 37 } | Size: 00
+#_0A8FEF: db $FE, $FD, $C3 ; 0x103: Corner (top, concave) ▟ | { 2F, 37 }
 #_0A8FF2: db $BC, $D5, $62 ; 0x062: Wall (top, east) ↕ | { 2F, 35 } | Size: 01
-#_0A8FF5: db $79, $DE, $FA ; 0x229: Interroom straight stairs down (south, bottom) | { 1E, 37 } | Size: 06
-#_0A8FF8: db $FF, $FF ; Layer02
+#_0A8FF5: db $79, $DE, $FA ; 0x229: Interroom straight stairs down (south, bottom) | { 1E, 37 }
+#_0A8FF8: db $FF, $FF ; Layer 2
 #_0A8FFA: db $02, $24, $60 ; 0x060: Ceiling ↕ | { 00, 09 } | Size: 08
 #_0A8FFD: db $FA, $24, $60 ; 0x060: Ceiling ↕ | { 3E, 09 } | Size: 08
 #_0A9000: db $30, $C8, $69 ; 0x069: Rail ↕ | { 0C, 32 } | Size: 00
@@ -1606,34 +1606,34 @@ RoomDataTiles_0051:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0051:
-#_0A9029: db $10, $00 ; Door 0x00 | Dir:00 | Pos:02
-#_0A902B: db $10, $14 ; Door 0x14 | Dir:00 | Pos:02
-#_0A902D: db $FF, $FF ; Layer03 / End
+#_0A9029: db $10, $00 ; Door 0x00 | North 02
+#_0A902B: db $10, $14 ; Door 0x14 | North 02
+#_0A902D: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0050:
 #_0A902F: db $66, $04 ; Floors and Layout
-#_0A9031: db $FE, $61, $80 ; 0x100: Corner (top, concave) ▛ | { 26, 06 } | Size: 00
+#_0A9031: db $FE, $61, $80 ; 0x100: Corner (top, concave) ▛ | { 26, 06 }
 #_0A9034: db $AA, $18, $01 ; 0x001: Wall (top, north) ↔ | { 2A, 06 } | Size: 08
-#_0A9037: db $FF, $A1, $82 ; 0x102: Corner (top, concave) ▜ | { 3A, 06 } | Size: 00
+#_0A9037: db $FF, $A1, $82 ; 0x102: Corner (top, concave) ▜ | { 3A, 06 }
 #_0A903A: db $9B, $2B, $61 ; 0x061: Wall (top, west) ↕ | { 26, 0A } | Size: 0F
 #_0A903D: db $9A, $A1, $61 ; 0x061: Wall (top, west) ↕ | { 26, 28 } | Size: 09
-#_0A9040: db $FE, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 26, 3A } | Size: 00
-#_0A9043: db $FF, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 3A } | Size: 00
+#_0A9040: db $FE, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 26, 3A }
+#_0A9043: db $FF, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 3A }
 #_0A9046: db $DB, $73, $62 ; 0x062: Wall (top, east) ↕ | { 36, 1C } | Size: 0F
-#_0A9049: db $FF, $66, $07 ; 0x107: Corner (top, convex) ▛ | { 36, 18 } | Size: 00
-#_0A904C: db $FF, $A6, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 18 } | Size: 00
-#_0A904F: db $FE, $92, $48 ; 0x108: Corner (bottom, concave) ▛ | { 29, 09 } | Size: 00
+#_0A9049: db $FF, $66, $07 ; 0x107: Corner (top, convex) ▛ | { 36, 18 }
+#_0A904C: db $FF, $A6, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 18 }
+#_0A904F: db $FE, $92, $48 ; 0x108: Corner (bottom, concave) ▛ | { 29, 09 }
 #_0A9052: db $B5, $24, $03 ; 0x003: Wall (bottom, north) ↔ | { 2D, 09 } | Size: 04
-#_0A9055: db $FF, $72, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 09 } | Size: 00
+#_0A9055: db $FF, $72, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 09 }
 #_0A9058: db $DC, $37, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 0D } | Size: 03
-#_0A905B: db $FF, $75, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 15 } | Size: 00
-#_0A905E: db $FF, $35, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 33, 15 } | Size: 00
+#_0A905B: db $FF, $75, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 15 }
+#_0A905E: db $FF, $35, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 33, 15 }
 #_0A9061: db $CF, $66, $64 ; 0x064: Wall (bottom, east) ↕ | { 33, 19 } | Size: 0E
-#_0A9064: db $FF, $3D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 33, 37 } | Size: 00
+#_0A9064: db $FF, $3D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 33, 37 }
 #_0A9067: db $B4, $DE, $04 ; 0x004: Wall (bottom, south) ↔ | { 2D, 37 } | Size: 02
-#_0A906A: db $FE, $9D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 29, 37 } | Size: 00
+#_0A906A: db $FE, $9D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 29, 37 }
 #_0A906D: db $A7, $37, $63 ; 0x063: Wall (bottom, west) ↕ | { 29, 0D } | Size: 0F
 #_0A9070: db $A5, $B4, $63 ; 0x063: Wall (bottom, west) ↕ | { 29, 2D } | Size: 04
 #_0A9073: db $8B, $12, $00 ; 0x000: Ceiling ↔ | { 22, 04 } | Size: 0E
@@ -1641,16 +1641,16 @@ RoomDataTiles_0050:
 #_0A9079: db $EC, $3C, $80 ; 0x080: Wall torches (east) ↕ | { 3B, 0F } | Size: 00
 #_0A907C: db $88, $00, $60 ; 0x060: Ceiling ↕ | { 22, 00 } | Size: 00
 #_0A907F: db $90, $00, $60 ; 0x060: Ceiling ↕ | { 24, 00 } | Size: 00
-#_0A9082: db $E8, $73, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 1C } | Size: 03
-#_0A9085: db $E8, $B3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 2C } | Size: 03
-#_0A9088: db $E8, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 3A } | Size: 00
-#_0A908B: db $FF, $FF ; Layer01
+#_0A9082: db $E8, $73, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 1C } | Size: 03
+#_0A9085: db $E8, $B3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 2C } | Size: 03
+#_0A9088: db $E8, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 3A } | Size: 00
+#_0A908B: db $FF, $FF ; Layer 1
 #_0A908D: db $EC, $36, $01 ; 0x001: Wall (top, north) ↔ | { 3B, 0D } | Size: 02
 #_0A9090: db $EC, $46, $02 ; 0x002: Wall (top, south) ↔ | { 3B, 11 } | Size: 02
 #_0A9093: db $B0, $EE, $61 ; 0x061: Wall (top, west) ↕ | { 2C, 3B } | Size: 02
 #_0A9096: db $C0, $EE, $62 ; 0x062: Wall (top, east) ↕ | { 30, 3B } | Size: 02
-#_0A9099: db $C3, $33, $FA ; 0x22F: Pot | { 30, 0C } | Size: 0F
-#_0A909C: db $CB, $33, $FA ; 0x22F: Pot | { 32, 0C } | Size: 0F
+#_0A9099: db $C3, $33, $FA ; 0x22F: Pot | { 30, 0C }
+#_0A909C: db $CB, $33, $FA ; 0x22F: Pot | { 32, 0C }
 #_0A909F: db $B0, $2C, $38 ; 0x038: Statues ↔ | { 2C, 0B } | Size: 00
 #_0A90A2: db $D8, $2C, $38 ; 0x038: Statues ↔ | { 36, 0B } | Size: 00
 #_0A90A5: db $BC, $3D, $33 ; 0x033: Carpet ↔ | { 2F, 0F } | Size: 01
@@ -1662,7 +1662,7 @@ RoomDataTiles_0050:
 #_0A90B7: db $BB, $43, $71 ; 0x071: Carpet trim ↕ | { 2E, 10 } | Size: 0F
 #_0A90BA: db $BB, $8F, $71 ; 0x071: Carpet trim ↕ | { 2E, 23 } | Size: 0F
 #_0A90BD: db $B8, $CC, $71 ; 0x071: Carpet trim ↕ | { 2E, 33 } | Size: 00
-#_0A90C0: db $FF, $FF ; Layer02
+#_0A90C0: db $FF, $FF ; Layer 2
 #_0A90C2: db $A7, $27, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 29, 09 } | Size: 0F
 #_0A90C5: db $DC, $27, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 37, 09 } | Size: 03
 #_0A90C8: db $A6, $67, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 29, 19 } | Size: 0B
@@ -1676,29 +1676,29 @@ RoomDataTiles_0050:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0050:
-#_0A90DC: db $93, $46 ; Door 0x46 | Dir:03 | Pos:12
-#_0A90DE: db $B1, $40 ; Door 0x40 | Dir:01 | Pos:16
-#_0A90E0: db $FF, $FF ; Layer03 / End
+#_0A90DC: db $93, $46 ; Door 0x46 | East 12
+#_0A90DE: db $B1, $40 ; Door 0x40 | South 16
+#_0A90E0: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0001:
 #_0A90E2: db $66, $10 ; Floors and Layout
-#_0A90E4: db $FC, $21, $C0 ; 0x100: Corner (top, concave) ▛ | { 02, 07 } | Size: 00
+#_0A90E4: db $FC, $21, $C0 ; 0x100: Corner (top, concave) ▛ | { 02, 07 }
 #_0A90E7: db $1B, $1F, $01 ; 0x001: Wall (top, north) ↔ | { 06, 07 } | Size: 0F
 #_0A90EA: db $92, $1F, $01 ; 0x001: Wall (top, north) ↔ | { 24, 07 } | Size: 0B
-#_0A90ED: db $FF, $A1, $C2 ; 0x102: Corner (top, concave) ▜ | { 3A, 07 } | Size: 00
-#_0A90F0: db $FC, $25, $C1 ; 0x101: Corner (top, concave) ▙ | { 02, 17 } | Size: 00
+#_0A90ED: db $FF, $A1, $C2 ; 0x102: Corner (top, concave) ▜ | { 3A, 07 }
+#_0A90F0: db $FC, $25, $C1 ; 0x101: Corner (top, concave) ▙ | { 02, 17 }
 #_0A90F3: db $1B, $5F, $02 ; 0x002: Wall (top, south) ↔ | { 06, 17 } | Size: 0F
 #_0A90F6: db $92, $5F, $02 ; 0x002: Wall (top, south) ↔ | { 24, 17 } | Size: 0B
-#_0A90F9: db $FF, $A5, $C3 ; 0x103: Corner (top, concave) ▟ | { 3A, 17 } | Size: 00
-#_0A90FC: db $FC, $52, $88 ; 0x108: Corner (bottom, concave) ▛ | { 05, 0A } | Size: 00
+#_0A90F9: db $FF, $A5, $C3 ; 0x103: Corner (top, concave) ▟ | { 3A, 17 }
+#_0A90FC: db $FC, $52, $88 ; 0x108: Corner (bottom, concave) ▛ | { 05, 0A }
 #_0A90FF: db $27, $2B, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 0A } | Size: 0F
-#_0A9102: db $FF, $72, $8A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 0A } | Size: 00
+#_0A9102: db $FF, $72, $8A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 0A }
 #_0A9105: db $DC, $3A, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 0E } | Size: 02
-#_0A9108: db $FF, $75, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 14 } | Size: 00
+#_0A9108: db $FF, $75, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 14 }
 #_0A910B: db $14, $3A, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 0E } | Size: 02
-#_0A910E: db $FC, $55, $09 ; 0x109: Corner (bottom, concave) ▙ | { 05, 14 } | Size: 00
+#_0A910E: db $FC, $55, $09 ; 0x109: Corner (bottom, concave) ▙ | { 05, 14 }
 #_0A9111: db $27, $53, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 14 } | Size: 0F
 #_0A9114: db $A5, $52, $04 ; 0x004: Wall (bottom, south) ↔ | { 29, 14 } | Size: 06
 #_0A9117: db $A5, $2A, $03 ; 0x003: Wall (bottom, north) ↔ | { 29, 0A } | Size: 06
@@ -1707,19 +1707,19 @@ RoomDataTiles_0001:
 #_0A9120: db $00, $14, $00 ; 0x000: Ceiling ↔ | { 00, 05 } | Size: 00
 #_0A9123: db $00, $6C, $00 ; 0x000: Ceiling ↔ | { 00, 1B } | Size: 00
 #_0A9126: db $00, $74, $00 ; 0x000: Ceiling ↔ | { 00, 1D } | Size: 00
-#_0A9129: db $FF, $FF ; Layer01
+#_0A9129: db $FF, $FF ; Layer 1
 #_0A912B: db $04, $36, $01 ; 0x001: Wall (top, north) ↔ | { 01, 0D } | Size: 02
 #_0A912E: db $04, $46, $02 ; 0x002: Wall (top, south) ↔ | { 01, 11 } | Size: 02
 #_0A9131: db $EC, $36, $01 ; 0x001: Wall (top, north) ↔ | { 3B, 0D } | Size: 02
 #_0A9134: db $EC, $46, $02 ; 0x002: Wall (top, south) ↔ | { 3B, 11 } | Size: 02
-#_0A9137: db $FD, $E2, $BB ; 0x13B: Interroom spiral stairs down (bottom) | { 1E, 0A } | Size: 00
+#_0A9137: db $FD, $E2, $BB ; 0x13B: Interroom spiral stairs down (bottom) | { 1E, 0A }
 #_0A913A: db $59, $34, $33 ; 0x033: Carpet ↔ | { 16, 0D } | Size: 04
 #_0A913D: db $58, $34, $71 ; 0x071: Carpet trim ↕ | { 16, 0D } | Size: 00
 #_0A9140: db $5F, $42, $34 ; 0x034: Carpet trim ↔ | { 17, 10 } | Size: 0E
 #_0A9143: db $A4, $34, $71 ; 0x071: Carpet trim ↕ | { 29, 0D } | Size: 00
 #_0A9146: db $60, $31, $38 ; 0x038: Statues ↔ | { 18, 0C } | Size: 01
 #_0A9149: db $88, $31, $38 ; 0x038: Statues ↔ | { 22, 0C } | Size: 01
-#_0A914C: db $FF, $FF ; Layer02
+#_0A914C: db $FF, $FF ; Layer 2
 #_0A914E: db $17, $2A, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 05, 0A } | Size: 0E
 #_0A9151: db $57, $2A, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 15, 0A } | Size: 0E
 #_0A9154: db $97, $2A, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 25, 0A } | Size: 0E
@@ -1733,58 +1733,58 @@ RoomDataTiles_0001:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0001:
-#_0A9168: db $32, $46 ; Door 0x46 | Dir:02 | Pos:06
-#_0A916A: db $93, $46 ; Door 0x46 | Dir:03 | Pos:12
-#_0A916C: db $FF, $FF ; Layer03 / End
+#_0A9168: db $32, $46 ; Door 0x46 | West 06
+#_0A916A: db $93, $46 ; Door 0x46 | East 12
+#_0A916C: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0052:
 #_0A916E: db $62, $1C ; Floors and Layout
-#_0A9170: db $FC, $26, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 18 } | Size: 00
-#_0A9173: db $FC, $66, $05 ; 0x105: Corner (top, convex) ▜ | { 06, 18 } | Size: 00
+#_0A9170: db $FC, $26, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 18 }
+#_0A9173: db $FC, $66, $05 ; 0x105: Corner (top, convex) ▜ | { 06, 18 }
 #_0A9176: db $1B, $73, $61 ; 0x061: Wall (top, west) ↕ | { 06, 1C } | Size: 0F
-#_0A9179: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A } | Size: 00
-#_0A917C: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 } | Size: 00
+#_0A9179: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A }
+#_0A917C: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 }
 #_0A917F: db $6B, $23, $62 ; 0x062: Wall (top, east) ↕ | { 1A, 08 } | Size: 0F
 #_0A9182: db $69, $9A, $62 ; 0x062: Wall (top, east) ↕ | { 1A, 26 } | Size: 06
-#_0A9185: db $FD, $AC, $86 ; 0x106: Corner (top, convex) ▙ | { 1A, 32 } | Size: 00
+#_0A9185: db $FD, $AC, $86 ; 0x106: Corner (top, convex) ▙ | { 1A, 32 }
 #_0A9188: db $78, $CA, $01 ; 0x001: Wall (top, north) ↔ | { 1E, 32 } | Size: 02
-#_0A918B: db $FE, $2C, $82 ; 0x102: Corner (top, concave) ▜ | { 22, 32 } | Size: 00
+#_0A918B: db $FE, $2C, $82 ; 0x102: Corner (top, concave) ▜ | { 22, 32 }
 #_0A918E: db $88, $DA, $62 ; 0x062: Wall (top, east) ↕ | { 22, 36 } | Size: 02
-#_0A9191: db $FE, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 22, 3A } | Size: 00
-#_0A9194: db $FC, $52, $88 ; 0x108: Corner (bottom, concave) ▛ | { 05, 0A } | Size: 00
+#_0A9191: db $FE, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 22, 3A }
+#_0A9194: db $FC, $52, $88 ; 0x108: Corner (bottom, concave) ▛ | { 05, 0A }
 #_0A9197: db $25, $28, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 0A } | Size: 04
-#_0A919A: db $FD, $32, $8A ; 0x10A: Corner (bottom, concave) ▜ | { 13, 0A } | Size: 00
+#_0A919A: db $FD, $32, $8A ; 0x10A: Corner (bottom, concave) ▜ | { 13, 0A }
 #_0A919D: db $14, $3B, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 0E } | Size: 03
-#_0A91A0: db $FC, $55, $49 ; 0x109: Corner (bottom, concave) ▙ | { 05, 15 } | Size: 00
-#_0A91A3: db $FC, $95, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 09, 15 } | Size: 00
+#_0A91A0: db $FC, $55, $49 ; 0x109: Corner (bottom, concave) ▙ | { 05, 15 }
+#_0A91A3: db $FC, $95, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 09, 15 }
 #_0A91A6: db $27, $66, $63 ; 0x063: Wall (bottom, west) ↕ | { 09, 19 } | Size: 0E
-#_0A91A9: db $FC, $9D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 09, 37 } | Size: 00
+#_0A91A9: db $FC, $9D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 09, 37 }
 #_0A91AC: db $34, $DE, $04 ; 0x004: Wall (bottom, south) ↔ | { 0D, 37 } | Size: 02
 #_0A91AF: db $4F, $3B, $64 ; 0x064: Wall (bottom, east) ↕ | { 13, 0E } | Size: 0F
 #_0A91B2: db $4D, $B8, $64 ; 0x064: Wall (bottom, east) ↕ | { 13, 2E } | Size: 04
-#_0A91B5: db $FD, $3D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 13, 37 } | Size: 00
+#_0A91B5: db $FD, $3D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 13, 37 }
 #_0A91B8: db $15, $25, $22 ; 0x022: Rail ↔ | { 05, 09 } | Size: 05
 #_0A91BB: db $48, $26, $22 ; 0x022: Rail ↔ | { 12, 09 } | Size: 02
 #_0A91BE: db $5C, $26, $69 ; 0x069: Rail ↕ | { 17, 09 } | Size: 02
 #_0A91C1: db $5C, $D6, $69 ; 0x069: Rail ↕ | { 17, 35 } | Size: 02
 #_0A91C4: db $0C, $3C, $7F ; 0x07F: Wall torches (west) ↕ | { 03, 0F } | Size: 00
-#_0A91C7: db $17, $1F, $FA ; 0x22F: Pot | { 05, 07 } | Size: 0F
-#_0A91CA: db $87, $D7, $FA ; 0x22F: Pot | { 21, 35 } | Size: 0F
-#_0A91CD: db $FC, $E2, $B1 ; 0x131: Intraroom stairs north (separate layers) | { 0E, 0A } | Size: 00
-#_0A91D0: db $08, $73, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 1C } | Size: 03
-#_0A91D3: db $08, $B3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 2C } | Size: 03
+#_0A91C7: db $17, $1F, $FA ; 0x22F: Pot | { 05, 07 }
+#_0A91CA: db $87, $D7, $FA ; 0x22F: Pot | { 21, 35 }
+#_0A91CD: db $FC, $E2, $B1 ; 0x131: Intraroom stairs north (separate layers) | { 0E, 0A }
+#_0A91D0: db $08, $73, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 1C } | Size: 03
+#_0A91D3: db $08, $B3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 2C } | Size: 03
 #_0A91D6: db $08, $F2, $00 ; 0x000: Ceiling ↔ | { 02, 3C } | Size: 02
-#_0A91D9: db $7B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1E, 04 } | Size: 0F
-#_0A91DC: db $BB, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 04 } | Size: 0F
-#_0A91DF: db $7B, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1E, 14 } | Size: 0F
-#_0A91E2: db $BB, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 14 } | Size: 0F
-#_0A91E5: db $7B, $8B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1E, 22 } | Size: 0F
-#_0A91E8: db $BB, $8B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 22 } | Size: 0F
-#_0A91EB: db $9B, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 32 } | Size: 0E
-#_0A91EE: db $D9, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 32 } | Size: 06
-#_0A91F1: db $FF, $FF ; Layer01
+#_0A91D9: db $7B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1E, 04 } | Size: 0F
+#_0A91DC: db $BB, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 04 } | Size: 0F
+#_0A91DF: db $7B, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1E, 14 } | Size: 0F
+#_0A91E2: db $BB, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 14 } | Size: 0F
+#_0A91E5: db $7B, $8B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1E, 22 } | Size: 0F
+#_0A91E8: db $BB, $8B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 22 } | Size: 0F
+#_0A91EB: db $9B, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 32 } | Size: 0E
+#_0A91EE: db $D9, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 32 } | Size: 06
+#_0A91F1: db $FF, $FF ; Layer 1
 #_0A91F3: db $24, $3D, $33 ; 0x033: Carpet ↔ | { 09, 0F } | Size: 01
 #_0A91F6: db $25, $3D, $34 ; 0x034: Carpet trim ↔ | { 09, 0F } | Size: 05
 #_0A91F9: db $24, $4A, $34 ; 0x034: Carpet trim ↔ | { 09, 12 } | Size: 02
@@ -1798,7 +1798,7 @@ RoomDataTiles_0052:
 #_0A9211: db $04, $46, $02 ; 0x002: Wall (top, south) ↔ | { 01, 11 } | Size: 02
 #_0A9214: db $30, $EE, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 3B } | Size: 02
 #_0A9217: db $40, $EE, $62 ; 0x062: Wall (top, east) ↕ | { 10, 3B } | Size: 02
-#_0A921A: db $FF, $FF ; Layer02
+#_0A921A: db $FF, $FF ; Layer 2
 #_0A921C: db $1B, $2E, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 06, 0B } | Size: 0E
 #_0A921F: db $1B, $50, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 06, 14 } | Size: 0C
 #_0A9222: db $2A, $63, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0A, 18 } | Size: 0B
@@ -1810,42 +1810,42 @@ RoomDataTiles_0052:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0052:
-#_0A9230: db $32, $46 ; Door 0x46 | Dir:02 | Pos:06
-#_0A9232: db $91, $40 ; Door 0x40 | Dir:01 | Pos:12
-#_0A9234: db $71, $00 ; Door 0x00 | Dir:01 | Pos:0E
-#_0A9236: db $FF, $FF ; Layer03 / End
+#_0A9230: db $32, $46 ; Door 0x46 | West 06
+#_0A9232: db $91, $40 ; Door 0x40 | South 12
+#_0A9234: db $71, $00 ; Door 0x00 | South 0E
+#_0A9236: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0060:
 #_0A9238: db $62, $04 ; Floors and Layout
-#_0A923A: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 } | Size: 00
+#_0A923A: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 }
 #_0A923D: db $8B, $23, $61 ; 0x061: Wall (top, west) ↕ | { 22, 08 } | Size: 0F
 #_0A9240: db $8A, $9A, $61 ; 0x061: Wall (top, west) ↕ | { 22, 26 } | Size: 0A
-#_0A9243: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A } | Size: 00
-#_0A9246: db $FF, $AA, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 28 } | Size: 00
-#_0A9249: db $FF, $6A, $07 ; 0x107: Corner (top, convex) ▛ | { 36, 28 } | Size: 00
+#_0A9243: db $FE, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 3A }
+#_0A9246: db $FF, $AA, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 28 }
+#_0A9249: db $FF, $6A, $07 ; 0x107: Corner (top, convex) ▛ | { 36, 28 }
 #_0A924C: db $D9, $B3, $62 ; 0x062: Wall (top, east) ↕ | { 36, 2C } | Size: 07
-#_0A924F: db $FF, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 3A } | Size: 00
+#_0A924F: db $FF, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 3A }
 #_0A9252: db $CC, $2D, $64 ; 0x064: Wall (bottom, east) ↕ | { 33, 0B } | Size: 01
-#_0A9255: db $FF, $23, $16 ; 0x116: Kinked corner east (bottom) ▟ | { 32, 0C } | Size: 00
-#_0A9258: db $FF, $31, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 33, 07 } | Size: 00
-#_0A925B: db $FE, $91, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 29, 07 } | Size: 00
+#_0A9255: db $FF, $23, $16 ; 0x116: Kinked corner east (bottom) ▟ | { 32, 0C }
+#_0A9258: db $FF, $31, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 33, 07 }
+#_0A925B: db $FE, $91, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 29, 07 }
 #_0A925E: db $A4, $2D, $63 ; 0x063: Wall (bottom, west) ↕ | { 29, 0B } | Size: 01
-#_0A9261: db $FE, $A3, $14 ; 0x114: Kinked corner west (bottom) ▙ | { 2A, 0C } | Size: 00
+#_0A9261: db $FE, $A3, $14 ; 0x114: Kinked corner west (bottom) ▙ | { 2A, 0C }
 #_0A9264: db $B4, $1E, $03 ; 0x003: Wall (bottom, north) ↔ | { 2D, 07 } | Size: 02
 #_0A9267: db $A6, $5D, $63 ; 0x063: Wall (bottom, west) ↕ | { 29, 17 } | Size: 09
-#_0A926A: db $FE, $A5, $D5 ; 0x115: Kinked corner west (bottom) ▛ | { 2A, 17 } | Size: 00
-#_0A926D: db $FE, $9A, $89 ; 0x109: Corner (bottom, concave) ▙ | { 29, 2A } | Size: 00
+#_0A926A: db $FE, $A5, $D5 ; 0x115: Kinked corner west (bottom) ▛ | { 2A, 17 }
+#_0A926D: db $FE, $9A, $89 ; 0x109: Corner (bottom, concave) ▙ | { 29, 2A }
 #_0A9270: db $CC, $5D, $64 ; 0x064: Wall (bottom, east) ↕ | { 33, 17 } | Size: 01
-#_0A9273: db $FF, $25, $D7 ; 0x117: Kinked corner east (bottom) ▜ | { 32, 17 } | Size: 00
-#_0A9276: db $FF, $36, $8E ; 0x10E: Corner (bottom, convex) ▙ | { 33, 1A } | Size: 00
-#_0A9279: db $FF, $76, $8A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 1A } | Size: 00
+#_0A9273: db $FF, $25, $D7 ; 0x117: Kinked corner east (bottom) ▜ | { 32, 17 }
+#_0A9276: db $FF, $36, $8E ; 0x10E: Corner (bottom, convex) ▙ | { 33, 1A }
+#_0A9279: db $FF, $76, $8A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 1A }
 #_0A927C: db $DC, $7B, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 1E } | Size: 03
-#_0A927F: db $FF, $79, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 25 } | Size: 00
-#_0A9282: db $FF, $39, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 33, 25 } | Size: 00
+#_0A927F: db $FF, $79, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 25 }
+#_0A9282: db $FF, $39, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 33, 25 }
 #_0A9285: db $CC, $A4, $64 ; 0x064: Wall (bottom, east) ↕ | { 33, 29 } | Size: 00
-#_0A9288: db $FF, $3A, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 33, 2A } | Size: 00
+#_0A9288: db $FF, $3A, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 33, 2A }
 #_0A928B: db $B4, $AA, $04 ; 0x004: Wall (bottom, south) ↔ | { 2D, 2A } | Size: 02
 #_0A928E: db $A4, $3C, $2F ; 0x02F: Rail wall (north) ↔ | { 29, 0F } | Size: 00
 #_0A9291: db $A4, $54, $30 ; 0x030: Rail wall (south) ↔ | { 29, 15 } | Size: 00
@@ -1858,16 +1858,16 @@ RoomDataTiles_0060:
 #_0A92A6: db $A0, $57, $8A ; 0x08A: Long rail ↕ | { 28, 15 } | Size: 03
 #_0A92A9: db $A0, $B8, $22 ; 0x022: Rail ↔ | { 28, 2E } | Size: 00
 #_0A92AC: db $CC, $B8, $22 ; 0x022: Rail ↔ | { 33, 2E } | Size: 00
-#_0A92AF: db $E3, $23, $FA ; 0x22F: Pot | { 38, 08 } | Size: 0F
-#_0A92B2: db $9B, $23, $FA ; 0x22F: Pot | { 26, 08 } | Size: 0F
+#_0A92AF: db $E3, $23, $FA ; 0x22F: Pot | { 38, 08 }
+#_0A92B2: db $9B, $23, $FA ; 0x22F: Pot | { 26, 08 }
 #_0A92B5: db $89, $3C, $76 ; 0x076: Wall decors (west) ↕ | { 22, 0F } | Size: 04
 #_0A92B8: db $B0, $E9, $06 ; 0x006: Wall columns (south) ↔ | { 2C, 3A } | Size: 01
-#_0A92BB: db $FE, $CD, $A0 ; 0x120: Small torch (lit) | { 2C, 36 } | Size: 00
-#_0A92BE: db $FF, $2D, $A0 ; 0x120: Small torch (lit) | { 32, 36 } | Size: 00
-#_0A92C1: db $B8, $AB, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2E, 2A } | Size: 03
-#_0A92C4: db $E8, $B3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 2C } | Size: 03
+#_0A92BB: db $FE, $CD, $A0 ; 0x120: Small torch (lit) | { 2C, 36 }
+#_0A92BE: db $FF, $2D, $A0 ; 0x120: Small torch (lit) | { 32, 36 }
+#_0A92C1: db $B8, $AB, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2E, 2A }
+#_0A92C4: db $E8, $B3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 2C } | Size: 03
 #_0A92C7: db $E8, $F2, $00 ; 0x000: Ceiling ↔ | { 3A, 3C } | Size: 02
-#_0A92CA: db $FF, $FF ; Layer01
+#_0A92CA: db $FF, $FF ; Layer 1
 #_0A92CC: db $A9, $3C, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 0F } | Size: 04
 #_0A92CF: db $C9, $3C, $62 ; 0x062: Wall (top, east) ↕ | { 32, 0F } | Size: 04
 #_0A92D2: db $B9, $2D, $70 ; 0x070: Carpet ↕ | { 2E, 0B } | Size: 05
@@ -1882,7 +1882,7 @@ RoomDataTiles_0060:
 #_0A92ED: db $C0, $07, $62 ; 0x062: Wall (top, east) ↕ | { 30, 01 } | Size: 03
 #_0A92F0: db $EC, $76, $01 ; 0x001: Wall (top, north) ↔ | { 3B, 1D } | Size: 02
 #_0A92F3: db $EC, $86, $02 ; 0x002: Wall (top, south) ↔ | { 3B, 21 } | Size: 02
-#_0A92F6: db $FF, $FF ; Layer02
+#_0A92F6: db $FF, $FF ; Layer 2
 #_0A92F8: db $AA, $1D, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 2A, 07 } | Size: 09
 #_0A92FB: db $AA, $5F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 2A, 17 } | Size: 0B
 #_0A92FE: db $D8, $6E, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 36, 1B } | Size: 02
@@ -1893,13 +1893,13 @@ RoomDataTiles_0060:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0060:
-#_0A9309: db $50, $40 ; Door 0x40 | Dir:00 | Pos:0A
-#_0A930B: db $A3, $40 ; Door 0x40 | Dir:03 | Pos:14
-#_0A930D: db $A3, $16 ; Door 0x16 | Dir:03 | Pos:14
-#_0A930F: db $63, $00 ; Door 0x00 | Dir:03 | Pos:0C
-#_0A9311: db $81, $00 ; Door 0x00 | Dir:01 | Pos:10
-#_0A9313: db $81, $12 ; Door 0x12 | Dir:01 | Pos:10
-#_0A9315: db $FF, $FF ; Layer03 / End
+#_0A9309: db $50, $40 ; Door 0x40 | North 0A
+#_0A930B: db $A3, $40 ; Door 0x40 | East 14
+#_0A930D: db $A3, $16 ; Door 0x16 | East 14
+#_0A930F: db $63, $00 ; Door 0x00 | East 0C
+#_0A9311: db $81, $00 ; Door 0x00 | South 10
+#_0A9313: db $81, $12 ; Door 0x12 | South 10
+#_0A9315: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -1914,39 +1914,39 @@ RoomDataTiles_0061:
 #_0A932B: db $09, $34, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 02, 0D } | Size: 04
 #_0A932E: db $09, $88, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 02, 22 } | Size: 04
 #_0A9331: db $30, $B2, $02 ; 0x002: Wall (top, south) ↔ | { 0C, 2C } | Size: 02
-#_0A9334: db $FD, $0B, $05 ; 0x105: Corner (top, convex) ▜ | { 10, 2C } | Size: 00
+#_0A9334: db $FD, $0B, $05 ; 0x105: Corner (top, convex) ▜ | { 10, 2C }
 #_0A9337: db $41, $C1, $61 ; 0x061: Wall (top, west) ↕ | { 10, 30 } | Size: 05
-#_0A933A: db $FD, $0E, $81 ; 0x101: Corner (top, concave) ▙ | { 10, 3A } | Size: 00
-#_0A933D: db $FE, $CE, $83 ; 0x103: Corner (top, concave) ▟ | { 2C, 3A } | Size: 00
+#_0A933A: db $FD, $0E, $81 ; 0x101: Corner (top, concave) ▙ | { 10, 3A }
+#_0A933D: db $FE, $CE, $83 ; 0x103: Corner (top, concave) ▟ | { 2C, 3A }
 #_0A9340: db $B1, $C1, $62 ; 0x062: Wall (top, east) ↕ | { 2C, 30 } | Size: 05
-#_0A9343: db $FE, $CB, $07 ; 0x107: Corner (top, convex) ▛ | { 2C, 2C } | Size: 00
+#_0A9343: db $FE, $CB, $07 ; 0x107: Corner (top, convex) ▛ | { 2C, 2C }
 #_0A9346: db $C0, $B2, $02 ; 0x002: Wall (top, south) ↔ | { 30, 2C } | Size: 02
 #_0A9349: db $D1, $AC, $10 ; 0x010: Diagonal wall B ◢ (top) | { 34, 2B } | Size: 04
 #_0A934C: db $D1, $10, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 34, 04 } | Size: 04
 #_0A934F: db $0B, $38, $61 ; 0x061: Wall (top, west) ↕ | { 02, 0E } | Size: 0C
 #_0A9352: db $EB, $38, $62 ; 0x062: Wall (top, east) ↕ | { 3A, 0E } | Size: 0C
-#_0A9355: db $FC, $55, $08 ; 0x108: Corner (bottom, concave) ▛ | { 05, 14 } | Size: 00
+#_0A9355: db $FC, $55, $08 ; 0x108: Corner (bottom, concave) ▛ | { 05, 14 }
 #_0A9358: db $24, $52, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 14 } | Size: 02
-#_0A935B: db $FC, $F5, $0C ; 0x10C: Corner (bottom, convex) ▟ | { 0F, 14 } | Size: 00
+#_0A935B: db $FC, $F5, $0C ; 0x10C: Corner (bottom, convex) ▟ | { 0F, 14 }
 #_0A935E: db $3C, $3A, $63 ; 0x063: Wall (bottom, west) ↕ | { 0F, 0E } | Size: 02
-#_0A9361: db $FC, $F2, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0F, 0B } | Size: 00
+#_0A9361: db $FC, $F2, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0F, 0B }
 #_0A9364: db $4F, $2C, $03 ; 0x003: Wall (bottom, north) ↔ | { 13, 0B } | Size: 0C
 #_0A9367: db $B4, $3A, $64 ; 0x064: Wall (bottom, east) ↕ | { 2D, 0E } | Size: 02
-#_0A936A: db $FE, $D2, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 2D, 0B } | Size: 00
-#_0A936D: db $FE, $D5, $0E ; 0x10E: Corner (bottom, convex) ▙ | { 2D, 14 } | Size: 00
+#_0A936A: db $FE, $D2, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 2D, 0B }
+#_0A936D: db $FE, $D5, $0E ; 0x10E: Corner (bottom, convex) ▙ | { 2D, 14 }
 #_0A9370: db $C4, $52, $03 ; 0x003: Wall (bottom, north) ↔ | { 31, 14 } | Size: 02
-#_0A9373: db $FF, $75, $0A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 14 } | Size: 00
+#_0A9373: db $FF, $75, $0A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 14 }
 #_0A9376: db $14, $89, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 05, 22 } | Size: 01
 #_0A9379: db $15, $62, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 18 } | Size: 06
 #_0A937C: db $30, $A7, $04 ; 0x004: Wall (bottom, south) ↔ | { 0C, 29 } | Size: 03
-#_0A937F: db $FD, $3A, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 13, 29 } | Size: 00
+#_0A937F: db $FD, $3A, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 13, 29 }
 #_0A9382: db $4D, $B4, $63 ; 0x063: Wall (bottom, west) ↕ | { 13, 2D } | Size: 04
-#_0A9385: db $FD, $3D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 13, 37 } | Size: 00
+#_0A9385: db $FD, $3D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 13, 37 }
 #_0A9388: db $5E, $DC, $04 ; 0x004: Wall (bottom, south) ↔ | { 17, 37 } | Size: 08
-#_0A938B: db $FE, $9D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 29, 37 } | Size: 00
+#_0A938B: db $FE, $9D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 29, 37 }
 #_0A938E: db $A5, $B4, $64 ; 0x064: Wall (bottom, east) ↕ | { 29, 2D } | Size: 04
 #_0A9391: db $B0, $A7, $04 ; 0x004: Wall (bottom, south) ↔ | { 2C, 29 } | Size: 03
-#_0A9394: db $FE, $9A, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 29, 29 } | Size: 00
+#_0A9394: db $FE, $9A, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 29, 29 }
 #_0A9397: db $D0, $A1, $1C ; 0x01C: Diagonal wall B ◢ (bottom) | { 34, 28 } | Size: 01
 #_0A939A: db $DD, $62, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 18 } | Size: 06
 #_0A939D: db $14, $4D, $22 ; 0x022: Rail ↔ | { 05, 13 } | Size: 01
@@ -1957,27 +1957,27 @@ RoomDataTiles_0061:
 #_0A93AC: db $A9, $28, $22 ; 0x022: Rail ↔ | { 2A, 0A } | Size: 04
 #_0A93AF: db $C5, $2A, $69 ; 0x069: Rail ↕ | { 31, 0A } | Size: 06
 #_0A93B2: db $D8, $4D, $22 ; 0x022: Rail ↔ | { 36, 13 } | Size: 01
-#_0A93B5: db $FC, $A5, $32 ; 0x132: Intraroom stairs north (merged layers) | { 0A, 14 } | Size: 00
-#_0A93B8: db $FD, $E2, $F2 ; 0x132: Intraroom stairs north (merged layers) | { 1E, 0B } | Size: 00
-#_0A93BB: db $FF, $25, $32 ; 0x132: Intraroom stairs north (merged layers) | { 32, 14 } | Size: 00
+#_0A93B5: db $FC, $A5, $32 ; 0x132: Intraroom stairs north (merged layers) | { 0A, 14 }
+#_0A93B8: db $FD, $E2, $F2 ; 0x132: Intraroom stairs north (merged layers) | { 1E, 0B }
+#_0A93BB: db $FF, $25, $32 ; 0x132: Intraroom stairs north (merged layers) | { 32, 14 }
 #_0A93BE: db $58, $EE, $3B ; 0x03B: Wall decors (south) ↔ | { 16, 3B } | Size: 02
 #_0A93C1: db $30, $12, $05 ; 0x005: Wall columns (north) ↔ | { 0C, 04 } | Size: 02
 #_0A93C4: db $98, $12, $05 ; 0x005: Wall columns (north) ↔ | { 26, 04 } | Size: 02
 #_0A93C7: db $68, $11, $3A ; 0x03A: Wall decors (north) ↔ | { 1A, 04 } | Size: 01
-#_0A93CA: db $7A, $13, $F9 ; 0x21E: Interroom straight stairs up (north, top) | { 1E, 04 } | Size: 0B
+#_0A93CA: db $7A, $13, $F9 ; 0x21E: Interroom straight stairs up (north, top) | { 1E, 04 }
 #_0A93CD: db $70, $9F, $70 ; 0x070: Carpet ↕ | { 1C, 27 } | Size: 03
 #_0A93D0: db $80, $9F, $70 ; 0x070: Carpet ↕ | { 20, 27 } | Size: 03
 #_0A93D3: db $71, $9C, $34 ; 0x034: Carpet trim ↔ | { 1C, 27 } | Size: 04
 #_0A93D6: db $72, $A3, $71 ; 0x071: Carpet trim ↕ | { 1C, 28 } | Size: 0B
 #_0A93D9: db $8E, $A3, $71 ; 0x071: Carpet trim ↕ | { 23, 28 } | Size: 0B
-#_0A93DC: db $FD, $AA, $20 ; 0x120: Small torch (lit) | { 1A, 28 } | Size: 00
-#_0A93DF: db $FD, $AB, $20 ; 0x120: Small torch (lit) | { 1A, 2C } | Size: 00
-#_0A93E2: db $FD, $AC, $20 ; 0x120: Small torch (lit) | { 1A, 30 } | Size: 00
-#_0A93E5: db $FD, $AD, $20 ; 0x120: Small torch (lit) | { 1A, 34 } | Size: 00
-#_0A93E8: db $FE, $4A, $20 ; 0x120: Small torch (lit) | { 24, 28 } | Size: 00
-#_0A93EB: db $FE, $4B, $20 ; 0x120: Small torch (lit) | { 24, 2C } | Size: 00
-#_0A93EE: db $FE, $4C, $20 ; 0x120: Small torch (lit) | { 24, 30 } | Size: 00
-#_0A93F1: db $FE, $4D, $20 ; 0x120: Small torch (lit) | { 24, 34 } | Size: 00
+#_0A93DC: db $FD, $AA, $20 ; 0x120: Small torch (lit) | { 1A, 28 }
+#_0A93DF: db $FD, $AB, $20 ; 0x120: Small torch (lit) | { 1A, 2C }
+#_0A93E2: db $FD, $AC, $20 ; 0x120: Small torch (lit) | { 1A, 30 }
+#_0A93E5: db $FD, $AD, $20 ; 0x120: Small torch (lit) | { 1A, 34 }
+#_0A93E8: db $FE, $4A, $20 ; 0x120: Small torch (lit) | { 24, 28 }
+#_0A93EB: db $FE, $4B, $20 ; 0x120: Small torch (lit) | { 24, 2C }
+#_0A93EE: db $FE, $4C, $20 ; 0x120: Small torch (lit) | { 24, 30 }
+#_0A93F1: db $FE, $4D, $20 ; 0x120: Small torch (lit) | { 24, 34 }
 #_0A93F4: db $4D, $3D, $33 ; 0x033: Carpet ↔ | { 13, 0F } | Size: 05
 #_0A93F7: db $4D, $4D, $33 ; 0x033: Carpet ↔ | { 13, 13 } | Size: 05
 #_0A93FA: db $4D, $5D, $33 ; 0x033: Carpet ↔ | { 13, 17 } | Size: 05
@@ -1991,10 +1991,10 @@ RoomDataTiles_0061:
 #_0A9412: db $27, $97, $34 ; 0x034: Carpet trim ↔ | { 09, 25 } | Size: 0F
 #_0A9415: db $73, $97, $34 ; 0x034: Carpet trim ↔ | { 1C, 25 } | Size: 0F
 #_0A9418: db $BD, $94, $34 ; 0x034: Carpet trim ↔ | { 2F, 25 } | Size: 04
-#_0A941B: db $FD, $A3, $9C ; 0x11C: Large brazier | { 1A, 0E } | Size: 00
-#_0A941E: db $FE, $23, $9C ; 0x11C: Large brazier | { 22, 0E } | Size: 00
-#_0A9421: db $FD, $65, $9C ; 0x11C: Large brazier | { 16, 16 } | Size: 00
-#_0A9424: db $FE, $65, $9C ; 0x11C: Large brazier | { 26, 16 } | Size: 00
+#_0A941B: db $FD, $A3, $9C ; 0x11C: Large brazier | { 1A, 0E }
+#_0A941E: db $FE, $23, $9C ; 0x11C: Large brazier | { 22, 0E }
+#_0A9421: db $FD, $65, $9C ; 0x11C: Large brazier | { 16, 16 }
+#_0A9424: db $FE, $65, $9C ; 0x11C: Large brazier | { 26, 16 }
 #_0A9427: db $30, $70, $39 ; 0x039: Columns ↔ | { 0C, 1C } | Size: 00
 #_0A942A: db $40, $70, $39 ; 0x039: Columns ↔ | { 10, 1C } | Size: 00
 #_0A942D: db $50, $70, $39 ; 0x039: Columns ↔ | { 14, 1C } | Size: 00
@@ -2004,71 +2004,71 @@ RoomDataTiles_0061:
 #_0A9439: db $70, $81, $3D ; 0x03D: Tall torches ↔ | { 1C, 20 } | Size: 01
 #_0A943C: db $09, $11, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 02, 04 } | Size: 05
 #_0A943F: db $09, $9D, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 02, 27 } | Size: 05
-#_0A9442: db $03, $C3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 30 } | Size: 0F
-#_0A9445: db $C3, $C3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 30, 30 } | Size: 0F
+#_0A9442: db $03, $C3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 30 } | Size: 0F
+#_0A9445: db $C3, $C3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 30, 30 } | Size: 0F
 #_0A9448: db $D5, $BD, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 35, 2F } | Size: 05
 #_0A944B: db $D5, $11, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 35, 04 } | Size: 05
-#_0A944E: db $FF, $FF ; Layer01
-#_0A9450: db $FF, $FF ; Layer02
+#_0A944E: db $FF, $FF ; Layer 1
+#_0A9450: db $FF, $FF ; Layer 2
 #_0A9452: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0061:
-#_0A9454: db $42, $02 ; Door 0x02 | Dir:02 | Pos:08
-#_0A9456: db $42, $16 ; Door 0x16 | Dir:02 | Pos:08
-#_0A9458: db $A3, $02 ; Door 0x02 | Dir:03 | Pos:14
-#_0A945A: db $A3, $16 ; Door 0x16 | Dir:03 | Pos:14
-#_0A945C: db $A1, $02 ; Door 0x02 | Dir:01 | Pos:14
-#_0A945E: db $A1, $12 ; Door 0x12 | Dir:01 | Pos:14
-#_0A9460: db $02, $00 ; Door 0x00 | Dir:02 | Pos:00
-#_0A9462: db $FF, $FF ; Layer03 / End
+#_0A9454: db $42, $02 ; Door 0x02 | West 08
+#_0A9456: db $42, $16 ; Door 0x16 | West 08
+#_0A9458: db $A3, $02 ; Door 0x02 | East 14
+#_0A945A: db $A3, $16 ; Door 0x16 | East 14
+#_0A945C: db $A1, $02 ; Door 0x02 | South 14
+#_0A945E: db $A1, $12 ; Door 0x12 | South 14
+#_0A9460: db $02, $00 ; Door 0x00 | West 00
+#_0A9462: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0062:
 #_0A9464: db $62, $1C ; Floors and Layout
-#_0A9466: db $FC, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 04 } | Size: 00
+#_0A9466: db $FC, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 04 }
 #_0A9469: db $19, $23, $61 ; 0x061: Wall (top, west) ↕ | { 06, 08 } | Size: 07
-#_0A946C: db $FC, $65, $84 ; 0x104: Corner (top, convex) ▟ | { 06, 16 } | Size: 00
-#_0A946F: db $FC, $25, $80 ; 0x100: Corner (top, concave) ▛ | { 02, 16 } | Size: 00
-#_0A9472: db $FC, $2A, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 28 } | Size: 00
-#_0A9475: db $FC, $6A, $05 ; 0x105: Corner (top, convex) ▜ | { 06, 28 } | Size: 00
+#_0A946C: db $FC, $65, $84 ; 0x104: Corner (top, convex) ▟ | { 06, 16 }
+#_0A946F: db $FC, $25, $80 ; 0x100: Corner (top, concave) ▛ | { 02, 16 }
+#_0A9472: db $FC, $2A, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 28 }
+#_0A9475: db $FC, $6A, $05 ; 0x105: Corner (top, convex) ▜ | { 06, 28 }
 #_0A9478: db $19, $B3, $61 ; 0x061: Wall (top, west) ↕ | { 06, 2C } | Size: 07
-#_0A947B: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A } | Size: 00
-#_0A947E: db $FD, $CE, $83 ; 0x103: Corner (top, concave) ▟ | { 1C, 3A } | Size: 00
+#_0A947B: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A }
+#_0A947E: db $FD, $CE, $83 ; 0x103: Corner (top, concave) ▟ | { 1C, 3A }
 #_0A9481: db $71, $C1, $62 ; 0x062: Wall (top, east) ↕ | { 1C, 30 } | Size: 05
-#_0A9484: db $FD, $CB, $47 ; 0x107: Corner (top, convex) ▛ | { 1C, 2D } | Size: 00
+#_0A9484: db $FD, $CB, $47 ; 0x107: Corner (top, convex) ▛ | { 1C, 2D }
 #_0A9487: db $81, $B5, $02 ; 0x002: Wall (top, south) ↔ | { 20, 2D } | Size: 05
 #_0A948A: db $AB, $23, $62 ; 0x062: Wall (top, east) ↕ | { 2A, 08 } | Size: 0F
 #_0A948D: db $A9, $98, $62 ; 0x062: Wall (top, east) ↕ | { 2A, 26 } | Size: 04
-#_0A9490: db $FE, $AB, $43 ; 0x103: Corner (top, concave) ▟ | { 2A, 2D } | Size: 00
-#_0A9493: db $FE, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 2A, 04 } | Size: 00
-#_0A9496: db $FC, $91, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 09, 07 } | Size: 00
+#_0A9490: db $FE, $AB, $43 ; 0x103: Corner (top, concave) ▟ | { 2A, 2D }
+#_0A9493: db $FE, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 2A, 04 }
+#_0A9496: db $FC, $91, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 09, 07 }
 #_0A9499: db $34, $1E, $03 ; 0x003: Wall (bottom, north) ↔ | { 0D, 07 } | Size: 02
-#_0A949C: db $FD, $31, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 13, 07 } | Size: 00
-#_0A949F: db $FD, $39, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 13, 25 } | Size: 00
+#_0A949C: db $FD, $31, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 13, 07 }
+#_0A949F: db $FD, $39, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 13, 25 }
 #_0A94A2: db $34, $AA, $04 ; 0x004: Wall (bottom, south) ↔ | { 0D, 2A } | Size: 02
 #_0A94A5: db $24, $A4, $63 ; 0x063: Wall (bottom, west) ↕ | { 09, 29 } | Size: 00
-#_0A94A8: db $FC, $9A, $89 ; 0x109: Corner (bottom, concave) ▙ | { 09, 2A } | Size: 00
-#_0A94AB: db $FC, $99, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 09, 25 } | Size: 00
-#_0A94AE: db $FC, $59, $49 ; 0x109: Corner (bottom, concave) ▙ | { 05, 25 } | Size: 00
+#_0A94A8: db $FC, $9A, $89 ; 0x109: Corner (bottom, concave) ▙ | { 09, 2A }
+#_0A94AB: db $FC, $99, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 09, 25 }
+#_0A94AE: db $FC, $59, $49 ; 0x109: Corner (bottom, concave) ▙ | { 05, 25 }
 #_0A94B1: db $14, $77, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 1D } | Size: 03
-#_0A94B4: db $FC, $56, $48 ; 0x108: Corner (bottom, concave) ▛ | { 05, 19 } | Size: 00
-#_0A94B7: db $FC, $96, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 09, 19 } | Size: 00
+#_0A94B4: db $FC, $56, $48 ; 0x108: Corner (bottom, concave) ▛ | { 05, 19 }
+#_0A94B7: db $FC, $96, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 09, 19 }
 #_0A94BA: db $25, $2E, $63 ; 0x063: Wall (bottom, west) ↕ | { 09, 0B } | Size: 06
-#_0A94BD: db $FD, $34, $0E ; 0x10E: Corner (bottom, convex) ▙ | { 13, 10 } | Size: 00
+#_0A94BD: db $FD, $34, $0E ; 0x10E: Corner (bottom, convex) ▙ | { 13, 10 }
 #_0A94C0: db $5B, $40, $6C ; 0x06C: Rail wall (west) ↕ | { 16, 10 } | Size: 0C
 #_0A94C3: db $4C, $2E, $64 ; 0x064: Wall (bottom, east) ↕ | { 13, 0B } | Size: 02
 #_0A94C6: db $4C, $A4, $64 ; 0x064: Wall (bottom, east) ↕ | { 13, 29 } | Size: 00
-#_0A94C9: db $FD, $3A, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 13, 2A } | Size: 00
+#_0A94C9: db $FD, $3A, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 13, 2A }
 #_0A94CC: db $79, $3C, $03 ; 0x003: Wall (bottom, north) ↔ | { 1E, 0F } | Size: 04
-#_0A94CF: db $FD, $E4, $12 ; 0x112: Kinked corner north (bottom) ▛ | { 1E, 10 } | Size: 00
+#_0A94CF: db $FD, $E4, $12 ; 0x112: Kinked corner north (bottom) ▛ | { 1E, 10 }
 #_0A94D2: db $79, $98, $04 ; 0x004: Wall (bottom, south) ↔ | { 1E, 26 } | Size: 04
-#_0A94D5: db $FD, $E9, $53 ; 0x113: Kinked corner south (bottom) ▙ | { 1E, 25 } | Size: 00
-#_0A94D8: db $FE, $73, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 27, 0F } | Size: 00
+#_0A94D5: db $FD, $E9, $53 ; 0x113: Kinked corner south (bottom) ▙ | { 1E, 25 }
+#_0A94D8: db $FE, $73, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 27, 0F }
 #_0A94DB: db $9E, $4D, $64 ; 0x064: Wall (bottom, east) ↕ | { 27, 13 } | Size: 09
-#_0A94DE: db $FE, $79, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 27, 26 } | Size: 00
+#_0A94DE: db $FE, $79, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 27, 26 }
 #_0A94E1: db $73, $3D, $6D ; 0x06D: Rail wall (east) ↕ | { 1C, 0F } | Size: 0D
 #_0A94E4: db $5F, $1F, $8A ; 0x08A: Long rail ↕ | { 17, 07 } | Size: 0F
 #_0A94E7: db $5C, $AC, $69 ; 0x069: Rail ↕ | { 17, 2B } | Size: 00
@@ -2079,23 +2079,23 @@ RoomDataTiles_0062:
 #_0A94F6: db $98, $39, $22 ; 0x022: Rail ↔ | { 26, 0E } | Size: 01
 #_0A94F9: db $70, $AA, $22 ; 0x022: Rail ↔ | { 1C, 2A } | Size: 02
 #_0A94FC: db $98, $A9, $22 ; 0x022: Rail ↔ | { 26, 2A } | Size: 01
-#_0A94FF: db $FE, $23, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 22, 0F } | Size: 00
+#_0A94FF: db $FE, $23, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 22, 0F }
 #_0A9502: db $AC, $3F, $77 ; 0x077: Wall decors (east) ↕ | { 2B, 0F } | Size: 03
 #_0A9505: db $30, $E9, $06 ; 0x006: Wall columns (south) ↔ | { 0C, 3A } | Size: 01
-#_0A9508: db $FC, $CD, $A0 ; 0x120: Small torch (lit) | { 0C, 36 } | Size: 00
-#_0A950B: db $FD, $2D, $A0 ; 0x120: Small torch (lit) | { 12, 36 } | Size: 00
-#_0A950E: db $A3, $AF, $FA ; 0x22F: Pot | { 28, 2B } | Size: 0F
-#_0A9511: db $BB, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 04 } | Size: 0F
-#_0A9514: db $BB, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 14 } | Size: 0F
-#_0A9517: db $BB, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 24 } | Size: 0F
-#_0A951A: db $BB, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 34 } | Size: 0E
-#_0A951D: db $83, $C6, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 20, 31 } | Size: 0E
+#_0A9508: db $FC, $CD, $A0 ; 0x120: Small torch (lit) | { 0C, 36 }
+#_0A950B: db $FD, $2D, $A0 ; 0x120: Small torch (lit) | { 12, 36 }
+#_0A950E: db $A3, $AF, $FA ; 0x22F: Pot | { 28, 2B }
+#_0A9511: db $BB, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 04 } | Size: 0F
+#_0A9514: db $BB, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 14 } | Size: 0F
+#_0A9517: db $BB, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 24 } | Size: 0F
+#_0A951A: db $BB, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 34 } | Size: 0E
+#_0A951D: db $83, $C6, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 20, 31 } | Size: 0E
 #_0A9520: db $81, $F3, $00 ; 0x000: Ceiling ↔ | { 20, 3C } | Size: 07
-#_0A9523: db $08, $B3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 2C } | Size: 03
+#_0A9523: db $08, $B3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 2C } | Size: 03
 #_0A9526: db $08, $F2, $00 ; 0x000: Ceiling ↔ | { 02, 3C } | Size: 02
-#_0A9529: db $08, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 03
+#_0A9529: db $08, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 03
 #_0A952C: db $08, $52, $00 ; 0x000: Ceiling ↔ | { 02, 14 } | Size: 02
-#_0A952F: db $FF, $FF ; Layer01
+#_0A952F: db $FF, $FF ; Layer 1
 #_0A9531: db $5C, $43, $01 ; 0x001: Wall (top, north) ↔ | { 17, 10 } | Size: 03
 #_0A9534: db $70, $41, $01 ; 0x001: Wall (top, north) ↔ | { 1C, 10 } | Size: 01
 #_0A9537: db $5C, $97, $02 ; 0x002: Wall (top, south) ↔ | { 17, 25 } | Size: 03
@@ -2112,7 +2112,7 @@ RoomDataTiles_0062:
 #_0A9558: db $04, $86, $02 ; 0x002: Wall (top, south) ↔ | { 01, 21 } | Size: 02
 #_0A955B: db $30, $07, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 01 } | Size: 03
 #_0A955E: db $40, $07, $62 ; 0x062: Wall (top, east) ↕ | { 10, 01 } | Size: 03
-#_0A9561: db $FF, $FF ; Layer02
+#_0A9561: db $FF, $FF ; Layer 2
 #_0A9563: db $2A, $1F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0A, 07 } | Size: 0B
 #_0A9566: db $2A, $5F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0A, 17 } | Size: 0B
 #_0A9569: db $15, $67, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 05, 19 } | Size: 07
@@ -2124,13 +2124,13 @@ RoomDataTiles_0062:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0062:
-#_0A9577: db $42, $40 ; Door 0x40 | Dir:02 | Pos:08
-#_0A9579: db $42, $16 ; Door 0x16 | Dir:02 | Pos:08
-#_0A957B: db $30, $40 ; Door 0x40 | Dir:00 | Pos:06
-#_0A957D: db $10, $00 ; Door 0x00 | Dir:00 | Pos:02
-#_0A957F: db $61, $00 ; Door 0x00 | Dir:01 | Pos:0C
-#_0A9581: db $61, $12 ; Door 0x12 | Dir:01 | Pos:0C
-#_0A9583: db $FF, $FF ; Layer03 / End
+#_0A9577: db $42, $40 ; Door 0x40 | West 08
+#_0A9579: db $42, $16 ; Door 0x16 | West 08
+#_0A957B: db $30, $40 ; Door 0x40 | North 06
+#_0A957D: db $10, $00 ; Door 0x00 | North 02
+#_0A957F: db $61, $00 ; Door 0x00 | South 0C
+#_0A9581: db $61, $12 ; Door 0x12 | South 0C
+#_0A9583: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -2139,69 +2139,69 @@ RoomDataTiles_00C8:
 #_0A9587: db $98, $92, $3A ; 0x03A: Wall decors (north) ↔ | { 26, 24 } | Size: 02
 #_0A958A: db $88, $AA, $65 ; 0x065: Wall columns (west) ↕ | { 22, 2A } | Size: 02
 #_0A958D: db $E8, $AA, $66 ; 0x066: Wall columns (east) ↕ | { 3A, 2A } | Size: 02
-#_0A9590: db $FF, $FF ; Layer01
-#_0A9592: db $FF, $FF ; Layer02
+#_0A9590: db $FF, $FF ; Layer 1
+#_0A9592: db $FF, $FF ; Layer 2
 #_0A9594: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00C8:
-#_0A9596: db $81, $18 ; Door 0x18 | Dir:01 | Pos:10
-#_0A9598: db $FF, $FF ; Layer03 / End
+#_0A9596: db $81, $18 ; Door 0x18 | South 10
+#_0A9598: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00D8:
 #_0A959A: db $E1, $0C ; Floors and Layout
-#_0A959C: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 } | Size: 00
+#_0A959C: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 }
 #_0A959F: db $A8, $23, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 08 } | Size: 03
-#_0A95A2: db $FE, $A3, $84 ; 0x104: Corner (top, convex) ▟ | { 2A, 0E } | Size: 00
+#_0A95A2: db $FE, $A3, $84 ; 0x104: Corner (top, convex) ▟ | { 2A, 0E }
 #_0A95A5: db $98, $3A, $01 ; 0x001: Wall (top, north) ↔ | { 26, 0E } | Size: 02
-#_0A95A8: db $FE, $23, $80 ; 0x100: Corner (top, concave) ▛ | { 22, 0E } | Size: 00
-#_0A95AB: db $FF, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 04 } | Size: 00
+#_0A95A8: db $FE, $23, $80 ; 0x100: Corner (top, concave) ▛ | { 22, 0E }
+#_0A95AB: db $FF, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 04 }
 #_0A95AE: db $C8, $23, $62 ; 0x062: Wall (top, east) ↕ | { 32, 08 } | Size: 03
-#_0A95B1: db $FF, $23, $86 ; 0x106: Corner (top, convex) ▙ | { 32, 0E } | Size: 00
+#_0A95B1: db $FF, $23, $86 ; 0x106: Corner (top, convex) ▙ | { 32, 0E }
 #_0A95B4: db $D8, $3A, $01 ; 0x001: Wall (top, north) ↔ | { 36, 0E } | Size: 02
-#_0A95B7: db $FF, $A3, $82 ; 0x102: Corner (top, concave) ▜ | { 3A, 0E } | Size: 00
+#_0A95B7: db $FF, $A3, $82 ; 0x102: Corner (top, concave) ▜ | { 3A, 0E }
 #_0A95BA: db $98, $38, $3A ; 0x03A: Wall decors (north) ↔ | { 26, 0E } | Size: 00
 #_0A95BD: db $D8, $38, $3A ; 0x03A: Wall decors (north) ↔ | { 36, 0E } | Size: 00
-#_0A95C0: db $97, $47, $FA ; 0x22F: Pot | { 25, 11 } | Size: 0F
-#_0A95C3: db $97, $57, $FA ; 0x22F: Pot | { 25, 15 } | Size: 0F
-#_0A95C6: db $97, $67, $FA ; 0x22F: Pot | { 25, 19 } | Size: 0F
-#_0A95C9: db $E7, $57, $FA ; 0x22F: Pot | { 39, 15 } | Size: 0F
-#_0A95CC: db $E7, $67, $FA ; 0x22F: Pot | { 39, 19 } | Size: 0F
-#_0A95CF: db $E7, $47, $FA ; 0x22F: Pot | { 39, 11 } | Size: 0F
+#_0A95C0: db $97, $47, $FA ; 0x22F: Pot | { 25, 11 }
+#_0A95C3: db $97, $57, $FA ; 0x22F: Pot | { 25, 15 }
+#_0A95C6: db $97, $67, $FA ; 0x22F: Pot | { 25, 19 }
+#_0A95C9: db $E7, $57, $FA ; 0x22F: Pot | { 39, 15 }
+#_0A95CC: db $E7, $67, $FA ; 0x22F: Pot | { 39, 19 }
+#_0A95CF: db $E7, $47, $FA ; 0x22F: Pot | { 39, 11 }
 #_0A95D2: db $98, $93, $05 ; 0x005: Wall columns (north) ↔ | { 26, 24 } | Size: 03
-#_0A95D5: db $B0, $91, $FF ; 0x274: Boss entrance | { 2C, 24 } | Size: 01
+#_0A95D5: db $B0, $91, $FF ; 0x274: Boss entrance | { 2C, 24 }
 #_0A95D8: db $98, $EB, $06 ; 0x006: Wall columns (south) ↔ | { 26, 3A } | Size: 03
-#_0A95DB: db $BB, $C3, $FA ; 0x22F: Pot | { 2E, 30 } | Size: 0F
-#_0A95DE: db $C3, $C3, $FA ; 0x22F: Pot | { 30, 30 } | Size: 0F
-#_0A95E1: db $89, $0A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 02 } | Size: 06
-#_0A95E4: db $D9, $0A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 02 } | Size: 06
-#_0A95E7: db $FF, $FF ; Layer01
-#_0A95E9: db $FF, $FF ; Layer02
+#_0A95DB: db $BB, $C3, $FA ; 0x22F: Pot | { 2E, 30 }
+#_0A95DE: db $C3, $C3, $FA ; 0x22F: Pot | { 30, 30 }
+#_0A95E1: db $89, $0A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 02 } | Size: 06
+#_0A95E4: db $D9, $0A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 02 } | Size: 06
+#_0A95E7: db $FF, $FF ; Layer 1
+#_0A95E9: db $FF, $FF ; Layer 2
 #_0A95EB: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00D8:
-#_0A95ED: db $20, $18 ; Door 0x18 | Dir:00 | Pos:04
-#_0A95EF: db $80, $36 ; Door 0x36 | Dir:00 | Pos:10
-#_0A95F1: db $83, $00 ; Door 0x00 | Dir:03 | Pos:10
-#_0A95F3: db $FF, $FF ; Layer03 / End
+#_0A95ED: db $20, $18 ; Door 0x18 | North 04
+#_0A95EF: db $80, $36 ; Door 0x36 | North 10
+#_0A95F1: db $83, $00 ; Door 0x00 | East 10
+#_0A95F3: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00D9:
 #_0A95F5: db $E1, $18 ; Floors and Layout
-#_0A95F7: db $1C, $90, $51 ; 0x051: Cannon hole A (north) ↔ | { 07, 24 } | Size: 00
-#_0A95FA: db $2C, $90, $51 ; 0x051: Cannon hole A (north) ↔ | { 0B, 24 } | Size: 00
-#_0A95FD: db $44, $90, $51 ; 0x051: Cannon hole A (north) ↔ | { 11, 24 } | Size: 00
-#_0A9600: db $54, $90, $51 ; 0x051: Cannon hole A (north) ↔ | { 15, 24 } | Size: 00
-#_0A9603: db $1C, $EC, $52 ; 0x052: Cannon hole A (south) ↔ | { 07, 3B } | Size: 00
-#_0A9606: db $2C, $EC, $52 ; 0x052: Cannon hole A (south) ↔ | { 0B, 3B } | Size: 00
-#_0A9609: db $44, $EC, $52 ; 0x052: Cannon hole A (south) ↔ | { 11, 3B } | Size: 00
-#_0A960C: db $54, $EC, $52 ; 0x052: Cannon hole A (south) ↔ | { 15, 3B } | Size: 00
+#_0A95F7: db $1C, $90, $51 ; 0x051: Cannon hole (bottom, north) ↔ | { 07, 24 } | Size: 00
+#_0A95FA: db $2C, $90, $51 ; 0x051: Cannon hole (bottom, north) ↔ | { 0B, 24 } | Size: 00
+#_0A95FD: db $44, $90, $51 ; 0x051: Cannon hole (bottom, north) ↔ | { 11, 24 } | Size: 00
+#_0A9600: db $54, $90, $51 ; 0x051: Cannon hole (bottom, north) ↔ | { 15, 24 } | Size: 00
+#_0A9603: db $1C, $EC, $52 ; 0x052: Cannon hole (bottom, south) ↔ | { 07, 3B } | Size: 00
+#_0A9606: db $2C, $EC, $52 ; 0x052: Cannon hole (bottom, south) ↔ | { 0B, 3B } | Size: 00
+#_0A9609: db $44, $EC, $52 ; 0x052: Cannon hole (bottom, south) ↔ | { 11, 3B } | Size: 00
+#_0A960C: db $54, $EC, $52 ; 0x052: Cannon hole (bottom, south) ↔ | { 15, 3B } | Size: 00
 #_0A960F: db $08, $9C, $85 ; 0x085: Cannon hole (west) ↕ | { 02, 27 } | Size: 00
 #_0A9612: db $08, $AC, $85 ; 0x085: Cannon hole (west) ↕ | { 02, 2B } | Size: 00
 #_0A9615: db $08, $CC, $85 ; 0x085: Cannon hole (west) ↕ | { 02, 33 } | Size: 00
@@ -2210,193 +2210,193 @@ RoomDataTiles_00D9:
 #_0A961E: db $6C, $AC, $86 ; 0x086: Cannon hole (east) ↕ | { 1B, 2B } | Size: 00
 #_0A9621: db $6C, $CC, $86 ; 0x086: Cannon hole (east) ↕ | { 1B, 33 } | Size: 00
 #_0A9624: db $6C, $DC, $86 ; 0x086: Cannon hole (east) ↕ | { 1B, 37 } | Size: 00
-#_0A9627: db $28, $A8, $FD ; 0x250: Pressure plate | { 0A, 2A } | Size: 00
-#_0A962A: db $53, $A8, $FE ; 0x263: Fake pressure plate | { 14, 2A } | Size: 0C
-#_0A962D: db $2B, $D8, $FE ; 0x263: Fake pressure plate | { 0A, 36 } | Size: 0C
-#_0A9630: db $53, $D8, $FE ; 0x263: Fake pressure plate | { 14, 36 } | Size: 0C
-#_0A9633: db $FE, $2B, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 2C } | Size: 00
+#_0A9627: db $28, $A8, $FD ; 0x250: Pressure plate | { 0A, 2A }
+#_0A962A: db $53, $A8, $FE ; 0x263: Fake pressure plate | { 14, 2A }
+#_0A962D: db $2B, $D8, $FE ; 0x263: Fake pressure plate | { 0A, 36 }
+#_0A9630: db $53, $D8, $FE ; 0x263: Fake pressure plate | { 14, 36 }
+#_0A9633: db $FE, $2B, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 2C }
 #_0A9636: db $98, $B2, $01 ; 0x001: Wall (top, north) ↔ | { 26, 2C } | Size: 02
-#_0A9639: db $FE, $AB, $04 ; 0x104: Corner (top, convex) ▟ | { 2A, 2C } | Size: 00
+#_0A9639: db $FE, $AB, $04 ; 0x104: Corner (top, convex) ▟ | { 2A, 2C }
 #_0A963C: db $A8, $A2, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 28 } | Size: 02
-#_0A963F: db $FE, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 24 } | Size: 00
-#_0A9642: db $FE, $2C, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 32 } | Size: 00
+#_0A963F: db $FE, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 24 }
+#_0A9642: db $FE, $2C, $81 ; 0x101: Corner (top, concave) ▙ | { 22, 32 }
 #_0A9645: db $98, $CA, $02 ; 0x002: Wall (top, south) ↔ | { 26, 32 } | Size: 02
-#_0A9648: db $FE, $AC, $85 ; 0x105: Corner (top, convex) ▜ | { 2A, 32 } | Size: 00
+#_0A9648: db $FE, $AC, $85 ; 0x105: Corner (top, convex) ▜ | { 2A, 32 }
 #_0A964B: db $A8, $DA, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 36 } | Size: 02
-#_0A964E: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A } | Size: 00
-#_0A9651: db $A3, $C0, $FE ; 0x263: Fake pressure plate | { 28, 30 } | Size: 0C
-#_0A9654: db $C3, $A8, $FE ; 0x263: Fake pressure plate | { 30, 2A } | Size: 0C
-#_0A9657: db $C3, $C0, $FE ; 0x263: Fake pressure plate | { 30, 30 } | Size: 0C
-#_0A965A: db $BB, $A3, $FA ; 0x22F: Pot | { 2E, 28 } | Size: 0F
-#_0A965D: db $BB, $E3, $FA ; 0x22F: Pot | { 2E, 38 } | Size: 0F
-#_0A9660: db $C0, $D8, $FD ; 0x250: Pressure plate | { 30, 36 } | Size: 00
-#_0A9663: db $89, $91, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 24 } | Size: 05
-#_0A9666: db $89, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 36 } | Size: 05
-#_0A9669: db $FF, $FF ; Layer01
-#_0A966B: db $FF, $FF ; Layer02
+#_0A964E: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A }
+#_0A9651: db $A3, $C0, $FE ; 0x263: Fake pressure plate | { 28, 30 }
+#_0A9654: db $C3, $A8, $FE ; 0x263: Fake pressure plate | { 30, 2A }
+#_0A9657: db $C3, $C0, $FE ; 0x263: Fake pressure plate | { 30, 30 }
+#_0A965A: db $BB, $A3, $FA ; 0x22F: Pot | { 2E, 28 }
+#_0A965D: db $BB, $E3, $FA ; 0x22F: Pot | { 2E, 38 }
+#_0A9660: db $C0, $D8, $FD ; 0x250: Pressure plate | { 30, 36 }
+#_0A9663: db $89, $91, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 24 } | Size: 05
+#_0A9666: db $89, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 36 } | Size: 05
+#_0A9669: db $FF, $FF ; Layer 1
+#_0A966B: db $FF, $FF ; Layer 2
 #_0A966D: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00D9:
-#_0A966F: db $22, $18 ; Door 0x18 | Dir:02 | Pos:04
-#_0A9671: db $82, $18 ; Door 0x18 | Dir:02 | Pos:10
-#_0A9673: db $83, $18 ; Door 0x18 | Dir:03 | Pos:10
-#_0A9675: db $FF, $FF ; Layer03 / End
+#_0A966F: db $22, $18 ; Door 0x18 | West 04
+#_0A9671: db $82, $18 ; Door 0x18 | West 10
+#_0A9673: db $83, $18 ; Door 0x18 | East 10
+#_0A9675: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00DA:
 #_0A9677: db $E1, $18 ; Floors and Layout
-#_0A9679: db $FC, $E9, $39 ; 0x139: Interroom spiral stairs down (top) | { 0E, 24 } | Size: 00
+#_0A9679: db $FC, $E9, $39 ; 0x139: Interroom spiral stairs down (top) | { 0E, 24 }
 #_0A967C: db $18, $93, $05 ; 0x005: Wall columns (north) ↔ | { 06, 24 } | Size: 03
 #_0A967F: db $20, $A8, $38 ; 0x038: Statues ↔ | { 08, 2A } | Size: 00
 #_0A9682: db $20, $D4, $38 ; 0x038: Statues ↔ | { 08, 35 } | Size: 00
 #_0A9685: db $58, $A8, $38 ; 0x038: Statues ↔ | { 16, 2A } | Size: 00
 #_0A9688: db $58, $D4, $38 ; 0x038: Statues ↔ | { 16, 35 } | Size: 00
-#_0A968B: db $33, $BB, $FA ; 0x22F: Pot | { 0C, 2E } | Size: 0F
-#_0A968E: db $4B, $BB, $FA ; 0x22F: Pot | { 12, 2E } | Size: 0F
-#_0A9691: db $33, $CB, $FA ; 0x22F: Pot | { 0C, 32 } | Size: 0F
-#_0A9694: db $4B, $CB, $FA ; 0x22F: Pot | { 12, 32 } | Size: 0F
-#_0A9697: db $FF, $FF ; Layer01
-#_0A9699: db $FF, $FF ; Layer02
+#_0A968B: db $33, $BB, $FA ; 0x22F: Pot | { 0C, 2E }
+#_0A968E: db $4B, $BB, $FA ; 0x22F: Pot | { 12, 2E }
+#_0A9691: db $33, $CB, $FA ; 0x22F: Pot | { 0C, 32 }
+#_0A9694: db $4B, $CB, $FA ; 0x22F: Pot | { 12, 32 }
+#_0A9697: db $FF, $FF ; Layer 1
+#_0A9699: db $FF, $FF ; Layer 2
 #_0A969B: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00DA:
-#_0A969D: db $22, $18 ; Door 0x18 | Dir:02 | Pos:04
-#_0A969F: db $FF, $FF ; Layer03 / End
+#_0A969D: db $22, $18 ; Door 0x18 | West 04
+#_0A969F: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0099:
 #_0A96A1: db $E1, $14 ; Floors and Layout
-#_0A96A3: db $FC, $E9, $38 ; 0x138: Interroom spiral stairs up (top) | { 0E, 24 } | Size: 00
-#_0A96A6: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 } | Size: 00
+#_0A96A3: db $FC, $E9, $38 ; 0x138: Interroom spiral stairs up (top) | { 0E, 24 }
+#_0A96A6: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 }
 #_0A96A9: db $28, $A1, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 28 } | Size: 01
-#_0A96AC: db $FC, $AA, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 2A } | Size: 00
+#_0A96AC: db $FC, $AA, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 2A }
 #_0A96AF: db $38, $AA, $02 ; 0x002: Wall (top, south) ↔ | { 0E, 2A } | Size: 02
-#_0A96B2: db $FD, $2A, $85 ; 0x105: Corner (top, convex) ▜ | { 12, 2A } | Size: 00
+#_0A96B2: db $FD, $2A, $85 ; 0x105: Corner (top, convex) ▜ | { 12, 2A }
 #_0A96B5: db $49, $BA, $61 ; 0x061: Wall (top, west) ↕ | { 12, 2E } | Size: 06
-#_0A96B8: db $FD, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 12, 3A } | Size: 00
-#_0A96BB: db $FE, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 2A, 3A } | Size: 00
+#_0A96B8: db $FD, $2E, $81 ; 0x101: Corner (top, concave) ▙ | { 12, 3A }
+#_0A96BB: db $FE, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 2A, 3A }
 #_0A96BE: db $A9, $BA, $62 ; 0x062: Wall (top, east) ↕ | { 2A, 2E } | Size: 06
-#_0A96C1: db $FE, $AA, $87 ; 0x107: Corner (top, convex) ▛ | { 2A, 2A } | Size: 00
+#_0A96C1: db $FE, $AA, $87 ; 0x107: Corner (top, convex) ▛ | { 2A, 2A }
 #_0A96C4: db $B8, $AA, $02 ; 0x002: Wall (top, south) ↔ | { 2E, 2A } | Size: 02
-#_0A96C7: db $FF, $2A, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 2A } | Size: 00
+#_0A96C7: db $FF, $2A, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 2A }
 #_0A96CA: db $C8, $A1, $62 ; 0x062: Wall (top, east) ↕ | { 32, 28 } | Size: 01
-#_0A96CD: db $FF, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 24 } | Size: 00
-#_0A96D0: db $FE, $20, $C0 ; 0x100: Corner (top, concave) ▛ | { 22, 03 } | Size: 00
+#_0A96CD: db $FF, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 24 }
+#_0A96D0: db $FE, $20, $C0 ; 0x100: Corner (top, concave) ▛ | { 22, 03 }
 #_0A96D3: db $9A, $0E, $01 ; 0x001: Wall (top, north) ↔ | { 26, 03 } | Size: 0A
-#_0A96D6: db $FF, $A0, $C2 ; 0x102: Corner (top, concave) ▜ | { 3A, 03 } | Size: 00
+#_0A96D6: db $FF, $A0, $C2 ; 0x102: Corner (top, concave) ▜ | { 3A, 03 }
 #_0A96D9: db $A3, $26, $E2 ; 0x0E2: Rupee floor ⇲ | { 28, 09 } | Size: 0E
-#_0A96DC: db $FE, $51, $88 ; 0x108: Corner (bottom, concave) ▛ | { 25, 06 } | Size: 00
+#_0A96DC: db $FE, $51, $88 ; 0x108: Corner (bottom, concave) ▛ | { 25, 06 }
 #_0A96DF: db $A5, $1A, $03 ; 0x003: Wall (bottom, north) ↔ | { 29, 06 } | Size: 06
-#_0A96E2: db $FF, $71, $8A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 06 } | Size: 00
+#_0A96E2: db $FF, $71, $8A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 06 }
 #_0A96E5: db $95, $28, $63 ; 0x063: Wall (bottom, west) ↕ | { 25, 0A } | Size: 04
-#_0A96E8: db $FE, $55, $09 ; 0x109: Corner (bottom, concave) ▙ | { 25, 14 } | Size: 00
+#_0A96E8: db $FE, $55, $09 ; 0x109: Corner (bottom, concave) ▙ | { 25, 14 }
 #_0A96EB: db $A5, $52, $04 ; 0x004: Wall (bottom, south) ↔ | { 29, 14 } | Size: 06
 #_0A96EE: db $DD, $28, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 0A } | Size: 04
-#_0A96F1: db $FF, $75, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 14 } | Size: 00
-#_0A96F4: db $53, $A3, $FA ; 0x22F: Pot | { 14, 28 } | Size: 0F
-#_0A96F7: db $AB, $A3, $FA ; 0x22F: Pot | { 2A, 28 } | Size: 0F
+#_0A96F1: db $FF, $75, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 14 }
+#_0A96F4: db $53, $A3, $FA ; 0x22F: Pot | { 14, 28 }
+#_0A96F7: db $AB, $A3, $FA ; 0x22F: Pot | { 2A, 28 }
 #_0A96FA: db $94, $60, $22 ; 0x022: Rail ↔ | { 25, 18 } | Size: 00
 #_0A96FD: db $DC, $60, $22 ; 0x022: Rail ↔ | { 37, 18 } | Size: 00
-#_0A9700: db $A5, $53, $F9 ; 0x21D: Intraroom stairs south (merged layers) | { 29, 14 } | Size: 07
-#_0A9703: db $CD, $53, $F9 ; 0x21D: Intraroom stairs south (merged layers) | { 33, 14 } | Size: 07
+#_0A9700: db $A5, $53, $F9 ; 0x21D: Intraroom stairs south (merged layers) | { 29, 14 }
+#_0A9703: db $CD, $53, $F9 ; 0x21D: Intraroom stairs south (merged layers) | { 33, 14 }
 #_0A9706: db $0B, $91, $60 ; 0x060: Ceiling ↕ | { 02, 24 } | Size: 0D
 #_0A9709: db $13, $91, $60 ; 0x060: Ceiling ↕ | { 04, 24 } | Size: 0D
-#_0A970C: db $18, $92, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 24 } | Size: 02
-#_0A970F: db $1A, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 2E } | Size: 0B
-#_0A9712: db $D9, $92, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 24 } | Size: 06
-#_0A9715: db $BB, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 2E } | Size: 0F
-#_0A9718: db $AA, $2C, $F9 ; 0x212: 9 blue rupees | { 2A, 0B } | Size: 08
-#_0A971B: db $C6, $2C, $F9 ; 0x212: 9 blue rupees | { 31, 0B } | Size: 08
-#_0A971E: db $FF, $FF ; Layer01
-#_0A9720: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 } | Size: 0C
-#_0A9723: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 } | Size: 0A
-#_0A9726: db $FF, $FF ; Layer02
+#_0A970C: db $18, $92, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 24 } | Size: 02
+#_0A970F: db $1A, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 2E } | Size: 0B
+#_0A9712: db $D9, $92, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 24 } | Size: 06
+#_0A9715: db $BB, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 2E } | Size: 0F
+#_0A9718: db $AA, $2C, $F9 ; 0x212: 9 blue rupees | { 2A, 0B }
+#_0A971B: db $C6, $2C, $F9 ; 0x212: 9 blue rupees | { 31, 0B }
+#_0A971E: db $FF, $FF ; Layer 1
+#_0A9720: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 }
+#_0A9723: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 }
+#_0A9726: db $FF, $FF ; Layer 2
 #_0A9728: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0099:
-#_0A972A: db $60, $20 ; Door 0x20 | Dir:00 | Pos:0C
-#_0A972C: db $71, $1C ; Door 0x1C | Dir:01 | Pos:0E
-#_0A972E: db $80, $00 ; Door 0x00 | Dir:00 | Pos:10
-#_0A9730: db $FF, $FF ; Layer03 / End
+#_0A972A: db $60, $20 ; Door 0x20 | North 0C
+#_0A972C: db $71, $1C ; Door 0x1C | South 0E
+#_0A972E: db $80, $00 ; Door 0x00 | North 10
+#_0A9730: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00A8:
 #_0A9732: db $51, $08 ; Floors and Layout
-#_0A9734: db $FC, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 04 } | Size: 00
+#_0A9734: db $FC, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 04 }
 #_0A9737: db $18, $22, $61 ; 0x061: Wall (top, west) ↕ | { 06, 08 } | Size: 02
-#_0A973A: db $FC, $63, $04 ; 0x104: Corner (top, convex) ▟ | { 06, 0C } | Size: 00
-#_0A973D: db $FC, $23, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 0C } | Size: 00
-#_0A9740: db $FD, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 04 } | Size: 00
-#_0A9743: db $FD, $22, $06 ; 0x106: Corner (top, convex) ▙ | { 12, 08 } | Size: 00
+#_0A973A: db $FC, $63, $04 ; 0x104: Corner (top, convex) ▟ | { 06, 0C }
+#_0A973D: db $FC, $23, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 0C }
+#_0A9740: db $FD, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 04 }
+#_0A9743: db $FD, $22, $06 ; 0x106: Corner (top, convex) ▙ | { 12, 08 }
 #_0A9746: db $58, $22, $01 ; 0x001: Wall (top, north) ↔ | { 16, 08 } | Size: 02
-#_0A9749: db $FD, $A2, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 08 } | Size: 00
-#_0A974C: db $FE, $22, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 08 } | Size: 00
+#_0A9749: db $FD, $A2, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 08 }
+#_0A974C: db $FE, $22, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 08 }
 #_0A974F: db $9A, $22, $01 ; 0x001: Wall (top, north) ↔ | { 26, 08 } | Size: 0A
-#_0A9752: db $FF, $A2, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 08 } | Size: 00
-#_0A9755: db $FE, $2C, $C1 ; 0x101: Corner (top, concave) ▙ | { 22, 33 } | Size: 00
+#_0A9752: db $FF, $A2, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 08 }
+#_0A9755: db $FE, $2C, $C1 ; 0x101: Corner (top, concave) ▙ | { 22, 33 }
 #_0A9758: db $98, $CD, $02 ; 0x002: Wall (top, south) ↔ | { 26, 33 } | Size: 01
 #_0A975B: db $A0, $DA, $61 ; 0x061: Wall (top, west) ↕ | { 28, 36 } | Size: 02
-#_0A975E: db $FE, $8C, $C5 ; 0x105: Corner (top, convex) ▜ | { 28, 33 } | Size: 00
-#_0A9761: db $FE, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 28, 3A } | Size: 00
-#_0A9764: db $FF, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 3A } | Size: 00
+#_0A975E: db $FE, $8C, $C5 ; 0x105: Corner (top, convex) ▜ | { 28, 33 }
+#_0A9761: db $FE, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 28, 3A }
+#_0A9764: db $FF, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 3A }
 #_0A9767: db $D0, $DA, $62 ; 0x062: Wall (top, east) ↕ | { 34, 36 } | Size: 02
-#_0A976A: db $FF, $4C, $C7 ; 0x107: Corner (top, convex) ▛ | { 34, 33 } | Size: 00
+#_0A976A: db $FF, $4C, $C7 ; 0x107: Corner (top, convex) ▛ | { 34, 33 }
 #_0A976D: db $E0, $CD, $02 ; 0x002: Wall (top, south) ↔ | { 38, 33 } | Size: 01
-#_0A9770: db $FF, $AC, $C3 ; 0x103: Corner (top, concave) ▟ | { 3A, 33 } | Size: 00
+#_0A9770: db $FF, $AC, $C3 ; 0x103: Corner (top, concave) ▟ | { 3A, 33 }
 #_0A9773: db $20, $3E, $03 ; 0x003: Wall (bottom, north) ↔ | { 08, 0F } | Size: 02
-#_0A9776: db $FC, $53, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 0F } | Size: 00
+#_0A9776: db $FC, $53, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 0F }
 #_0A9779: db $14, $4D, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 13 } | Size: 01
-#_0A977C: db $FC, $55, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 17 } | Size: 00
+#_0A977C: db $FC, $55, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 17 }
 #_0A977F: db $24, $5D, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 17 } | Size: 01
 #_0A9782: db $4C, $5D, $04 ; 0x004: Wall (bottom, south) ↔ | { 13, 17 } | Size: 01
-#_0A9785: db $FD, $75, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 17 } | Size: 00
+#_0A9785: db $FD, $75, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 17 }
 #_0A9788: db $5C, $3F, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 0F } | Size: 03
 #_0A978B: db $50, $2D, $03 ; 0x003: Wall (bottom, north) ↔ | { 14, 0B } | Size: 01
-#_0A978E: db $FD, $72, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 0B } | Size: 00
+#_0A978E: db $FD, $72, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 0B }
 #_0A9791: db $36, $39, $69 ; 0x069: Rail ↕ | { 0D, 0E } | Size: 09
 #_0A9794: db $4F, $2C, $69 ; 0x069: Rail ↕ | { 13, 0B } | Size: 0C
-#_0A9797: db $35, $26, $F9 ; 0x219: Chest | { 0D, 09 } | Size: 06
-#_0A979A: db $22, $BA, $FF ; 0x27A: Pile of bones | { 08, 2E } | Size: 0A
-#_0A979D: db $32, $B2, $FF ; 0x27A: Pile of bones | { 0C, 2C } | Size: 0A
-#_0A97A0: db $52, $BA, $FF ; 0x27A: Pile of bones | { 14, 2E } | Size: 0A
-#_0A97A3: db $3A, $D2, $FF ; 0x27A: Pile of bones | { 0E, 34 } | Size: 0A
-#_0A97A6: db $42, $DA, $FF ; 0x27A: Pile of bones | { 10, 36 } | Size: 0A
+#_0A9797: db $35, $26, $F9 ; 0x219: Chest | { 0D, 09 }
+#_0A979A: db $22, $BA, $FF ; 0x27A: Pile of bones | { 08, 2E }
+#_0A979D: db $32, $B2, $FF ; 0x27A: Pile of bones | { 0C, 2C }
+#_0A97A0: db $52, $BA, $FF ; 0x27A: Pile of bones | { 14, 2E }
+#_0A97A3: db $3A, $D2, $FF ; 0x27A: Pile of bones | { 0E, 34 }
+#_0A97A6: db $42, $DA, $FF ; 0x27A: Pile of bones | { 10, 36 }
 #_0A97A9: db $30, $10, $3A ; 0x03A: Wall decors (north) ↔ | { 0C, 04 } | Size: 00
 #_0A97AC: db $28, $91, $3A ; 0x03A: Wall decors (north) ↔ | { 0A, 24 } | Size: 01
 #_0A97AF: db $88, $76, $65 ; 0x065: Wall columns (west) ↕ | { 22, 1D } | Size: 02
 #_0A97B2: db $E8, $77, $66 ; 0x066: Wall columns (east) ↕ | { 3A, 1D } | Size: 03
-#_0A97B5: db $17, $9F, $FA ; 0x22F: Pot | { 05, 27 } | Size: 0F
-#_0A97B8: db $67, $9F, $FA ; 0x22F: Pot | { 19, 27 } | Size: 0F
-#_0A97BB: db $17, $E7, $FA ; 0x22F: Pot | { 05, 39 } | Size: 0F
-#_0A97BE: db $67, $E7, $FA ; 0x22F: Pot | { 19, 39 } | Size: 0F
-#_0A97C1: db $3F, $C3, $FA ; 0x22F: Pot | { 0F, 30 } | Size: 0F
-#_0A97C4: db $FE, $52, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 25, 0B } | Size: 00
+#_0A97B5: db $17, $9F, $FA ; 0x22F: Pot | { 05, 27 }
+#_0A97B8: db $67, $9F, $FA ; 0x22F: Pot | { 19, 27 }
+#_0A97BB: db $17, $E7, $FA ; 0x22F: Pot | { 05, 39 }
+#_0A97BE: db $67, $E7, $FA ; 0x22F: Pot | { 19, 39 }
+#_0A97C1: db $3F, $C3, $FA ; 0x22F: Pot | { 0F, 30 }
+#_0A97C4: db $FE, $52, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 25, 0B }
 #_0A97C7: db $A5, $2E, $03 ; 0x003: Wall (bottom, north) ↔ | { 29, 0B } | Size: 06
-#_0A97CA: db $FF, $72, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 0B } | Size: 00
+#_0A97CA: db $FF, $72, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 0B }
 #_0A97CD: db $94, $3D, $63 ; 0x063: Wall (bottom, west) ↕ | { 25, 0F } | Size: 01
-#_0A97D0: db $FE, $54, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 25, 13 } | Size: 00
-#_0A97D3: db $FF, $74, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 13 } | Size: 00
+#_0A97D0: db $FE, $54, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 25, 13 }
+#_0A97D3: db $FF, $74, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 13 }
 #_0A97D6: db $DC, $3D, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 0F } | Size: 01
 #_0A97D9: db $A4, $4C, $04 ; 0x004: Wall (bottom, south) ↔ | { 29, 13 } | Size: 00
-#_0A97DC: db $FE, $B4, $CD ; 0x10D: Corner (bottom, convex) ▜ | { 2B, 13 } | Size: 00
-#_0A97DF: db $FF, $14, $CF ; 0x10F: Corner (bottom, convex) ▛ | { 31, 13 } | Size: 00
+#_0A97DC: db $FE, $B4, $CD ; 0x10D: Corner (bottom, convex) ▜ | { 2B, 13 }
+#_0A97DF: db $FF, $14, $CF ; 0x10F: Corner (bottom, convex) ▛ | { 31, 13 }
 #_0A97E2: db $D4, $4C, $04 ; 0x004: Wall (bottom, south) ↔ | { 35, 13 } | Size: 00
 #_0A97E5: db $AC, $80, $63 ; 0x063: Wall (bottom, west) ↕ | { 2B, 20 } | Size: 00
 #_0A97E8: db $C4, $80, $64 ; 0x064: Wall (bottom, east) ↕ | { 31, 20 } | Size: 00
 #_0A97EB: db $AD, $AC, $63 ; 0x063: Wall (bottom, west) ↕ | { 2B, 2B } | Size: 04
-#_0A97EE: db $FE, $BD, $09 ; 0x109: Corner (bottom, concave) ▙ | { 2B, 34 } | Size: 00
+#_0A97EE: db $FE, $BD, $09 ; 0x109: Corner (bottom, concave) ▙ | { 2B, 34 }
 #_0A97F1: db $BC, $D0, $04 ; 0x004: Wall (bottom, south) ↔ | { 2F, 34 } | Size: 00
 #_0A97F4: db $C5, $AC, $64 ; 0x064: Wall (bottom, east) ↕ | { 31, 2B } | Size: 04
-#_0A97F7: db $FF, $1D, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 31, 34 } | Size: 00
+#_0A97F7: db $FF, $1D, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 31, 34 }
 #_0A97FA: db $97, $5F, $22 ; 0x022: Rail ↔ | { 25, 17 } | Size: 0F
 #_0A97FD: db $D8, $5D, $22 ; 0x022: Rail ↔ | { 36, 17 } | Size: 01
 #_0A9800: db $AA, $A8, $22 ; 0x022: Rail ↔ | { 2A, 2A } | Size: 08
@@ -2404,18 +2404,18 @@ RoomDataTiles_00A8:
 #_0A9806: db $D5, $AA, $69 ; 0x069: Rail ↕ | { 35, 2A } | Size: 06
 #_0A9809: db $B0, $E0, $38 ; 0x038: Statues ↔ | { 2C, 38 } | Size: 00
 #_0A980C: db $C8, $E0, $38 ; 0x038: Statues ↔ | { 32, 38 } | Size: 00
-#_0A980F: db $FC, $93, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 09, 0F } | Size: 00
-#_0A9812: db $B8, $D3, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2E, 34 } | Size: 03
-#_0A9815: db $08, $11, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 01
-#_0A9818: db $59, $10, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 04 } | Size: 04
-#_0A981B: db $8B, $10, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 04 } | Size: 0C
-#_0A981E: db $CA, $10, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 04 } | Size: 08
-#_0A9821: db $81, $DD, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 20, 37 } | Size: 05
-#_0A9824: db $E1, $DD, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 37 } | Size: 05
-#_0A9827: db $FF, $FF ; Layer01
+#_0A980F: db $FC, $93, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 09, 0F }
+#_0A9812: db $B8, $D3, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2E, 34 }
+#_0A9815: db $08, $11, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 01
+#_0A9818: db $59, $10, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 04 } | Size: 04
+#_0A981B: db $8B, $10, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 04 } | Size: 0C
+#_0A981E: db $CA, $10, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 04 } | Size: 08
+#_0A9821: db $81, $DD, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 20, 37 } | Size: 05
+#_0A9824: db $E1, $DD, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 37 } | Size: 05
+#_0A9827: db $FF, $FF ; Layer 1
 #_0A9829: db $38, $3D, $01 ; 0x001: Wall (top, north) ↔ | { 0E, 0F } | Size: 01
-#_0A982C: db $FD, $03, $C4 ; 0x104: Corner (top, convex) ▟ | { 10, 0F } | Size: 00
-#_0A982F: db $FD, $02, $C0 ; 0x100: Corner (top, concave) ▛ | { 10, 0B } | Size: 00
+#_0A982C: db $FD, $03, $C4 ; 0x104: Corner (top, convex) ▟ | { 10, 0F }
+#_0A982F: db $FD, $02, $C0 ; 0x100: Corner (top, concave) ▛ | { 10, 0B }
 #_0A9832: db $34, $5F, $02 ; 0x002: Wall (top, south) ↔ | { 0D, 17 } | Size: 03
 #_0A9835: db $AC, $5D, $61 ; 0x061: Wall (top, west) ↕ | { 2B, 17 } | Size: 01
 #_0A9838: db $AD, $60, $61 ; 0x061: Wall (top, west) ↕ | { 2B, 18 } | Size: 04
@@ -2425,13 +2425,13 @@ RoomDataTiles_00A8:
 #_0A9844: db $AD, $8C, $61 ; 0x061: Wall (top, west) ↕ | { 2B, 23 } | Size: 04
 #_0A9847: db $C4, $89, $62 ; 0x062: Wall (top, east) ↕ | { 31, 22 } | Size: 01
 #_0A984A: db $C5, $8C, $62 ; 0x062: Wall (top, east) ↕ | { 31, 23 } | Size: 04
-#_0A984D: db $FE, $EB, $F4 ; 0x134: Block | { 2E, 2F } | Size: 00
+#_0A984D: db $FE, $EB, $F4 ; 0x134: Block | { 2E, 2F }
 #_0A9850: db $6D, $35, $01 ; 0x001: Wall (top, north) ↔ | { 1B, 0D } | Size: 05
 #_0A9853: db $6D, $45, $02 ; 0x002: Wall (top, south) ↔ | { 1B, 11 } | Size: 05
 #_0A9856: db $EC, $36, $01 ; 0x001: Wall (top, north) ↔ | { 3B, 0D } | Size: 02
 #_0A9859: db $EC, $46, $02 ; 0x002: Wall (top, south) ↔ | { 3B, 11 } | Size: 02
-#_0A985C: db $BF, $30, $F9 ; 0x213: Telepathy tile | { 2F, 0C } | Size: 0C
-#_0A985F: db $FF, $FF ; Layer02
+#_0A985C: db $BF, $30, $F9 ; 0x213: Telepathy tile | { 2F, 0C }
+#_0A985F: db $FF, $FF ; Layer 2
 #_0A9861: db $15, $3E, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 05, 0F } | Size: 06
 #_0A9864: db $50, $2F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 14, 0B } | Size: 03
 #_0A9867: db $5C, $2F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 17, 0B } | Size: 03
@@ -2449,13 +2449,13 @@ RoomDataTiles_00A8:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00A8:
-#_0A9887: db $82, $38 ; Door 0x38 | Dir:02 | Pos:10
-#_0A9889: db $60, $36 ; Door 0x36 | Dir:00 | Pos:0C
-#_0A988B: db $81, $1C ; Door 0x1C | Dir:01 | Pos:10
-#_0A988D: db $92, $40 ; Door 0x40 | Dir:02 | Pos:12
-#_0A988F: db $93, $40 ; Door 0x40 | Dir:03 | Pos:12
-#_0A9891: db $73, $00 ; Door 0x00 | Dir:03 | Pos:0E
-#_0A9893: db $FF, $FF ; Layer03 / End
+#_0A9887: db $82, $38 ; Door 0x38 | West 10
+#_0A9889: db $60, $36 ; Door 0x36 | North 0C
+#_0A988B: db $81, $1C ; Door 0x1C | South 10
+#_0A988D: db $92, $40 ; Door 0x40 | West 12
+#_0A988F: db $93, $40 ; Door 0x40 | East 12
+#_0A9891: db $73, $00 ; Door 0x00 | East 0E
+#_0A9893: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -2463,92 +2463,92 @@ RoomDataTiles_00A9:
 #_0A9895: db $61, $1C ; Floors and Layout
 #_0A9897: db $09, $34, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 02, 0D } | Size: 04
 #_0A989A: db $08, $3A, $61 ; 0x061: Wall (top, west) ↕ | { 02, 0E } | Size: 02
-#_0A989D: db $FC, $2A, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 2A } | Size: 00
+#_0A989D: db $FC, $2A, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 2A }
 #_0A98A0: db $18, $A9, $02 ; 0x002: Wall (top, south) ↔ | { 06, 2A } | Size: 01
-#_0A98A3: db $FC, $8A, $85 ; 0x105: Corner (top, convex) ▜ | { 08, 2A } | Size: 00
-#_0A98A6: db $FC, $8B, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 2E } | Size: 00
+#_0A98A3: db $FC, $8A, $85 ; 0x105: Corner (top, convex) ▜ | { 08, 2A }
+#_0A98A6: db $FC, $8B, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 2E }
 #_0A98A9: db $31, $BB, $02 ; 0x002: Wall (top, south) ↔ | { 0C, 2E } | Size: 07
-#_0A98AC: db $FD, $AB, $85 ; 0x105: Corner (top, convex) ▜ | { 1A, 2E } | Size: 00
+#_0A98AC: db $FD, $AB, $85 ; 0x105: Corner (top, convex) ▜ | { 1A, 2E }
 #_0A98AF: db $69, $C8, $61 ; 0x061: Wall (top, west) ↕ | { 1A, 32 } | Size: 04
-#_0A98B2: db $FD, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 1A, 3A } | Size: 00
-#_0A98B5: db $FE, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 22, 3A } | Size: 00
+#_0A98B2: db $FD, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 1A, 3A }
+#_0A98B5: db $FE, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 22, 3A }
 #_0A98B8: db $89, $C8, $62 ; 0x062: Wall (top, east) ↕ | { 22, 32 } | Size: 04
-#_0A98BB: db $FE, $2B, $87 ; 0x107: Corner (top, convex) ▛ | { 22, 2E } | Size: 00
+#_0A98BB: db $FE, $2B, $87 ; 0x107: Corner (top, convex) ▛ | { 22, 2E }
 #_0A98BE: db $99, $BB, $02 ; 0x002: Wall (top, south) ↔ | { 26, 2E } | Size: 07
-#_0A98C1: db $FF, $4B, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 2E } | Size: 00
+#_0A98C1: db $FF, $4B, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 2E }
 #_0A98C4: db $E0, $A9, $02 ; 0x002: Wall (top, south) ↔ | { 38, 2A } | Size: 01
-#_0A98C7: db $FF, $4A, $87 ; 0x107: Corner (top, convex) ▛ | { 34, 2A } | Size: 00
-#_0A98CA: db $FF, $AA, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 2A } | Size: 00
+#_0A98C7: db $FF, $4A, $87 ; 0x107: Corner (top, convex) ▛ | { 34, 2A }
+#_0A98CA: db $FF, $AA, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 2A }
 #_0A98CD: db $D1, $10, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 34, 04 } | Size: 04
 #_0A98D0: db $E8, $3A, $62 ; 0x062: Wall (top, east) ↕ | { 3A, 0E } | Size: 02
 #_0A98D3: db $14, $35, $19 ; 0x019: Diagonal wall B ◤ (bottom) | { 05, 0D } | Size: 01
 #_0A98D6: db $15, $39, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 0E } | Size: 05
-#_0A98D9: db $FC, $56, $89 ; 0x109: Corner (bottom, concave) ▙ | { 05, 1A } | Size: 00
+#_0A98D9: db $FC, $56, $89 ; 0x109: Corner (bottom, concave) ▙ | { 05, 1A }
 #_0A98DC: db $24, $6A, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 1A } | Size: 02
-#_0A98DF: db $FC, $F6, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 0F, 1A } | Size: 00
+#_0A98DF: db $FC, $F6, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 0F, 1A }
 #_0A98E2: db $3C, $7B, $63 ; 0x063: Wall (bottom, west) ↕ | { 0F, 1E } | Size: 03
 #_0A98E5: db $C4, $6A, $04 ; 0x004: Wall (bottom, south) ↔ | { 31, 1A } | Size: 02
-#_0A98E8: db $FF, $76, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 1A } | Size: 00
-#_0A98EB: db $FE, $D6, $8F ; 0x10F: Corner (bottom, convex) ▛ | { 2D, 1A } | Size: 00
+#_0A98E8: db $FF, $76, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 1A }
+#_0A98EB: db $FE, $D6, $8F ; 0x10F: Corner (bottom, convex) ▛ | { 2D, 1A }
 #_0A98EE: db $B4, $7B, $64 ; 0x064: Wall (bottom, east) ↕ | { 2D, 1E } | Size: 03
-#_0A98F1: db $FE, $D9, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 2D, 26 } | Size: 00
+#_0A98F1: db $FE, $D9, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 2D, 26 }
 #_0A98F4: db $D0, $1D, $1B ; 0x01B: Diagonal wall B ◥ (bottom) | { 34, 07 } | Size: 01
 #_0A98F7: db $DD, $39, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 0E } | Size: 05
 #_0A98FA: db $31, $1C, $03 ; 0x003: Wall (bottom, north) ↔ | { 0C, 07 } | Size: 04
-#_0A98FD: db $FD, $61, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 16, 07 } | Size: 00
-#_0A9900: db $FD, $62, $CE ; 0x10E: Corner (bottom, convex) ▙ | { 16, 0B } | Size: 00
+#_0A98FD: db $FD, $61, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 16, 07 }
+#_0A9900: db $FD, $62, $CE ; 0x10E: Corner (bottom, convex) ▙ | { 16, 0B }
 #_0A9903: db $74, $28, $69 ; 0x069: Rail ↕ | { 1D, 0A } | Size: 00
 #_0A9906: db $88, $28, $69 ; 0x069: Rail ↕ | { 22, 0A } | Size: 00
 #_0A9909: db $69, $2D, $03 ; 0x003: Wall (bottom, north) ↔ | { 1A, 0B } | Size: 05
-#_0A990C: db $FE, $62, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 26, 0B } | Size: 00
+#_0A990C: db $FE, $62, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 26, 0B }
 #_0A990F: db $A9, $1C, $03 ; 0x003: Wall (bottom, north) ↔ | { 2A, 07 } | Size: 04
-#_0A9912: db $FE, $61, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 26, 07 } | Size: 00
-#_0A9915: db $FC, $F9, $89 ; 0x109: Corner (bottom, concave) ▙ | { 0F, 26 } | Size: 00
+#_0A9912: db $FE, $61, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 26, 07 }
+#_0A9915: db $FC, $F9, $89 ; 0x109: Corner (bottom, concave) ▙ | { 0F, 26 }
 #_0A9918: db $4F, $98, $04 ; 0x004: Wall (bottom, south) ↔ | { 13, 26 } | Size: 0C
 #_0A991B: db $68, $11, $3A ; 0x03A: Wall decors (north) ↔ | { 1A, 04 } | Size: 01
 #_0A991E: db $68, $1C, $69 ; 0x069: Rail ↕ | { 1A, 07 } | Size: 00
 #_0A9921: db $94, $1C, $69 ; 0x069: Rail ↕ | { 25, 07 } | Size: 00
-#_0A9924: db $FD, $E2, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 1E, 0B } | Size: 00
+#_0A9924: db $FD, $E2, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 1E, 0B }
 #_0A9927: db $15, $7A, $22 ; 0x022: Rail ↔ | { 05, 1E } | Size: 06
 #_0A992A: db $3A, $79, $69 ; 0x069: Rail ↕ | { 0E, 1E } | Size: 09
 #_0A992D: db $3B, $A9, $5F ; 0x05F: Long rail ↔ | { 0E, 2A } | Size: 0D
 #_0A9930: db $C6, $79, $69 ; 0x069: Rail ↕ | { 31, 1E } | Size: 09
 #_0A9933: db $C5, $7A, $22 ; 0x022: Rail ↔ | { 31, 1E } | Size: 06
-#_0A9936: db $DB, $A3, $FA ; 0x22F: Pot | { 36, 28 } | Size: 0F
-#_0A9939: db $CB, $7E, $FE ; 0x26B: Large decor | { 32, 1F } | Size: 0E
-#_0A993C: db $E3, $9B, $FA ; 0x22F: Pot | { 38, 26 } | Size: 0F
-#_0A993F: db $E0, $A0, $FD ; 0x250: Pressure plate | { 38, 28 } | Size: 00
+#_0A9936: db $DB, $A3, $FA ; 0x22F: Pot | { 36, 28 }
+#_0A9939: db $CB, $7E, $FE ; 0x26B: Large decor | { 32, 1F }
+#_0A993C: db $E3, $9B, $FA ; 0x22F: Pot | { 38, 26 }
+#_0A993F: db $E0, $A0, $FD ; 0x250: Pressure plate | { 38, 28 }
 #_0A9942: db $0C, $65, $7F ; 0x07F: Wall torches (west) ↕ | { 03, 19 } | Size: 01
 #_0A9945: db $EC, $65, $80 ; 0x080: Wall torches (east) ↕ | { 3B, 19 } | Size: 01
-#_0A9948: db $2B, $7E, $FE ; 0x26B: Large decor | { 0A, 1F } | Size: 0E
-#_0A994B: db $1B, $9B, $FA ; 0x22F: Pot | { 06, 26 } | Size: 0F
-#_0A994E: db $23, $A3, $FA ; 0x22F: Pot | { 08, 28 } | Size: 0F
-#_0A9951: db $18, $A0, $FD ; 0x250: Pressure plate | { 06, 28 } | Size: 00
+#_0A9948: db $2B, $7E, $FE ; 0x26B: Large decor | { 0A, 1F }
+#_0A994B: db $1B, $9B, $FA ; 0x22F: Pot | { 06, 26 }
+#_0A994E: db $23, $A3, $FA ; 0x22F: Pot | { 08, 28 }
+#_0A9951: db $18, $A0, $FD ; 0x250: Pressure plate | { 06, 28 }
 #_0A9954: db $09, $11, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 02, 04 } | Size: 05
 #_0A9957: db $D5, $11, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 35, 04 } | Size: 05
-#_0A995A: db $01, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 2E } | Size: 07
-#_0A995D: db $23, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 08, 32 } | Size: 0E
+#_0A995A: db $01, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 2E } | Size: 07
+#_0A995D: db $23, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 08, 32 } | Size: 0E
 #_0A9960: db $61, $CA, $60 ; 0x060: Ceiling ↕ | { 18, 32 } | Size: 06
-#_0A9963: db $9B, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 32 } | Size: 0E
-#_0A9966: db $D9, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 32 } | Size: 06
-#_0A9969: db $E1, $B8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 2E } | Size: 04
-#_0A996C: db $FF, $FF ; Layer01
+#_0A9963: db $9B, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 32 } | Size: 0E
+#_0A9966: db $D9, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 32 } | Size: 06
+#_0A9969: db $E1, $B8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 2E } | Size: 04
+#_0A996C: db $FF, $FF ; Layer 1
 #_0A996E: db $61, $5A, $C1 ; 0x0C1: Chest platform (tall) ⇲ | { 18, 16 } | Size: 06
 #_0A9971: db $70, $82, $21 ; 0x021: Platform stairs ↔ | { 1C, 20 } | Size: 02
-#_0A9974: db $79, $68, $FB ; 0x231: Big chest | { 1E, 1A } | Size: 04
+#_0A9974: db $79, $68, $FB ; 0x231: Big chest | { 1E, 1A }
 #_0A9977: db $04, $36, $01 ; 0x001: Wall (top, north) ↔ | { 01, 0D } | Size: 02
 #_0A997A: db $04, $46, $02 ; 0x002: Wall (top, south) ↔ | { 01, 11 } | Size: 02
 #_0A997D: db $EC, $36, $01 ; 0x001: Wall (top, north) ↔ | { 3B, 0D } | Size: 02
 #_0A9980: db $EC, $46, $02 ; 0x002: Wall (top, south) ↔ | { 3B, 11 } | Size: 02
-#_0A9983: db $23, $5F, $FA ; 0x22F: Pot | { 08, 17 } | Size: 0F
-#_0A9986: db $23, $67, $FA ; 0x22F: Pot | { 08, 19 } | Size: 0F
-#_0A9989: db $DB, $5F, $FA ; 0x22F: Pot | { 36, 17 } | Size: 0F
-#_0A998C: db $DB, $67, $FA ; 0x22F: Pot | { 36, 19 } | Size: 0F
-#_0A998F: db $5B, $43, $FC ; 0x24F: Warp tile (disabled) | { 16, 10 } | Size: 0F
-#_0A9992: db $A3, $43, $FC ; 0x24F: Warp tile (disabled) | { 28, 10 } | Size: 0F
-#_0A9995: db $FD, $A3, $9C ; 0x11C: Large brazier | { 1A, 0E } | Size: 00
-#_0A9998: db $FE, $23, $9C ; 0x11C: Large brazier | { 22, 0E } | Size: 00
-#_0A999B: db $FF, $FF ; Layer02
+#_0A9983: db $23, $5F, $FA ; 0x22F: Pot | { 08, 17 }
+#_0A9986: db $23, $67, $FA ; 0x22F: Pot | { 08, 19 }
+#_0A9989: db $DB, $5F, $FA ; 0x22F: Pot | { 36, 17 }
+#_0A998C: db $DB, $67, $FA ; 0x22F: Pot | { 36, 19 }
+#_0A998F: db $5B, $43, $FC ; 0x24F: Warp tile (disabled) | { 16, 10 }
+#_0A9992: db $A3, $43, $FC ; 0x24F: Warp tile (disabled) | { 28, 10 }
+#_0A9995: db $FD, $A3, $9C ; 0x11C: Large brazier | { 1A, 0E }
+#_0A9998: db $FE, $23, $9C ; 0x11C: Large brazier | { 22, 0E }
+#_0A999B: db $FF, $FF ; Layer 2
 #_0A999D: db $18, $36, $AC ; 0x0AC: Diagonal layer 2 mask B ◢ | { 06, 0D } | Size: 02
 #_0A99A0: db $D0, $22, $AA ; 0x0AA: Diagonal layer 2 mask B ◣ | { 34, 08 } | Size: 02
 #_0A99A3: db $32, $1F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0C, 07 } | Size: 0B
@@ -2568,44 +2568,44 @@ RoomDataTiles_00A9:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00A9:
-#_0A99C9: db $12, $18 ; Door 0x18 | Dir:02 | Pos:02
-#_0A99CB: db $73, $18 ; Door 0x18 | Dir:03 | Pos:0E
-#_0A99CD: db $10, $1E ; Door 0x1E | Dir:00 | Pos:02
-#_0A99CF: db $32, $40 ; Door 0x40 | Dir:02 | Pos:06
-#_0A99D1: db $93, $40 ; Door 0x40 | Dir:03 | Pos:12
-#_0A99D3: db $71, $00 ; Door 0x00 | Dir:01 | Pos:0E
-#_0A99D5: db $FF, $FF ; Layer03 / End
+#_0A99C9: db $12, $18 ; Door 0x18 | West 02
+#_0A99CB: db $73, $18 ; Door 0x18 | East 0E
+#_0A99CD: db $10, $1E ; Door 0x1E | North 02
+#_0A99CF: db $32, $40 ; Door 0x40 | West 06
+#_0A99D1: db $93, $40 ; Door 0x40 | East 12
+#_0A99D3: db $71, $00 ; Door 0x00 | South 0E
+#_0A99D5: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00AA:
 #_0A99D7: db $51, $0C ; Floors and Layout
-#_0A99D9: db $FC, $2C, $C1 ; 0x101: Corner (top, concave) ▙ | { 02, 33 } | Size: 00
+#_0A99D9: db $FC, $2C, $C1 ; 0x101: Corner (top, concave) ▙ | { 02, 33 }
 #_0A99DC: db $18, $CF, $02 ; 0x002: Wall (top, south) ↔ | { 06, 33 } | Size: 03
 #_0A99DF: db $2C, $DA, $61 ; 0x061: Wall (top, west) ↕ | { 0B, 36 } | Size: 02
-#_0A99E2: db $FC, $BC, $C5 ; 0x105: Corner (top, convex) ▜ | { 0B, 33 } | Size: 00
-#_0A99E5: db $FC, $BE, $81 ; 0x101: Corner (top, concave) ▙ | { 0B, 3A } | Size: 00
-#_0A99E8: db $FD, $1E, $83 ; 0x103: Corner (top, concave) ▟ | { 11, 3A } | Size: 00
+#_0A99E2: db $FC, $BC, $C5 ; 0x105: Corner (top, convex) ▜ | { 0B, 33 }
+#_0A99E5: db $FC, $BE, $81 ; 0x101: Corner (top, concave) ▙ | { 0B, 3A }
+#_0A99E8: db $FD, $1E, $83 ; 0x103: Corner (top, concave) ▟ | { 11, 3A }
 #_0A99EB: db $44, $DA, $62 ; 0x062: Wall (top, east) ↕ | { 11, 36 } | Size: 02
 #_0A99EE: db $50, $CF, $02 ; 0x002: Wall (top, south) ↔ | { 14, 33 } | Size: 03
-#_0A99F1: db $FD, $1C, $C7 ; 0x107: Corner (top, convex) ▛ | { 11, 33 } | Size: 00
-#_0A99F4: db $FD, $AC, $C3 ; 0x103: Corner (top, concave) ▟ | { 1A, 33 } | Size: 00
-#_0A99F7: db $FC, $51, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 07 } | Size: 00
+#_0A99F1: db $FD, $1C, $C7 ; 0x107: Corner (top, convex) ▛ | { 11, 33 }
+#_0A99F4: db $FD, $AC, $C3 ; 0x103: Corner (top, concave) ▟ | { 1A, 33 }
+#_0A99F7: db $FC, $51, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 07 }
 #_0A99FA: db $25, $1E, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 07 } | Size: 06
-#_0A99FD: db $FD, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 07 } | Size: 00
+#_0A99FD: db $FD, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 07 }
 #_0A9A00: db $5C, $2C, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 0B } | Size: 00
 #_0A9A03: db $15, $2C, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 0B } | Size: 04
 #_0A9A06: db $14, $AE, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 2B } | Size: 02
-#_0A9A09: db $FC, $5C, $09 ; 0x109: Corner (bottom, concave) ▙ | { 05, 30 } | Size: 00
+#_0A9A09: db $FC, $5C, $09 ; 0x109: Corner (bottom, concave) ▙ | { 05, 30 }
 #_0A9A0C: db $25, $C1, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 30 } | Size: 05
-#_0A9A0F: db $FE, $2A, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 28 } | Size: 00
+#_0A9A0F: db $FE, $2A, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 28 }
 #_0A9A12: db $98, $A1, $01 ; 0x001: Wall (top, north) ↔ | { 26, 28 } | Size: 01
-#_0A9A15: db $FE, $8A, $04 ; 0x104: Corner (top, convex) ▟ | { 28, 28 } | Size: 00
-#_0A9A18: db $FE, $89, $00 ; 0x100: Corner (top, concave) ▛ | { 28, 24 } | Size: 00
-#_0A9A1B: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A } | Size: 00
-#_0A9A1E: db $FF, $2D, $87 ; 0x107: Corner (top, convex) ▛ | { 32, 36 } | Size: 00
+#_0A9A15: db $FE, $8A, $04 ; 0x104: Corner (top, convex) ▟ | { 28, 28 }
+#_0A9A18: db $FE, $89, $00 ; 0x100: Corner (top, concave) ▛ | { 28, 24 }
+#_0A9A1B: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A }
+#_0A9A1E: db $FF, $2D, $87 ; 0x107: Corner (top, convex) ▛ | { 32, 36 }
 #_0A9A21: db $D8, $DA, $02 ; 0x002: Wall (top, south) ↔ | { 36, 36 } | Size: 02
-#_0A9A24: db $FF, $AD, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 36 } | Size: 00
+#_0A9A24: db $FF, $AD, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 36 }
 #_0A9A27: db $AC, $AF, $03 ; 0x003: Wall (bottom, north) ↔ | { 2B, 2B } | Size: 03
 #_0A9A2A: db $AC, $CF, $04 ; 0x004: Wall (bottom, south) ↔ | { 2B, 33 } | Size: 03
 #_0A9A2D: db $3A, $35, $22 ; 0x022: Rail ↔ | { 0E, 0D } | Size: 09
@@ -2637,48 +2637,48 @@ RoomDataTiles_00AA:
 #_0A9A7B: db $48, $86, $69 ; 0x069: Rail ↕ | { 12, 21 } | Size: 02
 #_0A9A7E: db $48, $9A, $22 ; 0x022: Rail ↔ | { 12, 26 } | Size: 02
 #_0A9A81: db $5C, $86, $69 ; 0x069: Rail ↕ | { 17, 21 } | Size: 02
-#_0A9A84: db $38, $C3, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 0E, 30 } | Size: 03
-#_0A9A87: db $B0, $CF, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2C, 33 } | Size: 03
+#_0A9A84: db $38, $C3, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 0E, 30 }
+#_0A9A87: db $B0, $CF, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2C, 33 }
 #_0A9A8A: db $CC, $B4, $8B ; 0x08B: Jump ledge (west) ↕ | { 33, 2D } | Size: 00
-#_0A9A8D: db $D9, $BA, $F9 ; 0x219: Chest | { 36, 2E } | Size: 06
+#_0A9A8D: db $D9, $BA, $F9 ; 0x219: Chest | { 36, 2E }
 #_0A9A90: db $CC, $AC, $69 ; 0x069: Rail ↕ | { 33, 2B } | Size: 00
 #_0A9A93: db $CC, $CC, $69 ; 0x069: Rail ↕ | { 33, 33 } | Size: 00
 #_0A9A96: db $A8, $B4, $8C ; 0x08C: Jump ledge (east) ↕ | { 2A, 2D } | Size: 00
 #_0A9A99: db $A8, $AC, $69 ; 0x069: Rail ↕ | { 2A, 2B } | Size: 00
 #_0A9A9C: db $A8, $CC, $69 ; 0x069: Rail ↕ | { 2A, 33 } | Size: 00
-#_0A9A9F: db $AB, $2F, $FA ; 0x22F: Pot | { 2A, 0B } | Size: 0F
-#_0A9AA2: db $D3, $2F, $FA ; 0x22F: Pot | { 34, 0B } | Size: 0F
-#_0A9AA5: db $AB, $57, $FA ; 0x22F: Pot | { 2A, 15 } | Size: 0F
-#_0A9AA8: db $D3, $57, $FA ; 0x22F: Pot | { 34, 15 } | Size: 0F
-#_0A9AAB: db $BF, $43, $FA ; 0x22F: Pot | { 2F, 10 } | Size: 0F
-#_0A9AAE: db $09, $DD, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 37 } | Size: 05
+#_0A9A9F: db $AB, $2F, $FA ; 0x22F: Pot | { 2A, 0B }
+#_0A9AA2: db $D3, $2F, $FA ; 0x22F: Pot | { 34, 0B }
+#_0A9AA5: db $AB, $57, $FA ; 0x22F: Pot | { 2A, 15 }
+#_0A9AA8: db $D3, $57, $FA ; 0x22F: Pot | { 34, 15 }
+#_0A9AAB: db $BF, $43, $FA ; 0x22F: Pot | { 2F, 10 }
+#_0A9AAE: db $09, $DD, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 37 } | Size: 05
 #_0A9AB1: db $25, $DC, $60 ; 0x060: Ceiling ↕ | { 09, 37 } | Size: 04
-#_0A9AB4: db $55, $DD, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 15, 37 } | Size: 05
+#_0A9AB4: db $55, $DD, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 15, 37 } | Size: 05
 #_0A9AB7: db $71, $DC, $60 ; 0x060: Ceiling ↕ | { 1C, 37 } | Size: 04
-#_0A9ABA: db $81, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 20, 24 } | Size: 04
-#_0A9ABD: db $D9, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 3A } | Size: 04
-#_0A9AC0: db $FF, $FF ; Layer01
+#_0A9ABA: db $81, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 20, 24 } | Size: 04
+#_0A9ABD: db $D9, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 3A } | Size: 04
+#_0A9AC0: db $FF, $FF ; Layer 1
 #_0A9AC2: db $16, $57, $61 ; 0x061: Wall (top, west) ↕ | { 05, 15 } | Size: 0B
 #_0A9AC5: db $5F, $37, $62 ; 0x062: Wall (top, east) ↕ | { 17, 0D } | Size: 0F
 #_0A9AC8: db $5C, $AF, $62 ; 0x062: Wall (top, east) ↕ | { 17, 2B } | Size: 03
-#_0A9ACB: db $FD, $7C, $03 ; 0x103: Corner (top, concave) ▟ | { 17, 30 } | Size: 00
+#_0A9ACB: db $FD, $7C, $03 ; 0x103: Corner (top, concave) ▟ | { 17, 30 }
 #_0A9ACE: db $54, $C1, $02 ; 0x002: Wall (top, south) ↔ | { 15, 30 } | Size: 01
-#_0A9AD1: db $FE, $5A, $C0 ; 0x100: Corner (top, concave) ▛ | { 25, 2B } | Size: 00
+#_0A9AD1: db $FE, $5A, $C0 ; 0x100: Corner (top, concave) ▛ | { 25, 2B }
 #_0A9AD4: db $94, $BE, $61 ; 0x061: Wall (top, west) ↕ | { 25, 2F } | Size: 02
-#_0A9AD7: db $FE, $5C, $C1 ; 0x101: Corner (top, concave) ▙ | { 25, 33 } | Size: 00
+#_0A9AD7: db $FE, $5C, $C1 ; 0x101: Corner (top, concave) ▙ | { 25, 33 }
 #_0A9ADA: db $04, $36, $01 ; 0x001: Wall (top, north) ↔ | { 01, 0D } | Size: 02
 #_0A9ADD: db $04, $46, $02 ; 0x002: Wall (top, south) ↔ | { 01, 11 } | Size: 02
 #_0A9AE0: db $A4, $AD, $01 ; 0x001: Wall (top, north) ↔ | { 29, 2B } | Size: 01
 #_0A9AE3: db $A4, $CD, $02 ; 0x002: Wall (top, south) ↔ | { 29, 33 } | Size: 01
 #_0A9AE6: db $CC, $AE, $01 ; 0x001: Wall (top, north) ↔ | { 33, 2B } | Size: 02
-#_0A9AE9: db $FF, $7A, $C2 ; 0x102: Corner (top, concave) ▜ | { 37, 2B } | Size: 00
+#_0A9AE9: db $FF, $7A, $C2 ; 0x102: Corner (top, concave) ▜ | { 37, 2B }
 #_0A9AEC: db $DC, $BE, $62 ; 0x062: Wall (top, east) ↕ | { 37, 2F } | Size: 02
-#_0A9AEF: db $FF, $7C, $C3 ; 0x103: Corner (top, concave) ▟ | { 37, 33 } | Size: 00
+#_0A9AEF: db $FF, $7C, $C3 ; 0x103: Corner (top, concave) ▟ | { 37, 33 }
 #_0A9AF2: db $CC, $CE, $02 ; 0x002: Wall (top, south) ↔ | { 33, 33 } | Size: 02
-#_0A9AF5: db $DB, $BB, $FA ; 0x22F: Pot | { 36, 2E } | Size: 0F
-#_0A9AF8: db $DB, $C3, $FA ; 0x22F: Pot | { 36, 30 } | Size: 0F
-#_0A9AFB: db $DB, $CB, $FA ; 0x22F: Pot | { 36, 32 } | Size: 0F
-#_0A9AFE: db $FF, $FF ; Layer02
+#_0A9AF5: db $DB, $BB, $FA ; 0x22F: Pot | { 36, 2E }
+#_0A9AF8: db $DB, $C3, $FA ; 0x22F: Pot | { 36, 30 }
+#_0A9AFB: db $DB, $CB, $FA ; 0x22F: Pot | { 36, 32 }
+#_0A9AFE: db $FF, $FF ; Layer 2
 #_0A9B00: db $15, $1E, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 05, 07 } | Size: 06
 #_0A9B03: db $15, $44, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 05, 11 } | Size: 04
 #_0A9B06: db $28, $35, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0A, 0D } | Size: 01
@@ -2697,22 +2697,22 @@ RoomDataTiles_00AA:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00AA:
-#_0A9B29: db $80, $38 ; Door 0x38 | Dir:00 | Pos:10
-#_0A9B2B: db $32, $40 ; Door 0x40 | Dir:02 | Pos:06
-#_0A9B2D: db $62, $00 ; Door 0x00 | Dir:02 | Pos:0C
-#_0A9B2F: db $82, $00 ; Door 0x00 | Dir:02 | Pos:10
-#_0A9B31: db $12, $00 ; Door 0x00 | Dir:02 | Pos:02
-#_0A9B33: db $61, $00 ; Door 0x00 | Dir:01 | Pos:0C
-#_0A9B35: db $FF, $FF ; Layer03 / End
+#_0A9B29: db $80, $38 ; Door 0x38 | North 10
+#_0A9B2B: db $32, $40 ; Door 0x40 | West 06
+#_0A9B2D: db $62, $00 ; Door 0x00 | West 0C
+#_0A9B2F: db $82, $00 ; Door 0x00 | West 10
+#_0A9B31: db $12, $00 ; Door 0x00 | West 02
+#_0A9B33: db $61, $00 ; Door 0x00 | South 0C
+#_0A9B35: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00B8:
 #_0A9B37: db $E1, $04 ; Floors and Layout
-#_0A9B39: db $FE, $41, $00 ; 0x100: Corner (top, concave) ▛ | { 24, 04 } | Size: 00
+#_0A9B39: db $FE, $41, $00 ; 0x100: Corner (top, concave) ▛ | { 24, 04 }
 #_0A9B3C: db $93, $23, $61 ; 0x061: Wall (top, west) ↕ | { 24, 08 } | Size: 0F
 #_0A9B3F: db $92, $9A, $61 ; 0x061: Wall (top, west) ↕ | { 24, 26 } | Size: 0A
-#_0A9B42: db $FE, $4E, $81 ; 0x101: Corner (top, concave) ▙ | { 24, 3A } | Size: 00
+#_0A9B42: db $FE, $4E, $81 ; 0x101: Corner (top, concave) ▙ | { 24, 3A }
 #_0A9B45: db $91, $36, $65 ; 0x065: Wall columns (west) ↕ | { 24, 0D } | Size: 06
 #_0A9B48: db $E9, $36, $66 ; 0x066: Wall columns (east) ↕ | { 3A, 0D } | Size: 06
 #_0A9B4B: db $A8, $31, $C1 ; 0x0C1: Chest platform (tall) ⇲ | { 2A, 0C } | Size: 01
@@ -2722,88 +2722,88 @@ RoomDataTiles_00B8:
 #_0A9B57: db $B1, $A4, $5D ; 0x05D: Thick rail ↔ | { 2C, 29 } | Size: 04
 #_0A9B5A: db $B0, $C0, $88 ; 0x088: Thick rail ↕ | { 2C, 30 } | Size: 00
 #_0A9B5D: db $D0, $C0, $88 ; 0x088: Thick rail ↕ | { 34, 30 } | Size: 00
-#_0A9B60: db $B3, $83, $FA ; 0x22F: Pot | { 2C, 20 } | Size: 0F
-#_0A9B63: db $D3, $83, $FA ; 0x22F: Pot | { 34, 20 } | Size: 0F
-#_0A9B66: db $C3, $6B, $FA ; 0x22F: Pot | { 30, 1A } | Size: 0F
-#_0A9B69: db $C1, $42, $F9 ; 0x219: Chest | { 30, 10 } | Size: 06
+#_0A9B60: db $B3, $83, $FA ; 0x22F: Pot | { 2C, 20 }
+#_0A9B63: db $D3, $83, $FA ; 0x22F: Pot | { 34, 20 }
+#_0A9B66: db $C3, $6B, $FA ; 0x22F: Pot | { 30, 1A }
+#_0A9B69: db $C1, $42, $F9 ; 0x219: Chest | { 30, 10 }
 #_0A9B6C: db $88, $00, $60 ; 0x060: Ceiling ↕ | { 22, 00 } | Size: 00
-#_0A9B6F: db $FF, $FF ; Layer01
-#_0A9B71: db $FF, $FF ; Layer02
+#_0A9B6F: db $FF, $FF ; Layer 1
+#_0A9B71: db $FF, $FF ; Layer 2
 #_0A9B73: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00B8:
-#_0A9B75: db $20, $1E ; Door 0x1E | Dir:00 | Pos:04
-#_0A9B77: db $63, $00 ; Door 0x00 | Dir:03 | Pos:0C
-#_0A9B79: db $FF, $FF ; Layer03 / End
+#_0A9B75: db $20, $1E ; Door 0x1E | North 04
+#_0A9B77: db $63, $00 ; Door 0x00 | East 0C
+#_0A9B79: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00B9:
 #_0A9B7B: db $51, $1C ; Floors and Layout
-#_0A9B7D: db $FD, $51, $00 ; 0x100: Corner (top, concave) ▛ | { 15, 04 } | Size: 00
+#_0A9B7D: db $FD, $51, $00 ; 0x100: Corner (top, concave) ▛ | { 15, 04 }
 #_0A9B80: db $54, $21, $61 ; 0x061: Wall (top, west) ↕ | { 15, 08 } | Size: 01
 #_0A9B83: db $1A, $24, $01 ; 0x001: Wall (top, north) ↔ | { 06, 09 } | Size: 08
-#_0A9B86: db $FD, $52, $44 ; 0x104: Corner (top, convex) ▟ | { 15, 09 } | Size: 00
-#_0A9B89: db $FC, $22, $40 ; 0x100: Corner (top, concave) ▛ | { 02, 09 } | Size: 00
-#_0A9B8C: db $FC, $2A, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 2A } | Size: 00
+#_0A9B86: db $FD, $52, $44 ; 0x104: Corner (top, convex) ▟ | { 15, 09 }
+#_0A9B89: db $FC, $22, $40 ; 0x100: Corner (top, concave) ▛ | { 02, 09 }
+#_0A9B8C: db $FC, $2A, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 2A }
 #_0A9B8F: db $19, $AA, $02 ; 0x002: Wall (top, south) ↔ | { 06, 2A } | Size: 06
-#_0A9B92: db $FD, $1A, $85 ; 0x105: Corner (top, convex) ▜ | { 11, 2A } | Size: 00
+#_0A9B92: db $FD, $1A, $85 ; 0x105: Corner (top, convex) ▜ | { 11, 2A }
 #_0A9B95: db $45, $BA, $61 ; 0x061: Wall (top, west) ↕ | { 11, 2E } | Size: 06
-#_0A9B98: db $FD, $1E, $81 ; 0x101: Corner (top, concave) ▙ | { 11, 3A } | Size: 00
-#_0A9B9B: db $FE, $D1, $02 ; 0x102: Corner (top, concave) ▜ | { 2D, 04 } | Size: 00
+#_0A9B98: db $FD, $1E, $81 ; 0x101: Corner (top, concave) ▙ | { 11, 3A }
+#_0A9B9B: db $FE, $D1, $02 ; 0x102: Corner (top, concave) ▜ | { 2D, 04 }
 #_0A9B9E: db $B4, $21, $62 ; 0x062: Wall (top, east) ↕ | { 2D, 08 } | Size: 01
 #_0A9BA1: db $C1, $25, $01 ; 0x001: Wall (top, north) ↔ | { 30, 09 } | Size: 05
-#_0A9BA4: db $FE, $D2, $46 ; 0x106: Corner (top, convex) ▙ | { 2D, 09 } | Size: 00
-#_0A9BA7: db $FF, $A2, $42 ; 0x102: Corner (top, concave) ▜ | { 3A, 09 } | Size: 00
-#_0A9BAA: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A } | Size: 00
+#_0A9BA4: db $FE, $D2, $46 ; 0x106: Corner (top, convex) ▙ | { 2D, 09 }
+#_0A9BA7: db $FF, $A2, $42 ; 0x102: Corner (top, concave) ▜ | { 3A, 09 }
+#_0A9BAA: db $FF, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 1A }
 #_0A9BAD: db $B1, $6B, $02 ; 0x002: Wall (top, south) ↔ | { 2C, 1A } | Size: 07
-#_0A9BB0: db $FE, $96, $87 ; 0x107: Corner (top, convex) ▛ | { 29, 1A } | Size: 00
+#_0A9BB0: db $FE, $96, $87 ; 0x107: Corner (top, convex) ▛ | { 29, 1A }
 #_0A9BB3: db $A4, $79, $62 ; 0x062: Wall (top, east) ↕ | { 29, 1E } | Size: 01
 #_0A9BB6: db $B1, $83, $01 ; 0x001: Wall (top, north) ↔ | { 2C, 20 } | Size: 07
-#_0A9BB9: db $FE, $98, $06 ; 0x106: Corner (top, convex) ▙ | { 29, 20 } | Size: 00
-#_0A9BBC: db $FF, $A8, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 20 } | Size: 00
-#_0A9BBF: db $FF, $AA, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 2A } | Size: 00
+#_0A9BB9: db $FE, $98, $06 ; 0x106: Corner (top, convex) ▙ | { 29, 20 }
+#_0A9BBC: db $FF, $A8, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 20 }
+#_0A9BBF: db $FF, $AA, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 2A }
 #_0A9BC2: db $D0, $AB, $02 ; 0x002: Wall (top, south) ↔ | { 34, 2A } | Size: 03
-#_0A9BC5: db $FF, $1A, $87 ; 0x107: Corner (top, convex) ▛ | { 31, 2A } | Size: 00
+#_0A9BC5: db $FF, $1A, $87 ; 0x107: Corner (top, convex) ▛ | { 31, 2A }
 #_0A9BC8: db $C5, $BA, $62 ; 0x062: Wall (top, east) ↕ | { 31, 2E } | Size: 06
-#_0A9BCB: db $FF, $1E, $83 ; 0x103: Corner (top, concave) ▟ | { 31, 3A } | Size: 00
-#_0A9BCE: db $FD, $06, $87 ; 0x107: Corner (top, convex) ▛ | { 10, 1A } | Size: 00
+#_0A9BCB: db $FF, $1E, $83 ; 0x103: Corner (top, concave) ▟ | { 31, 3A }
+#_0A9BCE: db $FD, $06, $87 ; 0x107: Corner (top, convex) ▛ | { 10, 1A }
 #_0A9BD1: db $50, $6B, $02 ; 0x002: Wall (top, south) ↔ | { 14, 1A } | Size: 03
-#_0A9BD4: db $FD, $96, $85 ; 0x105: Corner (top, convex) ▜ | { 19, 1A } | Size: 00
+#_0A9BD4: db $FD, $96, $85 ; 0x105: Corner (top, convex) ▜ | { 19, 1A }
 #_0A9BD7: db $40, $7B, $62 ; 0x062: Wall (top, east) ↕ | { 10, 1E } | Size: 03
-#_0A9BDA: db $FD, $09, $06 ; 0x106: Corner (top, convex) ▙ | { 10, 24 } | Size: 00
+#_0A9BDA: db $FD, $09, $06 ; 0x106: Corner (top, convex) ▙ | { 10, 24 }
 #_0A9BDD: db $50, $93, $01 ; 0x001: Wall (top, north) ↔ | { 14, 24 } | Size: 03
-#_0A9BE0: db $FD, $99, $04 ; 0x104: Corner (top, convex) ▟ | { 19, 24 } | Size: 00
+#_0A9BE0: db $FD, $99, $04 ; 0x104: Corner (top, convex) ▟ | { 19, 24 }
 #_0A9BE3: db $64, $7B, $61 ; 0x061: Wall (top, west) ↕ | { 19, 1E } | Size: 03
 #_0A9BE6: db $27, $33, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 0C } | Size: 0F
 #_0A9BE9: db $A5, $30, $03 ; 0x003: Wall (bottom, north) ↔ | { 29, 0C } | Size: 04
-#_0A9BEC: db $FF, $33, $0A ; 0x10A: Corner (bottom, concave) ▜ | { 33, 0C } | Size: 00
+#_0A9BEC: db $FF, $33, $0A ; 0x10A: Corner (bottom, concave) ▜ | { 33, 0C }
 #_0A9BEF: db $CC, $41, $64 ; 0x064: Wall (bottom, east) ↕ | { 33, 10 } | Size: 01
 #_0A9BF2: db $A9, $4C, $04 ; 0x004: Wall (bottom, south) ↔ | { 2A, 13 } | Size: 04
-#_0A9BF5: db $FF, $34, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 33, 13 } | Size: 00
-#_0A9BF8: db $FE, $64, $CF ; 0x10F: Corner (bottom, convex) ▛ | { 26, 13 } | Size: 00
+#_0A9BF5: db $FF, $34, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 33, 13 }
+#_0A9BF8: db $FE, $64, $CF ; 0x10F: Corner (bottom, convex) ▛ | { 26, 13 }
 #_0A9BFB: db $99, $6D, $64 ; 0x064: Wall (bottom, east) ↕ | { 26, 1B } | Size: 05
-#_0A9BFE: db $FE, $6A, $CE ; 0x10E: Corner (bottom, convex) ▙ | { 26, 2B } | Size: 00
+#_0A9BFE: db $FE, $6A, $CE ; 0x10E: Corner (bottom, convex) ▙ | { 26, 2B }
 #_0A9C01: db $A8, $AD, $03 ; 0x003: Wall (bottom, north) ↔ | { 2A, 2B } | Size: 01
-#_0A9C04: db $FE, $EA, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 2E, 2B } | Size: 00
+#_0A9C04: db $FE, $EA, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 2E, 2B }
 #_0A9C07: db $B8, $BD, $64 ; 0x064: Wall (bottom, east) ↕ | { 2E, 2F } | Size: 01
-#_0A9C0A: db $FE, $EC, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 2E, 32 } | Size: 00
+#_0A9C0A: db $FE, $EC, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 2E, 32 }
 #_0A9C0D: db $62, $CA, $04 ; 0x004: Wall (bottom, south) ↔ | { 18, 32 } | Size: 0A
 #_0A9C10: db $50, $BD, $63 ; 0x063: Wall (bottom, west) ↕ | { 14, 2F } | Size: 01
-#_0A9C13: db $FD, $4C, $89 ; 0x109: Corner (bottom, concave) ▙ | { 14, 32 } | Size: 00
-#_0A9C16: db $FD, $4A, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 14, 2B } | Size: 00
+#_0A9C13: db $FD, $4C, $89 ; 0x109: Corner (bottom, concave) ▙ | { 14, 32 }
+#_0A9C16: db $FD, $4A, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 14, 2B }
 #_0A9C19: db $60, $AD, $03 ; 0x003: Wall (bottom, north) ↔ | { 18, 2B } | Size: 01
-#_0A9C1C: db $FD, $CA, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 1C, 2B } | Size: 00
+#_0A9C1C: db $FD, $CA, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 1C, 2B }
 #_0A9C1F: db $71, $6D, $63 ; 0x063: Wall (bottom, west) ↕ | { 1C, 1B } | Size: 05
-#_0A9C22: db $FD, $C4, $CD ; 0x10D: Corner (bottom, convex) ▜ | { 1C, 13 } | Size: 00
+#_0A9C22: db $FD, $C4, $CD ; 0x10D: Corner (bottom, convex) ▜ | { 1C, 13 }
 #_0A9C25: db $41, $4D, $04 ; 0x004: Wall (bottom, south) ↔ | { 10, 13 } | Size: 05
-#_0A9C28: db $FC, $D4, $CF ; 0x10F: Corner (bottom, convex) ▛ | { 0D, 13 } | Size: 00
+#_0A9C28: db $FC, $D4, $CF ; 0x10F: Corner (bottom, convex) ▛ | { 0D, 13 }
 #_0A9C2B: db $34, $6F, $64 ; 0x064: Wall (bottom, east) ↕ | { 0D, 1B } | Size: 03
-#_0A9C2E: db $FC, $D8, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 0D, 23 } | Size: 00
+#_0A9C2E: db $FC, $D8, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 0D, 23 }
 #_0A9C31: db $24, $8D, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 23 } | Size: 01
-#_0A9C34: db $FC, $58, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 23 } | Size: 00
+#_0A9C34: db $FC, $58, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 23 }
 #_0A9C37: db $14, $6F, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 1B } | Size: 03
 #_0A9C3A: db $80, $2E, $22 ; 0x022: Rail ↔ | { 20, 0B } | Size: 02
 #_0A9C3D: db $22, $30, $69 ; 0x069: Rail ↕ | { 08, 0C } | Size: 08
@@ -2820,47 +2820,47 @@ RoomDataTiles_00B9:
 #_0A9C5E: db $72, $AA, $22 ; 0x022: Rail ↔ | { 1C, 2A } | Size: 0A
 #_0A9C61: db $B8, $A8, $22 ; 0x022: Rail ↔ | { 2E, 2A } | Size: 00
 #_0A9C64: db $80, $DA, $22 ; 0x022: Rail ↔ | { 20, 36 } | Size: 02
-#_0A9C67: db $53, $DA, $FE ; 0x26B: Large decor | { 14, 36 } | Size: 0E
-#_0A9C6A: db $BB, $DA, $FE ; 0x26B: Large decor | { 2E, 36 } | Size: 0E
-#_0A9C6D: db $80, $31, $51 ; 0x051: Cannon hole A (north) ↔ | { 20, 0C } | Size: 01
-#_0A9C70: db $80, $CD, $52 ; 0x052: Cannon hole A (south) ↔ | { 20, 33 } | Size: 01
-#_0A9C73: db $FD, $83, $31 ; 0x131: Intraroom stairs north (separate layers) | { 18, 0C } | Size: 00
-#_0A9C76: db $FE, $A3, $31 ; 0x131: Intraroom stairs north (separate layers) | { 2A, 0C } | Size: 00
-#_0A9C79: db $24, $8F, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 09, 23 } | Size: 03
-#_0A9C7C: db $60, $CB, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 18, 32 } | Size: 03
-#_0A9C7F: db $A8, $CB, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2A, 32 } | Size: 03
-#_0A9C82: db $BB, $93, $FA ; 0x22F: Pot | { 2E, 24 } | Size: 0F
-#_0A9C85: db $C3, $93, $FA ; 0x22F: Pot | { 30, 24 } | Size: 0F
-#_0A9C88: db $D3, $93, $FA ; 0x22F: Pot | { 34, 24 } | Size: 0F
-#_0A9C8B: db $DB, $93, $FA ; 0x22F: Pot | { 36, 24 } | Size: 0F
-#_0A9C8E: db $C9, $92, $F9 ; 0x219: Chest | { 32, 24 } | Size: 06
-#_0A9C91: db $0B, $05, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 01 } | Size: 0D
-#_0A9C94: db $44, $05, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 11, 01 } | Size: 01
-#_0A9C97: db $C6, $05, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 31, 01 } | Size: 09
+#_0A9C67: db $53, $DA, $FE ; 0x26B: Large decor | { 14, 36 }
+#_0A9C6A: db $BB, $DA, $FE ; 0x26B: Large decor | { 2E, 36 }
+#_0A9C6D: db $80, $31, $51 ; 0x051: Cannon hole (bottom, north) ↔ | { 20, 0C } | Size: 01
+#_0A9C70: db $80, $CD, $52 ; 0x052: Cannon hole (bottom, south) ↔ | { 20, 33 } | Size: 01
+#_0A9C73: db $FD, $83, $31 ; 0x131: Intraroom stairs north (separate layers) | { 18, 0C }
+#_0A9C76: db $FE, $A3, $31 ; 0x131: Intraroom stairs north (separate layers) | { 2A, 0C }
+#_0A9C79: db $24, $8F, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 09, 23 }
+#_0A9C7C: db $60, $CB, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 18, 32 }
+#_0A9C7F: db $A8, $CB, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 2A, 32 }
+#_0A9C82: db $BB, $93, $FA ; 0x22F: Pot | { 2E, 24 }
+#_0A9C85: db $C3, $93, $FA ; 0x22F: Pot | { 30, 24 }
+#_0A9C88: db $D3, $93, $FA ; 0x22F: Pot | { 34, 24 }
+#_0A9C8B: db $DB, $93, $FA ; 0x22F: Pot | { 36, 24 }
+#_0A9C8E: db $C9, $92, $F9 ; 0x219: Chest | { 32, 24 }
+#_0A9C91: db $0B, $05, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 01 } | Size: 0D
+#_0A9C94: db $44, $05, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 11, 01 } | Size: 01
+#_0A9C97: db $C6, $05, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 31, 01 } | Size: 09
 #_0A9C9A: db $F0, $0F, $60 ; 0x060: Ceiling ↕ | { 3C, 03 } | Size: 03
 #_0A9C9D: db $B6, $79, $00 ; 0x000: Ceiling ↔ | { 2D, 1E } | Size: 09
-#_0A9CA0: db $50, $78, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 14, 1E } | Size: 00
+#_0A9CA0: db $50, $78, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 14, 1E } | Size: 00
 #_0A9CA3: db $5C, $7B, $60 ; 0x060: Ceiling ↕ | { 17, 1E } | Size: 03
 #_0A9CA6: db $50, $8A, $00 ; 0x000: Ceiling ↔ | { 14, 22 } | Size: 02
-#_0A9CA9: db $07, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 01, 2E } | Size: 0F
-#_0A9CAC: db $D5, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 35, 2E } | Size: 07
+#_0A9CA9: db $07, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 01, 2E } | Size: 0F
+#_0A9CAC: db $D5, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 35, 2E } | Size: 07
 #_0A9CAF: db $F2, $B8, $60 ; 0x060: Ceiling ↕ | { 3C, 2E } | Size: 08
-#_0A9CB2: db $FF, $FF ; Layer01
+#_0A9CB2: db $FF, $FF ; Layer 1
 #_0A9CB4: db $15, $3E, $61 ; 0x061: Wall (top, west) ↕ | { 05, 0F } | Size: 06
-#_0A9CB7: db $FC, $53, $00 ; 0x100: Corner (top, concave) ▛ | { 05, 0C } | Size: 00
+#_0A9CB7: db $FC, $53, $00 ; 0x100: Corner (top, concave) ▛ | { 05, 0C }
 #_0A9CBA: db $34, $5E, $62 ; 0x062: Wall (top, east) ↕ | { 0D, 17 } | Size: 02
 #_0A9CBD: db $70, $5E, $61 ; 0x061: Wall (top, west) ↕ | { 1C, 17 } | Size: 02
 #_0A9CC0: db $70, $9E, $61 ; 0x061: Wall (top, west) ↕ | { 1C, 27 } | Size: 02
 #_0A9CC3: db $98, $9E, $62 ; 0x062: Wall (top, east) ↕ | { 26, 27 } | Size: 02
 #_0A9CC6: db $98, $5E, $62 ; 0x062: Wall (top, east) ↕ | { 26, 17 } | Size: 02
-#_0A9CC9: db $80, $31, $51 ; 0x051: Cannon hole A (north) ↔ | { 20, 0C } | Size: 01
-#_0A9CCC: db $80, $CD, $52 ; 0x052: Cannon hole A (south) ↔ | { 20, 33 } | Size: 01
+#_0A9CC9: db $80, $31, $51 ; 0x051: Cannon hole (bottom, north) ↔ | { 20, 0C } | Size: 01
+#_0A9CCC: db $80, $CD, $52 ; 0x052: Cannon hole (bottom, south) ↔ | { 20, 33 } | Size: 01
 #_0A9CCF: db $7C, $52, $88 ; 0x088: Thick rail ↕ | { 1F, 14 } | Size: 02
 #_0A9CD2: db $7C, $78, $88 ; 0x088: Thick rail ↕ | { 1F, 1E } | Size: 00
 #_0A9CD5: db $95, $52, $88 ; 0x088: Thick rail ↕ | { 25, 14 } | Size: 06
 #_0A9CD8: db $94, $8F, $88 ; 0x088: Thick rail ↕ | { 25, 23 } | Size: 03
 #_0A9CDB: db $7C, $9D, $88 ; 0x088: Thick rail ↕ | { 1F, 27 } | Size: 01
-#_0A9CDE: db $FF, $FF ; Layer02
+#_0A9CDE: db $FF, $FF ; Layer 2
 #_0A9CE0: db $27, $35, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 09, 0D } | Size: 0D
 #_0A9CE3: db $27, $4C, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 09, 13 } | Size: 0C
 #_0A9CE6: db $67, $35, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 19, 0D } | Size: 0D
@@ -2879,79 +2879,79 @@ RoomDataTiles_00B9:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00B9:
-#_0A9D09: db $63, $1C ; Door 0x1C | Dir:03 | Pos:0C
-#_0A9D0B: db $10, $00 ; Door 0x00 | Dir:00 | Pos:02
-#_0A9D0D: db $71, $00 ; Door 0x00 | Dir:01 | Pos:0E
-#_0A9D0F: db $02, $00 ; Door 0x00 | Dir:02 | Pos:00
-#_0A9D11: db $FF, $FF ; Layer03 / End
+#_0A9D09: db $63, $1C ; Door 0x1C | East 0C
+#_0A9D0B: db $10, $00 ; Door 0x00 | North 02
+#_0A9D0D: db $71, $00 ; Door 0x00 | South 0E
+#_0A9D0F: db $02, $00 ; Door 0x00 | West 00
+#_0A9D11: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00BA:
 #_0A9D13: db $E1, $00 ; Floors and Layout
-#_0A9D15: db $FC, $82, $87 ; 0x107: Corner (top, convex) ▛ | { 08, 0A } | Size: 00
+#_0A9D15: db $FC, $82, $87 ; 0x107: Corner (top, convex) ▛ | { 08, 0A }
 #_0A9D18: db $31, $28, $02 ; 0x002: Wall (top, south) ↔ | { 0C, 0A } | Size: 04
-#_0A9D1B: db $FD, $42, $85 ; 0x105: Corner (top, convex) ▜ | { 14, 0A } | Size: 00
+#_0A9D1B: db $FD, $42, $85 ; 0x105: Corner (top, convex) ▜ | { 14, 0A }
 #_0A9D1E: db $20, $3B, $62 ; 0x062: Wall (top, east) ↕ | { 08, 0E } | Size: 03
-#_0A9D21: db $FC, $85, $06 ; 0x106: Corner (top, convex) ▙ | { 08, 14 } | Size: 00
+#_0A9D21: db $FC, $85, $06 ; 0x106: Corner (top, convex) ▙ | { 08, 14 }
 #_0A9D24: db $31, $50, $01 ; 0x001: Wall (top, north) ↔ | { 0C, 14 } | Size: 04
-#_0A9D27: db $FD, $45, $04 ; 0x104: Corner (top, convex) ▟ | { 14, 14 } | Size: 00
+#_0A9D27: db $FD, $45, $04 ; 0x104: Corner (top, convex) ▟ | { 14, 14 }
 #_0A9D2A: db $50, $3B, $61 ; 0x061: Wall (top, west) ↕ | { 14, 0E } | Size: 03
-#_0A9D2D: db $60, $50, $FD ; 0x250: Pressure plate | { 18, 14 } | Size: 00
-#_0A9D30: db $9B, $33, $FA ; 0x22F: Pot | { 26, 0C } | Size: 0F
-#_0A9D33: db $9B, $53, $FA ; 0x22F: Pot | { 26, 14 } | Size: 0F
-#_0A9D36: db $B3, $43, $FA ; 0x22F: Pot | { 2C, 10 } | Size: 0F
-#_0A9D39: db $BF, $23, $FA ; 0x22F: Pot | { 2F, 08 } | Size: 0F
-#_0A9D3C: db $BF, $63, $FA ; 0x22F: Pot | { 2F, 18 } | Size: 0F
-#_0A9D3F: db $CB, $43, $FA ; 0x22F: Pot | { 32, 10 } | Size: 0F
-#_0A9D42: db $E3, $33, $FA ; 0x22F: Pot | { 38, 0C } | Size: 0F
-#_0A9D45: db $E3, $53, $FA ; 0x22F: Pot | { 38, 14 } | Size: 0F
-#_0A9D48: db $31, $38, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 0C, 0E } | Size: 04
+#_0A9D2D: db $60, $50, $FD ; 0x250: Pressure plate | { 18, 14 }
+#_0A9D30: db $9B, $33, $FA ; 0x22F: Pot | { 26, 0C }
+#_0A9D33: db $9B, $53, $FA ; 0x22F: Pot | { 26, 14 }
+#_0A9D36: db $B3, $43, $FA ; 0x22F: Pot | { 2C, 10 }
+#_0A9D39: db $BF, $23, $FA ; 0x22F: Pot | { 2F, 08 }
+#_0A9D3C: db $BF, $63, $FA ; 0x22F: Pot | { 2F, 18 }
+#_0A9D3F: db $CB, $43, $FA ; 0x22F: Pot | { 32, 10 }
+#_0A9D42: db $E3, $33, $FA ; 0x22F: Pot | { 38, 0C }
+#_0A9D45: db $E3, $53, $FA ; 0x22F: Pot | { 38, 14 }
+#_0A9D48: db $31, $38, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 0C, 0E } | Size: 04
 #_0A9D4B: db $31, $48, $00 ; 0x000: Ceiling ↔ | { 0C, 12 } | Size: 04
-#_0A9D4E: db $FF, $FF ; Layer01
-#_0A9D50: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 } | Size: 0A
-#_0A9D53: db $FF, $FF ; Layer02
+#_0A9D4E: db $FF, $FF ; Layer 1
+#_0A9D50: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 }
+#_0A9D53: db $FF, $FF ; Layer 2
 #_0A9D55: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00BA:
-#_0A9D57: db $02, $1C ; Door 0x1C | Dir:02 | Pos:00
-#_0A9D59: db $00, $18 ; Door 0x18 | Dir:00 | Pos:00
-#_0A9D5B: db $62, $38 ; Door 0x38 | Dir:02 | Pos:0C
-#_0A9D5D: db $FF, $FF ; Layer03 / End
+#_0A9D57: db $02, $1C ; Door 0x1C | West 00
+#_0A9D59: db $00, $18 ; Door 0x18 | North 00
+#_0A9D5B: db $62, $38 ; Door 0x38 | West 0C
+#_0A9D5D: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00C9:
 #_0A9D5F: db $E1, $10 ; Floors and Layout
-#_0A9D61: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 } | Size: 00
+#_0A9D61: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 }
 #_0A9D64: db $29, $A3, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 28 } | Size: 07
-#_0A9D67: db $FC, $AD, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 36 } | Size: 00
+#_0A9D67: db $FC, $AD, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 36 }
 #_0A9D6A: db $38, $DB, $02 ; 0x002: Wall (top, south) ↔ | { 0E, 36 } | Size: 03
-#_0A9D6D: db $FD, $3D, $85 ; 0x105: Corner (top, convex) ▜ | { 13, 36 } | Size: 00
-#_0A9D70: db $FD, $3E, $81 ; 0x101: Corner (top, concave) ▙ | { 13, 3A } | Size: 00
-#_0A9D73: db $FD, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 24 } | Size: 00
+#_0A9D6D: db $FD, $3D, $85 ; 0x105: Corner (top, convex) ▜ | { 13, 36 }
+#_0A9D70: db $FD, $3E, $81 ; 0x101: Corner (top, concave) ▙ | { 13, 3A }
+#_0A9D73: db $FD, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 24 }
 #_0A9D76: db $48, $A2, $62 ; 0x062: Wall (top, east) ↕ | { 12, 28 } | Size: 02
-#_0A9D79: db $FD, $2B, $06 ; 0x106: Corner (top, convex) ▙ | { 12, 2C } | Size: 00
+#_0A9D79: db $FD, $2B, $06 ; 0x106: Corner (top, convex) ▙ | { 12, 2C }
 #_0A9D7C: db $58, $B2, $01 ; 0x001: Wall (top, north) ↔ | { 16, 2C } | Size: 02
-#_0A9D7F: db $FD, $AB, $04 ; 0x104: Corner (top, convex) ▟ | { 1A, 2C } | Size: 00
+#_0A9D7F: db $FD, $AB, $04 ; 0x104: Corner (top, convex) ▟ | { 1A, 2C }
 #_0A9D82: db $68, $A2, $61 ; 0x061: Wall (top, west) ↕ | { 1A, 28 } | Size: 02
-#_0A9D85: db $FD, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 1A, 24 } | Size: 00
-#_0A9D88: db $FE, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 22, 24 } | Size: 00
+#_0A9D85: db $FD, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 1A, 24 }
+#_0A9D88: db $FE, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 22, 24 }
 #_0A9D8B: db $88, $A2, $62 ; 0x062: Wall (top, east) ↕ | { 22, 28 } | Size: 02
-#_0A9D8E: db $FE, $2B, $06 ; 0x106: Corner (top, convex) ▙ | { 22, 2C } | Size: 00
+#_0A9D8E: db $FE, $2B, $06 ; 0x106: Corner (top, convex) ▙ | { 22, 2C }
 #_0A9D91: db $98, $B2, $01 ; 0x001: Wall (top, north) ↔ | { 26, 2C } | Size: 02
-#_0A9D94: db $FE, $AB, $04 ; 0x104: Corner (top, convex) ▟ | { 2A, 2C } | Size: 00
+#_0A9D94: db $FE, $AB, $04 ; 0x104: Corner (top, convex) ▟ | { 2A, 2C }
 #_0A9D97: db $A8, $A2, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 28 } | Size: 02
-#_0A9D9A: db $FE, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 24 } | Size: 00
-#_0A9D9D: db $FF, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 24 } | Size: 00
+#_0A9D9A: db $FE, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 24 }
+#_0A9D9D: db $FF, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 24 }
 #_0A9DA0: db $C9, $A3, $62 ; 0x062: Wall (top, east) ↕ | { 32, 28 } | Size: 07
-#_0A9DA3: db $FF, $2D, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 36 } | Size: 00
+#_0A9DA3: db $FF, $2D, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 36 }
 #_0A9DA6: db $B0, $DB, $02 ; 0x002: Wall (top, south) ↔ | { 2C, 36 } | Size: 03
-#_0A9DA9: db $FE, $9D, $87 ; 0x107: Corner (top, convex) ▛ | { 29, 36 } | Size: 00
-#_0A9DAC: db $FE, $9E, $83 ; 0x103: Corner (top, concave) ▟ | { 29, 3A } | Size: 00
-#_0A9DAF: db $FC, $51, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 07 } | Size: 00
+#_0A9DA9: db $FE, $9D, $87 ; 0x107: Corner (top, convex) ▛ | { 29, 36 }
+#_0A9DAC: db $FE, $9E, $83 ; 0x103: Corner (top, concave) ▟ | { 29, 3A }
+#_0A9DAF: db $FC, $51, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 07 }
 #_0A9DB2: db $26, $1C, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 07 } | Size: 08
 #_0A9DB5: db $15, $2D, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 0B } | Size: 05
 #_0A9DB8: db $34, $5A, $08 ; 0x008: Deep wall (south) ↔ | { 0D, 16 } | Size: 02
@@ -2961,26 +2961,26 @@ RoomDataTiles_00C9:
 #_0A9DC4: db $93, $1E, $69 ; 0x069: Rail ↕ | { 24, 07 } | Size: 0E
 #_0A9DC7: db $90, $59, $69 ; 0x069: Rail ↕ | { 24, 16 } | Size: 01
 #_0A9DCA: db $96, $1C, $03 ; 0x003: Wall (bottom, north) ↔ | { 25, 07 } | Size: 08
-#_0A9DCD: db $FF, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 07 } | Size: 00
+#_0A9DCD: db $FF, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 07 }
 #_0A9DD0: db $DD, $2D, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 0B } | Size: 05
-#_0A9DD3: db $FF, $75, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 17 } | Size: 00
+#_0A9DD3: db $FF, $75, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 17 }
 #_0A9DD6: db $96, $5C, $04 ; 0x004: Wall (bottom, south) ↔ | { 25, 17 } | Size: 08
 #_0A9DD9: db $26, $5C, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 17 } | Size: 08
-#_0A9DDC: db $FC, $55, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 17 } | Size: 00
+#_0A9DDC: db $FC, $55, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 17 }
 #_0A9DDF: db $2B, $2A, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 0A, 0A } | Size: 0E
 #_0A9DE2: db $4D, $2E, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 13, 0B } | Size: 06
 #_0A9DE5: db $97, $2A, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 25, 0A } | Size: 0E
 #_0A9DE8: db $C8, $2A, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 32, 0A } | Size: 02
 #_0A9DEB: db $26, $28, $07 ; 0x007: Deep wall (north) ↔ | { 09, 0A } | Size: 08
-#_0A9DEE: db $FC, $82, $98 ; 0x118: Deep corner (concave) ▛ | { 08, 0A } | Size: 00
+#_0A9DEE: db $FC, $82, $98 ; 0x118: Deep corner (concave) ▛ | { 08, 0A }
 #_0A9DF1: db $21, $30, $67 ; 0x067: Deep wall (west) ↕ | { 08, 0C } | Size: 04
 #_0A9DF4: db $26, $58, $08 ; 0x008: Deep wall (south) ↔ | { 09, 16 } | Size: 08
-#_0A9DF7: db $FC, $85, $99 ; 0x119: Deep corner (concave) ▙ | { 08, 16 } | Size: 00
+#_0A9DF7: db $FC, $85, $99 ; 0x119: Deep corner (concave) ▙ | { 08, 16 }
 #_0A9DFA: db $96, $28, $07 ; 0x007: Deep wall (north) ↔ | { 25, 0A } | Size: 08
-#_0A9DFD: db $FF, $62, $9A ; 0x11A: Deep corner (concave) ▜ | { 36, 0A } | Size: 00
+#_0A9DFD: db $FF, $62, $9A ; 0x11A: Deep corner (concave) ▜ | { 36, 0A }
 #_0A9E00: db $D9, $30, $68 ; 0x068: Deep wall (east) ↕ | { 36, 0C } | Size: 04
 #_0A9E03: db $96, $58, $08 ; 0x008: Deep wall (south) ↔ | { 25, 16 } | Size: 08
-#_0A9E06: db $FF, $65, $9B ; 0x11B: Deep corner (concave) ▟ | { 36, 16 } | Size: 00
+#_0A9E06: db $FF, $65, $9B ; 0x11B: Deep corner (concave) ▟ | { 36, 16 }
 #_0A9E09: db $38, $58, $C4 ; 0x0C4: Floor 1 ⇲ | { 0E, 16 } | Size: 00
 #_0A9E0C: db $38, $6A, $02 ; 0x002: Wall (top, south) ↔ | { 0E, 1A } | Size: 02
 #_0A9E0F: db $B8, $6A, $02 ; 0x002: Wall (top, south) ↔ | { 2E, 1A } | Size: 02
@@ -2991,34 +2991,34 @@ RoomDataTiles_00C9:
 #_0A9E1E: db $B4, $56, $69 ; 0x069: Rail ↕ | { 2D, 15 } | Size: 02
 #_0A9E21: db $C8, $56, $69 ; 0x069: Rail ↕ | { 32, 15 } | Size: 02
 #_0A9E24: db $B8, $58, $C4 ; 0x0C4: Floor 1 ⇲ | { 2E, 16 } | Size: 00
-#_0A9E27: db $78, $48, $FD ; 0x250: Pressure plate | { 1E, 12 } | Size: 00
-#_0A9E2A: db $5B, $BE, $FE ; 0x26B: Large decor | { 16, 2F } | Size: 0E
-#_0A9E2D: db $9B, $BE, $FE ; 0x26B: Large decor | { 26, 2F } | Size: 0E
-#_0A9E30: db $3F, $B3, $FA ; 0x22F: Pot | { 0F, 2C } | Size: 0F
-#_0A9E33: db $7B, $B3, $FA ; 0x22F: Pot | { 1E, 2C } | Size: 0F
-#_0A9E36: db $BF, $B3, $FA ; 0x22F: Pot | { 2F, 2C } | Size: 0F
-#_0A9E39: db $FC, $39, $72 ; 0x132: Intraroom stairs north (merged layers) | { 03, 25 } | Size: 00
-#_0A9E3C: db $09, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 07
-#_0A9E3F: db $09, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 06
-#_0A9E42: db $1E, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 07, 3A } | Size: 08
-#_0A9E45: db $B6, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2D, 3A } | Size: 08
-#_0A9E48: db $D9, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 24 } | Size: 07
-#_0A9E4B: db $D9, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 34 } | Size: 06
-#_0A9E4E: db $58, $91, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 24 } | Size: 01
-#_0A9E51: db $98, $91, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 24 } | Size: 01
-#_0A9E54: db $FF, $FF ; Layer01
-#_0A9E56: db $FF, $FF ; Layer02
+#_0A9E27: db $78, $48, $FD ; 0x250: Pressure plate | { 1E, 12 }
+#_0A9E2A: db $5B, $BE, $FE ; 0x26B: Large decor | { 16, 2F }
+#_0A9E2D: db $9B, $BE, $FE ; 0x26B: Large decor | { 26, 2F }
+#_0A9E30: db $3F, $B3, $FA ; 0x22F: Pot | { 0F, 2C }
+#_0A9E33: db $7B, $B3, $FA ; 0x22F: Pot | { 1E, 2C }
+#_0A9E36: db $BF, $B3, $FA ; 0x22F: Pot | { 2F, 2C }
+#_0A9E39: db $FC, $39, $72 ; 0x132: Intraroom stairs north (merged layers) | { 03, 25 }
+#_0A9E3C: db $09, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 07
+#_0A9E3F: db $09, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 06
+#_0A9E42: db $1E, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 07, 3A } | Size: 08
+#_0A9E45: db $B6, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2D, 3A } | Size: 08
+#_0A9E48: db $D9, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 24 } | Size: 07
+#_0A9E4B: db $D9, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 34 } | Size: 06
+#_0A9E4E: db $58, $91, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 24 } | Size: 01
+#_0A9E51: db $98, $91, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 24 } | Size: 01
+#_0A9E54: db $FF, $FF ; Layer 1
+#_0A9E56: db $FF, $FF ; Layer 2
 #_0A9E58: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00C9:
-#_0A9E5A: db $70, $18 ; Door 0x18 | Dir:00 | Pos:0E
-#_0A9E5C: db $10, $18 ; Door 0x18 | Dir:00 | Pos:02
-#_0A9E5E: db $60, $00 ; Door 0x00 | Dir:00 | Pos:0C
-#_0A9E60: db $80, $00 ; Door 0x00 | Dir:00 | Pos:10
-#_0A9E62: db $71, $0A ; Door 0x0A | Dir:01 | Pos:0E
-#_0A9E64: db $FF, $FF ; Layer03 / End
+#_0A9E5A: db $70, $18 ; Door 0x18 | North 0E
+#_0A9E5C: db $10, $18 ; Door 0x18 | North 02
+#_0A9E5E: db $60, $00 ; Door 0x00 | North 0C
+#_0A9E60: db $80, $00 ; Door 0x00 | North 10
+#_0A9E62: db $71, $0A ; Door 0x0A | South 0E
+#_0A9E64: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -3028,11 +3028,11 @@ RoomDataTiles_0089:
 #_0A9E6B: db $98, $35, $22 ; 0x022: Rail ↔ | { 26, 0D } | Size: 01
 #_0A9E6E: db $66, $6E, $22 ; 0x022: Rail ↔ | { 19, 1B } | Size: 0A
 #_0A9E71: db $98, $49, $22 ; 0x022: Rail ↔ | { 26, 12 } | Size: 01
-#_0A9E74: db $5A, $42, $FC ; 0x24A: Warp tile | { 16, 10 } | Size: 0A
+#_0A9E74: db $5A, $42, $FC ; 0x24A: Warp tile | { 16, 10 }
 #_0A9E77: db $54, $49, $22 ; 0x022: Rail ↔ | { 15, 12 } | Size: 01
 #_0A9E7A: db $65, $4A, $69 ; 0x069: Rail ↕ | { 19, 12 } | Size: 06
 #_0A9E7D: db $99, $4A, $69 ; 0x069: Rail ↕ | { 26, 12 } | Size: 06
-#_0A9E80: db $A2, $42, $FC ; 0x24A: Warp tile | { 28, 10 } | Size: 0A
+#_0A9E80: db $A2, $42, $FC ; 0x24A: Warp tile | { 28, 10 }
 #_0A9E83: db $54, $36, $69 ; 0x069: Rail ↕ | { 15, 0D } | Size: 02
 #_0A9E86: db $A8, $36, $69 ; 0x069: Rail ↕ | { 2A, 0D } | Size: 02
 #_0A9E89: db $54, $4D, $07 ; 0x007: Deep wall (north) ↔ | { 15, 13 } | Size: 01
@@ -3055,53 +3055,53 @@ RoomDataTiles_0089:
 #_0A9EBC: db $03, $43, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 00, 10 } | Size: 0F
 #_0A9EBF: db $35, $43, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 0D, 10 } | Size: 07
 #_0A9EC2: db $54, $56, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 15, 15 } | Size: 02
-#_0A9EC5: db $FF, $FF ; Layer01
-#_0A9EC7: db $FF, $FF ; Layer02
+#_0A9EC5: db $FF, $FF ; Layer 1
+#_0A9EC7: db $FF, $FF ; Layer 2
 #_0A9EC9: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0089:
-#_0A9ECB: db $FF, $FF ; Layer03 / End
+#_0A9ECB: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0072:
 #_0A9ECD: db $51, $10 ; Floors and Layout
-#_0A9ECF: db $FD, $61, $C0 ; 0x100: Corner (top, concave) ▛ | { 16, 07 } | Size: 00
+#_0A9ECF: db $FD, $61, $C0 ; 0x100: Corner (top, concave) ▛ | { 16, 07 }
 #_0A9ED2: db $69, $1E, $01 ; 0x001: Wall (top, north) ↔ | { 1A, 07 } | Size: 06
-#_0A9ED5: db $FE, $61, $C2 ; 0x102: Corner (top, concave) ▜ | { 26, 07 } | Size: 00
+#_0A9ED5: db $FE, $61, $C2 ; 0x102: Corner (top, concave) ▜ | { 26, 07 }
 #_0A9ED8: db $9A, $2C, $62 ; 0x062: Wall (top, east) ↕ | { 26, 0B } | Size: 08
 #_0A9EDB: db $5A, $2C, $61 ; 0x061: Wall (top, west) ↕ | { 16, 0B } | Size: 08
-#_0A9EDE: db $FD, $66, $81 ; 0x101: Corner (top, concave) ▙ | { 16, 1A } | Size: 00
-#_0A9EE1: db $FE, $66, $83 ; 0x103: Corner (top, concave) ▟ | { 26, 1A } | Size: 00
-#_0A9EE4: db $FD, $E1, $F8 ; 0x138: Interroom spiral stairs up (top) | { 1E, 07 } | Size: 00
+#_0A9EDE: db $FD, $66, $81 ; 0x101: Corner (top, concave) ▙ | { 16, 1A }
+#_0A9EE1: db $FE, $66, $83 ; 0x103: Corner (top, concave) ▟ | { 26, 1A }
+#_0A9EE4: db $FD, $E1, $F8 ; 0x138: Interroom spiral stairs up (top) | { 1E, 07 }
 #_0A9EE7: db $5C, $44, $7F ; 0x07F: Wall torches (west) ↕ | { 17, 11 } | Size: 00
 #_0A9EEA: db $9C, $44, $80 ; 0x080: Wall torches (east) ↕ | { 27, 11 } | Size: 00
-#_0A9EED: db $79, $4A, $F9 ; 0x219: Chest | { 1E, 12 } | Size: 06
+#_0A9EED: db $79, $4A, $F9 ; 0x219: Chest | { 1E, 12 }
 #_0A9EF0: db $80, $44, $38 ; 0x038: Statues ↔ | { 20, 11 } | Size: 00
-#_0A9EF3: db $FE, $69, $02 ; 0x102: Corner (top, concave) ▜ | { 26, 24 } | Size: 00
-#_0A9EF6: db $FE, $6A, $06 ; 0x106: Corner (top, convex) ▙ | { 26, 28 } | Size: 00
+#_0A9EF3: db $FE, $69, $02 ; 0x102: Corner (top, concave) ▜ | { 26, 24 }
+#_0A9EF6: db $FE, $6A, $06 ; 0x106: Corner (top, convex) ▙ | { 26, 28 }
 #_0A9EF9: db $A8, $A1, $01 ; 0x001: Wall (top, north) ↔ | { 2A, 28 } | Size: 01
-#_0A9EFC: db $FE, $CA, $04 ; 0x104: Corner (top, convex) ▟ | { 2C, 28 } | Size: 00
+#_0A9EFC: db $FE, $CA, $04 ; 0x104: Corner (top, convex) ▟ | { 2C, 28 }
 #_0A9EFF: db $B3, $03, $61 ; 0x061: Wall (top, west) ↕ | { 2C, 00 } | Size: 0F
 #_0A9F02: db $B1, $79, $61 ; 0x061: Wall (top, west) ↕ | { 2C, 1E } | Size: 05
-#_0A9F05: db $FC, $5A, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 2B } | Size: 00
+#_0A9F05: db $FC, $5A, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 2B }
 #_0A9F08: db $27, $AF, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 2B } | Size: 0F
 #_0A9F0B: db $A4, $AE, $03 ; 0x003: Wall (bottom, north) ↔ | { 29, 2B } | Size: 02
 #_0A9F0E: db $BF, $03, $63 ; 0x063: Wall (bottom, west) ↕ | { 2F, 00 } | Size: 0F
 #_0A9F11: db $BD, $81, $63 ; 0x063: Wall (bottom, west) ↕ | { 2F, 20 } | Size: 05
-#_0A9F14: db $FE, $FA, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 2F, 2B } | Size: 00
+#_0A9F14: db $FE, $FA, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 2F, 2B }
 #_0A9F17: db $14, $BD, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 2F } | Size: 01
-#_0A9F1A: db $FC, $5C, $89 ; 0x109: Corner (bottom, concave) ▙ | { 05, 32 } | Size: 00
+#_0A9F1A: db $FC, $5C, $89 ; 0x109: Corner (bottom, concave) ▙ | { 05, 32 }
 #_0A9F1D: db $24, $CB, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 32 } | Size: 03
-#_0A9F20: db $FD, $0C, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 10, 32 } | Size: 00
+#_0A9F20: db $FD, $0C, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 10, 32 }
 #_0A9F23: db $40, $DA, $63 ; 0x063: Wall (bottom, west) ↕ | { 10, 36 } | Size: 02
-#_0A9F26: db $FD, $0E, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 10, 3B } | Size: 00
+#_0A9F26: db $FD, $0E, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 10, 3B }
 #_0A9F29: db $30, $ED, $03 ; 0x003: Wall (bottom, north) ↔ | { 0C, 3B } | Size: 01
 #_0A9F2C: db $18, $E1, $C4 ; 0x0C4: Floor 1 ⇲ | { 06, 38 } | Size: 01
 #_0A9F2F: db $24, $F8, $63 ; 0x063: Wall (bottom, west) ↕ | { 09, 3E } | Size: 00
-#_0A9F32: db $FC, $9E, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 09, 3B } | Size: 00
+#_0A9F32: db $FC, $9E, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 09, 3B }
 #_0A9F35: db $08, $EB, $61 ; 0x061: Wall (top, west) ↕ | { 02, 3A } | Size: 03
 #_0A9F38: db $14, $D8, $22 ; 0x022: Rail ↔ | { 05, 36 } | Size: 00
 #_0A9F3B: db $21, $E8, $22 ; 0x022: Rail ↔ | { 08, 3A } | Size: 04
@@ -3109,30 +3109,30 @@ RoomDataTiles_0072:
 #_0A9F41: db $14, $A8, $22 ; 0x022: Rail ↔ | { 05, 2A } | Size: 00
 #_0A9F44: db $84, $AA, $22 ; 0x022: Rail ↔ | { 21, 2A } | Size: 02
 #_0A9F47: db $C2, $E0, $02 ; 0x002: Wall (top, south) ↔ | { 30, 38 } | Size: 08
-#_0A9F4A: db $FE, $CE, $07 ; 0x107: Corner (top, convex) ▛ | { 2C, 38 } | Size: 00
+#_0A9F4A: db $FE, $CE, $07 ; 0x107: Corner (top, convex) ▛ | { 2C, 38 }
 #_0A9F4D: db $B0, $F2, $62 ; 0x062: Wall (top, east) ↕ | { 2C, 3C } | Size: 02
 #_0A9F50: db $B2, $D5, $04 ; 0x004: Wall (bottom, south) ↔ | { 2C, 35 } | Size: 09
 #_0A9F53: db $A4, $E3, $64 ; 0x064: Wall (bottom, east) ↕ | { 29, 38 } | Size: 03
-#_0A9F56: db $FE, $9D, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 29, 35 } | Size: 00
-#_0A9F59: db $FD, $8A, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 18, 2B } | Size: 00
-#_0A9F5C: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0F
-#_0A9F5F: db $0B, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 14 } | Size: 0E
-#_0A9F62: db $48, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 04 } | Size: 03
-#_0A9F65: db $48, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 14 } | Size: 02
-#_0A9F68: db $5B, $0C, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 03 } | Size: 0C
-#_0A9F6B: db $91, $0C, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 24, 03 } | Size: 04
+#_0A9F56: db $FE, $9D, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 29, 35 }
+#_0A9F59: db $FD, $8A, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 18, 2B }
+#_0A9F5C: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0F
+#_0A9F5F: db $0B, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 14 } | Size: 0E
+#_0A9F62: db $48, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 04 } | Size: 03
+#_0A9F65: db $48, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 14 } | Size: 02
+#_0A9F68: db $5B, $0C, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 03 } | Size: 0C
+#_0A9F6B: db $91, $0C, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 24, 03 } | Size: 04
 #_0A9F6E: db $AB, $1C, $60 ; 0x060: Ceiling ↕ | { 2A, 07 } | Size: 0C
 #_0A9F71: db $A8, $92, $60 ; 0x060: Ceiling ↕ | { 2A, 24 } | Size: 02
 #_0A9F74: db $C1, $F3, $00 ; 0x000: Ceiling ↔ | { 30, 3C } | Size: 07
-#_0A9F77: db $FF, $FF ; Layer01
+#_0A9F77: db $FF, $FF ; Layer 1
 #_0A9F79: db $CB, $03, $67 ; 0x067: Deep wall (west) ↕ | { 32, 00 } | Size: 0F
 #_0A9F7C: db $C9, $82, $67 ; 0x067: Deep wall (west) ↕ | { 32, 20 } | Size: 06
-#_0A9F7F: db $CA, $B8, $FA ; 0x222: Deep corner (convex) ▟ | { 32, 2E } | Size: 08
+#_0A9F7F: db $CA, $B8, $FA ; 0x222: Deep corner (convex) ▟ | { 32, 2E }
 #_0A9F82: db $89, $BB, $07 ; 0x007: Deep wall (north) ↔ | { 22, 2E } | Size: 07
 #_0A9F85: db $AA, $D2, $08 ; 0x008: Deep wall (south) ↔ | { 2A, 34 } | Size: 0A
 #_0A9F88: db $89, $D2, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 22, 34 } | Size: 06
 #_0A9F8B: db $A1, $D8, $68 ; 0x068: Deep wall (east) ↕ | { 28, 36 } | Size: 04
-#_0A9F8E: db $A1, $D1, $FA ; 0x225: Deep corner (convex) ▛ | { 28, 34 } | Size: 05
+#_0A9F8E: db $A1, $D1, $FA ; 0x225: Deep corner (convex) ▛ | { 28, 34 }
 #_0A9F91: db $84, $B8, $69 ; 0x069: Rail ↕ | { 21, 2E } | Size: 00
 #_0A9F94: db $61, $EE, $22 ; 0x022: Rail ↔ | { 18, 3B } | Size: 06
 #_0A9F97: db $62, $F0, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 18, 3C } | Size: 08
@@ -3140,13 +3140,13 @@ RoomDataTiles_0072:
 #_0A9F9D: db $60, $ED, $69 ; 0x069: Rail ↕ | { 18, 3B } | Size: 01
 #_0A9FA0: db $38, $FA, $07 ; 0x007: Deep wall (north) ↔ | { 0E, 3E } | Size: 02
 #_0A9FA3: db $4C, $ED, $69 ; 0x069: Rail ↕ | { 13, 3B } | Size: 01
-#_0A9FA6: db $FC, $CF, $98 ; 0x118: Deep corner (concave) ▛ | { 0C, 3E } | Size: 00
+#_0A9FA6: db $FC, $CF, $98 ; 0x118: Deep corner (concave) ▛ | { 0C, 3E }
 #_0A9FA9: db $D2, $03, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 34, 00 } | Size: 0B
 #_0A9FAC: db $D2, $43, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 34, 10 } | Size: 0B
 #_0A9FAF: db $D2, $83, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 34, 20 } | Size: 0B
 #_0A9FB2: db $C3, $C0, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 30, 30 } | Size: 0C
 #_0A9FB5: db $8B, $C0, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 22, 30 } | Size: 0C
-#_0A9FB8: db $FF, $FF ; Layer02
+#_0A9FB8: db $FF, $FF ; Layer 2
 #_0A9FBA: db $17, $B2, $D7 ; 0x0D7: Layer 2 mask (medium) ⇲ | { 05, 2C } | Size: 0E
 #_0A9FBD: db $47, $B3, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 11, 2C } | Size: 0F
 #_0A9FC0: db $2B, $F0, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0A, 3C } | Size: 0C
@@ -3162,8 +3162,8 @@ RoomDataTiles_0072:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0072:
-#_0A9FDA: db $70, $1C ; Door 0x1C | Dir:00 | Pos:0E
-#_0A9FDC: db $FF, $FF ; Layer03 / End
+#_0A9FDA: db $70, $1C ; Door 0x1C | North 0E
+#_0A9FDC: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -3172,14 +3172,14 @@ RoomDataTiles_0082:
 #_0A9FE0: db $18, $01, $C4 ; 0x0C4: Floor 1 ⇲ | { 06, 00 } | Size: 01
 #_0A9FE3: db $01, $38, $C4 ; 0x0C4: Floor 1 ⇲ | { 00, 0E } | Size: 04
 #_0A9FE6: db $09, $00, $61 ; 0x061: Wall (top, west) ↕ | { 02, 00 } | Size: 04
-#_0A9FE9: db $FC, $22, $84 ; 0x104: Corner (top, convex) ▟ | { 02, 0A } | Size: 00
+#_0A9FE9: db $FC, $22, $84 ; 0x104: Corner (top, convex) ▟ | { 02, 0A }
 #_0A9FEC: db $00, $29, $01 ; 0x001: Wall (top, north) ↔ | { 00, 0A } | Size: 01
 #_0A9FEF: db $26, $00, $63 ; 0x063: Wall (bottom, west) ↕ | { 09, 00 } | Size: 08
-#_0A9FF2: db $FC, $94, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 09, 11 } | Size: 00
+#_0A9FF2: db $FC, $94, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 09, 11 }
 #_0A9FF5: db $00, $41, $02 ; 0x002: Wall (top, south) ↔ | { 00, 10 } | Size: 01
-#_0A9FF8: db $FC, $24, $05 ; 0x105: Corner (top, convex) ▜ | { 02, 10 } | Size: 00
-#_0A9FFB: db $FC, $54, $48 ; 0x108: Corner (bottom, concave) ▛ | { 05, 11 } | Size: 00
-#_0A9FFE: db $FC, $2A, $84 ; 0x104: Corner (top, convex) ▟ | { 02, 2A } | Size: 00
+#_0A9FF8: db $FC, $24, $05 ; 0x105: Corner (top, convex) ▜ | { 02, 10 }
+#_0A9FFB: db $FC, $54, $48 ; 0x108: Corner (bottom, concave) ▛ | { 05, 11 }
+#_0A9FFE: db $FC, $2A, $84 ; 0x104: Corner (top, convex) ▟ | { 02, 2A }
 #_0AA001: db $00, $A9, $01 ; 0x001: Wall (top, north) ↔ | { 00, 2A } | Size: 01
 #_0AA004: db $16, $57, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 15 } | Size: 0B
 #_0AA007: db $01, $C0, $C4 ; 0x0C4: Floor 1 ⇲ | { 00, 30 } | Size: 04
@@ -3189,30 +3189,30 @@ RoomDataTiles_0082:
 #_0AA013: db $00, $F4, $00 ; 0x000: Ceiling ↔ | { 00, 3D } | Size: 00
 #_0AA016: db $00, $B6, $03 ; 0x003: Wall (bottom, north) ↔ | { 00, 2D } | Size: 02
 #_0AA019: db $03, $DF, $02 ; 0x002: Wall (top, south) ↔ | { 00, 37 } | Size: 0F
-#_0AA01C: db $FC, $5B, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 05, 2D } | Size: 00
+#_0AA01C: db $FC, $5B, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 05, 2D }
 #_0AA01F: db $7A, $DF, $02 ; 0x002: Wall (top, south) ↔ | { 1E, 37 } | Size: 0B
 #_0AA022: db $D0, $D9, $62 ; 0x062: Wall (top, east) ↕ | { 34, 36 } | Size: 01
-#_0AA025: db $FF, $45, $02 ; 0x102: Corner (top, concave) ▜ | { 34, 14 } | Size: 00
-#_0AA028: db $FF, $4D, $C3 ; 0x103: Corner (top, concave) ▟ | { 34, 37 } | Size: 00
+#_0AA025: db $FF, $45, $02 ; 0x102: Corner (top, concave) ▜ | { 34, 14 }
+#_0AA028: db $FF, $4D, $C3 ; 0x103: Corner (top, concave) ▟ | { 34, 37 }
 #_0AA02B: db $D3, $63, $62 ; 0x062: Wall (top, east) ↕ | { 34, 18 } | Size: 0F
 #_0AA02E: db $C0, $52, $01 ; 0x001: Wall (top, north) ↔ | { 30, 14 } | Size: 02
-#_0AA031: db $FE, $C5, $06 ; 0x106: Corner (top, convex) ▙ | { 2C, 14 } | Size: 00
+#_0AA031: db $FE, $C5, $06 ; 0x106: Corner (top, convex) ▙ | { 2C, 14 }
 #_0AA034: db $B2, $02, $62 ; 0x062: Wall (top, east) ↕ | { 2C, 00 } | Size: 0A
 #_0AA037: db $A6, $03, $64 ; 0x064: Wall (bottom, east) ↕ | { 29, 00 } | Size: 0B
-#_0AA03A: db $FE, $95, $CE ; 0x10E: Corner (bottom, convex) ▙ | { 29, 17 } | Size: 00
+#_0AA03A: db $FE, $95, $CE ; 0x10E: Corner (bottom, convex) ▙ | { 29, 17 }
 #_0AA03D: db $B4, $5D, $03 ; 0x003: Wall (bottom, north) ↔ | { 2D, 17 } | Size: 01
-#_0AA040: db $FF, $15, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 31, 17 } | Size: 00
+#_0AA040: db $FF, $15, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 31, 17 }
 #_0AA043: db $C7, $6C, $64 ; 0x064: Wall (bottom, east) ↕ | { 31, 1B } | Size: 0C
 #_0AA046: db $82, $D0, $04 ; 0x004: Wall (bottom, south) ↔ | { 20, 34 } | Size: 08
-#_0AA049: db $FF, $1D, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 31, 34 } | Size: 00
+#_0AA049: db $FF, $1D, $0B ; 0x10B: Corner (bottom, concave) ▟ | { 31, 34 }
 #_0AA04C: db $03, $D3, $04 ; 0x004: Wall (bottom, south) ↔ | { 00, 34 } | Size: 0F
 #_0AA04F: db $E0, $00, $60 ; 0x060: Ceiling ↕ | { 38, 00 } | Size: 00
 #_0AA052: db $E8, $00, $60 ; 0x060: Ceiling ↕ | { 3A, 00 } | Size: 00
 #_0AA055: db $F0, $00, $60 ; 0x060: Ceiling ↕ | { 3C, 00 } | Size: 00
 #_0AA058: db $10, $E3, $56 ; 0x056: Wall torches (south) ↔ | { 04, 38 } | Size: 03
-#_0AA05B: db $C1, $03, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 30, 00 } | Size: 07
-#_0AA05E: db $C1, $40, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 30, 10 } | Size: 04
-#_0AA061: db $FF, $FF ; Layer01
+#_0AA05B: db $C1, $03, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 30, 00 } | Size: 07
+#_0AA05E: db $C1, $40, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 30, 10 } | Size: 04
+#_0AA061: db $FF, $FF ; Layer 1
 #_0AA063: db $30, $13, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 0C, 04 } | Size: 03
 #_0AA066: db $21, $53, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 08, 14 } | Size: 07
 #_0AA069: db $42, $68, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 10, 1A } | Size: 08
@@ -3230,16 +3230,16 @@ RoomDataTiles_0082:
 #_0AA08D: db $90, $52, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 24, 14 } | Size: 02
 #_0AA090: db $31, $01, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 0C, 00 } | Size: 05
 #_0AA093: db $32, $01, $67 ; 0x067: Deep wall (west) ↕ | { 0C, 00 } | Size: 09
-#_0AA096: db $32, $50, $FA ; 0x222: Deep corner (convex) ▟ | { 0C, 14 } | Size: 08
+#_0AA096: db $32, $50, $FA ; 0x222: Deep corner (convex) ▟ | { 0C, 14 }
 #_0AA099: db $28, $50, $07 ; 0x007: Deep wall (north) ↔ | { 0A, 14 } | Size: 00
-#_0AA09C: db $FC, $85, $18 ; 0x118: Deep corner (concave) ▛ | { 08, 14 } | Size: 00
+#_0AA09C: db $FC, $85, $18 ; 0x118: Deep corner (concave) ▛ | { 08, 14 }
 #_0AA09F: db $23, $58, $67 ; 0x067: Deep wall (west) ↕ | { 08, 16 } | Size: 0C
 #_0AA0A2: db $A3, $00, $68 ; 0x068: Deep wall (east) ↕ | { 28, 00 } | Size: 0C
-#_0AA0A5: db $A0, $69, $FA ; 0x224: Deep corner (convex) ▙ | { 28, 1A } | Size: 01
+#_0AA0A5: db $A0, $69, $FA ; 0x224: Deep corner (convex) ▙ | { 28, 1A }
 #_0AA0A8: db $A8, $6A, $07 ; 0x007: Deep wall (north) ↔ | { 2A, 1A } | Size: 02
-#_0AA0AB: db $FF, $06, $9A ; 0x11A: Deep corner (concave) ▜ | { 30, 1A } | Size: 00
+#_0AA0AB: db $FF, $06, $9A ; 0x11A: Deep corner (concave) ▜ | { 30, 1A }
 #_0AA0AE: db $C2, $73, $68 ; 0x068: Deep wall (east) ↕ | { 30, 1C } | Size: 0B
-#_0AA0B1: db $FF, $0C, $DB ; 0x11B: Deep corner (concave) ▟ | { 30, 33 } | Size: 00
+#_0AA0B1: db $FF, $0C, $DB ; 0x11B: Deep corner (concave) ▟ | { 30, 33 }
 #_0AA0B4: db $B0, $CD, $08 ; 0x008: Deep wall (south) ↔ | { 2C, 33 } | Size: 01
 #_0AA0B7: db $61, $00, $69 ; 0x069: Rail ↕ | { 18, 00 } | Size: 04
 #_0AA0BA: db $4D, $00, $69 ; 0x069: Rail ↕ | { 13, 00 } | Size: 04
@@ -3250,15 +3250,15 @@ RoomDataTiles_0082:
 #_0AA0C9: db $6D, $9C, $07 ; 0x007: Deep wall (north) ↔ | { 1B, 27 } | Size: 04
 #_0AA0CC: db $6E, $63, $69 ; 0x069: Rail ↕ | { 1B, 18 } | Size: 0B
 #_0AA0CF: db $7D, $62, $69 ; 0x069: Rail ↕ | { 1F, 18 } | Size: 06
-#_0AA0D2: db $9B, $93, $FA ; 0x22F: Pot | { 26, 24 } | Size: 0F
-#_0AA0D5: db $67, $2B, $FA ; 0x22F: Pot | { 19, 0A } | Size: 0F
-#_0AA0D8: db $67, $53, $FA ; 0x22F: Pot | { 19, 14 } | Size: 0F
-#_0AA0DB: db $FD, $63, $DD ; 0x11D: Statue | { 16, 0F } | Size: 00
-#_0AA0DE: db $FD, $C3, $DD ; 0x11D: Statue | { 1C, 0F } | Size: 00
+#_0AA0D2: db $9B, $93, $FA ; 0x22F: Pot | { 26, 24 }
+#_0AA0D5: db $67, $2B, $FA ; 0x22F: Pot | { 19, 0A }
+#_0AA0D8: db $67, $53, $FA ; 0x22F: Pot | { 19, 14 }
+#_0AA0DB: db $FD, $63, $DD ; 0x11D: Statue | { 16, 0F }
+#_0AA0DE: db $FD, $C3, $DD ; 0x11D: Statue | { 1C, 0F }
 #_0AA0E1: db $B0, $C1, $69 ; 0x069: Rail ↕ | { 2C, 30 } | Size: 01
 #_0AA0E4: db $21, $C2, $5F ; 0x05F: Long rail ↔ | { 08, 30 } | Size: 06
 #_0AA0E7: db $B0, $86, $69 ; 0x069: Rail ↕ | { 2C, 21 } | Size: 02
-#_0AA0EA: db $FF, $FF ; Layer02
+#_0AA0EA: db $FF, $FF ; Layer 2
 #_0AA0EC: db $2B, $03, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0A, 00 } | Size: 0F
 #_0AA0EF: db $6B, $03, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 1A, 00 } | Size: 0F
 #_0AA0F2: db $2B, $43, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0A, 10 } | Size: 0F
@@ -3280,94 +3280,94 @@ RoomDataTiles_0082:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0082:
-#_0AA11E: db $FF, $FF ; Layer03 / End
+#_0AA11E: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0081:
 #_0AA120: db $51, $1C ; Floors and Layout
-#_0AA122: db $FC, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 04 } | Size: 00
+#_0AA122: db $FC, $61, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 04 }
 #_0AA125: db $1B, $23, $61 ; 0x061: Wall (top, west) ↕ | { 06, 08 } | Size: 0F
 #_0AA128: db $18, $9A, $61 ; 0x061: Wall (top, west) ↕ | { 06, 26 } | Size: 02
-#_0AA12B: db $FC, $6A, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 2A } | Size: 00
+#_0AA12B: db $FC, $6A, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 2A }
 #_0AA12E: db $2B, $AB, $02 ; 0x002: Wall (top, south) ↔ | { 0A, 2A } | Size: 0F
 #_0AA131: db $A0, $AA, $02 ; 0x002: Wall (top, south) ↔ | { 28, 2A } | Size: 02
-#_0AA134: db $FE, $CA, $85 ; 0x105: Corner (top, convex) ▜ | { 2C, 2A } | Size: 00
+#_0AA134: db $FE, $CA, $85 ; 0x105: Corner (top, convex) ▜ | { 2C, 2A }
 #_0AA137: db $B1, $B9, $61 ; 0x061: Wall (top, west) ↕ | { 2C, 2E } | Size: 05
-#_0AA13A: db $FE, $CD, $C1 ; 0x101: Corner (top, concave) ▙ | { 2C, 37 } | Size: 00
+#_0AA13A: db $FE, $CD, $C1 ; 0x101: Corner (top, concave) ▙ | { 2C, 37 }
 #_0AA13D: db $E1, $C0, $C4 ; 0x0C4: Floor 1 ⇲ | { 38, 30 } | Size: 04
 #_0AA140: db $C2, $DC, $02 ; 0x002: Wall (top, south) ↔ | { 30, 37 } | Size: 08
-#_0AA143: db $FD, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 16, 04 } | Size: 00
+#_0AA143: db $FD, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 16, 04 }
 #_0AA146: db $58, $23, $62 ; 0x062: Wall (top, east) ↕ | { 16, 08 } | Size: 03
-#_0AA149: db $FD, $63, $86 ; 0x106: Corner (top, convex) ▙ | { 16, 0E } | Size: 00
+#_0AA149: db $FD, $63, $86 ; 0x106: Corner (top, convex) ▙ | { 16, 0E }
 #_0AA14C: db $68, $3A, $01 ; 0x001: Wall (top, north) ↔ | { 1A, 0E } | Size: 02
-#_0AA14F: db $FD, $E3, $84 ; 0x104: Corner (top, convex) ▟ | { 1E, 0E } | Size: 00
-#_0AA152: db $FD, $E2, $80 ; 0x100: Corner (top, concave) ▛ | { 1E, 0A } | Size: 00
+#_0AA14F: db $FD, $E3, $84 ; 0x104: Corner (top, convex) ▟ | { 1E, 0E }
+#_0AA152: db $FD, $E2, $80 ; 0x100: Corner (top, concave) ▛ | { 1E, 0A }
 #_0AA155: db $8B, $2B, $01 ; 0x001: Wall (top, north) ↔ | { 22, 0A } | Size: 0F
 #_0AA158: db $E1, $38, $C4 ; 0x0C4: Floor 1 ⇲ | { 38, 0E } | Size: 04
 #_0AA15B: db $F8, $41, $02 ; 0x002: Wall (top, south) ↔ | { 3E, 10 } | Size: 01
-#_0AA15E: db $FF, $A4, $07 ; 0x107: Corner (top, convex) ▛ | { 3A, 10 } | Size: 00
-#_0AA161: db $FF, $AA, $86 ; 0x106: Corner (top, convex) ▙ | { 3A, 2A } | Size: 00
+#_0AA15E: db $FF, $A4, $07 ; 0x107: Corner (top, convex) ▛ | { 3A, 10 }
+#_0AA161: db $FF, $AA, $86 ; 0x106: Corner (top, convex) ▙ | { 3A, 2A }
 #_0AA164: db $F8, $A9, $01 ; 0x001: Wall (top, north) ↔ | { 3E, 2A } | Size: 01
-#_0AA167: db $FC, $91, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 09, 07 } | Size: 00
+#_0AA167: db $FC, $91, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 09, 07 }
 #_0AA16A: db $34, $1E, $03 ; 0x003: Wall (bottom, north) ↔ | { 0D, 07 } | Size: 02
-#_0AA16D: db $FD, $31, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 13, 07 } | Size: 00
+#_0AA16D: db $FD, $31, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 13, 07 }
 #_0AA170: db $4C, $2E, $64 ; 0x064: Wall (bottom, east) ↕ | { 13, 0B } | Size: 02
 #_0AA173: db $5A, $45, $03 ; 0x003: Wall (bottom, north) ↔ | { 16, 11 } | Size: 09
-#_0AA176: db $FD, $34, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 13, 11 } | Size: 00
-#_0AA179: db $FE, $74, $90 ; 0x110: Kinked corner north (bottom) ▜ | { 27, 12 } | Size: 00
+#_0AA176: db $FD, $34, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 13, 11 }
+#_0AA179: db $FE, $74, $90 ; 0x110: Kinked corner north (bottom) ▜ | { 27, 12 }
 #_0AA17C: db $C0, $47, $03 ; 0x003: Wall (bottom, north) ↔ | { 30, 11 } | Size: 03
-#_0AA17F: db $FF, $04, $92 ; 0x112: Kinked corner north (bottom) ▛ | { 30, 12 } | Size: 00
-#_0AA182: db $FF, $74, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 11 } | Size: 00
+#_0AA17F: db $FF, $04, $92 ; 0x112: Kinked corner north (bottom) ▛ | { 30, 12 }
+#_0AA182: db $FF, $74, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 11 }
 #_0AA185: db $DE, $57, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 15 } | Size: 0B
 #_0AA188: db $E8, $B6, $03 ; 0x003: Wall (bottom, north) ↔ | { 3A, 2D } | Size: 02
-#_0AA18B: db $FF, $7B, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 37, 2D } | Size: 00
+#_0AA18B: db $FF, $7B, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 37, 2D }
 #_0AA18E: db $C9, $D2, $04 ; 0x004: Wall (bottom, south) ↔ | { 32, 34 } | Size: 06
-#_0AA191: db $FE, $F8, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 2F, 22 } | Size: 00
-#_0AA194: db $FE, $78, $8F ; 0x10F: Corner (bottom, convex) ▛ | { 27, 22 } | Size: 00
-#_0AA197: db $FD, $38, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 13, 22 } | Size: 00
+#_0AA191: db $FE, $F8, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 2F, 22 }
+#_0AA194: db $FE, $78, $8F ; 0x10F: Corner (bottom, convex) ▛ | { 27, 22 }
+#_0AA197: db $FD, $38, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 13, 22 }
 #_0AA19A: db $26, $2F, $63 ; 0x063: Wall (bottom, west) ↕ | { 09, 0B } | Size: 0B
-#_0AA19D: db $FC, $98, $89 ; 0x109: Corner (bottom, concave) ▙ | { 09, 22 } | Size: 00
+#_0AA19D: db $FC, $98, $89 ; 0x109: Corner (bottom, concave) ▙ | { 09, 22 }
 #_0AA1A0: db $34, $8A, $04 ; 0x004: Wall (bottom, south) ↔ | { 0D, 22 } | Size: 02
 #_0AA1A3: db $BA, $44, $6D ; 0x06D: Rail wall (east) ↕ | { 2E, 11 } | Size: 08
 #_0AA1A6: db $AA, $44, $6C ; 0x06C: Rail wall (west) ↕ | { 2A, 11 } | Size: 08
 #_0AA1A9: db $BD, $9A, $63 ; 0x063: Wall (bottom, west) ↕ | { 2F, 26 } | Size: 06
-#_0AA1AC: db $FE, $FD, $09 ; 0x109: Corner (bottom, concave) ▙ | { 2F, 34 } | Size: 00
+#_0AA1AC: db $FE, $FD, $09 ; 0x109: Corner (bottom, concave) ▙ | { 2F, 34 }
 #_0AA1AF: db $1C, $41, $7F ; 0x07F: Wall torches (west) ↕ | { 07, 10 } | Size: 01
 #_0AA1B2: db $EC, $61, $80 ; 0x080: Wall torches (east) ↕ | { 3B, 18 } | Size: 01
 #_0AA1B5: db $98, $42, $22 ; 0x022: Rail ↔ | { 26, 10 } | Size: 02
 #_0AA1B8: db $B8, $40, $22 ; 0x022: Rail ↔ | { 2E, 10 } | Size: 00
 #_0AA1BB: db $DC, $40, $22 ; 0x022: Rail ↔ | { 37, 10 } | Size: 00
 #_0AA1BE: db $24, $99, $22 ; 0x022: Rail ↔ | { 09, 26 } | Size: 01
-#_0AA1C1: db $68, $0A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 02 } | Size: 02
-#_0AA1C4: db $7B, $09, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1E, 02 } | Size: 0D
-#_0AA1C7: db $BB, $09, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 02 } | Size: 0D
+#_0AA1C1: db $68, $0A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 02 } | Size: 02
+#_0AA1C4: db $7B, $09, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1E, 02 } | Size: 0D
+#_0AA1C7: db $BB, $09, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 02 } | Size: 0D
 #_0AA1CA: db $08, $00, $60 ; 0x060: Ceiling ↕ | { 02, 00 } | Size: 00
 #_0AA1CD: db $10, $00, $60 ; 0x060: Ceiling ↕ | { 04, 00 } | Size: 00
-#_0AA1D0: db $1B, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 2E } | Size: 0F
-#_0AA1D3: db $5B, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 2E } | Size: 0F
-#_0AA1D6: db $91, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 24, 2E } | Size: 07
-#_0AA1D9: db $B3, $EC, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2C, 3B } | Size: 0C
-#_0AA1DC: db $F0, $EC, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3C, 3B } | Size: 00
-#_0AA1DF: db $FE, $24, $71 ; 0x131: Intraroom stairs north (separate layers) | { 22, 11 } | Size: 00
-#_0AA1E2: db $38, $8B, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 0E, 22 } | Size: 03
+#_0AA1D0: db $1B, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 2E } | Size: 0F
+#_0AA1D3: db $5B, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 2E } | Size: 0F
+#_0AA1D6: db $91, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 24, 2E } | Size: 07
+#_0AA1D9: db $B3, $EC, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2C, 3B } | Size: 0C
+#_0AA1DC: db $F0, $EC, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3C, 3B } | Size: 00
+#_0AA1DF: db $FE, $24, $71 ; 0x131: Intraroom stairs north (separate layers) | { 22, 11 }
+#_0AA1E2: db $38, $8B, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 0E, 22 }
 #_0AA1E5: db $4E, $96, $2F ; 0x02F: Rail wall (north) ↔ | { 13, 25 } | Size: 0A
 #_0AA1E8: db $48, $88, $04 ; 0x004: Wall (bottom, south) ↔ | { 12, 22 } | Size: 00
-#_0AA1EB: db $FF, $FF ; Layer01
+#_0AA1EB: db $FF, $FF ; Layer 1
 #_0AA1ED: db $4C, $70, $88 ; 0x088: Thick rail ↕ | { 13, 1C } | Size: 00
 #_0AA1F0: db $64, $5B, $88 ; 0x088: Thick rail ↕ | { 19, 16 } | Size: 03
 #_0AA1F3: db $7C, $57, $88 ; 0x088: Thick rail ↕ | { 1F, 15 } | Size: 03
-#_0AA1F6: db $FD, $F8, $5D ; 0x11D: Statue | { 1F, 21 } | Size: 00
+#_0AA1F6: db $FD, $F8, $5D ; 0x11D: Statue | { 1F, 21 }
 #_0AA1F9: db $A8, $4B, $01 ; 0x001: Wall (top, north) ↔ | { 2A, 12 } | Size: 03
 #_0AA1FC: db $AC, $8A, $02 ; 0x002: Wall (top, south) ↔ | { 2B, 22 } | Size: 02
 #_0AA1FF: db $30, $07, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 01 } | Size: 03
 #_0AA202: db $40, $07, $62 ; 0x062: Wall (top, east) ↕ | { 10, 01 } | Size: 03
 #_0AA205: db $4C, $99, $61 ; 0x061: Wall (top, west) ↕ | { 13, 26 } | Size: 01
-#_0AA208: db $FD, $39, $C1 ; 0x101: Corner (top, concave) ▙ | { 13, 27 } | Size: 00
+#_0AA208: db $FD, $39, $C1 ; 0x101: Corner (top, concave) ▙ | { 13, 27 }
 #_0AA20B: db $5E, $9C, $02 ; 0x002: Wall (top, south) ↔ | { 17, 27 } | Size: 08
 #_0AA20E: db $9C, $99, $62 ; 0x062: Wall (top, east) ↕ | { 27, 26 } | Size: 01
-#_0AA211: db $FE, $79, $C3 ; 0x103: Corner (top, concave) ▟ | { 27, 27 } | Size: 00
-#_0AA214: db $FF, $FF ; Layer02
+#_0AA211: db $FE, $79, $C3 ; 0x103: Corner (top, concave) ▟ | { 27, 27 }
+#_0AA214: db $FF, $FF ; Layer 2
 #_0AA216: db $B8, $40, $8A ; 0x08A: Long rail ↕ | { 2E, 10 } | Size: 00
 #_0AA219: db $AC, $40, $8A ; 0x08A: Long rail ↕ | { 2B, 10 } | Size: 00
 #_0AA21C: db $48, $9B, $5F ; 0x05F: Long rail ↔ | { 12, 26 } | Size: 03
@@ -3390,72 +3390,72 @@ RoomDataTiles_0081:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0081:
-#_0AA24B: db $30, $40 ; Door 0x40 | Dir:00 | Pos:06
-#_0AA24D: db $FF, $FF ; Layer03 / End
+#_0AA24B: db $30, $40 ; Door 0x40 | North 06
+#_0AA24D: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0071:
 #_0AA24F: db $51, $00 ; Floors and Layout
-#_0AA251: db $FC, $C1, $00 ; 0x100: Corner (top, concave) ▛ | { 0C, 04 } | Size: 00
-#_0AA254: db $FC, $C2, $04 ; 0x104: Corner (top, convex) ▟ | { 0C, 08 } | Size: 00
+#_0AA251: db $FC, $C1, $00 ; 0x100: Corner (top, concave) ▛ | { 0C, 04 }
+#_0AA254: db $FC, $C2, $04 ; 0x104: Corner (top, convex) ▟ | { 0C, 08 }
 #_0AA257: db $28, $21, $01 ; 0x001: Wall (top, north) ↔ | { 0A, 08 } | Size: 01
-#_0AA25A: db $FC, $72, $00 ; 0x100: Corner (top, concave) ▛ | { 07, 08 } | Size: 00
+#_0AA25A: db $FC, $72, $00 ; 0x100: Corner (top, concave) ▛ | { 07, 08 }
 #_0AA25D: db $1D, $31, $61 ; 0x061: Wall (top, west) ↕ | { 07, 0C } | Size: 05
-#_0AA260: db $FC, $75, $81 ; 0x101: Corner (top, concave) ▙ | { 07, 16 } | Size: 00
-#_0AA263: db $FC, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 1A } | Size: 00
-#_0AA266: db $FC, $A5, $85 ; 0x105: Corner (top, convex) ▜ | { 0A, 16 } | Size: 00
-#_0AA269: db $FD, $26, $83 ; 0x103: Corner (top, concave) ▟ | { 12, 1A } | Size: 00
-#_0AA26C: db $FD, $25, $87 ; 0x107: Corner (top, convex) ▛ | { 12, 16 } | Size: 00
+#_0AA260: db $FC, $75, $81 ; 0x101: Corner (top, concave) ▙ | { 07, 16 }
+#_0AA263: db $FC, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 1A }
+#_0AA266: db $FC, $A5, $85 ; 0x105: Corner (top, convex) ▜ | { 0A, 16 }
+#_0AA269: db $FD, $26, $83 ; 0x103: Corner (top, concave) ▟ | { 12, 1A }
+#_0AA26C: db $FD, $25, $87 ; 0x107: Corner (top, convex) ▛ | { 12, 16 }
 #_0AA26F: db $58, $5A, $02 ; 0x002: Wall (top, south) ↔ | { 16, 16 } | Size: 02
-#_0AA272: db $FD, $A5, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 16 } | Size: 00
-#_0AA275: db $FC, $F1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0F, 07 } | Size: 00
-#_0AA278: db $FC, $F2, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 0F, 0B } | Size: 00
+#_0AA272: db $FD, $A5, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 16 }
+#_0AA275: db $FC, $F1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0F, 07 }
+#_0AA278: db $FC, $F2, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 0F, 0B }
 #_0AA27B: db $34, $2C, $03 ; 0x003: Wall (bottom, north) ↔ | { 0D, 0B } | Size: 00
-#_0AA27E: db $FC, $A2, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0A, 0B } | Size: 00
+#_0AA27E: db $FC, $A2, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0A, 0B }
 #_0AA281: db $28, $3D, $63 ; 0x063: Wall (bottom, west) ↕ | { 0A, 0F } | Size: 01
-#_0AA284: db $FC, $A4, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0A, 13 } | Size: 00
+#_0AA284: db $FC, $A4, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0A, 13 }
 #_0AA287: db $39, $4C, $04 ; 0x004: Wall (bottom, south) ↔ | { 0E, 13 } | Size: 04
-#_0AA28A: db $FD, $74, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 13 } | Size: 00
+#_0AA28A: db $FD, $74, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 13 }
 #_0AA28D: db $5C, $2F, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 0B } | Size: 03
-#_0AA290: db $FD, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 07 } | Size: 00
+#_0AA290: db $FD, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 07 }
 #_0AA293: db $4C, $1D, $03 ; 0x003: Wall (bottom, north) ↔ | { 13, 07 } | Size: 01
-#_0AA296: db $02, $10, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 04 } | Size: 08
-#_0AA299: db $08, $23, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 08 } | Size: 03
+#_0AA296: db $02, $10, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 04 } | Size: 08
+#_0AA299: db $08, $23, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 08 } | Size: 03
 #_0AA29C: db $16, $21, $60 ; 0x060: Ceiling ↕ | { 05, 08 } | Size: 09
-#_0AA29F: db $38, $4F, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 0E, 13 } | Size: 03
-#_0AA2A2: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 } | Size: 00
-#_0AA2A5: db $FD, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 24 } | Size: 00
-#_0AA2A8: db $FD, $2A, $06 ; 0x106: Corner (top, convex) ▙ | { 12, 28 } | Size: 00
+#_0AA29F: db $38, $4F, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 0E, 13 }
+#_0AA2A2: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 }
+#_0AA2A5: db $FD, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 24 }
+#_0AA2A8: db $FD, $2A, $06 ; 0x106: Corner (top, convex) ▙ | { 12, 28 }
 #_0AA2AB: db $58, $A2, $01 ; 0x001: Wall (top, north) ↔ | { 16, 28 } | Size: 02
-#_0AA2AE: db $FD, $AA, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 28 } | Size: 00
-#_0AA2B1: db $FC, $AA, $04 ; 0x104: Corner (top, convex) ▟ | { 0A, 28 } | Size: 00
+#_0AA2AE: db $FD, $AA, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 28 }
+#_0AA2B1: db $FC, $AA, $04 ; 0x104: Corner (top, convex) ▟ | { 0A, 28 }
 #_0AA2B4: db $18, $A2, $01 ; 0x001: Wall (top, north) ↔ | { 06, 28 } | Size: 02
-#_0AA2B7: db $FC, $2A, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 28 } | Size: 00
-#_0AA2BA: db $08, $63, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 18 } | Size: 03
-#_0AA2BD: db $18, $68, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 1A } | Size: 00
-#_0AA2C0: db $18, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 24 } | Size: 00
-#_0AA2C3: db $59, $68, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 1A } | Size: 04
-#_0AA2C6: db $59, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 24 } | Size: 04
-#_0AA2C9: db $FC, $5A, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 2B } | Size: 00
+#_0AA2B7: db $FC, $2A, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 28 }
+#_0AA2BA: db $08, $63, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 18 } | Size: 03
+#_0AA2BD: db $18, $68, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 1A } | Size: 00
+#_0AA2C0: db $18, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 24 } | Size: 00
+#_0AA2C3: db $59, $68, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 1A } | Size: 04
+#_0AA2C6: db $59, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 24 } | Size: 04
+#_0AA2C9: db $FC, $5A, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 2B }
 #_0AA2CC: db $25, $AE, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 2B } | Size: 06
-#_0AA2CF: db $FD, $7A, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 2B } | Size: 00
+#_0AA2CF: db $FD, $7A, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 2B }
 #_0AA2D2: db $14, $BF, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 2F } | Size: 03
-#_0AA2D5: db $FC, $5D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 37 } | Size: 00
+#_0AA2D5: db $FC, $5D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 37 }
 #_0AA2D8: db $25, $DE, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 37 } | Size: 06
-#_0AA2DB: db $FD, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 37 } | Size: 00
+#_0AA2DB: db $FD, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 37 }
 #_0AA2DE: db $5C, $BF, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 2F } | Size: 03
-#_0AA2E1: db $FC, $EA, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 0E, 2B } | Size: 00
-#_0AA2E4: db $FE, $59, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 25, 27 } | Size: 00
+#_0AA2E1: db $FC, $EA, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 0E, 2B }
+#_0AA2E4: db $FE, $59, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 25, 27 }
 #_0AA2E7: db $A5, $9E, $03 ; 0x003: Wall (bottom, north) ↔ | { 29, 27 } | Size: 06
-#_0AA2EA: db $FF, $79, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 27 } | Size: 00
+#_0AA2EA: db $FF, $79, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 27 }
 #_0AA2ED: db $DD, $AD, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 2B } | Size: 05
-#_0AA2F0: db $FF, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 37 } | Size: 00
+#_0AA2F0: db $FF, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 37 }
 #_0AA2F3: db $A5, $DE, $04 ; 0x004: Wall (bottom, south) ↔ | { 29, 37 } | Size: 06
-#_0AA2F6: db $FE, $5D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 25, 37 } | Size: 00
+#_0AA2F6: db $FE, $5D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 25, 37 }
 #_0AA2F9: db $95, $AD, $63 ; 0x063: Wall (bottom, west) ↕ | { 25, 2B } | Size: 05
-#_0AA2FC: db $FF, $FF ; Layer01
-#_0AA2FE: db $FD, $31, $FB ; 0x13B: Interroom spiral stairs down (bottom) | { 13, 07 } | Size: 00
+#_0AA2FC: db $FF, $FF ; Layer 1
+#_0AA2FE: db $FD, $31, $FB ; 0x13B: Interroom spiral stairs down (bottom) | { 13, 07 }
 #_0AA301: db $A0, $AC, $38 ; 0x038: Statues ↔ | { 28, 2B } | Size: 00
 #_0AA304: db $A8, $A8, $38 ; 0x038: Statues ↔ | { 2A, 2A } | Size: 00
 #_0AA307: db $D0, $A8, $38 ; 0x038: Statues ↔ | { 34, 2A } | Size: 00
@@ -3463,12 +3463,12 @@ RoomDataTiles_0071:
 #_0AA30D: db $B4, $BD, $38 ; 0x038: Statues ↔ | { 2D, 2F } | Size: 01
 #_0AA310: db $D8, $D4, $38 ; 0x038: Statues ↔ | { 36, 35 } | Size: 00
 #_0AA313: db $A0, $D4, $38 ; 0x038: Statues ↔ | { 28, 35 } | Size: 00
-#_0AA316: db $BD, $C2, $F9 ; 0x219: Chest | { 2F, 30 } | Size: 06
+#_0AA316: db $BD, $C2, $F9 ; 0x219: Chest | { 2F, 30 }
 #_0AA319: db $6D, $B5, $01 ; 0x001: Wall (top, north) ↔ | { 1B, 2D } | Size: 05
 #_0AA31C: db $6D, $C5, $02 ; 0x002: Wall (top, south) ↔ | { 1B, 31 } | Size: 05
 #_0AA31F: db $30, $EE, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 3B } | Size: 02
 #_0AA322: db $40, $EE, $62 ; 0x062: Wall (top, east) ↕ | { 10, 3B } | Size: 02
-#_0AA325: db $FF, $FF ; Layer02
+#_0AA325: db $FF, $FF ; Layer 2
 #_0AA327: db $3E, $1F, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0F, 07 } | Size: 0B
 #_0AA32A: db $29, $2E, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0A, 0B } | Size: 06
 #_0AA32D: db $17, $AF, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 05, 2B } | Size: 0F
@@ -3482,73 +3482,73 @@ RoomDataTiles_0071:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0071:
-#_0AA341: db $60, $1C ; Door 0x1C | Dir:00 | Pos:0C
-#_0AA343: db $91, $44 ; Door 0x44 | Dir:01 | Pos:12
-#_0AA345: db $B2, $44 ; Door 0x44 | Dir:02 | Pos:16
-#_0AA347: db $FF, $FF ; Layer03 / End
+#_0AA341: db $60, $1C ; Door 0x1C | North 0C
+#_0AA343: db $91, $44 ; Door 0x44 | South 12
+#_0AA345: db $B2, $44 ; Door 0x44 | West 16
+#_0AA347: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0070:
 #_0AA349: db $E1, $00 ; Floors and Layout
-#_0AA34B: db $FD, $31, $38 ; 0x138: Interroom spiral stairs up (top) | { 13, 04 } | Size: 00
-#_0AA34E: db $FC, $91, $39 ; 0x139: Interroom spiral stairs down (top) | { 09, 04 } | Size: 00
-#_0AA351: db $FC, $51, $00 ; 0x100: Corner (top, concave) ▛ | { 05, 04 } | Size: 00
-#_0AA354: db $FD, $71, $02 ; 0x102: Corner (top, concave) ▜ | { 17, 04 } | Size: 00
+#_0AA34B: db $FD, $31, $38 ; 0x138: Interroom spiral stairs up (top) | { 13, 04 }
+#_0AA34E: db $FC, $91, $39 ; 0x139: Interroom spiral stairs down (top) | { 09, 04 }
+#_0AA351: db $FC, $51, $00 ; 0x100: Corner (top, concave) ▛ | { 05, 04 }
+#_0AA354: db $FD, $71, $02 ; 0x102: Corner (top, concave) ▜ | { 17, 04 }
 #_0AA357: db $14, $22, $61 ; 0x061: Wall (top, west) ↕ | { 05, 08 } | Size: 02
-#_0AA35A: db $FC, $53, $01 ; 0x101: Corner (top, concave) ▙ | { 05, 0C } | Size: 00
+#_0AA35A: db $FC, $53, $01 ; 0x101: Corner (top, concave) ▙ | { 05, 0C }
 #_0AA35D: db $25, $33, $02 ; 0x002: Wall (top, south) ↔ | { 09, 0C } | Size: 07
-#_0AA360: db $FD, $73, $03 ; 0x103: Corner (top, concave) ▟ | { 17, 0C } | Size: 00
+#_0AA360: db $FD, $73, $03 ; 0x103: Corner (top, concave) ▟ | { 17, 0C }
 #_0AA363: db $5C, $22, $62 ; 0x062: Wall (top, east) ↕ | { 17, 08 } | Size: 02
 #_0AA366: db $38, $14, $55 ; 0x055: Wall torches (north) ↔ | { 0E, 05 } | Size: 00
-#_0AA369: db $04, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 01, 04 } | Size: 03
-#_0AA36C: db $6C, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1B, 04 } | Size: 03
-#_0AA36F: db $0B, $43, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 10 } | Size: 0F
-#_0AA372: db $4A, $43, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 10 } | Size: 0B
-#_0AA375: db $FF, $FF ; Layer01
-#_0AA377: db $FF, $FF ; Layer02
+#_0AA369: db $04, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 01, 04 } | Size: 03
+#_0AA36C: db $6C, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1B, 04 } | Size: 03
+#_0AA36F: db $0B, $43, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 10 } | Size: 0F
+#_0AA372: db $4A, $43, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 10 } | Size: 0B
+#_0AA375: db $FF, $FF ; Layer 1
+#_0AA377: db $FF, $FF ; Layer 2
 #_0AA379: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0070:
-#_0AA37B: db $FF, $FF ; Layer03 / End
+#_0AA37B: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0080:
 #_0AA37D: db $E1, $10 ; Floors and Layout
-#_0AA37F: db $FC, $51, $00 ; 0x100: Corner (top, concave) ▛ | { 05, 04 } | Size: 00
+#_0AA37F: db $FC, $51, $00 ; 0x100: Corner (top, concave) ▛ | { 05, 04 }
 #_0AA382: db $16, $21, $61 ; 0x061: Wall (top, west) ↕ | { 05, 08 } | Size: 09
-#_0AA385: db $FC, $56, $81 ; 0x101: Corner (top, concave) ▙ | { 05, 1A } | Size: 00
-#_0AA388: db $FC, $D1, $02 ; 0x102: Corner (top, concave) ▜ | { 0D, 04 } | Size: 00
+#_0AA385: db $FC, $56, $81 ; 0x101: Corner (top, concave) ▙ | { 05, 1A }
+#_0AA388: db $FC, $D1, $02 ; 0x102: Corner (top, concave) ▜ | { 0D, 04 }
 #_0AA38B: db $34, $23, $62 ; 0x062: Wall (top, east) ↕ | { 0D, 08 } | Size: 03
-#_0AA38E: db $FC, $D3, $86 ; 0x106: Corner (top, convex) ▙ | { 0D, 0E } | Size: 00
+#_0AA38E: db $FC, $D3, $86 ; 0x106: Corner (top, convex) ▙ | { 0D, 0E }
 #_0AA391: db $44, $39, $01 ; 0x001: Wall (top, north) ↔ | { 11, 0E } | Size: 01
-#_0AA394: db $FD, $33, $84 ; 0x104: Corner (top, convex) ▟ | { 13, 0E } | Size: 00
+#_0AA394: db $FD, $33, $84 ; 0x104: Corner (top, convex) ▟ | { 13, 0E }
 #_0AA397: db $4C, $23, $61 ; 0x061: Wall (top, west) ↕ | { 13, 08 } | Size: 03
-#_0AA39A: db $FD, $31, $00 ; 0x100: Corner (top, concave) ▛ | { 13, 04 } | Size: 00
-#_0AA39D: db $FD, $F1, $02 ; 0x102: Corner (top, concave) ▜ | { 1F, 04 } | Size: 00
+#_0AA39A: db $FD, $31, $00 ; 0x100: Corner (top, concave) ▛ | { 13, 04 }
+#_0AA39D: db $FD, $F1, $02 ; 0x102: Corner (top, concave) ▜ | { 1F, 04 }
 #_0AA3A0: db $7C, $23, $62 ; 0x062: Wall (top, east) ↕ | { 1F, 08 } | Size: 03
-#_0AA3A3: db $FD, $F3, $86 ; 0x106: Corner (top, convex) ▙ | { 1F, 0E } | Size: 00
+#_0AA3A3: db $FD, $F3, $86 ; 0x106: Corner (top, convex) ▙ | { 1F, 0E }
 #_0AA3A6: db $8C, $39, $01 ; 0x001: Wall (top, north) ↔ | { 23, 0E } | Size: 01
-#_0AA3A9: db $FE, $53, $84 ; 0x104: Corner (top, convex) ▟ | { 25, 0E } | Size: 00
+#_0AA3A9: db $FE, $53, $84 ; 0x104: Corner (top, convex) ▟ | { 25, 0E }
 #_0AA3AC: db $94, $23, $61 ; 0x061: Wall (top, west) ↕ | { 25, 08 } | Size: 03
-#_0AA3AF: db $FE, $51, $00 ; 0x100: Corner (top, concave) ▛ | { 25, 04 } | Size: 00
-#_0AA3B2: db $FF, $11, $02 ; 0x102: Corner (top, concave) ▜ | { 31, 04 } | Size: 00
+#_0AA3AF: db $FE, $51, $00 ; 0x100: Corner (top, concave) ▛ | { 25, 04 }
+#_0AA3B2: db $FF, $11, $02 ; 0x102: Corner (top, concave) ▜ | { 31, 04 }
 #_0AA3B5: db $C4, $23, $62 ; 0x062: Wall (top, east) ↕ | { 31, 08 } | Size: 03
-#_0AA3B8: db $FF, $13, $86 ; 0x106: Corner (top, convex) ▙ | { 31, 0E } | Size: 00
+#_0AA3B8: db $FF, $13, $86 ; 0x106: Corner (top, convex) ▙ | { 31, 0E }
 #_0AA3BB: db $D4, $39, $01 ; 0x001: Wall (top, north) ↔ | { 35, 0E } | Size: 01
-#_0AA3BE: db $FF, $63, $82 ; 0x102: Corner (top, concave) ▜ | { 36, 0E } | Size: 00
+#_0AA3BE: db $FF, $63, $82 ; 0x102: Corner (top, concave) ▜ | { 36, 0E }
 #_0AA3C1: db $D9, $48, $62 ; 0x062: Wall (top, east) ↕ | { 36, 12 } | Size: 04
-#_0AA3C4: db $FF, $66, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 1A } | Size: 00
+#_0AA3C4: db $FF, $66, $83 ; 0x103: Corner (top, concave) ▟ | { 36, 1A }
 #_0AA3C7: db $28, $6F, $56 ; 0x056: Wall torches (south) ↔ | { 0A, 1B } | Size: 03
 #_0AA3CA: db $40, $50, $DD ; 0x0DD: Table / Rock ⇲| { 10, 14 } | Size: 00
-#_0AA3CD: db $63, $23, $FA ; 0x22F: Pot | { 18, 08 } | Size: 0F
-#_0AA3D0: db $A5, $22, $F9 ; 0x219: Chest | { 29, 08 } | Size: 06
-#_0AA3D3: db $6B, $23, $FA ; 0x22F: Pot | { 1A, 08 } | Size: 0F
-#_0AA3D6: db $73, $23, $FA ; 0x22F: Pot | { 1C, 08 } | Size: 0F
-#_0AA3D9: db $FC, $91, $38 ; 0x138: Interroom spiral stairs up (top) | { 09, 04 } | Size: 00
+#_0AA3CD: db $63, $23, $FA ; 0x22F: Pot | { 18, 08 }
+#_0AA3D0: db $A5, $22, $F9 ; 0x219: Chest | { 29, 08 }
+#_0AA3D3: db $6B, $23, $FA ; 0x22F: Pot | { 1A, 08 }
+#_0AA3D6: db $73, $23, $FA ; 0x22F: Pot | { 1C, 08 }
+#_0AA3D9: db $FC, $91, $38 ; 0x138: Interroom spiral stairs up (top) | { 09, 04 }
 #_0AA3DC: db $58, $40, $22 ; 0x022: Rail ↔ | { 16, 10 } | Size: 00
 #_0AA3DF: db $70, $40, $22 ; 0x022: Rail ↔ | { 1C, 10 } | Size: 00
 #_0AA3E2: db $58, $3C, $22 ; 0x022: Rail ↔ | { 16, 0F } | Size: 00
@@ -3557,24 +3557,24 @@ RoomDataTiles_0080:
 #_0AA3EB: db $B8, $40, $22 ; 0x022: Rail ↔ | { 2E, 10 } | Size: 00
 #_0AA3EE: db $A0, $3C, $22 ; 0x022: Rail ↔ | { 28, 0F } | Size: 00
 #_0AA3F1: db $B8, $3C, $22 ; 0x022: Rail ↔ | { 2E, 0F } | Size: 00
-#_0AA3F4: db $B0, $3A, $F9 ; 0x218: Big key lock | { 2C, 0E } | Size: 02
-#_0AA3F7: db $04, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 01, 04 } | Size: 03
-#_0AA3FA: db $04, $4A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 01, 12 } | Size: 02
+#_0AA3F4: db $B0, $3A, $F9 ; 0x218: Big key lock | { 2C, 0E }
+#_0AA3F7: db $04, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 01, 04 } | Size: 03
+#_0AA3FA: db $04, $4A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 01, 12 } | Size: 02
 #_0AA3FD: db $45, $11, $60 ; 0x060: Ceiling ↕ | { 11, 04 } | Size: 05
 #_0AA400: db $8D, $11, $60 ; 0x060: Ceiling ↕ | { 23, 04 } | Size: 05
-#_0AA403: db $D5, $0A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 35, 02 } | Size: 06
-#_0AA406: db $E8, $3B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 0E } | Size: 03
+#_0AA403: db $D5, $0A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 35, 02 } | Size: 06
+#_0AA406: db $E8, $3B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 0E } | Size: 03
 #_0AA409: db $F1, $11, $60 ; 0x060: Ceiling ↕ | { 3C, 04 } | Size: 05
-#_0AA40C: db $FF, $FF ; Layer01
-#_0AA40E: db $4F, $31, $F9 ; 0x217: Prison cell | { 13, 0C } | Size: 0D
-#_0AA411: db $97, $31, $F9 ; 0x217: Prison cell | { 25, 0C } | Size: 0D
-#_0AA414: db $FF, $FF ; Layer02
+#_0AA40C: db $FF, $FF ; Layer 1
+#_0AA40E: db $4F, $31, $F9 ; 0x217: Prison cell | { 13, 0C }
+#_0AA411: db $97, $31, $F9 ; 0x217: Prison cell | { 25, 0C }
+#_0AA414: db $FF, $FF ; Layer 2
 #_0AA416: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0080:
-#_0AA418: db $FF, $FF ; Layer03 / End
+#_0AA418: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -3583,108 +3583,108 @@ RoomDataTiles_00F0:
 #_0AA41C: db $08, $2E, $09 ; 0x009: Diagonal wall A ◤ (top) | { 02, 0B } | Size: 02
 #_0AA41F: db $09, $68, $0A ; 0x00A: Diagonal wall A ◣ (top) | { 02, 1A } | Size: 04
 #_0AA422: db $22, $93, $61 ; 0x061: Wall (top, west) ↕ | { 08, 24 } | Size: 0B
-#_0AA425: db $FC, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 3A } | Size: 00
+#_0AA425: db $FC, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 3A }
 #_0AA428: db $93, $10, $0B ; 0x00B: Diagonal wall A ◥ (top) | { 24, 04 } | Size: 0C
-#_0AA42B: db $FF, $A6, $42 ; 0x102: Corner (top, concave) ▜ | { 3A, 19 } | Size: 00
+#_0AA42B: db $FF, $A6, $42 ; 0x102: Corner (top, concave) ▜ | { 3A, 19 }
 #_0AA42E: db $C8, $5A, $62 ; 0x062: Wall (top, east) ↕ | { 32, 16 } | Size: 02
-#_0AA431: db $FF, $26, $46 ; 0x106: Corner (top, convex) ▙ | { 32, 19 } | Size: 00
+#_0AA431: db $FF, $26, $46 ; 0x106: Corner (top, convex) ▙ | { 32, 19 }
 #_0AA434: db $D8, $66, $01 ; 0x001: Wall (top, north) ↔ | { 36, 19 } | Size: 02
-#_0AA437: db $FF, $A9, $43 ; 0x103: Corner (top, concave) ▟ | { 3A, 25 } | Size: 00
+#_0AA437: db $FF, $A9, $43 ; 0x103: Corner (top, concave) ▟ | { 3A, 25 }
 #_0AA43A: db $D8, $96, $02 ; 0x002: Wall (top, south) ↔ | { 36, 25 } | Size: 02
-#_0AA43D: db $FF, $29, $47 ; 0x107: Corner (top, convex) ▛ | { 32, 25 } | Size: 00
+#_0AA43D: db $FF, $29, $47 ; 0x107: Corner (top, convex) ▛ | { 32, 25 }
 #_0AA440: db $C8, $A7, $62 ; 0x062: Wall (top, east) ↕ | { 32, 29 } | Size: 03
-#_0AA443: db $FF, $2B, $86 ; 0x106: Corner (top, convex) ▙ | { 32, 2E } | Size: 00
+#_0AA443: db $FF, $2B, $86 ; 0x106: Corner (top, convex) ▙ | { 32, 2E }
 #_0AA446: db $D8, $BA, $01 ; 0x001: Wall (top, north) ↔ | { 36, 2E } | Size: 02
-#_0AA449: db $FF, $AB, $82 ; 0x102: Corner (top, concave) ▜ | { 3A, 2E } | Size: 00
-#_0AA44C: db $FD, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 14, 3A } | Size: 00
+#_0AA449: db $FF, $AB, $82 ; 0x102: Corner (top, concave) ▜ | { 3A, 2E }
+#_0AA44C: db $FD, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 14, 3A }
 #_0AA44F: db $51, $BA, $62 ; 0x062: Wall (top, east) ↕ | { 14, 2E } | Size: 06
-#_0AA452: db $FD, $4A, $87 ; 0x107: Corner (top, convex) ▛ | { 14, 2A } | Size: 00
+#_0AA452: db $FD, $4A, $87 ; 0x107: Corner (top, convex) ▛ | { 14, 2A }
 #_0AA455: db $60, $A9, $02 ; 0x002: Wall (top, south) ↔ | { 18, 2A } | Size: 01
 #_0AA458: db $68, $A8, $0A ; 0x00A: Diagonal wall A ◣ (top) | { 1A, 2A } | Size: 00
 #_0AA45B: db $80, $C3, $02 ; 0x002: Wall (top, south) ↔ | { 20, 30 } | Size: 03
 #_0AA45E: db $98, $CA, $0A ; 0x00A: Diagonal wall A ◣ (top) | { 26, 32 } | Size: 02
 #_0AA461: db $A0, $C4, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 28, 31 } | Size: 00
 #_0AA464: db $98, $D1, $61 ; 0x061: Wall (top, west) ↕ | { 26, 34 } | Size: 01
-#_0AA467: db $FE, $6C, $05 ; 0x105: Corner (top, convex) ▜ | { 26, 30 } | Size: 00
+#_0AA467: db $FE, $6C, $05 ; 0x105: Corner (top, convex) ▜ | { 26, 30 }
 #_0AA46A: db $10, $30, $19 ; 0x019: Diagonal wall B ◤ (bottom) | { 04, 0C } | Size: 00
 #_0AA46D: db $0A, $31, $61 ; 0x061: Wall (top, west) ↕ | { 02, 0C } | Size: 09
 #_0AA470: db $15, $68, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 05, 1A } | Size: 04
 #_0AA473: db $16, $30, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 0C } | Size: 08
 #_0AA476: db $2D, $93, $63 ; 0x063: Wall (bottom, west) ↕ | { 0B, 24 } | Size: 07
-#_0AA479: db $FC, $BC, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0B, 33 } | Size: 00
+#_0AA479: db $FC, $BC, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0B, 33 }
 #_0AA47C: db $3C, $CC, $04 ; 0x004: Wall (bottom, south) ↔ | { 0F, 33 } | Size: 00
-#_0AA47F: db $FD, $1C, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 11, 33 } | Size: 00
+#_0AA47F: db $FD, $1C, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 11, 33 }
 #_0AA482: db $44, $AF, $64 ; 0x064: Wall (bottom, east) ↕ | { 11, 2B } | Size: 03
 #_0AA485: db $50, $9E, $04 ; 0x004: Wall (bottom, south) ↔ | { 14, 27 } | Size: 02
-#_0AA488: db $FD, $19, $CF ; 0x10F: Corner (bottom, convex) ▛ | { 11, 27 } | Size: 00
+#_0AA488: db $FD, $19, $CF ; 0x10F: Corner (bottom, convex) ▛ | { 11, 27 }
 #_0AA48B: db $68, $9C, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 1A, 27 } | Size: 00
 #_0AA48E: db $81, $B4, $04 ; 0x004: Wall (bottom, south) ↔ | { 20, 2D } | Size: 04
 #_0AA491: db $A4, $C2, $63 ; 0x063: Wall (bottom, west) ↕ | { 29, 30 } | Size: 02
 #_0AA494: db $B9, $DC, $04 ; 0x004: Wall (bottom, south) ↔ | { 2E, 37 } | Size: 04
-#_0AA497: db $FF, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 37 } | Size: 00
+#_0AA497: db $FF, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 37 }
 #_0AA49A: db $DC, $D4, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 35 } | Size: 00
-#_0AA49D: db $FF, $7C, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 31 } | Size: 00
+#_0AA49D: db $FF, $7C, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 31 }
 #_0AA4A0: db $CC, $C5, $03 ; 0x003: Wall (bottom, north) ↔ | { 33, 31 } | Size: 01
-#_0AA4A3: db $FE, $9B, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 29, 2D } | Size: 00
+#_0AA4A3: db $FE, $9B, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 29, 2D }
 #_0AA4A6: db $BD, $99, $64 ; 0x064: Wall (bottom, east) ↕ | { 2F, 26 } | Size: 05
-#_0AA4A9: db $FE, $FC, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 2F, 31 } | Size: 00
+#_0AA4A9: db $FE, $FC, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 2F, 31 }
 #_0AA4AC: db $CC, $89, $04 ; 0x004: Wall (bottom, south) ↔ | { 33, 22 } | Size: 01
-#_0AA4AF: db $FF, $77, $0A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 1C } | Size: 00
+#_0AA4AF: db $FF, $77, $0A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 1C }
 #_0AA4B2: db $CC, $71, $03 ; 0x003: Wall (bottom, north) ↔ | { 33, 1C } | Size: 01
 #_0AA4B5: db $92, $1D, $1B ; 0x01B: Diagonal wall B ◥ (bottom) | { 24, 07 } | Size: 09
 #_0AA4B8: db $BC, $5A, $64 ; 0x064: Wall (bottom, east) ↕ | { 2F, 16 } | Size: 02
-#_0AA4BB: db $FE, $F7, $0E ; 0x10E: Corner (bottom, convex) ▙ | { 2F, 1C } | Size: 00
+#_0AA4BB: db $FE, $F7, $0E ; 0x10E: Corner (bottom, convex) ▙ | { 2F, 1C }
 #_0AA4BE: db $DC, $80, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 20 } | Size: 00
-#_0AA4C1: db $FF, $78, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 22 } | Size: 00
-#_0AA4C4: db $FE, $F8, $8F ; 0x10F: Corner (bottom, convex) ▛ | { 2F, 22 } | Size: 00
+#_0AA4C1: db $FF, $78, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 22 }
+#_0AA4C4: db $FE, $F8, $8F ; 0x10F: Corner (bottom, convex) ▛ | { 2F, 22 }
 #_0AA4C7: db $2B, $1C, $03 ; 0x003: Wall (bottom, north) ↔ | { 0A, 07 } | Size: 0C
-#_0AA4CA: db $FC, $C4, $07 ; 0x107: Corner (top, convex) ▛ | { 0C, 10 } | Size: 00
+#_0AA4CA: db $FC, $C4, $07 ; 0x107: Corner (top, convex) ▛ | { 0C, 10 }
 #_0AA4CD: db $30, $5A, $0B ; 0x00B: Diagonal wall A ◥ (top) | { 0C, 16 } | Size: 02
 #_0AA4D0: db $30, $53, $62 ; 0x062: Wall (top, east) ↕ | { 0C, 14 } | Size: 03
 #_0AA4D3: db $50, $79, $01 ; 0x001: Wall (top, north) ↔ | { 14, 1E } | Size: 01
-#_0AA4D6: db $FD, $67, $84 ; 0x104: Corner (top, convex) ▟ | { 16, 1E } | Size: 00
+#_0AA4D6: db $FD, $67, $84 ; 0x104: Corner (top, convex) ▟ | { 16, 1E }
 #_0AA4D9: db $58, $6A, $61 ; 0x061: Wall (top, west) ↕ | { 16, 1A } | Size: 02
-#_0AA4DC: db $FD, $65, $80 ; 0x100: Corner (top, concave) ▛ | { 16, 16 } | Size: 00
+#_0AA4DC: db $FD, $65, $80 ; 0x100: Corner (top, concave) ▛ | { 16, 16 }
 #_0AA4DF: db $68, $5A, $01 ; 0x001: Wall (top, north) ↔ | { 1A, 16 } | Size: 02
 #_0AA4E2: db $78, $5A, $0B ; 0x00B: Diagonal wall A ◥ (top) | { 1E, 16 } | Size: 02
 #_0AA4E5: db $74, $64, $03 ; 0x003: Wall (bottom, north) ↔ | { 1D, 19 } | Size: 00
 #_0AA4E8: db $78, $64, $1B ; 0x01B: Diagonal wall B ◥ (bottom) | { 1E, 19 } | Size: 00
 #_0AA4EB: db $88, $7B, $62 ; 0x062: Wall (top, east) ↕ | { 22, 1E } | Size: 03
-#_0AA4EE: db $FE, $29, $06 ; 0x106: Corner (top, convex) ▙ | { 22, 24 } | Size: 00
+#_0AA4EE: db $FE, $29, $06 ; 0x106: Corner (top, convex) ▙ | { 22, 24 }
 #_0AA4F1: db $98, $91, $01 ; 0x001: Wall (top, north) ↔ | { 26, 24 } | Size: 01
 #_0AA4F4: db $42, $41, $02 ; 0x002: Wall (top, south) ↔ | { 10, 10 } | Size: 09
 #_0AA4F7: db $85, $41, $0A ; 0x00A: Diagonal wall A ◣ (top) | { 21, 10 } | Size: 05
 #_0AA4FA: db $A1, $6D, $61 ; 0x061: Wall (top, west) ↕ | { 28, 1B } | Size: 05
-#_0AA4FD: db $FE, $89, $04 ; 0x104: Corner (top, convex) ▟ | { 28, 24 } | Size: 00
+#_0AA4FD: db $FE, $89, $04 ; 0x104: Corner (top, convex) ▟ | { 28, 24 }
 #_0AA500: db $25, $59, $1B ; 0x01B: Diagonal wall B ◥ (bottom) | { 09, 16 } | Size: 05
 #_0AA503: db $25, $40, $64 ; 0x064: Wall (bottom, east) ↕ | { 09, 10 } | Size: 04
 #_0AA506: db $36, $35, $04 ; 0x004: Wall (bottom, south) ↔ | { 0D, 0D } | Size: 09
-#_0AA509: db $FC, $93, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 09, 0D } | Size: 00
+#_0AA509: db $FC, $93, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 09, 0D }
 #_0AA50C: db $50, $86, $03 ; 0x003: Wall (bottom, north) ↔ | { 14, 21 } | Size: 02
-#_0AA50F: db $FD, $98, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 19, 21 } | Size: 00
+#_0AA50F: db $FD, $98, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 19, 21 }
 #_0AA512: db $64, $75, $63 ; 0x063: Wall (bottom, west) ↕ | { 19, 1D } | Size: 01
-#_0AA515: db $FD, $96, $48 ; 0x108: Corner (bottom, concave) ▛ | { 19, 19 } | Size: 00
+#_0AA515: db $FD, $96, $48 ; 0x108: Corner (bottom, concave) ▛ | { 19, 19 }
 #_0AA518: db $7D, $78, $64 ; 0x064: Wall (bottom, east) ↕ | { 1F, 1E } | Size: 04
-#_0AA51B: db $FD, $F9, $CE ; 0x10E: Corner (bottom, convex) ▙ | { 1F, 27 } | Size: 00
+#_0AA51B: db $FD, $F9, $CE ; 0x10E: Corner (bottom, convex) ▙ | { 1F, 27 }
 #_0AA51E: db $8C, $9F, $03 ; 0x003: Wall (bottom, north) ↔ | { 23, 27 } | Size: 03
 #_0AA521: db $86, $34, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 21, 0D } | Size: 08
 #_0AA524: db $AD, $6D, $63 ; 0x063: Wall (bottom, west) ↕ | { 2B, 1B } | Size: 05
-#_0AA527: db $FE, $B9, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 2B, 27 } | Size: 00
+#_0AA527: db $FE, $B9, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 2B, 27 }
 #_0AA52A: db $60, $28, $A4 ; 0x0A4: Pit ⇲ | { 18, 0A } | Size: 00
 #_0AA52D: db $D0, $D0, $A4 ; 0x0A4: Pit ⇲ | { 34, 34 } | Size: 00
-#_0AA530: db $FF, $62, $32 ; 0x132: Intraroom stairs north (merged layers) | { 36, 08 } | Size: 00
+#_0AA530: db $FF, $62, $32 ; 0x132: Intraroom stairs north (merged layers) | { 36, 08 }
 #_0AA533: db $2C, $DC, $22 ; 0x022: Rail ↔ | { 0B, 37 } | Size: 00
 #_0AA536: db $44, $DC, $22 ; 0x022: Rail ↔ | { 11, 37 } | Size: 00
 #_0AA539: db $08, $13, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 02, 04 } | Size: 03
 #_0AA53C: db $08, $7D, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 02, 1F } | Size: 01
-#_0AA53F: db $01, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 24 } | Size: 07
-#_0AA542: db $01, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 34 } | Size: 06
+#_0AA53F: db $01, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 24 } | Size: 07
+#_0AA542: db $01, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 34 } | Size: 06
 #_0AA545: db $68, $BD, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 1A, 2F } | Size: 01
 #_0AA548: db $62, $B8, $60 ; 0x060: Ceiling ↕ | { 18, 2E } | Size: 08
-#_0AA54B: db $6A, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 34 } | Size: 0A
+#_0AA54B: db $6A, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 34 } | Size: 0A
 #_0AA54E: db $98, $DF, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 26, 37 } | Size: 03
 #_0AA551: db $44, $68, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 11, 1A } | Size: 00
-#_0AA554: db $40, $58, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 16 } | Size: 00
+#_0AA554: db $40, $58, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 16 } | Size: 00
 #_0AA557: db $51, $58, $60 ; 0x060: Ceiling ↕ | { 14, 16 } | Size: 04
 #_0AA55A: db $42, $50, $00 ; 0x000: Ceiling ↔ | { 10, 14 } | Size: 08
 #_0AA55D: db $84, $54, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 21, 15 } | Size: 00
@@ -3694,158 +3694,158 @@ RoomDataTiles_00F0:
 #_0AA569: db $7C, $51, $00 ; 0x000: Ceiling ↔ | { 1F, 14 } | Size: 01
 #_0AA56C: db $99, $70, $60 ; 0x060: Ceiling ↕ | { 26, 1C } | Size: 04
 #_0AA56F: db $97, $11, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 25, 04 } | Size: 0D
-#_0AA572: db $D9, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 04 } | Size: 07
-#_0AA575: db $D9, $45, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 11 } | Size: 05
-#_0AA578: db $D9, $A4, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 29 } | Size: 04
+#_0AA572: db $D9, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 04 } | Size: 07
+#_0AA575: db $D9, $45, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 11 } | Size: 05
+#_0AA578: db $D9, $A4, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 29 } | Size: 04
 #_0AA57B: db $D9, $B0, $00 ; 0x000: Ceiling ↔ | { 36, 2C } | Size: 04
-#_0AA57E: db $FF, $FF ; Layer01
-#_0AA580: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 } | Size: 0C
-#_0AA583: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 } | Size: 0A
-#_0AA586: db $FF, $FF ; Layer02
+#_0AA57E: db $FF, $FF ; Layer 1
+#_0AA580: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 }
+#_0AA583: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 }
+#_0AA586: db $FF, $FF ; Layer 2
 #_0AA588: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00F0:
-#_0AA58A: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0AA58C: db $A3, $02 ; Door 0x02 | Dir:03 | Pos:14
-#_0AA58E: db $FF, $FF ; Layer03 / End
+#_0AA58A: db $61, $0E ; Door 0x0E | South 0C
+#_0AA58C: db $A3, $02 ; Door 0x02 | East 14
+#_0AA58E: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00F1:
 #_0AA590: db $E5, $1C ; Floors and Layout
-#_0AA592: db $FC, $26, $40 ; 0x100: Corner (top, concave) ▛ | { 02, 19 } | Size: 00
+#_0AA592: db $FC, $26, $40 ; 0x100: Corner (top, concave) ▛ | { 02, 19 }
 #_0AA595: db $18, $65, $01 ; 0x001: Wall (top, north) ↔ | { 06, 19 } | Size: 01
 #_0AA598: db $22, $21, $61 ; 0x061: Wall (top, west) ↕ | { 08, 08 } | Size: 09
-#_0AA59B: db $FC, $86, $44 ; 0x104: Corner (top, convex) ▟ | { 08, 19 } | Size: 00
-#_0AA59E: db $FC, $81, $00 ; 0x100: Corner (top, concave) ▛ | { 08, 04 } | Size: 00
-#_0AA5A1: db $FD, $41, $02 ; 0x102: Corner (top, concave) ▜ | { 14, 04 } | Size: 00
+#_0AA59B: db $FC, $86, $44 ; 0x104: Corner (top, convex) ▟ | { 08, 19 }
+#_0AA59E: db $FC, $81, $00 ; 0x100: Corner (top, concave) ▛ | { 08, 04 }
+#_0AA5A1: db $FD, $41, $02 ; 0x102: Corner (top, concave) ▜ | { 14, 04 }
 #_0AA5A4: db $52, $21, $62 ; 0x062: Wall (top, east) ↕ | { 14, 08 } | Size: 09
-#_0AA5A7: db $FD, $46, $86 ; 0x106: Corner (top, convex) ▙ | { 14, 1A } | Size: 00
+#_0AA5A7: db $FD, $46, $86 ; 0x106: Corner (top, convex) ▙ | { 14, 1A }
 #_0AA5AA: db $60, $69, $01 ; 0x001: Wall (top, north) ↔ | { 18, 1A } | Size: 01
 #_0AA5AD: db $68, $66, $09 ; 0x009: Diagonal wall A ◤ (top) | { 1A, 19 } | Size: 02
 #_0AA5B0: db $68, $2A, $0A ; 0x00A: Diagonal wall A ◣ (top) | { 1A, 0A } | Size: 02
 #_0AA5B3: db $68, $23, $61 ; 0x061: Wall (top, west) ↕ | { 1A, 08 } | Size: 03
-#_0AA5B6: db $FD, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 1A, 04 } | Size: 00
+#_0AA5B6: db $FD, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 1A, 04 }
 #_0AA5B9: db $78, $4A, $61 ; 0x061: Wall (top, west) ↕ | { 1E, 12 } | Size: 02
-#_0AA5BC: db $FE, $41, $02 ; 0x102: Corner (top, concave) ▜ | { 24, 04 } | Size: 00
+#_0AA5BC: db $FE, $41, $02 ; 0x102: Corner (top, concave) ▜ | { 24, 04 }
 #_0AA5BF: db $90, $22, $0B ; 0x00B: Diagonal wall A ◥ (top) | { 24, 08 } | Size: 02
 #_0AA5C2: db $90, $22, $62 ; 0x062: Wall (top, east) ↕ | { 24, 08 } | Size: 02
 #_0AA5C5: db $B0, $41, $01 ; 0x001: Wall (top, north) ↔ | { 2C, 10 } | Size: 01
-#_0AA5C8: db $FE, $E4, $04 ; 0x104: Corner (top, convex) ▟ | { 2E, 10 } | Size: 00
+#_0AA5C8: db $FE, $E4, $04 ; 0x104: Corner (top, convex) ▟ | { 2E, 10 }
 #_0AA5CB: db $B9, $20, $61 ; 0x061: Wall (top, west) ↕ | { 2E, 08 } | Size: 04
-#_0AA5CE: db $FE, $E1, $00 ; 0x100: Corner (top, concave) ▛ | { 2E, 04 } | Size: 00
-#_0AA5D1: db $FC, $29, $41 ; 0x101: Corner (top, concave) ▙ | { 02, 25 } | Size: 00
+#_0AA5CE: db $FE, $E1, $00 ; 0x100: Corner (top, concave) ▛ | { 2E, 04 }
+#_0AA5D1: db $FC, $29, $41 ; 0x101: Corner (top, concave) ▙ | { 02, 25 }
 #_0AA5D4: db $18, $95, $02 ; 0x002: Wall (top, south) ↔ | { 06, 25 } | Size: 01
-#_0AA5D7: db $FC, $89, $45 ; 0x105: Corner (top, convex) ▜ | { 08, 25 } | Size: 00
+#_0AA5D7: db $FC, $89, $45 ; 0x105: Corner (top, convex) ▜ | { 08, 25 }
 #_0AA5DA: db $22, $A5, $61 ; 0x061: Wall (top, west) ↕ | { 08, 29 } | Size: 09
-#_0AA5DD: db $FC, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 3A } | Size: 00
-#_0AA5E0: db $FD, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 14, 3A } | Size: 00
+#_0AA5DD: db $FC, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 3A }
+#_0AA5E0: db $FD, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 14, 3A }
 #_0AA5E3: db $58, $AC, $0C ; 0x00C: Diagonal wall A ◢ (top) | { 16, 2B } | Size: 00
 #_0AA5E6: db $51, $BA, $62 ; 0x062: Wall (top, east) ↕ | { 14, 2E } | Size: 06
 #_0AA5E9: db $70, $99, $02 ; 0x002: Wall (top, south) ↔ | { 1C, 26 } | Size: 01
 #_0AA5EC: db $79, $94, $0C ; 0x00C: Diagonal wall A ◢ (top) | { 1E, 25 } | Size: 04
 #_0AA5EF: db $A0, $73, $02 ; 0x002: Wall (top, south) ↔ | { 28, 1C } | Size: 03
-#_0AA5F2: db $FE, $E7, $05 ; 0x105: Corner (top, convex) ▜ | { 2E, 1C } | Size: 00
+#_0AA5F2: db $FE, $E7, $05 ; 0x105: Corner (top, convex) ▜ | { 2E, 1C }
 #_0AA5F5: db $B8, $83, $61 ; 0x061: Wall (top, west) ↕ | { 2E, 20 } | Size: 03
-#_0AA5F8: db $FE, $E9, $84 ; 0x104: Corner (top, convex) ▟ | { 2E, 26 } | Size: 00
+#_0AA5F8: db $FE, $E9, $84 ; 0x104: Corner (top, convex) ▟ | { 2E, 26 }
 #_0AA5FB: db $B0, $99, $01 ; 0x001: Wall (top, north) ↔ | { 2C, 26 } | Size: 01
-#_0AA5FE: db $FE, $89, $80 ; 0x100: Corner (top, concave) ▛ | { 28, 26 } | Size: 00
+#_0AA5FE: db $FE, $89, $80 ; 0x100: Corner (top, concave) ▛ | { 28, 26 }
 #_0AA601: db $A2, $A8, $61 ; 0x061: Wall (top, west) ↕ | { 28, 2A } | Size: 08
-#_0AA604: db $FE, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 28, 3A } | Size: 00
-#_0AA607: db $FF, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 3A } | Size: 00
+#_0AA604: db $FE, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 28, 3A }
+#_0AA607: db $FF, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 3A }
 #_0AA60A: db $D0, $DA, $62 ; 0x062: Wall (top, east) ↕ | { 34, 36 } | Size: 02
-#_0AA60D: db $FF, $4C, $87 ; 0x107: Corner (top, convex) ▛ | { 34, 32 } | Size: 00
+#_0AA60D: db $FF, $4C, $87 ; 0x107: Corner (top, convex) ▛ | { 34, 32 }
 #_0AA610: db $E0, $C9, $02 ; 0x002: Wall (top, south) ↔ | { 38, 32 } | Size: 01
-#_0AA613: db $FF, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 32 } | Size: 00
+#_0AA613: db $FF, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 32 }
 #_0AA616: db $2E, $2C, $63 ; 0x063: Wall (bottom, west) ↕ | { 0B, 0B } | Size: 08
-#_0AA619: db $FC, $B7, $0C ; 0x10C: Corner (bottom, convex) ▟ | { 0B, 1C } | Size: 00
-#_0AA61C: db $FC, $B1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0B, 07 } | Size: 00
+#_0AA619: db $FC, $B7, $0C ; 0x10C: Corner (bottom, convex) ▟ | { 0B, 1C }
+#_0AA61C: db $FC, $B1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0B, 07 }
 #_0AA61F: db $3C, $1C, $03 ; 0x003: Wall (bottom, north) ↔ | { 0F, 07 } | Size: 00
-#_0AA622: db $FD, $11, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 11, 07 } | Size: 00
+#_0AA622: db $FD, $11, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 11, 07 }
 #_0AA625: db $46, $2C, $64 ; 0x064: Wall (bottom, east) ↕ | { 11, 0B } | Size: 08
 #_0AA628: db $50, $76, $03 ; 0x003: Wall (bottom, north) ↔ | { 14, 1D } | Size: 02
-#_0AA62B: db $FD, $17, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 11, 1D } | Size: 00
+#_0AA62B: db $FD, $17, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 11, 1D }
 #_0AA62E: db $69, $71, $19 ; 0x019: Diagonal wall B ◤ (bottom) | { 1A, 1C } | Size: 05
 #_0AA631: db $74, $2A, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 1D, 0A } | Size: 02
 #_0AA634: db $84, $49, $63 ; 0x063: Wall (bottom, west) ↕ | { 21, 12 } | Size: 01
 #_0AA637: db $74, $29, $63 ; 0x063: Wall (bottom, west) ↕ | { 1D, 0A } | Size: 01
-#_0AA63A: db $FD, $D1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 1D, 07 } | Size: 00
+#_0AA63A: db $FD, $D1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 1D, 07 }
 #_0AA63D: db $85, $21, $1B ; 0x01B: Diagonal wall B ◥ (bottom) | { 21, 08 } | Size: 05
 #_0AA640: db $84, $28, $64 ; 0x064: Wall (bottom, east) ↕ | { 21, 0A } | Size: 00
-#_0AA643: db $FE, $11, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 21, 07 } | Size: 00
+#_0AA643: db $FE, $11, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 21, 07 }
 #_0AA646: db $B0, $4E, $03 ; 0x003: Wall (bottom, north) ↔ | { 2C, 13 } | Size: 02
-#_0AA649: db $FF, $14, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 31, 13 } | Size: 00
+#_0AA649: db $FF, $14, $CC ; 0x10C: Corner (bottom, convex) ▟ | { 31, 13 }
 #_0AA64C: db $C4, $2F, $63 ; 0x063: Wall (bottom, west) ↕ | { 31, 0B } | Size: 03
-#_0AA64F: db $FF, $11, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 31, 07 } | Size: 00
+#_0AA64F: db $FF, $11, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 31, 07 }
 #_0AA652: db $D4, $1C, $03 ; 0x003: Wall (bottom, north) ↔ | { 35, 07 } | Size: 00
-#_0AA655: db $FF, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 07 } | Size: 00
+#_0AA655: db $FF, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 07 }
 #_0AA658: db $DF, $2F, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 0B } | Size: 0F
 #_0AA65B: db $DC, $AD, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 2B } | Size: 01
-#_0AA65E: db $FF, $7B, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 2F } | Size: 00
+#_0AA65E: db $FF, $7B, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 37, 2F }
 #_0AA661: db $D4, $BC, $04 ; 0x004: Wall (bottom, south) ↔ | { 35, 2F } | Size: 00
-#_0AA664: db $FF, $1B, $CF ; 0x10F: Corner (bottom, convex) ▛ | { 31, 2F } | Size: 00
+#_0AA664: db $FF, $1B, $CF ; 0x10F: Corner (bottom, convex) ▛ | { 31, 2F }
 #_0AA667: db $C4, $CD, $64 ; 0x064: Wall (bottom, east) ↕ | { 31, 33 } | Size: 01
-#_0AA66A: db $FF, $1D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 31, 37 } | Size: 00
+#_0AA66A: db $FF, $1D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 31, 37 }
 #_0AA66D: db $BC, $DC, $04 ; 0x004: Wall (bottom, south) ↔ | { 2F, 37 } | Size: 00
-#_0AA670: db $FE, $BD, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 2B, 37 } | Size: 00
+#_0AA670: db $FE, $BD, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 2B, 37 }
 #_0AA673: db $AD, $B4, $63 ; 0x063: Wall (bottom, west) ↕ | { 2B, 2D } | Size: 04
-#_0AA676: db $FE, $BA, $48 ; 0x108: Corner (bottom, concave) ▛ | { 2B, 29 } | Size: 00
+#_0AA676: db $FE, $BA, $48 ; 0x108: Corner (bottom, concave) ▛ | { 2B, 29 }
 #_0AA679: db $BC, $A4, $03 ; 0x003: Wall (bottom, north) ↔ | { 2F, 29 } | Size: 00
-#_0AA67C: db $FF, $1A, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 31, 29 } | Size: 00
+#_0AA67C: db $FF, $1A, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 31, 29 }
 #_0AA67F: db $C5, $75, $63 ; 0x063: Wall (bottom, west) ↕ | { 31, 1D } | Size: 05
 #_0AA682: db $A1, $64, $04 ; 0x004: Wall (bottom, south) ↔ | { 28, 19 } | Size: 04
-#_0AA685: db $FF, $16, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 31, 19 } | Size: 00
+#_0AA685: db $FF, $16, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 31, 19 }
 #_0AA688: db $79, $88, $1C ; 0x01C: Diagonal wall B ◢ (bottom) | { 1E, 22 } | Size: 04
 #_0AA68B: db $70, $8C, $04 ; 0x004: Wall (bottom, south) ↔ | { 1C, 23 } | Size: 00
 #_0AA68E: db $45, $B5, $1C ; 0x01C: Diagonal wall B ◢ (bottom) | { 11, 2D } | Size: 05
 #_0AA691: db $45, $B8, $64 ; 0x064: Wall (bottom, east) ↕ | { 11, 2E } | Size: 04
-#_0AA694: db $FD, $1D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 11, 37 } | Size: 00
+#_0AA694: db $FD, $1D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 11, 37 }
 #_0AA697: db $2E, $98, $63 ; 0x063: Wall (bottom, west) ↕ | { 0B, 26 } | Size: 08
-#_0AA69A: db $FC, $BD, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0B, 37 } | Size: 00
+#_0AA69A: db $FC, $BD, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0B, 37 }
 #_0AA69D: db $3C, $DC, $04 ; 0x004: Wall (bottom, south) ↔ | { 0F, 37 } | Size: 00
-#_0AA6A0: db $FC, $B8, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 0B, 22 } | Size: 00
+#_0AA6A0: db $FC, $B8, $8D ; 0x10D: Corner (bottom, convex) ▜ | { 0B, 22 }
 #_0AA6A3: db $24, $88, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 22 } | Size: 00
 #_0AA6A6: db $14, $80, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 20 } | Size: 00
-#_0AA6A9: db $FC, $57, $08 ; 0x108: Corner (bottom, concave) ▛ | { 05, 1C } | Size: 00
+#_0AA6A9: db $FC, $57, $08 ; 0x108: Corner (bottom, concave) ▛ | { 05, 1C }
 #_0AA6AC: db $24, $70, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 1C } | Size: 00
-#_0AA6AF: db $FC, $58, $89 ; 0x109: Corner (bottom, concave) ▙ | { 05, 22 } | Size: 00
-#_0AA6B2: db $83, $2B, $FA ; 0x22F: Pot | { 20, 0A } | Size: 0F
+#_0AA6AF: db $FC, $58, $89 ; 0x109: Corner (bottom, concave) ▙ | { 05, 22 }
+#_0AA6B2: db $83, $2B, $FA ; 0x22F: Pot | { 20, 0A }
 #_0AA6B5: db $48, $80, $A4 ; 0x0A4: Pit ⇲ | { 12, 20 } | Size: 00
 #_0AA6B8: db $D0, $28, $A4 ; 0x0A4: Pit ⇲ | { 34, 0A } | Size: 00
 #_0AA6BB: db $62, $13, $60 ; 0x060: Ceiling ↕ | { 18, 04 } | Size: 0B
 #_0AA6BE: db $68, $3C, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 1A, 0F } | Size: 00
 #_0AA6C1: db $68, $54, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 1A, 15 } | Size: 00
 #_0AA6C4: db $68, $4E, $00 ; 0x000: Ceiling ↔ | { 1A, 13 } | Size: 02
-#_0AA6C7: db $A0, $11, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 28, 04 } | Size: 01
+#_0AA6C7: db $A0, $11, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 28, 04 } | Size: 01
 #_0AA6CA: db $B1, $12, $60 ; 0x060: Ceiling ↕ | { 2C, 04 } | Size: 06
 #_0AA6CD: db $A0, $2C, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 28, 0B } | Size: 00
 #_0AA6D0: db $64, $B4, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 19, 2D } | Size: 00
 #_0AA6D3: db $7D, $A5, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 1F, 29 } | Size: 05
-#_0AA6D6: db $63, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 18, 2E } | Size: 0F
-#_0AA6D9: db $72, $A8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1C, 2A } | Size: 08
+#_0AA6D6: db $63, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 18, 2E } | Size: 0F
+#_0AA6D9: db $72, $A8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1C, 2A } | Size: 08
 #_0AA6DC: db $A0, $83, $00 ; 0x000: Ceiling ↔ | { 28, 20 } | Size: 03
 #_0AA6DF: db $A0, $8B, $00 ; 0x000: Ceiling ↔ | { 28, 22 } | Size: 03
 #_0AA6E2: db $A0, $93, $00 ; 0x000: Ceiling ↔ | { 28, 24 } | Size: 03
-#_0AA6E5: db $E0, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 36 } | Size: 01
+#_0AA6E5: db $E0, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 36 } | Size: 01
 #_0AA6E8: db $F1, $D8, $60 ; 0x060: Ceiling ↕ | { 3C, 36 } | Size: 04
-#_0AA6EB: db $01, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 04 } | Size: 07
-#_0AA6EE: db $01, $45, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 11 } | Size: 05
-#_0AA6F1: db $01, $A7, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 29 } | Size: 07
-#_0AA6F4: db $01, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 36 } | Size: 05
-#_0AA6F7: db $FF, $FF ; Layer01
-#_0AA6F9: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 } | Size: 0C
-#_0AA6FC: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 } | Size: 0A
-#_0AA6FF: db $FF, $FF ; Layer02
+#_0AA6EB: db $01, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 04 } | Size: 07
+#_0AA6EE: db $01, $45, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 11 } | Size: 05
+#_0AA6F1: db $01, $A7, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 29 } | Size: 07
+#_0AA6F4: db $01, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 36 } | Size: 05
+#_0AA6F7: db $FF, $FF ; Layer 1
+#_0AA6F9: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 }
+#_0AA6FC: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 }
+#_0AA6FF: db $FF, $FF ; Layer 2
 #_0AA701: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00F1:
-#_0AA703: db $B1, $10 ; Door 0x10 | Dir:01 | Pos:16
-#_0AA705: db $42, $02 ; Door 0x02 | Dir:02 | Pos:08
-#_0AA707: db $FF, $FF ; Layer03 / End
+#_0AA703: db $B1, $10 ; Door 0x10 | South 16
+#_0AA705: db $42, $02 ; Door 0x02 | West 08
+#_0AA707: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -3856,8 +3856,8 @@ RoomDataTiles_00F2:
 #_0AA711: db $88, $A5, $78 ; 0x078: Supports (west) ↕ | { 22, 29 } | Size: 01
 #_0AA714: db $F0, $A5, $7B ; 0x07B: Supports (east) ↕ | { 3C, 29 } | Size: 01
 #_0AA717: db $88, $BC, $76 ; 0x076: Wall decors (west) ↕ | { 22, 2F } | Size: 00
-#_0AA71A: db $FF, $19, $E8 ; 0x128: Bed | { 31, 27 } | Size: 00
-#_0AA71D: db $FF, $79, $E8 ; 0x128: Bed | { 37, 27 } | Size: 00
+#_0AA71A: db $FF, $19, $E8 ; 0x128: Bed | { 31, 27 }
+#_0AA71D: db $FF, $79, $E8 ; 0x128: Bed | { 37, 27 }
 #_0AA720: db $94, $A2, $B2 ; 0x0B2: Rug ↔ | { 25, 28 } | Size: 02
 #_0AA723: db $94, $B2, $B2 ; 0x0B2: Rug ↔ | { 25, 2C } | Size: 02
 #_0AA726: db $94, $C2, $B2 ; 0x0B2: Rug ↔ | { 25, 30 } | Size: 02
@@ -3868,19 +3868,19 @@ RoomDataTiles_00F2:
 #_0AA735: db $C3, $A2, $8E ; 0x08E: Rug trim (east) ↕ | { 30, 28 } | Size: 0E
 #_0AA738: db $9C, $AD, $3C ; 0x03C: Chairs in pairs ↔ | { 27, 2B } | Size: 01
 #_0AA73B: db $9D, $B4, $DD ; 0x0DD: Table / Rock ⇲| { 27, 2D } | Size: 04
-#_0AA73E: db $A2, $B6, $FD ; 0x25A: Decorative bowl | { 28, 2D } | Size: 0A
-#_0AA741: db $AC, $93, $FD ; 0x25C: Bookcase | { 2B, 24 } | Size: 03
-#_0AA744: db $FF, $FF ; Layer01
-#_0AA746: db $FF, $FF ; Layer02
+#_0AA73E: db $A2, $B6, $FD ; 0x25A: Decorative bowl | { 28, 2D }
+#_0AA741: db $AC, $93, $FD ; 0x25C: Bookcase | { 2B, 24 }
+#_0AA744: db $FF, $FF ; Layer 1
+#_0AA746: db $FF, $FF ; Layer 2
 #_0AA748: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00F2:
-#_0AA74A: db $83, $00 ; Door 0x00 | Dir:03 | Pos:10
-#_0AA74C: db $81, $00 ; Door 0x00 | Dir:01 | Pos:10
-#_0AA74E: db $81, $12 ; Door 0x12 | Dir:01 | Pos:10
-#_0AA750: db $FF, $FF ; Layer03 / End
+#_0AA74A: db $83, $00 ; Door 0x00 | East 10
+#_0AA74C: db $81, $00 ; Door 0x00 | South 10
+#_0AA74E: db $81, $12 ; Door 0x12 | South 10
+#_0AA750: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -3890,34 +3890,34 @@ RoomDataTiles_00F3:
 #_0AA757: db $08, $A5, $78 ; 0x078: Supports (west) ↕ | { 02, 29 } | Size: 01
 #_0AA75A: db $70, $A5, $7B ; 0x07B: Supports (east) ↕ | { 1C, 29 } | Size: 01
 #_0AA75D: db $21, $D0, $DD ; 0x0DD: Table / Rock ⇲| { 08, 34 } | Size: 04
-#_0AA760: db $FC, $8E, $27 ; 0x127: Chair | { 08, 38 } | Size: 00
-#_0AA763: db $FC, $CE, $27 ; 0x127: Chair | { 0C, 38 } | Size: 00
+#_0AA760: db $FC, $8E, $27 ; 0x127: Chair | { 08, 38 }
+#_0AA763: db $FC, $CE, $27 ; 0x127: Chair | { 0C, 38 }
 #_0AA766: db $49, $A3, $C5 ; 0x0C5: Floor 3 ⇲| { 12, 28 } | Size: 07
 #_0AA769: db $49, $D8, $C5 ; 0x0C5: Floor 3 ⇲| { 12, 36 } | Size: 04
 #_0AA76C: db $4B, $A2, $71 ; 0x071: Carpet trim ↕ | { 12, 28 } | Size: 0E
-#_0AA76F: db $53, $A3, $FA ; 0x22F: Pot | { 14, 28 } | Size: 0F
-#_0AA772: db $5B, $A3, $FA ; 0x22F: Pot | { 16, 28 } | Size: 0F
-#_0AA775: db $63, $A3, $FA ; 0x22F: Pot | { 18, 28 } | Size: 0F
-#_0AA778: db $FC, $E9, $29 ; 0x129: Fireplace | { 0E, 24 } | Size: 00
+#_0AA76F: db $53, $A3, $FA ; 0x22F: Pot | { 14, 28 }
+#_0AA772: db $5B, $A3, $FA ; 0x22F: Pot | { 16, 28 }
+#_0AA775: db $63, $A3, $FA ; 0x22F: Pot | { 18, 28 }
+#_0AA778: db $FC, $E9, $29 ; 0x129: Fireplace | { 0E, 24 }
 #_0AA77B: db $58, $EC, $3B ; 0x03B: Wall decors (south) ↔ | { 16, 3B } | Size: 00
-#_0AA77E: db $FC, $6A, $21 ; 0x121: Barrel | { 06, 28 } | Size: 00
-#_0AA781: db $FC, $6A, $A1 ; 0x121: Barrel | { 06, 2A } | Size: 00
-#_0AA784: db $FC, $8A, $21 ; 0x121: Barrel | { 08, 28 } | Size: 00
-#_0AA787: db $2B, $A2, $FD ; 0x25B: Tub (tall) | { 0A, 28 } | Size: 0E
-#_0AA78A: db $26, $D2, $FD ; 0x25A: Decorative bowl | { 09, 34 } | Size: 0A
-#_0AA78D: db $51, $AB, $FD ; 0x25D: Range | { 14, 2A } | Size: 07
-#_0AA790: db $51, $BF, $FD ; 0x25D: Range | { 14, 2F } | Size: 07
-#_0AA793: db $FF, $FF ; Layer01
-#_0AA795: db $FF, $FF ; Layer02
+#_0AA77E: db $FC, $6A, $21 ; 0x121: Barrel | { 06, 28 }
+#_0AA781: db $FC, $6A, $A1 ; 0x121: Barrel | { 06, 2A }
+#_0AA784: db $FC, $8A, $21 ; 0x121: Barrel | { 08, 28 }
+#_0AA787: db $2B, $A2, $FD ; 0x25B: Tub (tall) | { 0A, 28 }
+#_0AA78A: db $26, $D2, $FD ; 0x25A: Decorative bowl | { 09, 34 }
+#_0AA78D: db $51, $AB, $FD ; 0x25D: Range | { 14, 2A }
+#_0AA790: db $51, $BF, $FD ; 0x25D: Range | { 14, 2F }
+#_0AA793: db $FF, $FF ; Layer 1
+#_0AA795: db $FF, $FF ; Layer 2
 #_0AA797: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00F3:
-#_0AA799: db $22, $00 ; Door 0x00 | Dir:02 | Pos:04
-#_0AA79B: db $61, $00 ; Door 0x00 | Dir:01 | Pos:0C
-#_0AA79D: db $61, $12 ; Door 0x12 | Dir:01 | Pos:0C
-#_0AA79F: db $FF, $FF ; Layer03 / End
+#_0AA799: db $22, $00 ; Door 0x00 | West 04
+#_0AA79B: db $61, $00 ; Door 0x00 | South 0C
+#_0AA79D: db $61, $12 ; Door 0x12 | South 0C
+#_0AA79F: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -3936,18 +3936,18 @@ RoomDataTiles_00F4:
 #_0AA7C1: db $DE, $AF, $8E ; 0x08E: Rug trim (east) ↕ | { 37, 2B } | Size: 0B
 #_0AA7C4: db $BC, $B0, $3C ; 0x03C: Chairs in pairs ↔ | { 2F, 2C } | Size: 00
 #_0AA7C7: db $B5, $B8, $DD ; 0x0DD: Table / Rock ⇲| { 2D, 2E } | Size: 04
-#_0AA7CA: db $FF, $79, $E8 ; 0x128: Bed | { 37, 27 } | Size: 00
-#_0AA7CD: db $FF, $FF ; Layer01
-#_0AA7CF: db $FF, $FF ; Layer02
+#_0AA7CA: db $FF, $79, $E8 ; 0x128: Bed | { 37, 27 }
+#_0AA7CD: db $FF, $FF ; Layer 1
+#_0AA7CF: db $FF, $FF ; Layer 2
 #_0AA7D1: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00F4:
-#_0AA7D3: db $83, $28 ; Door 0x28 | Dir:03 | Pos:10
-#_0AA7D5: db $81, $00 ; Door 0x00 | Dir:01 | Pos:10
-#_0AA7D7: db $81, $12 ; Door 0x12 | Dir:01 | Pos:10
-#_0AA7D9: db $FF, $FF ; Layer03 / End
+#_0AA7D3: db $83, $28 ; Door 0x28 | East 10
+#_0AA7D5: db $81, $00 ; Door 0x00 | South 10
+#_0AA7D7: db $81, $12 ; Door 0x12 | South 10
+#_0AA7D9: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -3966,319 +3966,319 @@ RoomDataTiles_00F5:
 #_0AA7FB: db $5E, $AF, $8E ; 0x08E: Rug trim (east) ↕ | { 17, 2B } | Size: 0B
 #_0AA7FE: db $34, $B1, $3C ; 0x03C: Chairs in pairs ↔ | { 0D, 2C } | Size: 01
 #_0AA801: db $35, $B8, $DD ; 0x0DD: Table / Rock ⇲| { 0D, 2E } | Size: 04
-#_0AA804: db $3A, $BA, $FD ; 0x25A: Decorative bowl | { 0E, 2E } | Size: 0A
-#_0AA807: db $34, $93, $FD ; 0x25C: Bookcase | { 0D, 24 } | Size: 03
-#_0AA80A: db $FC, $59, $E8 ; 0x128: Bed | { 05, 27 } | Size: 00
-#_0AA80D: db $FF, $FF ; Layer01
-#_0AA80F: db $FF, $FF ; Layer02
+#_0AA804: db $3A, $BA, $FD ; 0x25A: Decorative bowl | { 0E, 2E }
+#_0AA807: db $34, $93, $FD ; 0x25C: Bookcase | { 0D, 24 }
+#_0AA80A: db $FC, $59, $E8 ; 0x128: Bed | { 05, 27 }
+#_0AA80D: db $FF, $FF ; Layer 1
+#_0AA80F: db $FF, $FF ; Layer 2
 #_0AA811: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00F5:
-#_0AA813: db $22, $28 ; Door 0x28 | Dir:02 | Pos:04
-#_0AA815: db $61, $00 ; Door 0x00 | Dir:01 | Pos:0C
-#_0AA817: db $61, $12 ; Door 0x12 | Dir:01 | Pos:0C
-#_0AA819: db $FF, $FF ; Layer03 / End
+#_0AA813: db $22, $28 ; Door 0x28 | West 04
+#_0AA815: db $61, $00 ; Door 0x00 | South 0C
+#_0AA817: db $61, $12 ; Door 0x12 | South 0C
+#_0AA819: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00F8:
 #_0AA81B: db $E1, $1C ; Floors and Layout
-#_0AA81D: db $FC, $22, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 0A } | Size: 00
+#_0AA81D: db $FC, $22, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 0A }
 #_0AA820: db $18, $2B, $02 ; 0x002: Wall (top, south) ↔ | { 06, 0A } | Size: 03
-#_0AA823: db $FC, $C2, $85 ; 0x105: Corner (top, convex) ▜ | { 0C, 0A } | Size: 00
+#_0AA823: db $FC, $C2, $85 ; 0x105: Corner (top, convex) ▜ | { 0C, 0A }
 #_0AA826: db $32, $3B, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 0E } | Size: 0B
-#_0AA829: db $FC, $C9, $01 ; 0x101: Corner (top, concave) ▙ | { 0C, 24 } | Size: 00
+#_0AA829: db $FC, $C9, $01 ; 0x101: Corner (top, concave) ▙ | { 0C, 24 }
 #_0AA82C: db $42, $93, $02 ; 0x002: Wall (top, south) ↔ | { 10, 24 } | Size: 0B
-#_0AA82F: db $FE, $69, $05 ; 0x105: Corner (top, convex) ▜ | { 26, 24 } | Size: 00
+#_0AA82F: db $FE, $69, $05 ; 0x105: Corner (top, convex) ▜ | { 26, 24 }
 #_0AA832: db $99, $A0, $61 ; 0x061: Wall (top, west) ↕ | { 26, 28 } | Size: 04
-#_0AA835: db $FE, $6C, $04 ; 0x104: Corner (top, convex) ▟ | { 26, 30 } | Size: 00
+#_0AA835: db $FE, $6C, $04 ; 0x104: Corner (top, convex) ▟ | { 26, 30 }
 #_0AA838: db $50, $A8, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 14, 2A } | Size: 00
 #_0AA83B: db $69, $C2, $01 ; 0x001: Wall (top, north) ↔ | { 1A, 30 } | Size: 06
 #_0AA83E: db $19, $AB, $01 ; 0x001: Wall (top, north) ↔ | { 06, 2A } | Size: 07
 #_0AA841: db $08, $B0, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 02, 2C } | Size: 00
-#_0AA844: db $FC, $2A, $80 ; 0x100: Corner (top, concave) ▛ | { 02, 2A } | Size: 00
+#_0AA844: db $FC, $2A, $80 ; 0x100: Corner (top, concave) ▛ | { 02, 2A }
 #_0AA847: db $08, $B9, $61 ; 0x061: Wall (top, west) ↕ | { 02, 2E } | Size: 01
 #_0AA84A: db $21, $CA, $02 ; 0x002: Wall (top, south) ↔ | { 08, 32 } | Size: 06
 #_0AA84D: db $50, $CA, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 14, 32 } | Size: 02
-#_0AA850: db $FE, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 2A, 3A } | Size: 00
+#_0AA850: db $FE, $AE, $83 ; 0x103: Corner (top, concave) ▟ | { 2A, 3A }
 #_0AA853: db $AA, $93, $62 ; 0x062: Wall (top, east) ↕ | { 2A, 24 } | Size: 0B
-#_0AA856: db $FE, $A8, $02 ; 0x102: Corner (top, concave) ▜ | { 2A, 20 } | Size: 00
+#_0AA856: db $FE, $A8, $02 ; 0x102: Corner (top, concave) ▜ | { 2A, 20 }
 #_0AA859: db $5A, $82, $01 ; 0x001: Wall (top, north) ↔ | { 16, 20 } | Size: 0A
-#_0AA85C: db $FD, $28, $06 ; 0x106: Corner (top, convex) ▙ | { 12, 20 } | Size: 00
+#_0AA85C: db $FD, $28, $06 ; 0x106: Corner (top, convex) ▙ | { 12, 20 }
 #_0AA85F: db $4A, $39, $62 ; 0x062: Wall (top, east) ↕ | { 12, 0E } | Size: 09
-#_0AA862: db $FD, $22, $87 ; 0x107: Corner (top, convex) ▛ | { 12, 0A } | Size: 00
+#_0AA862: db $FD, $22, $87 ; 0x107: Corner (top, convex) ▛ | { 12, 0A }
 #_0AA865: db $5A, $29, $02 ; 0x002: Wall (top, south) ↔ | { 16, 0A } | Size: 09
-#_0AA868: db $FE, $82, $83 ; 0x103: Corner (top, concave) ▟ | { 28, 0A } | Size: 00
+#_0AA868: db $FE, $82, $83 ; 0x103: Corner (top, concave) ▟ | { 28, 0A }
 #_0AA86B: db $A0, $21, $62 ; 0x062: Wall (top, east) ↕ | { 28, 08 } | Size: 01
-#_0AA86E: db $FE, $81, $02 ; 0x102: Corner (top, concave) ▜ | { 28, 04 } | Size: 00
-#_0AA871: db $FD, $A4, $80 ; 0x100: Corner (top, concave) ▛ | { 1A, 12 } | Size: 00
+#_0AA86E: db $FE, $81, $02 ; 0x102: Corner (top, concave) ▜ | { 28, 04 }
+#_0AA871: db $FD, $A4, $80 ; 0x100: Corner (top, concave) ▛ | { 1A, 12 }
 #_0AA874: db $7A, $49, $01 ; 0x001: Wall (top, north) ↔ | { 1E, 12 } | Size: 09
-#_0AA877: db $FF, $04, $84 ; 0x104: Corner (top, convex) ▟ | { 30, 12 } | Size: 00
+#_0AA877: db $FF, $04, $84 ; 0x104: Corner (top, convex) ▟ | { 30, 12 }
 #_0AA87A: db $C0, $3A, $61 ; 0x061: Wall (top, west) ↕ | { 30, 0E } | Size: 02
-#_0AA87D: db $FF, $02, $80 ; 0x100: Corner (top, concave) ▛ | { 30, 0A } | Size: 00
+#_0AA87D: db $FF, $02, $80 ; 0x100: Corner (top, concave) ▛ | { 30, 0A }
 #_0AA880: db $D0, $29, $01 ; 0x001: Wall (top, north) ↔ | { 34, 0A } | Size: 01
-#_0AA883: db $FF, $62, $82 ; 0x102: Corner (top, concave) ▜ | { 36, 0A } | Size: 00
+#_0AA883: db $FF, $62, $82 ; 0x102: Corner (top, concave) ▜ | { 36, 0A }
 #_0AA886: db $D8, $39, $62 ; 0x062: Wall (top, east) ↕ | { 36, 0E } | Size: 01
-#_0AA889: db $FF, $64, $06 ; 0x106: Corner (top, convex) ▙ | { 36, 10 } | Size: 00
-#_0AA88C: db $FF, $A4, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 10 } | Size: 00
-#_0AA88F: db $FF, $A9, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 24 } | Size: 00
+#_0AA889: db $FF, $64, $06 ; 0x106: Corner (top, convex) ▙ | { 36, 10 }
+#_0AA88C: db $FF, $A4, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 10 }
+#_0AA88F: db $FF, $A9, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 24 }
 #_0AA892: db $D8, $92, $02 ; 0x002: Wall (top, south) ↔ | { 36, 24 } | Size: 02
-#_0AA895: db $FF, $29, $01 ; 0x101: Corner (top, concave) ▙ | { 32, 24 } | Size: 00
+#_0AA895: db $FF, $29, $01 ; 0x101: Corner (top, concave) ▙ | { 32, 24 }
 #_0AA898: db $C9, $70, $61 ; 0x061: Wall (top, west) ↕ | { 32, 1C } | Size: 04
-#_0AA89B: db $FF, $26, $05 ; 0x105: Corner (top, convex) ▜ | { 32, 18 } | Size: 00
+#_0AA89B: db $FF, $26, $05 ; 0x105: Corner (top, convex) ▜ | { 32, 18 }
 #_0AA89E: db $7A, $62, $02 ; 0x002: Wall (top, south) ↔ | { 1E, 18 } | Size: 0A
-#_0AA8A1: db $FD, $A6, $01 ; 0x101: Corner (top, concave) ▙ | { 1A, 18 } | Size: 00
+#_0AA8A1: db $FD, $A6, $01 ; 0x101: Corner (top, concave) ▙ | { 1A, 18 }
 #_0AA8A4: db $68, $59, $61 ; 0x061: Wall (top, west) ↕ | { 1A, 16 } | Size: 01
-#_0AA8A7: db $FC, $81, $38 ; 0x138: Interroom spiral stairs up (top) | { 08, 04 } | Size: 00
-#_0AA8AA: db $FE, $41, $38 ; 0x138: Interroom spiral stairs up (top) | { 24, 04 } | Size: 00
-#_0AA8AD: db $FD, $E4, $B8 ; 0x138: Interroom spiral stairs up (top) | { 1E, 12 } | Size: 00
-#_0AA8B0: db $FC, $6A, $B8 ; 0x138: Interroom spiral stairs up (top) | { 06, 2A } | Size: 00
-#_0AA8B3: db $E5, $4E, $F9 ; 0x219: Chest | { 39, 13 } | Size: 06
-#_0AA8B6: db $E5, $5E, $F9 ; 0x219: Chest | { 39, 17 } | Size: 06
-#_0AA8B9: db $E7, $6F, $FA ; 0x22F: Pot | { 39, 1B } | Size: 0F
-#_0AA8BC: db $02, $3B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 0E } | Size: 0B
-#_0AA8BF: db $02, $7A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 1E } | Size: 0A
+#_0AA8A7: db $FC, $81, $38 ; 0x138: Interroom spiral stairs up (top) | { 08, 04 }
+#_0AA8AA: db $FE, $41, $38 ; 0x138: Interroom spiral stairs up (top) | { 24, 04 }
+#_0AA8AD: db $FD, $E4, $B8 ; 0x138: Interroom spiral stairs up (top) | { 1E, 12 }
+#_0AA8B0: db $FC, $6A, $B8 ; 0x138: Interroom spiral stairs up (top) | { 06, 2A }
+#_0AA8B3: db $E5, $4E, $F9 ; 0x219: Chest | { 39, 13 }
+#_0AA8B6: db $E5, $5E, $F9 ; 0x219: Chest | { 39, 17 }
+#_0AA8B9: db $E7, $6F, $FA ; 0x22F: Pot | { 39, 1B }
+#_0AA8BC: db $02, $3B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 0E } | Size: 0B
+#_0AA8BF: db $02, $7A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 1E } | Size: 0A
 #_0AA8C2: db $08, $C5, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 02, 31 } | Size: 01
-#_0AA8C5: db $0B, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 36 } | Size: 0D
+#_0AA8C5: db $0B, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 36 } | Size: 0D
 #_0AA8C8: db $49, $D8, $60 ; 0x060: Ceiling ↕ | { 12, 36 } | Size: 04
 #_0AA8CB: db $50, $DF, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 14, 37 } | Size: 03
 #_0AA8CE: db $54, $A9, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 15, 2A } | Size: 01
-#_0AA8D1: db $6A, $A1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 28 } | Size: 09
+#_0AA8D1: db $6A, $A1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 28 } | Size: 09
 #_0AA8D4: db $31, $A3, $00 ; 0x000: Ceiling ↔ | { 0C, 28 } | Size: 07
-#_0AA8D7: db $B3, $09, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2C, 02 } | Size: 0D
-#_0AA8DA: db $E8, $12, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 04 } | Size: 02
-#_0AA8DD: db $B0, $29, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2C, 0A } | Size: 01
-#_0AA8E0: db $73, $38, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1C, 0E } | Size: 0C
+#_0AA8D7: db $B3, $09, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2C, 02 } | Size: 0D
+#_0AA8DA: db $E8, $12, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 04 } | Size: 02
+#_0AA8DD: db $B0, $29, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2C, 0A } | Size: 01
+#_0AA8E0: db $73, $38, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1C, 0E } | Size: 0C
 #_0AA8E3: db $68, $3A, $60 ; 0x060: Ceiling ↕ | { 1A, 0E } | Size: 02
-#_0AA8E6: db $58, $3B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 0E } | Size: 03
-#_0AA8E9: db $5B, $70, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 1C } | Size: 0C
-#_0AA8EC: db $9A, $70, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 1C } | Size: 08
-#_0AA8EF: db $B8, $81, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 20 } | Size: 01
-#_0AA8F2: db $BB, $A3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 28 } | Size: 0F
-#_0AA8F5: db $BB, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 36 } | Size: 0D
-#_0AA8F8: db $FF, $FF ; Layer01
-#_0AA8FA: db $FF, $FF ; Layer02
+#_0AA8E6: db $58, $3B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 0E } | Size: 03
+#_0AA8E9: db $5B, $70, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 1C } | Size: 0C
+#_0AA8EC: db $9A, $70, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 1C } | Size: 08
+#_0AA8EF: db $B8, $81, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 20 } | Size: 01
+#_0AA8F2: db $BB, $A3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 28 } | Size: 0F
+#_0AA8F5: db $BB, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 36 } | Size: 0D
+#_0AA8F8: db $FF, $FF ; Layer 1
+#_0AA8FA: db $FF, $FF ; Layer 2
 #_0AA8FC: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00F8:
-#_0AA8FE: db $71, $0E ; Door 0x0E | Dir:01 | Pos:0E
-#_0AA900: db $FF, $FF ; Layer03 / End
+#_0AA8FE: db $71, $0E ; Door 0x0E | South 0E
+#_0AA900: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00E8:
 #_0AA902: db $81, $1C ; Floors and Layout
-#_0AA904: db $FC, $22, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 0A } | Size: 00
+#_0AA904: db $FC, $22, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 0A }
 #_0AA907: db $18, $2B, $02 ; 0x002: Wall (top, south) ↔ | { 06, 0A } | Size: 03
-#_0AA90A: db $FC, $C2, $85 ; 0x105: Corner (top, convex) ▜ | { 0C, 0A } | Size: 00
+#_0AA90A: db $FC, $C2, $85 ; 0x105: Corner (top, convex) ▜ | { 0C, 0A }
 #_0AA90D: db $33, $3A, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 0E } | Size: 0E
-#_0AA910: db $FC, $CA, $84 ; 0x104: Corner (top, convex) ▟ | { 0C, 2A } | Size: 00
+#_0AA910: db $FC, $CA, $84 ; 0x104: Corner (top, convex) ▟ | { 0C, 2A }
 #_0AA913: db $18, $AB, $01 ; 0x001: Wall (top, north) ↔ | { 06, 2A } | Size: 03
-#_0AA916: db $FC, $2A, $80 ; 0x100: Corner (top, concave) ▛ | { 02, 2A } | Size: 00
-#_0AA919: db $FC, $2C, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 30 } | Size: 00
+#_0AA916: db $FC, $2A, $80 ; 0x100: Corner (top, concave) ▛ | { 02, 2A }
+#_0AA919: db $FC, $2C, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 30 }
 #_0AA91C: db $19, $C2, $02 ; 0x002: Wall (top, south) ↔ | { 06, 30 } | Size: 06
-#_0AA91F: db $FD, $2C, $03 ; 0x103: Corner (top, concave) ▟ | { 12, 30 } | Size: 00
+#_0AA91F: db $FD, $2C, $03 ; 0x103: Corner (top, concave) ▟ | { 12, 30 }
 #_0AA922: db $4B, $3B, $62 ; 0x062: Wall (top, east) ↕ | { 12, 0E } | Size: 0F
 #_0AA925: db $48, $B2, $62 ; 0x062: Wall (top, east) ↕ | { 12, 2C } | Size: 02
-#_0AA928: db $FD, $22, $87 ; 0x107: Corner (top, convex) ▛ | { 12, 0A } | Size: 00
+#_0AA928: db $FD, $22, $87 ; 0x107: Corner (top, convex) ▛ | { 12, 0A }
 #_0AA92B: db $58, $29, $02 ; 0x002: Wall (top, south) ↔ | { 16, 0A } | Size: 01
-#_0AA92E: db $FD, $82, $83 ; 0x103: Corner (top, concave) ▟ | { 18, 0A } | Size: 00
+#_0AA92E: db $FD, $82, $83 ; 0x103: Corner (top, concave) ▟ | { 18, 0A }
 #_0AA931: db $60, $21, $62 ; 0x062: Wall (top, east) ↕ | { 18, 08 } | Size: 01
-#_0AA934: db $FD, $81, $02 ; 0x102: Corner (top, concave) ▜ | { 18, 04 } | Size: 00
-#_0AA937: db $FE, $01, $00 ; 0x100: Corner (top, concave) ▛ | { 20, 04 } | Size: 00
+#_0AA934: db $FD, $81, $02 ; 0x102: Corner (top, concave) ▜ | { 18, 04 }
+#_0AA937: db $FE, $01, $00 ; 0x100: Corner (top, concave) ▛ | { 20, 04 }
 #_0AA93A: db $80, $21, $61 ; 0x061: Wall (top, west) ↕ | { 20, 08 } | Size: 01
-#_0AA93D: db $FE, $02, $81 ; 0x101: Corner (top, concave) ▙ | { 20, 0A } | Size: 00
+#_0AA93D: db $FE, $02, $81 ; 0x101: Corner (top, concave) ▙ | { 20, 0A }
 #_0AA940: db $90, $2B, $02 ; 0x002: Wall (top, south) ↔ | { 24, 0A } | Size: 03
-#_0AA943: db $FE, $A2, $85 ; 0x105: Corner (top, convex) ▜ | { 2A, 0A } | Size: 00
+#_0AA943: db $FE, $A2, $85 ; 0x105: Corner (top, convex) ▜ | { 2A, 0A }
 #_0AA946: db $A9, $6A, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 2A, 1A } | Size: 06
 #_0AA949: db $AA, $38, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 0E } | Size: 08
 #_0AA94C: db $D8, $9A, $02 ; 0x002: Wall (top, south) ↔ | { 36, 26 } | Size: 02
-#_0AA94F: db $FF, $A9, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 26 } | Size: 00
-#_0AA952: db $FD, $A4, $80 ; 0x100: Corner (top, concave) ▛ | { 1A, 12 } | Size: 00
+#_0AA94F: db $FF, $A9, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 26 }
+#_0AA952: db $FD, $A4, $80 ; 0x100: Corner (top, concave) ▛ | { 1A, 12 }
 #_0AA955: db $78, $4A, $01 ; 0x001: Wall (top, north) ↔ | { 1E, 12 } | Size: 02
-#_0AA958: db $FE, $24, $82 ; 0x102: Corner (top, concave) ▜ | { 22, 12 } | Size: 00
+#_0AA958: db $FE, $24, $82 ; 0x102: Corner (top, concave) ▜ | { 22, 12 }
 #_0AA95B: db $6B, $72, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 1A, 1C } | Size: 0E
 #_0AA95E: db $69, $59, $61 ; 0x061: Wall (top, west) ↕ | { 1A, 16 } | Size: 05
 #_0AA961: db $A9, $C1, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 30 } | Size: 05
-#_0AA964: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A } | Size: 00
+#_0AA964: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A }
 #_0AA967: db $8B, $72, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 22, 1C } | Size: 0E
 #_0AA96A: db $89, $59, $62 ; 0x062: Wall (top, east) ↕ | { 22, 16 } | Size: 05
 #_0AA96D: db $C9, $C1, $62 ; 0x062: Wall (top, east) ↕ | { 32, 30 } | Size: 05
-#_0AA970: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A } | Size: 00
-#_0AA973: db $FC, $81, $39 ; 0x139: Interroom spiral stairs down (top) | { 08, 04 } | Size: 00
-#_0AA976: db $FC, $6A, $B9 ; 0x139: Interroom spiral stairs down (top) | { 06, 2A } | Size: 00
-#_0AA979: db $FD, $E4, $B9 ; 0x139: Interroom spiral stairs down (top) | { 1E, 12 } | Size: 00
-#_0AA97C: db $FE, $41, $39 ; 0x139: Interroom spiral stairs down (top) | { 24, 04 } | Size: 00
+#_0AA970: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A }
+#_0AA973: db $FC, $81, $39 ; 0x139: Interroom spiral stairs down (top) | { 08, 04 }
+#_0AA976: db $FC, $6A, $B9 ; 0x139: Interroom spiral stairs down (top) | { 06, 2A }
+#_0AA979: db $FD, $E4, $B9 ; 0x139: Interroom spiral stairs down (top) | { 1E, 12 }
+#_0AA97C: db $FE, $41, $39 ; 0x139: Interroom spiral stairs down (top) | { 24, 04 }
 #_0AA97F: db $54, $1C, $A4 ; 0x0A4: Pit ⇲ | { 15, 07 } | Size: 00
 #_0AA982: db $3C, $40, $A4 ; 0x0A4: Pit ⇲ | { 0F, 10 } | Size: 00
 #_0AA985: db $CC, $38, $A4 ; 0x0A4: Pit ⇲ | { 33, 0E } | Size: 00
 #_0AA988: db $B4, $54, $A4 ; 0x0A4: Pit ⇲ | { 2D, 15 } | Size: 00
 #_0AA98B: db $D8, $80, $A4 ; 0x0A4: Pit ⇲ | { 36, 20 } | Size: 00
-#_0AA98E: db $C3, $23, $FA ; 0x22F: Pot | { 30, 08 } | Size: 0F
-#_0AA991: db $02, $3B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 0E } | Size: 0B
-#_0AA994: db $02, $7A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 1E } | Size: 0A
-#_0AA997: db $0B, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 0E
-#_0AA99A: db $4B, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 34 } | Size: 0E
+#_0AA98E: db $C3, $23, $FA ; 0x22F: Pot | { 30, 08 }
+#_0AA991: db $02, $3B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 0E } | Size: 0B
+#_0AA994: db $02, $7A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 1E } | Size: 0A
+#_0AA997: db $0B, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 0E
+#_0AA99A: db $4B, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 34 } | Size: 0E
 #_0AA99D: db $6A, $87, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 1A, 21 } | Size: 0B
-#_0AA9A0: db $6B, $C3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 30 } | Size: 0F
-#_0AA9A3: db $58, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 24 } | Size: 03
-#_0AA9A6: db $58, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 14 } | Size: 03
-#_0AA9A9: db $70, $12, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1C, 04 } | Size: 02
-#_0AA9AC: db $5B, $38, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 0E } | Size: 0C
+#_0AA9A0: db $6B, $C3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 30 } | Size: 0F
+#_0AA9A3: db $58, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 24 } | Size: 03
+#_0AA9A6: db $58, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 14 } | Size: 03
+#_0AA9A9: db $70, $12, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1C, 04 } | Size: 02
+#_0AA9AC: db $5B, $38, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 0E } | Size: 0C
 #_0AA9AF: db $58, $4A, $00 ; 0x000: Ceiling ↔ | { 16, 12 } | Size: 02
-#_0AA9B2: db $98, $3B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 0E } | Size: 03
+#_0AA9B2: db $98, $3B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 0E } | Size: 03
 #_0AA9B5: db $98, $7A, $00 ; 0x000: Ceiling ↔ | { 26, 1E } | Size: 02
 #_0AA9B8: db $98, $7D, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 26, 1F } | Size: 01
 #_0AA9BB: db $AC, $81, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 2B, 20 } | Size: 01
 #_0AA9BE: db $B0, $95, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 2C, 25 } | Size: 01
 #_0AA9C1: db $C4, $99, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 31, 26 } | Size: 01
 #_0AA9C4: db $C8, $AC, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 32, 2B } | Size: 00
-#_0AA9C7: db $D9, $AB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 2A } | Size: 07
-#_0AA9CA: db $D9, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 3A } | Size: 04
-#_0AA9CD: db $FF, $FF ; Layer01
-#_0AA9CF: db $FF, $FF ; Layer02
+#_0AA9C7: db $D9, $AB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 2A } | Size: 07
+#_0AA9CA: db $D9, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 3A } | Size: 04
+#_0AA9CD: db $FF, $FF ; Layer 1
+#_0AA9CF: db $FF, $FF ; Layer 2
 #_0AA9D1: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00E8:
-#_0AA9D3: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0AA9D5: db $FF, $FF ; Layer03 / End
+#_0AA9D3: db $81, $0E ; Door 0x0E | South 10
+#_0AA9D5: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00FD:
 #_0AA9D7: db $E1, $1C ; Floors and Layout
-#_0AA9D9: db $FC, $81, $00 ; 0x100: Corner (top, concave) ▛ | { 08, 04 } | Size: 00
+#_0AA9D9: db $FC, $81, $00 ; 0x100: Corner (top, concave) ▛ | { 08, 04 }
 #_0AA9DC: db $09, $44, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 02, 11 } | Size: 04
 #_0AA9DF: db $20, $22, $61 ; 0x061: Wall (top, west) ↕ | { 08, 08 } | Size: 02
 #_0AA9E2: db $08, $60, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 02, 18 } | Size: 00
 #_0AA9E5: db $09, $49, $61 ; 0x061: Wall (top, west) ↕ | { 02, 12 } | Size: 05
 #_0AA9E8: db $20, $7B, $02 ; 0x002: Wall (top, south) ↔ | { 08, 1E } | Size: 03
-#_0AA9EB: db $FC, $E7, $85 ; 0x105: Corner (top, convex) ▜ | { 0E, 1E } | Size: 00
+#_0AA9EB: db $FC, $E7, $85 ; 0x105: Corner (top, convex) ▜ | { 0E, 1E }
 #_0AA9EE: db $3B, $88, $61 ; 0x061: Wall (top, west) ↕ | { 0E, 22 } | Size: 0C
-#_0AA9F1: db $FC, $EE, $81 ; 0x101: Corner (top, concave) ▙ | { 0E, 3A } | Size: 00
-#_0AA9F4: db $FE, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 26, 3A } | Size: 00
+#_0AA9F1: db $FC, $EE, $81 ; 0x101: Corner (top, concave) ▙ | { 0E, 3A }
+#_0AA9F4: db $FE, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 26, 3A }
 #_0AA9F7: db $98, $DA, $62 ; 0x062: Wall (top, east) ↕ | { 26, 36 } | Size: 02
-#_0AA9FA: db $FE, $6C, $87 ; 0x107: Corner (top, convex) ▛ | { 26, 32 } | Size: 00
+#_0AA9FA: db $FE, $6C, $87 ; 0x107: Corner (top, convex) ▛ | { 26, 32 }
 #_0AA9FD: db $AA, $C8, $02 ; 0x002: Wall (top, south) ↔ | { 2A, 32 } | Size: 08
-#_0AAA00: db $FF, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 32 } | Size: 00
-#_0AAA03: db $FF, $AA, $82 ; 0x102: Corner (top, concave) ▜ | { 3A, 2A } | Size: 00
+#_0AAA00: db $FF, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 32 }
+#_0AAA03: db $FF, $AA, $82 ; 0x102: Corner (top, concave) ▜ | { 3A, 2A }
 #_0AAA06: db $AA, $A8, $01 ; 0x001: Wall (top, north) ↔ | { 2A, 2A } | Size: 08
-#_0AAA09: db $FE, $6A, $86 ; 0x106: Corner (top, convex) ▙ | { 26, 2A } | Size: 00
+#_0AAA09: db $FE, $6A, $86 ; 0x106: Corner (top, convex) ▙ | { 26, 2A }
 #_0AAA0C: db $99, $88, $62 ; 0x062: Wall (top, east) ↕ | { 26, 22 } | Size: 04
-#_0AAA0F: db $FE, $67, $82 ; 0x102: Corner (top, concave) ▜ | { 26, 1E } | Size: 00
+#_0AAA0F: db $FE, $67, $82 ; 0x102: Corner (top, concave) ▜ | { 26, 1E }
 #_0AAA12: db $71, $79, $01 ; 0x001: Wall (top, north) ↔ | { 1C, 1E } | Size: 05
 #_0AAA15: db $49, $50, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 12, 14 } | Size: 04
 #_0AAA18: db $4A, $20, $62 ; 0x062: Wall (top, east) ↕ | { 12, 08 } | Size: 08
-#_0AAA1B: db $FD, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 04 } | Size: 00
+#_0AAA1B: db $FD, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 04 }
 #_0AAA1E: db $74, $24, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 1D, 09 } | Size: 00
 #_0AAA21: db $74, $38, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 1D, 0E } | Size: 00
 #_0AAA24: db $75, $28, $61 ; 0x061: Wall (top, west) ↕ | { 1D, 0A } | Size: 04
-#_0AAA27: db $FF, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 36, 04 } | Size: 00
+#_0AAA27: db $FF, $61, $02 ; 0x102: Corner (top, concave) ▜ | { 36, 04 }
 #_0AAA2A: db $D9, $22, $62 ; 0x062: Wall (top, east) ↕ | { 36, 08 } | Size: 06
 #_0AAA2D: db $8E, $52, $02 ; 0x002: Wall (top, south) ↔ | { 23, 14 } | Size: 0A
-#_0AAA30: db $FF, $65, $03 ; 0x103: Corner (top, concave) ▟ | { 36, 14 } | Size: 00
-#_0AAA33: db $FD, $19, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 11, 27 } | Size: 00
+#_0AAA30: db $FF, $65, $03 ; 0x103: Corner (top, concave) ▟ | { 36, 14 }
+#_0AAA33: db $FD, $19, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 11, 27 }
 #_0AAA36: db $55, $9E, $03 ; 0x003: Wall (bottom, north) ↔ | { 15, 27 } | Size: 06
-#_0AAA39: db $FE, $39, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 23, 27 } | Size: 00
+#_0AAA39: db $FE, $39, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 23, 27 }
 #_0AAA3C: db $44, $C8, $63 ; 0x063: Wall (bottom, west) ↕ | { 11, 32 } | Size: 00
 #_0AAA3F: db $45, $AD, $63 ; 0x063: Wall (bottom, west) ↕ | { 11, 2B } | Size: 05
-#_0AAA42: db $FD, $1D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 11, 37 } | Size: 00
+#_0AAA42: db $FD, $1D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 11, 37 }
 #_0AAA45: db $55, $DE, $04 ; 0x004: Wall (bottom, south) ↔ | { 15, 37 } | Size: 06
 #_0AAA48: db $8D, $AD, $64 ; 0x064: Wall (bottom, east) ↕ | { 23, 2B } | Size: 05
-#_0AAA4B: db $FE, $3D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 23, 37 } | Size: 00
-#_0AAA4E: db $FD, $89, $F2 ; 0x132: Intraroom stairs north (merged layers) | { 18, 27 } | Size: 00
-#_0AAA51: db $B3, $33, $FA ; 0x22F: Pot | { 2C, 0C } | Size: 0F
-#_0AAA54: db $CB, $33, $FA ; 0x22F: Pot | { 32, 0C } | Size: 0F
-#_0AAA57: db $AB, $BB, $FA ; 0x22F: Pot | { 2A, 2E } | Size: 0F
-#_0AAA5A: db $AB, $C3, $FA ; 0x22F: Pot | { 2A, 30 } | Size: 0F
+#_0AAA4B: db $FE, $3D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 23, 37 }
+#_0AAA4E: db $FD, $89, $F2 ; 0x132: Intraroom stairs north (merged layers) | { 18, 27 }
+#_0AAA51: db $B3, $33, $FA ; 0x22F: Pot | { 2C, 0C }
+#_0AAA54: db $CB, $33, $FA ; 0x22F: Pot | { 32, 0C }
+#_0AAA57: db $AB, $BB, $FA ; 0x22F: Pot | { 2A, 2E }
+#_0AAA5A: db $AB, $C3, $FA ; 0x22F: Pot | { 2A, 30 }
 #_0AAA5D: db $44, $99, $22 ; 0x022: Rail ↔ | { 11, 26 } | Size: 01
 #_0AAA60: db $80, $9B, $22 ; 0x022: Rail ↔ | { 20, 26 } | Size: 03
 #_0AAA63: db $28, $48, $DD ; 0x0DD: Table / Rock ⇲| { 0A, 12 } | Size: 00
 #_0AAA66: db $99, $38, $DD ; 0x0DD: Table / Rock ⇲| { 26, 0E } | Size: 04
-#_0AAA69: db $FC, $E1, $38 ; 0x138: Interroom spiral stairs up (top) | { 0E, 04 } | Size: 00
-#_0AAA6C: db $FE, $E1, $38 ; 0x138: Interroom spiral stairs up (top) | { 2E, 04 } | Size: 00
+#_0AAA69: db $FC, $E1, $38 ; 0x138: Interroom spiral stairs up (top) | { 0E, 04 }
+#_0AAA6C: db $FE, $E1, $38 ; 0x138: Interroom spiral stairs up (top) | { 2E, 04 }
 #_0AAA6F: db $08, $31, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 02, 0C } | Size: 01
-#_0AAA72: db $01, $11, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 04 } | Size: 05
+#_0AAA72: db $01, $11, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 04 } | Size: 05
 #_0AAA75: db $08, $75, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 02, 1D } | Size: 01
-#_0AAA78: db $0A, $8B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 22 } | Size: 0B
-#_0AAA7B: db $0A, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 32 } | Size: 0A
-#_0AAA7E: db $AB, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2A, 36 } | Size: 0D
-#_0AAA81: db $E8, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 36 } | Size: 01
-#_0AAA84: db $58, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 04 } | Size: 03
-#_0AAA87: db $64, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 19, 04 } | Size: 03
-#_0AAA8A: db $59, $50, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 14 } | Size: 04
+#_0AAA78: db $0A, $8B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 22 } | Size: 0B
+#_0AAA7B: db $0A, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 32 } | Size: 0A
+#_0AAA7E: db $AB, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2A, 36 } | Size: 0D
+#_0AAA81: db $E8, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 36 } | Size: 01
+#_0AAA84: db $58, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 04 } | Size: 03
+#_0AAA87: db $64, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 19, 04 } | Size: 03
+#_0AAA8A: db $59, $50, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 14 } | Size: 04
 #_0AAA8D: db $74, $11, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 1D, 04 } | Size: 01
 #_0AAA90: db $74, $4D, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 1D, 13 } | Size: 01
 #_0AAA93: db $5C, $61, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 17, 18 } | Size: 01
-#_0AAA96: db $E8, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 04 } | Size: 03
-#_0AAA99: db $E8, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 14 } | Size: 03
-#_0AAA9C: db $73, $60, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1C, 18 } | Size: 0C
-#_0AAA9F: db $73, $68, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1C, 1A } | Size: 0C
-#_0AAAA2: db $AB, $63, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2A, 18 } | Size: 0F
+#_0AAA96: db $E8, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 04 } | Size: 03
+#_0AAA99: db $E8, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 14 } | Size: 03
+#_0AAA9C: db $73, $60, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1C, 18 } | Size: 0C
+#_0AAA9F: db $73, $68, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1C, 1A } | Size: 0C
+#_0AAAA2: db $AB, $63, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2A, 18 } | Size: 0F
 #_0AAAA5: db $AA, $A2, $00 ; 0x000: Ceiling ↔ | { 2A, 28 } | Size: 0A
-#_0AAAA8: db $E8, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 24 } | Size: 00
-#_0AAAAB: db $FF, $FF ; Layer01
-#_0AAAAD: db $FF, $FF ; Layer02
+#_0AAAA8: db $E8, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 24 } | Size: 00
+#_0AAAAB: db $FF, $FF ; Layer 1
+#_0AAAAD: db $FF, $FF ; Layer 2
 #_0AAAAF: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00FD:
-#_0AAAB1: db $A1, $10 ; Door 0x10 | Dir:01 | Pos:14
-#_0AAAB3: db $FF, $FF ; Layer03 / End
+#_0AAAB1: db $A1, $10 ; Door 0x10 | South 14
+#_0AAAB3: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00ED:
 #_0AAAB5: db $81, $1C ; Floors and Layout
-#_0AAAB7: db $FC, $91, $00 ; 0x100: Corner (top, concave) ▛ | { 09, 04 } | Size: 00
+#_0AAAB7: db $FC, $91, $00 ; 0x100: Corner (top, concave) ▛ | { 09, 04 }
 #_0AAABA: db $25, $22, $61 ; 0x061: Wall (top, west) ↕ | { 09, 08 } | Size: 06
-#_0AAABD: db $FC, $94, $C4 ; 0x104: Corner (top, convex) ▟ | { 09, 13 } | Size: 00
+#_0AAABD: db $FC, $94, $C4 ; 0x104: Corner (top, convex) ▟ | { 09, 13 }
 #_0AAAC0: db $14, $4E, $01 ; 0x001: Wall (top, north) ↔ | { 05, 13 } | Size: 02
-#_0AAAC3: db $FC, $24, $C0 ; 0x100: Corner (top, concave) ▛ | { 02, 13 } | Size: 00
+#_0AAAC3: db $FC, $24, $C0 ; 0x100: Corner (top, concave) ▛ | { 02, 13 }
 #_0AAAC6: db $08, $6E, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 02, 1B } | Size: 02
 #_0AAAC9: db $08, $6E, $61 ; 0x061: Wall (top, west) ↕ | { 02, 1B } | Size: 02
 #_0AAACC: db $28, $8F, $02 ; 0x002: Wall (top, south) ↔ | { 0A, 23 } | Size: 03
 #_0AAACF: db $40, $8F, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 10, 23 } | Size: 03
 #_0AAAD2: db $55, $B0, $61 ; 0x061: Wall (top, west) ↕ | { 15, 2C } | Size: 04
-#_0AAAD5: db $FD, $5C, $C1 ; 0x101: Corner (top, concave) ▙ | { 15, 33 } | Size: 00
+#_0AAAD5: db $FD, $5C, $C1 ; 0x101: Corner (top, concave) ▙ | { 15, 33 }
 #_0AAAD8: db $64, $CF, $02 ; 0x002: Wall (top, south) ↔ | { 19, 33 } | Size: 03
-#_0AAADB: db $FD, $FC, $C3 ; 0x103: Corner (top, concave) ▟ | { 1F, 33 } | Size: 00
+#_0AAADB: db $FD, $FC, $C3 ; 0x103: Corner (top, concave) ▟ | { 1F, 33 }
 #_0AAADE: db $7E, $85, $62 ; 0x062: Wall (top, east) ↕ | { 1F, 21 } | Size: 09
-#_0AAAE1: db $FD, $F7, $42 ; 0x102: Corner (top, concave) ▜ | { 1F, 1D } | Size: 00
+#_0AAAE1: db $FD, $F7, $42 ; 0x102: Corner (top, concave) ▜ | { 1F, 1D }
 #_0AAAE4: db $6C, $76, $01 ; 0x001: Wall (top, north) ↔ | { 1B, 1D } | Size: 02
-#_0AAAE7: db $FD, $77, $46 ; 0x106: Corner (top, convex) ▙ | { 17, 1D } | Size: 00
+#_0AAAE7: db $FD, $77, $46 ; 0x106: Corner (top, convex) ▙ | { 17, 1D }
 #_0AAAEA: db $5C, $59, $10 ; 0x010: Diagonal wall B ◢ (top) | { 17, 16 } | Size: 01
 #_0AAAED: db $5C, $5F, $62 ; 0x062: Wall (top, east) ↕ | { 17, 17 } | Size: 03
 #_0AAAF0: db $78, $43, $02 ; 0x002: Wall (top, south) ↔ | { 1E, 10 } | Size: 03
-#_0AAAF3: db $FE, $44, $03 ; 0x103: Corner (top, concave) ▟ | { 24, 10 } | Size: 00
+#_0AAAF3: db $FE, $44, $03 ; 0x103: Corner (top, concave) ▟ | { 24, 10 }
 #_0AAAF6: db $90, $39, $62 ; 0x062: Wall (top, east) ↕ | { 24, 0E } | Size: 01
-#_0AAAF9: db $FE, $42, $82 ; 0x102: Corner (top, concave) ▜ | { 24, 0A } | Size: 00
+#_0AAAF9: db $FE, $42, $82 ; 0x102: Corner (top, concave) ▜ | { 24, 0A }
 #_0AAAFC: db $61, $2A, $01 ; 0x001: Wall (top, north) ↔ | { 18, 0A } | Size: 06
-#_0AAAFF: db $FD, $42, $86 ; 0x106: Corner (top, convex) ▙ | { 14, 0A } | Size: 00
+#_0AAAFF: db $FD, $42, $86 ; 0x106: Corner (top, convex) ▙ | { 14, 0A }
 #_0AAB02: db $50, $21, $62 ; 0x062: Wall (top, east) ↕ | { 14, 08 } | Size: 01
-#_0AAB05: db $FD, $41, $02 ; 0x102: Corner (top, concave) ▜ | { 14, 04 } | Size: 00
-#_0AAB08: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 } | Size: 00
+#_0AAB05: db $FD, $41, $02 ; 0x102: Corner (top, concave) ▜ | { 14, 04 }
+#_0AAB08: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 }
 #_0AAB0B: db $A9, $20, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 2A, 08 } | Size: 04
 #_0AAB0E: db $A8, $22, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 08 } | Size: 02
 #_0AAB11: db $A9, $AC, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 2A, 2B } | Size: 04
 #_0AAB14: db $C2, $4A, $61 ; 0x061: Wall (top, west) ↕ | { 30, 12 } | Size: 0A
 #_0AAB17: db $A9, $B3, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 2C } | Size: 07
-#_0AAB1A: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A } | Size: 00
+#_0AAB1A: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A }
 #_0AAB1D: db $D0, $E6, $10 ; 0x010: Diagonal wall B ◢ (top) | { 34, 39 } | Size: 02
 #_0AAB20: db $D0, $12, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 34, 04 } | Size: 02
 #_0AAB23: db $E3, $33, $62 ; 0x062: Wall (top, east) ↕ | { 38, 0C } | Size: 0F
 #_0AAB26: db $E1, $AA, $62 ; 0x062: Wall (top, east) ↕ | { 38, 2A } | Size: 06
 #_0AAB29: db $31, $70, $DD ; 0x0DD: Table / Rock ⇲| { 0C, 1C } | Size: 04
 #_0AAB2C: db $68, $91, $DD ; 0x0DD: Table / Rock ⇲| { 1A, 24 } | Size: 01
-#_0AAB2F: db $FC, $E1, $39 ; 0x139: Interroom spiral stairs down (top) | { 0E, 04 } | Size: 00
-#_0AAB32: db $FE, $E1, $39 ; 0x139: Interroom spiral stairs down (top) | { 2E, 04 } | Size: 00
+#_0AAB2F: db $FC, $E1, $39 ; 0x139: Interroom spiral stairs down (top) | { 0E, 04 }
+#_0AAB32: db $FE, $E1, $39 ; 0x139: Interroom spiral stairs down (top) | { 2E, 04 }
 #_0AAB35: db $20, $58, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 08, 16 } | Size: 00
 #_0AAB38: db $20, $59, $27 ; 0x027: Pit edge ┏━┓ E (north) ↔ | { 08, 16 } | Size: 01
 #_0AAB3B: db $20, $5D, $6A ; 0x06A: Pit edge (west) ↕ | { 08, 17 } | Size: 01
@@ -4314,109 +4314,109 @@ RoomDataTiles_00ED:
 #_0AAB95: db $D0, $C6, $28 ; 0x028: Pit edge ┗━┛ (south) ↔ | { 34, 31 } | Size: 02
 #_0AAB98: db $D0, $BD, $6A ; 0x06A: Pit edge (west) ↕ | { 34, 2F } | Size: 01
 #_0AAB9B: db $E0, $BD, $6B ; 0x06B: Pit edge (east) ↕ | { 38, 2F } | Size: 01
-#_0AAB9E: db $05, $0F, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 01, 03 } | Size: 07
+#_0AAB9E: db $05, $0F, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 01, 03 } | Size: 07
 #_0AABA1: db $08, $83, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 02, 20 } | Size: 03
 #_0AABA4: db $40, $A0, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 10, 28 } | Size: 00
-#_0AABA7: db $03, $9F, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 27 } | Size: 0F
-#_0AABAA: db $03, $DD, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 37 } | Size: 0D
-#_0AABAD: db $35, $B3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 0D, 2C } | Size: 07
-#_0AABB0: db $43, $DD, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 37 } | Size: 0D
+#_0AABA7: db $03, $9F, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 27 } | Size: 0F
+#_0AABAA: db $03, $DD, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 37 } | Size: 0D
+#_0AABAD: db $35, $B3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 0D, 2C } | Size: 07
+#_0AABB0: db $43, $DD, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 37 } | Size: 0D
 #_0AABB3: db $F0, $00, $60 ; 0x060: Ceiling ↕ | { 3C, 00 } | Size: 00
 #_0AABB6: db $D4, $13, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 35, 04 } | Size: 03
 #_0AABB9: db $D4, $F7, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 35, 3D } | Size: 03
 #_0AABBC: db $A8, $35, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 2A, 0D } | Size: 01
 #_0AABBF: db $A8, $99, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 2A, 26 } | Size: 01
-#_0AABC2: db $63, $09, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 18, 02 } | Size: 0D
-#_0AABC5: db $81, $DD, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 20, 37 } | Size: 05
+#_0AABC2: db $63, $09, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 18, 02 } | Size: 0D
+#_0AABC5: db $81, $DD, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 20, 37 } | Size: 05
 #_0AABC8: db $A0, $00, $60 ; 0x060: Ceiling ↕ | { 28, 00 } | Size: 00
 #_0AABCB: db $6C, $5C, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 1B, 17 } | Size: 00
-#_0AABCE: db $7B, $51, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1E, 14 } | Size: 0D
-#_0AABD1: db $6C, $60, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1B, 18 } | Size: 00
+#_0AABCE: db $7B, $51, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1E, 14 } | Size: 0D
+#_0AABD1: db $6C, $60, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1B, 18 } | Size: 00
 #_0AABD4: db $6E, $6E, $00 ; 0x000: Ceiling ↔ | { 1B, 1B } | Size: 0A
-#_0AABD7: db $A1, $4B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 28, 12 } | Size: 07
-#_0AABDA: db $8C, $77, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 23, 1D } | Size: 03
-#_0AABDD: db $A1, $88, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 28, 22 } | Size: 04
-#_0AABE0: db $8C, $B6, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 23, 2D } | Size: 02
+#_0AABD7: db $A1, $4B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 28, 12 } | Size: 07
+#_0AABDA: db $8C, $77, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 23, 1D } | Size: 03
+#_0AABDD: db $A1, $88, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 28, 22 } | Size: 04
+#_0AABE0: db $8C, $B6, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 23, 2D } | Size: 02
 #_0AABE3: db $9B, $75, $60 ; 0x060: Ceiling ↕ | { 26, 1D } | Size: 0D
-#_0AABE6: db $FF, $FF ; Layer01
-#_0AABE8: db $FF, $FF ; Layer02
+#_0AABE6: db $FF, $FF ; Layer 1
+#_0AABE8: db $FF, $FF ; Layer 2
 #_0AABEA: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00ED:
-#_0AABEC: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0AABEE: db $FF, $FF ; Layer03 / End
+#_0AABEC: db $81, $0E ; Door 0x0E | South 10
+#_0AABEE: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00FF:
 #_0AABF0: db $E1, $14 ; Floors and Layout
-#_0AABF2: db $FC, $25, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 14 } | Size: 00
+#_0AABF2: db $FC, $25, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 14 }
 #_0AABF5: db $18, $51, $02 ; 0x002: Wall (top, south) ↔ | { 06, 14 } | Size: 01
-#_0AABF8: db $FC, $85, $05 ; 0x105: Corner (top, convex) ▜ | { 08, 14 } | Size: 00
+#_0AABF8: db $FC, $85, $05 ; 0x105: Corner (top, convex) ▜ | { 08, 14 }
 #_0AABFB: db $20, $61, $61 ; 0x061: Wall (top, west) ↕ | { 08, 18 } | Size: 01
-#_0AABFE: db $FC, $86, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 1A } | Size: 00
-#_0AAC01: db $FD, $46, $83 ; 0x103: Corner (top, concave) ▟ | { 14, 1A } | Size: 00
+#_0AABFE: db $FC, $86, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 1A }
+#_0AAC01: db $FD, $46, $83 ; 0x103: Corner (top, concave) ▟ | { 14, 1A }
 #_0AAC04: db $50, $61, $62 ; 0x062: Wall (top, east) ↕ | { 14, 18 } | Size: 01
-#_0AAC07: db $FD, $45, $07 ; 0x107: Corner (top, convex) ▛ | { 14, 14 } | Size: 00
+#_0AAC07: db $FD, $45, $07 ; 0x107: Corner (top, convex) ▛ | { 14, 14 }
 #_0AAC0A: db $60, $51, $02 ; 0x002: Wall (top, south) ↔ | { 18, 14 } | Size: 01
-#_0AAC0D: db $FD, $A5, $03 ; 0x103: Corner (top, concave) ▟ | { 1A, 14 } | Size: 00
-#_0AAC10: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 } | Size: 00
+#_0AAC0D: db $FD, $A5, $03 ; 0x103: Corner (top, concave) ▟ | { 1A, 14 }
+#_0AAC10: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 }
 #_0AAC13: db $AA, $21, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 08 } | Size: 09
-#_0AAC16: db $FE, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 1A } | Size: 00
-#_0AAC19: db $FF, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 04 } | Size: 00
+#_0AAC16: db $FE, $A6, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 1A }
+#_0AAC19: db $FF, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 04 }
 #_0AAC1C: db $CA, $21, $62 ; 0x062: Wall (top, east) ↕ | { 32, 08 } | Size: 09
-#_0AAC1F: db $FF, $26, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 1A } | Size: 00
-#_0AAC22: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 } | Size: 00
+#_0AAC1F: db $FF, $26, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 1A }
+#_0AAC22: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 }
 #_0AAC25: db $29, $A2, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 28 } | Size: 06
-#_0AAC28: db $FC, $AD, $01 ; 0x101: Corner (top, concave) ▙ | { 0A, 34 } | Size: 00
+#_0AAC28: db $FC, $AD, $01 ; 0x101: Corner (top, concave) ▙ | { 0A, 34 }
 #_0AAC2B: db $3A, $D3, $02 ; 0x002: Wall (top, south) ↔ | { 0E, 34 } | Size: 0B
 #_0AAC2E: db $90, $D0, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 24, 34 } | Size: 00
-#_0AAC31: db $FE, $49, $00 ; 0x100: Corner (top, concave) ▛ | { 24, 24 } | Size: 00
+#_0AAC31: db $FE, $49, $00 ; 0x100: Corner (top, concave) ▛ | { 24, 24 }
 #_0AAC34: db $90, $A3, $61 ; 0x061: Wall (top, west) ↕ | { 24, 28 } | Size: 03
-#_0AAC37: db $FE, $4B, $84 ; 0x104: Corner (top, convex) ▟ | { 24, 2E } | Size: 00
+#_0AAC37: db $FE, $4B, $84 ; 0x104: Corner (top, convex) ▟ | { 24, 2E }
 #_0AAC3A: db $59, $BB, $01 ; 0x001: Wall (top, north) ↔ | { 16, 2E } | Size: 07
-#_0AAC3D: db $FD, $2B, $86 ; 0x106: Corner (top, convex) ▙ | { 12, 2E } | Size: 00
+#_0AAC3D: db $FD, $2B, $86 ; 0x106: Corner (top, convex) ▙ | { 12, 2E }
 #_0AAC40: db $48, $A3, $62 ; 0x062: Wall (top, east) ↕ | { 12, 28 } | Size: 03
-#_0AAC43: db $FD, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 24 } | Size: 00
+#_0AAC43: db $FD, $29, $02 ; 0x102: Corner (top, concave) ▜ | { 12, 24 }
 #_0AAC46: db $18, $34, $3D ; 0x03D: Tall torches ↔ | { 06, 0D } | Size: 00
 #_0AAC49: db $60, $34, $3D ; 0x03D: Tall torches ↔ | { 18, 0D } | Size: 00
 #_0AAC4C: db $20, $37, $33 ; 0x033: Carpet ↔ | { 08, 0D } | Size: 03
 #_0AAC4F: db $1F, $32, $34 ; 0x034: Carpet trim ↔ | { 07, 0C } | Size: 0E
 #_0AAC52: db $1F, $46, $34 ; 0x034: Carpet trim ↔ | { 07, 11 } | Size: 0E
-#_0AAC55: db $B9, $22, $F9 ; 0x219: Chest | { 2E, 08 } | Size: 06
-#_0AAC58: db $C1, $22, $F9 ; 0x219: Chest | { 30, 08 } | Size: 06
-#_0AAC5B: db $BB, $43, $FA ; 0x22F: Pot | { 2E, 10 } | Size: 0F
-#_0AAC5E: db $C3, $43, $FA ; 0x22F: Pot | { 30, 10 } | Size: 0F
-#_0AAC61: db $FF, $69, $38 ; 0x138: Interroom spiral stairs up (top) | { 36, 24 } | Size: 00
+#_0AAC55: db $B9, $22, $F9 ; 0x219: Chest | { 2E, 08 }
+#_0AAC58: db $C1, $22, $F9 ; 0x219: Chest | { 30, 08 }
+#_0AAC5B: db $BB, $43, $FA ; 0x22F: Pot | { 2E, 10 }
+#_0AAC5E: db $C3, $43, $FA ; 0x22F: Pot | { 30, 10 }
+#_0AAC61: db $FF, $69, $38 ; 0x138: Interroom spiral stairs up (top) | { 36, 24 }
 #_0AAC64: db $A2, $C0, $DD ; 0x0DD: Table / Rock ⇲| { 28, 30 } | Size: 08
 #_0AAC67: db $CA, $C2, $DD ; 0x0DD: Table / Rock ⇲| { 32, 30 } | Size: 0A
-#_0AAC6A: db $E3, $E3, $FA ; 0x22F: Pot | { 38, 38 } | Size: 0F
-#_0AAC6D: db $01, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 18 } | Size: 05
-#_0AAC70: db $61, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 18, 18 } | Size: 05
-#_0AAC73: db $89, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 04 } | Size: 07
-#_0AAC76: db $89, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 14 } | Size: 06
-#_0AAC79: db $D9, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 04 } | Size: 07
-#_0AAC7C: db $D9, $52, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 14 } | Size: 06
-#_0AAC7F: db $09, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 07
-#_0AAC82: db $09, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 06
-#_0AAC85: db $2B, $E1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 0A, 38 } | Size: 0D
-#_0AAC88: db $62, $E1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 18, 38 } | Size: 09
+#_0AAC6A: db $E3, $E3, $FA ; 0x22F: Pot | { 38, 38 }
+#_0AAC6D: db $01, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 18 } | Size: 05
+#_0AAC70: db $61, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 18, 18 } | Size: 05
+#_0AAC73: db $89, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 04 } | Size: 07
+#_0AAC76: db $89, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 14 } | Size: 06
+#_0AAC79: db $D9, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 04 } | Size: 07
+#_0AAC7C: db $D9, $52, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 14 } | Size: 06
+#_0AAC7F: db $09, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 07
+#_0AAC82: db $09, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 06
+#_0AAC85: db $2B, $E1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 0A, 38 } | Size: 0D
+#_0AAC88: db $62, $E1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 18, 38 } | Size: 09
 #_0AAC8B: db $90, $E5, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 24, 39 } | Size: 01
-#_0AAC8E: db $5A, $8A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 22 } | Size: 0A
+#_0AAC8E: db $5A, $8A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 22 } | Size: 0A
 #_0AAC91: db $89, $91, $60 ; 0x060: Ceiling ↕ | { 22, 24 } | Size: 05
-#_0AAC94: db $FF, $FF ; Layer01
-#_0AAC96: db $FF, $FF ; Layer02
+#_0AAC94: db $FF, $FF ; Layer 1
+#_0AAC96: db $FF, $FF ; Layer 2
 #_0AAC98: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00FF:
-#_0AAC9A: db $60, $2E ; Door 0x2E | Dir:00 | Pos:0C
-#_0AAC9C: db $80, $2E ; Door 0x2E | Dir:00 | Pos:10
-#_0AAC9E: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0AACA0: db $FF, $FF ; Layer03 / End
+#_0AAC9A: db $60, $2E ; Door 0x2E | North 0C
+#_0AAC9C: db $80, $2E ; Door 0x2E | North 10
+#_0AAC9E: db $81, $0E ; Door 0x0E | South 10
+#_0AACA0: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -4426,25 +4426,25 @@ RoomDataTiles_00EF:
 #_0AACA7: db $D8, $66, $10 ; 0x010: Diagonal wall B ◢ (top) | { 36, 19 } | Size: 02
 #_0AACAA: db $88, $4A, $61 ; 0x061: Wall (top, west) ↕ | { 22, 12 } | Size: 02
 #_0AACAD: db $E8, $4A, $62 ; 0x062: Wall (top, east) ↕ | { 3A, 12 } | Size: 02
-#_0AACB0: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 } | Size: 00
+#_0AACB0: db $FC, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 24 }
 #_0AACB3: db $28, $A3, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 28 } | Size: 03
-#_0AACB6: db $FC, $AB, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 2E } | Size: 00
+#_0AACB6: db $FC, $AB, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 2E }
 #_0AACB9: db $39, $BA, $02 ; 0x002: Wall (top, south) ↔ | { 0E, 2E } | Size: 06
-#_0AACBC: db $FD, $AB, $85 ; 0x105: Corner (top, convex) ▜ | { 1A, 2E } | Size: 00
+#_0AACBC: db $FD, $AB, $85 ; 0x105: Corner (top, convex) ▜ | { 1A, 2E }
 #_0AACBF: db $69, $C8, $61 ; 0x061: Wall (top, west) ↕ | { 1A, 32 } | Size: 04
-#_0AACC2: db $FD, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 1A, 3A } | Size: 00
-#_0AACC5: db $FE, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 22, 3A } | Size: 00
+#_0AACC2: db $FD, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 1A, 3A }
+#_0AACC5: db $FE, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 22, 3A }
 #_0AACC8: db $89, $C8, $62 ; 0x062: Wall (top, east) ↕ | { 22, 32 } | Size: 04
-#_0AACCB: db $FE, $2B, $87 ; 0x107: Corner (top, convex) ▛ | { 22, 2E } | Size: 00
+#_0AACCB: db $FE, $2B, $87 ; 0x107: Corner (top, convex) ▛ | { 22, 2E }
 #_0AACCE: db $9A, $BA, $02 ; 0x002: Wall (top, south) ↔ | { 26, 2E } | Size: 0A
-#_0AACD1: db $FF, $AB, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 2E } | Size: 00
-#_0AACD4: db $FE, $69, $00 ; 0x100: Corner (top, concave) ▛ | { 26, 24 } | Size: 00
-#_0AACD7: db $FE, $6A, $04 ; 0x104: Corner (top, convex) ▟ | { 26, 28 } | Size: 00
+#_0AACD1: db $FF, $AB, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 2E }
+#_0AACD4: db $FE, $69, $00 ; 0x100: Corner (top, concave) ▛ | { 26, 24 }
+#_0AACD7: db $FE, $6A, $04 ; 0x104: Corner (top, convex) ▟ | { 26, 28 }
 #_0AACDA: db $69, $A2, $01 ; 0x001: Wall (top, north) ↔ | { 1A, 28 } | Size: 06
-#_0AACDD: db $FD, $6A, $06 ; 0x106: Corner (top, convex) ▙ | { 16, 28 } | Size: 00
-#_0AACE0: db $FD, $69, $02 ; 0x102: Corner (top, concave) ▜ | { 16, 24 } | Size: 00
-#_0AACE3: db $FC, $E9, $38 ; 0x138: Interroom spiral stairs up (top) | { 0E, 24 } | Size: 00
-#_0AACE6: db $FF, $69, $39 ; 0x139: Interroom spiral stairs down (top) | { 36, 24 } | Size: 00
+#_0AACDD: db $FD, $6A, $06 ; 0x106: Corner (top, convex) ▙ | { 16, 28 }
+#_0AACE0: db $FD, $69, $02 ; 0x102: Corner (top, concave) ▜ | { 16, 24 }
+#_0AACE3: db $FC, $E9, $38 ; 0x138: Interroom spiral stairs up (top) | { 0E, 24 }
+#_0AACE6: db $FF, $69, $39 ; 0x139: Interroom spiral stairs down (top) | { 36, 24 }
 #_0AACE9: db $A4, $A1, $C3 ; 0x0C3: Layer 2 pit mask (medium) ⇲ | { 29, 28 } | Size: 01
 #_0AACEC: db $AF, $AC, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 2B, 2B } | Size: 0C
 #_0AACEF: db $A4, $9D, $27 ; 0x027: Pit edge ┏━┓ E (north) ↔ | { 29, 27 } | Size: 01
@@ -4453,72 +4453,72 @@ RoomDataTiles_00EF:
 #_0AACF8: db $B0, $A2, $6B ; 0x06B: Pit edge (east) ↕ | { 2C, 28 } | Size: 02
 #_0AACFB: db $B3, $AC, $2D ; 0x02D: Pit edge ━━┓ (north) ↔ | { 2C, 2B } | Size: 0C
 #_0AACFE: db $E8, $B1, $6B ; 0x06B: Pit edge (east) ↕ | { 3A, 2C } | Size: 01
-#_0AAD01: db $99, $22, $F9 ; 0x219: Chest | { 26, 08 } | Size: 06
-#_0AAD04: db $B1, $22, $F9 ; 0x219: Chest | { 2C, 08 } | Size: 06
-#_0AAD07: db $C9, $22, $F9 ; 0x219: Chest | { 32, 08 } | Size: 06
-#_0AAD0A: db $E1, $22, $F9 ; 0x219: Chest | { 38, 08 } | Size: 06
-#_0AAD0D: db $B9, $2A, $F9 ; 0x219: Chest | { 2E, 0A } | Size: 06
+#_0AAD01: db $99, $22, $F9 ; 0x219: Chest | { 26, 08 }
+#_0AAD04: db $B1, $22, $F9 ; 0x219: Chest | { 2C, 08 }
+#_0AAD07: db $C9, $22, $F9 ; 0x219: Chest | { 32, 08 }
+#_0AAD0A: db $E1, $22, $F9 ; 0x219: Chest | { 38, 08 }
+#_0AAD0D: db $B9, $2A, $F9 ; 0x219: Chest | { 2E, 0A }
 #_0AAD10: db $98, $43, $B8 ; 0x0B8: Blue pegs ↔ | { 26, 10 } | Size: 03
 #_0AAD13: db $B3, $38, $DD ; 0x0DD: Table / Rock ⇲| { 2C, 0E } | Size: 0C
 #_0AAD16: db $D8, $42, $B8 ; 0x0B8: Blue pegs ↔ | { 36, 10 } | Size: 02
 #_0AAD19: db $88, $5F, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 22, 17 } | Size: 03
 #_0AAD1C: db $DC, $77, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 37, 1D } | Size: 03
-#_0AAD1F: db $09, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 07
-#_0AAD22: db $0B, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 32 } | Size: 0E
-#_0AAD25: db $49, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 32 } | Size: 06
-#_0AAD28: db $9B, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 32 } | Size: 0E
-#_0AAD2B: db $D9, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 32 } | Size: 06
-#_0AAD2E: db $6A, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 24 } | Size: 08
-#_0AAD31: db $FF, $FF ; Layer01
-#_0AAD33: db $FF, $FF ; Layer02
+#_0AAD1F: db $09, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 07
+#_0AAD22: db $0B, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 32 } | Size: 0E
+#_0AAD25: db $49, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 32 } | Size: 06
+#_0AAD28: db $9B, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 32 } | Size: 0E
+#_0AAD2B: db $D9, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 32 } | Size: 06
+#_0AAD2E: db $6A, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 24 } | Size: 08
+#_0AAD31: db $FF, $FF ; Layer 1
+#_0AAD33: db $FF, $FF ; Layer 2
 #_0AAD35: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00EF:
-#_0AAD37: db $80, $38 ; Door 0x38 | Dir:00 | Pos:10
-#_0AAD39: db $71, $0E ; Door 0x0E | Dir:01 | Pos:0E
-#_0AAD3B: db $FF, $FF ; Layer03 / End
+#_0AAD37: db $80, $38 ; Door 0x38 | North 10
+#_0AAD39: db $71, $0E ; Door 0x0E | South 0E
+#_0AAD3B: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00DF:
 #_0AAD3D: db $51, $14 ; Floors and Layout
-#_0AAD3F: db $FC, $89, $00 ; 0x100: Corner (top, concave) ▛ | { 08, 24 } | Size: 00
+#_0AAD3F: db $FC, $89, $00 ; 0x100: Corner (top, concave) ▛ | { 08, 24 }
 #_0AAD42: db $21, $A0, $61 ; 0x061: Wall (top, west) ↕ | { 08, 28 } | Size: 04
-#_0AAD45: db $FC, $8C, $01 ; 0x101: Corner (top, concave) ▙ | { 08, 30 } | Size: 00
+#_0AAD45: db $FC, $8C, $01 ; 0x101: Corner (top, concave) ▙ | { 08, 30 }
 #_0AAD48: db $31, $C1, $02 ; 0x002: Wall (top, south) ↔ | { 0C, 30 } | Size: 05
-#_0AAD4B: db $FD, $6C, $05 ; 0x105: Corner (top, convex) ▜ | { 16, 30 } | Size: 00
+#_0AAD4B: db $FD, $6C, $05 ; 0x105: Corner (top, convex) ▜ | { 16, 30 }
 #_0AAD4E: db $58, $D3, $61 ; 0x061: Wall (top, west) ↕ | { 16, 34 } | Size: 03
-#_0AAD51: db $FD, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 16, 3A } | Size: 00
-#_0AAD54: db $FE, $69, $02 ; 0x102: Corner (top, concave) ▜ | { 26, 24 } | Size: 00
+#_0AAD51: db $FD, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 16, 3A }
+#_0AAD54: db $FE, $69, $02 ; 0x102: Corner (top, concave) ▜ | { 26, 24 }
 #_0AAD57: db $9A, $A1, $62 ; 0x062: Wall (top, east) ↕ | { 26, 28 } | Size: 09
-#_0AAD5A: db $FE, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 26, 3A } | Size: 00
-#_0AAD5D: db $FC, $B9, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0B, 27 } | Size: 00
+#_0AAD5A: db $FE, $6E, $83 ; 0x103: Corner (top, concave) ▟ | { 26, 3A }
+#_0AAD5D: db $FC, $B9, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0B, 27 }
 #_0AAD60: db $3E, $9D, $03 ; 0x003: Wall (bottom, north) ↔ | { 0F, 27 } | Size: 09
-#_0AAD63: db $FE, $39, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 23, 27 } | Size: 00
+#_0AAD63: db $FE, $39, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 23, 27 }
 #_0AAD66: db $2C, $AC, $63 ; 0x063: Wall (bottom, west) ↕ | { 0B, 2B } | Size: 00
-#_0AAD69: db $FC, $BB, $49 ; 0x109: Corner (bottom, concave) ▙ | { 0B, 2D } | Size: 00
+#_0AAD69: db $FC, $BB, $49 ; 0x109: Corner (bottom, concave) ▙ | { 0B, 2D }
 #_0AAD6C: db $3D, $B4, $04 ; 0x004: Wall (bottom, south) ↔ | { 0F, 2D } | Size: 04
-#_0AAD6F: db $FD, $9B, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 19, 2D } | Size: 00
+#_0AAD6F: db $FD, $9B, $4D ; 0x10D: Corner (bottom, convex) ▜ | { 19, 2D }
 #_0AAD72: db $64, $C4, $63 ; 0x063: Wall (bottom, west) ↕ | { 19, 31 } | Size: 00
-#_0AAD75: db $FD, $9C, $89 ; 0x109: Corner (bottom, concave) ▙ | { 19, 32 } | Size: 00
+#_0AAD75: db $FD, $9C, $89 ; 0x109: Corner (bottom, concave) ▙ | { 19, 32 }
 #_0AAD78: db $8C, $AF, $64 ; 0x064: Wall (bottom, east) ↕ | { 23, 2B } | Size: 03
-#_0AAD7B: db $FE, $3C, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 23, 32 } | Size: 00
+#_0AAD7B: db $FE, $3C, $8B ; 0x10B: Corner (bottom, concave) ▟ | { 23, 32 }
 #_0AAD7E: db $74, $CA, $04 ; 0x004: Wall (bottom, south) ↔ | { 1D, 32 } | Size: 02
-#_0AAD81: db $78, $CB, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 1E, 32 } | Size: 03
+#_0AAD81: db $78, $CB, $F9 ; 0x21C: Intraroom stairs south (separate layers) | { 1E, 32 }
 #_0AAD84: db $64, $D9, $22 ; 0x022: Rail ↔ | { 19, 36 } | Size: 01
 #_0AAD87: db $88, $D9, $22 ; 0x022: Rail ↔ | { 22, 36 } | Size: 01
-#_0AAD8A: db $01, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 24 } | Size: 07
-#_0AAD8D: db $0B, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 0E
-#_0AAD90: db $48, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 34 } | Size: 02
-#_0AAD93: db $AB, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2A, 24 } | Size: 0F
-#_0AAD96: db $AB, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2A, 34 } | Size: 0E
-#_0AAD99: db $E8, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 24 } | Size: 03
-#_0AAD9C: db $E8, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 3A, 34 } | Size: 02
-#_0AAD9F: db $FF, $FF ; Layer01
-#_0AADA1: db $FC, $E9, $FB ; 0x13B: Interroom spiral stairs down (bottom) | { 0E, 27 } | Size: 00
-#_0AADA4: db $FF, $FF ; Layer02
+#_0AAD8A: db $01, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 24 } | Size: 07
+#_0AAD8D: db $0B, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 0E
+#_0AAD90: db $48, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 34 } | Size: 02
+#_0AAD93: db $AB, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2A, 24 } | Size: 0F
+#_0AAD96: db $AB, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2A, 34 } | Size: 0E
+#_0AAD99: db $E8, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 24 } | Size: 03
+#_0AAD9C: db $E8, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 3A, 34 } | Size: 02
+#_0AAD9F: db $FF, $FF ; Layer 1
+#_0AADA1: db $FC, $E9, $FB ; 0x13B: Interroom spiral stairs down (bottom) | { 0E, 27 }
+#_0AADA4: db $FF, $FF ; Layer 2
 #_0AADA6: db $2F, $9D, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0B, 27 } | Size: 0D
 #_0AADA9: db $2F, $B4, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0B, 2D } | Size: 0C
 #_0AADAC: db $6E, $9E, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 1B, 27 } | Size: 0A
@@ -4528,108 +4528,108 @@ RoomDataTiles_00DF:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00DF:
-#_0AADB4: db $71, $0E ; Door 0x0E | Dir:01 | Pos:0E
-#_0AADB6: db $FF, $FF ; Layer03 / End
+#_0AADB4: db $71, $0E ; Door 0x0E | South 0E
+#_0AADB6: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00EB:
 #_0AADB8: db $81, $04 ; Floors and Layout
-#_0AADBA: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 } | Size: 00
+#_0AADBA: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 }
 #_0AADBD: db $A8, $23, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 08 } | Size: 03
-#_0AADC0: db $FE, $A3, $84 ; 0x104: Corner (top, convex) ▟ | { 2A, 0E } | Size: 00
+#_0AADC0: db $FE, $A3, $84 ; 0x104: Corner (top, convex) ▟ | { 2A, 0E }
 #_0AADC3: db $A0, $39, $01 ; 0x001: Wall (top, north) ↔ | { 28, 0E } | Size: 01
 #_0AADC6: db $91, $6C, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 24, 1B } | Size: 04
 #_0AADC9: db $91, $47, $61 ; 0x061: Wall (top, west) ↕ | { 24, 11 } | Size: 07
-#_0AADCC: db $FE, $43, $80 ; 0x100: Corner (top, concave) ▛ | { 24, 0E } | Size: 00
+#_0AADCC: db $FE, $43, $80 ; 0x100: Corner (top, concave) ▛ | { 24, 0E }
 #_0AADCF: db $AA, $97, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 25 } | Size: 0B
-#_0AADD2: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A } | Size: 00
-#_0AADD5: db $FF, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 04 } | Size: 00
+#_0AADD2: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A }
+#_0AADD5: db $FF, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 04 }
 #_0AADD8: db $CB, $23, $62 ; 0x062: Wall (top, east) ↕ | { 32, 08 } | Size: 0F
 #_0AADDB: db $CA, $9A, $62 ; 0x062: Wall (top, east) ↕ | { 32, 26 } | Size: 0A
-#_0AADDE: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A } | Size: 00
-#_0AADE1: db $FE, $E1, $39 ; 0x139: Interroom spiral stairs down (top) | { 2E, 04 } | Size: 00
+#_0AADDE: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A }
+#_0AADE1: db $FE, $E1, $39 ; 0x139: Interroom spiral stairs down (top) | { 2E, 04 }
 #_0AADE4: db $AD, $48, $A4 ; 0x0A4: Pit ⇲ | { 2B, 12 } | Size: 04
-#_0AADE7: db $9F, $47, $FA ; 0x22F: Pot | { 27, 11 } | Size: 0F
-#_0AADEA: db $A7, $47, $FA ; 0x22F: Pot | { 29, 11 } | Size: 0F
-#_0AADED: db $B3, $73, $FA ; 0x22F: Pot | { 2C, 1C } | Size: 0F
-#_0AADF0: db $BB, $73, $FA ; 0x22F: Pot | { 2E, 1C } | Size: 0F
-#_0AADF3: db $C3, $73, $FA ; 0x22F: Pot | { 30, 1C } | Size: 0F
+#_0AADE7: db $9F, $47, $FA ; 0x22F: Pot | { 27, 11 }
+#_0AADEA: db $A7, $47, $FA ; 0x22F: Pot | { 29, 11 }
+#_0AADED: db $B3, $73, $FA ; 0x22F: Pot | { 2C, 1C }
+#_0AADF0: db $BB, $73, $FA ; 0x22F: Pot | { 2E, 1C }
+#_0AADF3: db $C3, $73, $FA ; 0x22F: Pot | { 30, 1C }
 #_0AADF6: db $B8, $78, $A4 ; 0x0A4: Pit ⇲ | { 2E, 1E } | Size: 00
-#_0AADF9: db $89, $0A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 02 } | Size: 06
+#_0AADF9: db $89, $0A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 02 } | Size: 06
 #_0AADFC: db $88, $00, $60 ; 0x060: Ceiling ↕ | { 22, 00 } | Size: 00
 #_0AADFF: db $90, $82, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 24, 20 } | Size: 02
-#_0AAE02: db $89, $9B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 26 } | Size: 07
-#_0AAE05: db $89, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 36 } | Size: 05
-#_0AAE08: db $D9, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 04 } | Size: 07
-#_0AAE0B: db $D9, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 14 } | Size: 07
-#_0AAE0E: db $D9, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 24 } | Size: 07
-#_0AAE11: db $D9, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 34 } | Size: 06
-#_0AAE14: db $FF, $FF ; Layer01
-#_0AAE16: db $FF, $FF ; Layer02
+#_0AAE02: db $89, $9B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 26 } | Size: 07
+#_0AAE05: db $89, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 36 } | Size: 05
+#_0AAE08: db $D9, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 04 } | Size: 07
+#_0AAE0B: db $D9, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 14 } | Size: 07
+#_0AAE0E: db $D9, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 24 } | Size: 07
+#_0AAE11: db $D9, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 34 } | Size: 06
+#_0AAE14: db $FF, $FF ; Layer 1
+#_0AAE16: db $FF, $FF ; Layer 2
 #_0AAE18: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00EB:
-#_0AAE1A: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0AAE1C: db $FF, $FF ; Layer03 / End
+#_0AAE1A: db $81, $0E ; Door 0x0E | South 10
+#_0AAE1C: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00FB:
 #_0AAE1E: db $E1, $1C ; Floors and Layout
-#_0AAE20: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 } | Size: 00
+#_0AAE20: db $FE, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 04 }
 #_0AAE23: db $91, $54, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 24, 15 } | Size: 04
 #_0AAE26: db $A9, $20, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 08 } | Size: 04
 #_0AAE29: db $6A, $C4, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 1A, 31 } | Size: 08
 #_0AAE2C: db $92, $59, $61 ; 0x061: Wall (top, west) ↕ | { 24, 16 } | Size: 09
 #_0AAE2F: db $69, $C8, $61 ; 0x061: Wall (top, west) ↕ | { 1A, 32 } | Size: 04
-#_0AAE32: db $FD, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 1A, 3A } | Size: 00
-#_0AAE35: db $FE, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 22, 3A } | Size: 00
+#_0AAE32: db $FD, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 1A, 3A }
+#_0AAE35: db $FE, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 22, 3A }
 #_0AAE38: db $88, $D6, $10 ; 0x010: Diagonal wall B ◢ (top) | { 22, 35 } | Size: 02
 #_0AAE3B: db $88, $DA, $62 ; 0x062: Wall (top, east) ↕ | { 22, 36 } | Size: 02
 #_0AAE3E: db $A8, $BA, $02 ; 0x002: Wall (top, south) ↔ | { 2A, 2E } | Size: 02
-#_0AAE41: db $FE, $EB, $83 ; 0x103: Corner (top, concave) ▟ | { 2E, 2E } | Size: 00
+#_0AAE41: db $FE, $EB, $83 ; 0x103: Corner (top, concave) ▟ | { 2E, 2E }
 #_0AAE44: db $BA, $9C, $10 ; 0x010: Diagonal wall B ◢ (top) | { 2E, 27 } | Size: 08
 #_0AAE47: db $B8, $A3, $62 ; 0x062: Wall (top, east) ↕ | { 2E, 28 } | Size: 03
 #_0AAE4A: db $C9, $30, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 32, 0C } | Size: 04
 #_0AAE4D: db $E1, $58, $62 ; 0x062: Wall (top, east) ↕ | { 38, 16 } | Size: 04
 #_0AAE50: db $C9, $20, $62 ; 0x062: Wall (top, east) ↕ | { 32, 08 } | Size: 04
-#_0AAE53: db $FF, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 04 } | Size: 00
-#_0AAE56: db $FE, $E1, $38 ; 0x138: Interroom spiral stairs up (top) | { 2E, 04 } | Size: 00
+#_0AAE53: db $FF, $21, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 04 }
+#_0AAE56: db $FE, $E1, $38 ; 0x138: Interroom spiral stairs up (top) | { 2E, 04 }
 #_0AAE59: db $9C, $60, $A4 ; 0x0A4: Pit ⇲ | { 27, 18 } | Size: 00
 #_0AAE5C: db $D4, $60, $A4 ; 0x0A4: Pit ⇲ | { 35, 18 } | Size: 00
-#_0AAE5F: db $13, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 04, 04 } | Size: 0F
-#_0AAE62: db $53, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 14, 04 } | Size: 0F
-#_0AAE65: db $89, $12, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 04 } | Size: 06
+#_0AAE5F: db $13, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 04, 04 } | Size: 0F
+#_0AAE62: db $53, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 14, 04 } | Size: 0F
+#_0AAE65: db $89, $12, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 04 } | Size: 06
 #_0AAE68: db $90, $41, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 24, 10 } | Size: 01
-#_0AAE6B: db $13, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 04, 14 } | Size: 0F
-#_0AAE6E: db $53, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 14, 14 } | Size: 0F
-#_0AAE71: db $13, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 04, 24 } | Size: 0F
-#_0AAE74: db $13, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 04, 34 } | Size: 0E
+#_0AAE6B: db $13, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 04, 14 } | Size: 0F
+#_0AAE6E: db $53, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 14, 14 } | Size: 0F
+#_0AAE71: db $13, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 04, 24 } | Size: 0F
+#_0AAE74: db $13, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 04, 34 } | Size: 0E
 #_0AAE77: db $69, $A1, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 1A, 28 } | Size: 05
-#_0AAE7A: db $53, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 14, 24 } | Size: 0C
-#_0AAE7D: db $49, $A3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 28 } | Size: 07
-#_0AAE80: db $49, $E1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 38 } | Size: 05
+#_0AAE7A: db $53, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 14, 24 } | Size: 0C
+#_0AAE7D: db $49, $A3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 28 } | Size: 07
+#_0AAE80: db $49, $E1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 38 } | Size: 05
 #_0AAE83: db $9C, $D4, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 27, 35 } | Size: 00
-#_0AAE86: db $9B, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 36 } | Size: 0D
-#_0AAE89: db $AF, $C9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2B, 32 } | Size: 0D
-#_0AAE8C: db $CA, $A3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 28 } | Size: 0B
-#_0AAE8F: db $D9, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 36 } | Size: 05
+#_0AAE86: db $9B, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 36 } | Size: 0D
+#_0AAE89: db $AF, $C9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2B, 32 } | Size: 0D
+#_0AAE8C: db $CA, $A3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 28 } | Size: 0B
+#_0AAE8F: db $D9, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 36 } | Size: 05
 #_0AAE92: db $CD, $9D, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 33, 27 } | Size: 05
 #_0AAE95: db $DC, $41, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 37, 10 } | Size: 01
-#_0AAE98: db $D9, $12, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 04 } | Size: 06
+#_0AAE98: db $D9, $12, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 04 } | Size: 06
 #_0AAE9B: db $F3, $40, $60 ; 0x060: Ceiling ↕ | { 3C, 10 } | Size: 0C
-#_0AAE9E: db $FF, $FF ; Layer01
-#_0AAEA0: db $FF, $FF ; Layer02
+#_0AAE9E: db $FF, $FF ; Layer 1
+#_0AAEA0: db $FF, $FF ; Layer 2
 #_0AAEA2: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00FB:
-#_0AAEA4: db $71, $0E ; Door 0x0E | Dir:01 | Pos:0E
-#_0AAEA6: db $FF, $FF ; Layer03 / End
+#_0AAEA4: db $71, $0E ; Door 0x0E | South 0E
+#_0AAEA6: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -4639,10 +4639,10 @@ RoomDataTiles_00EE:
 #_0AAEAD: db $08, $3A, $61 ; 0x061: Wall (top, west) ↕ | { 02, 0E } | Size: 02
 #_0AAEB0: db $09, $C0, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 02, 30 } | Size: 04
 #_0AAEB3: db $08, $C2, $61 ; 0x061: Wall (top, west) ↕ | { 02, 30 } | Size: 02
-#_0AAEB6: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A } | Size: 00
+#_0AAEB6: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A }
 #_0AAEB9: db $C8, $E1, $62 ; 0x062: Wall (top, east) ↕ | { 32, 38 } | Size: 01
 #_0AAEBC: db $B4, $D3, $01 ; 0x001: Wall (top, north) ↔ | { 2D, 34 } | Size: 03
-#_0AAEBF: db $FF, $2D, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 34 } | Size: 00
+#_0AAEBF: db $FF, $2D, $02 ; 0x102: Corner (top, concave) ▜ | { 32, 34 }
 #_0AAEC2: db $20, $B5, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 08, 2D } | Size: 01
 #_0AAEC5: db $3F, $D3, $01 ; 0x001: Wall (top, north) ↔ | { 0F, 34 } | Size: 0F
 #_0AAEC8: db $20, $41, $10 ; 0x010: Diagonal wall B ◢ (top) | { 08, 10 } | Size: 01
@@ -4658,15 +4658,15 @@ RoomDataTiles_00EE:
 #_0AAEE6: db $D2, $44, $61 ; 0x061: Wall (top, west) ↕ | { 34, 11 } | Size: 08
 #_0AAEE9: db $73, $A8, $02 ; 0x002: Wall (top, south) ↔ | { 1C, 2A } | Size: 0C
 #_0AAEEC: db $49, $80, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 12, 20 } | Size: 04
-#_0AAEEF: db $FD, $25, $00 ; 0x100: Corner (top, concave) ▛ | { 12, 14 } | Size: 00
+#_0AAEEF: db $FD, $25, $00 ; 0x100: Corner (top, concave) ▛ | { 12, 14 }
 #_0AAEF2: db $49, $62, $61 ; 0x061: Wall (top, west) ↕ | { 12, 18 } | Size: 06
 #_0AAEF5: db $5A, $52, $01 ; 0x001: Wall (top, north) ↔ | { 16, 14 } | Size: 0A
-#_0AAEF8: db $FE, $A5, $02 ; 0x102: Corner (top, concave) ▜ | { 2A, 14 } | Size: 00
+#_0AAEF8: db $FE, $A5, $02 ; 0x102: Corner (top, concave) ▜ | { 2A, 14 }
 #_0AAEFB: db $A8, $61, $62 ; 0x062: Wall (top, east) ↕ | { 2A, 18 } | Size: 01
-#_0AAEFE: db $FE, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 2A, 1A } | Size: 00
+#_0AAEFE: db $FE, $A6, $83 ; 0x103: Corner (top, concave) ▟ | { 2A, 1A }
 #_0AAF01: db $71, $6B, $02 ; 0x002: Wall (top, south) ↔ | { 1C, 1A } | Size: 07
 #_0AAF04: db $60, $75, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 18, 1D } | Size: 01
-#_0AAF07: db $FD, $86, $87 ; 0x107: Corner (top, convex) ▛ | { 18, 1A } | Size: 00
+#_0AAF07: db $FD, $86, $87 ; 0x107: Corner (top, convex) ▛ | { 18, 1A }
 #_0AAF0A: db $60, $7D, $62 ; 0x062: Wall (top, east) ↕ | { 18, 1F } | Size: 01
 #_0AAF0D: db $60, $79, $62 ; 0x062: Wall (top, east) ↕ | { 18, 1E } | Size: 01
 #_0AAF10: db $7E, $91, $01 ; 0x001: Wall (top, north) ↔ | { 1F, 24 } | Size: 09
@@ -4679,57 +4679,57 @@ RoomDataTiles_00EE:
 #_0AAF25: db $09, $D5, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 02, 35 } | Size: 05
 #_0AAF28: db $D5, $11, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 35, 04 } | Size: 05
 #_0AAF2B: db $D5, $B5, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 35, 2D } | Size: 05
-#_0AAF2E: db $D9, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 2E } | Size: 07
+#_0AAF2E: db $D9, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 2E } | Size: 07
 #_0AAF31: db $30, $C0, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 0C, 30 } | Size: 00
 #_0AAF34: db $73, $B9, $00 ; 0x000: Ceiling ↔ | { 1C, 2E } | Size: 0D
-#_0AAF37: db $9B, $C0, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 26, 30 } | Size: 0C
-#_0AAF3A: db $5B, $C0, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 30 } | Size: 0C
+#_0AAF37: db $9B, $C0, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 26, 30 } | Size: 0C
+#_0AAF3A: db $5B, $C0, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 30 } | Size: 0C
 #_0AAF3D: db $49, $95, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 12, 25 } | Size: 05
-#_0AAF40: db $41, $B1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 2C } | Size: 05
+#_0AAF40: db $41, $B1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 2C } | Size: 05
 #_0AAF43: db $60, $BA, $00 ; 0x000: Ceiling ↔ | { 18, 2E } | Size: 02
 #_0AAF46: db $30, $44, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 0C, 11 } | Size: 00
 #_0AAF49: db $43, $3B, $60 ; 0x060: Ceiling ↕ | { 10, 0E } | Size: 0F
-#_0AAF4C: db $30, $4B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 0C, 12 } | Size: 03
-#_0AAF4F: db $30, $83, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 0C, 20 } | Size: 03
+#_0AAF4C: db $30, $4B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 0C, 12 } | Size: 03
+#_0AAF4F: db $30, $83, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 0C, 20 } | Size: 03
 #_0AAF52: db $C0, $38, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 30, 0E } | Size: 00
 #_0AAF55: db $C0, $80, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 30, 20 } | Size: 00
 #_0AAF58: db $C9, $4B, $60 ; 0x060: Ceiling ↕ | { 32, 12 } | Size: 07
-#_0AAF5B: db $B8, $4B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 12 } | Size: 03
+#_0AAF5B: db $B8, $4B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 12 } | Size: 03
 #_0AAF5E: db $4B, $3B, $00 ; 0x000: Ceiling ↔ | { 12, 0E } | Size: 0F
-#_0AAF61: db $4B, $40, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 10 } | Size: 0C
-#_0AAF64: db $83, $40, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 20, 10 } | Size: 0C
+#_0AAF61: db $4B, $40, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 10 } | Size: 0C
+#_0AAF64: db $83, $40, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 20, 10 } | Size: 0C
 #_0AAF67: db $70, $80, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 1C, 20 } | Size: 00
 #_0AAF6A: db $72, $79, $00 ; 0x000: Ceiling ↔ | { 1C, 1E } | Size: 09
-#_0AAF6D: db $83, $80, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 20, 20 } | Size: 0C
-#_0AAF70: db $FF, $FF ; Layer01
-#_0AAF72: db $FF, $FF ; Layer02
+#_0AAF6D: db $83, $80, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 20, 20 } | Size: 0C
+#_0AAF70: db $FF, $FF ; Layer 1
+#_0AAF72: db $FF, $FF ; Layer 2
 #_0AAF74: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00EE:
-#_0AAF76: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0AAF78: db $FF, $FF ; Layer03 / End
+#_0AAF76: db $81, $0E ; Door 0x0E | South 10
+#_0AAF78: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00FE:
 #_0AAF7A: db $E5, $1C ; Floors and Layout
-#_0AAF7C: db $FE, $04, $C0 ; 0x100: Corner (top, concave) ▛ | { 20, 13 } | Size: 00
+#_0AAF7C: db $FE, $04, $C0 ; 0x100: Corner (top, concave) ▛ | { 20, 13 }
 #_0AAF7F: db $81, $BA, $0A ; 0x00A: Diagonal wall A ◣ (top) | { 20, 2E } | Size: 06
 #_0AAF82: db $D1, $E4, $0C ; 0x00C: Diagonal wall A ◢ (top) | { 34, 39 } | Size: 04
 #_0AAF85: db $80, $C1, $61 ; 0x061: Wall (top, west) ↕ | { 20, 30 } | Size: 01
 #_0AAF88: db $83, $5D, $61 ; 0x061: Wall (top, west) ↕ | { 20, 17 } | Size: 0D
 #_0AAF8B: db $E8, $C2, $62 ; 0x062: Wall (top, east) ↕ | { 3A, 30 } | Size: 02
-#_0AAF8E: db $FF, $A4, $C2 ; 0x102: Corner (top, concave) ▜ | { 3A, 13 } | Size: 00
+#_0AAF8E: db $FF, $A4, $C2 ; 0x102: Corner (top, concave) ▜ | { 3A, 13 }
 #_0AAF91: db $92, $4F, $01 ; 0x001: Wall (top, north) ↔ | { 24, 13 } | Size: 0B
-#_0AAF94: db $FE, $37, $08 ; 0x108: Corner (bottom, concave) ▛ | { 23, 1C } | Size: 00
-#_0AAF97: db $FF, $17, $0C ; 0x10C: Corner (bottom, convex) ▟ | { 31, 1C } | Size: 00
+#_0AAF94: db $FE, $37, $08 ; 0x108: Corner (bottom, concave) ▛ | { 23, 1C }
+#_0AAF97: db $FF, $17, $0C ; 0x10C: Corner (bottom, convex) ▟ | { 31, 1C }
 #_0AAF9A: db $9D, $70, $03 ; 0x003: Wall (bottom, north) ↔ | { 27, 1C } | Size: 04
-#_0AAF9D: db $FF, $15, $88 ; 0x108: Corner (bottom, concave) ▛ | { 31, 16 } | Size: 00
+#_0AAF9D: db $FF, $15, $88 ; 0x108: Corner (bottom, concave) ▛ | { 31, 16 }
 #_0AAFA0: db $C4, $68, $63 ; 0x063: Wall (bottom, west) ↕ | { 31, 1A } | Size: 00
 #_0AAFA3: db $D4, $58, $03 ; 0x003: Wall (bottom, north) ↔ | { 35, 16 } | Size: 00
-#_0AAFA6: db $FF, $75, $8A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 16 } | Size: 00
+#_0AAFA6: db $FF, $75, $8A ; 0x10A: Corner (bottom, concave) ▜ | { 37, 16 }
 #_0AAFA9: db $D0, $D9, $1C ; 0x01C: Diagonal wall B ◢ (bottom) | { 34, 36 } | Size: 01
 #_0AAFAC: db $8C, $BB, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 23, 2E } | Size: 03
 #_0AAFAF: db $B0, $DF, $04 ; 0x004: Wall (bottom, south) ↔ | { 2C, 37 } | Size: 03
@@ -4738,29 +4738,29 @@ RoomDataTiles_00FE:
 #_0AAFB8: db $8C, $6C, $22 ; 0x022: Rail ↔ | { 23, 1B } | Size: 00
 #_0AAFBB: db $C0, $5A, $69 ; 0x069: Rail ↕ | { 30, 16 } | Size: 02
 #_0AAFBE: db $B1, $A1, $DD ; 0x0DD: Table / Rock ⇲| { 2C, 28 } | Size: 05
-#_0AAFC1: db $B1, $62, $F9 ; 0x219: Chest | { 2C, 18 } | Size: 06
-#_0AAFC4: db $FC, $A1, $72 ; 0x132: Intraroom stairs north (merged layers) | { 0A, 05 } | Size: 00
-#_0AAFC7: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0F
-#_0AAFCA: db $0B, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 14 } | Size: 0F
-#_0AAFCD: db $0B, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 0F
-#_0AAFD0: db $0B, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 0E
-#_0AAFD3: db $43, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 04 } | Size: 0F
-#_0AAFD6: db $43, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 14 } | Size: 0F
-#_0AAFD9: db $43, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 24 } | Size: 0F
-#_0AAFDC: db $43, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 34 } | Size: 0E
+#_0AAFC1: db $B1, $62, $F9 ; 0x219: Chest | { 2C, 18 }
+#_0AAFC4: db $FC, $A1, $72 ; 0x132: Intraroom stairs north (merged layers) | { 0A, 05 }
+#_0AAFC7: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0F
+#_0AAFCA: db $0B, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 14 } | Size: 0F
+#_0AAFCD: db $0B, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 0F
+#_0AAFD0: db $0B, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 0E
+#_0AAFD3: db $43, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 04 } | Size: 0F
+#_0AAFD6: db $43, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 14 } | Size: 0F
+#_0AAFD9: db $43, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 24 } | Size: 0F
+#_0AAFDC: db $43, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 34 } | Size: 0E
 #_0AAFDF: db $81, $CF, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 20, 33 } | Size: 07
 #_0AAFE2: db $D5, $F5, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 35, 3D } | Size: 05
-#_0AAFE5: db $83, $0F, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 20, 03 } | Size: 0F
-#_0AAFE8: db $C3, $0F, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 30, 03 } | Size: 0F
-#_0AAFEB: db $FF, $FF ; Layer01
-#_0AAFED: db $FF, $FF ; Layer02
+#_0AAFE5: db $83, $0F, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 20, 03 } | Size: 0F
+#_0AAFE8: db $C3, $0F, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 30, 03 } | Size: 0F
+#_0AAFEB: db $FF, $FF ; Layer 1
+#_0AAFED: db $FF, $FF ; Layer 2
 #_0AAFEF: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00FE:
-#_0AAFF1: db $B1, $10 ; Door 0x10 | Dir:01 | Pos:16
-#_0AAFF3: db $FF, $FF ; Layer03 / End
+#_0AAFF1: db $B1, $10 ; Door 0x10 | South 16
+#_0AAFF3: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -4769,43 +4769,43 @@ RoomDataTiles_00F9:
 #_0AAFF7: db $2B, $D7, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 0A, 35 } | Size: 0F
 #_0AAFFA: db $7E, $83, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 1F, 20 } | Size: 0B
 #_0AAFFD: db $B1, $22, $61 ; 0x061: Wall (top, west) ↕ | { 2C, 08 } | Size: 06
-#_0AB000: db $FE, $C1, $00 ; 0x100: Corner (top, concave) ▛ | { 2C, 04 } | Size: 00
+#_0AB000: db $FE, $C1, $00 ; 0x100: Corner (top, concave) ▛ | { 2C, 04 }
 #_0AB003: db $E1, $20, $C4 ; 0x0C4: Floor 1 ⇲ | { 38, 08 } | Size: 04
 #_0AB006: db $E8, $13, $01 ; 0x001: Wall (top, north) ↔ | { 3A, 04 } | Size: 03
 #_0AB009: db $F0, $2A, $02 ; 0x002: Wall (top, south) ↔ | { 3C, 0A } | Size: 02
 #_0AB00C: db $C9, $4C, $10 ; 0x010: Diagonal wall B ◢ (top) | { 32, 13 } | Size: 04
 #_0AB00F: db $28, $DA, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 36 } | Size: 02
-#_0AB012: db $FC, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 3A } | Size: 00
+#_0AB012: db $FC, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 3A }
 #_0AB015: db $53, $E7, $10 ; 0x010: Diagonal wall B ◢ (top) | { 14, 39 } | Size: 0F
 #_0AB018: db $A5, $93, $10 ; 0x010: Diagonal wall B ◢ (top) | { 29, 24 } | Size: 07
 #_0AB01B: db $C9, $50, $62 ; 0x062: Wall (top, east) ↕ | { 32, 14 } | Size: 04
 #_0AB01E: db $2B, $8B, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 0A, 22 } | Size: 0F
 #_0AB021: db $7A, $51, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 1E, 14 } | Size: 09
-#_0AB024: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0F
-#_0AB027: db $4B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 04 } | Size: 0F
-#_0AB02A: db $82, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 20, 04 } | Size: 0B
-#_0AB02D: db $0B, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 14 } | Size: 0F
-#_0AB030: db $4A, $4B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 12 } | Size: 0B
-#_0AB033: db $09, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 24 } | Size: 07
-#_0AB036: db $09, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 34 } | Size: 06
+#_0AB024: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0F
+#_0AB027: db $4B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 04 } | Size: 0F
+#_0AB02A: db $82, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 20, 04 } | Size: 0B
+#_0AB02D: db $0B, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 14 } | Size: 0F
+#_0AB030: db $4A, $4B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 12 } | Size: 0B
+#_0AB033: db $09, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 24 } | Size: 07
+#_0AB036: db $09, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 34 } | Size: 06
 #_0AB039: db $57, $F7, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 15, 3D } | Size: 0F
 #_0AB03C: db $A6, $A5, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 29, 29 } | Size: 09
-#_0AB03F: db $A3, $AB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 28, 2A } | Size: 0F
-#_0AB042: db $A3, $E8, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 28, 3A } | Size: 0C
+#_0AB03F: db $A3, $AB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 28, 2A } | Size: 0F
+#_0AB042: db $A3, $E8, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 28, 3A } | Size: 0C
 #_0AB045: db $DC, $4D, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 37, 13 } | Size: 01
 #_0AB048: db $F0, $3B, $60 ; 0x060: Ceiling ↕ | { 3C, 0E } | Size: 03
-#_0AB04B: db $D9, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 14 } | Size: 07
-#_0AB04E: db $D9, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 24 } | Size: 07
-#_0AB051: db $D9, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 34 } | Size: 06
-#_0AB054: db $FF, $FF ; Layer01
-#_0AB056: db $FF, $FF ; Layer02
+#_0AB04B: db $D9, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 14 } | Size: 07
+#_0AB04E: db $D9, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 24 } | Size: 07
+#_0AB051: db $D9, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 34 } | Size: 06
+#_0AB054: db $FF, $FF ; Layer 1
+#_0AB056: db $FF, $FF ; Layer 2
 #_0AB058: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00F9:
-#_0AB05A: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0AB05C: db $FF, $FF ; Layer03 / End
+#_0AB05A: db $61, $0E ; Door 0x0E | South 0C
+#_0AB05C: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -4813,35 +4813,35 @@ RoomDataTiles_00FA:
 #_0AB05E: db $51, $1C ; Floors and Layout
 #_0AB060: db $01, $20, $C4 ; 0x0C4: Floor 1 ⇲ | { 00, 08 } | Size: 04
 #_0AB063: db $00, $13, $01 ; 0x001: Wall (top, north) ↔ | { 00, 04 } | Size: 03
-#_0AB066: db $FC, $22, $85 ; 0x105: Corner (top, convex) ▜ | { 02, 0A } | Size: 00
+#_0AB066: db $FC, $22, $85 ; 0x105: Corner (top, convex) ▜ | { 02, 0A }
 #_0AB069: db $00, $29, $02 ; 0x002: Wall (top, south) ↔ | { 00, 0A } | Size: 01
-#_0AB06C: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 } | Size: 00
+#_0AB06C: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 }
 #_0AB06F: db $6A, $22, $62 ; 0x062: Wall (top, east) ↕ | { 1A, 08 } | Size: 0A
-#_0AB072: db $FD, $A6, $C6 ; 0x106: Corner (top, convex) ▙ | { 1A, 1B } | Size: 00
-#_0AB075: db $FC, $B2, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0B, 0B } | Size: 00
+#_0AB072: db $FD, $A6, $C6 ; 0x106: Corner (top, convex) ▙ | { 1A, 1B }
+#_0AB075: db $FC, $B2, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 0B, 0B }
 #_0AB078: db $3C, $2F, $03 ; 0x003: Wall (bottom, north) ↔ | { 0F, 0B } | Size: 03
-#_0AB07B: db $FD, $72, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 0B } | Size: 00
+#_0AB07B: db $FD, $72, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 17, 0B }
 #_0AB07E: db $2D, $3E, $63 ; 0x063: Wall (bottom, west) ↕ | { 0B, 0F } | Size: 06
 #_0AB081: db $5D, $3E, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 0F } | Size: 06
-#_0AB084: db $FC, $C6, $94 ; 0x114: Kinked corner west (bottom) ▙ | { 0C, 1A } | Size: 00
-#_0AB087: db $FD, $66, $96 ; 0x116: Kinked corner east (bottom) ▟ | { 16, 1A } | Size: 00
+#_0AB084: db $FC, $C6, $94 ; 0x114: Kinked corner west (bottom) ▙ | { 0C, 1A }
+#_0AB087: db $FD, $66, $96 ; 0x116: Kinked corner east (bottom) ▟ | { 16, 1A }
 #_0AB08A: db $2C, $9E, $63 ; 0x063: Wall (bottom, west) ↕ | { 0B, 27 } | Size: 02
-#_0AB08D: db $FC, $BB, $0C ; 0x10C: Corner (bottom, convex) ▟ | { 0B, 2C } | Size: 00
+#_0AB08D: db $FC, $BB, $0C ; 0x10C: Corner (bottom, convex) ▟ | { 0B, 2C }
 #_0AB090: db $09, $C0, $0A ; 0x00A: Diagonal wall A ◣ (top) | { 02, 30 } | Size: 04
 #_0AB093: db $51, $E4, $0C ; 0x00C: Diagonal wall A ◢ (top) | { 14, 39 } | Size: 04
 #_0AB096: db $08, $BB, $61 ; 0x061: Wall (top, west) ↕ | { 02, 2E } | Size: 03
 #_0AB099: db $69, $A2, $62 ; 0x062: Wall (top, east) ↕ | { 1A, 28 } | Size: 06
-#_0AB09C: db $FD, $A9, $47 ; 0x107: Corner (top, convex) ▛ | { 1A, 25 } | Size: 00
+#_0AB09C: db $FD, $A9, $47 ; 0x107: Corner (top, convex) ▛ | { 1A, 25 }
 #_0AB09F: db $14, $C1, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 05, 30 } | Size: 01
 #_0AB0A2: db $50, $D9, $1C ; 0x01C: Diagonal wall B ◢ (bottom) | { 14, 36 } | Size: 01
 #_0AB0A5: db $30, $DF, $04 ; 0x004: Wall (bottom, south) ↔ | { 0C, 37 } | Size: 03
-#_0AB0A8: db $FC, $5B, $08 ; 0x108: Corner (bottom, concave) ▛ | { 05, 2C } | Size: 00
+#_0AB0A8: db $FC, $5B, $08 ; 0x108: Corner (bottom, concave) ▛ | { 05, 2C }
 #_0AB0AB: db $24, $B0, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 2C } | Size: 00
 #_0AB0AE: db $14, $C1, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 30 } | Size: 01
 #_0AB0B1: db $5C, $C8, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 32 } | Size: 00
 #_0AB0B4: db $5D, $9D, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 27 } | Size: 05
-#_0AB0B7: db $FC, $C9, $D5 ; 0x115: Kinked corner west (bottom) ▛ | { 0C, 27 } | Size: 00
-#_0AB0BA: db $FD, $69, $D7 ; 0x117: Kinked corner east (bottom) ▜ | { 16, 27 } | Size: 00
+#_0AB0B7: db $FC, $C9, $D5 ; 0x115: Kinked corner west (bottom) ▛ | { 0C, 27 }
+#_0AB0BA: db $FD, $69, $D7 ; 0x117: Kinked corner east (bottom) ▜ | { 16, 27 }
 #_0AB0BD: db $2C, $76, $2F ; 0x02F: Rail wall (north) ↔ | { 0B, 1D } | Size: 02
 #_0AB0C0: db $2C, $96, $30 ; 0x030: Rail wall (south) ↔ | { 0B, 25 } | Size: 02
 #_0AB0C3: db $14, $AE, $22 ; 0x022: Rail ↔ | { 05, 2B } | Size: 02
@@ -4852,18 +4852,18 @@ RoomDataTiles_00FA:
 #_0AB0D2: db $28, $63, $69 ; 0x069: Rail ↕ | { 0A, 18 } | Size: 03
 #_0AB0D5: db $28, $29, $22 ; 0x022: Rail ↔ | { 0A, 0A } | Size: 01
 #_0AB0D8: db $58, $29, $22 ; 0x022: Rail ↔ | { 16, 0A } | Size: 01
-#_0AB0DB: db $FC, $E1, $38 ; 0x138: Interroom spiral stairs up (top) | { 0E, 04 } | Size: 00
-#_0AB0DE: db $FD, $22, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 12, 0B } | Size: 00
+#_0AB0DB: db $FC, $E1, $38 ; 0x138: Interroom spiral stairs up (top) | { 0E, 04 }
+#_0AB0DE: db $FD, $22, $F1 ; 0x131: Intraroom stairs north (separate layers) | { 12, 0B }
 #_0AB0E1: db $09, $D5, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 02, 35 } | Size: 05
 #_0AB0E4: db $55, $F5, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 15, 3D } | Size: 05
 #_0AB0E7: db $78, $6E, $01 ; 0x001: Wall (top, north) ↔ | { 1E, 1B } | Size: 02
 #_0AB0EA: db $88, $62, $61 ; 0x061: Wall (top, west) ↕ | { 22, 18 } | Size: 02
-#_0AB0ED: db $FE, $26, $C4 ; 0x104: Corner (top, convex) ▟ | { 22, 1B } | Size: 00
-#_0AB0F0: db $FE, $25, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 14 } | Size: 00
+#_0AB0ED: db $FE, $26, $C4 ; 0x104: Corner (top, convex) ▟ | { 22, 1B }
+#_0AB0F0: db $FE, $25, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 14 }
 #_0AB0F3: db $99, $53, $01 ; 0x001: Wall (top, north) ↔ | { 26, 14 } | Size: 07
-#_0AB0F6: db $FF, $45, $02 ; 0x102: Corner (top, concave) ▜ | { 34, 14 } | Size: 00
+#_0AB0F6: db $FF, $45, $02 ; 0x102: Corner (top, concave) ▜ | { 34, 14 }
 #_0AB0F9: db $D1, $63, $62 ; 0x062: Wall (top, east) ↕ | { 34, 18 } | Size: 07
-#_0AB0FC: db $FF, $49, $43 ; 0x103: Corner (top, concave) ▟ | { 34, 25 } | Size: 00
+#_0AB0FC: db $FF, $49, $43 ; 0x103: Corner (top, concave) ▟ | { 34, 25 }
 #_0AB0FF: db $7A, $97, $02 ; 0x002: Wall (top, south) ↔ | { 1E, 25 } | Size: 0B
 #_0AB102: db $A2, $62, $C8 ; 0x0C8: Water floor ⇲ | { 28, 18 } | Size: 0A
 #_0AB105: db $9E, $62, $3F ; 0x03F: Water edge ┏━┓ (concave) ↔ | { 27, 18 } | Size: 0A
@@ -4872,22 +4872,22 @@ RoomDataTiles_00FA:
 #_0AB10E: db $CE, $66, $7A ; 0x07A: Water edge (east) ↕ | { 33, 19 } | Size: 0A
 #_0AB111: db $7B, $0C, $60 ; 0x060: Ceiling ↕ | { 1E, 03 } | Size: 0C
 #_0AB114: db $83, $0C, $60 ; 0x060: Ceiling ↕ | { 20, 03 } | Size: 0C
-#_0AB117: db $8B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 04 } | Size: 0F
-#_0AB11A: db $CA, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 04 } | Size: 0B
-#_0AB11D: db $E1, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 14 } | Size: 07
-#_0AB120: db $E1, $91, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 24 } | Size: 05
-#_0AB123: db $7B, $A7, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1E, 29 } | Size: 0F
-#_0AB126: db $BB, $A7, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 29 } | Size: 0F
-#_0AB129: db $7B, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1E, 36 } | Size: 0D
-#_0AB12C: db $BB, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 36 } | Size: 0D
-#_0AB12F: db $FF, $FF ; Layer01
+#_0AB117: db $8B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 04 } | Size: 0F
+#_0AB11A: db $CA, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 04 } | Size: 0B
+#_0AB11D: db $E1, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 14 } | Size: 07
+#_0AB120: db $E1, $91, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 24 } | Size: 05
+#_0AB123: db $7B, $A7, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1E, 29 } | Size: 0F
+#_0AB126: db $BB, $A7, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 29 } | Size: 0F
+#_0AB129: db $7B, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1E, 36 } | Size: 0D
+#_0AB12C: db $BB, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 36 } | Size: 0D
+#_0AB12F: db $FF, $FF ; Layer 1
 #_0AB131: db $31, $75, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 1D } | Size: 05
 #_0AB134: db $59, $75, $62 ; 0x062: Wall (top, east) ↕ | { 16, 1D } | Size: 05
 #_0AB137: db $30, $EE, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 3B } | Size: 02
 #_0AB13A: db $40, $EE, $62 ; 0x062: Wall (top, east) ↕ | { 10, 3B } | Size: 02
 #_0AB13D: db $3D, $49, $DD ; 0x0DD: Table / Rock ⇲| { 0F, 12 } | Size: 05
 #_0AB140: db $40, $B1, $DD ; 0x0DD: Table / Rock ⇲| { 10, 2C } | Size: 01
-#_0AB143: db $FF, $FF ; Layer02
+#_0AB143: db $FF, $FF ; Layer 2
 #_0AB145: db $2F, $33, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0B, 0C } | Size: 0F
 #_0AB148: db $2F, $64, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0B, 19 } | Size: 0C
 #_0AB14B: db $2F, $9E, $C6 ; 0x0C6: Layer 2 mask (large) ⇲ | { 0B, 27 } | Size: 0E
@@ -4903,36 +4903,36 @@ RoomDataTiles_00FA:
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00FA:
-#_0AB165: db $91, $04 ; Door 0x04 | Dir:01 | Pos:12
-#_0AB167: db $FF, $FF ; Layer03 / End
+#_0AB165: db $91, $04 ; Door 0x04 | South 12
+#_0AB167: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00EA:
 #_0AB169: db $81, $1C ; Floors and Layout
-#_0AB16B: db $FC, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 04 } | Size: 00
+#_0AB16B: db $FC, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 0A, 04 }
 #_0AB16E: db $28, $22, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 08 } | Size: 02
-#_0AB171: db $FC, $A3, $01 ; 0x101: Corner (top, concave) ▙ | { 0A, 0C } | Size: 00
+#_0AB171: db $FC, $A3, $01 ; 0x101: Corner (top, concave) ▙ | { 0A, 0C }
 #_0AB174: db $39, $33, $02 ; 0x002: Wall (top, south) ↔ | { 0E, 0C } | Size: 07
-#_0AB177: db $FD, $C3, $05 ; 0x105: Corner (top, convex) ▜ | { 1C, 0C } | Size: 00
+#_0AB177: db $FD, $C3, $05 ; 0x105: Corner (top, convex) ▜ | { 1C, 0C }
 #_0AB17A: db $70, $41, $61 ; 0x061: Wall (top, west) ↕ | { 1C, 10 } | Size: 01
-#_0AB17D: db $FD, $C4, $84 ; 0x104: Corner (top, convex) ▟ | { 1C, 12 } | Size: 00
+#_0AB17D: db $FD, $C4, $84 ; 0x104: Corner (top, convex) ▟ | { 1C, 12 }
 #_0AB180: db $51, $48, $01 ; 0x001: Wall (top, north) ↔ | { 14, 12 } | Size: 04
-#_0AB183: db $FD, $04, $80 ; 0x100: Corner (top, concave) ▛ | { 10, 12 } | Size: 00
+#_0AB183: db $FD, $04, $80 ; 0x100: Corner (top, concave) ▛ | { 10, 12 }
 #_0AB186: db $40, $5B, $61 ; 0x061: Wall (top, west) ↕ | { 10, 16 } | Size: 03
-#_0AB189: db $FD, $07, $04 ; 0x104: Corner (top, convex) ▟ | { 10, 1C } | Size: 00
+#_0AB189: db $FD, $07, $04 ; 0x104: Corner (top, convex) ▟ | { 10, 1C }
 #_0AB18C: db $28, $73, $01 ; 0x001: Wall (top, north) ↔ | { 0A, 1C } | Size: 03
-#_0AB18F: db $FC, $67, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 1C } | Size: 00
+#_0AB18F: db $FC, $67, $00 ; 0x100: Corner (top, concave) ▛ | { 06, 1C }
 #_0AB192: db $1B, $81, $61 ; 0x061: Wall (top, west) ↕ | { 06, 20 } | Size: 0D
-#_0AB195: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A } | Size: 00
+#_0AB195: db $FC, $6E, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 3A }
 #_0AB198: db $50, $E4, $10 ; 0x010: Diagonal wall B ◢ (top) | { 14, 39 } | Size: 00
 #_0AB19B: db $5A, $8B, $62 ; 0x062: Wall (top, east) ↕ | { 16, 22 } | Size: 0B
-#_0AB19E: db $FD, $67, $87 ; 0x107: Corner (top, convex) ▛ | { 16, 1E } | Size: 00
+#_0AB19E: db $FD, $67, $87 ; 0x107: Corner (top, convex) ▛ | { 16, 1E }
 #_0AB1A1: db $69, $79, $02 ; 0x002: Wall (top, south) ↔ | { 1A, 1E } | Size: 05
-#_0AB1A4: db $FE, $47, $83 ; 0x103: Corner (top, concave) ▟ | { 24, 1E } | Size: 00
+#_0AB1A4: db $FE, $47, $83 ; 0x103: Corner (top, concave) ▟ | { 24, 1E }
 #_0AB1A7: db $92, $23, $62 ; 0x062: Wall (top, east) ↕ | { 24, 08 } | Size: 0B
-#_0AB1AA: db $FE, $41, $02 ; 0x102: Corner (top, concave) ▜ | { 24, 04 } | Size: 00
-#_0AB1AD: db $FC, $E1, $39 ; 0x139: Interroom spiral stairs down (top) | { 0E, 04 } | Size: 00
+#_0AB1AA: db $FE, $41, $02 ; 0x102: Corner (top, concave) ▜ | { 24, 04 }
+#_0AB1AD: db $FC, $E1, $39 ; 0x139: Interroom spiral stairs down (top) | { 0E, 04 }
 #_0AB1B0: db $39, $80, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 0E, 20 } | Size: 04
 #_0AB1B3: db $39, $7E, $27 ; 0x027: Pit edge ┏━┓ E (north) ↔ | { 0E, 1F } | Size: 06
 #_0AB1B6: db $39, $92, $28 ; 0x028: Pit edge ┗━┛ (south) ↔ | { 0E, 24 } | Size: 06
@@ -4940,29 +4940,29 @@ RoomDataTiles_00EA:
 #_0AB1BC: db $58, $83, $6B ; 0x06B: Pit edge (east) ↕ | { 16, 20 } | Size: 03
 #_0AB1BF: db $08, $00, $60 ; 0x060: Ceiling ↕ | { 02, 00 } | Size: 00
 #_0AB1C2: db $10, $00, $60 ; 0x060: Ceiling ↕ | { 04, 00 } | Size: 00
-#_0AB1C5: db $18, $0B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 06, 02 } | Size: 03
-#_0AB1C8: db $12, $42, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 04, 10 } | Size: 0A
+#_0AB1C5: db $18, $0B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 06, 02 } | Size: 03
+#_0AB1C8: db $12, $42, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 04, 10 } | Size: 0A
 #_0AB1CB: db $2A, $41, $00 ; 0x000: Ceiling ↔ | { 0A, 10 } | Size: 09
 #_0AB1CE: db $54, $F5, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 15, 3D } | Size: 01
-#_0AB1D1: db $5B, $4C, $F9 ; 0x213: Telepathy tile | { 16, 13 } | Size: 0C
+#_0AB1D1: db $5B, $4C, $F9 ; 0x213: Telepathy tile | { 16, 13 }
 #_0AB1D4: db $48, $A8, $DD ; 0x0DD: Table / Rock ⇲| { 12, 2A } | Size: 00
-#_0AB1D7: db $FD, $C6, $20 ; 0x120: Small torch (lit) | { 1C, 18 } | Size: 00
-#_0AB1DA: db $FE, $06, $20 ; 0x120: Small torch (lit) | { 20, 18 } | Size: 00
-#_0AB1DD: db $6B, $8B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 22 } | Size: 0F
-#_0AB1E0: db $6B, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 32 } | Size: 0E
-#_0AB1E3: db $A3, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 28, 04 } | Size: 0F
-#_0AB1E6: db $A3, $53, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 28, 14 } | Size: 0F
-#_0AB1E9: db $A3, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 28, 24 } | Size: 0F
-#_0AB1EC: db $A3, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 28, 34 } | Size: 0E
-#_0AB1EF: db $FF, $FF ; Layer01
-#_0AB1F1: db $FF, $FF ; Layer02
+#_0AB1D7: db $FD, $C6, $20 ; 0x120: Small torch (lit) | { 1C, 18 }
+#_0AB1DA: db $FE, $06, $20 ; 0x120: Small torch (lit) | { 20, 18 }
+#_0AB1DD: db $6B, $8B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 22 } | Size: 0F
+#_0AB1E0: db $6B, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 32 } | Size: 0E
+#_0AB1E3: db $A3, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 28, 04 } | Size: 0F
+#_0AB1E6: db $A3, $53, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 28, 14 } | Size: 0F
+#_0AB1E9: db $A3, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 28, 24 } | Size: 0F
+#_0AB1EC: db $A3, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 28, 34 } | Size: 0E
+#_0AB1EF: db $FF, $FF ; Layer 1
+#_0AB1F1: db $FF, $FF ; Layer 2
 #_0AB1F3: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00EA:
-#_0AB1F5: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0AB1F7: db $FF, $FF ; Layer03 / End
+#_0AB1F5: db $61, $0E ; Door 0x0E | South 0C
+#_0AB1F7: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -4973,59 +4973,59 @@ RoomDataTiles_00E6:
 #_0AB201: db $B8, $34, $09 ; 0x009: Diagonal wall A ◤ (top) | { 2E, 0D } | Size: 00
 #_0AB204: db $D0, $23, $01 ; 0x001: Wall (top, north) ↔ | { 34, 08 } | Size: 03
 #_0AB207: db $20, $D3, $61 ; 0x061: Wall (top, west) ↕ | { 08, 34 } | Size: 03
-#_0AB20A: db $FC, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 3A } | Size: 00
-#_0AB20D: db $FD, $8E, $83 ; 0x103: Corner (top, concave) ▟ | { 18, 3A } | Size: 00
+#_0AB20A: db $FC, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 08, 3A }
+#_0AB20D: db $FD, $8E, $83 ; 0x103: Corner (top, concave) ▟ | { 18, 3A }
 #_0AB210: db $60, $E1, $62 ; 0x062: Wall (top, east) ↕ | { 18, 38 } | Size: 01
-#_0AB213: db $FD, $8D, $07 ; 0x107: Corner (top, convex) ▛ | { 18, 34 } | Size: 00
+#_0AB213: db $FD, $8D, $07 ; 0x107: Corner (top, convex) ▛ | { 18, 34 }
 #_0AB216: db $70, $D2, $02 ; 0x002: Wall (top, south) ↔ | { 1C, 34 } | Size: 02
-#_0AB219: db $FE, $0D, $03 ; 0x103: Corner (top, concave) ▟ | { 20, 34 } | Size: 00
+#_0AB219: db $FE, $0D, $03 ; 0x103: Corner (top, concave) ▟ | { 20, 34 }
 #_0AB21C: db $80, $C2, $62 ; 0x062: Wall (top, east) ↕ | { 20, 30 } | Size: 02
-#_0AB21F: db $FE, $0B, $07 ; 0x107: Corner (top, convex) ▛ | { 20, 2C } | Size: 00
+#_0AB21F: db $FE, $0B, $07 ; 0x107: Corner (top, convex) ▛ | { 20, 2C }
 #_0AB222: db $90, $B2, $02 ; 0x002: Wall (top, south) ↔ | { 24, 2C } | Size: 02
-#_0AB225: db $FE, $8B, $03 ; 0x103: Corner (top, concave) ▟ | { 28, 2C } | Size: 00
+#_0AB225: db $FE, $8B, $03 ; 0x103: Corner (top, concave) ▟ | { 28, 2C }
 #_0AB228: db $A0, $A2, $62 ; 0x062: Wall (top, east) ↕ | { 28, 28 } | Size: 02
-#_0AB22B: db $FE, $89, $07 ; 0x107: Corner (top, convex) ▛ | { 28, 24 } | Size: 00
+#_0AB22B: db $FE, $89, $07 ; 0x107: Corner (top, convex) ▛ | { 28, 24 }
 #_0AB22E: db $B0, $92, $02 ; 0x002: Wall (top, south) ↔ | { 2C, 24 } | Size: 02
-#_0AB231: db $FF, $09, $03 ; 0x103: Corner (top, concave) ▟ | { 30, 24 } | Size: 00
+#_0AB231: db $FF, $09, $03 ; 0x103: Corner (top, concave) ▟ | { 30, 24 }
 #_0AB234: db $C0, $82, $62 ; 0x062: Wall (top, east) ↕ | { 30, 20 } | Size: 02
-#_0AB237: db $FF, $07, $07 ; 0x107: Corner (top, convex) ▛ | { 30, 1C } | Size: 00
-#_0AB23A: db $FF, $A7, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 1C } | Size: 00
-#_0AB23D: db $FF, $A2, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 08 } | Size: 00
+#_0AB237: db $FF, $07, $07 ; 0x107: Corner (top, convex) ▛ | { 30, 1C }
+#_0AB23A: db $FF, $A7, $03 ; 0x103: Corner (top, concave) ▟ | { 3A, 1C }
+#_0AB23D: db $FF, $A2, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 08 }
 #_0AB240: db $D0, $73, $02 ; 0x002: Wall (top, south) ↔ | { 34, 1C } | Size: 03
 #_0AB243: db $2F, $CF, $19 ; 0x019: Diagonal wall B ◤ (bottom) | { 0B, 33 } | Size: 0F
 #_0AB246: db $83, $7A, $19 ; 0x019: Diagonal wall B ◤ (bottom) | { 20, 1E } | Size: 0E
 #_0AB249: db $D0, $2D, $03 ; 0x003: Wall (bottom, north) ↔ | { 34, 0B } | Size: 01
-#_0AB24C: db $FF, $72, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 0B } | Size: 00
+#_0AB24C: db $FF, $72, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 37, 0B }
 #_0AB24F: db $2C, $D1, $63 ; 0x063: Wall (bottom, west) ↕ | { 0B, 34 } | Size: 01
-#_0AB252: db $FC, $BD, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0B, 37 } | Size: 00
+#_0AB252: db $FC, $BD, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 0B, 37 }
 #_0AB255: db $3C, $DE, $04 ; 0x004: Wall (bottom, south) ↔ | { 0F, 37 } | Size: 02
-#_0AB258: db $FD, $5D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 15, 37 } | Size: 00
+#_0AB258: db $FD, $5D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 15, 37 }
 #_0AB25B: db $54, $D4, $64 ; 0x064: Wall (bottom, east) ↕ | { 15, 35 } | Size: 00
-#_0AB25E: db $FD, $5C, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 15, 31 } | Size: 00
+#_0AB25E: db $FD, $5C, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 15, 31 }
 #_0AB261: db $64, $C5, $04 ; 0x004: Wall (bottom, south) ↔ | { 19, 31 } | Size: 01
-#_0AB264: db $FD, $DC, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 1D, 31 } | Size: 00
+#_0AB264: db $FD, $DC, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 1D, 31 }
 #_0AB267: db $74, $B5, $64 ; 0x064: Wall (bottom, east) ↕ | { 1D, 2D } | Size: 01
-#_0AB26A: db $FD, $DA, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 1D, 29 } | Size: 00
+#_0AB26A: db $FD, $DA, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 1D, 29 }
 #_0AB26D: db $84, $A5, $04 ; 0x004: Wall (bottom, south) ↔ | { 21, 29 } | Size: 01
-#_0AB270: db $FE, $5A, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 25, 29 } | Size: 00
+#_0AB270: db $FE, $5A, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 25, 29 }
 #_0AB273: db $94, $95, $64 ; 0x064: Wall (bottom, east) ↕ | { 25, 25 } | Size: 01
-#_0AB276: db $FE, $58, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 25, 21 } | Size: 00
+#_0AB276: db $FE, $58, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 25, 21 }
 #_0AB279: db $A4, $85, $04 ; 0x004: Wall (bottom, south) ↔ | { 29, 21 } | Size: 01
-#_0AB27C: db $FE, $D8, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 2D, 21 } | Size: 00
+#_0AB27C: db $FE, $D8, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 2D, 21 }
 #_0AB27F: db $B4, $75, $64 ; 0x064: Wall (bottom, east) ↕ | { 2D, 1D } | Size: 01
-#_0AB282: db $FE, $D6, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 2D, 19 } | Size: 00
+#_0AB282: db $FE, $D6, $4F ; 0x10F: Corner (bottom, convex) ▛ | { 2D, 19 }
 #_0AB285: db $C4, $66, $04 ; 0x004: Wall (bottom, south) ↔ | { 31, 19 } | Size: 02
-#_0AB288: db $FF, $76, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 19 } | Size: 00
+#_0AB288: db $FF, $76, $4B ; 0x10B: Corner (bottom, concave) ▟ | { 37, 19 }
 #_0AB28B: db $DD, $3C, $64 ; 0x064: Wall (bottom, east) ↕ | { 37, 0F } | Size: 04
 #_0AB28E: db $48, $D0, $A4 ; 0x0A4: Pit ⇲ | { 12, 34 } | Size: 00
 #_0AB291: db $68, $B0, $A4 ; 0x0A4: Pit ⇲ | { 1A, 2C } | Size: 00
 #_0AB294: db $88, $90, $A4 ; 0x0A4: Pit ⇲ | { 22, 24 } | Size: 00
 #_0AB297: db $A8, $70, $A4 ; 0x0A4: Pit ⇲ | { 2A, 1C } | Size: 00
 #_0AB29A: db $D0, $50, $A4 ; 0x0A4: Pit ⇲ | { 34, 14 } | Size: 00
-#_0AB29D: db $DB, $63, $FA ; 0x22F: Pot | { 36, 18 } | Size: 0F
-#_0AB2A0: db $B3, $83, $FA ; 0x22F: Pot | { 2C, 20 } | Size: 0F
-#_0AB2A3: db $93, $A3, $FA ; 0x22F: Pot | { 24, 28 } | Size: 0F
-#_0AB2A6: db $73, $C3, $FA ; 0x22F: Pot | { 1C, 30 } | Size: 0F
+#_0AB29D: db $DB, $63, $FA ; 0x22F: Pot | { 36, 18 }
+#_0AB2A0: db $B3, $83, $FA ; 0x22F: Pot | { 2C, 20 }
+#_0AB2A3: db $93, $A3, $FA ; 0x22F: Pot | { 24, 28 }
+#_0AB2A6: db $73, $C3, $FA ; 0x22F: Pot | { 1C, 30 }
 #_0AB2A9: db $23, $83, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 08, 20 } | Size: 0F
 #_0AB2AC: db $73, $33, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 1C, 0C } | Size: 0F
 #_0AB2AF: db $BC, $20, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 2F, 08 } | Size: 00
@@ -5033,115 +5033,115 @@ RoomDataTiles_00E6:
 #_0AB2B5: db $00, $18, $00 ; 0x000: Ceiling ↔ | { 00, 06 } | Size: 00
 #_0AB2B8: db $72, $22, $00 ; 0x000: Ceiling ↔ | { 1C, 08 } | Size: 0A
 #_0AB2BB: db $72, $2A, $00 ; 0x000: Ceiling ↔ | { 1C, 0A } | Size: 0A
-#_0AB2BE: db $0B, $23, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 08 } | Size: 0F
-#_0AB2C1: db $42, $23, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 08 } | Size: 0B
-#_0AB2C4: db $0B, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 18 } | Size: 0D
-#_0AB2C7: db $42, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 10, 18 } | Size: 09
-#_0AB2CA: db $01, $83, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 20 } | Size: 07
-#_0AB2CD: db $01, $C3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 00, 30 } | Size: 07
-#_0AB2D0: db $73, $E1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1C, 38 } | Size: 0D
-#_0AB2D3: db $93, $C3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 24, 30 } | Size: 0F
-#_0AB2D6: db $D2, $E1, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 34, 38 } | Size: 09
-#_0AB2D9: db $B3, $A3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2C, 28 } | Size: 0F
-#_0AB2DC: db $D2, $83, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 34, 20 } | Size: 0B
+#_0AB2BE: db $0B, $23, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 08 } | Size: 0F
+#_0AB2C1: db $42, $23, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 08 } | Size: 0B
+#_0AB2C4: db $0B, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 18 } | Size: 0D
+#_0AB2C7: db $42, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 10, 18 } | Size: 09
+#_0AB2CA: db $01, $83, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 20 } | Size: 07
+#_0AB2CD: db $01, $C3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 00, 30 } | Size: 07
+#_0AB2D0: db $73, $E1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1C, 38 } | Size: 0D
+#_0AB2D3: db $93, $C3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 24, 30 } | Size: 0F
+#_0AB2D6: db $D2, $E1, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 34, 38 } | Size: 09
+#_0AB2D9: db $B3, $A3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2C, 28 } | Size: 0F
+#_0AB2DC: db $D2, $83, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 34, 20 } | Size: 0B
 #_0AB2DF: db $F1, $C0, $60 ; 0x060: Ceiling ↕ | { 3C, 30 } | Size: 04
-#_0AB2E2: db $FF, $FF ; Layer01
-#_0AB2E4: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 } | Size: 0C
-#_0AB2E7: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 } | Size: 0A
-#_0AB2EA: db $FF, $FF ; Layer02
+#_0AB2E2: db $FF, $FF ; Layer 1
+#_0AB2E4: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 }
+#_0AB2E7: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 }
+#_0AB2EA: db $FF, $FF ; Layer 2
 #_0AB2EC: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00E6:
-#_0AB2EE: db $91, $10 ; Door 0x10 | Dir:01 | Pos:12
-#_0AB2F0: db $93, $02 ; Door 0x02 | Dir:03 | Pos:12
-#_0AB2F2: db $FF, $FF ; Layer03 / End
+#_0AB2EE: db $91, $10 ; Door 0x10 | South 12
+#_0AB2F0: db $93, $02 ; Door 0x02 | East 12
+#_0AB2F2: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00E7:
 #_0AB2F4: db $E5, $1C ; Floors and Layout
-#_0AB2F6: db $FC, $22, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 08 } | Size: 00
+#_0AB2F6: db $FC, $22, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 08 }
 #_0AB2F9: db $19, $20, $01 ; 0x001: Wall (top, north) ↔ | { 06, 08 } | Size: 04
 #_0AB2FC: db $38, $20, $0B ; 0x00B: Diagonal wall A ◥ (top) | { 0E, 08 } | Size: 00
 #_0AB2FF: db $50, $3B, $01 ; 0x001: Wall (top, north) ↔ | { 14, 0E } | Size: 03
-#_0AB302: db $FD, $A3, $84 ; 0x104: Corner (top, convex) ▟ | { 1A, 0E } | Size: 00
+#_0AB302: db $FD, $A3, $84 ; 0x104: Corner (top, convex) ▟ | { 1A, 0E }
 #_0AB305: db $68, $23, $61 ; 0x061: Wall (top, west) ↕ | { 1A, 08 } | Size: 03
-#_0AB308: db $FD, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 1A, 04 } | Size: 00
-#_0AB30B: db $FE, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 2A, 04 } | Size: 00
+#_0AB308: db $FD, $A1, $00 ; 0x100: Corner (top, concave) ▛ | { 1A, 04 }
+#_0AB30B: db $FE, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 2A, 04 }
 #_0AB30E: db $AA, $23, $62 ; 0x062: Wall (top, east) ↕ | { 2A, 08 } | Size: 0B
-#_0AB311: db $FE, $A7, $86 ; 0x106: Corner (top, convex) ▙ | { 2A, 1E } | Size: 00
+#_0AB311: db $FE, $A7, $86 ; 0x106: Corner (top, convex) ▙ | { 2A, 1E }
 #_0AB314: db $B8, $7B, $01 ; 0x001: Wall (top, north) ↔ | { 2E, 1E } | Size: 03
-#_0AB317: db $FF, $47, $82 ; 0x102: Corner (top, concave) ▜ | { 34, 1E } | Size: 00
+#_0AB317: db $FF, $47, $82 ; 0x102: Corner (top, concave) ▜ | { 34, 1E }
 #_0AB31A: db $D3, $88, $62 ; 0x062: Wall (top, east) ↕ | { 34, 22 } | Size: 0C
-#_0AB31D: db $FF, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 3A } | Size: 00
+#_0AB31D: db $FF, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 3A }
 #_0AB320: db $09, $4A, $0A ; 0x00A: Diagonal wall A ◣ (top) | { 02, 12 } | Size: 06
 #_0AB323: db $08, $4A, $61 ; 0x061: Wall (top, west) ↕ | { 02, 12 } | Size: 02
 #_0AB326: db $3A, $78, $02 ; 0x002: Wall (top, south) ↔ | { 0E, 1E } | Size: 08
-#_0AB329: db $FD, $E7, $85 ; 0x105: Corner (top, convex) ▜ | { 1E, 1E } | Size: 00
+#_0AB329: db $FD, $E7, $85 ; 0x105: Corner (top, convex) ▜ | { 1E, 1E }
 #_0AB32C: db $7A, $88, $0A ; 0x00A: Diagonal wall A ◣ (top) | { 1E, 22 } | Size: 08
 #_0AB32F: db $78, $8A, $61 ; 0x061: Wall (top, west) ↕ | { 1E, 22 } | Size: 02
 #_0AB332: db $A1, $C1, $61 ; 0x061: Wall (top, west) ↕ | { 28, 30 } | Size: 05
-#_0AB335: db $FE, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 28, 3A } | Size: 00
+#_0AB335: db $FE, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 28, 3A }
 #_0AB338: db $20, $2E, $03 ; 0x003: Wall (bottom, north) ↔ | { 08, 0B } | Size: 02
 #_0AB33B: db $38, $2C, $1B ; 0x01B: Diagonal wall B ◥ (bottom) | { 0E, 0B } | Size: 00
 #_0AB33E: db $51, $44, $03 ; 0x003: Wall (bottom, north) ↔ | { 14, 11 } | Size: 04
-#_0AB341: db $FD, $D4, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 1D, 11 } | Size: 00
+#_0AB341: db $FD, $D4, $4C ; 0x10C: Corner (bottom, convex) ▟ | { 1D, 11 }
 #_0AB344: db $74, $2E, $63 ; 0x063: Wall (bottom, west) ↕ | { 1D, 0B } | Size: 02
-#_0AB347: db $FD, $D1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 1D, 07 } | Size: 00
+#_0AB347: db $FD, $D1, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 1D, 07 }
 #_0AB34A: db $84, $1E, $03 ; 0x003: Wall (bottom, north) ↔ | { 21, 07 } | Size: 02
-#_0AB34D: db $FE, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 27, 07 } | Size: 00
+#_0AB34D: db $FE, $71, $CA ; 0x10A: Corner (bottom, concave) ▜ | { 27, 07 }
 #_0AB350: db $9E, $2E, $64 ; 0x064: Wall (bottom, east) ↕ | { 27, 0B } | Size: 0A
-#_0AB353: db $FE, $78, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 27, 21 } | Size: 00
+#_0AB353: db $FE, $78, $4E ; 0x10E: Corner (bottom, convex) ▙ | { 27, 21 }
 #_0AB356: db $AC, $86, $03 ; 0x003: Wall (bottom, north) ↔ | { 2B, 21 } | Size: 02
-#_0AB359: db $FF, $18, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 31, 21 } | Size: 00
+#_0AB359: db $FF, $18, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 31, 21 }
 #_0AB35C: db $C6, $94, $64 ; 0x064: Wall (bottom, east) ↕ | { 31, 25 } | Size: 08
-#_0AB35F: db $FF, $1D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 31, 37 } | Size: 00
+#_0AB35F: db $FF, $1D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 31, 37 }
 #_0AB362: db $14, $4B, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 05, 12 } | Size: 03
 #_0AB365: db $14, $3B, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 0E } | Size: 03
-#_0AB368: db $FC, $52, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 0B } | Size: 00
+#_0AB368: db $FC, $52, $C8 ; 0x108: Corner (bottom, concave) ▛ | { 05, 0B }
 #_0AB36B: db $3A, $6D, $04 ; 0x004: Wall (bottom, south) ↔ | { 0E, 1B } | Size: 09
 #_0AB36E: db $86, $88, $1A ; 0x01A: Diagonal wall B ◣ (bottom) | { 21, 22 } | Size: 08
 #_0AB371: db $84, $7B, $63 ; 0x063: Wall (bottom, west) ↕ | { 21, 1E } | Size: 03
-#_0AB374: db $FE, $16, $CD ; 0x10D: Corner (bottom, convex) ▜ | { 21, 1B } | Size: 00
+#_0AB374: db $FE, $16, $CD ; 0x10D: Corner (bottom, convex) ▜ | { 21, 1B }
 #_0AB377: db $AC, $C3, $63 ; 0x063: Wall (bottom, west) ↕ | { 2B, 30 } | Size: 03
-#_0AB37A: db $FE, $BD, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 2B, 37 } | Size: 00
+#_0AB37A: db $FE, $BD, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 2B, 37 }
 #_0AB37D: db $BC, $DC, $04 ; 0x004: Wall (bottom, south) ↔ | { 2F, 37 } | Size: 00
 #_0AB380: db $50, $50, $A4 ; 0x0A4: Pit ⇲ | { 14, 14 } | Size: 00
 #_0AB383: db $80, $60, $A4 ; 0x0A4: Pit ⇲ | { 20, 18 } | Size: 00
 #_0AB386: db $88, $30, $A4 ; 0x0A4: Pit ⇲ | { 22, 0C } | Size: 00
-#_0AB389: db $8B, $2B, $FA ; 0x22F: Pot | { 22, 0A } | Size: 0F
-#_0AB38C: db $93, $2B, $FA ; 0x22F: Pot | { 24, 0A } | Size: 0F
+#_0AB389: db $8B, $2B, $FA ; 0x22F: Pot | { 22, 0A }
+#_0AB38C: db $93, $2B, $FA ; 0x22F: Pot | { 24, 0A }
 #_0AB38F: db $B8, $90, $A4 ; 0x0A4: Pit ⇲ | { 2E, 24 } | Size: 00
 #_0AB392: db $3C, $21, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 0F, 08 } | Size: 01
-#_0AB395: db $58, $0A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 02 } | Size: 02
+#_0AB395: db $58, $0A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 02 } | Size: 02
 #_0AB398: db $51, $11, $60 ; 0x060: Ceiling ↕ | { 14, 04 } | Size: 05
 #_0AB39B: db $0A, $11, $00 ; 0x000: Ceiling ↔ | { 02, 04 } | Size: 09
 #_0AB39E: db $0A, $19, $00 ; 0x000: Ceiling ↔ | { 02, 06 } | Size: 09
-#_0AB3A1: db $0B, $8B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 22 } | Size: 0F
-#_0AB3A4: db $0B, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 32 } | Size: 0E
-#_0AB3A7: db $4A, $8B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 22 } | Size: 0B
-#_0AB3AA: db $4A, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 32 } | Size: 0A
+#_0AB3A1: db $0B, $8B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 22 } | Size: 0F
+#_0AB3A4: db $0B, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 32 } | Size: 0E
+#_0AB3A7: db $4A, $8B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 22 } | Size: 0B
+#_0AB3AA: db $4A, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 32 } | Size: 0A
 #_0AB3AD: db $79, $9D, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 1E, 27 } | Size: 05
-#_0AB3B0: db $72, $C3, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1C, 30 } | Size: 0B
-#_0AB3B3: db $BB, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 04 } | Size: 0F
-#_0AB3B6: db $BB, $4A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2E, 12 } | Size: 0E
-#_0AB3B9: db $E1, $7B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 1E } | Size: 07
-#_0AB3BC: db $E1, $BB, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 2E } | Size: 07
+#_0AB3B0: db $72, $C3, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1C, 30 } | Size: 0B
+#_0AB3B3: db $BB, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 04 } | Size: 0F
+#_0AB3B6: db $BB, $4A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2E, 12 } | Size: 0E
+#_0AB3B9: db $E1, $7B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 1E } | Size: 07
+#_0AB3BC: db $E1, $BB, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 2E } | Size: 07
 #_0AB3BF: db $09, $5F, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 02, 17 } | Size: 07
-#_0AB3C2: db $FF, $FF ; Layer01
-#_0AB3C4: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 } | Size: 0C
-#_0AB3C7: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 } | Size: 0A
-#_0AB3CA: db $FF, $FF ; Layer02
+#_0AB3C2: db $FF, $FF ; Layer 1
+#_0AB3C4: db $2B, $14, $FF ; 0x273: Layer 2 mask (full) | { 0A, 05 }
+#_0AB3C7: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 }
+#_0AB3CA: db $FF, $FF ; Layer 2
 #_0AB3CC: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00E7:
-#_0AB3CE: db $B1, $10 ; Door 0x10 | Dir:01 | Pos:16
-#_0AB3D0: db $32, $02 ; Door 0x02 | Dir:02 | Pos:06
-#_0AB3D2: db $FF, $FF ; Layer03 / End
+#_0AB3CE: db $B1, $10 ; Door 0x10 | South 16
+#_0AB3D0: db $32, $02 ; Door 0x02 | West 06
+#_0AB3D2: db $FF, $FF ; End
 
 ;===================================================================================================
 
@@ -5150,284 +5150,284 @@ RoomDataTiles_00E4:
 #_0AB3D6: db $0A, $7C, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 02, 1F } | Size: 08
 #_0AB3D9: db $08, $82, $61 ; 0x061: Wall (top, west) ↕ | { 02, 20 } | Size: 02
 #_0AB3DC: db $30, $4A, $61 ; 0x061: Wall (top, west) ↕ | { 0C, 12 } | Size: 02
-#_0AB3DF: db $FC, $C3, $C0 ; 0x100: Corner (top, concave) ▛ | { 0C, 0F } | Size: 00
+#_0AB3DF: db $FC, $C3, $C0 ; 0x100: Corner (top, concave) ▛ | { 0C, 0F }
 #_0AB3E2: db $40, $3F, $01 ; 0x001: Wall (top, north) ↔ | { 10, 0F } | Size: 03
 #_0AB3E5: db $54, $38, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 15, 0E } | Size: 00
 #_0AB3E8: db $60, $31, $01 ; 0x001: Wall (top, north) ↔ | { 18, 0C } | Size: 01
-#_0AB3EB: db $FD, $A3, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 0C } | Size: 00
+#_0AB3EB: db $FD, $A3, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 0C }
 #_0AB3EE: db $5C, $61, $10 ; 0x010: Diagonal wall B ◢ (top) | { 17, 18 } | Size: 01
 #_0AB3F1: db $68, $4A, $62 ; 0x062: Wall (top, east) ↕ | { 1A, 12 } | Size: 02
 #_0AB3F4: db $5C, $65, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 17, 19 } | Size: 01
 #_0AB3F7: db $68, $82, $62 ; 0x062: Wall (top, east) ↕ | { 1A, 20 } | Size: 02
 #_0AB3FA: db $5C, $66, $62 ; 0x062: Wall (top, east) ↕ | { 17, 19 } | Size: 02
 #_0AB3FD: db $23, $A3, $DB ; 0x0DB: Floor 2 ⇲ | { 08, 28 } | Size: 0F
-#_0AB400: db $FC, $59, $48 ; 0x108: Corner (bottom, concave) ▛ | { 05, 25 } | Size: 00
+#_0AB400: db $FC, $59, $48 ; 0x108: Corner (bottom, concave) ▛ | { 05, 25 }
 #_0AB403: db $25, $96, $03 ; 0x003: Wall (bottom, north) ↔ | { 09, 25 } | Size: 06
-#_0AB406: db $FD, $79, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 17, 25 } | Size: 00
+#_0AB406: db $FD, $79, $4A ; 0x10A: Corner (bottom, concave) ▜ | { 17, 25 }
 #_0AB409: db $15, $A6, $63 ; 0x063: Wall (bottom, west) ↕ | { 05, 29 } | Size: 06
-#_0AB40C: db $FC, $5D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 37 } | Size: 00
+#_0AB40C: db $FC, $5D, $C9 ; 0x109: Corner (bottom, concave) ▙ | { 05, 37 }
 #_0AB40F: db $25, $DE, $04 ; 0x004: Wall (bottom, south) ↔ | { 09, 37 } | Size: 06
-#_0AB412: db $FD, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 37 } | Size: 00
+#_0AB412: db $FD, $7D, $CB ; 0x10B: Corner (bottom, concave) ▟ | { 17, 37 }
 #_0AB415: db $5D, $A6, $64 ; 0x064: Wall (bottom, east) ↕ | { 17, 29 } | Size: 06
 #_0AB418: db $41, $B8, $DD ; 0x0DD: Table / Rock ⇲| { 10, 2E } | Size: 04
 #_0AB41B: db $15, $91, $22 ; 0x022: Rail ↔ | { 05, 24 } | Size: 05
 #_0AB41E: db $58, $91, $22 ; 0x022: Rail ↔ | { 16, 24 } | Size: 01
-#_0AB421: db $FC, $E8, $20 ; 0x120: Small torch (lit) | { 0E, 20 } | Size: 00
-#_0AB424: db $FD, $48, $20 ; 0x120: Small torch (lit) | { 14, 20 } | Size: 00
-#_0AB427: db $FD, $09, $72 ; 0x132: Intraroom stairs north (merged layers) | { 10, 25 } | Size: 00
-#_0AB42A: db $43, $4B, $FA ; 0x22F: Pot | { 10, 12 } | Size: 0F
-#_0AB42D: db $FE, $23, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 0C } | Size: 00
+#_0AB421: db $FC, $E8, $20 ; 0x120: Small torch (lit) | { 0E, 20 }
+#_0AB424: db $FD, $48, $20 ; 0x120: Small torch (lit) | { 14, 20 }
+#_0AB427: db $FD, $09, $72 ; 0x132: Intraroom stairs north (merged layers) | { 10, 25 }
+#_0AB42A: db $43, $4B, $FA ; 0x22F: Pot | { 10, 12 }
+#_0AB42D: db $FE, $23, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 0C }
 #_0AB430: db $9A, $32, $01 ; 0x001: Wall (top, north) ↔ | { 26, 0C } | Size: 0A
-#_0AB433: db $FF, $A3, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 0C } | Size: 00
+#_0AB433: db $FF, $A3, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 0C }
 #_0AB436: db $89, $8A, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 22, 22 } | Size: 06
 #_0AB439: db $88, $8A, $61 ; 0x061: Wall (top, west) ↕ | { 22, 22 } | Size: 02
 #_0AB43C: db $B9, $BA, $02 ; 0x002: Wall (top, south) ↔ | { 2E, 2E } | Size: 06
-#_0AB43F: db $FF, $AB, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 2E } | Size: 00
-#_0AB442: db $FF, $A7, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 1C } | Size: 00
+#_0AB43F: db $FF, $AB, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 2E }
+#_0AB442: db $FF, $A7, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 1C }
 #_0AB445: db $E0, $71, $01 ; 0x001: Wall (top, north) ↔ | { 38, 1C } | Size: 01
-#_0AB448: db $FF, $47, $00 ; 0x100: Corner (top, concave) ▛ | { 34, 1C } | Size: 00
+#_0AB448: db $FF, $47, $00 ; 0x100: Corner (top, concave) ▛ | { 34, 1C }
 #_0AB44B: db $D1, $80, $61 ; 0x061: Wall (top, west) ↕ | { 34, 20 } | Size: 04
-#_0AB44E: db $FF, $4A, $04 ; 0x104: Corner (top, convex) ▟ | { 34, 28 } | Size: 00
+#_0AB44E: db $FF, $4A, $04 ; 0x104: Corner (top, convex) ▟ | { 34, 28 }
 #_0AB451: db $C0, $A2, $01 ; 0x001: Wall (top, north) ↔ | { 30, 28 } | Size: 02
 #_0AB454: db $A0, $82, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 28, 20 } | Size: 02
 #_0AB457: db $A1, $5B, $62 ; 0x062: Wall (top, east) ↕ | { 28, 16 } | Size: 07
-#_0AB45A: db $FE, $84, $87 ; 0x107: Corner (top, convex) ▛ | { 28, 12 } | Size: 00
+#_0AB45A: db $FE, $84, $87 ; 0x107: Corner (top, convex) ▛ | { 28, 12 }
 #_0AB45D: db $B1, $48, $02 ; 0x002: Wall (top, south) ↔ | { 2C, 12 } | Size: 04
-#_0AB460: db $FF, $44, $85 ; 0x105: Corner (top, convex) ▜ | { 34, 12 } | Size: 00
-#_0AB463: db $FF, $45, $81 ; 0x101: Corner (top, concave) ▙ | { 34, 16 } | Size: 00
+#_0AB460: db $FF, $44, $85 ; 0x105: Corner (top, convex) ▜ | { 34, 12 }
+#_0AB463: db $FF, $45, $81 ; 0x101: Corner (top, concave) ▙ | { 34, 16 }
 #_0AB466: db $E0, $59, $02 ; 0x002: Wall (top, south) ↔ | { 38, 16 } | Size: 01
-#_0AB469: db $FF, $A5, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 16 } | Size: 00
-#_0AB46C: db $E3, $53, $FA ; 0x22F: Pot | { 38, 14 } | Size: 0F
-#_0AB46F: db $09, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 07
+#_0AB469: db $FF, $A5, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 16 }
+#_0AB46C: db $E3, $53, $FA ; 0x22F: Pot | { 38, 14 }
+#_0AB46F: db $09, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 07
 #_0AB472: db $09, $59, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 02, 16 } | Size: 05
 #_0AB475: db $09, $51, $00 ; 0x000: Ceiling ↔ | { 02, 14 } | Size: 05
 #_0AB478: db $28, $3F, $60 ; 0x060: Ceiling ↕ | { 0A, 0F } | Size: 03
-#_0AB47B: db $26, $0E, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 09, 03 } | Size: 0A
+#_0AB47B: db $26, $0E, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 09, 03 } | Size: 0A
 #_0AB47E: db $54, $25, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 15, 09 } | Size: 01
-#_0AB481: db $4A, $11, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 12, 04 } | Size: 09
-#_0AB484: db $6C, $64, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1B, 19 } | Size: 00
+#_0AB481: db $4A, $11, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 12, 04 } | Size: 09
+#_0AB484: db $6C, $64, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1B, 19 } | Size: 00
 #_0AB487: db $70, $60, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 1C, 18 } | Size: 00
 #_0AB48A: db $70, $74, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 1C, 1D } | Size: 00
-#_0AB48D: db $8B, $11, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 04 } | Size: 0D
-#_0AB490: db $CA, $11, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 04 } | Size: 09
+#_0AB48D: db $8B, $11, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 04 } | Size: 0D
+#_0AB490: db $CA, $11, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 04 } | Size: 09
 #_0AB493: db $D1, $69, $00 ; 0x000: Ceiling ↔ | { 34, 1A } | Size: 05
 #_0AB496: db $B4, $90, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 2D, 24 } | Size: 00
-#_0AB499: db $B1, $5A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2C, 16 } | Size: 06
-#_0AB49C: db $C0, $90, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 30, 24 } | Size: 00
+#_0AB499: db $B1, $5A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2C, 16 } | Size: 06
+#_0AB49C: db $C0, $90, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 30, 24 } | Size: 00
 #_0AB49F: db $B1, $88, $00 ; 0x000: Ceiling ↔ | { 2C, 22 } | Size: 04
 #_0AB4A2: db $89, $9F, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 22, 27 } | Size: 07
-#_0AB4A5: db $8B, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 32 } | Size: 0E
-#_0AB4A8: db $CA, $CA, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 32, 32 } | Size: 0A
-#_0AB4AB: db $FF, $FF ; Layer01
-#_0AB4AD: db $FF, $FF ; Layer02
+#_0AB4A5: db $8B, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 32 } | Size: 0E
+#_0AB4A8: db $CA, $CA, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 32, 32 } | Size: 0A
+#_0AB4AB: db $FF, $FF ; Layer 1
+#_0AB4AD: db $FF, $FF ; Layer 2
 #_0AB4AF: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00E4:
-#_0AB4B1: db $91, $10 ; Door 0x10 | Dir:01 | Pos:12
-#_0AB4B3: db $62, $00 ; Door 0x00 | Dir:02 | Pos:0C
-#_0AB4B5: db $73, $00 ; Door 0x00 | Dir:03 | Pos:0E
-#_0AB4B7: db $FF, $FF ; Layer03 / End
+#_0AB4B1: db $91, $10 ; Door 0x10 | South 12
+#_0AB4B3: db $62, $00 ; Door 0x00 | West 0C
+#_0AB4B5: db $73, $00 ; Door 0x00 | East 0E
+#_0AB4B7: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_00E5:
 #_0AB4B9: db $E1, $1C ; Floors and Layout
 #_0AB4BB: db $15, $70, $01 ; 0x001: Wall (top, north) ↔ | { 05, 1C } | Size: 04
-#_0AB4BE: db $FC, $27, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 1C } | Size: 00
+#_0AB4BE: db $FC, $27, $00 ; 0x100: Corner (top, concave) ▛ | { 02, 1C }
 #_0AB4C1: db $35, $6D, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 0D, 1B } | Size: 05
 #_0AB4C4: db $51, $1F, $61 ; 0x061: Wall (top, west) ↕ | { 14, 07 } | Size: 07
-#_0AB4C7: db $FD, $41, $00 ; 0x100: Corner (top, concave) ▛ | { 14, 04 } | Size: 00
-#_0AB4CA: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 } | Size: 00
+#_0AB4C7: db $FD, $41, $00 ; 0x100: Corner (top, concave) ▛ | { 14, 04 }
+#_0AB4CA: db $FD, $A1, $02 ; 0x102: Corner (top, concave) ▜ | { 1A, 04 }
 #_0AB4CD: db $68, $23, $62 ; 0x062: Wall (top, east) ↕ | { 1A, 08 } | Size: 03
-#_0AB4D0: db $FD, $A3, $86 ; 0x106: Corner (top, convex) ▙ | { 1A, 0E } | Size: 00
+#_0AB4D0: db $FD, $A3, $86 ; 0x106: Corner (top, convex) ▙ | { 1A, 0E }
 #_0AB4D3: db $78, $3A, $01 ; 0x001: Wall (top, north) ↔ | { 1E, 0E } | Size: 02
-#_0AB4D6: db $FE, $23, $84 ; 0x104: Corner (top, convex) ▟ | { 22, 0E } | Size: 00
+#_0AB4D6: db $FE, $23, $84 ; 0x104: Corner (top, convex) ▟ | { 22, 0E }
 #_0AB4D9: db $88, $23, $61 ; 0x061: Wall (top, west) ↕ | { 22, 08 } | Size: 03
-#_0AB4DC: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 } | Size: 00
+#_0AB4DC: db $FE, $21, $00 ; 0x100: Corner (top, concave) ▛ | { 22, 04 }
 #_0AB4DF: db $A1, $45, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 28, 11 } | Size: 05
 #_0AB4E2: db $A1, $1F, $62 ; 0x062: Wall (top, east) ↕ | { 28, 07 } | Size: 07
-#_0AB4E5: db $FE, $81, $02 ; 0x102: Corner (top, concave) ▜ | { 28, 04 } | Size: 00
+#_0AB4E5: db $FE, $81, $02 ; 0x102: Corner (top, concave) ▜ | { 28, 04 }
 #_0AB4E8: db $CD, $70, $01 ; 0x001: Wall (top, north) ↔ | { 33, 1C } | Size: 04
-#_0AB4EB: db $FF, $A7, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 1C } | Size: 00
-#_0AB4EE: db $FF, $A8, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 22 } | Size: 00
+#_0AB4EB: db $FF, $A7, $02 ; 0x102: Corner (top, concave) ▜ | { 3A, 1C }
+#_0AB4EE: db $FF, $A8, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 22 }
 #_0AB4F1: db $A2, $BC, $10 ; 0x010: Diagonal wall B ◢ (top) | { 28, 2F } | Size: 08
 #_0AB4F4: db $D8, $8A, $02 ; 0x002: Wall (top, south) ↔ | { 36, 22 } | Size: 02
 #_0AB4F7: db $90, $C2, $02 ; 0x002: Wall (top, south) ↔ | { 24, 30 } | Size: 02
-#_0AB4FA: db $FE, $1C, $07 ; 0x107: Corner (top, convex) ▛ | { 21, 30 } | Size: 00
+#_0AB4FA: db $FE, $1C, $07 ; 0x107: Corner (top, convex) ▛ | { 21, 30 }
 #_0AB4FD: db $84, $D3, $62 ; 0x062: Wall (top, east) ↕ | { 21, 34 } | Size: 03
-#_0AB500: db $FE, $1E, $83 ; 0x103: Corner (top, concave) ▟ | { 21, 3A } | Size: 00
-#_0AB503: db $FD, $BE, $81 ; 0x101: Corner (top, concave) ▙ | { 1B, 3A } | Size: 00
+#_0AB500: db $FE, $1E, $83 ; 0x103: Corner (top, concave) ▟ | { 21, 3A }
+#_0AB503: db $FD, $BE, $81 ; 0x101: Corner (top, concave) ▙ | { 1B, 3A }
 #_0AB506: db $6C, $D3, $61 ; 0x061: Wall (top, west) ↕ | { 1B, 34 } | Size: 03
 #_0AB509: db $60, $C2, $02 ; 0x002: Wall (top, south) ↔ | { 18, 30 } | Size: 02
-#_0AB50C: db $FD, $BC, $05 ; 0x105: Corner (top, convex) ▜ | { 1B, 30 } | Size: 00
-#_0AB50F: db $FC, $28, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 22 } | Size: 00
+#_0AB50C: db $FD, $BC, $05 ; 0x105: Corner (top, convex) ▜ | { 1B, 30 }
+#_0AB50F: db $FC, $28, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 22 }
 #_0AB512: db $18, $8A, $02 ; 0x002: Wall (top, south) ↔ | { 06, 22 } | Size: 02
 #_0AB515: db $2A, $88, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 0A, 22 } | Size: 08
 #_0AB518: db $41, $79, $10 ; 0x010: Diagonal wall B ◢ (top) | { 10, 1E } | Size: 05
 #_0AB51B: db $41, $7D, $0F ; 0x00F: Diagonal wall B ◥ (top) | { 10, 1F } | Size: 05
 #_0AB51E: db $40, $7E, $62 ; 0x062: Wall (top, east) ↕ | { 10, 1F } | Size: 02
 #_0AB521: db $6C, $A9, $01 ; 0x001: Wall (top, north) ↔ | { 1B, 2A } | Size: 01
-#_0AB524: db $FD, $DA, $84 ; 0x104: Corner (top, convex) ▟ | { 1D, 2A } | Size: 00
+#_0AB524: db $FD, $DA, $84 ; 0x104: Corner (top, convex) ▟ | { 1D, 2A }
 #_0AB527: db $74, $93, $61 ; 0x061: Wall (top, west) ↕ | { 1D, 24 } | Size: 03
-#_0AB52A: db $FD, $D8, $00 ; 0x100: Corner (top, concave) ▛ | { 1D, 20 } | Size: 00
-#_0AB52D: db $FE, $18, $02 ; 0x102: Corner (top, concave) ▜ | { 21, 20 } | Size: 00
+#_0AB52A: db $FD, $D8, $00 ; 0x100: Corner (top, concave) ▛ | { 1D, 20 }
+#_0AB52D: db $FE, $18, $02 ; 0x102: Corner (top, concave) ▜ | { 21, 20 }
 #_0AB530: db $84, $93, $62 ; 0x062: Wall (top, east) ↕ | { 21, 24 } | Size: 03
-#_0AB533: db $FE, $1A, $86 ; 0x106: Corner (top, convex) ▙ | { 21, 2A } | Size: 00
+#_0AB533: db $FE, $1A, $86 ; 0x106: Corner (top, convex) ▙ | { 21, 2A }
 #_0AB536: db $94, $A9, $01 ; 0x001: Wall (top, north) ↔ | { 25, 2A } | Size: 01
 #_0AB539: db $9C, $A7, $0D ; 0x00D: Diagonal wall B ◤ (top) | { 27, 29 } | Size: 03
 #_0AB53C: db $95, $51, $0E ; 0x00E: Diagonal wall B ◣ (top) | { 25, 14 } | Size: 05
 #_0AB53F: db $B0, $7F, $61 ; 0x061: Wall (top, west) ↕ | { 2C, 1F } | Size: 03
 #_0AB542: db $6D, $51, $02 ; 0x002: Wall (top, south) ↔ | { 1B, 14 } | Size: 05
-#_0AB545: db $63, $23, $FA ; 0x22F: Pot | { 18, 08 } | Size: 0F
-#_0AB548: db $9B, $23, $FA ; 0x22F: Pot | { 26, 08 } | Size: 0F
-#_0AB54B: db $E3, $83, $FA ; 0x22F: Pot | { 38, 20 } | Size: 0F
-#_0AB54E: db $83, $93, $FA ; 0x22F: Pot | { 20, 24 } | Size: 0F
+#_0AB545: db $63, $23, $FA ; 0x22F: Pot | { 18, 08 }
+#_0AB548: db $9B, $23, $FA ; 0x22F: Pot | { 26, 08 }
+#_0AB54B: db $E3, $83, $FA ; 0x22F: Pot | { 38, 20 }
+#_0AB54E: db $83, $93, $FA ; 0x22F: Pot | { 20, 24 }
 #_0AB551: db $4A, $0D, $60 ; 0x060: Ceiling ↕ | { 12, 03 } | Size: 09
 #_0AB554: db $34, $56, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 0D, 15 } | Size: 02
-#_0AB557: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 04 } | Size: 0F
-#_0AB55A: db $06, $51, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 01, 14 } | Size: 09
+#_0AB557: db $0B, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 04 } | Size: 0F
+#_0AB55A: db $06, $51, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 01, 14 } | Size: 09
 #_0AB55D: db $34, $4F, $00 ; 0x000: Ceiling ↔ | { 0D, 13 } | Size: 03
-#_0AB560: db $09, $9B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 26 } | Size: 07
+#_0AB560: db $09, $9B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 26 } | Size: 07
 #_0AB563: db $2A, $9D, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 0A, 27 } | Size: 09
-#_0AB566: db $0B, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 36 } | Size: 0D
-#_0AB569: db $3E, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 0F, 36 } | Size: 09
+#_0AB566: db $0B, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 36 } | Size: 0D
+#_0AB569: db $3E, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 0F, 36 } | Size: 09
 #_0AB56C: db $26, $D1, $00 ; 0x000: Ceiling ↔ | { 09, 34 } | Size: 09
-#_0AB56F: db $78, $0A, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1E, 02 } | Size: 02
-#_0AB572: db $B3, $13, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 2C, 04 } | Size: 0F
+#_0AB56F: db $78, $0A, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1E, 02 } | Size: 02
+#_0AB572: db $B3, $13, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 2C, 04 } | Size: 0F
 #_0AB575: db $F3, $10, $60 ; 0x060: Ceiling ↕ | { 3C, 04 } | Size: 0C
 #_0AB578: db $B4, $56, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 2D, 15 } | Size: 02
 #_0AB57B: db $B1, $4C, $00 ; 0x000: Ceiling ↔ | { 2C, 13 } | Size: 04
-#_0AB57E: db $CE, $51, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 33, 14 } | Size: 09
-#_0AB581: db $97, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 25, 34 } | Size: 0E
-#_0AB584: db $D5, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 35, 34 } | Size: 06
+#_0AB57E: db $CE, $51, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 33, 14 } | Size: 09
+#_0AB581: db $97, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 25, 34 } | Size: 0E
+#_0AB584: db $D5, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 35, 34 } | Size: 06
 #_0AB587: db $A6, $CD, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 29, 33 } | Size: 09
-#_0AB58A: db $D9, $9B, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 26 } | Size: 07
+#_0AB58A: db $D9, $9B, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 26 } | Size: 07
 #_0AB58D: db $F1, $D8, $60 ; 0x060: Ceiling ↕ | { 3C, 36 } | Size: 04
-#_0AB590: db $51, $7C, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 14, 1F } | Size: 04
+#_0AB590: db $51, $7C, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 14, 1F } | Size: 04
 #_0AB593: db $54, $7A, $A3 ; 0x0A3: Diagonal ceiling A ◢ | { 15, 1E } | Size: 02
 #_0AB596: db $54, $8E, $A2 ; 0x0A2: Diagonal ceiling A ◥ | { 15, 23 } | Size: 02
 #_0AB599: db $94, $66, $A1 ; 0x0A1: Diagonal ceiling A ◣ | { 25, 19 } | Size: 02
 #_0AB59C: db $9C, $94, $A0 ; 0x0A0: Diagonal ceiling A ◤ | { 27, 25 } | Size: 00
-#_0AB59F: db $75, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1D, 18 } | Size: 05
+#_0AB59F: db $75, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1D, 18 } | Size: 05
 #_0AB5A2: db $6E, $61, $60 ; 0x060: Ceiling ↕ | { 1B, 18 } | Size: 09
 #_0AB5A5: db $95, $7A, $60 ; 0x060: Ceiling ↕ | { 25, 1E } | Size: 06
 #_0AB5A8: db $98, $7F, $00 ; 0x000: Ceiling ↔ | { 26, 1F } | Size: 03
 #_0AB5AB: db $98, $87, $00 ; 0x000: Ceiling ↔ | { 26, 21 } | Size: 03
 #_0AB5AE: db $98, $8F, $00 ; 0x000: Ceiling ↔ | { 26, 23 } | Size: 03
-#_0AB5B1: db $FF, $FF ; Layer01
-#_0AB5B3: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 } | Size: 0A
-#_0AB5B6: db $FF, $FF ; Layer02
+#_0AB5B1: db $FF, $FF ; Layer 1
+#_0AB5B3: db $2A, $16, $FA ; 0x22A: Lamp cones | { 0A, 05 }
+#_0AB5B6: db $FF, $FF ; Layer 2
 #_0AB5B8: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_00E5:
-#_0AB5BA: db $12, $00 ; Door 0x00 | Dir:02 | Pos:02
-#_0AB5BC: db $71, $0E ; Door 0x0E | Dir:01 | Pos:0E
-#_0AB5BE: db $FF, $FF ; Layer03 / End
+#_0AB5BA: db $12, $00 ; Door 0x00 | West 02
+#_0AB5BC: db $71, $0E ; Door 0x0E | South 0E
+#_0AB5BE: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0124:
 #_0AB5C0: db $E1, $00 ; Floors and Layout
-#_0AB5C2: db $2B, $A3, $FA ; 0x22F: Pot | { 0A, 28 } | Size: 0F
-#_0AB5C5: db $2B, $AB, $FA ; 0x22F: Pot | { 0A, 2A } | Size: 0F
-#_0AB5C8: db $2B, $B3, $FA ; 0x22F: Pot | { 0A, 2C } | Size: 0F
+#_0AB5C2: db $2B, $A3, $FA ; 0x22F: Pot | { 0A, 28 }
+#_0AB5C5: db $2B, $AB, $FA ; 0x22F: Pot | { 0A, 2A }
+#_0AB5C8: db $2B, $B3, $FA ; 0x22F: Pot | { 0A, 2C }
 #_0AB5CB: db $28, $B8, $3D ; 0x03D: Tall torches ↔ | { 0A, 2E } | Size: 00
-#_0AB5CE: db $33, $C3, $FA ; 0x22F: Pot | { 0C, 30 } | Size: 0F
-#_0AB5D1: db $3B, $C3, $FA ; 0x22F: Pot | { 0E, 30 } | Size: 0F
-#_0AB5D4: db $43, $C3, $FA ; 0x22F: Pot | { 10, 30 } | Size: 0F
-#_0AB5D7: db $4B, $C3, $FA ; 0x22F: Pot | { 12, 30 } | Size: 0F
+#_0AB5CE: db $33, $C3, $FA ; 0x22F: Pot | { 0C, 30 }
+#_0AB5D1: db $3B, $C3, $FA ; 0x22F: Pot | { 0E, 30 }
+#_0AB5D4: db $43, $C3, $FA ; 0x22F: Pot | { 10, 30 }
+#_0AB5D7: db $4B, $C3, $FA ; 0x22F: Pot | { 12, 30 }
 #_0AB5DA: db $50, $B8, $3D ; 0x03D: Tall torches ↔ | { 14, 2E } | Size: 00
-#_0AB5DD: db $53, $B3, $FA ; 0x22F: Pot | { 14, 2C } | Size: 0F
-#_0AB5E0: db $53, $AB, $FA ; 0x22F: Pot | { 14, 2A } | Size: 0F
-#_0AB5E3: db $53, $A3, $FA ; 0x22F: Pot | { 14, 28 } | Size: 0F
+#_0AB5DD: db $53, $B3, $FA ; 0x22F: Pot | { 14, 2C }
+#_0AB5E0: db $53, $AB, $FA ; 0x22F: Pot | { 14, 2A }
+#_0AB5E3: db $53, $A3, $FA ; 0x22F: Pot | { 14, 28 }
 #_0AB5E6: db $A9, $9E, $DC ; 0x0DC: Chest platform (short) ⇲ | { 2A, 27 } | Size: 06
 #_0AB5E9: db $A0, $C8, $3D ; 0x03D: Tall torches ↔ | { 28, 32 } | Size: 00
 #_0AB5EC: db $D8, $C8, $3D ; 0x03D: Tall torches ↔ | { 36, 32 } | Size: 00
-#_0AB5EF: db $BD, $AA, $F9 ; 0x219: Chest | { 2F, 2A } | Size: 06
-#_0AB5F2: db $FF, $FF ; Layer01
-#_0AB5F4: db $FF, $FF ; Layer02
+#_0AB5EF: db $BD, $AA, $F9 ; 0x219: Chest | { 2F, 2A }
+#_0AB5F2: db $FF, $FF ; Layer 1
+#_0AB5F4: db $FF, $FF ; Layer 2
 #_0AB5F6: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0124:
-#_0AB5F8: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0AB5FA: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0AB5FC: db $FF, $FF ; Layer03 / End
+#_0AB5F8: db $61, $0E ; Door 0x0E | South 0C
+#_0AB5FA: db $81, $0E ; Door 0x0E | South 10
+#_0AB5FC: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0125:
 RoomDataTiles_0127:
 #_0AB5FE: db $E1, $00 ; Floors and Layout
-#_0AB600: db $FE, $89, $00 ; 0x100: Corner (top, concave) ▛ | { 28, 24 } | Size: 00
+#_0AB600: db $FE, $89, $00 ; 0x100: Corner (top, concave) ▛ | { 28, 24 }
 #_0AB603: db $A2, $A1, $61 ; 0x061: Wall (top, west) ↕ | { 28, 28 } | Size: 09
-#_0AB606: db $FE, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 28, 3A } | Size: 00
-#_0AB609: db $FF, $49, $02 ; 0x102: Corner (top, concave) ▜ | { 34, 24 } | Size: 00
+#_0AB606: db $FE, $8E, $81 ; 0x101: Corner (top, concave) ▙ | { 28, 3A }
+#_0AB609: db $FF, $49, $02 ; 0x102: Corner (top, concave) ▜ | { 34, 24 }
 #_0AB60C: db $D2, $A1, $62 ; 0x062: Wall (top, east) ↕ | { 34, 28 } | Size: 09
-#_0AB60F: db $FF, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 3A } | Size: 00
+#_0AB60F: db $FF, $4E, $83 ; 0x103: Corner (top, concave) ▟ | { 34, 3A }
 #_0AB612: db $20, $B3, $DD ; 0x0DD: Table / Rock ⇲| { 08, 2C } | Size: 03
 #_0AB615: db $50, $B3, $DD ; 0x0DD: Table / Rock ⇲| { 14, 2C } | Size: 03
-#_0AB618: db $33, $CB, $FA ; 0x22F: Pot | { 0C, 32 } | Size: 0F
-#_0AB61B: db $3B, $CB, $FA ; 0x22F: Pot | { 0E, 32 } | Size: 0F
-#_0AB61E: db $43, $CB, $FA ; 0x22F: Pot | { 10, 32 } | Size: 0F
-#_0AB621: db $4B, $CB, $FA ; 0x22F: Pot | { 12, 32 } | Size: 0F
-#_0AB624: db $BF, $94, $F9 ; 0x213: Telepathy tile | { 2F, 25 } | Size: 0C
-#_0AB627: db $B3, $B3, $FA ; 0x22F: Pot | { 2C, 2C } | Size: 0F
-#_0AB62A: db $CB, $B3, $FA ; 0x22F: Pot | { 32, 2C } | Size: 0F
+#_0AB618: db $33, $CB, $FA ; 0x22F: Pot | { 0C, 32 }
+#_0AB61B: db $3B, $CB, $FA ; 0x22F: Pot | { 0E, 32 }
+#_0AB61E: db $43, $CB, $FA ; 0x22F: Pot | { 10, 32 }
+#_0AB621: db $4B, $CB, $FA ; 0x22F: Pot | { 12, 32 }
+#_0AB624: db $BF, $94, $F9 ; 0x213: Telepathy tile | { 2F, 25 }
+#_0AB627: db $B3, $B3, $FA ; 0x22F: Pot | { 2C, 2C }
+#_0AB62A: db $CB, $B3, $FA ; 0x22F: Pot | { 32, 2C }
 #_0AB62D: db $AD, $C8, $DF ; 0x0DF: Spiked floor ⇲ | { 2B, 32 } | Size: 04
 #_0AB630: db $C4, $C8, $DF ; 0x0DF: Spiked floor ⇲ | { 31, 32 } | Size: 00
-#_0AB633: db $B3, $E3, $FA ; 0x22F: Pot | { 2C, 38 } | Size: 0F
-#_0AB636: db $CB, $E3, $FA ; 0x22F: Pot | { 32, 38 } | Size: 0F
-#_0AB639: db $81, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 20, 24 } | Size: 07
-#_0AB63C: db $81, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 20, 34 } | Size: 06
-#_0AB63F: db $E1, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 24 } | Size: 07
-#_0AB642: db $E1, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 38, 34 } | Size: 06
-#_0AB645: db $FF, $FF ; Layer01
-#_0AB647: db $FF, $FF ; Layer02
+#_0AB633: db $B3, $E3, $FA ; 0x22F: Pot | { 2C, 38 }
+#_0AB636: db $CB, $E3, $FA ; 0x22F: Pot | { 32, 38 }
+#_0AB639: db $81, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 20, 24 } | Size: 07
+#_0AB63C: db $81, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 20, 34 } | Size: 06
+#_0AB63F: db $E1, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 24 } | Size: 07
+#_0AB642: db $E1, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 38, 34 } | Size: 06
+#_0AB645: db $FF, $FF ; Layer 1
+#_0AB647: db $FF, $FF ; Layer 2
 #_0AB649: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0125:
 RoomDataDoors_0127:
-#_0AB64B: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0AB64D: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0AB64F: db $FF, $FF ; Layer03 / End
+#_0AB64B: db $61, $0E ; Door 0x0E | South 0C
+#_0AB64D: db $81, $0E ; Door 0x0E | South 10
+#_0AB64F: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0126:
 #_0AB651: db $E1, $00 ; Floors and Layout
-#_0AB653: db $FC, $2C, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 32 } | Size: 00
+#_0AB653: db $FC, $2C, $81 ; 0x101: Corner (top, concave) ▙ | { 02, 32 }
 #_0AB656: db $18, $CA, $02 ; 0x002: Wall (top, south) ↔ | { 06, 32 } | Size: 02
-#_0AB659: db $FC, $AC, $85 ; 0x105: Corner (top, convex) ▜ | { 0A, 32 } | Size: 00
+#_0AB659: db $FC, $AC, $85 ; 0x105: Corner (top, convex) ▜ | { 0A, 32 }
 #_0AB65C: db $28, $DA, $61 ; 0x061: Wall (top, west) ↕ | { 0A, 36 } | Size: 02
-#_0AB65F: db $FD, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 12, 3A } | Size: 00
+#_0AB65F: db $FD, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 12, 3A }
 #_0AB662: db $48, $DA, $62 ; 0x062: Wall (top, east) ↕ | { 12, 36 } | Size: 02
-#_0AB665: db $FD, $2C, $87 ; 0x107: Corner (top, convex) ▛ | { 12, 32 } | Size: 00
+#_0AB665: db $FD, $2C, $87 ; 0x107: Corner (top, convex) ▛ | { 12, 32 }
 #_0AB668: db $58, $CA, $02 ; 0x002: Wall (top, south) ↔ | { 16, 32 } | Size: 02
-#_0AB66B: db $FD, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 32 } | Size: 00
-#_0AB66E: db $FC, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 3A } | Size: 00
-#_0AB671: db $FE, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 24 } | Size: 00
+#_0AB66B: db $FD, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 1A, 32 }
+#_0AB66E: db $FC, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 0A, 3A }
+#_0AB671: db $FE, $A9, $00 ; 0x100: Corner (top, concave) ▛ | { 2A, 24 }
 #_0AB674: db $AA, $A1, $61 ; 0x061: Wall (top, west) ↕ | { 2A, 28 } | Size: 09
-#_0AB677: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A } | Size: 00
-#_0AB67A: db $FF, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 32 } | Size: 00
+#_0AB677: db $FE, $AE, $81 ; 0x101: Corner (top, concave) ▙ | { 2A, 3A }
+#_0AB67A: db $FF, $AC, $83 ; 0x103: Corner (top, concave) ▟ | { 3A, 32 }
 #_0AB67D: db $D8, $CA, $02 ; 0x002: Wall (top, south) ↔ | { 36, 32 } | Size: 02
-#_0AB680: db $FF, $2C, $87 ; 0x107: Corner (top, convex) ▛ | { 32, 32 } | Size: 00
+#_0AB680: db $FF, $2C, $87 ; 0x107: Corner (top, convex) ▛ | { 32, 32 }
 #_0AB683: db $C8, $DA, $62 ; 0x062: Wall (top, east) ↕ | { 32, 36 } | Size: 02
-#_0AB686: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A } | Size: 00
+#_0AB686: db $FF, $2E, $83 ; 0x103: Corner (top, concave) ▟ | { 32, 3A }
 #_0AB689: db $31, $A1, $C8 ; 0x0C8: Water floor ⇲ | { 0C, 28 } | Size: 05
 #_0AB68C: db $2D, $A3, $3F ; 0x03F: Water edge ┏━┓ (concave) ↔ | { 0B, 28 } | Size: 07
 #_0AB68F: db $2D, $A6, $79 ; 0x079: Water edge (west) ↕ | { 0B, 29 } | Size: 06
 #_0AB692: db $2D, $C3, $40 ; 0x040: Water edge ┗━┛ (concave) ↔ | { 0B, 30 } | Size: 07
 #_0AB695: db $51, $A6, $7A ; 0x07A: Water edge (east) ↕ | { 14, 29 } | Size: 06
-#_0AB698: db $FC, $6A, $A4 ; 0x124: Fairy statue | { 06, 2A } | Size: 00
-#_0AB69B: db $FD, $6A, $A4 ; 0x124: Fairy statue | { 16, 2A } | Size: 00
+#_0AB698: db $FC, $6A, $A4 ; 0x124: Fairy statue | { 06, 2A }
+#_0AB69B: db $FD, $6A, $A4 ; 0x124: Fairy statue | { 16, 2A }
 #_0AB69E: db $D8, $B8, $5E ; 0x05E: Blocks ↔ | { 36, 2E } | Size: 00
 #_0AB6A1: db $C8, $A9, $89 ; 0x089: Blocks ↕ | { 32, 2A } | Size: 01
 #_0AB6A4: db $E0, $C0, $5E ; 0x05E: Blocks ↔ | { 38, 30 } | Size: 00
@@ -5436,38 +5436,38 @@ RoomDataTiles_0126:
 #_0AB6AD: db $B6, $9E, $22 ; 0x022: Rail ↔ | { 2D, 27 } | Size: 0A
 #_0AB6B0: db $EA, $9C, $69 ; 0x069: Rail ↕ | { 3A, 27 } | Size: 08
 #_0AB6B3: db $C9, $C9, $22 ; 0x022: Rail ↔ | { 32, 32 } | Size: 05
-#_0AB6B6: db $89, $93, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 24 } | Size: 07
-#_0AB6B9: db $89, $D2, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 22, 34 } | Size: 06
-#_0AB6BC: db $D9, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 36, 36 } | Size: 05
-#_0AB6BF: db $09, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 36 } | Size: 05
-#_0AB6C2: db $59, $D9, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 16, 36 } | Size: 05
-#_0AB6C5: db $FF, $FF ; Layer01
-#_0AB6C7: db $FF, $FF ; Layer02
+#_0AB6B6: db $89, $93, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 24 } | Size: 07
+#_0AB6B9: db $89, $D2, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 22, 34 } | Size: 06
+#_0AB6BC: db $D9, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 36, 36 } | Size: 05
+#_0AB6BF: db $09, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 36 } | Size: 05
+#_0AB6C2: db $59, $D9, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 16, 36 } | Size: 05
+#_0AB6C5: db $FF, $FF ; Layer 1
+#_0AB6C7: db $FF, $FF ; Layer 2
 #_0AB6C9: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0126:
-#_0AB6CB: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0AB6CD: db $81, $0E ; Door 0x0E | Dir:01 | Pos:10
-#_0AB6CF: db $FF, $FF ; Layer03 / End
+#_0AB6CB: db $61, $0E ; Door 0x0E | South 0C
+#_0AB6CD: db $81, $0E ; Door 0x0E | South 10
+#_0AB6CF: db $FF, $FF ; End
 
 ;===================================================================================================
 
 RoomDataTiles_0123:
 #_0AB6D1: db $E1, $00 ; Floors and Layout
-#_0AB6D3: db $FC, $25, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 14 } | Size: 00
-#_0AB6D6: db $FC, $65, $05 ; 0x105: Corner (top, convex) ▜ | { 06, 14 } | Size: 00
+#_0AB6D3: db $FC, $25, $01 ; 0x101: Corner (top, concave) ▙ | { 02, 14 }
+#_0AB6D6: db $FC, $65, $05 ; 0x105: Corner (top, convex) ▜ | { 06, 14 }
 #_0AB6D9: db $18, $61, $61 ; 0x061: Wall (top, west) ↕ | { 06, 18 } | Size: 01
-#_0AB6DC: db $FC, $66, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 1A } | Size: 00
-#_0AB6DF: db $FD, $66, $83 ; 0x103: Corner (top, concave) ▟ | { 16, 1A } | Size: 00
+#_0AB6DC: db $FC, $66, $81 ; 0x101: Corner (top, concave) ▙ | { 06, 1A }
+#_0AB6DF: db $FD, $66, $83 ; 0x103: Corner (top, concave) ▟ | { 16, 1A }
 #_0AB6E2: db $58, $61, $62 ; 0x062: Wall (top, east) ↕ | { 16, 18 } | Size: 01
-#_0AB6E5: db $FD, $65, $07 ; 0x107: Corner (top, convex) ▛ | { 16, 14 } | Size: 00
-#_0AB6E8: db $FD, $A5, $03 ; 0x103: Corner (top, concave) ▟ | { 1A, 14 } | Size: 00
-#_0AB6EB: db $19, $2A, $F9 ; 0x219: Chest | { 06, 0A } | Size: 06
-#_0AB6EE: db $29, $22, $F9 ; 0x219: Chest | { 0A, 08 } | Size: 06
-#_0AB6F1: db $51, $22, $F9 ; 0x219: Chest | { 14, 08 } | Size: 06
-#_0AB6F4: db $61, $2A, $F9 ; 0x219: Chest | { 18, 0A } | Size: 06
+#_0AB6E5: db $FD, $65, $07 ; 0x107: Corner (top, convex) ▛ | { 16, 14 }
+#_0AB6E8: db $FD, $A5, $03 ; 0x103: Corner (top, concave) ▟ | { 1A, 14 }
+#_0AB6EB: db $19, $2A, $F9 ; 0x219: Chest | { 06, 0A }
+#_0AB6EE: db $29, $22, $F9 ; 0x219: Chest | { 0A, 08 }
+#_0AB6F1: db $51, $22, $F9 ; 0x219: Chest | { 14, 08 }
+#_0AB6F4: db $61, $2A, $F9 ; 0x219: Chest | { 18, 0A }
 #_0AB6F7: db $30, $41, $3D ; 0x03D: Tall torches ↔ | { 0C, 10 } | Size: 01
 #_0AB6FA: db $28, $A7, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 0A, 29 } | Size: 03
 #_0AB6FD: db $48, $A7, $C2 ; 0x0C2: Layer 2 pit mask (large) ⇲ | { 12, 29 } | Size: 03
@@ -5479,18 +5479,18 @@ RoomDataTiles_0123:
 #_0AB70F: db $4B, $A7, $6A ; 0x06A: Pit edge (west) ↕ | { 12, 29 } | Size: 0F
 #_0AB712: db $48, $E5, $28 ; 0x028: Pit edge ┗━┛ (south) ↔ | { 12, 39 } | Size: 01
 #_0AB715: db $57, $A7, $6B ; 0x06B: Pit edge (east) ↕ | { 15, 29 } | Size: 0F
-#_0AB718: db $08, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 02, 18 } | Size: 01
-#_0AB71B: db $68, $61, $C0 ; 0x0C0: Ceiling (large) ↔ ↕ | { 1A, 18 } | Size: 01
-#_0AB71E: db $FF, $FF ; Layer01
-#_0AB720: db $FF, $FF ; Layer02
+#_0AB718: db $08, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 02, 18 } | Size: 01
+#_0AB71B: db $68, $61, $C0 ; 0x0C0: Ceiling (large) ⇲ | { 1A, 18 } | Size: 01
+#_0AB71E: db $FF, $FF ; Layer 1
+#_0AB720: db $FF, $FF ; Layer 2
 #_0AB722: db $F0, $FF ; Doors
 
 ;---------------------------------------------------------------------------------------------------
 
 RoomDataDoors_0123:
-#_0AB724: db $60, $36 ; Door 0x36 | Dir:00 | Pos:0C
-#_0AB726: db $61, $0E ; Door 0x0E | Dir:01 | Pos:0C
-#_0AB728: db $FF, $FF ; Layer03 / End
+#_0AB724: db $60, $36 ; Door 0x36 | North 0C
+#_0AB726: db $61, $0E ; Door 0x0E | South 0C
+#_0AB728: db $FF, $FF ; End
 
 ;===================================================================================================
 ; END OF ROOM DATA
@@ -5865,13 +5865,13 @@ FluteMenu_LoadSelectedScreen:
 
 #_0AB917: LDA.b $8A
 #_0AB919: AND.b #$BF
-#_0AB91B: CMP.b #$03
+#_0AB91B: CMP.b #$03 ; OW 03, OW 43
 #_0AB91D: BEQ .death_mountain
 
-#_0AB91F: CMP.b #$05
+#_0AB91F: CMP.b #$05 ; OW 05, OW 45
 #_0AB921: BEQ .death_mountain
 
-#_0AB923: CMP.b #$07
+#_0AB923: CMP.b #$07 ; OW 07, OW 47
 #_0AB925: BEQ .death_mountain
 
 #_0AB927: LDY.b #$5A
@@ -5902,7 +5902,7 @@ FluteMenu_LoadSelectedScreen:
 #_0AB94D: LDX.b #$02 ; SONG 02
 
 ; are we in kak?
-#_0AB94F: CMP.b #$18
+#_0AB94F: CMP.b #$18 ; OW 18, OW 58
 #_0AB951: BNE .use_this_song
 
 ; is aga dead?
@@ -6055,7 +6055,7 @@ WorldMap_FadeOut:
 ;---------------------------------------------------------------------------------------------------
 
 #_0ABA14: LDX.b $8A
-#_0ABA16: CPX.b #$80
+#_0ABA16: CPX.b #$80 ; SPOW
 #_0ABA18: BCS .special_overworld
 
 #_0ABA1A: LDA.b $20
@@ -11184,14 +11184,14 @@ pool DungeonMap_DrawRoomMarkers
 #_0AE807: dw $0090
 
 .fairy_rooms
-#_0AE809: dw $0089 ; Eastern fairy room
-#_0AE80B: dw $00A7 ; Hera fairy room
-#_0AE80D: dw $004F ; Ice Palace fairy room
+#_0AE809: dw $0089 ; ROOM 0089 - Eastern fairy room
+#_0AE80B: dw $00A7 ; ROOM 00A7 - Hera fairy room
+#_0AE80D: dw $004F ; ROOM 004F - Ice Palace fairy room
 
 .fairy_room_replacements
-#_0AE80F: dw $00A9 ; Eastern big chest room
-#_0AE811: dw $0077 ; Hera lobby
-#_0AE813: dw $00BE ; Ice Palace block switch room
+#_0AE80F: dw $00A9 ; ROOM 00A9 - Eastern big chest room
+#_0AE811: dw $0077 ; ROOM 0077 - Hera lobby
+#_0AE813: dw $00BE ; ROOM 00BE - Ice Palace block switch room
 
 .floor_threshold
 #_0AE815: dw $0004
@@ -11201,20 +11201,20 @@ pool off
 ;---------------------------------------------------------------------------------------------------
 
 DungeonMapBossRooms:
-#_0AE817: dw $000F ; Sewers: none
-#_0AE819: dw $000F ; Castle: none
-#_0AE81B: dw $00C8 ; Eastern
-#_0AE81D: dw $0033 ; Desert
-#_0AE81F: dw $0020 ; Agahnim's tower
-#_0AE821: dw $0006 ; Swamp palace
-#_0AE823: dw $005A ; Palace of Darkness
-#_0AE825: dw $0090 ; Misery Mire
-#_0AE827: dw $0029 ; Skull Woods
-#_0AE829: dw $00DE ; Ice Palace
-#_0AE82B: dw $0007 ; Tower of Hera
-#_0AE82D: dw $00AC ; Thieves' Town
-#_0AE82F: dw $00A4 ; Turtle Rock
-#_0AE831: dw $000D ; Ganon's tower
+#_0AE817: dw $000F ; ROOM 000F - Sewers: none
+#_0AE819: dw $000F ; ROOM 000F - Castle: none
+#_0AE81B: dw $00C8 ; ROOM 00C8 - Eastern
+#_0AE81D: dw $0033 ; ROOM 0033 - Desert
+#_0AE81F: dw $0020 ; ROOM 0020 - Agahnim's tower
+#_0AE821: dw $0006 ; ROOM 0006 - Swamp palace
+#_0AE823: dw $005A ; ROOM 005A - Palace of Darkness
+#_0AE825: dw $0090 ; ROOM 0090 - Misery Mire
+#_0AE827: dw $0029 ; ROOM 0029 - Skull Woods
+#_0AE829: dw $00DE ; ROOM 00DE - Ice Palace
+#_0AE82B: dw $0007 ; ROOM 0007 - Tower of Hera
+#_0AE82D: dw $00AC ; ROOM 00AC - Thieves' Town
+#_0AE82F: dw $00A4 ; ROOM 00A4 - Turtle Rock
+#_0AE831: dw $000D ; ROOM 000D - Ganon's tower
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -12628,20 +12628,20 @@ DungeonMap_DrawBossIcon:
 ;===================================================================================================
 
 DungeonMap_BossRoomFloor:
-#_0AEE89: dw $FFFF ; Sewers
-#_0AEE8B: dw $FFFF ; Hyrule Castle
-#_0AEE8D: dw $0001 ; Eastern Palace
-#_0AEE8F: dw $0001 ; Desert Palace
-#_0AEE91: dw $0006 ; Agahnim's Tower
-#_0AEE93: dw $00FF ; Swamp Palace
-#_0AEE95: dw $00FF ; Palace of Darkness
-#_0AEE97: dw $00FF ; Misery Mire
-#_0AEE99: dw $00FE ; Skull Woods
-#_0AEE9B: dw $00F9 ; Ice Palace
-#_0AEE9D: dw $0005 ; Tower of Hera
-#_0AEE9F: dw $00FF ; Thieves' Town
-#_0AEEA1: dw $00FD ; Turtle Rock
-#_0AEEA3: dw $0006 ; Ganon's Tower
+#_0AEE89: dw $FFFF ; // - Sewers
+#_0AEE8B: dw $FFFF ; // - Hyrule Castle
+#_0AEE8D: dw $0001 ; 2F - Eastern Palace
+#_0AEE8F: dw $0001 ; 2F - Desert Palace
+#_0AEE91: dw $0006 ; 7F - Agahnim's Tower
+#_0AEE93: dw $00FF ; B1 - Swamp Palace
+#_0AEE95: dw $00FF ; B1 - Palace of Darkness
+#_0AEE97: dw $00FF ; B1 - Misery Mire
+#_0AEE99: dw $00FE ; B2 - Skull Woods
+#_0AEE9B: dw $00F9 ; B7 - Ice Palace
+#_0AEE9D: dw $0005 ; 6F - Tower of Hera
+#_0AEE9F: dw $00FF ; B1 - Thieves' Town
+#_0AEEA1: dw $00FD ; B3 - Turtle Rock
+#_0AEEA3: dw $0006 ; 7F - Ganon's Tower
 
 ;===================================================================================================
 
@@ -12899,248 +12899,248 @@ DungeonMap_RoomTemplates:
 ;---------------------------------------------------------------------------------------------------
 ; Sewers
 ;---------------------------------------------------------------------------------------------------
-#_0AF019: dw $0B61, $5361, $8B61, $8B62 ; 0x00 - Room 0011
-#_0AF021: dw $0B60, $0B63, $8B60, $0B64 ; 0x01 - Room 0021
-#_0AF029: dw $0B00, $0B00, $0B65, $0B66 ; 0x02 - Room 0022
-#_0AF031: dw $0B67, $4B67, $9367, $D367 ; 0x03 - Room 0032
-#_0AF039: dw $0B60, $5360, $8B60, $CB60 ; 0x04 - Room 0002
-#_0AF041: dw $0B6A, $4B6A, $4B6D, $0B6D ; 0x05 - Room 0012
-#_0AF049: dw $1368, $1369, $0B00, $0B00 ; 0x06 - Room 0042
-#_0AF051: dw $0B6A, $136B, $0B6C, $0B6D ; 0x07 - Room 0041
+#_0AF019: dw $0B61, $5361, $8B61, $8B62 ; 0x00 - ROOM 0011
+#_0AF021: dw $0B60, $0B63, $8B60, $0B64 ; 0x01 - ROOM 0021
+#_0AF029: dw $0B00, $0B00, $0B65, $0B66 ; 0x02 - ROOM 0022
+#_0AF031: dw $0B67, $4B67, $9367, $D367 ; 0x03 - ROOM 0032
+#_0AF039: dw $0B60, $5360, $8B60, $CB60 ; 0x04 - ROOM 0002
+#_0AF041: dw $0B6A, $4B6A, $4B6D, $0B6D ; 0x05 - ROOM 0012
+#_0AF049: dw $1368, $1369, $0B00, $0B00 ; 0x06 - ROOM 0042
+#_0AF051: dw $0B6A, $136B, $0B6C, $0B6D ; 0x07 - ROOM 0041
 
 ;---------------------------------------------------------------------------------------------------
 ; Hyrule Castle
 ;---------------------------------------------------------------------------------------------------
-#_0AF059: dw $136E, $4B6E, $0B00, $0B00 ; 0x08 - Room 0080
-#_0AF061: dw $136F, $0B00, $0B00, $0B00 ; 0x09 - Room 0070
-#_0AF069: dw $1340, $0B00, $0B78, $1744 ; 0x0A - Room 0071
-#_0AF071: dw $536D, $136D, $4B76, $0B76 ; 0x0B - Room 0072
-#_0AF079: dw $0B70, $0B71, $0B72, $8B71 ; 0x0C - Room 0081
-#_0AF081: dw $0B75, $0B76, $8B75, $8B76 ; 0x0D - Room 0082
-#_0AF089: dw $0B00, $0B53, $0B00, $0B55 ; 0x0E - Room 0050
-#_0AF091: dw $1354, $5354, $0B00, $0B00 ; 0x0F - Room 0001
-#_0AF099: dw $4B53, $0B00, $0B56, $0B57 ; 0x10 - Room 0052
-#_0AF0A1: dw $0B00, $0B59, $0B00, $135E ; 0x11 - Room 0060
-#_0AF0A9: dw $135A, $135B, $135F, $535F ; 0x12 - Room 0061
-#_0AF0B1: dw $0B5C, $0B5D, $535E, $CB58 ; 0x13 - Room 0062
-#_0AF0B9: dw $0B50, $4B50, $1352, $5352 ; 0x14 - Room 0051
+#_0AF059: dw $136E, $4B6E, $0B00, $0B00 ; 0x08 - ROOM 0080
+#_0AF061: dw $136F, $0B00, $0B00, $0B00 ; 0x09 - ROOM 0070
+#_0AF069: dw $1340, $0B00, $0B78, $1744 ; 0x0A - ROOM 0071
+#_0AF071: dw $536D, $136D, $4B76, $0B76 ; 0x0B - ROOM 0072
+#_0AF079: dw $0B70, $0B71, $0B72, $8B71 ; 0x0C - ROOM 0081
+#_0AF081: dw $0B75, $0B76, $8B75, $8B76 ; 0x0D - ROOM 0082
+#_0AF089: dw $0B00, $0B53, $0B00, $0B55 ; 0x0E - ROOM 0050
+#_0AF091: dw $1354, $5354, $0B00, $0B00 ; 0x0F - ROOM 0001
+#_0AF099: dw $4B53, $0B00, $0B56, $0B57 ; 0x10 - ROOM 0052
+#_0AF0A1: dw $0B00, $0B59, $0B00, $135E ; 0x11 - ROOM 0060
+#_0AF0A9: dw $135A, $135B, $135F, $535F ; 0x12 - ROOM 0061
+#_0AF0B1: dw $0B5C, $0B5D, $535E, $CB58 ; 0x13 - ROOM 0062
+#_0AF0B9: dw $0B50, $4B50, $1352, $5352 ; 0x14 - ROOM 0051
 
 ;---------------------------------------------------------------------------------------------------
 ; Eastern Palace
 ;---------------------------------------------------------------------------------------------------
-#_0AF0C1: dw $0B00, $0B40, $1345, $0B46 ; 0x15 - Room 0099
-#_0AF0C9: dw $8B42, $0B47, $0B42, $0B49 ; 0x16 - Room 00A8
-#_0AF0D1: dw $1348, $5348, $174A, $574A ; 0x17 - Room 00A9
-#_0AF0D9: dw $4B47, $CB42, $4B49, $4B42 ; 0x18 - Room 00AA
-#_0AF0E1: dw $0B00, $0B4B, $0B00, $0B4D ; 0x19 - Room 00B8
-#_0AF0E9: dw $0B4C, $4B4C, $0B4E, $4B4E ; 0x1A - Room 00B9
-#_0AF0F1: dw $0B51, $0B44, $0B00, $0B00 ; 0x1B - Room 00BA
-#_0AF0F9: dw $0B4F, $4B4F, $934F, $D34F ; 0x1C - Room 00C9
-#_0AF101: dw $0B00, $0B00, $0B00, $0B40 ; 0x1D - Room 00C8
-#_0AF109: dw $0B00, $0B41, $0B00, $0B42 ; 0x1E - Room 00D8
-#_0AF111: dw $0B00, $0B00, $0B43, $0B43 ; 0x1F - Room 00D9
-#_0AF119: dw $0B00, $0B00, $9344, $0B00 ; 0x20 - Room 00DA
+#_0AF0C1: dw $0B00, $0B40, $1345, $0B46 ; 0x15 - ROOM 0099
+#_0AF0C9: dw $8B42, $0B47, $0B42, $0B49 ; 0x16 - ROOM 00A8
+#_0AF0D1: dw $1348, $5348, $174A, $574A ; 0x17 - ROOM 00A9
+#_0AF0D9: dw $4B47, $CB42, $4B49, $4B42 ; 0x18 - ROOM 00AA
+#_0AF0E1: dw $0B00, $0B4B, $0B00, $0B4D ; 0x19 - ROOM 00B8
+#_0AF0E9: dw $0B4C, $4B4C, $0B4E, $4B4E ; 0x1A - ROOM 00B9
+#_0AF0F1: dw $0B51, $0B44, $0B00, $0B00 ; 0x1B - ROOM 00BA
+#_0AF0F9: dw $0B4F, $4B4F, $934F, $D34F ; 0x1C - ROOM 00C9
+#_0AF101: dw $0B00, $0B00, $0B00, $0B40 ; 0x1D - ROOM 00C8
+#_0AF109: dw $0B00, $0B41, $0B00, $0B42 ; 0x1E - ROOM 00D8
+#_0AF111: dw $0B00, $0B00, $0B43, $0B43 ; 0x1F - ROOM 00D9
+#_0AF119: dw $0B00, $0B00, $9344, $0B00 ; 0x20 - ROOM 00DA
 
 ;---------------------------------------------------------------------------------------------------
 ; Desert Palace
 ;---------------------------------------------------------------------------------------------------
-#_0AF121: dw $1340, $0B00, $1341, $0B00 ; 0x21 - Room 0063
-#_0AF129: dw $1740, $0B40, $0B42, $0B7D ; 0x22 - Room 0073
-#_0AF131: dw $4B7A, $0B7A, $0B7E, $4B7E ; 0x23 - Room 0074
-#_0AF139: dw $0B40, $8B4D, $4BBA, $0B55 ; 0x24 - Room 0076
-#_0AF141: dw $0B40, $8B55, $1378, $CB53 ; 0x25 - Room 0083
-#_0AF149: dw $4B76, $4B75, $13BB, $53BB ; 0x26 - Room 0084
-#_0AF151: dw $4B7F, $4B42, $0B83, $13BC ; 0x27 - Room 0086
-#_0AF159: dw $0B00, $0B00, $0B79, $0B00 ; 0x28 - Room 0033
-#_0AF161: dw $0B6E, $4B7C, $0B00, $0B41 ; 0x29 - Room 0042
-#_0AF169: dw $1340, $8B55, $0B42, $0B7B ; 0x2A - Room 0053
+#_0AF121: dw $1340, $0B00, $1341, $0B00 ; 0x21 - ROOM 0063
+#_0AF129: dw $1740, $0B40, $0B42, $0B7D ; 0x22 - ROOM 0073
+#_0AF131: dw $4B7A, $0B7A, $0B7E, $4B7E ; 0x23 - ROOM 0074
+#_0AF139: dw $0B40, $8B4D, $4BBA, $0B55 ; 0x24 - ROOM 0076
+#_0AF141: dw $0B40, $8B55, $1378, $CB53 ; 0x25 - ROOM 0083
+#_0AF149: dw $4B76, $4B75, $13BB, $53BB ; 0x26 - ROOM 0084
+#_0AF151: dw $4B7F, $4B42, $0B83, $13BC ; 0x27 - ROOM 0086
+#_0AF159: dw $0B00, $0B00, $0B79, $0B00 ; 0x28 - ROOM 0033
+#_0AF161: dw $0B6E, $4B7C, $0B00, $0B41 ; 0x29 - ROOM 0042
+#_0AF169: dw $1340, $8B55, $0B42, $0B7B ; 0x2A - ROOM 0053
 
 ;---------------------------------------------------------------------------------------------------
 ; Agahnim's Tower
 ;---------------------------------------------------------------------------------------------------
-#_0AF171: dw $8B42, $9344, $1341, $0B00 ; 0x2B - Room 00E0
-#_0AF179: dw $0B53, $9344, $8B53, $9344 ; 0x2C - Room 00C0/Room 00D0
-#_0AF181: dw $8B42, $9344, $0B42, $9344 ; 0x2D - Room 00B0
-#_0AF189: dw $934D, $0B00, $8B53, $9344 ; 0x2E - Room 0040
-#_0AF191: dw $0B00, $0B00, $0B40, $0B00 ; 0x2F - Room 0020
-#_0AF199: dw $0B41, $0B00, $1384, $0B00 ; 0x30 - Room 0030
+#_0AF171: dw $8B42, $9344, $1341, $0B00 ; 0x2B - ROOM 00E0
+#_0AF179: dw $0B53, $9344, $8B53, $9344 ; 0x2C - ROOM 00C0/ROOM 00D0
+#_0AF181: dw $8B42, $9344, $0B42, $9344 ; 0x2D - ROOM 00B0
+#_0AF189: dw $934D, $0B00, $8B53, $9344 ; 0x2E - ROOM 0040
+#_0AF191: dw $0B00, $0B00, $0B40, $0B00 ; 0x2F - ROOM 0020
+#_0AF199: dw $0B41, $0B00, $1384, $0B00 ; 0x30 - ROOM 0030
 
 ;---------------------------------------------------------------------------------------------------
 ; Swamp Palace
 ;---------------------------------------------------------------------------------------------------
-#_0AF1A1: dw $0BB8, $13B9, $4B85, $CB7C ; 0x31 - Room 0066
-#_0AF1A9: dw $0B87, $13B0, $4B7B, $9344 ; 0x32 - Room 0076
-#_0AF1B1: dw $0B00, $0B00, $0B40, $0B00 ; 0x33 - Room 0006
-#_0AF1B9: dw $0B91, $5391, $0B9C, $4B9C ; 0x34 - Room 0016
-#_0AF1C1: dw $8B42, $1392, $0B93, $1394 ; 0x35 - Room 0026
-#_0AF1C9: dw $0B95, $0B96, $9395, $8B96 ; 0x36 - Room 0034
-#_0AF1D1: dw $0B97, $0B98, $8B97, $8B98 ; 0x37 - Room 0035
-#_0AF1D9: dw $1799, $5799, $9799, $D799 ; 0x38 - Room 0036
-#_0AF1E1: dw $4B98, $4B97, $CB98, $CB97 ; 0x39 - Room 0037
-#_0AF1E9: dw $937B, $0B00, $0B7B, $0B00 ; 0x3A - Room 0038
-#_0AF1F1: dw $0BA6, $4BA6, $CB7A, $8B7A ; 0x3B - Room 0046
-#_0AF1F9: dw $0B8E, $4B8E, $938E, $CB8E ; 0x3C - Room 0054
-#_0AF201: dw $934D, $0B8F, $1390, $5390 ; 0x3D - Room 0028
+#_0AF1A1: dw $0BB8, $13B9, $4B85, $CB7C ; 0x31 - ROOM 0066
+#_0AF1A9: dw $0B87, $13B0, $4B7B, $9344 ; 0x32 - ROOM 0076
+#_0AF1B1: dw $0B00, $0B00, $0B40, $0B00 ; 0x33 - ROOM 0006
+#_0AF1B9: dw $0B91, $5391, $0B9C, $4B9C ; 0x34 - ROOM 0016
+#_0AF1C1: dw $8B42, $1392, $0B93, $1394 ; 0x35 - ROOM 0026
+#_0AF1C9: dw $0B95, $0B96, $9395, $8B96 ; 0x36 - ROOM 0034
+#_0AF1D1: dw $0B97, $0B98, $8B97, $8B98 ; 0x37 - ROOM 0035
+#_0AF1D9: dw $1799, $5799, $9799, $D799 ; 0x38 - ROOM 0036
+#_0AF1E1: dw $4B98, $4B97, $CB98, $CB97 ; 0x39 - ROOM 0037
+#_0AF1E9: dw $937B, $0B00, $0B7B, $0B00 ; 0x3A - ROOM 0038
+#_0AF1F1: dw $0BA6, $4BA6, $CB7A, $8B7A ; 0x3B - ROOM 0046
+#_0AF1F9: dw $0B8E, $4B8E, $938E, $CB8E ; 0x3C - ROOM 0054
+#_0AF201: dw $934D, $0B8F, $1390, $5390 ; 0x3D - ROOM 0028
 
 ;---------------------------------------------------------------------------------------------------
 ; Palace of Darkness
 ;---------------------------------------------------------------------------------------------------
-#_0AF209: dw $0B00, $0B00, $0B00, $8B48 ; 0x3E - Room 005A
-#_0AF211: dw $0B00, $934E, $0B00, $8B4D ; 0x3F - Room 006A
-#_0AF219: dw $8B72, $1346, $0B45, $0B46 ; 0x40 - Room 000B
-#_0AF221: dw $5744, $1744, $0B00, $0B00 ; 0x41 - Room 000A
-#_0AF229: dw $134D, $0B00, $8B54, $0B00 ; 0x42 - Room 003B
-#_0AF231: dw $1349, $1349, $0B00, $0B00 ; 0x43 - Room 0009
-#_0AF239: dw $0B4B, $8B48, $0B72, $4B72 ; 0x44 - Room 004B
-#_0AF241: dw $0B00, $0B74, $0B00, $0BB0 ; 0x45 - Room 0019
-#_0AF249: dw $0B71, $1747, $17AF, $0B4B ; 0x46 - Room 001A
-#_0AF251: dw $0B6F, $1370, $0B4B, $0B00 ; 0x47 - Room 001B
-#_0AF259: dw $0B6B, $8B6C, $8B6B, $0BAD ; 0x48 - Room 002A
-#_0AF261: dw $0B73, $0B00, $13AE, $0B46 ; 0x49 - Room 002B
-#_0AF269: dw $176B, $576B, $0B6A, $4B6A ; 0x4A - Room 003A
-#_0AF271: dw $1368, $5368, $1369, $5369 ; 0x4B - Room 004A
+#_0AF209: dw $0B00, $0B00, $0B00, $8B48 ; 0x3E - ROOM 005A
+#_0AF211: dw $0B00, $934E, $0B00, $8B4D ; 0x3F - ROOM 006A
+#_0AF219: dw $8B72, $1346, $0B45, $0B46 ; 0x40 - ROOM 000B
+#_0AF221: dw $5744, $1744, $0B00, $0B00 ; 0x41 - ROOM 000A
+#_0AF229: dw $134D, $0B00, $8B54, $0B00 ; 0x42 - ROOM 003B
+#_0AF231: dw $1349, $1349, $0B00, $0B00 ; 0x43 - ROOM 0009
+#_0AF239: dw $0B4B, $8B48, $0B72, $4B72 ; 0x44 - ROOM 004B
+#_0AF241: dw $0B00, $0B74, $0B00, $0BB0 ; 0x45 - ROOM 0019
+#_0AF249: dw $0B71, $1747, $17AF, $0B4B ; 0x46 - ROOM 001A
+#_0AF251: dw $0B6F, $1370, $0B4B, $0B00 ; 0x47 - ROOM 001B
+#_0AF259: dw $0B6B, $8B6C, $8B6B, $0BAD ; 0x48 - ROOM 002A
+#_0AF261: dw $0B73, $0B00, $13AE, $0B46 ; 0x49 - ROOM 002B
+#_0AF269: dw $176B, $576B, $0B6A, $4B6A ; 0x4A - ROOM 003A
+#_0AF271: dw $1368, $5368, $1369, $5369 ; 0x4B - ROOM 004A
 
 ;---------------------------------------------------------------------------------------------------
-; Stray Turtle Rock rooms
+; Stray Turtle Rock ROOMs
 ;---------------------------------------------------------------------------------------------------
-#_0AF279: dw $8B4E, $0B00, $9354, $0B00 ; 0x4C - Room 00D5
-#_0AF281: dw $0B00, $0B00, $0B00, $5377 ; 0x4D - Room 0023
+#_0AF279: dw $8B4E, $0B00, $9354, $0B00 ; 0x4C - ROOM 00D5
+#_0AF281: dw $0B00, $0B00, $0B00, $5377 ; 0x4D - ROOM 0023
 
 ;---------------------------------------------------------------------------------------------------
 ; Misery Mire
 ;---------------------------------------------------------------------------------------------------
-#_0AF289: dw $0B00, $974D, $0B00, $4B7B ; 0x4E - Room 0091
-#_0AF291: dw $0B40, $8B4D, $0B51, $0B8D ; 0x4F - Room 0092
-#_0AF299: dw $537A, $137A, $4B42, $8B40 ; 0x50 - Room 0093
+#_0AF289: dw $0B00, $974D, $0B00, $4B7B ; 0x4E - ROOM 0091
+#_0AF291: dw $0B40, $8B4D, $0B51, $0B8D ; 0x4F - ROOM 0092
+#_0AF299: dw $537A, $137A, $4B42, $8B40 ; 0x50 - ROOM 0093
 #_0AF2A1: dw $0B00, $0B00, $0B00, $0B00 ; 0x51 - UNUSED
-#_0AF2A9: dw $0B00, $0B00, $0B40, $0B00 ; 0x52 - Room 0090
-#_0AF2B1: dw $CB7A, $576E, $0B00, $0B00 ; 0x53 - Room 00A0
-#_0AF2B9: dw $0B6E, $0B9F, $0B00, $4BA5 ; 0x54 - Room 00A1
-#_0AF2C1: dw $13A0, $13A1, $0BA2, $0BA3 ; 0x55 - Room 00A2
-#_0AF2C9: dw $0BA4, $0B00, $0BA5, $0B00 ; 0x56 - Room 00A3
-#_0AF2D1: dw $0B40, $8B55, $0B42, $CB87 ; 0x57 - Room 00B1
-#_0AF2D9: dw $8B95, $0BA7, $8B42, $0BAF ; 0x58 - Room 00B2
-#_0AF2E1: dw $4B78, $0B00, $4B78, $0B00 ; 0x59 - Room 00B3
-#_0AF2E9: dw $8B42, $0B51, $0B78, $8B51 ; 0x5A - Room 00C1
-#_0AF2F1: dw $0BA8, $0BA9, $0BAC, $8BA9 ; 0x5B - Room 00C2
-#_0AF2F9: dw $0BAA, $17AB, $13B4, $8BAB ; 0x5C - Room 00C3
-#_0AF301: dw $17B1, $0B41, $4B44, $4B42 ; 0x5D - Room 00D1
-#_0AF309: dw $0B00, $0BAD, $0B00, $13AE ; 0x5E - Room 00D2
-#_0AF311: dw $1340, $0BB7, $0B42, $0BB6 ; 0x5F - Room 0097
-#_0AF319: dw $0B00, $0B00, $139D, $139E ; 0x60 - Room 0098
+#_0AF2A9: dw $0B00, $0B00, $0B40, $0B00 ; 0x52 - ROOM 0090
+#_0AF2B1: dw $CB7A, $576E, $0B00, $0B00 ; 0x53 - ROOM 00A0
+#_0AF2B9: dw $0B6E, $0B9F, $0B00, $4BA5 ; 0x54 - ROOM 00A1
+#_0AF2C1: dw $13A0, $13A1, $0BA2, $0BA3 ; 0x55 - ROOM 00A2
+#_0AF2C9: dw $0BA4, $0B00, $0BA5, $0B00 ; 0x56 - ROOM 00A3
+#_0AF2D1: dw $0B40, $8B55, $0B42, $CB87 ; 0x57 - ROOM 00B1
+#_0AF2D9: dw $8B95, $0BA7, $8B42, $0BAF ; 0x58 - ROOM 00B2
+#_0AF2E1: dw $4B78, $0B00, $4B78, $0B00 ; 0x59 - ROOM 00B3
+#_0AF2E9: dw $8B42, $0B51, $0B78, $8B51 ; 0x5A - ROOM 00C1
+#_0AF2F1: dw $0BA8, $0BA9, $0BAC, $8BA9 ; 0x5B - ROOM 00C2
+#_0AF2F9: dw $0BAA, $17AB, $13B4, $8BAB ; 0x5C - ROOM 00C3
+#_0AF301: dw $17B1, $0B41, $4B44, $4B42 ; 0x5D - ROOM 00D1
+#_0AF309: dw $0B00, $0BAD, $0B00, $13AE ; 0x5E - ROOM 00D2
+#_0AF311: dw $1340, $0BB7, $0B42, $0BB6 ; 0x5F - ROOM 0097
+#_0AF319: dw $0B00, $0B00, $139D, $139E ; 0x60 - ROOM 0098
 
 ;---------------------------------------------------------------------------------------------------
 ; Skull Woods
 ;---------------------------------------------------------------------------------------------------
-#_0AF321: dw $0B00, $0B00, $0B00, $0B79 ; 0x61 - Room 0029
-#_0AF329: dw $0B00, $0B00, $8B42, $0B86 ; 0x62 - Room 0039
-#_0AF331: dw $0B42, $8B7B, $8B42, $0B7B ; 0x63 - Room 0049
-#_0AF339: dw $0B87, $8B7B, $9387, $0B7B ; 0x64 - Room 0059
-#_0AF341: dw $0B40, $13B3, $1378, $0B8D ; 0x65 - Room 0056
-#_0AF349: dw $8B42, $0B88, $5378, $0B40 ; 0x66 - Room 0057
-#_0AF351: dw $4B44, $D342, $97B5, $4B78 ; 0x67 - Room 0058
-#_0AF359: dw $13B3, $8B55, $4B7B, $0B8D ; 0x68 - Room 0067
-#_0AF361: dw $0B89, $138A, $0B8B, $0B8C ; 0x69 - Room 0068
+#_0AF321: dw $0B00, $0B00, $0B00, $0B79 ; 0x61 - ROOM 0029
+#_0AF329: dw $0B00, $0B00, $8B42, $0B86 ; 0x62 - ROOM 0039
+#_0AF331: dw $0B42, $8B7B, $8B42, $0B7B ; 0x63 - ROOM 0049
+#_0AF339: dw $0B87, $8B7B, $9387, $0B7B ; 0x64 - ROOM 0059
+#_0AF341: dw $0B40, $13B3, $1378, $0B8D ; 0x65 - ROOM 0056
+#_0AF349: dw $8B42, $0B88, $5378, $0B40 ; 0x66 - ROOM 0057
+#_0AF351: dw $4B44, $D342, $97B5, $4B78 ; 0x67 - ROOM 0058
+#_0AF359: dw $13B3, $8B55, $4B7B, $0B8D ; 0x68 - ROOM 0067
+#_0AF361: dw $0B89, $138A, $0B8B, $0B8C ; 0x69 - ROOM 0068
 
 ;---------------------------------------------------------------------------------------------------
 ; Ice Palace
 ;---------------------------------------------------------------------------------------------------
-#_0AF369: dw $0B00, $0B7C, $0B00, $0B00 ; 0x6A - Room 00DE
-#_0AF371: dw $0B00, $9348, $0B00, $0B56 ; 0x6B - Room 00BE
-#_0AF379: dw $0B00, $0B00, $0B88, $0B00 ; 0x6C - Room 00BF
-#_0AF381: dw $0B00, $0B48, $0B00, $0B00 ; 0x6D - Room 00CE
-#_0AF389: dw $0B00, $9348, $1786, $0B65 ; 0x6E - Room 009E
-#_0AF391: dw $0B00, $0B00, $CB5A, $0B00 ; 0x6F - Room 009F
-#_0AF399: dw $0B00, $5388, $0B00, $0B00 ; 0x70 - Room 00AE
-#_0AF3A1: dw $4B5A, $0B00, $0B00, $0B00 ; 0x71 - Room 00AF
-#_0AF3A9: dw $0B00, $CB5B, $13AB, $0BAC ; 0x72 - Room 007E
-#_0AF3B1: dw $CB5A, $0B00, $137E, $0B00 ; 0x73 - Room 007F
-#_0AF3B9: dw $0B00, $137E, $0B00, $0B00 ; 0x74 - Room 008E
-#_0AF3C1: dw $0B00, $8B48, $1783, $1384 ; 0x75 - Room 005E
-#_0AF3C9: dw $0B00, $0B00, $1385, $0B00 ; 0x76 - Room 005F
-#_0AF3D1: dw $0B00, $537E, $0B00, $0B00 ; 0x77 - Room 006E
-#_0AF3D9: dw $0B00, $8B48, $0B43, $CB43 ; 0x78 - Room 003E
-#_0AF3E1: dw $0B00, $0B00, $1379, $137A ; 0x79 - Room 003F
-#_0AF3E9: dw $0B5A, $137B, $0B00, $0B00 ; 0x7A - Room 004E
-#_0AF3F1: dw $0B00, $8B48, $137F, $1380 ; 0x7B - Room 001E
-#_0AF3F9: dw $0B00, $0B00, $1381, $1382 ; 0x7C - Room 001F
-#_0AF401: dw $0B00, $0B48, $0B00, $0B00 ; 0x7D - Room 002E
-#_0AF409: dw $0B00, $0B00, $1387, $1377 ; 0x7E - Room 000E
+#_0AF369: dw $0B00, $0B7C, $0B00, $0B00 ; 0x6A - ROOM 00DE
+#_0AF371: dw $0B00, $9348, $0B00, $0B56 ; 0x6B - ROOM 00BE
+#_0AF379: dw $0B00, $0B00, $0B88, $0B00 ; 0x6C - ROOM 00BF
+#_0AF381: dw $0B00, $0B48, $0B00, $0B00 ; 0x6D - ROOM 00CE
+#_0AF389: dw $0B00, $9348, $1786, $0B65 ; 0x6E - ROOM 009E
+#_0AF391: dw $0B00, $0B00, $CB5A, $0B00 ; 0x6F - ROOM 009F
+#_0AF399: dw $0B00, $5388, $0B00, $0B00 ; 0x70 - ROOM 00AE
+#_0AF3A1: dw $4B5A, $0B00, $0B00, $0B00 ; 0x71 - ROOM 00AF
+#_0AF3A9: dw $0B00, $CB5B, $13AB, $0BAC ; 0x72 - ROOM 007E
+#_0AF3B1: dw $CB5A, $0B00, $137E, $0B00 ; 0x73 - ROOM 007F
+#_0AF3B9: dw $0B00, $137E, $0B00, $0B00 ; 0x74 - ROOM 008E
+#_0AF3C1: dw $0B00, $8B48, $1783, $1384 ; 0x75 - ROOM 005E
+#_0AF3C9: dw $0B00, $0B00, $1385, $0B00 ; 0x76 - ROOM 005F
+#_0AF3D1: dw $0B00, $537E, $0B00, $0B00 ; 0x77 - ROOM 006E
+#_0AF3D9: dw $0B00, $8B48, $0B43, $CB43 ; 0x78 - ROOM 003E
+#_0AF3E1: dw $0B00, $0B00, $1379, $137A ; 0x79 - ROOM 003F
+#_0AF3E9: dw $0B5A, $137B, $0B00, $0B00 ; 0x7A - ROOM 004E
+#_0AF3F1: dw $0B00, $8B48, $137F, $1380 ; 0x7B - ROOM 001E
+#_0AF3F9: dw $0B00, $0B00, $1381, $1382 ; 0x7C - ROOM 001F
+#_0AF401: dw $0B00, $0B48, $0B00, $0B00 ; 0x7D - ROOM 002E
+#_0AF409: dw $0B00, $0B00, $1387, $1377 ; 0x7E - ROOM 000E
 
 ;---------------------------------------------------------------------------------------------------
 ; Tower of Hera
 ;---------------------------------------------------------------------------------------------------
-#_0AF411: dw $5746, $0B47, $1349, $0B48 ; 0x7F - Room 0087
-#_0AF419: dw $1375, $4B42, $174A, $574A ; 0x80 - Room 0077
-#_0AF421: dw $0B43, $1344, $0B45, $1746 ; 0x81 - Room 0031
-#_0AF429: dw $1742, $5742, $8B42, $CB42 ; 0x82 - Room 0027
-#_0AF431: dw $1375, $5375, $8B42, $CB42 ; 0x83 - Room 0017
-#_0AF439: dw $4B40, $1340, $0B41, $4B41 ; 0x84 - Room 0007
+#_0AF411: dw $5746, $0B47, $1349, $0B48 ; 0x7F - ROOM 0087
+#_0AF419: dw $1375, $4B42, $174A, $574A ; 0x80 - ROOM 0077
+#_0AF421: dw $0B43, $1344, $0B45, $1746 ; 0x81 - ROOM 0031
+#_0AF429: dw $1742, $5742, $8B42, $CB42 ; 0x82 - ROOM 0027
+#_0AF431: dw $1375, $5375, $8B42, $CB42 ; 0x83 - ROOM 0017
+#_0AF439: dw $4B40, $1340, $0B41, $4B41 ; 0x84 - ROOM 0007
 
 ;---------------------------------------------------------------------------------------------------
 ; Thieves' Town
 ;---------------------------------------------------------------------------------------------------
-#_0AF441: dw $4B46, $0B71, $1786, $8B71 ; 0x85 - Room 0044
-#_0AF449: dw $1347, $0B4D, $0B65, $0B5B ; 0x86 - Room 0045
-#_0AF451: dw $0B00, $0B00, $9348, $0B00 ; 0x87 - Room 00AB
-#_0AF459: dw $0B00, $0B00, $0B00, $8B48 ; 0x88 - Room 00AC
-#_0AF461: dw $4B66, $8B65, $4B5B, $0B65 ; 0x89 - Room 00BB
-#_0AF469: dw $9365, $0B66, $0B63, $8B66 ; 0x8A - Room 00BC
-#_0AF471: dw $4B51, $0B5F, $CB76, $0B60 ; 0x8B - Room 00CB
-#_0AF479: dw $0B64, $4B4F, $4B60, $8B76 ; 0x8C - Room 00CC
-#_0AF481: dw $4B76, $0B61, $D376, $1362 ; 0x8D - Room 00DB
-#_0AF489: dw $4B61, $0B76, $CB58, $8B51 ; 0x8E - Room 00DC
-#_0AF491: dw $0B00, $0B00, $5746, $0B5E ; 0x8F - Room 0064
-#_0AF499: dw $0B00, $0B00, $0B5E, $0B46 ; 0x90 - Room 0065
+#_0AF441: dw $4B46, $0B71, $1786, $8B71 ; 0x85 - ROOM 0044
+#_0AF449: dw $1347, $0B4D, $0B65, $0B5B ; 0x86 - ROOM 0045
+#_0AF451: dw $0B00, $0B00, $9348, $0B00 ; 0x87 - ROOM 00AB
+#_0AF459: dw $0B00, $0B00, $0B00, $8B48 ; 0x88 - ROOM 00AC
+#_0AF461: dw $4B66, $8B65, $4B5B, $0B65 ; 0x89 - ROOM 00BB
+#_0AF469: dw $9365, $0B66, $0B63, $8B66 ; 0x8A - ROOM 00BC
+#_0AF471: dw $4B51, $0B5F, $CB76, $0B60 ; 0x8B - ROOM 00CB
+#_0AF479: dw $0B64, $4B4F, $4B60, $8B76 ; 0x8C - ROOM 00CC
+#_0AF481: dw $4B76, $0B61, $D376, $1362 ; 0x8D - ROOM 00DB
+#_0AF489: dw $4B61, $0B76, $CB58, $8B51 ; 0x8E - ROOM 00DC
+#_0AF491: dw $0B00, $0B00, $5746, $0B5E ; 0x8F - ROOM 0064
+#_0AF499: dw $0B00, $0B00, $0B5E, $0B46 ; 0x90 - ROOM 0065
 
 ;---------------------------------------------------------------------------------------------------
 ; Turtle Rock
 ;---------------------------------------------------------------------------------------------------
-#_0AF4A1: dw $0B00, $0B00, $8B48, $0B00 ; 0x91 - Room 00A4
-#_0AF4A9: dw $0B4F, $0B51, $CB76, $8B76 ; 0x92 - Room 00B4
-#_0AF4B1: dw $5351, $0B51, $8B4F, $8B51 ; 0x93 - Room 00B5
-#_0AF4B9: dw $4B76, $0B76, $CB51, $8B58 ; 0x94 - Room 00C4
-#_0AF4C1: dw $0B54, $0B00, $8B66, $0B00 ; 0x95 - Room 00C5
-#_0AF4C9: dw $9348, $8B48, $0B56, $4B45 ; 0x96 - Room 0004
-#_0AF4D1: dw $0B00, $0B57, $0B00, $0B59 ; 0x97 - Room 0013
-#_0AF4D9: dw $4B50, $0B58, $CB50, $8B50 ; 0x98 - Room 0014
-#_0AF4E1: dw $5758, $1751, $CB58, $8B51 ; 0x99 - Room 0015
-#_0AF4E9: dw $0B56, $4B56, $0B65, $5756 ; 0x9A - Room 0024
-#_0AF4F1: dw $9348, $8B48, $0B4C, $0B4B ; 0x9B - Room 00B6
-#_0AF4F9: dw $0B4D, $0B00, $8B54, $0B00 ; 0x9C - Room 00B7
-#_0AF501: dw $0B4F, $0B50, $8B4F, $8B50 ; 0x9D - Room 00C6
-#_0AF509: dw $4B50, $0B51, $CB58, $8B51 ; 0x9E - Room 00C7
-#_0AF511: dw $0B52, $0B54, $0B53, $9354 ; 0x9F - Room 00D6
+#_0AF4A1: dw $0B00, $0B00, $8B48, $0B00 ; 0x91 - ROOM 00A4
+#_0AF4A9: dw $0B4F, $0B51, $CB76, $8B76 ; 0x92 - ROOM 00B4
+#_0AF4B1: dw $5351, $0B51, $8B4F, $8B51 ; 0x93 - ROOM 00B5
+#_0AF4B9: dw $4B76, $0B76, $CB51, $8B58 ; 0x94 - ROOM 00C4
+#_0AF4C1: dw $0B54, $0B00, $8B66, $0B00 ; 0x95 - ROOM 00C5
+#_0AF4C9: dw $9348, $8B48, $0B56, $4B45 ; 0x96 - ROOM 0004
+#_0AF4D1: dw $0B00, $0B57, $0B00, $0B59 ; 0x97 - ROOM 0013
+#_0AF4D9: dw $4B50, $0B58, $CB50, $8B50 ; 0x98 - ROOM 0014
+#_0AF4E1: dw $5758, $1751, $CB58, $8B51 ; 0x99 - ROOM 0015
+#_0AF4E9: dw $0B56, $4B56, $0B65, $5756 ; 0x9A - ROOM 0024
+#_0AF4F1: dw $9348, $8B48, $0B4C, $0B4B ; 0x9B - ROOM 00B6
+#_0AF4F9: dw $0B4D, $0B00, $8B54, $0B00 ; 0x9C - ROOM 00B7
+#_0AF501: dw $0B4F, $0B50, $8B4F, $8B50 ; 0x9D - ROOM 00C6
+#_0AF509: dw $4B50, $0B51, $CB58, $8B51 ; 0x9E - ROOM 00C7
+#_0AF511: dw $0B52, $0B54, $0B53, $9354 ; 0x9F - ROOM 00D6
 
 ;---------------------------------------------------------------------------------------------------
 ; Ganon's Tower
 ;---------------------------------------------------------------------------------------------------
-#_0AF519: dw $9748, $9748, $138D, $138E ; 0xA0 - Room 001C
-#_0AF521: dw $1391, $1392, $138C, $138F ; 0xA1 - Room 007B
-#_0AF529: dw $1393, $1390, $9393, $138F ; 0xA2 - Room 007C
-#_0AF531: dw $1394, $1395, $138E, $138C ; 0xA3 - Room 007D
-#_0AF539: dw $175D, $1399, $975D, $538F ; 0xA4 - Room 008B
-#_0AF541: dw $1397, $1398, $179A, $138C ; 0xA5 - Room 008C
-#_0AF549: dw $1399, $1766, $138F, $D75D ; 0xA6 - Room 008D
-#_0AF551: dw $538E, $538F, $1391, $1392 ; 0xA7 - Room 009B
-#_0AF559: dw $139B, $539B, $139C, $539C ; 0xA8 - Room 009C
-#_0AF561: dw $138F, $138E, $5392, $5391 ; 0xA9 - Room 009D
-#_0AF569: dw $138A, $538A, $138B, $538B ; 0xAA - Room 000C
-#_0AF571: dw $0B00, $CB5B, $0B00, $8B54 ; 0xAB - Room 005B
-#_0AF579: dw $4B74, $13A6, $0B00, $4B48 ; 0xAC - Room 005C
-#_0AF581: dw $13A0, $13A1, $538E, $138E ; 0xAD - Room 006B
-#_0AF589: dw $D38E, $53A3, $13A4, $0B00 ; 0xAE - Room 005D
-#_0AF591: dw $97AA, $0B00, $538E, $1399 ; 0xAF - Room 006C
-#_0AF599: dw $13A4, $0B00, $138E, $0B00 ; 0xB0 - Room 006D
-#_0AF5A1: dw $0B00, $5393, $0B00, $574E ; 0xB1 - Room 0095
-#_0AF5A9: dw $4B7D, $0B00, $8B7D, $139F ; 0xB2 - Room 0096
-#_0AF5B1: dw $97AA, $13A4, $13A9, $53A9 ; 0xB3 - Room 00A5
-#_0AF5B9: dw $13A5, $13A6, $93A5, $D3A5 ; 0xB4 - Room 00A6
-#_0AF5C1: dw $D38E, $938E, $13A4, $13AA ; 0xB5 - Room 0034
-#_0AF5C9: dw $0B00, $13A6, $0B00, $8B5F ; 0xB6 - Room 004C
-#_0AF5D1: dw $139B, $13A6, $139C, $53A2 ; 0xB7 - Room 004D
-#_0AF5D9: dw $0B00, $0B00, $138C, $0B00 ; 0xB8 - Room 000D
-#_0AF5E1: dw $9394, $139E, $0B00, $0B00 ; 0xB9 - Room 001D
+#_0AF519: dw $9748, $9748, $138D, $138E ; 0xA0 - ROOM 001C
+#_0AF521: dw $1391, $1392, $138C, $138F ; 0xA1 - ROOM 007B
+#_0AF529: dw $1393, $1390, $9393, $138F ; 0xA2 - ROOM 007C
+#_0AF531: dw $1394, $1395, $138E, $138C ; 0xA3 - ROOM 007D
+#_0AF539: dw $175D, $1399, $975D, $538F ; 0xA4 - ROOM 008B
+#_0AF541: dw $1397, $1398, $179A, $138C ; 0xA5 - ROOM 008C
+#_0AF549: dw $1399, $1766, $138F, $D75D ; 0xA6 - ROOM 008D
+#_0AF551: dw $538E, $538F, $1391, $1392 ; 0xA7 - ROOM 009B
+#_0AF559: dw $139B, $539B, $139C, $539C ; 0xA8 - ROOM 009C
+#_0AF561: dw $138F, $138E, $5392, $5391 ; 0xA9 - ROOM 009D
+#_0AF569: dw $138A, $538A, $138B, $538B ; 0xAA - ROOM 000C
+#_0AF571: dw $0B00, $CB5B, $0B00, $8B54 ; 0xAB - ROOM 005B
+#_0AF579: dw $4B74, $13A6, $0B00, $4B48 ; 0xAC - ROOM 005C
+#_0AF581: dw $13A0, $13A1, $538E, $138E ; 0xAD - ROOM 006B
+#_0AF589: dw $D38E, $53A3, $13A4, $0B00 ; 0xAE - ROOM 005D
+#_0AF591: dw $97AA, $0B00, $538E, $1399 ; 0xAF - ROOM 006C
+#_0AF599: dw $13A4, $0B00, $138E, $0B00 ; 0xB0 - ROOM 006D
+#_0AF5A1: dw $0B00, $5393, $0B00, $574E ; 0xB1 - ROOM 0095
+#_0AF5A9: dw $4B7D, $0B00, $8B7D, $139F ; 0xB2 - ROOM 0096
+#_0AF5B1: dw $97AA, $13A4, $13A9, $53A9 ; 0xB3 - ROOM 00A5
+#_0AF5B9: dw $13A5, $13A6, $93A5, $D3A5 ; 0xB4 - ROOM 00A6
+#_0AF5C1: dw $D38E, $938E, $13A4, $13AA ; 0xB5 - ROOM 0034
+#_0AF5C9: dw $0B00, $13A6, $0B00, $8B5F ; 0xB6 - ROOM 004C
+#_0AF5D1: dw $139B, $13A6, $139C, $53A2 ; 0xB7 - ROOM 004D
+#_0AF5D9: dw $0B00, $0B00, $138C, $0B00 ; 0xB8 - ROOM 000D
+#_0AF5E1: dw $9394, $139E, $0B00, $0B00 ; 0xB9 - ROOM 001D
 
 ;===================================================================================================
 ; byte 1: ffff bbbb
@@ -13999,7 +13999,7 @@ HUD_HandleFloorIndicator:
 #_0AFD66: BNE .no_rain_noise
 
 #_0AFD68: LDA.b $A0
-#_0AFD6A: CMP.w #$0002
+#_0AFD6A: CMP.w #$0002 ; ROOM 0002
 #_0AFD6D: BEQ .no_rain_noise
 
 #_0AFD6F: SEP #$20
@@ -14185,14 +14185,14 @@ NULL_0AFE38:
 pool Underworld_HandleLayerEffect
 
 .vectors
-#_0AFE70: dw LayerEffect_Nothing
-#_0AFE72: dw LayerEffect_Nothing
-#_0AFE74: dw LayerEffect_Scroll
-#_0AFE76: dw LayerEffect_WaterRapids
-#_0AFE78: dw LayerEffect_Trinexx
-#_0AFE7A: dw LayerEffect_Agahnim2
-#_0AFE7C: dw LayerEffect_InvisibleFloor
-#_0AFE7E: dw LayerEffect_Ganon
+#_0AFE70: dw LayerEffect_Nothing           ; 00
+#_0AFE72: dw LayerEffect_Nothing           ; 01
+#_0AFE74: dw LayerEffect_Scroll            ; 02
+#_0AFE76: dw LayerEffect_WaterRapids       ; 03
+#_0AFE78: dw LayerEffect_Trinexx           ; 04
+#_0AFE7A: dw LayerEffect_Agahnim2          ; 05
+#_0AFE7C: dw LayerEffect_InvisibleFloor    ; 06
+#_0AFE7E: dw LayerEffect_Ganon             ; 07
 
 pool off
 
