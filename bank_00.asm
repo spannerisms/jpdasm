@@ -3,7 +3,7 @@ org $008000
 ;===================================================================================================
 ; This is probably how the game starts!
 ;===================================================================================================
-Interrupt_Reset:
+Reset:
 #_008000: SEI
 
 #_008001: STZ.w NMITIMEN
@@ -77,10 +77,10 @@ MainGameLoop:
 #_008051: INC.b $1A
 
 #_008053: JSR ClearOAMBuffer
-#_008056: JSL Module_MainRouting
+#_008056: JSL RunModule
 
 .skip_frame
-#_00805A: JSR NMI_PrepareSprites
+#_00805A: JSR PrepareOAMForTransfer
 
 #_00805D: STZ.b $12
 
@@ -88,7 +88,7 @@ MainGameLoop:
 
 ;===================================================================================================
 
-pool Module_MainRouting
+pool RunModule
 
 .low
 #_008061: db Module00_Intro>>0
@@ -114,11 +114,11 @@ pool Module_MainRouting
 #_008071: db Module10_SpotlightOpen>>0
 #_008072: db Module11_UnderworldFallingEntrance>>0
 #_008073: db Module12_GameOver>>0
-#_008074: db Module13_BossVictory_Pendant>>0
+#_008074: db Module13_PendantBossVictory>>0
 
 #_008075: db Module14_Attract>>0
 #_008076: db Module15_MirrorWarpFromAga>>0
-#_008077: db Module16_BossVictory_Crystal>>0
+#_008077: db Module16_CrystalBossVictory>>0
 #_008078: db Module17_SaveAndQuit>>0
 
 #_008079: db Module18_GanonEmerges>>0
@@ -128,7 +128,7 @@ pool Module_MainRouting
 
 ;---------------------------------------------------------------------------------------------------
 
-.mid
+.high
 #_00807D: db Module00_Intro>>8
 #_00807E: db Module01_FileSelect>>8
 #_00807F: db Module02_CopyFile>>8
@@ -152,11 +152,11 @@ pool Module_MainRouting
 #_00808D: db Module10_SpotlightOpen>>8
 #_00808E: db Module11_UnderworldFallingEntrance>>8
 #_00808F: db Module12_GameOver>>8
-#_008090: db Module13_BossVictory_Pendant>>8
+#_008090: db Module13_PendantBossVictory>>8
 
 #_008091: db Module14_Attract>>8
 #_008092: db Module15_MirrorWarpFromAga>>8
-#_008093: db Module16_BossVictory_Crystal>>8
+#_008093: db Module16_CrystalBossVictory>>8
 #_008094: db Module17_SaveAndQuit>>8
 
 #_008095: db Module18_GanonEmerges>>8
@@ -190,11 +190,11 @@ pool Module_MainRouting
 #_0080A9: db Module10_SpotlightOpen>>16
 #_0080AA: db Module11_UnderworldFallingEntrance>>16
 #_0080AB: db Module12_GameOver>>16
-#_0080AC: db Module13_BossVictory_Pendant>>16
+#_0080AC: db Module13_PendantBossVictory>>16
 
 #_0080AD: db Module14_Attract>>16
 #_0080AE: db Module15_MirrorWarpFromAga>>16
-#_0080AF: db Module16_BossVictory_Crystal>>16
+#_0080AF: db Module16_CrystalBossVictory>>16
 #_0080B0: db Module17_SaveAndQuit>>16
 
 #_0080B1: db Module18_GanonEmerges>>16
@@ -206,13 +206,13 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Module_MainRouting:
+RunModule:
 #_0080B5: LDY.b $10
 
 #_0080B7: LDA.w .low,Y
 #_0080BA: STA.b $03
 
-#_0080BC: LDA.w .mid,Y
+#_0080BC: LDA.w .high,Y
 #_0080BF: STA.b $04
 
 #_0080C1: LDA.w .bank,Y
@@ -223,7 +223,7 @@ Module_MainRouting:
 ;===================================================================================================
 ; NMI routine triggered every frame
 ;===================================================================================================
-Interrupt_NMI:
+NMI:
 #_0080C9: SEI
 #_0080CA: REP #$30
 
@@ -319,19 +319,19 @@ Interrupt_NMI:
 
 #_00813C: INC.b $12
 
-#_00813E: JSR NMI_DoUpdates
-#_008141: JSR NMI_ReadJoypads
+#_00813E: JSR DoNMIUpdates
+#_008141: JSR ReadJoypad
 
 .lag_frame
 ; this is an IRQ flag of sorts
 #_008144: LDA.w $012A
-#_008147: BEQ NMI_NoIRQThread
+#_008147: BEQ NoIRQThread
 
-#_008149: JMP.w NMI_SwitchThread
+#_008149: JMP.w SwitchThread
 
 ;===================================================================================================
 
-NMI_NoIRQThread:
+NoIRQThread:
 #_00814C: LDA.b $96
 #_00814E: STA.w W12SEL
 
@@ -443,8 +443,8 @@ NMI_NoIRQThread:
 
 #_008208: LDA.b #$38
 #_00820A: STA.w VTIMEL
-
 #_00820D: STZ.w VTIMEH
+
 #_008210: STZ.w HTIMEL
 #_008213: STZ.w HTIMEH
 
@@ -477,8 +477,8 @@ Interrupt_Unused:
 
 ;===================================================================================================
 
-NMI_SwitchThread:
-#_00822D: JSR NMI_UpdateIRQGFX
+SwitchThread:
+#_00822D: JSR UpdateIRQGFX
 
 #_008230: LDA.b $FF
 #_008232: STA.w VTIMEL
@@ -591,7 +591,7 @@ NMI_SwitchThread:
 ;===================================================================================================
 ; the IRQ routine mostly handles polyhedral drawing
 ;===================================================================================================
-Interrupt_IRQ:
+IRQ:
 #_0082D8: SEI
 #_0082D9: REP #$30
 
@@ -676,7 +676,7 @@ Interrupt_IRQ:
 
 ;===================================================================================================
 
-EraseTilemaps_triforce:
+EraseTilemaps_bg3:
 #_008333: REP #$20
 
 #_008335: LDA.w #$0188
@@ -789,7 +789,7 @@ EraseTilemaps:
 ;===================================================================================================
 ; Reads joypad inputs and saves them to WRAM
 ;===================================================================================================
-NMI_ReadJoypads:
+ReadJoypad:
 #_0083D1: STZ.w JOYPAD
 
 #_0083D4: LDA.w JOY1L
@@ -977,7 +977,7 @@ DynamicOAM_LinkItemAddresses:
 #_008542: dw $7E9480, $7E9480, $7E9480, $7E9480 ; null
 #_00854A: dw $7E9480, $7E9480, $7E9480, $7E9480 ; null
 
-#_008552: dw $7E9A80, $7E9480, $7E9480, $7E9480 ; null
+#_008552: dw $7E9A80, $7E9480, $7E9480, $7E9480 ; sprinkles
 #_00855A: dw $7E9480, $7E9480, $7E9480, $7E9480 ; null
 #_008562: dw $7E9480, $7E9480, $7E9480, $7E9480 ; null
 #_00856A: dw $7E9480, $7E9480, $7E9480, $7E9480 ; null
@@ -1027,7 +1027,7 @@ StarTileOffset:
 ;===================================================================================================
 ; also contains gfx stuff
 ;===================================================================================================
-NMI_PrepareSprites:
+PrepareOAMForTransfer:
 #_0085FC: LDY.b #$1C
 
 ; This first segment just merges all the individual OAM sx entries for DMA.
@@ -1188,13 +1188,13 @@ NMI_PrepareSprites:
 #_0086D9: ADC.w #$0100
 #_0086DC: STA.w $0ADA
 
+;---------------------------------------------------------------------------------------------------
+
 ; Animated tiles
 #_0086DF: LDA.l $7EC00D
 #_0086E3: DEC A
 #_0086E4: STA.l $7EC00D
 #_0086E8: BNE .dont_animate_bg
-
-;---------------------------------------------------------------------------------------------------
 
 ; unused overlays here, but they make the timer longer
 #_0086EA: LDA.w #$0009
@@ -1447,25 +1447,21 @@ InitializeMemoryAndSRAM:
 
 ;===================================================================================================
 
-Overworld_GetTileTypeAtLocation:
+GetOverworldTileType:
 #_00882E: REP #$30
 
 #_008830: LDA.b $00
 #_008832: SEC
 #_008833: SBC.w $0708
-
 #_008836: AND.w $070A
-
 #_008839: ASL A
 #_00883A: ASL A
 #_00883B: ASL A
-
 #_00883C: STA.b $06
 
 #_00883E: LDA.b $02
 #_008840: SEC
 #_008841: SBC.w $070C
-
 #_008844: AND.w $070E
 #_008847: ORA.b $06
 #_008849: TAX
@@ -1494,8 +1490,6 @@ Overworld_GetTileTypeAtLocation:
 #_00886D: TAX
 
 #_00886E: LDA.l OverworldTileTypes,X
-
-;---------------------------------------------------------------------------------------------------
 
 #_008872: SEP #$30
 
@@ -1563,9 +1557,9 @@ LoadSongBank:
 .no_bank_wrap
 #_0088B2: XBA
 
-.wait_for_zero
+.wait_for_sync_a
 #_0088B3: CMP.w APUIO0
-#_0088B6: BNE .wait_for_zero
+#_0088B6: BNE .wait_for_sync_a
 
 #_0088B8: INC A
 
@@ -1579,9 +1573,9 @@ LoadSongBank:
 #_0088C0: DEX
 #_0088C1: BNE .next_byte
 
-.wait_for_sync
+.wait_for_sync_b
 #_0088C3: CMP.w APUIO0
-#_0088C6: BNE .wait_for_sync
+#_0088C6: BNE .wait_for_sync_b
 
 .make_A_nonzero
 #_0088C8: ADC.b #$03
@@ -1617,9 +1611,9 @@ LoadSongBank:
 #_0088E8: PLA
 #_0088E9: STA.w APUIO0
 
-.wait_for_sync_2
+.wait_for_sync_c
 #_0088EC: CMP.w APUIO0
-#_0088EF: BNE .wait_for_sync_2
+#_0088EF: BNE .wait_for_sync_c
 
 ; if X>0, transfer more
 #_0088F1: BVS .next_transfer
@@ -1815,7 +1809,7 @@ NULL_0089C2:
 
 ;===================================================================================================
 
-NMI_DoUpdates:
+DoNMIUpdates:
 #_0089E0: REP #$10
 
 #_0089E2: LDA.b #$80
@@ -1877,12 +1871,10 @@ NMI_DoUpdates:
 ; top of head
 #_008A41: LDY.w $0ACC
 #_008A44: STY.w DMA0ADDRL
-
 #_008A47: STX.w DMA0SIZE
 
 ; top of body
 #_008A4A: LDY.w $0AD0
-
 #_008A4D: STY.w DMA1ADDRL
 #_008A50: STX.w DMA1SIZE
 
@@ -1894,7 +1886,6 @@ NMI_DoUpdates:
 
 ;---------------------------------------------------------------------------------------------------
 
-; I'm like 90% sure this means to use bank 7E
 #_008A5C: LDA.b #$7E
 #_008A5E: STA.w DMA0ADDRB
 #_008A61: STA.w DMA1ADDRB
@@ -1905,19 +1896,16 @@ NMI_DoUpdates:
 ; sword graphics top
 #_008A6D: LDY.w $0AC0
 #_008A70: STY.w DMA0ADDRL
-
 #_008A73: STX.w DMA0SIZE
 
 ; shield graphics top
 #_008A76: LDY.w $0AC4
 #_008A79: STY.w DMA1ADDRL
-
 #_008A7C: STX.w DMA1SIZE
 
 ; volatile item gfx top
 #_008A7F: LDY.w $0AC8
 #_008A82: STY.w DMA2ADDRL
-
 #_008A85: STX.w DMA2SIZE
 
 ; rupee animation
@@ -1930,37 +1918,28 @@ NMI_DoUpdates:
 ; push blocks
 #_008A94: LDY.w $0AD8
 #_008A97: STY.w DMA4ADDRL
-
 #_008A9A: STX.w DMA4SIZE
 
-; Let 'em rip!
 #_008A9D: LDA.b #$1F
 #_008A9F: STA.w MDMAEN
 
-;---------------------------------------------------------------------------------------------------
-
-; now the next row
-; not sure why this couldn't be done with the first set
-; maybe because of the bank swap to 7E?
+; bottoms
 #_008AA2: LDY.w #$4150 ; VRAM $82A0
 #_008AA5: STY.w VMADDR
 
 ; sword bottom
 #_008AA8: LDY.w $0AC2
 #_008AAB: STY.w DMA0ADDRL
-
 #_008AAE: STX.w DMA0SIZE
 
 ; shield bottom
 #_008AB1: LDY.w $0AC6
 #_008AB4: STY.w DMA1ADDRL
-
 #_008AB7: STX.w DMA1SIZE
 
 ; item bottom
 #_008ABA: LDY.w $0ACA
 #_008ABD: STY.w DMA2ADDRL
-
 #_008AC0: STX.w DMA2SIZE
 
 ; rupee bottom
@@ -1973,7 +1952,6 @@ NMI_DoUpdates:
 ; bottom of block
 #_008ACF: LDY.w $0ADA
 #_008AD2: STY.w DMA4ADDRL
-
 #_008AD5: STX.w DMA4SIZE
 
 ; CHUG! CHUG! CHUG!
@@ -1988,26 +1966,21 @@ NMI_DoUpdates:
 ; follower head top
 #_008AE1: LDY.w $0AEC
 #_008AE4: STY.w DMA0ADDRL
-
 #_008AE7: STX.w DMA0SIZE
 
 ; follower body top
 #_008AEA: LDY.w $0AF0
-
 #_008AED: STY.w DMA1ADDRL
 #_008AF0: STX.w DMA1SIZE
 
 ; item get
 #_008AF3: LDY.w #$7EBD40 ; always this address in bank 7E
 #_008AF6: STY.w DMA2ADDRL
-
 #_008AF9: STX.w DMA2SIZE
 
 ; 3 at once nice
 #_008AFC: LDA.b #$07
 #_008AFE: STA.w MDMAEN
-
-;---------------------------------------------------------------------------------------------------
 
 ; now the bottom parts of those
 #_008B01: LDY.w #$4300 ; VRAM $8600
@@ -2016,26 +1989,22 @@ NMI_DoUpdates:
 ; follower head bottom
 #_008B07: LDY.w $0AEE
 #_008B0A: STY.w DMA0ADDRL
-
 #_008B0D: STX.w DMA0SIZE
 
 ; follower body bottom
 #_008B10: LDY.w $0AF2
 #_008B13: STY.w DMA1ADDRL
-
 #_008B16: STX.w DMA1SIZE
 
 ; item get bottom
 #_008B19: LDY.w #$7EBD80 ; always this address in bank 7E
 #_008B1C: STY.w DMA2ADDRL
-
 #_008B1F: STX.w DMA2SIZE
 
 #_008B22: STA.w MDMAEN
 
 ;---------------------------------------------------------------------------------------------------
 
-; wow the duck update is conditional!
 #_008B25: LDA.w $0AF4
 #_008B28: BEQ .no_update_swagduck
 
@@ -2045,13 +2014,10 @@ NMI_DoUpdates:
 ; top
 #_008B30: LDY.w $0AF6
 #_008B33: STY.w DMA0ADDRL
-
 #_008B36: STX.w DMA0SIZE
 
 #_008B39: LDA.b #$01
 #_008B3B: STA.w MDMAEN
-
-;---------------------------------------------------------------------------------------------------
 
 #_008B3E: LDY.w #$41E0 ; VRAM $83C0
 #_008B41: STY.w VMADDR
@@ -2059,7 +2025,6 @@ NMI_DoUpdates:
 ; bottom
 #_008B44: LDY.w $0AF8
 #_008B47: STY.w DMA0ADDRL
-
 #_008B4A: STX.w DMA0SIZE
 
 #_008B4D: STA.w MDMAEN
@@ -2106,7 +2071,6 @@ NMI_DoUpdates:
 #_008B87: LDA.b $15
 #_008B89: BEQ .skip_CGRAM
 
-; Transfer CGRAM
 #_008B8B: STZ.w CGADD
 
 #_008B8E: LDY.w #$2200
@@ -2127,7 +2091,6 @@ NMI_DoUpdates:
 ;---------------------------------------------------------------------------------------------------
 
 .skip_CGRAM
-; transfer OAM
 #_008BAA: REP #$20
 #_008BAC: SEP #$10
 
@@ -2179,7 +2142,6 @@ NMI_DoUpdates:
 ;---------------------------------------------------------------------------------------------------
 
 .no_stripes
-; Used by Graphics_IncrementalVRAMUpload
 #_008BF3: LDA.b $19
 #_008BF5: BEQ .no_incremental_upload
 
@@ -2325,7 +2287,7 @@ NMI_UploadTilemap:
 #_008CC4: LDA.w #$1801
 #_008CC7: STA.w DMA0MODE
 
-#_008CCA: LDA.w #$7E1000
+#_008CCA: LDA.w #$1000
 #_008CCD: STA.w DMA0ADDRL
 
 #_008CD0: LDA.w #$0800
@@ -2683,7 +2645,6 @@ NMI_UpdateLoadLightWorldMap:
 
 NMI_UpdateBG2Left:
 #_008EA9: LDA.b #$80
-
 #_008EAB: STA.w VMAIN
 
 #_008EAE: REP #$10
@@ -2708,7 +2669,7 @@ NMI_UpdateBG2Left:
 
 #_008ED2: STY.w DMA1SIZE
 
-#_008ED5: LDY.w #$0800
+#_008ED5: LDY.w #$0800 ; VRAM $1000
 #_008ED8: STY.w VMADDR
 
 #_008EDB: LDY.w #$7F0800
@@ -3153,7 +3114,7 @@ UnderworldTilemapQuadrantVRAMIndex:
 
 ;---------------------------------------------------------------------------------------------------
 
-Underworld_PrepareNextRoomQuadrantUpload:
+BuildBG2QuadrantForUpload:
 #_00913F: REP #$31
 
 #_009141: LDA.w $0418
@@ -3244,14 +3205,16 @@ Underworld_PrepareNextRoomQuadrantUpload:
 
 ;===================================================================================================
 
-WaterFlood_BuildOneQuadrantForVRAM:
+BuildBG1QuadrantForUpload:
+; This tag never even appears as effect 1
 #_0091C4: LDA.b $AE
 #_0091C6: CMP.b #$19
 #_0091C8: BNE TilemapPrep_NotWaterOnTag
 
+; And even if it did, this is always 00!!!
 #_0091CA: LDA.w $0405
-#_0091CD: AND.l DungeonMask+1
-#_0091D1: BEQ WaterFlood_BuildOneQuadrantForVRAM_not_triggered
+#_0091CD: AND.l BitMasks+1
+#_0091D1: BEQ BuildBG1QuadrantForUpload_not_triggered
 
 ;===================================================================================================
 
@@ -3343,7 +3306,7 @@ TilemapPrep_NotWaterOnTag:
 
 ;===================================================================================================
 
-WaterFlood_BuildOneQuadrantForVRAM_not_triggered:
+BuildBG1QuadrantForUpload_not_triggered:
 #_009252: REP #$31
 
 #_009254: LDX.w #$00F0
@@ -3485,7 +3448,7 @@ HandleStripes14:
 #_0092F0: LDA.b $05
 #_0092F2: BEQ .not_fixed_transfer
 
-#_0092F4: INX ; move X to the next address
+#_0092F4: INX ; +1 for division
 
 #_0092F5: TXA
 #_0092F6: LSR A ; and divide it by 2
@@ -3501,7 +3464,7 @@ HandleStripes14:
 #_009301: LSR A
 #_009302: STA.w DMA1MODE
 
-#_009305: LDA.b $07 ; tell VMAIN to increment by 0x32 on $2118 writes
+#_009305: LDA.b $07 ;  ; get increment size
 #_009307: STA.w VMAIN
 
 #_00930A: LDA.b #$02 ; enable DMA channel for stripe
@@ -3556,7 +3519,7 @@ HandleStripes14:
 
 ;===================================================================================================
 
-NMI_UpdateIRQGFX:
+UpdateIRQGFX:
 ; Check for a transfer
 #_009347: LDA.w $1F0C
 #_00934A: BEQ .exit
@@ -4278,41 +4241,41 @@ LinkOAM_AuxAddresses:
 ;===================================================================================================
 
 TilemapUpload_HighBytes:
-#_009888: db $00 ; 0x00 - VRAM $0000>>8
-#_009889: db $00 ; 0x01 - VRAM $0000>>8
-#_00988A: db $04 ; 0x02 - VRAM $0800>>8
-#_00988B: db $08 ; 0x03 - VRAM $1000>>8
-#_00988C: db $0C ; 0x04 - VRAM $1800>>8
-#_00988D: db $08 ; 0x05 - VRAM $1000>>8
-#_00988E: db $0C ; 0x06 - VRAM $1800>>8
-#_00988F: db $00 ; 0x07 - VRAM $0000>>8
-#_009890: db $04 ; 0x08 - VRAM $0800>>8
-#_009891: db $00 ; 0x09 - VRAM $0000>>8
-#_009892: db $08 ; 0x0A - VRAM $1000>>8
-#_009893: db $04 ; 0x0B - VRAM $0800>>8
-#_009894: db $0C ; 0x0C - VRAM $1800>>8
-#_009895: db $04 ; 0x0D - VRAM $0800>>8
-#_009896: db $0C ; 0x0E - VRAM $1800>>8
-#_009897: db $00 ; 0x0F - VRAM $0000>>8
-#_009898: db $08 ; 0x10 - VRAM $1000>>8
-#_009899: db $10 ; 0x11 - VRAM $2000>>8
-#_00989A: db $14 ; 0x12 - VRAM $2800>>8
-#_00989B: db $18 ; 0x13 - VRAM $3000>>8
-#_00989C: db $1C ; 0x14 - VRAM $3800>>8
-#_00989D: db $18 ; 0x15 - VRAM $3000>>8
-#_00989E: db $1C ; 0x16 - VRAM $3800>>8
-#_00989F: db $10 ; 0x17 - VRAM $2000>>8
-#_0098A0: db $14 ; 0x18 - VRAM $2800>>8
-#_0098A1: db $10 ; 0x19 - VRAM $2000>>8
-#_0098A2: db $18 ; 0x1A - VRAM $3000>>8
-#_0098A3: db $14 ; 0x1B - VRAM $2800>>8
-#_0098A4: db $1C ; 0x1C - VRAM $3800>>8
-#_0098A5: db $14 ; 0x1D - VRAM $2800>>8
-#_0098A6: db $1C ; 0x1E - VRAM $3800>>8
-#_0098A7: db $10 ; 0x1F - VRAM $2000>>8
-#_0098A8: db $18 ; 0x20 - VRAM $3000>>8
-#_0098A9: db $60 ; 0x21 - VRAM $C000>>8
-#_0098AA: db $68 ; 0x22 - VRAM $D000>>8
+#_009888: db $00 ; 0x00 - VRAM $0000
+#_009889: db $00 ; 0x01 - VRAM $0000
+#_00988A: db $04 ; 0x02 - VRAM $0800
+#_00988B: db $08 ; 0x03 - VRAM $1000
+#_00988C: db $0C ; 0x04 - VRAM $1800
+#_00988D: db $08 ; 0x05 - VRAM $1000
+#_00988E: db $0C ; 0x06 - VRAM $1800
+#_00988F: db $00 ; 0x07 - VRAM $0000
+#_009890: db $04 ; 0x08 - VRAM $0800
+#_009891: db $00 ; 0x09 - VRAM $0000
+#_009892: db $08 ; 0x0A - VRAM $1000
+#_009893: db $04 ; 0x0B - VRAM $0800
+#_009894: db $0C ; 0x0C - VRAM $1800
+#_009895: db $04 ; 0x0D - VRAM $0800
+#_009896: db $0C ; 0x0E - VRAM $1800
+#_009897: db $00 ; 0x0F - VRAM $0000
+#_009898: db $08 ; 0x10 - VRAM $1000
+#_009899: db $10 ; 0x11 - VRAM $2000
+#_00989A: db $14 ; 0x12 - VRAM $2800
+#_00989B: db $18 ; 0x13 - VRAM $3000
+#_00989C: db $1C ; 0x14 - VRAM $3800
+#_00989D: db $18 ; 0x15 - VRAM $3000
+#_00989E: db $1C ; 0x16 - VRAM $3800
+#_00989F: db $10 ; 0x17 - VRAM $2000
+#_0098A0: db $14 ; 0x18 - VRAM $2800
+#_0098A1: db $10 ; 0x19 - VRAM $2000
+#_0098A2: db $18 ; 0x1A - VRAM $3000
+#_0098A3: db $14 ; 0x1B - VRAM $2800
+#_0098A4: db $1C ; 0x1C - VRAM $3800
+#_0098A5: db $14 ; 0x1D - VRAM $2800
+#_0098A6: db $1C ; 0x1E - VRAM $3800
+#_0098A7: db $10 ; 0x1F - VRAM $2000
+#_0098A8: db $18 ; 0x20 - VRAM $3000
+#_0098A9: db $60 ; 0x21 - VRAM $C000
+#_0098AA: db $68 ; 0x22 - VRAM $D000
 
 ;===================================================================================================
 ; FREE ROM: 0x15
@@ -4324,7 +4287,7 @@ NULL_0098AB:
 
 ;===================================================================================================
 
-DungeonMask:
+BitMasks:
 #_0098C0: dw $8000 ; Sewers
 #_0098C2: dw $4000 ; Hyrule Castle
 #_0098C4: dw $2000 ; Eastern Palace
@@ -4341,10 +4304,10 @@ DoorFlagMasks:
 #_0098D6: dw $0010 ; Thieves' Town
 #_0098D8: dw $0008 ; Turtle Rock
 #_0098DA: dw $0004 ; Ganon's Tower
-#_0098DC: dw $0002 ; Unused
-#_0098DE: dw $0001 ; Unused
+#_0098DC: dw $0002
+#_0098DE: dw $0001
 
-DungeonMaskInverted:
+BitMasksInverted:
 #_0098E0: dw $7FFF ; Sewers
 #_0098E2: dw $BFFF ; Hyrule Castle
 #_0098E4: dw $DFFF ; Eastern Palace
@@ -4359,8 +4322,8 @@ DungeonMaskInverted:
 #_0098F6: dw $FFEF ; Thieves' Town
 #_0098F8: dw $FFF7 ; Turtle Rock
 #_0098FA: dw $FFFB ; Ganon's Tower
-#_0098FC: dw $FFFD ; Unused
-#_0098FE: dw $FFFE ; Unused
+#_0098FC: dw $FFFD
+#_0098FE: dw $FFFE
 
 ;===================================================================================================
 
@@ -4512,7 +4475,7 @@ ExplodingWallTilemapPosition:
 
 ;===================================================================================================
 
-DetectStaircase:
+StaircaseFinder:
 
 .offset_y
 #_0099EA: dw $0007
@@ -4560,13 +4523,13 @@ DoorwayTileProperties:
 
 ;===================================================================================================
 
-RoomDraw_DoorPartnerSelfLocation:
+PartnerDoorSelfLocation:
 #_009AA2: dw $0000, $0010, $0020, $0030, $0040, $0050
 #_009AAE: dw $0061, $0071, $0081, $0091, $00A1, $00B1
 #_009ABA: dw $0002, $0012, $0022, $0032, $0042, $0052
 #_009AC6: dw $0063, $0073, $0083, $0093, $00A3, $00B3
 
-RoomDraw_DoorPartnerLocation:
+PartnerDoorLocation:
 #_009AD2: dw $0061, $0071, $0081, $0091, $00A1, $00B1
 #_009ADE: dw $0000, $0010, $0020, $0030, $0040, $0050
 #_009AEA: dw $0063, $0073, $0083, $0093, $00A3, $00B3
@@ -4574,7 +4537,7 @@ RoomDraw_DoorPartnerLocation:
 
 ;===================================================================================================
 
-RoomDraw_QuadrantDataOffset:
+RoomQuadrantDataOffset:
 #_009B02: dw $0000
 #_009B04: dw $0040
 #_009B06: dw $1000
@@ -4582,7 +4545,7 @@ RoomDraw_QuadrantDataOffset:
 
 ;===================================================================================================
 
-RoomDraw_MovingWallDirection:
+MovingWallDirection:
 #_009B0A: dw $0005
 #_009B0C: dw $0007
 #_009B0E: dw $000B
@@ -9337,7 +9300,7 @@ LoadItemGFXIntoWRAM4BPPBuffer:
 
 #_00D2F7: SEP #$30
 
-#_00D2F9: JSR LoadItemGFX_Auxiliary
+#_00D2F9: JSR LoadAuxiliaryWRAMGraphics
 
 #_00D2FC: PLB
 
@@ -9561,7 +9524,7 @@ DecompressAnimatedOverworldTiles:
 
 ;===================================================================================================
 
-LoadItemGFX_Auxiliary:
+LoadAuxiliaryWRAMGraphics:
 ; switch pegs
 #_00D406: LDY.b #$0F
 #_00D408: JSR Decompress_background_low
@@ -10467,7 +10430,7 @@ ReloadPreviouslyLoadedSheets:
 
 ;===================================================================================================
 
-Attract_DecompressStoryGFX:
+DecompressAttractPlaques:
 #_00D84E: PHB
 #_00D84F: PHK
 #_00D850: PLB
@@ -10630,7 +10593,7 @@ AnimateMirrorWarp_TriggerOverlayA_2:
 ;===================================================================================================
 
 AnimateMirrorWarp_DrawDestinationScreen:
-#_00D8F3: JSL Overworld_DrawScreenAtCurrentMirrorPosition
+#_00D8F3: JSL DrawScreenAtCurrentMirrorPosition
 
 #_00D8F7: INC.w $0710
 
@@ -10671,13 +10634,13 @@ AnimateMirrorWarp_DecompressAnimatedTiles:
 
 #_00D917: LDA.b $8A
 #_00D919: AND.b #$BF
-#_00D91B: CMP.b #$03 ; OW 03, 0W 43
+#_00D91B: CMP.b #$03 ; OW 03, OW 43
 #_00D91D: BEQ .not_death_mountain
 
-#_00D91F: CMP.b #$05 ; OW 05, 0W 45
+#_00D91F: CMP.b #$05 ; OW 05, OW 45
 #_00D921: BEQ .not_death_mountain
 
-#_00D923: CMP.b #$07 ; OW 07, 0W 47
+#_00D923: CMP.b #$07 ; OW 07, OW 47
 #_00D925: BEQ .not_death_mountain
 
 #_00D927: LDY.b #$5A
@@ -10839,11 +10802,11 @@ AnimateMirrorWarp_DecompressNewTileSets:
 #_00D9E2: LDX.w #$0000
 #_00D9E5: LDY.w #$0040
 #_00D9E8: LDA.w #$4000
-#_00D9EB: JSR Do3To4High16Bit
+#_00D9EB: JSR Expand3bppToBuffer_RightPalette
 
 #_00D9EE: LDY.w #$0040
 #_00D9F1: LDA.b $03
-#_00D9F3: JSR Do3To4Low16Bit
+#_00D9F3: JSR Expand3bppToBuffer_LeftPalette
 
 #_00D9F6: SEP #$30
 
@@ -10884,11 +10847,11 @@ AnimateMirrorWarp_DecompressBackgroundsA:
 #_00DA21: LDX.w #$0000
 #_00DA24: LDY.w #$0040
 #_00DA27: LDA.w #$4000
-#_00DA2A: JSR Do3To4Low16Bit
+#_00DA2A: JSR Expand3bppToBuffer_LeftPalette
 
 #_00DA2D: LDY.w #$0040
 #_00DA30: LDA.b $03
-#_00DA32: JSR Do3To4High16Bit
+#_00DA32: JSR Expand3bppToBuffer_RightPalette
 
 #_00DA35: SEP #$30
 
@@ -10927,7 +10890,7 @@ AnimateMirrorWarp_DecompressBackgroundsB:
 #_00DA5D: LDX.w #$0000
 #_00DA60: LDY.w #$0080
 #_00DA63: LDA.w #$4000
-#_00DA66: JSR Do3To4High16Bit
+#_00DA66: JSR Expand3bppToBuffer_RightPalette
 
 #_00DA69: SEP #$30
 
@@ -10968,21 +10931,19 @@ AnimateMirrorWarp_DecompressBackgroundsC:
 #_00DA94: LDX.w #$0000
 #_00DA97: LDY.w #$0080
 #_00DA9A: LDA.w #$4000
-#_00DA9D: JSR Do3To4Low16Bit
+#_00DA9D: JSR Expand3bppToBuffer_LeftPalette
 
 #_00DAA0: SEP #$30
 
 #_00DAA2: RTL
 
 ;===================================================================================================
-; TODO document routine / rename
-; something to do with adding subcreens to overworld
-;===================================================================================================
+
 AnimateMirrorWarp_LoadSubscreen:
 #_00DAA3: STZ.b $1D
 
 #_00DAA5: LDA.b $8A
-#_00DAA7: BEQ .subscreen
+#_00DAA7: BEQ .subscreen ; OW 00
 
 #_00DAA9: CMP.b #$70 ; OW 70
 #_00DAAB: BEQ .subscreen
@@ -11041,7 +11002,7 @@ AnimateMirrorWarp_LoadSubscreen:
 #_00DAF0: LDY.w #$0040
 
 #_00DAF3: LDA.b $00
-#_00DAF5: JSR Do3To4High16Bit
+#_00DAF5: JSR Expand3bppToBuffer_RightPalette
 
 #_00DAF8: SEP #$30
 
@@ -11100,18 +11061,18 @@ AnimateMirrorWarp_DecompressSpritesA:
 
 .right_side_palette
 #_00DB42: LDA.w #$4000
-#_00DB45: JSR Do3To4High16Bit
+#_00DB45: JSR Expand3bppToBuffer_RightPalette
 
 #_00DB48: BRA .done
 
 .left_side_palette
 #_00DB4A: LDA.w #$4000
-#_00DB4D: JSR Do3To4Low16Bit
+#_00DB4D: JSR Expand3bppToBuffer_LeftPalette
 
 .done
 #_00DB50: LDY.w #$0040
 #_00DB53: LDA.b $03
-#_00DB55: JSR Do3To4Low16Bit
+#_00DB55: JSR Expand3bppToBuffer_LeftPalette
 
 #_00DB58: SEP #$30
 
@@ -11152,7 +11113,7 @@ AnimateMirrorWarp_DecompressSpritesB:
 #_00DB84: LDX.w #$0000
 #_00DB87: LDY.w #$0080
 #_00DB8A: LDA.w #$7F4000
-#_00DB8D: JSR Do3To4Low16Bit
+#_00DB8D: JSR Expand3bppToBuffer_LeftPalette
 
 #_00DB90: SEP #$30
 
@@ -11399,7 +11360,7 @@ SheetsTable_AA2:
 
 ;===================================================================================================
 
-pool Graphics_IncrementalVRAMUpload
+pool IncrementalVRAMUpload
 
 .vram_address_high
 #_00DF1F: db $50 ; VRAM $A000
@@ -11443,7 +11404,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Graphics_IncrementalVRAMUpload:
+IncrementalVRAMUpload:
 #_00DF3F: LDX.w $0412
 #_00DF42: CPX.b #$10
 #_00DF44: BEQ .exit
@@ -11475,7 +11436,7 @@ PrepTransAuxGfx:
 #_00DF62: LDX.w #$0000
 #_00DF65: LDY.w #$0040
 #_00DF68: LDA.w #$7E6000
-#_00DF6B: JSR Do3To4High16Bit
+#_00DF6B: JSR Expand3bppToBuffer_RightPalette
 
 #_00DF6E: LDY.w #$00C0
 
@@ -11487,22 +11448,21 @@ PrepTransAuxGfx:
 #_00DF7C: LDY.w #$0080
 
 #_00DF7F: LDA.b $03
-#_00DF81: JSR Do3To4High16Bit
+#_00DF81: JSR Expand3bppToBuffer_RightPalette
 
 #_00DF84: LDY.w #$0040
 
 .left_side_palettes
 #_00DF87: LDA.b $03
-#_00DF89: JSR Do3To4Low16Bit
+#_00DF89: JSR Expand3bppToBuffer_LeftPalette
 
 #_00DF8C: SEP #$30
 
 #_00DF8E: RTL
 
 ;===================================================================================================
-; TODO document routine/better name
-;===================================================================================================
-Do3To4High16Bit:
+
+Expand3bppToBuffer_RightPalette:
 #_00DF8F: STY.b $0C
 
 .next_tile
@@ -11581,9 +11541,8 @@ Do3To4High16Bit:
 #_00DFF7: RTS
 
 ;===================================================================================================
-; TODO document routine/better name
-;===================================================================================================
-Do3To4Low16Bit:
+
+Expand3bppToBuffer_LeftPalette:
 #_00DFF8: STY.b $0C
 
 .next_tile
@@ -11684,7 +11643,7 @@ LoadNewSpriteGFXSet:
 
 #_00E07C: LDA.w #$7E7800
 #_00E07F: LDY.w #$00C0
-#_00E082: JSR Do3To4Low16Bit
+#_00E082: JSR Expand3bppToBuffer_LeftPalette
 
 #_00E085: LDY.w #$0040
 
@@ -11704,7 +11663,7 @@ LoadNewSpriteGFXSet:
 
 .right_side
 #_00E0A3: LDA.b $03
-#_00E0A5: JSR Do3To4High16Bit
+#_00E0A5: JSR Expand3bppToBuffer_RightPalette
 
 #_00E0A8: SEP #$30
 
@@ -11712,7 +11671,7 @@ LoadNewSpriteGFXSet:
 
 .left_side
 #_00E0AB: LDA.b $03
-#_00E0AD: JSR Do3To4Low16Bit
+#_00E0AD: JSR Expand3bppToBuffer_LeftPalette
 
 #_00E0B0: SEP #$30
 
@@ -11764,8 +11723,7 @@ SheetsTable_AA1:
 #_00E1D3: db $00, $46, $39, $72, $40, $41, $39, $0F ; 0x24
 
 ;===================================================================================================
-; TODO document routine
-;===================================================================================================
+
 InitializeTilesets:
 #_00E1DB: PHB
 #_00E1DC: PHK
@@ -11827,8 +11785,6 @@ InitializeTilesets:
 #_00E231: LDA.l $7EC2FF
 #_00E235: STA.b $06
 
-;---------------------------------------------------------------------------------------------------
-
 #_00E237: SEP #$10
 
 #_00E239: LDY.b $09
@@ -11850,6 +11806,8 @@ InitializeTilesets:
 #_00E252: LDY.b $06
 #_00E254: LDX.b #$8A
 #_00E256: JSR LoadSpriteGraphics
+
+;---------------------------------------------------------------------------------------------------
 
 #_00E259: REP #$30
 
@@ -11915,8 +11873,6 @@ InitializeTilesets:
 .not_default_d
 #_00E2B7: STA.l $7EC2FB
 #_00E2BB: STA.b $07
-
-;---------------------------------------------------------------------------------------------------
 
 #_00E2BD: LDA.w SheetsTable_AA1+7,Y
 #_00E2C0: STA.b $06
@@ -12107,7 +12063,7 @@ DecompressAndCopyManually:
 
 ;===================================================================================================
 
-Attract_LoadBG3GFX:
+TransferAttractPlaques:
 #_00E3AD: PHB
 #_00E3AE: PHK
 #_00E3AF: PLB
@@ -12116,7 +12072,7 @@ Attract_LoadBG3GFX:
 #_00E3B2: STA.w VMAIN
 #_00E3B5: STZ.w VMADDL
 
-#_00E3B8: LDA.b #$78
+#_00E3B8: LDA.b #$78 ; VRAM $F000
 #_00E3BA: STA.w VMADDH
 
 #_00E3BD: LDY.b #$67
@@ -12197,7 +12153,7 @@ TransferMode7Characters:
 
 ;===================================================================================================
 
-pool Graphics_LoadChrHalfSlot
+pool LoadChrHalfSlot
 
 .sheet_id
 #_00E412: db $01 ; 0x74 - Overworld common
@@ -12247,7 +12203,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Graphics_LoadChrHalfSlot:
+LoadChrHalfSlot:
 #_00E43A: LDX.w $0AAA
 #_00E43D: BEQ EXIT_00E411
 
@@ -12269,7 +12225,7 @@ Graphics_LoadChrHalfSlot:
 #_00E453: LDA.b #$02
 #_00E455: STA.w $0AA9
 
-#_00E458: JSL Palettes_Load_SpriteEnvironment
+#_00E458: JSL PaletteLoad_SpriteEnvironment
 
 #_00E45C: INC.b $15
 
@@ -12279,7 +12235,7 @@ Graphics_LoadChrHalfSlot:
 #_00E460: LDA.b #$02
 #_00E462: STA.w $0AA9
 
-#_00E465: JSL Palettes_Load_SpriteEnvironment_Underworld
+#_00E465: JSL PaletteLoad_SpriteEnvironment_Underworld
 
 #_00E469: INC.b $15
 
@@ -12455,7 +12411,7 @@ LoadFileSelectGraphics:
 #_00E543: REP #$20
 
 #_00E545: LDY.b #$3F
-#_00E547: JSR Do3To4High
+#_00E547: JSR Expand3bppToVRAM_RightPalette
 
 #_00E54A: LDY.b #$5F
 #_00E54C: JSR Decompress_sprite_low
@@ -12463,7 +12419,7 @@ LoadFileSelectGraphics:
 #_00E54F: REP #$20
 
 #_00E551: LDY.b #$3F
-#_00E553: JSR Do3To4High
+#_00E553: JSR Expand3bppToVRAM_RightPalette
 
 #_00E556: PLB
 
@@ -12576,32 +12532,31 @@ LoadSpriteGraphics:
 #_00E5CF: PLX
 
 #_00E5D0: CPX.b #$52
-#_00E5D2: BEQ Do3To4High
+#_00E5D2: BEQ Expand3bppToVRAM_RightPalette
 
 #_00E5D4: CPX.b #$53
-#_00E5D6: BEQ Do3To4High
+#_00E5D6: BEQ Expand3bppToVRAM_RightPalette
 
 #_00E5D8: CPX.b #$5A
-#_00E5DA: BEQ Do3To4High
+#_00E5DA: BEQ Expand3bppToVRAM_RightPalette
 
 #_00E5DC: CPX.b #$5B
-#_00E5DE: BEQ Do3To4High
+#_00E5DE: BEQ Expand3bppToVRAM_RightPalette
 
 #_00E5E0: CPX.b #$5C
-#_00E5E2: BEQ Do3To4High
+#_00E5E2: BEQ Expand3bppToVRAM_RightPalette
 
 #_00E5E4: CPX.b #$5E
-#_00E5E6: BEQ Do3To4High
+#_00E5E6: BEQ Expand3bppToVRAM_RightPalette
 
 #_00E5E8: CPX.b #$5F
-#_00E5EA: BEQ Do3To4High
+#_00E5EA: BEQ Expand3bppToVRAM_RightPalette
 
-#_00E5EC: JMP.w Do3To4Low
+#_00E5EC: JMP.w Expand3bppToVRAM_LeftPalette
 
 ;===================================================================================================
-; TODO document routine/better name
-;===================================================================================================
-Do3To4High:
+
+Expand3bppToVRAM_RightPalette:
 .next_tile
 #_00E5EF: LDX.b #$0E
 
@@ -12698,19 +12653,19 @@ LoadBackgroundGraphics:
 
 #_00E661: LDX.b $0F
 #_00E663: CPX.b #$07
-#_00E665: BEQ Do3To4High
+#_00E665: BEQ Expand3bppToVRAM_RightPalette
 
 #_00E667: CPX.b #$02
-#_00E669: BEQ Do3To4High
+#_00E669: BEQ Expand3bppToVRAM_RightPalette
 
 #_00E66B: CPX.b #$04
-#_00E66D: BEQ Do3To4High
+#_00E66D: BEQ Expand3bppToVRAM_RightPalette
 
 #_00E66F: CPX.b #$03
-#_00E671: BNE Do3To4Low
+#_00E671: BNE Expand3bppToVRAM_LeftPalette
 
 .nevermind_do_high
-#_00E673: JMP.w Do3To4High
+#_00E673: JMP.w Expand3bppToVRAM_RightPalette
 
 .do_low
 #_00E676: LDX.b $0F
@@ -12718,10 +12673,8 @@ LoadBackgroundGraphics:
 #_00E67A: BCS .nevermind_do_high
 
 ;===================================================================================================
-; TODO document routine
-;===================================================================================================
-Do3To4Low:
 
+Expand3bppToVRAM_LeftPalette:
 .next_super
 #_00E67C: LDA.b [$00]
 #_00E67E: STA.w VMDATA
@@ -12925,7 +12878,7 @@ LoadCommonSprites:
 
 #_00E77F: LDY.b #$7F
 
-#_00E781: JMP.w Do3To4Low
+#_00E781: JMP.w Expand3bppToVRAM_LeftPalette
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -13026,7 +12979,7 @@ Decompress:
 #_00E7E0: LDY.w #$0000
 
 .next_command
-#_00E7E3: JSR Decompression_GetNextByte
+#_00E7E3: JSR GetNextByte
 
 #_00E7E6: CMP.b #$FF ; stop decompression
 #_00E7E8: BNE .continue
@@ -13068,7 +13021,7 @@ Decompress:
 #_00E809: AND.b #$03
 #_00E80B: XBA
 
-#_00E80C: JSR Decompression_GetNextByte
+#_00E80C: JSR GetNextByte
 
 #_00E80F: REP #$20
 
@@ -13082,7 +13035,7 @@ Decompress:
 
 #_00E816: PLA
 
-#_00E817: BEQ .nonrepeating
+#_00E817: BEQ .raw_copy
 #_00E819: BMI .copy_past
 
 #_00E81B: ASL A
@@ -13094,7 +13047,7 @@ Decompress:
 ;---------------------------------------------------------------------------------------------------
 
 .incremental
-#_00E821: JSR Decompression_GetNextByte
+#_00E821: JSR GetNextByte
 
 #_00E824: LDX.b $CB
 
@@ -13112,8 +13065,8 @@ Decompress:
 
 ;---------------------------------------------------------------------------------------------------
 
-.nonrepeating
-#_00E82F: JSR Decompression_GetNextByte
+.raw_copy
+#_00E82F: JSR GetNextByte
 #_00E832: STA.b [$00],Y
 
 #_00E834: INY
@@ -13122,14 +13075,14 @@ Decompress:
 #_00E837: DEX
 #_00E838: STX.b $CB
 
-#_00E83A: BNE .nonrepeating
+#_00E83A: BNE .raw_copy
 
 #_00E83C: BRA .next_command
 
 ;---------------------------------------------------------------------------------------------------
 
 .repeating_byte
-#_00E83E: JSR Decompression_GetNextByte
+#_00E83E: JSR GetNextByte
 
 #_00E841: LDX.b $CB
 
@@ -13147,9 +13100,9 @@ Decompress:
 ;---------------------------------------------------------------------------------------------------
 
 .repeating_word
-#_00E84B: JSR Decompression_GetNextByte
+#_00E84B: JSR GetNextByte
 #_00E84E: XBA
-#_00E84F: JSR Decompression_GetNextByte
+#_00E84F: JSR GetNextByte
 
 #_00E852: LDX.b $CB
 
@@ -13177,10 +13130,10 @@ Decompress:
 ;---------------------------------------------------------------------------------------------------
 
 .copy_past
-#_00E865: JSR Decompression_GetNextByte
+#_00E865: JSR GetNextByte
 #_00E868: XBA
 
-#_00E869: JSR Decompression_GetNextByte
+#_00E869: JSR GetNextByte
 #_00E86C: XBA
 
 #_00E86D: TAX
@@ -13211,7 +13164,7 @@ Decompress:
 
 ;===================================================================================================
 
-Decompression_GetNextByte:
+GetNextByte:
 #_00E883: LDA.b [$C8]
 
 #_00E885: LDX.b $C8
@@ -13241,6 +13194,8 @@ PaletteFilterColorAdd:
 #_00E8B0: dw $FFFF, $0001
 #_00E8B4: dw $FFE0, $0020
 #_00E8B8: dw $FC00, $0400
+
+;---------------------------------------------------------------------------------------------------
 
 PaletteFilterColorMasks:
 #_00E8BC: dw $FFFF, $FFFF, $FFFE, $FFFF
@@ -13272,29 +13227,27 @@ PaletteFilter:
 #_00E943: RTL
 
 ;===================================================================================================
-; TODO document routine
-;===================================================================================================
+
 ApplyPaletteFilter:
 #_00E944: REP #$30
 
-#_00E946: LDX.w #PaletteFilterColorAdd+12
+#_00E946: LDX.w #PaletteFilterColorMasks
 
 #_00E949: LDA.l $7EC007
 #_00E94D: CMP.w #$0010
-#_00E950: BCC .first_half
+#_00E950: BCC .darken_color
 
 #_00E952: INX
 #_00E953: INX
 
-; TODO VERIFY
-.first_half
+.darken_color
 #_00E954: STX.b $B7
 
 #_00E956: AND.w #$000F
 #_00E959: ASL A
 #_00E95A: TAX
 
-#_00E95B: LDA.w DungeonMask,X
+#_00E95B: LDA.w BitMasks,X
 #_00E95E: STA.b $0C
 
 ;---------------------------------------------------------------------------------------------------
@@ -13321,8 +13274,6 @@ ApplyPaletteFilter:
 #_00E97D: LDA.l $7EC500
 #_00E981: STA.b $04
 
-;---------------------------------------------------------------------------------------------------
-
 #_00E983: LDA.l $7EC300
 #_00E987: AND.w #$001F
 #_00E98A: ASL A
@@ -13336,8 +13287,6 @@ ApplyPaletteFilter:
 #_00E993: LDA.b $04
 #_00E995: ADC.b $06
 #_00E997: STA.b $04
-
-;---------------------------------------------------------------------------------------------------
 
 .no_red
 #_00E999: LDA.l $7EC300
@@ -13354,8 +13303,6 @@ ApplyPaletteFilter:
 #_00E9AA: LDA.b $04
 #_00E9AC: ADC.b $08
 #_00E9AE: STA.b $04
-
-;---------------------------------------------------------------------------------------------------
 
 .no_green
 #_00E9B0: LDA.l $7EC301
@@ -13435,8 +13382,6 @@ PaletteFilter_FilterColors:
 #_00EA1A: LDA.l $7EC300,X
 #_00EA1E: BEQ .color_is_black
 
-;---------------------------------------------------------------------------------------------------
-
 #_00EA20: AND.w #$001F
 #_00EA23: ASL A
 #_00EA24: ASL A
@@ -13449,8 +13394,6 @@ PaletteFilter_FilterColors:
 #_00EA2C: LDA.b $04
 #_00EA2E: ADC.b $06
 #_00EA30: STA.b $04
-
-;---------------------------------------------------------------------------------------------------
 
 .no_red
 #_00EA32: LDA.l $7EC300,X
@@ -13468,8 +13411,6 @@ PaletteFilter_FilterColors:
 #_00EA45: ADC.b $08
 #_00EA47: STA.b $04
 
-;---------------------------------------------------------------------------------------------------
-
 .no_green
 #_00EA49: LDA.l $7EC301,X
 #_00EA4D: AND.w #$007C
@@ -13483,8 +13424,6 @@ PaletteFilter_FilterColors:
 #_00EA59: CLC
 #_00EA5A: ADC.b $0A
 #_00EA5C: STA.b $04
-
-;---------------------------------------------------------------------------------------------------
 
 .no_blue
 #_00EA5E: LDA.b $04
@@ -13503,8 +13442,6 @@ PaletteFilter_FilterColors:
 #_00EA6F: ADC.w #$0010
 #_00EA72: TAX
 
-;---------------------------------------------------------------------------------------------------
-
 .dont_skip_palette_5
 #_00EA73: CPX.w #$01E0
 #_00EA76: BNE .next_color
@@ -13517,23 +13454,23 @@ PaletteFilter_FilterColors:
 UNREACHABLE_00EA79:
 #_00EA79: REP #$30
 
-#_00EA7B: LDX.w #PaletteFilterColorAdd+12
+#_00EA7B: LDX.w #PaletteFilterColorMasks
 
 #_00EA7E: LDA.l $7EC007
 #_00EA82: CMP.w #$0010
-#_00EA85: BCC .first_half
+#_00EA85: BCC .darken_color
 
 #_00EA87: INX
 #_00EA88: INX
 
-.first_half
+.darken_color
 #_00EA89: STX.b $B7
 
 #_00EA8B: AND.w #$000F
 #_00EA8E: ASL A
 #_00EA8F: TAX
 
-#_00EA90: LDA.w DungeonMask,X
+#_00EA90: LDA.w BitMasks,X
 #_00EA93: STA.b $0C
 
 #_00EA95: PHB
@@ -13554,7 +13491,7 @@ UNREACHABLE_00EA79:
 
 #_00EAAC: LDX.w #$0040
 #_00EAAF: LDA.w #$0200
-#_00EAB2: JSR FilterColorsEndpoint
+#_00EAB2: JSR FilterColorsInRange
 
 #_00EAB5: PLB
 
@@ -13611,9 +13548,8 @@ UNREACHABLE_00EA79:
 #_00EAFD: RTL
 
 ;===================================================================================================
-; TODO document routine/better name
-;===================================================================================================
-FilterColorsEndpoint:
+
+FilterColorsInRange:
 #_00EAFE: STA.b $0E
 
 .next_color
@@ -13637,8 +13573,6 @@ FilterColorsEndpoint:
 #_00EB1B: ADC.b $06
 #_00EB1D: STA.b $04
 
-;---------------------------------------------------------------------------------------------------
-
 .no_red
 #_00EB1F: LDA.l $7EC300,X
 #_00EB23: AND.w #$03E0
@@ -13656,8 +13590,6 @@ FilterColorsEndpoint:
 #_00EB33: ADC.b $08
 #_00EB35: STA.b $04
 
-;---------------------------------------------------------------------------------------------------
-
 .no_green
 #_00EB37: LDA.l $7EC301,X
 #_00EB3B: AND.w #$007C
@@ -13672,13 +13604,9 @@ FilterColorsEndpoint:
 #_00EB48: ADC.b $0A
 #_00EB4A: STA.b $04
 
-;---------------------------------------------------------------------------------------------------
-
 .no_blue
 #_00EB4C: LDA.b $04
 #_00EB4E: STA.l $7EC500,X
-
-;---------------------------------------------------------------------------------------------------
 
 .skip_color
 #_00EB52: INX
@@ -13705,7 +13633,7 @@ ResetHUDPalettes4and5:
 #_00EB76: STA.l $7EC52C
 #_00EB7A: STA.l $7EC52E
 
-#_00EB7E: STA.l $7EC007 ; reset mosaic control
+#_00EB7E: STA.l $7EC007
 
 #_00EB82: LDA.w #$0002 ; lightening screen
 #_00EB85: STA.l $7EC009
@@ -13717,28 +13645,27 @@ ResetHUDPalettes4and5:
 #_00EB8D: RTL
 
 ;===================================================================================================
-; TODO document routine/better name
-;===================================================================================================
-PaletteFilterHistory:
+
+PaletteFilter_AttractPlaque:
 #_00EB8E: REP #$30
 
-#_00EB90: LDX.w #PaletteFilterColorAdd+12
+#_00EB90: LDX.w #PaletteFilterColorMasks
 
 #_00EB93: LDA.l $7EC007
 #_00EB97: CMP.w #$0010
-#_00EB9A: BCC .first_half
+#_00EB9A: BCC .darken_color
 
 #_00EB9C: INX
 #_00EB9D: INX
 
-.first_half
+.darken_color
 #_00EB9E: STX.b $B7
 
 #_00EBA0: AND.w #$000F
 #_00EBA3: ASL A
 #_00EBA4: TAX
 
-#_00EBA5: LDA.l DungeonMask,X
+#_00EBA5: LDA.l BitMasks,X
 #_00EBA9: STA.b $0C
 
 #_00EBAB: PHB
@@ -13762,8 +13689,8 @@ PaletteFilterHistory:
 
 ;===================================================================================================
 
-#PaletteFilterHistory_do_filtering:
-#_00EBC8: JSR FilterColorsEndpoint
+#PaletteFilter_AttractPlaque_do_filtering:
+#_00EBC8: JSR FilterColorsInRange
 
 #_00EBCB: PLB
 
@@ -13782,6 +13709,7 @@ PaletteFilterHistory:
 #_00EBE8: STA.l $7EC009
 #_00EBEC: BEQ .still_filtering
 
+; !BUG - this gives you a small recoil trajectory with kholdstare/flute kid
 #_00EBEE: INC.b $27
 
 .still_filtering
@@ -13838,9 +13766,8 @@ PaletteFilter_WishPonds:
 #_00EC21: RTL
 
 ;===================================================================================================
-; TODO document routine/better name
-;===================================================================================================
-PaletteFilter_RestoreSP5F:
+
+PaletteFilter_RestoreSprite5Left:
 #_00EC22: REP #$20
 
 #_00EC24: LDX.b #$0E
@@ -13869,7 +13796,7 @@ PaletteFilter_RestoreSP5F:
 
 ;===================================================================================================
 
-PaletteFilter_SP5F:
+PaletteFilter_Sprite5Left:
 #_00EC3D: JSL .filter
 
 #_00EC41: LDA.l $7EC007
@@ -13880,23 +13807,23 @@ PaletteFilter_SP5F:
 .filter
 #_00EC47: REP #$30
 
-#_00EC49: LDX.w #PaletteFilterColorAdd+12
+#_00EC49: LDX.w #PaletteFilterColorMasks
 
 #_00EC4C: LDA.l $7EC007
 #_00EC50: CMP.w #$0010
-#_00EC53: BCC .first_half
+#_00EC53: BCC .darken_color
 
 #_00EC55: INX
 #_00EC56: INX
 
-.first_half
+.darken_color
 #_00EC57: STX.b $B7
 
 #_00EC59: AND.w #$000F
 #_00EC5C: ASL A
 #_00EC5D: TAX
 
-#_00EC5E: LDA.l DungeonMask,X
+#_00EC5E: LDA.l BitMasks,X
 #_00EC62: STA.b $0C
 
 #_00EC64: PHB
@@ -13917,7 +13844,7 @@ PaletteFilter_SP5F:
 
 #_00EC7B: LDX.w #$01A0
 #_00EC7E: LDA.w #$01B0
-#_00EC81: JMP.w PaletteFilterHistory_do_filtering
+#_00EC81: JMP.w PaletteFilter_AttractPlaque_do_filtering
 
 ;===================================================================================================
 
@@ -13971,23 +13898,23 @@ PaletteFilter_KholdstareShell:
 .filter
 #_00ECB7: REP #$30
 
-#_00ECB9: LDX.w #PaletteFilterColorAdd+12
+#_00ECB9: LDX.w #PaletteFilterColorMasks
 
 #_00ECBC: LDA.l $7EC007
 #_00ECC0: CMP.w #$0010
-#_00ECC3: BCC .first_half
+#_00ECC3: BCC .darken_color
 
 #_00ECC5: INX
 #_00ECC6: INX
 
-.first_half
+.darken_color
 #_00ECC7: STX.b $B7
 
 #_00ECC9: AND.w #$000F
 #_00ECCC: ASL A
 #_00ECCD: TAX
 
-#_00ECCE: LDA.l DungeonMask,X
+#_00ECCE: LDA.l BitMasks,X
 #_00ECD2: STA.b $0C
 
 #_00ECD4: PHB
@@ -14008,7 +13935,7 @@ PaletteFilter_KholdstareShell:
 
 #_00ECEB: LDX.w #$0080
 #_00ECEE: LDA.w #$0090
-#_00ECF1: JMP.w PaletteFilterHistory_do_filtering
+#_00ECF1: JMP.w PaletteFilter_AttractPlaque_do_filtering
 
 ;===================================================================================================
 
@@ -14085,23 +14012,23 @@ AgahnimWarpShadowFilter:
 ;===================================================================================================
 
 AgahnimWarpShadowFilter_filter_one:
-#_00ED49: LDY.w #PaletteFilterColorAdd+12
+#_00ED49: LDY.w #PaletteFilterColorMasks
 
 #_00ED4C: LDA.l $7EC007
 #_00ED50: CMP.w #$0010
-#_00ED53: BCC .first_half
+#_00ED53: BCC .darken_color
 
 #_00ED55: INY
 #_00ED56: INY
 
-.first_half
+.darken_color
 #_00ED57: STY.b $B7
 
 #_00ED59: AND.w #$000F
 #_00ED5C: ASL A
 #_00ED5D: TAX
 
-#_00ED5E: LDA.l DungeonMask,X
+#_00ED5E: LDA.l BitMasks,X
 #_00ED62: STA.b $0C
 
 ;---------------------------------------------------------------------------------------------------
@@ -14130,7 +14057,7 @@ AgahnimWarpShadowFilter_filter_one:
 #_00ED7E: LDA.b $02
 #_00ED80: PHA
 
-#_00ED81: JSR FilterColorsEndpoint
+#_00ED81: JSR FilterColorsInRange
 
 #_00ED84: PLA
 #_00ED85: STA.b $02
@@ -14159,7 +14086,7 @@ AgahnimWarpShadowFilter_filter_one:
 
 ;===================================================================================================
 
-PaletteFilter_Restore:
+PaletteFilter_RestoreTRock:
 #_00EDAC: REP #$30
 
 #_00EDAE: LDX.w #$00B0
@@ -14780,7 +14707,6 @@ PaletteFilter_WhirlpoolRestoreRedGreen:
 #_00F111: SEP #$20
 
 #_00F113: LDA.l $7EC007
-
 #_00F117: INC A
 #_00F118: STA.l $7EC007
 
@@ -14867,7 +14793,7 @@ PaletteFilter_RestoreBGAdditiveStrict:
 
 ;===================================================================================================
 
-Trinexx_FlashShellPalette_Red:
+FlashTrinexxShellRed:
 #_00F17E: LDA.w $04BE
 #_00F181: BNE TrinexxFilterRed_tick_timer
 
@@ -14930,7 +14856,7 @@ Trinexx_FlashShellPalette_Red:
 
 ;===================================================================================================
 
-Trinexx_UnflashShellPalette_Red:
+UnflashTrinexxShellRed:
 #_00F1CA: LDA.w $04BE
 #_00F1CD: BNE TrinexxFilterRed_tick_timer
 
@@ -14968,7 +14894,7 @@ Trinexx_UnflashShellPalette_Red:
 
 ;===================================================================================================
 
-Trinexx_FlashShellPalette_Blue:
+FlashTrinexxShellBlue:
 #_00F202: LDA.w $04BF
 #_00F205: BNE TrinexxFilterBlue_tick_timer
 
@@ -15031,7 +14957,7 @@ Trinexx_FlashShellPalette_Blue:
 
 ;===================================================================================================
 
-Trinexx_UnflashShellPalette_Blue:
+UnflashTrinexxShellBlue:
 #_00F24E: LDA.w $04BF
 #_00F251: BNE TrinexxFilterBlue_tick_timer
 
@@ -15107,8 +15033,8 @@ IrisSpotlight_close:
 #_00F2B8: STA.w DMA7ADDRB
 
 #_00F2BB: LDA.b #$00
-#_00F2BD: STA.w HDMA6INDIRECTB
-#_00F2C0: STA.w HDMA7INDIRECTB
+#_00F2BD: STA.w HDMA6ITBLB
+#_00F2C0: STA.w HDMA7ITBLB
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -15191,11 +15117,9 @@ IrisSpotlight_ConfigureTable:
 #_00F312: LDA.b $20
 #_00F314: SEC
 #_00F315: SBC.b $E8
-
 #_00F317: CLC
 #_00F318: ADC.w #$000C
 #_00F31B: STA.b $0E
-
 #_00F31D: SEC
 #_00F31E: SBC.w $067C
 #_00F321: STA.w $0674
@@ -15205,12 +15129,9 @@ IrisSpotlight_ConfigureTable:
 #_00F327: ADC.w $067C
 #_00F32A: STA.w $0676
 
-;---------------------------------------------------------------------------------------------------
-
 #_00F32D: LDA.b $22
 #_00F32F: SEC
 #_00F330: SBC.b $E2
-
 #_00F332: CLC
 #_00F333: ADC.w #$0008
 #_00F336: STA.w $0670
@@ -15387,7 +15308,7 @@ IrisSpotlight_ConfigureTable:
 #_00F41C: CMP.b #$06
 #_00F41E: BNE .exit
 
-#_00F420: JSL Sprite_ResetAll
+#_00F420: JSL ResetAllSprites
 
 .exit
 #_00F424: SEP #$30
@@ -15650,7 +15571,6 @@ OrientVerticalLampCone:
 #_00F5C0: LDA.b $E2
 #_00F5C2: SEC
 #_00F5C3: SBC.b $00
-
 #_00F5C5: CLC
 #_00F5C6: ADC.l .horizontal,X
 #_00F5CA: STA.b $E0
@@ -15660,18 +15580,13 @@ OrientVerticalLampCone:
 #_00F5CF: SBC.w #$0058
 #_00F5D2: STA.b $00
 
-;---------------------------------------------------------------------------------------------------
-
 #_00F5D4: LDA.b $E8
 #_00F5D6: SEC
 #_00F5D7: SBC.b $00
-
 #_00F5D9: CLC
 #_00F5DA: ADC.l .vertical,X
-
 #_00F5DE: CLC
 #_00F5DF: ADC.l .adjust,X
-
 #_00F5E3: CLC
 #_00F5E4: ADC.l .margin,X
 
@@ -15705,7 +15620,6 @@ OrientHorizontalLampCone:
 #_00F609: LDA.b $E8
 #_00F60B: SEC
 #_00F60C: SBC.b $00
-
 #_00F60E: CLC
 #_00F60F: ADC.l .vertical,X
 #_00F613: STA.b $E6
@@ -15715,18 +15629,13 @@ OrientHorizontalLampCone:
 #_00F618: SBC.w #$0058
 #_00F61B: STA.b $00
 
-;---------------------------------------------------------------------------------------------------
-
 #_00F61D: LDA.b $E2
 #_00F61F: SEC
 #_00F620: SBC.b $00
-
 #_00F622: CLC
 #_00F623: ADC.l .horizontal,X
-
 #_00F627: CLC
 #_00F628: ADC.l .adjust,X
-
 #_00F62C: CLC
 #_00F62D: ADC.l .margin,X
 
@@ -15794,8 +15703,8 @@ AdjustWaterHDMAWindow_Horizontal:
 #_00F67F: SBC.b $0C
 #_00F681: STA.b $00
 
-#_00F683: LDY.w #$0000 ; !USELESS with the below TAY
-#_00F686: BMI .positive_a ; !USELESS this will always fail
+#_00F683: LDY.w #$0000 ; !USELESS and harmful with the below TAY; the branch will always fail
+#_00F686: BMI .positive_a
 
 #_00F688: TAY
 
@@ -15941,7 +15850,7 @@ AdjustWaterHDMAWindow_Horizontal:
 
 ;===================================================================================================
 
-FloodDam_PrepFloodHDMA:
+PrepDamFloodHDMA:
 #_00F735: REP #$30
 
 #_00F737: STZ.b $04
@@ -16120,8 +16029,8 @@ Module0E_Interface:
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_00F82A: JSL Sprite_Main
-#_00F82E: JSL LinkOAM_Main
+#_00F82A: JSL HandleAllSprites
+#_00F82E: JSL DrawLink
 
 #_00F832: LDA.b $1B
 #_00F834: BNE .indoors
@@ -16129,7 +16038,7 @@ Module0E_Interface:
 #_00F836: JSL OverworldOverlay_HandleRain
 
 .indoors
-#_00F83A: JSL RefillLogic_long
+#_00F83A: JSL HandleItemRefills
 
 #_00F83E: LDA.b $11
 #_00F840: CMP.b #$02
@@ -16255,7 +16164,7 @@ Module0E_05_DesertPrayer:
 ;===================================================================================================
 
 DesertPrayer_InitializeCutscene:
-#_00F8C6: JSL DesertPrayer_InitializeIrisHDMA
+#_00F8C6: JSL InitializePrayerIris
 
 #_00F8CA: LDA.l $7EC00B
 #_00F8CE: DEC A
@@ -16277,7 +16186,7 @@ DesertPrayer_FadeScene:
 ;===================================================================================================
 
 DesertPrayer_WaitForInput:
-#_00F8E4: JSL DesertPrayer_BuildIrisHDMATable
+#_00F8E4: JSL BuildPrayerHDMATable
 
 #_00F8E8: RTL
 
@@ -16288,13 +16197,13 @@ Module0E_06_Unused:
 #_00F8EB: JSL JumpTableLong
 #_00F8EF: dl ResetTransitionPropsAndAdvance_ResetInterface_long
 #_00F8F2: dl ApplyPaletteFilter
-#_00F8F5: dl Underworld_HandleTranslucencyAndPalettes_long
+#_00F8F5: dl HandleRoomTranslucencyAndPalettes_long
 #_00F8F8: dl UnusedInterfacePaletteRecovery_long
 
 ;===================================================================================================
 
 Module0E_04_RedPotion:
-#_00F8FB: JSL AnimatedRefill_Health
+#_00F8FB: JSL FullyRefillHealth
 #_00F8FF: BCC .exit
 
 ;===================================================================================================
@@ -16317,7 +16226,7 @@ Module0E_04_RedPotion:
 ;===================================================================================================
 
 Module0E_08_GreenPotion:
-#_00F911: JSL AnimatedRefill_Magic
+#_00F911: JSL FullyRefillMagic
 #_00F915: BCS Module0E_Interface_RestoreModeFromPotion
 
 #_00F917: RTL
@@ -16325,14 +16234,14 @@ Module0E_08_GreenPotion:
 ;===================================================================================================
 
 Module0E_09_BluePotion:
-#_00F918: JSL AnimatedRefill_Health
+#_00F918: JSL FullyRefillHealth
 #_00F91C: BCC .health_full
 
 #_00F91E: LDA.b #$08 ; switch to green potion submodule for magic only
 #_00F920: STA.b $11
 
 .health_full
-#_00F922: JSL AnimatedRefill_Magic
+#_00F922: JSL FullyRefillMagic
 #_00F926: BCC .magic_full
 
 #_00F928: LDA.b #$04 ; switch to red potion submodule for health only
@@ -16360,18 +16269,18 @@ pool PrepareDungeonExitFromBossFight
 #_00F938: db $0D ; ROOM 000D - Agahnim 2→self
 
 .exit_room
-#_00F939: db $C9 ; ROOM C9 - Armos→Eastern lobby
-#_00F93A: db $63 ; ROOM 63 - Lanmolas→Desert 3
-#_00F93B: db $77 ; ROOM 77 - Moldorm→Hera lobby
-#_00F93C: db $20 ; ROOM 20 - Agahnim→self
-#_00F93D: db $28 ; ROOM 28 - Arrghus→Swamp lobby
-#_00F93E: db $4A ; ROOM 4A - Helmasaur→PoD lobby
-#_00F93F: db $59 ; ROOM 59 - Mothula→Skull 3
-#_00F940: db $98 ; ROOM 98 - Vitreous→Mire foyer
-#_00F941: db $0E ; ROOM 0E - Kholdstare→Ice 1
-#_00F942: db $D6 ; ROOM D6 - Trinexx→TR foyer
-#_00F943: db $DB ; ROOM DB - Blind→Thieves' lobby
-#_00F944: db $0D ; ROOM 0D - Agahnim 2→self
+#_00F939: db $C9 ; ROOM 00C9 - Armos→Eastern lobby
+#_00F93A: db $63 ; ROOM 0063 - Lanmolas→Desert 3
+#_00F93B: db $77 ; ROOM 0077 - Moldorm→Hera lobby
+#_00F93C: db $20 ; ROOM 0020 - Agahnim→self
+#_00F93D: db $28 ; ROOM 0028 - Arrghus→Swamp lobby
+#_00F93E: db $4A ; ROOM 004A - Helmasaur→PoD lobby
+#_00F93F: db $59 ; ROOM 0059 - Mothula→Skull 3
+#_00F940: db $98 ; ROOM 0098 - Vitreous→Mire foyer
+#_00F941: db $0E ; ROOM 000E - Kholdstare→Ice 1
+#_00F942: db $D6 ; ROOM 00D6 - Trinexx→TR foyer
+#_00F943: db $DB ; ROOM 00DB - Blind→Thieves' lobby
+#_00F944: db $0D ; ROOM 000D - Agahnim 2→self
 
 pool off
 
@@ -16385,7 +16294,7 @@ PrepareDungeonExitFromBossFight:
 #_00F950: ORA.b #$80
 #_00F952: STA.w $0403
 
-#_00F955: JSL Underworld_FlagRoomData_Quadrants
+#_00F955: JSL FullyUpdateRoomFlags
 
 #_00F959: LDX.b #$0C
 
@@ -16417,8 +16326,8 @@ PrepareDungeonExitFromBossFight:
 #_00F982: EOR.b #$40
 #_00F984: STA.l $7EF3CA
 
-#_00F988: JSL Sprite_LoadGraphicsProperties_light_world_only
-#_00F98C: JSL Ancilla_TerminateSelectInteractives
+#_00F988: JSL ConfigureSpriteSet_light_world_only
+#_00F98C: JSL TerminateSelectInteractives
 
 #_00F990: STZ.w $037B
 
@@ -16572,7 +16481,7 @@ Module0E_0B_SaveMenu:
 
 ;===================================================================================================
 
-pool Sprite_LoadGraphicsProperties
+pool ConfigureSpriteSet
 
 .sprite_set
 #_00FA41: db $00, $00, $00, $00, $00, $00, $00, $00
@@ -16652,7 +16561,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Sprite_LoadGraphicsProperties:
+ConfigureSpriteSet:
 #_00FC41: PHB
 #_00FC42: PHK
 #_00FC43: PLB
@@ -16680,7 +16589,7 @@ Sprite_LoadGraphicsProperties:
 
 ;===================================================================================================
 
-#Sprite_LoadGraphicsProperties_light_world_only:
+#ConfigureSpriteSet_light_world_only:
 #_00FC62: PHB
 #_00FC63: PHK
 #_00FC64: PLB
@@ -16739,6 +16648,7 @@ GFXAA2ValsOW:
 #_00FCC4: db $23, $2A, $21, $20, $20, $27, $20, $25
 #_00FCCC: db $2B, $2B, $20, $27, $27, $27, $27, $27
 #_00FCD4: db $2B, $2B, $20, $27, $27, $27, $27, $27
+
 #_00FCDC: db $3E, $3E, $3E, $41, $41, $41, $41, $3C
 #_00FCE4: db $3E, $3E, $3E, $41, $41, $41, $41, $40
 #_00FCEC: db $3F, $3F, $30, $40, $40, $30, $40, $30
@@ -16759,6 +16669,7 @@ OverworldPalettesScreenToSet:
 #_00FD44: db $08, $08, $01, $00, $00, $04, $00, $09
 #_00FD4C: db $09, $00, $00, $04, $04, $04, $04, $04
 #_00FD54: db $09, $09, $00, $04, $04, $04, $04, $04
+
 #_00FD5C: db $1B, $1B, $1E, $17, $17, $17, $17, $18
 #_00FD64: db $1B, $1B, $1E, $17, $17, $17, $17, $1D
 #_00FD6C: db $1E, $1E, $10, $1E, $1E, $10, $1E, $10
@@ -16783,12 +16694,12 @@ ToggleStarTileGraphics:
 #_00FDAC: LDY.w #$0020
 
 #_00FDAF: LDA.w $04BC
-#_00FDB2: BEQ .already_zero
+#_00FDB2: BEQ .flipped
 
 #_00FDB4: TYX
 #_00FDB5: LDY.w #$0000
 
-.already_zero
+.flipped
 #_00FDB8: STY.b $0E
 
 #_00FDBA: PHB
@@ -16937,6 +16848,7 @@ MirrorWarp_BuildWavingHDMATable:
 #_00FE6F: LDX.w #$01A0
 #_00FE72: LDY.w #$01B0
 
+; !WTF IS THIS FOR????
 #_00FE75: LDA.w #$0002
 #_00FE78: STA.b $00
 
@@ -17085,6 +16997,7 @@ MirrorWarp_BuildDewavingHDMATable:
 #_00FF3A: LDX.w #$01A0
 #_00FF3D: LDY.w #$01B0
 
+; !WTF IS THIS FOR????
 #_00FF40: LDA.w #$0002
 #_00FF43: STA.b $00
 
@@ -17192,24 +17105,24 @@ InternalROMHeader:
 #_00FFDE: dw $CDC8 ; checksum
 
 ; native mode interrupt vectors
-#_00FFE0: dw $FFFF ; Unused
-#_00FFE2: dw $FFFF ; Unused
-#_00FFE4: dw Interrupt_Unused
-#_00FFE6: dw $FFFF ; BRK
-#_00FFE8: dw Interrupt_Unused
-#_00FFEA: dw Interrupt_NMI
-#_00FFEC: dw Interrupt_Reset
-#_00FFEE: dw Interrupt_IRQ
+#_00FFE0: dw $FFFF              ; Unused
+#_00FFE2: dw $FFFF              ; Unused
+#_00FFE4: dw Interrupt_Unused   ; COP
+#_00FFE6: dw $FFFF              ; BRK
+#_00FFE8: dw Interrupt_Unused   ; Abort
+#_00FFEA: dw NMI                ; Non-maskable interrupt
+#_00FFEC: dw Reset              ; Reset
+#_00FFEE: dw IRQ                ; General interrupt
 
 ; emulation mode interrupt vectors
-#_00FFF0: dw $FFFF ; Unused
-#_00FFF2: dw $FFFF ; Unused
-#_00FFF4: dw Interrupt_Unused
-#_00FFF6: dw Interrupt_Unused
-#_00FFF8: dw Interrupt_Unused
-#_00FFFA: dw Interrupt_Unused
-#_00FFFC: dw Interrupt_Reset
-#_00FFFE: dw Interrupt_IRQ
+#_00FFF0: dw $FFFF              ; Unused
+#_00FFF2: dw $FFFF              ; Unused
+#_00FFF4: dw Interrupt_Unused   ; COP
+#_00FFF6: dw Interrupt_Unused   ; Unused
+#_00FFF8: dw Interrupt_Unused   ; Abort
+#_00FFFA: dw Interrupt_Unused   ; Non-maskable interrupt
+#_00FFFC: dw Reset              ; Reset
+#_00FFFE: dw IRQ                ; General interrupt/BRK
 
 ; Due to the high byte of the IRQ vector
 ; the unused and BRK vectors essentially point to

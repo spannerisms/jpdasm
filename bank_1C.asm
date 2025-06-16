@@ -982,7 +982,7 @@ Message_001C:
 ; 私は,お城の地下ろうの中⋯
 ; たすけて⋯ ⋯
 Message_001D:
-#_1C866E: db $FE, $6B, $02 ; window: 2
+#_1C866E: db $FE, $6B, $02 ; border: 2
 #_1C8671: db $FC, $06 ; text speed: 6
 #_1C8673: db $18, $12, $0B, $1B, $CC, $FF, $CC ; たすけて⋯⎵⋯
 #_1C867A: db $FE, $78, $01 ; wait
@@ -1069,7 +1069,7 @@ Message_001D:
 ; 中庭へ通じる抜け穴が
 ; あるはずよ。
 Message_001E:
-#_1C8728: db $FE, $6B, $02 ; window: 2
+#_1C8728: db $FE, $6B, $02 ; border: 2
 #_1C872B: db $FC, $06 ; text speed: 6
 #_1C872D: db $18, $12, $0B, $1B, $0A, $2E, $10, $01 ; たすけてください
 #_1C8735: db $CC ; ⋯
@@ -1415,7 +1415,7 @@ Message_0025:
 ; し,城の兵たちが,教会へ⋯
 ; キャアァァ〜 ⋯ ⋯ ⋯
 Message_0026:
-#_1C89BC: db $FE, $6B, $02 ; window: 2
+#_1C89BC: db $FE, $6B, $02 ; border: 2
 #_1C89BF: db $FC, $06 ; text speed: 6
 #_1C89C1: db $FE, $6A ; write player name
 #_1C89C3: db $C7, $FF, $18, $12, $0B, $1B, $C7 ; !⎵たすけて!
@@ -1742,7 +1742,7 @@ Message_002D:
 ; 剣の方で お前を選ぶであろう
 ; ⋯ ⋯ ⋯ 。
 Message_002E:
-#_1C8C2C: db $FE, $6D, $01 ; window position: low
+#_1C8C2C: db $FE, $6D, $01 ; position: low
 #_1C8C2F: db $02, $02, $32, $C8, $1A, $01, $21, $A3 ; ううむ,ついに3
 #_1C8C37: db $1A, $24 ; つの
 #_1C8C39: db $FD, $53 ; kanji 紋
@@ -1790,7 +1790,7 @@ Message_002E:
 ; たたかえぬ。
 ; お前だけが,頼りなのじゃ⋯
 Message_002F:
-#_1C8C8B: db $FE, $6D, $01 ; window position: low
+#_1C8C8B: db $FE, $6D, $01 ; position: low
 #_1C8C8E: db $5D, $61, $38, $28, $C8, $04, $01, $41 ; ワシらは,おいぼ
 #_1C8C96: db $3B, $1B ; れて
 #_1C8C98: db $F8 ; row 2
@@ -1822,7 +1822,7 @@ Message_002F:
 ; ▶ う ん
 ;   もちろん
 Message_0030:
-#_1C8CB0: db $FE, $6D, $01 ; window position: low
+#_1C8CB0: db $FE, $6D, $01 ; position: low
 #_1C8CB3: db $01, $08, $21, $34, $5D, $61, $15 ; いかにもワシが
 #_1C8CBA: db $FD, $8D ; kanji 長
 #_1C8CBC: db $FD, $E5 ; kanji 老
@@ -1916,7 +1916,7 @@ Message_0030:
 ; の知っている話を教えてやろう
 ; さあ,神殿へ行くが良い。
 Message_0031:
-#_1C8D86: db $FE, $6D, $01 ; window position: low
+#_1C8D86: db $FE, $6D, $01 ; position: low
 #_1C8D89: db $07, $11, $C8, $20, $38, $3D, $C8, $0C ; よし,ならば,こ
 #_1C8D91: db $24 ; の
 #_1C8D92: db $FD, $05 ; kanji 神
@@ -1970,7 +1970,7 @@ Message_0031:
 ; 城の者の目をのがれて姿をかく
 ; しておるはず。探しなされ。
 Message_0032:
-#_1C8DF0: db $FE, $6D, $01 ; window position: low
+#_1C8DF0: db $FE, $6D, $01 ; position: low
 #_1C8DF3: db $5D, $61, $24 ; ワシの
 #_1C8DF6: db $FD, $27 ; kanji 他
 #_1C8DF8: db $21, $34, $A7 ; にも7
@@ -2017,7 +2017,7 @@ Message_0032:
 ; このサハスラーラの願いをかな
 ; えてくれ! 頼むぞ[LINK]よ
 Message_0033:
-#_1C8E27: db $FE, $6B, $02 ; window: 2
+#_1C8E27: db $FE, $6B, $02 ; border: 2
 #_1C8E2A: db $FC, $06 ; text speed: 6
 #_1C8E2C: db $FE, $6A ; write player name
 #_1C8E2E: db $07, $C8, $0C, $24, $60, $78, $62, $88 ; よ,このサハスラ
@@ -2187,7 +2187,7 @@ Message_0033:
 ; から,お前を守り,勇者の姿を
 ; たもってくれるであろう。
 Message_0034:
-#_1C8F97: db $FE, $6B, $02 ; window: 2
+#_1C8F97: db $FE, $6B, $02 ; border: 2
 #_1C8F9A: db $FC, $06 ; text speed: 6
 #_1C8F9C: db $11, $08, $11, $C8, $14, $24 ; しかし,その
 #_1C8FA2: db $FD, $A2 ; kanji 姿
@@ -2235,7 +2235,7 @@ Message_0034:
 ; お前の助けとなる物がかくされ
 ; ておる。手に入れなされよ。
 Message_0035:
-#_1C9003: db $FE, $6D, $01 ; window position: low
+#_1C9003: db $FE, $6D, $01 ; position: low
 #_1C9006: db $78, $51, $89, $50 ; ハイリア
 #_1C900A: db $FD, $12 ; kanji 湖
 #_1C900C: db $24 ; の
@@ -2281,7 +2281,7 @@ Message_0035:
 ; ワシら賢者のー族に伝わる宝,
 ; お前にやろう。
 Message_0036:
-#_1C9039: db $FE, $6D, $01 ; window position: low
+#_1C9039: db $FE, $6D, $01 ; position: low
 #_1C903C: db $04, $04, $C8, $20, $0F, $1C, $C4 ; おお,なんと『
 #_1C9043: db $FD, $A0 ; kanji 勇
 #_1C9045: db $FD, $37 ; kanji 気
@@ -2448,7 +2448,7 @@ Message_0036:
 ; ワシら賢者のー族に伝わる宝,
 ; お前にやろう。
 Message_0037:
-#_1C916B: db $FE, $6D, $01 ; window position: low
+#_1C916B: db $FE, $6D, $01 ; position: low
 #_1C916E: db $01, $08, $21, $34, $5D, $61, $15 ; いかにもワシが
 #_1C9175: db $FD, $8D ; kanji 長
 #_1C9177: db $FD, $E5 ; kanji 老
@@ -3853,7 +3853,7 @@ Message_006D:
 ; かかっておる。
 ; 頼んだぞ [LINK]よ ⋯
 Message_006E:
-#_1C9BDA: db $FE, $6B, $02 ; window: 2
+#_1C9BDA: db $FE, $6B, $02 ; border: 2
 #_1C9BDD: db $FC, $06 ; text speed: 6
 #_1C9BDF: db $FD, $8D ; kanji 長
 #_1C9BE1: db $FD, $E5 ; kanji 老
@@ -3991,7 +3991,7 @@ Message_0071:
 ; ムシの他にも 取れる物が
 ; あるかもしれない。秘密だ⋯。
 Message_0072:
-#_1C9D05: db $FE, $6D, $01 ; window position: low
+#_1C9D05: db $FE, $6D, $01 ; position: low
 #_1C9D08: db $82, $61 ; ムシ
 #_1C9D0A: db $FD, $47 ; kanji 取
 #_1C9D0C: db $39, $00, $31, $0E, $FF, $04, $08, $39 ; りあみを⎵おかり
@@ -4171,7 +4171,7 @@ Message_0079:
 ; Aボタンをー定時間押し続ける
 ; と,ダッシュで体当たりできる
 Message_007A:
-#_1C9E60: db $FE, $6D, $01 ; window position: low
+#_1C9E60: db $FE, $6D, $01 ; position: low
 #_1C9E63: db $95, $65, $60, $62, $24, $0A, $1A, $0E ; ペガサスのくつを
 #_1C9E6B: db $FF, $34, $38, $4A, $18, $CD ; ⎵もらった。
 #_1C9E71: db $F8 ; row 2
@@ -5923,7 +5923,7 @@ Message_00B1:
 ; ロイをまとった魔物をも倒せる
 ; はずじゃ。必ずみつけなされ。
 Message_00B2:
-#_1CAC41: db $FE, $6B, $02 ; window: 2
+#_1CAC41: db $FE, $6B, $02 ; border: 2
 #_1CAC44: db $FE, $6A ; write player name
 #_1CAC46: db $07, $C8, $5D, $61, $25, $47 ; よ,ワシじゃ
 #_1CAC4C: db $F8 ; row 2
@@ -5971,7 +5971,7 @@ Message_00B2:
 ; 必ず手に入れて塔を出るがよい
 ; 忘れるでないぞ⋯。
 Message_00B3:
-#_1CACA1: db $FE, $6B, $02 ; window: 2
+#_1CACA1: db $FE, $6B, $02 ; border: 2
 #_1CACA4: db $FE, $6A ; write player name
 #_1CACA6: db $07, $C8, $60, $78, $62, $88, $C9, $88 ; よ,サハスラーラ
 #_1CACAE: db $25, $47 ; じゃ
@@ -6099,7 +6099,7 @@ Message_00B5:
 ; ヘラの塔へたどりつけるじゃろ
 ; う。よくかんがえることじゃ。
 Message_00B6:
-#_1CADA6: db $FE, $6B, $02 ; window: 2
+#_1CADA6: db $FE, $6B, $02 ; border: 2
 #_1CADA9: db $FE, $6A ; write player name
 #_1CADAB: db $07, $C8, $0C, $24, $60, $78, $62, $88 ; よ,このサハスラ
 #_1CADB3: db $C9, $88 ; ーラ
@@ -6135,7 +6135,7 @@ Message_00B6:
 ; もう,1つもかわっておるはず
 ; じゃ。よくかんがえるのじゃ。
 Message_00B7:
-#_1CAE01: db $FE, $6B, $02 ; window: 2
+#_1CAE01: db $FE, $6B, $02 ; border: 2
 #_1CAE04: db $FE, $6A ; write player name
 #_1CAE06: db $07, $C8, $07, $0A, $09, $0B, $CD ; よ,よくきけ。
 #_1CAE0D: db $FD, $73 ; kanji 光
@@ -6174,7 +6174,7 @@ Message_00B7:
 ; 盗賊ブラインドの魔術にまどわ
 ; されないで!気を付けてね。
 Message_00B8:
-#_1CAE61: db $FE, $6B, $02 ; window: 2
+#_1CAE61: db $FE, $6B, $02 ; border: 2
 #_1CAE64: db $FE, $6A ; write player name
 #_1CAE66: db $CC ; ⋯
 #_1CAE67: db $FD, $26 ; kanji 私
@@ -6201,7 +6201,7 @@ Message_00B8:
 ; 4つのあかりをともせば,
 ; すすむ道が開けるじゃろう。
 Message_00B9:
-#_1CAE95: db $FE, $6B, $02 ; window: 2
+#_1CAE95: db $FE, $6B, $02 ; border: 2
 #_1CAE98: db $FE, $6A ; write player name
 #_1CAE9A: db $07, $C8, $60, $78, $62, $88, $C9, $88 ; よ,サハスラーラ
 #_1CAEA2: db $25, $47 ; じゃ
@@ -6265,7 +6265,7 @@ Message_00BB:
 ; 『銀の矢』でとどめをさすの
 ; じゃっ!よいな[LINK]よ⋯。
 Message_00BC:
-#_1CAF13: db $FE, $6B, $02 ; window: 2
+#_1CAF13: db $FE, $6B, $02 ; border: 2
 #_1CAF16: db $65, $74, $5F, $24, $02, $1E, $09, $0E ; ガノンのうごきを
 #_1CAF1E: db $FD, $9E ; kanji 封
 #_1CAF20: db $25, $18, $38 ; じたら
@@ -6292,7 +6292,7 @@ Message_00BC:
 ; ているの。あなたが,来てくれ
 ; るのを信じてまっています⋯
 Message_00BD:
-#_1CAF41: db $FE, $6B, $02 ; window: 2
+#_1CAF41: db $FE, $6B, $02 ; border: 2
 #_1CAF44: db $FE, $6A ; write player name
 #_1CAF46: db $CC ; ⋯
 #_1CAF47: db $FD, $26 ; kanji 私
@@ -6334,7 +6334,7 @@ Message_00BD:
 ; すべての魔物のヤカタにおかれ
 ; た宝は,必ず手に入れるのじゃ
 Message_00BE:
-#_1CAF9F: db $FE, $6B, $02 ; window: 2
+#_1CAF9F: db $FE, $6B, $02 ; border: 2
 #_1CAFA2: db $FE, $6A ; write player name
 #_1CAFA4: db $07, $C8, $60, $78, $62, $88, $C9, $88 ; よ,サハスラーラ
 #_1CAFAC: db $25, $47 ; じゃ
@@ -6364,7 +6364,7 @@ Message_00BE:
 ; やつの魔力をぎゃくに,りよう
 ; するのじゃ。
 Message_00BF:
-#_1CAFD3: db $FE, $6B, $02 ; window: 2
+#_1CAFD3: db $FE, $6B, $02 ; border: 2
 #_1CAFD6: db $07, $01, $08, $C8 ; よいか,
 #_1CAFDA: db $FE, $6A ; write player name
 #_1CAFDC: db $07, $CD ; よ。
@@ -6400,7 +6400,7 @@ Message_00BF:
 ; 心して,奥へすすむがよい。
 ; むりをするでないぞ⋯。
 Message_00C0:
-#_1CB019: db $FE, $6B, $02 ; window: 2
+#_1CB019: db $FE, $6B, $02 ; border: 2
 #_1CB01C: db $FE, $6A ; write player name
 #_1CB01E: db $07, $C8 ; よ,
 #_1CB020: db $FD, $2D ; kanji 魔
@@ -6438,7 +6438,7 @@ Message_00C0:
 ; もっておるか。クスリがないの
 ; なら,先へはすすまぬ事じゃ。
 Message_00C1:
-#_1CB068: db $FE, $6B, $02 ; window: 2
+#_1CB068: db $FE, $6B, $02 ; border: 2
 #_1CB06B: db $FE, $6A ; write player name
 #_1CB06D: db $07, $C8 ; よ,
 #_1CB06F: db $FD, $2D ; kanji 魔
@@ -6462,7 +6462,7 @@ Message_00C1:
 ; の炎が,お前を守ってくれる
 ; だろう⋯。
 Message_00C2:
-#_1CB099: db $FE, $6B, $02 ; window: 2
+#_1CB099: db $FE, $6B, $02 ; border: 2
 #_1CB09C: db $FE, $6A ; write player name
 #_1CB09E: db $07, $C8, $0C, $0C, $36, $28 ; よ,ここでは
 #_1CB0A4: db $FD, $5F ; kanji 大
@@ -6487,7 +6487,7 @@ Message_00C2:
 ; 剣だけでは倒せないわ。くずれ
 ; た時に,とどめをさすのよ。
 Message_00C3:
-#_1CB0C2: db $FE, $6B, $02 ; window: 2
+#_1CB0C2: db $FE, $6B, $02 ; border: 2
 #_1CB0C5: db $FE, $6A ; write player name
 #_1CB0C7: db $CC, $C8, $65, $51, $5C, $6A, $24 ; ⋯,ガイコツの
 #_1CB0CE: db $FD, $1A ; kanji 剣
@@ -6515,7 +6515,7 @@ Message_00C3:
 ; を使えば,いつでも入口に帰る
 ; ことができる。忘れるでないぞ
 Message_00C4:
-#_1CB0F4: db $FE, $6B, $02 ; window: 2
+#_1CB0F4: db $FE, $6B, $02 ; border: 2
 #_1CB0F7: db $FE, $6A ; write player name
 #_1CB0F9: db $07, $C8, $5D, $61, $25, $47 ; よ,ワシじゃ
 #_1CB0FF: db $F8 ; row 2
@@ -7361,7 +7361,7 @@ Message_00E7:
 ; まずは,長老サハスラーラを
 ; 探しなされ〜⋯。
 Message_00E8:
-#_1CB801: db $FE, $6D, $01 ; window position: low
+#_1CB801: db $FE, $6D, $01 ; position: low
 #_1CB804: db $23, $00, $CE, $0F, $FF, $36, $CE, $3A ; ねあ〜ん⎵で〜る
 #_1CB80C: db $18, $CE, $3A ; た〜る
 #_1CB80F: db $F8 ; row 2
@@ -7381,7 +7381,7 @@ Message_00E8:
 ; サバクの入口は村に伝わるムド
 ; ラの書をもって開かれ〜る。
 Message_00E9:
-#_1CB82A: db $FE, $6D, $01 ; window position: low
+#_1CB82A: db $FE, $6D, $01 ; position: low
 #_1CB82D: db $0A, $3C, $30, $21, $07, $CE, $0F, $0A ; くろまによ〜んく
 #_1CB835: db $3C, $30, $21, $07, $CE, $0F ; ろまによ〜ん
 #_1CB83B: db $F8 ; row 2
@@ -7408,7 +7408,7 @@ Message_00E9:
 ; サバクにも賢者のしそんが住ん
 ; でお〜る。
 Message_00EA:
-#_1CB85F: db $FE, $6D, $01 ; window position: low
+#_1CB85F: db $FE, $6D, $01 ; position: low
 #_1CB862: db $0A, $3C, $30, $21, $07, $CE, $0F, $0A ; くろまによ〜んく
 #_1CB86A: db $3C, $30, $21, $07, $CE, $0F ; ろまによ〜ん
 #_1CB870: db $F8 ; row 2
@@ -7429,7 +7429,7 @@ Message_00EA:
 ; 森のキノコは,神殿の北の
 ; 魔法屋にもっていきなされ〜。
 Message_00EB:
-#_1CB889: db $FE, $6D, $01 ; window position: low
+#_1CB889: db $FE, $6D, $01 ; position: low
 #_1CB88C: db $23, $00, $CE, $0F, $FF, $36, $CE, $3A ; ねあ〜ん⎵で〜る
 #_1CB894: db $18, $CE, $3A ; た〜る
 #_1CB897: db $F8 ; row 2
@@ -7455,7 +7455,7 @@ Message_00EB:
 ; 川をず〜とさかのぼった所に
 ; ゾーラの住む湖があ〜る。
 Message_00EC:
-#_1CB8BB: db $FE, $6D, $01 ; window position: low
+#_1CB8BB: db $FE, $6D, $01 ; position: low
 #_1CB8BE: db $0A, $3C, $30, $21, $07, $CE, $0F, $0A ; くろまによ〜んく
 #_1CB8C6: db $3C, $30, $21, $07, $CE, $0F ; ろまによ〜ん
 #_1CB8CC: db $F8 ; row 2
@@ -7479,7 +7479,7 @@ Message_00EC:
 ; 山の塔には,ムーンパールなる
 ; 宝があ〜る。手に入れなされ〜
 Message_00ED:
-#_1CB8EC: db $FE, $6D, $01 ; window position: low
+#_1CB8EC: db $FE, $6D, $01 ; position: low
 #_1CB8EF: db $23, $00, $CE, $0F, $FF, $36, $CE, $3A ; ねあ〜ん⎵で〜る
 #_1CB8F7: db $18, $CE, $3A ; た〜る
 #_1CB8FA: db $F8 ; row 2
@@ -7504,7 +7504,7 @@ Message_00ED:
 ; マスターソードは,司祭の体を
 ; 攻撃するための物ではな〜い。
 Message_00EE:
-#_1CB91E: db $FE, $6D, $01 ; window position: low
+#_1CB91E: db $FE, $6D, $01 ; position: low
 #_1CB921: db $23, $00, $CE, $0F, $FF, $36, $CE, $3A ; ねあ〜ん⎵で〜る
 #_1CB929: db $18, $CE, $3A ; た〜る
 #_1CB92C: db $F8 ; row 2
@@ -7530,7 +7530,7 @@ Message_00EE:
 ; かじ屋の家の前のいどに,とび
 ; こんでみなさ〜い。
 Message_00EF:
-#_1CB951: db $FE, $6D, $01 ; window position: low
+#_1CB951: db $FE, $6D, $01 ; position: low
 #_1CB954: db $0A, $3C, $30, $21, $07, $CE, $0F, $0A ; くろまによ〜んく
 #_1CB95C: db $3C, $30, $21, $07, $CE, $0F ; ろまによ〜ん
 #_1CB962: db $F8 ; row 2
@@ -7553,7 +7553,7 @@ Message_00EF:
 ; 悪うございます。 またの
 ; おこしをまっておりますぞ。
 Message_00F0:
-#_1CB97F: db $FE, $6D, $01 ; window position: low
+#_1CB97F: db $FE, $6D, $01 ; position: low
 #_1CB982: db $02, $02, $32, $C8, $09, $49, $02, $28 ; ううむ,きょうは
 #_1CB98A: db $C8, $19, $49, $02, $11, $15 ; ,ちょうしが
 #_1CB990: db $F8 ; row 2
@@ -7575,7 +7575,7 @@ Message_00F0:
 ; ▶ うらなってもらう
 ;   やめておく
 Message_00F1:
-#_1CB9AD: db $FE, $6D, $01 ; window position: low
+#_1CB9AD: db $FE, $6D, $01 ; position: low
 #_1CB9B0: db $04, $4A, $C8, $00, $20, $18, $24, $58 ; おっ,あなたのカ
 #_1CB9B8: db $54, $21 ; オに
 #_1CB9BA: db $FD, $32 ; kanji 良
@@ -7607,7 +7607,7 @@ Message_00F1:
 ; ますぞ。では,あなたがゲンキ
 ; になりますよ〜に,ええいっ!
 Message_00F2:
-#_1CBA04: db $FE, $6D, $01 ; window position: low
+#_1CBA04: db $FE, $6D, $01 ; position: low
 #_1CBA07: db $14, $3B, $36, $28, $FF ; それでは⎵
 #_1CBA0C: db $FE, $6C, $00 ; BCD digit 0
 #_1CBA0F: db $FE, $6C, $01 ; BCD digit 1
@@ -7626,7 +7626,7 @@ Message_00F2:
 ; ううむ,それはザンネン⋯。
 ; また,おまちしておりますぞ。
 Message_00F3:
-#_1CBA38: db $FE, $6D, $01 ; window position: low
+#_1CBA38: db $FE, $6D, $01 ; position: low
 #_1CBA3B: db $02, $02, $32, $C8, $14, $3B, $28, $6F ; ううむ,それはザ
 #_1CBA43: db $5F, $73, $5F, $CC, $CD ; ンネン⋯。
 #_1CBA48: db $F8 ; row 2
@@ -7641,7 +7641,7 @@ Message_00F3:
 ; あやしのサバクのあたりに,
 ; 何か立ってお〜る。
 Message_00F4:
-#_1CBA58: db $FE, $6D, $01 ; window position: low
+#_1CBA58: db $FE, $6D, $01 ; position: low
 #_1CBA5B: db $23, $00, $CE, $0F, $FF, $36, $CE, $3A ; ねあ〜ん⎵で〜る
 #_1CBA63: db $18, $CE, $3A ; た〜る
 #_1CBA66: db $F8 ; row 2
@@ -7661,7 +7661,7 @@ Message_00F4:
 ; 宝箱のことは闇世界の洞くつ
 ; に住む,じょうほう屋にきけ〜
 Message_00F5:
-#_1CBA81: db $FE, $6D, $01 ; window position: low
+#_1CBA81: db $FE, $6D, $01 ; position: low
 #_1CBA84: db $0A, $3C, $30, $21, $07, $CE, $0F, $0A ; くろまによ〜んく
 #_1CBA8C: db $3C, $30, $21, $07, $CE, $0F ; ろまによ〜ん
 #_1CBA92: db $F8 ; row 2
@@ -7689,7 +7689,7 @@ Message_00F5:
 ; かじ屋のあいぼうは,はぐれ者
 ; の村のはずれにお〜る。
 Message_00F6:
-#_1CBAB8: db $FE, $6D, $01 ; window position: low
+#_1CBAB8: db $FE, $6D, $01 ; position: low
 #_1CBABB: db $23, $00, $CE, $0F, $FF, $36, $CE, $3A ; ねあ〜ん⎵で〜る
 #_1CBAC3: db $18, $CE, $3A ; た〜る
 #_1CBAC6: db $F8 ; row 2
@@ -7712,7 +7712,7 @@ Message_00F6:
 ; 光世界のハカ場には,宝が1つ
 ; ねむってお〜る。
 Message_00F7:
-#_1CBAE5: db $FE, $6D, $01 ; window position: low
+#_1CBAE5: db $FE, $6D, $01 ; position: low
 #_1CBAE8: db $0A, $3C, $30, $21, $07, $CE, $0F, $0A ; くろまによ〜んく
 #_1CBAF0: db $3C, $30, $21, $07, $CE, $0F ; ろまによ〜ん
 #_1CBAF6: db $F8 ; row 2
@@ -7735,7 +7735,7 @@ Message_00F7:
 ; バクダン屋では,新しい
 ; バクダンもうってる事があ〜る
 Message_00F8:
-#_1CBB14: db $FE, $6D, $01 ; window position: low
+#_1CBB14: db $FE, $6D, $01 ; position: low
 #_1CBB17: db $23, $00, $CE, $0F, $FF, $36, $CE, $3A ; ねあ〜ん⎵で〜る
 #_1CBB1F: db $18, $CE, $3A ; た〜る
 #_1CBB22: db $F8 ; row 2
@@ -7758,7 +7758,7 @@ Message_00F8:
 ; 闇世界のピラミッドの中には
 ; 何かあ〜る。
 Message_00F9:
-#_1CBB41: db $FE, $6D, $01 ; window position: low
+#_1CBB41: db $FE, $6D, $01 ; position: low
 #_1CBB44: db $0A, $3C, $30, $21, $07, $CE, $0F, $0A ; くろまによ〜んく
 #_1CBB4C: db $3C, $30, $21, $07, $CE, $0F ; ろまによ〜ん
 #_1CBB52: db $F8 ; row 2
@@ -7780,7 +7780,7 @@ Message_00F9:
 ; ガノンの塔はデスマウンテンに
 ; 結界に守られ立ってお〜る。
 Message_00FA:
-#_1CBB6D: db $FE, $6D, $01 ; window position: low
+#_1CBB6D: db $FE, $6D, $01 ; position: low
 #_1CBB70: db $23, $00, $CE, $0F, $FF, $36, $CE, $3A ; ねあ〜ん⎵で〜る
 #_1CBB78: db $18, $CE, $3A ; た〜る
 #_1CBB7B: db $F8 ; row 2
@@ -7805,7 +7805,7 @@ Message_00FA:
 ; ガノンのとどめをさすには,
 ; 『銀の矢』が必要じゃあ〜。
 Message_00FB:
-#_1CBB9E: db $FE, $6D, $01 ; window position: low
+#_1CBB9E: db $FE, $6D, $01 ; position: low
 #_1CBBA1: db $0A, $3C, $30, $21, $07, $CE, $0F, $0A ; くろまによ〜んく
 #_1CBBA9: db $3C, $30, $21, $07, $CE, $0F ; ろまによ〜ん
 #_1CBBAF: db $F8 ; row 2
@@ -8088,7 +8088,7 @@ Message_0101:
 ; ムシを入れるビンをもってる?
 ; ⋯そう,もってないの ゴホッ
 Message_0102:
-#_1CBE1D: db $FE, $6D, $01 ; window position: low
+#_1CBE1D: db $FE, $6D, $01 ; position: low
 #_1CBE20: db $6E, $7C, $6E, $7C, $FF ; ゴホゴホ⎵
 #_1CBE25: db $FE, $6A ; write player name
 #_1CBE27: db $21, $01, $19, $47, $0F ; にいちゃん
@@ -8115,7 +8115,7 @@ Message_0102:
 ; つもりのムシ取りあみだけど,
 ; おにいちゃんにかしてあげるよ
 Message_0103:
-#_1CBE4C: db $FE, $6D, $01 ; window position: low
+#_1CBE4C: db $FE, $6D, $01 ; position: low
 #_1CBE4F: db $41, $0A, $28, $C8 ; ぼくは,
 #_1CBE53: db $FD, $BF ; kanji 体
 #_1CBE55: db $15, $07, $0D, $0A, $4A, $1B ; がよわくって
@@ -8165,7 +8165,7 @@ Message_0103:
 ; なりたいなあ⋯。
 ; ゴホ ゴホ ⋯
 Message_0104:
-#_1CBED4: db $FE, $6D, $01 ; window position: low
+#_1CBED4: db $FE, $6D, $01 ; position: low
 #_1CBED7: db $00, $C9, $00, $FF, $28, $05, $0A, $6D ; あーあ⎵はやくゲ
 #_1CBEDF: db $5F, $59, $21 ; ンキに
 #_1CBEE2: db $F8 ; row 2
@@ -8437,7 +8437,7 @@ Message_0110:
 #_1CC0DD: db $FE, $6E, $00 ; set scroll speed
 #_1CC0E0: db $FE, $77, $07 ; set color
 #_1CC0E3: db $FC, $03 ; text speed: 3
-#_1CC0E5: db $FE, $6B, $02 ; window: 2
+#_1CC0E5: db $FE, $6B, $02 ; border: 2
 #_1CC0E8: db $FE, $67 ; next image
 #_1CC0EA: db $28, $3A, $08 ; はるか
 #_1CC0ED: db $FD, $7E ; kanji 昔
@@ -8605,7 +8605,7 @@ Message_0110:
 ; む,ナゾの司祭アグニムがいま
 ; した。彼は国王をほうむり⋯。
 Message_0111:
-#_1CC2AB: db $FE, $6B, $02 ; window: 2
+#_1CC2AB: db $FE, $6B, $02 ; border: 2
 #_1CC2AE: db $FE, $77, $07 ; set color
 #_1CC2B1: db $FC, $03 ; text speed: 3
 #_1CC2B3: db $F7 ; row 1
@@ -8635,7 +8635,7 @@ Message_0111:
 ; 血をひく娘達を,つぎつぎイケ
 ; ニエにささげていったのです。
 Message_0112:
-#_1CC2EB: db $FE, $6B, $02 ; window: 2
+#_1CC2EB: db $FE, $6B, $02 ; border: 2
 #_1CC2EE: db $FE, $77, $07 ; set color
 #_1CC2F1: db $FC, $03 ; text speed: 3
 #_1CC2F3: db $F7 ; row 1
@@ -8666,7 +8666,7 @@ Message_0112:
 ; にささげられる運命の時も,
 ; もうそこまでせまっていました
 Message_0113:
-#_1CC32C: db $FE, $6B, $02 ; window: 2
+#_1CC32C: db $FE, $6B, $02 ; border: 2
 #_1CC32F: db $FE, $77, $07 ; set color
 #_1CC332: db $FC, $03 ; text speed: 3
 #_1CC334: db $F7 ; row 1
@@ -9409,8 +9409,8 @@ Message_012F:
 ; ⋯ ⋯ ⋯ ⋯ ⋯
 Message_0130:
 #_1CC91C: db $FC, $02 ; text speed: 2
-#_1CC91E: db $FE, $6D, $01 ; window position: low
-#_1CC921: db $FE, $6B, $02 ; window: 2
+#_1CC91E: db $FE, $6D, $01 ; position: low
+#_1CC921: db $FE, $6B, $02 ; border: 2
 #_1CC924: db $FE, $6A ; write player name
 #_1CC926: db $FF, $00, $20, $18, $24, $04, $08, $1D ; ⎵あなたのおかげ
 #_1CC92E: db $36 ; で
@@ -9711,8 +9711,8 @@ Message_0130:
 ; あなただけ⋯祈っています。
 Message_0131:
 #_1CCC51: db $FC, $02 ; text speed: 2
-#_1CCC53: db $FE, $6D, $01 ; window position: low
-#_1CCC56: db $FE, $6B, $02 ; window: 2
+#_1CCC53: db $FE, $6D, $01 ; position: low
+#_1CCC56: db $FE, $6B, $02 ; border: 2
 #_1CCC59: db $FE, $6A ; write player name
 #_1CCC5B: db $FF, $00, $20, $18, $24, $04, $08, $1D ; ⎵あなたのおかげ
 #_1CCC63: db $36 ; で
@@ -10000,8 +10000,8 @@ Message_0131:
 ; あげてね。
 Message_0132:
 #_1CCF83: db $FC, $02 ; text speed: 2
-#_1CCF85: db $FE, $6D, $01 ; window position: low
-#_1CCF88: db $FE, $6B, $02 ; window: 2
+#_1CCF85: db $FE, $6D, $01 ; position: low
+#_1CCF88: db $FE, $6B, $02 ; border: 2
 #_1CCF8B: db $FE, $6A ; write player name
 #_1CCF8D: db $FF, $00, $20, $18, $24, $04, $08, $1D ; ⎵あなたのおかげ
 #_1CCF95: db $36 ; で
@@ -10204,8 +10204,8 @@ Message_0132:
 ; 倒せるわ!
 Message_0133:
 #_1CD1D9: db $FC, $02 ; text speed: 2
-#_1CD1DB: db $FE, $6D, $01 ; window position: low
-#_1CD1DE: db $FE, $6B, $02 ; window: 2
+#_1CD1DB: db $FE, $6D, $01 ; position: low
+#_1CD1DE: db $FE, $6B, $02 ; border: 2
 #_1CD1E1: db $FE, $6A ; write player name
 #_1CD1E3: db $FF, $00, $20, $18, $24, $04, $08, $1D ; ⎵あなたのおかげ
 #_1CD1EB: db $36 ; で
@@ -10387,8 +10387,8 @@ Message_0133:
 ; ⋯ がんばって⋯。
 Message_0134:
 #_1CD3C4: db $FC, $02 ; text speed: 2
-#_1CD3C6: db $FE, $6D, $01 ; window position: low
-#_1CD3C9: db $FE, $6B, $02 ; window: 2
+#_1CD3C6: db $FE, $6D, $01 ; position: low
+#_1CD3C9: db $FE, $6B, $02 ; border: 2
 #_1CD3CC: db $FE, $6A ; write player name
 #_1CD3CE: db $FF, $00, $20, $18, $24, $04, $08, $1D ; ⎵あなたのおかげ
 #_1CD3D6: db $36 ; で
@@ -10613,8 +10613,8 @@ Message_0134:
 ; 急いで行ってあげて下さい。
 Message_0135:
 #_1CD643: db $FC, $02 ; text speed: 2
-#_1CD645: db $FE, $6D, $01 ; window position: low
-#_1CD648: db $FE, $6B, $02 ; window: 2
+#_1CD645: db $FE, $6D, $01 ; position: low
+#_1CD648: db $FE, $6B, $02 ; border: 2
 #_1CD64B: db $FE, $6A ; write player name
 #_1CD64D: db $FF, $00, $20, $18, $24, $04, $08, $1D ; ⎵あなたのおかげ
 #_1CD655: db $36 ; で
@@ -10807,8 +10807,8 @@ Message_0135:
 ; とり戻しましょうね ⋯ ⋯
 Message_0136:
 #_1CD85D: db $FC, $02 ; text speed: 2
-#_1CD85F: db $FE, $6D, $01 ; window position: low
-#_1CD862: db $FE, $6B, $02 ; window: 2
+#_1CD85F: db $FE, $6D, $01 ; position: low
+#_1CD862: db $FE, $6B, $02 ; border: 2
 #_1CD865: db $FE, $6A ; write player name
 #_1CD867: db $C8, $07, $0A, $0C, $0C, $30, $36 ; ,よくここまで
 #_1CD86E: db $FD, $D6 ; kanji 来
@@ -11004,8 +11004,8 @@ Message_0136:
 ; へと,みちびかれますように。
 Message_0137:
 #_1CDAB2: db $FC, $02 ; text speed: 2
-#_1CDAB4: db $FE, $6D, $01 ; window position: low
-#_1CDAB7: db $FE, $6B, $02 ; window: 2
+#_1CDAB4: db $FE, $6D, $01 ; position: low
+#_1CDAB7: db $FE, $6B, $02 ; border: 2
 #_1CDABA: db $FD, $A0 ; kanji 勇
 #_1CDABC: db $FD, $1E ; kanji 者
 #_1CDABE: db $24 ; の
@@ -11026,8 +11026,8 @@ Message_0137:
 ;   ぜんぜん
 Message_0138:
 #_1CDADC: db $FC, $02 ; text speed: 2
-#_1CDADE: db $FE, $6D, $01 ; window position: low
-#_1CDAE1: db $FE, $6B, $02 ; window: 2
+#_1CDADE: db $FE, $6D, $01 ; position: low
+#_1CDAE1: db $FE, $6B, $02 ; border: 2
 #_1CDAE4: db $19, $47, $0F, $1C, $09, $0C, $03, $18 ; ちゃんときこえた
 #_1CDAEC: db $08, $11, $38, $C6 ; かしら?
 #_1CDAF0: db $F8 ; row 2
@@ -11090,8 +11090,8 @@ Message_0139:
 ; とり戻しましょうね ⋯ ⋯
 Message_013A:
 #_1CDB27: db $FC, $02 ; text speed: 2
-#_1CDB29: db $FE, $6D, $01 ; window position: low
-#_1CDB2C: db $FE, $6B, $02 ; window: 2
+#_1CDB29: db $FE, $6D, $01 ; position: low
+#_1CDB2C: db $FE, $6B, $02 ; border: 2
 #_1CDB2F: db $FE, $6A ; write player name
 #_1CDB31: db $C8, $07, $0A, $0C, $0C, $30, $36 ; ,よくここまで
 #_1CDB38: db $FD, $D6 ; kanji 来
@@ -12931,8 +12931,8 @@ Message_0170:
 ; ⋯ ⋯ ⋯ ⋯
 Message_0171:
 #_1CEAEA: db $FC, $02 ; text speed: 2
-#_1CEAEC: db $FE, $6D, $00 ; window position: high
-#_1CEAEF: db $FE, $6B, $02 ; window: 2
+#_1CEAEC: db $FE, $6D, $00 ; position: high
+#_1CEAEF: db $FE, $6B, $02 ; border: 2
 #_1CEAF2: db $07, $02, $0C, $14, $C8 ; ようこそ,
 #_1CEAF7: db $FE, $6A ; write player name
 #_1CEAF9: db $07, $CC, $CD ; よ⋯。
@@ -13644,7 +13644,7 @@ Message_0181:
 ; ▶[LINK]の家からスタート
 ;   教会からスタート
 Message_0182:
-#_1CF1E4: db $FE, $6D, $00 ; window position: high
+#_1CF1E4: db $FE, $6D, $00 ; position: high
 #_1CF1E7: db $FC, $00 ; text speed: 0
 #_1CF1E9: db $E4 ; ▶
 #_1CF1EA: db $FE, $6A ; write player name
@@ -13666,7 +13666,7 @@ Message_0182:
 ;   教会からスタート
 ;   山の洞くつからスタート
 Message_0183:
-#_1CF204: db $FE, $6D, $00 ; window position: high
+#_1CF204: db $FE, $6D, $00 ; position: high
 #_1CF207: db $FC, $00 ; text speed: 0
 #_1CF209: db $E4 ; ▶
 #_1CF20A: db $FE, $6A ; write player name
@@ -13876,12 +13876,12 @@ CreateMessagePointers:
 
 #_1CF38C: LDA.l Message_Data-$8000,X ; $1C0000
 #_1CF390: AND.w #$00FF
-#_1CF393: CMP.w #$F6 ; scroll
-#_1CF396: BCS .iscommand
+#_1CF393: CMP.w #$00F6 ; scroll
+#_1CF396: BCS .is_command
 
 #_1CF398: LDA.w #$00F5 ; use this value to get a length of 1
 
-.iscommand
+.is_command
 #_1CF39B: TAY
 #_1CF39C: LDA.w TextCommandLengths-$F5,Y
 
@@ -13890,7 +13890,7 @@ CreateMessagePointers:
 #_1CF3A3: ADC.b $00
 #_1CF3A5: STA.b $00
 
-#_1CF3A7: CPY.w #$FE
+#_1CF3A7: CPY.w #$00FE
 #_1CF3AA: BNE .not_extended_command
 
 #_1CF3AC: LDA.l Message_Data-$7FFF,X
@@ -13898,13 +13898,12 @@ CreateMessagePointers:
 #_1CF3B3: TAY
 
 #_1CF3B4: LDA.w ExtendedTextCommandLengths-$68,Y ; $FF = extra param
-#_1CF3B7: BPL .no_extra_param
+#_1CF3B7: BPL .not_extended_command
 
 #_1CF3B9: INC.b $00
 
-.no_extra_param
 .not_extended_command
-#_1CF3BB: CPY.w #$FB ; end of message
+#_1CF3BB: CPY.w #$00FB ; end of message
 
 #_1CF3BE: BNE .next_byte ; keep counting if not the end yet
 
@@ -13973,7 +13972,7 @@ NULL_1CF3D5:
 ; This doesn't actually check for collision
 ; That's expected to be done prior to calling
 ;===================================================================================================
-Sprite_CancelHookshot:
+CancelHookshot:
 #_1CF500: PHB
 #_1CF501: PHK
 #_1CF502: PLB
@@ -14030,7 +14029,7 @@ Sprite_CancelHookshot:
 ;===================================================================================================
 ; Comes in with Y, a quota for maximum number of this ancilla
 ;===================================================================================================
-Ancilla_CheckForAvailableSlot:
+FindAncillaSlot:
 #_1CF537: STY.b $0F
 
 #_1CF539: INY
@@ -14050,17 +14049,19 @@ Ancilla_CheckForAvailableSlot:
 #_1CF546: DEX
 #_1CF547: BPL .tallyoop
 
+; I guess, theoretically, the quota shouldn't be surpassable
+; but if you somehow do it, this will not function as intended
 #_1CF549: CPY.b $0E
 #_1CF54B: BEQ .too_many_here
 
-#_1CF54D: LDY.b #$01 ; hardcheck for bomb or debris, limited to 2 slots
+#_1CF54D: LDY.b #$01 ; !HARDCODED check for bomb or debris, limited to 2 slots
 #_1CF54F: CMP.b #$07 ; ANCILLA 07
 #_1CF551: BEQ .find_empty_slot
 
 #_1CF553: CMP.b #$08 ; ANCILLA 08
 #_1CF555: BEQ .find_empty_slot
 
-#_1CF557: LDY.b #$04 ; all other ancilla are designed to use any of the first 5
+#_1CF557: LDY.b #$04 ; all other ancillae are designed to use any of the first 5
 
 .find_empty_slot
 #_1CF559: LDA.w $0C4A,Y
@@ -14081,6 +14082,7 @@ Ancilla_CheckForAvailableSlot:
 
 ; use the quota as the index to search from
 ; this decision also makes 0 sense
+; Why not 4...?
 #_1CF566: LDA.b $0F
 #_1CF568: STA.w $03C4
 
@@ -14112,7 +14114,7 @@ Ancilla_CheckForAvailableSlot:
 
 ;===================================================================================================
 
-pool Link_SpinAndDie
+pool SpinAndDie
 
 .anim_step
 #_1CF583: db $00, $01, $02, $03, $00, $01, $02, $03
@@ -14129,7 +14131,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Link_SpinAndDie:
+SpinAndDie:
 #_1CF5A3: PHB
 #_1CF5A4: PHK
 #_1CF5A5: PLB
@@ -14252,7 +14254,7 @@ AncillaAdd_SwordBeam:
 #_1CF63D: PLB
 
 #_1CF63E: LDA.b #$0C ; ANCILLA 0C
-#_1CF640: JSL AncillaAdd_AddAncilla_Bank09
+#_1CF640: JSL AddAncilla_bank09
 #_1CF644: BCS EXIT_1CF60D
 
 #_1CF646: LDA.b $2F
@@ -14350,7 +14352,7 @@ AncillaAdd_SwordBeam:
 #_1CF6ED: ADC.w .offset_x_high,Y
 #_1CF6F0: STA.w $0C18,X
 
-#_1CF6F3: JSL Ancilla_CalculateSFXPan
+#_1CF6F3: JSL CalculateAncillaSFXPan
 #_1CF6F7: ORA.b #$01 ; SFX3.01
 #_1CF6F9: STA.w $012F
 
@@ -14442,7 +14444,7 @@ Ancilla0C_SwordBeam:
 #_1CF774: AND.b #$0F
 #_1CF776: BNE .no_sfx
 
-#_1CF778: JSL Ancilla_CalculateSFXPan
+#_1CF778: JSL CalculateAncillaSFXPan
 #_1CF77C: ORA.b #$01 ; SFX3.01
 #_1CF77E: STA.w $012F
 
@@ -14505,6 +14507,8 @@ Ancilla0C_SwordBeam:
 #_1CF7DE: LDY.b #$00
 #_1CF7E0: LDX.b #$03
 
+;---------------------------------------------------------------------------------------------------
+
 .next_object
 #_1CF7E2: STX.b $72
 
@@ -14517,8 +14521,6 @@ Ancilla0C_SwordBeam:
 #_1CF7EF: AND.b #$3F
 #_1CF7F1: STA.l $7F5800,X
 
-;---------------------------------------------------------------------------------------------------
-
 .no_rotation
 #_1CF7F5: PHX
 #_1CF7F6: PHY
@@ -14527,7 +14529,6 @@ Ancilla0C_SwordBeam:
 #_1CF7FB: STA.b $08
 
 #_1CF7FD: LDA.l $7F5800,X
-
 #_1CF801: JSL Ancilla_GetRadialProjection_long
 #_1CF805: JSL Sparkle_PrepOAMFromRadial
 
@@ -14565,6 +14566,8 @@ Ancilla0C_SwordBeam:
 #_1CF82A: PLX
 #_1CF82B: DEX
 #_1CF82C: BPL .next_object
+
+;---------------------------------------------------------------------------------------------------
 
 #_1CF82E: PLX
 #_1CF82F: PHX
@@ -14636,6 +14639,9 @@ Ancilla0C_SwordBeam:
 .skip_extra
 #_1CF893: PLX
 #_1CF894: PHX
+
+;---------------------------------------------------------------------------------------------------
+
 #_1CF895: LDY.b #$01
 
 .check_next
@@ -14649,6 +14655,8 @@ Ancilla0C_SwordBeam:
 #_1CF8A0: INY
 #_1CF8A1: CPY.b #$11
 #_1CF8A3: BNE .check_next
+
+;---------------------------------------------------------------------------------------------------
 
 #_1CF8A5: STZ.w $0C4A,X
 
@@ -15014,7 +15022,7 @@ PrepareToDie:
 #_1CFA48: STA.l $7EF372
 #_1CFA4C: STA.l $7EF36D
 
-#_1CFA50: JSL Link_ResetProperties_C
+#_1CFA50: JSL ResetLinkProperties_C
 
 #_1CFA54: STZ.w $02F5
 #_1CFA57: STZ.w $0351
@@ -15041,7 +15049,7 @@ PrepareToDie:
 #_1CFA79: STZ.w $03F5
 #_1CFA7C: STZ.w $03F6
 
-#_1CFA7F: JSL Link_CalculateSFXPan
+#_1CFA7F: JSL CalculateLinkSFXPan
 #_1CFA83: ORA.b #$27 ; SFX2.27
 #_1CFA85: STA.w $012E
 
@@ -15265,7 +15273,7 @@ SomariaBlockFission:
 
 ;===================================================================================================
 
-Link_CheckIfBunny:
+CheckIfBunny:
 ; Why is recoil even checked for?
 #_1CFCE2: LDA.b $5D
 #_1CFCE4: CMP.b #$02 ; LINKSTATE 02
@@ -15297,7 +15305,7 @@ Link_CheckIfBunny:
 ;===================================================================================================
 ; Only deletes them on the Waterfall of Wishing overworld screen
 ;===================================================================================================
-Ancilla_DeleteWaterfallSplashes:
+DeleteWaterfallSplashes:
 #_1CFCFB: LDA.b $8A
 #_1CFCFD: CMP.b #$0F ; OW 0F
 #_1CFCFF: BNE .not_waterfall
@@ -15360,12 +15368,12 @@ Ancilla_TerminateOffScreen:
 
 ;===================================================================================================
 
-DeleteBoomAndByrnaSparks:
+PrepAndSetForcedYItem:
 #_1CFD45: PHX
 
 #_1CFD46: STA.w $03FC
 
-#_1CFD49: JSL Link_ResetProperties_C
+#_1CFD49: JSL ResetLinkProperties_C
 
 #_1CFD4D: LDX.b #$04
 
@@ -15399,7 +15407,7 @@ DeleteBoomAndByrnaSparks:
 
 ;===================================================================================================
 
-Interface_PrepAndDisplayMessage:
+PrepAndDisplayMessage:
 #_1CFD69: LDA.b $10
 #_1CFD6B: CMP.b #$0E
 #_1CFD6D: BEQ .exit

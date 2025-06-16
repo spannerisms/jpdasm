@@ -16923,10 +16923,10 @@ Overworld_SetFixedColAndScroll:
 
 ;===================================================================================================
 
-WallMaster_SendPlayerToLastEntrance:
+DragToLastEntrance:
 #_0BFFA8: JSL SaveDungeonKeys
-#_0BFFAC: JSL Underworld_FlagRoomData_Quadrants
-#_0BFFB0: JSL Sprite_ResetAll
+#_0BFFAC: JSL FullyUpdateRoomFlags
+#_0BFFB0: JSL ResetAllSprites
 
 #_0BFFB4: STZ.w $04AA
 
@@ -16969,9 +16969,9 @@ ResetSomeThingsAfterDeath:
 ;===================================================================================================
 
 ResetAncillaAndLink:
-#_0BFFEE: JSL Ancilla_TerminateSelectInteractives
+#_0BFFEE: JSL TerminateSelectInteractives
 
-#_0BFFF2: JML Link_ResetProperties_A
+#_0BFFF2: JML ResetLinkProperties_A
 
 ;===================================================================================================
 ; FREE ROM: 0x0A

@@ -146,8 +146,8 @@
 ; 68 - Digging Game
 ; 69 - South of Outcasts
 ; 6A - Stumpy Grove
-; 6B - West of Bomb Shoppe
-; 6C - Bomb Shoppe
+; 6B - West of Bomb Shop
+; 6C - Bomb Shop
 ; 6D - Hammer Bridge
 ; 6E - Dark Lake Hylia River Bend
 ; 6F - East Dark World Portalway
@@ -180,6 +180,7 @@
 ; 9E - Lost woods clear overlay
 ; 9F - Rain
 ; B5 - Garbage overlay
+; BC - Garbage overlay that scrolls
 ; BE - Garbage overlay that scrolls
 
 ;===================================================================================================
@@ -208,13 +209,13 @@
 ; 14 - THIEVES TOWN GRATE
 ; 15 - ANTIFAIRY
 ; 16 - SAHASRAHLA / AGINAH
-; 17 - HOARDER
+; 17 - BUSH HOARDER
 ; 18 - MINI MOLDORM
 ; 19 - POE
 ; 1A - SMITHY
 ; 1B - ARROW
 ; 1C - STATUE
-; 1D - FLUTEQUEST
+; 1D - FLUTE QUEST
 ; 1E - CRYSTAL SWITCH
 ; 1F - SICK KID
 ; 20 - SLUGGULA
@@ -247,7 +248,7 @@
 ; 3B - BONK ITEM
 ; 3C - KID IN KAK
 ; 3D - OLD SNITCH
-; 3E - HOARDER
+; 3E - ROCK HOARDER
 ; 3F - TUTORIAL GUARD
 ; 40 - LIGHTNING GATE
 ; 41 - BLUE GUARD
@@ -271,7 +272,7 @@
 ; 53 - ARMOS KNIGHT
 ; 54 - LANMOLAS
 ; 55 - ZORA / FIREBALL
-; 56 - ZORA
+; 56 - WALKING ZORA
 ; 57 - DESERT STATUE
 ; 58 - CRAB
 ; 59 - LOST WOODS BIRD
@@ -295,13 +296,13 @@
 ; 6B - CANNONBALL / CANNON TROOPER
 ; 6C - MIRROR PORTAL
 ; 6D - RAT / CRICKET
-; 6E - SNAKE
+; 6E - ROPE
 ; 6F - KEESE
 ; 70 - KING HELMASAUR FIREBALL
 ; 71 - LEEVER
 ; 72 - FAIRY POND TRIGGER
 ; 73 - UNCLE / PRIEST / MANTLE
-; 74 - RUNNING MAN
+; 74 - RUNNING BOY
 ; 75 - BOTTLE MERCHANT
 ; 76 - ZELDA
 ; 77 - ANTIFAIRY
@@ -320,7 +321,7 @@
 ; 84 - RED EYEGORE / RED MIMIC
 ; 85 - YELLOW STALFOS
 ; 86 - KODONGO
-; 87 - KONDONGO FIRE
+; 87 - KODONGO FIRE
 ; 88 - MOTHULA
 ; 89 - MOTHULA BEAM
 ; 8A - SPIKE BLOCK
@@ -333,7 +334,7 @@
 ; 91 - STALFOS KNIGHT
 ; 92 - KING HELMASAUR
 ; 93 - BUMPER
-; 94 - PIROGUSU / TILE ROOM TILE
+; 94 - PIROGUSU / FLYING TILE
 ; 95 - LASER EYE LEFT
 ; 96 - LASER EYE RIGHT
 ; 97 - LASER EYE TOP
@@ -343,7 +344,7 @@
 ; 9B - WIZZROBE
 ; 9C - ZORO
 ; 9D - BABASU
-; 9E - HAUNTED GROVE OSTRITCH
+; 9E - HAUNTED GROVE OSTRICH
 ; 9F - HAUNTED GROVE RABBIT
 ; A0 - HAUNTED GROVE BIRD
 ; A1 - FREEZOR
@@ -372,18 +373,18 @@
 ; B8 - DIALOGUE TESTER
 ; B9 - BULLY / PINK BALL
 ; BA - WHIRLPOOL
-; BB - SHOPKEEPER / CHEST GAME GUY
+; BB - SHOPKEEPER / CHEST GAME GUY / NICE THIEF
 ; BC - DRUNKARD
 ; BD - VITREOUS
 ; BE - VITREOUS SMALL EYE
 ; BF - LIGHTNING
 ; C0 - CATFISH
 ; C1 - CUTSCENE AGAHNIM
-; C2 - BOULDER
+; C2 - BOULDER / SHRAPNEL
 ; C3 - GIBO
 ; C4 - THIEF
 ; C5 - MEDUSA
-; C6 - 4WAY SHOOTER
+; C6 - YOMO MEDUSA
 ; C7 - POKEY
 ; C8 - BIG FAIRY
 ; C9 - TEKTITE / FIREBAT
@@ -398,7 +399,7 @@
 ; D2 - FLOPPING FISH
 ; D3 - STAL
 ; D4 - LANDMINE
-; D5 - DIG GAME GUY
+; D5 - DIGGING GAME GUY
 ; D6 - GANON
 ; D7 - GANON
 ; D8 - HEART
@@ -484,7 +485,7 @@
 ; 07 - BOMB
 ; 08 - DOOR DEBRIS
 ; 09 - ARROW
-; 0A - ARROW IN THE WALL
+; 0A - LODGED ARROW
 ; 0B - ICE ROD SHOT
 ; 0C - SWORD BEAM
 ; 0D - SPIN ATTACK FULL CHARGE SPARK
@@ -527,7 +528,7 @@
 ; 32 - BLAST WALL FIREBALL
 ; 33 - BLAST WALL EXPLOSION
 ; 34 - SKULL WOODS FIRE
-; 35 - MASTER SWORD RECEIPT
+; 35 - MASTER SWORD CUTSCENE
 ; 36 - FLUTE
 ; 37 - WEATHERVANE EXPLOSION
 ; 38 - CUTSCENE DUCK
@@ -572,15 +573,15 @@
 ;===================================================================================================
 ; Text commands
 ;===================================================================================================
-; F6 - SCROLL 
-; F7 - ROW1   
-; F8 - ROW2   
-; F9 - ROW3   
-; FA - PAUSE  
-; FB - END    
-; FC - SPEED  
-; FD - KANJI  
-; FE - EXTCMD 
+; F6 - SCROLL
+; F7 - ROW1
+; F8 - ROW2
+; F9 - ROW3
+; FA - PAUSE
+; FB - END
+; FC - SPEED
+; FD - KANJI
+; FE - EXTCMD
 
 ; FE 67 - NEXTIMAGE
 ; FE 68 - CHOOSE_2_LOW
@@ -766,7 +767,7 @@
 ; 3F - South layer-swap auto stairs
 ; 40 - Thick grass
 ; 41 - Nothing (unused)
-; 42 - Gravestone / Tower of hera ledge shadows
+; 42 - Gravestone / Tower of Hera ledge shadows
 ; 43 - Skull Woods entrance / Hera columns
 ; 44 - Spike
 ; 45 - Nothing (unused)
@@ -776,8 +777,8 @@
 ; 49 - Nothing (unused)
 ; 4A - Diggable ground
 ; 4B - Warp tile
-; 4C - Nothing / Unused square corner type overworld
-; 4D - Nothing / Unused square corner type overworld
+; 4C - Nothing / Unused square corner on overworld
+; 4D - Nothing / Unused square corner on overworld
 ; 4E - Square corners in EP overworld
 ; 4F - Square corners in EP overworld
 ; 50 - Green bush

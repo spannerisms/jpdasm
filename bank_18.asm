@@ -7069,7 +7069,7 @@ UnderworldMap_RecoverLightCone:
 #_18BD4C: STZ.w $0200
 #_18BD4F: STZ.b $B0
 
-#_18BD51: LDA.b #$0F
+#_18BD51: LDA.b #$0F ; !USELESS
 #_18BD53: STA.b $13
 
 #_18BD55: LDA.l $7EC229

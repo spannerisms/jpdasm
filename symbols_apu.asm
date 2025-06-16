@@ -577,7 +577,7 @@ T6U2E1          = $02ED
 T7TREMD         = $02EE
 T7U2E1          = $02EF
 
-; Channel transposition and unused address
+; Channel transposition and unused variable
 T0TRAN          = $02F0
 T0U2F1          = $02F1
 T1TRAN          = $02F2
@@ -653,7 +653,6 @@ T7VOLF          = $032F
 
 ; Panning
 ; high byte is TxPANS AND 0x1F
-; low byte unused and always 0x00
 T0PANL          = $0330
 T0PAN           = $0331
 T1PANL          = $0332
@@ -833,9 +832,11 @@ EONM            = $03C3
 SFXOFFRT        = $03C4
 SFXBITRT        = $03C5
 
-; FREE RAM: 0x02
+; FREE RAM: 0x01
 UNUSED_03C6     = $03C6
-UNUSED_03C7     = $03C7
+
+; Used as a flip flop for toggling incrementing of EDLC
+ECHOFLIP        = $03C7
 
 ; copies SFXOFF and SFXBIT, but never used
 SFXOFF2         = $03C8
@@ -855,7 +856,7 @@ SFX3FIND        = $03CE
 ; Channel bits for SFX1
 SFX1BIT         = $03CF
 
-; SFC channel pan values and unused variable
+; SFX channel pan values and unused variable
 T0SFXPAN        = $03D0
 T0U3D1          = $03D1
 T1SFXPAN        = $03D2

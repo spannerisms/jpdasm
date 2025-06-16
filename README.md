@@ -25,7 +25,7 @@ I have massive shoutouts to give for this disassembly, in no particular order:
 * MathOnNapkins for his US disassembly, which served as an invaluable reference and sanity check. I took a lot of nomenclature from him, and when I didn't, I still checked my labels against his. The SPC engine is reformatted from his old work, which saved me the trouble of disassembling it.
 * An extra, distinct thanks to MathOnNapkins for creating a fork of Asar with proper pool implementation.
 * Zarby89, for his vast knowledge of the game's data, and for his direct contributions in parsing data (compressed graphics, overworld data, room objects).
-* Myramong for helping with Japanese characters.
+* Myramong for identifying the Japanese kanji.
 * Total for figuring out text compression and his direct contributions in parsing text graphics data.
 * Lui for explaining Nintendo stripes. Also for being the patient victim of many ramblings about the code.
 * Qwertymodo for the makefile.

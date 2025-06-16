@@ -4079,7 +4079,7 @@ LoadDefaultTileTypes:
 
 ;===================================================================================================
 
-Underworld_LoadCustomTileTypes:
+LoadUnderworldTileTypes:
 #_0FFD65: PHB
 #_0FFD66: PHK
 #_0FFD67: PLB

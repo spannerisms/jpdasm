@@ -4426,7 +4426,7 @@ Tile32_BottomRight:
 
 ;===================================================================================================
 
-Overworld_MemorizeMap16Change:
+MemorizeMap16Change:
 #_04E780: CMP.w #$0DBF ; cut grass
 #_04E783: BEQ .exit
 
@@ -4480,7 +4480,6 @@ HandlePegPuzzles:
 #_04E7C1: LDA.l TRPegLocations,X
 #_04E7C5: CMP.b $00
 #_04E7C7: BNE .fail
-
 
 #_04E7C9: LDA.w #$2D00 ; SFX3.2D; Writes #$2D00, which unqueues SFX2.
 #_04E7CC: STA.w $012E
@@ -4559,7 +4558,7 @@ HandleStakeField:
 #_04E82E: LDA.w #$0D20
 #_04E831: STA.w $0698
 
-#_04E834: JSL Overworld_DoMapUpdate32x32_long
+#_04E834: JSL DoMap32Update_long
 
 #_04E838: REP #$30
 
@@ -4572,7 +4571,7 @@ HandleStakeField:
 ; Used during GT opening
 ; Why is this here?
 ;===================================================================================================
-GanonsTower_FlashAfterCrystals:
+FlashTowerAfterCrystals:
 #_04E83C: LDA.b $B0
 #_04E83E: BNE .skip_sfx
 
@@ -4608,7 +4607,7 @@ GanonsTower_FlashAfterCrystals:
 
 ;===================================================================================================
 
-pool Overworld_CheckForSpecialOverworldTrigger
+pool CheckForSpecialOverworldTrigger
 
 .tile_type
 #_04E869: dw $0105
@@ -4638,7 +4637,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Overworld_CheckForSpecialOverworldTrigger:
+CheckForSpecialOverworldTrigger:
 #_04E889: REP #$31
 
 #_04E88B: JSR GetMap16Tile
@@ -4745,7 +4744,7 @@ GetMap16Tile:
 
 ;===================================================================================================
 
-pool SpecialOverworld_CheckForReturnTrigger
+pool CheckForReturnTrigger
 
 .tile_type
 #_04E90E: dw $017C
@@ -4773,7 +4772,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-SpecialOverworld_CheckForReturnTrigger:
+CheckForReturnTrigger:
 #_04E923: REP #$31
 
 #_04E925: JSR GetMap16Tile
@@ -4798,6 +4797,8 @@ SpecialOverworld_CheckForReturnTrigger:
 #_04E940: LDA.b $8A
 #_04E942: CMP.l .screen_id,X
 #_04E946: BNE .check_next_screen
+
+;---------------------------------------------------------------------------------------------------
 
 #_04E948: SEP #$30
 
@@ -5144,19 +5145,19 @@ OverlayData_12:
 
 ;===================================================================================================
 
-RoomDraw_LayoutPointers:
-#_04EC0F: dl LayoutData_00
-#_04EC12: dl LayoutData_01
-#_04EC15: dl LayoutData_02
-#_04EC18: dl LayoutData_03
-#_04EC1B: dl LayoutData_04
-#_04EC1E: dl LayoutData_05
-#_04EC21: dl LayoutData_06
-#_04EC24: dl LayoutData_07
+RoomLayoutPointers:
+#_04EC0F: dl RoomLayout_00
+#_04EC12: dl RoomLayout_01
+#_04EC15: dl RoomLayout_02
+#_04EC18: dl RoomLayout_03
+#_04EC1B: dl RoomLayout_04
+#_04EC1E: dl RoomLayout_05
+#_04EC21: dl RoomLayout_06
+#_04EC24: dl RoomLayout_07
 
 ;---------------------------------------------------------------------------------------------------
 
-LayoutData_00:
+RoomLayout_00:
 #_04EC27: db $18, $10, $01 ; 0x001: Wall (top, north) ↔ | { 06, 04 } | Size: 00
 #_04EC2A: db $18, $90, $01 ; 0x001: Wall (top, north) ↔ | { 06, 24 } | Size: 00
 #_04EC2D: db $18, $68, $02 ; 0x002: Wall (top, south) ↔ | { 06, 1A } | Size: 00
@@ -5195,7 +5196,7 @@ LayoutData_00:
 
 ;---------------------------------------------------------------------------------------------------
 
-LayoutData_01:
+RoomLayout_01:
 #_04EC8F: db $18, $10, $01 ; 0x001: Wall (top, north) ↔ | { 06, 04 } | Size: 00
 #_04EC92: db $18, $E8, $02 ; 0x002: Wall (top, south) ↔ | { 06, 3A } | Size: 00
 #_04EC95: db $08, $18, $61 ; 0x061: Wall (top, west) ↕ | { 02, 06 } | Size: 00
@@ -5221,7 +5222,7 @@ LayoutData_01:
 
 ;---------------------------------------------------------------------------------------------------
 
-LayoutData_02:
+RoomLayout_02:
 #_04ECD0: db $18, $10, $01 ; 0x001: Wall (top, north) ↔ | { 06, 04 } | Size: 00
 #_04ECD3: db $1A, $92, $01 ; 0x001: Wall (top, north) ↔ | { 06, 24 } | Size: 0A
 #_04ECD6: db $1A, $6A, $02 ; 0x002: Wall (top, south) ↔ | { 06, 1A } | Size: 0A
@@ -5256,7 +5257,7 @@ LayoutData_02:
 
 ;---------------------------------------------------------------------------------------------------
 
-LayoutData_03:
+RoomLayout_03:
 #_04ED2C: db $18, $10, $01 ; 0x001: Wall (top, north) ↔ | { 06, 04 } | Size: 00
 #_04ED2F: db $9A, $92, $01 ; 0x001: Wall (top, north) ↔ | { 26, 24 } | Size: 0A
 #_04ED32: db $9A, $6A, $02 ; 0x002: Wall (top, south) ↔ | { 26, 1A } | Size: 0A
@@ -5291,7 +5292,7 @@ LayoutData_03:
 
 ;---------------------------------------------------------------------------------------------------
 
-LayoutData_04:
+RoomLayout_04:
 #_04ED88: db $18, $10, $01 ; 0x001: Wall (top, north) ↔ | { 06, 04 } | Size: 00
 #_04ED8B: db $18, $90, $01 ; 0x001: Wall (top, north) ↔ | { 06, 24 } | Size: 00
 #_04ED8E: db $18, $68, $02 ; 0x002: Wall (top, south) ↔ | { 06, 1A } | Size: 00
@@ -5318,7 +5319,7 @@ LayoutData_04:
 
 ;---------------------------------------------------------------------------------------------------
 
-LayoutData_05:
+RoomLayout_05:
 #_04EDCC: db $18, $10, $01 ; 0x001: Wall (top, north) ↔ | { 06, 04 } | Size: 00
 #_04EDCF: db $18, $90, $01 ; 0x001: Wall (top, north) ↔ | { 06, 24 } | Size: 00
 #_04EDD2: db $18, $68, $02 ; 0x002: Wall (top, south) ↔ | { 06, 1A } | Size: 00
@@ -5353,7 +5354,7 @@ LayoutData_05:
 
 ;---------------------------------------------------------------------------------------------------
 
-LayoutData_06:
+RoomLayout_06:
 #_04EE28: db $18, $10, $01 ; 0x001: Wall (top, north) ↔ | { 06, 04 } | Size: 00
 #_04EE2B: db $18, $90, $01 ; 0x001: Wall (top, north) ↔ | { 06, 24 } | Size: 00
 #_04EE2E: db $18, $68, $02 ; 0x002: Wall (top, south) ↔ | { 06, 1A } | Size: 00
@@ -5388,7 +5389,7 @@ LayoutData_06:
 
 ;---------------------------------------------------------------------------------------------------
 
-LayoutData_07:
+RoomLayout_07:
 #_04EE84: db $18, $10, $01 ; 0x001: Wall (top, north) ↔ | { 06, 04 } | Size: 00
 #_04EE87: db $18, $E8, $02 ; 0x002: Wall (top, south) ↔ | { 06, 3A } | Size: 00
 #_04EE8A: db $08, $18, $61 ; 0x061: Wall (top, west) ↕ | { 02, 06 } | Size: 00
@@ -5416,7 +5417,7 @@ WaterOverlayData:
 
 ;===================================================================================================
 
-SpecialUnderworldObjects_pushable_block:
+PushableBlocks:
 ;           roomID, tilemap index
 #_04EEBE: dw $010B, $193A ; ROOM 010B
 #_04EEC2: dw $010B, $193E
@@ -5564,7 +5565,7 @@ SpecialUnderworldObjects_pushable_block:
 
 ;===================================================================================================
 
-SpecialUnderworldObjects_torch:
+LightableTorches:
 ;         dw  room : dw tilemap index, ...                : terminator
 #_04F04A: dw $0043 : dw $03AA, $03B6, $09AA, $09B6        : dw $FFFF ; ROOM 0043
 #_04F056: dw $00CA : dw $14B2, $16AA, $18B2               : dw $FFFF ; ROOM 00CA
@@ -5690,8 +5691,8 @@ DefaultSaveFileItems:
 #_04F1BD: db $00 ; $x357 - no pearl
 #_04F1BE: db $00 ; $x358 - unused
 #_04F1BF: db $00 ; $x359 - no sword
-#_04F1C0: db $00 ; $x35A - green mail
-#_04F1C1: db $00 ; $x35B - no shield
+#_04F1C0: db $00 ; $x35A - no shield
+#_04F1C1: db $00 ; $x35B - green mail
 #_04F1C2: db $00 ; $x35C - no bottle 1
 #_04F1C3: db $00 ; $x35D - no bottle 2
 #_04F1C4: db $00 ; $x35E - no bottle 3
@@ -5727,7 +5728,7 @@ DefaultSaveFileItems:
 
 ;===================================================================================================
 
-RoomHeader_RoomToPointer:
+RoomHeaderPointers:
 #_04F1E2: dw RoomHeader_Room0000
 #_04F1E4: dw RoomHeader_Room0001
 #_04F1E6: dw RoomHeader_Room0002

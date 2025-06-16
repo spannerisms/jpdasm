@@ -4426,7 +4426,7 @@ Tile32_TopRight:
 
 ;===================================================================================================
 
-SmoothCurve:
+TrigTable:
 #_03E780: dw   0,   3,   6,   9,  12,  15,  18,  21
 #_03E790: dw  25,  28,  31,  34,  37,  40,  40,  46
 #_03E7A0: dw  49,  53,  56,  59,  62,  65,  68,  71
@@ -4509,7 +4509,7 @@ SpriteDraw_Hobo:
 #_03E9F7: ADC.b #$00
 #_03E9F9: STA.b $09
 
-#_03E9FB: JSL SpriteDraw_Tabulated_player_deferred
+#_03E9FB: JSL TabulatedSpriteDraw_player_deferred
 
 #_03E9FF: PLB
 
@@ -4517,7 +4517,7 @@ SpriteDraw_Hobo:
 
 ;===================================================================================================
 
-Landmine_CheckHammer:
+HammerLandmine:
 #_03EA01: LDA.w $0301
 #_03EA04: AND.b #$0A
 #_03EA06: BEQ .not_hammering
@@ -4527,7 +4527,7 @@ Landmine_CheckHammer:
 #_03EA0C: BEQ .not_hammering
 
 #_03EA0E: JSL SetupActionHitbox_long
-#_03EA12: JSL Sprite_SetupHitbox_long
+#_03EA12: JSL SetupSpriteHitBox_long
 #_03EA16: JSL CheckIfHitBoxesOverlap_long
 
 #_03EA1A: RTL
@@ -4543,11 +4543,11 @@ NRURURU:
 ; Check for R press from player1 joypad
 #_03EA1D: LDA.b $F2
 #_03EA1F: AND.b #$10
-#_03EA21: BNE .no_r_press
+#_03EA21: BNE .pressing_l
 
 #_03EA23: JMP.w DebugHandleNonBAGE
 
-.no_r_press
+.pressing_l
 #_03EA26: REP #$20
 
 ; check for filename ンルルル
@@ -4569,14 +4569,13 @@ NRURURU:
 
 #_03EA4C: SEP #$20
 
-; What? why do we get a level 10 half magic?
+; What!? We get a level 10 half magic!
 #_03EA4E: STA.l $7EF37B
 
 ; Get player 1 AXLR
 #_03EA52: LDA.b $F6
-#_03EA54: JSL BAGE_HandleSword
+#_03EA54: JSL UpgradeEquipmentCheat
 
-; If we don't have butter sword, give us butter and also mirror shield.
 #_03EA58: LDA.l $7EF359
 #_03EA5C: CMP.b #$04
 #_03EA5E: BNE .dont_change_sword
@@ -4638,7 +4637,7 @@ DebugHandleNonBAGE:
 
 ;===================================================================================================
 
-#BAGE_HandleSword:
+#UpgradeEquipmentCheat:
 ; Checks for A button presses.
 #_03EAB1: BPL .exit
 
@@ -4678,7 +4677,7 @@ DebugHandleNonBAGE:
 ;===================================================================================================
 ; Forgets to cache altitude.
 ;===================================================================================================
-Bomb_HijackSlot0ForRecoil:
+HijackSlot0ForBombRecoil:
 #_03EAE1: LDX.b #$00
 
 #_03EAE3: LDA.w $0D10,X
@@ -4706,7 +4705,7 @@ Bomb_HijackSlot0ForRecoil:
 #_03EB04: STA.w $0D20,X
 
 #_03EB07: TYA
-#_03EB08: JSL Sprite_ProjectSpeedTowardsLink_long
+#_03EB08: JSL ProjectSpriteSpeedTowardsLink_long
 
 #_03EB0C: PLA
 #_03EB0D: STA.w $0D20,X
@@ -4724,14 +4723,13 @@ Bomb_HijackSlot0ForRecoil:
 
 ;===================================================================================================
 ; This is pretty dumb
-; In bank04 in US version
 ;===================================================================================================
 ProjectReflexiveSpeedOntoSprite_UsingLinkCoordinates:
 #_03EB1D: PHB
 #_03EB1E: PHK
 #_03EB1F: PLB
 
-#_03EB20: JSL Sprite_ProjectSpeedTowardsLink_long
+#_03EB20: JSL ProjectSpriteSpeedTowardsLink_long
 
 #_03EB24: PLB
 
@@ -4772,13 +4770,13 @@ SpriteDraw_ArrghusWake:
 #_03EB66: LDA.w .prop,Y
 #_03EB69: STA.w $0F50,X
 
-#_03EB6C: LDA.b #$18 ; useless
+#_03EB6C: LDA.b #$18 ; Was this supposed to be for the OAM allocation?
 
 #_03EB6E: LDA.w $0B89,X
 #_03EB71: AND.b #$F0
 #_03EB73: STA.w $0B89,X
 
-#_03EB76: JSL SpriteDraw_AllocateOAMFromRegionC
+#_03EB76: JSL AllocateOAMInRegionC
 
 #_03EB7A: REP #$20
 
@@ -4788,7 +4786,7 @@ SpriteDraw_ArrghusWake:
 #_03EB81: SEP #$20
 
 #_03EB83: LDA.b #$06
-#_03EB85: JSL SpriteDraw_Tabulated
+#_03EB85: JSL TabulatedSpriteDraw
 
 #_03EB89: PLA
 #_03EB8A: STA.w $0F50,X

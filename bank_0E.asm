@@ -3640,7 +3640,7 @@ TextCharMasks:
 .charC7 ; !
 #_0EBC27: db $BF, $F0, $3F, $AF, $80 ; 10111111 11110000 00111111 10101111 10000000
 
-.charC8 ;, 
+.charC8 ; ,
 #_0EBC2C: db $00, $00, $00, $BF, $80 ; 00000000 00000000 00000000 10111111 10000000
 
 .charC9 ; －
@@ -4581,6 +4581,7 @@ TextCharMasks:
 ;===================================================================================================
 ; FREE ROM: 0x0C
 ;===================================================================================================
+NULL_0EC244:
 #_0EC244: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
 #_0EC24C: db $FF, $FF, $FF, $FF
 
@@ -4627,7 +4628,7 @@ pool Module1A_Credits
 #_0EC296: dw Credits_StopCreditsScroll          ; 0x23
 #_0EC298: dw Credits_FadeAndDisperseTriangles   ; 0x24
 #_0EC29A: dw Credits_FadeInTheEnd               ; 0x25
-#_0EC29C: dw Credits_HangForever
+#_0EC29C: dw Credits_HangForever                ; 0x26
 
 pool off
 
@@ -4658,7 +4659,7 @@ Module1A_Credits:
 ;===================================================================================================
 
 Credits_LoadNextScene_Overworld:
-#_0EC2B9: JSL Credits_LoadScene_Overworld
+#_0EC2B9: JSL Credits_LoadOverworldScene
 
 #_0EC2BD: JSR Credits_AddEndingSequenceText
 
@@ -4667,7 +4668,7 @@ Credits_LoadNextScene_Overworld:
 ;===================================================================================================
 
 Credits_LoadNextScene_Underworld:
-#_0EC2C1: JSL Credits_LoadScene_Underworld
+#_0EC2C1: JSL Credits_LoadUnderworldScene
 
 #_0EC2C5: JSR Credits_AddEndingSequenceText
 
@@ -4707,7 +4708,7 @@ Credits_PrepAndLoadSprites:
 #_0EC2EC: LDX.b #$0F
 
 .reset_next_sprite
-#_0EC2EE: JSL SpritePrep_ResetProperties
+#_0EC2EE: JSL ResetSpriteProperties
 
 #_0EC2F2: STZ.w $0DD0,X
 #_0EC2F5: STZ.w $0BE0,X
@@ -6042,7 +6043,7 @@ Credits_SpriteDraw_Hera:
 #_0EC9E1: JSR Credits_SpriteDraw_Single
 #_0EC9E4: JSR Credits_SpriteDraw_DrawShadow_priority_set
 
-#_0EC9E7: JSL Sprite_Move_XY_Bank1D_long
+#_0EC9E7: JSL MoveSpriteXY_bank1D_long
 
 #_0EC9EB: DEX
 #_0EC9EC: BPL .next_friend
@@ -6471,7 +6472,7 @@ Credits_SpriteDraw_DeathMountain:
 #_0ECDB8: LDY.b #$34
 #_0ECDBA: JSR Credits_SpriteDraw_Single
 
-#_0ECDBD: JSL Sprite_Move_XY_Bank1D_long
+#_0ECDBD: JSL MoveSpriteXY_bank1D_long
 
 #_0ECDC1: PLX
 #_0ECDC2: RTS
@@ -6487,12 +6488,12 @@ Credits_SpriteDraw_Lumberjacks:
 #_0ECDC8: STA.w $0E20,X
 
 #_0ECDCB: LDA.b #$2C
-#_0ECDCD: JSL SpriteDraw_AllocateOAMFromRegionA
+#_0ECDCD: JSL AllocateOAMInRegionA
 
 #_0ECDD1: LDA.b #$3B
 #_0ECDD3: STA.w $0F50,X
 
-#_0ECDD6: JSL Sprite_Get16BitCoords_long
+#_0ECDD6: JSL Get16BitSpriteCoords_long
 
 #_0ECDDA: LDA.b #$02
 
@@ -6528,7 +6529,7 @@ Credits_SpriteDraw_Venus:
 #_0ECDF7: PHX
 
 #_0ECDF8: LDX.b #$05
-#_0ECDFA: JSL Sprite_Get16BitCoords_long
+#_0ECDFA: JSL Get16BitSpriteCoords_long
 
 #_0ECDFE: LDA.w $0F00,X
 #_0ECE01: BNE .skip_sparkles
@@ -6701,7 +6702,7 @@ Credits_SpriteDraw_Kakariko2:
 #_0ECFA9: ADC.w $0D40,X
 #_0ECFAC: STA.w $0D40,X
 
-#_0ECFAF: JSL Sprite_Move_XY_Bank1D_long
+#_0ECFAF: JSL MoveSpriteXY_bank1D_long
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -6832,8 +6833,8 @@ Credits_SpriteDraw_DrawShadow:
 #_0ED02F: JSR Credits_SpriteDraw_SetShadowProp
 
 #_0ED032: LDA.b #$04
-#_0ED034: JSL SpriteDraw_AllocateOAMFromRegionA
-#_0ED038: JSL SpriteDraw_Shadow_long
+#_0ED034: JSL AllocateOAMInRegionA
+#_0ED038: JSL DrawSpriteShadow_long
 
 #_0ED03C: RTS
 
@@ -6940,8 +6941,8 @@ Credits_SpriteDraw_ActivateAndRunSprite_allocate8:
 Credits_SpriteDraw_ActivateAndRunSprite:
 #_0ED0C4: STX.w $0FA0
 
-#_0ED0C7: JSL SpriteDraw_AllocateOAMFromRegionA
-#_0ED0CB: JSL Sprite_Get16BitCoords_long
+#_0ED0C7: JSL AllocateOAMInRegionA
+#_0ED0CB: JSL Get16BitSpriteCoords_long
 
 #_0ED0CF: LDA.b $11
 #_0ED0D1: PHA
@@ -6966,11 +6967,11 @@ Credits_SpriteDraw_PreexistingSpriteDraw_eight:
 ;===================================================================================================
 
 Credits_SpriteDraw_PreexistingSpriteDraw:
-#_0ED0E3: JSL SpriteDraw_AllocateOAMFromRegionA
+#_0ED0E3: JSL AllocateOAMInRegionA
 
 #_0ED0E7: STX.w $0FA0
 
-#_0ED0EA: JSL Sprite_Get16BitCoords_long
+#_0ED0EA: JSL Get16BitSpriteCoords_long
 #_0ED0EE: JSL SpriteModule_Active_long
 
 #_0ED0F2: RTS
@@ -7028,8 +7029,8 @@ Credits_SpriteDraw_Single:
 #_0ED136: ASL A
 #_0ED137: ASL A
 
-#_0ED138: JSL SpriteDraw_AllocateOAMFromRegionA
-#_0ED13C: JSL Sprite_Get16BitCoords_long
+#_0ED138: JSL AllocateOAMInRegionA
+#_0ED13C: JSL Get16BitSpriteCoords_long
 
 #_0ED140: PLA
 #_0ED141: STA.w WRMPYA
@@ -7060,7 +7061,7 @@ Credits_SpriteDraw_Single:
 #_0ED165: SEP #$20
 
 #_0ED167: PLA
-#_0ED168: JSL SpriteDraw_Tabulated
+#_0ED168: JSL TabulatedSpriteDraw
 
 #_0ED16C: RTS
 
@@ -7117,7 +7118,7 @@ Credits_SpriteDraw_Zora:
 #_0ED18A: STA.w $0E20,X
 
 #_0ED18D: LDA.w .object_allocation,X
-#_0ED190: JSL SpriteDraw_AllocateOAMFromRegionA
+#_0ED190: JSL AllocateOAMInRegionA
 
 #_0ED194: LDA.w .sprite_ai,X
 #_0ED197: STA.w $0D80,X
@@ -7152,7 +7153,7 @@ Credits_SpriteDraw_Zora:
 #_0ED1B8: LDA.b #$33
 #_0ED1BA: STA.w $0F50,X
 
-#_0ED1BD: JSL Sprite_Get16BitCoords_long
+#_0ED1BD: JSL Get16BitSpriteCoords_long
 #_0ED1C1: JSL SpriteModule_Active_long
 
 #_0ED1C5: DEX
@@ -7518,12 +7519,12 @@ Credits_SpriteDraw_Witch:
 #_0ED40D: STA.w $0E20,X
 
 #_0ED410: LDA.b #$0C
-#_0ED412: JSL SpriteDraw_AllocateOAMFromRegionA
+#_0ED412: JSL AllocateOAMInRegionA
 
 #_0ED416: LDA.b #$37
 #_0ED418: STA.w $0F50,X
 
-#_0ED41B: JSL Sprite_Get16BitCoords_long
+#_0ED41B: JSL Get16BitSpriteCoords_long
 
 #_0ED41F: LDA.b $1A
 #_0ED421: AND.b #$0F
@@ -7553,7 +7554,7 @@ Credits_SpriteDraw_Witch:
 #_0ED444: CMP.b #$7C
 #_0ED446: BEQ .dont_move
 
-#_0ED448: JSL Sprite_Move_XY_Bank1D_long
+#_0ED448: JSL MoveSpriteXY_bank1D_long
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -7564,12 +7565,12 @@ Credits_SpriteDraw_Witch:
 #_0ED44F: STA.w $0E20,X
 
 #_0ED452: LDA.b #$18
-#_0ED454: JSL SpriteDraw_AllocateOAMFromRegionA
+#_0ED454: JSL AllocateOAMInRegionA
 
 #_0ED458: LDA.b #$39
 #_0ED45A: STA.w $0F50,X
 
-#_0ED45D: JSL Sprite_Get16BitCoords_long
+#_0ED45D: JSL Get16BitSpriteCoords_long
 
 #_0ED461: LDA.w $0DF0,X
 #_0ED464: BNE .delay_stir
@@ -7683,7 +7684,7 @@ Credits_SpriteDraw_Grove:
 #_0ED4ED: LDA.b #$F8
 #_0ED4EF: STA.w $0D40,X
 
-#_0ED4F2: JSL Sprite_Move_XY_Bank1D_long
+#_0ED4F2: JSL MoveSpriteXY_bank1D_long
 
 #_0ED4F6: LDA.b $1A
 #_0ED4F8: LSR A
@@ -7938,7 +7939,7 @@ Credits_SpriteDraw_LostWoods:
 ;---------------------------------------------------------------------------------------------------
 
 .move_pickle
-#_0ED6A7: JSL Sprite_Move_XY_Bank1D_long
+#_0ED6A7: JSL MoveSpriteXY_bank1D_long
 
 #_0ED6AB: LDA.b $1A
 #_0ED6AD: LSR A
@@ -8265,7 +8266,7 @@ Credits_SpriteDraw_WalkLinkAwayFromPedestal:
 #_0ED852: JSR Credits_SpriteDraw_Single
 #_0ED855: JSR Credits_SpriteDraw_DrawShadow_priority_set
 
-#_0ED858: JSL Sprite_Move_XY_Bank1D_long
+#_0ED858: JSL MoveSpriteXY_bank1D_long
 
 #_0ED85C: RTS
 
@@ -8308,7 +8309,7 @@ Credits_SpriteDraw_MoveSquirrel:
 #_0ED882: LDA.w .speed_y,Y
 #_0ED885: STA.w $0D40,X
 
-#_0ED888: JSL Sprite_Move_XY_Bank1D_long
+#_0ED888: JSL MoveSpriteXY_bank1D_long
 
 #_0ED88C: RTS
 
@@ -8371,7 +8372,7 @@ Credits_SpriteDraw_CirclingBirds:
 ;---------------------------------------------------------------------------------------------------
 
 .dont_change_y_speed
-#_0ED8C9: JSL Sprite_Move_XY_Bank1D_long
+#_0ED8C9: JSL MoveSpriteXY_bank1D_long
 
 #_0ED8CD: RTS
 
@@ -10245,7 +10246,7 @@ pool off
 
 Credits_InitializeTheActualCredits:
 #_0EE645: JSL EnableForceBlank
-#_0EE649: JSL EraseTilemaps_triforce
+#_0EE649: JSL EraseTilemaps_bg3
 
 #_0EE64D: JSL DecompressFontGFX
 #_0EE651: JSL TransferFontToVRAM
@@ -10259,7 +10260,7 @@ Credits_InitializeTheActualCredits:
 #_0EE662: LDA.b #$01
 #_0EE664: STA.w $0AB2
 
-#_0EE667: JSL Palettes_Load_HUD
+#_0EE667: JSL PaletteLoad_HUD
 
 #_0EE66B: INC.b $15
 
@@ -10379,7 +10380,7 @@ Credits_InitializeTheActualCredits:
 #_0EE719: DEX
 #_0EE71A: BPL .next_prop
 
-#_0EE71C: STZ.w HDMA7INDIRECTB
+#_0EE71C: STZ.w HDMA7ITBLB
 
 #_0EE71F: LDA.b #$80
 #_0EE721: STA.b $9B
@@ -10707,7 +10708,7 @@ Credits_AddNextAttribution:
 
 #_0EE8AC: PLX
 
-#_0EE8AD: CMP.w #1000
+#_0EE8AD: CMP.w #$03E8 ; 1000
 #_0EE8B0: BCC .sub1000
 
 ;---------------------------------------------------------------------------------------------------
@@ -10726,18 +10727,18 @@ Credits_AddNextAttribution:
 .sub1000
 #_0EE8C3: LDY.w #$0000
 
-.get_1e0
+.get_1e2
 #_0EE8C6: CMP.w #$000A
-#_0EE8C9: BMI .set_1e0
+#_0EE8C9: BMI .set_1e2
 
 #_0EE8CB: SEC
 #_0EE8CC: SBC.w #$000A
 
 #_0EE8CF: INY
 
-#_0EE8D0: BRA .get_1e0
+#_0EE8D0: BRA .get_1e2
 
-.set_1e0
+.set_1e2
 #_0EE8D2: CLC
 #_0EE8D3: ADC.b $CE
 #_0EE8D5: STA.w $100A,X
@@ -11122,7 +11123,6 @@ pool Credits_AddEndingSequenceText
 #_0EECB4: dw $0C63, $0F00 ; VRAM $C618 | 16 bytes
 #_0EECB8: db $88, $91, $94, $87, $98, $87, $94, $9E
 
-
 ;---------------------------------------------------------------------------------------------------
 
 .offset
@@ -11333,7 +11333,7 @@ Credits_FadeInTheEnd:
 #_0EEDB6: AND.b #$07
 #_0EEDB8: BNE .delay
 
-#_0EEDBA: JSL PaletteFilter_SP5F
+#_0EEDBA: JSL PaletteFilter_Sprite5Left
 
 #_0EEDBE: LDA.l $7EC007
 #_0EEDC2: BNE .delay
@@ -11454,14 +11454,15 @@ RenderText_Initialize:
 
 #_0EEE59: JSL ResetHUDPalettes4and5
 
+; why does this run every time? that's so dumb
 .not_attract_mode
-#_0EEE5D: JSL Attract_DecompressStoryGFX
+#_0EEE5D: JSL DecompressAttractPlaques
 
 #_0EEE61: LDX.b #$00
 
 ;===================================================================================================
 
-#RenderText_Initialize_IgnoreAttract:
+RenderText_Initialize_IgnoreAttract:
 .next
 #_0EEE63: LDA.w RenderText_InitialSettings,X
 #_0EEE66: STA.w $1CD0,X
@@ -11474,7 +11475,7 @@ RenderText_Initialize:
 
 #_0EEE6E: JSR RenderText_SetDefaultWindowPosition
 #_0EEE71: JSR RenderText_ParseMessage
-#_0EEE74: JSR RenderText_Draw_EmptyBuffer
+#_0EEE74: JSR RenderText_EmptyBuffer
 
 #_0EEE77: REP #$30
 
@@ -11500,10 +11501,10 @@ RenderText_ParseMessage:
 #_0EEE8D: LDA.l $7F71C0,X
 #_0EEE91: STA.b $04
 
-#_0EEE93: LDA.w #$001C ; always bank1C
+#_0EEE93: LDA.w #Message_Data>>16 ; always bank1C
 #_0EEE96: STA.b $06
 
-; initialize with a terminater for failsafe
+; initialize with a terminator for failsafe
 #_0EEE98: LDA.w #$7F7F
 #_0EEE9B: STA.l $7F1200
 
@@ -11581,7 +11582,7 @@ RenderText_ParseMessage:
 
 #_0EEEF7: LDA.b [$04],Y
 #_0EEEF9: AND.w #$00FF
-#_0EEEFC: JSR RenderText_ExtendedCommand
+#_0EEEFC: JSR ParseText_ExtendedCommand
 
 #_0EEEFF: LDX.w $1CD9
 #_0EEF02: LDY.w $1CDD
@@ -11704,40 +11705,40 @@ UNREACHABLE_0EEF7C:
 
 ;===================================================================================================
 
-RenderText_ExtendedCommand:
+ParseText_ExtendedCommand:
 #_0EEF7D: SEP #$31
 
 #_0EEF7F: SBC.b #$67
 #_0EEF81: JSL JumpTableLocal
-#_0EEF85: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x67
-#_0EEF87: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x68
-#_0EEF89: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x69
-#_0EEF8B: dw RenderText_ExtendedCommand_WritePlayerName   ; 0x6A
-#_0EEF8D: dw RenderText_ExtendedCommand_SetWindowType     ; 0x6B
-#_0EEF8F: dw RenderText_ExtendedCommand_WriteBCD          ; 0x6C
-#_0EEF91: dw RenderText_ExtendedCommand_SetWindowPosition ; 0x6D
-#_0EEF93: dw RenderText_ExtendedCommand_IgnoreParameter   ; 0x6E
-#_0EEF95: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x6F
-#_0EEF97: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x70
-#_0EEF99: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x71
-#_0EEF9B: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x72
-#_0EEF9D: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x73
-#_0EEF9F: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x74
-#_0EEFA1: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x75
-#_0EEFA3: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x76
-#_0EEFA5: dw RenderText_ExtendedCommand_IgnoreParameter   ; 0x77
-#_0EEFA7: dw RenderText_ExtendedCommand_IgnoreParameter   ; 0x78
-#_0EEFA9: dw RenderText_ExtendedCommand_IgnoreParameter   ; 0x79
-#_0EEFAB: dw RenderText_ExtendedCommand_IgnoreParameter   ; 0x7A
-#_0EEFAD: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x7B
-#_0EEFAF: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x7C
-#_0EEFB1: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x7D
-#_0EEFB3: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x7E
-#_0EEFB5: dw RenderText_ExtendedCommand_IgnoreCommand     ; 0x7F
+#_0EEF85: dw ParseText_IgnoreCommand            ; 0x67
+#_0EEF87: dw ParseText_IgnoreCommand            ; 0x68
+#_0EEF89: dw ParseText_IgnoreCommand            ; 0x69
+#_0EEF8B: dw ParseText_WritePlayerName          ; 0x6A
+#_0EEF8D: dw ParseText_SetWindowType            ; 0x6B
+#_0EEF8F: dw ParseText_WriteBCD                 ; 0x6C
+#_0EEF91: dw ParseText_SetWindowPosition        ; 0x6D
+#_0EEF93: dw ParseText_IgnoreParameter          ; 0x6E
+#_0EEF95: dw ParseText_IgnoreCommand            ; 0x6F
+#_0EEF97: dw ParseText_IgnoreCommand            ; 0x70
+#_0EEF99: dw ParseText_IgnoreCommand            ; 0x71
+#_0EEF9B: dw ParseText_IgnoreCommand            ; 0x72
+#_0EEF9D: dw ParseText_IgnoreCommand            ; 0x73
+#_0EEF9F: dw ParseText_IgnoreCommand            ; 0x74
+#_0EEFA1: dw ParseText_IgnoreCommand            ; 0x75
+#_0EEFA3: dw ParseText_IgnoreCommand            ; 0x76
+#_0EEFA5: dw ParseText_IgnoreParameter          ; 0x77
+#_0EEFA7: dw ParseText_IgnoreParameter          ; 0x78
+#_0EEFA9: dw ParseText_IgnoreParameter          ; 0x79
+#_0EEFAB: dw ParseText_IgnoreParameter          ; 0x7A
+#_0EEFAD: dw ParseText_IgnoreCommand            ; 0x7B
+#_0EEFAF: dw ParseText_IgnoreCommand            ; 0x7C
+#_0EEFB1: dw ParseText_IgnoreCommand            ; 0x7D
+#_0EEFB3: dw ParseText_IgnoreCommand            ; 0x7E
+#_0EEFB5: dw ParseText_IgnoreCommand            ; 0x7F
 
 ;===================================================================================================
 
-RenderText_ExtendedCommand_IgnoreCommand:
+ParseText_IgnoreCommand:
 #_0EEFB7: REP #$10
 
 #_0EEFB9: LDX.w $1CD9
@@ -11747,6 +11748,7 @@ RenderText_ExtendedCommand_IgnoreCommand:
 #_0EEFC1: STA.l $7F1200,X
 
 #_0EEFC5: INY
+
 #_0EEFC6: INX
 #_0EEFC7: STX.w $1CD9
 
@@ -11758,7 +11760,7 @@ RenderText_ExtendedCommand_IgnoreCommand:
 
 ;===================================================================================================
 
-RenderText_ExtendedCommand_IgnoreParameter:
+ParseText_IgnoreParameter:
 #_0EEFD0: REP #$30
 
 #_0EEFD2: LDX.w $1CD9
@@ -11780,7 +11782,7 @@ RenderText_ExtendedCommand_IgnoreParameter:
 
 ;===================================================================================================
 
-RenderText_ExtendedCommand_WritePlayerName:
+ParseText_WritePlayerName:
 #_0EEFE9: REP #$30
 
 #_0EEFEB: LDA.l $701FFE
@@ -11923,7 +11925,7 @@ RenderText_ExtendedCommand_WritePlayerName:
 
 ;===================================================================================================
 
-RenderText_ExtendedCommand_SetWindowType:
+ParseText_SetWindowType:
 #_0EF09D: REP #$10
 
 #_0EF09F: LDY.w $1CDD
@@ -11941,7 +11943,7 @@ RenderText_ExtendedCommand_SetWindowType:
 
 ;===================================================================================================
 
-RenderText_ExtendedCommand_WriteBCD:
+ParseText_WriteBCD:
 #_0EF0AF: REP #$30
 
 #_0EF0B1: LDX.w $1CD9
@@ -11960,6 +11962,7 @@ RenderText_ExtendedCommand_WriteBCD:
 
 #_0EF0C4: TAY
 #_0EF0C5: LDA.w $1CF2,Y
+
 #_0EF0C8: PLP
 #_0EF0C9: BCC .low_nibble
 
@@ -11983,7 +11986,7 @@ RenderText_ExtendedCommand_WriteBCD:
 
 ;===================================================================================================
 
-RenderText_ExtendedCommand_SetWindowPosition:
+ParseText_SetWindowPosition:
 #_0EF0E0: REP #$30
 
 #_0EF0E2: LDY.w $1CDD
@@ -12008,16 +12011,16 @@ RenderText_ExtendedCommand_SetWindowPosition:
 RenderText_Draw:
 #_0EF0F8: LDA.w $1CD4
 #_0EF0FB: JSL JumpTableLocal
-#_0EF0FF: dw RenderText_Draw_Border
-#_0EF101: dw RenderText_Draw_BorderIncremental
-#_0EF103: dw RenderText_Draw_CharacterTilemap
-#_0EF105: dw RenderText_Draw_MessageCharacters
-#_0EF107: dw RenderText_Draw_Finish
+#_0EF0FF: dw RenderText_InitializeWindow
+#_0EF101: dw RenderText_DrawBorderEdges
+#_0EF103: dw RenderText_DrawCharacterTilemap
+#_0EF105: dw RenderText_DrawMessageCharacters
+#_0EF107: dw RenderText_FinalizeWindow
 
 ;===================================================================================================
 
-RenderText_Draw_Border:
-#_0EF109: JSR RenderText_DrawBorderInitialize
+RenderText_InitializeWindow:
+#_0EF109: JSR RenderText_SetDrawParameters
 #_0EF10C: JSR RenderText_DrawBorderRow
 
 #_0EF10F: REP #$30
@@ -12035,7 +12038,6 @@ RenderText_Draw_Border:
 ;---------------------------------------------------------------------------------------------------
 
 #_0EF120: LDY.w #$000C
-
 #_0EF123: JSR RenderText_DrawBorderRow
 
 #_0EF126: LDA.w #$FFFF
@@ -12054,7 +12056,7 @@ RenderText_Draw_Border:
 
 ;===================================================================================================
 
-RenderText_Draw_BorderIncremental:
+RenderText_DrawBorderEdges:
 #_0EF138: LDA.b #$01
 #_0EF13A: STA.b $14
 
@@ -12072,16 +12074,16 @@ RenderText_Draw_BorderIncremental:
 
 .continue
 #_0EF14B: JSL JumpTableLocal
-#_0EF14F: dw RenderText_Draw_BorderIncremental_Top
-#_0EF151: dw RenderText_Draw_BorderIncremental_Middle
-#_0EF153: dw RenderText_Draw_BorderIncremental_Bottom
+#_0EF14F: dw RenderText_DrawBorderEdgeTop
+#_0EF151: dw RenderText_DrawBorderEdgeMiddle
+#_0EF153: dw RenderText_DrawBorderEdgeBottom
 
 ;===================================================================================================
 
-RenderText_Draw_BorderIncremental_Top:
+RenderText_DrawBorderEdgeTop:
 #_0EF155: REP #$30
 
-#_0EF157: JSR RenderText_DrawBorderInitialize
+#_0EF157: JSR RenderText_SetDrawParameters
 #_0EF15A: JSR RenderText_DrawBorderRow
 
 #_0EF15D: LDA.w #$FFFF
@@ -12095,12 +12097,11 @@ RenderText_Draw_BorderIncremental_Top:
 
 ;===================================================================================================
 
-RenderText_Draw_BorderIncremental_Middle:
+RenderText_DrawBorderEdgeMiddle:
 #_0EF169: REP #$30
 
 #_0EF16B: LDX.w #$0000
 #_0EF16E: LDY.w #$0006
-
 #_0EF171: JSR RenderText_DrawBorderRow
 
 #_0EF174: LDA.w #$FFFF
@@ -12114,12 +12115,11 @@ RenderText_Draw_BorderIncremental_Middle:
 
 ;===================================================================================================
 
-RenderText_Draw_BorderIncremental_Bottom:
+RenderText_DrawBorderEdgeBottom:
 #_0EF180: REP #$30
 
 #_0EF182: LDX.w #$0000
 #_0EF185: LDY.w #$000C
-
 #_0EF188: JSR RenderText_DrawBorderRow
 
 #_0EF18B: LDA.w #$FFFF
@@ -12136,8 +12136,8 @@ RenderText_Draw_BorderIncremental_Bottom:
 
 ;===================================================================================================
 
-RenderText_Draw_CharacterTilemap:
-#_0EF19C: JSR RenderText_Draw_BuildCharacterTilemap
+RenderText_DrawCharacterTilemap:
+#_0EF19C: JSR RenderText_BuildCharacterTilemap
 
 #_0EF19F: INC.w $1CD4
 
@@ -12145,7 +12145,7 @@ RenderText_Draw_CharacterTilemap:
 
 ;===================================================================================================
 
-RenderText_Draw_MessageCharacters:
+RenderText_DrawMessageCharacters:
 .next_char
 #_0EF1A3: REP #$30
 
@@ -12168,6 +12168,7 @@ RenderText_Draw_MessageCharacters:
 #_0EF1B8: CMP.w #$003B
 #_0EF1BB: BCC .under_59
 
+; or above 79
 #_0EF1BD: CMP.w #$0050
 #_0EF1C0: BCS .under_59
 
@@ -12230,7 +12231,7 @@ RenderText_Draw_MessageCharacters:
 .didnt_overflow
 #_0EF20F: SEP #$30
 
-#_0EF211: JSR RenderText_Draw_HandleNext
+#_0EF211: JSR RenderText_HandleNextDraw
 
 #_0EF214: LDA.b #$02
 #_0EF216: STA.b $17
@@ -12240,59 +12241,58 @@ RenderText_Draw_MessageCharacters:
 
 ;===================================================================================================
 
-RenderText_Draw_HandleNext:
+RenderText_HandleNextDraw:
 #_0EF21C: JSL JumpTableLocal
-#_0EF220: dw RenderText_Draw_RenderCharacter ; 0x66
-#_0EF222: dw RenderText_Draw_NextImage       ; 0x67
-#_0EF224: dw RenderText_Draw_Choose2LowOr3   ; 0x68
-#_0EF226: dw RenderText_Draw_ChooseItem      ; 0x69
-#_0EF228: dw RenderText_Draw_Ignore          ; 0x6A
-#_0EF22A: dw RenderText_Draw_Ignore          ; 0x6B
-#_0EF22C: dw RenderText_Draw_Ignore          ; 0x6C
-#_0EF22E: dw RenderText_Draw_Ignore          ; 0x6D
-#_0EF230: dw RenderText_Draw_Ignore          ; 0x6E
-#_0EF232: dw RenderText_Draw_Choose2HighOr3  ; 0x6F
-#_0EF234: dw Choose3_ArrowMessageID          ; 0x70 - bad pointer, but correct
-#_0EF236: dw RenderText_Draw_Choose3         ; 0x71
-#_0EF238: dw RenderText_Draw_Choose1Or2      ; 0x72
-#_0EF23A: dw RenderText_Draw_Scroll          ; 0x73
-#_0EF23C: dw RenderText_Draw_SetLine         ; 0x74
-#_0EF23E: dw RenderText_Draw_SetLine         ; 0x75
-#_0EF240: dw RenderText_Draw_SetLine         ; 0x76
-#_0EF242: dw RenderText_Draw_SetColor        ; 0x77
-#_0EF244: dw RenderText_Draw_Wait            ; 0x78
-#_0EF246: dw RenderText_Draw_PlaySFX         ; 0x79
-#_0EF248: dw RenderText_Draw_SetSpeed        ; 0x7A
-#_0EF24A: dw RenderText_Draw_Command7B       ; 0x7B
-#_0EF24C: dw RenderText_Draw_ABunchOfSpaces  ; 0x7C
-#_0EF24E: dw RenderText_Draw_EmptyBuffer     ; 0x7D
-#_0EF250: dw RenderText_Draw_PauseForInput   ; 0x7E
-#_0EF252: dw RenderText_Draw_Terminate       ; 0x7F
+#_0EF220: dw RenderText_DrawCharacter            ; 0x66
+#_0EF222: dw RenderText_NextImage                ; 0x67
+#_0EF224: dw RenderText_Choose2LowOr3            ; 0x68
+#_0EF226: dw RenderText_ChooseItem               ; 0x69
+#_0EF228: dw RenderText_IgnoreThis               ; 0x6A
+#_0EF22A: dw RenderText_IgnoreThis               ; 0x6B
+#_0EF22C: dw RenderText_IgnoreThis               ; 0x6C
+#_0EF22E: dw RenderText_IgnoreThis               ; 0x6D
+#_0EF230: dw RenderText_IgnoreThis               ; 0x6E
+#_0EF232: dw RenderText_Choose2HighOr3           ; 0x6F
+#_0EF234: dw Choose3_ArrowMessageID              ; 0x70 - bad pointer, but correct
+#_0EF236: dw RenderText_Choose3                  ; 0x71
+#_0EF238: dw RenderText_Choose1or2               ; 0x72
+#_0EF23A: dw RenderText_ScrollText               ; 0x73
+#_0EF23C: dw RenderText_SetLine                  ; 0x74
+#_0EF23E: dw RenderText_SetLine                  ; 0x75
+#_0EF240: dw RenderText_SetLine                  ; 0x76
+#_0EF242: dw RenderText_SetColor                 ; 0x77
+#_0EF244: dw RenderText_Wait                     ; 0x78
+#_0EF246: dw RenderText_PlaySFX                  ; 0x79
+#_0EF248: dw RenderText_SetSpeed                 ; 0x7A
+#_0EF24A: dw RenderText_Command7B                ; 0x7B
+#_0EF24C: dw RenderText_Command7C                ; 0x7C
+#_0EF24E: dw RenderText_EmptyBuffer              ; 0x7D
+#_0EF250: dw RenderText_PauseForInput            ; 0x7E
+#_0EF252: dw RenderText_Terminate                ; 0x7F
 
 ;===================================================================================================
 
-RenderText_Draw_Finish:
+RenderText_FinalizeWindow:
 #_0EF254: REP #$30
 
-#_0EF256: JSR RenderText_DrawBorderInitialize
+#_0EF256: JSR RenderText_SetDrawParameters
 
 #_0EF259: REP #$30
 
 #_0EF25B: LDA.w $1CD0
 #_0EF25E: XBA
-
 #_0EF25F: STA.w $1002,X
 
 #_0EF262: INX
 #_0EF263: INX
 
-#_0EF264: LDA.w RenderText_Clear_StripeDRILL
+#_0EF264: LDA.w RenderText_ClearStripeDRILL
 #_0EF267: STA.w $1002,X
 
 #_0EF26A: INX
 #_0EF26B: INX
 
-#_0EF26C: LDA.w RenderText_Clear_TileFill
+#_0EF26C: LDA.w RenderText_ClearTileFill
 #_0EF26F: STA.w $1002,X
 
 #_0EF272: INX
@@ -12316,36 +12316,36 @@ RenderText_Draw_Finish:
 
 ;===================================================================================================
 
-RenderText_Draw_RenderCharacter:
+RenderText_DrawCharacter:
 #_0EF28B: LDA.w $1CD5
 #_0EF28E: CMP.b #$02
-#_0EF290: BCC .speed_is_fine
+#_0EF290: BCC .dont_force
 
 #_0EF292: LDA.b #$02
 
-.speed_is_fine
+.dont_force
 #_0EF294: JSL JumpTableLocal
-#_0EF298: dw RenderText_Draw_RenderCharacter_All
-#_0EF29A: dw RenderText_Draw_RenderCharacter_Single
-#_0EF29C: dw RenderText_Draw_RenderCharacter_ReduceSpeed
-#_0EF29E: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2A0: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2A2: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2A4: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2A6: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2A8: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2AA: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2AC: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2AE: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2B0: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2B2: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2B4: dw RenderText_Draw_RenderCharacter_Nothing
-#_0EF2B6: dw RenderText_Draw_RenderCharacter_Nothing
+#_0EF298: dw RenderText_DrawAllCharacters
+#_0EF29A: dw RenderText_DrawSingleCharacter
+#_0EF29C: dw RenderText_TickDownDrawDelay
+#_0EF29E: dw RenderText_NullCharacterDraw
+#_0EF2A0: dw RenderText_NullCharacterDraw
+#_0EF2A2: dw RenderText_NullCharacterDraw
+#_0EF2A4: dw RenderText_NullCharacterDraw
+#_0EF2A6: dw RenderText_NullCharacterDraw
+#_0EF2A8: dw RenderText_NullCharacterDraw
+#_0EF2AA: dw RenderText_NullCharacterDraw
+#_0EF2AC: dw RenderText_NullCharacterDraw
+#_0EF2AE: dw RenderText_NullCharacterDraw
+#_0EF2B0: dw RenderText_NullCharacterDraw
+#_0EF2B2: dw RenderText_NullCharacterDraw
+#_0EF2B4: dw RenderText_NullCharacterDraw
+#_0EF2B6: dw RenderText_NullCharacterDraw
 
 ;===================================================================================================
 
-RenderText_Draw_RenderCharacter_All:
-#_0EF2B8: JSR RenderText_Draw_RenderCharacter_Single
+RenderText_DrawAllCharacters:
+#_0EF2B8: JSR RenderText_DrawSingleCharacter
 
 #_0EF2BB: REP #$30
 
@@ -12361,7 +12361,7 @@ RenderText_Draw_RenderCharacter_All:
 
 #_0EF2CF: SEP #$30
 
-#_0EF2D1: JMP.w RenderText_Draw_MessageCharacters
+#_0EF2D1: JMP.w RenderText_DrawMessageCharacters
 
 .exit
 #_0EF2D4: SEP #$30
@@ -12370,7 +12370,7 @@ RenderText_Draw_RenderCharacter_All:
 
 ;===================================================================================================
 
-RenderText_Draw_RenderCharacter_Single:
+RenderText_DrawSingleCharacter:
 #_0EF2D7: REP #$30
 
 #_0EF2D9: LDX.w $1CD9
@@ -12392,8 +12392,6 @@ RenderText_Draw_RenderCharacter_Single:
 #_0EF2F1: ASL A
 #_0EF2F2: TAX
 
-;---------------------------------------------------------------------------------------------------
-
 #_0EF2F3: SEP #$20
 
 #_0EF2F5: LDA.w $1CDC
@@ -12404,7 +12402,7 @@ RenderText_Draw_RenderCharacter_Single:
 #_0EF304: STA.w $132B,X
 #_0EF307: STA.w $132D,X
 
-#_0EF30A: JSR RenderText_Refresh
+#_0EF30A: JSR RenderText_DrawACharacter
 
 #_0EF30D: REP #$30
 
@@ -13222,24 +13220,24 @@ CopyDecompressedToFullBuffer:
 
 ;===================================================================================================
 
-RenderText_Draw_RenderCharacter_ReduceSpeed:
+RenderText_TickDownDrawDelay:
 #_0EF6E3: DEC.w $1CD5
 
 #_0EF6E6: RTS
 
 ;===================================================================================================
 
-RenderText_Draw_RenderCharacter_Nothing:
+RenderText_NullCharacterDraw:
 #_0EF6E7: RTS
 
 ;===================================================================================================
 
-RenderText_Draw_NextImage:
+RenderText_NextImage:
 #_0EF6E8: LDA.b $10
 #_0EF6EA: CMP.b #$14
 #_0EF6EC: BNE .not_attract
 
-#_0EF6EE: JSL PaletteFilterHistory
+#_0EF6EE: JSL PaletteFilter_AttractPlaque
 
 #_0EF6F2: LDA.l $7EC007
 #_0EF6F6: BNE .exit
@@ -13256,7 +13254,7 @@ RenderText_Draw_NextImage:
 
 ;===================================================================================================
 
-pool RenderText_Draw_Choose2LowOr3
+pool RenderText_Choose2LowOr3
 
 .arrow_messages
 #_0EF700: dw $0001 ; MESSAGE 0001
@@ -13266,7 +13264,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-RenderText_Draw_Choose2LowOr3:
+RenderText_Choose2LowOr3:
 #_0EF704: LDA.w $1CE9
 #_0EF707: BEQ .delay_over
 
@@ -13355,7 +13353,7 @@ RenderText_Draw_Choose2LowOr3:
 
 ;===================================================================================================
 
-RenderText_Draw_ChooseItem:
+RenderText_ChooseItem:
 #_0EF76F: LDA.w $1CE9
 #_0EF772: BEQ .delay_over
 
@@ -13363,7 +13361,7 @@ RenderText_Draw_ChooseItem:
 #_0EF775: STA.w $1CE9
 
 #_0EF778: CMP.b #$01
-#_0EF77A: BEQ RenderText_FindYItem_Next
+#_0EF77A: BEQ RenderText_FindNextItem
 
 #_0EF77C: BRA .exit
 
@@ -13390,16 +13388,14 @@ RenderText_Draw_ChooseItem:
 
 #_0EF797: DEC.w $1CE8
 
-#_0EF79A: JSR RenderText_FindYItem_Previous
-#_0EF79D: JSR RenderText_Refresh
+#_0EF79A: JSR RenderText_FindPreviousItem
+#_0EF79D: JSR RenderText_DrawACharacter
 
 #_0EF7A0: BRA .exit
 
-;---------------------------------------------------------------------------------------------------
-
 .adjust_selection
-#_0EF7A2: JSR RenderText_FindYItem_Next
-#_0EF7A5: JSR RenderText_Refresh
+#_0EF7A2: JSR RenderText_FindNextItem
+#_0EF7A5: JSR RenderText_DrawACharacter
 
 .exit
 #_0EF7A8: RTS
@@ -13414,7 +13410,7 @@ RenderText_Draw_ChooseItem:
 
 ;===================================================================================================
 
-RenderText_FindYItem_Previous:
+RenderText_FindPreviousItem:
 #_0EF7AF: LDX.w $1CE8
 #_0EF7B2: BPL .no_wrap
 
@@ -13427,22 +13423,22 @@ RenderText_FindYItem_Previous:
 
 #_0EF7BD: LDA.l $7EF340,X
 #_0EF7C1: BMI .item_missing
-#_0EF7C3: BNE RenderText_DrawSelectedYItem
+#_0EF7C3: BNE RenderText_DrawSelectedItem
 
 .item_missing
 #_0EF7C5: CPX.b #$20
 #_0EF7C7: BNE .check_next
 
 #_0EF7C9: LDA.l $7EF341,X
-#_0EF7CD: BNE RenderText_DrawSelectedYItem
+#_0EF7CD: BNE RenderText_DrawSelectedItem
 
 .check_next
 #_0EF7CF: DEC.w $1CE8
-#_0EF7D2: BRA RenderText_FindYItem_Previous
+#_0EF7D2: BRA RenderText_FindPreviousItem
 
 ;---------------------------------------------------------------------------------------------------
 
-RenderText_FindYItem_Next:
+RenderText_FindNextItem:
 #_0EF7D4: LDX.w $1CE8
 #_0EF7D7: CPX.b #$20
 #_0EF7D9: BCC .no_wrap
@@ -13456,36 +13452,36 @@ RenderText_FindYItem_Next:
 
 #_0EF7E4: LDA.l $7EF340,X
 #_0EF7E8: BMI .item_missing
-#_0EF7EA: BNE RenderText_DrawSelectedYItem
+#_0EF7EA: BNE RenderText_DrawSelectedItem
 
 .item_missing
 #_0EF7EC: CPX.b #$20
 #_0EF7EE: BNE .check_next
 
 #_0EF7F0: LDA.l $7EF341,X
-#_0EF7F4: BNE RenderText_DrawSelectedYItem
+#_0EF7F4: BNE RenderText_DrawSelectedItem
 
 .check_next
 #_0EF7F6: INC.w $1CE8
 
-#_0EF7F9: BRA RenderText_FindYItem_Next
+#_0EF7F9: BRA RenderText_FindNextItem
 
 ;===================================================================================================
 
-RenderText_DrawSelectedYItem:
+RenderText_DrawSelectedItem:
 #_0EF7FB: TXY
 
 #_0EF7FC: TXA
 #_0EF7FD: ASL A
 #_0EF7FE: TAX
 
-#_0EF7FF: LDA.l ItemMenu_ItemGFXPointers+0,X
+#_0EF7FF: LDA.l ItemIconPointers+0,X
 #_0EF803: STA.b $00
 
-#_0EF805: LDA.l ItemMenu_ItemGFXPointers+1,X
+#_0EF805: LDA.l ItemIconPointers+1,X
 #_0EF809: STA.b $01
 
-#_0EF80B: LDA.b #$0D
+#_0EF80B: LDA.b #ItemIconPointers>>16
 #_0EF80D: STA.b $02
 
 #_0EF80F: TYX
@@ -13543,7 +13539,7 @@ RenderText_DrawSelectedYItem:
 
 ;===================================================================================================
 
-RenderText_Draw_Ignore:
+RenderText_IgnoreThis:
 #_0EF852: REP #$10
 
 #_0EF854: LDX.w $1CD9
@@ -13561,7 +13557,7 @@ RenderText_Draw_Ignore:
 
 ;===================================================================================================
 
-RenderText_Draw_Choose2HighOr3:
+RenderText_Choose2HighOr3:
 #_0EF866: RTS
 
 ;===================================================================================================
@@ -13573,7 +13569,7 @@ Choose3_ArrowMessageID:
 
 ;===================================================================================================
 
-RenderText_Draw_Choose3:
+RenderText_Choose3:
 #_0EF86D: LDA.w $1CE9
 #_0EF870: BEQ .delay_over
 
@@ -13675,7 +13671,7 @@ RenderText_Draw_Choose3:
 
 ;===================================================================================================
 
-pool RenderText_Draw_Choose1Or2
+pool RenderText_Choose1or2
 
 .pointer_message_id
 #_0EF8E1: dw $0009 ; MESSAGE 0009
@@ -13685,7 +13681,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-RenderText_Draw_Choose1Or2:
+RenderText_Choose1or2:
 #_0EF8E5: LDA.w $1CE9
 #_0EF8E8: BEQ .delay_over
 
@@ -13779,7 +13775,7 @@ RenderText_Draw_Choose1Or2:
 
 ;===================================================================================================
 
-RenderText_Draw_Scroll:
+RenderText_ScrollText:
 #_0EF952: PHB
 
 #_0EF953: LDA.b #$7F
@@ -13913,7 +13909,7 @@ RenderText_Draw_Scroll:
 
 ;===================================================================================================
 
-RenderText_Draw_SetLine:
+RenderText_SetLine:
 #_0EFA21: REP #$30
 
 #_0EFA23: LDX.w $1CD9
@@ -13936,7 +13932,7 @@ RenderText_Draw_SetLine:
 
 ;===================================================================================================
 
-RenderText_Draw_SetColor:
+RenderText_SetColor:
 #_0EFA3E: REP #$10
 
 #_0EFA40: LDA.w $1CDC
@@ -13963,15 +13959,13 @@ RenderText_Draw_SetColor:
 
 ;===================================================================================================
 
-RenderText_Draw_Wait:
+RenderText_Wait:
 #_0EFA61: LDA.b $F2
 #_0EFA63: AND.b #$80
 #_0EFA65: BEQ .no_a_press
 
 #_0EFA67: LDA.b #$01
 #_0EFA69: BRA .continue
-
-;---------------------------------------------------------------------------------------------------
 
 .no_a_press
 #_0EFA6B: REP #$30
@@ -13982,19 +13976,17 @@ RenderText_Draw_Wait:
 
 #_0EFA75: LDA.w #$0002
 
-;---------------------------------------------------------------------------------------------------
-
 .continue
 #_0EFA78: SEP #$30
 
 #_0EFA7A: JSL JumpTableLocal
-#_0EFA7E: dw RenderText_Draw_Wait_Init
-#_0EFA80: dw RenderText_Draw_Wait_End
-#_0EFA82: dw RenderText_Draw_Wait_Tick
+#_0EFA7E: dw RenderText_InitializeWait
+#_0EFA80: dw RenderText_TerminateWait
+#_0EFA82: dw RenderText_TickWaitClock
 
 ;===================================================================================================
 
-RenderText_Draw_Wait_Init:
+RenderText_InitializeWait:
 #_0EFA84: REP #$30
 
 #_0EFA86: LDX.w $1CD9
@@ -14009,7 +14001,7 @@ RenderText_Draw_Wait_Init:
 
 ;===================================================================================================
 
-RenderText_Draw_Wait_Tick:
+RenderText_TickWaitClock:
 #_0EFA98: REP #$30
 
 #_0EFA9A: DEC.w $1CE0
@@ -14020,7 +14012,7 @@ RenderText_Draw_Wait_Tick:
 
 ;===================================================================================================
 
-RenderText_Draw_Wait_End:
+RenderText_TerminateWait:
 #_0EFAA0: REP #$30
 
 #_0EFAA2: INC.w $1CD9
@@ -14034,7 +14026,7 @@ RenderText_Draw_Wait_End:
 
 ;===================================================================================================
 
-RenderText_Draw_PlaySFX:
+RenderText_PlaySFX:
 #_0EFAAE: REP #$10
 
 #_0EFAB0: LDX.w $1CD9
@@ -14052,7 +14044,7 @@ RenderText_Draw_PlaySFX:
 
 ;===================================================================================================
 
-RenderText_Draw_SetSpeed:
+RenderText_SetSpeed:
 #_0EFAC2: REP #$10
 
 #_0EFAC4: LDX.w $1CD9
@@ -14071,7 +14063,7 @@ RenderText_Draw_SetSpeed:
 
 ;===================================================================================================
 ; TODO not sure what this really is meant to do
-RenderText_Draw_Command7B:
+RenderText_Command7B:
 #_0EFAD9: REP #$30
 
 #_0EFADB: INC.w $1CD9
@@ -14104,11 +14096,11 @@ RenderText_Draw_Command7B:
 
 #_0EFB04: SEP #$30
 
-#_0EFB06: JMP.w RenderText_Draw_MessageCharacters
+#_0EFB06: JMP.w RenderText_DrawMessageCharacters
 
 ;===================================================================================================
 ; TODO not sure what this really is meant to do
-RenderText_Draw_ABunchOfSpaces:
+RenderText_Command7C:
 #_0EFB09: REP #$30
 
 #_0EFB0B: INC.w $1CD9
@@ -14156,11 +14148,11 @@ RenderText_Draw_ABunchOfSpaces:
 
 #_0EFB40: SEP #$30
 
-#_0EFB42: JMP.w RenderText_Draw_MessageCharacters
+#_0EFB42: JMP.w RenderText_DrawMessageCharacters
 
 ;===================================================================================================
 
-RenderText_Draw_EmptyBuffer:
+RenderText_EmptyBuffer:
 #_0EFB45: PHB
 
 #_0EFB46: LDA.b #$7F
@@ -14207,7 +14199,7 @@ RenderText_Draw_EmptyBuffer:
 
 ;===================================================================================================
 
-RenderText_Draw_PauseForInput:
+RenderText_PauseForInput:
 #_0EFB7C: LDA.w $1CE9
 #_0EFB7F: BEQ .delay
 
@@ -14221,8 +14213,6 @@ RenderText_Draw_PauseForInput:
 #_0EFB8B: STA.w $012F
 
 #_0EFB8E: BRA .exit
-
-;---------------------------------------------------------------------------------------------------
 
 .delay
 #_0EFB90: LDA.w $00F4
@@ -14244,7 +14234,7 @@ RenderText_Draw_PauseForInput:
 
 ;===================================================================================================
 
-RenderText_Draw_Terminate:
+RenderText_Terminate:
 #_0EFBA7: LDA.w $1CE9
 #_0EFBAA: BEQ .delay
 
@@ -14258,8 +14248,6 @@ RenderText_Draw_Terminate:
 #_0EFBB6: STA.w $012F
 
 #_0EFBB9: BRA .exit
-
-;---------------------------------------------------------------------------------------------------
 
 .delay
 #_0EFBBB: LDA.b $F4
@@ -14301,7 +14289,7 @@ RenderText_SetDefaultWindowPosition:
 
 ;===================================================================================================
 
-RenderText_DrawBorderInitialize:
+RenderText_SetDrawParameters:
 #_0EFBE8: REP #$30
 
 #_0EFBEA: LDA.w $1CD2
@@ -14378,12 +14366,12 @@ RenderText_DrawBorderRow:
 
 ;===================================================================================================
 
-RenderText_Draw_BuildCharacterTilemap:
+RenderText_BuildCharacterTilemap:
 #_0EFC38: REP #$30
 
 #_0EFC3A: LDX.w #$0000
 
-; dumb #$3980
+; !DUMB #$3980
 #_0EFC3D: LDA.w #$387F ; text character to fill the tilemap
 #_0EFC40: AND.w #$FF00
 #_0EFC43: ORA.w #$0180
@@ -14405,21 +14393,21 @@ RenderText_Draw_BuildCharacterTilemap:
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0EFC59: JSR RenderText_Refresh
+#_0EFC59: JSR RenderText_DrawACharacter
 
 #_0EFC5C: SEP #$30
 
 #_0EFC5E: RTS
 
 ;===================================================================================================
-; TODO better name
-RenderText_Refresh:
+
+RenderText_DrawACharacter:
 #_0EFC5F: REP #$30
 
 #_0EFC61: LDA.w #$0006
 #_0EFC64: STA.b $0E
 
-#_0EFC66: JSR RenderText_DrawBorderInitialize
+#_0EFC66: JSR RenderText_SetDrawParameters
 
 #_0EFC69: REP #$30
 
@@ -14433,7 +14421,6 @@ RenderText_Refresh:
 .next
 #_0EFC75: LDA.w $1CD0
 #_0EFC78: XBA
-
 #_0EFC79: STA.w $1002,X
 
 #_0EFC7C: XBA
@@ -14615,12 +14602,12 @@ RenderText_TextPosition:
 
 ;===================================================================================================
 
-RenderText_Clear_StripeDRILL:
+RenderText_ClearStripeDRILL:
 #_0EFD42: dw $2E42
 
 ;---------------------------------------------------------------------------------------------------
 
-RenderText_Clear_TileFill:
+RenderText_ClearTileFill:
 #_0EFD44: dw $387F
 
 ;===================================================================================================
@@ -14648,23 +14635,24 @@ Command7BTiles:
 
 ;===================================================================================================
 
+; the actual value is -1, since it's decremented immediately
 RenderText_WaitTimers:
-#_0EFD5C: dw $001F ;  31
-#_0EFD5E: dw $003F ;  63
-#_0EFD60: dw $005E ;  94
-#_0EFD62: dw $007D ; 125
-#_0EFD64: dw $009C ; 156
-#_0EFD66: dw $00BC ; 188
-#_0EFD68: dw $00DB ; 219
-#_0EFD6A: dw $00FA ; 250
-#_0EFD6C: dw $0119 ; 281
-#_0EFD6E: dw $0139 ; 313
-#_0EFD70: dw $0158 ; 344
-#_0EFD72: dw $0177 ; 375
-#_0EFD74: dw $0196 ; 406
-#_0EFD76: dw $01B6 ; 438
-#_0EFD78: dw $01D5 ; 469
-#_0EFD7A: dw $01F4 ; 500
+#_0EFD5C: dw $001F ;  30
+#_0EFD5E: dw $003F ;  62
+#_0EFD60: dw $005E ;  93
+#_0EFD62: dw $007D ; 124
+#_0EFD64: dw $009C ; 155
+#_0EFD66: dw $00BC ; 187
+#_0EFD68: dw $00DB ; 218
+#_0EFD6A: dw $00FA ; 249
+#_0EFD6C: dw $0119 ; 280
+#_0EFD6E: dw $0139 ; 312
+#_0EFD70: dw $0158 ; 343
+#_0EFD72: dw $0177 ; 374
+#_0EFD74: dw $0196 ; 405
+#_0EFD76: dw $01B6 ; 437
+#_0EFD78: dw $01D5 ; 468
+#_0EFD7A: dw $01F4 ; 499
 
 ;===================================================================================================
 
@@ -14748,7 +14736,7 @@ NULL_0EFD7E:
 
 ;===================================================================================================
 
-GameOver_InitializeLetters:
+InitializeGAMEOVERLetters:
 #_0EFFA0: PHB
 #_0EFFA1: PHK
 #_0EFFA2: PLB

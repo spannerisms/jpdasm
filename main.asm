@@ -1,9 +1,6 @@
 lorom
-
 math pri on
-
 arch 65816
-
 check bankcross off
 
 incsrc "functions.asm"

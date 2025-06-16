@@ -58,7 +58,7 @@ SRAMOFF         = $701FFE
 ;   d - door opened
 ;   b - boss kill / heart container
 ;   k - key / heart piece / crystal (unused for crystals, but prevents them from dropping)
-;   u - 2nd key / heart piece
+;   u - chest 5 / 2nd key / heart piece
 ;   t - chest 4 / rupee floor / swamp drains / bombable floor / mire wall
 ;   s - chest 3 / pod or desert wall
 ;   e - chest 2
@@ -650,7 +650,7 @@ CAPE            = $7EF352
 ; 0x00 - Nothing
 ; 0x01 - Letter (works like mirror)
 ; 0x02 - Mirror
-; 0x03 - Deleted triforce item
+; 0x03 - Triforce (scrapped)
 MIRROR          = $7EF353
 
 ; 0x00 - Lift 1 (nothing)
@@ -893,10 +893,9 @@ PROGLITE2       = $7EF3C9
 
 ; .d.. ....
 ;   d - World (0: Light World | 1: Dark World)
+; high byte is mostly unused, but expected to be 00, as pots read it in 16-bit
 SAVEWORLD       = $7EF3CA
-
-; Not used
-UNUSED_7EF3CB   = $7EF3CB
+SAVEWORLDU      = $7EF3CB
 
 ; Current follower ID
 FOLLOWER        = $7EF3CC

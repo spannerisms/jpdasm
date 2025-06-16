@@ -29,7 +29,7 @@ Ancilla_SFX3_Near:
 Ancilla_SFX_Near:
 #_088015: STA.w $0CF8
 
-#_088018: JSL Link_CalculateSFXPan
+#_088018: JSL CalculateLinkSFXPan
 #_08801C: ORA.w $0CF8
 
 #_08801F: RTS
@@ -63,7 +63,7 @@ Ancilla_SFX3_Pan:
 Ancilla_SFX_SetPan:
 #_088035: STA.w $0CF8
 
-#_088038: JSL Ancilla_CalculateSFXPan
+#_088038: JSL CalculateAncillaSFXPan
 #_08803C: ORA.w $0CF8
 
 #_08803F: RTS
@@ -103,7 +103,7 @@ pool AncillaAdd_FireRodShot
 .flame_speed_x
 #_088068: db   0,   0, -64,  64
 
-.flame_speed_y
+.flame_speed_y ; bleeds into next
 #_08806C: db -64,  64,   0
 
 pool off
@@ -121,9 +121,9 @@ AncillaObjectAllocation:
 #_088076: db $18 ; 0x07 - BOMB
 #_088077: db $08 ; 0x08 - DOOR DEBRIS
 #_088078: db $08 ; 0x09 - ARROW
-#_088079: db $08 ; 0x0A - ARROW IN THE WALL
+#_088079: db $08 ; 0x0A - LODGED ARROW
 #_08807A: db $00 ; 0x0B - ICE ROD SHOT
-#_08807B: db $14 ; 0x0C - SWORD BEAM_BOUNCE
+#_08807B: db $14 ; 0x0C - SWORD BEAM
 #_08807C: db $00 ; 0x0D - SPIN ATTACK FULL CHARGE SPARK
 #_08807D: db $10 ; 0x0E - BLAST WALL EXPLOSION
 #_08807E: db $28 ; 0x0F - BLAST WALL EXPLOSION
@@ -187,17 +187,17 @@ AncillaAdd_FireRodShot:
 
 #_0880B5: STA.b $00
 
-#_0880B7: JSL Ancilla_CheckForAvailableSlot
+#_0880B7: JSL FindAncillaSlot
 #_0880BB: BPL .free_slot
 
 #_0880BD: LDA.b $00
 #_0880BF: CMP.b #$01
-#_0880C1: BEQ .no_refund_magic
+#_0880C1: BEQ .no_RefundMagic
 
 #_0880C3: LDX.b #$00
-#_0880C5: JSL Refund_Magic
+#_0880C5: JSL RefundMagic
 
-.no_refund_magic
+.no_RefundMagic
 #_0880C9: BRL .exit_a
 
 ;---------------------------------------------------------------------------------------------------
@@ -244,8 +244,6 @@ AncillaAdd_FireRodShot:
 #_0880FC: LDA.b $2F
 #_0880FE: LSR A
 #_0880FF: STA.w $0C72,Y
-
-;---------------------------------------------------------------------------------------------------
 
 #_088102: TAX
 
@@ -294,7 +292,7 @@ AncillaAdd_FireRodShot:
 #_088144: BRA .speed_set
 
 ;---------------------------------------------------------------------------------------------------
-
+; !WTF  somaria bullet speed depends on your sword, but only if it was created by the fire rod
 .is_somaria_bullet
 #_088146: LDA.l $7EF359
 #_08814A: DEC A
@@ -373,7 +371,7 @@ AncillaAdd_FireRodShot:
 
 ;===================================================================================================
 
-pool SomariaBlock_SpawnBullets
+pool SpawnSomariaBullets
 
 .offset_x
 #_08819F: db  -8,  -8,  -9,  -4
@@ -385,7 +383,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-SomariaBlock_SpawnBullets:
+SpawnSomariaBullets:
 #_0881A7: LDA.b #$03
 #_0881A9: STA.w $0FB5
 
@@ -421,7 +419,7 @@ SomariaBlock_SpawnBullets:
 .next_spawn
 #_0881D5: LDY.b #$04
 #_0881D7: LDA.b #$01 ; ANCILLA 01
-#_0881D9: JSL Ancilla_CheckForAvailableSlot
+#_0881D9: JSL FindAncillaSlot
 #_0881DD: BMI .spawn_failed
 
 #_0881DF: PHX
@@ -492,8 +490,8 @@ Ancilla_Main:
 #_088243: PHK
 #_088244: PLB
 
-#_088245: JSR Ancilla_WeaponTink
-#_088248: JSR Ancilla_ExecuteAll
+#_088245: JSR WeaponTink
+#_088248: JSR HandleAllAncilla
 
 #_08824B: PLB
 
@@ -600,7 +598,7 @@ Bomb_CheckSpriteDamage:
 #_0882D4: PHX
 
 #_0882D5: TYX
-#_0882D6: JSL Sprite_SetupHitbox_long
+#_0882D6: JSL SetupSpriteHitBox_long
 
 #_0882DA: PLX
 
@@ -636,7 +634,7 @@ Bomb_CheckSpriteDamage:
 #_088305: LDA.w $0C4A,X
 #_088308: TYX
 
-#_088309: JSL Ancilla_CheckDamageToSprite
+#_088309: JSL CheckAncillaDamageToSprite
 
 #_08830D: LDY.b #$40
 #_08830F: JSR Ancilla_ProjectReflexiveSpeedOntoSprite
@@ -667,7 +665,7 @@ Bomb_CheckSpriteDamage:
 
 ;===================================================================================================
 
-Ancilla_ExecuteAll:
+HandleAllAncilla:
 #_08832B: LDX.b #$09
 
 .next
@@ -676,7 +674,7 @@ Ancilla_ExecuteAll:
 #_088330: LDA.w $0C4A,X
 #_088333: BEQ .skip
 
-#_088335: JSR Ancilla_ExecuteOne
+#_088335: JSR HandleSingleAncilla
 
 .skip
 #_088338: DEX
@@ -686,7 +684,7 @@ Ancilla_ExecuteAll:
 
 ;===================================================================================================
 
-Ancilla_ExecuteOne:
+HandleSingleAncilla:
 #_08833C: PHA
 
 #_08833D: CPX.b #$06
@@ -700,15 +698,15 @@ Ancilla_ExecuteOne:
 #_088349: LDY.w $0C7C,X
 #_08834C: BNE .bg1
 
-#_08834E: JSL SpriteDraw_AllocateOAMFromRegionD
+#_08834E: JSL AllocateOAMInRegionD
 #_088352: BRA .save_oam
 
 .bg1
-#_088354: JSL SpriteDraw_AllocateOAMFromRegionF
+#_088354: JSL AllocateOAMInRegionF
 #_088358: BRA .save_oam
 
 .ignore_layer
-#_08835A: JSL SpriteDraw_AllocateOAMFromRegionA
+#_08835A: JSL AllocateOAMInRegionA
 
 .save_oam
 #_08835E: TYA
@@ -751,7 +749,7 @@ Ancilla_ExecuteOne:
 #_08838B: dw Ancilla07_Bomb
 #_08838D: dw Ancilla08_DoorDebris
 #_08838F: dw Ancilla09_Arrow
-#_088391: dw Ancilla0A_ArrowInTheWall
+#_088391: dw Ancilla0A_LodgedArrow
 #_088393: dw Ancilla0B_IceRodShot
 #_088395: dw Ancilla0C_SwordBeam_bounce
 #_088397: dw Ancilla0D_SpinAttackFullChargeSpark
@@ -794,7 +792,7 @@ Ancilla_ExecuteOne:
 #_0883E1: dw Ancilla32_BlastWallFireball
 #_0883E3: dw Ancilla33_BlastWallExplosion
 #_0883E5: dw Ancilla34_SkullWoodsFire
-#_0883E7: dw Ancilla35_MasterSwordReceipt
+#_0883E7: dw Ancilla35_MasterSwordCutscene
 #_0883E9: dw Ancilla36_Flute
 #_0883EB: dw Ancilla37_WeathervaneExplosion
 #_0883ED: dw Ancilla38_CutsceneDuck
@@ -847,8 +845,8 @@ Ancilla13_IceRodSparkle:
 #_08843D: LDA.b $11
 #_08843F: BNE .no_move
 
-#_088441: JSR Ancilla_Move_X
-#_088444: JSR Ancilla_Move_Y
+#_088441: JSR AncillaMoveX
+#_088444: JSR AncillaMoveY
 
 .no_move
 #_088447: JSR Ancilla_BoundsCheck
@@ -864,7 +862,7 @@ Ancilla13_IceRodSparkle:
 #_088453: DEY
 #_088454: BPL .next_slot
 
-; use slot 255 if nothing is found, but that doesn't matter much
+; uses slot 255 if nothing is found, but that doesn't matter much
 .found_him
 #_088456: LDA.w $0280,Y
 #_088459: BEQ .normal_priority
@@ -881,15 +879,15 @@ Ancilla13_IceRodSparkle:
 #_088466: LDY.w $0C7C,X ; check layer for OAM region
 #_088469: BNE .lower_layer
 
-#_08846B: JSL SpriteDraw_AllocateOAMFromRegionD
+#_08846B: JSL AllocateOAMInRegionD
 #_08846F: BRA .draw
 
 .lower_layer
-#_088471: JSL SpriteDraw_AllocateOAMFromRegionE
+#_088471: JSL AllocateOAMInRegionE
 #_088475: BRA .draw
 
 .ignore_layer
-#_088477: JSL SpriteDraw_AllocateOAMFromRegionA
+#_088477: JSL AllocateOAMInRegionA
 
 .draw
 #_08847B: LDY.b #$00
@@ -1051,8 +1049,8 @@ Ancilla01_SomariaBullet:
 #_088524: AND.w .frame_masks,Y
 #_088527: BNE .delay_movement
 
-#_088529: JSR Ancilla_Move_X
-#_08852C: JSR Ancilla_Move_Y
+#_088529: JSR AncillaMoveX
+#_08852C: JSR AncillaMoveY
 
 .delay_movement
 #_08852F: LDA.w $0C68,X
@@ -1383,8 +1381,8 @@ FireRodShot_Moving:
 
 #_0886DE: STZ.w $0385,X
 
-#_0886E1: JSR Ancilla_Move_X
-#_0886E4: JSR Ancilla_Move_Y
+#_0886E1: JSR AncillaMoveX
+#_0886E4: JSR AncillaMoveY
 
 #_0886E7: JSR Ancilla_CheckSpriteCollision
 #_0886EA: BCS .collision
@@ -1457,7 +1455,7 @@ FireRodShot_Moving:
 
 .torch
 #_08874F: PHX
-#_088750: JSL Underworld_LightTorch
+#_088750: JSL LightTorch
 #_088754: PLX
 
 ;---------------------------------------------------------------------------------------------------
@@ -1585,7 +1583,7 @@ FireRodShot_Dissipate:
 
 #_0887E2: PHX
 
-#_0887E3: JSL FireRodShot_BecomeSkullWoodsFire
+#_0887E3: JSL BecomeSkullWoodsFire
 
 #_0887E7: PLX
 
@@ -2157,7 +2155,7 @@ Ancilla_CheckTileCollision_targeted:
 #_088A4C: LSR.b $02
 
 #_088A4E: PHX
-#_088A4F: JSL Overworld_GetTileTypeAtLocation
+#_088A4F: JSL GetOverworldTileType
 #_088A53: PLX
 
 #_088A54: BRA .continue
@@ -2204,7 +2202,7 @@ Ancilla_CheckTileCollision_targeted:
 #_088A83: CMP.b #$02
 #_088A85: BNE .not_slope
 
-#_088A87: JSL Sprite_CheckSlopedTileCollision_long
+#_088A87: JSL CheckSlopedTileCollision_long
 
 #_088A8B: RTS
 
@@ -2257,7 +2255,7 @@ Ancilla_CheckTileCollision_targeted:
 
 ;===================================================================================================
 
-Ancilla_SpriteAlert:
+AlertSprites:
 #_088AB9: LDA.b #$03
 #_088ABB: STA.w $0FDC
 
@@ -2700,7 +2698,7 @@ Ancilla_CheckTileCollision_Class2:
 #_088C8E: LSR.b $02
 
 #_088C90: PHX
-#_088C91: JSL Overworld_GetTileTypeAtLocation
+#_088C91: JSL GetOverworldTileType
 #_088C95: PLX
 
 #_088C96: BRA .save_tile
@@ -2731,7 +2729,7 @@ Ancilla_CheckTileCollision_Class2:
 #_088CB1: CMP.b #$02
 #_088CB3: BNE .not_a_slope
 
-#_088CB5: JSL Sprite_CheckSlopedTileCollision_long
+#_088CB5: JSL CheckSlopedTileCollision_long
 
 #_088CB9: RTS
 
@@ -2894,12 +2892,12 @@ Ancilla_CheckSpriteCollision:
 
 #_088D86: LDA.w $0CAA,Y
 #_088D89: AND.b #$02
-#_088D8B: BNE .ignore_layer
+#_088D8B: BNE .ignore_priority
 
 #_088D8D: LDA.w $0280,X
 #_088D90: BNE .skip
 
-.ignore_layer
+.ignore_priority
 #_088D92: LDA.w $0C7C,X
 #_088D95: CMP.w $0F20,Y
 #_088D98: BNE .skip
@@ -2945,7 +2943,7 @@ Ancilla_CheckSpriteCollision_Single:
 #_088DB2: PHX
 
 #_088DB3: TYX
-#_088DB4: JSL Sprite_SetupHitbox_long
+#_088DB4: JSL SetupSpriteHitBox_long
 
 #_088DB8: PLX
 #_088DB9: PLY
@@ -2971,7 +2969,7 @@ Ancilla_CheckSpriteCollision_Single:
 #_088DD6: BEQ .arrow_v_arrow
 
 .deflected_arrow
-#_088DD8: JSL Sprite_CreateDeflectedArrow
+#_088DD8: JSL CreateDeflectedArrow
 
 #_088DDC: CLC
 
@@ -3085,7 +3083,7 @@ Ancilla_CheckSpriteCollision_Single:
 
 #_088E5F: PHY
 
-#_088E60: JSL Ancilla_CheckDamageToSprite
+#_088E60: JSL CheckAncillaDamageToSprite
 
 #_088E64: PLY
 #_088E65: PLX
@@ -3098,7 +3096,7 @@ Ancilla_CheckSpriteCollision_Single:
 #_088E6C: PLA
 #_088E6D: PLA
 
-#_088E6E: JSR Ancilla_SpriteAlert
+#_088E6E: JSR AlertSprites
 
 #_088E71: SEC
 
@@ -3240,13 +3238,13 @@ UNREACHABLE_088EEC:
 
 ;===================================================================================================
 
-Ancilla_ProjectSpeedTowardsPlayer:
+ProjectAncillaSpeedTowardsLink:
 #_088EED: STA.b $01
 
 #_088EEF: PHX
 #_088EF0: PHY
 
-#_088EF1: JSR Ancilla_IsBelowLink
+#_088EF1: JSR GetAncillaYDisplacement
 #_088EF4: STY.b $02
 
 #_088EF6: LDA.b $0E
@@ -3258,7 +3256,7 @@ Ancilla_ProjectSpeedTowardsPlayer:
 .positive_y
 #_088EFD: STA.b $0C
 
-#_088EFF: JSR Ancilla_IsRightOfLink
+#_088EFF: JSR GetAncillaXDisplacement
 #_088F02: STY.b $03
 
 #_088F04: LDA.b $0F
@@ -3353,7 +3351,7 @@ Ancilla_ProjectSpeedTowardsPlayer:
 
 ;===================================================================================================
 
-Ancilla_IsRightOfLink:
+GetAncillaXDisplacement:
 #_088F5C: LDY.b #$00
 
 #_088F5E: LDA.b $22
@@ -3372,7 +3370,7 @@ Ancilla_IsRightOfLink:
 
 ;===================================================================================================
 
-Ancilla_IsBelowLink:
+GetAncillaYDisplacement:
 #_088F6F: LDY.b #$00
 
 #_088F71: LDA.b $20
@@ -3393,7 +3391,7 @@ Ancilla_IsBelowLink:
 
 ;===================================================================================================
 
-pool Ancilla_WeaponTink
+pool WeaponTink
 
 .char
 #_088F82: db $93, $82, $81
@@ -3405,7 +3403,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Ancilla_WeaponTink:
+WeaponTink:
 #_088F89: LDA.w $0FAC
 #_088F8C: BEQ EXIT_088F81
 
@@ -3429,15 +3427,15 @@ Ancilla_WeaponTink:
 #_088FA7: LDY.w $0B68
 #_088FAA: BNE .bg1
 
-#_088FAC: JSL SpriteDraw_AllocateOAMFromRegionD
+#_088FAC: JSL AllocateOAMInRegionD
 #_088FB0: BRA .screen_check
 
 .bg1
-#_088FB2: JSL SpriteDraw_AllocateOAMFromRegionF
+#_088FB2: JSL AllocateOAMInRegionF
 #_088FB6: BRA .screen_check
 
 .ignore_layer
-#_088FB8: JSL SpriteDraw_AllocateOAMFromRegionA
+#_088FB8: JSL AllocateOAMInRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -3601,19 +3599,19 @@ Ancilla_WeaponTink:
 
 ;===================================================================================================
 
-Ancilla_Move_X:
+AncillaMoveX:
 #_089080: TXA
 #_089081: CLC
 #_089082: ADC.b #$0A
 #_089084: TAX
 
-#_089085: JSR Ancilla_Move_Y
+#_089085: JSR AncillaMoveY
 
 #_089088: BRL Ancilla_RestoreIndex
 
 ;---------------------------------------------------------------------------------------------------
 
-Ancilla_Move_Y:
+AncillaMoveY:
 #_08908B: LDA.w $0C22,X
 
 #_08908E: ASL A ; x16
@@ -3653,7 +3651,7 @@ Ancilla_Move_Y:
 
 ;===================================================================================================
 
-Ancilla_Move_Z:
+AncillaMoveZ:
 #_0890B7: LDA.w $0294,X
 
 #_0890BA: ASL A ; x16
@@ -3814,7 +3812,7 @@ Ancilla05_Boomerang:
 .not_decelerating
 #_089188: REP #$20
 
-#_08918A: LDA.b $20
+#_08918A: LDA.b $20 ; !BUG bad big write for boom
 #_08918C: STA.w $038A,X
 
 #_08918F: CLC
@@ -3824,9 +3822,9 @@ Ancilla05_Boomerang:
 #_089195: SEP #$20
 
 #_089197: LDA.w $03C5,X
-#_08919A: JSR Ancilla_ProjectSpeedTowardsPlayer
+#_08919A: JSR ProjectAncillaSpeedTowardsLink
 
-#_08919D: JSL Boomerang_CheatWhenNoOnesLooking
+#_08919D: JSL CheatWhenNoOnesLooking
 
 #_0891A1: LDA.b $00
 #_0891A3: STA.w $0C22,X
@@ -3836,7 +3834,7 @@ Ancilla05_Boomerang:
 
 #_0891AB: REP #$20
 
-#_0891AD: LDA.w $038A,X ; bad big write for boom
+#_0891AD: LDA.w $038A,X
 #_0891B0: STA.b $20
 
 #_0891B2: SEP #$20
@@ -3852,7 +3850,7 @@ Ancilla05_Boomerang:
 #_0891BD: STA.w $0C22,X
 
 .y_speed_0
-#_0891C0: JSR Ancilla_Move_Y
+#_0891C0: JSR AncillaMoveY
 
 #_0891C3: LDA.w $0C2C,X
 #_0891C6: BEQ .x_speed_0
@@ -3862,7 +3860,7 @@ Ancilla05_Boomerang:
 #_0891CC: STA.w $0C2C,X
 
 .x_speed_0
-#_0891CF: JSR Ancilla_Move_X
+#_0891CF: JSR AncillaMoveX
 #_0891D2: JSR Ancilla_CheckSpriteCollision
 
 #_0891D5: LDY.b #$00
@@ -4338,7 +4336,7 @@ Ancilla06_WallHit:
 ;===================================================================================================
 
 Ancilla1B_SwordWallHit:
-#_0893FF: JSR Ancilla_SpriteAlert
+#_0893FF: JSR AlertSprites
 
 #_089402: DEC.w $03B1,X
 #_089405: BPL WallHit_JustDraw
@@ -4495,7 +4493,7 @@ AncillaDraw_WallHit:
 #_089538: PLY
 
 .skip
-#_089539: JSR Ancilla_AllocateOAMFromCustomRegion
+#_089539: JSR AllocateOAMInCustomRegion
 
 #_08953C: INX
 #_08953D: DEC.b $08
@@ -4968,7 +4966,7 @@ Bomb_HandleState:
 #_08978D: STZ.w $03B6,X
 #_089790: STZ.w $03B7,X
 
-#_089793: JSL Bomb_CheckForDestructibles
+#_089793: JSL FindBombableThings
 
 #_089797: PLX
 
@@ -5026,8 +5024,8 @@ Ancilla_ApplyConveyor:
 #_0897C4: LDA.w .speed_x,Y
 #_0897C7: STA.w $0C2C,X
 
-#_0897CA: JSR Ancilla_Move_Y
-#_0897CD: JSR Ancilla_Move_X
+#_0897CA: JSR AncillaMoveY
+#_0897CD: JSR AncillaMoveX
 
 #_0897D0: LDA.w $0BFA,X
 #_0897D3: STA.b $72
@@ -5200,7 +5198,7 @@ Bomb_CheckSpriteAndPlayerDamage:
 #_0898C3: LDA.w .recoil,Y
 #_0898C6: TAY
 
-#_0898C7: JSL Bomb_HijackSlot0ForRecoil
+#_0898C7: JSL HijackSlot0ForBombRecoil
 #_0898CB: PLX
 
 ;---------------------------------------------------------------------------------------------------
@@ -5597,13 +5595,13 @@ AncillaCarry_Airborne:
 #_089AE7: SBC.b #$02
 #_089AE9: STA.w $0294,X
 
-#_089AEC: JSR Ancilla_Move_Y
-#_089AEF: JSR Ancilla_Move_X
+#_089AEC: JSR AncillaMoveY
+#_089AEF: JSR AncillaMoveX
 
 #_089AF2: LDA.w $029E,X
 #_089AF5: STA.b $00
 
-#_089AF7: JSR Ancilla_Move_Z
+#_089AF7: JSR AncillaMoveZ
 
 #_089AFA: LDA.w $0BF0,X
 #_089AFD: BEQ .dont_adjust_altitude
@@ -5875,7 +5873,7 @@ Ancilla_LatchCarriedPosition:
 #_089C47: SBC.b #$02
 #_089C49: STA.w $0294,X
 
-#_089C4C: JSR Ancilla_Move_Z
+#_089C4C: JSR AncillaMoveZ
 
 #_089C4F: LDA.w $029E,X
 #_089C52: BEQ .zero_zee
@@ -5990,14 +5988,11 @@ Bomb_GetDisplacementFromLink:
 #_089CD6: LDA.w $0C0E,X
 #_089CD9: STA.b $05
 
-;---------------------------------------------------------------------------------------------------
-
 #_089CDB: REP #$20
 
 #_089CDD: LDA.b $22
 #_089CDF: CLC
 #_089CE0: ADC.w #$0008
-
 #_089CE3: SEC
 #_089CE4: SBC.b $06
 #_089CE6: BPL .positive_x
@@ -6009,12 +6004,8 @@ Bomb_GetDisplacementFromLink:
 #_089CEC: STA.b $0A
 
 #_089CEE: LDA.b $20
-
-;---------------------------------------------------------------------------------------------------
-
 #_089CF0: CLC
 #_089CF1: ADC.w #$000C
-
 #_089CF4: SEC
 #_089CF5: SBC.b $04
 #_089CF7: BPL .positive_y
@@ -6358,8 +6349,6 @@ AncillaDraw_Bomb:
 #_089EEF: LDA.b #$02
 #_089EF1: STA.b $0B
 
-;---------------------------------------------------------------------------------------------------
-
 #_089EF3: LDA.w $0C5E,X
 #_089EF6: BNE .dont_flash
 
@@ -6411,7 +6400,7 @@ AncillaDraw_Bomb:
 
 .not_carried
 #_089F35: LDA.b #$0C
-#_089F37: JSR Ancilla_AllocateOAMFromRegion_B_or_E
+#_089F37: JSR AllocateOAMInRegionsBE
 
 #_089F3A: BRA .continue
 
@@ -6812,7 +6801,7 @@ AncillaDraw_DoorDebris:
 #_08A132: STA.b ($92),Y
 
 #_08A134: PLY
-#_08A135: JSR Ancilla_AllocateOAMFromCustomRegion
+#_08A135: JSR AllocateOAMInCustomRegion
 
 #_08A138: INX
 #_08A139: INX
@@ -6868,8 +6857,8 @@ Ancilla09_Arrow:
 #_08A16D: STA.w $0C5E,X
 
 .start_moving
-#_08A170: JSR Ancilla_Move_Y
-#_08A173: JSR Ancilla_Move_X
+#_08A170: JSR AncillaMoveY
+#_08A173: JSR AncillaMoveX
 
 #_08A176: LDA.l $7EF340
 #_08A17A: AND.b #$04
@@ -7463,7 +7452,7 @@ AncillaDraw_Arrow:
 
 ;===================================================================================================
 
-Ancilla0A_ArrowInTheWall:
+Ancilla0A_LodgedArrow:
 #_08A47F: LDY.w $03A9,X
 #_08A482: BMI .not_sprite_collided
 
@@ -7603,8 +7592,8 @@ Ancilla0B_IceRodShot:
 
 #_08A530: JSR Ancilla_BoundsCheck
 
-#_08A533: JSR Ancilla_Move_Y
-#_08A536: JSR Ancilla_Move_X
+#_08A533: JSR AncillaMoveY
+#_08A536: JSR AncillaMoveX
 
 #_08A539: JSR Ancilla_CheckSpriteCollision
 #_08A53C: BCS .sprite_collision
@@ -7691,7 +7680,7 @@ AncillaDraw_IceRodWallHit:
 #_08A598: PHX
 
 #_08A599: LDA.w $0C90,X
-#_08A59C: JSR Ancilla_AllocateOAMFromRegion_A_or_D_or_F
+#_08A59C: JSR AllocateOAMInRegionsADF
 
 #_08A59F: LDA.w $0C5E,X
 #_08A5A2: ASL A
@@ -7788,7 +7777,7 @@ AncillaDraw_IceRodWallHit:
 
 #_08A60C: PLY
 
-#_08A60D: JSR Ancilla_AllocateOAMFromCustomRegion
+#_08A60D: JSR AllocateOAMInCustomRegion
 
 #_08A610: INX
 #_08A611: INX
@@ -8121,12 +8110,12 @@ AncillaDraw_BlastWallBlast:
 #_08A7A6: LDY.w $0FB3
 #_08A7A9: BEQ .use_region_a
 
-#_08A7AB: JSL SpriteDraw_AllocateOAMFromRegionD
+#_08A7AB: JSL AllocateOAMInRegionD
 
 #_08A7AF: BRA .continue
 
 .use_region_a
-#_08A7B1: JSL SpriteDraw_AllocateOAMFromRegionA
+#_08A7B1: JSL AllocateOAMInRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -8300,8 +8289,8 @@ Ancilla15_JumpSplash:
 ;---------------------------------------------------------------------------------------------------
 
 .speed_not_maxed
-#_08A873: JSR Ancilla_Move_Y
-#_08A876: JSR Ancilla_Move_X
+#_08A873: JSR AncillaMoveY
+#_08A876: JSR AncillaMoveX
 
 ;===================================================================================================
 
@@ -8334,8 +8323,6 @@ AncillaDraw_JumpSplash:
 #_08A89F: SEC
 #_08A8A0: SBC.b $E2
 #_08A8A2: STA.b $06
-
-;---------------------------------------------------------------------------------------------------
 
 #_08A8A4: SEP #$20
 
@@ -8381,9 +8368,7 @@ AncillaDraw_JumpSplash:
 
 #_08A8D1: PLY
 
-;---------------------------------------------------------------------------------------------------
-
-#_08A8D2: JSR Ancilla_AllocateOAMFromCustomRegion
+#_08A8D2: JSR AllocateOAMInCustomRegion
 
 #_08A8D5: LDA.b $08
 #_08A8D7: STA.b $02
@@ -8490,8 +8475,8 @@ Ancilla16_HitStars:
 #_08A93B: RTS
 
 .dont_die
-#_08A93C: JSR Ancilla_Move_Y
-#_08A93F: JSR Ancilla_Move_X
+#_08A93C: JSR AncillaMoveY
+#_08A93F: JSR AncillaMoveX
 
 ;===================================================================================================
 
@@ -8520,10 +8505,8 @@ AncillaDraw_HitStars:
 #_08A962: LDA.b $72
 #_08A964: CLC
 #_08A965: ADC.b $08
-
 #_08A967: SEC
 #_08A968: SBC.w #$0008
-
 #_08A96B: SEC
 #_08A96C: SBC.b $E2
 #_08A96E: STA.b $08
@@ -8537,7 +8520,7 @@ AncillaDraw_HitStars:
 #_08A977: BNE .leave_allocation_alone
 
 #_08A979: LDA.b #$08
-#_08A97B: JSR Ancilla_AllocateOAMFromRegion_B_or_E
+#_08A97B: JSR AllocateOAMInRegionsBE
 
 .leave_allocation_alone
 #_08A97E: PHX
@@ -8720,7 +8703,7 @@ Ancilla17_ShovelDirt:
 
 #_08AA40: PLY
 
-#_08AA41: JSR Ancilla_AllocateOAMFromCustomRegion
+#_08AA41: JSR AllocateOAMInCustomRegion
 
 #_08AA44: LDA.b $04
 #_08AA46: STA.b $02
@@ -8764,8 +8747,8 @@ Ancilla32_BlastWallFireball:
 #_08AA67: ADC.w $0C22,X
 #_08AA6A: STA.w $0C22,X
 
-#_08AA6D: JSR Ancilla_Move_Y
-#_08AA70: JSR Ancilla_Move_X
+#_08AA6D: JSR AncillaMoveY
+#_08AA70: JSR AncillaMoveX
 
 #_08AA73: LDA.l $7F0040,X
 #_08AA77: DEC A
@@ -8785,11 +8768,11 @@ AncillaDraw_BlastWallFireball:
 #_08AA84: LDY.w $0FB3
 #_08AA87: BEQ .use_region_a
 
-#_08AA89: JSL SpriteDraw_AllocateOAMFromRegionD
+#_08AA89: JSL AllocateOAMInRegionD
 #_08AA8D: BRA .continue
 
 .use_region_a
-#_08AA8F: JSL SpriteDraw_AllocateOAMFromRegionA
+#_08AA8F: JSL AllocateOAMInRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -8868,7 +8851,7 @@ Ancilla18_EtherSpell:
 .oversaturate
 #_08AAE8: PHX
 
-#_08AAE9: JSL RefreshLinkEquipmentPalettes_zap
+#_08AAE9: JSL RefreshEquipmentPalettes_zap
 #_08AAED: JSL PaletteFilter_Oversaturation
 
 #_08AAF1: PLX
@@ -8880,8 +8863,8 @@ Ancilla18_EtherSpell:
 .restore
 #_08AAF4: PHX
 
-#_08AAF5: JSL RefreshLinkEquipmentPalettes_sword_and_mail
-#_08AAF9: JSL Palette_RestoreBGFromFlash
+#_08AAF5: JSL RefreshEquipmentPalettes_sword_and_mail
+#_08AAF9: JSL RestorePalettesAfterFlash
 
 #_08AAFD: PLX
 
@@ -9003,7 +8986,7 @@ UNREACHABLE_08AB7F:
 ;===================================================================================================
 
 EtherSpell_HandleLightningStroke:
-#_08AB87: JSR Ancilla_Move_Y
+#_08AB87: JSR AncillaMoveY
 
 #_08AB8A: LDA.w $0C0E,X
 #_08AB8D: STA.b $01
@@ -9092,7 +9075,7 @@ EtherSpell_HandleOrbPulse:
 #_08AC06: BEQ .dont_damage
 
 #_08AC08: PHX
-#_08AC09: JSL Medallion_CheckSpriteDamage
+#_08AC09: JSL CheckMedallionDamageToSprite
 #_08AC0D: PLX
 
 .dont_damage
@@ -9113,7 +9096,7 @@ EtherSpell_HandleRadialSpin:
 #_08AC20: BEQ .set_sfx
 
 
-#_08AC22: LDY.b #$AA ; SFX3.2A with !HARDCODED pan value of ($80)
+#_08AC22: LDY.b #$AA ; SFX3.2A with !HARDCODED pan value of $80
 
 #_08AC24: CMP.b #$04
 #_08AC26: BEQ .set_sfx
@@ -9121,7 +9104,7 @@ EtherSpell_HandleRadialSpin:
 #_08AC28: CMP.b #$07
 #_08AC2A: BNE .skip_sfx
 
-#_08AC2C: LDY.b #$6A ; SFX3.2A with !HARDCODED pan value of ($40)
+#_08AC2C: LDY.b #$6A ; SFX3.2A with !HARDCODED pan value of $40
 
 .set_sfx
 #_08AC2E: STY.w $012F
@@ -9138,7 +9121,7 @@ EtherSpell_HandleRadialSpin:
 
 #_08AC3F: STZ.w $0C18,X
 
-#_08AC42: JSR Ancilla_Move_X
+#_08AC42: JSR AncillaMoveX
 
 #_08AC45: LDA.w $0C04,X
 #_08AC48: STA.l $7F5808
@@ -9291,8 +9274,8 @@ EtherSpell_HandleRadialSpin:
 
 #_08AD04: PHX
 
-#_08AD05: JSL RefreshLinkEquipmentPalettes_sword_and_mail
-#_08AD09: JSL Palette_RestoreBGAndHUD
+#_08AD05: JSL RefreshEquipmentPalettes_sword_and_mail
+#_08AD09: JSL RestoreBackgroundPalettes
 
 #_08AD0D: PLX
 
@@ -9328,10 +9311,8 @@ AncillaDraw_EtherBlitzBall:
 
 #_08AD20: CLC
 #_08AD21: ADC.l $7F5810
-
 #_08AD25: CLC
 #_08AD26: ADC.w #$FFF8
-
 #_08AD29: SEC
 #_08AD2A: SBC.b $E8
 #_08AD2C: STA.b $00
@@ -9351,10 +9332,8 @@ AncillaDraw_EtherBlitzBall:
 
 #_08AD3A: CLC
 #_08AD3B: ADC.l $7F580E
-
 #_08AD3F: CLC
 #_08AD40: ADC.w #$FFF8
-
 #_08AD43: SEC
 #_08AD44: SBC.b $E2
 #_08AD46: STA.b $02
@@ -9391,7 +9370,7 @@ AncillaDraw_EtherBlitzBall:
 #_08AD64: LDA.b #$02
 #_08AD66: STA.b ($92),Y
 
-#_08AD68: JSR Ancilla_AllocateOAMFromCustomRegion
+#_08AD68: JSR AllocateOAMInCustomRegion
 
 #_08AD6B: PLY
 
@@ -9635,7 +9614,7 @@ AncillaDraw_EtherBlitzSegment:
 
 #_08AE92: PLY
 
-#_08AE93: JSR Ancilla_AllocateOAMFromCustomRegion
+#_08AE93: JSR AllocateOAMInCustomRegion
 
 #_08AE96: RTS
 
@@ -9794,7 +9773,7 @@ AncillaDraw_EtherOrb:
 
 #_08AF48: PLY
 
-#_08AF49: JSR Ancilla_AllocateOAMFromCustomRegion
+#_08AF49: JSR AllocateOAMInCustomRegion
 
 #_08AF4C: REP #$20
 
@@ -9855,7 +9834,7 @@ AncillaAdd_BombosSpell:
 #_08AF8B: PHK
 #_08AF8C: PLB
 
-#_08AF8D: JSR AncillaAdd_AddAncilla_Bank08
+#_08AF8D: JSR AddAncilla_bank08
 #_08AF90: BCC .found_slot
 
 #_08AF92: BRL .exit
@@ -10325,7 +10304,6 @@ BombosSpell_ControlFireColumns:
 #_08B217: LDA.b $04
 #_08B219: SEC
 #_08B21A: SBC.b $E2
-
 #_08B21C: CLC
 #_08B21D: ADC.w #$0008
 #_08B220: STA.b $04
@@ -10440,7 +10418,7 @@ BombosSpell_FinishFireColumns:
 #_08B2A0: PLX
 
 #_08B2A1: PHX
-#_08B2A2: JSL Medallion_CheckSpriteDamage
+#_08B2A2: JSL CheckMedallionDamageToSprite
 #_08B2A6: PLX
 
 #_08B2A7: STZ.w $0C54,X
@@ -10537,7 +10515,7 @@ AncillaDraw_BombosFireColumn:
 #_08B39B: STA.b $75
 
 #_08B39D: LDA.b #$10
-#_08B39F: JSR Ancilla_AllocateOAMFromRegion_A_or_D_or_F
+#_08B39F: JSR AllocateOAMInRegionsADF
 
 #_08B3A2: LDY.b #$00
 
@@ -10593,7 +10571,6 @@ AncillaDraw_BombosFireColumn:
 #_08B3E2: LDA.b $00
 #_08B3E4: CLC
 #_08B3E5: ADC.w .offset_y,X
-
 #_08B3E8: SEC
 #_08B3E9: SBC.b $E8
 #_08B3EB: STA.b $00
@@ -10601,7 +10578,6 @@ AncillaDraw_BombosFireColumn:
 #_08B3ED: LDA.b $02
 #_08B3EF: CLC
 #_08B3F0: ADC.w .offset_x,X
-
 #_08B3F3: SEC
 #_08B3F4: SBC.b $E2
 #_08B3F6: STA.b $02
@@ -10640,7 +10616,7 @@ AncillaDraw_BombosFireColumn:
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08B417: JSR Ancilla_AllocateOAMFromCustomRegion
+#_08B417: JSR AllocateOAMInCustomRegion
 
 #_08B41A: DEX
 
@@ -10979,14 +10955,13 @@ AncillaDraw_BombosBlast:
 #_08B62D: BEQ .inactive
 
 #_08B62F: LDA.b #$10
-#_08B631: JSR Ancilla_AllocateOAMFromRegion_A_or_D_or_F
+#_08B631: JSR AllocateOAMInRegionsADF
 
 #_08B634: LDY.b #$00
 
 #_08B636: LDA.l $7F5935,X
 #_08B63A: ASL A
 #_08B63B: ASL A
-
 #_08B63C: CLC
 #_08B63D: ADC.b #$03
 #_08B63F: STA.b $73
@@ -11013,7 +10988,6 @@ AncillaDraw_BombosBlast:
 #_08B64F: LDA.w .offset_y,X
 #_08B652: CLC
 #_08B653: ADC.b $08
-
 #_08B655: SEC
 #_08B656: SBC.b $E8
 #_08B658: STA.b $00
@@ -11021,7 +10995,6 @@ AncillaDraw_BombosBlast:
 #_08B65A: LDA.w .offset_x,X
 #_08B65D: CLC
 #_08B65E: ADC.b $0A
-
 #_08B660: SEC
 #_08B661: SBC.b $E2
 #_08B663: STA.b $02
@@ -11061,7 +11034,7 @@ AncillaDraw_BombosBlast:
 ;---------------------------------------------------------------------------------------------------
 
 .skip_object
-#_08B684: JSR Ancilla_AllocateOAMFromCustomRegion
+#_08B684: JSR AllocateOAMInCustomRegion
 
 #_08B687: DEX
 
@@ -11106,7 +11079,7 @@ Ancilla1C_QuakeSpell:
 
 #_08B6B0: JSR AncillaDraw_QuakeInitialBolts
 
-; This BPL is an oops!
+; !BUG oops!
 .bad_branch
 #_08B6B3: DEX
 #_08B6B4: BPL .bad_branch
@@ -11120,8 +11093,8 @@ Ancilla1C_QuakeSpell:
 QuakeSpell_FinishingTouches:
 #_08B6B8: PHX
 
-#_08B6B9: JSL Medallion_CheckSpriteDamage
-#_08B6BD: JSL Prepare_ApplyRumbleToSprites
+#_08B6B9: JSL CheckMedallionDamageToSprite
+#_08B6BD: JSL LetsGetReadyToRumble
 
 #_08B6C1: PLX
 
@@ -11331,16 +11304,16 @@ AncillaDraw_QuakeInitialBolts:
 #_08B7C0: ASL A
 #_08B7C1: TAY
 
-#_08B7C2: LDA.w QuakeSpell_InitialBoltPointers+0,Y
+#_08B7C2: LDA.w InitialQuakeBoltPointers+0,Y
 #_08B7C5: STA.b $72
 
-#_08B7C7: LDA.w QuakeSpell_InitialBoltPointers+1,Y
+#_08B7C7: LDA.w InitialQuakeBoltPointers+1,Y
 #_08B7CA: STA.b $73
 
-#_08B7CC: LDA.w QuakeSpell_InitialBoltPointers+2,Y
+#_08B7CC: LDA.w InitialQuakeBoltPointers+2,Y
 #_08B7CF: STA.b $74
 
-#_08B7D1: LDA.w QuakeSpell_InitialBoltPointers+3,Y
+#_08B7D1: LDA.w InitialQuakeBoltPointers+3,Y
 #_08B7D4: STA.b $75
 
 ;---------------------------------------------------------------------------------------------------
@@ -11376,12 +11349,9 @@ AncillaDraw_QuakeInitialBolts:
 #_08B7F5: LDA.l $7F580D
 #_08B7F9: CLC
 #_08B7FA: ADC.b $02
-
 #_08B7FC: SEC
 #_08B7FD: SBC.b $E2
 #_08B7FF: STA.b $02
-
-;---------------------------------------------------------------------------------------------------
 
 #_08B801: INX
 #_08B802: TXY
@@ -11399,7 +11369,6 @@ AncillaDraw_QuakeInitialBolts:
 #_08B812: LDA.l $7F580B
 #_08B816: CLC
 #_08B817: ADC.b $00
-
 #_08B819: SEC
 #_08B81A: SBC.b $E8
 #_08B81C: STA.b $00
@@ -11428,8 +11397,6 @@ AncillaDraw_QuakeInitialBolts:
 #_08B836: BCS .off_screen
 
 #_08B838: TAX
-
-;---------------------------------------------------------------------------------------------------
 
 .off_screen
 #_08B839: INC.b $90
@@ -11537,16 +11504,16 @@ AncillaDraw_QuakeSpreadBolts:
 #_08B8AA: ASL A
 #_08B8AB: TAY
 
-#_08B8AC: LDA.w QuakeSpell_SpreadBoltPointers+0,Y
+#_08B8AC: LDA.w SpreadQuakeBoltPointers+0,Y
 #_08B8AF: STA.b $72
 
-#_08B8B1: LDA.w QuakeSpell_SpreadBoltPointers+1,Y
+#_08B8B1: LDA.w SpreadQuakeBoltPointers+1,Y
 #_08B8B4: STA.b $73
 
-#_08B8B6: LDA.w QuakeSpell_SpreadBoltPointers+2,Y
+#_08B8B6: LDA.w SpreadQuakeBoltPointers+2,Y
 #_08B8B9: STA.b $74
 
-#_08B8BB: LDA.w QuakeSpell_SpreadBoltPointers+3,Y
+#_08B8BB: LDA.w SpreadQuakeBoltPointers+3,Y
 #_08B8BE: STA.b $75
 
 #_08B8C0: REP #$20
@@ -11630,7 +11597,7 @@ AncillaDraw_QuakeSpreadBolts:
 
 #_08B90C: INC.b $92
 
-#_08B90E: JSR Ancilla_AllocateOAMFromCustomRegion
+#_08B90E: JSR AllocateOAMInCustomRegion
 
 #_08B911: INX
 #_08B912: CPX.b $74
@@ -11753,7 +11720,7 @@ Ancilla1A_PowderDust:
 #_08BAD4: LDA.b $11
 #_08BAD6: BNE .just_draw
 
-#_08BAD8: JSR Powder_ApplyDamageToSprites
+#_08BAD8: JSR Powder_CheckDamageToSprites
 
 #_08BADB: DEC.w $03B1,X
 #_08BADE: BPL .just_draw
@@ -11790,11 +11757,9 @@ Ancilla1A_PowderDust:
 #_08BB03: LDA.w PowderDraw_anim_step,Y
 #_08BB06: STA.w $03C2,X
 
-;---------------------------------------------------------------------------------------------------
-
 .just_draw
 #_08BB09: LDA.w $0C90,X
-#_08BB0C: JSR Ancilla_AllocateOAMFromRegion_B_or_E
+#_08BB0C: JSR AllocateOAMInRegionsBE
 
 ;===================================================================================================
 
@@ -11896,7 +11861,7 @@ AncillaDraw_Powder:
 
 ;===================================================================================================
 
-Powder_ApplyDamageToSprites:
+Powder_CheckDamageToSprites:
 #_08BB7C: LDY.b #$0F
 
 .next_sprite
@@ -11921,7 +11886,7 @@ Powder_ApplyDamageToSprites:
 #_08BB97: PHX
 
 #_08BB98: TYX
-#_08BB99: JSL Sprite_SetupHitbox_long
+#_08BB99: JSL SetupSpriteHitBox_long
 
 #_08BB9D: PLX
 #_08BB9E: PLY
@@ -11959,7 +11924,7 @@ Powder_ApplyDamageToSprites:
 #_08BBC7: PHY
 
 #_08BBC8: TYX
-#_08BBC9: JSL Sprite_SpawnPoofGarnish
+#_08BBC9: JSL SpawnPoofGarnish
 
 #_08BBCD: PLY
 #_08BBCE: PLX
@@ -11975,7 +11940,7 @@ Powder_ApplyDamageToSprites:
 #_08BBD3: TYX
 
 #_08BBD4: LDA.b #$0A
-#_08BBD6: JSL Ancilla_CheckDamageToSprite_preset
+#_08BBD6: JSL CheckAncillaDamageToSprite_preset
 
 #_08BBDA: PLY
 #_08BBDB: PLX
@@ -12026,7 +11991,7 @@ Ancilla1D_ScreenShake:
 #_08BC12: STA.w $0030,Y
 
 .alert
-#_08BC15: BRL Ancilla_SpriteAlert
+#_08BC15: BRL AlertSprites
 
 ;===================================================================================================
 
@@ -12261,7 +12226,7 @@ pool Hookshot
 
 .box_size_y
 #_08BD88: dw   8 ; up
-#_08BD8A: dw  -9 ; down - This is faster, but does it matter?
+#_08BD8A: dw  -9 ; down - This is larger, but does it matter?
 #_08BD8C: dw   0 ; left
 #_08BD8E: dw   0 ; right
 
@@ -12297,8 +12262,8 @@ Ancilla1F_Hookshot:
 #_08BDAB: LDA.w $037E
 #_08BDAE: BNE .just_draw
 
-#_08BDB0: JSR Ancilla_Move_Y
-#_08BDB3: JSR Ancilla_Move_X
+#_08BDB0: JSR AncillaMoveY
+#_08BDB3: JSR AncillaMoveX
 
 ; This flags whether the hook is extending or retracting
 #_08BDB6: LDA.w $0C54,X
@@ -12874,13 +12839,13 @@ Ancilla20_Blanket:
 #_08C04C: BNE .im_awake
 
 #_08C04E: LDA.b #$10
-#_08C050: JSL SpriteDraw_AllocateOAMFromRegionB
+#_08C050: JSL AllocateOAMInRegionB
 
 #_08C054: BRA .continue
 
 .im_awake
 #_08C056: LDA.b #$10
-#_08C058: JSL SpriteDraw_AllocateOAMFromRegionA
+#_08C058: JSL AllocateOAMInRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -13017,8 +12982,8 @@ Ancilla21_Snore:
 #_08C0E6: STA.w $0C54,X
 
 .dont_invert
-#_08C0E9: JSR Ancilla_Move_Y
-#_08C0EC: JSR Ancilla_Move_X
+#_08C0E9: JSR AncillaMoveY
+#_08C0EC: JSR AncillaMoveX
 
 #_08C0EF: LDA.w $0BFA,X
 #_08C0F2: STA.b $00
@@ -13256,7 +13221,7 @@ Ancilla3C_SpinAttackChargeSparkle:
 #_08C22A: PHX
 
 #_08C22B: LDA.b #$04
-#_08C22D: JSR Ancilla_AllocateOAMFromRegion_A_or_D_or_F
+#_08C22D: JSR AllocateOAMInRegionsADF
 
 #_08C230: TYA
 #_08C231: STA.w $0C86,X
@@ -13288,7 +13253,7 @@ Ancilla3C_SpinAttackChargeSparkle:
 
 ;===================================================================================================
 
-pool Ancilla35_MasterSwordReceipt
+pool Ancilla35_MasterSwordCutscene
 
 .offset_y
 #_08C253: dw   1,   1,   9,   9
@@ -13310,7 +13275,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-Ancilla35_MasterSwordReceipt:
+Ancilla35_MasterSwordCutscene:
 #_08C283: LDA.w $0C68,X
 #_08C286: BNE .stay_around
 
@@ -13577,10 +13542,10 @@ Ancilla22_ItemReceipt:
 
 .from_text_or_object
 #_08C3DC: LDA.w $0C5E,X
-
 #_08C3DF: CMP.b #$01 ; ITEMGET 01
 #_08C3E1: BNE .not_ms_pull
 
+; !DUMB impossible for this to succeed
 #_08C3E3: LDA.w $0C54,X
 #_08C3E6: CMP.b #$02
 #_08C3E8: BEQ .not_ms_pull
@@ -13611,7 +13576,7 @@ Ancilla22_ItemReceipt:
 #_08C409: LDA.w $03B1,X
 #_08C40C: BEQ .delay_a
 
-#_08C40E: CMP.b #$01 ; ITEMGET 01
+#_08C40E: CMP.b #$01
 #_08C410: BNE .just_draw_b
 
 #_08C412: LDA.w $0C5E,X
@@ -13622,16 +13587,16 @@ Ancilla22_ItemReceipt:
 #_08C41B: BEQ .is_pendant
 
 #_08C41D: CMP.b #$39 ; ITEMGET 39
-#_08C41F: BNE .wait_for_music
+#_08C41F: BNE .dont_wait_for_music
 
 .is_pendant
 #_08C421: LDA.w APUIO0
-#_08C424: BEQ .wait_for_music
+#_08C424: BEQ .dont_wait_for_music
 
 #_08C426: INC.w $03B1,X
 #_08C429: BRA .just_draw_b
 
-.wait_for_music
+.dont_wait_for_music
 #_08C42B: BRL .time_up_a
 
 ;---------------------------------------------------------------------------------------------------
@@ -13687,7 +13652,7 @@ Ancilla22_ItemReceipt:
 #_08C46F: PHX
 
 #_08C470: LDY.b #$26 ; ITEMGET 26
-#_08C472: JSL Link_ReceiveItem
+#_08C472: JSL GrantItemReceipt
 
 #_08C476: PLX
 
@@ -13792,7 +13757,7 @@ Ancilla22_ItemReceipt:
 .blue_mail
 #_08C4FF: PHX
 
-#_08C500: JSL Palettes_Load_LinkArmorAndGloves
+#_08C500: JSL PaletteLoad_LinkArmorAndGloves
 
 #_08C504: PLX
 
@@ -13995,7 +13960,7 @@ Ancilla22_ItemReceipt:
 ;---------------------------------------------------------------------------------------------------
 
 .trigger_message
-#_08C5FE: JSL Interface_PrepAndDisplayMessage
+#_08C5FE: JSL PrepAndDisplayMessage
 #_08C602: BRA ItemReceipt_Animate
 
 .skip_messaging
@@ -14012,7 +13977,7 @@ Ancilla22_ItemReceipt:
 #_08C615: STA.w $0C22,X
 
 .halt_acceleration
-#_08C618: JSR Ancilla_Move_Y
+#_08C618: JSR AncillaMoveY
 
 ;===================================================================================================
 
@@ -14131,7 +14096,7 @@ ItemReceipt_Animate:
 
 #_08C6B2: SEP #$20
 
-;---------------------------------------------------------------------------------------------------
+;===================================================================================================
 
 AncillaDraw_ItemReceipt:
 #_08C6B4: PHX
@@ -14234,7 +14199,7 @@ AncillaDraw_ItemReceipt:
 
 Ancilla28_WishPondItem:
 #_08C716: LDA.b #$10
-#_08C718: JSR Ancilla_AllocateOAMFromRegion_A_or_D_or_F
+#_08C718: JSR AllocateOAMInRegionsADF
 
 #_08C71B: LDA.b $11
 #_08C71D: BEQ .continue
@@ -14256,9 +14221,9 @@ Ancilla28_WishPondItem:
 #_08C733: SBC.b #$02
 #_08C735: STA.w $0294,X
 
-#_08C738: JSR Ancilla_Move_Z
-#_08C73B: JSR Ancilla_Move_Y
-#_08C73E: JSR Ancilla_Move_X
+#_08C738: JSR AncillaMoveZ
+#_08C73B: JSR AncillaMoveY
+#_08C73E: JSR AncillaMoveX
 
 #_08C741: LDA.w $029E,X
 #_08C744: BPL AncillaDraw_WishPondItem
@@ -14283,11 +14248,8 @@ Ancilla28_WishPondItem:
 #_08C763: LDA.b #$08
 #_08C765: STA.b $00
 
-; !BUG ?
-; I don't even know...
-; This isn't some weird offset.
-; It's indexing by your receipt ID, so it reads garbage.
-#_08C767: LDA.w $08844A,Y ; Verified nonsense
+; !BUG, doesn't read from the correct location which is AncillaAdd_ItemReceipt_width
+#_08C767: LDA.w $08844A,Y
 #_08C76A: BNE .absolute_nonsense
 
 #_08C76C: LDA.b #$04
@@ -14342,8 +14304,6 @@ AncillaDraw_WishPondItem:
 #_08C7B2: ADC.w #$0008
 #_08C7B5: STA.b $08
 
-;---------------------------------------------------------------------------------------------------
-
 #_08C7B7: SEP #$20
 
 #_08C7B9: JSR AncillaDraw_ItemReceipt
@@ -14366,7 +14326,8 @@ AncillaDraw_WishPondItem:
 #_08C7CD: LDA.w $0C5E,X
 #_08C7D0: TAX
 
-#_08C7D1: LDA.w $08844A,X  ; Verified nonsense
+; !BUG, doesn't read from the correct location which is AncillaAdd_ItemReceipt_width
+#_08C7D1: LDA.w $08844A,X
 #_08C7D4: TAX
 
 #_08C7D5: REP #$20
@@ -14374,12 +14335,9 @@ AncillaDraw_WishPondItem:
 #_08C7D7: LDA.b $06
 #_08C7D9: CLC
 #_08C7DA: ADC.b $04
-
 #_08C7DC: CLC
 #_08C7DD: ADC.w #$0028
 #_08C7E0: STA.b $00
-
-;---------------------------------------------------------------------------------------------------
 
 #_08C7E2: CPX.b #$02
 #_08C7E4: BEQ .wide
@@ -14468,7 +14426,7 @@ Ancilla42_HappinessPondRupees:
 HapinessPondRupees_ExecuteRupee:
 #_08C83D: LDA.b #$10
 
-#_08C83F: JSR Ancilla_AllocateOAMFromRegion_A_or_D_or_F
+#_08C83F: JSR AllocateOAMInRegionsADF
 #_08C842: PHX
 
 #_08C843: LDY.w $0FA0
@@ -14518,9 +14476,9 @@ HapinessPondRupees_ExecuteRupee:
 #_08C87F: SBC.b #$02
 #_08C881: STA.w $0294,X
 
-#_08C884: JSR Ancilla_Move_Y
-#_08C887: JSR Ancilla_Move_X
-#_08C88A: JSR Ancilla_Move_Z
+#_08C884: JSR AncillaMoveY
+#_08C887: JSR AncillaMoveX
+#_08C88A: JSR AncillaMoveZ
 
 #_08C88D: LDA.w $029E,X
 #_08C890: BPL .just_draw
@@ -14761,7 +14719,7 @@ Ancilla_TransmuteToSplash:
 
 Ancilla3D_ItemSplash:
 #_08CA25: LDA.b #$08
-#_08CA27: JSR Ancilla_AllocateOAMFromRegion_A_or_D_or_F
+#_08CA27: JSR AllocateOAMInRegionsADF
 
 #_08CA2A: LDA.b $11
 #_08CA2C: BNE AncillaDraw_ObjectSplash
@@ -14883,7 +14841,6 @@ MilestoneItemReceiptIDs:
 .ether
 #_08CAA9: db $10 ; ITEMGET 10
 
-.pendants
 .green_pendant
 #_08CAAA: db $37 ; ITEMGET 37
 
@@ -14989,7 +14946,7 @@ Ancilla29_MilestoneItemReceipt:
 #_08CB17: LDA.b #$02
 #_08CB19: STA.w $0AA9
 
-#_08CB1C: JSL Palettes_Load_SpriteEnvironment_Underworld
+#_08CB1C: JSL PaletteLoad_SpriteEnvironment_Underworld
 
 #_08CB20: INC.b $15
 
@@ -15049,7 +15006,7 @@ Ancilla29_MilestoneItemReceipt:
 #_08CB66: LDA.w $0C5E,X
 #_08CB69: TAY
 
-#_08CB6A: JSL Link_ReceiveItem
+#_08CB6A: JSL GrantItemReceipt
 
 #_08CB6E: PLX
 
@@ -15070,7 +15027,7 @@ Ancilla29_MilestoneItemReceipt:
 #_08CB7F: STA.w $0294,X
 
 .not_grounded
-#_08CB82: JSR Ancilla_Move_Z
+#_08CB82: JSR AncillaMoveZ
 
 #_08CB85: LDA.w $029E,X
 #_08CB88: CMP.b #$F8
@@ -15205,7 +15162,7 @@ Ancilla3E_RisingCrystal:
 .positive
 #_08CC28: STA.w $0C22,X
 
-#_08CC2B: JSR Ancilla_Move_Y
+#_08CC2B: JSR AncillaMoveY
 
 #_08CC2E: LDA.w $0BFA,X
 #_08CC31: STA.b $00
@@ -15332,7 +15289,7 @@ Ancilla43_GanonsTowerCutscene:
 .not_max_crystal_speed
 #_08CCD5: STA.w $0C22,X
 
-#_08CCD8: JSR Ancilla_Move_Y
+#_08CCD8: JSR AncillaMoveY
 
 #_08CCDB: LDA.w $0BFA,X
 #_08CCDE: STA.b $00
@@ -15371,8 +15328,6 @@ Ancilla43_GanonsTowerCutscene:
 #_08CD10: ADC.w #$0008
 #_08CD13: STA.l $7F580E
 
-;---------------------------------------------------------------------------------------------------
-
 #_08CD17: SEP #$20
 
 #_08CD19: LDA.b $00
@@ -15396,7 +15351,7 @@ Ancilla43_GanonsTowerCutscene:
 
 #_08CD38: SEP #$20
 
-#_08CD3A: JSL Interface_PrepAndDisplayMessage
+#_08CD3A: JSL PrepAndDisplayMessage
 
 #_08CD3E: BRA .draw_single_crystal_prep
 
@@ -15427,7 +15382,7 @@ Ancilla43_GanonsTowerCutscene:
 
 #_08CD63: STZ.w $0C18,X
 
-#_08CD66: JSR Ancilla_Move_X
+#_08CD66: JSR AncillaMoveX
 
 #_08CD69: LDA.w $0C04,X
 #_08CD6C: STA.l $7F5808
@@ -15507,7 +15462,7 @@ Ancilla43_GanonsTowerCutscene:
 
 #_08CDD0: STZ.w $0C18,X
 
-#_08CDD3: JSR Ancilla_Move_X
+#_08CDD3: JSR AncillaMoveX
 
 #_08CDD6: LDA.w $0C04,X
 #_08CDD9: STA.l $7F5808
@@ -15532,7 +15487,7 @@ Ancilla43_GanonsTowerCutscene:
 #_08CDF5: LDA.b #$02
 #_08CDF7: STA.w $0AA9
 
-#_08CDFA: JSL Palettes_Load_SpriteEnvironment_Underworld
+#_08CDFA: JSL PaletteLoad_SpriteEnvironment_Underworld
 
 #_08CDFE: INC.b $15
 
@@ -15596,10 +15551,8 @@ GTCutscene_AnimateCrystals:
 .positive_y
 #_08CE48: CLC
 #_08CE49: ADC.l $7F5810
-
 #_08CE4D: CLC
 #_08CE4E: ADC.w #$FFF8
-
 #_08CE51: SEC
 #_08CE52: SBC.w $0122
 #_08CE55: STA.b $00
@@ -15615,10 +15568,8 @@ GTCutscene_AnimateCrystals:
 .positive_x
 #_08CE61: CLC
 #_08CE62: ADC.l $7F580E
-
 #_08CE66: CLC
 #_08CE67: ADC.w #$FFF8
-
 #_08CE6A: SEC
 #_08CE6B: SBC.w $011E
 #_08CE6E: STA.b $02
@@ -15909,8 +15860,8 @@ Ancilla36_Flute:
 #_08CFDD: SBC.b #$02
 #_08CFDF: STA.w $0294,X
 
-#_08CFE2: JSR Ancilla_Move_X
-#_08CFE5: JSR Ancilla_Move_Z
+#_08CFE2: JSR AncillaMoveX
+#_08CFE5: JSR AncillaMoveZ
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -15952,7 +15903,7 @@ Ancilla36_Flute:
 #_08D016: STZ.w $02E9
 
 #_08D019: LDY.b #$14 ; ITEMGET 14
-#_08D01B: JSL Link_ReceiveItem
+#_08D01B: JSL GrantItemReceipt
 
 #_08D01F: PLX
 
@@ -16082,7 +16033,7 @@ Ancilla37_WeathervaneExplosion:
 
 #_08D0B4: PHX
 
-#_08D0B5: JSL Overworld_AlterWeathervane
+#_08D0B5: JSL AlterWeathervane
 
 #_08D0B9: LDY.b #$00
 #_08D0BB: LDA.b #$38 ; ANCILLA 38
@@ -16164,9 +16115,9 @@ Ancilla37_WeathervaneExplosion:
 
 #_08D141: TYX
 
-#_08D142: JSR Ancilla_Move_Y
-#_08D145: JSR Ancilla_Move_X
-#_08D148: JSR Ancilla_Move_Z
+#_08D142: JSR AncillaMoveY
+#_08D145: JSR AncillaMoveX
+#_08D148: JSR AncillaMoveZ
 
 #_08D14B: STZ.b $74
 
@@ -16275,8 +16226,6 @@ AncillaDraw_WeathervaneExplosionWoodDebris:
 
 #_08D1CF: BMI .exit
 
-;---------------------------------------------------------------------------------------------------
-
 #_08D1D1: PHX
 
 #_08D1D2: LDA.l $7F5879
@@ -16309,8 +16258,6 @@ AncillaDraw_WeathervaneExplosionWoodDebris:
 #_08D1F4: STA.b ($92),Y
 
 #_08D1F6: PLX
-
-;---------------------------------------------------------------------------------------------------
 
 .exit
 #_08D1F7: RTS
@@ -16471,6 +16418,7 @@ Ancilla38_CutsceneDuck:
 
 .not_max_x
 #_08D2B9: LDY.b #$03
+
 #_08D2BB: LDA.w $0C2C,X
 #_08D2BE: BPL .positive_x_b
 
@@ -16509,8 +16457,8 @@ Ancilla38_CutsceneDuck:
 ;===================================================================================================
 
 CutsceneDuck_Draw:
-#_08D2EA: JSR Ancilla_Move_X
-#_08D2ED: JSR Ancilla_Move_Z
+#_08D2EA: JSR AncillaMoveX
+#_08D2ED: JSR AncillaMoveZ
 
 #_08D2F0: LDY.w $0380,X
 
@@ -16552,9 +16500,7 @@ CutsceneDuck_Draw:
 #_08D326: LDA.b $02
 #_08D328: STA.b $06
 
-;---------------------------------------------------------------------------------------------------
-
-#_08D32A: SEP #$20
+#_08D32A: SEP #$20 ; okay
 
 #_08D32C: PHX
 
@@ -16727,12 +16673,12 @@ Ancilla23_LinkPoof:
 #_08D414: BEQ .link_colors
 
 .bunny_colors
-#_08D416: JSL RefreshLinkEquipmentPalettes_bunny
+#_08D416: JSL RefreshEquipmentPalettes_bunny
 
 #_08D41A: BRA .exit
 
 .link_colors
-#_08D41C: JSL RefreshLinkEquipmentPalettes_sword_and_mail
+#_08D41C: JSL RefreshEquipmentPalettes_sword_and_mail
 
 .exit
 #_08D420: RTS
@@ -16971,7 +16917,7 @@ Ancilla3F_BushPoof:
 
 .draw
 #_08D555: LDA.b #$10
-#_08D557: JSL SpriteDraw_AllocateOAMFromRegionC
+#_08D557: JSL AllocateOAMInRegionC
 
 #_08D55B: JSR Ancilla_PrepOAMCoord
 
@@ -17165,7 +17111,6 @@ Ancilla26_SwordSwingSparkle:
 #_08D688: INC.w $0C5E,X
 
 #_08D68B: LDA.w $0C5E,X
-
 #_08D68E: CMP.b #$04
 #_08D690: BNE .draw
 
@@ -17642,7 +17587,6 @@ Ancilla2B_SpinAttackSparkleB:
 #_08D941: PLX
 
 #_08D942: LDA.b #$01
-
 #_08D944: STA.w $03B1,X
 #_08D947: STA.w $0385,X
 
@@ -17859,10 +17803,8 @@ Sparkle_PrepOAMFromRadial:
 .positive_y
 #_08DA47: CLC
 #_08DA48: ADC.l $7F5810
-
 #_08DA4C: CLC
 #_08DA4D: ADC.w #$FFFC
-
 #_08DA50: SEC
 #_08DA51: SBC.b $E8
 #_08DA53: STA.b $00
@@ -17878,10 +17820,8 @@ Sparkle_PrepOAMFromRadial:
 .positive_x
 #_08DA5F: CLC
 #_08DA60: ADC.l $7F580E
-
 #_08DA64: CLC
 #_08DA65: ADC.w #$FFFC
-
 #_08DA68: SEC
 #_08DA69: SBC.b $E2
 #_08DA6B: STA.b $02
@@ -18166,8 +18106,6 @@ Ancilla30_ByrnaWindupSpark:
 
 #_08DC26: PLY
 
-;---------------------------------------------------------------------------------------------------
-
 .skip
 #_08DC27: INX
 
@@ -18383,10 +18321,8 @@ ByrnaSpark_Animate:
 .nonzero_z
 #_08DD3D: EOR.w #$FFFF
 #_08DD40: INC A
-
 #_08DD41: CLC
 #_08DD42: ADC.b $20
-
 #_08DD44: CLC
 #_08DD45: ADC.w #$000C
 #_08DD48: STA.l $7F5810
@@ -18527,7 +18463,7 @@ Ancilla0C_SwordBeam_bounce:
 
 Ancilla0D_SpinAttackFullChargeSpark:
 #_08DDEE: LDA.b #$04
-#_08DDF0: JSR Ancilla_AllocateOAMFromRegion_A_or_D_or_F
+#_08DDF0: JSR AllocateOAMInRegionsADF
 
 #_08DDF3: TYA
 #_08DDF4: STA.w $0C86,X
@@ -18626,10 +18562,10 @@ Ancilla27_Duck:
 #_08DE61: ADC.b #$FF
 #_08DE63: STA.w $0294,X
 
-#_08DE66: JSR Ancilla_Move_Z
+#_08DE66: JSR AncillaMoveZ
 
 .maintain_altitude
-#_08DE69: JSR Ancilla_Move_X
+#_08DE69: JSR AncillaMoveX
 
 #_08DE6C: LDA.w $0385,X
 #_08DE6F: BEQ .picking_up
@@ -18727,7 +18663,7 @@ Ancilla27_Duck:
 
 #_08DEEC: SEP #$20
 
-#_08DEEE: JSL Link_ResetProperties_A
+#_08DEEE: JSL ResetLinkProperties_A
 
 #_08DEF2: STZ.w $0345
 #_08DEF5: STZ.w $03F8
@@ -18805,7 +18741,7 @@ Ancilla27_Duck:
 #_08DF5A: LDA.b #$90
 #_08DF5C: STA.w $031F
 
-#_08DF5F: JSL Follower_Initialize
+#_08DF5F: JSL InitializeFollower
 
 #_08DF63: BRA .animate
 
@@ -19058,7 +18994,7 @@ AncillaAdd_SomariaBlock:
 #_08E08B: PHK
 #_08E08C: PLB
 
-#_08E08D: JSR AncillaAdd_AddAncilla_Bank08
+#_08E08D: JSR AddAncilla_bank08
 #_08E090: BCC .spawn_the_block
 
 #_08E092: BRL .refund
@@ -19223,7 +19159,7 @@ AncillaAdd_SomariaBlock:
 
 .refund
 #_08E16B: LDX.b #$04
-#_08E16D: JSL Refund_Magic
+#_08E16D: JSL RefundMagic
 
 .exit
 #_08E171: PLB
@@ -19286,8 +19222,8 @@ SomariaBlock_CheckForTransitTile:
 #_08E1DD: STA.w $0280,X
 
 #_08E1E0: PLY
-#_08E1E1: LDA.w $03E4,X
 
+#_08E1E1: LDA.w $03E4,X
 #_08E1E4: CMP.b #$B6 ; TILETYPE B6
 #_08E1E6: BEQ .node
 
@@ -19382,7 +19318,7 @@ Ancilla_CheckBasicSpriteCollision_Single:
 #_08E253: PHX
 
 #_08E254: TYX
-#_08E255: JSL Sprite_SetupHitbox_long
+#_08E255: JSL SetupSpriteHitBox_long
 
 #_08E259: PLX
 #_08E25A: PLY
@@ -19448,7 +19384,7 @@ Ancilla_CheckBasicSpriteCollision_Single:
 #_08E2B6: PHX
 
 #_08E2B7: TYX
-#_08E2B8: JSL Sprite_ProjectSpeedTowardsLocation_long
+#_08E2B8: JSL ProjectSpriteSpeedTowardsLocation_long
 
 #_08E2BC: PLX
 #_08E2BD: PLY
@@ -19466,7 +19402,7 @@ Ancilla_CheckBasicSpriteCollision_Single:
 #_08E2CD: LDA.w $0C4A,X
 
 #_08E2D0: TYX
-#_08E2D1: JSL Ancilla_CheckDamageToSprite
+#_08E2D1: JSL CheckAncillaDamageToSprite
 
 #_08E2D5: PLX
 
@@ -20123,7 +20059,7 @@ AncillaDraw_SomariaBlock:
 #_08E642: BNE .not_special_oam_slots
 
 #_08E644: LDA.w $0C90,X
-#_08E647: JSR Ancilla_AllocateOAMFromRegion_B_or_E
+#_08E647: JSR AllocateOAMInRegionsBE
 
 #_08E64A: BRA .prep_coord
 
@@ -20625,7 +20561,7 @@ SomariaBlock_HandlePlayerInteraction:
 ;---------------------------------------------------------------------------------------------------
 
 .disable_nearitude
-#_08E87D: JSL Link_CancelDash_long
+#_08E87D: JSL CancelDash_long
 
 #_08E881: LDA.b #$32 ; SFX3.32
 #_08E883: JSR Ancilla_SFX3_Pan
@@ -20698,8 +20634,8 @@ SomariaBlock_HandlePlayerInteraction:
 #_08E8D6: JSR Ancilla_CheckTileCollision_Class2
 #_08E8D9: BCS .no_tile_collision_here
 
-#_08E8DB: JSR Ancilla_Move_Y
-#_08E8DE: JSR Ancilla_Move_X
+#_08E8DB: JSR AncillaMoveY
+#_08E8DE: JSR AncillaMoveX
 
 #_08E8E1: LDA.w $0308
 #_08E8E4: AND.b #$80
@@ -20722,7 +20658,7 @@ SomariaBlock_HandlePlayerInteraction:
 #_08E8FD: STA.b $5E
 
 .yes_recoil
-#_08E8FF: JSL Sprite_CancelHookshot
+#_08E8FF: JSL CancelHookshot
 
 .exit_a
 #_08E903: PLB
@@ -20760,9 +20696,9 @@ SomariaBlock_HandlePlayerInteraction:
 #_08E92A: SBC.b #$02
 #_08E92C: STA.w $0294,X
 
-#_08E92F: JSR Ancilla_Move_Y
-#_08E932: JSR Ancilla_Move_X
-#_08E935: JSR Ancilla_Move_Z
+#_08E92F: JSR AncillaMoveY
+#_08E932: JSR AncillaMoveX
+#_08E935: JSR AncillaMoveZ
 
 #_08E938: LDA.w $029E,X
 #_08E93B: BEQ .hit_ground_running
@@ -21100,7 +21036,7 @@ Ancilla39_SomariaPlatformPoof:
 #_08EAB7: PHX
 
 #_08EAB8: LDA.b #$ED ; SPRITE ED
-#_08EABA: JSL Sprite_SpawnDynamically
+#_08EABA: JSL SpawnSpriteDynamically
 #_08EABE: BPL .free_slot
 
 #_08EAC0: BRL .just_draw
@@ -21229,7 +21165,7 @@ Ancilla2E_SomariaBlockFission:
 
 #_08EB68: PHX
 
-#_08EB69: JSR SomariaBlock_SpawnBullets
+#_08EB69: JSR SpawnSomariaBullets
 
 #_08EB6C: PLX
 
@@ -21713,7 +21649,7 @@ Gravestone_Move:
 #_08EDA2: LDA.b #$F8
 #_08EDA4: STA.w $0C22,X
 
-#_08EDA7: JSR Ancilla_Move_Y
+#_08EDA7: JSR AncillaMoveY
 #_08EDAA: JSR Gravestone_ActAsBarrier
 
 #_08EDAD: LDA.w $038A,X
@@ -21778,7 +21714,7 @@ Gravestone_Move:
 #_08EDFF: SEP #$20
 
 #_08EE01: PHX
-#_08EE02: JSL Overworld_DoMapUpdate32x32_long
+#_08EE02: JSL DoMap32Update_long
 #_08EE06: PLX
 
 #_08EE07: BRA .exit ; useless
@@ -21817,7 +21753,7 @@ Ancilla24_Gravestone:
 #_08EE1D: SEP #$20
 
 #_08EE1F: LDA.b #$10
-#_08EE21: JSL SpriteDraw_AllocateOAMFromRegionB
+#_08EE21: JSL AllocateOAMInRegionB
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -21951,6 +21887,8 @@ Gravestone_ActAsBarrier:
 #_08EEBB: ADC.b $20
 #_08EEBD: STA.b $20
 
+; !BUG technically u think, since it doesn't AND.w #$00FF
+; though it probably never matters
 #_08EEBF: LDA.b $30
 #_08EEC1: CMP.w #$0080
 #_08EEC4: BCC .sign_correct
@@ -22234,7 +22172,6 @@ AncillaDraw_SkullWoodsFlame:
 #_08F097: LDA.l $7F0020,X
 #_08F09B: SEC
 #_08F09C: SBC.b $E8
-
 #_08F09E: CLC
 #_08F09F: ADC.b $04
 #_08F0A1: STA.b $00
@@ -22243,7 +22180,6 @@ AncillaDraw_SkullWoodsFlame:
 #_08F0A7: SEC
 #_08F0A8: SBC.b $E2
 #_08F0AA: STA.b $02
-
 #_08F0AC: CLC
 #_08F0AD: ADC.w #$0008
 #_08F0B0: STA.b $08
@@ -22376,7 +22312,6 @@ AncillaDraw_SkullWoodsBlast:
 #_08F133: LDA.w #$00C8
 #_08F136: SEC
 #_08F137: SBC.b $E8
-
 #_08F139: CLC
 #_08F13A: ADC.w .blast_offset_y,X
 #_08F13D: STA.b $00
@@ -22384,7 +22319,6 @@ AncillaDraw_SkullWoodsBlast:
 #_08F13F: LDA.w #$00A8
 #_08F142: SEC
 #_08F143: SBC.b $E2
-
 #_08F145: CLC
 #_08F146: ADC.w .blast_offset_x,X
 #_08F149: STA.b $02
@@ -22548,7 +22482,6 @@ Ancilla3A_BigBombExplosion:
 #_08F215: LDA.b $00
 #_08F217: CLC
 #_08F218: ADC.w .offset_y,Y
-
 #_08F21B: SEC
 #_08F21C: SBC.b $E8
 #_08F21E: STA.b $00
@@ -22556,7 +22489,6 @@ Ancilla3A_BigBombExplosion:
 #_08F220: LDA.b $02
 #_08F222: CLC
 #_08F223: ADC.w .offset_x,Y
-
 #_08F226: SEC
 #_08F227: SBC.b $E2
 #_08F229: STA.b $02
@@ -22580,7 +22512,7 @@ Ancilla3A_BigBombExplosion:
 #_08F23B: PHY
 
 #_08F23C: LDA.b #$18
-#_08F23E: JSR Ancilla_AllocateOAMFromRegion_A_or_D_or_F
+#_08F23E: JSR AllocateOAMInRegionsADF
 
 #_08F241: PLY
 #_08F242: PLX
@@ -22634,7 +22566,7 @@ Ancilla3A_BigBombExplosion:
 
 #_08F281: PHX
 
-#_08F282: JSL Bomb_CheckForDestructibles
+#_08F282: JSL FindBombableThings
 
 #_08F286: PLX
 
@@ -22646,7 +22578,7 @@ Ancilla3A_BigBombExplosion:
 
 ;===================================================================================================
 
-pool RevivalFairy_Main
+pool RevivalFairy
 
 .timer
 #_08F28E: db   0, 144
@@ -22658,7 +22590,7 @@ pool off
 
 ;---------------------------------------------------------------------------------------------------
 
-RevivalFairy_Main:
+RevivalFairy:
 #_08F295: PHB
 #_08F296: PHK
 #_08F297: PLB
@@ -22696,7 +22628,7 @@ RevivalFairy_Main:
 ;---------------------------------------------------------------------------------------------------
 
 .sprinkling
-#_08F2C3: JSR Ancilla_Move_Z
+#_08F2C3: JSR AncillaMoveZ
 
 #_08F2C6: BRL .draw
 
@@ -22782,7 +22714,7 @@ RevivalFairy_Main:
 #_08F332: STA.w $0380,X
 
 .dont_toggle_z
-#_08F335: JSR Ancilla_Move_Z
+#_08F335: JSR AncillaMoveZ
 
 #_08F338: BRA .draw
 
@@ -22810,14 +22742,14 @@ RevivalFairy_Main:
 #_08F355: STA.w $0C2C,X
 
 .at_max_x
-#_08F358: JSR Ancilla_Move_X
-#_08F35B: JSR Ancilla_Move_Z
+#_08F358: JSR AncillaMoveX
+#_08F35B: JSR AncillaMoveZ
 
 ;---------------------------------------------------------------------------------------------------
 
 .draw
 #_08F35E: LDA.b #$0C
-#_08F360: JSL SpriteDraw_AllocateOAMFromRegionC
+#_08F360: JSL AllocateOAMInRegionC
 
 #_08F364: JSR Ancilla_PrepOAMCoord
 
@@ -22950,11 +22882,11 @@ RevivalFairy_Dust:
 #_08F3FA: LDY.w $0FB3
 #_08F3FD: BNE .use_region_d
 
-#_08F3FF: JSL SpriteDraw_AllocateOAMFromRegionA
+#_08F3FF: JSL AllocateOAMInRegionA
 #_08F403: BRA .oam_allocated
 
 .use_region_d
-#_08F405: JSL SpriteDraw_AllocateOAMFromRegionD
+#_08F405: JSL AllocateOAMInRegionD
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -23085,7 +23017,7 @@ RevivalFairy_MonitorHP:
 #_08F4A7: LDA.b #$04
 #_08F4A9: STA.w $0294,X
 
-#_08F4AC: JSR Ancilla_Move_Z
+#_08F4AC: JSR AncillaMoveZ
 
 #_08F4AF: LDA.w $029E,X
 #_08F4B2: CMP.b #$10
@@ -23117,7 +23049,7 @@ RevivalFairy_MonitorHP:
 ;---------------------------------------------------------------------------------------------------
 
 .delay_bobbing
-#_08F4D3: JSR Ancilla_Move_Z
+#_08F4D3: JSR AncillaMoveZ
 
 .float_link
 #_08F4D6: LDA.w $029E,X
@@ -23207,7 +23139,7 @@ GAMEOVER_Sweep:
 #_08F516: TYA
 #_08F517: STA.w $0C2C,X
 
-#_08F51A: JSR Ancilla_Move_X
+#_08F51A: JSR AncillaMoveX
 
 #_08F51D: LDA.w $0C18,X
 #_08F520: BNE .leftwards_ho
@@ -23301,7 +23233,7 @@ GAMEOVER_Unfurl:
 #_08F585: LDA.b #$60
 #_08F587: STA.w $0C2C,X
 
-#_08F58A: JSR Ancilla_Move_X
+#_08F58A: JSR AncillaMoveX
 
 #_08F58D: LDY.w $039D
 
@@ -23472,10 +23404,10 @@ Ancilla_SetPanRelativeCoordinates:
 
 ;===================================================================================================
 
-AncillaAdd_AddAncilla_Bank08:
+AddAncilla_bank08:
 #_08F643: PHA
 
-#_08F644: JSL Ancilla_CheckForAvailableSlot
+#_08F644: JSL FindAncillaSlot
 
 #_08F648: PLA
 
@@ -23497,8 +23429,8 @@ AncillaAdd_AddAncilla_Bank08:
 
 #_08F661: STZ.w $0C22,X
 #_08F664: STZ.w $0C2C,X
-#_08F667: STZ.w $0280,X
 
+#_08F667: STZ.w $0280,X
 #_08F66A: STZ.w $028A,X
 
 #_08F66D: CLC
@@ -23710,28 +23642,46 @@ Ancilla_SetOAM_XY_safe:
 pool Ancilla_CheckLinkCollision
 
 .offset_y
-#_08F741: db   0,   0,   8,   0,   8
-#_08F746: db   0,   8,   0,   0,   0
+#_08F741: dw  0
+#_08F743: dw  8
+#_08F745: dw  8
+#_08F747: dw  8
+#_08F749: dw  0
 
 .offset_x
-#_08F74B: db   0,   0,   8,   0,   8
-#_08F750: db   0,   8,   0,   0,   0
+#_08F74B: dw  0
+#_08F74D: dw  8
+#_08F74F: dw  8
+#_08F751: dw  8
+#_08F753: dw  0
 
 .height
-#_08F755: db  20,   0,  20,   0,   8
-#_08F75A: db   0,  28,   0,  14,   0
+#_08F755: dw 20
+#_08F757: dw 20
+#_08F759: dw  8
+#_08F75B: dw 28
+#_08F75D: dw 14
 
 .width
-#_08F75F: db  20,   0,   3,   0,   8
-#_08F764: db   0,  24,   0,  14,   0
+#_08F75F: dw 20
+#_08F761: dw  3
+#_08F763: dw  8
+#_08F765: dw 24
+#_08F767: dw 14
 
 .offset_link_y
-#_08F769: db  12,   0,  12,   0,  12
-#_08F76E: db   0,  12,   0,  12,   0
+#_08F769: dw 12
+#_08F76B: dw 12
+#_08F76D: dw 12
+#_08F76F: dw 12
+#_08F771: dw 12
 
 .offset_link_x
-#_08F773: db   8,   0,   8,   0,   8
-#_08F778: db   0,  12,   0,   8,   0
+#_08F773: dw  8
+#_08F775: dw  8
+#_08F777: dw  8
+#_08F779: dw 12
+#_08F77B: dw  8
 
 pool off
 
@@ -23772,7 +23722,6 @@ Ancilla_CheckLinkCollision:
 #_08F7A3: LDA.b $00
 #_08F7A5: CLC
 #_08F7A6: ADC.b $0A
-
 #_08F7A8: CLC
 #_08F7A9: ADC.w .offset_y,Y
 #_08F7AC: STA.b $00
@@ -23806,7 +23755,6 @@ Ancilla_CheckLinkCollision:
 #_08F7CE: LDA.b $22
 #_08F7D0: CLC
 #_08F7D1: ADC.w .offset_link_x,Y
-
 #_08F7D4: SEC
 #_08F7D5: SBC.b $02
 #_08F7D7: STA.b $06
@@ -23854,7 +23802,6 @@ Hookshot_CheckProximityToLink:
 #_08F800: LDA.b $20
 #_08F802: SEC
 #_08F803: SBC.b $E8
-
 #_08F805: CLC
 #_08F806: ADC.w #$000C
 
@@ -23873,10 +23820,8 @@ Hookshot_CheckProximityToLink:
 #_08F817: LDA.b $22
 #_08F819: SEC
 #_08F81A: SBC.b $E2
-
 #_08F81C: CLC
 #_08F81D: ADC.w #$0008
-
 #_08F820: SEC
 #_08F821: SBC.b $74
 
@@ -23931,7 +23876,6 @@ Ancilla_CheckForEntranceTrigger:
 #_08F85B: LDA.b $20
 #_08F85D: CLC
 #_08F85E: ADC.w #$000C
-
 #_08F861: SEC
 #_08F862: SBC.w .position_y,Y
 
@@ -23947,7 +23891,6 @@ Ancilla_CheckForEntranceTrigger:
 #_08F870: LDA.b $22
 #_08F872: CLC
 #_08F873: ADC.w #$0008
-
 #_08F876: SEC
 #_08F877: SBC.w .position_x,Y
 
@@ -24098,23 +24041,23 @@ AncillaDraw_Shadow:
 
 ;===================================================================================================
 
-Ancilla_AllocateOAMFromRegion_B_or_E:
+AllocateOAMInRegionsBE:
 #_08F91C: LDY.w $0FB3
 #_08F91F: BNE .use_region_E
 
 .use_region_B
-#_08F921: JSL SpriteDraw_AllocateOAMFromRegionB
+#_08F921: JSL AllocateOAMInRegionB
 #_08F925: BRA .exit
 
 .use_region_E
-#_08F927: JSL SpriteDraw_AllocateOAMFromRegionE
+#_08F927: JSL AllocateOAMInRegionE
 
 .exit
 #_08F92B: RTS
 
 ;===================================================================================================
 
-Follower_MoveTowardsLink:
+StepTowardsLink:
 #_08F92C: PHB
 #_08F92D: PHK
 #_08F92E: PLB
@@ -24136,7 +24079,7 @@ Follower_MoveTowardsLink:
 
 #_08F94A: LDX.b #$09
 #_08F94C: LDA.b #$18
-#_08F94E: JSR Ancilla_ProjectSpeedTowardsPlayer
+#_08F94E: JSR ProjectAncillaSpeedTowardsLink
 
 #_08F951: LDA.b $00
 #_08F953: STA.w $0C22,X
@@ -24144,10 +24087,10 @@ Follower_MoveTowardsLink:
 #_08F956: LDA.b $01
 #_08F958: STA.w $0C2C,X
 
-#_08F95B: JSR Ancilla_Move_Y
+#_08F95B: JSR AncillaMoveY
 
 #_08F95E: PHX
-#_08F95F: JSR Ancilla_Move_X
+#_08F95F: JSR AncillaMoveX
 #_08F962: PLX
 
 #_08F963: LDA.w $0BFA,X
@@ -24176,7 +24119,7 @@ Follower_MoveTowardsLink:
 
 .positive_y
 #_08F984: CMP.w #$0002
-#_08F987: BCS .close_enough
+#_08F987: BCS .not_close_enough
 
 #_08F989: LDA.b $02
 #_08F98B: SEC
@@ -24192,7 +24135,7 @@ Follower_MoveTowardsLink:
 
 ;---------------------------------------------------------------------------------------------------
 
-.close_enough
+.not_close_enough
 #_08F999: SEP #$20
 
 #_08F99B: INC.w $02D3
@@ -24234,7 +24177,7 @@ Follower_MoveTowardsLink:
 
 ;===================================================================================================
 
-Ancilla_AllocateOAMFromCustomRegion:
+AllocateOAMInCustomRegion:
 #_08F9CC: PHA
 #_08F9CD: PHX
 
@@ -24598,11 +24541,11 @@ Ancilla_GetRadialProjection_long:
 
 ;===================================================================================================
 
-Ancilla_AllocateOAMFromRegion_A_or_D_or_F:
+AllocateOAMInRegionsADF:
 #_08FB3D: LDY.w $0FB3
 #_08FB40: BNE .consider_layer
 
-#_08FB42: JSL SpriteDraw_AllocateOAMFromRegionA
+#_08FB42: JSL AllocateOAMInRegionA
 
 #_08FB46: RTS
 
@@ -24610,12 +24553,12 @@ Ancilla_AllocateOAMFromRegion_A_or_D_or_F:
 #_08FB47: LDY.w $0C7C,X
 #_08FB4A: BNE .lower_layer
 
-#_08FB4C: JSL SpriteDraw_AllocateOAMFromRegionD
+#_08FB4C: JSL AllocateOAMInRegionD
 
 #_08FB50: RTS
 
 .lower_layer
-#_08FB51: JSL SpriteDraw_AllocateOAMFromRegionF
+#_08FB51: JSL AllocateOAMInRegionF
 
 #_08FB55: RTS
 
@@ -24792,7 +24735,7 @@ BeamHit_CheckOffscreen_Y:
 
 ;===================================================================================================
 
-QuakeDrawGFX:
+QuakeChars:
 
 .group00_a
 #_08FBFF: db $00, $F0, $00
@@ -25074,7 +25017,6 @@ QuakeDrawGFX:
 .group1F_a
 #_08FDBE: db $BE, $71, $48, $2F, $73, $08
 
-.group1F_b
 .group20_a
 #_08FDC4: db $A0, $70, $20
 
@@ -25310,71 +25252,71 @@ QuakeDrawGFX:
 
 ;===================================================================================================
 
-QuakeSpell_InitialBoltPointers:
-#_08FEFC: dw QuakeDrawGFX_group00_a, QuakeDrawGFX_group00_b
-#_08FF00: dw QuakeDrawGFX_group01_a, QuakeDrawGFX_group01_b
-#_08FF04: dw QuakeDrawGFX_group02_a, QuakeDrawGFX_group02_b
-#_08FF08: dw QuakeDrawGFX_group03_a, QuakeDrawGFX_group03_b
-#_08FF0C: dw QuakeDrawGFX_group04_a, QuakeDrawGFX_group04_b
-#_08FF10: dw QuakeDrawGFX_group05_a, QuakeDrawGFX_group05_b
-#_08FF14: dw QuakeDrawGFX_group06_a, QuakeDrawGFX_group06_b
-#_08FF18: dw QuakeDrawGFX_group07_a, QuakeDrawGFX_group07_b
-#_08FF1C: dw QuakeDrawGFX_group08_a, QuakeDrawGFX_group08_b
-#_08FF20: dw QuakeDrawGFX_group09_a, QuakeDrawGFX_group09_b
-#_08FF24: dw QuakeDrawGFX_group0A_a, QuakeDrawGFX_group0A_b
-#_08FF28: dw QuakeDrawGFX_group0B_a, QuakeDrawGFX_group0B_b
-#_08FF2C: dw QuakeDrawGFX_group0C_a, QuakeDrawGFX_group0C_b
-#_08FF30: dw QuakeDrawGFX_group0D_a, QuakeDrawGFX_group0D_b
-#_08FF34: dw QuakeDrawGFX_group0E_a, QuakeDrawGFX_group0E_b
-#_08FF38: dw QuakeDrawGFX_group0F_a, QuakeDrawGFX_group0F_b
-#_08FF3C: dw QuakeDrawGFX_group10_a, QuakeDrawGFX_group10_b
-#_08FF40: dw QuakeDrawGFX_group11_a, QuakeDrawGFX_group11_b
-#_08FF44: dw QuakeDrawGFX_group12_a, QuakeDrawGFX_group12_b
-#_08FF48: dw QuakeDrawGFX_group13_a, QuakeDrawGFX_group13_b
-#_08FF4C: dw QuakeDrawGFX_group14_a, QuakeDrawGFX_group14_b
-#_08FF50: dw QuakeDrawGFX_group15_a, QuakeDrawGFX_group15_b
-#_08FF54: dw QuakeDrawGFX_group16_a, QuakeDrawGFX_group16_b
-#_08FF58: dw QuakeDrawGFX_group17_a, QuakeDrawGFX_group17_b
-#_08FF5C: dw QuakeDrawGFX_group18_a, QuakeDrawGFX_group18_b
-#_08FF60: dw QuakeDrawGFX_group19_a, QuakeDrawGFX_group19_b
-#_08FF64: dw QuakeDrawGFX_group1A_a, QuakeDrawGFX_group1A_b
-#_08FF68: dw QuakeDrawGFX_group1B_a, QuakeDrawGFX_group1B_b
-#_08FF6C: dw QuakeDrawGFX_group1C_a, QuakeDrawGFX_group1C_b
-#_08FF70: dw QuakeDrawGFX_group1D_a, QuakeDrawGFX_group1D_b
-#_08FF74: dw QuakeDrawGFX_group1E_a, QuakeDrawGFX_group1E_b
-#_08FF78: dw QuakeDrawGFX_group1F_a, QuakeDrawGFX_group1F_b
+InitialQuakeBoltPointers:
+#_08FEFC: dw QuakeChars_group00_a, QuakeChars_group00_b
+#_08FF00: dw QuakeChars_group01_a, QuakeChars_group01_b
+#_08FF04: dw QuakeChars_group02_a, QuakeChars_group02_b
+#_08FF08: dw QuakeChars_group03_a, QuakeChars_group03_b
+#_08FF0C: dw QuakeChars_group04_a, QuakeChars_group04_b
+#_08FF10: dw QuakeChars_group05_a, QuakeChars_group05_b
+#_08FF14: dw QuakeChars_group06_a, QuakeChars_group06_b
+#_08FF18: dw QuakeChars_group07_a, QuakeChars_group07_b
+#_08FF1C: dw QuakeChars_group08_a, QuakeChars_group08_b
+#_08FF20: dw QuakeChars_group09_a, QuakeChars_group09_b
+#_08FF24: dw QuakeChars_group0A_a, QuakeChars_group0A_b
+#_08FF28: dw QuakeChars_group0B_a, QuakeChars_group0B_b
+#_08FF2C: dw QuakeChars_group0C_a, QuakeChars_group0C_b
+#_08FF30: dw QuakeChars_group0D_a, QuakeChars_group0D_b
+#_08FF34: dw QuakeChars_group0E_a, QuakeChars_group0E_b
+#_08FF38: dw QuakeChars_group0F_a, QuakeChars_group0F_b
+#_08FF3C: dw QuakeChars_group10_a, QuakeChars_group10_b
+#_08FF40: dw QuakeChars_group11_a, QuakeChars_group11_b
+#_08FF44: dw QuakeChars_group12_a, QuakeChars_group12_b
+#_08FF48: dw QuakeChars_group13_a, QuakeChars_group13_b
+#_08FF4C: dw QuakeChars_group14_a, QuakeChars_group14_b
+#_08FF50: dw QuakeChars_group15_a, QuakeChars_group15_b
+#_08FF54: dw QuakeChars_group16_a, QuakeChars_group16_b
+#_08FF58: dw QuakeChars_group17_a, QuakeChars_group17_b
+#_08FF5C: dw QuakeChars_group18_a, QuakeChars_group18_b
+#_08FF60: dw QuakeChars_group19_a, QuakeChars_group19_b
+#_08FF64: dw QuakeChars_group1A_a, QuakeChars_group1A_b
+#_08FF68: dw QuakeChars_group1B_a, QuakeChars_group1B_b
+#_08FF6C: dw QuakeChars_group1C_a, QuakeChars_group1C_b
+#_08FF70: dw QuakeChars_group1D_a, QuakeChars_group1D_b
+#_08FF74: dw QuakeChars_group1E_a, QuakeChars_group1E_b
+#_08FF78: dw QuakeChars_group1F_a, QuakeChars_group20_a
 
 ;---------------------------------------------------------------------------------------------------
 
-QuakeSpell_SpreadBoltPointers:
-#_08FF7C: dw QuakeDrawGFX_group20_a, QuakeDrawGFX_group20_b
-#_08FF80: dw QuakeDrawGFX_group21_a, QuakeDrawGFX_group21_b
-#_08FF84: dw QuakeDrawGFX_group22_a, QuakeDrawGFX_group22_b
-#_08FF88: dw QuakeDrawGFX_group23_a, QuakeDrawGFX_group23_b
-#_08FF8C: dw QuakeDrawGFX_group24_a, QuakeDrawGFX_group24_b
-#_08FF90: dw QuakeDrawGFX_group25_a, QuakeDrawGFX_group25_b
-#_08FF94: dw QuakeDrawGFX_group26_a, QuakeDrawGFX_group26_b
-#_08FF98: dw QuakeDrawGFX_group27_a, QuakeDrawGFX_group27_b
-#_08FF9C: dw QuakeDrawGFX_group28_a, QuakeDrawGFX_group28_b
-#_08FFA0: dw QuakeDrawGFX_group29_a, QuakeDrawGFX_group29_b
-#_08FFA4: dw QuakeDrawGFX_group2A_a, QuakeDrawGFX_group2A_b
-#_08FFA8: dw QuakeDrawGFX_group2B_a, QuakeDrawGFX_group2B_b
-#_08FFAC: dw QuakeDrawGFX_group2C_a, QuakeDrawGFX_group2C_b
-#_08FFB0: dw QuakeDrawGFX_group2D_a, QuakeDrawGFX_group2D_b
-#_08FFB4: dw QuakeDrawGFX_group2E_a, QuakeDrawGFX_group2E_b
-#_08FFB8: dw QuakeDrawGFX_group2F_a, QuakeDrawGFX_group2F_b
-#_08FFBC: dw QuakeDrawGFX_group30_a, QuakeDrawGFX_group30_b
-#_08FFC0: dw QuakeDrawGFX_group31_a, QuakeDrawGFX_group31_b
-#_08FFC4: dw QuakeDrawGFX_group32_a, QuakeDrawGFX_group32_b
-#_08FFC8: dw QuakeDrawGFX_group33_a, QuakeDrawGFX_group33_b
-#_08FFCC: dw QuakeDrawGFX_group34_a, QuakeDrawGFX_group34_b
-#_08FFD0: dw QuakeDrawGFX_group35_a, QuakeDrawGFX_group35_b
-#_08FFD4: dw QuakeDrawGFX_group36_a, QuakeDrawGFX_group36_b
-#_08FFD8: dw QuakeDrawGFX_group37_a, QuakeDrawGFX_group37_b
-#_08FFDC: dw QuakeDrawGFX_group38_a, QuakeDrawGFX_group38_b
-#_08FFE0: dw QuakeDrawGFX_group39_a, QuakeDrawGFX_group39_b
-#_08FFE4: dw QuakeDrawGFX_group3A_a, QuakeDrawGFX_group3A_b
-#_08FFE8: dw QuakeDrawGFX_group3B_a, QuakeDrawGFX_group3B_b
+SpreadQuakeBoltPointers:
+#_08FF7C: dw QuakeChars_group20_a, QuakeChars_group20_b
+#_08FF80: dw QuakeChars_group21_a, QuakeChars_group21_b
+#_08FF84: dw QuakeChars_group22_a, QuakeChars_group22_b
+#_08FF88: dw QuakeChars_group23_a, QuakeChars_group23_b
+#_08FF8C: dw QuakeChars_group24_a, QuakeChars_group24_b
+#_08FF90: dw QuakeChars_group25_a, QuakeChars_group25_b
+#_08FF94: dw QuakeChars_group26_a, QuakeChars_group26_b
+#_08FF98: dw QuakeChars_group27_a, QuakeChars_group27_b
+#_08FF9C: dw QuakeChars_group28_a, QuakeChars_group28_b
+#_08FFA0: dw QuakeChars_group29_a, QuakeChars_group29_b
+#_08FFA4: dw QuakeChars_group2A_a, QuakeChars_group2A_b
+#_08FFA8: dw QuakeChars_group2B_a, QuakeChars_group2B_b
+#_08FFAC: dw QuakeChars_group2C_a, QuakeChars_group2C_b
+#_08FFB0: dw QuakeChars_group2D_a, QuakeChars_group2D_b
+#_08FFB4: dw QuakeChars_group2E_a, QuakeChars_group2E_b
+#_08FFB8: dw QuakeChars_group2F_a, QuakeChars_group2F_b
+#_08FFBC: dw QuakeChars_group30_a, QuakeChars_group30_b
+#_08FFC0: dw QuakeChars_group31_a, QuakeChars_group31_b
+#_08FFC4: dw QuakeChars_group32_a, QuakeChars_group32_b
+#_08FFC8: dw QuakeChars_group33_a, QuakeChars_group33_b
+#_08FFCC: dw QuakeChars_group34_a, QuakeChars_group34_b
+#_08FFD0: dw QuakeChars_group35_a, QuakeChars_group35_b
+#_08FFD4: dw QuakeChars_group36_a, QuakeChars_group36_b
+#_08FFD8: dw QuakeChars_group37_a, QuakeChars_group37_b
+#_08FFDC: dw QuakeChars_group38_a, QuakeChars_group38_b
+#_08FFE0: dw QuakeChars_group39_a, QuakeChars_group39_b
+#_08FFE4: dw QuakeChars_group3A_a, QuakeChars_group3A_b
+#_08FFE8: dw QuakeChars_group3B_a, QuakeChars_group3B_b
 
 ;===================================================================================================
 ; FREE ROM: 0x14

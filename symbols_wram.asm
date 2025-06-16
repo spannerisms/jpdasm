@@ -96,11 +96,11 @@ INIDISPQ        = $7E0013
 
 ; NMI update flags
 ; when non zero, these will trigger a specific graphics update during NMI
-NMISTRIPES      = $7E0014
-NMICGRAM        = $7E0015
-NMIHUD          = $7E0016
-NMIINCR         = $7E0017
-NMIUP1100       = $7E0018
+DOSTRIPES       = $7E0014
+DOCGRAM         = $7E0015
+DOHUD           = $7E0016
+DOTMAP          = $7E0017
+DOARBDMA        = $7E0018
 
 ; Incremental upload VRAM high byte
 UPINCVH         = $7E0019
@@ -148,7 +148,7 @@ KNBZ            = $7E0029
 
 ; Link's subpixel velocity
 ; when this value overflows, Link's main velocity gains an extra pixel
-; reset on direction change, so not really a positional subpixel
+; reset on direction change, so not a positional subpixel
 SUBVY           = $7E002A
 SUBVX           = $7E002B
 
@@ -167,18 +167,18 @@ ANIMSTEP        = $7E002E
 ;   0x02 - down
 ;   0x04 - left
 ;   0x06 - right
-DIR             = $7E002F
+LDIR            = $7E002F
 
 ; The difference in pixels Link moved on each axis
 DIFFY           = $7E0030
 DIFFX           = $7E0031
 
 ; Used for temporary calculations/caching with Link's coordinates when hopping a ledge.
-HOPCALCY        = $7E0032
-HOPCALCX        = $7E0033
+HOPCALCL        = $7E0032
+HOPCALCH        = $7E0033
 
 ; Used as a delay timer for Agahnim during attract mode.
-ATRAGATIME      = $7E0034
+ATRAGATM        = $7E0034
 
 ; FREE RAM: 0x03
 UNUSED_35       = $7E0035
@@ -262,7 +262,7 @@ TINKTM          = $7E0047
 DOGRAB          = $7E0048
 
 ; Forces dpad inputs when written to.
-; High byte is never used, but incidentally cleared by tile detection routines.
+; High byte is never used, but cleared by tile detection routines for some reason...
 FORCEMOVE       = $7E0049
 FORCEMOVEU      = $7E004A
 
@@ -340,7 +340,7 @@ FALLPOSE        = $7E005A
 SLIP            = $7E005B
 
 ; Timer for the falling animation
-FALLTIMER       = $7E005C
+FALLTM          = $7E005C
 
 ; Link's main state handler
 LINKDO          = $7E005D
@@ -490,10 +490,7 @@ OWMAPDIYH       = $7E0089
 
 ; Overworld screen ID
 ; In practice bit 6 indicates a Dark World screen, and bit 7 indicates special overworld
-; As the highest screen ID is 0x81, $8B is essentially unused in the overworld.
-; However, reads and writes for screen ID are often 16-bit
-; Occasionally 8A is used to read underworld screens.
-; Thus, this address should be considered used.
+; Bit 8 (bit 0 of the high byte) may also be set for some special overworld routines
 OWSCR           = $7E008A
 OWSCRH          = $7E008B
 
@@ -508,10 +505,10 @@ UNUSED_8E       = $7E008E
 UNUSED_8F       = $7E008F
 
 ; Used during draw routines to indirectly address the OAM buffer.
-OAMLBFR         = $7E0090
-OAMLBFRH        = $7E0091
-OAMHBFR         = $7E0092
-OAMHBFRH        = $7E0093
+OAMLP           = $7E0090
+OAMLPH          = $7E0091
+OAMHP           = $7E0092
+OAMHPH          = $7E0093
 
 ; Various PPU queues handled during NMI
 BGMODEQ         = $7E0094
@@ -566,11 +563,11 @@ BSETV           = $7E00A7
 ;   l - room layout
 ;   v - QUADV
 ;   h - QUADH
-ROOMLAYOUT      = $7E00A8
+ROOMPROP        = $7E00A8
 
 ; Together, indicates which quadrant Link is in.
-; H can be 0 or 1, for left or right
-; V can be 0 or 2, for top or bottom
+; H can be 0 or 1, for west or east
+; V can be 0 or 2, for north or south
 QUADH           = $7E00A9
 QUADV           = $7E00AA
 
@@ -601,56 +598,69 @@ SCRAPB5         = $7E00B5
 UNUSED_B6       = $7E00B6
 
 ; Used as a pointer when drawing room objects.
-; TODO something with palettes
+; Also used as a pointer for palette filtering.
 OBJPTR          = $7E00B7
 OBJPTRH         = $7E00B8
 OBJPTRB         = $7E00B9
 
 ; Used as an offset for OBJPTR
-; TODO other uses?
 OBJX            = $7E00BA
 OBJXH           = $7E00BB
 
 ; FREE RAM: 0x01
 UNUSED_BC       = $7E00BC
 
-; Frequently used as scratch space with various uses
-; TODO document room draw stuff more precisely
+; Used as scratch space for several routines
 SCRAPBD         = $7E00BD
 SCRAPBE         = $7E00BE
-SCRAPBF         = $7E00BF
-SCRAPC0         = $7E00C0
-SCRAPC1         = $7E00C1
-SCRAPC2         = $7E00C2
-SCRAPC3         = $7E00C3
-SCRAPC4         = $7E00C4
-SCRAPC5         = $7E00C5
-SCRAPC6         = $7E00C6
-SCRAPC7         = $7E00C7
-SCRAPC8         = $7E00C8
-SCRAPC9         = $7E00C9
-SCRAPCA         = $7E00CA
-SCRAPCB         = $7E00CB
-SCRAPCC         = $7E00CC
-SCRAPCD         = $7E00CD
-SCRAPCE         = $7E00CE
-SCRAPCF         = $7E00CF
-SCRAPD0         = $7E00D0
-SCRAPD1         = $7E00D1
-SCRAPD2         = $7E00D2
-SCRAPD3         = $7E00D3
-SCRAPD4         = $7E00D4
-SCRAPD5         = $7E00D5
-SCRAPD6         = $7E00D6
-SCRAPD7         = $7E00D7
-SCRAPD8         = $7E00D8
-SCRAPD9         = $7E00D9
-SCRAPDA         = $7E00DA
-SCRAPDB         = $7E00DB
-SCRAPDC         = $7E00DC
-SCRAPDD         = $7E00DD
-SCRAPDE         = $7E00DE
-SCRAPDF         = $7E00DF
+
+; Used to create room pointers for the upper and lower layer tilemaps during room building
+; These offsets are consistent, with a base of either TMAPA or TMAPB
+; $C8..$CF is also used as general scratch space in various routines
+;    $BF TMPTRA - base+$000
+;    $C2 TMPTRB - base+$002
+;    $C5 TMPTRC - base+$004
+;    $C8 TMPTRD - base+$006
+;    $CB TMPTRE - base+$080
+;    $CE TMPTRF - base+$082
+;    $D1 TMPTRG - base+$084
+;    $D4 TMPTRH - base+$086
+;    $D7 TMPTRI - base+$100
+;    $DA TMPTRK - base+$180
+;    $DD TMPTRK - base+$200
+TMPTRAL         = $7E00BF
+TMPTRAH         = $7E00C0
+TMPTRAB         = $7E00C1
+TMPTRBL         = $7E00C2
+TMPTRBH         = $7E00C3
+TMPTRBB         = $7E00C4
+TMPTRCL         = $7E00C5
+TMPTRCH         = $7E00C6
+TMPTRCB         = $7E00C7
+TMPTRDL         = $7E00C8
+TMPTRDH         = $7E00C9
+TMPTRDB         = $7E00CA
+TMPTREL         = $7E00CB
+TMPTREH         = $7E00CC
+TMPTREB         = $7E00CD
+TMPTRFL         = $7E00CE
+TMPTRFH         = $7E00CF
+TMPTRFB         = $7E00D0
+TMPTRGL         = $7E00D1
+TMPTRGH         = $7E00D2
+TMPTRGB         = $7E00D3
+TMPTRHL         = $7E00D4
+TMPTRHH         = $7E00D5
+TMPTRHB         = $7E00D6
+TMPTRIL         = $7E00D7
+TMPTRIH         = $7E00D8
+TMPTRIB         = $7E00D9
+TMPTRJL         = $7E00DA
+TMPTRJH         = $7E00DB
+TMPTRJB         = $7E00DC
+TMPTRKL         = $7E00DD
+TMPTRKH         = $7E00DE
+TMPTRKB         = $7E00DF
 
 ; Background scroll registers
 ; For BG1 and BG2, these registers are used for calculations later for different writes to PPU.
@@ -702,20 +712,20 @@ TRANTOG         = $7E00EF
 ;
 ;  JOY#A      JOY#B
 ; BYsSudlr   AXLR....
-JOY1A_ALL       = $7E00F0
-JOY2A_ALL       = $7E00F1
-JOY1B_ALL       = $7E00F2
-JOY2B_ALL       = $7E00F3
+JOY1AALL        = $7E00F0
+JOY2AALL        = $7E00F1
+JOY1BALL        = $7E00F2
+JOY2BALL        = $7E00F3
 
-JOY1A_NEW       = $7E00F4
-JOY2A_NEW       = $7E00F5
-JOY1B_NEW       = $7E00F6
-JOY2B_NEW       = $7E00F7
+JOY1ANEW        = $7E00F4
+JOY2ANEW        = $7E00F5
+JOY1BNEW        = $7E00F6
+JOY2BNEW        = $7E00F7
 
-JOY1A_OLD       = $7E00F8
-JOY2A_OLD       = $7E00F9
-JOY1B_OLD       = $7E00FA
-JOY2B_OLD       = $7E00FB
+JOY1AOLD        = $7E00F8
+JOY2AOLD        = $7E00F9
+JOY1BOLD        = $7E00FA
+JOY2BOLD        = $7E00FB
 
 ; If nonzero, these values overwrite BSETH and BSETV, respectively, when an exploding wall clears.
 BWSETH          = $7E00FC
@@ -794,10 +804,10 @@ UPINCBL         = $7E0118
 UPINCBH         = $7E0119
 
 ; Applied to BG scroll
-BG1SHAKEV       = $7E011A
-BG1SHAKEVH      = $7E011B
-BG1SHAKEH       = $7E011C
-BG1SHAKEHH      = $7E011D
+BG1SHAKEH       = $7E011A
+BG1SHAKEHH      = $7E011B
+BG1SHAKEV       = $7E011C
+BG1SHAKEVH      = $7E011D
 
 ; Written to registers during NMI
 BG2HOFSQL       = $7E011E
@@ -870,9 +880,10 @@ STACK           = $7E01FF
 ;---------------------------------------------------------------------------------------------------
 
 ; Used by interfaces as a submodule ID.
-; High byte is never written, but always expected to be 0x00.
-INTSUBSUB       = $7E0200
-INTSUBSUBH      = $7E0201
+; Also used as a 16-bit timer for attrack mode and an SRAM offset cache.
+; High byte is never written otherwise, but expected to be 0x00.
+INTSUB          = $7E0200
+INTSUBH         = $7E0201
 
 ; Index of currently selected item in the item menu.
 YSEL            = $7E0202
@@ -914,7 +925,7 @@ DEBUG_7E020B    = $7E020B
 UNUSED_7E020C   = $7E020C
 
 ; Used as a module index for dungeon map.
-DNGMAPSUBSUBSUB = $7E020D
+MAPSUB          = $7E020D
 
 ; Holds the currently selected floor when using the dungeon map.
 MAPFLOOR        = $7E020E
@@ -1129,7 +1140,7 @@ JUNK_7E02D6     = $7E02D6
 FLWREPRI        = $7E02D7
 
 ; Holds ID of item receipt items.
-ITEMGETID       = $7E02D8
+RECEIPTID       = $7E02D8
 
 ; Written to with a value of 0x60 when receiving an item, but never read.
 JUNK_7E02D9     = $7E02D9
@@ -1190,9 +1201,12 @@ TACTCHEST2      = $7E02E7
 ; SEE TILE ACT NOTES
 TACTSPIKE       = $7E02E8
 
-; TODO
 ; Item receipt method
-RECEIPTID       = $7E02E9
+;   00 - everyone else
+;   01 - from chests
+;   02 - dropped boss hearts / upgrade fairy returns
+;   03 - milestone items
+GETMODE         = $7E02E9
 
 ; Tile type of chests referenced when opening a chest.
 ; High byte unused but written.
@@ -1248,12 +1262,12 @@ SOMPLAT         = $7E02F5
 ; SEE TILE ACT NOTES
 TACTHOOK        = $7E02F6
 
-; Tile act bitfield used by  rupees
+; Tile act bitfield used by rupees
 ; bbbb rrrr
 ;   b - rupee tiles (low)
 ;   r - rupee tiles (high)
 ; SEE TILE ACT NOTES
-TACTRUPEE       = $7E02F7
+TACTRUP         = $7E02F7
 
 ; When set, guarantees a thud on landing.
 THUD            = $7E02F8
@@ -1291,7 +1305,7 @@ USEY1           = $7E0301
 ; Seems to be a flag for intraframe wall collisions, indicating pushback.
 COLLIDE         = $7E0302
 
-; Currently equipped Y item. See: MenuID_to_EquipID
+; Currently equipped Y item. See: MenuToEquipID
 CURY            = $7E0303
 
 ; Indicates the actively used Y item; copied from CURY
@@ -1314,7 +1328,7 @@ RODTYPE         = $7E0307
 ; h... ..dt
 ;   h - carrying/tossing item (including wishing wells)
 ;   d - Desert prayer
-;   t - tree pull
+;   t - rupee pull
 ACTA            = $7E0308
 
 ; Bitfield for carry-related actions.
@@ -1327,7 +1341,7 @@ CARRY           = $7E0309
 STRAIN          = $7E030A
 
 ; Timer that handles Link's pull animation
-STRAINTIME      = $7E030B
+STRAINTM        = $7E030B
 
 ; FREE RAM: 0x01
 UNUSED_7E030C   = $7E030C
@@ -1668,7 +1682,7 @@ USEY2           = $7E037A
 ; Prevents Link from recieving damage.
 NOPAIN          = $7E037B
 
-; Sleep submode for link state 0x16
+; Sleep submode for Link state 16
 SLEEPMODE       = $7E037C
 
 ; Determines how exactly Link is in bed.
@@ -1817,25 +1831,25 @@ ANC2MISCJ       = $7E03CC
 ANC3MISCJ       = $7E03CD
 ANC4MISCJ       = $7E03CE
 
-; General use variable for ancillae. Only intended for front slots.
+; Only ever used by the boomerang to position it during the toss animation.
 ; LENGTH: 0x05
-ANC0MISCK       = $7E03CF
-ANC1MISCK       = $7E03D0
-ANC2MISCK       = $7E03D1
-ANC3MISCK       = $7E03D2
-ANC4MISCK       = $7E03D3
+BOOM0DIR        = $7E03CF
+BOOM1DIR        = $7E03D0
+BOOM2DIR        = $7E03D1
+BOOM3DIR        = $7E03D2
+BOOM4DIR        = $7E03D3
 
 ; Technically unused, but misslotting...
 UNUSED_7E03D4   = $7E03D4
 
-; General use variable for ancillae. Only intended for front slots.
-; Used by the carry routine? TODO
+; Flags layer change interaction via TILETYPE 1C.
+; Only intended for front slots.
 ; LENGTH: 0x05
-ANC0MISCL       = $7E03D5
-ANC1MISCL       = $7E03D6
-ANC2MISCL       = $7E03D7
-ANC3MISCL       = $7E03D8
-ANC4MISCL       = $7E03D9
+ANC0DROP        = $7E03D5
+ANC1DROP        = $7E03D6
+ANC2DROP        = $7E03D7
+ANC3DROP        = $7E03D8
+ANC4DROP        = $7E03D9
 
 ; Technically unused, but misslotting...
 UNUSED_7E03DA   = $7E03DA
@@ -1980,7 +1994,7 @@ VISITED         = $7E0408
 VISITEDH        = $7E0409
 
 ; Copy of OWSCR
-; High byte has an explicit STZ
+; High byte explicitly zeroed
 OWSCR2          = $7E040A
 OWSCR2H         = $7E040B
 
@@ -2093,28 +2107,44 @@ UNUSED_7E0435   = $7E0435
 EYEDOORL        = $7E0436
 EYEDOORH        = $7E0437
 
-; Indexes stairs when building rooms.
-STAIRSI         = $7E0438
-STAIRSIH        = $7E0439
-STAIRSI2        = $7E043A
-STAIRSI2H       = $7E043B
+; Stair indices, which are total spaghetti...
+
+; InterRoom Fat Stairs Up
+STRXIRFSU       = $7E0438
+STRXIRFSUH      = $7E0439
+
+; InterRoom Fat Stairs Down
+STRXIRFSD       = $7E043A
+STRXIRFSDH      = $7E043B
 
 ; Indexes all sorts of inter-room stairs
-; TODO split
-RSTAIRSI        = $7E043C
-RSTAIRSIH       = $7E043D
-RSTAIRSI2       = $7E043E
-RSTAIRSI2H      = $7E043F
-RSTAIRSI3       = $7E0440
-RSTAIRSI3H      = $7E0441
-RSTAIRSI4       = $7E0442
-RSTAIRSI4H      = $7E0443
-RSTAIRSI5       = $7E0444
-RSTAIRSI5H      = $7E0445
-RSTAIRSI6       = $7E0446
-RSTAIRSI6H      = $7E0447
-RSTAIRSI7       = $7E0448
-RSTAIRSI7H      = $7E0449
+; MultiLayer North Stairs A
+STRXMLNS        = $7E043C
+STRXMLNSH       = $7E043D
+
+; MultiLayer North Stairs B
+STRXMLNSB       = $7E043E
+STRXMLNSBH      = $7E043F
+
+; Merged (Combined) Layer North A
+STRXCLNSA       = $7E0440
+STRXCLNSAH      = $7E0441
+
+; Merged (Combined) Layer North B
+STRXCLNSB       = $7E0442
+STRXCLNSBH      = $7E0443
+
+; Water Hop Stairs A
+STRXWHSA        = $7E0444
+STRXWHSAH       = $7E0445
+
+; Water Hop Stairs B
+STRXWHSB        = $7E0446
+STRXWHSBH       = $7E0447
+
+; Most North Stairs Kinda
+STRXMNSK        = $7E0448
+STRXMNSKH       = $7E0449
 
 ; Identifies the layer interaction behavior of a room.
 ; Also known as "EG Strength"
@@ -2238,19 +2268,27 @@ ARMEG           = $7E047A
 ; FREE RAM: 0x01
 UNUSED_7E047B   = $7E047B
 
-; Flag to adjust the offset of water vomit face drawing.
+; Tilemap offset of water vomit face
 H20VOMIT        = $7E047C
 H20VOMITH       = $7E047D
 
-; Used to index stairs of all types when building rooms.
-STAIRSI3        = $7E047E
-STAIRSI3H       = $7E047F
-STAIRSI4        = $7E0480
-STAIRSI4H       = $7E0481
-STAIRSI5        = $7E0482
-STAIRSI5H       = $7E0483
-STAIRSI6        = $7E0484
-STAIRSI6H       = $7E0485
+; More stair index spaghetti
+
+; SPiral stairs Up Upper layer
+STRXSPUU        = $7E047E
+STRXSPUUH       = $7E047F
+
+; SPiral stairs Down Upper layer
+STRXSPDU        = $7E0480
+STRXSPDUH       = $7E0481
+
+; SPiral stairs Up Lower layer
+STRXSPUL        = $7E0482
+STRXSPULH       = $7E0483
+
+; SPiral stairs Down Upper layer
+STRXSPDL        = $7E0484
+STRXSPDLH       = $7E0485
 
 ; Tilemap index of bomb walls in overworld
 BWALLT1         = $7E0486
@@ -2284,33 +2322,48 @@ RAINSTEP        = $7E0494
 ; FREE RAM: 0x01
 UNUSED_7E0495   = $7E0495
 
-; Used to index chests when building rooms.
-CHESTINDEX      = $7E0496
-CHESTINDEXH     = $7E0497
-CHESTINDEX2     = $7E0498
-CHESTINDEX2H    = $7E0499
+; Used to index chests (and locks) when building rooms.
+CHESTX          = $7E0496
+CHESTXH         = $7E0497
 
-; Indexes south inter-room stairs when building rooms.
-SSTAIRI         = $7E049A
-SSTAIRIH        = $7E049B
-SSTAIRI2        = $7E049C
-SSTAIRI2H       = $7E049D
-SSTAIRI3        = $7E049E
-SSTAIRI3H       = $7E049F
+LOCKX           = $7E0498
+LOCKXH          = $7E0499
+
+; Hooray! Stairs!!!!
+
+; MultiLayer South A
+STRXMLSA        = $7E049A
+STRXMLSAH       = $7E049B
+
+; MultiLayer South B
+STRXMLSB        = $7E049C
+STRXMLSBH       = $7E049D
+
+; MultiLayer South C
+STRXMLSC        = $7E049E
+STRXMLSCH       = $7E049F
 
 ; Timer used to display the floor number on HUD. Counts up to 0x00C0
 FLOORTIME       = $7E04A0
 FLOORTIMEH      = $7E04A1
 
-; More stair indexing for some stupid reason...
-STAIRSI7        = $7E04A2
-STAIRSI7H       = $7E04A3
-STAIRSI8        = $7E04A4
-STAIRSI8H       = $7E04A5
-STAIRSI9        = $7E04A6
-STAIRSI9H       = $7E04A7
-STAIRSIA        = $7E04A8
-STAIRSIAH       = $7E04A9
+; STAAAAAAAAAIIIIIRRRRRRRSSSSSSSSSSSSS
+
+; InterRoom Straight North Up
+STRXIRSNU       = $7E04A2
+STRXIRSNUH      = $7E04A3
+
+; InterRoom Straight South Up
+STRXIRSSU       = $7E04A4
+STRXIRSSUH      = $7E04A5
+
+; InterRoom Straight North Down
+STRXIRSND       = $7E04A6
+STRXIRSNDH      = $7E04A7
+
+; InterRoom Straight South Down
+STRXIRSSD       = $7E04A8
+STRXIRSSDH      = $7E04A9
 
 ; If set, entrance loading is treated as respawning.
 RESPAWN         = $7E04AA
@@ -2320,9 +2373,9 @@ RESPAWNH        = $7E04AB
 M16CHINDX       = $7E04AC
 M16CHINDXH      = $7E04AD
 
-; More south auto stairs...
-SSTAIRI4        = $7E04AE
-SSTAIRI4H       = $7E04AF
+; Merged (Combined) Layer South B
+STRXCLSS        = $7E04AE
+STRXCLSSH       = $7E04AF
 
 ; TODO
 ; Tilemap thing with unused object.
@@ -2399,22 +2452,22 @@ BEEP            = $7E04CA
 UNUSED_7E04CA   = $7E04CB
 
 ; Countdown timers for torches.
-TORCH0          = $7E04F0
-TORCH1          = $7E04F1
-TORCH2          = $7E04F2
-TORCH3          = $7E04F3
-TORCH4          = $7E04F4
-TORCH5          = $7E04F5
-TORCH6          = $7E04F6
-TORCH7          = $7E04F7
-TORCH8          = $7E04F8
-TORCH9          = $7E04F9
-TORCHA          = $7E04FA
-TORCHB          = $7E04FB
-TORCHC          = $7E04FC
-TORCHD          = $7E04FD
-TORCHE          = $7E04FE
-TORCHF          = $7E04FF
+TORCHTM0        = $7E04F0
+TORCHTM1        = $7E04F1
+TORCHTM2        = $7E04F2
+TORCHTM3        = $7E04F3
+TORCHTM4        = $7E04F4
+TORCHTM5        = $7E04F5
+TORCHTM6        = $7E04F6
+TORCHTM7        = $7E04F7
+TORCHTM8        = $7E04F8
+TORCHTM9        = $7E04F9
+TORCHTMA        = $7E04FA
+TORCHTMB        = $7E04FB
+TORCHTMC        = $7E04FC
+TORCHTMD        = $7E04FD
+TORCHTME        = $7E04FE
+TORCHTMF        = $7E04FF
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -2441,7 +2494,7 @@ M16BUFF520      = $7E0520
 ;   0x3232 - Bombable floor
 ;   0x3333 - Bombable floor
 ;   0x4040 - Hammer peg
-MANIPPROPS      = $7E0500
+MANIPTYPE       = $7E0500
 
 ; Offset into ROM data of the object
 MANIPOBJX       = $7E0520
@@ -2739,24 +2792,24 @@ WARP_7E06AE     = $7E06AE
 WARP_7E06AF     = $7E06AF
 
 ; Tilemap positions of interroom stairs
-ISTAIR0SAT      = $7E06B0
-ISTAIR0SATH     = $7E06B1
-ISTAIR1SAT      = $7E06B2
-ISTAIR1SATH     = $7E06B3
-ISTAIR2SAT      = $7E06B4
-ISTAIR2SATH     = $7E06B5
-ISTAIRS3AT      = $7E06B6
-ISTAIRS3ATH     = $7E06B7
+ISTRAT0         = $7E06B0
+ISTRAT0H        = $7E06B1
+ISTRAT1         = $7E06B2
+ISTRAT1H        = $7E06B3
+ISTRAT2         = $7E06B4
+ISTRAT2H        = $7E06B5
+ISTRAT3         = $7E06B6
+ISTRAT3H        = $7E06B7
 
-; Tilemap positions of north stairs
-NSTAIR0SAT      = $7E06B8
-NSTAIR0SATH     = $7E06B9
-NSTAIR1SAT      = $7E06BA
-NSTAIR1SATH     = $7E06BB
-NSTAIR2SAT      = $7E06BC
-NSTAIR2SATH     = $7E06BD
-NSTAIRS3AT      = $7E06BE
-NSTAIRS3ATH     = $7E06BF
+; Tilemap positions of north stairs (mostly)
+NSTRAT3H        = $7E06B8
+NSTRAT3         = $7E06B9
+NSTRAT2H        = $7E06BA
+NSTRAT2         = $7E06BB
+NSTRAT1H        = $7E06BC
+NSTRAT1         = $7E06BD
+NSTRAT0H        = $7E06BE
+NSTRAT0         = $7E06BF
 
 ; Tilemap positions of layer toggle doors
 BGTOGGLEAT      = $7E06C0
@@ -2765,24 +2818,34 @@ BGTOGGLEAT      = $7E06C0
 DTOGGLEAT       = $7E06D0
 
 ; Tilemap positions of locked chests and cell doors
-CHEST0AT        = $7E06E0
-CHEST0ATH       = $7E06E1
-CHEST1AT        = $7E06E2
-CHEST1ATH       = $7E06E3
-CHEST2AT        = $7E06E4
-CHEST2ATH       = $7E06E5
-CHEST3AT        = $7E06E6
-CHEST3ATH       = $7E06E7
-CHEST4AT        = $7E06E8
-CHEST4ATH       = $7E06E9
-CHEST5AT        = $7E06EA
-CHEST5ATH       = $7E06EB
+CHAT0           = $7E06E0
+CHAT0H          = $7E06E1
+CHAT1           = $7E06E2
+CHAT1H          = $7E06E3
+CHAT2           = $7E06E4
+CHAT2H          = $7E06E5
+CHAT3           = $7E06E6
+CHAT3H          = $7E06E7
+CHAT4           = $7E06E8
+CHAT4H          = $7E06E9
+CHAT5           = $7E06EA
+CHAT5H          = $7E06EB
 
 ; Tilemap positions of south stairs
-; TODO
-SSTAIRAT        = $7E06EC
+SSTRAT0         = $7E06EC
+SSTRAT0H        = $7E06ED
+SSTRAT1         = $7E06EE
+SSTRAT1H        = $7E06EF
+SSTRAT2         = $7E06F0
+SSTRAT2H        = $7E06F1
+SSTRAT3         = $7E06F2
+SSTRAT3H        = $7E06F3
 
-; FREE RAM: 0x08
+; FREE RAM: 0x0C
+UNUSED_7E06F4   = $7E06F4
+UNUSED_7E06F5   = $7E06F5
+UNUSED_7E06F6   = $7E06F6
+UNUSED_7E06F7   = $7E06F7
 UNUSED_7E06F8   = $7E06F8
 UNUSED_7E06F9   = $7E06F9
 UNUSED_7E06FA   = $7E06FA
@@ -2859,12 +2922,12 @@ MAP16OVERFLOW   = $7E0718
 ;---------------------------------------------------------------------------------------------------
 
 ; Main buffer sent to OAM
-OAMBUFF         = $7E0800
-OAMBUFF2        = $7E0A00
+OAMQL           = $7E0800
+OAMQH           = $7E0A00
 
 ; Holds the 2 auxiliary bits of OAM data.
 ; ORA'd in every frame.
-OAMBUFFSX       = $7E0A20
+OAMQSX          = $7E0A20
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -3182,11 +3245,7 @@ BLINDDIR        = $7E0B69
 ; Also used for Blind's current phase
 LIMSPRCT        = $7E0B6A
 
-; tttt a.bp
-;   t - tile hitbox TODO ???
-;   a - deflect arrows TODO VERIFY
-;   b - boss death
-;   p - idk
+; TODO copy this and others from bank0D once all fully verified
 SPR0TILEDIE     = $7E0B6B
 SPR1TILEDIE     = $7E0B6C
 SPR2TILEDIE     = $7E0B6D
@@ -3210,10 +3269,10 @@ SPRFTILEDIE     = $7E0B7A
 SANDPIT         = $7E0B7B
 
 ; Drag velocities used by sandpits and somaria
-DRAGYL          = $7E0B7C
-DRAGYH          = $7E0B7D
-DRAGXL          = $7E0B7E
-DRAGXH          = $7E0B7F
+DRAGXL          = $7E0B7C
+DRAGXH          = $7E0B7D
+DRAGYL          = $7E0B7E
+DRAGYH          = $7E0B7F
 
 ; Last 4 rooms visit
 LASTROOM0       = $7E0B80
@@ -3228,24 +3287,23 @@ LASTROOM3H      = $7E0B87
 ; Number of octorok targets hit in arrow game
 THEX99          = $7E0B88
 
-; TODO
-; Something with sprite priority
-SPR0PRIO        = $7E0B89
-SPR1PRIO        = $7E0B8A
-SPR2PRIO        = $7E0B8B
-SPR3PRIO        = $7E0B8C
-SPR4PRIO        = $7E0B8D
-SPR5PRIO        = $7E0B8E
-SPR6PRIO        = $7E0B8F
-SPR7PRIO        = $7E0B90
-SPR8PRIO        = $7E0B91
-SPR9PRIO        = $7E0B92
-SPRAPRIO        = $7E0B93
-SPRBPRIO        = $7E0B94
-SPRCPRIO        = $7E0B95
-SPRDPRIO        = $7E0B96
-SPREPRIO        = $7E0B97
-SPRFPRIO        = $7E0B98
+; XOR'd with OAM properties
+SPR0OX          = $7E0B89
+SPR1OX          = $7E0B8A
+SPR2OX          = $7E0B8B
+SPR3OX          = $7E0B8C
+SPR4OX          = $7E0B8D
+SPR5OX          = $7E0B8E
+SPR6OX          = $7E0B8F
+SPR7OX          = $7E0B90
+SPR8OX          = $7E0B91
+SPR9OX          = $7E0B92
+SPRAOX          = $7E0B93
+SPRBOX          = $7E0B94
+SPRCOX          = $7E0B95
+SPRDOX          = $7E0B96
+SPREOX          = $7E0B97
+SPRFOX          = $7E0B98
 
 ; Number of shots left for the arrow game
 FREESHOT        = $7E0B99
@@ -3577,7 +3635,8 @@ ANC7LAYER       = $7E0C83
 ANC8LAYER       = $7E0C84
 ANC9LAYER       = $7E0C85
 
-; OAM region offset of ancillae
+; OAM region offset of ancillae, but it's never used
+; Slots 6+ avoid it for some reason...?
 ANC0OAMR        = $7E0C86
 ANC1OAMR        = $7E0C87
 ANC2OAMR        = $7E0C88
@@ -3629,7 +3688,7 @@ SPRFSCR         = $7E0CA9
 ;   d - 
 ;   t - 
 ;   s - 
-;   p - 
+;   p - something with hookshot drag TODO
 ;   r - Handles behavior with previous deaths flagged in $7F:DF80 (0: default | 1: ignore)
 SPR0DEFL        = $7E0CAA
 SPR1DEFL        = $7E0CAB
@@ -4005,40 +4064,40 @@ SPRE_0DB0       = $7E0DBE
 SPRF_0DB0       = $7E0DBF
 
 ; Mostly used as graphics control
-SPR0_GFXSTEP    = $7E0DC0
-SPR1_GFXSTEP    = $7E0DC1
-SPR2_GFXSTEP    = $7E0DC2
-SPR3_GFXSTEP    = $7E0DC3
-SPR4_GFXSTEP    = $7E0DC4
-SPR5_GFXSTEP    = $7E0DC5
-SPR6_GFXSTEP    = $7E0DC6
-SPR7_GFXSTEP    = $7E0DC7
-SPR8_GFXSTEP    = $7E0DC8
-SPR9_GFXSTEP    = $7E0DC9
-SPRA_GFXSTEP    = $7E0DCA
-SPRB_GFXSTEP    = $7E0DCB
-SPRC_GFXSTEP    = $7E0DCC
-SPRD_GFXSTEP    = $7E0DCD
-SPRE_GFXSTEP    = $7E0DCE
-SPRF_GFXSTEP    = $7E0DCF
+SPR0_POSE       = $7E0DC0
+SPR1_POSE       = $7E0DC1
+SPR2_POSE       = $7E0DC2
+SPR3_POSE       = $7E0DC3
+SPR4_POSE       = $7E0DC4
+SPR5_POSE       = $7E0DC5
+SPR6_POSE       = $7E0DC6
+SPR7_POSE       = $7E0DC7
+SPR8_POSE       = $7E0DC8
+SPR9_POSE       = $7E0DC9
+SPRA_POSE       = $7E0DCA
+SPRB_POSE       = $7E0DCB
+SPRC_POSE       = $7E0DCC
+SPRD_POSE       = $7E0DCD
+SPRE_POSE       = $7E0DCE
+SPRF_POSE       = $7E0DCF
 
 ; Main AI state of the sprite
-SPR0_AIMODE     = $7E0DD0
-SPR1_AIMODE     = $7E0DD1
-SPR2_AIMODE     = $7E0DD2
-SPR3_AIMODE     = $7E0DD3
-SPR4_AIMODE     = $7E0DD4
-SPR5_AIMODE     = $7E0DD5
-SPR6_AIMODE     = $7E0DD6
-SPR7_AIMODE     = $7E0DD7
-SPR8_AIMODE     = $7E0DD8
-SPR9_AIMODE     = $7E0DD9
-SPRA_AIMODE     = $7E0DDA
-SPRB_AIMODE     = $7E0DDB
-SPRC_AIMODE     = $7E0DDC
-SPRD_AIMODE     = $7E0DDD
-SPRE_AIMODE     = $7E0DDE
-SPRF_AIMODE     = $7E0DDF
+SPR0_STATE      = $7E0DD0
+SPR1_STATE      = $7E0DD1
+SPR2_STATE      = $7E0DD2
+SPR3_STATE      = $7E0DD3
+SPR4_STATE      = $7E0DD4
+SPR5_STATE      = $7E0DD5
+SPR6_STATE      = $7E0DD6
+SPR7_STATE      = $7E0DD7
+SPR8_STATE      = $7E0DD8
+SPR9_STATE      = $7E0DD9
+SPRA_STATE      = $7E0DDA
+SPRB_STATE      = $7E0DDB
+SPRC_STATE      = $7E0DDC
+SPRD_STATE      = $7E0DDD
+SPRE_STATE      = $7E0DDE
+SPRF_STATE      = $7E0DDF
 
 ; TODO
 SPR0_0DE0       = $7E0DE0
@@ -4216,22 +4275,22 @@ SPRE_PROPS      = $7E0E6E
 SPRF_PROPS      = $7E0E6F
 
 ; TODO
-SPR0_COLLIDE    = $7E0E70
-SPR1_COLLIDE    = $7E0E71
-SPR2_COLLIDE    = $7E0E72
-SPR3_COLLIDE    = $7E0E73
-SPR4_COLLIDE    = $7E0E74
-SPR5_COLLIDE    = $7E0E75
-SPR6_COLLIDE    = $7E0E76
-SPR7_COLLIDE    = $7E0E77
-SPR8_COLLIDE    = $7E0E78
-SPR9_COLLIDE    = $7E0E79
-SPRA_COLLIDE    = $7E0E7A
-SPRB_COLLIDE    = $7E0E7B
-SPRC_COLLIDE    = $7E0E7C
-SPRD_COLLIDE    = $7E0E7D
-SPRE_COLLIDE    = $7E0E7E
-SPRF_COLLIDE    = $7E0E7F
+SPR0_COL        = $7E0E70
+SPR1_COL        = $7E0E71
+SPR2_COL        = $7E0E72
+SPR3_COL        = $7E0E73
+SPR4_COL        = $7E0E74
+SPR5_COL        = $7E0E75
+SPR6_COL        = $7E0E76
+SPR7_COL        = $7E0E77
+SPR8_COL        = $7E0E78
+SPR9_COL        = $7E0E79
+SPRA_COL        = $7E0E7A
+SPRB_COL        = $7E0E7B
+SPRC_COL        = $7E0E7C
+SPRD_COL        = $7E0E7D
+SPRE_COL        = $7E0E7E
+SPRF_COL        = $7E0E7F
 
 ; TODO
 SPR0_0E80       = $7E0E80
@@ -4359,23 +4418,23 @@ SPRD_TIMER_D    = $7E0EED
 SPRE_TIMER_D    = $7E0EEE
 SPRF_TIMER_D    = $7E0EEF
 
-; TODO
-SPR0_DMGTIMER   = $7E0EF0
-SPR1_DMGTIMER   = $7E0EF1
-SPR2_DMGTIMER   = $7E0EF2
-SPR3_DMGTIMER   = $7E0EF3
-SPR4_DMGTIMER   = $7E0EF4
-SPR5_DMGTIMER   = $7E0EF5
-SPR6_DMGTIMER   = $7E0EF6
-SPR7_DMGTIMER   = $7E0EF7
-SPR8_DMGTIMER   = $7E0EF8
-SPR9_DMGTIMER   = $7E0EF9
-SPRA_DMGTIMER   = $7E0EFA
-SPRB_DMGTIMER   = $7E0EFB
-SPRC_DMGTIMER   = $7E0EFC
-SPRD_DMGTIMER   = $7E0EFD
-SPRE_DMGTIMER   = $7E0EFE
-SPRF_DMGTIMER   = $7E0EFF
+; damage timer
+SPR0_DMGTM      = $7E0EF0
+SPR1_DMGTM      = $7E0EF1
+SPR2_DMGTM      = $7E0EF2
+SPR3_DMGTM      = $7E0EF3
+SPR4_DMGTM      = $7E0EF4
+SPR5_DMGTM      = $7E0EF5
+SPR6_DMGTM      = $7E0EF6
+SPR7_DMGTM      = $7E0EF7
+SPR8_DMGTM      = $7E0EF8
+SPR9_DMGTM      = $7E0EF9
+SPRA_DMGTM      = $7E0EFA
+SPRB_DMGTM      = $7E0EFB
+SPRC_DMGTM      = $7E0EFC
+SPRD_DMGTM      = $7E0EFD
+SPRE_DMGTM      = $7E0EFE
+SPRF_DMGTM      = $7E0EFF
 
 ; TODO
 SPR0_HALT       = $7E0F00
@@ -4431,42 +4490,42 @@ SPRD_LAYER      = $7E0F2D
 SPRE_LAYER      = $7E0F2E
 SPRF_LAYER      = $7E0F2F
 
-; TODO
+; Sprite knockback
 ; y-axis
-SPR0_RECOILY    = $7E0F30
-SPR1_RECOILY    = $7E0F31
-SPR2_RECOILY    = $7E0F32
-SPR3_RECOILY    = $7E0F33
-SPR4_RECOILY    = $7E0F34
-SPR5_RECOILY    = $7E0F35
-SPR6_RECOILY    = $7E0F36
-SPR7_RECOILY    = $7E0F37
-SPR8_RECOILY    = $7E0F38
-SPR9_RECOILY    = $7E0F39
-SPRA_RECOILY    = $7E0F3A
-SPRB_RECOILY    = $7E0F3B
-SPRC_RECOILY    = $7E0F3C
-SPRD_RECOILY    = $7E0F3D
-SPRE_RECOILY    = $7E0F3E
-SPRF_RECOILY    = $7E0F3F
+SPR0_KNBY       = $7E0F30
+SPR1_KNBY       = $7E0F31
+SPR2_KNBY       = $7E0F32
+SPR3_KNBY       = $7E0F33
+SPR4_KNBY       = $7E0F34
+SPR5_KNBY       = $7E0F35
+SPR6_KNBY       = $7E0F36
+SPR7_KNBY       = $7E0F37
+SPR8_KNBY       = $7E0F38
+SPR9_KNBY       = $7E0F39
+SPRA_KNBY       = $7E0F3A
+SPRB_KNBY       = $7E0F3B
+SPRC_KNBY       = $7E0F3C
+SPRD_KNBY       = $7E0F3D
+SPRE_KNBY       = $7E0F3E
+SPRF_KNBY       = $7E0F3F
 
 ; x-axis
-SPR0_RECOILX    = $7E0F40
-SPR1_RECOILX    = $7E0F41
-SPR2_RECOILX    = $7E0F42
-SPR3_RECOILX    = $7E0F43
-SPR4_RECOILX    = $7E0F44
-SPR5_RECOILX    = $7E0F45
-SPR6_RECOILX    = $7E0F46
-SPR7_RECOILX    = $7E0F47
-SPR8_RECOILX    = $7E0F48
-SPR9_RECOILX    = $7E0F49
-SPRA_RECOILX    = $7E0F4A
-SPRB_RECOILX    = $7E0F4B
-SPRC_RECOILX    = $7E0F4C
-SPRD_RECOILX    = $7E0F4D
-SPRE_RECOILX    = $7E0F4E
-SPRF_RECOILX    = $7E0F4F
+SPR0_KNBX       = $7E0F40
+SPR1_KNBX       = $7E0F41
+SPR2_KNBX       = $7E0F42
+SPR3_KNBX       = $7E0F43
+SPR4_KNBX       = $7E0F44
+SPR5_KNBX       = $7E0F45
+SPR6_KNBX       = $7E0F46
+SPR7_KNBX       = $7E0F47
+SPR8_KNBX       = $7E0F48
+SPR9_KNBX       = $7E0F49
+SPRA_KNBX       = $7E0F4A
+SPRB_KNBX       = $7E0F4B
+SPRC_KNBX       = $7E0F4C
+SPRD_KNBX       = $7E0F4D
+SPRE_KNBX       = $7E0F4E
+SPRF_KNBX       = $7E0F4F
 
 ; Actual props copied to OAM
 SPR0_OAMPROP    = $7E0F50
@@ -4488,11 +4547,10 @@ SPRF_OAMPROP    = $7E0F5F
 
 ; Mostly controls collision related stuff
 ; isph hhhh
-;   i - ignore collision stuff? TODO
+;   i - ignore collision stuff?
 ;   s - "statis"; sprite doesn't count for kill rooms if set
-;   p - activeness? TODO
+;   p - overworld activeness
 ;   h - hitbox ID
-; TODO HITBOXES
 SPR0_COLPROP    = $7E0F60
 SPR1_COLPROP    = $7E0F61
 SPR2_COLPROP    = $7E0F62
@@ -4639,12 +4697,11 @@ OWLDSYH         = $7E0FBF
 ; FREE RAM: 0x01
 UNUSED_7E0FC0   = $7E0FC0
 
-; Seems to freeze sprites
-; TODO: usage
-FREEZESPR       = $7E0FC1
+; Stops most sprites from running most of their AI
+STOPSPR         = $7E0FC1
 
 ; Cache of Link's coordinates
-; Done at the beginning of Link_Main every frame
+; Done at the beginning of Link ($078000) every frame
 ; In X,Y order instead of Y,X for some reason
 POSX2L          = $7E0FC2
 POSX2H          = $7E0FC3
@@ -4703,14 +4760,14 @@ OAMAH           = $7E0FE0
 OAMAL           = $7E0FE1
 OAMBH           = $7E0FE2
 OAMBL           = $7E0FE3
-OAMCH           = $7E0FF4
-OAMCL           = $7E0FF5
-OAMDH           = $7E0FF6
-OAMDL           = $7E0FF7
-OAMEH           = $7E0FF8
-OAMEL           = $7E0FF9
-OAMFH           = $7E0FFA
-OAMFL           = $7E0FFB
+OAMCH           = $7E0FE4
+OAMCL           = $7E0FE5
+OAMDH           = $7E0FE6
+OAMDL           = $7E0FE7
+OAMEH           = $7E0FE8
+OAMEL           = $7E0FE9
+OAMFH           = $7E0FEA
+OAMFL           = $7E0FEB
 
 ; Used to find backup regions for OAM regions
 ; High byte unused but always written 0
@@ -4996,15 +5053,15 @@ BORDADD         = $7E1CD0
 BORDADDH        = $7E1CD1
 
 ; VRAM address>>1 of dialog window
-MSGWPOSL        = $7E1CD2
+MSGWPOS         = $7E1CD2
 MSGWPOSH        = $7E1CD3
 
 ; Subsubmodule on what to draw
 MSGSUBSUB       = $7E1CD4
 
-; TODO how exactly this is used?
-MSGSPEEDB       = $7E1CD5
-MSGSPEEDA       = $7E1CD6
+; Frame countdown and starting value for time between characters
+MSGTICK         = $7E1CD5
+MSGSPEED        = $7E1CD6
 
 ; Used as a counter to render border window
 MSGBRDCNT       = $7E1CD7
@@ -5016,8 +5073,8 @@ MSGSUB          = $7E1CD8
 MSGBFROFF       = $7E1CD9
 MSGBFROFFH      = $7E1CDA
 
-; FREE RAM: 0x01
-UNUSED_7E1CDB   = $7E1CDB
+; Initialized with 00, but goes unused.
+JUNK_7E1CDB     = $7E1CDB
 
 ; High byte of message tilemap definition (including props; color)
 MSGPROP         = $7E1CDC
@@ -5026,8 +5083,8 @@ MSGPROP         = $7E1CDC
 MSGDATAOFF      = $7E1CDD
 MSGDATAOFFH     = $7E1CDE
 
-; Initialized with 00, but seems unused.
-JUNK_7E1CDF     = $7E1CDF
+; Is part of the VWF code in US, suggesting the VWF was written early on.
+MSGVWFCTR       = $7E1CDF
 
 ; Wait timer delay
 MSGWAIT         = $7E1CE0
@@ -5051,7 +5108,7 @@ MSGCHOICE       = $7E1CE8
 ; Delay timer for various actions
 MSGDELAY        = $7E1CE9
 
-; Handles scrolling loops, but poorly implemented and unused
+; Handles scrolling loops
 MSGSCRLX        = $7E1CEA
 
 ; Initialized with 00, but unused
@@ -5372,12 +5429,12 @@ UNUSED_7E1FFF   = $7E1FFF
 ;===================================================================================================
 
 ; In the underworld, this holds a copy of the entire BG tilemap for
-; Layer 1 (BG2) in TILEMAPA
-; Layer 2 (BG1) in TILEMAPB
+; Layer 1 (BG2) in TMAPA
+; Layer 2 (BG1) in TMAPB
 ;
 ; In the overworld, this holds the entire map16 space, using both blocks as a single array
-TILEMAPA        = $7E2000
-TILEMAPB        = $7E4000
+TMAPA           = $7E2000
+TMAPB           = $7E4000
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -5748,7 +5805,7 @@ CACHE_HDMAENQ   = $7EC229
 ; BIG FREE RAM: 0xCE
 UNUSED_7EC22A   = $7EC22A
 
-; Lists the currently loaded sheets to check against for decompression.
+; Caches the currently loaded sheets to check against for sheet changes.
 LASTBGSET0      = $7EC2F8
 LASTBGSET1      = $7EC2F9
 LASTBGSET2      = $7EC2FA
@@ -5876,7 +5933,7 @@ POLYDRAW        = $7EE800
 ;---------------------------------------------------------------------------------------------------
 
 ; SRAM mirror for current file
-; see symbols_sram.asm
+; see «symbols_sram.asm»
 WRAMSAVE        = $7EF000
 
 ;---------------------------------------------------------------------------------------------------
@@ -5926,7 +5983,12 @@ DECOMPA         = $7F0000
 
 ;---------------------------------------------------------------------------------------------------
 
-; In the underworld, these arrays contain tile the tile's collision type for each layer.
+; Used for parsed message data
+MSGBFR          = $7F1200
+
+;---------------------------------------------------------------------------------------------------
+
+; In the underworld, these blocks contain the tile's collision type for each layer.
 ; Layer 1 (COLMAPA)
 ; Layer 2 (COLMAPB)
 ; 1 byte per tile. See «values.asm» for TILETYPE definitions
@@ -6729,69 +6791,69 @@ GRN1B_VX        = $7FF8CF
 GRN1C_VX        = $7FF8D0
 GRN1D_VX        = $7FF8D1
 
-; TODO
-GRN00_8D2       = $7FF8D2
-GRN01_8D2       = $7FF8D3
-GRN02_8D2       = $7FF8D4
-GRN03_8D2       = $7FF8D5
-GRN04_8D2       = $7FF8D6
-GRN05_8D2       = $7FF8D7
-GRN06_8D2       = $7FF8D8
-GRN07_8D2       = $7FF8D9
-GRN08_8D2       = $7FF8DA
-GRN09_8D2       = $7FF8DB
-GRN0A_8D2       = $7FF8DC
-GRN0B_8D2       = $7FF8DD
-GRN0C_8D2       = $7FF8DE
-GRN0D_8D2       = $7FF8DF
-GRN0E_8D2       = $7FF8E0
-GRN0F_8D2       = $7FF8E1
-GRN10_8D2       = $7FF8E2
-GRN11_8D2       = $7FF8E3
-GRN12_8D2       = $7FF8E4
-GRN13_8D2       = $7FF8E5
-GRN14_8D2       = $7FF8E6
-GRN15_8D2       = $7FF8E7
-GRN16_8D2       = $7FF8E8
-GRN17_8D2       = $7FF8E9
-GRN18_8D2       = $7FF8EA
-GRN19_8D2       = $7FF8EB
-GRN1A_8D2       = $7FF8EC
-GRN1B_8D2       = $7FF8ED
-GRN1C_8D2       = $7FF8EE
-GRN1D_8D2       = $7FF8EF
+; sub velocities
+GRN00SUBVY      = $7FF8D2
+GRN01SUBVY      = $7FF8D3
+GRN02SUBVY      = $7FF8D4
+GRN03SUBVY      = $7FF8D5
+GRN04SUBVY      = $7FF8D6
+GRN05SUBVY      = $7FF8D7
+GRN06SUBVY      = $7FF8D8
+GRN07SUBVY      = $7FF8D9
+GRN08SUBVY      = $7FF8DA
+GRN09SUBVY      = $7FF8DB
+GRN0ASUBVY      = $7FF8DC
+GRN0BSUBVY      = $7FF8DD
+GRN0CSUBVY      = $7FF8DE
+GRN0DSUBVY      = $7FF8DF
+GRN0ESUBVY      = $7FF8E0
+GRN0FSUBVY      = $7FF8E1
+GRN10SUBVY      = $7FF8E2
+GRN11SUBVY      = $7FF8E3
+GRN12SUBVY      = $7FF8E4
+GRN13SUBVY      = $7FF8E5
+GRN14SUBVY      = $7FF8E6
+GRN15SUBVY      = $7FF8E7
+GRN16SUBVY      = $7FF8E8
+GRN17SUBVY      = $7FF8E9
+GRN18SUBVY      = $7FF8EA
+GRN19SUBVY      = $7FF8EB
+GRN1ASUBVY      = $7FF8EC
+GRN1BSUBVY      = $7FF8ED
+GRN1CSUBVY      = $7FF8EE
+GRN1DSUBVY      = $7FF8EF
 
-; TODO
-GRN00_8F0       = $7FF8F0
-GRN01_8F0       = $7FF8F1
-GRN02_8F0       = $7FF8F2
-GRN03_8F0       = $7FF8F3
-GRN04_8F0       = $7FF8F4
-GRN05_8F0       = $7FF8F5
-GRN06_8F0       = $7FF8F6
-GRN07_8F0       = $7FF8F7
-GRN08_8F0       = $7FF8F8
-GRN09_8F0       = $7FF8F9
-GRN0A_8F0       = $7FF8FA
-GRN0B_8F0       = $7FF8FB
-GRN0C_8F0       = $7FF8FC
-GRN0D_8F0       = $7FF8FD
-GRN0E_8F0       = $7FF8FE
-GRN0F_8F0       = $7FF8FF
-GRN10_8F0       = $7FF900
-GRN11_8F0       = $7FF901
-GRN12_8F0       = $7FF902
-GRN13_8F0       = $7FF903
-GRN14_8F0       = $7FF904
-GRN15_8F0       = $7FF905
-GRN16_8F0       = $7FF906
-GRN17_8F0       = $7FF907
-GRN18_8F0       = $7FF908
-GRN19_8F0       = $7FF909
-GRN1A_8F0       = $7FF90A
-GRN1B_8F0       = $7FF90B
-GRN1C_8F0       = $7FF90C
-GRN1D_8F0       = $7FF90D
+; sub velocity x
+GRN00SUBVX      = $7FF8F0
+GRN01SUBVX      = $7FF8F1
+GRN02SUBVX      = $7FF8F2
+GRN03SUBVX      = $7FF8F3
+GRN04SUBVX      = $7FF8F4
+GRN05SUBVX      = $7FF8F5
+GRN06SUBVX      = $7FF8F6
+GRN07SUBVX      = $7FF8F7
+GRN08SUBVX      = $7FF8F8
+GRN09SUBVX      = $7FF8F9
+GRN0ASUBVX      = $7FF8FA
+GRN0BSUBVX      = $7FF8FB
+GRN0CSUBVX      = $7FF8FC
+GRN0DSUBVX      = $7FF8FD
+GRN0ESUBVX      = $7FF8FE
+GRN0FSUBVX      = $7FF8FF
+GRN10SUBVX      = $7FF900
+GRN11SUBVX      = $7FF901
+GRN12SUBVX      = $7FF902
+GRN13SUBVX      = $7FF903
+GRN14SUBVX      = $7FF904
+GRN15SUBVX      = $7FF905
+GRN16SUBVX      = $7FF906
+GRN17SUBVX      = $7FF907
+GRN18SUBVX      = $7FF908
+GRN19SUBVX      = $7FF909
+GRN1ASUBVX      = $7FF90A
+GRN1BSUBVX      = $7FF90B
+GRN1CSUBVX      = $7FF90C
+GRN1DSUBVX      = $7FF90D
 
 ; TODO
 GRN00_TIMER     = $7FF90E
@@ -7094,8 +7156,25 @@ SPRDICED        = $7FFA49
 SPREICED        = $7FFA4A
 SPRFICED        = $7FFA4B
 
+; flags sprites that were dashed into
+SPR0DASHED      = $7FFA4C
+SPR1DASHED      = $7FFA4D
+SPR2DASHED      = $7FFA4E
+SPR3DASHED      = $7FFA4F
+SPR4DASHED      = $7FFA50
+SPR5DASHED      = $7FFA51
+SPR6DASHED      = $7FFA52
+SPR7DASHED      = $7FFA53
+SPR8DASHED      = $7FFA54
+SPR9DASHED      = $7FFA55
+SPRADASHED      = $7FFA56
+SPRBDASHED      = $7FFA57
+SPRCDASHED      = $7FFA58
+SPRDDASHED      = $7FFA59
+SPREDASHED      = $7FFA5A
+SPRFDASHED      = $7FFA5B
+
 ; Sprite variable caching during transitions
-SPRCACHE_7FFA4C = $7FFA4C
 SPRCACHE_7FFA5C = $7FFA5C
 SPRCACHE_7FFA6C = $7FFA6C
 SPRCACHE_7FFA7C = $7FFA7C
@@ -7156,10 +7235,8 @@ SEGMENTS_7FFD00 = $7FFC00
 ; Seems to have space for multiple slots
 ; even though Ganon only uses 1 slot himself
 ; In fact, the trident catch only uses that slot
-GANONWARPXL     = $7FFD5C
-GANONWARPXH     = $7FFD62
-GANONWARPYL     = $7FFD68
-GANONWARPYH     = $7FFD6E
+GANONWARPX      = $7FFD5C
+GANONWARPY      = $7FFD68
 
 ; Used with drawing segmented enemies
 SEGMENTS_7FFD80 = $7FFD80
