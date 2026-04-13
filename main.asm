@@ -1,11 +1,6 @@
-lorom
-math pri on
-arch 65816
-check bankcross off
+lang wdc65816
 
-incsrc "functions.asm"
-incsrc "registers.asm"
-incsrc "registers_spc.asm"
+bankguard off
 
 incsrc "bank_00.asm"
 incsrc "bank_01.asm"

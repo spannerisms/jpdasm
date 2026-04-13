@@ -55,7 +55,7 @@ E0 xx          Instrument change
 E1 xx          Set pan
    xx          lr.ppppp
                  p - level [0,14] => 00 right, 0A middle, 14 left
-                 r - phase invert left
+                 l - phase invert left
                  r - phase invert right
 ----------------------------------------------------------------------------------------------------
 E2 xx yy       Panning gradual change
@@ -84,10 +84,10 @@ E8 xx yy       Tempo gradual change
    yy          Target
 ----------------------------------------------------------------------------------------------------
 E9 xx          Transpose global
-   xx          Signed absolute new transpose
+   xx          Signed absolute new transposition
 ----------------------------------------------------------------------------------------------------
 EA xx          Transpose channel
-   xx          Signed absolute new transpose
+   xx          Signed absolute new transposition
 ----------------------------------------------------------------------------------------------------
 EB xx yy zz    Volume tremolo
    xx          Delay
@@ -107,8 +107,8 @@ EF xx yy zz    Call part subroutine
    xx yy       Pointer $yyxx
    zz          Number of plays
 ----------------------------------------------------------------------------------------------------
-F0 xx          Set vibrato gradient timer
-   xx          Duration
+F0 xx          Set vibrato amplitude
+   xx          Value
 ----------------------------------------------------------------------------------------------------
 F1 xx yy zz    Glissando to
    xx          Delay
@@ -147,7 +147,7 @@ F9 xx yy zz    Single glissando
    yy          Duration
    zz          Target note
 ----------------------------------------------------------------------------------------------------
-FA xx          Set percussion base note
+FA xx          Set percussion base
    xx          Base sample
 ----------------------------------------------------------------------------------------------------
 FF             Loop SFX 1

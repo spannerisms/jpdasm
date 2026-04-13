@@ -1,0 +1,159 @@
+;===================================================================================================
+; Unused room objects
+;===================================================================================================
+
+011 - Diagonal wall C ◤ (upper) ↔
+012 - Diagonal wall C ◣ (upper) ↔
+013 - Diagonal wall C ◥ (upper) ↔
+014 - Diagonal wall C ◢ (upper) ↔
+015 - Diagonal wall A ◤ (lower) ↔
+016 - Diagonal wall A ◣ (lower) ↔
+017 - Diagonal wall A ◥ (lower) ↔
+018 - Diagonal wall A ◢ (lower) ↔
+01D - Diagonal wall C ◤ (lower) ↔
+01E - Diagonal wall C ◣ (lower) ↔
+01F - Diagonal wall C ◥ (lower) ↔
+020 - Diagonal wall C ◢ (lower) ↔
+023 - Pit edge ┏━┓ A (north) ↔
+024 - Pit edge ┏━┓ B (north) ↔
+025 - Pit edge ┏━┓ C (north) ↔
+026 - Pit edge ┏━┓ D (north) ↔
+035 - ????
+037 - Drapes (west, odd) ↔
+047 - ????
+048 - ????
+049 - ????
+04A - ????
+04D - Shelf A ↔
+04E - Shelf B ↔
+054 - Nothing
+057 - Nothing
+058 - Nothing
+059 - Nothing
+05A - Nothing
+05B - Cannon hole (upper, north) ↔
+05C - Cannon hole (upper, south) ↔
+06E - Nothing
+06F - Nothing
+072 - Nothing
+07E - Nothing
+095 - Line of pots ↕
+096 - Hammer pegs ↕
+097 - Nothing
+098 - Nothing
+099 - Nothing
+09A - Nothing
+09B - Nothing
+09C - Nothing
+09D - Nothing
+09E - Nothing
+09F - Nothing
+0A6 - Diagonal layer 2 mask A ◣
+0A8 - Diagonal layer 2 mask A ◢
+0AD - Nothing
+0AE - Nothing
+0AF - Nothing
+0BC - Line of pots ↔
+0BD - Hammer pegs ↔
+0BE - Nothing
+0BF - Nothing
+0CB - Nothing
+0CC - Nothing
+0CF - Nothing
+0D0 - Nothing
+0D3 - Moving wall flag
+0D4 - Moving wall flag
+0D5 - Moving wall flag
+0D6 - Moving wall flag
+0E9 - Nothing
+0EA - Nothing
+0EB - Nothing
+0EC - Nothing
+0ED - Nothing
+0EE - Nothing
+0EF - Nothing
+0F0 - Nothing
+0F1 - Nothing
+0F2 - Nothing
+0F3 - Nothing
+0F4 - Nothing
+0F5 - Nothing
+0F6 - Nothing
+0F7 - Nothing
+111 - Kinked corner south (lower) ▟
+122 - ????
+125 - ????
+126 - ????
+12B - ????
+12C - ????
+130 - Intraroom stairs north (EG0)
+13A - Interroom spiral stairs up (lower)
+13D - ????
+20D - ????
+21A - Chest (open)
+21B - Intraroom stairs south (EG0)
+29F - Interroom straight stairs down (north, upper)
+226 - Interroom straight stairs up (north, lower)
+227 - Interroom straight stairs down (north, lower)
+228 - Interroom straight stairs up (south, lower)
+22B - ????
+230 - ????
+232 - Big chest (open)
+234 - ????
+235 - ????
+236 - ????
+237 - ????
+238 - ????
+239 - ????
+249 - ????
+251 - ????
+252 - Blue peg
+253 - Orange peg
+255 - ????
+256 - Bar corner ▛
+257 - Bar corner ▙
+27F - Nothing
+
+;===================================================================================================
+; Unused messages
+;===================================================================================================
+0000 - placeholder
+0004 - debug
+003C - zora's domain; mistakenly omitted
+00F3 - fortune teller; mistakenly omitted
+
+;===================================================================================================
+; Messages in rooms without telepathy tiles
+;===================================================================================================
+MESSAGE 0039 - OW 1B, OW 1C, OW 23, OW 24
+MESSAGE 003C - OW 0F
+MESSAGE 0040 - OW 13, OW 33
+MESSAGE 00B3 - ROOM 010D
+MESSAGE 00B7 - ROOM 0056
+MESSAGE 00BD - ROOM 006A
+MESSAGE 00BE - ROOM 007C
+MESSAGE 00C1 - ROOM 00C4
+
+;===================================================================================================
+; Unused characters
+;===================================================================================================
+
+44 - ぷ
+45 - ぺ
+46 - ぽ
+4D - ぅ
+4E - ぇ
+5E - ヲ
+76 - ズ
+7F - ヂ
+85 - ヅ
+96 - ポ
+9C - ィ
+
+kanji 3B - 病
+kanji 46 - 裏
+kanji 87 - 向
+kanji B0 - 起
+kanji D3 - 復
+kanji D4 - 活
+kanji F4 - 力

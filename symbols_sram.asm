@@ -55,7 +55,7 @@ SRAMOFF         = $701FFE
 ;===================================================================================================
 ; Room flag data
 ; dddd bkut sehc qqqq
-;   d - door opened
+;   d - door opened (descending door 0, 1, 2, 3)
 ;   b - boss kill / heart container
 ;   k - key / heart piece / crystal (unused for crystals, but prevents them from dropping)
 ;   u - chest 5 / 2nd key / heart piece

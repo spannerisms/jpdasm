@@ -3,70 +3,70 @@ org $088000
 ;===================================================================================================
 
 Ancilla_SFX1_Near:
-#_088000: JSR Ancilla_SFX_Near
-#_088003: STA.w $012D
+|088000| JSR SetAncillaSFXPanNearLink
+|088003| STA.w $012D
 
-#_088006: RTS
+|088006| RTS
 
 ;===================================================================================================
 
 Ancilla_SFX2_Near:
-#_088007: JSR Ancilla_SFX_Near
-#_08800A: STA.w $012E
+|088007| JSR SetAncillaSFXPanNearLink
+|08800A| STA.w $012E
 
-#_08800D: RTS
+|08800D| RTS
 
 ;===================================================================================================
 
 Ancilla_SFX3_Near:
-#_08800E: JSR Ancilla_SFX_Near
-#_088011: STA.w $012F
+|08800E| JSR SetAncillaSFXPanNearLink
+|088011| STA.w $012F
 
-#_088014: RTS
+|088014| RTS
 
 ;===================================================================================================
 
-Ancilla_SFX_Near:
-#_088015: STA.w $0CF8
+SetAncillaSFXPanNearLink:
+|088015| STA.w $0CF8
 
-#_088018: JSL CalculateLinkSFXPan
-#_08801C: ORA.w $0CF8
+|088018| JSL CalculateLinkSFXPan
+|08801C| ORA.w $0CF8
 
-#_08801F: RTS
+|08801F| RTS
 
 ;===================================================================================================
 
 Ancilla_SFX1_Pan:
-#_088020: JSR Ancilla_SFX_SetPan
-#_088023: STA.w $012D
+|088020| JSR SetAncillaSFXPan
+|088023| STA.w $012D
 
-#_088026: RTS
+|088026| RTS
 
 ;===================================================================================================
 
 Ancilla_SFX2_Pan:
-#_088027: JSR Ancilla_SFX_SetPan
-#_08802A: STA.w $012E
+|088027| JSR SetAncillaSFXPan
+|08802A| STA.w $012E
 
-#_08802D: RTS
+|08802D| RTS
 
 ;===================================================================================================
 
 Ancilla_SFX3_Pan:
-#_08802E: JSR Ancilla_SFX_SetPan
-#_088031: STA.w $012F
+|08802E| JSR SetAncillaSFXPan
+|088031| STA.w $012F
 
-#_088034: RTS
+|088034| RTS
 
 ;===================================================================================================
 
-Ancilla_SFX_SetPan:
-#_088035: STA.w $0CF8
+SetAncillaSFXPan:
+|088035| STA.w $0CF8
 
-#_088038: JSL CalculateAncillaSFXPan
-#_08803C: ORA.w $0CF8
+|088038| JSL CalculateAncillaSFXPan
+|08803C| ORA.w $0CF8
 
-#_08803F: RTS
+|08803F| RTS
 
 
 ;===================================================================================================
@@ -74,739 +74,739 @@ Ancilla_SFX_SetPan:
 pool AncillaAdd_FireRodShot
 
 .init_check_offset_x_low
-#_088040: db   0,   0,  -8,  16
+|088040| db   0,   0,  -8,  16
 
 .init_check_offset_x_high
-#_088044: db   0,   0,  -1,   0
+|088044| db   0,   0,  -1,   0
 
 .init_check_offset_y_low
-#_088048: db  -8,  16,   3,   3
+|088048| db  -8,  16,   3,   3
 
 .init_check_offset_y_high
-#_08804C: db  -1,   0,   0,   0
+|08804C| db  -1,   0,   0,   0
 
 ;---------------------------------------------------------------------------------------------------
 ; Why do these have to be here?
 ;---------------------------------------------------------------------------------------------------
 #SomariaBulletSpeedX:
-#_088050: db   0,   0, -40,  40
-#_088054: db   0,   0, -48,  48
-#_088058: db   0,   0, -64,  64
+|088050| db   0,   0, -40,  40
+|088054| db   0,   0, -48,  48
+|088058| db   0,   0, -64,  64
 
 #SomariaBulletSpeedY:
-#_08805C: db -40,  40,   0,   0
-#_088060: db -48,  48,   0,   0
-#_088064: db -64,  64,   0,   0
+|08805C| db -40,  40,   0,   0
+|088060| db -48,  48,   0,   0
+|088064| db -64,  64,   0,   0
 
 ;---------------------------------------------------------------------------------------------------
 
 .flame_speed_x
-#_088068: db   0,   0, -64,  64
+|088068| db   0,   0, -64,  64
 
 .flame_speed_y ; bleeds into next
-#_08806C: db -64,  64,   0
+|08806C| db -64,  64,   0
 
-pool off
+endpool
 
 ;===================================================================================================
 
 AncillaObjectAllocation:
-#_08806F: db $00 ; 0x00 - NOTHING
-#_088070: db $08 ; 0x01 - SOMARIA BULLET
-#_088071: db $0C ; 0x02 - FIRE ROD SHOT
-#_088072: db $10 ; 0x03 - UNUSED
-#_088073: db $10 ; 0x04 - BEAM HIT
-#_088074: db $04 ; 0x05 - BOOMERANG
-#_088075: db $10 ; 0x06 - WALL HIT
-#_088076: db $18 ; 0x07 - BOMB
-#_088077: db $08 ; 0x08 - DOOR DEBRIS
-#_088078: db $08 ; 0x09 - ARROW
-#_088079: db $08 ; 0x0A - LODGED ARROW
-#_08807A: db $00 ; 0x0B - ICE ROD SHOT
-#_08807B: db $14 ; 0x0C - SWORD BEAM
-#_08807C: db $00 ; 0x0D - SPIN ATTACK FULL CHARGE SPARK
-#_08807D: db $10 ; 0x0E - BLAST WALL EXPLOSION
-#_08807E: db $28 ; 0x0F - BLAST WALL EXPLOSION
-#_08807F: db $18 ; 0x10 - BLAST WALL EXPLOSION
-#_088080: db $10 ; 0x11 - ICE ROD WALL HIT
-#_088081: db $10 ; 0x12 - BLAST WALL EXPLOSION
-#_088082: db $10 ; 0x13 - ICE ROD SPARKLE
-#_088083: db $10 ; 0x14 - BAD POINTER
-#_088084: db $0C ; 0x15 - SPLASH
-#_088085: db $08 ; 0x16 - HIT STARS
-#_088086: db $08 ; 0x17 - SHOVEL DIRT
-#_088087: db $50 ; 0x18 - ETHER SPELL
-#_088088: db $00 ; 0x19 - BOMBOS SPELL
-#_088089: db $10 ; 0x1A - POWDER DUST
-#_08808A: db $08 ; 0x1B - SWORD WALL HIT
-#_08808B: db $40 ; 0x1C - QUAKE SPELL
-#_08808C: db $00 ; 0x1D - SCREEN SHAKE
-#_08808D: db $0C ; 0x1E - DASH DUST
-#_08808E: db $24 ; 0x1F - HOOKSHOT
-#_08808F: db $10 ; 0x20 - BLANKET
-#_088090: db $0C ; 0x21 - SNORE
-#_088091: db $08 ; 0x22 - ITEM GET
-#_088092: db $10 ; 0x23 - LINK POOF
-#_088093: db $10 ; 0x24 - GRAVESTONE
-#_088094: db $04 ; 0x25 - BAD POINTER
-#_088095: db $0C ; 0x26 - SWORD SWING SPARKLE
-#_088096: db $1C ; 0x27 - DUCK
-#_088097: db $00 ; 0x28 - WISH POND ITEM
-#_088098: db $10 ; 0x29 - MILESTONE ITEM GET
-#_088099: db $14 ; 0x2A - SPIN ATTACK SPARKLE A
-#_08809A: db $14 ; 0x2B - SPIN ATTACK SPARKLE B
-#_08809B: db $10 ; 0x2C - SOMARIA BLOCK
-#_08809C: db $08 ; 0x2D - SOMARIA BLOCK FIZZ
-#_08809D: db $20 ; 0x2E - SOMARIA BLOCK FISSION
-#_08809E: db $10 ; 0x2F - LAMP FLAME
-#_08809F: db $10 ; 0x30 - BYRNA WINDUP SPARK
-#_0880A0: db $10 ; 0x31 - BYRNA SPARK
-#_0880A1: db $04 ; 0x32 - BLAST WALL FIREBALL
-#_0880A2: db $00 ; 0x33 - BLAST WALL EXPLOSION
-#_0880A3: db $80 ; 0x34 - SKULL WOODS FIRE
-#_0880A4: db $10 ; 0x35 - MASTER SWORD GET
-#_0880A5: db $04 ; 0x36 - FLUTE
-#_0880A6: db $30 ; 0x37 - WEATHERVANE EXPLOSION
-#_0880A7: db $14 ; 0x38 - CUTSCENE DUCK
-#_0880A8: db $10 ; 0x39 - SOMARIA PLATFORM POOF
-#_0880A9: db $00 ; 0x3A - BIG BOMB EXPLOSION
-#_0880AA: db $10 ; 0x3B - SWORD UP SPARKLE
-#_0880AB: db $00 ; 0x3C - SPIN ATTACK CHARGE SPARKLE
-#_0880AC: db $00 ; 0x3D - ITEM SPLASH
-#_0880AD: db $08 ; 0x3E - RISING CRYSTAL
-#_0880AE: db $00 ; 0x3F - BUSH POOF
-#_0880AF: db $10 ; 0x40 - DWARF POOF
-#_0880B0: db $08 ; 0x41 - WATERFALL SPLASH
-#_0880B1: db $78 ; 0x42 - HAPPINESS POND RUPEES
-#_0880B2: db $80 ; 0x43 - GANONS TOWER CUTSCENE
+|08806F| db $00 ; 0x00 - NOTHING
+|088070| db $08 ; 0x01 - SOMARIA BULLET
+|088071| db $0C ; 0x02 - FIRE ROD SHOT
+|088072| db $10 ; 0x03 - UNUSED
+|088073| db $10 ; 0x04 - BEAM HIT
+|088074| db $04 ; 0x05 - BOOMERANG
+|088075| db $10 ; 0x06 - WALL HIT
+|088076| db $18 ; 0x07 - BOMB
+|088077| db $08 ; 0x08 - DOOR DEBRIS
+|088078| db $08 ; 0x09 - ARROW
+|088079| db $08 ; 0x0A - LODGED ARROW
+|08807A| db $00 ; 0x0B - ICE ROD SHOT
+|08807B| db $14 ; 0x0C - SWORD BEAM
+|08807C| db $00 ; 0x0D - SPIN ATTACK FULL CHARGE SPARK
+|08807D| db $10 ; 0x0E - BLAST WALL EXPLOSION
+|08807E| db $28 ; 0x0F - BLAST WALL EXPLOSION
+|08807F| db $18 ; 0x10 - BLAST WALL EXPLOSION
+|088080| db $10 ; 0x11 - ICE ROD WALL HIT
+|088081| db $10 ; 0x12 - BLAST WALL EXPLOSION
+|088082| db $10 ; 0x13 - ICE ROD SPARKLE
+|088083| db $10 ; 0x14 - BAD POINTER
+|088084| db $0C ; 0x15 - SPLASH
+|088085| db $08 ; 0x16 - HIT STARS
+|088086| db $08 ; 0x17 - SHOVEL DIRT
+|088087| db $50 ; 0x18 - ETHER SPELL
+|088088| db $00 ; 0x19 - BOMBOS SPELL
+|088089| db $10 ; 0x1A - POWDER DUST
+|08808A| db $08 ; 0x1B - SWORD WALL HIT
+|08808B| db $40 ; 0x1C - QUAKE SPELL
+|08808C| db $00 ; 0x1D - SCREEN SHAKE
+|08808D| db $0C ; 0x1E - DASH DUST
+|08808E| db $24 ; 0x1F - HOOKSHOT
+|08808F| db $10 ; 0x20 - BLANKET
+|088090| db $0C ; 0x21 - SNORE
+|088091| db $08 ; 0x22 - ITEM GET
+|088092| db $10 ; 0x23 - LINK POOF
+|088093| db $10 ; 0x24 - GRAVESTONE
+|088094| db $04 ; 0x25 - BAD POINTER
+|088095| db $0C ; 0x26 - SWORD SWING SPARKLE
+|088096| db $1C ; 0x27 - DUCK
+|088097| db $00 ; 0x28 - WISH POND ITEM
+|088098| db $10 ; 0x29 - MILESTONE ITEM GET
+|088099| db $14 ; 0x2A - SPIN ATTACK SPARKLE A
+|08809A| db $14 ; 0x2B - SPIN ATTACK SPARKLE B
+|08809B| db $10 ; 0x2C - SOMARIA BLOCK
+|08809C| db $08 ; 0x2D - SOMARIA BLOCK FIZZ
+|08809D| db $20 ; 0x2E - SOMARIA BLOCK FISSION
+|08809E| db $10 ; 0x2F - LAMP FLAME
+|08809F| db $10 ; 0x30 - BYRNA WINDUP SPARK
+|0880A0| db $10 ; 0x31 - BYRNA SPARK
+|0880A1| db $04 ; 0x32 - BLAST WALL FIREBALL
+|0880A2| db $00 ; 0x33 - BLAST WALL EXPLOSION
+|0880A3| db $80 ; 0x34 - SKULL WOODS FIRE
+|0880A4| db $10 ; 0x35 - MASTER SWORD GET
+|0880A5| db $04 ; 0x36 - FLUTE
+|0880A6| db $30 ; 0x37 - WEATHERVANE EXPLOSION
+|0880A7| db $14 ; 0x38 - CUTSCENE DUCK
+|0880A8| db $10 ; 0x39 - SOMARIA PLATFORM POOF
+|0880A9| db $00 ; 0x3A - BIG BOMB EXPLOSION
+|0880AA| db $10 ; 0x3B - SWORD UP SPARKLE
+|0880AB| db $00 ; 0x3C - SPIN ATTACK CHARGE SPARKLE
+|0880AC| db $00 ; 0x3D - ITEM SPLASH
+|0880AD| db $08 ; 0x3E - RISING CRYSTAL
+|0880AE| db $00 ; 0x3F - BUSH POOF
+|0880AF| db $10 ; 0x40 - DWARF POOF
+|0880B0| db $08 ; 0x41 - WATERFALL SPLASH
+|0880B1| db $78 ; 0x42 - HAPPINESS POND RUPEES
+|0880B2| db $80 ; 0x43 - GANONS TOWER CUTSCENE
 
 ;===================================================================================================
 
 AncillaAdd_FireRodShot:
-#_0880B3: LDY.b #$01
+|0880B3| LDY.b #$01
 
-#_0880B5: STA.b $00
+|0880B5| STA.b $00
 
-#_0880B7: JSL FindAncillaSlot
-#_0880BB: BPL .free_slot
+|0880B7| JSL FindAncillaSlot
+|0880BB| BPL .free_slot
 
-#_0880BD: LDA.b $00
-#_0880BF: CMP.b #$01
-#_0880C1: BEQ .no_RefundMagic
+|0880BD| LDA.b $00
+|0880BF| CMP.b #$01
+|0880C1| BEQ .no_RefundMagic
 
-#_0880C3: LDX.b #$00
-#_0880C5: JSL RefundMagic
+|0880C3| LDX.b #$00
+|0880C5| JSL RefundMagic
 
 .no_RefundMagic
-#_0880C9: BRL .exit_a
+|0880C9| BRL .exit_a
 
 ;---------------------------------------------------------------------------------------------------
 
 .free_slot
-#_0880CC: PHB
-#_0880CD: PHK
-#_0880CE: PLB
+|0880CC| PHB
+|0880CD| PHK
+|0880CE| PLB
 
-#_0880CF: PHX
+|0880CF| PHX
 
-#_0880D0: LDA.b $00
-#_0880D2: CMP.b #$01
-#_0880D4: BEQ .no_sfx
+|0880D0| LDA.b $00
+|0880D2| CMP.b #$01
+|0880D4| BEQ .no_sfx
 
-#_0880D6: PHY
+|0880D6| PHY
 
-#_0880D7: LDA.b #$0E ; SFX2.0E
-#_0880D9: JSR Ancilla_SFX2_Near
+|0880D7| LDA.b #$0E ; SFX2.0E
+|0880D9| JSR Ancilla_SFX2_Near
 
-#_0880DC: PLY
+|0880DC| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_sfx
-#_0880DD: LDA.b $00
-#_0880DF: STA.w $0C4A,Y
+|0880DD| LDA.b $00
+|0880DF| STA.w $0C4A,Y
 
-#_0880E2: TAX
+|0880E2| TAX
 
-#_0880E3: LDA.w AncillaObjectAllocation,X
-#_0880E6: STA.w $0C90,Y
+|0880E3| LDA.w AncillaObjectAllocation,X
+|0880E6| STA.w $0C90,Y
 
-#_0880E9: LDA.b #$03
-#_0880EB: STA.w $0C68,Y
+|0880E9| LDA.b #$03
+|0880EB| STA.w $0C68,Y
 
-#_0880EE: LDA.b #$00
-#_0880F0: STA.w $0C54,Y
-#_0880F3: STA.w $0C5E,Y
+|0880EE| LDA.b #$00
+|0880F0| STA.w $0C54,Y
+|0880F3| STA.w $0C5E,Y
 
-#_0880F6: STA.w $0280,Y
-#_0880F9: STA.w $028A,Y
+|0880F6| STA.w $0280,Y
+|0880F9| STA.w $028A,Y
 
-#_0880FC: LDA.b $2F
-#_0880FE: LSR A
-#_0880FF: STA.w $0C72,Y
+|0880FC| LDA.b $2F
+|0880FE| LSR A
+|0880FF| STA.w $0C72,Y
 
-#_088102: TAX
+|088102| TAX
 
-#_088103: PHY
-#_088104: PHX
+|088103| PHY
+|088104| PHX
 
-#_088105: TYX
-#_088106: JSL Ancilla_CheckInitialTile_A
+|088105| TYX
+|088106| JSL Ancilla_CheckInitialTile_A
 
-#_08810A: PLX
-#_08810B: PLY
+|08810A| PLX
+|08810B| PLY
 
-#_08810C: BCS .disperse_on_spawn
-
-;---------------------------------------------------------------------------------------------------
-
-#_08810E: LDA.w $0022
-#_088111: CLC
-#_088112: ADC.w .init_check_offset_x_low,X
-#_088115: STA.w $0C04,Y
-
-#_088118: LDA.w $0023
-#_08811B: ADC.w .init_check_offset_x_high,X
-#_08811E: STA.w $0C18,Y
-
-#_088121: LDA.w $0020
-#_088124: CLC
-#_088125: ADC.w .init_check_offset_y_low,X
-#_088128: STA.w $0BFA,Y
-
-#_08812B: LDA.w $0021
-#_08812E: ADC.w .init_check_offset_y_high,X
-#_088131: STA.w $0C0E,Y
+|08810C| BCS .disperse_on_spawn
 
 ;---------------------------------------------------------------------------------------------------
-; !WTF
-#_088134: LDA.w $0C4A,Y
-#_088137: CMP.b #$01 ; ANCILLA 01
-#_088139: BEQ .is_somaria_bullet
 
-#_08813B: LDA.w .flame_speed_x,X
-#_08813E: STA.w $0C2C,Y
+|08810E| LDA.w $0022
+|088111| CLC
+|088112| ADC.w .init_check_offset_x_low,X
+|088115| STA.w $0C04,Y
 
-#_088141: LDA.w .flame_speed_y,X
+|088118| LDA.w $0023
+|08811B| ADC.w .init_check_offset_x_high,X
+|08811E| STA.w $0C18,Y
 
-#_088144: BRA .speed_set
+|088121| LDA.w $0020
+|088124| CLC
+|088125| ADC.w .init_check_offset_y_low,X
+|088128| STA.w $0BFA,Y
+
+|08812B| LDA.w $0021
+|08812E| ADC.w .init_check_offset_y_high,X
+|088131| STA.w $0C0E,Y
 
 ;---------------------------------------------------------------------------------------------------
-; !WTF  somaria bullet speed depends on your sword, but only if it was created by the fire rod
+; [WTF]
+|088134| LDA.w $0C4A,Y
+|088137| CMP.b #$01 ; ANCILLA 01
+|088139| BEQ .is_somaria_bullet
+
+|08813B| LDA.w .flame_speed_x,X
+|08813E| STA.w $0C2C,Y
+
+|088141| LDA.w .flame_speed_y,X
+
+|088144| BRA .speed_set
+
+;---------------------------------------------------------------------------------------------------
+; [WTF]  somaria bullet speed depends on your sword, but only if it was created by the fire rod
 .is_somaria_bullet
-#_088146: LDA.l $7EF359
-#_08814A: DEC A
-#_08814B: DEC A
+|088146| LDA.l $7EF359
+|08814A| DEC A
+|08814B| DEC A
 
-#_08814C: ASL A
-#_08814D: ASL A
+|08814C| ASL A
+|08814D| ASL A
 
-#_08814E: STA.b $0F
+|08814E| STA.b $0F
 
-#_088150: TXA
-#_088151: CLC
-#_088152: ADC.b $0F
-#_088154: TAX
+|088150| TXA
+|088151| CLC
+|088152| ADC.b $0F
+|088154| TAX
 
-#_088155: LDA.w SomariaBulletSpeedX,X
-#_088158: STA.w $0C2C,Y
+|088155| LDA.w SomariaBulletSpeedX,X
+|088158| STA.w $0C2C,Y
 
-#_08815B: LDA.w SomariaBulletSpeedY,X
+|08815B| LDA.w SomariaBulletSpeedY,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .speed_set
-#_08815E: STA.w $0C22,Y
+|08815E| STA.w $0C22,Y
 
-#_088161: LDA.w $00EE
-#_088164: STA.w $0C7C,Y
+|088161| LDA.w $00EE
+|088164| STA.w $0C7C,Y
 
-#_088167: LDA.w $0476
-#_08816A: STA.w $03CA,Y
+|088167| LDA.w $0476
+|08816A| STA.w $03CA,Y
 
-#_08816D: PLX
-#_08816E: PLB
+|08816D| PLX
+|08816E| PLB
 
 .exit_a
-#_08816F: RTL
+|08816F| RTL
 
 ;---------------------------------------------------------------------------------------------------
 
 .disperse_on_spawn
-#_088170: LDA.w $0C4A,Y
-#_088173: CMP.b #$01 ; ANCILLA 01
-#_088175: BNE .not_bullet
+|088170| LDA.w $0C4A,Y
+|088173| CMP.b #$01 ; ANCILLA 01
+|088175| BNE .not_bullet
 
-#_088177: LDA.b #$04 ; ANCILLA 04
-#_088179: STA.w $0C4A,Y
+|088177| LDA.b #$04 ; ANCILLA 04
+|088179| STA.w $0C4A,Y
 
-#_08817C: LDA.b #$07
-#_08817E: STA.w $0C68,Y
+|08817C| LDA.b #$07
+|08817E| STA.w $0C68,Y
 
-#_088181: LDA.b #$10
-#_088183: STA.w $0C90,Y
+|088181| LDA.b #$10
+|088183| STA.w $0C90,Y
 
-#_088186: BRA .exit_b
+|088186| BRA .exit_b
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_bullet
-#_088188: LDA.b #$01
-#_08818A: STA.w $0C54,Y
+|088188| LDA.b #$01
+|08818A| STA.w $0C54,Y
 
-#_08818D: LDA.b #$1F
-#_08818F: STA.w $0C68,Y
+|08818D| LDA.b #$1F
+|08818F| STA.w $0C68,Y
 
-#_088192: LDA.b #$08
-#_088194: STA.w $0C90,Y
+|088192| LDA.b #$08
+|088194| STA.w $0C90,Y
 
-#_088197: LDA.b #$2A ; SFX2.2A
-#_088199: JSR Ancilla_SFX2_Pan
+|088197| LDA.b #$2A ; SFX2.2A
+|088199| JSR Ancilla_SFX2_Pan
 
 .exit_b
-#_08819C: PLX
-#_08819D: PLB
+|08819C| PLX
+|08819D| PLB
 
-#_08819E: RTL
+|08819E| RTL
 
 ;===================================================================================================
 
 pool SpawnSomariaBullets
 
 .offset_x
-#_08819F: db  -8,  -8,  -9,  -4
+|08819F| db  -8,  -8,  -9,  -4
 
 .offset_y
-#_0881A3: db -15,  -4,  -8,  -8
+|0881A3| db -15,  -4,  -8,  -8
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 SpawnSomariaBullets:
-#_0881A7: LDA.b #$03
-#_0881A9: STA.w $0FB5
+|0881A7| LDA.b #$03
+|0881A9| STA.w $0FB5
 
-#_0881AC: LDA.w $029E,X
-#_0881AF: CMP.b #$FF
-#_0881B1: BNE .altitiude_fine
+|0881AC| LDA.w $029E,X
+|0881AF| CMP.b #$FF
+|0881B1| BNE .altitiude_fine
 
-#_0881B3: LDA.b #$00
+|0881B3| LDA.b #$00
 
 .altitiude_fine
-#_0881B5: STA.b $05
+|0881B5| STA.b $05
 
-#_0881B7: LDA.w $0C04,X
-#_0881BA: STA.b $00
+|0881B7| LDA.w $0C04,X
+|0881BA| STA.b $00
 
-#_0881BC: LDA.w $0C18,X
-#_0881BF: STA.b $01
+|0881BC| LDA.w $0C18,X
+|0881BF| STA.b $01
 
-#_0881C1: LDA.w $0BFA,X
-#_0881C4: SEC
-#_0881C5: SBC.b $05
-#_0881C7: STA.b $02
+|0881C1| LDA.w $0BFA,X
+|0881C4| SEC
+|0881C5| SBC.b $05
+|0881C7| STA.b $02
 
-#_0881C9: LDA.w $0C0E,X
-#_0881CC: SBC.b #$00
-#_0881CE: STA.b $03
+|0881C9| LDA.w $0C0E,X
+|0881CC| SBC.b #$00
+|0881CE| STA.b $03
 
-#_0881D0: LDA.w $0C7C,X
-#_0881D3: STA.b $04
+|0881D0| LDA.w $0C7C,X
+|0881D3| STA.b $04
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_spawn
-#_0881D5: LDY.b #$04
-#_0881D7: LDA.b #$01 ; ANCILLA 01
-#_0881D9: JSL FindAncillaSlot
-#_0881DD: BMI .spawn_failed
+|0881D5| LDY.b #$04
+|0881D7| LDA.b #$01 ; ANCILLA 01
+|0881D9| JSL FindAncillaSlot
+|0881DD| BMI .spawn_failed
 
-#_0881DF: PHX
+|0881DF| PHX
 
-#_0881E0: LDA.b #$01 ; ANCILLA 01
-#_0881E2: STA.w $0C4A,Y
+|0881E0| LDA.b #$01 ; ANCILLA 01
+|0881E2| STA.w $0C4A,Y
 
-#_0881E5: TAX
+|0881E5| TAX
 
-#_0881E6: LDA.w AncillaObjectAllocation,X
-#_0881E9: STA.w $0C90,Y
+|0881E6| LDA.w AncillaObjectAllocation,X
+|0881E9| STA.w $0C90,Y
 
-#_0881EC: LDA.b #$04
-#_0881EE: STA.w $0C54,Y
+|0881EC| LDA.b #$04
+|0881EE| STA.w $0C54,Y
 
-#_0881F1: LDA.b #$00
-#_0881F3: STA.w $0C5E,Y
-#_0881F6: STA.w $0280,Y
+|0881F1| LDA.b #$00
+|0881F3| STA.w $0C5E,Y
+|0881F6| STA.w $0280,Y
 
-#_0881F9: LDX.w $0FB5
-#_0881FC: TXA
-#_0881FD: STA.w $0C72,Y
+|0881F9| LDX.w $0FB5
+|0881FC| TXA
+|0881FD| STA.w $0C72,Y
 
-#_088200: LDA.b $00
-#_088202: CLC
-#_088203: ADC.w .offset_x,X
-#_088206: STA.w $0C04,Y
+|088200| LDA.b $00
+|088202| CLC
+|088203| ADC.w .offset_x,X
+|088206| STA.w $0C04,Y
 
-#_088209: LDA.b $01
-#_08820B: ADC.b #$FF
-#_08820D: STA.w $0C18,Y
+|088209| LDA.b $01
+|08820B| ADC.b #$FF
+|08820D| STA.w $0C18,Y
 
-#_088210: LDA.b $02
-#_088212: CLC
-#_088213: ADC.w .offset_y,X
-#_088216: STA.w $0BFA,Y
+|088210| LDA.b $02
+|088212| CLC
+|088213| ADC.w .offset_y,X
+|088216| STA.w $0BFA,Y
 
-#_088219: LDA.b $03
-#_08821B: ADC.b #$FF
-#_08821D: STA.w $0C0E,Y
+|088219| LDA.b $03
+|08821B| ADC.b #$FF
+|08821D| STA.w $0C0E,Y
 
-#_088220: JSL Ancilla_TerminateOffScreen
+|088220| JSL Ancilla_TerminateOffScreen
 
-#_088224: LDA.w SomariaBulletSpeedX,X
-#_088227: STA.w $0C2C,Y
+|088224| LDA.w SomariaBulletSpeedX,X
+|088227| STA.w $0C2C,Y
 
-#_08822A: LDA.w SomariaBulletSpeedY,X
-#_08822D: STA.w $0C22,Y
+|08822A| LDA.w SomariaBulletSpeedY,X
+|08822D| STA.w $0C22,Y
 
-#_088230: LDA.b $04
-#_088232: STA.w $0C7C,Y
+|088230| LDA.b $04
+|088232| STA.w $0C7C,Y
 
-#_088235: LDA.w $0476
-#_088238: STA.w $03CA,Y
+|088235| LDA.w $0476
+|088238| STA.w $03CA,Y
 
-#_08823B: PLX
+|08823B| PLX
 
 .spawn_failed
-#_08823C: DEC.w $0FB5
-#_08823F: BPL .next_spawn
+|08823C| DEC.w $0FB5
+|08823F| BPL .next_spawn
 
-#_088241: RTS
+|088241| RTS
 
 ;===================================================================================================
 
 Ancilla_Main:
-#_088242: PHB
-#_088243: PHK
-#_088244: PLB
+|088242| PHB
+|088243| PHK
+|088244| PLB
 
-#_088245: JSR WeaponTink
-#_088248: JSR HandleAllAncilla
+|088245| JSR WeaponTink
+|088248| JSR HandleAllAncilla
 
-#_08824B: PLB
+|08824B| PLB
 
-#_08824C: RTL
+|08824C| RTL
 
 ;===================================================================================================
 
 Ancilla_ProjectReflexiveSpeedOntoSprite:
-#_08824D: LDA.w $0022 ; cache Link's coordinates
-#_088250: PHA
+|08824D| LDA.w $0022 ; cache Link's coordinates
+|088250| PHA
 
-#_088251: LDA.w $0023
-#_088254: PHA
+|088251| LDA.w $0023
+|088254| PHA
 
-#_088255: LDA.w $0020
-#_088258: PHA
+|088255| LDA.w $0020
+|088258| PHA
 
-#_088259: LDA.w $0021
-#_08825C: PHA
+|088259| LDA.w $0021
+|08825C| PHA
 
-#_08825D: LDA.b $04
-#_08825F: STA.w $0022
+|08825D| LDA.b $04
+|08825F| STA.w $0022
 
-#_088262: LDA.b $05
-#_088264: STA.w $0023
+|088262| LDA.b $05
+|088264| STA.w $0023
 
-#_088267: LDA.b $06
-#_088269: STA.w $0020
+|088267| LDA.b $06
+|088269| STA.w $0020
 
-#_08826C: LDA.b $07
-#_08826E: STA.w $0021
+|08826C| LDA.b $07
+|08826E| STA.w $0021
 
-#_088271: TYA
-#_088272: JSL ProjectReflexiveSpeedOntoSprite_UsingLinkCoordinates
+|088271| TYA
+|088272| JSL ProjectReflexiveSpeedOntoSprite_UsingLinkCoordinates
 
-#_088276: PLA ; recover Link's coordinates
-#_088277: STA.w $0021
+|088276| PLA ; recover Link's coordinates
+|088277| STA.w $0021
 
-#_08827A: PLA
-#_08827B: STA.w $0020
+|08827A| PLA
+|08827B| STA.w $0020
 
-#_08827E: PLA
-#_08827F: STA.w $0023
+|08827E| PLA
+|08827F| STA.w $0023
 
-#_088282: PLA
-#_088283: STA.w $0022
+|088282| PLA
+|088283| STA.w $0022
 
-#_088286: RTS
+|088286| RTS
 
 ;===================================================================================================
 
 Bomb_CheckSpriteDamage:
-#_088287: LDY.b #$0F
+|088287| LDY.b #$0F
 
 .next_sprite
-#_088289: TYA
-#_08828A: EOR.b $1A
-#_08828C: AND.b #$03
-#_08828E: ORA.w $0EF0,Y
-#_088291: ORA.w $0BA0,Y
-#_088294: BEQ .continue
+|088289| TYA
+|08828A| EOR.b $1A
+|08828C| AND.b #$03
+|08828E| ORA.w $0EF0,Y
+|088291| ORA.w $0BA0,Y
+|088294| BEQ .continue
 
 .different_layer
-#_088296: JMP.w .skip
+|088296| JMP.w .skip
 
 .continue
-#_088299: LDA.w $0F20,Y
-#_08829C: CMP.w $0C7C,X
-#_08829F: BNE .different_layer
+|088299| LDA.w $0F20,Y
+|08829C| CMP.w $0C7C,X
+|08829F| BNE .different_layer
 
-#_0882A1: LDA.w $0DD0,Y
-#_0882A4: CMP.b #$09
-#_0882A6: BCC .skip
+|0882A1| LDA.w $0DD0,Y
+|0882A4| CMP.b #$09
+|0882A6| BCC .skip
 
-#_0882A8: LDA.w $0C04,X
-#_0882AB: SEC
-#_0882AC: SBC.b #$18
-#_0882AE: STA.b $00
+|0882A8| LDA.w $0C04,X
+|0882AB| SEC
+|0882AC| SBC.b #$18
+|0882AE| STA.b $00
 
-#_0882B0: LDA.w $0C18,X
-#_0882B3: SBC.b #$00
-#_0882B5: STA.b $08
+|0882B0| LDA.w $0C18,X
+|0882B3| SBC.b #$00
+|0882B5| STA.b $08
 
-#_0882B7: LDA.w $0BFA,X
-#_0882BA: SEC
-#_0882BB: SBC.b #$18
-#_0882BD: PHP
+|0882B7| LDA.w $0BFA,X
+|0882BA| SEC
+|0882BB| SBC.b #$18
+|0882BD| PHP
 
-#_0882BE: SEC
-#_0882BF: SBC.w $029E,X
-#_0882C2: STA.b $01
+|0882BE| SEC
+|0882BF| SBC.w $029E,X
+|0882C2| STA.b $01
 
-#_0882C4: LDA.w $0C0E,X
-#_0882C7: SBC.b #$00
+|0882C4| LDA.w $0C0E,X
+|0882C7| SBC.b #$00
 
-#_0882C9: PLP
-#_0882CA: SBC.b #$00
-#_0882CC: STA.b $09
+|0882C9| PLP
+|0882CA| SBC.b #$00
+|0882CC| STA.b $09
 
-#_0882CE: LDA.b #$30
-#_0882D0: STA.b $02
-#_0882D2: STA.b $03
+|0882CE| LDA.b #$30
+|0882D0| STA.b $02
+|0882D2| STA.b $03
 
-#_0882D4: PHX
+|0882D4| PHX
 
-#_0882D5: TYX
-#_0882D6: JSL SetupSpriteHitBox_long
+|0882D5| TYX
+|0882D6| JSL SetupSpriteHitbox_long
 
-#_0882DA: PLX
+|0882DA| PLX
 
-#_0882DB: JSL CheckIfHitBoxesOverlap_long
-#_0882DF: BCC .skip
+|0882DB| JSL CheckIfHitboxesOverlap_long
+|0882DF| BCC .skip
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0882E1: LDA.w $0E20,Y
-#_0882E4: CMP.b #$92 ; SPRITE 92
-#_0882E6: BNE .not_king_helma
+|0882E1| LDA.w $0E20,Y
+|0882E4| CMP.b #$92 ; SPRITE 92
+|0882E6| BNE .not_king_helma
 
-#_0882E8: LDA.w $0DB0,Y
-#_0882EB: CMP.b #$03
-#_0882ED: BCS .skip
+|0882E8| LDA.w $0DB0,Y
+|0882EB| CMP.b #$03
+|0882ED| BCS .skip
 
 .not_king_helma
-#_0882EF: LDA.w $0C04,X
-#_0882F2: STA.b $04
+|0882EF| LDA.w $0C04,X
+|0882F2| STA.b $04
 
-#_0882F4: LDA.w $0C18,X
-#_0882F7: STA.b $05
+|0882F4| LDA.w $0C18,X
+|0882F7| STA.b $05
 
-#_0882F9: LDA.w $0BFA,X
-#_0882FC: STA.b $06
+|0882F9| LDA.w $0BFA,X
+|0882FC| STA.b $06
 
-#_0882FE: LDA.w $0C0E,X
-#_088301: STA.b $07
+|0882FE| LDA.w $0C0E,X
+|088301| STA.b $07
 
-#_088303: PHX
-#_088304: PHY
+|088303| PHX
+|088304| PHY
 
-#_088305: LDA.w $0C4A,X
-#_088308: TYX
+|088305| LDA.w $0C4A,X
+|088308| TYX
 
-#_088309: JSL CheckAncillaDamageToSprite
+|088309| JSL CheckAncillaDamageToSprite
 
-#_08830D: LDY.b #$40
-#_08830F: JSR Ancilla_ProjectReflexiveSpeedOntoSprite
+|08830D| LDY.b #$40
+|08830F| JSR Ancilla_ProjectReflexiveSpeedOntoSprite
 
-#_088312: PLY
-#_088313: PLX
+|088312| PLY
+|088313| PLX
 
-#_088314: LDA.b $00
-#_088316: EOR.b #$FF
-#_088318: INC A
-#_088319: STA.w $0F30,Y
+|088314| LDA.b $00
+|088316| EOR.b #$FF
+|088318| INC A
+|088319| STA.w $0F30,Y
 
-#_08831C: LDA.b $01
-#_08831E: EOR.b #$FF
-#_088320: INC A
-#_088321: STA.w $0F40,Y
+|08831C| LDA.b $01
+|08831E| EOR.b #$FF
+|088320| INC A
+|088321| STA.w $0F40,Y
 
 .skip
-#_088324: DEY
-#_088325: BMI .done
+|088324| DEY
+|088325| BMI .done
 
-#_088327: JMP.w .next_sprite
+|088327| JMP.w .next_sprite
 
 ;---------------------------------------------------------------------------------------------------
 
 .done
-#_08832A: RTS
+|08832A| RTS
 
 ;===================================================================================================
 
 HandleAllAncilla:
-#_08832B: LDX.b #$09
+|08832B| LDX.b #$09
 
 .next
-#_08832D: STX.w $0FA0
+|08832D| STX.w $0FA0
 
-#_088330: LDA.w $0C4A,X
-#_088333: BEQ .skip
+|088330| LDA.w $0C4A,X
+|088333| BEQ .skip
 
-#_088335: JSR HandleSingleAncilla
+|088335| JSR HandleSingleAncilla
 
 .skip
-#_088338: DEX
-#_088339: BPL .next
+|088338| DEX
+|088339| BPL .next
 
-#_08833B: RTS
+|08833B| RTS
 
 ;===================================================================================================
 
 HandleSingleAncilla:
-#_08833C: PHA
+|08833C| PHA
 
-#_08833D: CPX.b #$06
-#_08833F: BCS .skip_oam
+|08833D| CPX.b #$06
+|08833F| BCS .skip_oam
 
-#_088341: LDA.w $0C90,X
+|088341| LDA.w $0C90,X
 
-#_088344: LDY.w $0FB3
-#_088347: BEQ .ignore_layer
+|088344| LDY.w $0FB3
+|088347| BEQ .ignore_layer
 
-#_088349: LDY.w $0C7C,X
-#_08834C: BNE .bg1
+|088349| LDY.w $0C7C,X
+|08834C| BNE .bg1
 
-#_08834E: JSL AllocateOAMInRegionD
-#_088352: BRA .save_oam
+|08834E| JSL AllocateOAMInRegionD
+|088352| BRA .save_oam
 
 .bg1
-#_088354: JSL AllocateOAMInRegionF
-#_088358: BRA .save_oam
+|088354| JSL AllocateOAMInRegionF
+|088358| BRA .save_oam
 
 .ignore_layer
-#_08835A: JSL AllocateOAMInRegionA
+|08835A| JSL AllocateOAMInRegionA
 
 .save_oam
-#_08835E: TYA
-#_08835F: STA.w $0C86,X
+|08835E| TYA
+|08835F| STA.w $0C86,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_oam
-#_088362: LDY.b $11
-#_088364: BNE .skip_timer
+|088362| LDY.b $11
+|088364| BNE .skip_timer
 
-#_088366: LDY.w $0C68,X
-#_088369: BEQ .skip_timer
+|088366| LDY.w $0C68,X
+|088369| BEQ .skip_timer
 
-#_08836B: DEC.w $0C68,X
+|08836B| DEC.w $0C68,X
 
 .skip_timer
-#_08836E: PLA
-#_08836F: DEC A
-#_088370: ASL A
-#_088371: TAY
+|08836E| PLA
+|08836F| DEC A
+|088370| ASL A
+|088371| TAY
 
-#_088372: LDA.w .vectors+0,Y
-#_088375: STA.b $00
+|088372| LDA.w .vectors+0,Y
+|088375| STA.b $00
 
-#_088377: LDA.w .vectors+1,Y
-#_08837A: STA.b $01
+|088377| LDA.w .vectors+1,Y
+|08837A| STA.b $01
 
-#_08837C: JMP.w ($0000)
+|08837C| JMP.w ($0000)
 
 ;---------------------------------------------------------------------------------------------------
 
 .vectors
-#_08837F: dw Ancilla01_SomariaBullet
-#_088381: dw Ancilla02_FireRodShot
-#_088383: dw Ancilla03
-#_088385: dw Ancilla04_BeamHit
-#_088387: dw Ancilla05_Boomerang
-#_088389: dw Ancilla06_WallHit
-#_08838B: dw Ancilla07_Bomb
-#_08838D: dw Ancilla08_DoorDebris
-#_08838F: dw Ancilla09_Arrow
-#_088391: dw Ancilla0A_LodgedArrow
-#_088393: dw Ancilla0B_IceRodShot
-#_088395: dw Ancilla0C_SwordBeam_bounce
-#_088397: dw Ancilla0D_SpinAttackFullChargeSpark
-#_088399: dw Ancilla33_BlastWallExplosion ; Unused
-#_08839B: dw Ancilla33_BlastWallExplosion ; Unused
-#_08839D: dw Ancilla33_BlastWallExplosion ; Unused
-#_08839F: dw Ancilla11_IceRodWallHit
-#_0883A1: dw Ancilla33_BlastWallExplosion ; Unused
-#_0883A3: dw Ancilla13_IceRodSparkle
-#_0883A5: dw JumpSplash_char ; bad pointer but correct
-#_0883A7: dw Ancilla15_JumpSplash
-#_0883A9: dw Ancilla16_HitStars
-#_0883AB: dw Ancilla17_ShovelDirt
-#_0883AD: dw Ancilla18_EtherSpell
-#_0883AF: dw Ancilla19_BombosSpell
-#_0883B1: dw Ancilla1A_PowderDust
-#_0883B3: dw Ancilla1B_SwordWallHit
-#_0883B5: dw Ancilla1C_QuakeSpell
-#_0883B7: dw Ancilla1D_ScreenShake
-#_0883B9: dw Ancilla1E_DashDust
-#_0883BB: dw Ancilla1F_Hookshot
-#_0883BD: dw Ancilla20_Blanket
-#_0883BF: dw Ancilla21_Snore
-#_0883C1: dw Ancilla22_ItemReceipt
-#_0883C3: dw Ancilla23_LinkPoof
-#_0883C5: dw Ancilla24_Gravestone
-#_0883C7: dw HitStar_char ; bad pointer but correct
-#_0883C9: dw Ancilla26_SwordSwingSparkle
-#_0883CB: dw Ancilla27_Duck
-#_0883CD: dw Ancilla28_WishPondItem
-#_0883CF: dw Ancilla29_MilestoneItemReceipt
-#_0883D1: dw Ancilla2A_SpinAttackSparkleA
-#_0883D3: dw Ancilla2B_SpinAttackSparkleB
-#_0883D5: dw Ancilla2C_SomariaBlock
-#_0883D7: dw Ancilla2D_SomariaBlockFizz
-#_0883D9: dw Ancilla2E_SomariaBlockFission
-#_0883DB: dw Ancilla2F_LampFlame
-#_0883DD: dw Ancilla30_ByrnaWindupSpark
-#_0883DF: dw Ancilla31_ByrnaSpark
-#_0883E1: dw Ancilla32_BlastWallFireball
-#_0883E3: dw Ancilla33_BlastWallExplosion
-#_0883E5: dw Ancilla34_SkullWoodsFire
-#_0883E7: dw Ancilla35_MasterSwordCutscene
-#_0883E9: dw Ancilla36_Flute
-#_0883EB: dw Ancilla37_WeathervaneExplosion
-#_0883ED: dw Ancilla38_CutsceneDuck
-#_0883EF: dw Ancilla39_SomariaPlatformPoof
-#_0883F1: dw Ancilla3A_BigBombExplosion
-#_0883F3: dw Ancilla3B_SwordUpSparkle
-#_0883F5: dw Ancilla3C_SpinAttackChargeSparkle
-#_0883F7: dw Ancilla3D_ItemSplash
-#_0883F9: dw Ancilla3E_RisingCrystal
-#_0883FB: dw Ancilla3F_BushPoof
-#_0883FD: dw Ancilla40_DwarfPoof
-#_0883FF: dw Ancilla41_WaterfallSplash
-#_088401: dw Ancilla42_HappinessPondRupees
-#_088403: dw Ancilla43_GanonsTowerCutscene
+|08837F| dw Ancilla01_SomariaBullet
+|088381| dw Ancilla02_FireRodShot
+|088383| dw Ancilla03
+|088385| dw Ancilla04_BeamHit
+|088387| dw Ancilla05_Boomerang
+|088389| dw Ancilla06_WallHit
+|08838B| dw Ancilla07_Bomb
+|08838D| dw Ancilla08_DoorDebris
+|08838F| dw Ancilla09_Arrow
+|088391| dw Ancilla0A_LodgedArrow
+|088393| dw Ancilla0B_IceRodShot
+|088395| dw Ancilla0C_SwordBeam_bounce
+|088397| dw Ancilla0D_SpinAttackFullChargeSpark
+|088399| dw Ancilla33_BlastWallExplosion ; Unused
+|08839B| dw Ancilla33_BlastWallExplosion ; Unused
+|08839D| dw Ancilla33_BlastWallExplosion ; Unused
+|08839F| dw Ancilla11_IceRodWallHit
+|0883A1| dw Ancilla33_BlastWallExplosion ; Unused
+|0883A3| dw Ancilla13_IceRodSparkle
+|0883A5| dw JumpSplash_char ; bad pointer but correct
+|0883A7| dw Ancilla15_JumpSplash
+|0883A9| dw Ancilla16_HitStars
+|0883AB| dw Ancilla17_ShovelDirt
+|0883AD| dw Ancilla18_EtherSpell
+|0883AF| dw Ancilla19_BombosSpell
+|0883B1| dw Ancilla1A_PowderDust
+|0883B3| dw Ancilla1B_SwordWallHit
+|0883B5| dw Ancilla1C_QuakeSpell
+|0883B7| dw Ancilla1D_ScreenShake
+|0883B9| dw Ancilla1E_DashDust
+|0883BB| dw Ancilla1F_Hookshot
+|0883BD| dw Ancilla20_Blanket
+|0883BF| dw Ancilla21_Snore
+|0883C1| dw Ancilla22_ItemReceipt
+|0883C3| dw Ancilla23_LinkPoof
+|0883C5| dw Ancilla24_Gravestone
+|0883C7| dw HitStar_char ; bad pointer but correct
+|0883C9| dw Ancilla26_SwordSwingSparkle
+|0883CB| dw Ancilla27_Duck
+|0883CD| dw Ancilla28_WishPondItem
+|0883CF| dw Ancilla29_MilestoneItemReceipt
+|0883D1| dw Ancilla2A_SpinAttackSparkleA
+|0883D3| dw Ancilla2B_SpinAttackSparkleB
+|0883D5| dw Ancilla2C_SomariaBlock
+|0883D7| dw Ancilla2D_SomariaBlockFizz
+|0883D9| dw Ancilla2E_SomariaBlockFission
+|0883DB| dw Ancilla2F_LampFlame
+|0883DD| dw Ancilla30_ByrnaWindupSpark
+|0883DF| dw Ancilla31_ByrnaSpark
+|0883E1| dw Ancilla32_BlastWallFireball
+|0883E3| dw Ancilla33_BlastWallExplosion
+|0883E5| dw Ancilla34_SkullWoodsFire
+|0883E7| dw Ancilla35_MasterSwordCutscene
+|0883E9| dw Ancilla36_Flute
+|0883EB| dw Ancilla37_WeathervaneExplosion
+|0883ED| dw Ancilla38_CutsceneDuck
+|0883EF| dw Ancilla39_SomariaPlatformPoof
+|0883F1| dw Ancilla3A_BigBombExplosion
+|0883F3| dw Ancilla3B_SwordUpSparkle
+|0883F5| dw Ancilla3C_SpinAttackChargeSparkle
+|0883F7| dw Ancilla3D_ItemSplash
+|0883F9| dw Ancilla3E_RisingCrystal
+|0883FB| dw Ancilla3F_BushPoof
+|0883FD| dw Ancilla40_DwarfPoof
+|0883FF| dw Ancilla41_WaterfallSplash
+|088401| dw Ancilla42_HappinessPondRupees
+|088403| dw Ancilla43_GanonsTowerCutscene
 
 ;===================================================================================================
 ; The little sparkle thingies that come off the ice rod shot
@@ -814,877 +814,877 @@ HandleSingleAncilla:
 pool Ancilla13_IceRodSparkle
 
 .offset_x
-#_088405: db  2,  7,  6,  1
-#_088409: db  1,  7,  7,  1
-#_08840D: db  0,  7,  8,  1
-#_088411: db  4,  9,  4, -1
+|088405| db  2,  7,  6,  1
+|088409| db  1,  7,  7,  1
+|08840D| db  0,  7,  8,  1
+|088411| db  4,  9,  4, -1
 
 .offset_y
-#_088415: db  2,  3,  8,  7
-#_088419: db  1,  1,  7,  7
-#_08841D: db  1,  0,  7,  8
-#_088421: db -1,  4,  9,  4
+|088415| db  2,  3,  8,  7
+|088419| db  1,  1,  7,  7
+|08841D| db  1,  0,  7,  8
+|088421| db -1,  4,  9,  4
 
 .char
-#_088425: db $83, $83, $83, $83
-#_088429: db $B6, $80, $B6, $80
-#_08842D: db $B7, $B6, $B7, $B6
-#_088431: db $B7, $B6, $B7, $B6
+|088425| db $83, $83, $83, $83
+|088429| db $B6, $80, $B6, $80
+|08842D| db $B7, $B6, $B7, $B6
+|088431| db $B7, $B6, $B7, $B6
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla13_IceRodSparkle:
-#_088435: LDA.w $0C68,X ; timer for being alive
-#_088438: BNE .active
+|088435| LDA.w $0C68,X ; timer for being alive
+|088438| BNE .active
 
-#_08843A: STZ.w $0C4A,X ; destroy self
+|08843A| STZ.w $0C4A,X ; destroy self
 
 .active
-#_08843D: LDA.b $11
-#_08843F: BNE .no_move
+|08843D| LDA.b $11
+|08843F| BNE .no_move
 
-#_088441: JSR AncillaMoveX
-#_088444: JSR AncillaMoveY
+|088441| JSR AncillaMoveX
+|088444| JSR AncillaMoveY
 
 .no_move
-#_088447: JSR Ancilla_BoundsCheck
+|088447| JSR Ancilla_KillOffscreen
 
 ; We're looking for an ice rod shot to steal OAM properties from
-#_08844A: LDY.b #$04
-#_08844C: LDA.b #$0B ; ANCILLA 0B
+|08844A| LDY.b #$04
+|08844C| LDA.b #$0B ; ANCILLA 0B
 
 .next_slot
-#_08844E: CMP.w $0C4A,Y ; look for the main shot
-#_088451: BEQ .found_him
+|08844E| CMP.w $0C4A,Y ; look for the main shot
+|088451| BEQ .found_him
 
-#_088453: DEY
-#_088454: BPL .next_slot
+|088453| DEY
+|088454| BPL .next_slot
 
 ; uses slot 255 if nothing is found, but that doesn't matter much
 .found_him
-#_088456: LDA.w $0280,Y
-#_088459: BEQ .normal_priority
+|088456| LDA.w $0280,Y
+|088459| BEQ .normal_priority
 
-#_08845B: LDA.b #$30
-#_08845D: STA.b $04
+|08845B| LDA.b #$30
+|08845D| STA.b $04
 
 .normal_priority
-#_08845F: LDA.b #$10
+|08845F| LDA.b #$10
 
-#_088461: LDY.w $0FB3
-#_088464: BEQ .ignore_layer
+|088461| LDY.w $0FB3
+|088464| BEQ .ignore_layer
 
-#_088466: LDY.w $0C7C,X ; check layer for OAM region
-#_088469: BNE .lower_layer
+|088466| LDY.w $0C7C,X ; check layer for OAM region
+|088469| BNE .lower_layer
 
-#_08846B: JSL AllocateOAMInRegionD
-#_08846F: BRA .draw
+|08846B| JSL AllocateOAMInRegionD
+|08846F| BRA .draw
 
 .lower_layer
-#_088471: JSL AllocateOAMInRegionE
-#_088475: BRA .draw
+|088471| JSL AllocateOAMInRegionE
+|088475| BRA .draw
 
 .ignore_layer
-#_088477: JSL AllocateOAMInRegionA
+|088477| JSL AllocateOAMInRegionA
 
 .draw
-#_08847B: LDY.b #$00
+|08847B| LDY.b #$00
 
-#_08847D: LDA.b #$03
-#_08847F: STA.b $05
+|08847D| LDA.b #$03
+|08847F| STA.b $05
 
-#_088481: LDA.w $0C68,X
-#_088484: AND.b #$1C
-#_088486: STA.b $06
+|088481| LDA.w $0C68,X
+|088484| AND.b #$1C
+|088486| STA.b $06
 
-#_088488: PHX
+|088488| PHX
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_object
-#_088489: LDA.b $05
-#_08848B: ORA.b $06
+|088489| LDA.b $05
+|08848B| ORA.b $06
 
-#_08848D: TAX
+|08848D| TAX
 
-#_08848E: LDA.b $00
-#_088490: CLC
-#_088491: ADC.w .offset_x,X
-#_088494: STA.b ($90),Y
+|08848E| LDA.b $00
+|088490| CLC
+|088491| ADC.w .offset_x,X
+|088494| STA.b ($90),Y
 
-#_088496: INY
-#_088497: LDA.b $01
-#_088499: CLC
-#_08849A: ADC.w .offset_y,X
-#_08849D: STA.b ($90),Y
+|088496| INY
+|088497| LDA.b $01
+|088499| CLC
+|08849A| ADC.w .offset_y,X
+|08849D| STA.b ($90),Y
 
-#_08849F: INY
-#_0884A0: LDA.w .char,X
-#_0884A3: STA.b ($90),Y
+|08849F| INY
+|0884A0| LDA.w .char,X
+|0884A3| STA.b ($90),Y
 
-#_0884A5: INY
-#_0884A6: LDA.b $04
-#_0884A8: ORA.b #$04
-#_0884AA: STA.b ($90),Y
+|0884A5| INY
+|0884A6| LDA.b $04
+|0884A8| ORA.b #$04
+|0884AA| STA.b ($90),Y
 
-#_0884AC: INY
-#_0884AD: PHY
+|0884AC| INY
+|0884AD| PHY
 
-#_0884AE: TYA
-#_0884AF: SEC
-#_0884B0: SBC.b #$04
-#_0884B2: LSR A
-#_0884B3: LSR A
-#_0884B4: TAY
+|0884AE| TYA
+|0884AF| SEC
+|0884B0| SBC.b #$04
+|0884B2| LSR A
+|0884B3| LSR A
+|0884B4| TAY
 
-#_0884B5: LDA.b #$00
-#_0884B7: STA.b ($92),Y
+|0884B5| LDA.b #$00
+|0884B7| STA.b ($92),Y
 
-#_0884B9: PLY
+|0884B9| PLY
 
-#_0884BA: DEC.b $05
-#_0884BC: BPL .next_object
+|0884BA| DEC.b $05
+|0884BC| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0884BE: PLX
+|0884BE| PLX
 
-#_0884BF: RTS
+|0884BF| RTS
 
 ;===================================================================================================
 
 pool AncillaAdd_IceRodSparkle
 
 .speed_y
-#_0884C0: db -4,  4,  0,  0
+|0884C0| db -4,  4,  0,  0
 
 .speed_x
-#_0884C4: db  0,  0, -4,  4
+|0884C4| db  0,  0, -4,  4
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaAdd_IceRodSparkle:
-#_0884C8: LDA.b $11
-#_0884CA: BNE .return
+|0884C8| LDA.b $11
+|0884CA| BNE .return
 
-#_0884CC: DEC.w $0BF0,X
-#_0884CF: BPL .return
+|0884CC| DEC.w $0BF0,X
+|0884CF| BPL .return
 
-#_0884D1: LDA.b #$05 ; timer for spawning
-#_0884D3: STA.w $0BF0,X
+|0884D1| LDA.b #$05 ; timer for spawning
+|0884D3| STA.w $0BF0,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0884D6: LDY.b #$09 ; look for a free slot anywhere
+|0884D6| LDY.b #$09 ; look for a free slot anywhere
 
 .next_slot
-#_0884D8: LDA.w $0C4A,Y
-#_0884DB: BEQ .free_slot
+|0884D8| LDA.w $0C4A,Y
+|0884DB| BEQ .free_slot
 
-#_0884DD: DEY
-#_0884DE: BPL .next_slot
+|0884DD| DEY
+|0884DE| BPL .next_slot
 
 .return ; don't exist
-#_0884E0: RTS
+|0884E0| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .free_slot
-#_0884E1: LDA.b #$13 ; ANCILLA 13
-#_0884E3: STA.w $0C4A,Y
+|0884E1| LDA.b #$13 ; ANCILLA 13
+|0884E3| STA.w $0C4A,Y
 
-#_0884E6: LDA.b #$0F
-#_0884E8: STA.w $0C68,Y
+|0884E6| LDA.b #$0F
+|0884E8| STA.w $0C68,Y
 
-#_0884EB: LDA.w $0C72,X
+|0884EB| LDA.w $0C72,X
 
-#_0884EE: PHX
-#_0884EF: TAX
+|0884EE| PHX
+|0884EF| TAX
 
-#_0884F0: LDA.w .speed_x,X
-#_0884F3: STA.w $0C2C,Y
+|0884F0| LDA.w .speed_x,X
+|0884F3| STA.w $0C2C,Y
 
-#_0884F6: LDA.w .speed_y,X
-#_0884F9: STA.w $0C22,Y
+|0884F6| LDA.w .speed_y,X
+|0884F9| STA.w $0C22,Y
 
-#_0884FC: PLX
+|0884FC| PLX
 
 ; copy some properties from parent
-#_0884FD: LDA.w $0C04,X
-#_088500: STA.w $0C04,Y
+|0884FD| LDA.w $0C04,X
+|088500| STA.w $0C04,Y
 
-#_088503: LDA.w $0BFA,X
-#_088506: STA.w $0BFA,Y
+|088503| LDA.w $0BFA,X
+|088506| STA.w $0BFA,Y
 
-#_088509: LDA.w $0C7C,X
-#_08850C: STA.w $0C7C,Y
+|088509| LDA.w $0C7C,X
+|08850C| STA.w $0C7C,Y
 
-#_08850F: LDA.b #$00
-#_088511: STA.w $0C90,Y
+|08850F| LDA.b #$00
+|088511| STA.w $0C90,Y
 
-#_088514: RTS
+|088514| RTS
 
 ;===================================================================================================
 
 pool Ancilla01_SomariaBullet
 
 .frame_masks
-#_088515: db $07, $03, $01, $00, $00, $00
+|088515| db $07, $03, $01, $00, $00, $00
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla01_SomariaBullet:
-#_08851B: LDA.b $11
-#_08851D: BNE .draw
+|08851B| LDA.b $11
+|08851D| BNE .draw
 
-#_08851F: LDY.w $0C54,X
+|08851F| LDY.w $0C54,X
 
-#_088522: LDA.b $1A
-#_088524: AND.w .frame_masks,Y
-#_088527: BNE .delay_movement
+|088522| LDA.b $1A
+|088524| AND.w .frame_masks,Y
+|088527| BNE .delay_movement
 
-#_088529: JSR AncillaMoveX
-#_08852C: JSR AncillaMoveY
+|088529| JSR AncillaMoveX
+|08852C| JSR AncillaMoveY
 
 .delay_movement
-#_08852F: LDA.w $0C68,X
-#_088532: BNE .timer_delay
+|08852F| LDA.w $0C68,X
+|088532| BNE .timer_delay
 
-#_088534: LDA.b #$03
-#_088536: STA.w $0C68,X
+|088534| LDA.b #$03
+|088536| STA.w $0C68,X
 
-#_088539: LDA.w $0C54,X
-#_08853C: INC A
-#_08853D: CMP.b #$06
-#_08853F: BCC .dont_reset_state
+|088539| LDA.w $0C54,X
+|08853C| INC A
+|08853D| CMP.b #$06
+|08853F| BCC .dont_reset_state
 
-#_088541: LDA.b #$04
+|088541| LDA.b #$04
 
 .dont_reset_state
-#_088543: STA.w $0C54,X
+|088543| STA.w $0C54,X
 
 .timer_delay
-#_088546: JSR Ancilla_CheckSpriteCollision
-#_088549: BCS .collision
+|088546| JSR Ancilla_CheckSpriteCollision
+|088549| BCS .collision
 
-#_08854B: JSR Ancilla_CheckTileCollision_staggered
-#_08854E: BCC .draw
+|08854B| JSR Ancilla_CheckTileCollision_staggered
+|08854E| BCC .draw
 
 .collision
-#_088550: LDA.b #$04 ; ANCILLA 04
-#_088552: STA.w $0C4A,X
+|088550| LDA.b #$04 ; ANCILLA 04
+|088552| STA.w $0C4A,X
 
-#_088555: LDA.b #$07
-#_088557: STA.w $0C68,X
+|088555| LDA.b #$07
+|088557| STA.w $0C68,X
 
-#_08855A: LDA.b #$10
-#_08855C: STA.w $0C90,X
+|08855A| LDA.b #$10
+|08855C| STA.w $0C90,X
 
 .draw
-#_08855F: BRL SomariaBlast_Draw
+|08855F| BRL SomariaBlast_Draw
 
 ;===================================================================================================
 
 pool SomariaBlast_Draw
 
 .char_a
-#_088562: db  $50,  $50
-#_088564: db  $44,  $44
-#_088566: db  $52,  $52
-#_088568: db  $50,  $50
-#_08856A: db  $44,  $44
-#_08856C: db  $51,  $51
-#_08856E: db  $43,  $43
-#_088570: db  $42,  $42
-#_088572: db  $41,  $41
-#_088574: db  $43,  $43
-#_088576: db  $42,  $42
-#_088578: db  $40,  $40
+|088562| db  $50,  $50
+|088564| db  $44,  $44
+|088566| db  $52,  $52
+|088568| db  $50,  $50
+|08856A| db  $44,  $44
+|08856C| db  $51,  $51
+|08856E| db  $43,  $43
+|088570| db  $42,  $42
+|088572| db  $41,  $41
+|088574| db  $43,  $43
+|088576| db  $42,  $42
+|088578| db  $40,  $40
 
 .char_b
-#_08857A: db  $50,  $50
-#_08857C: db  $44,  $44
-#_08857E: db  $51,  $51
-#_088580: db  $50,  $50
-#_088582: db  $44,  $44
-#_088584: db  $52,  $52
-#_088586: db  $43,  $43
-#_088588: db  $42,  $42
-#_08858A: db  $40,  $40
-#_08858C: db  $43,  $43
-#_08858E: db  $42,  $42
-#_088590: db  $41,  $41
+|08857A| db  $50,  $50
+|08857C| db  $44,  $44
+|08857E| db  $51,  $51
+|088580| db  $50,  $50
+|088582| db  $44,  $44
+|088584| db  $52,  $52
+|088586| db  $43,  $43
+|088588| db  $42,  $42
+|08858A| db  $40,  $40
+|08858C| db  $43,  $43
+|08858E| db  $42,  $42
+|088590| db  $41,  $41
 
 ;---------------------------------------------------------------------------------------------------
 
 .prop_a
-#_088592: db  $C0,  $C0
-#_088594: db  $C0,  $C0
-#_088596: db  $80,  $C0
-#_088598: db  $40,  $40
-#_08859A: db  $40,  $40
-#_08859C: db  $00,  $40
-#_08859E: db  $40,  $40
-#_0885A0: db  $40,  $40
-#_0885A2: db  $40,  $C0
-#_0885A4: db  $00,  $00
-#_0885A6: db  $00,  $00
-#_0885A8: db  $00,  $80
+|088592| db  $C0,  $C0
+|088594| db  $C0,  $C0
+|088596| db  $80,  $C0
+|088598| db  $40,  $40
+|08859A| db  $40,  $40
+|08859C| db  $00,  $40
+|08859E| db  $40,  $40
+|0885A0| db  $40,  $40
+|0885A2| db  $40,  $C0
+|0885A4| db  $00,  $00
+|0885A6| db  $00,  $00
+|0885A8| db  $00,  $80
 
 .prop_b
-#_0885AA: db  $80,  $80
-#_0885AC: db  $80,  $80
-#_0885AE: db  $80,  $C0
-#_0885B0: db  $00,  $00
-#_0885B2: db  $00,  $00
-#_0885B4: db  $00,  $40
-#_0885B6: db  $C0,  $C0
-#_0885B8: db  $C0,  $C0
-#_0885BA: db  $40,  $C0
-#_0885BC: db  $80,  $80
-#_0885BE: db  $80,  $80
-#_0885C0: db  $00,  $80
+|0885AA| db  $80,  $80
+|0885AC| db  $80,  $80
+|0885AE| db  $80,  $C0
+|0885B0| db  $00,  $00
+|0885B2| db  $00,  $00
+|0885B4| db  $00,  $40
+|0885B6| db  $C0,  $C0
+|0885B8| db  $C0,  $C0
+|0885BA| db  $40,  $C0
+|0885BC| db  $80,  $80
+|0885BE| db  $80,  $80
+|0885C0| db  $00,  $80
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_x_a
-#_0885C2: db    0,    0
-#_0885C4: db    0,    0
-#_0885C6: db    4,    4
-#_0885C8: db    0,    0
-#_0885CA: db    0,    0
-#_0885CC: db    4,    4
-#_0885CE: db    0,    0
-#_0885D0: db    0,    0
-#_0885D2: db    0,    0
-#_0885D4: db    0,    0
-#_0885D6: db    0,    0
-#_0885D8: db    0,    0
+|0885C2| db    0,    0
+|0885C4| db    0,    0
+|0885C6| db    4,    4
+|0885C8| db    0,    0
+|0885CA| db    0,    0
+|0885CC| db    4,    4
+|0885CE| db    0,    0
+|0885D0| db    0,    0
+|0885D2| db    0,    0
+|0885D4| db    0,    0
+|0885D6| db    0,    0
+|0885D8| db    0,    0
 
 .offset_x_b
-#_0885DA: db    8,    8
-#_0885DC: db    8,    8
-#_0885DE: db    4,    4
-#_0885E0: db    8,    8
-#_0885E2: db    8,    8
-#_0885E4: db    4,    4
-#_0885E6: db    0,    0
-#_0885E8: db    0,    0
-#_0885EA: db    8,    8
-#_0885EC: db    0,    0
-#_0885EE: db    0,    0
-#_0885F0: db    8,    8
+|0885DA| db    8,    8
+|0885DC| db    8,    8
+|0885DE| db    4,    4
+|0885E0| db    8,    8
+|0885E2| db    8,    8
+|0885E4| db    4,    4
+|0885E6| db    0,    0
+|0885E8| db    0,    0
+|0885EA| db    8,    8
+|0885EC| db    0,    0
+|0885EE| db    0,    0
+|0885F0| db    8,    8
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_y_a
-#_0885F2: db -128,    0
-#_0885F4: db    0,    0
-#_0885F6: db    0,    0
-#_0885F8: db    0,    0
-#_0885FA: db    0,    0
-#_0885FC: db    0,    0
-#_0885FE: db    0,    0
-#_088600: db    0,    0
-#_088602: db    4,    4
-#_088604: db    0,    0
-#_088606: db    0,    0
-#_088608: db    4,    4
+|0885F2| db -128,    0
+|0885F4| db    0,    0
+|0885F6| db    0,    0
+|0885F8| db    0,    0
+|0885FA| db    0,    0
+|0885FC| db    0,    0
+|0885FE| db    0,    0
+|088600| db    0,    0
+|088602| db    4,    4
+|088604| db    0,    0
+|088606| db    0,    0
+|088608| db    4,    4
 
 .offset_y_b
-#_08860A: db    0,    0
-#_08860C: db    0,    0
-#_08860E: db    8,    8
-#_088610: db -128,    0
-#_088612: db    0,    0
-#_088614: db    8,    8
-#_088616: db -128,    8
-#_088618: db    8,    8
-#_08861A: db    4,    4
-#_08861C: db -128,    8
-#_08861E: db    8,    8
-#_088620: db    4,    4
+|08860A| db    0,    0
+|08860C| db    0,    0
+|08860E| db    8,    8
+|088610| db -128,    0
+|088612| db    0,    0
+|088614| db    8,    8
+|088616| db -128,    8
+|088618| db    8,    8
+|08861A| db    4,    4
+|08861C| db -128,    8
+|08861E| db    8,    8
+|088620| db    4,    4
 
-pool off
+endpool
 
 ;===================================================================================================
 
 Ancilla_Killa:
-#_088622: PLA
-#_088623: PLA
+|088622| PLA
+|088623| PLA
 
-#_088624: STZ.w $0C4A,X
+|088624| STZ.w $0C4A,X
 
-#_088627: RTS
+|088627| RTS
 
 ;===================================================================================================
 
-pool Ancilla_BoundsCheck ; TODO better name
+pool Ancilla_KillOffscreen
 
 .data
-#_088628: db $20, $10
+|088628| db $20, $10
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
-Ancilla_BoundsCheck:
-#_08862A: LDY.w $0C7C,X
+Ancilla_KillOffscreen:
+|08862A| LDY.w $0C7C,X
 
-#_08862D: LDA.w .data,Y
-#_088630: STA.b $04
+|08862D| LDA.w .data,Y
+|088630| STA.b $04
 
-#_088632: LDY.w $0C86,X
+|088632| LDY.w $0C86,X
 
-#_088635: LDA.w $0C04,X
-#_088638: SEC
-#_088639: SBC.b $E2
-#_08863B: CMP.b #$F4
-#_08863D: BCS Ancilla_Killa
+|088635| LDA.w $0C04,X
+|088638| SEC
+|088639| SBC.b $E2
+|08863B| CMP.b #$F4
+|08863D| BCS Ancilla_Killa
 
-#_08863F: STA.b $00
+|08863F| STA.b $00
 
-#_088641: LDA.w $0BFA,X
-#_088644: SEC
-#_088645: SBC.b $E8
-#_088647: CMP.b #$F0
-#_088649: BCS Ancilla_Killa
+|088641| LDA.w $0BFA,X
+|088644| SEC
+|088645| SBC.b $E8
+|088647| CMP.b #$F0
+|088649| BCS Ancilla_Killa
 
-#_08864B: STA.b $01
+|08864B| STA.b $01
 
-#_08864D: RTS
+|08864D| RTS
 
 ;===================================================================================================
 
 pool SomariaBlast_Draw
 
 .palette
-#_08864E: db $02, $06
+|08864E| db $02, $06
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 SomariaBlast_Draw:
-#_088650: JSR Ancilla_BoundsCheck
+|088650| JSR Ancilla_KillOffscreen
 
-#_088653: LDY.w $0C5E,X
+|088653| LDY.w $0C5E,X
 
-#_088656: LDA.b $04
-#_088658: ORA.w .palette,Y
-#_08865B: STA.b $04
+|088656| LDA.b $04
+|088658| ORA.w .palette,Y
+|08865B| STA.b $04
 
-#_08865D: LDA.w $0280,X
-#_088660: BEQ .normal_priority
+|08865D| LDA.w $0280,X
+|088660| BEQ .normal_priority
 
-#_088662: LDA.b #$30
-#_088664: TSB.b $04
+|088662| LDA.b #$30
+|088664| TSB.b $04
 
 .normal_priority
-#_088666: LDY.b #$00
+|088666| LDY.b #$00
 
-#_088668: LDA.w $0C72,X
-#_08866B: ASL A
-#_08866C: ASL A
+|088668| LDA.w $0C72,X
+|08866B| ASL A
+|08866C| ASL A
 
-#_08866D: ADC.w $0C72,X
-#_088670: ADC.w $0C72,X
-#_088673: ADC.w $0C54,X
+|08866D| ADC.w $0C72,X
+|088670| ADC.w $0C72,X
+|088673| ADC.w $0C54,X
 
-#_088676: TAX
+|088676| TAX
 
-#_088677: LDA.w .offset_x_a,X
-#_08867A: CLC
-#_08867B: ADC.b $00
-#_08867D: STA.b ($90),Y
+|088677| LDA.w .offset_x_a,X
+|08867A| CLC
+|08867B| ADC.b $00
+|08867D| STA.b ($90),Y
 
-#_08867F: LDA.w .offset_x_b,X
-#_088682: CLC
-#_088683: ADC.b $00
-#_088685: LDY.b #$04
-#_088687: STA.b ($90),Y
+|08867F| LDA.w .offset_x_b,X
+|088682| CLC
+|088683| ADC.b $00
+|088685| LDY.b #$04
+|088687| STA.b ($90),Y
 
-#_088689: LDA.w .offset_y_a,X
-#_08868C: BMI .hide_a
+|088689| LDA.w .offset_y_a,X
+|08868C| BMI .hide_a
 
-#_08868E: CLC
-#_08868F: ADC.b $01
-#_088691: LDY.b #$01
-#_088693: STA.b ($90),Y
+|08868E| CLC
+|08868F| ADC.b $01
+|088691| LDY.b #$01
+|088693| STA.b ($90),Y
 
 .hide_a
-#_088695: LDA.w .offset_y_b,X
-#_088698: BMI .hide_b
+|088695| LDA.w .offset_y_b,X
+|088698| BMI .hide_b
 
-#_08869A: CLC
-#_08869B: ADC.b $01
-#_08869D: LDY.b #$05
-#_08869F: STA.b ($90),Y
+|08869A| CLC
+|08869B| ADC.b $01
+|08869D| LDY.b #$05
+|08869F| STA.b ($90),Y
 
 ;---------------------------------------------------------------------------------------------------
 
 .hide_b
-#_0886A1: LDA.w .char_a,X
-#_0886A4: CLC
-#_0886A5: ADC.b #$82
-#_0886A7: LDY.b #$02
+|0886A1| LDA.w .char_a,X
+|0886A4| CLC
+|0886A5| ADC.b #$82
+|0886A7| LDY.b #$02
 
-#_0886A9: STA.b ($90),Y
+|0886A9| STA.b ($90),Y
 
-#_0886AB: LDA.w .char_b,X
-#_0886AE: CLC
-#_0886AF: ADC.b #$82
-#_0886B1: LDY.b #$06
+|0886AB| LDA.w .char_b,X
+|0886AE| CLC
+|0886AF| ADC.b #$82
+|0886B1| LDY.b #$06
 
-#_0886B3: STA.b ($90),Y
+|0886B3| STA.b ($90),Y
 
-#_0886B5: LDA.w .prop_a,X
-#_0886B8: ORA.b $04
+|0886B5| LDA.w .prop_a,X
+|0886B8| ORA.b $04
 
-#_0886BA: LDY.b #$03
-#_0886BC: STA.b ($90),Y
+|0886BA| LDY.b #$03
+|0886BC| STA.b ($90),Y
 
-#_0886BE: LDA.w .prop_b,X
-#_0886C1: ORA.b $04
+|0886BE| LDA.w .prop_b,X
+|0886C1| ORA.b $04
 
-#_0886C3: LDY.b #$07
-#_0886C5: STA.b ($90),Y
+|0886C3| LDY.b #$07
+|0886C5| STA.b ($90),Y
 
-#_0886C7: LDY.b #$00
-#_0886C9: TYA
-#_0886CA: STA.b ($92),Y
+|0886C7| LDY.b #$00
+|0886C9| TYA
+|0886CA| STA.b ($92),Y
 
-#_0886CC: INY
-#_0886CD: STA.b ($92),Y
+|0886CC| INY
+|0886CD| STA.b ($92),Y
 
-#_0886CF: BRL Ancilla_RestoreIndex
+|0886CF| BRL Ancilla_RestoreIndex
 
 ;===================================================================================================
 
 Ancilla02_FireRodShot:
-#_0886D2: LDA.w $0C54,X
-#_0886D5: BEQ FireRodShot_Moving
+|0886D2| LDA.w $0C54,X
+|0886D5| BEQ FireRodShot_Moving
 
-#_0886D7: JMP.w FireRodShot_Halted
+|0886D7| JMP.w FireRodShot_Halted
 
 ;===================================================================================================
 
 FireRodShot_Moving:
-#_0886DA: LDA.b $11
-#_0886DC: BNE .draw
+|0886DA| LDA.b $11
+|0886DC| BNE .draw
 
-#_0886DE: STZ.w $0385,X
+|0886DE| STZ.w $0385,X
 
-#_0886E1: JSR AncillaMoveX
-#_0886E4: JSR AncillaMoveY
+|0886E1| JSR AncillaMoveX
+|0886E4| JSR AncillaMoveY
 
-#_0886E7: JSR Ancilla_CheckSpriteCollision
-#_0886EA: BCS .collision
+|0886E7| JSR Ancilla_CheckSpriteCollision
+|0886EA| BCS .collision
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0886EC: LDA.w $0C72,X
-#_0886EF: ORA.b #$08
-#_0886F1: STA.w $0C72,X
+|0886EC| LDA.w $0C72,X
+|0886EF| ORA.b #$08
+|0886F1| STA.w $0C72,X
 
-#_0886F4: JSR Ancilla_CheckTileCollision
-#_0886F7: PHP
+|0886F4| JSR Ancilla_CheckTileCollision
+|0886F7| PHP
 
-#_0886F8: LDA.w $03E4,X
-#_0886FB: STA.w $0385,X
+|0886F8| LDA.w $03E4,X
+|0886FB| STA.w $0385,X
 
-#_0886FE: PLP
-#_0886FF: BCS .collision
+|0886FE| PLP
+|0886FF| BCS .collision
 
-#_088701: LDA.w $0C72,X
-#_088704: ORA.b #$0C
-#_088706: STA.w $0C72,X
+|088701| LDA.w $0C72,X
+|088704| ORA.b #$0C
+|088706| STA.w $0C72,X
 
-#_088709: LDA.w $028A,X
-#_08870C: STA.b $74
+|088709| LDA.w $028A,X
+|08870C| STA.b $74
 
-#_08870E: JSR Ancilla_CheckTileCollision
-#_088711: PHP
+|08870E| JSR Ancilla_CheckTileCollision
+|088711| PHP
 
-#_088712: LDA.b $74
-#_088714: STA.w $028A,X
+|088712| LDA.b $74
+|088714| STA.w $028A,X
 
-#_088717: PLP
-#_088718: BCC .no_collision
+|088717| PLP
+|088718| BCC .no_collision
 
 .collision
-#_08871A: INC.w $0C54,X
+|08871A| INC.w $0C54,X
 
-#_08871D: LDA.b #$1F
-#_08871F: STA.w $0C68,X
+|08871D| LDA.b #$1F
+|08871F| STA.w $0C68,X
 
-#_088722: LDA.b #$08
-#_088724: STA.w $0C90,X
+|088722| LDA.b #$08
+|088724| STA.w $0C90,X
 
-#_088727: LDA.b #$2A ; SFX2.2A
-#_088729: JSR Ancilla_SFX2_Pan
+|088727| LDA.b #$2A ; SFX2.2A
+|088729| JSR Ancilla_SFX2_Pan
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_collision
-#_08872C: INC.w $0C5E,X
+|08872C| INC.w $0C5E,X
 
-#_08872F: LDA.w $0C72,X
-#_088732: AND.b #$F3
-#_088734: STA.w $0C72,X
+|08872F| LDA.w $0C72,X
+|088732| AND.b #$F3
+|088734| STA.w $0C72,X
 
-#_088737: LDA.w $0385,X
-#_08873A: STA.w $0333
+|088737| LDA.w $0385,X
+|08873A| STA.w $0333
 
-#_08873D: AND.b #$F0
-#_08873F: CMP.b #$C0
-#_088741: BEQ .torch
+|08873D| AND.b #$F0
+|08873F| CMP.b #$C0
+|088741| BEQ .torch
 
-#_088743: LDA.w $03E4,X
-#_088746: STA.w $0333
+|088743| LDA.w $03E4,X
+|088746| STA.w $0333
 
-#_088749: AND.b #$F0
-#_08874B: CMP.b #$C0
-#_08874D: BNE .draw
+|088749| AND.b #$F0
+|08874B| CMP.b #$C0
+|08874D| BNE .draw
 
 .torch
-#_08874F: PHX
-#_088750: JSL LightTorch
-#_088754: PLX
+|08874F| PHX
+|088750| JSL LightTorch
+|088754| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
 .draw
-#_088755: JSR AncillaDraw_FireRodShot
+|088755| JSR AncillaDraw_FireRodShot
 
-#_088758: RTS
+|088758| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_FireRodShot
 
 .offset_x
-#_088759: db   7,   0,   8,   0
-#_08875D: db   8,   4,   0,   0
-#_088761: db   2,   8,   0,   0
-#_088765: db   1,   4,   9,   0
+|088759| db   7,   0,   8,   0
+|08875D| db   8,   4,   0,   0
+|088761| db   2,   8,   0,   0
+|088765| db   1,   4,   9,   0
 
 .offset_y
-#_088769: db   1,   4,   9,   0
-#_08876D: db   7,   0,   8,   0
-#_088771: db   8,   4,   0,   0
-#_088775: db   2,   8,   0,   0
+|088769| db   1,   4,   9,   0
+|08876D| db   7,   0,   8,   0
+|088771| db   8,   4,   0,   0
+|088775| db   2,   8,   0,   0
 
 .char
-#_088779: db $8D, $9D, $9C
+|088779| db $8D, $9D, $9C
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_FireRodShot:
-#_08877C: JSR Ancilla_BoundsCheck
+|08877C| JSR Ancilla_KillOffscreen
 
-#_08877F: LDA.w $0280,X
-#_088782: BEQ .default_priority
+|08877F| LDA.w $0280,X
+|088782| BEQ .default_priority
 
-#_088784: LDA.b #$30
-#_088786: TSB.b $04
+|088784| LDA.b #$30
+|088786| TSB.b $04
 
 .default_priority
-#_088788: LDA.w $0C5E,X
-#_08878B: AND.b #$0C
-#_08878D: STA.b $02
+|088788| LDA.w $0C5E,X
+|08878B| AND.b #$0C
+|08878D| STA.b $02
 
-#_08878F: PHX
+|08878F| PHX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_088790: LDX.b #$02
-#_088792: LDY.b #$00
+|088790| LDX.b #$02
+|088792| LDY.b #$00
 
 .next_object
-#_088794: STX.b $03
+|088794| STX.b $03
 
-#_088796: TXA
-#_088797: ORA.b $02
-#_088799: TAX
+|088796| TXA
+|088797| ORA.b $02
+|088799| TAX
 
-#_08879A: LDA.b $00
-#_08879C: CLC
-#_08879D: ADC.w .offset_x,X
-#_0887A0: STA.b ($90),Y
+|08879A| LDA.b $00
+|08879C| CLC
+|08879D| ADC.w .offset_x,X
+|0887A0| STA.b ($90),Y
 
-#_0887A2: LDA.b $01
-#_0887A4: CLC
-#_0887A5: ADC.w .offset_y,X
-#_0887A8: INY
-#_0887A9: STA.b ($90),Y
+|0887A2| LDA.b $01
+|0887A4| CLC
+|0887A5| ADC.w .offset_y,X
+|0887A8| INY
+|0887A9| STA.b ($90),Y
 
-#_0887AB: LDX.b $03
+|0887AB| LDX.b $03
 
-#_0887AD: LDA.w .char,X
-#_0887B0: INY
-#_0887B1: STA.b ($90),Y
+|0887AD| LDA.w .char,X
+|0887B0| INY
+|0887B1| STA.b ($90),Y
 
-#_0887B3: LDA.b $04
-#_0887B5: ORA.b #$02
-#_0887B7: INY
-#_0887B8: STA.b ($90),Y
+|0887B3| LDA.b $04
+|0887B5| ORA.b #$02
+|0887B7| INY
+|0887B8| STA.b ($90),Y
 
-#_0887BA: PHY
+|0887BA| PHY
 
-#_0887BB: TYA
-#_0887BC: LSR A
-#_0887BD: LSR A
-#_0887BE: TAY
+|0887BB| TYA
+|0887BC| LSR A
+|0887BD| LSR A
+|0887BE| TAY
 
-#_0887BF: LDA.b #$00
-#_0887C1: STA.b ($92),Y
+|0887BF| LDA.b #$00
+|0887C1| STA.b ($92),Y
 
-#_0887C3: PLY
-#_0887C4: INY
+|0887C3| PLY
+|0887C4| INY
 
-#_0887C5: DEX
-#_0887C6: BPL .next_object
+|0887C5| DEX
+|0887C6| BPL .next_object
 
-#_0887C8: PLX
+|0887C8| PLX
 
-#_0887C9: RTS
+|0887C9| RTS
 
 ;===================================================================================================
 
 UNREACHABLE_0887CA:
-#_0887CA: RTS
+|0887CA| RTS
 
 ;===================================================================================================
 
 FireRodShot_Dissipate:
-#_0887CB: LDA.w $0C4A,X
+|0887CB| LDA.w $0C4A,X
 
-#_0887CE: STZ.w $0C4A,X
+|0887CE| STZ.w $0C4A,X
 
-#_0887D1: CMP.b #$2F ; ANCILLA 2F
-#_0887D3: BEQ .no_burn
+|0887D1| CMP.b #$2F ; ANCILLA 2F
+|0887D3| BEQ .no_burn
 
-#_0887D5: LDA.b $8A
-#_0887D7: CMP.b #$40 ; OW 40
-#_0887D9: BNE .no_burn
+|0887D5| LDA.b $8A
+|0887D7| CMP.b #$40 ; OW 40
+|0887D9| BNE .no_burn
 
-#_0887DB: LDA.w $03E4,X
-#_0887DE: CMP.b #$43 ; TILETYPE 43
-#_0887E0: BNE .no_burn
+|0887DB| LDA.w $03E4,X
+|0887DE| CMP.b #$43 ; TILETYPE 43
+|0887E0| BNE .no_burn
 
-#_0887E2: PHX
+|0887E2| PHX
 
-#_0887E3: JSL BecomeSkullWoodsFire
+|0887E3| JSL BecomeSkullWoodsFire
 
-#_0887E7: PLX
+|0887E7| PLX
 
 .no_burn
-#_0887E8: RTS
+|0887E8| RTS
 
 ;===================================================================================================
 
 pool FireRodShot_Halted
 
 .char
-#_0887E9: db $A2, $A0, $8E
+|0887E9| db $A2, $A0, $8E
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 FireRodShot_Halted:
-#_0887EC: JSR Ancilla_CheckBasicSpriteCollision
-#_0887EF: JSR Ancilla_BoundsCheck
+|0887EC| JSR Ancilla_CheckBasicSpriteCollision
+|0887EF| JSR Ancilla_KillOffscreen
 
-#_0887F2: LDY.b #$00
-#_0887F4: LDA.w $0C68,X
-#_0887F7: BEQ FireRodShot_Dissipate
+|0887F2| LDY.b #$00
+|0887F4| LDA.w $0C68,X
+|0887F7| BEQ FireRodShot_Dissipate
 
-#_0887F9: LSR A
-#_0887FA: LSR A
-#_0887FB: LSR A
-#_0887FC: BEQ .dying
+|0887F9| LSR A
+|0887FA| LSR A
+|0887FB| LSR A
+|0887FC| BEQ .dying
 
-#_0887FE: TAX
+|0887FE| TAX
 
-#_0887FF: LDA.b $00
-#_088801: STA.b ($90),Y
+|0887FF| LDA.b $00
+|088801| STA.b ($90),Y
 
-#_088803: LDA.b $01
-#_088805: INY
-#_088806: STA.b ($90),Y
+|088803| LDA.b $01
+|088805| INY
+|088806| STA.b ($90),Y
 
-#_088808: LDA.w .char-1,X
-#_08880B: INY
-#_08880C: STA.b ($90),Y
+|088808| LDA.w .char-1,X
+|08880B| INY
+|08880C| STA.b ($90),Y
 
-#_08880E: LDA.b #$02
-#_088810: ORA.b $04
-#_088812: INY
-#_088813: STA.b ($90),Y
+|08880E| LDA.b #$02
+|088810| ORA.b $04
+|088812| INY
+|088813| STA.b ($90),Y
 
-#_088815: LDA.b #$02
-#_088817: STA.b ($92)
+|088815| LDA.b #$02
+|088817| STA.b ($92)
 
-#_088819: BRL Ancilla_RestoreIndex
+|088819| BRL Ancilla_RestoreIndex
 
 ;---------------------------------------------------------------------------------------------------
 
 .dying
-#_08881C: TYA
-#_08881D: STA.b ($92),Y
+|08881C| TYA
+|08881D| STA.b ($92),Y
 
-#_08881F: INY
-#_088820: STA.b ($92),Y
+|08881F| INY
+|088820| STA.b ($92),Y
 
-#_088822: DEY
+|088822| DEY
 
-#_088823: LDA.b $00
-#_088825: STA.b ($90),Y
+|088823| LDA.b $00
+|088825| STA.b ($90),Y
 
-#_088827: CLC
-#_088828: ADC.b #$08
-#_08882A: LDY.b #$04
-#_08882C: STA.b ($90),Y
+|088827| CLC
+|088828| ADC.b #$08
+|08882A| LDY.b #$04
+|08882C| STA.b ($90),Y
 
-#_08882E: LDA.b $01
-#_088830: CLC
-#_088831: ADC.b #$FD
-#_088833: LDY.b #$01
-#_088835: STA.b ($90),Y
+|08882E| LDA.b $01
+|088830| CLC
+|088831| ADC.b #$FD
+|088833| LDY.b #$01
+|088835| STA.b ($90),Y
 
-#_088837: LDY.b #$05
-#_088839: STA.b ($90),Y
+|088837| LDY.b #$05
+|088839| STA.b ($90),Y
 
-#_08883B: LDA.b #$A4
-#_08883D: LDY.b #$02
-#_08883F: STA.b ($90),Y
+|08883B| LDA.b #$A4
+|08883D| LDY.b #$02
+|08883F| STA.b ($90),Y
 
-#_088841: INC A
-#_088842: LDY.b #$06
-#_088844: STA.b ($90),Y
+|088841| INC A
+|088842| LDY.b #$06
+|088844| STA.b ($90),Y
 
-#_088846: LDA.b #$02
-#_088848: ORA.b $04
-#_08884A: LDY.b #$03
-#_08884C: STA.b ($90),Y
+|088846| LDA.b #$02
+|088848| ORA.b $04
+|08884A| LDY.b #$03
+|08884C| STA.b ($90),Y
 
-#_08884E: LDY.b #$07
-#_088850: STA.b ($90),Y
+|08884E| LDY.b #$07
+|088850| STA.b ($90),Y
 
 ;===================================================================================================
 
 Ancilla03:
-#_088852: RTS
+|088852| RTS
 
 ;===================================================================================================
 ; TODO
@@ -1693,573 +1693,573 @@ Ancilla03:
 Ancilla_TileCollisionBehaviorClass1:
 
 .interaction
-#_088853: db $00 ; 00
-#_088854: db $01 ; 01
-#_088855: db $00 ; 02
-#_088856: db $03 ; 03
-#_088857: db $00 ; 04
-#_088858: db $00 ; 05
-#_088859: db $00 ; 06
-#_08885A: db $00 ; 07
-#_08885B: db $00 ; 08
-#_08885C: db $00 ; 09
-#_08885D: db $03 ; 0A
-#_08885E: db $00 ; 0B
-#_08885F: db $00 ; 0C
-#_088860: db $00 ; 0D
-#_088861: db $00 ; 0E
-#_088862: db $00 ; 0F
-#_088863: db $01 ; 10
-#_088864: db $01 ; 11
-#_088865: db $01 ; 12
-#_088866: db $01 ; 13
-#_088867: db $00 ; 14
-#_088868: db $00 ; 15
-#_088869: db $00 ; 16
-#_08886A: db $00 ; 17
-#_08886B: db $02 ; 18
-#_08886C: db $02 ; 19
-#_08886D: db $02 ; 1A
-#_08886E: db $02 ; 1B
-#_08886F: db $00 ; 1C
-#_088870: db $03 ; 1D
-#_088871: db $03 ; 1E
-#_088872: db $03 ; 1F
-#_088873: db $00 ; 20
-#_088874: db $00 ; 21
-#_088875: db $00 ; 22
-#_088876: db $00 ; 23
-#_088877: db $00 ; 24
-#_088878: db $00 ; 25
-#_088879: db $01 ; 26
-#_08887A: db $01 ; 27
-#_08887B: db $04 ; 28
-#_08887C: db $04 ; 29
-#_08887D: db $04 ; 2A
-#_08887E: db $04 ; 2B
-#_08887F: db $04 ; 2C
-#_088880: db $04 ; 2D
-#_088881: db $04 ; 2E
-#_088882: db $04 ; 2F
-#_088883: db $01 ; 30
-#_088884: db $01 ; 31
-#_088885: db $01 ; 32
-#_088886: db $01 ; 33
-#_088887: db $01 ; 34
-#_088888: db $01 ; 35
-#_088889: db $01 ; 36
-#_08888A: db $01 ; 37
-#_08888B: db $00 ; 38
-#_08888C: db $00 ; 39
-#_08888D: db $00 ; 3A
-#_08888E: db $00 ; 3B
-#_08888F: db $00 ; 3C
-#_088890: db $03 ; 3D
-#_088891: db $03 ; 3E
-#_088892: db $03 ; 3F
-#_088893: db $00 ; 40
-#_088894: db $00 ; 41
-#_088895: db $00 ; 42
-#_088896: db $01 ; 43
-#_088897: db $00 ; 44
-#_088898: db $00 ; 45
-#_088899: db $00 ; 46
-#_08889A: db $00 ; 47
-#_08889B: db $00 ; 48
-#_08889C: db $00 ; 49
-#_08889D: db $00 ; 4A
-#_08889E: db $00 ; 4B
-#_08889F: db $04 ; 4C
-#_0888A0: db $04 ; 4D
-#_0888A1: db $04 ; 4E
-#_0888A2: db $04 ; 4F
-#_0888A3: db $00 ; 50
-#_0888A4: db $00 ; 51
-#_0888A5: db $00 ; 52
-#_0888A6: db $00 ; 53
-#_0888A7: db $00 ; 54
-#_0888A8: db $00 ; 55
-#_0888A9: db $00 ; 56
-#_0888AA: db $00 ; 57
-#_0888AB: db $01 ; 58
-#_0888AC: db $01 ; 59
-#_0888AD: db $01 ; 5A
-#_0888AE: db $01 ; 5B
-#_0888AF: db $01 ; 5C
-#_0888B0: db $01 ; 5D
-#_0888B1: db $00 ; 5E
-#_0888B2: db $00 ; 5F
-#_0888B3: db $00 ; 60
-#_0888B4: db $00 ; 61
-#_0888B5: db $00 ; 62
-#_0888B6: db $01 ; 63
-#_0888B7: db $00 ; 64
-#_0888B8: db $00 ; 65
-#_0888B9: db $00 ; 66
-#_0888BA: db $00 ; 67
-#_0888BB: db $00 ; 68
-#_0888BC: db $00 ; 69
-#_0888BD: db $00 ; 6A
-#_0888BE: db $00 ; 6B
-#_0888BF: db $01 ; 6C
-#_0888C0: db $01 ; 6D
-#_0888C1: db $01 ; 6E
-#_0888C2: db $01 ; 6F
-#_0888C3: db $01 ; 70
-#_0888C4: db $01 ; 71
-#_0888C5: db $01 ; 72
-#_0888C6: db $01 ; 73
-#_0888C7: db $01 ; 74
-#_0888C8: db $01 ; 75
-#_0888C9: db $01 ; 76
-#_0888CA: db $01 ; 77
-#_0888CB: db $01 ; 78
-#_0888CC: db $01 ; 79
-#_0888CD: db $01 ; 7A
-#_0888CE: db $01 ; 7B
-#_0888CF: db $01 ; 7C
-#_0888D0: db $01 ; 7D
-#_0888D1: db $01 ; 7E
-#_0888D2: db $01 ; 7F
-#_0888D3: db $00 ; 80
-#_0888D4: db $00 ; 81
-#_0888D5: db $00 ; 82
-#_0888D6: db $00 ; 83
-#_0888D7: db $00 ; 84
-#_0888D8: db $00 ; 85
-#_0888D9: db $00 ; 86
-#_0888DA: db $00 ; 87
-#_0888DB: db $01 ; 88
-#_0888DC: db $01 ; 89
-#_0888DD: db $01 ; 8A
-#_0888DE: db $01 ; 8B
-#_0888DF: db $01 ; 8C
-#_0888E0: db $01 ; 8D
-#_0888E1: db $00 ; 8E
-#_0888E2: db $01 ; 8F
-#_0888E3: db $00 ; 90
-#_0888E4: db $00 ; 91
-#_0888E5: db $00 ; 92
-#_0888E6: db $00 ; 93
-#_0888E7: db $00 ; 94
-#_0888E8: db $00 ; 95
-#_0888E9: db $00 ; 96
-#_0888EA: db $00 ; 97
-#_0888EB: db $00 ; 98
-#_0888EC: db $00 ; 99
-#_0888ED: db $00 ; 9A
-#_0888EE: db $00 ; 9B
-#_0888EF: db $00 ; 9C
-#_0888F0: db $00 ; 9D
-#_0888F1: db $00 ; 9E
-#_0888F2: db $00 ; 9F
-#_0888F3: db $00 ; A0
-#_0888F4: db $00 ; A1
-#_0888F5: db $00 ; A2
-#_0888F6: db $00 ; A3
-#_0888F7: db $00 ; A4
-#_0888F8: db $00 ; A5
-#_0888F9: db $00 ; A6
-#_0888FA: db $00 ; A7
-#_0888FB: db $00 ; A8
-#_0888FC: db $00 ; A9
-#_0888FD: db $00 ; AA
-#_0888FE: db $00 ; AB
-#_0888FF: db $00 ; AC
-#_088900: db $00 ; AD
-#_088901: db $00 ; AE
-#_088902: db $00 ; AF
-#_088903: db $00 ; B0
-#_088904: db $00 ; B1
-#_088905: db $00 ; B2
-#_088906: db $00 ; B3
-#_088907: db $00 ; B4
-#_088908: db $00 ; B5
-#_088909: db $00 ; B6
-#_08890A: db $00 ; B7
-#_08890B: db $00 ; B8
-#_08890C: db $00 ; B9
-#_08890D: db $00 ; BA
-#_08890E: db $00 ; BB
-#_08890F: db $00 ; BC
-#_088910: db $00 ; BD
-#_088911: db $00 ; BE
-#_088912: db $00 ; BF
-#_088913: db $01 ; C0
-#_088914: db $01 ; C1
-#_088915: db $01 ; C2
-#_088916: db $01 ; C3
-#_088917: db $01 ; C4
-#_088918: db $01 ; C5
-#_088919: db $01 ; C6
-#_08891A: db $01 ; C7
-#_08891B: db $01 ; C8
-#_08891C: db $01 ; C9
-#_08891D: db $01 ; CA
-#_08891E: db $01 ; CB
-#_08891F: db $01 ; CC
-#_088920: db $01 ; CD
-#_088921: db $01 ; CE
-#_088922: db $01 ; CF
-#_088923: db $00 ; D0
-#_088924: db $00 ; D1
-#_088925: db $00 ; D2
-#_088926: db $00 ; D3
-#_088927: db $00 ; D4
-#_088928: db $00 ; D5
-#_088929: db $00 ; D6
-#_08892A: db $00 ; D7
-#_08892B: db $00 ; D8
-#_08892C: db $00 ; D9
-#_08892D: db $00 ; DA
-#_08892E: db $00 ; DB
-#_08892F: db $00 ; DC
-#_088930: db $00 ; DD
-#_088931: db $00 ; DE
-#_088932: db $00 ; DF
-#_088933: db $00 ; E0
-#_088934: db $00 ; E1
-#_088935: db $00 ; E2
-#_088936: db $00 ; E3
-#_088937: db $00 ; E4
-#_088938: db $00 ; E5
-#_088939: db $00 ; E6
-#_08893A: db $00 ; E7
-#_08893B: db $00 ; E8
-#_08893C: db $00 ; E9
-#_08893D: db $00 ; EA
-#_08893E: db $00 ; EB
-#_08893F: db $00 ; EC
-#_088940: db $00 ; ED
-#_088941: db $00 ; EE
-#_088942: db $00 ; EF
-#_088943: db $01 ; F0
-#_088944: db $01 ; F1
-#_088945: db $01 ; F2
-#_088946: db $01 ; F3
-#_088947: db $01 ; F4
-#_088948: db $01 ; F5
-#_088949: db $01 ; F6
-#_08894A: db $01 ; F7
-#_08894B: db $01 ; F8
-#_08894C: db $01 ; F9
-#_08894D: db $01 ; FA
-#_08894E: db $01 ; FB
-#_08894F: db $01 ; FC
-#_088950: db $01 ; FD
-#_088951: db $01 ; FE
-#_088952: db $01 ; FF
+|088853| db $00 ; 00
+|088854| db $01 ; 01
+|088855| db $00 ; 02
+|088856| db $03 ; 03
+|088857| db $00 ; 04
+|088858| db $00 ; 05
+|088859| db $00 ; 06
+|08885A| db $00 ; 07
+|08885B| db $00 ; 08
+|08885C| db $00 ; 09
+|08885D| db $03 ; 0A
+|08885E| db $00 ; 0B
+|08885F| db $00 ; 0C
+|088860| db $00 ; 0D
+|088861| db $00 ; 0E
+|088862| db $00 ; 0F
+|088863| db $01 ; 10
+|088864| db $01 ; 11
+|088865| db $01 ; 12
+|088866| db $01 ; 13
+|088867| db $00 ; 14
+|088868| db $00 ; 15
+|088869| db $00 ; 16
+|08886A| db $00 ; 17
+|08886B| db $02 ; 18
+|08886C| db $02 ; 19
+|08886D| db $02 ; 1A
+|08886E| db $02 ; 1B
+|08886F| db $00 ; 1C
+|088870| db $03 ; 1D
+|088871| db $03 ; 1E
+|088872| db $03 ; 1F
+|088873| db $00 ; 20
+|088874| db $00 ; 21
+|088875| db $00 ; 22
+|088876| db $00 ; 23
+|088877| db $00 ; 24
+|088878| db $00 ; 25
+|088879| db $01 ; 26
+|08887A| db $01 ; 27
+|08887B| db $04 ; 28
+|08887C| db $04 ; 29
+|08887D| db $04 ; 2A
+|08887E| db $04 ; 2B
+|08887F| db $04 ; 2C
+|088880| db $04 ; 2D
+|088881| db $04 ; 2E
+|088882| db $04 ; 2F
+|088883| db $01 ; 30
+|088884| db $01 ; 31
+|088885| db $01 ; 32
+|088886| db $01 ; 33
+|088887| db $01 ; 34
+|088888| db $01 ; 35
+|088889| db $01 ; 36
+|08888A| db $01 ; 37
+|08888B| db $00 ; 38
+|08888C| db $00 ; 39
+|08888D| db $00 ; 3A
+|08888E| db $00 ; 3B
+|08888F| db $00 ; 3C
+|088890| db $03 ; 3D
+|088891| db $03 ; 3E
+|088892| db $03 ; 3F
+|088893| db $00 ; 40
+|088894| db $00 ; 41
+|088895| db $00 ; 42
+|088896| db $01 ; 43
+|088897| db $00 ; 44
+|088898| db $00 ; 45
+|088899| db $00 ; 46
+|08889A| db $00 ; 47
+|08889B| db $00 ; 48
+|08889C| db $00 ; 49
+|08889D| db $00 ; 4A
+|08889E| db $00 ; 4B
+|08889F| db $04 ; 4C
+|0888A0| db $04 ; 4D
+|0888A1| db $04 ; 4E
+|0888A2| db $04 ; 4F
+|0888A3| db $00 ; 50
+|0888A4| db $00 ; 51
+|0888A5| db $00 ; 52
+|0888A6| db $00 ; 53
+|0888A7| db $00 ; 54
+|0888A8| db $00 ; 55
+|0888A9| db $00 ; 56
+|0888AA| db $00 ; 57
+|0888AB| db $01 ; 58
+|0888AC| db $01 ; 59
+|0888AD| db $01 ; 5A
+|0888AE| db $01 ; 5B
+|0888AF| db $01 ; 5C
+|0888B0| db $01 ; 5D
+|0888B1| db $00 ; 5E
+|0888B2| db $00 ; 5F
+|0888B3| db $00 ; 60
+|0888B4| db $00 ; 61
+|0888B5| db $00 ; 62
+|0888B6| db $01 ; 63
+|0888B7| db $00 ; 64
+|0888B8| db $00 ; 65
+|0888B9| db $00 ; 66
+|0888BA| db $00 ; 67
+|0888BB| db $00 ; 68
+|0888BC| db $00 ; 69
+|0888BD| db $00 ; 6A
+|0888BE| db $00 ; 6B
+|0888BF| db $01 ; 6C
+|0888C0| db $01 ; 6D
+|0888C1| db $01 ; 6E
+|0888C2| db $01 ; 6F
+|0888C3| db $01 ; 70
+|0888C4| db $01 ; 71
+|0888C5| db $01 ; 72
+|0888C6| db $01 ; 73
+|0888C7| db $01 ; 74
+|0888C8| db $01 ; 75
+|0888C9| db $01 ; 76
+|0888CA| db $01 ; 77
+|0888CB| db $01 ; 78
+|0888CC| db $01 ; 79
+|0888CD| db $01 ; 7A
+|0888CE| db $01 ; 7B
+|0888CF| db $01 ; 7C
+|0888D0| db $01 ; 7D
+|0888D1| db $01 ; 7E
+|0888D2| db $01 ; 7F
+|0888D3| db $00 ; 80
+|0888D4| db $00 ; 81
+|0888D5| db $00 ; 82
+|0888D6| db $00 ; 83
+|0888D7| db $00 ; 84
+|0888D8| db $00 ; 85
+|0888D9| db $00 ; 86
+|0888DA| db $00 ; 87
+|0888DB| db $01 ; 88
+|0888DC| db $01 ; 89
+|0888DD| db $01 ; 8A
+|0888DE| db $01 ; 8B
+|0888DF| db $01 ; 8C
+|0888E0| db $01 ; 8D
+|0888E1| db $00 ; 8E
+|0888E2| db $01 ; 8F
+|0888E3| db $00 ; 90
+|0888E4| db $00 ; 91
+|0888E5| db $00 ; 92
+|0888E6| db $00 ; 93
+|0888E7| db $00 ; 94
+|0888E8| db $00 ; 95
+|0888E9| db $00 ; 96
+|0888EA| db $00 ; 97
+|0888EB| db $00 ; 98
+|0888EC| db $00 ; 99
+|0888ED| db $00 ; 9A
+|0888EE| db $00 ; 9B
+|0888EF| db $00 ; 9C
+|0888F0| db $00 ; 9D
+|0888F1| db $00 ; 9E
+|0888F2| db $00 ; 9F
+|0888F3| db $00 ; A0
+|0888F4| db $00 ; A1
+|0888F5| db $00 ; A2
+|0888F6| db $00 ; A3
+|0888F7| db $00 ; A4
+|0888F8| db $00 ; A5
+|0888F9| db $00 ; A6
+|0888FA| db $00 ; A7
+|0888FB| db $00 ; A8
+|0888FC| db $00 ; A9
+|0888FD| db $00 ; AA
+|0888FE| db $00 ; AB
+|0888FF| db $00 ; AC
+|088900| db $00 ; AD
+|088901| db $00 ; AE
+|088902| db $00 ; AF
+|088903| db $00 ; B0
+|088904| db $00 ; B1
+|088905| db $00 ; B2
+|088906| db $00 ; B3
+|088907| db $00 ; B4
+|088908| db $00 ; B5
+|088909| db $00 ; B6
+|08890A| db $00 ; B7
+|08890B| db $00 ; B8
+|08890C| db $00 ; B9
+|08890D| db $00 ; BA
+|08890E| db $00 ; BB
+|08890F| db $00 ; BC
+|088910| db $00 ; BD
+|088911| db $00 ; BE
+|088912| db $00 ; BF
+|088913| db $01 ; C0
+|088914| db $01 ; C1
+|088915| db $01 ; C2
+|088916| db $01 ; C3
+|088917| db $01 ; C4
+|088918| db $01 ; C5
+|088919| db $01 ; C6
+|08891A| db $01 ; C7
+|08891B| db $01 ; C8
+|08891C| db $01 ; C9
+|08891D| db $01 ; CA
+|08891E| db $01 ; CB
+|08891F| db $01 ; CC
+|088920| db $01 ; CD
+|088921| db $01 ; CE
+|088922| db $01 ; CF
+|088923| db $00 ; D0
+|088924| db $00 ; D1
+|088925| db $00 ; D2
+|088926| db $00 ; D3
+|088927| db $00 ; D4
+|088928| db $00 ; D5
+|088929| db $00 ; D6
+|08892A| db $00 ; D7
+|08892B| db $00 ; D8
+|08892C| db $00 ; D9
+|08892D| db $00 ; DA
+|08892E| db $00 ; DB
+|08892F| db $00 ; DC
+|088930| db $00 ; DD
+|088931| db $00 ; DE
+|088932| db $00 ; DF
+|088933| db $00 ; E0
+|088934| db $00 ; E1
+|088935| db $00 ; E2
+|088936| db $00 ; E3
+|088937| db $00 ; E4
+|088938| db $00 ; E5
+|088939| db $00 ; E6
+|08893A| db $00 ; E7
+|08893B| db $00 ; E8
+|08893C| db $00 ; E9
+|08893D| db $00 ; EA
+|08893E| db $00 ; EB
+|08893F| db $00 ; EC
+|088940| db $00 ; ED
+|088941| db $00 ; EE
+|088942| db $00 ; EF
+|088943| db $01 ; F0
+|088944| db $01 ; F1
+|088945| db $01 ; F2
+|088946| db $01 ; F3
+|088947| db $01 ; F4
+|088948| db $01 ; F5
+|088949| db $01 ; F6
+|08894A| db $01 ; F7
+|08894B| db $01 ; F8
+|08894C| db $01 ; F9
+|08894D| db $01 ; FA
+|08894E| db $01 ; FB
+|08894F| db $01 ; FC
+|088950| db $01 ; FD
+|088951| db $01 ; FE
+|088952| db $01 ; FF
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_y
-#_088953: db   0,  16,   5,   5
-#_088957: db   0,  16,   4,   4
-#_08895B: db   4,  12,   5,   5
-#_08895F: db   4,  12,  12,  12
-#_088963: db   0,   0,   0,   0
+|088953| db   0,  16,   5,   5
+|088957| db   0,  16,   4,   4
+|08895B| db   4,  12,   5,   5
+|08895F| db   4,  12,  12,  12
+|088963| db   0,   0,   0,   0
 
 .offset_x
-#_088967: db   8,   8,   0,  16
-#_08896B: db   4,   4,   0,  16
-#_08896F: db   4,   4,   4,  12
-#_088973: db  12,  12,   4,  12
-#_088977: db   0,   0,   0,   0
+|088967| db   8,   8,   0,  16
+|08896B| db   4,   4,   0,  16
+|08896F| db   4,   4,   4,  12
+|088973| db  12,  12,   4,  12
+|088977| db   0,   0,   0,   0
 
 ;===================================================================================================
 
 Ancilla_CheckTileCollision_staggered:
-#_08897B: TXA
-#_08897C: EOR.b $1A
-#_08897E: LSR A
-#_08897F: BCC .skip_frame
+|08897B| TXA
+|08897C| EOR.b $1A
+|08897E| LSR A
+|08897F| BCC .skip_frame
 
 ;---------------------------------------------------------------------------------------------------
 
 #Ancilla_CheckTileCollision:
-#_088981: LDA.b $1B
-#_088983: BNE .indoors
+|088981| LDA.b $1B
+|088983| BNE .indoors
 
-#_088985: LDA.w $0280,X
-#_088988: BEQ .indoors
+|088985| LDA.w $0280,X
+|088988| BEQ .indoors
 
-#_08898A: STZ.w $03E4,X
+|08898A| STZ.w $03E4,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_frame
-#_08898D: CLC
+|08898D| CLC
 
-#_08898E: RTS
+|08898E| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .indoors
-#_08898F: LDA.w $046C
-#_088992: BEQ .check_basic
+|08898F| LDA.w $046C
+|088992| BEQ .check_basic
 
-#_088994: CMP.b #$03
+|088994| CMP.b #$03
 
-#_088996: REP #$20
-#_088998: BCC .get_bg_diff
+|088996| REP #$20
+|088998| BCC .get_bg_diff
 
-#_08899A: STZ.b $00
-#_08899C: STZ.b $02
+|08899A| STZ.b $00
+|08899C| STZ.b $02
 
-#_08899E: BRA .both_bg
+|08899E| BRA .both_bg
 
 ;---------------------------------------------------------------------------------------------------
 
 .get_bg_diff
-#_0889A0: LDA.b $E0
-#_0889A2: SEC
-#_0889A3: SBC.b $E2
-#_0889A5: STA.b $00
+|0889A0| LDA.b $E0
+|0889A2| SEC
+|0889A3| SBC.b $E2
+|0889A5| STA.b $00
 
-#_0889A7: LDA.b $E6
-#_0889A9: SEC
-#_0889AA: SBC.b $E8
-#_0889AC: STA.b $02
+|0889A7| LDA.b $E6
+|0889A9| SEC
+|0889AA| SBC.b $E8
+|0889AC| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
 .both_bg
-#_0889AE: SEP #$20
+|0889AE| SEP #$20
 
-#_0889B0: LDA.w $0C04,X
-#_0889B3: PHA
+|0889B0| LDA.w $0C04,X
+|0889B3| PHA
 
-#_0889B4: CLC
-#_0889B5: ADC.b $00
-#_0889B7: STA.w $0C04,X
+|0889B4| CLC
+|0889B5| ADC.b $00
+|0889B7| STA.w $0C04,X
 
-#_0889BA: LDA.w $0C18,X
-#_0889BD: PHA
+|0889BA| LDA.w $0C18,X
+|0889BD| PHA
 
-#_0889BE: ADC.b $01
-#_0889C0: STA.w $0C18,X
+|0889BE| ADC.b $01
+|0889C0| STA.w $0C18,X
 
-#_0889C3: LDA.w $0BFA,X
-#_0889C6: PHA
+|0889C3| LDA.w $0BFA,X
+|0889C6| PHA
 
-#_0889C7: CLC
-#_0889C8: ADC.b $02
-#_0889CA: STA.w $0BFA,X
+|0889C7| CLC
+|0889C8| ADC.b $02
+|0889CA| STA.w $0BFA,X
 
-#_0889CD: LDA.w $0C0E,X
-#_0889D0: PHA
+|0889CD| LDA.w $0C0E,X
+|0889D0| PHA
 
-#_0889D1: ADC.b $03
-#_0889D3: STA.w $0C0E,X
+|0889D1| ADC.b $03
+|0889D3| STA.w $0C0E,X
 
-#_0889D6: LDA.b #$01
-#_0889D8: STA.w $0C7C,X
+|0889D6| LDA.b #$01
+|0889D8| STA.w $0C7C,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0889DB: JSR .check_basic
+|0889DB| JSR .check_basic
 
-#_0889DE: STZ.w $0C7C,X
+|0889DE| STZ.w $0C7C,X
 
-#_0889E1: PLA
-#_0889E2: STA.w $0C0E,X
+|0889E1| PLA
+|0889E2| STA.w $0C0E,X
 
-#_0889E5: PLA
-#_0889E6: STA.w $0BFA,X
+|0889E5| PLA
+|0889E6| STA.w $0BFA,X
 
-#_0889E9: PLA
-#_0889EA: STA.w $0C18,X
+|0889E9| PLA
+|0889EA| STA.w $0C18,X
 
-#_0889ED: PLA
-#_0889EE: STA.w $0C04,X
+|0889ED| PLA
+|0889EE| STA.w $0C04,X
 
-#_0889F1: LDY.b #$00
-#_0889F3: BCC .skip_layer1
+|0889F1| LDY.b #$00
+|0889F3| BCC .skip_layer1
 
-#_0889F5: INY
+|0889F5| INY
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_layer1
-#_0889F6: PHY
-#_0889F7: PHP
+|0889F6| PHY
+|0889F7| PHP
 
-#_0889F8: JSR .check_basic
+|0889F8| JSR .check_basic
 
-#_0889FB: PLA
-#_0889FC: AND.b #$01
-#_0889FE: ROL A
-#_0889FF: CMP.b #$01
+|0889FB| PLA
+|0889FC| AND.b #$01
+|0889FE| ROL A
+|0889FF| CMP.b #$01
 
-#_088A01: PLY
+|088A01| PLY
 
-#_088A02: RTS
+|088A02| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .check_basic
-#_088A03: LDY.w $0C72,X
+|088A03| LDY.w $0C72,X
 
-#_088A06: LDA.w $0BFA,X
-#_088A09: CLC
-#_088A0A: ADC.w Ancilla_TileCollisionBehaviorClass1_offset_y,Y
-#_088A0D: STA.b $00
+|088A06| LDA.w $0BFA,X
+|088A09| CLC
+|088A0A| ADC.w Ancilla_TileCollisionBehaviorClass1.offset_y,Y
+|088A0D| STA.b $00
 
-#_088A0F: LDA.w $0C0E,X
-#_088A12: ADC.b #$00
-#_088A14: STA.b $01
+|088A0F| LDA.w $0C0E,X
+|088A12| ADC.b #$00
+|088A14| STA.b $01
 
-#_088A16: LDA.w $0C04,X
-#_088A19: CLC
-#_088A1A: ADC.w Ancilla_TileCollisionBehaviorClass1_offset_x,Y
-#_088A1D: STA.b $02
+|088A16| LDA.w $0C04,X
+|088A19| CLC
+|088A1A| ADC.w Ancilla_TileCollisionBehaviorClass1.offset_x,Y
+|088A1D| STA.b $02
 
-#_088A1F: LDA.w $0C18,X
-#_088A22: ADC.b #$00
-#_088A24: STA.b $03
+|088A1F| LDA.w $0C18,X
+|088A22| ADC.b #$00
+|088A24| STA.b $03
 
 ;===================================================================================================
 
 Ancilla_CheckTileCollision_targeted:
-#_088A26: REP #$20
+|088A26| REP #$20
 
-#_088A28: LDA.b $00
-#_088A2A: SEC
-#_088A2B: SBC.b $E8
-#_088A2D: CMP.w #$00E0
+|088A28| LDA.b $00
+|088A2A| SEC
+|088A2B| SBC.b $E8
+|088A2D| CMP.w #$00E0
 
-#_088A30: SEP #$20
-#_088A32: BCS .off_screen_y
-
-;---------------------------------------------------------------------------------------------------
-
-#_088A34: REP #$20
-
-#_088A36: LDA.b $02
-#_088A38: SEC
-#_088A39: SBC.b $E2
-#_088A3B: CMP.w #$0100
-
-#_088A3E: SEP #$20
-#_088A40: BCS .no_collision
-
-#_088A42: LDA.b $1B
-#_088A44: BNE .indoors
+|088A30| SEP #$20
+|088A32| BCS .off_screen_y
 
 ;---------------------------------------------------------------------------------------------------
 
-#_088A46: REP #$20
+|088A34| REP #$20
 
-#_088A48: LSR.b $02
-#_088A4A: LSR.b $02
-#_088A4C: LSR.b $02
+|088A36| LDA.b $02
+|088A38| SEC
+|088A39| SBC.b $E2
+|088A3B| CMP.w #$0100
 
-#_088A4E: PHX
-#_088A4F: JSL GetOverworldTileType
-#_088A53: PLX
+|088A3E| SEP #$20
+|088A40| BCS .no_collision
 
-#_088A54: BRA .continue
+|088A42| LDA.b $1B
+|088A44| BNE .indoors
+
+;---------------------------------------------------------------------------------------------------
+
+|088A46| REP #$20
+
+|088A48| LSR.b $02
+|088A4A| LSR.b $02
+|088A4C| LSR.b $02
+
+|088A4E| PHX
+|088A4F| JSL GetOverworldTileType
+|088A53| PLX
+
+|088A54| BRA .continue
 
 ;---------------------------------------------------------------------------------------------------
 
 .indoors
-#_088A56: LDA.w $0C7C,X
-#_088A59: JSL GetTileType_long
+|088A56| LDA.w $0C7C,X
+|088A59| JSL GetTileType_long
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_088A5D: STA.w $03E4,X
+|088A5D| STA.w $03E4,X
 
-#_088A60: TAY
+|088A60| TAY
 
-#_088A61: LDA.w Ancilla_TileCollisionBehaviorClass1_interaction,Y
-#_088A64: STA.b $0F
+|088A61| LDA.w Ancilla_TileCollisionBehaviorClass1.interaction,Y
+|088A64| STA.b $0F
 
-#_088A66: LDA.w $0C4A,X
-#_088A69: CMP.b #$02 ; ANCILLA 02
-#_088A6B: BNE .no_firetorch
+|088A66| LDA.w $0C4A,X
+|088A69| CMP.b #$02 ; ANCILLA 02
+|088A6B| BNE .no_firetorch
 
-#_088A6D: TYA
-#_088A6E: AND.b #$F0
-#_088A70: CMP.b #$C0
-#_088A72: BNE .no_firetorch
+|088A6D| TYA
+|088A6E| AND.b #$F0
+|088A70| CMP.b #$C0
+|088A72| BNE .no_firetorch
 
-#_088A74: STZ.b $0F
+|088A74| STZ.b $0F
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_firetorch
-#_088A76: LDA.w $0280,X
-#_088A79: BNE .high_pri
+|088A76| LDA.w $0280,X
+|088A79| BNE .high_pri
 
-#_088A7B: LDA.b $0F
-#_088A7D: BEQ .no_collision
+|088A7B| LDA.b $0F
+|088A7D| BEQ .no_collision
 
-#_088A7F: CMP.b #$01
-#_088A81: BEQ .collision
+|088A7F| CMP.b #$01
+|088A81| BEQ .collision
 
-#_088A83: CMP.b #$02
-#_088A85: BNE .not_slope
+|088A83| CMP.b #$02
+|088A85| BNE .not_slope
 
-#_088A87: JSL CheckSlopedTileCollision_long
+|088A87| JSL CheckSlopedTileCollision_long
 
-#_088A8B: RTS
+|088A8B| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_slope
-#_088A8C: CMP.b #$03
-#_088A8E: BNE .high_pri
+|088A8C| CMP.b #$03
+|088A8E| BNE .high_pri
 
-#_088A90: LDY.w $03CA,X
-#_088A93: BNE .collision
+|088A90| LDY.w $03CA,X
+|088A93| BNE .collision
 
 .off_screen_y
-#_088A95: BRA .no_collision
+|088A95| BRA .no_collision
 
 ;---------------------------------------------------------------------------------------------------
 
 .high_pri
-#_088A97: DEC.w $028A,X
-#_088A9A: BPL .no_collision
+|088A97| DEC.w $028A,X
+|088A9A| BPL .no_collision
 
-#_088A9C: STZ.w $028A,X
+|088A9C| STZ.w $028A,X
 
-#_088A9F: LDA.b $0F
-#_088AA1: CMP.b #$04
-#_088AA3: BNE .no_collision
+|088A9F| LDA.b $0F
+|088AA1| CMP.b #$04
+|088AA3| BNE .no_collision
 
-#_088AA5: LDA.b #$06
-#_088AA7: STA.w $028A,X
+|088AA5| LDA.b #$06
+|088AA7| STA.w $028A,X
 
-#_088AAA: LDA.w $0280,X
-#_088AAD: EOR.b #$01
-#_088AAF: STA.w $0280,X
+|088AAA| LDA.w $0280,X
+|088AAD| EOR.b #$01
+|088AAF| STA.w $0280,X
 
-#_088AB2: BRA .no_collision ; useless
+|088AB2| BRA .no_collision ; useless
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_collision
-#_088AB4: CLC
+|088AB4| CLC
 
-#_088AB5: RTS
+|088AB5| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .collision
-#_088AB6: LDY.b #$00
+|088AB6| LDY.b #$00
 
-#_088AB8: SEC
+|088AB8| SEC
 
 ;===================================================================================================
 
 AlertSprites:
-#_088AB9: LDA.b #$03
-#_088ABB: STA.w $0FDC
+|088AB9| LDA.b #$03
+|088ABB| STA.w $0FDC
 
-#_088ABE: RTS
+|088ABE| RTS
 
 ;===================================================================================================
 ; TODO
@@ -2267,3763 +2267,3763 @@ AlertSprites:
 Ancilla_TileCollisionBehaviorClass2:
 
 .interaction
-#_088ABF: db $00 ; 00
-#_088AC0: db $01 ; 01
-#_088AC1: db $00 ; 02
-#_088AC2: db $00 ; 03
-#_088AC3: db $01 ; 04
-#_088AC4: db $00 ; 05
-#_088AC5: db $00 ; 06
-#_088AC6: db $00 ; 07
-#_088AC7: db $00 ; 08
-#_088AC8: db $00 ; 09
-#_088AC9: db $03 ; 0A
-#_088ACA: db $00 ; 0B
-#_088ACB: db $00 ; 0C
-#_088ACC: db $00 ; 0D
-#_088ACD: db $00 ; 0E
-#_088ACE: db $00 ; 0F
-#_088ACF: db $01 ; 10
-#_088AD0: db $01 ; 11
-#_088AD1: db $01 ; 12
-#_088AD2: db $01 ; 13
-#_088AD3: db $00 ; 14
-#_088AD4: db $00 ; 15
-#_088AD5: db $00 ; 16
-#_088AD6: db $00 ; 17
-#_088AD7: db $02 ; 18
-#_088AD8: db $02 ; 19
-#_088AD9: db $02 ; 1A
-#_088ADA: db $02 ; 1B
-#_088ADB: db $00 ; 1C
-#_088ADC: db $03 ; 1D
-#_088ADD: db $03 ; 1E
-#_088ADE: db $03 ; 1F
-#_088ADF: db $00 ; 20
-#_088AE0: db $00 ; 21
-#_088AE1: db $00 ; 22
-#_088AE2: db $00 ; 23
-#_088AE3: db $00 ; 24
-#_088AE4: db $00 ; 25
-#_088AE5: db $01 ; 26
-#_088AE6: db $01 ; 27
-#_088AE7: db $04 ; 28
-#_088AE8: db $04 ; 29
-#_088AE9: db $04 ; 2A
-#_088AEA: db $04 ; 2B
-#_088AEB: db $04 ; 2C
-#_088AEC: db $04 ; 2D
-#_088AED: db $04 ; 2E
-#_088AEE: db $04 ; 2F
-#_088AEF: db $01 ; 30
-#_088AF0: db $01 ; 31
-#_088AF1: db $01 ; 32
-#_088AF2: db $01 ; 33
-#_088AF3: db $01 ; 34
-#_088AF4: db $01 ; 35
-#_088AF5: db $01 ; 36
-#_088AF6: db $01 ; 37
-#_088AF7: db $00 ; 38
-#_088AF8: db $00 ; 39
-#_088AF9: db $00 ; 3A
-#_088AFA: db $00 ; 3B
-#_088AFB: db $00 ; 3C
-#_088AFC: db $03 ; 3D
-#_088AFD: db $03 ; 3E
-#_088AFE: db $03 ; 3F
-#_088AFF: db $00 ; 40
-#_088B00: db $00 ; 41
-#_088B01: db $00 ; 42
-#_088B02: db $01 ; 43
-#_088B03: db $00 ; 44
-#_088B04: db $00 ; 45
-#_088B05: db $00 ; 46
-#_088B06: db $00 ; 47
-#_088B07: db $00 ; 48
-#_088B08: db $00 ; 49
-#_088B09: db $00 ; 4A
-#_088B0A: db $00 ; 4B
-#_088B0B: db $04 ; 4C
-#_088B0C: db $04 ; 4D
-#_088B0D: db $04 ; 4E
-#_088B0E: db $04 ; 4F
-#_088B0F: db $00 ; 50
-#_088B10: db $00 ; 51
-#_088B11: db $00 ; 52
-#_088B12: db $00 ; 53
-#_088B13: db $00 ; 54
-#_088B14: db $00 ; 55
-#_088B15: db $00 ; 56
-#_088B16: db $00 ; 57
-#_088B17: db $00 ; 58
-#_088B18: db $00 ; 59
-#_088B19: db $00 ; 5A
-#_088B1A: db $00 ; 5B
-#_088B1B: db $00 ; 5C
-#_088B1C: db $00 ; 5D
-#_088B1D: db $00 ; 5E
-#_088B1E: db $00 ; 5F
-#_088B1F: db $00 ; 60
-#_088B20: db $00 ; 61
-#_088B21: db $00 ; 62
-#_088B22: db $00 ; 63
-#_088B23: db $00 ; 64
-#_088B24: db $00 ; 65
-#_088B25: db $00 ; 66
-#_088B26: db $00 ; 67
-#_088B27: db $00 ; 68
-#_088B28: db $00 ; 69
-#_088B29: db $00 ; 6A
-#_088B2A: db $00 ; 6B
-#_088B2B: db $01 ; 6C
-#_088B2C: db $01 ; 6D
-#_088B2D: db $01 ; 6E
-#_088B2E: db $01 ; 6F
-#_088B2F: db $00 ; 70
-#_088B30: db $00 ; 71
-#_088B31: db $00 ; 72
-#_088B32: db $00 ; 73
-#_088B33: db $00 ; 74
-#_088B34: db $00 ; 75
-#_088B35: db $00 ; 76
-#_088B36: db $00 ; 77
-#_088B37: db $00 ; 78
-#_088B38: db $00 ; 79
-#_088B39: db $00 ; 7A
-#_088B3A: db $00 ; 7B
-#_088B3B: db $00 ; 7C
-#_088B3C: db $00 ; 7D
-#_088B3D: db $00 ; 7E
-#_088B3E: db $00 ; 7F
-#_088B3F: db $01 ; 80
-#_088B40: db $01 ; 81
-#_088B41: db $01 ; 82
-#_088B42: db $01 ; 83
-#_088B43: db $01 ; 84
-#_088B44: db $01 ; 85
-#_088B45: db $01 ; 86
-#_088B46: db $01 ; 87
-#_088B47: db $01 ; 88
-#_088B48: db $01 ; 89
-#_088B49: db $01 ; 8A
-#_088B4A: db $01 ; 8B
-#_088B4B: db $01 ; 8C
-#_088B4C: db $01 ; 8D
-#_088B4D: db $00 ; 8E
-#_088B4E: db $01 ; 8F
-#_088B4F: db $01 ; 90
-#_088B50: db $01 ; 91
-#_088B51: db $01 ; 92
-#_088B52: db $01 ; 93
-#_088B53: db $01 ; 94
-#_088B54: db $01 ; 95
-#_088B55: db $01 ; 96
-#_088B56: db $01 ; 97
-#_088B57: db $01 ; 98
-#_088B58: db $01 ; 99
-#_088B59: db $01 ; 9A
-#_088B5A: db $01 ; 9B
-#_088B5B: db $01 ; 9C
-#_088B5C: db $01 ; 9D
-#_088B5D: db $01 ; 9E
-#_088B5E: db $01 ; 9F
-#_088B5F: db $01 ; A0
-#_088B60: db $01 ; A1
-#_088B61: db $01 ; A2
-#_088B62: db $01 ; A3
-#_088B63: db $01 ; A4
-#_088B64: db $01 ; A5
-#_088B65: db $01 ; A6
-#_088B66: db $01 ; A7
-#_088B67: db $01 ; A8
-#_088B68: db $01 ; A9
-#_088B69: db $01 ; AA
-#_088B6A: db $01 ; AB
-#_088B6B: db $01 ; AC
-#_088B6C: db $01 ; AD
-#_088B6D: db $01 ; AE
-#_088B6E: db $01 ; AF
-#_088B6F: db $00 ; B0
-#_088B70: db $00 ; B1
-#_088B71: db $00 ; B2
-#_088B72: db $00 ; B3
-#_088B73: db $00 ; B4
-#_088B74: db $00 ; B5
-#_088B75: db $00 ; B6
-#_088B76: db $00 ; B7
-#_088B77: db $00 ; B8
-#_088B78: db $00 ; B9
-#_088B79: db $00 ; BA
-#_088B7A: db $00 ; BB
-#_088B7B: db $00 ; BC
-#_088B7C: db $00 ; BD
-#_088B7D: db $00 ; BE
-#_088B7E: db $00 ; BF
-#_088B7F: db $00 ; C0
-#_088B80: db $00 ; C1
-#_088B81: db $00 ; C2
-#_088B82: db $00 ; C3
-#_088B83: db $00 ; C4
-#_088B84: db $00 ; C5
-#_088B85: db $00 ; C6
-#_088B86: db $00 ; C7
-#_088B87: db $00 ; C8
-#_088B88: db $00 ; C9
-#_088B89: db $00 ; CA
-#_088B8A: db $00 ; CB
-#_088B8B: db $00 ; CC
-#_088B8C: db $00 ; CD
-#_088B8D: db $00 ; CE
-#_088B8E: db $00 ; CF
-#_088B8F: db $00 ; D0
-#_088B90: db $00 ; D1
-#_088B91: db $00 ; D2
-#_088B92: db $00 ; D3
-#_088B93: db $00 ; D4
-#_088B94: db $00 ; D5
-#_088B95: db $00 ; D6
-#_088B96: db $00 ; D7
-#_088B97: db $00 ; D8
-#_088B98: db $00 ; D9
-#_088B99: db $00 ; DA
-#_088B9A: db $00 ; DB
-#_088B9B: db $00 ; DC
-#_088B9C: db $00 ; DD
-#_088B9D: db $00 ; DE
-#_088B9E: db $00 ; DF
-#_088B9F: db $00 ; E0
-#_088BA0: db $00 ; E1
-#_088BA1: db $00 ; E2
-#_088BA2: db $00 ; E3
-#_088BA3: db $00 ; E4
-#_088BA4: db $00 ; E5
-#_088BA5: db $00 ; E6
-#_088BA6: db $00 ; E7
-#_088BA7: db $00 ; E8
-#_088BA8: db $00 ; E9
-#_088BA9: db $00 ; EA
-#_088BAA: db $00 ; EB
-#_088BAB: db $00 ; EC
-#_088BAC: db $00 ; ED
-#_088BAD: db $00 ; EE
-#_088BAE: db $00 ; EF
-#_088BAF: db $01 ; F0
-#_088BB0: db $01 ; F1
-#_088BB1: db $01 ; F2
-#_088BB2: db $01 ; F3
-#_088BB3: db $01 ; F4
-#_088BB4: db $01 ; F5
-#_088BB5: db $01 ; F6
-#_088BB6: db $01 ; F7
-#_088BB7: db $01 ; F8
-#_088BB8: db $01 ; F9
-#_088BB9: db $01 ; FA
-#_088BBA: db $01 ; FB
-#_088BBB: db $01 ; FC
-#_088BBC: db $01 ; FD
-#_088BBD: db $01 ; FE
-#_088BBE: db $01 ; FF
+|088ABF| db $00 ; 00
+|088AC0| db $01 ; 01
+|088AC1| db $00 ; 02
+|088AC2| db $00 ; 03
+|088AC3| db $01 ; 04
+|088AC4| db $00 ; 05
+|088AC5| db $00 ; 06
+|088AC6| db $00 ; 07
+|088AC7| db $00 ; 08
+|088AC8| db $00 ; 09
+|088AC9| db $03 ; 0A
+|088ACA| db $00 ; 0B
+|088ACB| db $00 ; 0C
+|088ACC| db $00 ; 0D
+|088ACD| db $00 ; 0E
+|088ACE| db $00 ; 0F
+|088ACF| db $01 ; 10
+|088AD0| db $01 ; 11
+|088AD1| db $01 ; 12
+|088AD2| db $01 ; 13
+|088AD3| db $00 ; 14
+|088AD4| db $00 ; 15
+|088AD5| db $00 ; 16
+|088AD6| db $00 ; 17
+|088AD7| db $02 ; 18
+|088AD8| db $02 ; 19
+|088AD9| db $02 ; 1A
+|088ADA| db $02 ; 1B
+|088ADB| db $00 ; 1C
+|088ADC| db $03 ; 1D
+|088ADD| db $03 ; 1E
+|088ADE| db $03 ; 1F
+|088ADF| db $00 ; 20
+|088AE0| db $00 ; 21
+|088AE1| db $00 ; 22
+|088AE2| db $00 ; 23
+|088AE3| db $00 ; 24
+|088AE4| db $00 ; 25
+|088AE5| db $01 ; 26
+|088AE6| db $01 ; 27
+|088AE7| db $04 ; 28
+|088AE8| db $04 ; 29
+|088AE9| db $04 ; 2A
+|088AEA| db $04 ; 2B
+|088AEB| db $04 ; 2C
+|088AEC| db $04 ; 2D
+|088AED| db $04 ; 2E
+|088AEE| db $04 ; 2F
+|088AEF| db $01 ; 30
+|088AF0| db $01 ; 31
+|088AF1| db $01 ; 32
+|088AF2| db $01 ; 33
+|088AF3| db $01 ; 34
+|088AF4| db $01 ; 35
+|088AF5| db $01 ; 36
+|088AF6| db $01 ; 37
+|088AF7| db $00 ; 38
+|088AF8| db $00 ; 39
+|088AF9| db $00 ; 3A
+|088AFA| db $00 ; 3B
+|088AFB| db $00 ; 3C
+|088AFC| db $03 ; 3D
+|088AFD| db $03 ; 3E
+|088AFE| db $03 ; 3F
+|088AFF| db $00 ; 40
+|088B00| db $00 ; 41
+|088B01| db $00 ; 42
+|088B02| db $01 ; 43
+|088B03| db $00 ; 44
+|088B04| db $00 ; 45
+|088B05| db $00 ; 46
+|088B06| db $00 ; 47
+|088B07| db $00 ; 48
+|088B08| db $00 ; 49
+|088B09| db $00 ; 4A
+|088B0A| db $00 ; 4B
+|088B0B| db $04 ; 4C
+|088B0C| db $04 ; 4D
+|088B0D| db $04 ; 4E
+|088B0E| db $04 ; 4F
+|088B0F| db $00 ; 50
+|088B10| db $00 ; 51
+|088B11| db $00 ; 52
+|088B12| db $00 ; 53
+|088B13| db $00 ; 54
+|088B14| db $00 ; 55
+|088B15| db $00 ; 56
+|088B16| db $00 ; 57
+|088B17| db $00 ; 58
+|088B18| db $00 ; 59
+|088B19| db $00 ; 5A
+|088B1A| db $00 ; 5B
+|088B1B| db $00 ; 5C
+|088B1C| db $00 ; 5D
+|088B1D| db $00 ; 5E
+|088B1E| db $00 ; 5F
+|088B1F| db $00 ; 60
+|088B20| db $00 ; 61
+|088B21| db $00 ; 62
+|088B22| db $00 ; 63
+|088B23| db $00 ; 64
+|088B24| db $00 ; 65
+|088B25| db $00 ; 66
+|088B26| db $00 ; 67
+|088B27| db $00 ; 68
+|088B28| db $00 ; 69
+|088B29| db $00 ; 6A
+|088B2A| db $00 ; 6B
+|088B2B| db $01 ; 6C
+|088B2C| db $01 ; 6D
+|088B2D| db $01 ; 6E
+|088B2E| db $01 ; 6F
+|088B2F| db $00 ; 70
+|088B30| db $00 ; 71
+|088B31| db $00 ; 72
+|088B32| db $00 ; 73
+|088B33| db $00 ; 74
+|088B34| db $00 ; 75
+|088B35| db $00 ; 76
+|088B36| db $00 ; 77
+|088B37| db $00 ; 78
+|088B38| db $00 ; 79
+|088B39| db $00 ; 7A
+|088B3A| db $00 ; 7B
+|088B3B| db $00 ; 7C
+|088B3C| db $00 ; 7D
+|088B3D| db $00 ; 7E
+|088B3E| db $00 ; 7F
+|088B3F| db $01 ; 80
+|088B40| db $01 ; 81
+|088B41| db $01 ; 82
+|088B42| db $01 ; 83
+|088B43| db $01 ; 84
+|088B44| db $01 ; 85
+|088B45| db $01 ; 86
+|088B46| db $01 ; 87
+|088B47| db $01 ; 88
+|088B48| db $01 ; 89
+|088B49| db $01 ; 8A
+|088B4A| db $01 ; 8B
+|088B4B| db $01 ; 8C
+|088B4C| db $01 ; 8D
+|088B4D| db $00 ; 8E
+|088B4E| db $01 ; 8F
+|088B4F| db $01 ; 90
+|088B50| db $01 ; 91
+|088B51| db $01 ; 92
+|088B52| db $01 ; 93
+|088B53| db $01 ; 94
+|088B54| db $01 ; 95
+|088B55| db $01 ; 96
+|088B56| db $01 ; 97
+|088B57| db $01 ; 98
+|088B58| db $01 ; 99
+|088B59| db $01 ; 9A
+|088B5A| db $01 ; 9B
+|088B5B| db $01 ; 9C
+|088B5C| db $01 ; 9D
+|088B5D| db $01 ; 9E
+|088B5E| db $01 ; 9F
+|088B5F| db $01 ; A0
+|088B60| db $01 ; A1
+|088B61| db $01 ; A2
+|088B62| db $01 ; A3
+|088B63| db $01 ; A4
+|088B64| db $01 ; A5
+|088B65| db $01 ; A6
+|088B66| db $01 ; A7
+|088B67| db $01 ; A8
+|088B68| db $01 ; A9
+|088B69| db $01 ; AA
+|088B6A| db $01 ; AB
+|088B6B| db $01 ; AC
+|088B6C| db $01 ; AD
+|088B6D| db $01 ; AE
+|088B6E| db $01 ; AF
+|088B6F| db $00 ; B0
+|088B70| db $00 ; B1
+|088B71| db $00 ; B2
+|088B72| db $00 ; B3
+|088B73| db $00 ; B4
+|088B74| db $00 ; B5
+|088B75| db $00 ; B6
+|088B76| db $00 ; B7
+|088B77| db $00 ; B8
+|088B78| db $00 ; B9
+|088B79| db $00 ; BA
+|088B7A| db $00 ; BB
+|088B7B| db $00 ; BC
+|088B7C| db $00 ; BD
+|088B7D| db $00 ; BE
+|088B7E| db $00 ; BF
+|088B7F| db $00 ; C0
+|088B80| db $00 ; C1
+|088B81| db $00 ; C2
+|088B82| db $00 ; C3
+|088B83| db $00 ; C4
+|088B84| db $00 ; C5
+|088B85| db $00 ; C6
+|088B86| db $00 ; C7
+|088B87| db $00 ; C8
+|088B88| db $00 ; C9
+|088B89| db $00 ; CA
+|088B8A| db $00 ; CB
+|088B8B| db $00 ; CC
+|088B8C| db $00 ; CD
+|088B8D| db $00 ; CE
+|088B8E| db $00 ; CF
+|088B8F| db $00 ; D0
+|088B90| db $00 ; D1
+|088B91| db $00 ; D2
+|088B92| db $00 ; D3
+|088B93| db $00 ; D4
+|088B94| db $00 ; D5
+|088B95| db $00 ; D6
+|088B96| db $00 ; D7
+|088B97| db $00 ; D8
+|088B98| db $00 ; D9
+|088B99| db $00 ; DA
+|088B9A| db $00 ; DB
+|088B9B| db $00 ; DC
+|088B9C| db $00 ; DD
+|088B9D| db $00 ; DE
+|088B9E| db $00 ; DF
+|088B9F| db $00 ; E0
+|088BA0| db $00 ; E1
+|088BA1| db $00 ; E2
+|088BA2| db $00 ; E3
+|088BA3| db $00 ; E4
+|088BA4| db $00 ; E5
+|088BA5| db $00 ; E6
+|088BA6| db $00 ; E7
+|088BA7| db $00 ; E8
+|088BA8| db $00 ; E9
+|088BA9| db $00 ; EA
+|088BAA| db $00 ; EB
+|088BAB| db $00 ; EC
+|088BAC| db $00 ; ED
+|088BAD| db $00 ; EE
+|088BAE| db $00 ; EF
+|088BAF| db $01 ; F0
+|088BB0| db $01 ; F1
+|088BB1| db $01 ; F2
+|088BB2| db $01 ; F3
+|088BB3| db $01 ; F4
+|088BB4| db $01 ; F5
+|088BB5| db $01 ; F6
+|088BB6| db $01 ; F7
+|088BB7| db $01 ; F8
+|088BB8| db $01 ; F9
+|088BB9| db $01 ; FA
+|088BBA| db $01 ; FB
+|088BBB| db $01 ; FC
+|088BBC| db $01 ; FD
+|088BBD| db $01 ; FE
+|088BBE| db $01 ; FF
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_y_low
-#_088BBF: db  -8,   8,   0,   0
+|088BBF| db  -8,   8,   0,   0
 
 .offset_y_high
-#_088BC3: db  -1,   0,   0,   0
+|088BC3| db  -1,   0,   0,   0
 
 .offset_x_low
-#_088BC7: db   0,   0,  -8,   8
+|088BC7| db   0,   0,  -8,   8
 
 .offset_x_high
-#_088BCB: db   0,   0,  -1,   0
+|088BCB| db   0,   0,  -1,   0
 
 ;===================================================================================================
 
 Ancilla_CheckTileCollision_Class2:
-#_088BCF: LDA.w $046C
-#_088BD2: BEQ .check_basic
+|088BCF| LDA.w $046C
+|088BD2| BEQ .check_basic
 
-#_088BD4: CMP.b #$03
+|088BD4| CMP.b #$03
 
-#_088BD6: REP #$20
-#_088BD8: BCC .get_bg_diff
+|088BD6| REP #$20
+|088BD8| BCC .get_bg_diff
 
-#_088BDA: STZ.b $00
-#_088BDC: STZ.b $02
+|088BDA| STZ.b $00
+|088BDC| STZ.b $02
 
-#_088BDE: BRA .both_bg
+|088BDE| BRA .both_bg
 
 ;---------------------------------------------------------------------------------------------------
 
 .get_bg_diff
-#_088BE0: LDA.b $E0
-#_088BE2: SEC
-#_088BE3: SBC.b $E2
-#_088BE5: STA.b $00
+|088BE0| LDA.b $E0
+|088BE2| SEC
+|088BE3| SBC.b $E2
+|088BE5| STA.b $00
 
-#_088BE7: LDA.b $E6
-#_088BE9: SEC
-#_088BEA: SBC.b $E8
-#_088BEC: STA.b $02
+|088BE7| LDA.b $E6
+|088BE9| SEC
+|088BEA| SBC.b $E8
+|088BEC| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
 .both_bg
-#_088BEE: SEP #$20
+|088BEE| SEP #$20
 
-#_088BF0: LDA.w $0C04,X
-#_088BF3: PHA
+|088BF0| LDA.w $0C04,X
+|088BF3| PHA
 
-#_088BF4: CLC
-#_088BF5: ADC.b $00
-#_088BF7: STA.w $0C04,X
+|088BF4| CLC
+|088BF5| ADC.b $00
+|088BF7| STA.w $0C04,X
 
-#_088BFA: LDA.w $0C18,X
-#_088BFD: PHA
+|088BFA| LDA.w $0C18,X
+|088BFD| PHA
 
-#_088BFE: ADC.b $01
-#_088C00: STA.w $0C18,X
+|088BFE| ADC.b $01
+|088C00| STA.w $0C18,X
 
-#_088C03: LDA.w $0BFA,X
-#_088C06: PHA
+|088C03| LDA.w $0BFA,X
+|088C06| PHA
 
-#_088C07: CLC
-#_088C08: ADC.b $02
-#_088C0A: STA.w $0BFA,X
+|088C07| CLC
+|088C08| ADC.b $02
+|088C0A| STA.w $0BFA,X
 
-#_088C0D: LDA.w $0C0E,X
-#_088C10: PHA
+|088C0D| LDA.w $0C0E,X
+|088C10| PHA
 
-#_088C11: ADC.b $03
-#_088C13: STA.w $0C0E,X
+|088C11| ADC.b $03
+|088C13| STA.w $0C0E,X
 
-#_088C16: LDA.b #$01
-#_088C18: STA.w $0C7C,X
+|088C16| LDA.b #$01
+|088C18| STA.w $0C7C,X
 
-#_088C1B: JSR .check_basic
-
-;---------------------------------------------------------------------------------------------------
-
-#_088C1E: STZ.w $0C7C,X
-
-#_088C21: PLA
-#_088C22: STA.w $0C0E,X
-
-#_088C25: PLA
-#_088C26: STA.w $0BFA,X
-
-#_088C29: PLA
-#_088C2A: STA.w $0C18,X
-
-#_088C2D: PLA
-#_088C2E: STA.w $0C04,X
+|088C1B| JSR .check_basic
 
 ;---------------------------------------------------------------------------------------------------
 
-#_088C31: LDY.b #$00
-#_088C33: BCC .skip_layer1
+|088C1E| STZ.w $0C7C,X
 
-#_088C35: INY
+|088C21| PLA
+|088C22| STA.w $0C0E,X
+
+|088C25| PLA
+|088C26| STA.w $0BFA,X
+
+|088C29| PLA
+|088C2A| STA.w $0C18,X
+
+|088C2D| PLA
+|088C2E| STA.w $0C04,X
+
+;---------------------------------------------------------------------------------------------------
+
+|088C31| LDY.b #$00
+|088C33| BCC .skip_layer1
+
+|088C35| INY
 
 .skip_layer1
-#_088C36: PHY
-#_088C37: PHP
+|088C36| PHY
+|088C37| PHP
 
-#_088C38: JSR .check_basic
+|088C38| JSR .check_basic
 
-#_088C3B: PLA
-#_088C3C: AND.b #$01
-#_088C3E: ROL A
-#_088C3F: CMP.b #$01
+|088C3B| PLA
+|088C3C| AND.b #$01
+|088C3E| ROL A
+|088C3F| CMP.b #$01
 
-#_088C41: PLY
+|088C41| PLY
 
-#_088C42: RTS
+|088C42| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .check_basic
-#_088C43: LDY.w $0C72,X
+|088C43| LDY.w $0C72,X
 
-#_088C46: LDA.w $0BFA,X
-#_088C49: CLC
-#_088C4A: ADC.w Ancilla_TileCollisionBehaviorClass2_offset_y_low,Y
-#_088C4D: STA.b $00
+|088C46| LDA.w $0BFA,X
+|088C49| CLC
+|088C4A| ADC.w Ancilla_TileCollisionBehaviorClass2.offset_y_low,Y
+|088C4D| STA.b $00
 
-#_088C4F: LDA.w $0C0E,X
-#_088C52: ADC.w Ancilla_TileCollisionBehaviorClass2_offset_y_high,Y
-#_088C55: STA.b $01
+|088C4F| LDA.w $0C0E,X
+|088C52| ADC.w Ancilla_TileCollisionBehaviorClass2.offset_y_high,Y
+|088C55| STA.b $01
 
-#_088C57: LDA.w $0C04,X
-#_088C5A: CLC
-#_088C5B: ADC.w Ancilla_TileCollisionBehaviorClass2_offset_x_low,Y
-#_088C5E: STA.b $02
+|088C57| LDA.w $0C04,X
+|088C5A| CLC
+|088C5B| ADC.w Ancilla_TileCollisionBehaviorClass2.offset_x_low,Y
+|088C5E| STA.b $02
 
-#_088C60: LDA.w $0C18,X
-#_088C63: ADC.w Ancilla_TileCollisionBehaviorClass2_offset_x_high,Y
-#_088C66: STA.b $03
+|088C60| LDA.w $0C18,X
+|088C63| ADC.w Ancilla_TileCollisionBehaviorClass2.offset_x_high,Y
+|088C66| STA.b $03
 
-#_088C68: REP #$20
+|088C68| REP #$20
 
-#_088C6A: LDA.b $00
-#_088C6C: SEC
-#_088C6D: SBC.b $E8
-#_088C6F: CMP.w #$00E0
+|088C6A| LDA.b $00
+|088C6C| SEC
+|088C6D| SBC.b $E8
+|088C6F| CMP.w #$00E0
 
-#_088C72: SEP #$20
-#_088C74: BCS .no_collision
-
-;---------------------------------------------------------------------------------------------------
-
-#_088C76: REP #$20
-
-#_088C78: LDA.b $02
-#_088C7A: SEC
-#_088C7B: SBC.b $E2
-#_088C7D: CMP.w #$0100
-
-#_088C80: SEP #$20
-#_088C82: BCS .no_collision
-
-#_088C84: LDA.b $1B
-#_088C86: BNE .check_indoors
+|088C72| SEP #$20
+|088C74| BCS .no_collision
 
 ;---------------------------------------------------------------------------------------------------
 
-#_088C88: REP #$20
+|088C76| REP #$20
 
-#_088C8A: LSR.b $02
-#_088C8C: LSR.b $02
-#_088C8E: LSR.b $02
+|088C78| LDA.b $02
+|088C7A| SEC
+|088C7B| SBC.b $E2
+|088C7D| CMP.w #$0100
 
-#_088C90: PHX
-#_088C91: JSL GetOverworldTileType
-#_088C95: PLX
+|088C80| SEP #$20
+|088C82| BCS .no_collision
 
-#_088C96: BRA .save_tile
+|088C84| LDA.b $1B
+|088C86| BNE .check_indoors
+
+;---------------------------------------------------------------------------------------------------
+
+|088C88| REP #$20
+
+|088C8A| LSR.b $02
+|088C8C| LSR.b $02
+|088C8E| LSR.b $02
+
+|088C90| PHX
+|088C91| JSL GetOverworldTileType
+|088C95| PLX
+
+|088C96| BRA .save_tile
 
 ;---------------------------------------------------------------------------------------------------
 
 .check_indoors
-#_088C98: LDA.w $0C7C,X
-#_088C9B: JSL GetTileType_long
+|088C98| LDA.w $0C7C,X
+|088C9B| JSL GetTileType_long
 
 ;---------------------------------------------------------------------------------------------------
 
 .save_tile
-#_088C9F: STA.w $03E4,X
+|088C9F| STA.w $03E4,X
 
-#_088CA2: CMP.b #$03 ; TILETYPE 03
-#_088CA4: BNE .not_slope3
+|088CA2| CMP.b #$03 ; TILETYPE 03
+|088CA4| BNE .not_slope3
 
-#_088CA6: LDY.w $03CA,X
-#_088CA9: BNE .no_collision
+|088CA6| LDY.w $03CA,X
+|088CA9| BNE .no_collision
 
 .not_slope3
-#_088CAB: TAY
+|088CAB| TAY
 
-#_088CAC: LDA.w Ancilla_TileCollisionBehaviorClass2_interaction,Y
-#_088CAF: BEQ .no_collision
+|088CAC| LDA.w Ancilla_TileCollisionBehaviorClass2.interaction,Y
+|088CAF| BEQ .no_collision
 
-#_088CB1: CMP.b #$02
-#_088CB3: BNE .not_a_slope
+|088CB1| CMP.b #$02
+|088CB3| BNE .not_a_slope
 
-#_088CB5: JSL CheckSlopedTileCollision_long
+|088CB5| JSL CheckSlopedTileCollision_long
 
-#_088CB9: RTS
+|088CB9| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_a_slope
-#_088CBA: CMP.b #$04
-#_088CBC: BNE .not_a_ledge
+|088CBA| CMP.b #$04
+|088CBC| BNE .not_a_ledge
 
-#_088CBE: LDA.w $03CA,X
-#_088CC1: BNE .collision
+|088CBE| LDA.w $03CA,X
+|088CC1| BNE .collision
 
-#_088CC3: LDA.b #$01
-#_088CC5: STA.w $0280,X
+|088CC3| LDA.b #$01
+|088CC5| STA.w $0280,X
 
-#_088CC8: BRA .no_collision
+|088CC8| BRA .no_collision
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_a_ledge
-#_088CCA: CMP.b #$03
-#_088CCC: BNE .collision
+|088CCA| CMP.b #$03
+|088CCC| BNE .collision
 
-#_088CCE: LDY.w $03CA,X
-#_088CD1: BNE .collision
+|088CCE| LDY.w $03CA,X
+|088CD1| BNE .collision
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_collision
-#_088CD3: CLC
+|088CD3| CLC
 
-#_088CD4: RTS
+|088CD4| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .collision
-#_088CD5: LDY.b #$00
+|088CD5| LDY.b #$00
 
-#_088CD7: SEC
+|088CD7| SEC
 
-#_088CD8: RTS
+|088CD8| RTS
 
 ;===================================================================================================
 
 pool Ancilla04_BeamHit
 
 .offset_x
-#_088CD9: db -12,  20, -12,  20
-#_088CDD: db  -8,  16,  -8,  16
-#_088CE1: db  -4,  12,  -4,  12
-#_088CE5: db   0,   8,   0,   8
+|088CD9| db -12,  20, -12,  20
+|088CDD| db  -8,  16,  -8,  16
+|088CE1| db  -4,  12,  -4,  12
+|088CE5| db   0,   8,   0,   8
 
 .offset_y
-#_088CE9: db -12, -12,  20,  20
-#_088CED: db  -8,  -8,  16,  16
-#_088CF1: db  -4,  -4,  12,  12
-#_088CF5: db   0,   0,   8,   8
+|088CE9| db -12, -12,  20,  20
+|088CED| db  -8,  -8,  16,  16
+|088CF1| db  -4,  -4,  12,  12
+|088CF5| db   0,   0,   8,   8
 
 .char
-#_088CF9: db $53, $53, $53, $53
-#_088CFD: db $53, $53, $53, $53
-#_088D01: db $53, $53, $53, $53
-#_088D05: db $54, $54, $54, $54
+|088CF9| db $53, $53, $53, $53
+|088CFD| db $53, $53, $53, $53
+|088D01| db $53, $53, $53, $53
+|088D05| db $54, $54, $54, $54
 
 .props
-#_088D09: db $40, $00, $C0, $80
-#_088D0D: db $40, $00, $C0, $80
-#_088D11: db $40, $00, $C0, $80
-#_088D15: db $00, $40, $80, $C0
+|088D09| db $40, $00, $C0, $80
+|088D0D| db $40, $00, $C0, $80
+|088D11| db $40, $00, $C0, $80
+|088D15| db $00, $40, $80, $C0
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla04_BeamHit:
-#_088D19: JSR Ancilla_BoundsCheck
+|088D19| JSR Ancilla_KillOffscreen
 
-#_088D1C: LDA.w $0C68,X
-#_088D1F: BNE .active
+|088D1C| LDA.w $0C68,X
+|088D1F| BNE .active
 
-#_088D21: BRL Ancilla_DeleteSelf
+|088D21| BRL Ancilla_DeleteSelf
 
 ;---------------------------------------------------------------------------------------------------
 
 .active
-#_088D24: LSR A
-#_088D25: STA.b $02
+|088D24| LSR A
+|088D25| STA.b $02
 
-#_088D27: LDX.b #$03
-#_088D29: LDY.b #$00
+|088D27| LDX.b #$03
+|088D29| LDY.b #$00
 
 .next_object
-#_088D2B: STX.b $03
+|088D2B| STX.b $03
 
-#_088D2D: LDA.b $02
-#_088D2F: ASL A
-#_088D30: ASL A
-#_088D31: ADC.b $03
-#_088D33: TAX
+|088D2D| LDA.b $02
+|088D2F| ASL A
+|088D30| ASL A
+|088D31| ADC.b $03
+|088D33| TAX
 
-#_088D34: LDA.b $00
-#_088D36: CLC
-#_088D37: ADC.w .offset_x,X
-#_088D3A: STA.b ($90),Y
+|088D34| LDA.b $00
+|088D36| CLC
+|088D37| ADC.w .offset_x,X
+|088D3A| STA.b ($90),Y
 
-#_088D3C: LDA.b $01
-#_088D3E: CLC
-#_088D3F: ADC.w .offset_y,X
-#_088D42: INY
-#_088D43: STA.b ($90),Y
+|088D3C| LDA.b $01
+|088D3E| CLC
+|088D3F| ADC.w .offset_y,X
+|088D42| INY
+|088D43| STA.b ($90),Y
 
-#_088D45: LDA.w .char,X
-#_088D48: CLC
-#_088D49: ADC.b #$82
-#_088D4B: INY
-#_088D4C: STA.b ($90),Y
+|088D45| LDA.w .char,X
+|088D48| CLC
+|088D49| ADC.b #$82
+|088D4B| INY
+|088D4C| STA.b ($90),Y
 
-#_088D4E: LDA.w .props,X
-#_088D51: ORA.b #$02
-#_088D53: ORA.b $04
-#_088D55: INY
-#_088D56: STA.b ($90),Y
+|088D4E| LDA.w .props,X
+|088D51| ORA.b #$02
+|088D53| ORA.b $04
+|088D55| INY
+|088D56| STA.b ($90),Y
 
-#_088D58: INY
+|088D58| INY
 
-#_088D59: LDX.b $03
-#_088D5B: DEX
-#_088D5C: BPL .next_object
+|088D59| LDX.b $03
+|088D5B| DEX
+|088D5C| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_088D5E: LDX.w $0FA0
-#_088D61: LDY.b #$00
-#_088D63: LDA.b #$03
-#_088D65: BRL BeamHit_OAMAdjustments
+|088D5E| LDX.w $0FA0
+|088D61| LDY.b #$00
+|088D63| LDA.b #$03
+|088D65| BRL BeamHit_OAMAdjustments
 
 ;===================================================================================================
 
 Ancilla_CheckSpriteCollision:
-#_088D68: LDY.b #$0F
+|088D68| LDY.b #$0F
 
 .next_sprite
-#_088D6A: LDA.w $0C4A,X
-#_088D6D: CMP.b #$09 ; ANCILLA 09
-#_088D6F: BEQ .arrow_or_hook
+|088D6A| LDA.w $0C4A,X
+|088D6D| CMP.b #$09 ; ANCILLA 09
+|088D6F| BEQ .arrow_or_hook
 
-#_088D71: CMP.b #$1F ; ANCILLA 1F
-#_088D73: BEQ .arrow_or_hook
+|088D71| CMP.b #$1F ; ANCILLA 1F
+|088D73| BEQ .arrow_or_hook
 
-#_088D75: TYA
-#_088D76: EOR.b $1A
-#_088D78: AND.b #$03
-#_088D7A: ORA.w $0F00,Y
-#_088D7D: BNE .skip
+|088D75| TYA
+|088D76| EOR.b $1A
+|088D78| AND.b #$03
+|088D7A| ORA.w $0F00,Y
+|088D7D| BNE .skip
 
 .arrow_or_hook
-#_088D7F: LDA.w $0DD0,Y
-#_088D82: CMP.b #$09
-#_088D84: BCC .skip
+|088D7F| LDA.w $0DD0,Y
+|088D82| CMP.b #$09
+|088D84| BCC .skip
 
-#_088D86: LDA.w $0CAA,Y
-#_088D89: AND.b #$02
-#_088D8B: BNE .ignore_priority
+|088D86| LDA.w $0CAA,Y
+|088D89| AND.b #$02
+|088D8B| BNE .ignore_priority
 
-#_088D8D: LDA.w $0280,X
-#_088D90: BNE .skip
+|088D8D| LDA.w $0280,X
+|088D90| BNE .skip
 
 .ignore_priority
-#_088D92: LDA.w $0C7C,X
-#_088D95: CMP.w $0F20,Y
-#_088D98: BNE .skip
+|088D92| LDA.w $0C7C,X
+|088D95| CMP.w $0F20,Y
+|088D98| BNE .skip
 
-#_088D9A: JSR Ancilla_CheckSpriteCollision_Single
+|088D9A| JSR Ancilla_CheckSpriteCollision_Single
 
 .skip
-#_088D9D: DEY
-#_088D9E: BPL .next_sprite
+|088D9D| DEY
+|088D9E| BPL .next_sprite
 
-#_088DA0: CLC
+|088DA0| CLC
 
-#_088DA1: RTS
+|088DA1| RTS
 
 ;===================================================================================================
 
 Ancilla_CheckSpriteCollision_long:
-#_088DA2: PHB
-#_088DA3: PHK
-#_088DA4: PLB
+|088DA2| PHB
+|088DA3| PHK
+|088DA4| PLB
 
-#_088DA5: JSR Ancilla_CheckSpriteCollision
+|088DA5| JSR Ancilla_CheckSpriteCollision
 
-#_088DA8: PLB
+|088DA8| PLB
 
-#_088DA9: RTL
+|088DA9| RTL
 
 ;---------------------------------------------------------------------------------------------------
 
 pool Ancilla_CheckSpriteCollision_Single
 
 .direction
-#_088DAA: db $02, $03, $00, $01
+|088DAA| db $02, $03, $00, $01
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla_CheckSpriteCollision_Single:
-#_088DAE: JSR Ancilla_SetupHitbox
+|088DAE| JSR Ancilla_SetupHitbox
 
-#_088DB1: PHY
-#_088DB2: PHX
+|088DB1| PHY
+|088DB2| PHX
 
-#_088DB3: TYX
-#_088DB4: JSL SetupSpriteHitBox_long
+|088DB3| TYX
+|088DB4| JSL SetupSpriteHitbox_long
 
-#_088DB8: PLX
-#_088DB9: PLY
+|088DB8| PLX
+|088DB9| PLY
 
-#_088DBA: JSL CheckIfHitBoxesOverlap_long
-#_088DBE: BCS .hitbox_overlap
+|088DBA| JSL CheckIfHitboxesOverlap_long
+|088DBE| BCS .hitbox_overlap
 
-#_088DC0: JMP.w .no_collision
+|088DC0| JMP.w .no_collision
 
 ;---------------------------------------------------------------------------------------------------
 
 .hitbox_overlap
-#_088DC3: LDA.w $0B6B,Y
-#_088DC6: AND.b #$08
-#_088DC8: BEQ .arrow_continue
+|088DC3| LDA.w $0B6B,Y
+|088DC6| AND.b #$08
+|088DC8| BEQ .arrow_continue
 
-#_088DCA: LDA.w $0C4A,X
-#_088DCD: CMP.b #$09 ; ANCILLA 09
-#_088DCF: BNE .arrow_continue
+|088DCA| LDA.w $0C4A,X
+|088DCD| CMP.b #$09 ; ANCILLA 09
+|088DCF| BNE .arrow_continue
 
-#_088DD1: LDA.w $0E20,Y
-#_088DD4: CMP.b #$1B ; SPRITE 1B
-#_088DD6: BEQ .arrow_v_arrow
+|088DD1| LDA.w $0E20,Y
+|088DD4| CMP.b #$1B ; SPRITE 1B
+|088DD6| BEQ .arrow_v_arrow
 
 .deflected_arrow
-#_088DD8: JSL CreateDeflectedArrow
+|088DD8| JSL CreateDeflectedArrow
 
-#_088DDC: CLC
+|088DDC| CLC
 
-#_088DDD: RTS
+|088DDD| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .arrow_v_arrow
-#_088DDE: LDA.l $7EF340
-#_088DE2: CMP.b #$03
-#_088DE4: BCC .not_silvers
+|088DDE| LDA.l $7EF340
+|088DE2| CMP.b #$03
+|088DE4| BCC .not_silvers
 
-#_088DE6: JSR .arrow_continue
+|088DE6| JSR .arrow_continue
 
-#_088DE9: CLC
+|088DE9| CLC
 
-#_088DEA: RTS
+|088DEA| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_silvers
-#_088DEB: JSR .deflected_arrow
+|088DEB| JSR .deflected_arrow
 
 ;---------------------------------------------------------------------------------------------------
 
 .arrow_continue
-#_088DEE: LDA.w $0CAA,Y
-#_088DF1: AND.b #$10
-#_088DF3: BEQ .no_succ
+|088DEE| LDA.w $0CAA,Y
+|088DF1| AND.b #$10
+|088DF3| BEQ .no_succ
 
-#_088DF5: LDA.w $0C72,X
-#_088DF8: AND.b #$03
-#_088DFA: STA.w $0C72,X
+|088DF5| LDA.w $0C72,X
+|088DF8| AND.b #$03
+|088DFA| STA.w $0C72,X
 
-#_088DFD: PHY
+|088DFD| PHY
 
-#_088DFE: LDA.w $0DE0,Y
-#_088E01: TAY
+|088DFE| LDA.w $0DE0,Y
+|088E01| TAY
 
-#_088E02: LDA.w .direction,Y
+|088E02| LDA.w .direction,Y
 
-#_088E05: PLY
+|088E05| PLY
 
-#_088E06: CMP.w $0C72,X
-#_088E09: BEQ .immunity
+|088E06| CMP.w $0C72,X
+|088E09| BEQ .immunity
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_succ
-#_088E0B: LDA.w $0C4A,X
-#_088E0E: CMP.b #$05 ; ANCILLA 05
-#_088E10: BEQ .boom
+|088E0B| LDA.w $0C4A,X
+|088E0E| CMP.b #$05 ; ANCILLA 05
+|088E10| BEQ .boom
 
-#_088E12: CMP.b #$1F ; ANCILLA 1F
-#_088E14: BNE .continue_b
+|088E12| CMP.b #$1F ; ANCILLA 1F
+|088E14| BNE .continue_b
 
-#_088E16: LDA.w $0E20,Y
-#_088E19: CMP.b #$8D ; SPRITE 8D
-#_088E1B: BEQ .arrghus_puff
+|088E16| LDA.w $0E20,Y
+|088E19| CMP.b #$8D ; SPRITE 8D
+|088E1B| BEQ .arrghus_puff
 
 .boom
-#_088E1D: LDA.w $0EF0,Y
-#_088E20: BNE .immunity
+|088E1D| LDA.w $0EF0,Y
+|088E20| BNE .immunity
 
-#_088E22: LDA.w $0CAA,Y
-#_088E25: AND.b #$02
-#_088E27: BEQ .continue_b
+|088E22| LDA.w $0CAA,Y
+|088E25| AND.b #$02
+|088E27| BEQ .continue_b
 
 .arrghus_puff
-#_088E29: TXA ; give ancilla's ID to sprite to latch on
-#_088E2A: INC A
-#_088E2B: STA.w $0DA0,Y
+|088E29| TXA ; give ancilla's ID to sprite to latch on
+|088E2A| INC A
+|088E2B| STA.w $0DA0,Y
 
-#_088E2E: BRA .set_drag
+|088E2E| BRA .set_drag
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue_b
-#_088E30: LDA.w $0BA0,Y
-#_088E33: BNE .no_collision
+|088E30| LDA.w $0BA0,Y
+|088E33| BNE .no_collision
 
-#_088E35: LDA.w $0E20,Y
-#_088E38: CMP.b #$92 ; SPRITE 92
-#_088E3A: BNE .not_helma_mask
+|088E35| LDA.w $0E20,Y
+|088E38| CMP.b #$92 ; SPRITE 92
+|088E3A| BNE .not_helma_mask
 
-#_088E3C: LDA.w $0DB0,Y
-#_088E3F: CMP.b #$03
-#_088E41: BCC .immunity
+|088E3C| LDA.w $0DB0,Y
+|088E3F| CMP.b #$03
+|088E41| BCC .immunity
 
 .not_helma_mask
-#_088E43: PHX
+|088E43| PHX
 
-#_088E44: LDA.w $0C72,X
-#_088E47: AND.b #$03
-#_088E49: TAX
+|088E44| LDA.w $0C72,X
+|088E47| AND.b #$03
+|088E49| TAX
 
-#_088E4A: LDA.w .recoil_x,X
-#_088E4D: STA.w $0F40,Y
+|088E4A| LDA.w .recoil_x,X
+|088E4D| STA.w $0F40,Y
 
-#_088E50: LDA.w .recoil_y,X
-#_088E53: STA.w $0F30,Y
+|088E50| LDA.w .recoil_y,X
+|088E53| STA.w $0F30,Y
 
-#_088E56: PLX
-#_088E57: PHX
+|088E56| PLX
+|088E57| PHX
 
-#_088E58: LDA.w $0C4A,X
+|088E58| LDA.w $0C4A,X
 
-#_088E5B: STX.w $0FB6
+|088E5B| STX.w $0FB6
 
-#_088E5E: TYX
+|088E5E| TYX
 
-#_088E5F: PHY
+|088E5F| PHY
 
-#_088E60: JSL CheckAncillaDamageToSprite
+|088E60| JSL CheckAncillaDamageToSprite
 
-#_088E64: PLY
-#_088E65: PLX
+|088E64| PLY
+|088E65| PLX
 
 .set_drag
-#_088E66: LDA.w $0C4A,X
-#_088E69: STA.w $0BB0,Y
+|088E66| LDA.w $0C4A,X
+|088E69| STA.w $0BB0,Y
 
 .immunity
-#_088E6C: PLA
-#_088E6D: PLA
+|088E6C| PLA
+|088E6D| PLA
 
-#_088E6E: JSR AlertSprites
+|088E6E| JSR AlertSprites
 
-#_088E71: SEC
+|088E71| SEC
 
-#_088E72: RTS
+|088E72| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_collision
-#_088E73: CLC
+|088E73| CLC
 
-#_088E74: RTS
+|088E74| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .recoil_x
-#_088E75: db   0,   0, -64,  64
+|088E75| db   0,   0, -64,  64
 
 .recoil_y
-#_088E79: db -64,  64,   0,   0
+|088E79| db -64,  64,   0,   0
 
 ;===================================================================================================
 
 AncillaHitbox:
 
 .offset_x
-#_088E7D: db   4
-#_088E7E: db   4
-#_088E7F: db   4
-#_088E80: db   4
-#_088E81: db   3
-#_088E82: db   3
-#_088E83: db   2
-#_088E84: db  11
-#_088E85: db -16
-#_088E86: db -16
-#_088E87: db  -1
-#_088E88: db  -8
+|088E7D| db   4
+|088E7E| db   4
+|088E7F| db   4
+|088E80| db   4
+|088E81| db   3
+|088E82| db   3
+|088E83| db   2
+|088E84| db  11
+|088E85| db -16
+|088E86| db -16
+|088E87| db  -1
+|088E88| db  -8
 
 ;---------------------------------------------------------------------------------------------------
 
 .width
-#_088E89: db   8
-#_088E8A: db   8
-#_088E8B: db   8
-#_088E8C: db   8
-#_088E8D: db   1
-#_088E8E: db   1
-#_088E8F: db   1
-#_088E90: db   1
-#_088E91: db  32
-#_088E92: db  32
-#_088E93: db   8
-#_088E94: db   8
+|088E89| db   8
+|088E8A| db   8
+|088E8B| db   8
+|088E8C| db   8
+|088E8D| db   1
+|088E8E| db   1
+|088E8F| db   1
+|088E90| db   1
+|088E91| db  32
+|088E92| db  32
+|088E93| db   8
+|088E94| db   8
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_y
-#_088E95: db   4
-#_088E96: db   4
-#_088E97: db   4
-#_088E98: db   4
-#_088E99: db   2
-#_088E9A: db  11
-#_088E9B: db   3
-#_088E9C: db   3
-#_088E9D: db  -1
-#_088E9E: db  -8
-#_088E9F: db -16
-#_088EA0: db -16
+|088E95| db   4
+|088E96| db   4
+|088E97| db   4
+|088E98| db   4
+|088E99| db   2
+|088E9A| db  11
+|088E9B| db   3
+|088E9C| db   3
+|088E9D| db  -1
+|088E9E| db  -8
+|088E9F| db -16
+|088EA0| db -16
 
 ;---------------------------------------------------------------------------------------------------
 
 .height
-#_088EA1: db   8
-#_088EA2: db   8
-#_088EA3: db   8
-#_088EA4: db   8
-#_088EA5: db   1
-#_088EA6: db   1
-#_088EA7: db   1
-#_088EA8: db   1
-#_088EA9: db   8
-#_088EAA: db   8
-#_088EAB: db  32
-#_088EAC: db  32
+|088EA1| db   8
+|088EA2| db   8
+|088EA3| db   8
+|088EA4| db   8
+|088EA5| db   1
+|088EA6| db   1
+|088EA7| db   1
+|088EA8| db   1
+|088EA9| db   8
+|088EAA| db   8
+|088EAB| db  32
+|088EAC| db  32
 
 ;===================================================================================================
 
 Ancilla_SetupHitbox:
-#_088EAD: STZ.b $09
+|088EAD| STZ.b $09
 
-#_088EAF: PHY
+|088EAF| PHY
 
-#_088EB0: LDY.w $0C72,X
+|088EB0| LDY.w $0C72,X
 
-#_088EB3: LDA.w $0C4A,X
-#_088EB6: CMP.b #$0C ; ANCILLA 0C
-#_088EB8: BNE .not_beam
+|088EB3| LDA.w $0C4A,X
+|088EB6| CMP.b #$0C ; ANCILLA 0C
+|088EB8| BNE .not_beam
 
-#_088EBA: DEC.b $09
+|088EBA| DEC.b $09
 
-#_088EBC: TYA
-#_088EBD: ORA.b #$08
-#_088EBF: TAY
+|088EBC| TYA
+|088EBD| ORA.b #$08
+|088EBF| TAY
 
 .not_beam
-#_088EC0: LDA.w $0C04,X
-#_088EC3: CLC
-#_088EC4: ADC.w AncillaHitbox_offset_x,Y
-#_088EC7: STA.b $00
+|088EC0| LDA.w $0C04,X
+|088EC3| CLC
+|088EC4| ADC.w AncillaHitbox.offset_x,Y
+|088EC7| STA.b $00
 
-#_088EC9: LDA.w $0C18,X
-#_088ECC: ADC.b $09
-#_088ECE: STA.b $08
+|088EC9| LDA.w $0C18,X
+|088ECC| ADC.b $09
+|088ECE| STA.b $08
 
-#_088ED0: LDA.w $0BFA,X
-#_088ED3: CLC
-#_088ED4: ADC.w AncillaHitbox_offset_y,Y
-#_088ED7: STA.b $01
+|088ED0| LDA.w $0BFA,X
+|088ED3| CLC
+|088ED4| ADC.w AncillaHitbox.offset_y,Y
+|088ED7| STA.b $01
 
-#_088ED9: LDA.w $0C0E,X
-#_088EDC: ADC.b $09
-#_088EDE: STA.b $09
+|088ED9| LDA.w $0C0E,X
+|088EDC| ADC.b $09
+|088EDE| STA.b $09
 
-#_088EE0: LDA.w AncillaHitbox_width,Y
-#_088EE3: STA.b $02
+|088EE0| LDA.w AncillaHitbox.width,Y
+|088EE3| STA.b $02
 
-#_088EE5: LDA.w AncillaHitbox_height,Y
-#_088EE8: STA.b $03
+|088EE5| LDA.w AncillaHitbox.height,Y
+|088EE8| STA.b $03
 
-#_088EEA: PLY
+|088EEA| PLY
 
-#_088EEB: RTS
+|088EEB| RTS
 
 ;===================================================================================================
 
 UNREACHABLE_088EEC:
-#_088EEC: RTS
+|088EEC| RTS
 
 ;===================================================================================================
 
 ProjectAncillaSpeedTowardsLink:
-#_088EED: STA.b $01
+|088EED| STA.b $01
 
-#_088EEF: PHX
-#_088EF0: PHY
+|088EEF| PHX
+|088EF0| PHY
 
-#_088EF1: JSR GetAncillaYDisplacement
-#_088EF4: STY.b $02
+|088EF1| JSR GetAncillaYDisplacement
+|088EF4| STY.b $02
 
-#_088EF6: LDA.b $0E
-#_088EF8: BPL .positive_y
+|088EF6| LDA.b $0E
+|088EF8| BPL .positive_y
 
-#_088EFA: EOR.b #$FF
-#_088EFC: INC A
+|088EFA| EOR.b #$FF
+|088EFC| INC A
 
 .positive_y
-#_088EFD: STA.b $0C
+|088EFD| STA.b $0C
 
-#_088EFF: JSR GetAncillaXDisplacement
-#_088F02: STY.b $03
+|088EFF| JSR GetAncillaXDisplacement
+|088F02| STY.b $03
 
-#_088F04: LDA.b $0F
-#_088F06: BPL .positive_x
+|088F04| LDA.b $0F
+|088F06| BPL .positive_x
 
-#_088F08: EOR.b #$FF
-#_088F0A: INC A
+|088F08| EOR.b #$FF
+|088F0A| INC A
 
 .positive_x
-#_088F0B: STA.b $0D
+|088F0B| STA.b $0D
 
 ;---------------------------------------------------------------------------------------------------
 
-#_088F0D: LDY.b #$00
+|088F0D| LDY.b #$00
 
-#_088F0F: LDA.b $0D
-#_088F11: CMP.b $0C
-#_088F13: BCS .x_bigger
+|088F0F| LDA.b $0D
+|088F11| CMP.b $0C
+|088F13| BCS .x_bigger
 
-#_088F15: INY
-#_088F16: PHA
+|088F15| INY
+|088F16| PHA
 
-#_088F17: LDA.b $0C
-#_088F19: STA.b $0D
+|088F17| LDA.b $0C
+|088F19| STA.b $0D
 
-#_088F1B: PLA
-#_088F1C: STA.b $0C
+|088F1B| PLA
+|088F1C| STA.b $0C
 
 .x_bigger
-#_088F1E: STZ.b $0B
-#_088F20: STZ.b $00
+|088F1E| STZ.b $0B
+|088F20| STZ.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_088F22: LDX.b $01
+|088F22| LDX.b $01
 
 .stupid_algo
-#_088F24: LDA.b $0B
-#_088F26: CLC
-#_088F27: ADC.b $0C
+|088F24| LDA.b $0B
+|088F26| CLC
+|088F27| ADC.b $0C
 
-#_088F29: CMP.b $0D
-#_088F2B: BCC .keep_dumbing
+|088F29| CMP.b $0D
+|088F2B| BCC .keep_dumbing
 
-#_088F2D: SBC.b $0D
-#_088F2F: INC.b $00
+|088F2D| SBC.b $0D
+|088F2F| INC.b $00
 
 .keep_dumbing
-#_088F31: STA.b $0B
+|088F31| STA.b $0B
 
-#_088F33: DEX
-#_088F34: BNE .stupid_algo
+|088F33| DEX
+|088F34| BNE .stupid_algo
 
 ;---------------------------------------------------------------------------------------------------
 
-#_088F36: TYA
-#_088F37: BEQ .x_bigger_again
+|088F36| TYA
+|088F37| BEQ .x_bigger_again
 
-#_088F39: LDA.b $00
-#_088F3B: PHA
+|088F39| LDA.b $00
+|088F3B| PHA
 
-#_088F3C: LDA.b $01
-#_088F3E: STA.b $00
+|088F3C| LDA.b $01
+|088F3E| STA.b $00
 
-#_088F40: PLA
-#_088F41: STA.b $01
+|088F40| PLA
+|088F41| STA.b $01
 
 .x_bigger_again
-#_088F43: LDA.b $00
+|088F43| LDA.b $00
 
-#_088F45: LDY.b $02
-#_088F47: BEQ .y_fine
+|088F45| LDY.b $02
+|088F47| BEQ .y_fine
 
-#_088F49: EOR.b #$FF
-#_088F4B: INC A
-#_088F4C: STA.b $00
+|088F49| EOR.b #$FF
+|088F4B| INC A
+|088F4C| STA.b $00
 
 .y_fine
-#_088F4E: LDA.b $01
-#_088F50: LDY.b $03
-#_088F52: BEQ .x_fine
+|088F4E| LDA.b $01
+|088F50| LDY.b $03
+|088F52| BEQ .x_fine
 
-#_088F54: EOR.b #$FF
-#_088F56: INC A
-#_088F57: STA.b $01
+|088F54| EOR.b #$FF
+|088F56| INC A
+|088F57| STA.b $01
 
 .x_fine
-#_088F59: PLY
-#_088F5A: PLX
+|088F59| PLY
+|088F5A| PLX
 
-#_088F5B: RTS
+|088F5B| RTS
 
 ;===================================================================================================
 
 GetAncillaXDisplacement:
-#_088F5C: LDY.b #$00
+|088F5C| LDY.b #$00
 
-#_088F5E: LDA.b $22
-#_088F60: SEC
-#_088F61: SBC.w $0C04,X
-#_088F64: STA.b $0F
+|088F5E| LDA.b $22
+|088F60| SEC
+|088F61| SBC.w $0C04,X
+|088F64| STA.b $0F
 
-#_088F66: LDA.b $23
-#_088F68: SBC.w $0C18,X
-#_088F6B: BPL .no_left
+|088F66| LDA.b $23
+|088F68| SBC.w $0C18,X
+|088F6B| BPL .no_left
 
-#_088F6D: INY
+|088F6D| INY
 
 .no_left
-#_088F6E: RTS
+|088F6E| RTS
 
 ;===================================================================================================
 
 GetAncillaYDisplacement:
-#_088F6F: LDY.b #$00
+|088F6F| LDY.b #$00
 
-#_088F71: LDA.b $20
-#_088F73: SEC
-#_088F74: SBC.w $0BFA,X
-#_088F77: STA.b $0E
+|088F71| LDA.b $20
+|088F73| SEC
+|088F74| SBC.w $0BFA,X
+|088F77| STA.b $0E
 
-#_088F79: LDA.b $21
-#_088F7B: SBC.w $0C0E,X
-#_088F7E: BPL EXIT_088F81
+|088F79| LDA.b $21
+|088F7B| SBC.w $0C0E,X
+|088F7E| BPL EXIT_088F81
 
-#_088F80: INY
+|088F80| INY
 
 ;---------------------------------------------------------------------------------------------------
 
 #EXIT_088F81:
-#_088F81: RTS
+|088F81| RTS
 
 ;===================================================================================================
 
 pool WeaponTink
 
 .char
-#_088F82: db $93, $82, $81
+|088F82| db $93, $82, $81
 
 .props
-#_088F85: db $22, $12, $22, $22
+|088F85| db $22, $12, $22, $22
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 WeaponTink:
-#_088F89: LDA.w $0FAC
-#_088F8C: BEQ EXIT_088F81
+|088F89| LDA.w $0FAC
+|088F8C| BEQ EXIT_088F81
 
-#_088F8E: LDA.b #$02
-#_088F90: STA.w $0FDC
+|088F8E| LDA.b #$02
+|088F90| STA.w $0FDC
 
-#_088F93: DEC.w $0FAF
-#_088F96: BPL .keep_state
+|088F93| DEC.w $0FAF
+|088F96| BPL .keep_state
 
-#_088F98: DEC.w $0FAC
+|088F98| DEC.w $0FAC
 
-#_088F9B: LDA.b #$01
-#_088F9D: STA.w $0FAF
+|088F9B| LDA.b #$01
+|088F9D| STA.w $0FAF
 
 .keep_state
-#_088FA0: LDA.b #$10
+|088FA0| LDA.b #$10
 
-#_088FA2: LDY.w $0FB3
-#_088FA5: BEQ .ignore_layer
+|088FA2| LDY.w $0FB3
+|088FA5| BEQ .ignore_layer
 
-#_088FA7: LDY.w $0B68
-#_088FAA: BNE .bg1
+|088FA7| LDY.w $0B68
+|088FAA| BNE .bg1
 
-#_088FAC: JSL AllocateOAMInRegionD
-#_088FB0: BRA .screen_check
+|088FAC| JSL AllocateOAMInRegionD
+|088FB0| BRA .screen_check
 
 .bg1
-#_088FB2: JSL AllocateOAMInRegionF
-#_088FB6: BRA .screen_check
+|088FB2| JSL AllocateOAMInRegionF
+|088FB6| BRA .screen_check
 
 .ignore_layer
-#_088FB8: JSL AllocateOAMInRegionA
+|088FB8| JSL AllocateOAMInRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
 .screen_check
-#_088FBC: LDA.w $0FAD
-#_088FBF: SEC
-#_088FC0: SBC.w $00E2
+|088FBC| LDA.w $0FAD
+|088FBF| SEC
+|088FC0| SBC.w $00E2
 
-#_088FC3: CMP.b #$F8
-#_088FC5: BCS .offscreen
+|088FC3| CMP.b #$F8
+|088FC5| BCS .offscreen
 
-#_088FC7: STA.b $00
+|088FC7| STA.b $00
 
-#_088FC9: LDA.w $0FAE
-#_088FCC: SEC
-#_088FCD: SBC.w $00E8
+|088FC9| LDA.w $0FAE
+|088FCC| SEC
+|088FCD| SBC.w $00E8
 
-#_088FD0: CMP.b #$F0
-#_088FD2: BCS .offscreen
+|088FD0| CMP.b #$F0
+|088FD2| BCS .offscreen
 
-#_088FD4: STA.b $01
+|088FD4| STA.b $01
 
-#_088FD6: LDA.w $0FAC
-#_088FD9: CMP.b #$03
-#_088FDB: BCC .late_stage
+|088FD6| LDA.w $0FAC
+|088FD9| CMP.b #$03
+|088FDB| BCC .late_stage
 
-#_088FDD: LDY.b #$00
+|088FDD| LDY.b #$00
 
-#_088FDF: LDA.b $00
-#_088FE1: STA.b ($90),Y
+|088FDF| LDA.b $00
+|088FE1| STA.b ($90),Y
 
-#_088FE3: LDA.b $01
-#_088FE5: INY
-#_088FE6: STA.b ($90),Y
+|088FE3| LDA.b $01
+|088FE5| INY
+|088FE6| STA.b ($90),Y
 
-#_088FE8: LDA.b #$80
+|088FE8| LDA.b #$80
 
-#_088FEA: LDX.w $0FAC
-#_088FED: CPX.b #$09
-#_088FEF: BCS .diff_chr
+|088FEA| LDX.w $0FAC
+|088FED| CPX.b #$09
+|088FEF| BCS .diff_chr
 
-#_088FF1: LDA.b #$92
+|088FF1| LDA.b #$92
 
 .diff_chr
-#_088FF3: INY
-#_088FF4: STA.b ($90),Y
+|088FF3| INY
+|088FF4| STA.b ($90),Y
 
-#_088FF6: LDX.w $0B68
+|088FF6| LDX.w $0B68
 
-#_088FF9: LDA.l .props,X
-#_088FFD: INY
-#_088FFE: STA.b ($90),Y
+|088FF9| LDA.l .props,X
+|088FFD| INY
+|088FFE| STA.b ($90),Y
 
-#_089000: TYA
-#_089001: LSR A
-#_089002: LSR A
-#_089003: TAY
+|089000| TYA
+|089001| LSR A
+|089002| LSR A
+|089003| TAY
 
-#_089004: LDA.b #$00
-#_089006: STA.b ($92),Y
+|089004| LDA.b #$00
+|089006| STA.b ($92),Y
 
-#_089008: RTS
+|089008| RTS
 
 .offscreen
-#_089009: STZ.w $0FAC
+|089009| STZ.w $0FAC
 
-#_08900C: RTS
+|08900C| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .late_stage
-#_08900D: LDA.b $00
-#_08900F: SEC
-#_089010: SBC.b #$04
+|08900D| LDA.b $00
+|08900F| SEC
+|089010| SBC.b #$04
 
-#_089012: LDY.b #$00
-#_089014: STA.b ($90),Y
+|089012| LDY.b #$00
+|089014| STA.b ($90),Y
 
-#_089016: LDY.b #$08
-#_089018: STA.b ($90),Y
+|089016| LDY.b #$08
+|089018| STA.b ($90),Y
 
-#_08901A: CLC
-#_08901B: ADC.b #$08
+|08901A| CLC
+|08901B| ADC.b #$08
 
-#_08901D: LDY.b #$04
-#_08901F: STA.b ($90),Y
+|08901D| LDY.b #$04
+|08901F| STA.b ($90),Y
 
-#_089021: LDY.b #$0C
-#_089023: STA.b ($90),Y
+|089021| LDY.b #$0C
+|089023| STA.b ($90),Y
 
-#_089025: LDA.b $01
-#_089027: SEC
-#_089028: SBC.b #$04
+|089025| LDA.b $01
+|089027| SEC
+|089028| SBC.b #$04
 
-#_08902A: LDY.b #$01
-#_08902C: STA.b ($90),Y
+|08902A| LDY.b #$01
+|08902C| STA.b ($90),Y
 
-#_08902E: LDY.b #$05
-#_089030: STA.b ($90),Y
+|08902E| LDY.b #$05
+|089030| STA.b ($90),Y
 
-#_089032: CLC
-#_089033: ADC.b #$08
+|089032| CLC
+|089033| ADC.b #$08
 
-#_089035: LDY.b #$09
-#_089037: STA.b ($90),Y
+|089035| LDY.b #$09
+|089037| STA.b ($90),Y
 
-#_089039: LDY.b #$0D
-#_08903B: STA.b ($90),Y
-
-;---------------------------------------------------------------------------------------------------
-
-#_08903D: LDX.w $0B68
-
-#_089040: LDA.l .props,X
-#_089044: LDY.b #$03
-#_089046: STA.b ($90),Y
-
-#_089048: ORA.b #$40
-#_08904A: LDY.b #$07
-#_08904C: STA.b ($90),Y
-
-#_08904E: ORA.b #$80
-#_089050: LDY.b #$0F
-#_089052: STA.b ($90),Y
-
-#_089054: EOR.b #$40
-#_089056: LDY.b #$0B
-#_089058: STA.b ($90),Y
+|089039| LDY.b #$0D
+|08903B| STA.b ($90),Y
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08905A: LDX.w $0FAC
+|08903D| LDX.w $0B68
 
-#_08905D: LDA.w .char,X
-#_089060: LDY.b #$02
-#_089062: STA.b ($90),Y
+|089040| LDA.l .props,X
+|089044| LDY.b #$03
+|089046| STA.b ($90),Y
 
-#_089064: LDY.b #$06
-#_089066: STA.b ($90),Y
+|089048| ORA.b #$40
+|08904A| LDY.b #$07
+|08904C| STA.b ($90),Y
 
-#_089068: LDY.b #$0A
-#_08906A: STA.b ($90),Y
+|08904E| ORA.b #$80
+|089050| LDY.b #$0F
+|089052| STA.b ($90),Y
 
-#_08906C: LDY.b #$0E
-#_08906E: STA.b ($90),Y
+|089054| EOR.b #$40
+|089056| LDY.b #$0B
+|089058| STA.b ($90),Y
 
-#_089070: LDY.b #$00
-#_089072: LDA.b #$00
-#_089074: STA.b ($92),Y
+;---------------------------------------------------------------------------------------------------
 
-#_089076: INY
-#_089077: STA.b ($92),Y
+|08905A| LDX.w $0FAC
 
-#_089079: INY
-#_08907A: STA.b ($92),Y
+|08905D| LDA.w .char,X
+|089060| LDY.b #$02
+|089062| STA.b ($90),Y
 
-#_08907C: INY
-#_08907D: STA.b ($92),Y
+|089064| LDY.b #$06
+|089066| STA.b ($90),Y
 
-#_08907F: RTS
+|089068| LDY.b #$0A
+|08906A| STA.b ($90),Y
+
+|08906C| LDY.b #$0E
+|08906E| STA.b ($90),Y
+
+|089070| LDY.b #$00
+|089072| LDA.b #$00
+|089074| STA.b ($92),Y
+
+|089076| INY
+|089077| STA.b ($92),Y
+
+|089079| INY
+|08907A| STA.b ($92),Y
+
+|08907C| INY
+|08907D| STA.b ($92),Y
+
+|08907F| RTS
 
 ;===================================================================================================
 
 AncillaMoveX:
-#_089080: TXA
-#_089081: CLC
-#_089082: ADC.b #$0A
-#_089084: TAX
+|089080| TXA
+|089081| CLC
+|089082| ADC.b #$0A
+|089084| TAX
 
-#_089085: JSR AncillaMoveY
+|089085| JSR AncillaMoveY
 
-#_089088: BRL Ancilla_RestoreIndex
+|089088| BRL Ancilla_RestoreIndex
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaMoveY:
-#_08908B: LDA.w $0C22,X
+|08908B| LDA.w $0C22,X
 
-#_08908E: ASL A ; x16
-#_08908F: ASL A
-#_089090: ASL A
-#_089091: ASL A
+|08908E| ASL A ; x16
+|08908F| ASL A
+|089090| ASL A
+|089091| ASL A
 
-#_089092: CLC
-#_089093: ADC.w $0C36,X
-#_089096: STA.w $0C36,X
+|089092| CLC
+|089093| ADC.w $0C36,X
+|089096| STA.w $0C36,X
 
-#_089099: LDY.b #$00
+|089099| LDY.b #$00
 
-#_08909B: LDA.w $0C22,X
-#_08909E: PHP
+|08909B| LDA.w $0C22,X
+|08909E| PHP
 
-#_08909F: LSR A ; /16
-#_0890A0: LSR A
-#_0890A1: LSR A
-#_0890A2: LSR A
+|08909F| LSR A ; /16
+|0890A0| LSR A
+|0890A1| LSR A
+|0890A2| LSR A
 
-#_0890A3: PLP
-#_0890A4: BPL .other_way
+|0890A3| PLP
+|0890A4| BPL .other_way
 
-#_0890A6: ORA.b #$F0
-#_0890A8: DEY
+|0890A6| ORA.b #$F0
+|0890A8| DEY
 
 .other_way
-#_0890A9: ADC.w $0BFA,X
-#_0890AC: STA.w $0BFA,X
+|0890A9| ADC.w $0BFA,X
+|0890AC| STA.w $0BFA,X
 
-#_0890AF: TYA
-#_0890B0: ADC.w $0C0E,X
-#_0890B3: STA.w $0C0E,X
+|0890AF| TYA
+|0890B0| ADC.w $0C0E,X
+|0890B3| STA.w $0C0E,X
 
-#_0890B6: RTS
+|0890B6| RTS
 
 ;===================================================================================================
 
 AncillaMoveZ:
-#_0890B7: LDA.w $0294,X
+|0890B7| LDA.w $0294,X
 
-#_0890BA: ASL A ; x16
-#_0890BB: ASL A
-#_0890BC: ASL A
-#_0890BD: ASL A
+|0890BA| ASL A ; x16
+|0890BB| ASL A
+|0890BC| ASL A
+|0890BD| ASL A
 
-#_0890BE: CLC
-#_0890BF: ADC.w $02A8,X
-#_0890C2: STA.w $02A8,X
+|0890BE| CLC
+|0890BF| ADC.w $02A8,X
+|0890C2| STA.w $02A8,X
 
-#_0890C5: LDY.b #$00
+|0890C5| LDY.b #$00
 
-#_0890C7: LDA.w $0294,X
-#_0890CA: PHP
+|0890C7| LDA.w $0294,X
+|0890CA| PHP
 
-#_0890CB: LSR A ; /16
-#_0890CC: LSR A
-#_0890CD: LSR A
-#_0890CE: LSR A
+|0890CB| LSR A ; /16
+|0890CC| LSR A
+|0890CD| LSR A
+|0890CE| LSR A
 
-#_0890CF: PLP
-#_0890D0: BPL .other_way
+|0890CF| PLP
+|0890D0| BPL .other_way
 
-#_0890D2: ORA.b #$F0
-#_0890D4: DEY
+|0890D2| ORA.b #$F0
+|0890D4| DEY
 
 .other_way
-#_0890D5: ADC.w $029E,X
-#_0890D8: STA.w $029E,X
+|0890D5| ADC.w $029E,X
+|0890D8| STA.w $029E,X
 
-#_0890DB: RTS
+|0890DB| RTS
 
 ;===================================================================================================
 
 pool Ancilla05_Boomerang
 
 .offset_y
-#_0890DC: dw -16,   6,   0,   0
-#_0890E4: dw  -8,   8,  -8,   8
+|0890DC| dw -16,   6,   0,   0
+|0890E4| dw  -8,   8,  -8,   8
 
 .offset_x
-#_0890EC: dw   0,   0,  -8,   8
-#_0890F4: dw   8,   8,  -8,  -8
+|0890EC| dw   0,   0,  -8,   8
+|0890F4| dw   8,   8,  -8,  -8
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla05_Boomerang:
-#_0890FC: LDY.b #$04
+|0890FC| LDY.b #$04
 
 .next_slot
-#_0890FE: LDA.w $0C4A,Y
-#_089101: CMP.b #$22 ; ANCILLA 22
-#_089103: BEQ .draw
+|0890FE| LDA.w $0C4A,Y
+|089101| CMP.b #$22 ; ANCILLA 22
+|089103| BEQ .draw
 
-#_089105: DEY
-#_089106: BPL .next_slot
+|089105| DEY
+|089106| BPL .next_slot
 
 ;---------------------------------------------------------------------------------------------------
 
-#_089108: LDA.b $11
-#_08910A: BNE .draw
+|089108| LDA.b $11
+|08910A| BNE .draw
 
-#_08910C: LDA.b $1A
-#_08910E: AND.b #$07
-#_089110: BNE .no_whoosh
+|08910C| LDA.b $1A
+|08910E| AND.b #$07
+|089110| BNE .no_whoosh
 
-#_089112: LDA.b #$09 ; SFX2.09
-#_089114: JSR Ancilla_SFX2_Pan
+|089112| LDA.b #$09 ; SFX2.09
+|089114| JSR Ancilla_SFX2_Pan
 
 .no_whoosh
-#_089117: LDA.w $03B1,X
-#_08911A: BNE .pos_set
+|089117| LDA.w $03B1,X
+|08911A| BNE .pos_set
 
-#_08911C: LDA.b $3C
-#_08911E: CMP.b #$09
-#_089120: BCS .init_pos
+|08911C| LDA.b $3C
+|08911E| CMP.b #$09
+|089120| BCS .init_pos
 
-#_089122: LDA.w $0300
-#_089125: BNE .init_pos
+|089122| LDA.w $0300
+|089125| BNE .init_pos
 
-#_089127: LDA.w $02E0
-#_08912A: BNE .bunny
+|089127| LDA.w $02E0
+|08912A| BNE .bunny
 
-#_08912C: LDA.b $4D
-#_08912E: BEQ .draw
+|08912C| LDA.b $4D
+|08912E| BEQ .draw
 
 .bunny
-#_089130: BRL Boom_Die
+|089130| BRL Boom_Die
 
 .draw
-#_089133: BRL .proceed_to_draw
+|089133| BRL .proceed_to_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .init_pos
-#_089136: LDA.w $03CF,X
-#_089139: TAY
+|089136| LDA.w $03CF,X
+|089139| TAY
 
-#_08913A: REP #$20
+|08913A| REP #$20
 
-#_08913C: LDA.b $20
-#_08913E: CLC
-#_08913F: ADC.w #$0008
-#_089142: CLC
-#_089143: ADC.w .offset_y,Y
-#_089146: STA.b $00
+|08913C| LDA.b $20
+|08913E| CLC
+|08913F| ADC.w #$0008
+|089142| CLC
+|089143| ADC.w .offset_y,Y
+|089146| STA.b $00
 
-#_089148: LDA.b $22
-#_08914A: CLC
-#_08914B: ADC.w .offset_x,Y
-#_08914E: STA.b $02
+|089148| LDA.b $22
+|08914A| CLC
+|08914B| ADC.w .offset_x,Y
+|08914E| STA.b $02
 
-#_089150: SEP #$20
+|089150| SEP #$20
 
-#_089152: LDA.b $00
-#_089154: STA.w $0BFA,X
+|089152| LDA.b $00
+|089154| STA.w $0BFA,X
 
-#_089157: LDA.b $01
-#_089159: STA.w $0C0E,X
+|089157| LDA.b $01
+|089159| STA.w $0C0E,X
 
-#_08915C: LDA.b $02
-#_08915E: STA.w $0C04,X
+|08915C| LDA.b $02
+|08915E| STA.w $0C04,X
 
-#_089161: LDA.b $03
-#_089163: STA.w $0C18,X
+|089161| LDA.b $03
+|089163| STA.w $0C18,X
 
-#_089166: INC.w $03B1,X
+|089166| INC.w $03B1,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .pos_set
-#_089169: LDA.w $0394,X
-#_08916C: BEQ .no_sparkle
+|089169| LDA.w $0394,X
+|08916C| BEQ .no_sparkle
 
-#_08916E: LDA.b $1A
-#_089170: AND.b #$01
-#_089172: BNE .no_sparkle
+|08916E| LDA.b $1A
+|089170| AND.b #$01
+|089172| BNE .no_sparkle
 
-#_089174: PHX
-#_089175: JSL AncillaAdd_SwordChargeSparkle
-#_089179: PLX
+|089174| PHX
+|089175| JSL AncillaAdd_SwordChargeSparkle
+|089179| PLX
 
 .no_sparkle
-#_08917A: LDA.w $0C5E,X
-#_08917D: BEQ .move_away
+|08917A| LDA.w $0C5E,X
+|08917D| BEQ .move_away
 
-#_08917F: LDA.w $0380,X
-#_089182: BEQ .not_decelerating
+|08917F| LDA.w $0380,X
+|089182| BEQ .not_decelerating
 
-#_089184: INC A
+|089184| INC A
 
 .decelerating
-#_089185: STA.w $0380,X
+|089185| STA.w $0380,X
 
 .not_decelerating
-#_089188: REP #$20
+|089188| REP #$20
 
-#_08918A: LDA.b $20 ; !BUG bad big write for boom
-#_08918C: STA.w $038A,X
+|08918A| LDA.b $20 ; [BUG] bad big write for boom
+|08918C| STA.w $038A,X
 
-#_08918F: CLC
-#_089190: ADC.w #$0008
-#_089193: STA.b $20
+|08918F| CLC
+|089190| ADC.w #$0008
+|089193| STA.b $20
 
-#_089195: SEP #$20
+|089195| SEP #$20
 
-#_089197: LDA.w $03C5,X
-#_08919A: JSR ProjectAncillaSpeedTowardsLink
+|089197| LDA.w $03C5,X
+|08919A| JSR ProjectAncillaSpeedTowardsLink
 
-#_08919D: JSL CheatWhenNoOnesLooking
+|08919D| JSL CheatWhenNoOnesLooking
 
-#_0891A1: LDA.b $00
-#_0891A3: STA.w $0C22,X
+|0891A1| LDA.b $00
+|0891A3| STA.w $0C22,X
 
-#_0891A6: LDA.b $01
-#_0891A8: STA.w $0C2C,X
+|0891A6| LDA.b $01
+|0891A8| STA.w $0C2C,X
 
-#_0891AB: REP #$20
+|0891AB| REP #$20
 
-#_0891AD: LDA.w $038A,X
-#_0891B0: STA.b $20
+|0891AD| LDA.w $038A,X
+|0891B0| STA.b $20
 
-#_0891B2: SEP #$20
+|0891B2| SEP #$20
 
 ;---------------------------------------------------------------------------------------------------
 
 .move_away
-#_0891B4: LDA.w $0C22,X
-#_0891B7: BEQ .y_speed_0
+|0891B4| LDA.w $0C22,X
+|0891B7| BEQ .y_speed_0
 
-#_0891B9: CLC
-#_0891BA: ADC.w $0380,X
-#_0891BD: STA.w $0C22,X
+|0891B9| CLC
+|0891BA| ADC.w $0380,X
+|0891BD| STA.w $0C22,X
 
 .y_speed_0
-#_0891C0: JSR AncillaMoveY
+|0891C0| JSR AncillaMoveY
 
-#_0891C3: LDA.w $0C2C,X
-#_0891C6: BEQ .x_speed_0
+|0891C3| LDA.w $0C2C,X
+|0891C6| BEQ .x_speed_0
 
-#_0891C8: CLC
-#_0891C9: ADC.w $0380,X
-#_0891CC: STA.w $0C2C,X
+|0891C8| CLC
+|0891C9| ADC.w $0380,X
+|0891CC| STA.w $0C2C,X
 
 .x_speed_0
-#_0891CF: JSR AncillaMoveX
-#_0891D2: JSR Ancilla_CheckSpriteCollision
+|0891CF| JSR AncillaMoveX
+|0891D2| JSR Ancilla_CheckSpriteCollision
 
-#_0891D5: LDY.b #$00
-#_0891D7: BCC .no_sprite_collision
+|0891D5| LDY.b #$00
+|0891D7| BCC .no_sprite_collision
 
-#_0891D9: INY
+|0891D9| INY
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_sprite_collision
-#_0891DA: LDA.w $0C5E,X
-#_0891DD: BNE .dont_turn_around
+|0891DA| LDA.w $0C5E,X
+|0891DD| BNE .dont_turn_around
 
-#_0891DF: CPY.b #$01
-#_0891E1: BEQ .turn_around
+|0891DF| CPY.b #$01
+|0891E1| BEQ .turn_around
 
-#_0891E3: JSR Ancilla_CheckTileCollision
-#_0891E6: BCC .no_tile_collision
+|0891E3| JSR Ancilla_CheckTileCollision
+|0891E6| BCC .no_tile_collision
 
-#_0891E8: PHX
+|0891E8| PHX
 
-#_0891E9: JSL AncillaAdd_BoomerangWallClink
+|0891E9| JSL AncillaAdd_BoomerangWallClink
 
-#_0891ED: PLX
+|0891ED| PLX
 
-#_0891EE: LDY.b #$06 ; SFX2.06
+|0891EE| LDY.b #$06 ; SFX2.06
 
-#_0891F0: LDA.w $03E4,X
-#_0891F3: CMP.b #$F0 ; TILETYPE F0
-#_0891F5: BEQ .not_key_door
+|0891F0| LDA.w $03E4,X
+|0891F3| CMP.b #$F0 ; TILETYPE F0
+|0891F5| BEQ .not_key_door
 
-#_0891F7: LDY.b #$05 ; SFX2.05
+|0891F7| LDY.b #$05 ; SFX2.05
 
 .not_key_door
-#_0891F9: TYA
-#_0891FA: JSR Ancilla_SFX2_Pan
+|0891F9| TYA
+|0891FA| JSR Ancilla_SFX2_Pan
 
-#_0891FD: BRA .turn_around
+|0891FD| BRA .turn_around
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_tile_collision
-#_0891FF: JSR Boomerang_ScreenEdge
-#_089202: BCS .turn_around
+|0891FF| JSR Boomerang_ScreenEdge
+|089202| BCS .turn_around
 
-#_089204: DEC.w $0C54,X
+|089204| DEC.w $0C54,X
 
-#_089207: LDA.w $0C54,X
-#_08920A: BEQ .turn_around
+|089207| LDA.w $0C54,X
+|08920A| BEQ .turn_around
 
-#_08920C: CMP.b #$05
-#_08920E: BCS .proceed_to_draw
+|08920C| CMP.b #$05
+|08920E| BCS .proceed_to_draw
 
-#_089210: DEC.w $0380,X
-#_089213: BRA .proceed_to_draw
+|089210| DEC.w $0380,X
+|089213| BRA .proceed_to_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .turn_around
-#_089215: LDA.w $0C5E,X
-#_089218: EOR.b #$01
-#_08921A: STA.w $0C5E,X
+|089215| LDA.w $0C5E,X
+|089218| EOR.b #$01
+|08921A| STA.w $0C5E,X
 
-#_08921D: BRA .proceed_to_draw
+|08921D| BRA .proceed_to_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_turn_around
-#_08921F: LDA.w $0280,X
-#_089222: PHA
+|08921F| LDA.w $0280,X
+|089222| PHA
 
-#_089223: LDA.w $0C7C,X
-#_089226: PHA
+|089223| LDA.w $0C7C,X
+|089226| PHA
 
-#_089227: STZ.w $0C7C,X
+|089227| STZ.w $0C7C,X
 
-#_08922A: JSR Ancilla_CheckTileCollision
+|08922A| JSR Ancilla_CheckTileCollision
 
-#_08922D: PLA
-#_08922E: STA.w $0C7C,X
+|08922D| PLA
+|08922E| STA.w $0C7C,X
 
-#_089231: PLA
-#_089232: STA.w $0280,X
+|089231| PLA
+|089232| STA.w $0280,X
 
-#_089235: JSR Boomerang_StopOffScreen
+|089235| JSR Boomerang_StopOffScreen
 
 ;---------------------------------------------------------------------------------------------------
 
 .proceed_to_draw
-#_089238: BRL AncillaDraw_Boomerang
+|089238| BRL AncillaDraw_Boomerang
 
 ;===================================================================================================
 
 Ancilla_CheckTileCollision_long:
-#_08923B: PHB
-#_08923C: PHK
-#_08923D: PLB
+|08923B| PHB
+|08923C| PHK
+|08923D| PLB
 
-#_08923E: JSR Ancilla_CheckTileCollision
+|08923E| JSR Ancilla_CheckTileCollision
 
-#_089241: PLB
+|089241| PLB
 
-#_089242: RTL
+|089242| RTL
 
 ;===================================================================================================
 
 Ancilla_CheckTileCollision_Class2_long:
-#_089243: PHB
-#_089244: PHK
-#_089245: PLB
+|089243| PHB
+|089244| PHK
+|089245| PLB
 
-#_089246: JSR Ancilla_CheckTileCollision_Class2
+|089246| JSR Ancilla_CheckTileCollision_Class2
 
-#_089249: PLB
+|089249| PLB
 
-#_08924A: RTL
+|08924A| RTL
 
 ;===================================================================================================
 
 Boomerang_ScreenEdge:
-#_08924B: LDA.w $0BFA,X
-#_08924E: STA.b $00
+|08924B| LDA.w $0BFA,X
+|08924E| STA.b $00
 
-#_089250: LDA.w $0C0E,X
-#_089253: STA.b $01
+|089250| LDA.w $0C0E,X
+|089253| STA.b $01
 
-#_089255: LDA.w $0C04,X
-#_089258: STA.b $02
+|089255| LDA.w $0C04,X
+|089258| STA.b $02
 
-#_08925A: LDA.w $0C18,X
-#_08925D: STA.b $03
+|08925A| LDA.w $0C18,X
+|08925D| STA.b $03
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08925F: REP #$30
+|08925F| REP #$30
 
-#_089261: LDY.w #$0000
+|089261| LDY.w #$0000
 
-#_089264: LDA.w $039D
-#_089267: AND.w #$0003
-#_08926A: BEQ .no_horizontal
+|089264| LDA.w $039D
+|089267| AND.w #$0003
+|08926A| BEQ .no_horizontal
 
-#_08926C: AND.w #$0001
-#_08926F: BEQ .leftwards
+|08926C| AND.w #$0001
+|08926F| BEQ .leftwards
 
-#_089271: LDY.w #$0010
+|089271| LDY.w #$0010
 
 .leftwards
-#_089274: TYA
-#_089275: CLC
-#_089276: ADC.b $02
+|089274| TYA
+|089275| CLC
+|089276| ADC.b $02
 
-#_089278: SEC
-#_089279: SBC.b $E2
-#_08927B: STA.b $02
+|089278| SEC
+|089279| SBC.b $E2
+|08927B| STA.b $02
 
-#_08927D: CMP.w #$0100
-#_089280: BCS .do_reverse
+|08927D| CMP.w #$0100
+|089280| BCS .do_reverse
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_horizontal
-#_089282: LDY.w #$0000
+|089282| LDY.w #$0000
 
-#_089285: LDA.w $039D
-#_089288: AND.w #$000C
-#_08928B: BEQ .dont_reverse
+|089285| LDA.w $039D
+|089288| AND.w #$000C
+|08928B| BEQ .dont_reverse
 
-#_08928D: AND.w #$0004
-#_089290: BEQ .upward
+|08928D| AND.w #$0004
+|089290| BEQ .upward
 
-#_089292: LDY.w #$0010
+|089292| LDY.w #$0010
 
 .upward
-#_089295: TYA
-#_089296: CLC
-#_089297: ADC.b $00
+|089295| TYA
+|089296| CLC
+|089297| ADC.b $00
 
-#_089299: SEC
-#_08929A: SBC.b $E8
-#_08929C: STA.b $00
+|089299| SEC
+|08929A| SBC.b $E8
+|08929C| STA.b $00
 
-#_08929E: CMP.w #$00E2
-#_0892A1: BCC .dont_reverse
+|08929E| CMP.w #$00E2
+|0892A1| BCC .dont_reverse
 
 ;---------------------------------------------------------------------------------------------------
 
 .do_reverse
-#_0892A3: SEP #$30
-#_0892A5: SEC
+|0892A3| SEP #$30
+|0892A5| SEC
 
-#_0892A6: RTS
+|0892A6| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_reverse
-#_0892A7: SEP #$30
-#_0892A9: CLC
+|0892A7| SEP #$30
+|0892A9| CLC
 
-#_0892AA: RTS
+|0892AA| RTS
 
 ;===================================================================================================
 
 Boomerang_StopOffScreen:
-#_0892AB: LDA.w $0BFA,X
-#_0892AE: STA.b $04
+|0892AB| LDA.w $0BFA,X
+|0892AE| STA.b $04
 
-#_0892B0: LDA.w $0C0E,X
-#_0892B3: STA.b $05
+|0892B0| LDA.w $0C0E,X
+|0892B3| STA.b $05
 
-#_0892B5: LDA.w $0C04,X
-#_0892B8: STA.b $06
+|0892B5| LDA.w $0C04,X
+|0892B8| STA.b $06
 
-#_0892BA: LDA.w $0C18,X
-#_0892BD: STA.b $07
+|0892BA| LDA.w $0C18,X
+|0892BD| STA.b $07
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0892BF: REP #$20
+|0892BF| REP #$20
 
-#_0892C1: LDA.b $20
-#_0892C3: CLC
-#_0892C4: ADC.w #$0018
-#_0892C7: STA.b $00
+|0892C1| LDA.b $20
+|0892C3| CLC
+|0892C4| ADC.w #$0018
+|0892C7| STA.b $00
 
-#_0892C9: LDA.b $22
-#_0892CB: CLC
-#_0892CC: ADC.w #$0010
-#_0892CF: STA.b $02
+|0892C9| LDA.b $22
+|0892CB| CLC
+|0892CC| ADC.w #$0010
+|0892CF| STA.b $02
 
-#_0892D1: LDA.b $04
-#_0892D3: CLC
-#_0892D4: ADC.w #$0008
-#_0892D7: STA.b $04
+|0892D1| LDA.b $04
+|0892D3| CLC
+|0892D4| ADC.w #$0008
+|0892D7| STA.b $04
 
-#_0892D9: LDA.b $06
-#_0892DB: CLC
-#_0892DC: ADC.w #$0008
-#_0892DF: STA.b $06
+|0892D9| LDA.b $06
+|0892DB| CLC
+|0892DC| ADC.w #$0008
+|0892DF| STA.b $06
 
-#_0892E1: LDA.b $04
-#_0892E3: CMP.b $20
-#_0892E5: BCC Boom_NoDie
+|0892E1| LDA.b $04
+|0892E3| CMP.b $20
+|0892E5| BCC Boom_NoDie
 
-#_0892E7: CMP.b $00
-#_0892E9: BCS Boom_NoDie
+|0892E7| CMP.b $00
+|0892E9| BCS Boom_NoDie
 
-#_0892EB: LDA.b $06
-#_0892ED: CMP.b $22
-#_0892EF: BCC Boom_NoDie
+|0892EB| LDA.b $06
+|0892ED| CMP.b $22
+|0892EF| BCC Boom_NoDie
 
-#_0892F1: CMP.b $02
-#_0892F3: BCS Boom_NoDie
+|0892F1| CMP.b $02
+|0892F3| BCS Boom_NoDie
 
 ;---------------------------------------------------------------------------------------------------
 
 Boom_Die:
-#_0892F5: SEP #$20
+|0892F5| SEP #$20
 
-#_0892F7: STZ.w $0C4A,X
+|0892F7| STZ.w $0C4A,X
 
-#_0892FA: STZ.w $035F
+|0892FA| STZ.w $035F
 
-#_0892FD: LDA.w $0301
-#_089300: AND.b #$80
-#_089302: BEQ Boom_NoDie
+|0892FD| LDA.w $0301
+|089300| AND.b #$80
+|089302| BEQ Boom_NoDie
 
-#_089304: STZ.w $0301
+|089304| STZ.w $0301
 
-#_089307: LDA.b $3A
-#_089309: AND.b #$BF
-#_08930B: STA.b $3A
+|089307| LDA.b $3A
+|089309| AND.b #$BF
+|08930B| STA.b $3A
 
-#_08930D: AND.b #$80
-#_08930F: BNE Boom_NoDie
+|08930D| AND.b #$80
+|08930F| BNE Boom_NoDie
 
-#_089311: LDA.b $50
-#_089313: AND.b #$FE
-#_089315: STA.b $50
+|089311| LDA.b $50
+|089313| AND.b #$FE
+|089315| STA.b $50
 
 ;===================================================================================================
 
 Boom_NoDie:
-#_089317: SEP #$20
+|089317| SEP #$20
 
-#_089319: RTS
+|089319| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_Boomerang
 
 .prop
-#_08931A: db $A4, $E4
-#_08931C: db $64, $24
-#_08931E: db $A2, $E2
-#_089320: db $62, $22
+|08931A| db $A4, $E4
+|08931C| db $64, $24
+|08931E| db $A2, $E2
+|089320| db $62, $22
 
 .offset
-#_089322: dw   2,  -2
-#_089326: dw   2,   2
-#_08932A: dw  -2,   2
-#_08932E: dw  -2,  -2
+|089322| dw   2,  -2
+|089326| dw   2,   2
+|08932A| dw  -2,   2
+|08932E| dw  -2,  -2
 
 .oam_offset
-#_089332: dw $0180
-#_089334: dw $00D0
+|089332| dw $0180
+|089334| dw $00D0
 
 .rotation
-#_089336: db $03, $02
+|089336| db $03, $02
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_Boomerang:
-#_089338: JSR Ancilla_PrepOAMCoord
+|089338| JSR Ancilla_PrepOAMCoord
 
-#_08933B: LDA.w $0C5E,X
-#_08933E: BEQ .move_away
+|08933B| LDA.w $0C5E,X
+|08933E| BEQ .move_away
 
-#_089340: LDA.b $EE
-#_089342: STA.w $0C7C,X
+|089340| LDA.b $EE
+|089342| STA.w $0C7C,X
 
-#_089345: TAY
+|089345| TAY
 
-#_089346: LDA.w AncillaPriorities,Y
-#_089349: STA.b $65
+|089346| LDA.w AncillaPriorities,Y
+|089349| STA.b $65
 
 .move_away
-#_08934B: LDA.w $0280,X
-#_08934E: BEQ .normal_priority
+|08934B| LDA.w $0280,X
+|08934E| BEQ .normal_priority
 
-#_089350: LDA.b #$30
-#_089352: STA.b $65
+|089350| LDA.b #$30
+|089352| STA.b $65
 
 .normal_priority
-#_089354: LDA.b $11
-#_089356: BNE .leave_rotation
+|089354| LDA.b $11
+|089356| BNE .leave_rotation
 
-#_089358: LDA.w $03B1,X
-#_08935B: BEQ .leave_rotation
+|089358| LDA.w $03B1,X
+|08935B| BEQ .leave_rotation
 
-#_08935D: DEC.w $039F,X
-#_089360: BPL .leave_rotation
+|08935D| DEC.w $039F,X
+|089360| BPL .leave_rotation
 
-#_089362: LDY.w $0394,X
+|089362| LDY.w $0394,X
 
-#_089365: LDA.w .rotation,Y
-#_089368: STA.w $039F,X
+|089365| LDA.w .rotation,Y
+|089368| STA.w $039F,X
 
-#_08936B: LDY.w $03A4,X
+|08936B| LDY.w $03A4,X
 
-#_08936E: LDA.w $03A9,X
-#_089371: BEQ .left_throw
+|08936E| LDA.w $03A9,X
+|089371| BEQ .left_throw
 
-#_089373: DEY
+|089373| DEY
 
-#_089374: BRA .set_rotation
+|089374| BRA .set_rotation
 
 .left_throw
-#_089376: INY
+|089376| INY
 
 .set_rotation
-#_089377: TYA
-#_089378: AND.b #$03
-#_08937A: STA.w $03A4,X
+|089377| TYA
+|089378| AND.b #$03
+|08937A| STA.w $03A4,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .leave_rotation
-#_08937D: PHX
+|08937D| PHX
 
-#_08937E: LDA.w $0394,X
-#_089381: ASL A
-#_089382: ASL A
-#_089383: STA.b $72
+|08937E| LDA.w $0394,X
+|089381| ASL A
+|089382| ASL A
+|089383| STA.b $72
 
-#_089385: LDA.w $03A4,X
-#_089388: ASL A
-#_089389: ASL A
-#_08938A: TAY
+|089385| LDA.w $03A4,X
+|089388| ASL A
+|089389| ASL A
+|08938A| TAY
 
-#_08938B: REP #$20
+|08938B| REP #$20
 
-#_08938D: STZ.b $74
+|08938D| STZ.b $74
 
-#_08938F: LDA.w .offset+0,Y
-#_089392: CLC
-#_089393: ADC.b $00
-#_089395: STA.b $00
+|08938F| LDA.w .offset+0,Y
+|089392| CLC
+|089393| ADC.b $00
+|089395| STA.b $00
 
-#_089397: LDA.w .offset+2,Y
-#_08939A: CLC
-#_08939B: ADC.b $02
-#_08939D: STA.b $02
-#_08939F: STA.b $04
+|089397| LDA.w .offset+2,Y
+|08939A| CLC
+|08939B| ADC.b $02
+|08939D| STA.b $02
+|08939F| STA.b $04
 
-#_0893A1: LDA.w $03B1,X
-#_0893A4: AND.w #$00FF
-#_0893A7: BNE .general_oam
+|0893A1| LDA.w $03B1,X
+|0893A4| AND.w #$00FF
+|0893A7| BNE .general_oam
 
-#_0893A9: LDA.w $0FB3
-#_0893AC: AND.w #$00FF
-#_0893AF: ASL A
-#_0893B0: TAX
+|0893A9| LDA.w $0FB3
+|0893AC| AND.w #$00FF
+|0893AF| ASL A
+|0893B0| TAX
 
-#_0893B1: LDA.w .oam_offset,X
-#_0893B4: PHA
+|0893B1| LDA.w .oam_offset,X
+|0893B4| PHA
 
-#_0893B5: LSR A
-#_0893B6: LSR A
-#_0893B7: CLC
+|0893B5| LSR A
+|0893B6| LSR A
+|0893B7| CLC
 
-#_0893B8: ADC.w #$0A20
-#_0893BB: STA.b $92
+|0893B8| ADC.w #$0A20
+|0893BB| STA.b $92
 
-#_0893BD: PLA
-#_0893BE: CLC
-#_0893BF: ADC.w #$0800
-#_0893C2: STA.b $90
+|0893BD| PLA
+|0893BE| CLC
+|0893BF| ADC.w #$0800
+|0893C2| STA.b $90
 
 ;---------------------------------------------------------------------------------------------------
 
 .general_oam
-#_0893C4: SEP #$20
+|0893C4| SEP #$20
 
-#_0893C6: TYA
-#_0893C7: LSR A
-#_0893C8: LSR A
-#_0893C9: CLC
-#_0893CA: ADC.b $72
-#_0893CC: TAX
+|0893C6| TYA
+|0893C7| LSR A
+|0893C8| LSR A
+|0893C9| CLC
+|0893CA| ADC.b $72
+|0893CC| TAX
 
-#_0893CD: LDY.b #$00
-#_0893CF: JSR Ancilla_SetOAM_XY_safe
+|0893CD| LDY.b #$00
+|0893CF| JSR Ancilla_SetOAM_XY_safe
 
-#_0893D2: LDA.b #$26
-#_0893D4: STA.b ($90),Y
+|0893D2| LDA.b #$26
+|0893D4| STA.b ($90),Y
 
-#_0893D6: INY
+|0893D6| INY
 
-#_0893D7: LDA.w .prop,X
-#_0893DA: AND.b #$CF
-#_0893DC: ORA.b $65
-#_0893DE: STA.b ($90),Y
+|0893D7| LDA.w .prop,X
+|0893DA| AND.b #$CF
+|0893DC| ORA.b $65
+|0893DE| STA.b ($90),Y
 
-#_0893E0: LDA.b #$02
-#_0893E2: ORA.b $75
-#_0893E4: STA.b ($92)
+|0893E0| LDA.b #$02
+|0893E2| ORA.b $75
+|0893E4| STA.b ($92)
 
-#_0893E6: PLX
+|0893E6| PLX
 
-#_0893E7: RTS
+|0893E7| RTS
 
 ;===================================================================================================
 
 Ancilla06_WallHit:
-#_0893E8: DEC.w $039F,X
-#_0893EB: BPL WallHit_JustDraw
+|0893E8| DEC.w $039F,X
+|0893EB| BPL WallHit_JustDraw
 
-#_0893ED: LDA.w $0C5E,X
-#_0893F0: INC A
-#_0893F1: CMP.b #$05
-#_0893F3: BEQ WallHit_JustDie
+|0893ED| LDA.w $0C5E,X
+|0893F0| INC A
+|0893F1| CMP.b #$05
+|0893F3| BEQ WallHit_JustDie
 
-#_0893F5: STA.w $0C5E,X
+|0893F5| STA.w $0C5E,X
 
-#_0893F8: LDA.b #$01
-#_0893FA: STA.w $039F,X
+|0893F8| LDA.b #$01
+|0893FA| STA.w $039F,X
 
-#_0893FD: BRA WallHit_JustDraw
+|0893FD| BRA WallHit_JustDraw
 
 ;===================================================================================================
 
 Ancilla1B_SwordWallHit:
-#_0893FF: JSR AlertSprites
+|0893FF| JSR AlertSprites
 
-#_089402: DEC.w $03B1,X
-#_089405: BPL WallHit_JustDraw
+|089402| DEC.w $03B1,X
+|089405| BPL WallHit_JustDraw
 
-#_089407: LDA.w $0C5E,X
-#_08940A: INC A
-#_08940B: CMP.b #$08
-#_08940D: BEQ WallHit_JustDie
+|089407| LDA.w $0C5E,X
+|08940A| INC A
+|08940B| CMP.b #$08
+|08940D| BEQ WallHit_JustDie
 
-#_08940F: STA.w $0C5E,X
+|08940F| STA.w $0C5E,X
 
-#_089412: LDA.b #$01
-#_089414: STA.w $03B1,X
+|089412| LDA.b #$01
+|089414| STA.w $03B1,X
 
-#_089417: BRA WallHit_JustDraw
+|089417| BRA WallHit_JustDraw
 
 ;---------------------------------------------------------------------------------------------------
 
 WallHit_JustDie:
-#_089419: BRL Ancilla_DeleteSelf
+|089419| BRL Ancilla_DeleteSelf
 
 ;---------------------------------------------------------------------------------------------------
 
 WallHit_JustDraw:
-#_08941C: BRL AncillaDraw_WallHit
+|08941C| BRL AncillaDraw_WallHit
 
 ;===================================================================================================
 
 pool AncillaDraw_WallHit
 
 .char
-#_08941F: db $80, $00, $00, $00
-#_089423: db $92, $00, $00, $00
-#_089427: db $81, $81, $81, $81
-#_08942B: db $82, $82, $82, $82
-#_08942F: db $93, $93, $93, $93
-#_089433: db $92, $00, $00, $00
-#_089437: db $B9, $00, $00, $00
-#_08943B: db $90, $90, $00, $00
+|08941F| db $80, $00, $00, $00
+|089423| db $92, $00, $00, $00
+|089427| db $81, $81, $81, $81
+|08942B| db $82, $82, $82, $82
+|08942F| db $93, $93, $93, $93
+|089433| db $92, $00, $00, $00
+|089437| db $B9, $00, $00, $00
+|08943B| db $90, $90, $00, $00
 
 .prop
-#_08943F: db $32, $00, $00, $00
-#_089443: db $32, $00, $00, $00
-#_089447: db $32, $72, $B2, $F2
-#_08944B: db $32, $72, $B2, $F2
-#_08944F: db $32, $72, $B2, $F2
-#_089453: db $32, $00, $00, $00
-#_089457: db $72, $00, $00, $00
-#_08945B: db $32, $F2, $00, $00
+|08943F| db $32, $00, $00, $00
+|089443| db $32, $00, $00, $00
+|089447| db $32, $72, $B2, $F2
+|08944B| db $32, $72, $B2, $F2
+|08944F| db $32, $72, $B2, $F2
+|089453| db $32, $00, $00, $00
+|089457| db $72, $00, $00, $00
+|08945B| db $32, $F2, $00, $00
 
 .offset_y
-#_08945F: dw  -4,   0,   0,   0
-#_089467: dw  -4,   0,   0,   0
-#_08946F: dw  -8,  -8,   0,   0
-#_089477: dw  -8,  -8,   0,   0
-#_08947F: dw  -8,  -8,   0,   0
-#_089487: dw  -4,   0,   0,   0
-#_08948F: dw  -4,   0,   0,   0
-#_089497: dw  -8,   0,   0,   0
+|08945F| dw  -4,   0,   0,   0
+|089467| dw  -4,   0,   0,   0
+|08946F| dw  -8,  -8,   0,   0
+|089477| dw  -8,  -8,   0,   0
+|08947F| dw  -8,  -8,   0,   0
+|089487| dw  -4,   0,   0,   0
+|08948F| dw  -4,   0,   0,   0
+|089497| dw  -8,   0,   0,   0
 
 .offset_x
-#_08949F: dw  -4,   0,   0,   0
-#_0894A7: dw  -4,   0,   0,   0
-#_0894AF: dw  -8,   0,  -8,   0
-#_0894B7: dw  -8,   0,  -8,   0
-#_0894BF: dw  -8,   0,  -8,   0
-#_0894C7: dw  -4,   0,   0,   0
-#_0894CF: dw  -4,   0,   0,   0
-#_0894D7: dw  -8,   0,   0,   0
+|08949F| dw  -4,   0,   0,   0
+|0894A7| dw  -4,   0,   0,   0
+|0894AF| dw  -8,   0,  -8,   0
+|0894B7| dw  -8,   0,  -8,   0
+|0894BF| dw  -8,   0,  -8,   0
+|0894C7| dw  -4,   0,   0,   0
+|0894CF| dw  -4,   0,   0,   0
+|0894D7| dw  -8,   0,   0,   0
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_WallHit:
-#_0894DF: JSR Ancilla_PrepOAMCoord
+|0894DF| JSR Ancilla_PrepOAMCoord
 
-#_0894E2: REP #$20
+|0894E2| REP #$20
 
-#_0894E4: LDA.b $00
-#_0894E6: STA.b $04
+|0894E4| LDA.b $00
+|0894E6| STA.b $04
 
-#_0894E8: LDA.b $02
-#_0894EA: STA.b $06
+|0894E8| LDA.b $02
+|0894EA| STA.b $06
 
-#_0894EC: SEP #$20
+|0894EC| SEP #$20
 
-#_0894EE: LDA.b #$03
-#_0894F0: STA.b $08
+|0894EE| LDA.b #$03
+|0894F0| STA.b $08
 
-#_0894F2: PHX
+|0894F2| PHX
 
-#_0894F3: LDA.w $0C5E,X
-#_0894F6: ASL A
-#_0894F7: ASL A
-#_0894F8: TAX
+|0894F3| LDA.w $0C5E,X
+|0894F6| ASL A
+|0894F7| ASL A
+|0894F8| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0894F9: LDY.b #$00
+|0894F9| LDY.b #$00
 
 .next_object
-#_0894FB: LDA.w .char,X
-#_0894FE: BEQ .skip
+|0894FB| LDA.w .char,X
+|0894FE| BEQ .skip
 
-#_089500: PHX
+|089500| PHX
 
-#_089501: TXA
-#_089502: ASL A
-#_089503: TAX
+|089501| TXA
+|089502| ASL A
+|089503| TAX
 
-#_089504: REP #$20
+|089504| REP #$20
 
-#_089506: LDA.w .offset_y,X
-#_089509: CLC
-#_08950A: ADC.b $04
-#_08950C: STA.b $00
+|089506| LDA.w .offset_y,X
+|089509| CLC
+|08950A| ADC.b $04
+|08950C| STA.b $00
 
-#_08950E: LDA.w .offset_x,X
-#_089511: CLC
-#_089512: ADC.b $06
-#_089514: STA.b $02
+|08950E| LDA.w .offset_x,X
+|089511| CLC
+|089512| ADC.b $06
+|089514| STA.b $02
 
-#_089516: SEP #$20
+|089516| SEP #$20
 
-#_089518: PLX
+|089518| PLX
 
-#_089519: JSR Ancilla_SetOAM_XY
+|089519| JSR Ancilla_SetOAM_XY
 
-#_08951C: LDA.w .char,X
-#_08951F: STA.b ($90),Y
+|08951C| LDA.w .char,X
+|08951F| STA.b ($90),Y
 
-#_089521: INY
+|089521| INY
 
-#_089522: LDA.w .prop,X
-#_089525: AND.b #$CF
-#_089527: ORA.b $65
-#_089529: STA.b ($90),Y
+|089522| LDA.w .prop,X
+|089525| AND.b #$CF
+|089527| ORA.b $65
+|089529| STA.b ($90),Y
 
-#_08952B: INY
+|08952B| INY
 
-#_08952C: PHY
+|08952C| PHY
 
-#_08952D: TYA
-#_08952E: SEC
-#_08952F: SBC.b #$04
-#_089531: LSR A
-#_089532: LSR A
-#_089533: TAY
+|08952D| TYA
+|08952E| SEC
+|08952F| SBC.b #$04
+|089531| LSR A
+|089532| LSR A
+|089533| TAY
 
-#_089534: LDA.b #$00
-#_089536: STA.b ($92),Y
+|089534| LDA.b #$00
+|089536| STA.b ($92),Y
 
-#_089538: PLY
+|089538| PLY
 
 .skip
-#_089539: JSR AllocateOAMInCustomRegion
+|089539| JSR AllocateOAMInCustomRegion
 
-#_08953C: INX
-#_08953D: DEC.b $08
+|08953C| INX
+|08953D| DEC.b $08
 
-#_08953F: BPL .next_object
+|08953F| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_089541: PLX
+|089541| PLX
 
-#_089542: RTS
+|089542| RTS
 
 ;===================================================================================================
 
-Bomb_timer:
-#_089543: db 160,   6,   4,   4
-#_089547: db   4,   4,   4,   6
-#_08954B: db   6,   6,   6
+BombTimers:
+|089543| db 160,   6,   4,   4
+|089547| db   4,   4,   4,   6
+|08954B| db   6,   6,   6
 
-Bomb_anim_step:
-#_08954E: db $00, $01, $02, $03
-#_089552: db $02, $03, $04, $05
-#_089556: db $06, $07, $08, $09
+BombAnimationSteps:
+|08954E| db $00, $01, $02, $03
+|089552| db $02, $03, $04, $05
+|089556| db $06, $07, $08, $09
 
 ;===================================================================================================
 
 Ancilla07_Bomb:
-#_08955A: LDA.b $11
-#_08955C: BEQ .main
+|08955A| LDA.b $11
+|08955C| BEQ .main
 
-#_08955E: CMP.b #$08
-#_089560: BEQ .staircase
+|08955E| CMP.b #$08
+|089560| BEQ .staircase
 
-#_089562: CMP.b #$10
-#_089564: BNE .not_staircase
+|089562| CMP.b #$10
+|089564| BNE .not_staircase
 
 .staircase
-#_089566: JSR Ancilla_HandleLiftLogic
+|089566| JSR Ancilla_HandleLiftLogic
 
-#_089569: BRA .proceed_to_draw
+|089569| BRA .proceed_to_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_staircase
-#_08956B: TXA
-#_08956C: INC A
-#_08956D: CMP.w $02EC
-#_089570: BNE .proceed_to_draw
+|08956B| TXA
+|08956C| INC A
+|08956D| CMP.w $02EC
+|089570| BNE .proceed_to_draw
 
-#_089572: LDA.w $0380,X
-#_089575: BEQ .proceed_to_draw
+|089572| LDA.w $0380,X
+|089575| BEQ .proceed_to_draw
 
-#_089577: CMP.b #$03
-#_089579: BEQ .fully_held
+|089577| CMP.b #$03
+|089579| BEQ .fully_held
 
-#_08957B: LDY.b #$03
-#_08957D: JSR Ancilla_LatchLinkCoordinates
-#_089580: JSR Ancilla_LatchAltitudeAboveLink
+|08957B| LDY.b #$03
+|08957D| JSR Ancilla_LatchLinkCoordinates
+|089580| JSR Ancilla_LatchAltitudeAboveLink
 
-#_089583: LDA.b #$03
-#_089585: STA.w $0380,X
+|089583| LDA.b #$03
+|089585| STA.w $0380,X
 
 .fully_held
-#_089588: JSR Ancilla_LatchCarriedPosition
+|089588| JSR Ancilla_LatchCarriedPosition
 
 .proceed_to_draw
-#_08958B: BRL Bomb_DoDraw
+|08958B| BRL Bomb_DoDraw
 
 ;---------------------------------------------------------------------------------------------------
 
 .main
-#_08958E: JSR Ancilla_HandleLiftLogic
-#_089591: JSR Ancilla_LatchYCoordToZ
+|08958E| JSR Ancilla_HandleLiftLogic
+|089591| JSR Ancilla_LatchYCoordToZ
 
-#_089594: LDA.w $0C72,X
-#_089597: STA.b $74
+|089594| LDA.w $0C72,X
+|089597| STA.b $74
 
-#_089599: LDA.w $0280,X
-#_08959C: STA.b $75
+|089599| LDA.w $0280,X
+|08959C| STA.b $75
 
-#_08959E: STZ.w $0280,X
+|08959E| STZ.w $0280,X
 
-#_0895A1: JSR Ancilla_CheckTileCollision_Class2
-#_0895A4: PHP
+|0895A1| JSR Ancilla_CheckTileCollision_Class2
+|0895A4| PHP
 
-#_0895A5: LDA.b $1B
-#_0895A7: BEQ .leave_layer
+|0895A5| LDA.b $1B
+|0895A7| BEQ .leave_layer
 
-#_0895A9: LDA.w $0385,X
-#_0895AC: BEQ .leave_layer
+|0895A9| LDA.w $0385,X
+|0895AC| BEQ .leave_layer
 
-#_0895AE: LDA.w $03E4,X
-#_0895B1: CMP.b #$1C ; TILETYPE 1C
-#_0895B3: BNE .leave_layer
+|0895AE| LDA.w $03E4,X
+|0895B1| CMP.b #$1C ; TILETYPE 1C
+|0895B3| BNE .leave_layer
 
-#_0895B5: LDA.b #$01
-#_0895B7: STA.w $03D5,X
+|0895B5| LDA.b #$01
+|0895B7| STA.w $03D5,X
 
 .leave_layer
-#_0895BA: PLP
-#_0895BB: BCC .no_tile_collision
+|0895BA| PLP
+|0895BB| BCC .no_tile_collision
 
 ;---------------------------------------------------------------------------------------------------
 
 .check_for_lift
-#_0895BD: BIT.w $0308
-#_0895C0: BPL .link_not_holding
+|0895BD| BIT.w $0308
+|0895C0| BPL .link_not_holding
 
-#_0895C2: LDA.w $0309
-#_0895C5: BEQ .no_tile_collision
+|0895C2| LDA.w $0309
+|0895C5| BEQ .no_tile_collision
 
 .link_not_holding
-#_0895C7: LDA.b $75
-#_0895C9: BNE .ignore_tile_collision
+|0895C7| LDA.b $75
+|0895C9| BNE .ignore_tile_collision
 
-#_0895CB: LDA.w $0BF0,X
-#_0895CE: BNE .ignore_tile_collision
+|0895CB| LDA.w $0BF0,X
+|0895CE| BNE .ignore_tile_collision
 
-#_0895D0: LDA.b #$01
-#_0895D2: STA.w $0BF0,X
+|0895D0| LDA.b #$01
+|0895D2| STA.w $0BF0,X
 
-#_0895D5: LDA.b #$04
-#_0895D7: STA.b $0E
+|0895D5| LDA.b #$04
+|0895D7| STA.b $0E
 
-#_0895D9: LDY.b #$FC
+|0895D9| LDY.b #$FC
 
-#_0895DB: LDA.w $0C72,X
-#_0895DE: CMP.b #$01
-#_0895E0: BNE .not_downwards
+|0895DB| LDA.w $0C72,X
+|0895DE| CMP.b #$01
+|0895E0| BNE .not_downwards
 
-#_0895E2: LDA.b #$10
-#_0895E4: STA.b $0E
+|0895E2| LDA.b #$10
+|0895E4| STA.b $0E
 
-#_0895E6: LDY.b #$F0
+|0895E6| LDY.b #$F0
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_downwards
-#_0895E8: LDA.w $0C22,X
-#_0895EB: BEQ .not_moving_y
-#_0895ED: BPL .positive_y
+|0895E8| LDA.w $0C22,X
+|0895EB| BEQ .not_moving_y
+|0895ED| BPL .positive_y
 
-#_0895EF: LDY.b $0E
+|0895EF| LDY.b $0E
 
 .positive_y
-#_0895F1: TYA
-#_0895F2: STA.w $0C22,X
+|0895F1| TYA
+|0895F2| STA.w $0C22,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_moving_y
-#_0895F5: LDY.b #$FC
+|0895F5| LDY.b #$FC
 
-#_0895F7: LDA.w $0C2C,X
-#_0895FA: BEQ .not_moving_x
-#_0895FC: BPL .positive_x
+|0895F7| LDA.w $0C2C,X
+|0895FA| BEQ .not_moving_x
+|0895FC| BPL .positive_x
 
-#_0895FE: LDY.b #$04
+|0895FE| LDY.b #$04
 
 .positive_x
-#_089600: TYA
-#_089601: STA.w $0C2C,X
+|089600| TYA
+|089601| STA.w $0C2C,X
 
 .not_moving_x
-#_089604: LDA.w $0C72,X
-#_089607: CMP.b #$01
-#_089609: BNE .ignore_tile_collision
+|089604| LDA.w $0C72,X
+|089607| CMP.b #$01
+|089609| BNE .ignore_tile_collision
 
-#_08960B: LDA.w $029E,X
-#_08960E: BEQ .ignore_tile_collision
+|08960B| LDA.w $029E,X
+|08960E| BEQ .ignore_tile_collision
 
-#_089610: LDA.b #$FC
-#_089612: STA.w $0C22,X
+|089610| LDA.b #$FC
+|089612| STA.w $0C22,X
 
-#_089615: LDA.b #$02
-#_089617: STA.w $0385,X
+|089615| LDA.b #$02
+|089617| STA.w $0385,X
 
 .ignore_tile_collision
-#_08961A: BRL Bomb_HandleState
+|08961A| BRL Bomb_HandleState
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_tile_collision
-#_08961D: BIT.w $0308
-#_089620: BMI .ignore_tile_collision
+|08961D| BIT.w $0308
+|089620| BMI .ignore_tile_collision
 
-#_089622: LDA.w $029E,X
-#_089625: BEQ .on_ground
+|089622| LDA.w $029E,X
+|089625| BEQ .on_ground
 
-#_089627: CMP.b #$FF
-#_089629: BNE .ignore_tile_collision
+|089627| CMP.b #$FF
+|089629| BNE .ignore_tile_collision
 
 .on_ground
-#_08962B: LDA.b #$10
-#_08962D: STA.w $0C72,X
+|08962B| LDA.b #$10
+|08962D| STA.w $0C72,X
 
-#_089630: LDA.w $0280,X
-#_089633: PHA
+|089630| LDA.w $0280,X
+|089633| PHA
 
-#_089634: JSR Ancilla_CheckTileCollision
+|089634| JSR Ancilla_CheckTileCollision
 
-#_089637: PLA
-#_089638: STA.w $0280,X
+|089637| PLA
+|089638| STA.w $0280,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08963B: LDA.w $03E4,X
-#_08963E: CMP.b #$26 ; TILETYPE 26
-#_089640: BEQ .tile_staircase
+|08963B| LDA.w $03E4,X
+|08963E| CMP.b #$26 ; TILETYPE 26
+|089640| BEQ .tile_staircase
 
-#_089642: CMP.b #$0C ; TILETYPE 0C
-#_089644: BEQ .tile_0C_1C
+|089642| CMP.b #$0C ; TILETYPE 0C
+|089644| BEQ .tile_0C_1C
 
-#_089646: CMP.b #$1C ; TILETYPE 1C
-#_089648: BEQ .tile_0C_1C
+|089646| CMP.b #$1C ; TILETYPE 1C
+|089648| BEQ .tile_0C_1C
 
-#_08964A: CMP.b #$20 ; TILETYPE 20
-#_08964C: BEQ .tile_pit
+|08964A| CMP.b #$20 ; TILETYPE 20
+|08964C| BEQ .tile_pit
 
-#_08964E: CMP.b #$08 ; TILETYPE 08
-#_089650: BEQ .tile_deep_water
+|08964E| CMP.b #$08 ; TILETYPE 08
+|089650| BEQ .tile_deep_water
 
-#_089652: CMP.b #$68 ; TILETYPE 68
-#_089654: BEQ .tile_conveyor
+|089652| CMP.b #$68 ; TILETYPE 68
+|089654| BEQ .tile_conveyor
 
-#_089656: CMP.b #$69 ; TILETYPE 69
-#_089658: BEQ .tile_conveyor
+|089656| CMP.b #$69 ; TILETYPE 69
+|089658| BEQ .tile_conveyor
 
-#_08965A: CMP.b #$6A ; TILETYPE 6A
-#_08965C: BEQ .tile_conveyor
+|08965A| CMP.b #$6A ; TILETYPE 6A
+|08965C| BEQ .tile_conveyor
 
-#_08965E: CMP.b #$6B ; TILETYPE 6B
-#_089660: BEQ .tile_conveyor
+|08965E| CMP.b #$6B ; TILETYPE 6B
+|089660| BEQ .tile_conveyor
 
-#_089662: CMP.b #$B6 ; TILETYPE B6
-#_089664: BEQ .tile_transit
+|089662| CMP.b #$B6 ; TILETYPE B6
+|089664| BEQ .tile_transit
 
-#_089666: CMP.b #$BC ; TILETYPE BC
-#_089668: BEQ .tile_transit
+|089666| CMP.b #$BC ; TILETYPE BC
+|089668| BEQ .tile_transit
 
-#_08966A: AND.b #$F0
-#_08966C: CMP.b #$B0
-#_08966E: BEQ .tile_pit
+|08966A| AND.b #$F0
+|08966C| CMP.b #$B0
+|08966E| BEQ .tile_pit
 
 ;---------------------------------------------------------------------------------------------------
 
 .tile_transit
-#_089670: STZ.w $0C68,X
+|089670| STZ.w $0C68,X
 
-#_089673: LDA.w $0385,X
-#_089676: BNE .ignore_tile_collision
+|089673| LDA.w $0385,X
+|089676| BNE .ignore_tile_collision
 
-#_089678: LDA.b #$02
-#_08967A: STA.w $0C68,X
+|089678| LDA.b #$02
+|08967A| STA.w $0C68,X
 
 .bounce_to_state_handler
-#_08967D: BRL Bomb_HandleState
+|08967D| BRL Bomb_HandleState
 
 ;---------------------------------------------------------------------------------------------------
 
 .tile_conveyor
-#_089680: BRL Bomb_HandleConveyor
+|089680| BRL Bomb_HandleConveyor
 
 ;---------------------------------------------------------------------------------------------------
 
 .tile_staircase
-#_089683: BRL .check_for_lift
+|089683| BRL .check_for_lift
 
 ;---------------------------------------------------------------------------------------------------
 
 .tile_0C_1C
-#_089686: BRL Bomb_HandleTiles_0C_1C
+|089686| BRL Bomb_HandleTiles_0C_1C
 
 ;---------------------------------------------------------------------------------------------------
 
 .tile_deep_water
-#_089689: TXA
-#_08968A: INC A
-#_08968B: CMP.w $02EC
-#_08968E: BNE .water_reset_a
+|089689| TXA
+|08968A| INC A
+|08968B| CMP.w $02EC
+|08968E| BNE .water_reset_a
 
-#_089690: STZ.w $02EC
+|089690| STZ.w $02EC
 
 .water_reset_a
-#_089693: LDA.w $0C68,X
-#_089696: BNE .bounce_to_state_handler
+|089693| LDA.w $0C68,X
+|089696| BNE .bounce_to_state_handler
 
-#_089698: LDA.w $0BFA,X
-#_08969B: CLC
-#_08969C: ADC.b #$E8
-#_08969E: STA.w $0BFA,X
+|089698| LDA.w $0BFA,X
+|08969B| CLC
+|08969C| ADC.b #$E8
+|08969E| STA.w $0BFA,X
 
-#_0896A1: LDA.b #$FF
-#_0896A3: ADC.w $0C0E,X
-#_0896A6: STA.w $0C0E,X
+|0896A1| LDA.b #$FF
+|0896A3| ADC.w $0C0E,X
+|0896A6| STA.w $0C0E,X
 
-#_0896A9: BRL Ancilla_TransmuteToSplash
+|0896A9| BRL Ancilla_TransmuteToSplash
 
 ;---------------------------------------------------------------------------------------------------
 
 .tile_pit
-#_0896AC: LDA.w $0308
-#_0896AF: BMI Bomb_HandleState
+|0896AC| LDA.w $0308
+|0896AF| BMI Bomb_HandleState
 
-#_0896B1: STX.b $04
+|0896B1| STX.b $04
 
-#_0896B3: LDA.w $02EC
-#_0896B6: DEC A
-#_0896B7: CMP.b $04
-#_0896B9: BNE .water_reset_b
+|0896B3| LDA.w $02EC
+|0896B6| DEC A
+|0896B7| CMP.b $04
+|0896B9| BNE .water_reset_b
 
-#_0896BB: STZ.w $02EC
+|0896BB| STZ.w $02EC
 
 .water_reset_b
-#_0896BE: LDA.w $0C68,X
-#_0896C1: BNE .bounce_to_state_handler
+|0896BE| LDA.w $0C68,X
+|0896C1| BNE .bounce_to_state_handler
 
-#_0896C3: BRL Ancilla_DeleteSelf
+|0896C3| BRL Ancilla_DeleteSelf
 
 ;---------------------------------------------------------------------------------------------------
 
 Bomb_HandleTiles_0C_1C:
-#_0896C6: LDA.w $046C
-#_0896C9: CMP.b #$03
-#_0896CB: BEQ .moving_floor
+|0896C6| LDA.w $046C
+|0896C9| CMP.b #$03
+|0896CB| BEQ .moving_floor
 
-#_0896CD: LDA.w $0C7C,X
-#_0896D0: BNE Bomb_HandleState
+|0896CD| LDA.w $0C7C,X
+|0896D0| BNE Bomb_HandleState
 
-#_0896D2: LDA.w $029E,X
-#_0896D5: BEQ Bomb_HandleState
+|0896D2| LDA.w $029E,X
+|0896D5| BEQ Bomb_HandleState
 
-#_0896D7: CMP.b #$FF
-#_0896D9: BEQ Bomb_HandleState
+|0896D7| CMP.b #$FF
+|0896D9| BEQ Bomb_HandleState
 
-#_0896DB: LDA.b #$01
-#_0896DD: STA.w $0C7C,X
+|0896DB| LDA.b #$01
+|0896DD| STA.w $0C7C,X
 
-#_0896E0: BRA Bomb_HandleState
+|0896E0| BRA Bomb_HandleState
 
 ;---------------------------------------------------------------------------------------------------
 
 .moving_floor
-#_0896E2: LDA.w $0310
-#_0896E5: CLC
-#_0896E6: ADC.w $0BFA,X
-#_0896E9: STA.b $72
+|0896E2| LDA.w $0310
+|0896E5| CLC
+|0896E6| ADC.w $0BFA,X
+|0896E9| STA.b $72
 
-#_0896EB: LDA.w $0311
-#_0896EE: ADC.w $0C0E,X
-#_0896F1: STA.b $73
+|0896EB| LDA.w $0311
+|0896EE| ADC.w $0C0E,X
+|0896F1| STA.b $73
 
-#_0896F3: LDA.w $0312
-#_0896F6: CLC
-#_0896F7: ADC.w $0C04,X
-#_0896FA: STA.w $0C04,X
+|0896F3| LDA.w $0312
+|0896F6| CLC
+|0896F7| ADC.w $0C04,X
+|0896FA| STA.w $0C04,X
 
-#_0896FD: LDA.w $0313
-#_089700: ADC.w $0C18,X
-#_089703: STA.w $0C18,X
+|0896FD| LDA.w $0313
+|089700| ADC.w $0C18,X
+|089703| STA.w $0C18,X
 
-#_089706: BRA Bomb_HandleState
+|089706| BRA Bomb_HandleState
 
 ;===================================================================================================
 
 Bomb_HandleConveyor:
-#_089708: JSR Ancilla_ApplyConveyor
+|089708| JSR Ancilla_ApplyConveyor
 
 ;===================================================================================================
 
 Bomb_HandleState:
-#_08970B: JSR Ancilla_SetYFrom_DP72
+|08970B| JSR Ancilla_SetYFrom_DP72
 
-#_08970E: LDA.b $74
-#_089710: STA.w $0C72,X
+|08970E| LDA.b $74
+|089710| STA.w $0C72,X
 
-#_089713: LDA.b $75
-#_089715: ORA.w $0280,X
-#_089718: STA.w $0280,X
+|089713| LDA.b $75
+|089715| ORA.w $0280,X
+|089718| STA.w $0280,X
 
-#_08971B: JSR Bomb_CheckSpriteAndPlayerDamage
+|08971B| JSR Bomb_CheckSpriteAndPlayerDamage
 
-#_08971E: DEC.w $039F,X
+|08971E| DEC.w $039F,X
 
-#_089721: LDA.w $039F,X
-#_089724: BNE .delay
+|089721| LDA.w $039F,X
+|089724| BNE .delay
 
-#_089726: INC.w $0C5E,X
+|089726| INC.w $0C5E,X
 
-#_089729: LDA.w $0C5E,X
-#_08972C: CMP.b #$01
-#_08972E: BNE .not_just_exploded
+|089729| LDA.w $0C5E,X
+|08972C| CMP.b #$01
+|08972E| BNE .not_just_exploded
 
-#_089730: LDA.b #$0C ; SFX2.0C
-#_089732: JSR Ancilla_SFX2_Pan
+|089730| LDA.b #$0C ; SFX2.0C
+|089732| JSR Ancilla_SFX2_Pan
 
-#_089735: TXA
-#_089736: INC A
-#_089737: CMP.w $02EC
-#_08973A: BNE .not_just_exploded
+|089735| TXA
+|089736| INC A
+|089737| CMP.w $02EC
+|08973A| BNE .not_just_exploded
 
-#_08973C: STZ.w $02EC
+|08973C| STZ.w $02EC
 
-#_08973F: BIT.w $0308
-#_089742: BPL .not_just_exploded
+|08973F| BIT.w $0308
+|089742| BPL .not_just_exploded
 
-#_089744: STZ.w $0308
-#_089747: STZ.b $50
+|089744| STZ.w $0308
+|089747| STZ.b $50
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_just_exploded
-#_089749: LDA.w $0C5E,X
-#_08974C: CMP.b #$0B
-#_08974E: BNE .not_fully_exploded
+|089749| LDA.w $0C5E,X
+|08974C| CMP.b #$0B
+|08974E| BNE .not_fully_exploded
 
-#_089750: LDY.b #$00 ; no ancilla
+|089750| LDY.b #$00 ; no ancilla
 
-#_089752: LDA.w $0C54,X
-#_089755: BEQ .dont_become_debris ; except A already is 0, you could have gone to 975A
+|089752| LDA.w $0C54,X
+|089755| BEQ .dont_become_debris ; except A already is 0, you could have gone to 975A
 
-#_089757: LDY.b #$08 ; ANCILLA 08
+|089757| LDY.b #$08 ; ANCILLA 08
 
 .dont_become_debris
-#_089759: TYA
-#_08975A: STA.w $0C4A,X
+|089759| TYA
+|08975A| STA.w $0C4A,X
 
-#_08975D: RTS
+|08975D| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_fully_exploded
-#_08975E: TAY
+|08975E| TAY
 
-#_08975F: LDA.w Bomb_timer,Y
-#_089762: STA.w $039F,X
+|08975F| LDA.w BombTimers,Y
+|089762| STA.w $039F,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay
-#_089765: LDA.w $0C5E,X
+|089765| LDA.w $0C5E,X
 
-#_089768: CMP.b #$07
-#_08976A: BNE Bomb_DoDraw
+|089768| CMP.b #$07
+|08976A| BNE Bomb_DoDraw
 
-#_08976C: LDA.w $039F,X
-#_08976F: CMP.b #$02
-#_089771: BNE Bomb_DoDraw
+|08976C| LDA.w $039F,X
+|08976F| CMP.b #$02
+|089771| BNE Bomb_DoDraw
 
-#_089773: PHX
+|089773| PHX
 
-#_089774: LDA.w $0BFA,X
-#_089777: STA.b $00
+|089774| LDA.w $0BFA,X
+|089777| STA.b $00
 
-#_089779: LDA.w $0C0E,X
-#_08977C: STA.b $01
+|089779| LDA.w $0C0E,X
+|08977C| STA.b $01
 
-#_08977E: LDA.w $0C04,X
-#_089781: STA.b $02
+|08977E| LDA.w $0C04,X
+|089781| STA.b $02
 
-#_089783: LDA.w $0C18,X
-#_089786: STA.b $03
+|089783| LDA.w $0C18,X
+|089786| STA.b $03
 
-#_089788: STX.b $0E
+|089788| STX.b $0E
 
-#_08978A: TXA
-#_08978B: ASL A
-#_08978C: TAX
+|08978A| TXA
+|08978B| ASL A
+|08978C| TAX
 
-#_08978D: STZ.w $03B6,X
-#_089790: STZ.w $03B7,X
+|08978D| STZ.w $03B6,X
+|089790| STZ.w $03B7,X
 
-#_089793: JSL FindBombableThings
+|089793| JSL FindBombableThings
 
-#_089797: PLX
+|089797| PLX
 
-#_089798: TXY
-#_089799: TXA
+|089798| TXY
+|089799| TXA
 
-#_08979A: ASL A
-#_08979B: TAX
+|08979A| ASL A
+|08979B| TAX
 
-#_08979C: LDA.w $03B6,X
-#_08979F: ORA.w $03B7,X
-#_0897A2: BEQ .didnt_break_wall
+|08979C| LDA.w $03B6,X
+|08979F| ORA.w $03B7,X
+|0897A2| BEQ .didnt_break_wall
 
-#_0897A4: TYX
+|0897A4| TYX
 
-#_0897A5: LDA.b #$01
-#_0897A7: STA.w $0C54,X
+|0897A5| LDA.b #$01
+|0897A7| STA.w $0C54,X
 
 .didnt_break_wall
-#_0897AA: TYX
+|0897AA| TYX
 
 ;===================================================================================================
 
 Bomb_DoDraw:
-#_0897AB: JSR AncillaDraw_Bomb
+|0897AB| JSR AncillaDraw_Bomb
 
 ;---------------------------------------------------------------------------------------------------
 
 #EXIT_0897AE:
-#_0897AE: RTS
+|0897AE| RTS
 
 ;===================================================================================================
 
 pool Ancilla_ApplyConveyor
 
 .speed_y
-#_0897AF: db  -8,   8,   0,   0
+|0897AF| db  -8,   8,   0,   0
 
 .speed_x
-#_0897B3: db   0,   0,  -8,   8
+|0897B3| db   0,   0,  -8,   8
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla_ApplyConveyor:
-#_0897B7: LDA.w $03E4,X
-#_0897BA: SEC
-#_0897BB: SBC.b #$68 ; TILETYPE 68
-#_0897BD: TAY
+|0897B7| LDA.w $03E4,X
+|0897BA| SEC
+|0897BB| SBC.b #$68 ; TILETYPE 68
+|0897BD| TAY
 
-#_0897BE: LDA.w .speed_y,Y
-#_0897C1: STA.w $0C22,X
+|0897BE| LDA.w .speed_y,Y
+|0897C1| STA.w $0C22,X
 
-#_0897C4: LDA.w .speed_x,Y
-#_0897C7: STA.w $0C2C,X
+|0897C4| LDA.w .speed_x,Y
+|0897C7| STA.w $0C2C,X
 
-#_0897CA: JSR AncillaMoveY
-#_0897CD: JSR AncillaMoveX
+|0897CA| JSR AncillaMoveY
+|0897CD| JSR AncillaMoveX
 
-#_0897D0: LDA.w $0BFA,X
-#_0897D3: STA.b $72
+|0897D0| LDA.w $0BFA,X
+|0897D3| STA.b $72
 
-#_0897D5: LDA.w $0C0E,X
-#_0897D8: STA.b $73
+|0897D5| LDA.w $0C0E,X
+|0897D8| STA.b $73
 
-#_0897DA: RTS
+|0897DA| RTS
 
 ;===================================================================================================
 
 pool Bomb_CheckSpriteAndPlayerDamage
 
 .recoil
-#_0897DB: db $20, $20, $20, $20
-#_0897DF: db $20, $20, $1C, $1C
-#_0897E3: db $1C, $1C, $1C, $1C
-#_0897E7: db $18, $18, $18, $18
+|0897DB| db $20, $20, $20, $20
+|0897DF| db $20, $20, $1C, $1C
+|0897E3| db $1C, $1C, $1C, $1C
+|0897E7| db $18, $18, $18, $18
 
 .recoil_z
-#_0897EB: db $10, $10, $10, $10
-#_0897EF: db $10, $10, $0C, $0C
-#_0897F3: db $0C, $0C, $08, $08
-#_0897F7: db $08, $08, $08, $08
+|0897EB| db $10, $10, $10, $10
+|0897EF| db $10, $10, $0C, $0C
+|0897F3| db $0C, $0C, $08, $08
+|0897F7| db $08, $08, $08, $08
 
 .recoil_timer
-#_0897FB: db  32,  32,  32,  32
-#_0897FF: db  32,  32,  24,  24
-#_089803: db  24,  24,  24,  24
-#_089807: db  16,  16,  16,  16
+|0897FB| db  32,  32,  32,  32
+|0897FF| db  32,  32,  24,  24
+|089803| db  24,  24,  24,  24
+|089807| db  16,  16,  16,  16
 
 .link_damage
-#_08980B: db $08 ; green mail
-#_08980C: db $04 ; blue mail
-#_08980D: db $02 ; red mail
+|08980B| db $08 ; green mail
+|08980C| db $04 ; blue mail
+|08980D| db $02 ; red mail
 
-pool off
+endpool
 
 ;===================================================================================================
 
 Bomb_CheckSpriteAndPlayerDamage:
-#_08980E: LDA.w $0C5E,X
-#_089811: BEQ .no_damage
+|08980E| LDA.w $0C5E,X
+|089811| BEQ .no_damage
 
-#_089813: CMP.b #$09
-#_089815: BCS .no_damage
+|089813| CMP.b #$09
+|089815| BCS .no_damage
 
-#_089817: JSR Bomb_CheckSpriteDamage
+|089817| JSR Bomb_CheckSpriteDamage
 
-#_08981A: LDA.w $037B
-#_08981D: BEQ .link_vulnerable
+|08981A| LDA.w $037B
+|08981D| BEQ .link_vulnerable
 
-#_08981F: TXA
-#_089820: INC A
-#_089821: CMP.w $02EC
-#_089824: BNE EXIT_0897AE
+|08981F| TXA
+|089820| INC A
+|089821| CMP.w $02EC
+|089824| BNE EXIT_0897AE
 
-#_089826: LDA.w $0308
-#_089829: AND.b #$80
-#_08982B: BEQ EXIT_0897AE
+|089826| LDA.w $0308
+|089829| AND.b #$80
+|08982B| BEQ EXIT_0897AE
 
-#_08982D: LDA.w $0308
-#_089830: AND.b #$7F
-#_089832: STA.w $0308
+|08982D| LDA.w $0308
+|089830| AND.b #$7F
+|089832| STA.w $0308
 
-#_089835: STZ.b $50
+|089835| STZ.b $50
 
 .no_damage
-#_089837: BRL EXIT_0897AE
+|089837| BRL EXIT_0897AE
 
 .link_vulnerable
-#_08983A: LDA.b $4D
-#_08983C: BNE .no_damage
+|08983A| LDA.b $4D
+|08983C| BNE .no_damage
 
-#_08983E: LDA.b $46
-#_089840: BNE .no_damage
+|08983E| LDA.b $46
+|089840| BNE .no_damage
 
-#_089842: LDA.w $0C7C,X
-#_089845: CMP.b $EE
-#_089847: BNE .no_damage
-
-;---------------------------------------------------------------------------------------------------
-
-#_089849: LDA.b $22
-#_08984B: STA.b $00
-
-#_08984D: LDA.b $23
-#_08984F: STA.b $08
-
-#_089851: LDA.b $20
-#_089853: STA.b $01
-
-#_089855: LDA.b $21
-#_089857: STA.b $09
-
-#_089859: LDA.b #$10
-#_08985B: STA.b $02
-
-#_08985D: LDA.b #$18
-#_08985F: STA.b $03
-
-#_089861: LDA.w $0C04,X
-#_089864: STA.b $04
-
-#_089866: LDA.w $0C18,X
-#_089869: STA.b $05
-
-#_08986B: LDA.w $0BFA,X
-#_08986E: STA.b $06
-
-#_089870: LDA.w $0C0E,X
-#_089873: STA.b $07
+|089842| LDA.w $0C7C,X
+|089845| CMP.b $EE
+|089847| BNE .no_damage
 
 ;---------------------------------------------------------------------------------------------------
 
-#_089875: REP #$20
+|089849| LDA.b $22
+|08984B| STA.b $00
 
-#_089877: LDA.b $04
-#_089879: CLC
-#_08987A: ADC.w #$FFF0
-#_08987D: STA.b $04
+|08984D| LDA.b $23
+|08984F| STA.b $08
 
-#_08987F: LDA.b $06
-#_089881: CLC
-#_089882: ADC.w #$FFF0
-#_089885: STA.b $06
+|089851| LDA.b $20
+|089853| STA.b $01
 
-#_089887: SEP #$20
+|089855| LDA.b $21
+|089857| STA.b $09
 
-#_089889: LDA.b $05
-#_08988B: STA.b $0A
+|089859| LDA.b #$10
+|08985B| STA.b $02
 
-#_08988D: LDA.b $06
-#_08988F: STA.b $05
+|08985D| LDA.b #$18
+|08985F| STA.b $03
 
-#_089891: LDA.b $07
-#_089893: STA.b $0B
+|089861| LDA.w $0C04,X
+|089864| STA.b $04
 
-#_089895: LDA.b #$20
-#_089897: STA.b $06
-#_089899: STA.b $07
+|089866| LDA.w $0C18,X
+|089869| STA.b $05
 
-#_08989B: JSL CheckIfHitBoxesOverlap_long
-#_08989F: BCC .exit
+|08986B| LDA.w $0BFA,X
+|08986E| STA.b $06
 
-;---------------------------------------------------------------------------------------------------
-
-#_0898A1: LDA.w $0C04,X
-#_0898A4: CLC
-#_0898A5: ADC.b #$F8
-#_0898A7: STA.b $00
-
-#_0898A9: LDA.w $0C18,X
-#_0898AC: ADC.b #$FF
-#_0898AE: STA.b $01
-
-#_0898B0: LDA.w $0BFA,X
-#_0898B3: CLC
-#_0898B4: ADC.b #$F4
-#_0898B6: STA.b $02
-
-#_0898B8: LDA.w $0C0E,X
-#_0898BB: ADC.b #$FF
-#_0898BD: STA.b $03
-
-#_0898BF: PHX
-
-#_0898C0: JSR Bomb_GetDisplacementFromLink
-
-#_0898C3: LDA.w .recoil,Y
-#_0898C6: TAY
-
-#_0898C7: JSL HijackSlot0ForBombRecoil
-#_0898CB: PLX
+|089870| LDA.w $0C0E,X
+|089873| STA.b $07
 
 ;---------------------------------------------------------------------------------------------------
 
-#_0898CC: LDA.w $031F
-#_0898CF: BNE .exit
+|089875| REP #$20
 
-#_0898D1: LDA.w $0FFC
-#_0898D4: CMP.b #$02
-#_0898D6: BEQ .exit
+|089877| LDA.b $04
+|089879| CLC
+|08987A| ADC.w #$FFF0
+|08987D| STA.b $04
 
-#_0898D8: LDA.b $00
-#_0898DA: STA.b $27
+|08987F| LDA.b $06
+|089881| CLC
+|089882| ADC.w #$FFF0
+|089885| STA.b $06
 
-#_0898DC: LDA.b $01
-#_0898DE: STA.b $28
+|089887| SEP #$20
 
-#_0898E0: JSR Bomb_GetDisplacementFromLink
+|089889| LDA.b $05
+|08988B| STA.b $0A
 
-#_0898E3: LDA.w .recoil_z,Y
-#_0898E6: STA.b $29
-#_0898E8: STA.w $02C7
+|08988D| LDA.b $06
+|08988F| STA.b $05
 
-#_0898EB: LDA.w .recoil_timer,Y
-#_0898EE: STA.b $46
+|089891| LDA.b $07
+|089893| STA.b $0B
 
-#_0898F0: LDA.b #$01
-#_0898F2: STA.b $4D
+|089895| LDA.b #$20
+|089897| STA.b $06
+|089899| STA.b $07
 
-#_0898F4: LDA.b #$3A
-#_0898F6: STA.w $031F
+|08989B| JSL CheckIfHitboxesOverlap_long
+|08989F| BCC .exit
+
+;---------------------------------------------------------------------------------------------------
+
+|0898A1| LDA.w $0C04,X
+|0898A4| CLC
+|0898A5| ADC.b #$F8
+|0898A7| STA.b $00
+
+|0898A9| LDA.w $0C18,X
+|0898AC| ADC.b #$FF
+|0898AE| STA.b $01
+
+|0898B0| LDA.w $0BFA,X
+|0898B3| CLC
+|0898B4| ADC.b #$F4
+|0898B6| STA.b $02
+
+|0898B8| LDA.w $0C0E,X
+|0898BB| ADC.b #$FF
+|0898BD| STA.b $03
+
+|0898BF| PHX
+
+|0898C0| JSR Bomb_GetDisplacementFromLink
+
+|0898C3| LDA.w .recoil,Y
+|0898C6| TAY
+
+|0898C7| JSL HijackSlot0ForBombRecoil
+|0898CB| PLX
+
+;---------------------------------------------------------------------------------------------------
+
+|0898CC| LDA.w $031F
+|0898CF| BNE .exit
+
+|0898D1| LDA.w $0FFC
+|0898D4| CMP.b #$02
+|0898D6| BEQ .exit
+
+|0898D8| LDA.b $00
+|0898DA| STA.b $27
+
+|0898DC| LDA.b $01
+|0898DE| STA.b $28
+
+|0898E0| JSR Bomb_GetDisplacementFromLink
+
+|0898E3| LDA.w .recoil_z,Y
+|0898E6| STA.b $29
+|0898E8| STA.w $02C7
+
+|0898EB| LDA.w .recoil_timer,Y
+|0898EE| STA.b $46
+
+|0898F0| LDA.b #$01
+|0898F2| STA.b $4D
+
+|0898F4| LDA.b #$3A
+|0898F6| STA.w $031F
 
 ; No damage if boss heart is collecteed
-#_0898F9: LDA.w $0403
-#_0898FC: AND.b #$80
-#_0898FE: BNE .exit
+|0898F9| LDA.w $0403
+|0898FC| AND.b #$80
+|0898FE| BNE .exit
 
 ; use mail to get damage
-#_089900: LDA.l $7EF35B
-#_089904: TAY
+|089900| LDA.l $7EF35B
+|089904| TAY
 
-#_089905: LDA.w .link_damage,Y
-#_089908: STA.w $0373
+|089905| LDA.w .link_damage,Y
+|089908| STA.w $0373
 
 .exit
-#_08990B: RTS
+|08990B| RTS
 
 ;===================================================================================================
 
 pool AncillaCarry
 
 .offset_y
-#_08990C: dw  16,   8,   4,   4
-#_089914: dw   8,   2,  -1,  -1
-#_08991C: dw   2,   2,  -1,  -1
+|08990C| dw  16,   8,   4,   4
+|089914| dw   8,   2,  -1,  -1
+|08991C| dw   2,   2,  -1,  -1
 
 .offset_x
-#_089924: dw   8,   8,  -4,  20
-#_08992C: dw   8,   8,   8,   8
-#_089934: dw   8,   8,   8,   8
+|089924| dw   8,   8,  -4,  20
+|08992C| dw   8,   8,   8,   8
+|089934| dw   8,   8,   8,   8
 
 .timer
-#_08993C: db  16,   8,   9
+|08993C| db  16,   8,   9
 
 .offset_z
-#_08993F: dw  -2,  -1
-#_089943: dw   0,  -2
-#_089947: dw  -1,   0
+|08993F| dw  -2,  -1
+|089943| dw   0,  -2
+|089947| dw  -1,   0
 
 .throw_speed_y
-#_08994B: db -32,  32,   0,   0
+|08994B| db -32,  32,   0,   0
 
 .throw_speed_x
-#_08994F: db   0,   0, -32,  32
+|08994F| db   0,   0, -32,  32
 
 .unused_a
-#_089953: db $08, $08, $00, $00
-#_089957: db $04, $04, $00, $00
+|089953| db $08, $08, $00, $00
+|089957| db $04, $04, $00, $00
 
 .unused_b
-#_08995B: db $00, $00, $08, $08
-#_08995F: db $00, $00, $04, $04
+|08995B| db $00, $00, $08, $08
+|08995F| db $00, $00, $04, $04
 
 .bounce_z
-#_089963: db  16,  16
+|089963| db  16,  16
 
 .unused_c
-#_089965: db $10, $10, $08, $08, $08, $08
+|089965| db $10, $10, $08, $08, $08, $08
 
 .direction
-#_08996B: db $00, $02, $04, $06
+|08996B| db $00, $02, $04, $06
 
-pool off
+endpool
 
 ;===================================================================================================
 
 Ancilla_HandleLiftLogic:
-#_08996F: LDA.w $03EA,X
-#_089972: BNE .not_liftable
+|08996F| LDA.w $03EA,X
+|089972| BNE .not_liftable
 
-#_089974: LDA.w $0385,X
-#_089977: BEQ .not_airborne
+|089974| LDA.w $0385,X
+|089977| BEQ .not_airborne
 
-#_089979: BRL AncillaCarry_Airborne
+|089979| BRL AncillaCarry_Airborne
 
 .not_airborne
-#_08997C: STX.b $00
+|08997C| STX.b $00
 
-#_08997E: LDA.w $02EC
-#_089981: BEQ .link_not_close
+|08997E| LDA.w $02EC
+|089981| BEQ .link_not_close
 
-#_089983: DEC A
-#_089984: CMP.b $00
-#_089986: BEQ .is_closest_for_lift
+|089983| DEC A
+|089984| CMP.b $00
+|089986| BEQ .is_closest_for_lift
 
-#_089988: RTS
+|089988| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .is_closest_for_lift
-#_089989: LDY.w $037B
-#_08998C: BNE .link_invulnerable
+|089989| LDY.w $037B
+|08998C| BNE .link_invulnerable
 
-#_08998E: LDA.b $46
-#_089990: BNE .link_cant_handle_it
+|08998E| LDA.b $46
+|089990| BNE .link_cant_handle_it
 
 .link_invulnerable
-#_089992: LDA.w $03FD
-#_089995: BNE .link_cant_handle_it
+|089992| LDA.w $03FD
+|089995| BNE .link_cant_handle_it
 
-#_089997: LDA.b $4D
-#_089999: CMP.b #$01
-#_08999B: BNE .link_not_recoiling
+|089997| LDA.b $4D
+|089999| CMP.b #$01
+|08999B| BNE .link_not_recoiling
 
 ;---------------------------------------------------------------------------------------------------
 
 .link_cant_handle_it
-#_08999D: LDA.b #$01
-#_08999F: STA.w $03EA,X
+|08999D| LDA.b #$01
+|08999F| STA.w $03EA,X
 
-#_0899A2: STZ.w $0294,X
-#_0899A5: STZ.w $02EC
-#_0899A8: STZ.w $0BF0,X
+|0899A2| STZ.w $0294,X
+|0899A5| STZ.w $02EC
+|0899A8| STZ.w $0BF0,X
 
-#_0899AB: BRA .not_liftable
+|0899AB| BRA .not_liftable
 
 ;---------------------------------------------------------------------------------------------------
 
 .link_not_recoiling
-#_0899AD: LDA.w $0308
-#_0899B0: BPL .link_not_close
+|0899AD| LDA.w $0308
+|0899B0| BPL .link_not_close
 
-#_0899B2: BRL .link_hands_are_full
+|0899B2| BRL .link_hands_are_full
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_liftable
-#_0899B5: BRL Ancilla_LatchCarriedPosition_handle_altitude
+|0899B5| BRL Ancilla_LatchCarriedPosition.handle_altitude
 
 ;---------------------------------------------------------------------------------------------------
 
 .link_not_close
-#_0899B8: STZ.w $02EC
+|0899B8| STZ.w $02EC
 
-#_0899BB: LDA.w $0C5E,X
-#_0899BE: BNE .exit
+|0899BB| LDA.w $0C5E,X
+|0899BE| BNE .exit
 
-#_0899C0: LDA.w $0308
-#_0899C3: BNE .exit
+|0899C0| LDA.w $0308
+|0899C3| BNE .exit
 
-#_0899C5: LDY.b #$00
-#_0899C7: JSR Ancilla_CheckLinkCollision
-#_0899CA: BCC .exit
+|0899C5| LDY.b #$00
+|0899C7| JSR Ancilla_CheckLinkCollision
+|0899CA| BCC .exit
 
-#_0899CC: LDA.w $0C7C,X
-#_0899CF: CMP.b $EE
-#_0899D1: BNE .exit
+|0899CC| LDA.w $0C7C,X
+|0899CF| CMP.b $EE
+|0899D1| BNE .exit
 
-#_0899D3: LDA.b $08
-#_0899D5: CMP.b #$10
-#_0899D7: BCS .y_difference_big
+|0899D3| LDA.b $08
+|0899D5| CMP.b #$10
+|0899D7| BCS .y_difference_big
 
-#_0899D9: LDA.b $0A
-#_0899DB: CMP.b #$0C
-#_0899DD: BCC .continue_lift
+|0899D9| LDA.b $0A
+|0899DB| CMP.b #$0C
+|0899DD| BCC .continue_lift
 
 ;---------------------------------------------------------------------------------------------------
 
 .y_difference_big
-#_0899DF: LDA.b $08
-#_0899E1: CMP.b $0A
-#_0899E3: BCC .y_difference_smaller
+|0899DF| LDA.b $08
+|0899E1| CMP.b $0A
+|0899E3| BCC .y_difference_smaller
 
-#_0899E5: LDY.b #$00
+|0899E5| LDY.b #$00
 
-#_0899E7: LDA.b $04
-#_0899E9: BPL .check_direction
+|0899E7| LDA.b $04
+|0899E9| BPL .check_direction
 
-#_0899EB: INY
-#_0899EC: BRA .check_direction
+|0899EB| INY
+|0899EC| BRA .check_direction
 
 ;---------------------------------------------------------------------------------------------------
 
 .y_difference_smaller
-#_0899EE: LDY.b #$02
+|0899EE| LDY.b #$02
 
-#_0899F0: LDA.b $06
-#_0899F2: BPL .check_direction
+|0899F0| LDA.b $06
+|0899F2| BPL .check_direction
 
-#_0899F4: INY
+|0899F4| INY
 
 .check_direction
-#_0899F5: LDA.w AncillaCarry_direction,Y
-#_0899F8: CMP.b $2F
-#_0899FA: BNE .exit
+|0899F5| LDA.w AncillaCarry.direction,Y
+|0899F8| CMP.b $2F
+|0899FA| BNE .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue_lift
-#_0899FC: TXA
-#_0899FD: INC A
-#_0899FE: STA.w $02EC
+|0899FC| TXA
+|0899FD| INC A
+|0899FE| STA.w $02EC
 
-#_089A01: STZ.w $0380,X
+|089A01| STZ.w $0380,X
 
-#_089A04: LDA.w AncillaCarry_timer
-#_089A07: STA.w $03B1,X
+|089A04| LDA.w AncillaCarry.timer
+|089A07| STA.w $03B1,X
 
-#_089A0A: STZ.w $0385,X
-#_089A0D: STZ.w $029E,X
+|089A0A| STZ.w $0385,X
+|089A0D| STZ.w $029E,X
 
 .exit
-#_089A10: RTS
+|089A10| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .link_hands_are_full
-#_089A11: LDA.w $0309
-#_089A14: CMP.b #$02
-#_089A16: BEQ Ancilla_HandleThrowLogic
+|089A11| LDA.w $0309
+|089A14| CMP.b #$02
+|089A16| BEQ Ancilla_HandleThrowLogic
 
-#_089A18: LDA.w $02EC
-#_089A1B: BEQ Ancilla_HandleThrowLogic
+|089A18| LDA.w $02EC
+|089A1B| BEQ Ancilla_HandleThrowLogic
 
-#_089A1D: LDY.w $0380,X
-#_089A20: CPY.b #$03
-#_089A22: BEQ Ancilla_HandleThrowLogic
+|089A1D| LDY.w $0380,X
+|089A20| CPY.b #$03
+|089A22| BEQ Ancilla_HandleThrowLogic
 
-#_089A24: CPY.b #$00
-#_089A26: BNE .skip_lift_sfx
+|089A24| CPY.b #$00
+|089A26| BNE .skip_lift_sfx
 
-#_089A28: LDA.w $03B1,X
-#_089A2B: CMP.b #$10
-#_089A2D: BNE .skip_lift_sfx
+|089A28| LDA.w $03B1,X
+|089A2B| CMP.b #$10
+|089A2D| BNE .skip_lift_sfx
 
-#_089A2F: LDA.b #$1D ; SFX2.1D
-#_089A31: JSR Ancilla_SFX2_Pan
+|089A2F| LDA.b #$1D ; SFX2.1D
+|089A31| JSR Ancilla_SFX2_Pan
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_lift_sfx
-#_089A34: DEC.w $03B1,X
-#_089A37: BPL Ancilla_LatchLinkCoordinates
+|089A34| DEC.w $03B1,X
+|089A37| BPL Ancilla_LatchLinkCoordinates
 
-#_089A39: INY
-#_089A3A: TYA
-#_089A3B: STA.w $0380,X
+|089A39| INY
+|089A3A| TYA
+|089A3B| STA.w $0380,X
 
-#_089A3E: LDA.w AncillaCarry_timer,Y
-#_089A41: STA.w $03B1,X
+|089A3E| LDA.w AncillaCarry.timer,Y
+|089A41| STA.w $03B1,X
 
-#_089A44: CPY.b #$03
-#_089A46: BNE Ancilla_LatchLinkCoordinates
+|089A44| CPY.b #$03
+|089A46| BNE Ancilla_LatchLinkCoordinates
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla_LatchAltitudeAboveLink:
-#_089A48: LDA.b #$11
-#_089A4A: STA.w $029E,X
+|089A48| LDA.b #$11
+|089A4A| STA.w $029E,X
 
-#_089A4D: LDA.w $0BFA,X
-#_089A50: CLC
-#_089A51: ADC.b #$11
-#_089A53: STA.w $0BFA,X
+|089A4D| LDA.w $0BFA,X
+|089A50| CLC
+|089A51| ADC.b #$11
+|089A53| STA.w $0BFA,X
 
-#_089A56: LDA.w $0C0E,X
-#_089A59: ADC.b #$00
-#_089A5B: STA.w $0C0E,X
+|089A56| LDA.w $0C0E,X
+|089A59| ADC.b #$00
+|089A5B| STA.w $0C0E,X
 
-#_089A5E: STZ.w $0280,X
+|089A5E| STZ.w $0280,X
 
-#_089A61: BRA EXIT_089A8D
+|089A61| BRA EXIT_089A8D
 
 ;===================================================================================================
 
 Ancilla_LatchLinkCoordinates:
-#_089A63: TYA
-#_089A64: ASL A ; x8
-#_089A65: ASL A
-#_089A66: ASL A
-#_089A67: CLC
-#_089A68: ADC.b $2F
-#_089A6A: TAY
+|089A63| TYA
+|089A64| ASL A ; x8
+|089A65| ASL A
+|089A66| ASL A
+|089A67| CLC
+|089A68| ADC.b $2F
+|089A6A| TAY
 
-#_089A6B: LDA.b $20
-#_089A6D: CLC
-#_089A6E: ADC.w AncillaCarry_offset_y+0,Y
-#_089A71: STA.w $0BFA,X
+|089A6B| LDA.b $20
+|089A6D| CLC
+|089A6E| ADC.w AncillaCarry.offset_y+0,Y
+|089A71| STA.w $0BFA,X
 
-#_089A74: LDA.b $21
-#_089A76: ADC.w AncillaCarry_offset_y+1,Y
-#_089A79: STA.w $0C0E,X
+|089A74| LDA.b $21
+|089A76| ADC.w AncillaCarry.offset_y+1,Y
+|089A79| STA.w $0C0E,X
 
-#_089A7C: LDA.b $22
-#_089A7E: CLC
-#_089A7F: ADC.w AncillaCarry_offset_x+0,Y
-#_089A82: STA.w $0C04,X
+|089A7C| LDA.b $22
+|089A7E| CLC
+|089A7F| ADC.w AncillaCarry.offset_x+0,Y
+|089A82| STA.w $0C04,X
 
-#_089A85: LDA.b $23
-#_089A87: ADC.w AncillaCarry_offset_x+1,Y
-#_089A8A: STA.w $0C18,X
+|089A85| LDA.b $23
+|089A87| ADC.w AncillaCarry.offset_x+1,Y
+|089A8A| STA.w $0C18,X
 
 ;---------------------------------------------------------------------------------------------------
 
 #EXIT_089A8D:
-#_089A8D: RTS
+|089A8D| RTS
 
 ;===================================================================================================
 
 Ancilla_HandleThrowLogic:
-#_089A8E: LDA.w $0380,X
-#_089A91: CMP.b #$03
-#_089A93: BNE EXIT_089A8D
+|089A8E| LDA.w $0380,X
+|089A91| CMP.b #$03
+|089A93| BNE EXIT_089A8D
 
-#_089A95: LDA.w $0309
-#_089A98: CMP.b #$02
-#_089A9A: BEQ AncillaCarry_HandleThrow
+|089A95| LDA.w $0309
+|089A98| CMP.b #$02
+|089A9A| BEQ AncillaCarry_HandleThrow
 
-#_089A9C: LDA.b $11
-#_089A9E: BNE .cant_throw
+|089A9C| LDA.b $11
+|089A9E| BNE .cant_throw
 
-#_089AA0: LDA.b $F6
-#_089AA2: ORA.b $F4
-#_089AA4: AND.b #$80
-#_089AA6: BNE AncillaCarry_HandleThrow
+|089AA0| LDA.b $F6
+|089AA2| ORA.b $F4
+|089AA4| AND.b #$80
+|089AA6| BNE AncillaCarry_HandleThrow
 
 .cant_throw
-#_089AA8: BRL AncillaCarry_HandleFalling
+|089AA8| BRL AncillaCarry_HandleFalling
 
 ;===================================================================================================
 
 AncillaCarry_HandleThrow:
-#_089AAB: LDA.b $2F
-#_089AAD: LSR A
-#_089AAE: STA.w $0C72,X
+|089AAB| LDA.b $2F
+|089AAD| LSR A
+|089AAE| STA.w $0C72,X
 
-#_089AB1: TAY
+|089AB1| TAY
 
-#_089AB2: LDA.b #$18
-#_089AB4: STA.w $0294,X
+|089AB2| LDA.b #$18
+|089AB4| STA.w $0294,X
 
-#_089AB7: LDA.w AncillaCarry_throw_speed_y,Y
-#_089ABA: STA.w $0C22,X
+|089AB7| LDA.w AncillaCarry.throw_speed_y,Y
+|089ABA| STA.w $0C22,X
 
-#_089ABD: LDA.w AncillaCarry_throw_speed_x,Y
-#_089AC0: STA.w $0C2C,X
+|089ABD| LDA.w AncillaCarry.throw_speed_x,Y
+|089AC0| STA.w $0C2C,X
 
-#_089AC3: LDA.b #$02
-#_089AC5: STA.w $0309
+|089AC3| LDA.b #$02
+|089AC5| STA.w $0309
 
-#_089AC8: DEC A
-#_089AC9: STA.w $0385,X
+|089AC8| DEC A
+|089AC9| STA.w $0385,X
 
-#_089ACC: STZ.w $02EC
+|089ACC| STZ.w $02EC
 
-#_089ACF: STZ.w $0BF0,X
-#_089AD2: STZ.w $0380,X
-#_089AD5: STZ.w $0280,X
+|089ACF| STZ.w $0BF0,X
+|089AD2| STZ.w $0380,X
+|089AD5| STZ.w $0280,X
 
-#_089AD8: LDA.b #$13 ; SFX3.13
-#_089ADA: JSR Ancilla_SFX3_Pan
+|089AD8| LDA.b #$13 ; SFX3.13
+|089ADA| JSR Ancilla_SFX3_Pan
 
 ;===================================================================================================
 
 AncillaCarry_Airborne:
-#_089ADD: LDA.w $0C5E,X
-#_089AE0: BEQ .continue
+|089ADD| LDA.w $0C5E,X
+|089AE0| BEQ .continue
 
-#_089AE2: RTS
+|089AE2| RTS
 
 .continue
-#_089AE3: LDA.w $0294,X
-#_089AE6: SEC
-#_089AE7: SBC.b #$02
-#_089AE9: STA.w $0294,X
+|089AE3| LDA.w $0294,X
+|089AE6| SEC
+|089AE7| SBC.b #$02
+|089AE9| STA.w $0294,X
 
-#_089AEC: JSR AncillaMoveY
-#_089AEF: JSR AncillaMoveX
+|089AEC| JSR AncillaMoveY
+|089AEF| JSR AncillaMoveX
 
-#_089AF2: LDA.w $029E,X
-#_089AF5: STA.b $00
+|089AF2| LDA.w $029E,X
+|089AF5| STA.b $00
 
-#_089AF7: JSR AncillaMoveZ
+|089AF7| JSR AncillaMoveZ
 
-#_089AFA: LDA.w $0BF0,X
-#_089AFD: BEQ .dont_adjust_altitude
+|089AFA| LDA.w $0BF0,X
+|089AFD| BEQ .dont_adjust_altitude
 
-#_089AFF: LDA.w $0C72,X
-#_089B02: CMP.b #$01
-#_089B04: BNE .dont_adjust_altitude
+|089AFF| LDA.w $0C72,X
+|089B02| CMP.b #$01
+|089B04| BNE .dont_adjust_altitude
 
-#_089B06: LDA.w $0BFA,X
-#_089B09: STA.b $0C
+|089B06| LDA.w $0BFA,X
+|089B09| STA.b $0C
 
-#_089B0B: LDA.w $0C0E,X
-#_089B0E: STA.b $0D
+|089B0B| LDA.w $0C0E,X
+|089B0E| STA.b $0D
 
-#_089B10: LDA.w $029E,X
-#_089B13: BMI .dont_adjust_altitude
+|089B10| LDA.w $029E,X
+|089B13| BMI .dont_adjust_altitude
 
-#_089B15: SEC
-#_089B16: SBC.b $00
-#_089B18: STA.b $0E
+|089B15| SEC
+|089B16| SBC.b $00
+|089B18| STA.b $0E
 
-#_089B1A: REP #$20
+|089B1A| REP #$20
 
-#_089B1C: LDA.b $0E
-#_089B1E: AND.w #$00FF
-#_089B21: CMP.w #$0080
-#_089B24: BCC .y_is_positive
+|089B1C| LDA.b $0E
+|089B1E| AND.w #$00FF
+|089B21| CMP.w #$0080
+|089B24| BCC .y_is_positive
 
-#_089B26: ORA.w #$FF00
+|089B26| ORA.w #$FF00
 
 .y_is_positive
-#_089B29: CLC
-#_089B2A: ADC.b $0C
-#_089B2C: STA.b $0C
+|089B29| CLC
+|089B2A| ADC.b $0C
+|089B2C| STA.b $0C
 
-#_089B2E: SEP #$20
+|089B2E| SEP #$20
 
-#_089B30: LDA.b $0C
-#_089B32: STA.w $0BFA,X
+|089B30| LDA.b $0C
+|089B32| STA.w $0BFA,X
 
-#_089B35: LDA.b $0D
-#_089B37: STA.w $0C0E,X
+|089B35| LDA.b $0D
+|089B37| STA.w $0C0E,X
 
 .dont_adjust_altitude
-#_089B3A: LDA.w $029E,X
-#_089B3D: CMP.b #$80
-#_089B3F: BCS .negative_z
+|089B3A| LDA.w $029E,X
+|089B3D| CMP.b #$80
+|089B3F| BCS .negative_z
 
 .exit_a
-#_089B41: RTS
+|089B41| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .negative_z
-#_089B42: CMP.b #$FF
-#_089B44: BCS .exit_a
+|089B42| CMP.b #$FF
+|089B44| BCS .exit_a
 
-#_089B46: STZ.w $029E,X
+|089B46| STZ.w $029E,X
 
-#_089B49: LDA.b #$21 ; SFX2.21
-#_089B4B: JSR Ancilla_SFX2_Pan
+|089B49| LDA.b #$21 ; SFX2.21
+|089B4B| JSR Ancilla_SFX2_Pan
 
-#_089B4E: INC.w $0385,X
+|089B4E| INC.w $0385,X
 
-#_089B51: LDA.w $0385,X
-#_089B54: CMP.b #$03
-#_089B56: BEQ .bounces_maxed
+|089B51| LDA.w $0385,X
+|089B54| CMP.b #$03
+|089B56| BEQ .bounces_maxed
 
-#_089B58: SEC
-#_089B59: SBC.b #$02
+|089B58| SEC
+|089B59| SBC.b #$02
 
-#_089B5B: ASL A
-#_089B5C: ASL A
+|089B5B| ASL A
+|089B5C| ASL A
 
-#_089B5D: CLC
-#_089B5E: ADC.w $0C72,X
-#_089B61: TAY ; useless
+|089B5D| CLC
+|089B5E| ADC.w $0C72,X
+|089B61| TAY ; useless
 
 ;---------------------------------------------------------------------------------------------------
 
-#_089B62: LDY.b #$00
+|089B62| LDY.b #$00
 
-#_089B64: LDA.w $0C22,X
-#_089B67: BPL .positive_y
+|089B64| LDA.w $0C22,X
+|089B67| BPL .positive_y
 
-#_089B69: LDY.b #$01
+|089B69| LDY.b #$01
 
-#_089B6B: EOR.b #$FF
-#_089B6D: INC A
+|089B6B| EOR.b #$FF
+|089B6D| INC A
 
 .positive_y
-#_089B6E: LSR A
+|089B6E| LSR A
 
-#_089B6F: CPY.b #$01
-#_089B71: BNE .dont_invert_y
+|089B6F| CPY.b #$01
+|089B71| BNE .dont_invert_y
 
-#_089B73: EOR.b #$FF
-#_089B75: INC A
+|089B73| EOR.b #$FF
+|089B75| INC A
 
 .dont_invert_y
-#_089B76: STA.w $0C22,X
+|089B76| STA.w $0C22,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_089B79: LDY.b #$00
+|089B79| LDY.b #$00
 
-#_089B7B: LDA.w $0C2C,X
-#_089B7E: BPL .positive_x
+|089B7B| LDA.w $0C2C,X
+|089B7E| BPL .positive_x
 
-#_089B80: LDY.b #$01
+|089B80| LDY.b #$01
 
-#_089B82: EOR.b #$FF
-#_089B84: INC A
+|089B82| EOR.b #$FF
+|089B84| INC A
 
 .positive_x
-#_089B85: LSR A
-#_089B86: CPY.b #$01
-#_089B88: BNE .dont_invert_x
+|089B85| LSR A
+|089B86| CPY.b #$01
+|089B88| BNE .dont_invert_x
 
-#_089B8A: EOR.b #$FF
-#_089B8C: INC A
+|089B8A| EOR.b #$FF
+|089B8C| INC A
 
 .dont_invert_x
-#_089B8D: STA.w $0C2C,X
+|089B8D| STA.w $0C2C,X
 
-#_089B90: LDA.w AncillaCarry_bounce_z,Y
-#_089B93: STA.w $0294,X
+|089B90| LDA.w AncillaCarry.bounce_z,Y
+|089B93| STA.w $0294,X
 
-#_089B96: LDA.w $0BF0,X
-#_089B99: BEQ .exit_b
+|089B96| LDA.w $0BF0,X
+|089B99| BEQ .exit_b
 
-#_089B9B: STZ.w $0BF0,X
+|089B9B| STZ.w $0BF0,X
 
-#_089B9E: RTS
+|089B9E| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .bounces_maxed
-#_089B9F: STZ.w $029E,X
-#_089BA2: STZ.w $0385,X
-#_089BA5: STZ.w $0BF0,X
+|089B9F| STZ.w $029E,X
+|089BA2| STZ.w $0385,X
+|089BA5| STZ.w $0BF0,X
 
-#_089BA8: STZ.b $5E
+|089BA8| STZ.b $5E
 
-#_089BAA: STZ.w $0C22,X
-#_089BAD: STZ.w $0C2C,X
-#_089BB0: STZ.w $0294,X
+|089BAA| STZ.w $0C22,X
+|089BAD| STZ.w $0C2C,X
+|089BB0| STZ.w $0294,X
 
-#_089BB3: LDA.w $03D5,X
-#_089BB6: BEQ .exit_b
+|089BB3| LDA.w $03D5,X
+|089BB6| BEQ .exit_b
 
-#_089BB8: STA.w $0C7C,X
+|089BB8| STA.w $0C7C,X
 
-#_089BBB: STZ.w $03D5,X
+|089BBB| STZ.w $03D5,X
 
 .exit_b
-#_089BBE: RTS
+|089BBE| RTS
 
 ;===================================================================================================
 
 AncillaCarry_HandleFalling:
-#_089BBF: LDA.w $0C5E,X
-#_089BC2: BNE EXIT_089C36
+|089BBF| LDA.w $0C5E,X
+|089BC2| BNE EXIT_089C36
 
-#_089BC4: LDA.b $5B
-#_089BC6: CMP.b #$02
-#_089BC8: BCC .continue
+|089BC4| LDA.b $5B
+|089BC6| CMP.b #$02
+|089BC8| BCC .continue
 
-#_089BCA: STZ.b $5E
+|089BCA| STZ.b $5E
 
-#_089BCC: TXA
-#_089BCD: INC A
+|089BCC| TXA
+|089BCD| INC A
 
-#_089BCE: CMP.w $02EC
-#_089BD1: BNE .exit
+|089BCE| CMP.w $02EC
+|089BD1| BNE .exit
 
-#_089BD3: STZ.w $02EC
+|089BD3| STZ.w $02EC
 
-#_089BD6: STZ.w $0C4A,X
+|089BD6| STZ.w $0C4A,X
 
 .exit
-#_089BD9: RTS
+|089BD9| RTS
 
 .continue
-#_089BDA: LDA.w $0345
-#_089BDD: ORA.w $02E0
-#_089BE0: BEQ Ancilla_LatchCarriedPosition
+|089BDA| LDA.w $0345
+|089BDD| ORA.w $02E0
+|089BE0| BEQ Ancilla_LatchCarriedPosition
 
-#_089BE2: STZ.w $0308
+|089BE2| STZ.w $0308
 
-#_089BE5: BRL AncillaCarry_HandleThrow
+|089BE5| BRL AncillaCarry_HandleThrow
 
 ;===================================================================================================
 
 Ancilla_LatchCarriedPosition:
-#_089BE8: LDA.b $2E
-#_089BEA: ASL A
-#_089BEB: TAY
+|089BE8| LDA.b $2E
+|089BEA| ASL A
+|089BEB| TAY
 
-#_089BEC: LDA.b #$0C
-#_089BEE: STA.b $5E
+|089BEC| LDA.b #$0C
+|089BEE| STA.b $5E
 
-#_089BF0: LDA.b $EE
-#_089BF2: STA.w $0C7C,X
+|089BF0| LDA.b $EE
+|089BF2| STA.w $0C7C,X
 
-#_089BF5: LDA.w $0476
-#_089BF8: STA.w $03CA,X
+|089BF5| LDA.w $0476
+|089BF8| STA.w $03CA,X
 
-#_089BFB: REP #$20
+|089BFB| REP #$20
 
-#_089BFD: LDA.b $24
-#_089BFF: CMP.w #$FFFF
-#_089C02: BNE .positive
+|089BFD| LDA.b $24
+|089BFF| CMP.w #$FFFF
+|089C02| BNE .positive
 
-#_089C04: LDA.w #$0000
+|089C04| LDA.w #$0000
 
 .positive
-#_089C07: EOR.w #$FFFF
-#_089C0A: INC A
+|089C07| EOR.w #$FFFF
+|089C0A| INC A
 
-#_089C0B: CLC
-#_089C0C: ADC.b $20
+|089C0B| CLC
+|089C0C| ADC.b $20
 
-#_089C0E: CLC
-#_089C0F: ADC.w AncillaCarry_offset_z,Y
+|089C0E| CLC
+|089C0F| ADC.w AncillaCarry.offset_z,Y
 
-#_089C12: CLC
-#_089C13: ADC.w #$0012
-#_089C16: STA.b $00
+|089C12| CLC
+|089C13| ADC.w #$0012
+|089C16| STA.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_089C18: LDA.b $22
-#_089C1A: CLC
-#_089C1B: ADC.w #$0008
-#_089C1E: STA.b $02
+|089C18| LDA.b $22
+|089C1A| CLC
+|089C1B| ADC.w #$0008
+|089C1E| STA.b $02
 
-#_089C20: SEP #$20
+|089C20| SEP #$20
 
-#_089C22: LDA.b $00
-#_089C24: STA.w $0BFA,X
+|089C22| LDA.b $00
+|089C24| STA.w $0BFA,X
 
-#_089C27: LDA.b $01
-#_089C29: STA.w $0C0E,X
+|089C27| LDA.b $01
+|089C29| STA.w $0C0E,X
 
-#_089C2C: LDA.b $02
-#_089C2E: STA.w $0C04,X
+|089C2C| LDA.b $02
+|089C2E| STA.w $0C04,X
 
-#_089C31: LDA.b $03
-#_089C33: STA.w $0C18,X
+|089C31| LDA.b $03
+|089C33| STA.w $0C18,X
 
 ;---------------------------------------------------------------------------------------------------
 
 #EXIT_089C36:
-#_089C36: RTS
+|089C36| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .handle_altitude
-#_089C37: LDA.w $0C5E,X
-#_089C3A: BNE EXIT_089C36
+|089C37| LDA.w $0C5E,X
+|089C3A| BNE EXIT_089C36
 
-#_089C3C: LDA.w $0380,X
-#_089C3F: CMP.b #$03
-#_089C41: BNE .restore_lift
+|089C3C| LDA.w $0380,X
+|089C3F| CMP.b #$03
+|089C41| BNE .restore_lift
 
-#_089C43: LDA.w $0294,X
-#_089C46: SEC
-#_089C47: SBC.b #$02
-#_089C49: STA.w $0294,X
+|089C43| LDA.w $0294,X
+|089C46| SEC
+|089C47| SBC.b #$02
+|089C49| STA.w $0294,X
 
-#_089C4C: JSR AncillaMoveZ
+|089C4C| JSR AncillaMoveZ
 
-#_089C4F: LDA.w $029E,X
-#_089C52: BEQ .zero_zee
+|089C4F| LDA.w $029E,X
+|089C52| BEQ .zero_zee
 
-#_089C54: CMP.b #$FC
-#_089C56: BCC .exit
+|089C54| CMP.b #$FC
+|089C56| BCC .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .zero_zee
-#_089C58: STZ.w $029E,X
+|089C58| STZ.w $029E,X
 
-#_089C5B: INC.w $03EA,X
+|089C5B| INC.w $03EA,X
 
-#_089C5E: LDA.w $03EA,X
-#_089C61: CMP.b #$03
-#_089C63: BEQ .bounces_maxed
+|089C5E| LDA.w $03EA,X
+|089C61| CMP.b #$03
+|089C63| BEQ .bounces_maxed
 
-#_089C65: LDA.b #$18
-#_089C67: STA.w $0294,X
+|089C65| LDA.b #$18
+|089C67| STA.w $0294,X
 
-#_089C6A: BRA .exit
+|089C6A| BRA .exit
 
 .bounces_maxed
-#_089C6C: STZ.w $029E,X
-#_089C6F: STZ.w $0380,X
+|089C6C| STZ.w $029E,X
+|089C6F| STZ.w $0380,X
 
 .restore_lift
-#_089C72: STZ.w $03EA,X
-#_089C75: STZ.b $5E
+|089C72| STZ.w $03EA,X
+|089C75| STZ.b $5E
 
 .exit
-#_089C77: RTS
+|089C77| RTS
 
 ;===================================================================================================
 
 Ancilla_LatchYCoordToZ:
-#_089C78: LDA.w $0BFA,X
-#_089C7B: STA.b $72
+|089C78| LDA.w $0BFA,X
+|089C7B| STA.b $72
 
-#_089C7D: LDA.w $0C0E,X
-#_089C80: STA.b $73
+|089C7D| LDA.w $0C0E,X
+|089C80| STA.b $73
 
-#_089C82: STZ.b $0D
-#_089C84: STZ.b $0C
+|089C82| STZ.b $0D
+|089C84| STZ.b $0C
 
-#_089C86: LDA.w $0C72,X
-#_089C89: ASL A
-#_089C8A: TAY
+|089C86| LDA.w $0C72,X
+|089C89| ASL A
+|089C8A| TAY
 
-#_089C8B: CMP.b #$02
-#_089C8D: BNE .continue
+|089C8B| CMP.b #$02
+|089C8D| BNE .continue
 
-#_089C8F: LDA.w $029E,X
-#_089C92: STA.b $0C
-#_089C94: BPL .continue
+|089C8F| LDA.w $029E,X
+|089C92| STA.b $0C
+|089C94| BPL .continue
 
-#_089C96: LDA.b #$FF
-#_089C98: STA.b $0D
+|089C96| LDA.b #$FF
+|089C98| STA.b $0D
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_089C9A: REP #$20
+|089C9A| REP #$20
 
-#_089C9C: LDA.b $0C
-#_089C9E: CMP.w #$FFFF
-#_089CA1: BNE .not_ground_impact
+|089C9C| LDA.b $0C
+|089C9E| CMP.w #$FFFF
+|089CA1| BNE .not_ground_impact
 
-#_089CA3: LDA.w #$0000
+|089CA3| LDA.w #$0000
 
 .not_ground_impact
-#_089CA6: EOR.w #$FFFF
-#_089CA9: INC A
-#_089CAA: CLC
-#_089CAB: ADC.b $72
-#_089CAD: STA.b $0E
+|089CA6| EOR.w #$FFFF
+|089CA9| INC A
+|089CAA| CLC
+|089CAB| ADC.b $72
+|089CAD| STA.b $0E
 
-#_089CAF: SEP #$20
+|089CAF| SEP #$20
 
-#_089CB1: LDA.b $0E
-#_089CB3: STA.w $0BFA,X
+|089CB1| LDA.b $0E
+|089CB3| STA.w $0BFA,X
 
-#_089CB6: LDA.b $0F
-#_089CB8: STA.w $0C0E,X
+|089CB6| LDA.b $0F
+|089CB8| STA.w $0C0E,X
 
-#_089CBB: RTS
+|089CBB| RTS
 
 ;===================================================================================================
 
 Ancilla_SetYFrom_DP72:
-#_089CBC: LDA.b $73
-#_089CBE: STA.w $0C0E,X
+|089CBC| LDA.b $73
+|089CBE| STA.w $0C0E,X
 
-#_089CC1: LDA.b $72
-#_089CC3: STA.w $0BFA,X
+|089CC1| LDA.b $72
+|089CC3| STA.w $0BFA,X
 
-#_089CC6: RTS
+|089CC6| RTS
 
 ;===================================================================================================
 
 Bomb_GetDisplacementFromLink:
-#_089CC7: LDA.w $0C04,X
-#_089CCA: STA.b $06
+|089CC7| LDA.w $0C04,X
+|089CCA| STA.b $06
 
-#_089CCC: LDA.w $0C18,X
-#_089CCF: STA.b $07
+|089CCC| LDA.w $0C18,X
+|089CCF| STA.b $07
 
-#_089CD1: LDA.w $0BFA,X
-#_089CD4: STA.b $04
+|089CD1| LDA.w $0BFA,X
+|089CD4| STA.b $04
 
-#_089CD6: LDA.w $0C0E,X
-#_089CD9: STA.b $05
+|089CD6| LDA.w $0C0E,X
+|089CD9| STA.b $05
 
-#_089CDB: REP #$20
+|089CDB| REP #$20
 
-#_089CDD: LDA.b $22
-#_089CDF: CLC
-#_089CE0: ADC.w #$0008
-#_089CE3: SEC
-#_089CE4: SBC.b $06
-#_089CE6: BPL .positive_x
+|089CDD| LDA.b $22
+|089CDF| CLC
+|089CE0| ADC.w #$0008
+|089CE3| SEC
+|089CE4| SBC.b $06
+|089CE6| BPL .positive_x
 
-#_089CE8: EOR.w #$FFFF
-#_089CEB: INC A
+|089CE8| EOR.w #$FFFF
+|089CEB| INC A
 
 .positive_x
-#_089CEC: STA.b $0A
+|089CEC| STA.b $0A
 
-#_089CEE: LDA.b $20
-#_089CF0: CLC
-#_089CF1: ADC.w #$000C
-#_089CF4: SEC
-#_089CF5: SBC.b $04
-#_089CF7: BPL .positive_y
+|089CEE| LDA.b $20
+|089CF0| CLC
+|089CF1| ADC.w #$000C
+|089CF4| SEC
+|089CF5| SBC.b $04
+|089CF7| BPL .positive_y
 
-#_089CF9: EOR.w #$FFFF
-#_089CFC: INC A
+|089CF9| EOR.w #$FFFF
+|089CFC| INC A
 
 .positive_y
-#_089CFD: CLC
-#_089CFE: ADC.b $0A
-#_089D00: AND.w #$00FC
-#_089D03: LSR A
-#_089D04: LSR A
-#_089D05: TAY
+|089CFD| CLC
+|089CFE| ADC.b $0A
+|089D00| AND.w #$00FC
+|089D03| LSR A
+|089D04| LSR A
+|089D05| TAY
 
-#_089D06: SEP #$20
+|089D06| SEP #$20
 
-#_089D08: RTS
+|089D08| RTS
 
 ;===================================================================================================
 
@@ -6031,525 +6031,525 @@ BombDraw:
 
 .char_and_prop
 ; group00
-#_089D09: db $6E, $26
-#_089D0B: db $FF, $FF
-#_089D0D: db $FF, $FF
-#_089D0F: db $FF, $FF
-#_089D11: db $FF, $FF
-#_089D13: db $FF, $FF
+|089D09| db $6E, $26
+|089D0B| db $FF, $FF
+|089D0D| db $FF, $FF
+|089D0F| db $FF, $FF
+|089D11| db $FF, $FF
+|089D13| db $FF, $FF
 
 ; group01
-#_089D15: db $8C, $22
-#_089D17: db $8C, $62
-#_089D19: db $8C, $A2
-#_089D1B: db $8C, $E2
-#_089D1D: db $FF, $FF
-#_089D1F: db $FF, $FF
+|089D15| db $8C, $22
+|089D17| db $8C, $62
+|089D19| db $8C, $A2
+|089D1B| db $8C, $E2
+|089D1D| db $FF, $FF
+|089D1F| db $FF, $FF
 
 ; group02
-#_089D21: db $84, $22
-#_089D23: db $84, $62
-#_089D25: db $84, $A2
-#_089D27: db $84, $E2
-#_089D29: db $FF, $FF
-#_089D2B: db $FF, $FF
+|089D21| db $84, $22
+|089D23| db $84, $62
+|089D25| db $84, $A2
+|089D27| db $84, $E2
+|089D29| db $FF, $FF
+|089D2B| db $FF, $FF
 
 ; group03
-#_089D2D: db $88, $22
-#_089D2F: db $88, $62
-#_089D31: db $88, $A2
-#_089D33: db $88, $E2
-#_089D35: db $FF, $FF
-#_089D37: db $FF, $FF
+|089D2D| db $88, $22
+|089D2F| db $88, $62
+|089D31| db $88, $A2
+|089D33| db $88, $E2
+|089D35| db $FF, $FF
+|089D37| db $FF, $FF
 
 ; group04
-#_089D39: db $86, $22
-#_089D3B: db $88, $22
-#_089D3D: db $88, $62
-#_089D3F: db $88, $A2
-#_089D41: db $88, $E2
-#_089D43: db $FF, $FF
+|089D39| db $86, $22
+|089D3B| db $88, $22
+|089D3D| db $88, $62
+|089D3F| db $88, $A2
+|089D41| db $88, $E2
+|089D43| db $FF, $FF
 
 ; group05
-#_089D45: db $86, $22
-#_089D47: db $86, $62
-#_089D49: db $86, $E2
-#_089D4B: db $86, $E2
-#_089D4D: db $FF, $FF
-#_089D4F: db $FF, $FF
+|089D45| db $86, $22
+|089D47| db $86, $62
+|089D49| db $86, $E2
+|089D4B| db $86, $E2
+|089D4D| db $FF, $FF
+|089D4F| db $FF, $FF
 
 ; group06
-#_089D51: db $86, $E2
-#_089D53: db $86, $22
-#_089D55: db $86, $22
-#_089D57: db $86, $62
-#_089D59: db $86, $A2
-#_089D5B: db $86, $A2
+|089D51| db $86, $E2
+|089D53| db $86, $22
+|089D55| db $86, $22
+|089D57| db $86, $62
+|089D59| db $86, $A2
+|089D5B| db $86, $A2
 
 ; group07
-#_089D5D: db $8A, $A2
-#_089D5F: db $8A, $62
-#_089D61: db $8A, $22
-#_089D63: db $8A, $62
-#_089D65: db $8A, $62
-#_089D67: db $8A, $E2
+|089D5D| db $8A, $A2
+|089D5F| db $8A, $62
+|089D61| db $8A, $22
+|089D63| db $8A, $62
+|089D65| db $8A, $62
+|089D67| db $8A, $E2
 
 ; group08
-#_089D69: db $9B, $22
-#_089D6B: db $9B, $A2
-#_089D6D: db $9B, $62
-#_089D6F: db $9B, $E2
-#_089D71: db $9B, $A2
-#_089D73: db $9B, $22
+|089D69| db $9B, $22
+|089D6B| db $9B, $A2
+|089D6D| db $9B, $62
+|089D6F| db $9B, $E2
+|089D71| db $9B, $A2
+|089D73| db $9B, $22
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset
 ; group00
-#_089D75: dw  -8,  -8
-#_089D79: dw   0,   0
-#_089D7D: dw   0,   0
-#_089D81: dw   0,   0
-#_089D85: dw   0,   0
-#_089D89: dw   0,   0
+|089D75| dw  -8,  -8
+|089D79| dw   0,   0
+|089D7D| dw   0,   0
+|089D81| dw   0,   0
+|089D85| dw   0,   0
+|089D89| dw   0,   0
 
 ; group01
-#_089D8D: dw  -8,  -8
-#_089D91: dw  -8,   0
-#_089D95: dw   0,  -8
-#_089D99: dw   0,   0
-#_089D9D: dw   0,   0
-#_089DA1: dw   0,   0
+|089D8D| dw  -8,  -8
+|089D91| dw  -8,   0
+|089D95| dw   0,  -8
+|089D99| dw   0,   0
+|089D9D| dw   0,   0
+|089DA1| dw   0,   0
 
 ; group02
-#_089DA5: dw -16, -16
-#_089DA9: dw -16,   0
-#_089DAD: dw   0, -16
-#_089DB1: dw   0,   0
-#_089DB5: dw   0,   0
-#_089DB9: dw   0,   0
+|089DA5| dw -16, -16
+|089DA9| dw -16,   0
+|089DAD| dw   0, -16
+|089DB1| dw   0,   0
+|089DB5| dw   0,   0
+|089DB9| dw   0,   0
 
 ; group03
-#_089DBD: dw -16, -16
-#_089DC1: dw -16,   0
-#_089DC5: dw   0, -16
-#_089DC9: dw   0,   0
-#_089DCD: dw   0,   0
-#_089DD1: dw   0,   0
+|089DBD| dw -16, -16
+|089DC1| dw -16,   0
+|089DC5| dw   0, -16
+|089DC9| dw   0,   0
+|089DCD| dw   0,   0
+|089DD1| dw   0,   0
 
 ; group04
-#_089DD5: dw  -8,  -8
-#_089DD9: dw -21, -22
-#_089DDD: dw -21,   8
-#_089DE1: dw   9, -22
-#_089DE5: dw   9,   8
-#_089DE9: dw   0,   0
+|089DD5| dw  -8,  -8
+|089DD9| dw -21, -22
+|089DDD| dw -21,   8
+|089DE1| dw   9, -22
+|089DE5| dw   9,   8
+|089DE9| dw   0,   0
 
 ; group05
-#_089DED: dw  -6, -15
-#_089DF1: dw   0,  -1
-#_089DF5: dw -16,  -2
-#_089DF9: dw  -8,  -7
-#_089DFD: dw   0,   0
-#_089E01: dw   0,   0
+|089DED| dw  -6, -15
+|089DF1| dw   0,  -1
+|089DF5| dw -16,  -2
+|089DF9| dw  -8,  -7
+|089DFD| dw   0,   0
+|089E01| dw   0,   0
 
 ; group06
-#_089E05: dw  -9,  -4
-#_089E09: dw -21,  -5
-#_089E0D: dw -12, -18
-#_089E11: dw -11,   7
-#_089E15: dw   0, -15
-#_089E19: dw   4,  -2
+|089E05| dw  -9,  -4
+|089E09| dw -21,  -5
+|089E0D| dw -12, -18
+|089E11| dw -11,   7
+|089E15| dw   0, -15
+|089E19| dw   4,  -2
 
 ; group07
-#_089E1D: dw  -9,  -4
-#_089E21: dw -22,  -5
-#_089E25: dw -13, -20
-#_089E29: dw -11,   8
-#_089E2D: dw   1, -16
-#_089E31: dw   5,  -2
+|089E1D| dw  -9,  -4
+|089E21| dw -22,  -5
+|089E25| dw -13, -20
+|089E29| dw -11,   8
+|089E2D| dw   1, -16
+|089E31| dw   5,  -2
 
 ; group08
-#_089E35: dw -20,   4
-#_089E39: dw -12, -19
-#_089E3D: dw  -9,  16
-#_089E41: dw  -5,  -2
-#_089E45: dw   2,  -9
-#_089E49: dw  10,   6
+|089E35| dw -20,   4
+|089E39| dw -12, -19
+|089E3D| dw  -9,  16
+|089E41| dw  -5,  -2
+|089E45| dw   2,  -9
+|089E49| dw  10,   6
 
 ;---------------------------------------------------------------------------------------------------
 
 ; 1 = offscreen X
 .oam_size
 ; group00
-#_089E4D: db $02
-#_089E4E: db $01
-#_089E4F: db $01
-#_089E50: db $01
-#_089E51: db $01
-#_089E52: db $01
+|089E4D| db $02
+|089E4E| db $01
+|089E4F| db $01
+|089E50| db $01
+|089E51| db $01
+|089E52| db $01
 
 ; group01
-#_089E53: db $00
-#_089E54: db $00
-#_089E55: db $00
-#_089E56: db $00
-#_089E57: db $01
-#_089E58: db $01
+|089E53| db $00
+|089E54| db $00
+|089E55| db $00
+|089E56| db $00
+|089E57| db $01
+|089E58| db $01
 
 ; group02
-#_089E59: db $02
-#_089E5A: db $02
-#_089E5B: db $02
-#_089E5C: db $02
-#_089E5D: db $01
-#_089E5E: db $01
+|089E59| db $02
+|089E5A| db $02
+|089E5B| db $02
+|089E5C| db $02
+|089E5D| db $01
+|089E5E| db $01
 
 ; group03
-#_089E5F: db $02
-#_089E60: db $02
-#_089E61: db $02
-#_089E62: db $02
-#_089E63: db $01
-#_089E64: db $01
+|089E5F| db $02
+|089E60| db $02
+|089E61| db $02
+|089E62| db $02
+|089E63| db $01
+|089E64| db $01
 
 ; group04
-#_089E65: db $02
-#_089E66: db $02
-#_089E67: db $02
-#_089E68: db $02
-#_089E69: db $02
-#_089E6A: db $01
+|089E65| db $02
+|089E66| db $02
+|089E67| db $02
+|089E68| db $02
+|089E69| db $02
+|089E6A| db $01
 
 ; group05
-#_089E6B: db $02
-#_089E6C: db $02
-#_089E6D: db $02
-#_089E6E: db $02
-#_089E6F: db $01
-#_089E70: db $01
+|089E6B| db $02
+|089E6C| db $02
+|089E6D| db $02
+|089E6E| db $02
+|089E6F| db $01
+|089E70| db $01
 
 ; group06
-#_089E71: db $02
-#_089E72: db $02
-#_089E73: db $02
-#_089E74: db $02
-#_089E75: db $02
-#_089E76: db $02
+|089E71| db $02
+|089E72| db $02
+|089E73| db $02
+|089E74| db $02
+|089E75| db $02
+|089E76| db $02
 
 ; group07
-#_089E77: db $02
-#_089E78: db $02
-#_089E79: db $02
-#_089E7A: db $02
-#_089E7B: db $02
-#_089E7C: db $02
+|089E77| db $02
+|089E78| db $02
+|089E79| db $02
+|089E7A| db $02
+|089E7B| db $02
+|089E7C| db $02
 
 ; group08
-#_089E7D: db $00
-#_089E7E: db $00
-#_089E7F: db $00
-#_089E80: db $00
-#_089E81: db $00
-#_089E82: db $00
+|089E7D| db $00
+|089E7E| db $00
+|089E7F| db $00
+|089E80| db $00
+|089E81| db $00
+|089E82| db $00
 
 ;---------------------------------------------------------------------------------------------------
 
 .data_offset
-#_089E83: db $00
-#_089E84: db $06
-#_089E85: db $0C
-#_089E86: db $12
-#_089E87: db $18
-#_089E88: db $1E
-#_089E89: db $24
-#_089E8A: db $2A
-#_089E8B: db $30
+|089E83| db $00
+|089E84| db $06
+|089E85| db $0C
+|089E86| db $12
+|089E87| db $18
+|089E88| db $1E
+|089E89| db $24
+|089E8A| db $2A
+|089E8B| db $30
 
 ;---------------------------------------------------------------------------------------------------
 
 .object_count
-#_089E8C: db $01
-#_089E8D: db $04
-#_089E8E: db $04
-#_089E8F: db $04
-#_089E90: db $04
-#_089E91: db $04
-#_089E92: db $05
-#_089E93: db $04
-#_089E94: db $06
-#_089E95: db $06
-#_089E96: db $06
+|089E8C| db $01
+|089E8D| db $04
+|089E8E| db $04
+|089E8F| db $04
+|089E90| db $04
+|089E91| db $04
+|089E92| db $05
+|089E93| db $04
+|089E94| db $06
+|089E95| db $06
+|089E96| db $06
 
 ;===================================================================================================
 
 AncillaDraw_Bomb:
-#_089E97: JSR Ancilla_PrepOAMCoord_adjusted
+|089E97| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_089E9A: REP #$20
+|089E9A| REP #$20
 
-#_089E9C: LDA.w $029E,X
-#_089E9F: AND.w #$00FF
-#_089EA2: CMP.w #$0080
-#_089EA5: BCC .positive_z
+|089E9C| LDA.w $029E,X
+|089E9F| AND.w #$00FF
+|089EA2| CMP.w #$0080
+|089EA5| BCC .positive_z
 
-#_089EA7: ORA.w #$FF00
+|089EA7| ORA.w #$FF00
 
 ;---------------------------------------------------------------------------------------------------
 
 .positive_z
-#_089EAA: STA.b $04
-#_089EAC: BEQ .not_max_priority
+|089EAA| STA.b $04
+|089EAC| BEQ .not_max_priority
 
-#_089EAE: CMP.w #$FFFF
-#_089EB1: BEQ .not_max_priority
+|089EAE| CMP.w #$FFFF
+|089EB1| BEQ .not_max_priority
 
-#_089EB3: LDA.w $0380,X
-#_089EB6: AND.w #$00FF
-#_089EB9: CMP.w #$0003
-#_089EBC: BEQ .not_max_priority
+|089EB3| LDA.w $0380,X
+|089EB6| AND.w #$00FF
+|089EB9| CMP.w #$0003
+|089EBC| BEQ .not_max_priority
 
-#_089EBE: LDA.w $0280,X
-#_089EC1: AND.w #$00FF
-#_089EC4: BEQ .not_max_priority
+|089EBE| LDA.w $0280,X
+|089EC1| AND.w #$00FF
+|089EC4| BEQ .not_max_priority
 
-#_089EC6: LDA.w #$3000
-#_089EC9: STA.b $64
+|089EC6| LDA.w #$3000
+|089EC9| STA.b $64
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_max_priority
-#_089ECB: LDA.w #$0000
-#_089ECE: CLC
-#_089ECF: ADC.b $04
+|089ECB| LDA.w #$0000
+|089ECE| CLC
+|089ECF| ADC.b $04
 
-#_089ED1: EOR.w #$FFFF
-#_089ED4: INC A
-#_089ED5: CLC
-#_089ED6: ADC.b $00
-#_089ED8: STA.b $00
+|089ED1| EOR.w #$FFFF
+|089ED4| INC A
+|089ED5| CLC
+|089ED6| ADC.b $00
+|089ED8| STA.b $00
 
-#_089EDA: SEP #$20
+|089EDA| SEP #$20
 
-#_089EDC: LDY.w $0C5E,X
+|089EDC| LDY.w $0C5E,X
 
-#_089EDF: LDA.w Bomb_anim_step,Y
-#_089EE2: TAY
+|089EDF| LDA.w BombAnimationSteps,Y
+|089EE2| TAY
 
-#_089EE3: LDA.w BombDraw_data_offset,Y
-#_089EE6: ASL A
-#_089EE7: TAY
+|089EE3| LDA.w BombDraw.data_offset,Y
+|089EE6| ASL A
+|089EE7| TAY
 
-#_089EE8: ASL A
-#_089EE9: STA.b $04
+|089EE8| ASL A
+|089EE9| STA.b $04
 
-#_089EEB: STZ.b $05
-#_089EED: STZ.b $0A
+|089EEB| STZ.b $05
+|089EED| STZ.b $0A
 
-#_089EEF: LDA.b #$02
-#_089EF1: STA.b $0B
+|089EEF| LDA.b #$02
+|089EF1| STA.b $0B
 
-#_089EF3: LDA.w $0C5E,X
-#_089EF6: BNE .dont_flash
+|089EF3| LDA.w $0C5E,X
+|089EF6| BNE .dont_flash
 
-#_089EF8: LDA.b #$04
-#_089EFA: STA.b $0B
+|089EF8| LDA.b #$04
+|089EFA| STA.b $0B
 
-#_089EFC: LDA.w $039F,X
-#_089EFF: CMP.b #$20
-#_089F01: BCS .dont_flash
+|089EFC| LDA.w $039F,X
+|089EFF| CMP.b #$20
+|089F01| BCS .dont_flash
 
-#_089F03: AND.b #$0E
-#_089F05: STA.b $0B
+|089F03| AND.b #$0E
+|089F05| STA.b $0B
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_flash
-#_089F07: PHX
-#_089F08: PHY
+|089F07| PHX
+|089F08| PHY
 
-#_089F09: LDA.w $0C5E,X
-#_089F0C: STA.b $08
-#_089F0E: BNE .continue
+|089F09| LDA.w $0C5E,X
+|089F0C| STA.b $08
+|089F0E| BNE .continue
 
-#_089F10: LDA.w $0385,X
-#_089F13: BNE .not_deferred
+|089F10| LDA.w $0385,X
+|089F13| BNE .not_deferred
 
-#_089F15: LDA.w $0E20
-#_089F18: CMP.b #$92 ; SPRITE 92
-#_089F1A: BEQ .outmaneuver_this
+|089F15| LDA.w $0E20
+|089F18| CMP.b #$92 ; SPRITE 92
+|089F1A| BEQ .outmaneuver_this
 
-#_089F1C: TXY
-#_089F1D: INY
-#_089F1E: CPY.w $02EC
-#_089F21: BNE .not_deferred
+|089F1C| TXY
+|089F1D| INY
+|089F1E| CPY.w $02EC
+|089F21| BNE .not_deferred
 
 ;---------------------------------------------------------------------------------------------------
 
 .outmaneuver_this
-#_089F23: LDA.w $0308
-#_089F26: AND.b #$80
-#_089F28: BEQ .not_carried
+|089F23| LDA.w $0308
+|089F26| AND.b #$80
+|089F28| BEQ .not_carried
 
-#_089F2A: LDA.w $0380,X
-#_089F2D: CMP.b #$03
-#_089F2F: BEQ .not_deferred
+|089F2A| LDA.w $0380,X
+|089F2D| CMP.b #$03
+|089F2F| BEQ .not_deferred
 
-#_089F31: LDA.b $2F
-#_089F33: BNE .not_deferred
+|089F31| LDA.b $2F
+|089F33| BNE .not_deferred
 
 .not_carried
-#_089F35: LDA.b #$0C
-#_089F37: JSR AllocateOAMInRegionsBE
+|089F35| LDA.b #$0C
+|089F37| JSR AllocateOAMInRegionsBE
 
-#_089F3A: BRA .continue
+|089F3A| BRA .continue
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_deferred
-#_089F3C: LDA.w $0FB3
-#_089F3F: BEQ .continue
+|089F3C| LDA.w $0FB3
+|089F3F| BEQ .continue
 
-#_089F41: LDA.w $0C7C,X
-#_089F44: BEQ .continue
+|089F41| LDA.w $0C7C,X
+|089F44| BEQ .continue
 
-#_089F46: LDA.w $0385,X
-#_089F49: BNE .hardcode_slot
+|089F46| LDA.w $0385,X
+|089F49| BNE .hardcode_slot
 
-#_089F4B: TXY
-#_089F4C: INY
-#_089F4D: CPY.w $02EC
-#_089F50: BNE .continue
+|089F4B| TXY
+|089F4C| INY
+|089F4D| CPY.w $02EC
+|089F50| BNE .continue
 
-#_089F52: LDA.w $0308
-#_089F55: BPL .continue
+|089F52| LDA.w $0308
+|089F55| BPL .continue
 
 ;---------------------------------------------------------------------------------------------------
 
 .hardcode_slot
-#_089F57: REP #$20
+|089F57| REP #$20
 
-; !HARDCODED oam slots
-#_089F59: LDA.w #$00D0
-#_089F5C: CLC
-#_089F5D: ADC.w #$0800
-#_089F60: STA.b $90
+; [HARDCODED] oam slots
+|089F59| LDA.w #$00D0
+|089F5C| CLC
+|089F5D| ADC.w #$0800
+|089F60| STA.b $90
 
-#_089F62: LDA.w #$0034
-#_089F65: CLC
-#_089F66: ADC.w #$0A20
-#_089F69: STA.b $92
+|089F62| LDA.w #$0034
+|089F65| CLC
+|089F66| ADC.w #$0A20
+|089F69| STA.b $92
 
-#_089F6B: SEP #$20
+|089F6B| SEP #$20
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_089F6D: LDA.b $00
-#_089F6F: STA.b $0C
+|089F6D| LDA.b $00
+|089F6F| STA.b $0C
 
-#_089F71: LDA.b $01
-#_089F73: STA.b $0D
+|089F71| LDA.b $01
+|089F73| STA.b $0D
 
-#_089F75: LDA.b $02
-#_089F77: STA.b $0E
+|089F75| LDA.b $02
+|089F77| STA.b $0E
 
-#_089F79: LDA.b $03
-#_089F7B: STA.b $0F
+|089F79| LDA.b $03
+|089F7B| STA.b $0F
 
-#_089F7D: STZ.b $06
+|089F7D| STZ.b $06
 
-#_089F7F: LDX.b $08
+|089F7F| LDX.b $08
 
-#_089F81: LDA.w BombDraw_object_count,X
-#_089F84: STA.b $08
+|089F81| LDA.w BombDraw.object_count,X
+|089F84| STA.b $08
 
-#_089F86: PLX
-
-;---------------------------------------------------------------------------------------------------
-
-#_089F87: LDY.b #$00
-#_089F89: JSR AncillaDraw_Explosion
-
-#_089F8C: PLX
-#_089F8D: LDA.w $0C5E,X
-#_089F90: BNE .exit
-
-#_089F92: STZ.b $0A
-
-#_089F94: LDA.w $029E,X
-#_089F97: CMP.b #$02
-#_089F99: BCC .no_water_ripples
-
-#_089F9B: CMP.b #$FC
-#_089F9D: BCS .no_water_ripples
-
-#_089F9F: LDA.b #$02
-#_089FA1: STA.b $0A
+|089F86| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
-.no_water_ripples
-#_089FA3: LDA.w $0380,X
-#_089FA6: AND.b #$02
-#_089FA8: BNE .exit
+|089F87| LDY.b #$00
+|089F89| JSR AncillaDraw_Explosion
 
-#_089FAA: REP #$20
+|089F8C| PLX
+|089F8D| LDA.w $0C5E,X
+|089F90| BNE .exit
 
-#_089FAC: LDA.w $029E,X
-#_089FAF: AND.w #$00FF
-#_089FB2: CMP.w #$0080
-#_089FB5: BCC .dont_invert
+|089F92| STZ.b $0A
 
-#_089FB7: ORA.w #$FF00
+|089F94| LDA.w $029E,X
+|089F97| CMP.b #$02
+|089F99| BCC .big_shadow
+
+|089F9B| CMP.b #$FC
+|089F9D| BCS .big_shadow
+
+|089F9F| LDA.b #$02
+|089FA1| STA.b $0A
+
+;---------------------------------------------------------------------------------------------------
+
+.big_shadow
+|089FA3| LDA.w $0380,X
+|089FA6| AND.b #$02
+|089FA8| BNE .exit
+
+|089FAA| REP #$20
+
+|089FAC| LDA.w $029E,X
+|089FAF| AND.w #$00FF
+|089FB2| CMP.w #$0080
+|089FB5| BCC .dont_invert
+
+|089FB7| ORA.w #$FF00
 
 .dont_invert
-#_089FBA: CLC
-#_089FBB: ADC.b $0C
+|089FBA| CLC
+|089FBB| ADC.b $0C
 
-#_089FBD: CLC
-#_089FBE: ADC.w #$0002
-#_089FC1: STA.b $00
+|089FBD| CLC
+|089FBE| ADC.w #$0002
+|089FC1| STA.b $00
 
-#_089FC3: LDA.b $0E
-#_089FC5: CLC
-#_089FC6: ADC.w #$FFF8
-#_089FC9: STA.b $02
+|089FC3| LDA.b $0E
+|089FC5| CLC
+|089FC6| ADC.w #$FFF8
+|089FC9| STA.b $02
 
-#_089FCB: SEP #$20
+|089FCB| SEP #$20
 
-#_089FCD: LDA.b $65
-#_089FCF: STA.b $04
+|089FCD| LDA.b $65
+|089FCF| STA.b $04
 
-#_089FD1: LDX.b $0A
-#_089FD3: JSR AncillaDraw_Shadow
+|089FD1| LDX.b $0A
+|089FD3| JSR AncillaDraw_Shadow
 
-#_089FD6: LDX.w $0FA0
+|089FD6| LDX.w $0FA0
 
 .exit
-#_089FD9: RTS
+|089FD9| RTS
 
 ;===================================================================================================
 
 Ancilla08_DoorDebris:
-#_089FDA: JSR AncillaDraw_DoorDebris
+|089FDA| JSR AncillaDraw_DoorDebris
 
-#_089FDD: DEC.w $03C0,X
-#_089FE0: BPL .exit
+|089FDD| DEC.w $03C0,X
+|089FE0| BPL .exit
 
-#_089FE2: LDA.b #$07
-#_089FE4: STA.w $03C0,X
+|089FE2| LDA.b #$07
+|089FE4| STA.w $03C0,X
 
-#_089FE7: INC.w $03C2,X
+|089FE7| INC.w $03C2,X
 
-#_089FEA: LDA.w $03C2,X
-#_089FED: CMP.b #$04
-#_089FEF: BNE .exit
+|089FEA| LDA.w $03C2,X
+|089FED| CMP.b #$04
+|089FEF| BNE .exit
 
-#_089FF1: STZ.w $0C4A,X
+|089FF1| STZ.w $0C4A,X
 
 .exit
-#_089FF4: RTS
+|089FF4| RTS
 
 ;===================================================================================================
 
@@ -6557,481 +6557,481 @@ pool AncillaDraw_DoorDebris
 
 .offset
 ; group00
-#_089FF5: dw   4,   7
-#_089FF9: dw   3,  17
+|089FF5| dw   4,   7
+|089FF9| dw   3,  17
 
 ; group01
-#_089FFD: dw   8,   8
-#_08A001: dw   7,  17
+|089FFD| dw   8,   8
+|08A001| dw   7,  17
 
 ; group02
-#_08A005: dw  11,   7
-#_08A009: dw  10,  16
+|08A005| dw  11,   7
+|08A009| dw  10,  16
 
 ; group03
-#_08A00D: dw  16,   7
-#_08A011: dw  17,  17
+|08A00D| dw  16,   7
+|08A011| dw  17,  17
 
 ; group04
-#_08A015: dw  20,   7
-#_08A019: dw  21,  17
+|08A015| dw  20,   7
+|08A019| dw  21,  17
 
 ; group05
-#_08A01D: dw  16,   8
-#_08A021: dw  17,  17
+|08A01D| dw  16,   8
+|08A021| dw  17,  17
 
 ; group06
-#_08A025: dw  13,   7
-#_08A029: dw  14,  16
+|08A025| dw  13,   7
+|08A029| dw  14,  16
 
 ; group07
-#_08A02D: dw   8,   7
-#_08A031: dw   7,  17
+|08A02D| dw   8,   7
+|08A031| dw   7,  17
 
 ; group08
-#_08A035: dw   7,   4
-#_08A039: dw  17,   3
+|08A035| dw   7,   4
+|08A039| dw  17,   3
 
 ; group09
-#_08A03D: dw   8,   8
-#_08A041: dw  17,   7
+|08A03D| dw   8,   8
+|08A041| dw  17,   7
 
 ; group0A
-#_08A045: dw   7,  11
-#_08A049: dw  16,  10
+|08A045| dw   7,  11
+|08A049| dw  16,  10
 
 ; group0B
-#_08A04D: dw   7,  16
-#_08A051: dw  17,  17
+|08A04D| dw   7,  16
+|08A051| dw  17,  17
 
 ; group0C
-#_08A055: dw   7,  20
-#_08A059: dw  17,  21
+|08A055| dw   7,  20
+|08A059| dw  17,  21
 
 ; group0D
-#_08A05D: dw   8,  16
-#_08A061: dw  17,  17
+|08A05D| dw   8,  16
+|08A061| dw  17,  17
 
 ; group0E
-#_08A065: dw   7,  13
-#_08A069: dw  16,  14
+|08A065| dw   7,  13
+|08A069| dw  16,  14
 
 ; group0F
-#_08A06D: dw   7,   8
-#_08A071: dw  17,   7
+|08A06D| dw   7,   8
+|08A071| dw  17,   7
 
 ;---------------------------------------------------------------------------------------------------
 
 .char_and_prop
 ; group00
-#_08A075: db $5E, $20
-#_08A077: db $5E, $E0
+|08A075| db $5E, $20
+|08A077| db $5E, $E0
 
 ; group01
-#_08A079: db $5E, $A0
-#_08A07B: db $5E, $60
+|08A079| db $5E, $A0
+|08A07B| db $5E, $60
 
 ; group02
-#_08A07D: db $4F, $20
-#_08A07F: db $4F, $20
+|08A07D| db $4F, $20
+|08A07F| db $4F, $20
 
 ; group03
-#_08A081: db $4F, $20
-#_08A083: db $4F, $20
+|08A081| db $4F, $20
+|08A083| db $4F, $20
 
 ; group04
-#_08A085: db $5E, $60
-#_08A087: db $5E, $60
+|08A085| db $5E, $60
+|08A087| db $5E, $60
 
 ; group05
-#_08A089: db $5E, $20
-#_08A08B: db $5E, $E0
+|08A089| db $5E, $20
+|08A08B| db $5E, $E0
 
 ; group06
-#_08A08D: db $4F, $60
-#_08A08F: db $4F, $60
+|08A08D| db $4F, $60
+|08A08F| db $4F, $60
 
 ; group07
-#_08A091: db $4F, $60
-#_08A093: db $4F, $60
+|08A091| db $4F, $60
+|08A093| db $4F, $60
 
 ; group08
-#_08A095: db $5E, $20
-#_08A097: db $5E, $E0
+|08A095| db $5E, $20
+|08A097| db $5E, $E0
 
 ; group09
-#_08A099: db $5E, $A0
-#_08A09B: db $5E, $60
+|08A099| db $5E, $A0
+|08A09B| db $5E, $60
 
 ; group0A
-#_08A09D: db $4F, $20
-#_08A09F: db $4F, $E0
+|08A09D| db $4F, $20
+|08A09F| db $4F, $E0
 
 ; group0B
-#_08A0A1: db $4F, $20
-#_08A0A3: db $4F, $20
+|08A0A1| db $4F, $20
+|08A0A3| db $4F, $20
 
 ; group0C
-#_08A0A5: db $5E, $60
-#_08A0A7: db $5E, $60
+|08A0A5| db $5E, $60
+|08A0A7| db $5E, $60
 
 ; group0D
-#_08A0A9: db $5E, $20
-#_08A0AB: db $5E, $E0
+|08A0A9| db $5E, $20
+|08A0AB| db $5E, $E0
 
 ; group0E
-#_08A0AD: db $4F, $60
-#_08A0AF: db $4F, $60
+|08A0AD| db $4F, $60
+|08A0AF| db $4F, $60
 
 ; group0F
-#_08A0B1: db $4F, $60
-#_08A0B3: db $4F, $60
+|08A0B1| db $4F, $60
+|08A0B3| db $4F, $60
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_DoorDebris:
-#_08A0B5: JSR Ancilla_PrepOAMCoord_adjusted
+|08A0B5| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08A0B8: TXA
-#_08A0B9: ASL A
-#_08A0BA: TAY
+|08A0B8| TXA
+|08A0B9| ASL A
+|08A0BA| TAY
 
-#_08A0BB: REP #$20
+|08A0BB| REP #$20
 
-#_08A0BD: LDA.w $03BA,Y
-#_08A0C0: SEC
-#_08A0C1: SBC.b $E8
-#_08A0C3: STA.b $0C
+|08A0BD| LDA.w $03BA,Y
+|08A0C0| SEC
+|08A0C1| SBC.b $E8
+|08A0C3| STA.b $0C
 
-#_08A0C5: LDA.w $03B6,Y
-#_08A0C8: SEC
-#_08A0C9: SBC.b $E2
-#_08A0CB: STA.b $0E
+|08A0C5| LDA.w $03B6,Y
+|08A0C8| SEC
+|08A0C9| SBC.b $E2
+|08A0CB| STA.b $0E
 
-#_08A0CD: SEP #$20
+|08A0CD| SEP #$20
 
-#_08A0CF: PHX
+|08A0CF| PHX
 
-#_08A0D0: STZ.b $06
+|08A0D0| STZ.b $06
 
-#_08A0D2: LDA.w $03C2,X
-#_08A0D5: ASL A
-#_08A0D6: ASL A
-#_08A0D7: STA.b $04
-#_08A0D9: STA.b $08
+|08A0D2| LDA.w $03C2,X
+|08A0D5| ASL A
+|08A0D6| ASL A
+|08A0D7| STA.b $04
+|08A0D9| STA.b $08
 
-#_08A0DB: LDA.w $03BE,X
-#_08A0DE: ASL A ; x16
-#_08A0DF: ASL A
-#_08A0E0: ASL A
-#_08A0E1: ASL A
-#_08A0E2: STA.b $0A
+|08A0DB| LDA.w $03BE,X
+|08A0DE| ASL A ; x16
+|08A0DF| ASL A
+|08A0E0| ASL A
+|08A0E1| ASL A
+|08A0E2| STA.b $0A
 
-#_08A0E4: CLC
-#_08A0E5: ADC.b $04
-#_08A0E7: TAX
+|08A0E4| CLC
+|08A0E5| ADC.b $04
+|08A0E7| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A0E8: LDY.b #$00
+|08A0E8| LDY.b #$00
 
 .next_object
-#_08A0EA: PHX
+|08A0EA| PHX
 
-#_08A0EB: LDA.b $0A
-#_08A0ED: ASL A
-#_08A0EE: STA.b $04
+|08A0EB| LDA.b $0A
+|08A0ED| ASL A
+|08A0EE| STA.b $04
 
-#_08A0F0: LDA.b $08
-#_08A0F2: ASL A
-#_08A0F3: CLC
-#_08A0F4: ADC.b $04
-#_08A0F6: STA.b $04
+|08A0F0| LDA.b $08
+|08A0F2| ASL A
+|08A0F3| CLC
+|08A0F4| ADC.b $04
+|08A0F6| STA.b $04
 
-#_08A0F8: LDA.b $06
-#_08A0FA: ASL A
-#_08A0FB: ASL A
-#_08A0FC: CLC
-#_08A0FD: ADC.b $04
-#_08A0FF: TAX
+|08A0F8| LDA.b $06
+|08A0FA| ASL A
+|08A0FB| ASL A
+|08A0FC| CLC
+|08A0FD| ADC.b $04
+|08A0FF| TAX
 
-#_08A100: REP #$20
+|08A100| REP #$20
 
-#_08A102: LDA.w .offset+0,X
-#_08A105: CLC
-#_08A106: ADC.b $0C
-#_08A108: STA.b $00
+|08A102| LDA.w .offset+0,X
+|08A105| CLC
+|08A106| ADC.b $0C
+|08A108| STA.b $00
 
-#_08A10A: LDA.w .offset+2,X
-#_08A10D: CLC
-#_08A10E: ADC.b $0E
-#_08A110: STA.b $02
+|08A10A| LDA.w .offset+2,X
+|08A10D| CLC
+|08A10E| ADC.b $0E
+|08A110| STA.b $02
 
-#_08A112: SEP #$20
+|08A112| SEP #$20
 
-#_08A114: PLX
+|08A114| PLX
 
-#_08A115: JSR Ancilla_SetOAM_XY
+|08A115| JSR Ancilla_SetOAM_XY
 
-#_08A118: LDA.w .char_and_prop+0,X
-#_08A11B: STA.b ($90),Y
+|08A118| LDA.w .char_and_prop+0,X
+|08A11B| STA.b ($90),Y
 
-#_08A11D: INY
+|08A11D| INY
 
-#_08A11E: LDA.w .char_and_prop+1,X
-#_08A121: AND.b #$C0
-#_08A123: ORA.b $65
-#_08A125: STA.b ($90),Y
+|08A11E| LDA.w .char_and_prop+1,X
+|08A121| AND.b #$C0
+|08A123| ORA.b $65
+|08A125| STA.b ($90),Y
 
-#_08A127: INY
+|08A127| INY
 
-#_08A128: PHY
-#_08A129: TYA
+|08A128| PHY
+|08A129| TYA
 
-#_08A12A: SEC
-#_08A12B: SBC.b #$04
+|08A12A| SEC
+|08A12B| SBC.b #$04
 
-#_08A12D: LSR A
-#_08A12E: LSR A
-#_08A12F: TAY
+|08A12D| LSR A
+|08A12E| LSR A
+|08A12F| TAY
 
-#_08A130: LDA.b #$00
-#_08A132: STA.b ($92),Y
+|08A130| LDA.b #$00
+|08A132| STA.b ($92),Y
 
-#_08A134: PLY
-#_08A135: JSR AllocateOAMInCustomRegion
+|08A134| PLY
+|08A135| JSR AllocateOAMInCustomRegion
 
-#_08A138: INX
-#_08A139: INX
+|08A138| INX
+|08A139| INX
 
-#_08A13A: LDA.b $06
-#_08A13C: INC A
-#_08A13D: STA.b $06
+|08A13A| LDA.b $06
+|08A13C| INC A
+|08A13D| STA.b $06
 
-#_08A13F: CMP.b #$02
-#_08A141: BNE .next_object
+|08A13F| CMP.b #$02
+|08A141| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A143: PLX
+|08A143| PLX
 
-#_08A144: RTS
+|08A144| RTS
 
 ;===================================================================================================
 
 pool Ancilla09_Arrow
 
 .offset_y
-#_08A145: dw  -4,   2,   0,   0
+|08A145| dw  -4,   2,   0,   0
 
 .offset_x
-#_08A14D: dw   0,   0,  -4,   4
+|08A14D| dw   0,   0,  -4,   4
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla09_Arrow:
-#_08A155: LDA.b $11
-#_08A157: BEQ .good_submode
+|08A155| LDA.b $11
+|08A157| BEQ .good_submode
 
-#_08A159: BRL .proceed_to_draw
+|08A159| BRL .proceed_to_draw
 
 .good_submode
-#_08A15C: DEC.w $0C5E,X
+|08A15C| DEC.w $0C5E,X
 
-#_08A15F: LDA.w $0C5E,X
-#_08A162: BMI .timer_done
+|08A15F| LDA.w $0C5E,X
+|08A162| BMI .timer_done
 
-#_08A164: CMP.b #$04
-#_08A166: BCC .start_moving
+|08A164| CMP.b #$04
+|08A166| BCC .start_moving
 
-#_08A168: BRL .exit
+|08A168| BRL .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .timer_done
-#_08A16B: LDA.b #$FF
-#_08A16D: STA.w $0C5E,X
+|08A16B| LDA.b #$FF
+|08A16D| STA.w $0C5E,X
 
 .start_moving
-#_08A170: JSR AncillaMoveY
-#_08A173: JSR AncillaMoveX
+|08A170| JSR AncillaMoveY
+|08A173| JSR AncillaMoveX
 
-#_08A176: LDA.l $7EF340
-#_08A17A: AND.b #$04
-#_08A17C: BEQ .no_sparkle
+|08A176| LDA.l $7EF340
+|08A17A| AND.b #$04
+|08A17C| BEQ .no_sparkle
 
-#_08A17E: LDA.b $1A
-#_08A180: AND.b #$01
-#_08A182: BNE .no_sparkle
+|08A17E| LDA.b $1A
+|08A180| AND.b #$01
+|08A182| BNE .no_sparkle
 
-#_08A184: PHX
+|08A184| PHX
 
-#_08A185: JSL AncillaAdd_SilverArrowSparkle
+|08A185| JSL AncillaAdd_SilverArrowSparkle
 
-#_08A189: PLX
+|08A189| PLX
 
 .no_sparkle
-#_08A18A: LDA.b #$FF
-#_08A18C: STA.w $03A9,X
+|08A18A| LDA.b #$FF
+|08A18C| STA.w $03A9,X
 
-#_08A18F: JSR Ancilla_CheckSpriteCollision
-#_08A192: BCS .sprite_collision
+|08A18F| JSR Ancilla_CheckSpriteCollision
+|08A192| BCS .sprite_collision
 
-#_08A194: JSR Ancilla_CheckTileCollision
-#_08A197: BCS .tile_collision
+|08A194| JSR Ancilla_CheckTileCollision
+|08A197| BCS .tile_collision
 
-#_08A199: BRL .proceed_to_draw
+|08A199| BRL .proceed_to_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .tile_collision
-#_08A19C: TYA
-#_08A19D: STA.w $03C5,X
+|08A19C| TYA
+|08A19D| STA.w $03C5,X
 
-#_08A1A0: LDA.w $0C72,X
-#_08A1A3: AND.b #$03
-#_08A1A5: ASL A
-#_08A1A6: TAY
+|08A1A0| LDA.w $0C72,X
+|08A1A3| AND.b #$03
+|08A1A5| ASL A
+|08A1A6| TAY
 
-#_08A1A7: LDA.w .offset_y+0,Y
-#_08A1AA: CLC
-#_08A1AB: ADC.w $0BFA,X
-#_08A1AE: STA.w $0BFA,X
+|08A1A7| LDA.w .offset_y+0,Y
+|08A1AA| CLC
+|08A1AB| ADC.w $0BFA,X
+|08A1AE| STA.w $0BFA,X
 
-#_08A1B1: LDA.w .offset_y+1,Y
-#_08A1B4: ADC.w $0C0E,X
-#_08A1B7: STA.w $0C0E,X
+|08A1B1| LDA.w .offset_y+1,Y
+|08A1B4| ADC.w $0C0E,X
+|08A1B7| STA.w $0C0E,X
 
-#_08A1BA: LDA.w .offset_x+0,Y
-#_08A1BD: CLC
-#_08A1BE: ADC.w $0C04,X
-#_08A1C1: STA.w $0C04,X
+|08A1BA| LDA.w .offset_x+0,Y
+|08A1BD| CLC
+|08A1BE| ADC.w $0C04,X
+|08A1C1| STA.w $0C04,X
 
-#_08A1C4: LDA.w .offset_x+1,Y
-#_08A1C7: ADC.w $0C18,X
-#_08A1CA: STA.w $0C18,X
+|08A1C4| LDA.w .offset_x+1,Y
+|08A1C7| ADC.w $0C18,X
+|08A1CA| STA.w $0C18,X
 
-#_08A1CD: STZ.w $0B88
+|08A1CD| STZ.w $0B88
 
-#_08A1D0: BRA .become_stopped
+|08A1D0| BRA .become_stopped
 
 ;---------------------------------------------------------------------------------------------------
 
 .sprite_collision
-#_08A1D2: LDA.w $0C04,X
-#_08A1D5: SEC
-#_08A1D6: SBC.w $0D10,Y
-#_08A1D9: STA.w $0C2C,X
+|08A1D2| LDA.w $0C04,X
+|08A1D5| SEC
+|08A1D6| SBC.w $0D10,Y
+|08A1D9| STA.w $0C2C,X
 
-#_08A1DC: LDA.w $0BFA,X
-#_08A1DF: SEC
-#_08A1E0: SBC.w $0D00,Y
-#_08A1E3: CLC
-#_08A1E4: ADC.w $0F70,Y
-#_08A1E7: STA.w $0C22,X
+|08A1DC| LDA.w $0BFA,X
+|08A1DF| SEC
+|08A1E0| SBC.w $0D00,Y
+|08A1E3| CLC
+|08A1E4| ADC.w $0F70,Y
+|08A1E7| STA.w $0C22,X
 
-#_08A1EA: TYA
-#_08A1EB: STA.w $03A9,X
+|08A1EA| TYA
+|08A1EB| STA.w $03A9,X
 
-#_08A1EE: LDA.w $0E20,Y
-#_08A1F1: CMP.b #$65 ; SPRITE 65
-#_08A1F3: BNE .not_arrow_game
+|08A1EE| LDA.w $0E20,Y
+|08A1F1| CMP.b #$65 ; SPRITE 65
+|08A1F3| BNE .not_arrow_game
 
-#_08A1F5: LDA.w $0D90,Y
-#_08A1F8: CMP.b #$01
-#_08A1FA: BNE .not_arrow_game_target
+|08A1F5| LDA.w $0D90,Y
+|08A1F8| CMP.b #$01
+|08A1FA| BNE .not_arrow_game_target
 
-#_08A1FC: LDA.b #$2D ; SFX3.2D
-#_08A1FE: STA.w $012F
+|08A1FC| LDA.b #$2D ; SFX3.2D
+|08A1FE| STA.w $012F
 
-#_08A201: LDA.b #$80
-#_08A203: STA.w $0E10,Y
-#_08A206: STA.w $0F10 ; !HARDCODED sprite slot
+|08A201| LDA.b #$80
+|08A203| STA.w $0E10,Y
+|08A206| STA.w $0F10 ; [HARDCODED] sprite slot
 
-#_08A209: LDA.w $0B88
-#_08A20C: CMP.b #$09
-#_08A20E: BCS .the_99_dream
+|08A209| LDA.w $0B88
+|08A20C| CMP.b #$09
+|08A20E| BCS .the_99_dream
 
-#_08A210: INC.w $0B88
+|08A210| INC.w $0B88
 
 .the_99_dream
-#_08A213: LDA.w $0B88
-#_08A216: STA.w $0DA0,Y
+|08A213| LDA.w $0B88
+|08A216| STA.w $0DA0,Y
 
-#_08A219: LDA.w $0ED0,Y
-#_08A21C: INC A
-#_08A21D: STA.w $0ED0,Y
+|08A219| LDA.w $0ED0,Y
+|08A21C| INC A
+|08A21D| STA.w $0ED0,Y
 
-#_08A220: BRA .become_stopped
+|08A220| BRA .become_stopped
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_arrow_game_target
-#_08A222: LDA.b #$04
-#_08A224: STA.w $0EE0,Y
+|08A222| LDA.b #$04
+|08A224| STA.w $0EE0,Y
 
 .not_arrow_game
-#_08A227: STZ.w $0B88
+|08A227| STZ.w $0B88
 
 ;---------------------------------------------------------------------------------------------------
 
 .become_stopped
-#_08A22A: LDA.w $0E20,Y
-#_08A22D: CMP.b #$1B ; SPRITE 1B
-#_08A22F: BEQ .not_enemy_arrow
+|08A22A| LDA.w $0E20,Y
+|08A22D| CMP.b #$1B ; SPRITE 1B
+|08A22F| BEQ .not_enemy_arrow
 
-#_08A231: LDA.b #$08 ; SFX2.08
-#_08A233: JSR Ancilla_SFX2_Pan
+|08A231| LDA.b #$08 ; SFX2.08
+|08A233| JSR Ancilla_SFX2_Pan
 
 .not_enemy_arrow
-#_08A236: STZ.w $0C5E,X
+|08A236| STZ.w $0C5E,X
 
-#_08A239: LDA.b #$0A ; ANCILLA 0A
-#_08A23B: STA.w $0C4A,X
+|08A239| LDA.b #$0A ; ANCILLA 0A
+|08A23B| STA.w $0C4A,X
 
-#_08A23E: LDA.b #$01
-#_08A240: STA.w $03B1,X
+|08A23E| LDA.b #$01
+|08A240| STA.w $03B1,X
 
-#_08A243: LDA.w $03C5,X
-#_08A246: BEQ .proceed_to_draw
+|08A243| LDA.w $03C5,X
+|08A246| BEQ .proceed_to_draw
 
-#_08A248: REP #$20
+|08A248| REP #$20
 
-#_08A24A: LDA.b $E0
-#_08A24C: SEC
-#_08A24D: SBC.b $E2
-#_08A24F: CLC
-#_08A250: ADC.w $0C04,X
-#_08A253: STA.b $00
+|08A24A| LDA.b $E0
+|08A24C| SEC
+|08A24D| SBC.b $E2
+|08A24F| CLC
+|08A250| ADC.w $0C04,X
+|08A253| STA.b $00
 
-#_08A255: LDA.b $E6
-#_08A257: SEC
-#_08A258: SBC.b $E8
-#_08A25A: CLC
-#_08A25B: ADC.w $0BFA,X
-#_08A25E: STA.b $02
+|08A255| LDA.b $E6
+|08A257| SEC
+|08A258| SBC.b $E8
+|08A25A| CLC
+|08A25B| ADC.w $0BFA,X
+|08A25E| STA.b $02
 
-#_08A260: SEP #$20
+|08A260| SEP #$20
 
-#_08A262: LDA.b $00
-#_08A264: STA.w $0C04,X
+|08A262| LDA.b $00
+|08A264| STA.w $0C04,X
 
-#_08A267: LDA.b $02
-#_08A269: STA.w $0BFA,X
+|08A267| LDA.b $02
+|08A269| STA.w $0BFA,X
 
-#_08A26C: BRA .proceed_to_draw
+|08A26C| BRA .proceed_to_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08A26E: RTS
+|08A26E| RTS
 
 .proceed_to_draw
-#_08A26F: BRL AncillaDraw_Arrow
+|08A26F| BRL AncillaDraw_Arrow
 
 ;===================================================================================================
 
@@ -7039,606 +7039,606 @@ pool AncillaDraw_Arrow
 
 .char_and_prop
 ; group00
-#_08A272: db $2B, $A4
-#_08A274: db $2A, $A4
+|08A272| db $2B, $A4
+|08A274| db $2A, $A4
 
 ; group01
-#_08A276: db $2A, $24
-#_08A278: db $2B, $24
+|08A276| db $2A, $24
+|08A278| db $2B, $24
 
 ; group02
-#_08A27A: db $3D, $64
-#_08A27C: db $3A, $64
+|08A27A| db $3D, $64
+|08A27C| db $3A, $64
 
 ; group03
-#_08A27E: db $3A, $24
-#_08A280: db $3D, $24
+|08A27E| db $3A, $24
+|08A280| db $3D, $24
 
 ; group04
-#_08A282: db $2B, $A4
-#_08A284: db $FF, $FF
+|08A282| db $2B, $A4
+|08A284| db $FF, $FF
 
 ; group05
-#_08A286: db $2B, $24
-#_08A288: db $FF, $FF
+|08A286| db $2B, $24
+|08A288| db $FF, $FF
 
 ; group06
-#_08A28A: db $3D, $64
-#_08A28C: db $FF, $FF
+|08A28A| db $3D, $64
+|08A28C| db $FF, $FF
 
 ; group07
-#_08A28E: db $3D, $24
-#_08A290: db $FF, $FF
+|08A28E| db $3D, $24
+|08A290| db $FF, $FF
 
 ; group08
-#_08A292: db $3C, $A4
-#_08A294: db $2C, $A4
+|08A292| db $3C, $A4
+|08A294| db $2C, $A4
 
 ; group09
-#_08A296: db $3C, $A4
-#_08A298: db $2A, $A4
+|08A296| db $3C, $A4
+|08A298| db $2A, $A4
 
 ; group0A
-#_08A29A: db $3C, $A4
-#_08A29C: db $2C, $E4
+|08A29A| db $3C, $A4
+|08A29C| db $2C, $E4
 
 ; group0B
-#_08A29E: db $3C, $A4
-#_08A2A0: db $2A, $A4
+|08A29E| db $3C, $A4
+|08A2A0| db $2A, $A4
 
 ; group0C
-#_08A2A2: db $2C, $24
-#_08A2A4: db $3C, $24
+|08A2A2| db $2C, $24
+|08A2A4| db $3C, $24
 
 ; group0D
-#_08A2A6: db $2A, $24
-#_08A2A8: db $3C, $24
+|08A2A6| db $2A, $24
+|08A2A8| db $3C, $24
 
 ; group0E
-#_08A2AA: db $2C, $64
-#_08A2AC: db $3C, $24
+|08A2AA| db $2C, $64
+|08A2AC| db $3C, $24
 
 ; group0F
-#_08A2AE: db $2A, $24
-#_08A2B0: db $3C, $24
+|08A2AE| db $2A, $24
+|08A2B0| db $3C, $24
 
 ; group10
-#_08A2B2: db $3B, $64
-#_08A2B4: db $2D, $64
+|08A2B2| db $3B, $64
+|08A2B4| db $2D, $64
 
 ; group11
-#_08A2B6: db $3B, $64
-#_08A2B8: db $3A, $E4
+|08A2B6| db $3B, $64
+|08A2B8| db $3A, $E4
 
 ; group12
-#_08A2BA: db $3B, $64
-#_08A2BC: db $2D, $E4
+|08A2BA| db $3B, $64
+|08A2BC| db $2D, $E4
 
 ; group13
-#_08A2BE: db $3B, $64
-#_08A2C0: db $3A, $E4
+|08A2BE| db $3B, $64
+|08A2C0| db $3A, $E4
 
 ; group14
-#_08A2C2: db $2D, $24
-#_08A2C4: db $3B, $24
+|08A2C2| db $2D, $24
+|08A2C4| db $3B, $24
 
 ; group15
-#_08A2C6: db $3A, $24
-#_08A2C8: db $3B, $A4
+|08A2C6| db $3A, $24
+|08A2C8| db $3B, $A4
 
 ; group16
-#_08A2CA: db $2D, $A4
-#_08A2CC: db $3B, $24
+|08A2CA| db $2D, $A4
+|08A2CC| db $3B, $24
 
 ; group17
-#_08A2CE: db $3A, $24
-#_08A2D0: db $3B, $A4
+|08A2CE| db $3A, $24
+|08A2D0| db $3B, $A4
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset
 ; group00
-#_08A2D2: dw   0,   0
-#_08A2D6: dw   8,   0
+|08A2D2| dw   0,   0
+|08A2D6| dw   8,   0
 
 ; group01
-#_08A2DA: dw   0,   0
-#_08A2DE: dw   8,   0
+|08A2DA| dw   0,   0
+|08A2DE| dw   8,   0
 
 ; group02
-#_08A2E2: dw   0,   0
-#_08A2E6: dw   0,   8
+|08A2E2| dw   0,   0
+|08A2E6| dw   0,   8
 
 ; group03
-#_08A2EA: dw   0,   0
-#_08A2EE: dw   0,   8
+|08A2EA| dw   0,   0
+|08A2EE| dw   0,   8
 
 ; group04
-#_08A2F2: dw   0,   0
-#_08A2F6: dw   0,   0
+|08A2F2| dw   0,   0
+|08A2F6| dw   0,   0
 
 ; group05
-#_08A2FA: dw   0,   0
-#_08A2FE: dw   0,   0
+|08A2FA| dw   0,   0
+|08A2FE| dw   0,   0
 
 ; group06
-#_08A302: dw   0,   0
-#_08A306: dw   0,   0
+|08A302| dw   0,   0
+|08A306| dw   0,   0
 
 ; group07
-#_08A30A: dw   0,   0
-#_08A30E: dw   0,   0
+|08A30A| dw   0,   0
+|08A30E| dw   0,   0
 
 ; group08
-#_08A312: dw   0,   1
-#_08A316: dw   8,   1
+|08A312| dw   0,   1
+|08A316| dw   8,   1
 
 ; group09
-#_08A31A: dw   0,   0
-#_08A31E: dw   8,   0
+|08A31A| dw   0,   0
+|08A31E| dw   8,   0
 
 ; group0A
-#_08A322: dw   0,  -1
-#_08A326: dw   8,  -2
+|08A322| dw   0,  -1
+|08A326| dw   8,  -2
 
 ; group0B
-#_08A32A: dw   0,   0
-#_08A32E: dw   8,   0
+|08A32A| dw   0,   0
+|08A32E| dw   8,   0
 
 ; group0C
-#_08A332: dw   0,   1
-#_08A336: dw   8,   1
+|08A332| dw   0,   1
+|08A336| dw   8,   1
 
 ; group0D
-#_08A33A: dw   0,   0
-#_08A33E: dw   8,   0
+|08A33A| dw   0,   0
+|08A33E| dw   8,   0
 
 ; group0E
-#_08A342: dw   0,  -2
-#_08A346: dw   8,  -1
+|08A342| dw   0,  -2
+|08A346| dw   8,  -1
 
 ; group0F
-#_08A34A: dw   0,   0
-#_08A34E: dw   8,   0
+|08A34A| dw   0,   0
+|08A34E| dw   8,   0
 
 ; group10
-#_08A352: dw  -1,   0
-#_08A356: dw  -1,   8
+|08A352| dw  -1,   0
+|08A356| dw  -1,   8
 
 ; group11
-#_08A35A: dw   0,   0
-#_08A35E: dw   0,   8
+|08A35A| dw   0,   0
+|08A35E| dw   0,   8
 
 ; group12
-#_08A362: dw   0,   0
-#_08A366: dw   1,   8
+|08A362| dw   0,   0
+|08A366| dw   1,   8
 
 ; group13
-#_08A36A: dw   0,   0
-#_08A36E: dw   0,   8
+|08A36A| dw   0,   0
+|08A36E| dw   0,   8
 
 ; group14
-#_08A372: dw  -1,   0
-#_08A376: dw  -1,   8
+|08A372| dw  -1,   0
+|08A376| dw  -1,   8
 
 ; group15
-#_08A37A: dw   0,   0
-#_08A37E: dw   0,   8
+|08A37A| dw   0,   0
+|08A37E| dw   0,   8
 
 ; group16
-#_08A382: dw   1,   0
-#_08A386: dw   0,   8
+|08A382| dw   1,   0
+|08A386| dw   0,   8
 
 ; group17
-#_08A38A: dw   0,   0
-#_08A38E: dw   0,   8
+|08A38A| dw   0,   0
+|08A38E| dw   0,   8
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_Arrow:
-#_08A392: JSR Ancilla_PrepOAMCoord_adjusted
+|08A392| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08A395: LDA.w $0280,X
-#_08A398: BEQ .normal_priority
+|08A395| LDA.w $0280,X
+|08A398| BEQ .normal_priority
 
-#_08A39A: LDA.b #$30
-#_08A39C: STA.b $65
+|08A39A| LDA.b #$30
+|08A39C| STA.b $65
 
 .normal_priority
-#_08A39E: REP #$20
+|08A39E| REP #$20
 
-#_08A3A0: LDA.b $00
-#_08A3A2: STA.b $0C
+|08A3A0| LDA.b $00
+|08A3A2| STA.b $0C
 
-#_08A3A4: LDA.b $02
-#_08A3A6: STA.b $0E
-#_08A3A8: STA.b $04
+|08A3A4| LDA.b $02
+|08A3A6| STA.b $0E
+|08A3A8| STA.b $04
 
-#_08A3AA: LDA.w $03C5,X
-#_08A3AD: AND.w #$00FF
-#_08A3B0: BEQ .regular_collision
+|08A3AA| LDA.w $03C5,X
+|08A3AD| AND.w #$00FF
+|08A3B0| BEQ .regular_collision
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A3B2: LDA.b $E8
-#_08A3B4: SEC
-#_08A3B5: SBC.b $E6
-#_08A3B7: CLC
-#_08A3B8: ADC.b $0C
-#_08A3BA: STA.b $0C
+|08A3B2| LDA.b $E8
+|08A3B4| SEC
+|08A3B5| SBC.b $E6
+|08A3B7| CLC
+|08A3B8| ADC.b $0C
+|08A3BA| STA.b $0C
 
-#_08A3BC: LDA.b $E2
-#_08A3BE: SEC
-#_08A3BF: SBC.b $E0
-#_08A3C1: CLC
-#_08A3C2: ADC.b $0E
-#_08A3C4: STA.b $0E
-#_08A3C6: STA.b $04
+|08A3BC| LDA.b $E2
+|08A3BE| SEC
+|08A3BF| SBC.b $E0
+|08A3C1| CLC
+|08A3C2| ADC.b $0E
+|08A3C4| STA.b $0E
+|08A3C6| STA.b $04
 
 ;---------------------------------------------------------------------------------------------------
 
 .regular_collision
-#_08A3C8: SEP #$20
+|08A3C8| SEP #$20
 
-#_08A3CA: LDA.w $0C5E,X
-#_08A3CD: STA.b $07
+|08A3CA| LDA.w $0C5E,X
+|08A3CD| STA.b $07
 
-#_08A3CF: LDA.w $0C72,X
-#_08A3D2: AND.b #$FB
-#_08A3D4: TAY
+|08A3CF| LDA.w $0C72,X
+|08A3D2| AND.b #$FB
+|08A3D4| TAY
 
-#_08A3D5: LDA.w $0C4A,X
-#_08A3D8: CMP.b #$0A ; ANCILLA 0A
-#_08A3DA: BNE .not_halted
+|08A3D5| LDA.w $0C4A,X
+|08A3D8| CMP.b #$0A ; ANCILLA 0A
+|08A3DA| BNE .not_halted
 
-#_08A3DC: LDA.w $0C5E,X
-#_08A3DF: AND.b #$08
-#_08A3E1: BEQ .wiggle
+|08A3DC| LDA.w $0C5E,X
+|08A3DF| AND.b #$08
+|08A3E1| BEQ .wiggle
 
-#_08A3E3: LDA.b #$01
-#_08A3E5: BRA .continue
+|08A3E3| LDA.b #$01
+|08A3E5| BRA .continue
 
 .wiggle
-#_08A3E7: LDA.w $0C5E,X
-#_08A3EA: AND.b #$03
+|08A3E7| LDA.w $0C5E,X
+|08A3EA| AND.b #$03
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08A3EC: STA.b $0A
+|08A3EC| STA.b $0A
 
-#_08A3EE: TYA
-#_08A3EF: ASL A
-#_08A3F0: ASL A
-#_08A3F1: CLC
-#_08A3F2: ADC.b #$08
-#_08A3F4: CLC
-#_08A3F5: ADC.b $0A
-#_08A3F7: TAY
+|08A3EE| TYA
+|08A3EF| ASL A
+|08A3F0| ASL A
+|08A3F1| CLC
+|08A3F2| ADC.b #$08
+|08A3F4| CLC
+|08A3F5| ADC.b $0A
+|08A3F7| TAY
 
-#_08A3F8: BRA .get_palette
+|08A3F8| BRA .get_palette
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_halted
-#_08A3FA: LDA.w $0C5E,X
-#_08A3FD: BMI .get_palette
+|08A3FA| LDA.w $0C5E,X
+|08A3FD| BMI .get_palette
 
-#_08A3FF: TYA
-#_08A400: ORA.b #$04
-#_08A402: TAY
+|08A3FF| TYA
+|08A400| ORA.b #$04
+|08A402| TAY
 
 ;---------------------------------------------------------------------------------------------------
 
 .get_palette
-#_08A403: PHX
+|08A403| PHX
 
-#_08A404: TYA
-#_08A405: ASL A
-#_08A406: ASL A
-#_08A407: TAX
+|08A404| TYA
+|08A405| ASL A
+|08A406| ASL A
+|08A407| TAX
 
-#_08A408: LDY.b #$02
-#_08A40A: LDA.l $7EF340
+|08A408| LDY.b #$02
+|08A40A| LDA.l $7EF340
 
-#_08A40E: AND.b #$04
-#_08A410: BNE .silvers
+|08A40E| AND.b #$04
+|08A410| BNE .silvers
 
-#_08A412: LDY.b #$04
+|08A412| LDY.b #$04
 
 .silvers
-#_08A414: STY.b $74
+|08A414| STY.b $74
 
-#_08A416: LDY.b #$00
-#_08A418: STZ.b $06
+|08A416| LDY.b #$00
+|08A418| STZ.b $06
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_object
-#_08A41A: LDA.w .char_and_prop+0,X
-#_08A41D: CMP.b #$FF
-#_08A41F: BEQ .skip
+|08A41A| LDA.w .char_and_prop+0,X
+|08A41D| CMP.b #$FF
+|08A41F| BEQ .skip
 
-#_08A421: STA.b $72
+|08A421| STA.b $72
 
-#_08A423: PHX
+|08A423| PHX
 
-#_08A424: TXA
-#_08A425: ASL A
-#_08A426: TAX
+|08A424| TXA
+|08A425| ASL A
+|08A426| TAX
 
-#_08A427: REP #$20
+|08A427| REP #$20
 
-#_08A429: LDA.w .offset+0,X
-#_08A42C: CLC
-#_08A42D: ADC.b $0C
-#_08A42F: STA.b $00
+|08A429| LDA.w .offset+0,X
+|08A42C| CLC
+|08A42D| ADC.b $0C
+|08A42F| STA.b $00
 
-#_08A431: LDA.w .offset+2,X
-#_08A434: CLC
-#_08A435: ADC.b $0E
-#_08A437: STA.b $02
+|08A431| LDA.w .offset+2,X
+|08A434| CLC
+|08A435| ADC.b $0E
+|08A437| STA.b $02
 
-#_08A439: SEP #$20
+|08A439| SEP #$20
 
-#_08A43B: JSR Ancilla_SetOAM_XY
+|08A43B| JSR Ancilla_SetOAM_XY
 
-#_08A43E: PLX
+|08A43E| PLX
 
-#_08A43F: LDA.b $72
-#_08A441: STA.b ($90),Y
+|08A43F| LDA.b $72
+|08A441| STA.b ($90),Y
 
-#_08A443: INY
+|08A443| INY
 
-#_08A444: LDA.w .char_and_prop+1,X
-#_08A447: AND.b #$C1
-#_08A449: ORA.b $74
-#_08A44B: ORA.b $65
-#_08A44D: STA.b ($90),Y
+|08A444| LDA.w .char_and_prop+1,X
+|08A447| AND.b #$C1
+|08A449| ORA.b $74
+|08A44B| ORA.b $65
+|08A44D| STA.b ($90),Y
 
-#_08A44F: INY
+|08A44F| INY
 
-#_08A450: PHY
+|08A450| PHY
 
-#_08A451: TYA
-#_08A452: SEC
-#_08A453: SBC.b #$04
-#_08A455: LSR A
-#_08A456: LSR A
-#_08A457: TAY
+|08A451| TYA
+|08A452| SEC
+|08A453| SBC.b #$04
+|08A455| LSR A
+|08A456| LSR A
+|08A457| TAY
 
-#_08A458: LDA.b #$00
-#_08A45A: STA.b ($92),Y
+|08A458| LDA.b #$00
+|08A45A| STA.b ($92),Y
 
-#_08A45C: PLY
+|08A45C| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08A45D: INX
-#_08A45E: INX
+|08A45D| INX
+|08A45E| INX
 
-#_08A45F: INC.b $06
+|08A45F| INC.b $06
 
-#_08A461: LDA.b $06
-#_08A463: CMP.b #$02
-#_08A465: BEQ .done
+|08A461| LDA.b $06
+|08A463| CMP.b #$02
+|08A465| BEQ .done
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A467: BRL .next_object
+|08A467| BRL .next_object
 
 .done
-#_08A46A: PLX
+|08A46A| PLX
 
-#_08A46B: LDY.b #$01
+|08A46B| LDY.b #$01
 
-#_08A46D: LDA.b ($90),Y
-#_08A46F: CMP.b #$F0
-#_08A471: BNE .exit
+|08A46D| LDA.b ($90),Y
+|08A46F| CMP.b #$F0
+|08A471| BNE .exit
 
-#_08A473: LDY.b #$05
+|08A473| LDY.b #$05
 
-#_08A475: LDA.b ($90),Y
-#_08A477: CMP.b #$F0
-#_08A479: BNE .exit
+|08A475| LDA.b ($90),Y
+|08A477| CMP.b #$F0
+|08A479| BNE .exit
 
-#_08A47B: BRL Arrow_DeleteSelf
+|08A47B| BRL Arrow_DeleteSelf
 
 .exit
-#_08A47E: RTS
+|08A47E| RTS
 
 ;===================================================================================================
 
 Ancilla0A_LodgedArrow:
-#_08A47F: LDY.w $03A9,X
-#_08A482: BMI .not_sprite_collided
+|08A47F| LDY.w $03A9,X
+|08A482| BMI .not_sprite_collided
 
-#_08A484: LDA.w $0DD0,Y
-#_08A487: CMP.b #$09
-#_08A489: BCC Arrow_DeleteSelf
+|08A484| LDA.w $0DD0,Y
+|08A487| CMP.b #$09
+|08A489| BCC Arrow_DeleteSelf
 
-#_08A48B: LDA.w $0F70,Y
-#_08A48E: BMI Arrow_DeleteSelf
+|08A48B| LDA.w $0F70,Y
+|08A48E| BMI Arrow_DeleteSelf
 
-#_08A490: LDA.w $0BA0,Y
-#_08A493: BNE Arrow_DeleteSelf
+|08A490| LDA.w $0BA0,Y
+|08A493| BNE Arrow_DeleteSelf
 
-#_08A495: LDA.w $0CAA,Y
-#_08A498: AND.b #$02
-#_08A49A: BNE Arrow_DeleteSelf
+|08A495| LDA.w $0CAA,Y
+|08A498| AND.b #$02
+|08A49A| BNE Arrow_DeleteSelf
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A49C: STZ.b $00
+|08A49C| STZ.b $00
 
-#_08A49E: LDA.w $0C2C,X
-#_08A4A1: BPL .positive_x
+|08A49E| LDA.w $0C2C,X
+|08A4A1| BPL .positive_x
 
-#_08A4A3: DEC.b $00
+|08A4A3| DEC.b $00
 
 .positive_x
-#_08A4A5: CLC
-#_08A4A6: ADC.w $0D10,Y
-#_08A4A9: STA.w $0C04,X
+|08A4A5| CLC
+|08A4A6| ADC.w $0D10,Y
+|08A4A9| STA.w $0C04,X
 
-#_08A4AC: LDA.w $0D30,Y
-#_08A4AF: ADC.b $00
-#_08A4B1: STA.w $0C18,X
+|08A4AC| LDA.w $0D30,Y
+|08A4AF| ADC.b $00
+|08A4B1| STA.w $0C18,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A4B4: STZ.b $00
+|08A4B4| STZ.b $00
 
-#_08A4B6: LDA.w $0C22,X
-#_08A4B9: BPL .positive_y
+|08A4B6| LDA.w $0C22,X
+|08A4B9| BPL .positive_y
 
-#_08A4BB: DEC.b $00
+|08A4BB| DEC.b $00
 
 .positive_y
-#_08A4BD: CLC
-#_08A4BE: ADC.w $0D00,Y
-#_08A4C1: PHP
+|08A4BD| CLC
+|08A4BE| ADC.w $0D00,Y
+|08A4C1| PHP
 
-#_08A4C2: SEC
-#_08A4C3: SBC.w $0F70,Y
-#_08A4C6: STA.w $0BFA,X
+|08A4C2| SEC
+|08A4C3| SBC.w $0F70,Y
+|08A4C6| STA.w $0BFA,X
 
-#_08A4C9: LDA.w $0D20,Y
-#_08A4CC: SBC.b #$00
+|08A4C9| LDA.w $0D20,Y
+|08A4CC| SBC.b #$00
 
-#_08A4CE: PLP
-#_08A4CF: ADC.b $00
-#_08A4D1: STA.w $0C0E,X
+|08A4CE| PLP
+|08A4CF| ADC.b $00
+|08A4D1| STA.w $0C0E,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_sprite_collided
-#_08A4D4: LDA.b $11
-#_08A4D6: BEQ .continue
+|08A4D4| LDA.b $11
+|08A4D6| BEQ .continue
 
-#_08A4D8: BRA .proceed_to_draw
+|08A4D8| BRA .proceed_to_draw
 
 .continue
-#_08A4DA: DEC.w $03B1,X
-#_08A4DD: LDA.w $03B1,X
-#_08A4E0: BNE .proceed_to_draw
+|08A4DA| DEC.w $03B1,X
+|08A4DD| LDA.w $03B1,X
+|08A4E0| BNE .proceed_to_draw
 
-#_08A4E2: LDA.b #$02
-#_08A4E4: STA.w $03B1,X
+|08A4E2| LDA.b #$02
+|08A4E4| STA.w $03B1,X
 
-#_08A4E7: INC.w $0C5E,X
+|08A4E7| INC.w $0C5E,X
 
-#_08A4EA: LDA.w $0C5E,X
-#_08A4ED: CMP.b #$09
-#_08A4EF: BEQ Arrow_DeleteSelf
+|08A4EA| LDA.w $0C5E,X
+|08A4ED| CMP.b #$09
+|08A4EF| BEQ Arrow_DeleteSelf
 
-#_08A4F1: AND.b #$08
-#_08A4F3: BEQ .proceed_to_draw
+|08A4F1| AND.b #$08
+|08A4F3| BEQ .proceed_to_draw
 
-#_08A4F5: LDA.b #$A0
-#_08A4F7: STA.w $03B1,X
+|08A4F5| LDA.b #$A0
+|08A4F7| STA.w $03B1,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .proceed_to_draw
-#_08A4FA: JML AncillaDraw_Arrow
+|08A4FA| JML AncillaDraw_Arrow
 
 ;===================================================================================================
 
 Arrow_DeleteSelf:
-#_08A4FE: BRL Ancilla_DeleteSelf
+|08A4FE| BRL Ancilla_DeleteSelf
 
 ;===================================================================================================
 
 Ancilla0B_IceRodShot:
-#_08A501: LDA.b $11
-#_08A503: BEQ .continue
+|08A501| LDA.b $11
+|08A503| BEQ .continue
 
-#_08A505: BRA .generate_sparkle
+|08A505| BRA .generate_sparkle
 
 .continue
-#_08A507: DEC.w $03B1,X
-#_08A50A: BPL .delay_a
+|08A507| DEC.w $03B1,X
+|08A50A| BPL .delay_a
 
-#_08A50C: LDA.w $0C5E,X
-#_08A50F: INC A
-#_08A510: STA.w $0C5E,X
+|08A50C| LDA.w $0C5E,X
+|08A50F| INC A
+|08A510| STA.w $0C5E,X
 
-#_08A513: AND.b #$FE
-#_08A515: BEQ .delay_b
+|08A513| AND.b #$FE
+|08A515| BEQ .delay_b
 
-#_08A517: LDA.b #$01
-#_08A519: STA.w $0C54,X
+|08A517| LDA.b #$01
+|08A519| STA.w $0C54,X
 
-#_08A51C: LDA.w $0C5E,X
-#_08A51F: AND.b #$07
-#_08A521: ORA.b #$04
-#_08A523: STA.w $0C5E,X
+|08A51C| LDA.w $0C5E,X
+|08A51F| AND.b #$07
+|08A521| ORA.b #$04
+|08A523| STA.w $0C5E,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay_b
-#_08A526: LDA.b #$03
-#_08A528: STA.w $03B1,X
+|08A526| LDA.b #$03
+|08A528| STA.w $03B1,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay_a
-#_08A52B: LDA.w $0C54,X
-#_08A52E: BEQ .generate_sparkle
+|08A52B| LDA.w $0C54,X
+|08A52E| BEQ .generate_sparkle
 
-#_08A530: JSR Ancilla_BoundsCheck
+|08A530| JSR Ancilla_KillOffscreen
 
-#_08A533: JSR AncillaMoveY
-#_08A536: JSR AncillaMoveX
+|08A533| JSR AncillaMoveY
+|08A536| JSR AncillaMoveX
 
-#_08A539: JSR Ancilla_CheckSpriteCollision
-#_08A53C: BCS .sprite_collision
+|08A539| JSR Ancilla_CheckSpriteCollision
+|08A53C| BCS .sprite_collision
 
-#_08A53E: JSR Ancilla_CheckTileCollision
-#_08A541: BCC .generate_sparkle
+|08A53E| JSR Ancilla_CheckTileCollision
+|08A541| BCC .generate_sparkle
 
 .sprite_collision
-#_08A543: LDA.b #$11 ; ANCILLA 11
-#_08A545: STA.w $0C4A,X
+|08A543| LDA.b #$11 ; ANCILLA 11
+|08A545| STA.w $0C4A,X
 
-#_08A548: TAY
+|08A548| TAY
 
-#_08A549: LDA.w AncillaObjectAllocation,Y
-#_08A54C: STA.w $0C90,X
+|08A549| LDA.w AncillaObjectAllocation,Y
+|08A54C| STA.w $0C90,X
 
-#_08A54F: STZ.w $0C5E,X
+|08A54F| STZ.w $0C5E,X
 
-#_08A552: LDA.b #$04
-#_08A554: STA.w $03B1,X
+|08A552| LDA.b #$04
+|08A554| STA.w $03B1,X
 
 .generate_sparkle
-#_08A557: BRL AncillaAdd_IceRodSparkle
+|08A557| BRL AncillaAdd_IceRodSparkle
 
 ;===================================================================================================
 
 Ancilla11_IceRodWallHit:
-#_08A55A: DEC.w $03B1,X
-#_08A55D: BPL .delay
+|08A55A| DEC.w $03B1,X
+|08A55D| BPL .delay
 
-#_08A55F: LDA.b #$07
-#_08A561: STA.w $03B1,X
+|08A55F| LDA.b #$07
+|08A561| STA.w $03B1,X
 
-#_08A564: INC.w $0C5E,X
+|08A564| INC.w $0C5E,X
 
-#_08A567: LDA.w $0C5E,X
-#_08A56A: CMP.b #$02
-#_08A56C: BNE .delay
+|08A567| LDA.w $0C5E,X
+|08A56A| CMP.b #$02
+|08A56C| BNE .delay
 
-#_08A56E: STZ.w $0C4A,X
+|08A56E| STZ.w $0C4A,X
 
-#_08A571: RTS
+|08A571| RTS
 
 .delay
-#_08A572: BRL AncillaDraw_IceRodWallHit
+|08A572| BRL AncillaDraw_IceRodWallHit
 
 ;===================================================================================================
 
@@ -7646,586 +7646,586 @@ pool AncillaDraw_IceRodWallHit
 
 .char_and_prop
 ; group00
-#_08A575: db $CF, $24
-#_08A577: db $CF, $24
-#_08A579: db $CF, $24
-#_08A57B: db $CF, $24
+|08A575| db $CF, $24
+|08A577| db $CF, $24
+|08A579| db $CF, $24
+|08A57B| db $CF, $24
 
 ; group01
-#_08A57D: db $DF, $24
-#_08A57F: db $DF, $24
-#_08A581: db $DF, $24
-#_08A583: db $DF, $24
+|08A57D| db $DF, $24
+|08A57F| db $DF, $24
+|08A581| db $DF, $24
+|08A583| db $DF, $24
 
 .offset
 ; group00
-#_08A585: db   0,   0
-#_08A587: db   0,   8
-#_08A589: db   8,   0
-#_08A58B: db   8,   8
+|08A585| db   0,   0
+|08A587| db   0,   8
+|08A589| db   8,   0
+|08A58B| db   8,   8
 
 ; group01
-#_08A58D: db  -8,  -8
-#_08A58F: db  -8,  16
-#_08A591: db  16,  -8
-#_08A593: db  16,  16
+|08A58D| db  -8,  -8
+|08A58F| db  -8,  16
+|08A591| db  16,  -8
+|08A593| db  16,  16
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_IceRodWallHit:
-#_08A595: JSR Ancilla_PrepOAMCoord
+|08A595| JSR Ancilla_PrepOAMCoord
 
-#_08A598: PHX
+|08A598| PHX
 
-#_08A599: LDA.w $0C90,X
-#_08A59C: JSR AllocateOAMInRegionsADF
+|08A599| LDA.w $0C90,X
+|08A59C| JSR AllocateOAMInRegionsADF
 
-#_08A59F: LDA.w $0C5E,X
-#_08A5A2: ASL A
-#_08A5A3: ASL A
-#_08A5A4: ASL A
-#_08A5A5: TAX
+|08A59F| LDA.w $0C5E,X
+|08A5A2| ASL A
+|08A5A3| ASL A
+|08A5A4| ASL A
+|08A5A5| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A5A6: LDY.b #$00
+|08A5A6| LDY.b #$00
 
-#_08A5A8: STZ.b $04
+|08A5A8| STZ.b $04
 
 .next_object
-#_08A5AA: REP #$20
+|08A5AA| REP #$20
 
-#_08A5AC: LDA.w .offset+0,X
-#_08A5AF: AND.w #$00FF
-#_08A5B2: CMP.w #$0080
-#_08A5B5: BCC .x_positive
+|08A5AC| LDA.w .offset+0,X
+|08A5AF| AND.w #$00FF
+|08A5B2| CMP.w #$0080
+|08A5B5| BCC .x_positive
 
-#_08A5B7: ORA.w #$FF00
+|08A5B7| ORA.w #$FF00
 
 .x_positive
-#_08A5BA: CLC
-#_08A5BB: ADC.b $00
-#_08A5BD: STA.b $08
+|08A5BA| CLC
+|08A5BB| ADC.b $00
+|08A5BD| STA.b $08
 
-#_08A5BF: LDA.w .offset+1,X
-#_08A5C2: AND.w #$00FF
-#_08A5C5: CMP.w #$0080
-#_08A5C8: BCC .y_positive
+|08A5BF| LDA.w .offset+1,X
+|08A5C2| AND.w #$00FF
+|08A5C5| CMP.w #$0080
+|08A5C8| BCC .y_positive
 
-#_08A5CA: ORA.w #$FF00
+|08A5CA| ORA.w #$FF00
 
 .y_positive
-#_08A5CD: CLC
-#_08A5CE: ADC.b $02
-#_08A5D0: STA.b $0A
+|08A5CD| CLC
+|08A5CE| ADC.b $02
+|08A5D0| STA.b $0A
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A5D2: SEP #$20
+|08A5D2| SEP #$20
 
-#_08A5D4: PHX
-#_08A5D5: LDX.b #$F0
+|08A5D4| PHX
+|08A5D5| LDX.b #$F0
 
-#_08A5D7: LDA.b $09
-#_08A5D9: BNE .off_screen
+|08A5D7| LDA.b $09
+|08A5D9| BNE .off_screen
 
-#_08A5DB: LDA.b $0B
-#_08A5DD: BNE .off_screen
+|08A5DB| LDA.b $0B
+|08A5DD| BNE .off_screen
 
-#_08A5DF: LDA.b $0A
-#_08A5E1: STA.b ($90),Y
+|08A5DF| LDA.b $0A
+|08A5E1| STA.b ($90),Y
 
-#_08A5E3: LDA.b $08
-#_08A5E5: CMP.b #$F0
-#_08A5E7: BCS .off_screen
+|08A5E3| LDA.b $08
+|08A5E5| CMP.b #$F0
+|08A5E7| BCS .off_screen
 
-#_08A5E9: TAX
+|08A5E9| TAX
 
 .off_screen
-#_08A5EA: INY
+|08A5EA| INY
 
-#_08A5EB: TXA
-#_08A5EC: STA.b ($90),Y
+|08A5EB| TXA
+|08A5EC| STA.b ($90),Y
 
-#_08A5EE: INY
+|08A5EE| INY
 
-#_08A5EF: PLX
-#_08A5F0: LDA.w .char_and_prop+0,X
-#_08A5F3: STA.b ($90),Y
+|08A5EF| PLX
+|08A5F0| LDA.w .char_and_prop+0,X
+|08A5F3| STA.b ($90),Y
 
-#_08A5F5: INY
+|08A5F5| INY
 
-#_08A5F6: LDA.w .char_and_prop+1,X
-#_08A5F9: AND.b #$CF
-#_08A5FB: ORA.b $65
-#_08A5FD: STA.b ($90),Y
+|08A5F6| LDA.w .char_and_prop+1,X
+|08A5F9| AND.b #$CF
+|08A5FB| ORA.b $65
+|08A5FD| STA.b ($90),Y
 
-#_08A5FF: INY
-#_08A600: PHY
+|08A5FF| INY
+|08A600| PHY
 
-#_08A601: TYA
-#_08A602: SEC
-#_08A603: SBC.b #$04
-#_08A605: LSR A
-#_08A606: LSR A
-#_08A607: TAY
+|08A601| TYA
+|08A602| SEC
+|08A603| SBC.b #$04
+|08A605| LSR A
+|08A606| LSR A
+|08A607| TAY
 
-#_08A608: LDA.b #$00
-#_08A60A: STA.b ($92),Y
+|08A608| LDA.b #$00
+|08A60A| STA.b ($92),Y
 
-#_08A60C: PLY
+|08A60C| PLY
 
-#_08A60D: JSR AllocateOAMInCustomRegion
+|08A60D| JSR AllocateOAMInCustomRegion
 
-#_08A610: INX
-#_08A611: INX
+|08A610| INX
+|08A611| INX
 
-#_08A612: INC.b $04
+|08A612| INC.b $04
 
-#_08A614: LDA.b $04
-#_08A616: CMP.b #$04
-#_08A618: BEQ .done
+|08A614| LDA.b $04
+|08A616| CMP.b #$04
+|08A618| BEQ .done
 
-#_08A61A: BRL .next_object
+|08A61A| BRL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
 .done
-#_08A61D: PLX
+|08A61D| PLX
 
-#_08A61E: LDY.b #$01
-#_08A620: LDA.b ($90),Y
+|08A61E| LDY.b #$01
+|08A620| LDA.b ($90),Y
 
-#_08A622: CMP.b #$F0
-#_08A624: BNE .exit
+|08A622| CMP.b #$F0
+|08A624| BNE .exit
 
-#_08A626: LDY.b #$05
+|08A626| LDY.b #$05
 
-#_08A628: LDA.b ($90),Y
-#_08A62A: CMP.b #$F0
-#_08A62C: BNE .exit
+|08A628| LDA.b ($90),Y
+|08A62A| CMP.b #$F0
+|08A62C| BNE .exit
 
-#_08A62E: STZ.w $0C4A,X
+|08A62E| STZ.w $0C4A,X
 
 .exit
-#_08A631: RTS
+|08A631| RTS
 
 ;===================================================================================================
 
 Ancilla33_BlastWallExplosion:
-#_08A632: LDA.b $11
-#_08A634: BNE .proceed_to_draw
+|08A632| LDA.b $11
+|08A634| BNE .proceed_to_draw
 
-#_08A636: LDA.l $7F0000,X
-#_08A63A: BEQ .inactive_component
+|08A636| LDA.l $7F0000,X
+|08A63A| BEQ .inactive_component
 
-#_08A63C: LDA.l $7F0008,X
-#_08A640: DEC A
-#_08A641: STA.l $7F0008,X
-#_08A645: BNE .proceed_to_draw
+|08A63C| LDA.l $7F0008,X
+|08A640| DEC A
+|08A641| STA.l $7F0008,X
+|08A645| BNE .proceed_to_draw
 
-#_08A647: LDA.l $7F0000,X
-#_08A64B: INC A
-#_08A64C: STA.l $7F0000,X
-#_08A650: BEQ .no_fireball
+|08A647| LDA.l $7F0000,X
+|08A64B| INC A
+|08A64C| STA.l $7F0000,X
+|08A650| BEQ .no_fireball
 
-#_08A652: CMP.b #$09
-#_08A654: BCS .no_fireball
+|08A652| CMP.b #$09
+|08A654| BCS .no_fireball
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A656: PHX
-#_08A657: TXA
+|08A656| PHX
+|08A657| TXA
 
-#_08A658: ASL A
-#_08A659: ASL A
-#_08A65A: STA.b $04
+|08A658| ASL A
+|08A659| ASL A
+|08A65A| STA.b $04
 
-#_08A65C: LDY.b #$0A
-#_08A65E: LDA.b #$32 ; ANCILLA 32
-#_08A660: JSL AncillaAdd_BlastWallFireball
+|08A65C| LDY.b #$0A
+|08A65E| LDA.b #$32 ; ANCILLA 32
+|08A660| JSL AncillaAdd_BlastWallFireball
 
-#_08A664: PLX
+|08A664| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_fireball
-#_08A665: LDA.l $7F0000,X
-#_08A669: CMP.b #$0B
-#_08A66B: BNE .dont_reset_state
+|08A665| LDA.l $7F0000,X
+|08A669| CMP.b #$0B
+|08A66B| BNE .dont_reset_state
 
-#_08A66D: LDA.b #$00
-#_08A66F: STA.l $7F0000,X
-#_08A673: STA.l $7F0008,X
+|08A66D| LDA.b #$00
+|08A66F| STA.l $7F0000,X
+|08A673| STA.l $7F0008,X
 
-#_08A677: BRA .proceed_to_draw
+|08A677| BRA .proceed_to_draw
 
 .dont_reset_state
-#_08A679: TAY
+|08A679| TAY
 
-#_08A67A: LDA.b #$03
-#_08A67C: STA.l $7F0008,X
+|08A67A| LDA.b #$03
+|08A67C| STA.l $7F0008,X
 
 .proceed_to_draw
-#_08A680: BRL AncillaDraw_BlastWallExplosion
+|08A680| BRL AncillaDraw_BlastWallExplosion
 
 ;---------------------------------------------------------------------------------------------------
 
 .inactive_component
-#_08A683: TXA
-#_08A684: EOR.b #$01
-#_08A686: TAX
+|08A683| TXA
+|08A684| EOR.b #$01
+|08A686| TAX
 
-#_08A687: LDA.l $7F0000,X
-#_08A68B: CMP.b #$06
-#_08A68D: BNE .proceed_to_draw
+|08A687| LDA.l $7F0000,X
+|08A68B| CMP.b #$06
+|08A68D| BNE .proceed_to_draw
 
-#_08A68F: LDA.l $7F0008,X
-#_08A693: CMP.b #$02
-#_08A695: BNE .proceed_to_draw
+|08A68F| LDA.l $7F0008,X
+|08A693| CMP.b #$02
+|08A695| BNE .proceed_to_draw
 
-#_08A697: LDX.w $0380
+|08A697| LDX.w $0380
 
-#_08A69A: LDA.w $0C5E
-#_08A69D: INC A
-#_08A69E: CMP.b #$07
-#_08A6A0: BCC .reset_inactive_component
+|08A69A| LDA.w $0C5E
+|08A69D| INC A
+|08A69E| CMP.b #$07
+|08A6A0| BCC .reset_inactive_component
 
-#_08A6A2: BRL AncillaDraw_BlastWallExplosion
+|08A6A2| BRL AncillaDraw_BlastWallExplosion
 
 ;---------------------------------------------------------------------------------------------------
 
 .reset_inactive_component
-#_08A6A5: STA.w $0C5E
+|08A6A5| STA.w $0C5E
 
-#_08A6A8: LDA.b #$01
-#_08A6AA: STA.l $7F0000,X
+|08A6A8| LDA.b #$01
+|08A6AA| STA.l $7F0000,X
 
-#_08A6AE: LDA.b #$03
-#_08A6B0: STA.l $7F0008,X
+|08A6AE| LDA.b #$03
+|08A6B0| STA.l $7F0008,X
 
-#_08A6B4: PHX
+|08A6B4| PHX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A6B5: LDA.b #$03
-#_08A6B7: STA.b $06
+|08A6B5| LDA.b #$03
+|08A6B7| STA.b $06
 
 .next_position
-#_08A6B9: STZ.b $00
-#_08A6BB: STZ.b $01
-#_08A6BD: STZ.b $02
-#_08A6BF: STZ.b $03
+|08A6B9| STZ.b $00
+|08A6BB| STZ.b $01
+|08A6BD| STZ.b $02
+|08A6BF| STZ.b $03
 
-#_08A6C1: STX.b $04
+|08A6C1| STX.b $04
 
-#_08A6C3: LDX.b #$00
+|08A6C3| LDX.b #$00
 
-#_08A6C5: LDA.l $7F001C
-#_08A6C9: CMP.b #$04
-#_08A6CB: BCS .diverge_v
+|08A6C5| LDA.l $7F001C
+|08A6C9| CMP.b #$04
+|08A6CB| BCS .diverge_v
 
-#_08A6CD: LDX.b #$02
+|08A6CD| LDX.b #$02
 
 .diverge_v
-#_08A6CF: LDA.b #$0D
-#_08A6D1: STA.b $00,X
+|08A6CF| LDA.b #$0D
+|08A6D1| STA.b $00,X
 
-#_08A6D3: LDA.b $06
-#_08A6D5: AND.b #$02
-#_08A6D7: BEQ .dont_invert
+|08A6D3| LDA.b $06
+|08A6D5| AND.b #$02
+|08A6D7| BEQ .dont_invert
 
-#_08A6D9: LDA.b $00,X
-#_08A6DB: EOR.b #$FF
-#_08A6DD: INC A
-#_08A6DE: STA.b $00,X
+|08A6D9| LDA.b $00,X
+|08A6DB| EOR.b #$FF
+|08A6DD| INC A
+|08A6DE| STA.b $00,X
 
-#_08A6E0: LDA.b #$FF
-#_08A6E2: STA.b $01,X
+|08A6E0| LDA.b #$FF
+|08A6E2| STA.b $01,X
 
 .dont_invert
-#_08A6E4: LDA.b $04
-#_08A6E6: ASL A
-#_08A6E7: ASL A
-#_08A6E8: ASL A
-#_08A6E9: STA.b $08
+|08A6E4| LDA.b $04
+|08A6E6| ASL A
+|08A6E7| ASL A
+|08A6E8| ASL A
+|08A6E9| STA.b $08
 
-#_08A6EB: LDA.b $06
-#_08A6ED: ASL A
-#_08A6EE: CLC
-#_08A6EF: ADC.b $08
-#_08A6F1: TAX
+|08A6EB| LDA.b $06
+|08A6ED| ASL A
+|08A6EE| CLC
+|08A6EF| ADC.b $08
+|08A6F1| TAX
 
-#_08A6F2: REP #$20
+|08A6F2| REP #$20
 
-#_08A6F4: LDA.l $7F0020,X
-#_08A6F8: CLC
-#_08A6F9: ADC.b $00
-#_08A6FB: STA.l $7F0020,X
+|08A6F4| LDA.l $7F0020,X
+|08A6F8| CLC
+|08A6F9| ADC.b $00
+|08A6FB| STA.l $7F0020,X
 
-#_08A6FF: LDA.l $7F0030,X
-#_08A703: CLC
-#_08A704: ADC.b $02
-#_08A706: STA.l $7F0030,X
+|08A6FF| LDA.l $7F0030,X
+|08A703| CLC
+|08A704| ADC.b $02
+|08A706| STA.l $7F0030,X
 
-#_08A70A: SEC
-#_08A70B: SBC.b $E2
-#_08A70D: STA.b $72
+|08A70A| SEC
+|08A70B| SBC.b $E2
+|08A70D| STA.b $72
 
-#_08A70F: SEP #$20
+|08A70F| SEP #$20
 
-#_08A711: LDA.b $73
-#_08A713: BNE .no_sfx
+|08A711| LDA.b $73
+|08A713| BNE .no_sfx
 
-#_08A715: LDA.b $72
-#_08A717: JSR Ancilla_SetPanRelativeCoordinates
-#_08A71A: ORA.b #$0C ; SFX2.0C
-#_08A71C: STA.w $012E
+|08A715| LDA.b $72
+|08A717| JSR Ancilla_SetPanRelativeCoordinates
+|08A71A| ORA.b #$0C ; SFX2.0C
+|08A71C| STA.w $012E
 
 .no_sfx
-#_08A71F: LDX.b $04
+|08A71F| LDX.b $04
 
-#_08A721: DEC.b $06
-#_08A723: BPL .next_position
+|08A721| DEC.b $06
+|08A723| BPL .next_position
 
-#_08A725: PLX
+|08A725| PLX
 
 ;===================================================================================================
 
 AncillaDraw_BlastWallExplosion:
-#_08A726: LDX.w $0380
+|08A726| LDX.w $0380
 
-#_08A729: LDA.l $7F0000,X
-#_08A72D: BEQ .dont_draw
+|08A729| LDA.l $7F0000,X
+|08A72D| BEQ .dont_draw
 
-#_08A72F: LDY.b #$07
+|08A72F| LDY.b #$07
 
-#_08A731: CPX.b #$01
-#_08A733: BEQ .next_object
+|08A731| CPX.b #$01
+|08A733| BEQ .next_object
 
-#_08A735: LDY.b #$03
+|08A735| LDY.b #$03
 
 .next_object
-#_08A737: PHY
-#_08A738: PHX
+|08A737| PHY
+|08A738| PHX
 
-#_08A739: TYA
-#_08A73A: ASL A
-#_08A73B: TAX
+|08A739| TYA
+|08A73A| ASL A
+|08A73B| TAX
 
-#_08A73C: REP #$20
+|08A73C| REP #$20
 
-#_08A73E: LDA.l $7F0020,X
-#_08A742: STA.b $00
+|08A73E| LDA.l $7F0020,X
+|08A742| STA.b $00
 
-#_08A744: LDA.l $7F0030,X
-#_08A748: STA.b $02
+|08A744| LDA.l $7F0030,X
+|08A748| STA.b $02
 
-#_08A74A: SEP #$20
+|08A74A| SEP #$20
 
-#_08A74C: PLX
-#_08A74D: PLY
+|08A74C| PLX
+|08A74D| PLY
 
-#_08A74E: JSR AncillaDraw_BlastWallBlast
+|08A74E| JSR AncillaDraw_BlastWallBlast
 
-#_08A751: SEP #$20
+|08A751| SEP #$20
 
-#_08A753: DEY
-#_08A754: TYA
-#_08A755: AND.b #$03
-#_08A757: CMP.b #$03
-#_08A759: BNE .next_object
+|08A753| DEY
+|08A754| TYA
+|08A755| AND.b #$03
+|08A757| CMP.b #$03
+|08A759| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_draw
-#_08A75B: LDA.w $0C5E
-#_08A75E: CMP.b #$06
-#_08A760: BNE Ancilla_RestoreIndex
+|08A75B| LDA.w $0C5E
+|08A75E| CMP.b #$06
+|08A760| BNE Ancilla_RestoreIndex
 
-#_08A762: LDX.b #$01
+|08A762| LDX.b #$01
 
 ; Look for an active component
 .next_check
-#_08A764: LDA.l $7F0000,X
-#_08A768: BNE Ancilla_RestoreIndex
+|08A764| LDA.l $7F0000,X
+|08A768| BNE Ancilla_RestoreIndex
 
-#_08A76A: DEX
-#_08A76B: BPL .next_check
+|08A76A| DEX
+|08A76B| BPL .next_check
 
 ; Die if there are none
-#_08A76D: STZ.w $0C4A
-#_08A770: STZ.w $0C4B
+|08A76D| STZ.w $0C4A
+|08A770| STZ.w $0C4B
 
-#_08A773: STZ.w $0112
+|08A773| STZ.w $0112
 
 ;===================================================================================================
 ; Just gets the index back...
 ; This is 100% unnecessary and a waste of cycles and memory
 ;===================================================================================================
 Ancilla_RestoreIndex:
-#_08A776: LDX.w $0FA0
+|08A776| LDX.w $0FA0
 
-#_08A779: RTS
+|08A779| RTS
 
 ;===================================================================================================
 
 AncillaDraw_BlastWallBlast:
-#_08A77A: PHX
-#_08A77B: PHY
+|08A77A| PHX
+|08A77B| PHY
 
-#_08A77C: LDA.b #$30
-#_08A77E: STA.b $65
-#_08A780: STZ.b $64
+|08A77C| LDA.b #$30
+|08A77E| STA.b $65
+|08A780| STZ.b $64
 
-#_08A782: LDA.l $7F0000,X
-#_08A786: TAY
+|08A782| LDA.l $7F0000,X
+|08A786| TAY
 
-#_08A787: LDA.w BombDraw_object_count,Y
-#_08A78A: STA.b $08
+|08A787| LDA.w BombDraw.object_count,Y
+|08A78A| STA.b $08
 
-#_08A78C: LDA.w Bomb_anim_step,Y
-#_08A78F: TAY
+|08A78C| LDA.w BombAnimationSteps,Y
+|08A78F| TAY
 
-#_08A790: LDA.w BombDraw_data_offset,Y
-#_08A793: ASL A
-#_08A794: TAX
+|08A790| LDA.w BombDraw.data_offset,Y
+|08A793| ASL A
+|08A794| TAX
 
-#_08A795: ASL A
-#_08A796: STA.b $04
-#_08A798: STZ.b $05
+|08A795| ASL A
+|08A796| STA.b $04
+|08A798| STZ.b $05
 
-#_08A79A: STZ.b $0A
+|08A79A| STZ.b $0A
 
-#_08A79C: LDA.b #$32
-#_08A79E: STA.b $0B
+|08A79C| LDA.b #$32
+|08A79E| STA.b $0B
 
-#_08A7A0: STZ.b $06
-#_08A7A2: STZ.b $07
+|08A7A0| STZ.b $06
+|08A7A2| STZ.b $07
 
-#_08A7A4: LDA.b #$18
+|08A7A4| LDA.b #$18
 
-#_08A7A6: LDY.w $0FB3
-#_08A7A9: BEQ .use_region_a
+|08A7A6| LDY.w $0FB3
+|08A7A9| BEQ .use_region_a
 
-#_08A7AB: JSL AllocateOAMInRegionD
+|08A7AB| JSL AllocateOAMInRegionD
 
-#_08A7AF: BRA .continue
+|08A7AF| BRA .continue
 
 .use_region_a
-#_08A7B1: JSL AllocateOAMInRegionA
+|08A7B1| JSL AllocateOAMInRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08A7B5: REP #$20
+|08A7B5| REP #$20
 
-#_08A7B7: LDA.b $00
-#_08A7B9: SEC
-#_08A7BA: SBC.b $E8
-#_08A7BC: STA.b $0C
+|08A7B7| LDA.b $00
+|08A7B9| SEC
+|08A7BA| SBC.b $E8
+|08A7BC| STA.b $0C
 
-#_08A7BE: LDA.b $02
-#_08A7C0: SEC
-#_08A7C1: SBC.b $E2
-#_08A7C3: STA.b $0E
+|08A7BE| LDA.b $02
+|08A7C0| SEC
+|08A7C1| SBC.b $E2
+|08A7C3| STA.b $0E
 
-#_08A7C5: SEP #$20
+|08A7C5| SEP #$20
 
-#_08A7C7: LDY.b #$00
-#_08A7C9: JSR AncillaDraw_Explosion
+|08A7C7| LDY.b #$00
+|08A7C9| JSR AncillaDraw_Explosion
 
-#_08A7CC: PLY
-#_08A7CD: PLX
+|08A7CC| PLY
+|08A7CD| PLX
 
-#_08A7CE: RTS
+|08A7CE| RTS
 
 ;===================================================================================================
 
 AncillaDraw_Explosion:
 .next_object
-#_08A7CF: LDA.w BombDraw_char_and_prop,X
-#_08A7D2: CMP.b #$FF
-#_08A7D4: BEQ .skip
+|08A7CF| LDA.w BombDraw.char_and_prop,X
+|08A7D2| CMP.b #$FF
+|08A7D4| BEQ .skip
 
-#_08A7D6: STX.b $72
+|08A7D6| STX.b $72
 
-#_08A7D8: REP #$20
+|08A7D8| REP #$20
 
-#_08A7DA: STZ.b $74
+|08A7DA| STZ.b $74
 
-#_08A7DC: LDA.b $06
-#_08A7DE: ASL A
-#_08A7DF: ASL A
-#_08A7E0: CLC
-#_08A7E1: ADC.b $04
-#_08A7E3: TAX
+|08A7DC| LDA.b $06
+|08A7DE| ASL A
+|08A7DF| ASL A
+|08A7E0| CLC
+|08A7E1| ADC.b $04
+|08A7E3| TAX
 
-#_08A7E4: LDA.w BombDraw_offset+0,X
-#_08A7E7: CLC
-#_08A7E8: ADC.b $0C
-#_08A7EA: STA.b $00
+|08A7E4| LDA.w BombDraw.offset+0,X
+|08A7E7| CLC
+|08A7E8| ADC.b $0C
+|08A7EA| STA.b $00
 
-#_08A7EC: LDA.w BombDraw_offset+2,X
-#_08A7EF: CLC
-#_08A7F0: ADC.b $0E
-#_08A7F2: STA.b $02
+|08A7EC| LDA.w BombDraw.offset+2,X
+|08A7EF| CLC
+|08A7F0| ADC.b $0E
+|08A7F2| STA.b $02
 
-#_08A7F4: SEP #$20
+|08A7F4| SEP #$20
 
-#_08A7F6: LDX.b $72
+|08A7F6| LDX.b $72
 
-#_08A7F8: JSR Ancilla_SetOAM_XY_safe
+|08A7F8| JSR Ancilla_SetOAM_XY_safe
 
-#_08A7FB: LDA.w BombDraw_char_and_prop+0,X
-#_08A7FE: STA.b ($90),Y
+|08A7FB| LDA.w BombDraw.char_and_prop+0,X
+|08A7FE| STA.b ($90),Y
 
-#_08A800: INY
+|08A800| INY
 
-#_08A801: LDA.w BombDraw_char_and_prop+1,X
-#_08A804: AND.b #$C1
-#_08A806: ORA.b $65
-#_08A808: ORA.b $0B
-#_08A80A: STA.b ($90),Y
+|08A801| LDA.w BombDraw.char_and_prop+1,X
+|08A804| AND.b #$C1
+|08A806| ORA.b $65
+|08A808| ORA.b $0B
+|08A80A| STA.b ($90),Y
 
-#_08A80C: INY
-#_08A80D: STY.b $72
-#_08A80F: STX.b $73
+|08A80C| INY
+|08A80D| STY.b $72
+|08A80F| STX.b $73
 
-#_08A811: TYA
-#_08A812: SEC
-#_08A813: SBC.b #$04
-#_08A815: LSR A
-#_08A816: LSR A
-#_08A817: TAY
+|08A811| TYA
+|08A812| SEC
+|08A813| SBC.b #$04
+|08A815| LSR A
+|08A816| LSR A
+|08A817| TAY
 
-#_08A818: TXA
-#_08A819: LSR A
-#_08A81A: TAX
+|08A818| TXA
+|08A819| LSR A
+|08A81A| TAX
 
-#_08A81B: LDA.w BombDraw_oam_size,X
-#_08A81E: ORA.b $75
+|08A81B| LDA.w BombDraw.oam_size,X
+|08A81E| ORA.b $75
 
-#_08A820: STA.b ($92),Y
+|08A820| STA.b ($92),Y
 
-#_08A822: LDX.b $73
-#_08A824: LDY.b $72
+|08A822| LDX.b $73
+|08A824| LDY.b $72
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08A826: INX
-#_08A827: INX
+|08A826| INX
+|08A827| INX
 
-#_08A828: INC.b $06
+|08A828| INC.b $06
 
-#_08A82A: LDA.b $06
-#_08A82C: CMP.b $08
-#_08A82E: BNE .next_object
+|08A82A| LDA.b $06
+|08A82C| CMP.b $08
+|08A82E| BNE .next_object
 
-#_08A830: RTS
+|08A830| RTS
 
 ;===================================================================================================
 ; Ancilla 14 points here, but it is clearly unused.
@@ -8237,185 +8237,185 @@ AncillaDraw_Explosion:
 ; 08A838: LDA.b ($03),Y
 ;===================================================================================================
 JumpSplash_char:
-#_08A831: db $AC, $AE
+|08A831| db $AC, $AE
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla15_JumpSplash:
-#_08A833: LDA.b $11
-#_08A835: BNE AncillaDraw_JumpSplash
+|08A833| LDA.b $11
+|08A835| BNE AncillaDraw_JumpSplash
 
-#_08A837: DEC.w $03B1,X
-#_08A83A: BPL .delay
+|08A837| DEC.w $03B1,X
+|08A83A| BPL .delay
 
-#_08A83C: STZ.w $03B1,X
+|08A83C| STZ.w $03B1,X
 
-#_08A83F: LDA.b #$01
-#_08A841: STA.w $0C5E,X
+|08A83F| LDA.b #$01
+|08A841| STA.w $0C5E,X
 
 .delay
-#_08A844: LDA.w $0C5E,X
-#_08A847: BEQ AncillaDraw_JumpSplash
+|08A844| LDA.w $0C5E,X
+|08A847| BEQ AncillaDraw_JumpSplash
 
-#_08A849: LDA.w $0C22,X
-#_08A84C: CLC
-#_08A84D: ADC.b #$FC
-#_08A84F: STA.w $0C22,X
-#_08A852: STA.w $0C2C,X
+|08A849| LDA.w $0C22,X
+|08A84C| CLC
+|08A84D| ADC.b #$FC
+|08A84F| STA.w $0C22,X
+|08A852| STA.w $0C2C,X
 
-#_08A855: CMP.b #$E8
-#_08A857: BCS .speed_not_maxed
+|08A855| CMP.b #$E8
+|08A857| BCS .speed_not_maxed
 
-#_08A859: STZ.w $0C4A,X
+|08A859| STZ.w $0C4A,X
 
-#_08A85C: LDA.w $02E0
-#_08A85F: BNE .am_bunny
+|08A85C| LDA.w $02E0
+|08A85F| BNE .am_bunny
 
-#_08A861: LDA.b $5D
-#_08A863: CMP.b #$04 ; LINKSTATE 04
-#_08A865: BNE .exit
+|08A861| LDA.b $5D
+|08A863| CMP.b #$04 ; LINKSTATE 04
+|08A865| BNE .exit
 
 .am_bunny
-#_08A867: LDA.w $0345
-#_08A86A: BEQ .exit
+|08A867| LDA.w $0345
+|08A86A| BEQ .exit
 
-#_08A86C: PHX
-#_08A86D: JSL CheckAbilityToSwim
-#_08A871: PLX
+|08A86C| PHX
+|08A86D| JSL CheckAbilityToSwim
+|08A871| PLX
 
 .exit
-#_08A872: RTS
+|08A872| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .speed_not_maxed
-#_08A873: JSR AncillaMoveY
-#_08A876: JSR AncillaMoveX
+|08A873| JSR AncillaMoveY
+|08A876| JSR AncillaMoveX
 
 ;===================================================================================================
 
 AncillaDraw_JumpSplash:
-#_08A879: JSR Ancilla_PrepOAMCoord
+|08A879| JSR Ancilla_PrepOAMCoord
 
-#_08A87C: LDA.w $0C04,X
-#_08A87F: STA.b $06
+|08A87C| LDA.w $0C04,X
+|08A87F| STA.b $06
 
-#_08A881: LDA.w $0C18,X
-#_08A884: STA.b $07
+|08A881| LDA.w $0C18,X
+|08A884| STA.b $07
 
-#_08A886: REP #$20
+|08A886| REP #$20
 
-#_08A888: LDA.b $22
-#_08A88A: SEC
-#_08A88B: SBC.b $06
-#_08A88D: STA.b $08
+|08A888| LDA.b $22
+|08A88A| SEC
+|08A88B| SBC.b $06
+|08A88D| STA.b $08
 
-#_08A88F: LDA.b $22
-#_08A891: CLC
-#_08A892: ADC.b $08
-#_08A894: SEC
-#_08A895: SBC.b $E2
-#_08A897: STA.b $08
+|08A88F| LDA.b $22
+|08A891| CLC
+|08A892| ADC.b $08
+|08A894| SEC
+|08A895| SBC.b $E2
+|08A897| STA.b $08
 
-#_08A899: LDA.b $06
-#_08A89B: CLC
-#_08A89C: ADC.w #$000C
-#_08A89F: SEC
-#_08A8A0: SBC.b $E2
-#_08A8A2: STA.b $06
+|08A899| LDA.b $06
+|08A89B| CLC
+|08A89C| ADC.w #$000C
+|08A89F| SEC
+|08A8A0| SBC.b $E2
+|08A8A2| STA.b $06
 
-#_08A8A4: SEP #$20
+|08A8A4| SEP #$20
 
-#_08A8A6: PHX
+|08A8A6| PHX
 
-#_08A8A7: LDA.w $0C5E,X
-#_08A8AA: STA.b $0A
+|08A8A7| LDA.w $0C5E,X
+|08A8AA| STA.b $0A
 
-#_08A8AC: TAX
+|08A8AC| TAX
 
-#_08A8AD: LDA.b #$01
-#_08A8AF: STA.b $72
+|08A8AD| LDA.b #$01
+|08A8AF| STA.b $72
 
-#_08A8B1: LDY.b #$00
-#_08A8B3: STY.b $0C
+|08A8B1| LDY.b #$00
+|08A8B3| STY.b $0C
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_object
-#_08A8B5: JSR Ancilla_SetOAM_XY
+|08A8B5| JSR Ancilla_SetOAM_XY
 
-#_08A8B8: LDA.w JumpSplash_char,X
-#_08A8BB: STA.b ($90),Y
+|08A8B8| LDA.w JumpSplash_char,X
+|08A8BB| STA.b ($90),Y
 
-#_08A8BD: INY
+|08A8BD| INY
 
-#_08A8BE: LDA.b #$24
-#_08A8C0: ORA.b $0C
-#_08A8C2: STA.b ($90),Y
+|08A8BE| LDA.b #$24
+|08A8C0| ORA.b $0C
+|08A8C2| STA.b ($90),Y
 
-#_08A8C4: INY
-#_08A8C5: PHY
+|08A8C4| INY
+|08A8C5| PHY
 
-#_08A8C6: TYA
-#_08A8C7: SEC
-#_08A8C8: SBC.b #$04
-#_08A8CA: LSR A
-#_08A8CB: LSR A
-#_08A8CC: TAY
+|08A8C6| TYA
+|08A8C7| SEC
+|08A8C8| SBC.b #$04
+|08A8CA| LSR A
+|08A8CB| LSR A
+|08A8CC| TAY
 
-#_08A8CD: LDA.b #$02
-#_08A8CF: STA.b ($92),Y
+|08A8CD| LDA.b #$02
+|08A8CF| STA.b ($92),Y
 
-#_08A8D1: PLY
+|08A8D1| PLY
 
-#_08A8D2: JSR AllocateOAMInCustomRegion
+|08A8D2| JSR AllocateOAMInCustomRegion
 
-#_08A8D5: LDA.b $08
-#_08A8D7: STA.b $02
+|08A8D5| LDA.b $08
+|08A8D7| STA.b $02
 
-#_08A8D9: LDA.b #$40
-#_08A8DB: STA.b $0C
+|08A8D9| LDA.b #$40
+|08A8DB| STA.b $0C
 
-#_08A8DD: DEC.b $72
-#_08A8DF: BPL .next_object
+|08A8DD| DEC.b $72
+|08A8DF| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A8E1: LDA.b $06
-#_08A8E3: STA.b $02
+|08A8E1| LDA.b $06
+|08A8E3| STA.b $02
 
-#_08A8E5: JSR Ancilla_SetOAM_XY
+|08A8E5| JSR Ancilla_SetOAM_XY
 
-#_08A8E8: LDA.b #$C0
-#_08A8EA: STA.b ($90),Y
+|08A8E8| LDA.b #$C0
+|08A8EA| STA.b ($90),Y
 
-#_08A8EC: INY
-#_08A8ED: LDA.b #$24
-#_08A8EF: STA.b ($90),Y
+|08A8EC| INY
+|08A8ED| LDA.b #$24
+|08A8EF| STA.b ($90),Y
 
-#_08A8F1: INY
-#_08A8F2: TYA
+|08A8F1| INY
+|08A8F2| TYA
 
-#_08A8F3: SEC
-#_08A8F4: SBC.b #$04
+|08A8F3| SEC
+|08A8F4| SBC.b #$04
 
-#_08A8F6: LSR A
-#_08A8F7: LSR A
-#_08A8F8: TAY
+|08A8F6| LSR A
+|08A8F7| LSR A
+|08A8F8| TAY
 
-#_08A8F9: LDA.b #$02
-#_08A8FB: STA.b ($92),Y
+|08A8F9| LDA.b #$02
+|08A8FB| STA.b ($92),Y
 
-#_08A8FD: LDA.b $0A
-#_08A8FF: CMP.b #$01
-#_08A901: BNE .exit
+|08A8FD| LDA.b $0A
+|08A8FF| CMP.b #$01
+|08A901| BNE .exit
 
-#_08A903: STA.b ($92),Y
+|08A903| STA.b ($92),Y
 
 .exit
-#_08A905: PLX
+|08A905| PLX
 
-#_08A906: RTS
+|08A906| RTS
 
 ;===================================================================================================
 ; Ancilla 25 points here, but it is clearly unused.
@@ -8433,153 +8433,153 @@ AncillaDraw_JumpSplash:
 ; 08A89E: BRK #$38
 ;---------------------------------------------------------------------------------------------------
 HitStar_char:
-#_08A907: db $90, $91
+|08A907| db $90, $91
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla16_HitStars:
-#_08A909: DEC.w $039F,X
-#_08A90C: BMI .continue
+|08A909| DEC.w $039F,X
+|08A90C| BMI .continue
 
-#_08A90E: RTS
+|08A90E| RTS
 
 .continue
-#_08A90F: STZ.w $039F,X
+|08A90F| STZ.w $039F,X
 
-#_08A912: LDA.b $11
-#_08A914: BNE AncillaDraw_HitStars
+|08A912| LDA.b $11
+|08A914| BNE AncillaDraw_HitStars
 
-#_08A916: DEC.w $03B1,X
-#_08A919: BPL .delay
+|08A916| DEC.w $03B1,X
+|08A919| BPL .delay
 
-#_08A91B: STZ.w $03B1,X
+|08A91B| STZ.w $03B1,X
 
-#_08A91E: LDA.b #$01
-#_08A920: STA.w $0C5E,X
+|08A91E| LDA.b #$01
+|08A920| STA.w $0C5E,X
 
 .delay
-#_08A923: LDA.w $0C5E,X
-#_08A926: BEQ AncillaDraw_HitStars
+|08A923| LDA.w $0C5E,X
+|08A926| BEQ AncillaDraw_HitStars
 
-#_08A928: LDA.w $0C22,X
-#_08A92B: CLC
-#_08A92C: ADC.b #$FC
-#_08A92E: STA.w $0C22,X
-#_08A931: STA.w $0C2C,X
+|08A928| LDA.w $0C22,X
+|08A92B| CLC
+|08A92C| ADC.b #$FC
+|08A92E| STA.w $0C22,X
+|08A931| STA.w $0C2C,X
 
-#_08A934: CMP.b #$E8
-#_08A936: BCS .dont_die
+|08A934| CMP.b #$E8
+|08A936| BCS .dont_die
 
-#_08A938: STZ.w $0C4A,X
+|08A938| STZ.w $0C4A,X
 
-#_08A93B: RTS
+|08A93B| RTS
 
 .dont_die
-#_08A93C: JSR AncillaMoveY
-#_08A93F: JSR AncillaMoveX
+|08A93C| JSR AncillaMoveY
+|08A93F| JSR AncillaMoveX
 
 ;===================================================================================================
 
 AncillaDraw_HitStars:
-#_08A942: JSR Ancilla_PrepOAMCoord
+|08A942| JSR Ancilla_PrepOAMCoord
 
-#_08A945: LDA.w $0C04,X
-#_08A948: STA.b $06
+|08A945| LDA.w $0C04,X
+|08A948| STA.b $06
 
-#_08A94A: LDA.w $0C18,X
-#_08A94D: STA.b $07
+|08A94A| LDA.w $0C18,X
+|08A94D| STA.b $07
 
-#_08A94F: LDA.w $038A,X
-#_08A952: STA.b $72
+|08A94F| LDA.w $038A,X
+|08A952| STA.b $72
 
-#_08A954: LDA.w $038F,X
-#_08A957: STA.b $73
+|08A954| LDA.w $038F,X
+|08A957| STA.b $73
 
-#_08A959: REP #$20
+|08A959| REP #$20
 
-#_08A95B: LDA.b $72
-#_08A95D: SEC
-#_08A95E: SBC.b $06
-#_08A960: STA.b $08
+|08A95B| LDA.b $72
+|08A95D| SEC
+|08A95E| SBC.b $06
+|08A960| STA.b $08
 
-#_08A962: LDA.b $72
-#_08A964: CLC
-#_08A965: ADC.b $08
-#_08A967: SEC
-#_08A968: SBC.w #$0008
-#_08A96B: SEC
-#_08A96C: SBC.b $E2
-#_08A96E: STA.b $08
+|08A962| LDA.b $72
+|08A964| CLC
+|08A965| ADC.b $08
+|08A967| SEC
+|08A968| SBC.w #$0008
+|08A96B| SEC
+|08A96C| SBC.b $E2
+|08A96E| STA.b $08
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A970: SEP #$20
+|08A970| SEP #$20
 
-#_08A972: LDA.w $0C54,X
-#_08A975: CMP.b #$02
-#_08A977: BNE .leave_allocation_alone
+|08A972| LDA.w $0C54,X
+|08A975| CMP.b #$02
+|08A977| BNE .leave_allocation_alone
 
-#_08A979: LDA.b #$08
-#_08A97B: JSR AllocateOAMInRegionsBE
+|08A979| LDA.b #$08
+|08A97B| JSR AllocateOAMInRegionsBE
 
 .leave_allocation_alone
-#_08A97E: PHX
+|08A97E| PHX
 
-#_08A97F: LDA.b #$01
-#_08A981: STA.b $72
+|08A97F| LDA.b #$01
+|08A981| STA.b $72
 
-#_08A983: LDA.w $0C5E,X
-#_08A986: TAX
+|08A983| LDA.w $0C5E,X
+|08A986| TAX
 
-#_08A987: LDY.b #$00
-#_08A989: STY.b $73
+|08A987| LDY.b #$00
+|08A989| STY.b $73
 
 .next_object
-#_08A98B: JSR Ancilla_SetOAM_XY
+|08A98B| JSR Ancilla_SetOAM_XY
 
-#_08A98E: LDA.w HitStar_char,X
-#_08A991: STA.b ($90),Y
+|08A98E| LDA.w HitStar_char,X
+|08A991| STA.b ($90),Y
 
-#_08A993: INY
+|08A993| INY
 
-#_08A994: LDA.b #$04
-#_08A996: ORA.b $65
-#_08A998: ORA.b $73
-#_08A99A: STA.b ($90),Y
+|08A994| LDA.b #$04
+|08A996| ORA.b $65
+|08A998| ORA.b $73
+|08A99A| STA.b ($90),Y
 
-#_08A99C: INY
+|08A99C| INY
 
-#_08A99D: PHY
-#_08A99E: TYA
+|08A99D| PHY
+|08A99E| TYA
 
-#_08A99F: SEC
-#_08A9A0: SBC.b #$04
+|08A99F| SEC
+|08A9A0| SBC.b #$04
 
-#_08A9A2: LSR A
-#_08A9A3: LSR A
-#_08A9A4: TAY
+|08A9A2| LSR A
+|08A9A3| LSR A
+|08A9A4| TAY
 
-#_08A9A5: LDA.b #$00
-#_08A9A7: STA.b ($92),Y
+|08A9A5| LDA.b #$00
+|08A9A7| STA.b ($92),Y
 
-#_08A9A9: PLY
+|08A9A9| PLY
 
-#_08A9AA: JSR HitStars_UpdateOAMBufferPosition
+|08A9AA| JSR HitStars_UpdateOAMBufferPosition
 
-#_08A9AD: LDA.b #$40
-#_08A9AF: STA.b $73
+|08A9AD| LDA.b #$40
+|08A9AF| STA.b $73
 
-#_08A9B1: LDA.b $08
-#_08A9B3: STA.b $02
+|08A9B1| LDA.b $08
+|08A9B3| STA.b $02
 
-#_08A9B5: DEC.b $72
-#_08A9B7: BPL .next_object
+|08A9B5| DEC.b $72
+|08A9B7| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08A9B9: PLX
+|08A9B9| PLX
 
-#_08A9BA: RTS
+|08A9BA| RTS
 
 ;===================================================================================================
 
@@ -8587,1850 +8587,1850 @@ pool Ancilla17_ShovelDirt
 
 .offset
 ; group00
-#_08A9BB: dw  18, -13
-#_08A9BF: dw  -9,   4
+|08A9BB| dw  18, -13
+|08A9BF| dw  -9,   4
 
 ; group01
-#_08A9C3: dw  18,  13
-#_08A9C7: dw  -9, -11
+|08A9C3| dw  18,  13
+|08A9C7| dw  -9, -11
 
 .char
-#_08A9CB: db $40
-#_08A9CC: db $50
+|08A9CB| db $40
+|08A9CC| db $50
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla17_ShovelDirt:
-#_08A9CD: JSR Ancilla_PrepOAMCoord
+|08A9CD| JSR Ancilla_PrepOAMCoord
 
-#_08A9D0: LDA.w $0C68,X
-#_08A9D3: BNE .dont_terminate
+|08A9D0| LDA.w $0C68,X
+|08A9D3| BNE .dont_terminate
 
-#_08A9D5: LDA.b #$08
-#_08A9D7: STA.w $0C68,X
+|08A9D5| LDA.b #$08
+|08A9D7| STA.w $0C68,X
 
-#_08A9DA: INC.w $0C5E,X
+|08A9DA| INC.w $0C5E,X
 
-#_08A9DD: LDA.w $0C5E,X
-#_08A9E0: CMP.b #$02
-#_08A9E2: BNE .dont_terminate
+|08A9DD| LDA.w $0C5E,X
+|08A9E0| CMP.b #$02
+|08A9E2| BNE .dont_terminate
 
-#_08A9E4: STZ.w $0C4A,X
+|08A9E4| STZ.w $0C4A,X
 
-#_08A9E7: RTS
+|08A9E7| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_terminate
-#_08A9E8: LDA.w $0C5E,X
-#_08A9EB: STA.b $0A
+|08A9E8| LDA.w $0C5E,X
+|08A9EB| STA.b $0A
 
-#_08A9ED: ASL A
-#_08A9EE: ASL A
-#_08A9EF: STA.b $08
+|08A9ED| ASL A
+|08A9EE| ASL A
+|08A9EF| STA.b $08
 
-#_08A9F1: LDY.b #$00
+|08A9F1| LDY.b #$00
 
-#_08A9F3: LDA.b $2F
-#_08A9F5: CMP.b #$04
-#_08A9F7: BEQ .facing_left
+|08A9F3| LDA.b $2F
+|08A9F5| CMP.b #$04
+|08A9F7| BEQ .facing_left
 
-#_08A9F9: LDY.b #$08
+|08A9F9| LDY.b #$08
 
 .facing_left
-#_08A9FB: TYA
-#_08A9FC: CLC
-#_08A9FD: ADC.b $08
-#_08A9FF: TAY
+|08A9FB| TYA
+|08A9FC| CLC
+|08A9FD| ADC.b $08
+|08A9FF| TAY
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AA00: REP #$20
+|08AA00| REP #$20
 
-#_08AA02: LDA.w .offset+0,Y
-#_08AA05: CLC
-#_08AA06: ADC.b $00
-#_08AA08: STA.b $00
+|08AA02| LDA.w .offset+0,Y
+|08AA05| CLC
+|08AA06| ADC.b $00
+|08AA08| STA.b $00
 
-#_08AA0A: LDA.w .offset+2,Y
-#_08AA0D: CLC
-#_08AA0E: ADC.b $02
-#_08AA10: STA.b $02
+|08AA0A| LDA.w .offset+2,Y
+|08AA0D| CLC
+|08AA0E| ADC.b $02
+|08AA10| STA.b $02
 
-#_08AA12: CLC
-#_08AA13: ADC.w #$0008
-#_08AA16: STA.b $04
+|08AA12| CLC
+|08AA13| ADC.w #$0008
+|08AA16| STA.b $04
 
-#_08AA18: SEP #$20
+|08AA18| SEP #$20
 
-#_08AA1A: PHX
+|08AA1A| PHX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AA1B: LDY.b #$00
-#_08AA1D: STY.b $72
+|08AA1B| LDY.b #$00
+|08AA1D| STY.b $72
 
 .next_object
-#_08AA1F: JSR Ancilla_SetOAM_XY
+|08AA1F| JSR Ancilla_SetOAM_XY
 
-#_08AA22: LDX.b $0A
+|08AA22| LDX.b $0A
 
-#_08AA24: LDA.w .char,X
-#_08AA27: CLC
-#_08AA28: ADC.b $72
-#_08AA2A: STA.b ($90),Y
+|08AA24| LDA.w .char,X
+|08AA27| CLC
+|08AA28| ADC.b $72
+|08AA2A| STA.b ($90),Y
 
-#_08AA2C: INY
+|08AA2C| INY
 
-#_08AA2D: LDA.b #$04
-#_08AA2F: ORA.b $65
-#_08AA31: STA.b ($90),Y
+|08AA2D| LDA.b #$04
+|08AA2F| ORA.b $65
+|08AA31| STA.b ($90),Y
 
-#_08AA33: INY
-#_08AA34: PHY
+|08AA33| INY
+|08AA34| PHY
 
-#_08AA35: TYA
-#_08AA36: SEC
-#_08AA37: SBC.b #$04
-#_08AA39: LSR A
-#_08AA3A: LSR A
-#_08AA3B: TAY
+|08AA35| TYA
+|08AA36| SEC
+|08AA37| SBC.b #$04
+|08AA39| LSR A
+|08AA3A| LSR A
+|08AA3B| TAY
 
-#_08AA3C: LDA.b #$00
-#_08AA3E: STA.b ($92),Y
+|08AA3C| LDA.b #$00
+|08AA3E| STA.b ($92),Y
 
-#_08AA40: PLY
+|08AA40| PLY
 
-#_08AA41: JSR AllocateOAMInCustomRegion
+|08AA41| JSR AllocateOAMInCustomRegion
 
-#_08AA44: LDA.b $04
-#_08AA46: STA.b $02
+|08AA44| LDA.b $04
+|08AA46| STA.b $02
 
-#_08AA48: LDA.b $05
-#_08AA4A: STA.b $03
+|08AA48| LDA.b $05
+|08AA4A| STA.b $03
 
-#_08AA4C: INC.b $72
+|08AA4C| INC.b $72
 
-#_08AA4E: LDA.b $72
-#_08AA50: CMP.b #$02
-#_08AA52: BNE .next_object
+|08AA4E| LDA.b $72
+|08AA50| CMP.b #$02
+|08AA52| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AA54: PLX
+|08AA54| PLX
 
-#_08AA55: RTS
+|08AA55| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_BlastWallFireball
 
 .char
-#_08AA56: db $9D, $9C, $8D
+|08AA56| db $9D, $9C, $8D
 
-pool off
+endpool
 
 ;===================================================================================================
 
 Ancilla32_BlastWallFireball:
-#_08AA59: LDA.b $11
-#_08AA5B: BNE AncillaDraw_BlastWallFireball
+|08AA59| LDA.b $11
+|08AA5B| BNE AncillaDraw_BlastWallFireball
 
-#_08AA5D: LDA.w $0C5E,X
-#_08AA60: CLC
-#_08AA61: ADC.b #$02
-#_08AA63: STA.w $0C5E,X
+|08AA5D| LDA.w $0C5E,X
+|08AA60| CLC
+|08AA61| ADC.b #$02
+|08AA63| STA.w $0C5E,X
 
-#_08AA66: CLC
-#_08AA67: ADC.w $0C22,X
-#_08AA6A: STA.w $0C22,X
+|08AA66| CLC
+|08AA67| ADC.w $0C22,X
+|08AA6A| STA.w $0C22,X
 
-#_08AA6D: JSR AncillaMoveY
-#_08AA70: JSR AncillaMoveX
+|08AA6D| JSR AncillaMoveY
+|08AA70| JSR AncillaMoveX
 
-#_08AA73: LDA.l $7F0040,X
-#_08AA77: DEC A
-#_08AA78: STA.l $7F0040,X
+|08AA73| LDA.l $7F0040,X
+|08AA77| DEC A
+|08AA78| STA.l $7F0040,X
 
-#_08AA7C: BPL AncillaDraw_BlastWallFireball
+|08AA7C| BPL AncillaDraw_BlastWallFireball
 
-#_08AA7E: STZ.w $0C4A,X
+|08AA7E| STZ.w $0C4A,X
 
-#_08AA81: RTS
+|08AA81| RTS
 
 ;===================================================================================================
 
 AncillaDraw_BlastWallFireball:
-#_08AA82: LDA.b #$04
+|08AA82| LDA.b #$04
 
-#_08AA84: LDY.w $0FB3
-#_08AA87: BEQ .use_region_a
+|08AA84| LDY.w $0FB3
+|08AA87| BEQ .use_region_a
 
-#_08AA89: JSL AllocateOAMInRegionD
-#_08AA8D: BRA .continue
+|08AA89| JSL AllocateOAMInRegionD
+|08AA8D| BRA .continue
 
 .use_region_a
-#_08AA8F: JSL AllocateOAMInRegionA
+|08AA8F| JSL AllocateOAMInRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08AA93: LDY.b #$00
+|08AA93| LDY.b #$00
 
-#_08AA95: LDA.l $7F0040,X
-#_08AA99: STA.b $06
+|08AA95| LDA.l $7F0040,X
+|08AA99| STA.b $06
 
-#_08AA9B: AND.b #$08
-#_08AA9D: BNE .proceed_with_character
+|08AA9B| AND.b #$08
+|08AA9D| BNE .proceed_with_character
 
-#_08AA9F: LDY.b #$01
+|08AA9F| LDY.b #$01
 
-#_08AAA1: LDA.b $06
-#_08AAA3: AND.b #$04
-#_08AAA5: BNE .proceed_with_character
+|08AAA1| LDA.b $06
+|08AAA3| AND.b #$04
+|08AAA5| BNE .proceed_with_character
 
-#_08AAA7: LDY.b #$02
+|08AAA7| LDY.b #$02
 
 .proceed_with_character
-#_08AAA9: LDA.w .char,Y
-#_08AAAC: STA.b $06
+|08AAA9| LDA.w .char,Y
+|08AAAC| STA.b $06
 
-#_08AAAE: JSR Ancilla_PrepOAMCoord
+|08AAAE| JSR Ancilla_PrepOAMCoord
 
-#_08AAB1: LDY.b #$00
-#_08AAB3: JSR Ancilla_SetOAM_XY
+|08AAB1| LDY.b #$00
+|08AAB3| JSR Ancilla_SetOAM_XY
 
-#_08AAB6: LDA.b $06
-#_08AAB8: STA.b ($90),Y
+|08AAB6| LDA.b $06
+|08AAB8| STA.b ($90),Y
 
-#_08AABA: INY
-#_08AABB: LDA.b #$22
-#_08AABD: STA.b ($90),Y
+|08AABA| INY
+|08AABB| LDA.b #$22
+|08AABD| STA.b ($90),Y
 
-#_08AABF: LDA.b #$00
-#_08AAC1: STA.b ($92)
+|08AABF| LDA.b #$00
+|08AAC1| STA.b ($92)
 
-#_08AAC3: RTS
+|08AAC3| RTS
 
 ;===================================================================================================
 
 Ancilla18_EtherSpell:
-#_08AAC4: LDA.b $11
-#_08AAC6: BEQ .submode_fine
+|08AAC4| LDA.b $11
+|08AAC6| BEQ .submode_fine
 
-#_08AAC8: BRL .exit
+|08AAC8| BRL .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .submode_fine
-#_08AACB: LDA.w $0C54,X
-#_08AACE: BEQ .done_palette_flash
+|08AACB| LDA.w $0C54,X
+|08AACE| BEQ .done_palette_flash
 
-#_08AAD0: LDA.w $031D
-#_08AAD3: BNE .lightning_descended
+|08AAD0| LDA.w $031D
+|08AAD3| BNE .lightning_descended
 
-#_08AAD5: INC.w $0BF0,X
+|08AAD5| INC.w $0BF0,X
 
-#_08AAD8: LDA.w $0BF0,X
-#_08AADB: AND.b #$04
-#_08AADD: BEQ .oversaturate
+|08AAD8| LDA.w $0BF0,X
+|08AADB| AND.b #$04
+|08AADD| BEQ .oversaturate
 
-#_08AADF: BRA .restore
+|08AADF| BRA .restore
 
 ;---------------------------------------------------------------------------------------------------
 
 .lightning_descended
-#_08AAE1: LDA.w $031D
-#_08AAE4: CMP.b #$0B
-#_08AAE6: BNE .restore
+|08AAE1| LDA.w $031D
+|08AAE4| CMP.b #$0B
+|08AAE6| BNE .restore
 
 ;---------------------------------------------------------------------------------------------------
 
 .oversaturate
-#_08AAE8: PHX
+|08AAE8| PHX
 
-#_08AAE9: JSL RefreshEquipmentPalettes_zap
-#_08AAED: JSL PaletteFilter_Oversaturation
+|08AAE9| JSL RefreshEquipmentPalettes_zap
+|08AAED| JSL PaletteFilter_Oversaturation
 
-#_08AAF1: PLX
+|08AAF1| PLX
 
-#_08AAF2: BRA .done_palette_flash
+|08AAF2| BRA .done_palette_flash
 
 ;---------------------------------------------------------------------------------------------------
 
 .restore
-#_08AAF4: PHX
+|08AAF4| PHX
 
-#_08AAF5: JSL RefreshEquipmentPalettes_sword_and_mail
-#_08AAF9: JSL RestorePalettesAfterFlash
+|08AAF5| JSL RefreshEquipmentPalettes_sword_and_mail
+|08AAF9| JSL RestorePalettesAfterFlash
 
-#_08AAFD: PLX
+|08AAFD| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
 .done_palette_flash
-#_08AAFE: LDA.w $0C54,X
-#_08AB01: CMP.b #$02
-#_08AB03: BNE .check_ball_timer
+|08AAFE| LDA.w $0C54,X
+|08AB01| CMP.b #$02
+|08AB03| BNE .check_ball_timer
 
-#_08AB05: DEC.w $03B1,X
-#_08AB08: BPL .delay
+|08AB05| DEC.w $03B1,X
+|08AB08| BPL .delay
 
-#_08AB0A: LDA.b #$02
-#_08AB0C: STA.w $03B1,X
+|08AB0A| LDA.b #$02
+|08AB0C| STA.w $03B1,X
 
-#_08AB0F: LDA.w $0C5E,X
-#_08AB12: INC A
-#_08AB13: STA.w $0C5E,X
+|08AB0F| LDA.w $0C5E,X
+|08AB12| INC A
+|08AB13| STA.w $0C5E,X
 
-#_08AB16: CMP.b #$02
-#_08AB18: BNE .delay
+|08AB16| CMP.b #$02
+|08AB18| BNE .delay
 
-#_08AB1A: DEC.w $0C5E,X
+|08AB1A| DEC.w $0C5E,X
 
-#_08AB1D: LDA.b #$10
-#_08AB1F: STA.w $0C2C,X
+|08AB1D| LDA.b #$10
+|08AB1F| STA.w $0C2C,X
 
-#_08AB22: LDA.b #$03
-#_08AB24: STA.w $0C54,X
+|08AB22| LDA.b #$03
+|08AB24| STA.w $0C54,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay
-#_08AB27: LDA.w $0C2C,X
-#_08AB2A: CLC
-#_08AB2B: ADC.b #$01
-#_08AB2D: STA.w $0C2C,X
+|08AB27| LDA.w $0C2C,X
+|08AB2A| CLC
+|08AB2B| ADC.b #$01
+|08AB2D| STA.w $0C2C,X
 
-#_08AB30: BRL EtherSpell_HandleRadialSpin
+|08AB30| BRL EtherSpell_HandleRadialSpin
 
 ;---------------------------------------------------------------------------------------------------
 
 .check_ball_timer
-#_08AB33: DEC.w $03B1,X
-#_08AB36: BPL .dont_swap_char
+|08AB33| DEC.w $03B1,X
+|08AB36| BPL .dont_swap_char
 
-#_08AB38: LDA.b #$02
-#_08AB3A: STA.w $03B1,X
+|08AB38| LDA.b #$02
+|08AB3A| STA.w $03B1,X
 
-#_08AB3D: LDA.w $0C5E,X
-#_08AB40: EOR.b #$01
-#_08AB42: STA.w $0C5E,X
+|08AB3D| LDA.w $0C5E,X
+|08AB40| EOR.b #$01
+|08AB42| STA.w $0C5E,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_swap_char
-#_08AB45: LDA.w $0C54,X
-#_08AB48: BEQ .lightning
+|08AB45| LDA.w $0C54,X
+|08AB48| BEQ .lightning
 
-#_08AB4A: CMP.b #$01
-#_08AB4C: BEQ .pulsing_orb
+|08AB4A| CMP.b #$01
+|08AB4C| BEQ .pulsing_orb
 
-#_08AB4E: CMP.b #$03
-#_08AB50: BEQ .do_spin
+|08AB4E| CMP.b #$03
+|08AB50| BEQ .do_spin
 
-#_08AB52: CMP.b #$04
-#_08AB54: BEQ .dissipate
+|08AB52| CMP.b #$04
+|08AB54| BEQ .dissipate
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AB56: LDA.w $0C2C,X
-#_08AB59: CLC
-#_08AB5A: ADC.b #$10
-#_08AB5C: BPL .radial_speed_not_maxed
+|08AB56| LDA.w $0C2C,X
+|08AB59| CLC
+|08AB5A| ADC.b #$10
+|08AB5C| BPL .radial_speed_not_maxed
 
-#_08AB5E: LDA.b #$7F
+|08AB5E| LDA.b #$7F
 
 .radial_speed_not_maxed
-#_08AB60: STA.w $0C2C,X
-#_08AB63: BRL .do_spin
+|08AB60| STA.w $0C2C,X
+|08AB63| BRL .do_spin
 
 ;---------------------------------------------------------------------------------------------------
 
 .lightning
-#_08AB66: BRA EtherSpell_HandleLightningStroke
+|08AB66| BRA EtherSpell_HandleLightningStroke
 
 ;---------------------------------------------------------------------------------------------------
 
 .pulsing_orb
-#_08AB68: BRL EtherSpell_HandleOrbPulse
+|08AB68| BRL EtherSpell_HandleOrbPulse
 
 ;---------------------------------------------------------------------------------------------------
 
 .dissipate
-#_08AB6B: LDA.l $7F5812
-#_08AB6F: DEC A
-#_08AB70: STA.l $7F5812
+|08AB6B| LDA.l $7F5812
+|08AB6F| DEC A
+|08AB70| STA.l $7F5812
 
-#_08AB74: BNE .do_spin
+|08AB74| BNE .do_spin
 
-#_08AB76: LDA.b #$05
-#_08AB78: STA.w $0C54,X
+|08AB76| LDA.b #$05
+|08AB78| STA.w $0C54,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .do_spin
-#_08AB7B: BRL EtherSpell_HandleRadialSpin
+|08AB7B| BRL EtherSpell_HandleRadialSpin
 
 .exit
-#_08AB7E: RTS
+|08AB7E| RTS
 
 ;===================================================================================================
 
 UNREACHABLE_08AB7F:
-#_08AB7F: db $E0, $00, $E8, $E8
-#_08AB83: db $00, $20, $18, $18
+|08AB7F| db $E0, $00, $E8, $E8
+|08AB83| db $00, $20, $18, $18
 
 ;===================================================================================================
 
 EtherSpell_HandleLightningStroke:
-#_08AB87: JSR AncillaMoveY
+|08AB87| JSR AncillaMoveY
 
-#_08AB8A: LDA.w $0C0E,X
-#_08AB8D: STA.b $01
+|08AB8A| LDA.w $0C0E,X
+|08AB8D| STA.b $01
 
-#_08AB8F: LDA.w $0BFA,X
-#_08AB92: STA.b $00
+|08AB8F| LDA.w $0BFA,X
+|08AB92| STA.b $00
 
-#_08AB94: AND.b #$F0
-#_08AB96: CMP.l $7F580C
-#_08AB9A: BEQ .dont_lengthen
+|08AB94| AND.b #$F0
+|08AB96| CMP.l $7F580C
+|08AB9A| BEQ .dont_lengthen
 
-#_08AB9C: STA.l $7F580C
+|08AB9C| STA.l $7F580C
 
-#_08ABA0: INC.w $03C2,X
+|08ABA0| INC.w $03C2,X
 
 .dont_lengthen
-#_08ABA3: REP #$20
+|08ABA3| REP #$20
 
-#_08ABA5: LDA.b $00
-#_08ABA7: CMP.w #$E000
-#_08ABAA: BCS .delay
+|08ABA5| LDA.b $00
+|08ABA7| CMP.w #$E000
+|08ABAA| BCS .delay
 
-#_08ABAC: LDA.l $7F580A
-#_08ABB0: CMP.w #$E000
-#_08ABB3: BCS .at_target
+|08ABAC| LDA.l $7F580A
+|08ABB0| CMP.w #$E000
+|08ABB3| BCS .at_target
 
-#_08ABB5: LDA.l $7F580A
-#_08ABB9: CMP.b $00
-#_08ABBB: BEQ .at_target
-#_08ABBD: BCS .delay
+|08ABB5| LDA.l $7F580A
+|08ABB9| CMP.b $00
+|08ABBB| BEQ .at_target
+|08ABBD| BCS .delay
 
 .at_target
-#_08ABBF: SEP #$20
+|08ABBF| SEP #$20
 
-#_08ABC1: LDA.b #$01
-#_08ABC3: STA.w $0C54,X
+|08ABC1| LDA.b #$01
+|08ABC3| STA.w $0C54,X
 
 .delay
-#_08ABC6: SEP #$20
+|08ABC6| SEP #$20
 
-#_08ABC8: BRL AncillaDraw_EtherBlitz
+|08ABC8| BRL AncillaDraw_EtherBlitz
 
 ;===================================================================================================
 
 EtherSpell_HandleOrbPulse:
-#_08ABCB: LDA.w $03C2,X
-#_08ABCE: BMI .continue
+|08ABCB| LDA.w $03C2,X
+|08ABCE| BMI .continue
 
-#_08ABD0: DEC.w $039F,X
-#_08ABD3: BPL .proceed_to_draw
+|08ABD0| DEC.w $039F,X
+|08ABD3| BPL .proceed_to_draw
 
-#_08ABD5: LDA.b #$03
-#_08ABD7: STA.w $039F,X
+|08ABD5| LDA.b #$03
+|08ABD7| STA.w $039F,X
 
-#_08ABDA: DEC.w $03C2,X
-#_08ABDD: BPL .proceed_to_draw
+|08ABDA| DEC.w $03C2,X
+|08ABDD| BPL .proceed_to_draw
 
-#_08ABDF: LDA.b #$09
-#_08ABE1: STA.w $039F,X
+|08ABDF| LDA.b #$09
+|08ABE1| STA.w $039F,X
 
-#_08ABE4: BRA .continue
+|08ABE4| BRA .continue
 
 .proceed_to_draw
-#_08ABE6: BRL AncillaDraw_EtherBlitz
+|08ABE6| BRL AncillaDraw_EtherBlitz
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08ABE9: DEC.w $039F,X
-#_08ABEC: BPL .dont_damage
+|08ABE9| DEC.w $039F,X
+|08ABEC| BPL .dont_damage
 
-#_08ABEE: LDA.b #$02
-#_08ABF0: STA.w $0C54,X
+|08ABEE| LDA.b #$02
+|08ABF0| STA.w $0C54,X
 
-#_08ABF3: STZ.w $0C22,X
+|08ABF3| STZ.w $0C22,X
 
-#_08ABF6: LDA.b #$10
-#_08ABF8: STA.w $0C2C,X
+|08ABF6| LDA.b #$10
+|08ABF8| STA.w $0C2C,X
 
-#_08ABFB: STZ.w $0C5E,X
+|08ABFB| STZ.w $0C5E,X
 
-#_08ABFE: LDA.b #$02
-#_08AC00: STA.w $03B1,X
+|08ABFE| LDA.b #$02
+|08AC00| STA.w $03B1,X
 
-#_08AC03: LDA.w $031D
-#_08AC06: BEQ .dont_damage
+|08AC03| LDA.w $031D
+|08AC06| BEQ .dont_damage
 
-#_08AC08: PHX
-#_08AC09: JSL CheckMedallionDamageToSprite
-#_08AC0D: PLX
+|08AC08| PHX
+|08AC09| JSL CheckMedallionDamageToSprite
+|08AC0D| PLX
 
 .dont_damage
-#_08AC0E: LDY.b #$00
-#_08AC10: BRL AncillaDraw_EtherOrb
+|08AC0E| LDY.b #$00
+|08AC10| BRL AncillaDraw_EtherOrb
 
 ;===================================================================================================
 
 EtherSpell_HandleRadialSpin:
-#_08AC13: LDA.w $0C54,X
-#_08AC16: CMP.b #$04
-#_08AC18: BNE .skip_sfx
+|08AC13| LDA.w $0C54,X
+|08AC16| CMP.b #$04
+|08AC18| BNE .skip_sfx
 
-#_08AC1A: LDY.b #$2A ; SFX3.2A
+|08AC1A| LDY.b #$2A ; SFX3.2A
 
-#_08AC1C: LDA.b $1A
-#_08AC1E: AND.b #$07
-#_08AC20: BEQ .set_sfx
+|08AC1C| LDA.b $1A
+|08AC1E| AND.b #$07
+|08AC20| BEQ .set_sfx
 
 
-#_08AC22: LDY.b #$AA ; SFX3.2A with !HARDCODED pan value of $80
+|08AC22| LDY.b #$AA ; SFX3.2A with [HARDCODED] pan value of $80
 
-#_08AC24: CMP.b #$04
-#_08AC26: BEQ .set_sfx
+|08AC24| CMP.b #$04
+|08AC26| BEQ .set_sfx
 
-#_08AC28: CMP.b #$07
-#_08AC2A: BNE .skip_sfx
+|08AC28| CMP.b #$07
+|08AC2A| BNE .skip_sfx
 
-#_08AC2C: LDY.b #$6A ; SFX3.2A with !HARDCODED pan value of $40
+|08AC2C| LDY.b #$6A ; SFX3.2A with [HARDCODED] pan value of $40
 
 .set_sfx
-#_08AC2E: STY.w $012F
+|08AC2E| STY.w $012F
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_sfx
-#_08AC31: LDA.w $0C54,X
-#_08AC34: CMP.b #$04
-#_08AC36: BEQ .dont_expand
+|08AC31| LDA.w $0C54,X
+|08AC34| CMP.b #$04
+|08AC36| BEQ .dont_expand
 
-#_08AC38: LDA.l $7F5808
-#_08AC3C: STA.w $0C04,X
+|08AC38| LDA.l $7F5808
+|08AC3C| STA.w $0C04,X
 
-#_08AC3F: STZ.w $0C18,X
+|08AC3F| STZ.w $0C18,X
 
-#_08AC42: JSR AncillaMoveX
+|08AC42| JSR AncillaMoveX
 
-#_08AC45: LDA.w $0C04,X
-#_08AC48: STA.l $7F5808
+|08AC45| LDA.w $0C04,X
+|08AC48| STA.l $7F5808
 
-#_08AC4C: CMP.b #$40
-#_08AC4E: BNE .dont_expand
+|08AC4C| CMP.b #$40
+|08AC4E| BNE .dont_expand
 
-#_08AC50: LDA.b #$04
-#_08AC52: STA.w $0C54,X
+|08AC50| LDA.b #$04
+|08AC52| STA.w $0C54,X
 
 .dont_expand
-#_08AC55: PHX
+|08AC55| PHX
 
-#_08AC56: LDA.w $0C54,X
-#_08AC59: STA.b $72
+|08AC56| LDA.w $0C54,X
+|08AC59| STA.b $72
 
-#_08AC5B: LDA.w $0C5E,X
-#_08AC5E: STA.b $73
+|08AC5B| LDA.w $0C5E,X
+|08AC5E| STA.b $73
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AC60: LDY.b #$00
-#_08AC62: LDX.b #$07
+|08AC60| LDY.b #$00
+|08AC62| LDX.b #$07
 
 .next_orb
-#_08AC64: LDA.b $72
-#_08AC66: CMP.b #$02
-#_08AC68: BEQ .dont_rotate
+|08AC64| LDA.b $72
+|08AC66| CMP.b #$02
+|08AC68| BEQ .dont_rotate
 
-#_08AC6A: CMP.b #$05
-#_08AC6C: BEQ .dont_rotate
+|08AC6A| CMP.b #$05
+|08AC6C| BEQ .dont_rotate
 
-#_08AC6E: LDA.l $7F5800,X
-#_08AC72: INC A
-#_08AC73: AND.b #$3F
-#_08AC75: STA.l $7F5800,X
+|08AC6E| LDA.l $7F5800,X
+|08AC72| INC A
+|08AC73| AND.b #$3F
+|08AC75| STA.l $7F5800,X
 
 .dont_rotate
-#_08AC79: LDA.l $7F5808
-#_08AC7D: STA.b $08
+|08AC79| LDA.l $7F5808
+|08AC7D| STA.b $08
 
-#_08AC7F: LDA.l $7F5800,X
+|08AC7F| LDA.l $7F5800,X
 
-#_08AC83: JSR Ancilla_GetRadialProjection
+|08AC83| JSR Ancilla_GetRadialProjection
 
-#_08AC86: PHX
+|08AC86| PHX
 
-#_08AC87: LDA.b $72
-#_08AC89: CMP.b #$02
-#_08AC8B: BEQ .draw_as_segment
+|08AC87| LDA.b $72
+|08AC89| CMP.b #$02
+|08AC8B| BEQ .draw_as_segment
 
-#_08AC8D: JSR AncillaDraw_EtherBlitzBall
+|08AC8D| JSR AncillaDraw_EtherBlitzBall
 
-#_08AC90: BRA .to_next
+|08AC90| BRA .to_next
 
 .draw_as_segment
-#_08AC92: JSR AncillaDraw_EtherBlitzSegment
+|08AC92| JSR AncillaDraw_EtherBlitzSegment
 
 .to_next
-#_08AC95: PLX
-#_08AC96: DEX
-#_08AC97: BPL .next_orb
+|08AC95| PLX
+|08AC96| DEX
+|08AC97| BPL .next_orb
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AC99: PLX
+|08AC99| PLX
 
-#_08AC9A: LDA.l $7F5808
-#_08AC9E: CMP.b #$F0
-#_08ACA0: BCS .terminate
+|08AC9A| LDA.l $7F5808
+|08AC9E| CMP.b #$F0
+|08ACA0| BCS .terminate
 
-#_08ACA2: LDY.b #$01
+|08ACA2| LDY.b #$01
 
 .next_check
-#_08ACA4: LDA.b ($90),Y
-#_08ACA6: CMP.b #$F0
-#_08ACA8: BNE .exit
+|08ACA4| LDA.b ($90),Y
+|08ACA6| CMP.b #$F0
+|08ACA8| BNE .exit
 
-#_08ACAA: INY ; +4
-#_08ACAB: INY
-#_08ACAC: INY
-#_08ACAD: INY
+|08ACAA| INY ; +4
+|08ACAB| INY
+|08ACAC| INY
+|08ACAD| INY
 
-#_08ACAE: CPY.b #$21
-#_08ACB0: BNE .next_check
+|08ACAE| CPY.b #$21
+|08ACB0| BNE .next_check
 
 ;---------------------------------------------------------------------------------------------------
 
 .terminate
-#_08ACB2: STZ.w $0C4A,X
+|08ACB2| STZ.w $0C4A,X
 
-#_08ACB5: LDA.b #$01
-#_08ACB7: STA.w $0AAA
+|08ACB5| LDA.b #$01
+|08ACB7| STA.w $0AAA
 
-#_08ACBA: STZ.w $0324
-#_08ACBD: STZ.w $031C
-#_08ACC0: STZ.w $031D
+|08ACBA| STZ.w $0324
+|08ACBD| STZ.w $031C
+|08ACC0| STZ.w $031D
 
-#_08ACC3: STZ.b $50
+|08ACC3| STZ.b $50
 
-#_08ACC5: STZ.w $0FC1
+|08ACC5| STZ.w $0FC1
 
-#_08ACC8: LDA.b $8A
-#_08ACCA: CMP.b #$70 ; OW 70
-#_08ACCC: BNE .dont_open_mire
+|08ACC8| LDA.b $8A
+|08ACCA| CMP.b #$70 ; OW 70
+|08ACCC| BNE .dont_open_mire
 
-#_08ACCE: LDA.l $7EF2F0
-#_08ACD2: AND.b #$20
-#_08ACD4: BNE .dont_open_mire
+|08ACCE| LDA.l $7EF2F0
+|08ACD2| AND.b #$20
+|08ACD4| BNE .dont_open_mire
 
-#_08ACD6: LDY.b #$02
-#_08ACD8: JSR Ancilla_CheckForEntranceTrigger
-#_08ACDB: BCC .dont_open_mire
+|08ACD6| LDY.b #$02
+|08ACD8| JSR Ancilla_CheckForEntranceTrigger
+|08ACDB| BCC .dont_open_mire
 
-#_08ACDD: LDA.b #$03
-#_08ACDF: STA.w $04C6
+|08ACDD| LDA.b #$03
+|08ACDF| STA.w $04C6
 
-#_08ACE2: STZ.b $B0
-#_08ACE4: STZ.b $C8
+|08ACE2| STZ.b $B0
+|08ACE4| STZ.b $C8
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_open_mire
-#_08ACE6: LDA.b $5D
-#_08ACE8: CMP.b #$19 ; LINKSTATE 19
-#_08ACEA: BEQ .spin_attack
+|08ACE6| LDA.b $5D
+|08ACE8| CMP.b #$19 ; LINKSTATE 19
+|08ACEA| BEQ .spin_attack
 
-#_08ACEC: LDA.b #$00 ; LINKSTATE 00
-#_08ACEE: STA.b $5D
+|08ACEC| LDA.b #$00 ; LINKSTATE 00
+|08ACEE| STA.b $5D
 
-#_08ACF0: STZ.b $3D
+|08ACF0| STZ.b $3D
 
-#_08ACF2: LDY.b #$00
+|08ACF2| LDY.b #$00
 
-#_08ACF4: LDA.b $3C
-#_08ACF6: BEQ .dont_flag_b
+|08ACF4| LDA.b $3C
+|08ACF6| BEQ .dont_flag_b
 
-#_08ACF8: LDA.b $F0
-#_08ACFA: AND.b #$80
-#_08ACFC: TAY
+|08ACF8| LDA.b $F0
+|08ACFA| AND.b #$80
+|08ACFC| TAY
 
 .dont_flag_b
-#_08ACFD: STY.b $3A
+|08ACFD| STY.b $3A
 
 ;---------------------------------------------------------------------------------------------------
 
 .spin_attack
-#_08ACFF: STZ.b $5E
-#_08AD01: STZ.w $0325
+|08ACFF| STZ.b $5E
+|08AD01| STZ.w $0325
 
-#_08AD04: PHX
+|08AD04| PHX
 
-#_08AD05: JSL RefreshEquipmentPalettes_sword_and_mail
-#_08AD09: JSL RestoreBackgroundPalettes
+|08AD05| JSL RefreshEquipmentPalettes_sword_and_mail
+|08AD09| JSL RestoreBackgroundPalettes
 
-#_08AD0D: PLX
+|08AD0D| PLX
 
 .exit
-#_08AD0E: RTS
+|08AD0E| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_EtherBlitzBall
 
 .char
-#_08AD0F: db $68, $6A
+|08AD0F| db $68, $6A
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_EtherBlitzBall:
-#_08AD11: REP #$20
+|08AD11| REP #$20
 
-#_08AD13: PHY
+|08AD13| PHY
 
-#_08AD14: LDA.b $00
+|08AD14| LDA.b $00
 
-#_08AD16: LDY.b $02
-#_08AD18: BEQ .positive_y
+|08AD16| LDY.b $02
+|08AD18| BEQ .positive_y
 
-#_08AD1A: EOR.w #$FFFF
-#_08AD1D: INC A
+|08AD1A| EOR.w #$FFFF
+|08AD1D| INC A
 
 .positive_y
-#_08AD1E: STA.b $08
+|08AD1E| STA.b $08
 
-#_08AD20: CLC
-#_08AD21: ADC.l $7F5810
-#_08AD25: CLC
-#_08AD26: ADC.w #$FFF8
-#_08AD29: SEC
-#_08AD2A: SBC.b $E8
-#_08AD2C: STA.b $00
+|08AD20| CLC
+|08AD21| ADC.l $7F5810
+|08AD25| CLC
+|08AD26| ADC.w #$FFF8
+|08AD29| SEC
+|08AD2A| SBC.b $E8
+|08AD2C| STA.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AD2E: LDA.b $04
+|08AD2E| LDA.b $04
 
-#_08AD30: LDY.b $06
-#_08AD32: BEQ .positive_x
+|08AD30| LDY.b $06
+|08AD32| BEQ .positive_x
 
-#_08AD34: EOR.w #$FFFF
-#_08AD37: INC A
+|08AD34| EOR.w #$FFFF
+|08AD37| INC A
 
 .positive_x
-#_08AD38: STA.b $0A
+|08AD38| STA.b $0A
 
-#_08AD3A: CLC
-#_08AD3B: ADC.l $7F580E
-#_08AD3F: CLC
-#_08AD40: ADC.w #$FFF8
-#_08AD43: SEC
-#_08AD44: SBC.b $E2
-#_08AD46: STA.b $02
+|08AD3A| CLC
+|08AD3B| ADC.l $7F580E
+|08AD3F| CLC
+|08AD40| ADC.w #$FFF8
+|08AD43| SEC
+|08AD44| SBC.b $E2
+|08AD46| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AD48: PLY
+|08AD48| PLY
 
-#_08AD49: SEP #$20
+|08AD49| SEP #$20
 
-#_08AD4B: JSR Ancilla_SetOAM_XY
+|08AD4B| JSR Ancilla_SetOAM_XY
 
-#_08AD4E: LDA.b $73
-#_08AD50: TAX
+|08AD4E| LDA.b $73
+|08AD50| TAX
 
-#_08AD51: LDA.w .char,X
-#_08AD54: STA.b ($90),Y
+|08AD51| LDA.w .char,X
+|08AD54| STA.b ($90),Y
 
-#_08AD56: INY
+|08AD56| INY
 
-#_08AD57: LDA.b #$3C
-#_08AD59: STA.b ($90),Y
+|08AD57| LDA.b #$3C
+|08AD59| STA.b ($90),Y
 
-#_08AD5B: INY
-#_08AD5C: PHY
-#_08AD5D: TYA
+|08AD5B| INY
+|08AD5C| PHY
+|08AD5D| TYA
 
-#_08AD5E: SEC
-#_08AD5F: SBC.b #$04
-#_08AD61: LSR A
-#_08AD62: LSR A
-#_08AD63: TAY
+|08AD5E| SEC
+|08AD5F| SBC.b #$04
+|08AD61| LSR A
+|08AD62| LSR A
+|08AD63| TAY
 
-#_08AD64: LDA.b #$02
-#_08AD66: STA.b ($92),Y
+|08AD64| LDA.b #$02
+|08AD66| STA.b ($92),Y
 
-#_08AD68: JSR AllocateOAMInCustomRegion
+|08AD68| JSR AllocateOAMInCustomRegion
 
-#_08AD6B: PLY
+|08AD6B| PLY
 
-#_08AD6C: RTS
+|08AD6C| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_EtherBlitzSegment
 
 .char
-#_08AD6D: db $40, $42
-#_08AD6F: db $66, $64
-#_08AD71: db $62, $60
-#_08AD73: db $64, $66
-#_08AD75: db $42, $40
-#_08AD77: db $66, $64
-#_08AD79: db $60, $62
-#_08AD7B: db $64, $66
-#_08AD7D: db $68, $42
-#_08AD7F: db $68, $64
-#_08AD81: db $68, $60
-#_08AD83: db $68, $64
-#_08AD85: db $68, $40
-#_08AD87: db $68, $66
-#_08AD89: db $68, $62
-#_08AD8B: db $68, $64
+|08AD6D| db $40, $42
+|08AD6F| db $66, $64
+|08AD71| db $62, $60
+|08AD73| db $64, $66
+|08AD75| db $42, $40
+|08AD77| db $66, $64
+|08AD79| db $60, $62
+|08AD7B| db $64, $66
+|08AD7D| db $68, $42
+|08AD7F| db $68, $64
+|08AD81| db $68, $60
+|08AD83| db $68, $64
+|08AD85| db $68, $40
+|08AD87| db $68, $66
+|08AD89| db $68, $62
+|08AD8B| db $68, $64
 
 ;---------------------------------------------------------------------------------------------------
 
 .prop
-#_08AD8D: db $3C, $3C
-#_08AD8F: db $FC, $FC
-#_08AD91: db $3C, $3C
-#_08AD93: db $BC, $BC
-#_08AD95: db $3C, $3C
-#_08AD97: db $3C, $3C
-#_08AD99: db $3C, $3C
-#_08AD9B: db $7C, $7C
-#_08AD9D: db $3C, $7C
-#_08AD9F: db $3C, $3C
-#_08ADA1: db $3C, $BC
-#_08ADA3: db $3C, $7C
-#_08ADA5: db $3C, $7C
-#_08ADA7: db $3C, $FC
-#_08ADA9: db $3C, $BC
-#_08ADAB: db $3C, $BC
+|08AD8D| db $3C, $3C
+|08AD8F| db $FC, $FC
+|08AD91| db $3C, $3C
+|08AD93| db $BC, $BC
+|08AD95| db $3C, $3C
+|08AD97| db $3C, $3C
+|08AD99| db $3C, $3C
+|08AD9B| db $7C, $7C
+|08AD9D| db $3C, $7C
+|08AD9F| db $3C, $3C
+|08ADA1| db $3C, $BC
+|08ADA3| db $3C, $7C
+|08ADA5| db $3C, $7C
+|08ADA7| db $3C, $FC
+|08ADA9| db $3C, $BC
+|08ADAB| db $3C, $BC
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_y
-#_08ADAD: dw   8
-#_08ADAF: dw   0
-#_08ADB1: dw  -8
-#_08ADB3: dw -16
-#_08ADB5: dw -24
-#_08ADB7: dw -16
-#_08ADB9: dw  -8
-#_08ADBB: dw -16
-#_08ADBD: dw   8
-#_08ADBF: dw   0
-#_08ADC1: dw  -8
-#_08ADC3: dw -16
-#_08ADC5: dw -24
-#_08ADC7: dw -16
-#_08ADC9: dw  -8
-#_08ADCB: dw   0
+|08ADAD| dw   8
+|08ADAF| dw   0
+|08ADB1| dw  -8
+|08ADB3| dw -16
+|08ADB5| dw -24
+|08ADB7| dw -16
+|08ADB9| dw  -8
+|08ADBB| dw -16
+|08ADBD| dw   8
+|08ADBF| dw   0
+|08ADC1| dw  -8
+|08ADC3| dw -16
+|08ADC5| dw -24
+|08ADC7| dw -16
+|08ADC9| dw  -8
+|08ADCB| dw   0
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_x
-#_08ADCD: dw  -8
-#_08ADCF: dw -16
-#_08ADD1: dw -24
-#_08ADD3: dw -16
-#_08ADD5: dw  -8
-#_08ADD7: dw   0
-#_08ADD9: dw   8
-#_08ADDB: dw -16
-#_08ADDD: dw  -8
-#_08ADDF: dw -16
-#_08ADE1: dw -24
-#_08ADE3: dw -16
-#_08ADE5: dw  -8
-#_08ADE7: dw   0
-#_08ADE9: dw   8
-#_08ADEB: dw   0
+|08ADCD| dw  -8
+|08ADCF| dw -16
+|08ADD1| dw -24
+|08ADD3| dw -16
+|08ADD5| dw  -8
+|08ADD7| dw   0
+|08ADD9| dw   8
+|08ADDB| dw -16
+|08ADDD| dw  -8
+|08ADDF| dw -16
+|08ADE1| dw -24
+|08ADE3| dw -16
+|08ADE5| dw  -8
+|08ADE7| dw   0
+|08ADE9| dw   8
+|08ADEB| dw   0
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_EtherBlitzSegment:
-#_08ADED: REP #$20
+|08ADED| REP #$20
 
-#_08ADEF: PHY
+|08ADEF| PHY
 
-#_08ADF0: LDA.b $00
+|08ADF0| LDA.b $00
 
-#_08ADF2: LDY.b $02
-#_08ADF4: BEQ .positive_y
+|08ADF2| LDY.b $02
+|08ADF4| BEQ .positive_y
 
-#_08ADF6: EOR.w #$FFFF
-#_08ADF9: INC A
+|08ADF6| EOR.w #$FFFF
+|08ADF9| INC A
 
 .positive_y
-#_08ADFA: STA.b $08
+|08ADFA| STA.b $08
 
-#_08ADFC: CLC
-#_08ADFD: ADC.l $7F5810
+|08ADFC| CLC
+|08ADFD| ADC.l $7F5810
 
-#_08AE01: CLC
-#_08AE02: ADC.w #$FFF8
+|08AE01| CLC
+|08AE02| ADC.w #$FFF8
 
-#_08AE05: SEC
-#_08AE06: SBC.b $E8
-#_08AE08: STA.b $00
+|08AE05| SEC
+|08AE06| SBC.b $E8
+|08AE08| STA.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AE0A: LDA.b $04
+|08AE0A| LDA.b $04
 
-#_08AE0C: LDY.b $06
-#_08AE0E: BEQ .positive_x
+|08AE0C| LDY.b $06
+|08AE0E| BEQ .positive_x
 
-#_08AE10: EOR.w #$FFFF
-#_08AE13: INC A
+|08AE10| EOR.w #$FFFF
+|08AE13| INC A
 
 .positive_x
-#_08AE14: STA.b $0A
+|08AE14| STA.b $0A
 
-#_08AE16: CLC
-#_08AE17: ADC.l $7F580E
+|08AE16| CLC
+|08AE17| ADC.l $7F580E
 
-#_08AE1B: CLC
-#_08AE1C: ADC.w #$FFF8
+|08AE1B| CLC
+|08AE1C| ADC.w #$FFF8
 
-#_08AE1F: SEC
-#_08AE20: SBC.b $E2
-#_08AE22: STA.b $02
-
-;---------------------------------------------------------------------------------------------------
-
-#_08AE24: PLY
-
-#_08AE25: SEP #$20
-
-#_08AE27: JSR Ancilla_SetOAM_XY
-
-#_08AE2A: LDA.b $73
-#_08AE2C: ASL A ; x16
-#_08AE2D: ASL A
-#_08AE2E: ASL A
-#_08AE2F: ASL A
-#_08AE30: STA.b $0E
-
-#_08AE32: TXA
-#_08AE33: ASL A
-#_08AE34: CLC
-#_08AE35: ADC.b $0E
-#_08AE37: TAX
-
-#_08AE38: LDA.w .char+0,X
-#_08AE3B: STA.b ($90),Y
-
-#_08AE3D: INY
-
-#_08AE3E: LDA.w .prop+0,X
-#_08AE41: STA.b ($90),Y
-
-#_08AE43: INY
-#_08AE44: PHY
-
-#_08AE45: TYA
-#_08AE46: SEC
-#_08AE47: SBC.b #$04
-#_08AE49: LSR A
-#_08AE4A: LSR A
-#_08AE4B: TAY
-
-#_08AE4C: LDA.b #$02
-#_08AE4E: STA.b ($92),Y
-
-#_08AE50: PLY
+|08AE1F| SEC
+|08AE20| SBC.b $E2
+|08AE22| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AE51: REP #$20
+|08AE24| PLY
 
-#_08AE53: LDA.b $08
-#_08AE55: CLC
-#_08AE56: ADC.l $7F5810
+|08AE25| SEP #$20
 
-#_08AE5A: CLC
-#_08AE5B: ADC.w .offset_y,X
+|08AE27| JSR Ancilla_SetOAM_XY
 
-#_08AE5E: SEC
-#_08AE5F: SBC.b $E8
-#_08AE61: STA.b $00
+|08AE2A| LDA.b $73
+|08AE2C| ASL A ; x16
+|08AE2D| ASL A
+|08AE2E| ASL A
+|08AE2F| ASL A
+|08AE30| STA.b $0E
+
+|08AE32| TXA
+|08AE33| ASL A
+|08AE34| CLC
+|08AE35| ADC.b $0E
+|08AE37| TAX
+
+|08AE38| LDA.w .char+0,X
+|08AE3B| STA.b ($90),Y
+
+|08AE3D| INY
+
+|08AE3E| LDA.w .prop+0,X
+|08AE41| STA.b ($90),Y
+
+|08AE43| INY
+|08AE44| PHY
+
+|08AE45| TYA
+|08AE46| SEC
+|08AE47| SBC.b #$04
+|08AE49| LSR A
+|08AE4A| LSR A
+|08AE4B| TAY
+
+|08AE4C| LDA.b #$02
+|08AE4E| STA.b ($92),Y
+
+|08AE50| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AE63: LDA.b $0A
-#_08AE65: CLC
-#_08AE66: ADC.l $7F580E
+|08AE51| REP #$20
 
-#_08AE6A: CLC
-#_08AE6B: ADC.w .offset_x,X
+|08AE53| LDA.b $08
+|08AE55| CLC
+|08AE56| ADC.l $7F5810
 
-#_08AE6E: SEC
-#_08AE6F: SBC.b $E2
-#_08AE71: STA.b $02
+|08AE5A| CLC
+|08AE5B| ADC.w .offset_y,X
+
+|08AE5E| SEC
+|08AE5F| SBC.b $E8
+|08AE61| STA.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AE73: SEP #$20
+|08AE63| LDA.b $0A
+|08AE65| CLC
+|08AE66| ADC.l $7F580E
 
-#_08AE75: PHX
-#_08AE76: JSR Ancilla_SetOAM_XY
-#_08AE79: PLX
+|08AE6A| CLC
+|08AE6B| ADC.w .offset_x,X
 
-#_08AE7A: LDA.w .char+1,X
-#_08AE7D: STA.b ($90),Y
+|08AE6E| SEC
+|08AE6F| SBC.b $E2
+|08AE71| STA.b $02
 
-#_08AE7F: INY
+;---------------------------------------------------------------------------------------------------
 
-#_08AE80: LDA.w .prop+1,X
-#_08AE83: STA.b ($90),Y
+|08AE73| SEP #$20
 
-#_08AE85: INY
-#_08AE86: PHY
+|08AE75| PHX
+|08AE76| JSR Ancilla_SetOAM_XY
+|08AE79| PLX
 
-#_08AE87: TYA
-#_08AE88: SEC
-#_08AE89: SBC.b #$04
-#_08AE8B: LSR A
-#_08AE8C: LSR A
-#_08AE8D: TAY
+|08AE7A| LDA.w .char+1,X
+|08AE7D| STA.b ($90),Y
 
-#_08AE8E: LDA.b #$02
-#_08AE90: STA.b ($92),Y
+|08AE7F| INY
 
-#_08AE92: PLY
+|08AE80| LDA.w .prop+1,X
+|08AE83| STA.b ($90),Y
 
-#_08AE93: JSR AllocateOAMInCustomRegion
+|08AE85| INY
+|08AE86| PHY
 
-#_08AE96: RTS
+|08AE87| TYA
+|08AE88| SEC
+|08AE89| SBC.b #$04
+|08AE8B| LSR A
+|08AE8C| LSR A
+|08AE8D| TAY
+
+|08AE8E| LDA.b #$02
+|08AE90| STA.b ($92),Y
+
+|08AE92| PLY
+
+|08AE93| JSR AllocateOAMInCustomRegion
+
+|08AE96| RTS
 
 ;===================================================================================================
 
 EtherBlitzDraw:
 .char
-#_08AE97: db $40, $42, $44, $46
+|08AE97| db $40, $42, $44, $46
 
 .orb_char
-#_08AE9B: db $48, $48, $4A, $4A
-#_08AE9F: db $4C, $4C, $4E, $4E
+|08AE9B| db $48, $48, $4A, $4A
+|08AE9F| db $4C, $4C, $4E, $4E
 
 .prop
-#_08AEA3: db $3C, $7C, $3C, $7C
-#_08AEA7: db $3C, $7C, $3C, $7C
+|08AEA3| db $3C, $7C, $3C, $7C
+|08AEA7| db $3C, $7C, $3C, $7C
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_EtherBlitz:
-#_08AEAB: JSR Ancilla_PrepOAMCoord
+|08AEAB| JSR Ancilla_PrepOAMCoord
 
-#_08AEAE: LDA.w $0C5E,X
-#_08AEB1: STA.b $06
+|08AEAE| LDA.w $0C5E,X
+|08AEB1| STA.b $06
 
-#_08AEB3: STZ.b $08
+|08AEB3| STZ.b $08
 
-#_08AEB5: PHX
+|08AEB5| PHX
 
-#_08AEB6: LDA.w $03C2,X
-#_08AEB9: TAX
+|08AEB6| LDA.w $03C2,X
+|08AEB9| TAX
 
-#_08AEBA: LDY.b #$00
+|08AEBA| LDY.b #$00
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_object
-#_08AEBC: JSR Ancilla_SetOAM_XY
+|08AEBC| JSR Ancilla_SetOAM_XY
 
-#_08AEBF: PHX
+|08AEBF| PHX
 
-#_08AEC0: LDA.b $06
-#_08AEC2: ASL A
-#_08AEC3: CLC
-#_08AEC4: ADC.b $08
-#_08AEC6: TAX
+|08AEC0| LDA.b $06
+|08AEC2| ASL A
+|08AEC3| CLC
+|08AEC4| ADC.b $08
+|08AEC6| TAX
 
-#_08AEC7: LDA.w EtherBlitzDraw_char,X
-#_08AECA: STA.b ($90),Y
+|08AEC7| LDA.w EtherBlitzDraw.char,X
+|08AECA| STA.b ($90),Y
 
-#_08AECC: PLX
+|08AECC| PLX
 
-#_08AECD: INY
+|08AECD| INY
 
-#_08AECE: LDA.w EtherBlitzDraw_prop
-#_08AED1: ORA.b $65
-#_08AED3: STA.b ($90),Y
+|08AECE| LDA.w EtherBlitzDraw.prop
+|08AED1| ORA.b $65
+|08AED3| STA.b ($90),Y
 
-#_08AED5: INY
-#_08AED6: PHY
+|08AED5| INY
+|08AED6| PHY
 
-#_08AED7: TYA
-#_08AED8: SEC
-#_08AED9: SBC.b #$04
-#_08AEDB: LSR A
-#_08AEDC: LSR A
-#_08AEDD: TAY
+|08AED7| TYA
+|08AED8| SEC
+|08AED9| SBC.b #$04
+|08AEDB| LSR A
+|08AEDC| LSR A
+|08AEDD| TAY
 
-#_08AEDE: LDA.b #$02
-#_08AEE0: STA.b ($92),Y
+|08AEDE| LDA.b #$02
+|08AEE0| STA.b ($92),Y
 
-#_08AEE2: PLY
+|08AEE2| PLY
 
-#_08AEE3: REP #$20
+|08AEE3| REP #$20
 
-#_08AEE5: LDA.b $00
-#_08AEE7: SEC
-#_08AEE8: SBC.w #$0010
-#_08AEEB: STA.b $00
+|08AEE5| LDA.b $00
+|08AEE7| SEC
+|08AEE8| SBC.w #$0010
+|08AEEB| STA.b $00
 
-#_08AEED: SEP #$20
+|08AEED| SEP #$20
 
-#_08AEEF: LDA.b $08
-#_08AEF1: EOR.b #$01
-#_08AEF3: STA.b $08
+|08AEEF| LDA.b $08
+|08AEF1| EOR.b #$01
+|08AEF3| STA.b $08
 
-#_08AEF5: DEX
-#_08AEF6: BPL .next_object
+|08AEF5| DEX
+|08AEF6| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08AEF8: PLX
+|08AEF8| PLX
 
-#_08AEF9: LDA.w $0C54,X
-#_08AEFC: CMP.b #$01
-#_08AEFE: BEQ AncillaDraw_EtherOrb
+|08AEF9| LDA.w $0C54,X
+|08AEFC| CMP.b #$01
+|08AEFE| BEQ AncillaDraw_EtherOrb
 
-#_08AF00: RTS
+|08AF00| RTS
 
 ;===================================================================================================
 
 AncillaDraw_EtherOrb:
-#_08AF01: REP #$20
+|08AF01| REP #$20
 
-#_08AF03: LDA.l $7F5813
-#_08AF07: CLC
-#_08AF08: ADC.w #$FFFF
-#_08AF0B: SEC
-#_08AF0C: SBC.b $E8
-#_08AF0E: STA.b $00
+|08AF03| LDA.l $7F5813
+|08AF07| CLC
+|08AF08| ADC.w #$FFFF
+|08AF0B| SEC
+|08AF0C| SBC.b $E8
+|08AF0E| STA.b $00
 
-#_08AF10: LDA.l $7F5815
-#_08AF14: CLC
-#_08AF15: ADC.w #$FFF8
-#_08AF18: SEC
-#_08AF19: SBC.b $E2
-#_08AF1B: STA.b $02
-#_08AF1D: STA.b $04
+|08AF10| LDA.l $7F5815
+|08AF14| CLC
+|08AF15| ADC.w #$FFF8
+|08AF18| SEC
+|08AF19| SBC.b $E2
+|08AF1B| STA.b $02
+|08AF1D| STA.b $04
 
-#_08AF1F: STZ.b $08
+|08AF1F| STZ.b $08
 
-#_08AF21: SEP #$20
+|08AF21| SEP #$20
 
-#_08AF23: PHX
+|08AF23| PHX
 
-#_08AF24: LDA.w $0C5E,X
-#_08AF27: ASL A
-#_08AF28: ASL A
-#_08AF29: STA.b $06
+|08AF24| LDA.w $0C5E,X
+|08AF27| ASL A
+|08AF28| ASL A
+|08AF29| STA.b $06
 
 .next_object
-#_08AF2B: JSR Ancilla_SetOAM_XY
+|08AF2B| JSR Ancilla_SetOAM_XY
 
-#_08AF2E: LDX.b $06
+|08AF2E| LDX.b $06
 
-#_08AF30: LDA.w EtherBlitzDraw_orb_char,X
-#_08AF33: STA.b ($90),Y
+|08AF30| LDA.w EtherBlitzDraw.orb_char,X
+|08AF33| STA.b ($90),Y
 
-#_08AF35: INY
+|08AF35| INY
 
-#_08AF36: LDA.w EtherBlitzDraw_prop,X
-#_08AF39: STA.b ($90),Y
+|08AF36| LDA.w EtherBlitzDraw.prop,X
+|08AF39| STA.b ($90),Y
 
-#_08AF3B: INY
-#_08AF3C: PHY
+|08AF3B| INY
+|08AF3C| PHY
 
-#_08AF3D: TYA
-#_08AF3E: SEC
-#_08AF3F: SBC.b #$04
-#_08AF41: LSR A
-#_08AF42: LSR A
-#_08AF43: TAY
+|08AF3D| TYA
+|08AF3E| SEC
+|08AF3F| SBC.b #$04
+|08AF41| LSR A
+|08AF42| LSR A
+|08AF43| TAY
 
-#_08AF44: LDA.b #$02
-#_08AF46: STA.b ($92),Y
+|08AF44| LDA.b #$02
+|08AF46| STA.b ($92),Y
 
-#_08AF48: PLY
+|08AF48| PLY
 
-#_08AF49: JSR AllocateOAMInCustomRegion
+|08AF49| JSR AllocateOAMInCustomRegion
 
-#_08AF4C: REP #$20
+|08AF4C| REP #$20
 
-#_08AF4E: LDA.b $02
-#_08AF50: CLC
-#_08AF51: ADC.w #$0010
-#_08AF54: STA.b $02
+|08AF4E| LDA.b $02
+|08AF50| CLC
+|08AF51| ADC.w #$0010
+|08AF54| STA.b $02
 
-#_08AF56: INC.b $06
+|08AF56| INC.b $06
 
-#_08AF58: INC.b $08
+|08AF58| INC.b $08
 
-#_08AF5A: LDA.b $08
-#_08AF5C: CMP.w #$0004
-#_08AF5F: BEQ .exit
+|08AF5A| LDA.b $08
+|08AF5C| CMP.w #$0004
+|08AF5F| BEQ .exit
 
-#_08AF61: CMP.w #$0002
-#_08AF64: BNE .continue
+|08AF61| CMP.w #$0002
+|08AF64| BNE .continue
 
-#_08AF66: LDA.b $00
-#_08AF68: CLC
-#_08AF69: ADC.w #$0010
-#_08AF6C: STA.b $00
+|08AF66| LDA.b $00
+|08AF68| CLC
+|08AF69| ADC.w #$0010
+|08AF6C| STA.b $00
 
-#_08AF6E: LDA.b $04
-#_08AF70: STA.b $02
+|08AF6E| LDA.b $04
+|08AF70| STA.b $02
 
 .continue
-#_08AF72: SEP #$20
+|08AF72| SEP #$20
 
-#_08AF74: BRA .next_object
+|08AF74| BRA .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08AF76: SEP #$20
+|08AF76| SEP #$20
 
-#_08AF78: PLX
+|08AF78| PLX
 
-#_08AF79: RTS
+|08AF79| RTS
 
 ;===================================================================================================
 
 pool AncillaAdd_BombosSpell
 
 .offset_y
-#_08AF7A: dw  16,  24, -128, -16
+|08AF7A| dw  16,  24, -128, -16
 
 .offset_x
-#_08AF82: dw -16, -128,   0, 128
+|08AF82| dw -16, -128,   0, 128
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaAdd_BombosSpell:
-#_08AF8A: PHB
-#_08AF8B: PHK
-#_08AF8C: PLB
+|08AF8A| PHB
+|08AF8B| PHK
+|08AF8C| PLB
 
-#_08AF8D: JSR AddAncilla_bank08
-#_08AF90: BCC .found_slot
+|08AF8D| JSR AddAncilla_bank08
+|08AF90| BCC .found_slot
 
-#_08AF92: BRL .exit
+|08AF92| BRL .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .found_slot
-#_08AF95: LDA.b #$03
-#_08AF97: STA.l $7F5800
-#_08AF9B: STA.l $7F5801
-#_08AF9F: STA.l $7F5802
-#_08AFA3: STA.l $7F5803
-#_08AFA7: STA.l $7F5804
+|08AF95| LDA.b #$03
+|08AF97| STA.l $7F5800
+|08AF9B| STA.l $7F5801
+|08AF9F| STA.l $7F5802
+|08AFA3| STA.l $7F5803
+|08AFA7| STA.l $7F5804
 
-#_08AFAB: STA.l $7F5805
-#_08AFAF: STA.l $7F5806
-#_08AFB3: STA.l $7F5807
-#_08AFB7: STA.l $7F5808
-#_08AFBB: STA.l $7F5809
+|08AFAB| STA.l $7F5805
+|08AFAF| STA.l $7F5806
+|08AFB3| STA.l $7F5807
+|08AFB7| STA.l $7F5808
+|08AFBB| STA.l $7F5809
 
-#_08AFBF: STA.l $7F5945
-#_08AFC3: STA.l $7F5946
-#_08AFC7: STA.l $7F5947
-#_08AFCB: STA.l $7F5948
+|08AFBF| STA.l $7F5945
+|08AFC3| STA.l $7F5946
+|08AFC7| STA.l $7F5947
+|08AFCB| STA.l $7F5948
 
-#_08AFCF: STA.l $7F5949
-#_08AFD3: STA.l $7F594A
-#_08AFD7: STA.l $7F594B
-#_08AFDB: STA.l $7F594C
+|08AFCF| STA.l $7F5949
+|08AFD3| STA.l $7F594A
+|08AFD7| STA.l $7F594B
+|08AFDB| STA.l $7F594C
 
-#_08AFDF: LDA.b #$00
-#_08AFE1: STA.l $7F5810
-#_08AFE5: STA.l $7F5811
-#_08AFE9: STA.l $7F5812
-#_08AFED: STA.l $7F5813
-#_08AFF1: STA.l $7F5814
+|08AFDF| LDA.b #$00
+|08AFE1| STA.l $7F5810
+|08AFE5| STA.l $7F5811
+|08AFE9| STA.l $7F5812
+|08AFED| STA.l $7F5813
+|08AFF1| STA.l $7F5814
 
-#_08AFF5: STA.l $7F5815
-#_08AFF9: STA.l $7F5816
-#_08AFFD: STA.l $7F5817
-#_08B001: STA.l $7F5818
-#_08B005: STA.l $7F5819
+|08AFF5| STA.l $7F5815
+|08AFF9| STA.l $7F5816
+|08AFFD| STA.l $7F5817
+|08B001| STA.l $7F5818
+|08B005| STA.l $7F5819
 
-#_08B009: STA.l $7F5935
-#_08B00D: STA.l $7F5936
-#_08B011: STA.l $7F5937
-#_08B015: STA.l $7F5938
+|08B009| STA.l $7F5935
+|08B00D| STA.l $7F5936
+|08B011| STA.l $7F5937
+|08B015| STA.l $7F5938
 
-#_08B019: STA.l $7F5939
-#_08B01D: STA.l $7F593A
-#_08B021: STA.l $7F593B
-#_08B025: STA.l $7F593C
+|08B019| STA.l $7F5939
+|08B01D| STA.l $7F593A
+|08B021| STA.l $7F593B
+|08B025| STA.l $7F593C
 
-#_08B029: STA.l $7F5934
-#_08B02D: STA.l $7F5A56
-
-;---------------------------------------------------------------------------------------------------
-
-#_08B031: LDA.b #$80
-#_08B033: STA.l $7F5A55
-
-#_08B037: LDA.b #$10
-#_08B039: STA.l $7F5820
-
-#_08B03D: LDA.b #$0B
-#_08B03F: STA.w $0AAA
-
-#_08B042: LDA.b #$01
-#_08B044: STA.w $0112
-
-#_08B047: STZ.w $0C54,X
-#_08B04A: STZ.w $0C5E,X
+|08B029| STA.l $7F5934
+|08B02D| STA.l $7F5A56
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B04D: LDA.b #$2A ; SFX2.2A
-#_08B04F: JSR Ancilla_SFX2_Near
+|08B031| LDA.b #$80
+|08B033| STA.l $7F5A55
 
-#_08B052: PHX
+|08B037| LDA.b #$10
+|08B039| STA.l $7F5820
 
-#_08B053: LDY.b $1A
+|08B03D| LDA.b #$0B
+|08B03F| STA.w $0AAA
 
-#_08B055: LDA.b $21
-#_08B057: STA.l $7F5956
+|08B042| LDA.b #$01
+|08B044| STA.w $0112
 
-#_08B05B: LDA.b $23
-#_08B05D: STA.l $7F59D6
+|08B047| STZ.w $0C54,X
+|08B04A| STZ.w $0C5E,X
 
-; !WTF why?
-#_08B061: LDA.w Ancilla05_Boomerang,Y
-#_08B064: CMP.b #$E0
-#_08B066: BCC .excuse_me
+;---------------------------------------------------------------------------------------------------
 
-#_08B068: AND.b #$7F
+|08B04D| LDA.b #$2A ; SFX2.2A
+|08B04F| JSR Ancilla_SFX2_Near
+
+|08B052| PHX
+
+|08B053| LDY.b $1A
+
+|08B055| LDA.b $21
+|08B057| STA.l $7F5956
+
+|08B05B| LDA.b $23
+|08B05D| STA.l $7F59D6
+
+; [WTF] why?
+|08B061| LDA.w Ancilla05_Boomerang,Y
+|08B064| CMP.b #$E0
+|08B066| BCC .excuse_me
+
+|08B068| AND.b #$7F
 
 .excuse_me
-#_08B06A: STA.l $7F5955
-#_08B06E: STA.l $7F59D5
+|08B06A| STA.l $7F5955
+|08B06E| STA.l $7F59D5
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B072: LDX.b #$00
-#_08B074: STX.b $72
+|08B072| LDX.b #$00
+|08B074| STX.b $72
 
 .next
-#_08B076: REP #$20
+|08B076| REP #$20
 
-#_08B078: LDA.b $20
-#_08B07A: CLC
-#_08B07B: ADC.w .offset_y,X
-#_08B07E: STA.l $7F5924,X
+|08B078| LDA.b $20
+|08B07A| CLC
+|08B07B| ADC.w .offset_y,X
+|08B07E| STA.l $7F5924,X
 
-#_08B082: LDA.b $22
-#_08B084: CLC
-#_08B085: ADC.w .offset_x,X
-#_08B088: STA.l $7F592C,X
+|08B082| LDA.b $22
+|08B084| CLC
+|08B085| ADC.w .offset_x,X
+|08B088| STA.l $7F592C,X
 
-#_08B08C: SEP #$20
+|08B08C| SEP #$20
 
-#_08B08E: PHX
+|08B08E| PHX
 
-#_08B08F: TXA
-#_08B090: LSR A
-#_08B091: TAX
+|08B08F| TXA
+|08B090| LSR A
+|08B091| TAX
 
-#_08B092: LDA.b #$10
-#_08B094: STA.b $08
-#_08B096: STA.l $7F5A57
+|08B092| LDA.b #$10
+|08B094| STA.b $08
+|08B096| STA.l $7F5A57
 
-#_08B09A: LDA.l $7F5820,X
+|08B09A| LDA.l $7F5820,X
 
-#_08B09E: PLX
+|08B09E| PLX
 
-#_08B09F: JSR Ancilla_GetRadialProjection
+|08B09F| JSR Ancilla_GetRadialProjection
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B0A2: REP #$20
+|08B0A2| REP #$20
 
-#_08B0A4: LDA.b $00
-#_08B0A6: LDY.b $02
-#_08B0A8: BEQ .positive_x
+|08B0A4| LDA.b $00
+|08B0A6| LDY.b $02
+|08B0A8| BEQ .positive_x
 
-#_08B0AA: EOR.w #$FFFF
-#_08B0AD: INC A
+|08B0AA| EOR.w #$FFFF
+|08B0AD| INC A
 
 .positive_x
-#_08B0AE: CLC
-#_08B0AF: ADC.l $7F5924,X
-#_08B0B3: STA.b $00
+|08B0AE| CLC
+|08B0AF| ADC.l $7F5924,X
+|08B0B3| STA.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B0B5: LDA.b $04
+|08B0B5| LDA.b $04
 
-#_08B0B7: LDY.b $06
-#_08B0B9: BEQ .positive_y
+|08B0B7| LDY.b $06
+|08B0B9| BEQ .positive_y
 
-#_08B0BB: EOR.w #$FFFF
-#_08B0BE: INC A
+|08B0BB| EOR.w #$FFFF
+|08B0BE| INC A
 
 .positive_y
-#_08B0BF: CLC
-#_08B0C0: ADC.l $7F592C,X
-#_08B0C4: STA.b $04
+|08B0BF| CLC
+|08B0C0| ADC.l $7F592C,X
+|08B0C4| STA.b $04
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B0C6: SEP #$20
+|08B0C6| SEP #$20
 
-#_08B0C8: PHX
+|08B0C8| PHX
 
-#_08B0C9: LDX.b $72
+|08B0C9| LDX.b $72
 
-#_08B0CB: LDA.b $00
-#_08B0CD: STA.l $7F5824,X
+|08B0CB| LDA.b $00
+|08B0CD| STA.l $7F5824,X
 
-#_08B0D1: LDA.b $01
-#_08B0D3: STA.l $7F5864,X
+|08B0D1| LDA.b $01
+|08B0D3| STA.l $7F5864,X
 
-#_08B0D7: LDA.b $04
-#_08B0D9: STA.l $7F58A4,X
+|08B0D7| LDA.b $04
+|08B0D9| STA.l $7F58A4,X
 
-#_08B0DD: LDA.b $05
-#_08B0DF: STA.l $7F58E4,X
+|08B0DD| LDA.b $05
+|08B0DF| STA.l $7F58E4,X
 
-#_08B0E3: PLX
+|08B0E3| PLX
 
-#_08B0E4: LDA.b $72
-#_08B0E6: SEC
-#_08B0E7: SBC.b #$10
-#_08B0E9: STA.b $72
+|08B0E4| LDA.b $72
+|08B0E6| SEC
+|08B0E7| SBC.b #$10
+|08B0E9| STA.b $72
 
-#_08B0EB: DEX
-#_08B0EC: DEX
-#_08B0ED: BPL .next
+|08B0EB| DEX
+|08B0EC| DEX
+|08B0ED| BPL .next
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B0EF: PLX
+|08B0EF| PLX
 
 .exit
-#_08B0F0: PLB
+|08B0F0| PLB
 
-#_08B0F1: RTL
+|08B0F1| RTL
 
 ;===================================================================================================
 
 Ancilla19_BombosSpell:
-#_08B0F2: LDA.l $7F5934
-#_08B0F6: BNE .no_new_columns
+|08B0F2| LDA.l $7F5934
+|08B0F6| BNE .no_new_columns
 
-#_08B0F8: LDA.b $11
-#_08B0FA: BNE .draw_columns
+|08B0F8| LDA.b $11
+|08B0FA| BNE .draw_columns
 
-#_08B0FC: JMP.w BombosSpell_ControlFireColumns
+|08B0FC| JMP.w BombosSpell_ControlFireColumns
 
 ;---------------------------------------------------------------------------------------------------
 
 .draw_columns
-#_08B0FF: LDY.b #$00
-#_08B101: LDX.b #$09
+|08B0FF| LDY.b #$00
+|08B101| LDX.b #$09
 
 .next_column_draw
-#_08B103: JSR AncillaDraw_BombosFireColumn
+|08B103| JSR AncillaDraw_BombosFireColumn
 
-#_08B106: DEX
-#_08B107: BPL .next_column_draw
+|08B106| DEX
+|08B107| BPL .next_column_draw
 
-#_08B109: RTS
+|08B109| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_new_columns
-#_08B10A: LDA.l $7F5934
-#_08B10E: CMP.b #$02
-#_08B110: BEQ .blasting
+|08B10A| LDA.l $7F5934
+|08B10E| CMP.b #$02
+|08B110| BEQ .blasting
 
-#_08B112: LDA.b $11
-#_08B114: BNE .draw_columns
+|08B112| LDA.b $11
+|08B114| BNE .draw_columns
 
-#_08B116: JSR BombosSpell_FinishFireColumns
+|08B116| JSR BombosSpell_FinishFireColumns
 
-#_08B119: RTS
+|08B119| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .blasting
-#_08B11A: LDA.b $11
-#_08B11C: BEQ .dont_draw_blast
+|08B11A| LDA.b $11
+|08B11C| BEQ .dont_draw_blast
 
-#_08B11E: PHX
+|08B11E| PHX
 
-#_08B11F: LDA.w $0C54,X
-#_08B122: TAX
+|08B11F| LDA.w $0C54,X
+|08B122| TAX
 
 .next_blast_draw
-#_08B123: JSR AncillaDraw_BombosBlast
+|08B123| JSR AncillaDraw_BombosBlast
 
-#_08B126: DEX
-#_08B127: BPL .next_blast_draw
+|08B126| DEX
+|08B127| BPL .next_blast_draw
 
-#_08B129: PLX
+|08B129| PLX
 
-#_08B12A: RTS
+|08B12A| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_draw_blast
-#_08B12B: JMP.w BombosSpell_ControlBlasting
+|08B12B| JMP.w BombosSpell_ControlBlasting
 
 ;===================================================================================================
 
 BombosSpell_ControlFireColumns:
-#_08B12E: PHX
+|08B12E| PHX
 
-#_08B12F: LDA.w $0C5E,X
-#_08B132: STA.b $73
+|08B12F| LDA.w $0C5E,X
+|08B132| STA.b $73
 
-#_08B134: LDA.w $0C54,X
-#_08B137: STA.b $72
+|08B134| LDA.w $0C54,X
+|08B137| STA.b $72
 
-#_08B139: TAX
-#_08B13A: LDY.b #$00
+|08B139| TAX
+|08B13A| LDY.b #$00
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_column
-#_08B13C: LDA.l $7F5810,X
-#_08B140: CMP.b #$0D
-#_08B142: BNE .continue
+|08B13C| LDA.l $7F5810,X
+|08B140| CMP.b #$0D
+|08B142| BNE .continue
 
 .skip_me
-#_08B144: BRL .skip_this_column
+|08B144| BRL .skip_this_column
 
 .continue
-#_08B147: LDA.l $7F5800,X
-#_08B14B: DEC A
-#_08B14C: STA.l $7F5800,X
-#_08B150: BMI .time_up
+|08B147| LDA.l $7F5800,X
+|08B14B| DEC A
+|08B14C| STA.l $7F5800,X
+|08B150| BMI .time_up
 
 .dont_spawn_new_column
-#_08B152: BRL .just_draw
+|08B152| BRL .just_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .time_up
-#_08B155: LDA.b #$03
-#_08B157: STA.l $7F5800,X
+|08B155| LDA.b #$03
+|08B157| STA.l $7F5800,X
 
-#_08B15B: LDA.l $7F5810,X
-#_08B15F: INC A
-#_08B160: STA.l $7F5810,X
+|08B15B| LDA.l $7F5810,X
+|08B15F| INC A
+|08B160| STA.l $7F5810,X
 
-#_08B164: CMP.b #$0D
-#_08B166: BEQ .skip_me
-
-;---------------------------------------------------------------------------------------------------
-
-#_08B168: CMP.b #$02
-#_08B16A: BNE .dont_spawn_new_column
-
-#_08B16C: LDA.b $73
-#_08B16E: BNE .skip_me
-
-#_08B170: PHX
-
-#_08B171: LDA.b $72
-#_08B173: CMP.b #$09
-#_08B175: BNE .to_next_find
+|08B164| CMP.b #$0D
+|08B166| BEQ .skip_me
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B177: LDX.b #$09
+|08B168| CMP.b #$02
+|08B16A| BNE .dont_spawn_new_column
+
+|08B16C| LDA.b $73
+|08B16E| BNE .skip_me
+
+|08B170| PHX
+
+|08B171| LDA.b $72
+|08B173| CMP.b #$09
+|08B175| BNE .to_next_find
+
+;---------------------------------------------------------------------------------------------------
+
+|08B177| LDX.b #$09
 
 .next_check
-#_08B179: LDA.l $7F5810,X
-#_08B17D: CMP.b #$0D
-#_08B17F: BNE .dont_reset
+|08B179| LDA.l $7F5810,X
+|08B17D| CMP.b #$0D
+|08B17F| BNE .dont_reset
 
-#_08B181: LDA.b #$00
-#_08B183: STA.l $7F5810,X
-#_08B187: BRA .set_radial
+|08B181| LDA.b #$00
+|08B183| STA.l $7F5810,X
+|08B187| BRA .set_radial
 
 .dont_reset
-#_08B189: DEX
-#_08B18A: BPL .next_check
+|08B189| DEX
+|08B18A| BPL .next_check
 
 .to_next_find
-#_08B18C: LDX.b $72
-#_08B18E: INX
-#_08B18F: CPX.b #$0A
-#_08B191: BNE .not_maxed
+|08B18C| LDX.b $72
+|08B18E| INX
+|08B18F| CPX.b #$0A
+|08B191| BNE .not_maxed
 
-#_08B193: LDX.b #$09
+|08B193| LDX.b #$09
 
 .not_maxed
-#_08B195: STX.b $72
+|08B195| STX.b $72
 
 .set_radial
-#_08B197: TXA
-#_08B198: CLC
-#_08B199: ADC.b #$00
-#_08B19B: STA.b $74
+|08B197| TXA
+|08B198| CLC
+|08B199| ADC.b #$00
+|08B19B| STA.b $74
 
 ;---------------------------------------------------------------------------------------------------
 
 .never
-#_08B19D: LDA.b $74
-#_08B19F: LSR A ; /16
-#_08B1A0: LSR A
-#_08B1A1: LSR A
-#_08B1A2: LSR A
-#_08B1A3: TAX
+|08B19D| LDA.b $74
+|08B19F| LSR A ; /16
+|08B1A0| LSR A
+|08B1A1| LSR A
+|08B1A2| LSR A
+|08B1A3| TAX
 
-#_08B1A4: LDA.l $7F5A57
-#_08B1A8: CLC
-#_08B1A9: ADC.b #$03
-#_08B1AB: CMP.b #$D0
-#_08B1AD: BCC .not_maxed_distance
+|08B1A4| LDA.l $7F5A57
+|08B1A8| CLC
+|08B1A9| ADC.b #$03
+|08B1AB| CMP.b #$D0
+|08B1AD| BCC .not_maxed_distance
 
-#_08B1AF: LDA.b #$CF
+|08B1AF| LDA.b #$CF
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_maxed_distance
-#_08B1B1: STA.l $7F5A57
-#_08B1B5: STA.b $08
+|08B1B1| STA.l $7F5A57
+|08B1B5| STA.b $08
 
-#_08B1B7: LDA.l $7F5820,X
-#_08B1BB: CLC
-#_08B1BC: ADC.b #$06
-#_08B1BE: STA.l $7F5820,X
+|08B1B7| LDA.l $7F5820,X
+|08B1BB| CLC
+|08B1BC| ADC.b #$06
+|08B1BE| STA.l $7F5820,X
 
-#_08B1C2: AND.b #$3F
-#_08B1C4: JSR Ancilla_GetRadialProjection
+|08B1C2| AND.b #$3F
+|08B1C4| JSR Ancilla_GetRadialProjection
 
-#_08B1C7: TXA
-#_08B1C8: ASL A
-#_08B1C9: TAX
+|08B1C7| TXA
+|08B1C8| ASL A
+|08B1C9| TAX
 
-#_08B1CA: REP #$20
+|08B1CA| REP #$20
 
-#_08B1CC: PHY
+|08B1CC| PHY
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B1CD: LDA.b $00
+|08B1CD| LDA.b $00
 
-#_08B1CF: LDY.b $02
-#_08B1D1: BEQ .positive_y
+|08B1CF| LDY.b $02
+|08B1D1| BEQ .positive_y
 
-#_08B1D3: EOR.w #$FFFF
-#_08B1D6: INC A
+|08B1D3| EOR.w #$FFFF
+|08B1D6| INC A
 
 .positive_y
-#_08B1D7: CLC
-#_08B1D8: ADC.l $7F5924,X
-#_08B1DC: STA.b $00
+|08B1D7| CLC
+|08B1D8| ADC.l $7F5924,X
+|08B1DC| STA.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B1DE: LDA.b $04
+|08B1DE| LDA.b $04
 
-#_08B1E0: LDY.b $06
-#_08B1E2: BEQ .positive_x
+|08B1E0| LDY.b $06
+|08B1E2| BEQ .positive_x
 
-#_08B1E4: EOR.w #$FFFF
-#_08B1E7: INC A
+|08B1E4| EOR.w #$FFFF
+|08B1E7| INC A
 
 .positive_x
-#_08B1E8: CLC
-#_08B1E9: ADC.l $7F592C,X
-#_08B1ED: STA.b $04
+|08B1E8| CLC
+|08B1E9| ADC.l $7F592C,X
+|08B1ED| STA.b $04
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B1EF: PLY
+|08B1EF| PLY
 
-#_08B1F0: SEP #$20
+|08B1F0| SEP #$20
 
-#_08B1F2: LDX.b $74
+|08B1F2| LDX.b $74
 
-#_08B1F4: LDA.b $00
-#_08B1F6: STA.l $7F5824,X
+|08B1F4| LDA.b $00
+|08B1F6| STA.l $7F5824,X
 
-#_08B1FA: LDA.b $01
-#_08B1FC: STA.l $7F5864,X
+|08B1FA| LDA.b $01
+|08B1FC| STA.l $7F5864,X
 
-#_08B200: LDA.b $04
-#_08B202: STA.l $7F58A4,X
+|08B200| LDA.b $04
+|08B202| STA.l $7F58A4,X
 
-#_08B206: LDA.b $05
-#_08B208: STA.l $7F58E4,X
+|08B206| LDA.b $05
+|08B208| STA.l $7F58E4,X
 
 ;---------------------------------------------------------------------------------------------------
 
 ; supposedly impossible, according to MoN disassembly
-#_08B20C: LDA.b $74
-#_08B20E: SEC
-#_08B20F: SBC.b #$10
-#_08B211: STA.b $74
-#_08B213: BPL .never
+|08B20C| LDA.b $74
+|08B20E| SEC
+|08B20F| SBC.b #$10
+|08B211| STA.b $74
+|08B213| BPL .never
 
-#_08B215: REP #$20
+|08B215| REP #$20
 
-#_08B217: LDA.b $04
-#_08B219: SEC
-#_08B21A: SBC.b $E2
-#_08B21C: CLC
-#_08B21D: ADC.w #$0008
-#_08B220: STA.b $04
+|08B217| LDA.b $04
+|08B219| SEC
+|08B21A| SBC.b $E2
+|08B21C| CLC
+|08B21D| ADC.w #$0008
+|08B220| STA.b $04
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B222: SEP #$20
+|08B222| SEP #$20
 
-#_08B224: LDA.b $05
-#_08B226: BNE .no_sfx
+|08B224| LDA.b $05
+|08B226| BNE .no_sfx
 
-#_08B228: LDA.b $04
-#_08B22A: LSR A ; /32
-#_08B22B: LSR A
-#_08B22C: LSR A
-#_08B22D: LSR A
-#_08B22E: LSR A
-#_08B22F: TAX
+|08B228| LDA.b $04
+|08B22A| LSR A ; /32
+|08B22B| LSR A
+|08B22C| LSR A
+|08B22D| LSR A
+|08B22E| LSR A
+|08B22F| TAX
 
-#_08B230: LDA.l AncillaPanValues,X
-#_08B234: ORA.b #$2A ; SFX2.2A
-#_08B236: STA.w $012E
+|08B230| LDA.l AncillaPanValues,X
+|08B234| ORA.b #$2A ; SFX2.2A
+|08B236| STA.w $012E
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_sfx
-#_08B239: PLX
+|08B239| PLX
 
 .just_draw
-#_08B23A: JSR AncillaDraw_BombosFireColumn
+|08B23A| JSR AncillaDraw_BombosFireColumn
 
 .skip_this_column
-#_08B23D: DEX
-#_08B23E: BMI .done_columns
+|08B23D| DEX
+|08B23E| BMI .done_columns
 
-#_08B240: BRL .next_column
+|08B240| BRL .next_column
 
 ;---------------------------------------------------------------------------------------------------
 
 .done_columns
-#_08B243: PLX
+|08B243| PLX
 
-#_08B244: LDA.l $7F5820
-#_08B248: CMP.b #$80
-#_08B24A: BCS .trigger_wrap_up
+|08B244| LDA.l $7F5820
+|08B248| CMP.b #$80
+|08B24A| BCS .trigger_wrap_up
 
-#_08B24C: BRA .finish_up
+|08B24C| BRA .finish_up
 
 .trigger_wrap_up
-#_08B24E: LDA.b #$01
-#_08B250: STA.l $7F5934
+|08B24E| LDA.b #$01
+|08B250| STA.l $7F5934
 
 .finish_up
-#_08B254: LDA.b $72
-#_08B256: STA.w $0C54,X
+|08B254| LDA.b $72
+|08B256| STA.w $0C54,X
 
-#_08B259: RTS
+|08B259| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 BombosSpell_FinishFireColumns:
-#_08B25A: PHX
+|08B25A| PHX
 
-#_08B25B: LDA.w $0C54,X
-#_08B25E: TAX
-#_08B25F: LDY.b #$00
+|08B25B| LDA.w $0C54,X
+|08B25E| TAX
+|08B25F| LDY.b #$00
 
 .next_column
-#_08B261: LDA.l $7F5800,X
-#_08B265: DEC A
-#_08B266: STA.l $7F5800,X
-#_08B26A: BPL .delay
+|08B261| LDA.l $7F5800,X
+|08B265| DEC A
+|08B266| STA.l $7F5800,X
+|08B26A| BPL .delay
 
-#_08B26C: LDA.b #$03
-#_08B26E: STA.l $7F5800,X
+|08B26C| LDA.b #$03
+|08B26E| STA.l $7F5800,X
 
-#_08B272: LDA.l $7F5810,X
-#_08B276: INC A
-#_08B277: STA.l $7F5810,X
+|08B272| LDA.l $7F5810,X
+|08B276| INC A
+|08B277| STA.l $7F5810,X
 
-#_08B27B: CMP.b #$0D
-#_08B27D: BCC .delay
+|08B27B| CMP.b #$0D
+|08B27D| BCC .delay
 
-#_08B27F: LDA.b #$0D
-#_08B281: STA.l $7F5810,X
+|08B27F| LDA.b #$0D
+|08B281| STA.l $7F5810,X
 
 .delay
-#_08B285: JSR AncillaDraw_BombosFireColumn
+|08B285| JSR AncillaDraw_BombosFireColumn
 
-#_08B288: DEX
-#_08B289: BPL .next_column
+|08B288| DEX
+|08B289| BPL .next_column
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B28B: LDX.b #$09
+|08B28B| LDX.b #$09
 
 .next_check
-#_08B28D: LDA.l $7F5810,X
-#_08B291: CMP.b #$0D
-#_08B293: BNE .found_active_column
+|08B28D| LDA.l $7F5810,X
+|08B291| CMP.b #$0D
+|08B293| BNE .found_active_column
 
-#_08B295: DEX
-#_08B296: BPL .next_check
+|08B295| DEX
+|08B296| BPL .next_check
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B298: STZ.b $72
+|08B298| STZ.b $72
 
-#_08B29A: LDA.b #$02
-#_08B29C: STA.l $7F5934
+|08B29A| LDA.b #$02
+|08B29C| STA.l $7F5934
 
-#_08B2A0: PLX
+|08B2A0| PLX
 
-#_08B2A1: PHX
-#_08B2A2: JSL CheckMedallionDamageToSprite
-#_08B2A6: PLX
+|08B2A1| PHX
+|08B2A2| JSL CheckMedallionDamageToSprite
+|08B2A6| PLX
 
-#_08B2A7: STZ.w $0C54,X
+|08B2A7| STZ.w $0C54,X
 
-#_08B2AA: RTS
+|08B2AA| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .found_active_column
-#_08B2AB: PLX
+|08B2AB| PLX
 
-#_08B2AC: RTS
+|08B2AC| RTS
 
 ;===================================================================================================
 ; $FF = don't draw
@@ -10438,2961 +10438,2961 @@ BombosSpell_FinishFireColumns:
 pool AncillaDraw_BombosFireColumn
 
 .char
-#_08B2AD: db $40, $FF, $FF
-#_08B2B0: db $42, $44, $FF
-#_08B2B3: db $42, $44, $FF
-#_08B2B6: db $42, $44, $FF
-#_08B2B9: db $42, $44, $FF
-#_08B2BC: db $40, $46, $44
-#_08B2BF: db $4A, $4A, $48
-#_08B2C2: db $4C, $4C, $4A
-#_08B2C5: db $4E, $4C, $4A
-#_08B2C8: db $4E, $6A, $4C
-#_08B2CB: db $4E, $68, $FF
-#_08B2CE: db $6A, $FF, $FF
-#_08B2D1: db $4E, $FF, $FF
+|08B2AD| db $40, $FF, $FF
+|08B2B0| db $42, $44, $FF
+|08B2B3| db $42, $44, $FF
+|08B2B6| db $42, $44, $FF
+|08B2B9| db $42, $44, $FF
+|08B2BC| db $40, $46, $44
+|08B2BF| db $4A, $4A, $48
+|08B2C2| db $4C, $4C, $4A
+|08B2C5| db $4E, $4C, $4A
+|08B2C8| db $4E, $6A, $4C
+|08B2CB| db $4E, $68, $FF
+|08B2CE| db $6A, $FF, $FF
+|08B2D1| db $4E, $FF, $FF
 
 ;---------------------------------------------------------------------------------------------------
 
 .prop
-#_08B2D4: db $3C, $FF, $FF
-#_08B2D7: db $3C, $3C, $FF
-#_08B2DA: db $3C, $3C, $FF
-#_08B2DD: db $7C, $7C, $FF
-#_08B2E0: db $3C, $7C, $FF
-#_08B2E3: db $3C, $3C, $3C
-#_08B2E6: db $BC, $3C, $3C
-#_08B2E9: db $7C, $3C, $3C
-#_08B2EC: db $3C, $3C, $7C
-#_08B2EF: db $3C, $3C, $3C
-#_08B2F2: db $3C, $3C, $FF
-#_08B2F5: db $3C, $FF, $FF
-#_08B2F8: db $3C, $FF, $FF
+|08B2D4| db $3C, $FF, $FF
+|08B2D7| db $3C, $3C, $FF
+|08B2DA| db $3C, $3C, $FF
+|08B2DD| db $7C, $7C, $FF
+|08B2E0| db $3C, $7C, $FF
+|08B2E3| db $3C, $3C, $3C
+|08B2E6| db $BC, $3C, $3C
+|08B2E9| db $7C, $3C, $3C
+|08B2EC| db $3C, $3C, $7C
+|08B2EF| db $3C, $3C, $3C
+|08B2F2| db $3C, $3C, $FF
+|08B2F5| db $3C, $FF, $FF
+|08B2F8| db $3C, $FF, $FF
 
 ;---------------------------------------------------------------------------------------------------
 ; These -1s are actually for the "don't draw"s
 ;---------------------------------------------------------------------------------------------------
 .offset_y
-#_08B2FB: dw   0,  -1,  -1
-#_08B301: dw   0,  -4,  -1
-#_08B307: dw   0,  -8,  -1
-#_08B30D: dw   0, -12,  -1
-#_08B313: dw   0, -16,  -1
-#_08B319: dw   0,  -4, -20
-#_08B31F: dw   0,  -8, -24
-#_08B325: dw   0, -12, -28
-#_08B32B: dw   0, -16, -32
-#_08B331: dw   0, -16, -32
-#_08B337: dw -18, -34,  -1
-#_08B33D: dw -35,  -1,  -1
-#_08B343: dw -36,  -1,  -1
+|08B2FB| dw   0,  -1,  -1
+|08B301| dw   0,  -4,  -1
+|08B307| dw   0,  -8,  -1
+|08B30D| dw   0, -12,  -1
+|08B313| dw   0, -16,  -1
+|08B319| dw   0,  -4, -20
+|08B31F| dw   0,  -8, -24
+|08B325| dw   0, -12, -28
+|08B32B| dw   0, -16, -32
+|08B331| dw   0, -16, -32
+|08B337| dw -18, -34,  -1
+|08B33D| dw -35,  -1,  -1
+|08B343| dw -36,  -1,  -1
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_x
-#_08B349: dw   0,  -1,  -1
-#_08B34F: dw   0,   0,  -1
-#_08B355: dw   0,   0,  -1
-#_08B35B: dw   0,   0,  -1
-#_08B361: dw   0,   0,  -1
-#_08B367: dw   0,   0,   0
-#_08B36D: dw   0,   0,   0
-#_08B373: dw   0,   0,   0
-#_08B379: dw   0,   0,   0
-#_08B37F: dw   0,   0,   0
-#_08B385: dw   0,   0,  -1
-#_08B38B: dw   1,  -1,  -1
-#_08B391: dw   2,  -1,  -1
+|08B349| dw   0,  -1,  -1
+|08B34F| dw   0,   0,  -1
+|08B355| dw   0,   0,  -1
+|08B35B| dw   0,   0,  -1
+|08B361| dw   0,   0,  -1
+|08B367| dw   0,   0,   0
+|08B36D| dw   0,   0,   0
+|08B373| dw   0,   0,   0
+|08B379| dw   0,   0,   0
+|08B37F| dw   0,   0,   0
+|08B385| dw   0,   0,  -1
+|08B38B| dw   1,  -1,  -1
+|08B391| dw   2,  -1,  -1
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_BombosFireColumn:
-#_08B397: TXA
-#_08B398: CLC
-#_08B399: ADC.b #$00
-#_08B39B: STA.b $75
+|08B397| TXA
+|08B398| CLC
+|08B399| ADC.b #$00
+|08B39B| STA.b $75
 
-#_08B39D: LDA.b #$10
-#_08B39F: JSR AllocateOAMInRegionsADF
+|08B39D| LDA.b #$10
+|08B39F| JSR AllocateOAMInRegionsADF
 
-#_08B3A2: LDY.b #$00
+|08B3A2| LDY.b #$00
 
 .next_never
-#_08B3A4: PHX
+|08B3A4| PHX
 
-#_08B3A5: LDA.l $7F5810,X
-#_08B3A9: CMP.b #$0D
-#_08B3AB: BEQ .inactive
+|08B3A5| LDA.l $7F5810,X
+|08B3A9| CMP.b #$0D
+|08B3AB| BEQ .inactive
 
-#_08B3AD: ASL A
-#_08B3AE: CLC
-#_08B3AF: ADC.l $7F5810,X
+|08B3AD| ASL A
+|08B3AE| CLC
+|08B3AF| ADC.l $7F5810,X
 
-#_08B3B3: CLC
-#_08B3B4: ADC.b #$02
-#_08B3B6: TAX
+|08B3B3| CLC
+|08B3B4| ADC.b #$02
+|08B3B6| TAX
 
-#_08B3B7: STZ.b $08
+|08B3B7| STZ.b $08
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_object
-#_08B3B9: LDA.w .char,X
-#_08B3BC: CMP.b #$FF
-#_08B3BE: BEQ .skip
+|08B3B9| LDA.w .char,X
+|08B3BC| CMP.b #$FF
+|08B3BE| BEQ .skip
 
-#_08B3C0: PHX
+|08B3C0| PHX
 
-#_08B3C1: LDX.b $75
+|08B3C1| LDX.b $75
 
-#_08B3C3: LDA.l $7F5824,X
-#_08B3C7: STA.b $00
+|08B3C3| LDA.l $7F5824,X
+|08B3C7| STA.b $00
 
-#_08B3C9: LDA.l $7F5864,X
-#_08B3CD: STA.b $01
+|08B3C9| LDA.l $7F5864,X
+|08B3CD| STA.b $01
 
-#_08B3CF: LDA.l $7F58A4,X
-#_08B3D3: STA.b $02
+|08B3CF| LDA.l $7F58A4,X
+|08B3D3| STA.b $02
 
-#_08B3D5: LDA.l $7F58E4,X
-#_08B3D9: STA.b $03
+|08B3D5| LDA.l $7F58E4,X
+|08B3D9| STA.b $03
 
-#_08B3DB: PLX
-#_08B3DC: PHX
+|08B3DB| PLX
+|08B3DC| PHX
 
-#_08B3DD: TXA
-#_08B3DE: ASL A
-#_08B3DF: TAX
+|08B3DD| TXA
+|08B3DE| ASL A
+|08B3DF| TAX
 
-#_08B3E0: REP #$20
+|08B3E0| REP #$20
 
-#_08B3E2: LDA.b $00
-#_08B3E4: CLC
-#_08B3E5: ADC.w .offset_y,X
-#_08B3E8: SEC
-#_08B3E9: SBC.b $E8
-#_08B3EB: STA.b $00
+|08B3E2| LDA.b $00
+|08B3E4| CLC
+|08B3E5| ADC.w .offset_y,X
+|08B3E8| SEC
+|08B3E9| SBC.b $E8
+|08B3EB| STA.b $00
 
-#_08B3ED: LDA.b $02
-#_08B3EF: CLC
-#_08B3F0: ADC.w .offset_x,X
-#_08B3F3: SEC
-#_08B3F4: SBC.b $E2
-#_08B3F6: STA.b $02
+|08B3ED| LDA.b $02
+|08B3EF| CLC
+|08B3F0| ADC.w .offset_x,X
+|08B3F3| SEC
+|08B3F4| SBC.b $E2
+|08B3F6| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B3F8: SEP #$20
+|08B3F8| SEP #$20
 
-#_08B3FA: JSR Ancilla_SetOAM_XY
+|08B3FA| JSR Ancilla_SetOAM_XY
 
-#_08B3FD: PLX
+|08B3FD| PLX
 
-#_08B3FE: LDA.w .char,X
-#_08B401: STA.b ($90),Y
+|08B3FE| LDA.w .char,X
+|08B401| STA.b ($90),Y
 
-#_08B403: INY
+|08B403| INY
 
-#_08B404: LDA.w .prop,X
-#_08B407: STA.b ($90),Y
+|08B404| LDA.w .prop,X
+|08B407| STA.b ($90),Y
 
-#_08B409: INY
-#_08B40A: PHY
+|08B409| INY
+|08B40A| PHY
 
-#_08B40B: TYA
-#_08B40C: SEC
-#_08B40D: SBC.b #$04
-#_08B40F: LSR A
-#_08B410: LSR A
-#_08B411: TAY
+|08B40B| TYA
+|08B40C| SEC
+|08B40D| SBC.b #$04
+|08B40F| LSR A
+|08B410| LSR A
+|08B411| TAY
 
-#_08B412: LDA.b #$02
-#_08B414: STA.b ($92),Y
+|08B412| LDA.b #$02
+|08B414| STA.b ($92),Y
 
-#_08B416: PLY
+|08B416| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08B417: JSR AllocateOAMInCustomRegion
+|08B417| JSR AllocateOAMInCustomRegion
 
-#_08B41A: DEX
+|08B41A| DEX
 
-#_08B41B: INC.b $08
+|08B41B| INC.b $08
 
-#_08B41D: LDA.b $08
-#_08B41F: CMP.b #$03
-#_08B421: BNE .next_object
+|08B41D| LDA.b $08
+|08B41F| CMP.b #$03
+|08B421| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
 .inactive
-#_08B423: PLX
+|08B423| PLX
 
-#_08B424: LDA.b $75
-#_08B426: SEC
-#_08B427: SBC.b #$10
-#_08B429: STA.b $75
-#_08B42B: BMI .exit
+|08B424| LDA.b $75
+|08B426| SEC
+|08B427| SBC.b #$10
+|08B429| STA.b $75
+|08B42B| BMI .exit
 
 ; supposedly impossible to reach
-#_08B42D: BRL .next_never
+|08B42D| BRL .next_never
 
 .exit
-#_08B430: RTS
+|08B430| RTS
 
 ;===================================================================================================
 
 BombosSpell_ControlBlasting:
-#_08B431: PHX
+|08B431| PHX
 
-#_08B432: LDY.b #$00
+|08B432| LDY.b #$00
 
-#_08B434: LDA.w $0C54,X
-#_08B437: STA.b $72
+|08B434| LDA.w $0C54,X
+|08B437| STA.b $72
 
-#_08B439: TAX
+|08B439| TAX
 
 .next_blast
-#_08B43A: LDA.l $7F5935,X
-#_08B43E: CMP.b #$08
-#_08B440: BEQ .inactive
+|08B43A| LDA.l $7F5935,X
+|08B43E| CMP.b #$08
+|08B440| BEQ .inactive
 
-#_08B442: LDA.l $7F5945,X
-#_08B446: DEC A
-#_08B447: STA.l $7F5945,X
-#_08B44B: BMI .time_up
+|08B442| LDA.l $7F5945,X
+|08B446| DEC A
+|08B447| STA.l $7F5945,X
+|08B44B| BMI .time_up
 
 .inactive
-#_08B44D: BRL .just_draw
+|08B44D| BRL .just_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .time_up
-#_08B450: LDA.b #$03
-#_08B452: STA.l $7F5945,X
+|08B450| LDA.b #$03
+|08B452| STA.l $7F5945,X
 
-#_08B456: LDA.l $7F5935,X
-#_08B45A: INC A
-#_08B45B: STA.l $7F5935,X
+|08B456| LDA.l $7F5935,X
+|08B45A| INC A
+|08B45B| STA.l $7F5935,X
 
-#_08B45F: CMP.b #$01
-#_08B461: BNE .inactive
+|08B45F| CMP.b #$01
+|08B461| BNE .inactive
 
-#_08B463: LDA.l $7F5A56
-#_08B467: BNE .inactive
+|08B463| LDA.l $7F5A56
+|08B467| BNE .inactive
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B469: PHX
+|08B469| PHX
 
-#_08B46A: LDA.b $72
-#_08B46C: CMP.b #$0F
-#_08B46E: BEQ .maxed_blast
+|08B46A| LDA.b $72
+|08B46C| CMP.b #$0F
+|08B46E| BEQ .maxed_blast
 
-#_08B470: LDA.b $72
-#_08B472: INC A
-#_08B473: CMP.b #$10
-#_08B475: BNE .not_maxed
+|08B470| LDA.b $72
+|08B472| INC A
+|08B473| CMP.b #$10
+|08B475| BNE .not_maxed
 
-#_08B477: LDA.b #$0F
+|08B477| LDA.b #$0F
 
 .not_maxed
-#_08B479: STA.b $72
+|08B479| STA.b $72
 
-#_08B47B: TAX
+|08B47B| TAX
 
-#_08B47C: BRA .activate_next
+|08B47C| BRA .activate_next
 
 ;---------------------------------------------------------------------------------------------------
 
 .maxed_blast
-#_08B47E: LDX.b #$0F
+|08B47E| LDX.b #$0F
 
 .next_check
-#_08B480: LDA.l $7F5935,X
-#_08B484: CMP.b #$08
-#_08B486: BEQ .activate_next
+|08B480| LDA.l $7F5935,X
+|08B484| CMP.b #$08
+|08B486| BEQ .activate_next
 
-#_08B488: DEX
-#_08B489: BPL .next_check
+|08B488| DEX
+|08B489| BPL .next_check
 
 ;---------------------------------------------------------------------------------------------------
 
 .activate_next
-#_08B48B: LDA.b #$00
-#_08B48D: STA.l $7F5935,X
+|08B48B| LDA.b #$00
+|08B48D| STA.l $7F5935,X
 
-#_08B491: LDA.b #$03
-#_08B493: STA.l $7F5945,X
+|08B491| LDA.b #$03
+|08B493| STA.l $7F5945,X
 
-#_08B497: PHY
+|08B497| PHY
 
-#_08B498: TXA
-#_08B499: ASL A
-#_08B49A: TAY
+|08B498| TXA
+|08B499| ASL A
+|08B49A| TAY
 
-#_08B49B: LDA.b $1A
-#_08B49D: AND.b #$3F
-#_08B49F: TAX
+|08B49B| LDA.b $1A
+|08B49D| AND.b #$3F
+|08B49F| TAX
 
-#_08B4A0: LDA.l BombosBlastRandomPosition+0,X
-#_08B4A4: STA.b $00
-#_08B4A6: STZ.b $01
+|08B4A0| LDA.l BombosBlastRandomPosition+0,X
+|08B4A4| STA.b $00
+|08B4A6| STZ.b $01
 
-#_08B4A8: LDA.l BombosBlastRandomPosition+3,X
-#_08B4AC: STA.b $02
-#_08B4AE: STZ.b $03
+|08B4A8| LDA.l BombosBlastRandomPosition+3,X
+|08B4AC| STA.b $02
+|08B4AE| STZ.b $03
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B4B0: TYX
+|08B4B0| TYX
 
-#_08B4B1: REP #$20
+|08B4B1| REP #$20
 
-#_08B4B3: LDA.b $00
-#_08B4B5: CLC
-#_08B4B6: ADC.b $E8
-#_08B4B8: STA.l $7F5955,X
+|08B4B3| LDA.b $00
+|08B4B5| CLC
+|08B4B6| ADC.b $E8
+|08B4B8| STA.l $7F5955,X
 
-#_08B4BC: LDA.b $02
-#_08B4BE: CLC
-#_08B4BF: ADC.b $E2
-#_08B4C1: STA.l $7F59D5,X
+|08B4BC| LDA.b $02
+|08B4BE| CLC
+|08B4BF| ADC.b $E2
+|08B4C1| STA.l $7F59D5,X
 
-#_08B4C5: SEP #$20
+|08B4C5| SEP #$20
 
-#_08B4C7: LDA.l $7F59D5,X
-#_08B4CB: LSR A ; /32
-#_08B4CC: LSR A
-#_08B4CD: LSR A
-#_08B4CE: LSR A
-#_08B4CF: LSR A
-#_08B4D0: TAX
+|08B4C7| LDA.l $7F59D5,X
+|08B4CB| LSR A ; /32
+|08B4CC| LSR A
+|08B4CD| LSR A
+|08B4CE| LSR A
+|08B4CF| LSR A
+|08B4D0| TAX
 
-#_08B4D1: LDA.l AncillaPanValues,X
-#_08B4D5: ORA.b #$0C ; SFX2.0C
-#_08B4D7: STA.w $012E
+|08B4D1| LDA.l AncillaPanValues,X
+|08B4D5| ORA.b #$0C ; SFX2.0C
+|08B4D7| STA.w $012E
 
-#_08B4DA: PLY
-#_08B4DB: PLX
+|08B4DA| PLY
+|08B4DB| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
 .just_draw
-#_08B4DC: JSR AncillaDraw_BombosBlast
+|08B4DC| JSR AncillaDraw_BombosBlast
 
-#_08B4DF: DEX
-#_08B4E0: BMI .done_blasting
+|08B4DF| DEX
+|08B4E0| BMI .done_blasting
 
-#_08B4E2: BRL .next_blast
+|08B4E2| BRL .next_blast
 
 ;---------------------------------------------------------------------------------------------------
 
 .done_blasting
-#_08B4E5: LDX.b #$0F
+|08B4E5| LDX.b #$0F
 
 .next_active_check
-#_08B4E7: LDA.l $7F5935,X
-#_08B4EB: CMP.b #$08
-#_08B4ED: BNE .found_one
+|08B4E7| LDA.l $7F5935,X
+|08B4EB| CMP.b #$08
+|08B4ED| BNE .found_one
 
-#_08B4EF: DEX
-#_08B4F0: BPL .next_active_check
+|08B4EF| DEX
+|08B4F0| BPL .next_active_check
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B4F2: PLX
+|08B4F2| PLX
 
-#_08B4F3: STZ.w $0C4A,X
+|08B4F3| STZ.w $0C4A,X
 
-#_08B4F6: LDA.b #$01
-#_08B4F8: STA.w $0AAA
+|08B4F6| LDA.b #$01
+|08B4F8| STA.w $0AAA
 
-#_08B4FB: STZ.w $0324
-#_08B4FE: STZ.w $031C
-#_08B501: STZ.w $031D
+|08B4FB| STZ.w $0324
+|08B4FE| STZ.w $031C
+|08B501| STZ.w $031D
 
-#_08B504: STZ.b $50
+|08B504| STZ.b $50
 
-#_08B506: STZ.w $0FC1
+|08B506| STZ.w $0FC1
 
-#_08B509: LDA.b $5D
-#_08B50B: CMP.b #$1A ; LINKSTATE 1A
-#_08B50D: BEQ .link_bombosing
+|08B509| LDA.b $5D
+|08B50B| CMP.b #$1A ; LINKSTATE 1A
+|08B50D| BEQ .link_bombosing
 
-#_08B50F: LDA.b #$00 ; LINKSTATE 00
-#_08B511: STA.b $5D
+|08B50F| LDA.b #$00 ; LINKSTATE 00
+|08B511| STA.b $5D
 
-#_08B513: STZ.b $3D
+|08B513| STZ.b $3D
 
-#_08B515: LDY.b #$00
+|08B515| LDY.b #$00
 
-#_08B517: LDA.b $3C
-#_08B519: BEQ .sword_not_drawn
+|08B517| LDA.b $3C
+|08B519| BEQ .sword_not_drawn
 
-#_08B51B: LDA.b $F0
-#_08B51D: AND.b #$80
-#_08B51F: TAY
+|08B51B| LDA.b $F0
+|08B51D| AND.b #$80
+|08B51F| TAY
 
 .sword_not_drawn
-#_08B520: STY.b $3A
+|08B520| STY.b $3A
 
 .link_bombosing
-#_08B522: STZ.b $5E
-#_08B524: STZ.w $0325
+|08B522| STZ.b $5E
+|08B524| STZ.w $0325
 
-#_08B527: BRA .finish_up
+|08B527| BRA .finish_up
 
 ;---------------------------------------------------------------------------------------------------
 
 .found_one
-#_08B529: PLX
+|08B529| PLX
 
-#_08B52A: LDA.b $72
-#_08B52C: STA.w $0C54,X
+|08B52A| LDA.b $72
+|08B52C| STA.w $0C54,X
 
 .finish_up
-#_08B52F: LDA.l $7F5A55
-#_08B533: DEC A
-#_08B534: STA.l $7F5A55
-#_08B538: BNE .exit
+|08B52F| LDA.l $7F5A55
+|08B533| DEC A
+|08B534| STA.l $7F5A55
+|08B538| BNE .exit
 
-#_08B53A: LDA.b #$01
-#_08B53C: STA.l $7F5A56
-#_08B540: STA.l $7F5A55
+|08B53A| LDA.b #$01
+|08B53C| STA.l $7F5A56
+|08B540| STA.l $7F5A55
 
 .exit
-#_08B544: RTS
+|08B544| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_BombosBlast
 
 .char
-#_08B545: db $60, $FF, $FF, $FF
-#_08B549: db $62, $62, $62, $62
-#_08B54D: db $64, $64, $64, $64
-#_08B551: db $66, $66, $66, $66
-#_08B555: db $68, $68, $68, $68
-#_08B559: db $68, $68, $68, $68
-#_08B55D: db $6A, $6A, $6A, $6A
-#_08B561: db $4E, $4E, $4E, $4E
+|08B545| db $60, $FF, $FF, $FF
+|08B549| db $62, $62, $62, $62
+|08B54D| db $64, $64, $64, $64
+|08B551| db $66, $66, $66, $66
+|08B555| db $68, $68, $68, $68
+|08B559| db $68, $68, $68, $68
+|08B55D| db $6A, $6A, $6A, $6A
+|08B561| db $4E, $4E, $4E, $4E
 
 ;---------------------------------------------------------------------------------------------------
 
 .prop
-#_08B565: db $3C, $FF, $FF, $FF
-#_08B569: db $3C, $7C, $BC, $FC
-#_08B56D: db $3C, $7C, $BC, $FC
-#_08B571: db $3C, $7C, $BC, $FC
-#_08B575: db $3C, $7C, $BC, $FC
-#_08B579: db $3C, $7C, $BC, $FC
-#_08B57D: db $3C, $7C, $BC, $FC
-#_08B581: db $3C, $7C, $BC, $FC
+|08B565| db $3C, $FF, $FF, $FF
+|08B569| db $3C, $7C, $BC, $FC
+|08B56D| db $3C, $7C, $BC, $FC
+|08B571| db $3C, $7C, $BC, $FC
+|08B575| db $3C, $7C, $BC, $FC
+|08B579| db $3C, $7C, $BC, $FC
+|08B57D| db $3C, $7C, $BC, $FC
+|08B581| db $3C, $7C, $BC, $FC
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_y
-#_08B585: dw  -8,  -1,  -1,  -1
-#_08B58D: dw -12, -12,  -4,  -4
-#_08B595: dw -16, -16,   0,   0
-#_08B59D: dw -16, -16,   0,   0
-#_08B5A5: dw -17, -17,   1,   1
-#_08B5AD: dw -19, -19,   3,   3
-#_08B5B5: dw -19, -19,   3,   3
-#_08B5BD: dw -19, -19,   3,   3
+|08B585| dw  -8,  -1,  -1,  -1
+|08B58D| dw -12, -12,  -4,  -4
+|08B595| dw -16, -16,   0,   0
+|08B59D| dw -16, -16,   0,   0
+|08B5A5| dw -17, -17,   1,   1
+|08B5AD| dw -19, -19,   3,   3
+|08B5B5| dw -19, -19,   3,   3
+|08B5BD| dw -19, -19,   3,   3
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_x
-#_08B5C5: dw  -8,  -1,  -1,  -1
-#_08B5CD: dw -12,  -4, -12,  -4
-#_08B5D5: dw -16,   0, -16,   0
-#_08B5DD: dw -16,   0, -16,   0
-#_08B5E5: dw -17,   1, -17,   1
-#_08B5ED: dw -19,   3, -19,   3
-#_08B5F5: dw -19,   3, -19,   3
-#_08B5FD: dw -19,   3, -19,   3
+|08B5C5| dw  -8,  -1,  -1,  -1
+|08B5CD| dw -12,  -4, -12,  -4
+|08B5D5| dw -16,   0, -16,   0
+|08B5DD| dw -16,   0, -16,   0
+|08B5E5| dw -17,   1, -17,   1
+|08B5ED| dw -19,   3, -19,   3
+|08B5F5| dw -19,   3, -19,   3
+|08B5FD| dw -19,   3, -19,   3
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_BombosBlast:
-#_08B605: PHX
+|08B605| PHX
 
-#_08B606: LDA.b #$03
-#_08B608: STA.b $0C
+|08B606| LDA.b #$03
+|08B608| STA.b $0C
 
-#_08B60A: PHX
+|08B60A| PHX
 
-#_08B60B: TXA
-#_08B60C: ASL A
-#_08B60D: TAX
+|08B60B| TXA
+|08B60C| ASL A
+|08B60D| TAX
 
-#_08B60E: LDA.l $7F5955,X
-#_08B612: STA.b $08
+|08B60E| LDA.l $7F5955,X
+|08B612| STA.b $08
 
-#_08B614: LDA.l $7F5956,X
-#_08B618: STA.b $09
+|08B614| LDA.l $7F5956,X
+|08B618| STA.b $09
 
-#_08B61A: LDA.l $7F59D5,X
-#_08B61E: STA.b $0A
+|08B61A| LDA.l $7F59D5,X
+|08B61E| STA.b $0A
 
-#_08B620: LDA.l $7F59D6,X
-#_08B624: STA.b $0B
+|08B620| LDA.l $7F59D6,X
+|08B624| STA.b $0B
 
-#_08B626: PLX
+|08B626| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B627: LDA.l $7F5935,X
+|08B627| LDA.l $7F5935,X
 
-#_08B62B: CMP.b #$08
-#_08B62D: BEQ .inactive
+|08B62B| CMP.b #$08
+|08B62D| BEQ .inactive
 
-#_08B62F: LDA.b #$10
-#_08B631: JSR AllocateOAMInRegionsADF
+|08B62F| LDA.b #$10
+|08B631| JSR AllocateOAMInRegionsADF
 
-#_08B634: LDY.b #$00
+|08B634| LDY.b #$00
 
-#_08B636: LDA.l $7F5935,X
-#_08B63A: ASL A
-#_08B63B: ASL A
-#_08B63C: CLC
-#_08B63D: ADC.b #$03
-#_08B63F: STA.b $73
+|08B636| LDA.l $7F5935,X
+|08B63A| ASL A
+|08B63B| ASL A
+|08B63C| CLC
+|08B63D| ADC.b #$03
+|08B63F| STA.b $73
 
-#_08B641: TAX
+|08B641| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_object
-#_08B642: LDA.w .char,X
-#_08B645: CMP.b #$FF
-#_08B647: BEQ .skip_object
+|08B642| LDA.w .char,X
+|08B645| CMP.b #$FF
+|08B647| BEQ .skip_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B649: PHX
+|08B649| PHX
 
-#_08B64A: TXA
-#_08B64B: ASL A
-#_08B64C: TAX
+|08B64A| TXA
+|08B64B| ASL A
+|08B64C| TAX
 
-#_08B64D: REP #$20
+|08B64D| REP #$20
 
-#_08B64F: LDA.w .offset_y,X
-#_08B652: CLC
-#_08B653: ADC.b $08
-#_08B655: SEC
-#_08B656: SBC.b $E8
-#_08B658: STA.b $00
+|08B64F| LDA.w .offset_y,X
+|08B652| CLC
+|08B653| ADC.b $08
+|08B655| SEC
+|08B656| SBC.b $E8
+|08B658| STA.b $00
 
-#_08B65A: LDA.w .offset_x,X
-#_08B65D: CLC
-#_08B65E: ADC.b $0A
-#_08B660: SEC
-#_08B661: SBC.b $E2
-#_08B663: STA.b $02
+|08B65A| LDA.w .offset_x,X
+|08B65D| CLC
+|08B65E| ADC.b $0A
+|08B660| SEC
+|08B661| SBC.b $E2
+|08B663| STA.b $02
 
-#_08B665: SEP #$20
+|08B665| SEP #$20
 
-#_08B667: PLX
+|08B667| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B668: JSR Ancilla_SetOAM_XY
+|08B668| JSR Ancilla_SetOAM_XY
 
-#_08B66B: LDA.w .char,X
-#_08B66E: STA.b ($90),Y
+|08B66B| LDA.w .char,X
+|08B66E| STA.b ($90),Y
 
-#_08B670: INY
+|08B670| INY
 
-#_08B671: LDA.w .prop,X
-#_08B674: STA.b ($90),Y
+|08B671| LDA.w .prop,X
+|08B674| STA.b ($90),Y
 
-#_08B676: INY
-#_08B677: PHY
+|08B676| INY
+|08B677| PHY
 
-#_08B678: TYA
-#_08B679: SEC
-#_08B67A: SBC.b #$04
+|08B678| TYA
+|08B679| SEC
+|08B67A| SBC.b #$04
 
-#_08B67C: LSR A
-#_08B67D: LSR A
-#_08B67E: TAY
+|08B67C| LSR A
+|08B67D| LSR A
+|08B67E| TAY
 
-#_08B67F: LDA.b #$02
-#_08B681: STA.b ($92),Y
+|08B67F| LDA.b #$02
+|08B681| STA.b ($92),Y
 
-#_08B683: PLY
+|08B683| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_object
-#_08B684: JSR AllocateOAMInCustomRegion
+|08B684| JSR AllocateOAMInCustomRegion
 
-#_08B687: DEX
+|08B687| DEX
 
-#_08B688: DEC.b $0C
-#_08B68A: BPL .next_object
+|08B688| DEC.b $0C
+|08B68A| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
 .inactive
-#_08B68C: PLX
+|08B68C| PLX
 
-#_08B68D: RTS
+|08B68D| RTS
 
 ;===================================================================================================
 
 Ancilla1C_QuakeSpell:
-#_08B68E: LDA.b $11
-#_08B690: BNE .only_draw
+|08B68E| LDA.b $11
+|08B690| BNE .only_draw
 
-#_08B692: LDA.w $0C54,X
-#_08B695: CMP.b #$02
-#_08B697: BEQ .finish_up
+|08B692| LDA.w $0C54,X
+|08B695| CMP.b #$02
+|08B697| BEQ .finish_up
 
-#_08B699: JSR QuakeSpell_ShakeScreen
-#_08B69C: JSR QuakeSpell_ControlBolts
+|08B699| JSR QuakeSpell_ShakeScreen
+|08B69C| JSR QuakeSpell_ControlBolts
 
-#_08B69F: BRL QuakeSpell_SpreadBolts
+|08B69F| BRL QuakeSpell_SpreadBolts
 
 .finish_up
-#_08B6A2: BRA QuakeSpell_FinishingTouches
+|08B6A2| BRA QuakeSpell_FinishingTouches
 
 ;---------------------------------------------------------------------------------------------------
 
 .only_draw
-#_08B6A4: PHX
+|08B6A4| PHX
 
-#_08B6A5: LDX.b #$04
+|08B6A5| LDX.b #$04
 
-#_08B6A7: LDA.l $7F5805,X
-#_08B6AB: CMP.w QuakeSpellStates,X
-#_08B6AE: BEQ .bad_branch
+|08B6A7| LDA.l $7F5805,X
+|08B6AB| CMP.w QuakeSpellStates,X
+|08B6AE| BEQ .bad_branch
 
-#_08B6B0: JSR AncillaDraw_QuakeInitialBolts
+|08B6B0| JSR AncillaDraw_QuakeInitialBolts
 
-; !BUG oops!
+; [BUG] oops!
 .bad_branch
-#_08B6B3: DEX
-#_08B6B4: BPL .bad_branch
+|08B6B3| DEX
+|08B6B4| BPL .bad_branch
 
-#_08B6B6: PLX
+|08B6B6| PLX
 
-#_08B6B7: RTS
+|08B6B7| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 QuakeSpell_FinishingTouches:
-#_08B6B8: PHX
+|08B6B8| PHX
 
-#_08B6B9: JSL CheckMedallionDamageToSprite
-#_08B6BD: JSL LetsGetReadyToRumble
+|08B6B9| JSL CheckMedallionDamageToSprite
+|08B6BD| JSL LetsGetReadyToRumble
 
-#_08B6C1: PLX
+|08B6C1| PLX
 
-#_08B6C2: STZ.w $0C4A,X
+|08B6C2| STZ.w $0C4A,X
 
-#_08B6C5: LDA.b #$00 ; LINKSTATE 00
-#_08B6C7: STA.b $5D
+|08B6C5| LDA.b #$00 ; LINKSTATE 00
+|08B6C7| STA.b $5D
 
-#_08B6C9: LDA.b #$01
-#_08B6CB: STA.w $0AAA
+|08B6C9| LDA.b #$01
+|08B6CB| STA.w $0AAA
 
-#_08B6CE: STZ.w $0324
-#_08B6D1: STZ.w $031C
-#_08B6D4: STZ.w $031D
+|08B6CE| STZ.w $0324
+|08B6D1| STZ.w $031C
+|08B6D4| STZ.w $031D
 
-#_08B6D7: STZ.b $50
-#_08B6D9: STZ.b $3D
+|08B6D7| STZ.b $50
+|08B6D9| STZ.b $3D
 
-#_08B6DB: STZ.w $0FC1
+|08B6DB| STZ.w $0FC1
 
-#_08B6DE: STZ.w $011A
-#_08B6E1: STZ.w $011B
-#_08B6E4: STZ.w $011C
-#_08B6E7: STZ.w $011D
+|08B6DE| STZ.w $011A
+|08B6E1| STZ.w $011B
+|08B6E4| STZ.w $011C
+|08B6E7| STZ.w $011D
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B6EA: LDA.b $8A
-#_08B6EC: CMP.b #$47 ; OW 47
-#_08B6EE: BNE .no_turtle_rock_trigger
+|08B6EA| LDA.b $8A
+|08B6EC| CMP.b #$47 ; OW 47
+|08B6EE| BNE .no_turtle_rock_trigger
 
-#_08B6F0: LDA.l $7EF2C7
-#_08B6F4: AND.b #$20
-#_08B6F6: BNE .no_turtle_rock_trigger
+|08B6F0| LDA.l $7EF2C7
+|08B6F4| AND.b #$20
+|08B6F6| BNE .no_turtle_rock_trigger
 
-#_08B6F8: LDY.b #$03
-#_08B6FA: JSR Ancilla_CheckForEntranceTrigger
-#_08B6FD: BCC .no_turtle_rock_trigger
+|08B6F8| LDY.b #$03
+|08B6FA| JSR Ancilla_CheckForEntranceTrigger
+|08B6FD| BCC .no_turtle_rock_trigger
 
-#_08B6FF: LDA.b #$04
-#_08B701: STA.w $04C6
+|08B6FF| LDA.b #$04
+|08B701| STA.w $04C6
 
-#_08B704: STZ.b $B0
-#_08B706: STZ.b $C8
+|08B704| STZ.b $B0
+|08B706| STZ.b $C8
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_turtle_rock_trigger
-#_08B708: LDY.b #$00
+|08B708| LDY.b #$00
 
-#_08B70A: LDA.b $3C
-#_08B70C: BEQ .no_sword_charge
+|08B70A| LDA.b $3C
+|08B70C| BEQ .no_sword_charge
 
-#_08B70E: LDA.b $F0
-#_08B710: AND.b #$80
-#_08B712: TAY
+|08B70E| LDA.b $F0
+|08B710| AND.b #$80
+|08B712| TAY
 
 .no_sword_charge
-#_08B713: STY.b $3A
+|08B713| STY.b $3A
 
-#_08B715: STZ.b $5E
-#_08B717: STZ.w $0325
+|08B715| STZ.b $5E
+|08B717| STZ.w $0325
 
-#_08B71A: RTS
+|08B71A| RTS
 
 ;===================================================================================================
 ; TODO analyze RAM
 ;===================================================================================================
 QuakeSpell_ShakeScreen:
-#_08B71B: REP #$20
+|08B71B| REP #$20
 
-#_08B71D: LDA.l $7F581E
-#_08B721: STA.w $011C
+|08B71D| LDA.l $7F581E
+|08B721| STA.w $011C
 
-#_08B724: EOR.w #$FFFF
-#_08B727: INC A
-#_08B728: STA.l $7F581E
+|08B724| EOR.w #$FFFF
+|08B727| INC A
+|08B728| STA.l $7F581E
 
-#_08B72C: SEP #$20
+|08B72C| SEP #$20
 
-#_08B72E: LDA.b $30
-#_08B730: CLC
-#_08B731: ADC.w $011C
-#_08B734: STA.b $30
+|08B72E| LDA.b $30
+|08B730| CLC
+|08B731| ADC.w $011C
+|08B734| STA.b $30
 
-#_08B736: RTS
+|08B736| RTS
 
 ;===================================================================================================
 
 QuakeSpellStates:
-#_08B737: db $17, $16, $17, $16, $10
+|08B737| db $17, $16, $17, $16, $10
 
 ;===================================================================================================
 
 QuakeSpell_ControlBolts:
-#_08B73C: PHX
+|08B73C| PHX
 
-#_08B73D: LDA.w $0C54,X
-#_08B740: STA.l $7F580F
+|08B73D| LDA.w $0C54,X
+|08B740| STA.l $7F580F
 
-#_08B744: LDA.l $7F580A
-#_08B748: TAX
+|08B744| LDA.l $7F580A
+|08B748| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_bolt
-#_08B749: LDA.l $7F5805,X
-#_08B74D: CMP.w QuakeSpellStates,X
-#_08B750: BEQ .skip
+|08B749| LDA.l $7F5805,X
+|08B74D| CMP.w QuakeSpellStates,X
+|08B750| BEQ .skip
 
-#_08B752: LDA.l $7F5800,X
-#_08B756: DEC A
-#_08B757: STA.l $7F5800,X
-#_08B75B: BPL .just_draw
+|08B752| LDA.l $7F5800,X
+|08B756| DEC A
+|08B757| STA.l $7F5800,X
+|08B75B| BPL .just_draw
 
-#_08B75D: LDA.b #$01
-#_08B75F: STA.l $7F5800,X
-#_08B763: LDA.l $7F5805,X
+|08B75D| LDA.b #$01
+|08B75F| STA.l $7F5800,X
+|08B763| LDA.l $7F5805,X
 
-#_08B767: INC A
-#_08B768: STA.l $7F5805,X
+|08B767| INC A
+|08B768| STA.l $7F5805,X
 
-#_08B76C: CMP.w QuakeSpellStates,X
-#_08B76F: BEQ .skip
+|08B76C| CMP.w QuakeSpellStates,X
+|08B76F| BEQ .skip
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B771: TXY
-#_08B772: BNE .dont_go_to_2
+|08B771| TXY
+|08B772| BNE .dont_go_to_2
 
-#_08B774: CMP.b #$02
-#_08B776: BNE .dont_go_to_2
+|08B774| CMP.b #$02
+|08B776| BNE .dont_go_to_2
 
-#_08B778: LDA.b #$0C ; SFX2.0C
-#_08B77A: JSR Ancilla_SFX2_Near
+|08B778| LDA.b #$0C ; SFX2.0C
+|08B77A| JSR Ancilla_SFX2_Near
 
-#_08B77D: LDA.b #$01
-#_08B77F: STA.l $7F580A
+|08B77D| LDA.b #$01
+|08B77F| STA.l $7F580A
 
-#_08B783: BRA .just_draw
+|08B783| BRA .just_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_go_to_2
-#_08B785: CPX.b #$01
-#_08B787: BNE .dont_go_to_3
+|08B785| CPX.b #$01
+|08B787| BNE .dont_go_to_3
 
-#_08B789: CMP.b #$02
-#_08B78B: BNE .dont_go_to_3
+|08B789| CMP.b #$02
+|08B78B| BNE .dont_go_to_3
 
-#_08B78D: LDA.b #$04
-#_08B78F: STA.l $7F580A
+|08B78D| LDA.b #$04
+|08B78F| STA.l $7F580A
 
-#_08B793: BRA .just_draw
+|08B793| BRA .just_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_go_to_3
-#_08B795: CPX.b #$04
-#_08B797: BNE .just_draw
+|08B795| CPX.b #$04
+|08B797| BNE .just_draw
 
-#_08B799: CMP.b #$07
-#_08B79B: BNE .just_draw
+|08B799| CMP.b #$07
+|08B79B| BNE .just_draw
 
-#_08B79D: LDA.b #$01
-#_08B79F: STA.l $7F580F
+|08B79D| LDA.b #$01
+|08B79F| STA.l $7F580F
 
 ;---------------------------------------------------------------------------------------------------
 
 .just_draw
-#_08B7A3: JSR AncillaDraw_QuakeInitialBolts
+|08B7A3| JSR AncillaDraw_QuakeInitialBolts
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08B7A6: DEX
-#_08B7A7: BPL .next_bolt
+|08B7A6| DEX
+|08B7A7| BPL .next_bolt
 
-#_08B7A9: PLX
+|08B7A9| PLX
 
-#_08B7AA: LDA.l $7F580F
-#_08B7AE: STA.w $0C54,X
+|08B7AA| LDA.l $7F580F
+|08B7AE| STA.w $0C54,X
 
-#_08B7B1: RTS
+|08B7B1| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_QuakeInitialBolts
 
 .offset
-#_08B7B2: db $00
-#_08B7B3: db $18
-#_08B7B4: db $00
-#_08B7B5: db $18
-#_08B7B6: db $2F
+|08B7B2| db $00
+|08B7B3| db $18
+|08B7B4| db $00
+|08B7B5| db $18
+|08B7B6| db $2F
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_QuakeInitialBolts:
-#_08B7B7: PHX
+|08B7B7| PHX
 
-#_08B7B8: LDA.l $7F5805,X
-#_08B7BC: CLC
-#_08B7BD: ADC.w .offset,X
-#_08B7C0: ASL A
-#_08B7C1: TAY
+|08B7B8| LDA.l $7F5805,X
+|08B7BC| CLC
+|08B7BD| ADC.w .offset,X
+|08B7C0| ASL A
+|08B7C1| TAY
 
-#_08B7C2: LDA.w InitialQuakeBoltPointers+0,Y
-#_08B7C5: STA.b $72
+|08B7C2| LDA.w InitialQuakeBoltPointers+0,Y
+|08B7C5| STA.b $72
 
-#_08B7C7: LDA.w InitialQuakeBoltPointers+1,Y
-#_08B7CA: STA.b $73
+|08B7C7| LDA.w InitialQuakeBoltPointers+1,Y
+|08B7CA| STA.b $73
 
-#_08B7CC: LDA.w InitialQuakeBoltPointers+2,Y
-#_08B7CF: STA.b $74
+|08B7CC| LDA.w InitialQuakeBoltPointers+2,Y
+|08B7CF| STA.b $74
 
-#_08B7D1: LDA.w InitialQuakeBoltPointers+3,Y
-#_08B7D4: STA.b $75
+|08B7D1| LDA.w InitialQuakeBoltPointers+3,Y
+|08B7D4| STA.b $75
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B7D6: REP #$20
+|08B7D6| REP #$20
 
-#_08B7D8: LDA.b $74
-#_08B7DA: SEC
-#_08B7DB: SBC.b $72
-#_08B7DD: STA.b $74
+|08B7D8| LDA.b $74
+|08B7DA| SEC
+|08B7DB| SBC.b $72
+|08B7DD| STA.b $74
 
-#_08B7DF: SEP #$20
+|08B7DF| SEP #$20
 
-#_08B7E1: LDX.b #$00
+|08B7E1| LDX.b #$00
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_bolt
-#_08B7E3: TXY
+|08B7E3| TXY
 
-#_08B7E4: REP #$20
+|08B7E4| REP #$20
 
-#_08B7E6: LDA.b ($72),Y
-#_08B7E8: AND.w #$00FF
-#_08B7EB: CMP.w #$0080
-#_08B7EE: BCC .positive_x
+|08B7E6| LDA.b ($72),Y
+|08B7E8| AND.w #$00FF
+|08B7EB| CMP.w #$0080
+|08B7EE| BCC .positive_x
 
-#_08B7F0: ORA.w #$FF00
+|08B7F0| ORA.w #$FF00
 
 .positive_x
-#_08B7F3: STA.b $02
+|08B7F3| STA.b $02
 
-#_08B7F5: LDA.l $7F580D
-#_08B7F9: CLC
-#_08B7FA: ADC.b $02
-#_08B7FC: SEC
-#_08B7FD: SBC.b $E2
-#_08B7FF: STA.b $02
+|08B7F5| LDA.l $7F580D
+|08B7F9| CLC
+|08B7FA| ADC.b $02
+|08B7FC| SEC
+|08B7FD| SBC.b $E2
+|08B7FF| STA.b $02
 
-#_08B801: INX
-#_08B802: TXY
+|08B801| INX
+|08B802| TXY
 
-#_08B803: LDA.b ($72),Y
-#_08B805: AND.w #$00FF
-#_08B808: CMP.w #$0080
-#_08B80B: BCC .positive_y
+|08B803| LDA.b ($72),Y
+|08B805| AND.w #$00FF
+|08B808| CMP.w #$0080
+|08B80B| BCC .positive_y
 
-#_08B80D: ORA.w #$FF00
+|08B80D| ORA.w #$FF00
 
 .positive_y
-#_08B810: STA.b $00
+|08B810| STA.b $00
 
-#_08B812: LDA.l $7F580B
-#_08B816: CLC
-#_08B817: ADC.b $00
-#_08B819: SEC
-#_08B81A: SBC.b $E8
-#_08B81C: STA.b $00
+|08B812| LDA.l $7F580B
+|08B816| CLC
+|08B817| ADC.b $00
+|08B819| SEC
+|08B81A| SBC.b $E8
+|08B81C| STA.b $00
 
-#_08B81E: INX
+|08B81E| INX
 
-#_08B81F: SEP #$20
+|08B81F| SEP #$20
 
-#_08B821: PHX
+|08B821| PHX
 
-#_08B822: LDX.b #$F0
+|08B822| LDX.b #$F0
 
-#_08B824: LDA.b $01
-#_08B826: BNE .off_screen
+|08B824| LDA.b $01
+|08B826| BNE .off_screen
 
-#_08B828: LDA.b $03
-#_08B82A: BNE .off_screen
+|08B828| LDA.b $03
+|08B82A| BNE .off_screen
 
-#_08B82C: LDY.b #$00
+|08B82C| LDY.b #$00
 
-#_08B82E: LDA.b $02
-#_08B830: STA.b ($90),Y
+|08B82E| LDA.b $02
+|08B830| STA.b ($90),Y
 
-#_08B832: LDA.b $00
-#_08B834: CMP.b #$F0
-#_08B836: BCS .off_screen
+|08B832| LDA.b $00
+|08B834| CMP.b #$F0
+|08B836| BCS .off_screen
 
-#_08B838: TAX
+|08B838| TAX
 
 .off_screen
-#_08B839: INC.b $90
+|08B839| INC.b $90
 
-#_08B83B: LDY.b #$00
+|08B83B| LDY.b #$00
 
-#_08B83D: TXA
-#_08B83E: STA.b ($90),Y
+|08B83D| TXA
+|08B83E| STA.b ($90),Y
 
-#_08B840: INC.b $90
+|08B840| INC.b $90
 
-#_08B842: PLX
-#_08B843: PHX
+|08B842| PLX
+|08B843| PHX
 
-#_08B844: TXY
+|08B844| TXY
 
-#_08B845: LDA.b ($72),Y
-#_08B847: AND.b #$0F
-#_08B849: TAX
+|08B845| LDA.b ($72),Y
+|08B847| AND.b #$0F
+|08B849| TAX
 
-#_08B84A: LDA.w QuakeBoltChar,X
-#_08B84D: LDY.b #$00
-#_08B84F: STA.b ($90),Y
+|08B84A| LDA.w QuakeBoltChar,X
+|08B84D| LDY.b #$00
+|08B84F| STA.b ($90),Y
 
-#_08B851: INC.b $90
+|08B851| INC.b $90
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B853: PLX
-#_08B854: TXY
+|08B853| PLX
+|08B854| TXY
 
-#_08B855: LDA.b ($72),Y
-#_08B857: AND.b #$C0
-#_08B859: ORA.b #$3C
+|08B855| LDA.b ($72),Y
+|08B857| AND.b #$C0
+|08B859| ORA.b #$3C
 
-#_08B85B: LDY.b #$00
-#_08B85D: STA.b ($90),Y
+|08B85B| LDY.b #$00
+|08B85D| STA.b ($90),Y
 
-#_08B85F: INC.b $90
+|08B85F| INC.b $90
 
-#_08B861: LDY.b #$00
-#_08B863: LDA.b #$02
-#_08B865: STA.b ($92),Y
+|08B861| LDY.b #$00
+|08B863| LDA.b #$02
+|08B865| STA.b ($92),Y
 
-#_08B867: INC.b $92
+|08B867| INC.b $92
 
-#_08B869: INX
-#_08B86A: CPX.b $74
-#_08B86C: BEQ .done
+|08B869| INX
+|08B86A| CPX.b $74
+|08B86C| BEQ .done
 
-#_08B86E: BRL .next_bolt
+|08B86E| BRL .next_bolt
 
 ;---------------------------------------------------------------------------------------------------
 
 .done
-#_08B871: PLX
+|08B871| PLX
 
-#_08B872: RTS
+|08B872| RTS
 
 ;===================================================================================================
 
 QuakeSpell_SpreadBolts:
-#_08B873: LDA.w $0C54,X
-#_08B876: CMP.b #$01
-#_08B878: BNE .exit
+|08B873| LDA.w $0C54,X
+|08B876| CMP.b #$01
+|08B878| BNE .exit
 
-#_08B87A: LDA.w $0C68,X
-#_08B87D: BNE .proceed_to_bolts
+|08B87A| LDA.w $0C68,X
+|08B87D| BNE .proceed_to_bolts
 
-#_08B87F: LDA.b #$02
-#_08B881: STA.w $0C68,X
+|08B87F| LDA.b #$02
+|08B881| STA.w $0C68,X
 
-#_08B884: LDA.w $0C5E,X
-#_08B887: INC A
-#_08B888: STA.w $0C5E,X
+|08B884| LDA.w $0C5E,X
+|08B887| INC A
+|08B888| STA.w $0C5E,X
 
-#_08B88B: CMP.b #$37
-#_08B88D: BNE .proceed_to_bolts
+|08B88B| CMP.b #$37
+|08B88D| BNE .proceed_to_bolts
 
-#_08B88F: LDA.b #$02
-#_08B891: STA.w $0C54,X
+|08B88F| LDA.b #$02
+|08B891| STA.w $0C54,X
 
 .exit
-#_08B894: RTS
+|08B894| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .proceed_to_bolts
-#_08B895: BRA AncillaDraw_QuakeSpreadBolts
+|08B895| BRA AncillaDraw_QuakeSpreadBolts
 
 ;===================================================================================================
 
 QuakeBoltChar:
-#_08B897: db $40, $42, $44, $46
-#_08B89B: db $48, $4A, $4C, $4E
-#_08B89F: db $60, $62, $64, $66
-#_08B8A3: db $68, $6A, $63
+|08B897| db $40, $42, $44, $46
+|08B89B| db $48, $4A, $4C, $4E
+|08B89F| db $60, $62, $64, $66
+|08B8A3| db $68, $6A, $63
 
 ;===================================================================================================
 
 AncillaDraw_QuakeSpreadBolts:
-#_08B8A6: PHX
+|08B8A6| PHX
 
-#_08B8A7: LDA.w $0C5E,X
-#_08B8AA: ASL A
-#_08B8AB: TAY
+|08B8A7| LDA.w $0C5E,X
+|08B8AA| ASL A
+|08B8AB| TAY
 
-#_08B8AC: LDA.w SpreadQuakeBoltPointers+0,Y
-#_08B8AF: STA.b $72
+|08B8AC| LDA.w SpreadQuakeBoltPointers+0,Y
+|08B8AF| STA.b $72
 
-#_08B8B1: LDA.w SpreadQuakeBoltPointers+1,Y
-#_08B8B4: STA.b $73
+|08B8B1| LDA.w SpreadQuakeBoltPointers+1,Y
+|08B8B4| STA.b $73
 
-#_08B8B6: LDA.w SpreadQuakeBoltPointers+2,Y
-#_08B8B9: STA.b $74
+|08B8B6| LDA.w SpreadQuakeBoltPointers+2,Y
+|08B8B9| STA.b $74
 
-#_08B8BB: LDA.w SpreadQuakeBoltPointers+3,Y
-#_08B8BE: STA.b $75
+|08B8BB| LDA.w SpreadQuakeBoltPointers+3,Y
+|08B8BE| STA.b $75
 
-#_08B8C0: REP #$20
+|08B8C0| REP #$20
 
-#_08B8C2: LDA.b $74
-#_08B8C4: SEC
-#_08B8C5: SBC.b $72
-#_08B8C7: STA.b $74
+|08B8C2| LDA.b $74
+|08B8C4| SEC
+|08B8C5| SBC.b $72
+|08B8C7| STA.b $74
 
-#_08B8C9: SEP #$20
+|08B8C9| SEP #$20
 
-#_08B8CB: LDX.b #$00
+|08B8CB| LDX.b #$00
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_bolt
-#_08B8CD: TXY
+|08B8CD| TXY
 
-#_08B8CE: LDA.b ($72),Y
-#_08B8D0: LDY.b #$00
-#_08B8D2: STA.b ($90),Y
+|08B8CE| LDA.b ($72),Y
+|08B8D0| LDY.b #$00
+|08B8D2| STA.b ($90),Y
 
-#_08B8D4: INC.b $90
-
-;---------------------------------------------------------------------------------------------------
-
-#_08B8D6: INX
-#_08B8D7: TXY
-
-#_08B8D8: LDA.b ($72),Y
-#_08B8DA: LDY.b #$00
-#_08B8DC: STA.b ($90),Y
-
-#_08B8DE: INC.b $90
+|08B8D4| INC.b $90
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B8E0: INX
-#_08B8E1: PHX
-#_08B8E2: TXY
+|08B8D6| INX
+|08B8D7| TXY
 
-#_08B8E3: LDA.b ($72),Y
-#_08B8E5: AND.b #$0F
-#_08B8E7: TAX
+|08B8D8| LDA.b ($72),Y
+|08B8DA| LDY.b #$00
+|08B8DC| STA.b ($90),Y
 
-#_08B8E8: LDA.w QuakeBoltChar,X
-#_08B8EB: LDY.b #$00
-#_08B8ED: STA.b ($90),Y
-
-#_08B8EF: INC.b $90
+|08B8DE| INC.b $90
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B8F1: PLX
-#_08B8F2: TXY
+|08B8E0| INX
+|08B8E1| PHX
+|08B8E2| TXY
 
-#_08B8F3: LDA.b ($72),Y
-#_08B8F5: AND.b #$C0
-#_08B8F7: ORA.b #$3C
+|08B8E3| LDA.b ($72),Y
+|08B8E5| AND.b #$0F
+|08B8E7| TAX
 
-#_08B8F9: LDY.b #$00
+|08B8E8| LDA.w QuakeBoltChar,X
+|08B8EB| LDY.b #$00
+|08B8ED| STA.b ($90),Y
 
-#_08B8FB: STA.b ($90),Y
-
-#_08B8FD: INC.b $90
-
-;---------------------------------------------------------------------------------------------------
-
-#_08B8FF: TXY
-#_08B900: LDA.b ($72),Y
-#_08B902: AND.b #$30
-
-#_08B904: LSR A ; /16
-#_08B905: LSR A
-#_08B906: LSR A
-#_08B907: LSR A
-
-#_08B908: LDY.b #$00
-
-#_08B90A: STA.b ($92),Y
-
-#_08B90C: INC.b $92
-
-#_08B90E: JSR AllocateOAMInCustomRegion
-
-#_08B911: INX
-#_08B912: CPX.b $74
-#_08B914: BNE .next_bolt
+|08B8EF| INC.b $90
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08B916: PLX
+|08B8F1| PLX
+|08B8F2| TXY
 
-#_08B917: RTS
+|08B8F3| LDA.b ($72),Y
+|08B8F5| AND.b #$C0
+|08B8F7| ORA.b #$3C
+
+|08B8F9| LDY.b #$00
+
+|08B8FB| STA.b ($90),Y
+
+|08B8FD| INC.b $90
+
+;---------------------------------------------------------------------------------------------------
+
+|08B8FF| TXY
+|08B900| LDA.b ($72),Y
+|08B902| AND.b #$30
+
+|08B904| LSR A ; /16
+|08B905| LSR A
+|08B906| LSR A
+|08B907| LSR A
+
+|08B908| LDY.b #$00
+
+|08B90A| STA.b ($92),Y
+
+|08B90C| INC.b $92
+
+|08B90E| JSR AllocateOAMInCustomRegion
+
+|08B911| INX
+|08B912| CPX.b $74
+|08B914| BNE .next_bolt
+
+;---------------------------------------------------------------------------------------------------
+
+|08B916| PLX
+
+|08B917| RTS
 
 ;===================================================================================================
 
 PowderDraw:
 
 .anim_step
-#_08B918: db $0D, $0E, $0F, $00, $01
-#_08B91D: db $02, $03, $04, $05, $06
+|08B918| db $0D, $0E, $0F, $00, $01
+|08B91D| db $02, $03, $04, $05, $06
 
-#_08B922: db $0A, $0B, $0C, $00, $01
-#_08B927: db $02, $03, $04, $05, $06
+|08B922| db $0A, $0B, $0C, $00, $01
+|08B927| db $02, $03, $04, $05, $06
 
-#_08B92C: db $10, $11, $12, $00, $01
-#_08B931: db $02, $03, $04, $05, $06
+|08B92C| db $10, $11, $12, $00, $01
+|08B931| db $02, $03, $04, $05, $06
 
-#_08B936: db $07, $08, $09, $00, $01
-#_08B93B: db $02, $03, $04, $05, $06
+|08B936| db $07, $08, $09, $00, $01
+|08B93B| db $02, $03, $04, $05, $06
 
 ;---------------------------------------------------------------------------------------------------
 
 .group_offset
-#_08B940: db $00
-#_08B941: db $0A
-#_08B942: db $14
-#_08B943: db $1E
+|08B940| db $00
+|08B941| db $0A
+|08B942| db $14
+|08B943| db $1E
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_y
-#_08B944: dw -20, -15, -13,  -7, -18
-#_08B94E: dw -13, -13, -13, -20, -13
-#_08B958: dw -13,  -8, -20, -13, -13
-#_08B962: dw  -8, -19, -12, -12
+|08B944| dw -20, -15, -13,  -7, -18
+|08B94E| dw -13, -13, -13, -20, -13
+|08B958| dw -13,  -8, -20, -13, -13
+|08B962| dw  -8, -19, -12, -12
 
-#_08B96A: dw  -7, -18, -11, -11,  -6
-#_08B974: dw -17, -10, -10,  -5, -16
-#_08B97E: dw -14, -12,  -9, -17, -14
-#_08B988: dw -12,  -8, -18, -14
+|08B96A| dw  -7, -18, -11, -11,  -6
+|08B974| dw -17, -10, -10,  -5, -16
+|08B97E| dw -14, -12,  -9, -17, -14
+|08B988| dw -12,  -8, -18, -14
 
-#_08B990: dw -13,  -6, -33, -31, -29
-#_08B99A: dw -26, -28, -25, -23, -19
-#_08B9A4: dw -22, -18, -17, -10,  -2
-#_08B9AE: dw   0,   2,   5,  -9
+|08B990| dw -13,  -6, -33, -31, -29
+|08B99A| dw -26, -28, -25, -23, -19
+|08B9A4| dw -22, -18, -17, -10,  -2
+|08B9AE| dw   0,   2,   5,  -9
 
-#_08B9B6: dw  -6,  -4,   0, -16, -12
-#_08B9C0: dw -11,  -4, -16, -14, -12
-#_08B9CA: dw  -9, -17, -14, -12,  -8
-#_08B9D4: dw -18, -14, -13,  -6
+|08B9B6| dw  -6,  -4,   0, -16, -12
+|08B9C0| dw -11,  -4, -16, -14, -12
+|08B9CA| dw  -9, -17, -14, -12,  -8
+|08B9D4| dw -18, -14, -13,  -6
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_x
-#_08B9DC: dw  -5, -12,   2,  -9,  -7
-#_08B9E6: dw -10,  -6,  -2,  -6, -12
-#_08B9F0: dw   1,  -6,  -6, -12,   1
-#_08B9FA: dw  -6,  -6, -12,   1
+|08B9DC| dw  -5, -12,   2,  -9,  -7
+|08B9E6| dw -10,  -6,  -2,  -6, -12
+|08B9F0| dw   1,  -6,  -6, -12,   1
+|08B9FA| dw  -6,  -6, -12,   1
 
-#_08BA02: dw  -6,  -6, -12,   1,  -6
-#_08BA0C: dw  -6, -12,   1,  -6, -17
-#_08BA16: dw -23, -14, -19, -11, -18
-#_08BA20: dw  -9, -13,  -4, -13
+|08BA02| dw  -6,  -6, -12,   1,  -6
+|08BA0C| dw  -6, -12,   1,  -6, -17
+|08BA16| dw -23, -14, -19, -11, -18
+|08BA20| dw  -9, -13,  -4, -13
 
-#_08BA28: dw  -1,  -8,  -3,  -9,   0
-#_08BA32: dw  -5,  -3, -10,  -1,  -5
-#_08BA3C: dw  -4, -13,  -1,  -8,  -3
-#_08BA46: dw  -9,   0,  -5,  -3
+|08BA28| dw  -1,  -8,  -3,  -9,   0
+|08BA32| dw  -5,  -3, -10,  -1,  -5
+|08BA3C| dw  -4, -13,  -1,  -8,  -3
+|08BA46| dw  -9,   0,  -5,  -3
 
-#_08BA4E: dw -10,  -1,  -5,  -3, -13
-#_08BA58: dw  -1,  -8,   9,  15,   6
-#_08BA62: dw  11,   3,  10,   1,   5
-#_08BA6C: dw  -4,   5,  -7,   0
+|08BA4E| dw -10,  -1,  -5,  -3, -13
+|08BA58| dw  -1,  -8,   9,  15,   6
+|08BA62| dw  11,   3,  10,   1,   5
+|08BA6C| dw  -4,   5,  -7,   0
 
 ;---------------------------------------------------------------------------------------------------
 
 .char
-#_08BA74: db $09, $0A, $0A, $09, $09
+|08BA74| db $09, $0A, $0A, $09, $09
 
-#_08BA79: db $09, $09, $09, $09, $09
+|08BA79| db $09, $09, $09, $09, $09
 
-#_08BA7E: db $09, $09, $09, $09, $09
+|08BA7E| db $09, $09, $09, $09, $09
 
-#_08BA83: db $09, $09, $09, $09, $09
+|08BA83| db $09, $09, $09, $09, $09
 
 ;---------------------------------------------------------------------------------------------------
 
 .prop
-#_08BA88: db $68, $24, $A2, $28, $68
-#_08BA8D: db $E2, $28, $A4, $68, $E2
-#_08BA92: db $A4, $28, $22, $A4, $E8
-#_08BA97: db $62, $24, $A8, $E2
+|08BA88| db $68, $24, $A2, $28, $68
+|08BA8D| db $E2, $28, $A4, $68, $E2
+|08BA92| db $A4, $28, $22, $A4, $E8
+|08BA97| db $62, $24, $A8, $E2
 
-#_08BA9B: db $64, $28, $A2, $E4, $68
-#_08BAA0: db $22, $A4, $E8, $62, $E2
-#_08BAA5: db $A4, $E8, $64, $E8, $A8
-#_08BAAA: db $E4, $62, $E4, $A8
+|08BA9B| db $64, $28, $A2, $E4, $68
+|08BAA0| db $22, $A4, $E8, $62, $E2
+|08BAA5| db $A4, $E8, $64, $E8, $A8
+|08BAAA| db $E4, $62, $E4, $A8
 
-#_08BAAE: db $E2, $68, $E2, $A4, $E8
-#_08BAB3: db $64, $E8, $A8, $E4, $62
-#_08BAB8: db $E4, $A8, $E2, $68, $E2
-#_08BABD: db $A4, $E8, $64, $E8
+|08BAAE| db $E2, $68, $E2, $A4, $E8
+|08BAB3| db $64, $E8, $A8, $E4, $62
+|08BAB8| db $E4, $A8, $E2, $68, $E2
+|08BABD| db $A4, $E8, $64, $E8
 
-#_08BAC1: db $A8, $E4, $62, $E4, $A8
-#_08BAC6: db $E2, $68, $E2, $A4, $E8
-#_08BACB: db $64, $E8, $A8, $E4, $62
-#_08BAD0: db $E4, $A8, $E2, $68
+|08BAC1| db $A8, $E4, $62, $E4, $A8
+|08BAC6| db $E2, $68, $E2, $A4, $E8
+|08BACB| db $64, $E8, $A8, $E4, $62
+|08BAD0| db $E4, $A8, $E2, $68
 
 ;===================================================================================================
 
 Ancilla1A_PowderDust:
-#_08BAD4: LDA.b $11
-#_08BAD6: BNE .just_draw
+|08BAD4| LDA.b $11
+|08BAD6| BNE .just_draw
 
-#_08BAD8: JSR Powder_CheckDamageToSprites
+|08BAD8| JSR Powder_CheckDamageToSprites
 
-#_08BADB: DEC.w $03B1,X
-#_08BADE: BPL .just_draw
+|08BADB| DEC.w $03B1,X
+|08BADE| BPL .just_draw
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BAE0: LDA.b #$01
-#_08BAE2: STA.w $03B1,X
+|08BAE0| LDA.b #$01
+|08BAE2| STA.w $03B1,X
 
-#_08BAE5: LDY.w $0C72,X
+|08BAE5| LDY.w $0C72,X
 
-#_08BAE8: LDA.w PowderDraw_group_offset,Y
-#_08BAEB: STA.b $00
+|08BAE8| LDA.w PowderDraw.group_offset,Y
+|08BAEB| STA.b $00
 
-#_08BAED: LDA.w $0C5E,X
-#_08BAF0: INC A
-#_08BAF1: CMP.b #$0A
-#_08BAF3: BNE .dont_terminate
+|08BAED| LDA.w $0C5E,X
+|08BAF0| INC A
+|08BAF1| CMP.b #$0A
+|08BAF3| BNE .dont_terminate
 
-#_08BAF5: STZ.w $0C4A,X
-#_08BAF8: STZ.w $0333
+|08BAF5| STZ.w $0C4A,X
+|08BAF8| STZ.w $0333
 
-#_08BAFB: RTS
+|08BAFB| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_terminate
-#_08BAFC: STA.w $0C5E,X
+|08BAFC| STA.w $0C5E,X
 
-#_08BAFF: CLC
-#_08BB00: ADC.b $00
-#_08BB02: TAY
+|08BAFF| CLC
+|08BB00| ADC.b $00
+|08BB02| TAY
 
-#_08BB03: LDA.w PowderDraw_anim_step,Y
-#_08BB06: STA.w $03C2,X
+|08BB03| LDA.w PowderDraw.anim_step,Y
+|08BB06| STA.w $03C2,X
 
 .just_draw
-#_08BB09: LDA.w $0C90,X
-#_08BB0C: JSR AllocateOAMInRegionsBE
+|08BB09| LDA.w $0C90,X
+|08BB0C| JSR AllocateOAMInRegionsBE
 
 ;===================================================================================================
 
 AncillaDraw_Powder:
-#_08BB0F: JSR Ancilla_PrepOAMCoord
+|08BB0F| JSR Ancilla_PrepOAMCoord
 
-#_08BB12: PHX
+|08BB12| PHX
 
-#_08BB13: LDA.b $00
-#_08BB15: STA.b $06
+|08BB13| LDA.b $00
+|08BB15| STA.b $06
 
-#_08BB17: LDA.b $01
-#_08BB19: STA.b $07
+|08BB17| LDA.b $01
+|08BB19| STA.b $07
 
-#_08BB1B: LDA.b $02
-#_08BB1D: STA.b $08
+|08BB1B| LDA.b $02
+|08BB1D| STA.b $08
 
-#_08BB1F: LDA.b $03
-#_08BB21: STA.b $09
+|08BB1F| LDA.b $03
+|08BB21| STA.b $09
 
-#_08BB23: LDA.w $03C2,X
-#_08BB26: STA.b $0C
+|08BB23| LDA.w $03C2,X
+|08BB26| STA.b $0C
 
-#_08BB28: ASL A
-#_08BB29: ASL A
-#_08BB2A: STA.b $0A
+|08BB28| ASL A
+|08BB29| ASL A
+|08BB2A| STA.b $0A
 
-#_08BB2C: ASL A
-#_08BB2D: STA.b $04
+|08BB2C| ASL A
+|08BB2D| STA.b $04
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BB2F: LDA.b #$03
-#_08BB31: STA.w $0072
+|08BB2F| LDA.b #$03
+|08BB31| STA.w $0072
 
-#_08BB34: LDY.b #$00
+|08BB34| LDY.b #$00
 
 .next_object
-#_08BB36: LDX.b $04
+|08BB36| LDX.b $04
 
-#_08BB38: REP #$20
+|08BB38| REP #$20
 
-#_08BB3A: LDA.b $06
-#_08BB3C: CLC
-#_08BB3D: ADC.w PowderDraw_offset_y,X
-#_08BB40: STA.b $00
+|08BB3A| LDA.b $06
+|08BB3C| CLC
+|08BB3D| ADC.w PowderDraw.offset_y,X
+|08BB40| STA.b $00
 
-#_08BB42: LDA.b $08
-#_08BB44: CLC
-#_08BB45: ADC.w PowderDraw_offset_x,X
-#_08BB48: STA.b $02
+|08BB42| LDA.b $08
+|08BB44| CLC
+|08BB45| ADC.w PowderDraw.offset_x,X
+|08BB48| STA.b $02
 
-#_08BB4A: SEP #$20
+|08BB4A| SEP #$20
 
-#_08BB4C: JSR Ancilla_SetOAM_XY
+|08BB4C| JSR Ancilla_SetOAM_XY
 
-#_08BB4F: LDX.b $0C
+|08BB4F| LDX.b $0C
 
-#_08BB51: LDA.w PowderDraw_char,X
-#_08BB54: STA.b ($90),Y
+|08BB51| LDA.w PowderDraw.char,X
+|08BB54| STA.b ($90),Y
 
-#_08BB56: INY
+|08BB56| INY
 
-#_08BB57: LDX.b $0A
+|08BB57| LDX.b $0A
 
-#_08BB59: LDA.w PowderDraw_prop,X
-#_08BB5C: AND.b #$CF
-#_08BB5E: ORA.b $65
-#_08BB60: STA.b ($90),Y
+|08BB59| LDA.w PowderDraw.prop,X
+|08BB5C| AND.b #$CF
+|08BB5E| ORA.b $65
+|08BB60| STA.b ($90),Y
 
-#_08BB62: INY
-#_08BB63: PHY
+|08BB62| INY
+|08BB63| PHY
 
-#_08BB64: TYA
-#_08BB65: SEC
-#_08BB66: SBC.b #$04
-#_08BB68: LSR A
-#_08BB69: LSR A
-#_08BB6A: TAY
+|08BB64| TYA
+|08BB65| SEC
+|08BB66| SBC.b #$04
+|08BB68| LSR A
+|08BB69| LSR A
+|08BB6A| TAY
 
-#_08BB6B: LDA.b #$00
-#_08BB6D: STA.b ($92),Y
+|08BB6B| LDA.b #$00
+|08BB6D| STA.b ($92),Y
 
-#_08BB6F: PLY
+|08BB6F| PLY
 
-#_08BB70: INC.b $04
-#_08BB72: INC.b $04
+|08BB70| INC.b $04
+|08BB72| INC.b $04
 
-#_08BB74: INC.b $0A
+|08BB74| INC.b $0A
 
-#_08BB76: DEC.b $72
-#_08BB78: BPL .next_object
+|08BB76| DEC.b $72
+|08BB78| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BB7A: PLX
+|08BB7A| PLX
 
-#_08BB7B: RTS
+|08BB7B| RTS
 
 ;===================================================================================================
 
 Powder_CheckDamageToSprites:
-#_08BB7C: LDY.b #$0F
+|08BB7C| LDY.b #$0F
 
 .next_sprite
-#_08BB7E: TYA
-#_08BB7F: EOR.b $1A
-#_08BB81: AND.b #$03
-#_08BB83: BNE .skip_sprite
+|08BB7E| TYA
+|08BB7F| EOR.b $1A
+|08BB81| AND.b #$03
+|08BB83| BNE .skip_sprite
 
-#_08BB85: LDA.w $0DD0,Y
-#_08BB88: CMP.b #$09
-#_08BB8A: BNE .skip_sprite
+|08BB85| LDA.w $0DD0,Y
+|08BB88| CMP.b #$09
+|08BB8A| BNE .skip_sprite
 
-#_08BB8C: LDA.w $0CD2,Y
-#_08BB8F: AND.b #$20
-#_08BB91: BNE .skip_sprite
+|08BB8C| LDA.w $0CD2,Y
+|08BB8F| AND.b #$20
+|08BB91| BNE .skip_sprite
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BB93: JSR Ancilla_SetupBasicHitBox
+|08BB93| JSR Ancilla_SetupBasicHitbox
 
-#_08BB96: PHY
-#_08BB97: PHX
+|08BB96| PHY
+|08BB97| PHX
 
-#_08BB98: TYX
-#_08BB99: JSL SetupSpriteHitBox_long
+|08BB98| TYX
+|08BB99| JSL SetupSpriteHitbox_long
 
-#_08BB9D: PLX
-#_08BB9E: PLY
+|08BB9D| PLX
+|08BB9E| PLY
 
-#_08BB9F: JSL CheckIfHitBoxesOverlap_long
-#_08BBA3: BCC .skip_sprite
+|08BB9F| JSL CheckIfHitboxesOverlap_long
+|08BBA3| BCC .skip_sprite
 
-#_08BBA5: LDA.w $0E20,Y
-#_08BBA8: CMP.b #$0B ; SPRITE 0B
-#_08BBAA: BNE .not_cucco_easter_egg
+|08BBA5| LDA.w $0E20,Y
+|08BBA8| CMP.b #$0B ; SPRITE 0B
+|08BBAA| BNE .not_cucco_easter_egg
 
-#_08BBAC: LDA.b $1B ; this gets compared to #$0D weirdly...
-#_08BBAE: BEQ .not_cucco_easter_egg
+|08BBAC| LDA.b $1B ; this gets compared to #$0D weirdly...
+|08BBAE| BEQ .not_cucco_easter_egg
 
-#_08BBB0: LDA.w $048E ; ROOM 0101
-#_08BBB3: DEC A
-#_08BBB4: BNE .not_cucco_easter_egg
+|08BBB0| LDA.w $048E ; ROOM 0101
+|08BBB3| DEC A
+|08BBB4| BNE .not_cucco_easter_egg
 
-#_08BBB6: BRA .special_transform
+|08BBB6| BRA .special_transform
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_cucco_easter_egg
-#_08BBB8: CMP.b #$0D ; SPRITE 0D
-#_08BBBA: BNE .not_buzz_blob
+|08BBB8| CMP.b #$0D ; SPRITE 0D
+|08BBBA| BNE .not_buzz_blob
 
-#_08BBBC: LDA.w $0EB0,Y
-#_08BBBF: BNE .skip_sprite
+|08BBBC| LDA.w $0EB0,Y
+|08BBBF| BNE .skip_sprite
 
 .special_transform
-#_08BBC1: LDA.b #$01
-#_08BBC3: STA.w $0EB0,Y
+|08BBC1| LDA.b #$01
+|08BBC3| STA.w $0EB0,Y
 
-#_08BBC6: PHX
-#_08BBC7: PHY
+|08BBC6| PHX
+|08BBC7| PHY
 
-#_08BBC8: TYX
-#_08BBC9: JSL SpawnPoofGarnish
+|08BBC8| TYX
+|08BBC9| JSL SpawnPoofGarnish
 
-#_08BBCD: PLY
-#_08BBCE: PLX
+|08BBCD| PLY
+|08BBCE| PLX
 
-#_08BBCF: BRA .skip_sprite
+|08BBCF| BRA .skip_sprite
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_buzz_blob
-#_08BBD1: PHX
-#_08BBD2: PHY
+|08BBD1| PHX
+|08BBD2| PHY
 
-#_08BBD3: TYX
+|08BBD3| TYX
 
-#_08BBD4: LDA.b #$0A
-#_08BBD6: JSL CheckAncillaDamageToSprite_preset
+|08BBD4| LDA.b #$0A
+|08BBD6| JSL CheckAncillaDamageToSprite_preset
 
-#_08BBDA: PLY
-#_08BBDB: PLX
+|08BBDA| PLY
+|08BBDB| PLX
 
 .skip_sprite
-#_08BBDC: DEY
-#_08BBDD: BPL .next_sprite
+|08BBDC| DEY
+|08BBDD| BPL .next_sprite
 
-#_08BBDF: RTS
+|08BBDF| RTS
 
 ;===================================================================================================
 
 Ancilla1D_ScreenShake:
-#_08BBE0: LDA.b $11
-#_08BBE2: BNE .alert
+|08BBE0| LDA.b $11
+|08BBE2| BNE .alert
 
-#_08BBE4: DEC.w $0C5E,X
-#_08BBE7: BPL .delay
+|08BBE4| DEC.w $0C5E,X
+|08BBE7| BPL .delay
 
-#_08BBE9: STZ.w $011A
-#_08BBEC: STZ.w $011B
-#_08BBEF: STZ.w $011C
-#_08BBF2: STZ.w $011D
+|08BBE9| STZ.w $011A
+|08BBEC| STZ.w $011B
+|08BBEF| STZ.w $011C
+|08BBF2| STZ.w $011D
 
-#_08BBF5: STZ.w $0C4A,X
+|08BBF5| STZ.w $0C4A,X
 
-#_08BBF8: RTS
+|08BBF8| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay
-#_08BBF9: JSL DashTremor_Twiddle
+|08BBF9| JSL DashTremor_Twiddle
 
-#_08BBFD: LDA.b $00
-#_08BBFF: STA.w $011A,Y
+|08BBFD| LDA.b $00
+|08BBFF| STA.w $011A,Y
 
-#_08BC02: LDA.b $01
-#_08BC04: STA.w $011B,Y
+|08BC02| LDA.b $01
+|08BC04| STA.w $011B,Y
 
-#_08BC07: TYA
-#_08BC08: LSR A
-#_08BC09: EOR.b #$01
-#_08BC0B: TAY
+|08BC07| TYA
+|08BC08| LSR A
+|08BC09| EOR.b #$01
+|08BC0B| TAY
 
-#_08BC0C: LDA.w $0030,Y
-#_08BC0F: CLC
-#_08BC10: ADC.b $00
-#_08BC12: STA.w $0030,Y
+|08BC0C| LDA.w $0030,Y
+|08BC0F| CLC
+|08BC10| ADC.b $00
+|08BC12| STA.w $0030,Y
 
 .alert
-#_08BC15: BRL AlertSprites
+|08BC15| BRL AlertSprites
 
 ;===================================================================================================
 
 pool Ancilla1E_DashDust
 
 .offset_y
-#_08BC18: dw  -2,   0,  -1
-#_08BC1E: dw  -3,  -2,   0
-#_08BC24: dw  -3,   0,  -1
-#_08BC2A: dw  -3,  -1,  -1
-#_08BC30: dw  -2,  -1,  -1
-#_08BC36: dw  -2,   0,  -1
-#_08BC3C: dw  -3,  -2,   0
-#_08BC42: dw  -3,   0,  -1
-#_08BC48: dw  -3,  -1,  -1
-#_08BC4E: dw  -2,  -1,  -1
+|08BC18| dw  -2,   0,  -1
+|08BC1E| dw  -3,  -2,   0
+|08BC24| dw  -3,   0,  -1
+|08BC2A| dw  -3,  -1,  -1
+|08BC30| dw  -2,  -1,  -1
+|08BC36| dw  -2,   0,  -1
+|08BC3C| dw  -3,  -2,   0
+|08BC42| dw  -3,   0,  -1
+|08BC48| dw  -3,  -1,  -1
+|08BC4E| dw  -2,  -1,  -1
 
 .offset_x
-#_08BC54: dw  10,   5,  -1
-#_08BC5A: dw   0,  10,   5
-#_08BC60: dw   0,   5,  -1
-#_08BC66: dw   0,  -1,  -1
-#_08BC6C: dw   9,  -1,  -1
-#_08BC72: dw  10,   5,  -1
-#_08BC78: dw   0,  10,   5
-#_08BC7E: dw   0,   5,  -1
-#_08BC84: dw   0,  -1,  -1
-#_08BC8A: dw   9,  -1,  -1
+|08BC54| dw  10,   5,  -1
+|08BC5A| dw   0,  10,   5
+|08BC60| dw   0,   5,  -1
+|08BC66| dw   0,  -1,  -1
+|08BC6C| dw   9,  -1,  -1
+|08BC72| dw  10,   5,  -1
+|08BC78| dw   0,  10,   5
+|08BC7E| dw   0,   5,  -1
+|08BC84| dw   0,  -1,  -1
+|08BC8A| dw   9,  -1,  -1
 
 .char
-#_08BC90: db $CF, $A9, $FF
-#_08BC93: db $A9, $DF, $CF
-#_08BC96: db $CF, $DF, $FF
-#_08BC99: db $DF, $FF, $FF
-#_08BC9C: db $A9, $FF, $FF
-#_08BC9F: db $CF, $CF, $FF
-#_08BCA2: db $CF, $DF, $CF
-#_08BCA5: db $CF, $DF, $FF
-#_08BCA8: db $DF, $FF, $FF
-#_08BCAB: db $CF, $FF, $FF
+|08BC90| db $CF, $A9, $FF
+|08BC93| db $A9, $DF, $CF
+|08BC96| db $CF, $DF, $FF
+|08BC99| db $DF, $FF, $FF
+|08BC9C| db $A9, $FF, $FF
+|08BC9F| db $CF, $CF, $FF
+|08BCA2| db $CF, $DF, $CF
+|08BCA5| db $CF, $DF, $FF
+|08BCA8| db $DF, $FF, $FF
+|08BCAB| db $CF, $FF, $FF
 
 .offset_from_link
-#_08BCAE: dw   0
-#_08BCB0: dw   0
-#_08BCB2: dw   4
-#_08BCB4: dw  -4
+|08BCAE| dw   0
+|08BCB0| dw   0
+|08BCB2| dw   4
+|08BCB4| dw  -4
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla1E_DashDust:
-#_08BCB6: LDA.w $0C54,X
-#_08BCB9: BEQ .stationary
+|08BCB6| LDA.w $0C54,X
+|08BCB9| BEQ .stationary
 
-#_08BCBB: JSL DashDust_Motive
+|08BCBB| JSL DashDust_Motive
 
-#_08BCBF: BRA .exit
+|08BCBF| BRA .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .stationary
-#_08BCC1: LDA.w $0C68,X
-#_08BCC4: BNE .delay
+|08BCC1| LDA.w $0C68,X
+|08BCC4| BNE .delay
 
-#_08BCC6: LDA.b #$03
-#_08BCC8: STA.w $0C68,X
+|08BCC6| LDA.b #$03
+|08BCC8| STA.w $0C68,X
 
-#_08BCCB: LDA.w $0C5E,X
-#_08BCCE: INC A
-#_08BCCF: STA.w $0C5E,X
+|08BCCB| LDA.w $0C5E,X
+|08BCCE| INC A
+|08BCCF| STA.w $0C5E,X
 
-#_08BCD2: CMP.b #$05
-#_08BCD4: BEQ .exit
+|08BCD2| CMP.b #$05
+|08BCD4| BEQ .exit
 
-#_08BCD6: CMP.b #$06
-#_08BCD8: BNE .delay
+|08BCD6| CMP.b #$06
+|08BCD8| BNE .delay
 
-#_08BCDA: STZ.w $0C4A,X
+|08BCDA| STZ.w $0C4A,X
 
 .exit
-#_08BCDD: RTS
+|08BCDD| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay
-#_08BCDE: LDA.w $0C5E,X
-#_08BCE1: CMP.b #$05
-#_08BCE3: BEQ .exit
+|08BCDE| LDA.w $0C5E,X
+|08BCE1| CMP.b #$05
+|08BCE3| BEQ .exit
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BCE5: JSR Ancilla_PrepOAMCoord
+|08BCE5| JSR Ancilla_PrepOAMCoord
 
-#_08BCE8: PHX
+|08BCE8| PHX
 
-#_08BCE9: LDA.b $00
-#_08BCEB: STA.b $06
+|08BCE9| LDA.b $00
+|08BCEB| STA.b $06
 
-#_08BCED: LDA.b $01
-#_08BCEF: STA.b $07
+|08BCED| LDA.b $01
+|08BCEF| STA.b $07
 
-#_08BCF1: LDA.b $02
-#_08BCF3: STA.b $08
+|08BCF1| LDA.b $02
+|08BCF3| STA.b $08
 
-#_08BCF5: LDA.b $03
-#_08BCF7: STA.b $09
+|08BCF5| LDA.b $03
+|08BCF7| STA.b $09
 
-#_08BCF9: LDY.b $2F
+|08BCF9| LDY.b $2F
 
-#_08BCFB: LDA.w .offset_from_link+0,Y
-#_08BCFE: STA.b $0C
+|08BCFB| LDA.w .offset_from_link+0,Y
+|08BCFE| STA.b $0C
 
-#_08BD00: LDA.w .offset_from_link+1,Y
-#_08BD03: STA.b $0D
+|08BD00| LDA.w .offset_from_link+1,Y
+|08BD03| STA.b $0D
 
-#_08BD05: LDY.b #$00
+|08BD05| LDY.b #$00
 
-#_08BD07: LDA.w $0351
-#_08BD0A: CMP.b #$01
-#_08BD0C: BNE .not_in_water
+|08BD07| LDA.w $0351
+|08BD0A| CMP.b #$01
+|08BD0C| BNE .not_in_water
 
-#_08BD0E: LDY.b #$05
+|08BD0E| LDY.b #$05
 
 .not_in_water
-#_08BD10: STY.b $04
+|08BD10| STY.b $04
 
-#_08BD12: LDA.w $0C5E,X
-#_08BD15: CLC
-#_08BD16: ADC.b $04
-#_08BD18: STA.b $04
+|08BD12| LDA.w $0C5E,X
+|08BD15| CLC
+|08BD16| ADC.b $04
+|08BD18| STA.b $04
 
-#_08BD1A: ASL A
-#_08BD1B: CLC
-#_08BD1C: ADC.b $04
-#_08BD1E: STA.b $04
+|08BD1A| ASL A
+|08BD1B| CLC
+|08BD1C| ADC.b $04
+|08BD1E| STA.b $04
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BD20: LDA.b #$02
-#_08BD22: STA.b $72
+|08BD20| LDA.b #$02
+|08BD22| STA.b $72
 
-#_08BD24: LDY.b #$00
+|08BD24| LDY.b #$00
 
 .next_object
-#_08BD26: LDX.b $04
+|08BD26| LDX.b $04
 
-#_08BD28: LDA.w .char,X
-#_08BD2B: CMP.b #$FF
-#_08BD2D: BEQ .skip_object
+|08BD28| LDA.w .char,X
+|08BD2B| CMP.b #$FF
+|08BD2D| BEQ .skip_object
 
-#_08BD2F: TXA
-#_08BD30: ASL A
-#_08BD31: TAX
+|08BD2F| TXA
+|08BD30| ASL A
+|08BD31| TAX
 
-#_08BD32: REP #$20
+|08BD32| REP #$20
 
-#_08BD34: LDA.b $06
-#_08BD36: CLC
-#_08BD37: ADC.w .offset_y,X
-#_08BD3A: STA.b $00
+|08BD34| LDA.b $06
+|08BD36| CLC
+|08BD37| ADC.w .offset_y,X
+|08BD3A| STA.b $00
 
-#_08BD3C: LDA.b $08
-#_08BD3E: CLC
-#_08BD3F: ADC.w .offset_x,X
+|08BD3C| LDA.b $08
+|08BD3E| CLC
+|08BD3F| ADC.w .offset_x,X
 
-#_08BD42: CLC
-#_08BD43: ADC.b $0C
-#_08BD45: STA.b $02
+|08BD42| CLC
+|08BD43| ADC.b $0C
+|08BD45| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BD47: SEP #$20
+|08BD47| SEP #$20
 
-#_08BD49: JSR Ancilla_SetOAM_XY
+|08BD49| JSR Ancilla_SetOAM_XY
 
-#_08BD4C: LDX.b $04
+|08BD4C| LDX.b $04
 
-#_08BD4E: LDA.w .char,X
-#_08BD51: STA.b ($90),Y
+|08BD4E| LDA.w .char,X
+|08BD51| STA.b ($90),Y
 
-#_08BD53: INY
+|08BD53| INY
 
-#_08BD54: LDA.b #$04
-#_08BD56: ORA.b $65
-#_08BD58: STA.b ($90),Y
+|08BD54| LDA.b #$04
+|08BD56| ORA.b $65
+|08BD58| STA.b ($90),Y
 
-#_08BD5A: INY
-#_08BD5B: PHY
+|08BD5A| INY
+|08BD5B| PHY
 
-#_08BD5C: TYA
-#_08BD5D: SEC
-#_08BD5E: SBC.b #$04
-#_08BD60: LSR A
-#_08BD61: LSR A
-#_08BD62: TAY
+|08BD5C| TYA
+|08BD5D| SEC
+|08BD5E| SBC.b #$04
+|08BD60| LSR A
+|08BD61| LSR A
+|08BD62| TAY
 
-#_08BD63: LDA.b #$00
-#_08BD65: STA.b ($92),Y
+|08BD63| LDA.b #$00
+|08BD65| STA.b ($92),Y
 
-#_08BD67: PLY
+|08BD67| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_object
-#_08BD68: INC.b $04
+|08BD68| INC.b $04
 
-#_08BD6A: DEC.b $72
-#_08BD6C: BPL .next_object
+|08BD6A| DEC.b $72
+|08BD6C| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BD6E: PLX
+|08BD6E| PLX
 
-#_08BD6F: RTS
+|08BD6F| RTS
 
 ;===================================================================================================
 
 pool Hookshot
 
 .char
-#_08BD70: db $09, $0A, $FF ; up
-#_08BD73: db $09, $0A, $FF ; down
-#_08BD76: db $09, $FF, $0A ; left
-#_08BD79: db $09, $FF, $0A ; right
+|08BD70| db $09, $0A, $FF ; up
+|08BD73| db $09, $0A, $FF ; down
+|08BD76| db $09, $FF, $0A ; left
+|08BD79| db $09, $FF, $0A ; right
 
 .prop
-#_08BD7C: db $00, $00, $FF ; up
-#_08BD7F: db $80, $80, $FF ; down
-#_08BD82: db $40, $FF, $40 ; left
-#_08BD85: db $00, $FF, $00 ; right
+|08BD7C| db $00, $00, $FF ; up
+|08BD7F| db $80, $80, $FF ; down
+|08BD82| db $40, $FF, $40 ; left
+|08BD85| db $00, $FF, $00 ; right
 
 .box_size_y
-#_08BD88: dw   8 ; up
-#_08BD8A: dw  -9 ; down - This is larger, but does it matter?
-#_08BD8C: dw   0 ; left
-#_08BD8E: dw   0 ; right
+|08BD88| dw   8 ; up
+|08BD8A| dw  -9 ; down - This is larger, but does it matter?
+|08BD8C| dw   0 ; left
+|08BD8E| dw   0 ; right
 
 .box_size_x
-#_08BD90: dw   0 ; up
-#_08BD92: dw   0 ; down
-#_08BD94: dw   8 ; left
-#_08BD96: dw  -8 ; right
+|08BD90| dw   0 ; up
+|08BD92| dw   0 ; down
+|08BD94| dw   8 ; left
+|08BD96| dw  -8 ; right
 
-pool off
+endpool
 
 ;===================================================================================================
 
 Ancilla1F_Hookshot:
-#_08BD98: LDA.b $11
-#_08BD9A: BNE .just_draw
+|08BD98| LDA.b $11
+|08BD9A| BNE .just_draw
 
 ; Play the chain SFX every 8 frames
-#_08BD9C: LDA.w $0C68,X
-#_08BD9F: BNE .no_chain_sfx
+|08BD9C| LDA.w $0C68,X
+|08BD9F| BNE .no_chain_sfx
 
-#_08BDA1: LDA.b #$07
-#_08BDA3: STA.w $0C68,X
+|08BDA1| LDA.b #$07
+|08BDA3| STA.w $0C68,X
 
-#_08BDA6: LDA.b #$0A ; SFX2.0A
-#_08BDA8: JSR Ancilla_SFX2_Pan
+|08BDA6| LDA.b #$0A ; SFX2.0A
+|08BDA8| JSR Ancilla_SFX2_Pan
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_chain_sfx
 ; Is the hookshot currently dragging link?
 ; If it is, just draw.
-#_08BDAB: LDA.w $037E
-#_08BDAE: BNE .just_draw
+|08BDAB| LDA.w $037E
+|08BDAE| BNE .just_draw
 
-#_08BDB0: JSR AncillaMoveY
-#_08BDB3: JSR AncillaMoveX
+|08BDB0| JSR AncillaMoveY
+|08BDB3| JSR AncillaMoveX
 
 ; This flags whether the hook is extending or retracting
-#_08BDB6: LDA.w $0C54,X
-#_08BDB9: BEQ Hookshot_Extending
+|08BDB6| LDA.w $0C54,X
+|08BDB9| BEQ Hookshot_Extending
 
 ; Tick the growth level
 ; Delete self when fully retracted
 ; Effectively acts as a timer
-#_08BDBB: DEC.w $0C5E,X
-#_08BDBE: BMI Hookshot_DeleteSelf
+|08BDBB| DEC.w $0C5E,X
+|08BDBE| BMI Hookshot_DeleteSelf
 
 .just_draw
-#_08BDC0: BRL AncillaDraw_Hookshot
+|08BDC0| BRL AncillaDraw_Hookshot
 
 ;===================================================================================================
 
 Hookshot_DeleteSelf:
-#_08BDC3: STZ.w $0C4A,X
+|08BDC3| STZ.w $0C4A,X
 
-#_08BDC6: RTS
+|08BDC6| RTS
 
 ;===================================================================================================
 
 Hookshot_Extending:
 ; Extend self
-#_08BDC7: LDA.w $0C5E,X
-#_08BDCA: INC A
-#_08BDCB: STA.w $0C5E,X
+|08BDC7| LDA.w $0C5E,X
+|08BDCA| INC A
+|08BDCB| STA.w $0C5E,X
 
 ; Max of 32 ticks
 ; Note that this is BNE, not BCC
 ; So it doesn't retract until it is exactly 32
-#_08BDCE: CMP.b #$20
-#_08BDD0: BNE .not_fully_extended
+|08BDCE| CMP.b #$20
+|08BDD0| BNE .not_fully_extended
 
 ; Set growth to retraction
-#_08BDD2: LDA.b #$01
-#_08BDD4: STA.w $0C54,X
+|08BDD2| LDA.b #$01
+|08BDD4| STA.w $0C54,X
 
 ; set Y velocity
-#_08BDD7: LDA.w $0C22,X
-#_08BDDA: EOR.b #$FF
-#_08BDDC: INC A
-#_08BDDD: STA.w $0C22,X
+|08BDD7| LDA.w $0C22,X
+|08BDDA| EOR.b #$FF
+|08BDDC| INC A
+|08BDDD| STA.w $0C22,X
 
 ; set X velocity
-#_08BDE0: LDA.w $0C2C,X
-#_08BDE3: EOR.b #$FF
-#_08BDE5: INC A
-#_08BDE6: STA.w $0C2C,X
+|08BDE0| LDA.w $0C2C,X
+|08BDE3| EOR.b #$FF
+|08BDE5| INC A
+|08BDE6| STA.w $0C2C,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_fully_extended
-#_08BDE9: JSR Hookshot_ShouldIEvenBotherWithTiles
-#_08BDEC: BCC .do_bother
+|08BDE9| JSR Hookshot_ShouldIEvenBotherWithTiles
+|08BDEC| BCC .do_bother
 
-#_08BDEE: BRL AncillaDraw_Hookshot
+|08BDEE| BRL AncillaDraw_Hookshot
 
 ;---------------------------------------------------------------------------------------------------
 
 .do_bother
-#_08BDF1: LDA.w $0385,X
-#_08BDF4: BNE .ignore_collision
+|08BDF1| LDA.w $0385,X
+|08BDF4| BNE .ignore_collision
 
-#_08BDF6: LDA.w $0C54,X
-#_08BDF9: BNE .ignore_collision
+|08BDF6| LDA.w $0C54,X
+|08BDF9| BNE .ignore_collision
 
-#_08BDFB: JSR Ancilla_CheckSpriteCollision
-#_08BDFE: BCC .ignore_collision
+|08BDFB| JSR Ancilla_CheckSpriteCollision
+|08BDFE| BCC .ignore_collision
 
-#_08BE00: LDA.w $0C54,X
-#_08BE03: BNE .ignore_collision
+|08BE00| LDA.w $0C54,X
+|08BE03| BNE .ignore_collision
 
 ;---------------------------------------------------------------------------------------------------
 ; Change parity of hook and invert speed
 ;---------------------------------------------------------------------------------------------------
-#_08BE05: LDA.b #$01
-#_08BE07: STA.w $0C54,X
+|08BE05| LDA.b #$01
+|08BE07| STA.w $0C54,X
 
-#_08BE0A: LDA.w $0C22,X
-#_08BE0D: EOR.b #$FF
-#_08BE0F: INC A
-#_08BE10: STA.w $0C22,X
+|08BE0A| LDA.w $0C22,X
+|08BE0D| EOR.b #$FF
+|08BE0F| INC A
+|08BE10| STA.w $0C22,X
 
-#_08BE13: LDA.w $0C2C,X
-#_08BE16: EOR.b #$FF
-#_08BE18: INC A
-#_08BE19: STA.w $0C2C,X
+|08BE13| LDA.w $0C2C,X
+|08BE16| EOR.b #$FF
+|08BE18| INC A
+|08BE19| STA.w $0C2C,X
 
-#_08BE1C: BRA .ignore_collision
+|08BE1C| BRA .ignore_collision
 
 ;---------------------------------------------------------------------------------------------------
 
 #UNREACHABLE_08BE1E:
-#_08BE1E: BRL Hookshot_ExtraCollisionLogic_branching_here_unreachable
+|08BE1E| BRL Hookshot_ExtraCollisionLogic.branching_here_unreachable
 
 ;---------------------------------------------------------------------------------------------------
 
 .ignore_collision
-#_08BE21: JSL Hookshot_CheckTileCollision
+|08BE21| JSL Hookshot_CheckTileCollision
 
-#_08BE25: STZ.b $00
+|08BE25| STZ.b $00
 
-#_08BE27: LDA.b $1B
-#_08BE29: BEQ .outdoors_ledge
+|08BE27| LDA.b $1B
+|08BE29| BEQ .outdoors_ledge
 
-#_08BE2B: LDY.b #$01
+|08BE2B| LDY.b #$01
 
-#_08BE2D: LDA.w $0C72,X
-#_08BE30: AND.b #$02
-#_08BE32: BNE .indoor_horizontal_ledge
+|08BE2D| LDA.w $0C72,X
+|08BE30| AND.b #$02
+|08BE32| BNE .indoor_horizontal_ledge
 
-#_08BE34: LDA.w $036D
-#_08BE37: LSR A
-#_08BE38: LSR A
-#_08BE39: LSR A
-#_08BE3A: LSR A
-#_08BE3B: STA.b $00
+|08BE34| LDA.w $036D
+|08BE37| LSR A
+|08BE38| LSR A
+|08BE39| LSR A
+|08BE3A| LSR A
+|08BE3B| STA.b $00
 
-#_08BE3D: LDY.b #$00
+|08BE3D| LDY.b #$00
 
 ;---------------------------------------------------------------------------------------------------
 
 .indoor_horizontal_ledge
-#_08BE3F: LDA.w $036D,Y
-#_08BE42: ORA.b $00
-#_08BE44: AND.b #$03
-#_08BE46: STA.b $00
+|08BE3F| LDA.w $036D,Y
+|08BE42| ORA.b $00
+|08BE44| AND.b #$03
+|08BE46| STA.b $00
 
-#_08BE48: BEQ .not_ledge
+|08BE48| BEQ .not_ledge
 
-#_08BE4A: BRA .ledge_collision
+|08BE4A| BRA .ledge_collision
 
 ;---------------------------------------------------------------------------------------------------
 
 .outdoors_ledge
-#_08BE4C: LDA.w $036E
-#_08BE4F: AND.b #$03
-#_08BE51: ORA.w $036D
-#_08BE54: ORA.w $0370
-#_08BE57: AND.b #$33
-#_08BE59: BEQ .not_ledge
+|08BE4C| LDA.w $036E
+|08BE4F| AND.b #$03
+|08BE51| ORA.w $036D
+|08BE54| ORA.w $0370
+|08BE57| AND.b #$33
+|08BE59| BEQ .not_ledge
 
 ;---------------------------------------------------------------------------------------------------
 
 .ledge_collision
-#_08BE5B: DEC.w $0394,X
-#_08BE5E: BPL .not_ledge
+|08BE5B| DEC.w $0394,X
+|08BE5E| BPL .not_ledge
 
-#_08BE60: LDY.w $0380,X
-#_08BE63: BEQ .last_tile_passable
+|08BE60| LDY.w $0380,X
+|08BE63| BEQ .last_tile_passable
 
-#_08BE65: LDA.b $00
-#_08BE67: AND.b #$03
-#_08BE69: BNE .hit_indoor_ledge
+|08BE65| LDA.b $00
+|08BE67| AND.b #$03
+|08BE69| BNE .hit_indoor_ledge
 
-#_08BE6B: CPY.b $76
-#_08BE6D: BEQ .last_tile_passable
+|08BE6B| CPY.b $76
+|08BE6D| BEQ .last_tile_passable
 
 ;---------------------------------------------------------------------------------------------------
 
 .hit_indoor_ledge
-#_08BE6F: LDA.b #$02
-#_08BE71: STA.w $0394,X
+|08BE6F| LDA.b #$02
+|08BE71| STA.w $0394,X
 
-#_08BE74: DEC.w $0385,X
-#_08BE77: BPL .not_ledge
+|08BE74| DEC.w $0385,X
+|08BE77| BPL .not_ledge
 
-#_08BE79: STZ.w $0385,X
+|08BE79| STZ.w $0385,X
 
-#_08BE7C: BRA .not_ledge
+|08BE7C| BRA .not_ledge
 
 .last_tile_passable
-#_08BE7E: INC.w $0385,X
+|08BE7E| INC.w $0385,X
 
-#_08BE81: LDA.b $76
-#_08BE83: STA.w $0380,X
+|08BE81| LDA.b $76
+|08BE83| STA.w $0380,X
 
-#_08BE86: LDA.b #$01
-#_08BE88: STA.w $0394,X
+|08BE86| LDA.b #$01
+|08BE88| STA.w $0394,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_ledge
-#_08BE8B: LDA.w $0385,X
-#_08BE8E: BNE .just_draw_already
+|08BE8B| LDA.w $0385,X
+|08BE8E| BNE .just_draw_already
 
-#_08BE90: LDA.w $0394,X
-#_08BE93: BMI Hookshot_ExtraCollisionLogic
+|08BE90| LDA.w $0394,X
+|08BE93| BMI Hookshot_ExtraCollisionLogic
 
-#_08BE95: DEC.w $0394,X
+|08BE95| DEC.w $0394,X
 
 .just_draw_already
-#_08BE98: BRL AncillaDraw_Hookshot
+|08BE98| BRL AncillaDraw_Hookshot
 
 ;===================================================================================================
 
 Hookshot_ExtraCollisionLogic:
-#_08BE9B: LDA.b $0E
+|08BE9B| LDA.b $0E
 
-#_08BE9D: LSR A ; /16
-#_08BE9E: LSR A
-#_08BE9F: LSR A
-#_08BEA0: LSR A
+|08BE9D| LSR A ; /16
+|08BE9E| LSR A
+|08BE9F| LSR A
+|08BEA0| LSR A
 
-#_08BEA1: ORA.b $0E
-#_08BEA3: ORA.b $58
-#_08BEA5: ORA.b $0C
-#_08BEA7: AND.b #$03
+|08BEA1| ORA.b $0E
+|08BEA3| ORA.b $58
+|08BEA5| ORA.b $0C
+|08BEA7| AND.b #$03
 
-#_08BEA9: BEQ .no_collision
+|08BEA9| BEQ .no_collision
 
-#_08BEAB: LDA.w $0C54,X
-#_08BEAE: BNE .no_collision
+|08BEAB| LDA.w $0C54,X
+|08BEAE| BNE .no_collision
 
-#_08BEB0: LDA.b #$01
-#_08BEB2: STA.w $0C54,X
+|08BEB0| LDA.b #$01
+|08BEB2| STA.w $0C54,X
 
-#_08BEB5: LDA.w $0C22,X
-#_08BEB8: EOR.b #$FF
-#_08BEBA: INC A
-#_08BEBB: STA.w $0C22,X
+|08BEB5| LDA.w $0C22,X
+|08BEB8| EOR.b #$FF
+|08BEBA| INC A
+|08BEBB| STA.w $0C22,X
 
-#_08BEBE: LDA.w $0C2C,X
-#_08BEC1: EOR.b #$FF
-#_08BEC3: INC A
-#_08BEC4: STA.w $0C2C,X
+|08BEBE| LDA.w $0C2C,X
+|08BEC1| EOR.b #$FF
+|08BEC3| INC A
+|08BEC4| STA.w $0C2C,X
 
-#_08BEC7: LDA.w $02F6
-#_08BECA: AND.b #$03
-#_08BECC: BNE .no_collision
+|08BEC7| LDA.w $02F6
+|08BECA| AND.b #$03
+|08BECC| BNE .no_collision
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BECE: PHX
+|08BECE| PHX
 
-#_08BECF: LDY.b #$01
-#_08BED1: LDA.b #$06 ; ANCILLA 06
-#_08BED3: JSL AncillaAdd_HookshotWallClink
+|08BECF| LDY.b #$01
+|08BED1| LDA.b #$06 ; ANCILLA 06
+|08BED3| JSL AncillaAdd_HookshotWallClink
 
-#_08BED7: PLX
+|08BED7| PLX
 
-#_08BED8: LDY.b #$06 ; SFX2.06
+|08BED8| LDY.b #$06 ; SFX2.06
 
-#_08BEDA: LDA.w $02F6
-#_08BEDD: AND.b #$30
-#_08BEDF: BNE .key_door
+|08BEDA| LDA.w $02F6
+|08BEDD| AND.b #$30
+|08BEDF| BNE .key_door
 
-#_08BEE1: LDY.b #$05 ; SFX2.05
+|08BEE1| LDY.b #$05 ; SFX2.05
 
 .key_door
-#_08BEE3: TYA
-#_08BEE4: JSR Ancilla_SFX2_Pan
+|08BEE3| TYA
+|08BEE4| JSR Ancilla_SFX2_Pan
 
 .no_collision
-#_08BEE7: LDA.w $02F6
-#_08BEEA: AND.b #$03
-#_08BEEC: BEQ AncillaDraw_Hookshot
+|08BEE7| LDA.w $02F6
+|08BEEA| AND.b #$03
+|08BEEC| BEQ AncillaDraw_Hookshot
 
 ;---------------------------------------------------------------------------------------------------
 
 .branching_here_unreachable
-#_08BEEE: LDA.w $0C5E,X
-#_08BEF1: CMP.b #$04
-#_08BEF3: BCS .dont_delete_self
+|08BEEE| LDA.w $0C5E,X
+|08BEF1| CMP.b #$04
+|08BEF3| BCS .dont_delete_self
 
-#_08BEF5: BRL Hookshot_DeleteSelf
+|08BEF5| BRL Hookshot_DeleteSelf
 
 .dont_delete_self
-#_08BEF8: LDA.b #$01
-#_08BEFA: STA.w $037E
+|08BEF8| LDA.b #$01
+|08BEFA| STA.w $037E
 
-#_08BEFD: STX.w $039D
+|08BEFD| STX.w $039D
 
 ;===================================================================================================
 
 AncillaDraw_Hookshot:
-#_08BF00: JSR Ancilla_PrepOAMCoord
+|08BF00| JSR Ancilla_PrepOAMCoord
 
-#_08BF03: LDA.w $0385,X
-#_08BF06: BEQ .not_max_priority
+|08BF03| LDA.w $0385,X
+|08BF06| BEQ .not_max_priority
 
-#_08BF08: LDA.b #$30
-#_08BF0A: STA.b $65
+|08BF08| LDA.b #$30
+|08BF0A| STA.b $65
 
 .not_max_priority
-#_08BF0C: REP #$20
+|08BF0C| REP #$20
 
-#_08BF0E: LDA.b $00
-#_08BF10: STA.b $04
+|08BF0E| LDA.b $00
+|08BF10| STA.b $04
 
-#_08BF12: LDA.b $02
-#_08BF14: STA.b $06
+|08BF12| LDA.b $02
+|08BF14| STA.b $06
 
-#_08BF16: SEP #$20
+|08BF16| SEP #$20
 
-#_08BF18: PHX
+|08BF18| PHX
 
-#_08BF19: LDA.w $0C72,X
-#_08BF1C: STA.b $08
+|08BF19| LDA.w $0C72,X
+|08BF1C| STA.b $08
 
-#_08BF1E: ASL A
-#_08BF1F: CLC
-#_08BF20: ADC.b $08
-#_08BF22: STA.b $0A
+|08BF1E| ASL A
+|08BF1F| CLC
+|08BF20| ADC.b $08
+|08BF22| STA.b $0A
 
-#_08BF24: TAX
+|08BF24| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BF25: LDA.b #$02
-#_08BF27: STA.b $08
+|08BF25| LDA.b #$02
+|08BF27| STA.b $08
 
-#_08BF29: LDY.b #$00
+|08BF29| LDY.b #$00
 
 .next_object
-#_08BF2B: LDX.b $0A
+|08BF2B| LDX.b $0A
 
-#_08BF2D: LDA.w Hookshot_char,X
-#_08BF30: CMP.b #$FF
-#_08BF32: BEQ .skip
+|08BF2D| LDA.w Hookshot.char,X
+|08BF30| CMP.b #$FF
+|08BF32| BEQ .skip
 
-#_08BF34: JSR Ancilla_SetOAM_XY
+|08BF34| JSR Ancilla_SetOAM_XY
 
-#_08BF37: LDX.b $0A
+|08BF37| LDX.b $0A
 
-#_08BF39: LDA.w Hookshot_char,X
-#_08BF3C: STA.b ($90),Y
+|08BF39| LDA.w Hookshot.char,X
+|08BF3C| STA.b ($90),Y
 
-#_08BF3E: INY
+|08BF3E| INY
 
-#_08BF3F: LDA.w Hookshot_prop,X
-#_08BF42: ORA.b #$02
-#_08BF44: ORA.b $65
-#_08BF46: STA.b ($90),Y
+|08BF3F| LDA.w Hookshot.prop,X
+|08BF42| ORA.b #$02
+|08BF44| ORA.b $65
+|08BF46| STA.b ($90),Y
 
-#_08BF48: INY
-#_08BF49: PHY
+|08BF48| INY
+|08BF49| PHY
 
-#_08BF4A: TYA
-#_08BF4B: SEC
-#_08BF4C: SBC.b #$04
-#_08BF4E: LSR A
-#_08BF4F: LSR A
-#_08BF50: TAY
+|08BF4A| TYA
+|08BF4B| SEC
+|08BF4C| SBC.b #$04
+|08BF4E| LSR A
+|08BF4F| LSR A
+|08BF50| TAY
 
-#_08BF51: LDA.b #$00
-#_08BF53: STA.b ($92),Y
+|08BF51| LDA.b #$00
+|08BF53| STA.b ($92),Y
 
-#_08BF55: PLY
+|08BF55| PLY
 
 .skip
-#_08BF56: INC.b $0A
+|08BF56| INC.b $0A
 
-#_08BF58: LDA.b $02
-#_08BF5A: CLC
-#_08BF5B: ADC.b #$08
-#_08BF5D: STA.b $02
+|08BF58| LDA.b $02
+|08BF5A| CLC
+|08BF5B| ADC.b #$08
+|08BF5D| STA.b $02
 
-#_08BF5F: DEC.b $08
-#_08BF61: BMI AncillaDraw_HookshotChain
+|08BF5F| DEC.b $08
+|08BF61| BMI AncillaDraw_HookshotChain
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BF63: LDA.b $08
-#_08BF65: BNE .next_object
+|08BF63| LDA.b $08
+|08BF65| BNE .next_object
 
-#_08BF67: LDA.b $00
-#_08BF69: CLC
-#_08BF6A: ADC.b #$08
-#_08BF6C: STA.b $00
+|08BF67| LDA.b $00
+|08BF69| CLC
+|08BF6A| ADC.b #$08
+|08BF6C| STA.b $00
 
-#_08BF6E: LDA.b $06
-#_08BF70: STA.b $02
+|08BF6E| LDA.b $06
+|08BF70| STA.b $02
 
-#_08BF72: BRA .next_object
+|08BF72| BRA .next_object
 
 ;===================================================================================================
 
 AncillaDraw_HookshotChain:
-#_08BF74: PLX
-#_08BF75: PHX
+|08BF74| PLX
+|08BF75| PHX
 
-#_08BF76: STZ.b $0A
-#_08BF78: STZ.b $0B
-#_08BF7A: STZ.b $0C
-#_08BF7C: STZ.b $0D
+|08BF76| STZ.b $0A
+|08BF78| STZ.b $0B
+|08BF7A| STZ.b $0C
+|08BF7C| STZ.b $0D
 
-#_08BF7E: LDA.w $0C5E,X
-#_08BF81: LSR A
-#_08BF82: CMP.b #$07
-#_08BF84: BCC .no_scaling
+|08BF7E| LDA.w $0C5E,X
+|08BF81| LSR A
+|08BF82| CMP.b #$07
+|08BF84| BCC .no_scaling
 
-#_08BF86: SEC
-#_08BF87: SBC.b #$07
-#_08BF89: STA.b $0A
-#_08BF8B: STA.b $0C
+|08BF86| SEC
+|08BF87| SBC.b #$07
+|08BF89| STA.b $0A
+|08BF8B| STA.b $0C
 
-#_08BF8D: LDA.b #$06
+|08BF8D| LDA.b #$06
 
 .no_scaling
-#_08BF8F: STA.b $08
-#_08BF91: BNE .at_least_one_link
+|08BF8F| STA.b $08
+|08BF91| BNE .at_least_one_link
 
-#_08BF93: BRL .exit
+|08BF93| BRL .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .at_least_one_link
-#_08BF96: LDA.w $0C72,X
-#_08BF99: AND.b #$01
-#_08BF9B: BEQ .up_or_left
+|08BF96| LDA.w $0C72,X
+|08BF99| AND.b #$01
+|08BF9B| BEQ .up_or_left
 
-#_08BF9D: LDA.b $0A
-#_08BF9F: EOR.b #$FF
-#_08BFA1: INC A
-#_08BFA2: STA.b $0A
-#_08BFA4: STA.b $0C
-#_08BFA6: BEQ .up_or_left
+|08BF9D| LDA.b $0A
+|08BF9F| EOR.b #$FF
+|08BFA1| INC A
+|08BFA2| STA.b $0A
+|08BFA4| STA.b $0C
+|08BFA6| BEQ .up_or_left
 
-#_08BFA8: LDA.b #$FF
-#_08BFAA: STA.b $0B
-#_08BFAC: STA.b $0D
+|08BFA8| LDA.b #$FF
+|08BFAA| STA.b $0B
+|08BFAC| STA.b $0D
 
 .up_or_left
-#_08BFAE: REP #$20
+|08BFAE| REP #$20
 
-#_08BFB0: LDA.w $0C72,X
-#_08BFB3: ASL A
-#_08BFB4: AND.w #$00FF
-#_08BFB7: TAX
+|08BFB0| LDA.w $0C72,X
+|08BFB3| ASL A
+|08BFB4| AND.w #$00FF
+|08BFB7| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BFB8: LDA.w Hookshot_box_size_y,X
-#_08BFBB: BNE .use_actual_y
+|08BFB8| LDA.w Hookshot.box_size_y,X
+|08BFBB| BNE .use_actual_y
 
-#_08BFBD: LDA.b $04
-#_08BFBF: CLC
-#_08BFC0: ADC.w #$0004
-#_08BFC3: STA.b $04
+|08BFBD| LDA.b $04
+|08BFBF| CLC
+|08BFC0| ADC.w #$0004
+|08BFC3| STA.b $04
 
 ;---------------------------------------------------------------------------------------------------
 
 .use_actual_y
-#_08BFC5: LDA.w Hookshot_box_size_x,X
-#_08BFC8: BNE .next_object
+|08BFC5| LDA.w Hookshot.box_size_x,X
+|08BFC8| BNE .next_object
 
-#_08BFCA: LDA.b $06
-#_08BFCC: CLC
-#_08BFCD: ADC.w #$0004
-#_08BFD0: STA.b $06
+|08BFCA| LDA.b $06
+|08BFCC| CLC
+|08BFCD| ADC.w #$0004
+|08BFD0| STA.b $06
 
-#_08BFD2: SEP #$20
+|08BFD2| SEP #$20
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_object
-#_08BFD4: REP #$20
+|08BFD4| REP #$20
 
-#_08BFD6: LDA.w Hookshot_box_size_y,X
-#_08BFD9: BEQ .dont_add_y
+|08BFD6| LDA.w Hookshot.box_size_y,X
+|08BFD9| BEQ .dont_add_y
 
-#_08BFDB: CLC
-#_08BFDC: ADC.b $0A
+|08BFDB| CLC
+|08BFDC| ADC.b $0A
 
 .dont_add_y
-#_08BFDE: CLC
-#_08BFDF: ADC.b $04
-#_08BFE1: STA.b $04
-#_08BFE3: STA.b $00
+|08BFDE| CLC
+|08BFDF| ADC.b $04
+|08BFE1| STA.b $04
+|08BFE3| STA.b $00
 
-#_08BFE5: LDA.w Hookshot_box_size_x,X
-#_08BFE8: BEQ .dont_add_x
+|08BFE5| LDA.w Hookshot.box_size_x,X
+|08BFE8| BEQ .dont_add_x
 
-#_08BFEA: CLC
-#_08BFEB: ADC.b $0C
+|08BFEA| CLC
+|08BFEB| ADC.b $0C
 
 .dont_add_x
-#_08BFED: CLC
-#_08BFEE: ADC.b $06
-#_08BFF0: STA.b $06
-#_08BFF2: STA.b $02
+|08BFED| CLC
+|08BFEE| ADC.b $06
+|08BFF0| STA.b $06
+|08BFF2| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08BFF4: SEP #$20
+|08BFF4| SEP #$20
 
-#_08BFF6: JSR Hookshot_CheckProximityToLink
-#_08BFF9: BCS .skip
+|08BFF6| JSR Hookshot_CheckProximityToLink
+|08BFF9| BCS .skip
 
-#_08BFFB: JSR Ancilla_SetOAM_XY
+|08BFFB| JSR Ancilla_SetOAM_XY
 
-#_08BFFE: LDA.b #$19
-#_08C000: STA.b ($90),Y
+|08BFFE| LDA.b #$19
+|08C000| STA.b ($90),Y
 
-#_08C002: INY
+|08C002| INY
 
-#_08C003: LDA.b $1A
-#_08C005: AND.b #$02
+|08C003| LDA.b $1A
+|08C005| AND.b #$02
 
-#_08C007: ASL A ; x64
-#_08C008: ASL A
-#_08C009: ASL A
-#_08C00A: ASL A
-#_08C00B: ASL A
-#_08C00C: ASL A
+|08C007| ASL A ; x64
+|08C008| ASL A
+|08C009| ASL A
+|08C00A| ASL A
+|08C00B| ASL A
+|08C00C| ASL A
 
-#_08C00D: ORA.b #$02
-#_08C00F: ORA.b $65
-#_08C011: STA.b ($90),Y
+|08C00D| ORA.b #$02
+|08C00F| ORA.b $65
+|08C011| STA.b ($90),Y
 
-#_08C013: INY
-#_08C014: PHY
+|08C013| INY
+|08C014| PHY
 
-#_08C015: TYA
-#_08C016: SEC
-#_08C017: SBC.b #$04
-#_08C019: LSR A
-#_08C01A: LSR A
-#_08C01B: TAY
+|08C015| TYA
+|08C016| SEC
+|08C017| SBC.b #$04
+|08C019| LSR A
+|08C01A| LSR A
+|08C01B| TAY
 
-#_08C01C: LDA.b #$00
-#_08C01E: STA.b ($92),Y
+|08C01C| LDA.b #$00
+|08C01E| STA.b ($92),Y
 
-#_08C020: PLY
+|08C020| PLY
 
 .skip
-#_08C021: DEC.b $08
-#_08C023: BPL .next_object
+|08C021| DEC.b $08
+|08C023| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08C025: PLX
+|08C025| PLX
 
-#_08C026: RTS
+|08C026| RTS
 
 ;===================================================================================================
 
 pool Ancilla20_Blanket
 
 .char
-#_08C027: db $0A, $0A, $0A, $0A
-#_08C02B: db $0C, $0C, $0A, $0A
+|08C027| db $0A, $0A, $0A, $0A
+|08C02B| db $0C, $0C, $0A, $0A
 
 .prop
-#_08C02F: db $00, $60, $A0, $E0
-#_08C033: db $00, $60, $A0, $E0
+|08C02F| db $00, $60, $A0, $E0
+|08C033| db $00, $60, $A0, $E0
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla20_Blanket:
-#_08C037: JSR Ancilla_PrepOAMCoord
+|08C037| JSR Ancilla_PrepOAMCoord
 
-#_08C03A: REP #$20
+|08C03A| REP #$20
 
-#_08C03C: LDA.b $00
-#_08C03E: STA.b $04
+|08C03C| LDA.b $00
+|08C03E| STA.b $04
 
-#_08C040: LDA.b $02
-#_08C042: STA.b $06
-#_08C044: STA.b $08
+|08C040| LDA.b $02
+|08C042| STA.b $06
+|08C044| STA.b $08
 
-#_08C046: SEP #$20
+|08C046| SEP #$20
 
-#_08C048: PHX
+|08C048| PHX
 
-#_08C049: LDA.w $037D
-#_08C04C: BNE .im_awake
+|08C049| LDA.w $037D
+|08C04C| BNE .im_awake
 
-#_08C04E: LDA.b #$10
-#_08C050: JSL AllocateOAMInRegionB
+|08C04E| LDA.b #$10
+|08C050| JSL AllocateOAMInRegionB
 
-#_08C054: BRA .continue
+|08C054| BRA .continue
 
 .im_awake
-#_08C056: LDA.b #$10
-#_08C058: JSL AllocateOAMInRegionA
+|08C056| LDA.b #$10
+|08C058| JSL AllocateOAMInRegionA
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08C05C: LDA.w $037D
-#_08C05F: BEQ .i_sleep
+|08C05C| LDA.w $037D
+|08C05F| BEQ .i_sleep
 
-#_08C061: LDA.b #$04
+|08C061| LDA.b #$04
 
 .i_sleep
-#_08C063: TAX
+|08C063| TAX
 
-#_08C064: LDA.b #$03
-#_08C066: STA.b $0A
+|08C064| LDA.b #$03
+|08C066| STA.b $0A
 
-#_08C068: LDY.b #$00
+|08C068| LDY.b #$00
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_object
-#_08C06A: JSR Ancilla_SetOAM_XY
+|08C06A| JSR Ancilla_SetOAM_XY
 
-#_08C06D: LDA.w .char,X
-#_08C070: STA.b ($90),Y
+|08C06D| LDA.w .char,X
+|08C070| STA.b ($90),Y
 
-#_08C072: INY
+|08C072| INY
 
-#_08C073: LDA.w .prop,X
-#_08C076: ORA.b #$0D
-#_08C078: ORA.b $65
-#_08C07A: STA.b ($90),Y
+|08C073| LDA.w .prop,X
+|08C076| ORA.b #$0D
+|08C078| ORA.b $65
+|08C07A| STA.b ($90),Y
 
-#_08C07C: INY
-#_08C07D: PHY
+|08C07C| INY
+|08C07D| PHY
 
-#_08C07E: TYA
-#_08C07F: SEC
-#_08C080: SBC.b #$04
-#_08C082: LSR A
-#_08C083: LSR A
-#_08C084: TAY
+|08C07E| TYA
+|08C07F| SEC
+|08C080| SBC.b #$04
+|08C082| LSR A
+|08C083| LSR A
+|08C084| TAY
 
-#_08C085: LDA.b #$02
-#_08C087: STA.b ($92),Y
+|08C085| LDA.b #$02
+|08C087| STA.b ($92),Y
 
-#_08C089: PLY
+|08C089| PLY
 
-#_08C08A: INX
+|08C08A| INX
 
-#_08C08B: REP #$20
+|08C08B| REP #$20
 
-#_08C08D: LDA.b $06
-#_08C08F: CLC
-#_08C090: ADC.w #$0010
-#_08C093: STA.b $02
+|08C08D| LDA.b $06
+|08C08F| CLC
+|08C090| ADC.w #$0010
+|08C093| STA.b $02
 
-#_08C095: SEP #$20
+|08C095| SEP #$20
 
-#_08C097: DEC.b $0A
-#_08C099: BMI .exit
+|08C097| DEC.b $0A
+|08C099| BMI .exit
 
-#_08C09B: LDA.b $0A
-#_08C09D: CMP.b #$01
-#_08C09F: BNE .next_object
+|08C09B| LDA.b $0A
+|08C09D| CMP.b #$01
+|08C09F| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08C0A1: REP #$20
+|08C0A1| REP #$20
 
-#_08C0A3: LDA.b $06
-#_08C0A5: STA.b $02
+|08C0A3| LDA.b $06
+|08C0A5| STA.b $02
 
-#_08C0A7: LDA.b $04
-#_08C0A9: CLC
-#_08C0AA: ADC.w #$0008
-#_08C0AD: STA.b $00
+|08C0A7| LDA.b $04
+|08C0A9| CLC
+|08C0AA| ADC.w #$0008
+|08C0AD| STA.b $00
 
-#_08C0AF: SEP #$20
+|08C0AF| SEP #$20
 
-#_08C0B1: BRA .next_object
+|08C0B1| BRA .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08C0B3: PLX
+|08C0B3| PLX
 
-#_08C0B4: RTS
+|08C0B4| RTS
 
 ;===================================================================================================
 
 pool Ancilla21_Snore
 
 .char
-#_08C0B5: db $44, $43, $42
+|08C0B5| db $44, $43, $42
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla21_Snore:
-#_08C0B8: DEC.w $03B1,X
-#_08C0BB: BPL .delay
+|08C0B8| DEC.w $03B1,X
+|08C0BB| BPL .delay
 
-#_08C0BD: LDA.w $0C5E,X
-#_08C0C0: INC A
-#_08C0C1: CMP.b #$03
-#_08C0C3: BEQ .fully_zeed
+|08C0BD| LDA.w $0C5E,X
+|08C0C0| INC A
+|08C0C1| CMP.b #$03
+|08C0C3| BEQ .fully_zeed
 
-#_08C0C5: STA.w $0C5E,X
+|08C0C5| STA.w $0C5E,X
 
 .fully_zeed
-#_08C0C8: LDA.b #$07
-#_08C0CA: STA.w $03B1,X
+|08C0C8| LDA.b #$07
+|08C0CA| STA.w $03B1,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay
-#_08C0CD: LDA.w $0C2C,X
-#_08C0D0: CLC
-#_08C0D1: ADC.w $0C54,X
-#_08C0D4: STA.w $0C2C,X
-#_08C0D7: BPL .positive_x
+|08C0CD| LDA.w $0C2C,X
+|08C0D0| CLC
+|08C0D1| ADC.w $0C54,X
+|08C0D4| STA.w $0C2C,X
+|08C0D7| BPL .positive_x
 
-#_08C0D9: EOR.b #$FF
-#_08C0DB: INC A
+|08C0D9| EOR.b #$FF
+|08C0DB| INC A
 
 .positive_x
-#_08C0DC: CMP.b #$08
-#_08C0DE: BCC .dont_invert
+|08C0DC| CMP.b #$08
+|08C0DE| BCC .dont_invert
 
-#_08C0E0: LDA.w $0C54,X
-#_08C0E3: EOR.b #$FF
-#_08C0E5: INC A
-#_08C0E6: STA.w $0C54,X
+|08C0E0| LDA.w $0C54,X
+|08C0E3| EOR.b #$FF
+|08C0E5| INC A
+|08C0E6| STA.w $0C54,X
 
 .dont_invert
-#_08C0E9: JSR AncillaMoveY
-#_08C0EC: JSR AncillaMoveX
+|08C0E9| JSR AncillaMoveY
+|08C0EC| JSR AncillaMoveX
 
-#_08C0EF: LDA.w $0BFA,X
-#_08C0F2: STA.b $00
+|08C0EF| LDA.w $0BFA,X
+|08C0F2| STA.b $00
 
-#_08C0F4: LDA.w $0C0E,X
-#_08C0F7: STA.b $01
+|08C0F4| LDA.w $0C0E,X
+|08C0F7| STA.b $01
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08C0F9: REP #$20
+|08C0F9| REP #$20
 
-#_08C0FB: LDA.b $20
-#_08C0FD: SEC
-#_08C0FE: SBC.w #$0018
-#_08C101: CMP.b $00
-#_08C103: BCC .dont_delete_me
+|08C0FB| LDA.b $20
+|08C0FD| SEC
+|08C0FE| SBC.w #$0018
+|08C101| CMP.b $00
+|08C103| BCC .dont_delete_me
 
-#_08C105: SEP #$20
+|08C105| SEP #$20
 
-#_08C107: STZ.w $0C4A,X
+|08C107| STZ.w $0C4A,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_delete_me
-#_08C10A: SEP #$20
+|08C10A| SEP #$20
 
-#_08C10C: LDY.w $0C5E,X
+|08C10C| LDY.w $0C5E,X
 
-#_08C10F: LDA.w .char,Y
-#_08C112: STA.w $0109
+|08C10F| LDA.w .char,Y
+|08C112| STA.w $0109
 
-#_08C115: JSR Ancilla_PrepOAMCoord
+|08C115| JSR Ancilla_PrepOAMCoord
 
-#_08C118: LDY.b #$00
-#_08C11A: JSR Ancilla_SetOAM_XY
+|08C118| LDY.b #$00
+|08C11A| JSR Ancilla_SetOAM_XY
 
-#_08C11D: LDA.b #$09
-#_08C11F: STA.b ($90),Y
+|08C11D| LDA.b #$09
+|08C11F| STA.b ($90),Y
 
-#_08C121: INY
+|08C121| INY
 
-#_08C122: LDA.b #$24
-#_08C124: STA.b ($90),Y
+|08C122| LDA.b #$24
+|08C124| STA.b ($90),Y
 
-#_08C126: LDA.b #$00
-#_08C128: STA.b ($92)
+|08C126| LDA.b #$00
+|08C128| STA.b ($92)
 
-#_08C12A: RTS
+|08C12A| RTS
 
 ;===================================================================================================
 
 pool Ancilla3B_SwordUpSparkle
 
 .offset_y
-#_08C12B: dw  -7,   0,   0,   0
-#_08C133: dw -11, -11,  -3,  -3
-#_08C13B: dw  -7,  -7,   0,   0
-#_08C143: dw  -7,   0,   0,   0
+|08C12B| dw  -7,   0,   0,   0
+|08C133| dw -11, -11,  -3,  -3
+|08C13B| dw  -7,  -7,   0,   0
+|08C143| dw  -7,   0,   0,   0
 
 .offset_x
-#_08C14B: dw  16,   0,   0,   0
-#_08C153: dw   8,  16,   8,  16
-#_08C15B: dw   9,  15,   0,   0
-#_08C163: dw  12,   0,   0,   0
+|08C14B| dw  16,   0,   0,   0
+|08C153| dw   8,  16,   8,  16
+|08C15B| dw   9,  15,   0,   0
+|08C163| dw  12,   0,   0,   0
 
 .char
-#_08C16B: db $92, $FF, $FF, $FF
-#_08C16F: db $93, $93, $93, $93
-#_08C173: db $F9, $F9, $FF, $FF
-#_08C177: db $80, $FF, $FF, $FF
+|08C16B| db $92, $FF, $FF, $FF
+|08C16F| db $93, $93, $93, $93
+|08C173| db $F9, $F9, $FF, $FF
+|08C177| db $80, $FF, $FF, $FF
 
 .prop
-#_08C17B: db $00, $FF, $FF, $FF
-#_08C17F: db $00, $40, $80, $C0
-#_08C183: db $00, $40, $FF, $FF
-#_08C187: db $00, $FF, $FF, $FF
+|08C17B| db $00, $FF, $FF, $FF
+|08C17F| db $00, $40, $80, $C0
+|08C183| db $00, $40, $FF, $FF
+|08C187| db $00, $FF, $FF, $FF
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla3B_SwordUpSparkle:
-#_08C18B: LDA.w $03B1,X
-#_08C18E: BNE .delay
+|08C18B| LDA.w $03B1,X
+|08C18E| BNE .delay
 
-#_08C190: DEC.w $039F,X
-#_08C193: BPL .active
+|08C190| DEC.w $039F,X
+|08C193| BPL .active
 
-#_08C195: LDA.b #$01
-#_08C197: STA.w $039F,X
+|08C195| LDA.b #$01
+|08C197| STA.w $039F,X
 
-#_08C19A: INC.w $0C5E,X
+|08C19A| INC.w $0C5E,X
 
-#_08C19D: LDA.w $0C5E,X
-#_08C1A0: CMP.b #$04
-#_08C1A2: BNE .active
+|08C19D| LDA.w $0C5E,X
+|08C1A0| CMP.b #$04
+|08C1A2| BNE .active
 
-#_08C1A4: STZ.w $0C4A,X
+|08C1A4| STZ.w $0C4A,X
 
 .delay
-#_08C1A7: DEC.w $03B1,X
+|08C1A7| DEC.w $03B1,X
 
-#_08C1AA: RTS
+|08C1AA| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .active
-#_08C1AB: PHX
+|08C1AB| PHX
 
-#_08C1AC: JSR Ancilla_PrepOAMCoord
+|08C1AC| JSR Ancilla_PrepOAMCoord
 
-#_08C1AF: LDA.b #$03
-#_08C1B1: STA.b $06
+|08C1AF| LDA.b #$03
+|08C1B1| STA.b $06
 
-#_08C1B3: LDA.w $0C5E,X
-#_08C1B6: ASL A
-#_08C1B7: ASL A
-#_08C1B8: TAX
+|08C1B3| LDA.w $0C5E,X
+|08C1B6| ASL A
+|08C1B7| ASL A
+|08C1B8| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08C1B9: LDY.b #$00
+|08C1B9| LDY.b #$00
 
 .next_object
-#_08C1BB: LDA.w .char,X
-#_08C1BE: CMP.b #$FF
-#_08C1C0: BEQ .skip
+|08C1BB| LDA.w .char,X
+|08C1BE| CMP.b #$FF
+|08C1C0| BEQ .skip
 
-#_08C1C2: REP #$20
+|08C1C2| REP #$20
 
-#_08C1C4: PHX
+|08C1C4| PHX
 
-#_08C1C5: TXA
-#_08C1C6: ASL A
-#_08C1C7: TAX
+|08C1C5| TXA
+|08C1C6| ASL A
+|08C1C7| TAX
 
-#_08C1C8: LDA.b $20
-#_08C1CA: CLC
-#_08C1CB: ADC.w .offset_y,X
-#_08C1CE: SEC
-#_08C1CF: SBC.b $E8
-#_08C1D1: STA.b $00
+|08C1C8| LDA.b $20
+|08C1CA| CLC
+|08C1CB| ADC.w .offset_y,X
+|08C1CE| SEC
+|08C1CF| SBC.b $E8
+|08C1D1| STA.b $00
 
-#_08C1D3: LDA.b $22
-#_08C1D5: CLC
-#_08C1D6: ADC.w .offset_x,X
-#_08C1D9: SEC
-#_08C1DA: SBC.b $E2
-#_08C1DC: STA.b $02
+|08C1D3| LDA.b $22
+|08C1D5| CLC
+|08C1D6| ADC.w .offset_x,X
+|08C1D9| SEC
+|08C1DA| SBC.b $E2
+|08C1DC| STA.b $02
 
-#_08C1DE: PLX
+|08C1DE| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08C1DF: SEP #$20
+|08C1DF| SEP #$20
 
-#_08C1E1: JSR Ancilla_SetOAM_XY
+|08C1E1| JSR Ancilla_SetOAM_XY
 
-#_08C1E4: LDA.w .char,X
-#_08C1E7: STA.b ($90),Y
+|08C1E4| LDA.w .char,X
+|08C1E7| STA.b ($90),Y
 
-#_08C1E9: INY
+|08C1E9| INY
 
-#_08C1EA: LDA.w .prop,X
-#_08C1ED: ORA.b #$04
-#_08C1EF: ORA.b $65
-#_08C1F1: STA.b ($90),Y
+|08C1EA| LDA.w .prop,X
+|08C1ED| ORA.b #$04
+|08C1EF| ORA.b $65
+|08C1F1| STA.b ($90),Y
 
-#_08C1F3: INY
-#_08C1F4: PHY
+|08C1F3| INY
+|08C1F4| PHY
 
-#_08C1F5: TYA
-#_08C1F6: SEC
-#_08C1F7: SBC.b #$04
-#_08C1F9: LSR A
-#_08C1FA: LSR A
-#_08C1FB: TAY
+|08C1F5| TYA
+|08C1F6| SEC
+|08C1F7| SBC.b #$04
+|08C1F9| LSR A
+|08C1FA| LSR A
+|08C1FB| TAY
 
-#_08C1FC: LDA.b #$00
-#_08C1FE: STA.b ($92),Y
+|08C1FC| LDA.b #$00
+|08C1FE| STA.b ($92),Y
 
-#_08C200: PLY
+|08C200| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08C201: INX
+|08C201| INX
 
-#_08C202: DEC.b $06
-#_08C204: BPL .next_object
+|08C202| DEC.b $06
+|08C204| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08C206: PLX
+|08C206| PLX
 
-#_08C207: RTS
+|08C207| RTS
 
 ;===================================================================================================
 
 pool Ancilla3C_SpinAttackChargeSparkle
 
 .char
-#_08C208: db $B7, $80, $83
+|08C208| db $B7, $80, $83
 
 .prop
-#_08C20B: db $04, $04, $84
+|08C20B| db $04, $04, $84
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla3C_SpinAttackChargeSparkle:
-#_08C20E: LDA.b $11
-#_08C210: BNE .continue
+|08C20E| LDA.b $11
+|08C210| BNE .continue
 
-#_08C212: LDA.w $0C68,X
-#_08C215: BNE .continue
+|08C212| LDA.w $0C68,X
+|08C215| BNE .continue
 
-#_08C217: LDA.b #$04
-#_08C219: STA.w $0C68,X
+|08C217| LDA.b #$04
+|08C219| STA.w $0C68,X
 
-#_08C21C: INC.w $0C5E,X
+|08C21C| INC.w $0C5E,X
 
-#_08C21F: LDA.w $0C5E,X
-#_08C222: CMP.b #$03
-#_08C224: BNE .continue
+|08C21F| LDA.w $0C5E,X
+|08C222| CMP.b #$03
+|08C224| BNE .continue
 
-#_08C226: STZ.w $0C4A,X
+|08C226| STZ.w $0C4A,X
 
-#_08C229: RTS
+|08C229| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08C22A: PHX
+|08C22A| PHX
 
-#_08C22B: LDA.b #$04
-#_08C22D: JSR AllocateOAMInRegionsADF
+|08C22B| LDA.b #$04
+|08C22D| JSR AllocateOAMInRegionsADF
 
-#_08C230: TYA
-#_08C231: STA.w $0C86,X
+|08C230| TYA
+|08C231| STA.w $0C86,X
 
-#_08C234: JSR Ancilla_PrepOAMCoord
+|08C234| JSR Ancilla_PrepOAMCoord
 
-#_08C237: LDA.w $0C5E,X
-#_08C23A: TAX
+|08C237| LDA.w $0C5E,X
+|08C23A| TAX
 
-#_08C23B: LDY.b #$00
-#_08C23D: JSR Ancilla_SetOAM_XY
+|08C23B| LDY.b #$00
+|08C23D| JSR Ancilla_SetOAM_XY
 
-#_08C240: LDA.w .char,X
+|08C240| LDA.w .char,X
 
-#_08C243: STA.b ($90),Y
+|08C243| STA.b ($90),Y
 
-#_08C245: INY
+|08C245| INY
 
-#_08C246: LDA.w .prop,X
-#_08C249: ORA.b $65
-#_08C24B: STA.b ($90),Y
+|08C246| LDA.w .prop,X
+|08C249| ORA.b $65
+|08C24B| STA.b ($90),Y
 
-#_08C24D: LDA.b #$00
-#_08C24F: STA.b ($92)
+|08C24D| LDA.b #$00
+|08C24F| STA.b ($92)
 
-#_08C251: PLX
+|08C251| PLX
 
-#_08C252: RTS
+|08C252| RTS
 
 ;===================================================================================================
 
 pool Ancilla35_MasterSwordCutscene
 
 .offset_y
-#_08C253: dw   1,   1,   9,   9
-#_08C25B: dw   1,   1,   9,   9
+|08C253| dw   1,   1,   9,   9
+|08C25B| dw   1,   1,   9,   9
 
 .offset_x
-#_08C263: dw  -1,   8,  -1,   8
-#_08C26B: dw   0,   7,   0,   7
+|08C263| dw  -1,   8,  -1,   8
+|08C26B| dw   0,   7,   0,   7
 
 .char
-#_08C273: db $86, $86, $96, $96
-#_08C277: db $87, $87, $97, $97
+|08C273| db $86, $86, $96, $96
+|08C277| db $87, $87, $97, $97
 
 .prop
-#_08C27B: db $01, $41, $01, $41
-#_08C27F: db $01, $41, $01, $41
+|08C27B| db $01, $41, $01, $41
+|08C27F| db $01, $41, $01, $41
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla35_MasterSwordCutscene:
-#_08C283: LDA.w $0C68,X
-#_08C286: BNE .stay_around
+|08C283| LDA.w $0C68,X
+|08C286| BNE .stay_around
 
-#_08C288: STZ.w $0C4A,X
+|08C288| STZ.w $0C4A,X
 
-#_08C28B: RTS
+|08C28B| RTS
 
 .stay_around
-#_08C28C: DEC.w $03B1,X
-#_08C28F: BPL .delay
+|08C28C| DEC.w $03B1,X
+|08C28F| BPL .delay
 
-#_08C291: LDA.w $0C5E,X
-#_08C294: INC A
-#_08C295: CMP.b #$03
-#_08C297: BNE .no_wrap
+|08C291| LDA.w $0C5E,X
+|08C294| INC A
+|08C295| CMP.b #$03
+|08C297| BNE .no_wrap
 
-#_08C299: LDA.b #$00
+|08C299| LDA.b #$00
 
 .no_wrap
-#_08C29B: STA.w $0C5E,X
+|08C29B| STA.w $0C5E,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay
-#_08C29E: JSR Ancilla_PrepOAMCoord
+|08C29E| JSR Ancilla_PrepOAMCoord
 
-#_08C2A1: REP #$20
+|08C2A1| REP #$20
 
-#_08C2A3: LDA.b $00
-#_08C2A5: STA.b $04
+|08C2A3| LDA.b $00
+|08C2A5| STA.b $04
 
-#_08C2A7: LDA.b $02
-#_08C2A9: STA.b $06
+|08C2A7| LDA.b $02
+|08C2A9| STA.b $06
 
-#_08C2AB: SEP #$20
+|08C2AB| SEP #$20
 
-#_08C2AD: PHX
+|08C2AD| PHX
 
-#_08C2AE: STZ.b $08
+|08C2AE| STZ.b $08
 
-#_08C2B0: LDA.w $0C5E,X
-#_08C2B3: BEQ .no_draw
+|08C2B0| LDA.w $0C5E,X
+|08C2B3| BEQ .no_draw
 
-#_08C2B5: DEC A
-#_08C2B6: ASL A
-#_08C2B7: ASL A
-#_08C2B8: TAX
+|08C2B5| DEC A
+|08C2B6| ASL A
+|08C2B7| ASL A
+|08C2B8| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08C2B9: LDY.b #$00
+|08C2B9| LDY.b #$00
 
 .next_object
-#_08C2BB: PHX
+|08C2BB| PHX
 
-#_08C2BC: TXA
-#_08C2BD: ASL A
-#_08C2BE: TAX
+|08C2BC| TXA
+|08C2BD| ASL A
+|08C2BE| TAX
 
-#_08C2BF: REP #$20
+|08C2BF| REP #$20
 
-#_08C2C1: LDA.b $04
-#_08C2C3: CLC
-#_08C2C4: ADC.w .offset_y,X
-#_08C2C7: STA.b $00
+|08C2C1| LDA.b $04
+|08C2C3| CLC
+|08C2C4| ADC.w .offset_y,X
+|08C2C7| STA.b $00
 
-#_08C2C9: LDA.b $06
-#_08C2CB: CLC
-#_08C2CC: ADC.w .offset_x,X
-#_08C2CF: STA.b $02
+|08C2C9| LDA.b $06
+|08C2CB| CLC
+|08C2CC| ADC.w .offset_x,X
+|08C2CF| STA.b $02
 
-#_08C2D1: SEP #$20
+|08C2D1| SEP #$20
 
-#_08C2D3: PLX
+|08C2D3| PLX
 
-#_08C2D4: JSR Ancilla_SetOAM_XY
+|08C2D4| JSR Ancilla_SetOAM_XY
 
-#_08C2D7: LDA.w .char,X
-#_08C2DA: STA.b ($90),Y
+|08C2D7| LDA.w .char,X
+|08C2DA| STA.b ($90),Y
 
-#_08C2DC: INY
+|08C2DC| INY
 
-#_08C2DD: LDA.w .prop,X
-#_08C2E0: AND.b #$CF
-#_08C2E2: ORA.b #$04
-#_08C2E4: ORA.b $65
-#_08C2E6: STA.b ($90),Y
+|08C2DD| LDA.w .prop,X
+|08C2E0| AND.b #$CF
+|08C2E2| ORA.b #$04
+|08C2E4| ORA.b $65
+|08C2E6| STA.b ($90),Y
 
-#_08C2E8: INY
-#_08C2E9: PHY
+|08C2E8| INY
+|08C2E9| PHY
 
-#_08C2EA: TYA
-#_08C2EB: SEC
-#_08C2EC: SBC.b #$04
-#_08C2EE: LSR A
-#_08C2EF: LSR A
-#_08C2F0: TAY
+|08C2EA| TYA
+|08C2EB| SEC
+|08C2EC| SBC.b #$04
+|08C2EE| LSR A
+|08C2EF| LSR A
+|08C2F0| TAY
 
-#_08C2F1: LDA.b #$00
-#_08C2F3: STA.b ($92),Y
+|08C2F1| LDA.b #$00
+|08C2F3| STA.b ($92),Y
 
-#_08C2F5: PLY
+|08C2F5| PLY
 
-#_08C2F6: INX
+|08C2F6| INX
 
-#_08C2F7: INC.b $08
+|08C2F7| INC.b $08
 
-#_08C2F9: LDA.b $08
-#_08C2FB: CMP.b #$04
-#_08C2FD: BNE .next_object
+|08C2F9| LDA.b $08
+|08C2FB| CMP.b #$04
+|08C2FD| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_draw
-#_08C2FF: PLX
+|08C2FF| PLX
 
-#_08C300: RTS
+|08C300| RTS
 
 ;===================================================================================================
 ; For messages, $FFFF means no message
@@ -13400,8013 +13400,8013 @@ Ancilla35_MasterSwordCutscene:
 pool Ancilla22_ItemReceipt ItemReceipt
 
 .message
-#_08C301: dw $FFFF ; FIGHTER SWORD
-#_08C303: dw $006E ; MASTER SWORD              - MESSAGE 006E
-#_08C305: dw $0075 ; TEMPERED SWORD            - MESSAGE 0075
-#_08C307: dw $0050 ; BUTTER SWORD              - MESSAGE 0050 - !WTF??
-#_08C309: dw $FFFF ; FIGHTER SHIELD
-#_08C30B: dw $0076 ; FIRE SHIELD               - MESSAGE 0076 - WRONG MESSAGE
-#_08C30D: dw $0076 ; MIRROR SHIELD             - MESSAGE 0076
-#_08C30F: dw $0060 ; FIRE ROD                  - MESSAGE 0060
-#_08C311: dw $005F ; ICE ROD                   - MESSAGE 005F
-#_08C313: dw $0064 ; HAMMER                    - MESSAGE 0064
-#_08C315: dw $0067 ; HOOKSHOT                  - MESSAGE 0067
-#_08C317: dw $0051 ; BOW                       - MESSAGE 0051
-#_08C319: dw $0050 ; BOOMERANG                 - MESSAGE 0050
-#_08C31B: dw $0054 ; POWDER                    - MESSAGE 0054
-#_08C31D: dw $FFFF ; BOTTLE REFILL (BEE)
-#_08C31F: dw $0062 ; BOMBOS                    - MESSAGE 0062
-#_08C321: dw $0061 ; ETHER                     - MESSAGE 0061
-#_08C323: dw $0063 ; QUAKE                     - MESSAGE 0063
-#_08C325: dw $004F ; LAMP                      - MESSAGE 004F
-#_08C327: dw $0052 ; SHOVEL                    - MESSAGE 0052
-#_08C329: dw $0065 ; FLUTE                     - MESSAGE 0065
-#_08C32B: dw $0066 ; SOMARIA                   - MESSAGE 0066
-#_08C32D: dw $0069 ; BOTTLE                    - MESSAGE 0069
-#_08C32F: dw $0075 ; HEART PIECE               - MESSAGE 0075 - !WTF NO
-#_08C331: dw $0077 ; BYRNA                     - MESSAGE 0077
-#_08C333: dw $0053 ; CAPE                      - MESSAGE 0053
-#_08C335: dw $006C ; MIRROR                    - MESSAGE 006C
-#_08C337: dw $0056 ; GLOVE                     - MESSAGE 0056
-#_08C339: dw $006B ; MITTS                     - MESSAGE 006B
-#_08C33B: dw $005B ; BOOK                      - MESSAGE 005B
-#_08C33D: dw $0055 ; FLIPPERS                  - MESSAGE 0055
-#_08C33F: dw $005C ; PEARL                     - MESSAGE 005C
-#_08C341: dw $FFFF ; CRYSTAL
-#_08C343: dw $0072 ; NET                       - MESSAGE 0072
-#_08C345: dw $0073 ; BLUE MAIL                 - MESSAGE 0073
-#_08C347: dw $0074 ; RED MAIL                  - MESSAGE 0074
-#_08C349: dw $FFFF ; SMALL KEY
-#_08C34B: dw $005D ; COMPASS                   - MESSAGE 005D
-#_08C34D: dw $0156 ; HEART CONTAINER FROM 4/4  - MESSAGE 0156
-#_08C34F: dw $FFFF ; BOMB
-#_08C351: dw $0068 ; 3 BOMBS                   - MESSAGE 0068
-#_08C353: dw $005A ; MUSHROOM                  - MESSAGE 005A
-#_08C355: dw $008D ; RED BOOMERANG             - MESSAGE 008D
-#_08C357: dw $006F ; FULL BOTTLE (RED)         - MESSAGE 006F
-#_08C359: dw $0070 ; FULL BOTTLE (GREEN)       - MESSAGE 0070
-#_08C35B: dw $0071 ; FULL BOTTLE (BLUE)        - MESSAGE 0071
-#_08C35D: dw $006F ; POTION REFILL (RED)       - MESSAGE 006F
-#_08C35F: dw $0070 ; POTION REFILL (GREEN)     - MESSAGE 0070
-#_08C361: dw $0071 ; POTION REFILL (BLUE)      - MESSAGE 0071
-#_08C363: dw $0068 ; 10 BOMBS                  - MESSAGE 0068
-#_08C365: dw $006A ; BIG KEY                   - MESSAGE 006A
-#_08C367: dw $005E ; MAP                       - MESSAGE 005E
-#_08C369: dw $FFFF ; 1 RUPEE
-#_08C36B: dw $FFFF ; 5 RUPEES
-#_08C36D: dw $FFFF ; 20 RUPEES
-#_08C36F: dw $0057 ; GREEN PENDANT             - MESSAGE 0057
-#_08C371: dw $0082 ; BLUE PENDANT              - MESSAGE 0082
-#_08C373: dw $0058 ; RED PENDANT               - MESSAGE 0058
-#_08C375: dw $FFFF ; TOSSED BOW
-#_08C377: dw $FFFF ; SILVERS
-#_08C379: dw $FFFF ; FULL BOTTLE (BEE)
-#_08C37B: dw $FFFF ; FULL BOTTLE (FAIRY)
-#_08C37D: dw $FFFF ; BOSS HC
-#_08C37F: dw $0157 ; SANC HC                   - MESSAGE 0157
-#_08C381: dw $FFFF ; 100 RUPEES
-#_08C383: dw $FFFF ; 50 RUPEES
-#_08C385: dw $FFFF ; HEART
-#_08C387: dw $FFFF ; ARROW
-#_08C389: dw $FFFF ; 10 ARROWS
-#_08C38B: dw $FFFF ; SMALL MAGIC
-#_08C38D: dw $FFFF ; 300 RUPEES
-#_08C38F: dw $FFFF ; 20 RUPEES GREEN
-#_08C391: dw $FFFF ; FULL BOTTLE (GOOD BEE)
-#_08C393: dw $00D9 ; TOSSED FIGHTER SWORD      - MESSAGE 00D9
-#_08C395: dw $0065 ; FLUTE (ACTIVATED)         - MESSAGE 0065
-#_08C397: dw $007A ; BOOTS                     - MESSAGE 007A
+|08C301| dw $FFFF ; FIGHTER SWORD
+|08C303| dw $006E ; MASTER SWORD              - MESSAGE 006E
+|08C305| dw $0075 ; TEMPERED SWORD            - MESSAGE 0075
+|08C307| dw $0050 ; BUTTER SWORD              - MESSAGE 0050 - [WTF] ??
+|08C309| dw $FFFF ; FIGHTER SHIELD
+|08C30B| dw $0076 ; FIRE SHIELD               - MESSAGE 0076 - [BUG] WRONG MESSAGE
+|08C30D| dw $0076 ; MIRROR SHIELD             - MESSAGE 0076
+|08C30F| dw $0060 ; FIRE ROD                  - MESSAGE 0060
+|08C311| dw $005F ; ICE ROD                   - MESSAGE 005F
+|08C313| dw $0064 ; HAMMER                    - MESSAGE 0064
+|08C315| dw $0067 ; HOOKSHOT                  - MESSAGE 0067
+|08C317| dw $0051 ; BOW                       - MESSAGE 0051
+|08C319| dw $0050 ; BOOMERANG                 - MESSAGE 0050
+|08C31B| dw $0054 ; POWDER                    - MESSAGE 0054
+|08C31D| dw $FFFF ; BOTTLE REFILL (BEE)
+|08C31F| dw $0062 ; BOMBOS                    - MESSAGE 0062
+|08C321| dw $0061 ; ETHER                     - MESSAGE 0061
+|08C323| dw $0063 ; QUAKE                     - MESSAGE 0063
+|08C325| dw $004F ; LAMP                      - MESSAGE 004F
+|08C327| dw $0052 ; SHOVEL                    - MESSAGE 0052
+|08C329| dw $0065 ; FLUTE                     - MESSAGE 0065
+|08C32B| dw $0066 ; SOMARIA                   - MESSAGE 0066
+|08C32D| dw $0069 ; BOTTLE                    - MESSAGE 0069
+|08C32F| dw $0075 ; HEART PIECE               - MESSAGE 0075 - [WTF] NO
+|08C331| dw $0077 ; BYRNA                     - MESSAGE 0077
+|08C333| dw $0053 ; CAPE                      - MESSAGE 0053
+|08C335| dw $006C ; MIRROR                    - MESSAGE 006C
+|08C337| dw $0056 ; GLOVE                     - MESSAGE 0056
+|08C339| dw $006B ; MITTS                     - MESSAGE 006B
+|08C33B| dw $005B ; BOOK                      - MESSAGE 005B
+|08C33D| dw $0055 ; FLIPPERS                  - MESSAGE 0055
+|08C33F| dw $005C ; PEARL                     - MESSAGE 005C
+|08C341| dw $FFFF ; CRYSTAL
+|08C343| dw $0072 ; NET                       - MESSAGE 0072
+|08C345| dw $0073 ; BLUE MAIL                 - MESSAGE 0073
+|08C347| dw $0074 ; RED MAIL                  - MESSAGE 0074
+|08C349| dw $FFFF ; SMALL KEY
+|08C34B| dw $005D ; COMPASS                   - MESSAGE 005D
+|08C34D| dw $0156 ; HEART CONTAINER FROM 4/4  - MESSAGE 0156
+|08C34F| dw $FFFF ; BOMB
+|08C351| dw $0068 ; 3 BOMBS                   - MESSAGE 0068
+|08C353| dw $005A ; MUSHROOM                  - MESSAGE 005A
+|08C355| dw $008D ; RED BOOMERANG             - MESSAGE 008D
+|08C357| dw $006F ; FULL BOTTLE (RED)         - MESSAGE 006F
+|08C359| dw $0070 ; FULL BOTTLE (GREEN)       - MESSAGE 0070
+|08C35B| dw $0071 ; FULL BOTTLE (BLUE)        - MESSAGE 0071
+|08C35D| dw $006F ; POTION REFILL (RED)       - MESSAGE 006F
+|08C35F| dw $0070 ; POTION REFILL (GREEN)     - MESSAGE 0070
+|08C361| dw $0071 ; POTION REFILL (BLUE)      - MESSAGE 0071
+|08C363| dw $0068 ; 10 BOMBS                  - MESSAGE 0068
+|08C365| dw $006A ; BIG KEY                   - MESSAGE 006A
+|08C367| dw $005E ; MAP                       - MESSAGE 005E
+|08C369| dw $FFFF ; 1 RUPEE
+|08C36B| dw $FFFF ; 5 RUPEES
+|08C36D| dw $FFFF ; 20 RUPEES
+|08C36F| dw $0057 ; GREEN PENDANT             - MESSAGE 0057
+|08C371| dw $0082 ; BLUE PENDANT              - MESSAGE 0082
+|08C373| dw $0058 ; RED PENDANT               - MESSAGE 0058
+|08C375| dw $FFFF ; TOSSED BOW
+|08C377| dw $FFFF ; SILVERS
+|08C379| dw $FFFF ; FULL BOTTLE (BEE)
+|08C37B| dw $FFFF ; FULL BOTTLE (FAIRY)
+|08C37D| dw $FFFF ; BOSS HC
+|08C37F| dw $0157 ; SANC HC                   - MESSAGE 0157
+|08C381| dw $FFFF ; 100 RUPEES
+|08C383| dw $FFFF ; 50 RUPEES
+|08C385| dw $FFFF ; HEART
+|08C387| dw $FFFF ; ARROW
+|08C389| dw $FFFF ; 10 ARROWS
+|08C38B| dw $FFFF ; SMALL MAGIC
+|08C38D| dw $FFFF ; 300 RUPEES
+|08C38F| dw $FFFF ; 20 RUPEES GREEN
+|08C391| dw $FFFF ; FULL BOTTLE (GOOD BEE)
+|08C393| dw $00D9 ; TOSSED FIGHTER SWORD      - MESSAGE 00D9
+|08C395| dw $0065 ; FLUTE (ACTIVATED)         - MESSAGE 0065
+|08C397| dw $007A ; BOOTS                     - MESSAGE 007A
 
 ;---------------------------------------------------------------------------------------------------
 
 .animated_rupee_tiles
-#_08C399: db $24, $25, $26
+|08C399| db $24, $25, $26
 
 .animated_rupee_timers
-#_08C39C: db $09, $05, $05
+|08C39C| db $09, $05, $05
 
 .default_oam_props
-#_08C39F: db $05, $01, $04
+|08C39F| db $05, $01, $04
 
 .heart_piece_message
-#_08C3A2: dw $FFFF
-#_08C3A4: dw $0153 ; MESSAGE 0153
-#_08C3A6: dw $0154 ; MESSAGE 0154
-#_08C3A8: dw $0155 ; MESSAGE 0155
+|08C3A2| dw $FFFF
+|08C3A4| dw $0153 ; MESSAGE 0153
+|08C3A6| dw $0154 ; MESSAGE 0154
+|08C3A8| dw $0155 ; MESSAGE 0155
 
 .pendant_message
-#_08C3AA: dw $0059 ; MESSAGE 0059
-#_08C3AC: dw $0081 ; MESSAGE 0081
+|08C3AA| dw $0059 ; MESSAGE 0059
+|08C3AC| dw $0081 ; MESSAGE 0081
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla22_ItemReceipt:
-#_08C3AE: LDA.w $02E4
-#_08C3B1: CMP.b #$02
-#_08C3B3: BEQ .just_draw_a
+|08C3AE| LDA.w $02E4
+|08C3B1| CMP.b #$02
+|08C3B3| BEQ .just_draw_a
 
-#_08C3B5: LDA.b $11
-#_08C3B7: BEQ .operable_submode
+|08C3B5| LDA.b $11
+|08C3B7| BEQ .operable_submode
 
-#_08C3B9: CMP.b #$2B
-#_08C3BB: BEQ .operable_submode
+|08C3B9| CMP.b #$2B
+|08C3BB| BEQ .operable_submode
 
-#_08C3BD: CMP.b #$09
-#_08C3BF: BEQ .operable_submode
+|08C3BD| CMP.b #$09
+|08C3BF| BEQ .operable_submode
 
-#_08C3C1: CMP.b #$02
-#_08C3C3: BNE .just_draw_a
+|08C3C1| CMP.b #$02
+|08C3C3| BNE .just_draw_a
 
-#_08C3C5: LDA.b #$10
-#_08C3C7: STA.w $0C68,X
+|08C3C5| LDA.b #$10
+|08C3C7| STA.w $0C68,X
 
 .just_draw_a
-#_08C3CA: BRL ItemReceipt_Animate
+|08C3CA| BRL ItemReceipt_Animate
 
 ;---------------------------------------------------------------------------------------------------
 
 .operable_submode
-#_08C3CD: INC.w $0FC1
+|08C3CD| INC.w $0FC1
 
-#_08C3D0: LDA.w $0C54,X
-#_08C3D3: BEQ .from_text_or_object
+|08C3D0| LDA.w $0C54,X
+|08C3D3| BEQ .from_text_or_object
 
-#_08C3D5: CMP.b #$03
-#_08C3D7: BEQ .from_text_or_object
+|08C3D5| CMP.b #$03
+|08C3D7| BEQ .from_text_or_object
 
-#_08C3D9: BRL .from_chest_or_sprite
+|08C3D9| BRL .from_chest_or_sprite
 
 ;---------------------------------------------------------------------------------------------------
 
 .from_text_or_object
-#_08C3DC: LDA.w $0C5E,X
-#_08C3DF: CMP.b #$01 ; ITEMGET 01
-#_08C3E1: BNE .not_ms_pull
+|08C3DC| LDA.w $0C5E,X
+|08C3DF| CMP.b #$01 ; ITEMGET 01
+|08C3E1| BNE .not_ms_pull
 
-; !DUMB impossible for this to succeed
-#_08C3E3: LDA.w $0C54,X
-#_08C3E6: CMP.b #$02
-#_08C3E8: BEQ .not_ms_pull
+; [DUMB] impossible for this to succeed
+|08C3E3| LDA.w $0C54,X
+|08C3E6| CMP.b #$02
+|08C3E8| BEQ .not_ms_pull
 
-#_08C3EA: LDA.w $0C68,X
-#_08C3ED: BEQ .delay_a
+|08C3EA| LDA.w $0C68,X
+|08C3ED| BEQ .delay_a
 
-#_08C3EF: CMP.b #$11
-#_08C3F1: BNE .just_draw_b
+|08C3EF| CMP.b #$11
+|08C3F1| BNE .just_draw_b
 
-#_08C3F3: REP #$20
+|08C3F3| REP #$20
 
-#_08C3F5: LDA.w #$0DF3
-#_08C3F8: STA.w $02CD
+|08C3F5| LDA.w #$0DF3
+|08C3F8| STA.w $02CD
 
-#_08C3FB: SEP #$20
+|08C3FB| SEP #$20
 
-#_08C3FD: LDA.b #$0E ; FOLLOWER 0E
-#_08C3FF: STA.l $7EF3CC
+|08C3FD| LDA.b #$0E ; FOLLOWER 0E
+|08C3FF| STA.l $7EF3CC
 
 .time_up_a
-#_08C403: BRL .time_up_b
+|08C403| BRL .time_up_b
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_ms_pull
-#_08C406: DEC.w $03B1,X
-#_08C409: LDA.w $03B1,X
-#_08C40C: BEQ .delay_a
+|08C406| DEC.w $03B1,X
+|08C409| LDA.w $03B1,X
+|08C40C| BEQ .delay_a
 
-#_08C40E: CMP.b #$01
-#_08C410: BNE .just_draw_b
+|08C40E| CMP.b #$01
+|08C410| BNE .just_draw_b
 
-#_08C412: LDA.w $0C5E,X
-#_08C415: CMP.b #$37 ; ITEMGET 37
-#_08C417: BEQ .is_pendant
+|08C412| LDA.w $0C5E,X
+|08C415| CMP.b #$37 ; ITEMGET 37
+|08C417| BEQ .is_pendant
 
-#_08C419: CMP.b #$38 ; ITEMGET 38
-#_08C41B: BEQ .is_pendant
+|08C419| CMP.b #$38 ; ITEMGET 38
+|08C41B| BEQ .is_pendant
 
-#_08C41D: CMP.b #$39 ; ITEMGET 39
-#_08C41F: BNE .dont_wait_for_music
+|08C41D| CMP.b #$39 ; ITEMGET 39
+|08C41F| BNE .dont_wait_for_music
 
 .is_pendant
-#_08C421: LDA.w APUIO0
-#_08C424: BEQ .dont_wait_for_music
+|08C421| LDA.w APUIO0
+|08C424| BEQ .dont_wait_for_music
 
-#_08C426: INC.w $03B1,X
-#_08C429: BRA .just_draw_b
+|08C426| INC.w $03B1,X
+|08C429| BRA .just_draw_b
 
 .dont_wait_for_music
-#_08C42B: BRL .time_up_a
+|08C42B| BRL .time_up_a
 
 ;---------------------------------------------------------------------------------------------------
 
 .just_draw_b
-#_08C42E: BRL ItemReceipt_Animate
+|08C42E| BRL ItemReceipt_Animate
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay_a
-#_08C431: LDA.w $0C5E,X
-#_08C434: CMP.b #$01 ; ITEMGET 01
-#_08C436: BNE .not_ms_from_text
+|08C431| LDA.w $0C5E,X
+|08C434| CMP.b #$01 ; ITEMGET 01
+|08C436| BNE .not_ms_from_text
 
-#_08C438: LDA.w $0C54,X
-#_08C43B: BNE .not_ms_from_text
+|08C438| LDA.w $0C54,X
+|08C43B| BNE .not_ms_from_text
 
-#_08C43D: LDA.b #$05 ; SFX1.05
-#_08C43F: STA.w $012D
+|08C43D| LDA.b #$05 ; SFX1.05
+|08C43F| STA.w $012D
 
-#_08C442: LDA.b #$02 ; SONG 02
-#_08C444: STA.w $012C
+|08C442| LDA.b #$02 ; SONG 02
+|08C444| STA.w $012C
 
 .not_ms_from_text
-#_08C447: LDY.b #$00 ; LINKSTATE 00
+|08C447| LDY.b #$00 ; LINKSTATE 00
 
-#_08C449: LDA.w $0345
-#_08C44C: BEQ .not_in_water
+|08C449| LDA.w $0345
+|08C44C| BEQ .not_in_water
 
-#_08C44E: LDY.b #$04 ; LINKSTATE 04
+|08C44E| LDY.b #$04 ; LINKSTATE 04
 
 .not_in_water
-#_08C450: STY.b $5D
+|08C450| STY.b $5D
 
-#_08C452: STZ.w $02D8
-#_08C455: STZ.w $02DA
-#_08C458: STZ.w $037B
+|08C452| STZ.w $02D8
+|08C455| STZ.w $02DA
+|08C458| STZ.w $037B
 
-#_08C45B: JSL Ancilla_AddRupees
+|08C45B| JSL Ancilla_AddRupees
 
 ;---------------------------------------------------------------------------------------------------
 
 .check_if_hp
-#_08C45F: STZ.w $02E9
+|08C45F| STZ.w $02E9
 
-#_08C462: LDA.w $0C5E,X
-#_08C465: CMP.b #$17 ; ITEMGET 17
-#_08C467: BNE .not_heart_piece
+|08C462| LDA.w $0C5E,X
+|08C465| CMP.b #$17 ; ITEMGET 17
+|08C467| BNE .not_heart_piece
 
-#_08C469: LDA.l $7EF36B
-#_08C46D: BNE .not_heart_piece
+|08C469| LDA.l $7EF36B
+|08C46D| BNE .not_heart_piece
 
-#_08C46F: PHX
+|08C46F| PHX
 
-#_08C470: LDY.b #$26 ; ITEMGET 26
-#_08C472: JSL GrantItemReceipt
+|08C470| LDY.b #$26 ; ITEMGET 26
+|08C472| JSL GrantItemReceipt
 
-#_08C476: PLX
+|08C476| PLX
 
-#_08C477: STZ.w $0C4A,X
+|08C477| STZ.w $0C4A,X
 
-#_08C47A: STZ.w $0FC1
+|08C47A| STZ.w $0FC1
 
-#_08C47D: RTS
+|08C47D| RTS
 
 .not_heart_piece
-#_08C47E: CMP.b #$26 ; ITEMGET 26
-#_08C480: BEQ .refill_hp
+|08C47E| CMP.b #$26 ; ITEMGET 26
+|08C480| BEQ .refill_hp
 
-#_08C482: CMP.b #$3F ; ITEMGET 3F
-#_08C484: BEQ .refill_hp
+|08C482| CMP.b #$3F ; ITEMGET 3F
+|08C484| BEQ .refill_hp
 
-#_08C486: CMP.b #$3E ; ITEMGET 3E
-#_08C488: BNE .not_heart
+|08C486| CMP.b #$3E ; ITEMGET 3E
+|08C488| BNE .not_heart
 
-#_08C48A: STZ.w $02E4
+|08C48A| STZ.w $02E4
 
-#_08C48D: LDA.l $7EF36C
-#_08C491: CMP.b #$A0
-#_08C493: BEQ .not_heart
+|08C48D| LDA.l $7EF36C
+|08C491| CMP.b #$A0
+|08C493| BEQ .not_heart
 
-#_08C495: CLC
-#_08C496: ADC.b #$08
-#_08C498: STA.l $7EF36C
+|08C495| CLC
+|08C496| ADC.b #$08
+|08C498| STA.l $7EF36C
 
-#_08C49C: LDA.l $7EF372
-#_08C4A0: CLC
-#_08C4A1: ADC.b #$08
-#_08C4A3: STA.l $7EF372
+|08C49C| LDA.l $7EF372
+|08C4A0| CLC
+|08C4A1| ADC.b #$08
+|08C4A3| STA.l $7EF372
 
-#_08C4A7: BRA .continue_a
+|08C4A7| BRA .continue_a
 
 ;---------------------------------------------------------------------------------------------------
 
 .refill_hp
-#_08C4A9: LDA.l $7EF36D
-#_08C4AD: STA.b $00
+|08C4A9| LDA.l $7EF36D
+|08C4AD| STA.b $00
 
-#_08C4AF: LDA.l $7EF36C
-#_08C4B3: CMP.b #$A0
-#_08C4B5: BEQ .not_heart
+|08C4AF| LDA.l $7EF36C
+|08C4B3| CMP.b #$A0
+|08C4B5| BEQ .not_heart
 
-#_08C4B7: CLC
-#_08C4B8: ADC.b #$08
-#_08C4BA: STA.l $7EF36C
+|08C4B7| CLC
+|08C4B8| ADC.b #$08
+|08C4BA| STA.l $7EF36C
 
-#_08C4BE: SEC
-#_08C4BF: SBC.b $00
-#_08C4C1: STA.b $00
+|08C4BE| SEC
+|08C4BF| SBC.b $00
+|08C4C1| STA.b $00
 
-#_08C4C3: LDA.l $7EF372
-#_08C4C7: CLC
-#_08C4C8: ADC.b $00
-#_08C4CA: STA.l $7EF372
+|08C4C3| LDA.l $7EF372
+|08C4C7| CLC
+|08C4C8| ADC.b $00
+|08C4CA| STA.l $7EF372
 
 .continue_a
-#_08C4CE: LDA.b #$0D ; SFX3.0D
-#_08C4D0: JSR Ancilla_SFX3_Near
+|08C4CE| LDA.b #$0D ; SFX3.0D
+|08C4D0| JSR Ancilla_SFX3_Near
 
-#_08C4D3: BRA .continue_b
+|08C4D3| BRA .continue_b
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_heart
-#_08C4D5: CMP.b #$42 ; ITEMGET 42
-#_08C4D7: BNE .not_single_heart
+|08C4D5| CMP.b #$42 ; ITEMGET 42
+|08C4D7| BNE .not_single_heart
 
-#_08C4D9: LDA.l $7EF372
-#_08C4DD: CLC
-#_08C4DE: ADC.b #$08
-#_08C4E0: STA.l $7EF372
+|08C4D9| LDA.l $7EF372
+|08C4DD| CLC
+|08C4DE| ADC.b #$08
+|08C4E0| STA.l $7EF372
 
-#_08C4E4: BRA .continue_b
+|08C4E4| BRA .continue_b
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_single_heart
-#_08C4E6: CMP.b #$45 ; ITEMGET 45
-#_08C4E8: BNE .not_small_magic
+|08C4E6| CMP.b #$45 ; ITEMGET 45
+|08C4E8| BNE .not_small_magic
 
-#_08C4EA: LDA.l $7EF373
-#_08C4EE: CLC
-#_08C4EF: ADC.b #$10
-#_08C4F1: STA.l $7EF373
+|08C4EA| LDA.l $7EF373
+|08C4EE| CLC
+|08C4EF| ADC.b #$10
+|08C4F1| STA.l $7EF373
 
-#_08C4F5: BRA .continue_b
+|08C4F5| BRA .continue_b
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_small_magic
-#_08C4F7: CMP.b #$22 ; ITEMGET 22
-#_08C4F9: BEQ .blue_mail
+|08C4F7| CMP.b #$22 ; ITEMGET 22
+|08C4F9| BEQ .blue_mail
 
 ; Red mail?
-#_08C4FB: CMP.b #$23 ; ITEMGET 23
-#_08C4FD: BNE .continue_b
+|08C4FB| CMP.b #$23 ; ITEMGET 23
+|08C4FD| BNE .continue_b
 
 .blue_mail
-#_08C4FF: PHX
+|08C4FF| PHX
 
-#_08C500: JSL PaletteLoad_LinkArmorAndGloves
+|08C500| JSL PaletteLoad_LinkArmorAndGloves
 
-#_08C504: PLX
+|08C504| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue_b
-#_08C505: STZ.w $0C4A,X
+|08C505| STZ.w $0C4A,X
 
-#_08C508: STZ.w $0FC1
+|08C508| STZ.w $0FC1
 
-#_08C50B: LDA.w $0C54,X
-#_08C50E: CMP.b #$03
-#_08C510: BNE .no_victory_sequence
+|08C50B| LDA.w $0C54,X
+|08C50E| CMP.b #$03
+|08C510| BNE .no_victory_sequence
 
-#_08C512: LDY.w $0C5E,X
+|08C512| LDY.w $0C5E,X
 
-#_08C515: CPY.w MilestoneItemReceiptIDs_ether
-#_08C518: BEQ .no_victory_sequence
+|08C515| CPY.w MilestoneItemReceiptIDs.ether
+|08C518| BEQ .no_victory_sequence
 
-#_08C51A: CPY.w MilestoneItemReceiptIDs_bombos
-#_08C51D: BEQ .no_victory_sequence
+|08C51A| CPY.w MilestoneItemReceiptIDs.bombos
+|08C51D| BEQ .no_victory_sequence
 
-#_08C51F: CPY.w MilestoneItemReceiptIDs_heart_container
-#_08C522: BEQ .no_victory_sequence
+|08C51F| CPY.w MilestoneItemReceiptIDs.heart_container
+|08C522| BEQ .no_victory_sequence
 
-#_08C524: CPY.w MilestoneItemReceiptIDs_crystal
-#_08C527: BEQ .no_victory_sequence
+|08C524| CPY.w MilestoneItemReceiptIDs.crystal
+|08C527| BEQ .no_victory_sequence
 
-#_08C529: PHA
-#_08C52A: PHX
+|08C529| PHA
+|08C52A| PHX
 
-#_08C52B: JSL PrepareDungeonExitFromBossFight
+|08C52B| JSL PrepareDungeonExitFromBossFight
 
-#_08C52F: PLX
-#_08C530: PLA
+|08C52F| PLX
+|08C530| PLA
 
 .no_victory_sequence
-#_08C531: CMP.b #$02 ; ITEMGET 02
-#_08C533: BEQ .exit
+|08C531| CMP.b #$02 ; ITEMGET 02
+|08C533| BEQ .exit
 
-#_08C535: STZ.w $02E4
+|08C535| STZ.w $02E4
 
 .exit
-#_08C538: RTS
+|08C538| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .from_chest_or_sprite
-#_08C539: DEC.w $03B1,X
+|08C539| DEC.w $03B1,X
 
-#_08C53C: LDA.w $03B1,X
-#_08C53F: BPL .delay_b
+|08C53C| LDA.w $03B1,X
+|08C53F| BPL .delay_b
 
-#_08C541: BRL .check_if_hp
+|08C541| BRL .check_if_hp
 
 .delay_b
-#_08C544: CMP.b #$00
-#_08C546: BEQ .time_up_b
+|08C544| CMP.b #$00
+|08C546| BEQ .time_up_b
 
-#_08C548: CMP.b #$28
-#_08C54A: BNE .dont_give
+|08C548| CMP.b #$28
+|08C54A| BNE .dont_give
 
-#_08C54C: LDA.w $0C54,X
-#_08C54F: CMP.b #$02
-#_08C551: BEQ .dont_give
+|08C54C| LDA.w $0C54,X
+|08C54F| CMP.b #$02
+|08C551| BEQ .dont_give
 
-#_08C553: JSL Ancilla_AddRupees
-#_08C557: BCS .play_rupee_sfx
+|08C553| JSL Ancilla_AddRupees
+|08C557| BCS .play_rupee_sfx
 
-#_08C559: LDA.w $0C5E,X
-#_08C55C: CMP.b #$17
-#_08C55E: BNE .play_rupee_sfx
+|08C559| LDA.w $0C5E,X
+|08C55C| CMP.b #$17
+|08C55E| BNE .play_rupee_sfx
 
 .dont_give
-#_08C560: BRL .skip_messaging
+|08C560| BRL .skip_messaging
 
 .play_rupee_sfx
-#_08C563: LDA.b #$0F ; SFX3.0F
-#_08C565: JSR Ancilla_SFX3_Near
+|08C563| LDA.b #$0F ; SFX3.0F
+|08C565| JSR Ancilla_SFX3_Near
 
-#_08C568: BRA .dont_give
+|08C568| BRA .dont_give
 
 ;---------------------------------------------------------------------------------------------------
 
 .time_up_b
-#_08C56A: LDA.b $1B
-#_08C56C: BEQ .not_a_shop
+|08C56A| LDA.b $1B
+|08C56C| BEQ .not_a_shop
 
-#_08C56E: REP #$20
+|08C56E| REP #$20
 
-#_08C570: LDA.b $A0
-#_08C572: CMP.w #$00FF ; ROOM 00FF
-#_08C575: BEQ .is_a_shop
+|08C570| LDA.b $A0
+|08C572| CMP.w #$00FF ; ROOM 00FF
+|08C575| BEQ .is_a_shop
 
-#_08C577: CMP.w #$010F ; ROOM 010F
-#_08C57A: BEQ .is_a_shop
+|08C577| CMP.w #$010F ; ROOM 010F
+|08C57A| BEQ .is_a_shop
 
-#_08C57C: CMP.w #$0110 ; ROOM 0110
-#_08C57F: BEQ .is_a_shop
+|08C57C| CMP.w #$0110 ; ROOM 0110
+|08C57F| BEQ .is_a_shop
 
-#_08C581: CMP.w #$0112 ; ROOM 0112
-#_08C584: BEQ .is_a_shop
+|08C581| CMP.w #$0112 ; ROOM 0112
+|08C584| BEQ .is_a_shop
 
-#_08C586: CMP.w #$011F ; ROOM 011F
-#_08C589: BNE .not_a_shop
+|08C586| CMP.w #$011F ; ROOM 011F
+|08C589| BNE .not_a_shop
 
 .is_a_shop
-#_08C58B: SEP #$20
+|08C58B| SEP #$20
 
-#_08C58D: BRA .skip_messaging
+|08C58D| BRA .skip_messaging
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_a_shop
-#_08C58F: SEP #$20
+|08C58F| SEP #$20
 
-#_08C591: LDA.w $0C5E,X
-#_08C594: CMP.b #$38 ; ITEMGET 38
-#_08C596: BEQ .use_pendant_message
+|08C591| LDA.w $0C5E,X
+|08C594| CMP.b #$38 ; ITEMGET 38
+|08C596| BEQ .use_pendant_message
 
-#_08C598: CMP.b #$39 ; ITEMGET 39
-#_08C59A: BNE .not_possibly_a_pendant
+|08C598| CMP.b #$39 ; ITEMGET 39
+|08C59A| BNE .not_possibly_a_pendant
 
 .use_pendant_message
-#_08C59C: TAY
+|08C59C| TAY
 
-#_08C59D: LDA.l $7EF374
-#_08C5A1: AND.b #$07
-#_08C5A3: CMP.b #$07
-#_08C5A5: BNE .fetch_message_id
+|08C59D| LDA.l $7EF374
+|08C5A1| AND.b #$07
+|08C5A3| CMP.b #$07
+|08C5A5| BNE .fetch_message_id
 
-#_08C5A7: TYA
-#_08C5A8: SEC
-#_08C5A9: SBC.b #$38
-#_08C5AB: ASL A
-#_08C5AC: TAY
+|08C5A7| TYA
+|08C5A8| SEC
+|08C5A9| SBC.b #$38
+|08C5AB| ASL A
+|08C5AC| TAY
 
-#_08C5AD: REP #$20
+|08C5AD| REP #$20
 
-#_08C5AF: LDA.w .pendant_message,Y
-#_08C5B2: STA.w $1CF0
+|08C5AF| LDA.w .pendant_message,Y
+|08C5B2| STA.w $1CF0
 
-#_08C5B5: SEP #$20
+|08C5B5| SEP #$20
 
-#_08C5B7: BRA .trigger_message
+|08C5B7| BRA .trigger_message
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_possibly_a_pendant
-#_08C5B9: LDA.w $0C54,X
-#_08C5BC: CMP.b #$02
-#_08C5BE: BEQ ItemReceipt_Animate
+|08C5B9| LDA.w $0C54,X
+|08C5BC| CMP.b #$02
+|08C5BE| BEQ ItemReceipt_Animate
 
-#_08C5C0: LDA.w $0C5E,X
-#_08C5C3: CMP.b #$17 ; ITEMGET 17
-#_08C5C5: BNE .fetch_message_id
+|08C5C0| LDA.w $0C5E,X
+|08C5C3| CMP.b #$17 ; ITEMGET 17
+|08C5C5| BNE .fetch_message_id
 
-#_08C5C7: LDA.l $7EF36B
-#_08C5CB: ASL A
-#_08C5CC: TAY
+|08C5C7| LDA.l $7EF36B
+|08C5CB| ASL A
+|08C5CC| TAY
 
-#_08C5CD: REP #$20
+|08C5CD| REP #$20
 
-#_08C5CF: LDA.w .heart_piece_message,Y
-#_08C5D2: CMP.w #$FFFF
-#_08C5D5: BEQ ItemReceipt_Animate
+|08C5CF| LDA.w .heart_piece_message,Y
+|08C5D2| CMP.w #$FFFF
+|08C5D5| BEQ ItemReceipt_Animate
 
-#_08C5D7: STA.w $1CF0
+|08C5D7| STA.w $1CF0
 
-#_08C5DA: SEP #$20
+|08C5DA| SEP #$20
 
-#_08C5DC: BRA .trigger_message
+|08C5DC| BRA .trigger_message
 
 ;---------------------------------------------------------------------------------------------------
 
 .fetch_message_id
-#_08C5DE: LDA.w $0C5E,X
-#_08C5E1: ASL A
-#_08C5E2: TAY
+|08C5DE| LDA.w $0C5E,X
+|08C5E1| ASL A
+|08C5E2| TAY
 
-#_08C5E3: REP #$20
+|08C5E3| REP #$20
 
-#_08C5E5: LDA.w .message,Y
-#_08C5E8: CMP.w #$FFFF
-#_08C5EB: BEQ ItemReceipt_Animate
+|08C5E5| LDA.w .message,Y
+|08C5E8| CMP.w #$FFFF
+|08C5EB| BEQ ItemReceipt_Animate
 
-#_08C5ED: STA.w $1CF0
+|08C5ED| STA.w $1CF0
 
-#_08C5F0: CMP.w #$006E ; MESSAGE 006E
-#_08C5F3: BNE .no_sfx_just_text
+|08C5F0| CMP.w #$006E ; MESSAGE 006E
+|08C5F3| BNE .no_sfx_just_text
 
-#_08C5F5: SEP #$20
+|08C5F5| SEP #$20
 
-#_08C5F7: LDA.b #$09 ; SFX1.09
-#_08C5F9: STA.w $012D
+|08C5F7| LDA.b #$09 ; SFX1.09
+|08C5F9| STA.w $012D
 
 .no_sfx_just_text
-#_08C5FC: SEP #$20
+|08C5FC| SEP #$20
 
 ;---------------------------------------------------------------------------------------------------
 
 .trigger_message
-#_08C5FE: JSL PrepAndDisplayMessage
-#_08C602: BRA ItemReceipt_Animate
+|08C5FE| JSL PrepAndDisplayMessage
+|08C602| BRA ItemReceipt_Animate
 
 .skip_messaging
-#_08C604: LDA.w $03B1,X
-#_08C607: CMP.b #$18
-#_08C609: BCC ItemReceipt_Animate
+|08C604| LDA.w $03B1,X
+|08C607| CMP.b #$18
+|08C609| BCC ItemReceipt_Animate
 
-#_08C60B: LDA.w $0C22,X
-#_08C60E: CLC
-#_08C60F: ADC.b #$FF
-#_08C611: CMP.b #$F8
-#_08C613: BCC .halt_acceleration
+|08C60B| LDA.w $0C22,X
+|08C60E| CLC
+|08C60F| ADC.b #$FF
+|08C611| CMP.b #$F8
+|08C613| BCC .halt_acceleration
 
-#_08C615: STA.w $0C22,X
+|08C615| STA.w $0C22,X
 
 .halt_acceleration
-#_08C618: JSR AncillaMoveY
+|08C618| JSR AncillaMoveY
 
 ;===================================================================================================
 
 ItemReceipt_Animate:
-#_08C61B: SEP #$20
+|08C61B| SEP #$20
 
-#_08C61D: LDA.w $0C5E,X
-#_08C620: CMP.b #$20
-#_08C622: BNE .continue
+|08C61D| LDA.w $0C5E,X
+|08C620| CMP.b #$20
+|08C622| BNE .continue
 
-#_08C624: STZ.w $029E,X
+|08C624| STZ.w $029E,X
 
-#_08C627: JSR AncillaAdd_OccasionalSparkle
+|08C627| JSR AncillaAdd_OccasionalSparkle
 
-#_08C62A: LDA.w APUIO0
-#_08C62D: BNE .continue
+|08C62A| LDA.w APUIO0
+|08C62D| BNE .continue
 
-#_08C62F: LDA.b #$1A ; SONG 1A
-#_08C631: STA.w $012C
+|08C62F| LDA.b #$1A ; SONG 1A
+|08C631| STA.w $012C
 
-#_08C634: BRL ItemReceipt_TransmuteToRisingCrystal
+|08C634| BRL ItemReceipt_TransmuteToRisingCrystal
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08C637: SEP #$20
+|08C637| SEP #$20
 
-#_08C639: LDA.w $0C5E,X
-#_08C63C: CMP.b #$01 ; ITEMGET 01
-#_08C63E: BNE .not_a_flashy_sword
+|08C639| LDA.w $0C5E,X
+|08C63C| CMP.b #$01 ; ITEMGET 01
+|08C63E| BNE .not_a_flashy_sword
 
-#_08C640: LDA.w ItemReceipt_default_oam_props
-#_08C643: STA.w $0BF0,X
+|08C640| LDA.w ItemReceipt.default_oam_props
+|08C643| STA.w $0BF0,X
 
-#_08C646: LDA.w $0C54,X
-#_08C649: CMP.b #$02
-#_08C64B: BEQ .not_a_flashy_sword
+|08C646| LDA.w $0C54,X
+|08C649| CMP.b #$02
+|08C64B| BEQ .not_a_flashy_sword
 
-#_08C64D: LDA.w $0C68,X
-#_08C650: CMP.b #$10
-#_08C652: BCC .wait_for_flashy_sword
+|08C64D| LDA.w $0C68,X
+|08C650| CMP.b #$10
+|08C652| BCC .wait_for_flashy_sword
 
-#_08C654: DEC.w $039F,X
-#_08C657: BPL .not_a_flashy_sword
+|08C654| DEC.w $039F,X
+|08C657| BPL .not_a_flashy_sword
 
-#_08C659: LDA.b #$02
-#_08C65B: STA.w $039F,X
+|08C659| LDA.b #$02
+|08C65B| STA.w $039F,X
 
-#_08C65E: LDA.w $03A4,X
-#_08C661: INC A
-#_08C662: CMP.b #$03
-#_08C664: BNE .no_wrap_flashy_sword
+|08C65E| LDA.w $03A4,X
+|08C661| INC A
+|08C662| CMP.b #$03
+|08C664| BNE .no_wrap_flashy_sword
 
 .wait_for_flashy_sword
-#_08C666: LDA.b #$00
+|08C666| LDA.b #$00
 
 .no_wrap_flashy_sword
-#_08C668: STA.w $03A4,X
+|08C668| STA.w $03A4,X
 
-#_08C66B: TAY
+|08C66B| TAY
 
-#_08C66C: LDA.w ItemReceipt_default_oam_props,Y
-#_08C66F: STA.w $0BF0,X
+|08C66C| LDA.w ItemReceipt.default_oam_props,Y
+|08C66F| STA.w $0BF0,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_a_flashy_sword
-#_08C672: LDA.w $0C5E,X
-#_08C675: CMP.b #$34 ; ITEMGET 34
-#_08C677: BEQ .animated_rupee
+|08C672| LDA.w $0C5E,X
+|08C675| CMP.b #$34 ; ITEMGET 34
+|08C677| BEQ .animated_rupee
 
-#_08C679: CMP.b #$35 ; ITEMGET 35
-#_08C67B: BEQ .animated_rupee
+|08C679| CMP.b #$35 ; ITEMGET 35
+|08C67B| BEQ .animated_rupee
 
-#_08C67D: CMP.b #$36 ; ITEMGET 36
-#_08C67F: BNE .not_animating_rupee
+|08C67D| CMP.b #$36 ; ITEMGET 36
+|08C67F| BNE .not_animating_rupee
 
 .animated_rupee
-#_08C681: DEC.w $039F,X
-#_08C684: BPL .not_animating_rupee
+|08C681| DEC.w $039F,X
+|08C684| BPL .not_animating_rupee
 
-#_08C686: INC.w $03A4,X
+|08C686| INC.w $03A4,X
 
-#_08C689: LDA.w $03A4,X
-#_08C68C: CMP.b #$03
-#_08C68E: BNE .no_wrap_rupee
+|08C689| LDA.w $03A4,X
+|08C68C| CMP.b #$03
+|08C68E| BNE .no_wrap_rupee
 
-#_08C690: LDA.b #$00
-#_08C692: STA.w $03A4,X
+|08C690| LDA.b #$00
+|08C692| STA.w $03A4,X
 
 ; no wrapee
 .no_wrap_rupee
-#_08C695: TAY
+|08C695| TAY
 
-#_08C696: LDA.w ItemReceipt_animated_rupee_timers,Y
-#_08C699: STA.w $039F,X
+|08C696| LDA.w ItemReceipt.animated_rupee_timers,Y
+|08C699| STA.w $039F,X
 
-#_08C69C: PHX
+|08C69C| PHX
 
-#_08C69D: LDA.w ItemReceipt_animated_rupee_tiles,Y
-#_08C6A0: JSL WriteTo4BPPBuffer_at_7F4000
+|08C69D| LDA.w ItemReceipt.animated_rupee_tiles,Y
+|08C6A0| JSL WriteTo4BPPBuffer_at_7F4000
 
-#_08C6A4: PLX
+|08C6A4| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_animating_rupee
-#_08C6A5: JSR Ancilla_PrepOAMCoord_adjusted
+|08C6A5| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08C6A8: REP #$20
+|08C6A8| REP #$20
 
-#_08C6AA: LDA.b $00
-#_08C6AC: CLC
-#_08C6AD: ADC.w #$0008
-#_08C6B0: STA.b $08
+|08C6AA| LDA.b $00
+|08C6AC| CLC
+|08C6AD| ADC.w #$0008
+|08C6B0| STA.b $08
 
-#_08C6B2: SEP #$20
+|08C6B2| SEP #$20
 
 ;===================================================================================================
 
 AncillaDraw_ItemReceipt:
-#_08C6B4: PHX
+|08C6B4| PHX
 
-#_08C6B5: LDA.w $0BF0,X
-#_08C6B8: STA.b $74
+|08C6B5| LDA.w $0BF0,X
+|08C6B8| STA.b $74
 
-#_08C6BA: LDA.w $0C5E,X
-#_08C6BD: TAX
+|08C6BA| LDA.w $0C5E,X
+|08C6BD| TAX
 
-#_08C6BE: LDY.b #$00
-#_08C6C0: JSR Ancilla_SetOAM_XY
+|08C6BE| LDY.b #$00
+|08C6C0| JSR Ancilla_SetOAM_XY
 
-#_08C6C3: LDA.b #$24
-#_08C6C5: STA.b ($90),Y
+|08C6C3| LDA.b #$24
+|08C6C5| STA.b ($90),Y
 
-#_08C6C7: INY
+|08C6C7| INY
 
-#_08C6C8: LDA.l AncillaAdd_ItemReceipt_prop,X
-#_08C6CC: BPL .keep_prop_a
+|08C6C8| LDA.l AncillaAdd_ItemReceipt.prop,X
+|08C6CC| BPL .keep_prop_a
 
-#_08C6CE: LDA.b $74
+|08C6CE| LDA.b $74
 
 ;---------------------------------------------------------------------------------------------------
 
 .keep_prop_a
-#_08C6D0: ASL A
-#_08C6D1: ORA.b #$30
-#_08C6D3: STA.b ($90),Y
+|08C6D0| ASL A
+|08C6D1| ORA.b #$30
+|08C6D3| STA.b ($90),Y
 
-#_08C6D5: INY
-#_08C6D6: PHY
+|08C6D5| INY
+|08C6D6| PHY
 
-#_08C6D7: TYA
-#_08C6D8: SEC
-#_08C6D9: SBC.b #$04
-#_08C6DB: LSR A
-#_08C6DC: LSR A
-#_08C6DD: TAY
+|08C6D7| TYA
+|08C6D8| SEC
+|08C6D9| SBC.b #$04
+|08C6DB| LSR A
+|08C6DC| LSR A
+|08C6DD| TAY
 
-#_08C6DE: LDA.l AncillaAdd_ItemReceipt_width,X
-#_08C6E2: STA.b ($92),Y
+|08C6DE| LDA.l AncillaAdd_ItemReceipt.width,X
+|08C6E2| STA.b ($92),Y
 
-#_08C6E4: PLY
+|08C6E4| PLY
 
-#_08C6E5: CMP.b #$02
-#_08C6E7: BEQ .big_sprite
+|08C6E5| CMP.b #$02
+|08C6E7| BEQ .big_sprite
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08C6E9: REP #$20
+|08C6E9| REP #$20
 
-#_08C6EB: LDA.b $08
-#_08C6ED: STA.b $00
+|08C6EB| LDA.b $08
+|08C6ED| STA.b $00
 
-#_08C6EF: SEP #$20
+|08C6EF| SEP #$20
 
-#_08C6F1: JSR Ancilla_SetOAM_XY
+|08C6F1| JSR Ancilla_SetOAM_XY
 
-#_08C6F4: LDA.b #$34
-#_08C6F6: STA.b ($90),Y
+|08C6F4| LDA.b #$34
+|08C6F6| STA.b ($90),Y
 
-#_08C6F8: INY
+|08C6F8| INY
 
-#_08C6F9: LDA.l AncillaAdd_ItemReceipt_prop,X
-#_08C6FD: BPL .keep_prop_b
+|08C6F9| LDA.l AncillaAdd_ItemReceipt.prop,X
+|08C6FD| BPL .keep_prop_b
 
-#_08C6FF: LDA.b $74
+|08C6FF| LDA.b $74
 
 ;---------------------------------------------------------------------------------------------------
 
 .keep_prop_b
-#_08C701: ASL A
-#_08C702: ORA.b #$30
-#_08C704: STA.b ($90),Y
+|08C701| ASL A
+|08C702| ORA.b #$30
+|08C704| STA.b ($90),Y
 
-#_08C706: INY
-#_08C707: PHY
+|08C706| INY
+|08C707| PHY
 
-#_08C708: TYA
-#_08C709: SEC
-#_08C70A: SBC.b #$04
-#_08C70C: LSR A
-#_08C70D: LSR A
-#_08C70E: TAY
+|08C708| TYA
+|08C709| SEC
+|08C70A| SBC.b #$04
+|08C70C| LSR A
+|08C70D| LSR A
+|08C70E| TAY
 
-#_08C70F: LDA.b #$00
-#_08C711: STA.b ($92),Y
+|08C70F| LDA.b #$00
+|08C711| STA.b ($92),Y
 
-#_08C713: PLY
+|08C713| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .big_sprite
-#_08C714: PLX
+|08C714| PLX
 
-#_08C715: RTS
+|08C715| RTS
 
 ;===================================================================================================
 
 Ancilla28_WishPondItem:
-#_08C716: LDA.b #$10
-#_08C718: JSR AllocateOAMInRegionsADF
+|08C716| LDA.b #$10
+|08C718| JSR AllocateOAMInRegionsADF
 
-#_08C71B: LDA.b $11
-#_08C71D: BEQ .continue
+|08C71B| LDA.b $11
+|08C71D| BEQ .continue
 
-#_08C71F: BRL AncillaDraw_WishPondItem
+|08C71F| BRL AncillaDraw_WishPondItem
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08C722: LDA.w $0C68,X
-#_08C725: BNE AncillaDraw_WishPondItem
+|08C722| LDA.w $0C68,X
+|08C725| BNE AncillaDraw_WishPondItem
 
-#_08C727: LDA.b #$02
-#_08C729: STA.w $0309
-#_08C72C: STZ.w $0308
+|08C727| LDA.b #$02
+|08C729| STA.w $0309
+|08C72C| STZ.w $0308
 
-#_08C72F: LDA.w $0294,X
-#_08C732: SEC
-#_08C733: SBC.b #$02
-#_08C735: STA.w $0294,X
+|08C72F| LDA.w $0294,X
+|08C732| SEC
+|08C733| SBC.b #$02
+|08C735| STA.w $0294,X
 
-#_08C738: JSR AncillaMoveZ
-#_08C73B: JSR AncillaMoveY
-#_08C73E: JSR AncillaMoveX
+|08C738| JSR AncillaMoveZ
+|08C73B| JSR AncillaMoveY
+|08C73E| JSR AncillaMoveX
 
-#_08C741: LDA.w $029E,X
-#_08C744: BPL AncillaDraw_WishPondItem
+|08C741| LDA.w $029E,X
+|08C744| BPL AncillaDraw_WishPondItem
 
-#_08C746: CMP.b #$E4
-#_08C748: BCS AncillaDraw_WishPondItem
+|08C746| CMP.b #$E4
+|08C748| BCS AncillaDraw_WishPondItem
 
-#_08C74A: LDA.b #$E4
-#_08C74C: STA.w $029E,X
+|08C74A| LDA.b #$E4
+|08C74C| STA.w $029E,X
 
-#_08C74F: LDY.w $0C5E,X
+|08C74F| LDY.w $0C5E,X
 
-#_08C752: LDA.w $0BFA,X
-#_08C755: CLC
-#_08C756: ADC.b #$12
-#_08C758: STA.w $0BFA,X
+|08C752| LDA.w $0BFA,X
+|08C755| CLC
+|08C756| ADC.b #$12
+|08C758| STA.w $0BFA,X
 
-#_08C75B: LDA.w $0C0E,X
-#_08C75E: ADC.b #$00
-#_08C760: STA.w $0C0E,X
+|08C75B| LDA.w $0C0E,X
+|08C75E| ADC.b #$00
+|08C760| STA.w $0C0E,X
 
-#_08C763: LDA.b #$08
-#_08C765: STA.b $00
+|08C763| LDA.b #$08
+|08C765| STA.b $00
 
-; !BUG, doesn't read from the correct location which is AncillaAdd_ItemReceipt_width
-#_08C767: LDA.w $08844A,Y
-#_08C76A: BNE .absolute_nonsense
+; [BUG] doesn't read from the correct location which is AncillaAdd_ItemReceipt.width
+|08C767| LDA.w $08844A,Y
+|08C76A| BNE .absolute_nonsense
 
-#_08C76C: LDA.b #$04
-#_08C76E: STA.b $00
+|08C76C| LDA.b #$04
+|08C76E| STA.b $00
 
 .absolute_nonsense
-#_08C770: LDA.w $0C04,X
-#_08C773: CLC
-#_08C774: ADC.b $00
-#_08C776: STA.w $0C04,X
+|08C770| LDA.w $0C04,X
+|08C773| CLC
+|08C774| ADC.b $00
+|08C776| STA.w $0C04,X
 
-#_08C779: LDA.w $0C18,X
-#_08C77C: ADC.b #$00
-#_08C77E: STA.w $0C18,X
+|08C779| LDA.w $0C18,X
+|08C77C| ADC.b #$00
+|08C77E| STA.w $0C18,X
 
-#_08C781: BRL Ancilla_TransmuteToSplash
+|08C781| BRL Ancilla_TransmuteToSplash
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_WishPondItem:
-#_08C784: JSR Ancilla_PrepOAMCoord_adjusted
+|08C784| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08C787: LDA.w $0C5E,X
-#_08C78A: CMP.b #$01 ; ITEMGET 01
-#_08C78C: BNE .not_master_sword
+|08C787| LDA.w $0C5E,X
+|08C78A| CMP.b #$01 ; ITEMGET 01
+|08C78C| BNE .not_master_sword
 
-#_08C78E: LDA.w ItemReceipt_default_oam_props
-#_08C791: STA.w $0BF0,X
+|08C78E| LDA.w ItemReceipt.default_oam_props
+|08C791| STA.w $0BF0,X
 
 .not_master_sword
-#_08C794: REP #$20
+|08C794| REP #$20
 
-#_08C796: LDA.w $029E,X
-#_08C799: AND.w #$00FF
-#_08C79C: CMP.w #$0080
-#_08C79F: BCC .positive
+|08C796| LDA.w $029E,X
+|08C799| AND.w #$00FF
+|08C79C| CMP.w #$0080
+|08C79F| BCC .positive
 
-#_08C7A1: ORA.w #$FF00
+|08C7A1| ORA.w #$FF00
 
 .positive
-#_08C7A4: STA.b $04
+|08C7A4| STA.b $04
 
-#_08C7A6: EOR.w #$FFFF
-#_08C7A9: INC A
+|08C7A6| EOR.w #$FFFF
+|08C7A9| INC A
 
-#_08C7AA: CLC
-#_08C7AB: ADC.b $00
-#_08C7AD: STA.b $00
-#_08C7AF: STA.b $06
+|08C7AA| CLC
+|08C7AB| ADC.b $00
+|08C7AD| STA.b $00
+|08C7AF| STA.b $06
 
-#_08C7B1: CLC
-#_08C7B2: ADC.w #$0008
-#_08C7B5: STA.b $08
+|08C7B1| CLC
+|08C7B2| ADC.w #$0008
+|08C7B5| STA.b $08
 
-#_08C7B7: SEP #$20
+|08C7B7| SEP #$20
 
-#_08C7B9: JSR AncillaDraw_ItemReceipt
+|08C7B9| JSR AncillaDraw_ItemReceipt
 
-#_08C7BC: LDA.w $0309
-#_08C7BF: CMP.b #$02
-#_08C7C1: BNE .exit
+|08C7BC| LDA.w $0309
+|08C7BF| CMP.b #$02
+|08C7C1| BNE .exit
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08C7C3: LDA.w $0294,X
-#_08C7C6: BMI .draw_shadow
+|08C7C3| LDA.w $0294,X
+|08C7C6| BMI .draw_shadow
 
-#_08C7C8: CMP.b #$02
-#_08C7CA: BCS .exit
+|08C7C8| CMP.b #$02
+|08C7CA| BCS .exit
 
 .draw_shadow
-#_08C7CC: PHX
+|08C7CC| PHX
 
-#_08C7CD: LDA.w $0C5E,X
-#_08C7D0: TAX
+|08C7CD| LDA.w $0C5E,X
+|08C7D0| TAX
 
-; !BUG, doesn't read from the correct location which is AncillaAdd_ItemReceipt_width
-#_08C7D1: LDA.w $08844A,X
-#_08C7D4: TAX
+; [BUG] doesn't read from the correct location which is AncillaAdd_ItemReceipt.width
+|08C7D1| LDA.w $08844A,X
+|08C7D4| TAX
 
-#_08C7D5: REP #$20
+|08C7D5| REP #$20
 
-#_08C7D7: LDA.b $06
-#_08C7D9: CLC
-#_08C7DA: ADC.b $04
-#_08C7DC: CLC
-#_08C7DD: ADC.w #$0028
-#_08C7E0: STA.b $00
+|08C7D7| LDA.b $06
+|08C7D9| CLC
+|08C7DA| ADC.b $04
+|08C7DC| CLC
+|08C7DD| ADC.w #$0028
+|08C7E0| STA.b $00
 
-#_08C7E2: CPX.b #$02
-#_08C7E4: BEQ .wide
+|08C7E2| CPX.b #$02
+|08C7E4| BEQ .wide
 
-#_08C7E6: LDA.b $02
-#_08C7E8: CLC
-#_08C7E9: ADC.w #$FFFC
-#_08C7EC: STA.b $02
+|08C7E6| LDA.b $02
+|08C7E8| CLC
+|08C7E9| ADC.w #$FFFC
+|08C7EC| STA.b $02
 
 .wide
-#_08C7EE: SEP #$20
+|08C7EE| SEP #$20
 
-#_08C7F0: LDA.b #$01
+|08C7F0| LDA.b #$01
 
-#_08C7F2: CPX.b #$02
-#_08C7F4: BEQ .wide_shadow
+|08C7F2| CPX.b #$02
+|08C7F4| BEQ .wide_shadow
 
-#_08C7F6: LDA.b #$02
+|08C7F6| LDA.b #$02
 
 .wide_shadow
-#_08C7F8: TAX
+|08C7F8| TAX
 
-#_08C7F9: LDA.b $65
-#_08C7FB: STA.b $04
+|08C7F9| LDA.b $65
+|08C7FB| STA.b $04
 
-#_08C7FD: JSR AncillaDraw_Shadow
+|08C7FD| JSR AncillaDraw_Shadow
 
-#_08C800: PLX
+|08C800| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08C801: RTS
+|08C801| RTS
 
 ;===================================================================================================
 
 Ancilla42_HappinessPondRupees:
-#_08C802: LDA.b #$02
-#_08C804: STA.w $0309
-#_08C807: STZ.w $0308
+|08C802| LDA.b #$02
+|08C804| STA.w $0309
+|08C807| STZ.w $0308
 
-#_08C80A: LDX.b #$09
+|08C80A| LDX.b #$09
 
 .next
-#_08C80C: LDA.l $7F586C,X
-#_08C810: BEQ .skip
+|08C80C| LDA.l $7F586C,X
+|08C810| BEQ .skip
 
-#_08C812: PHX
-#_08C813: JSR HapinessPondRupees_ExecuteRupee
-#_08C816: PLX
+|08C812| PHX
+|08C813| JSR HapinessPondRupees_ExecuteRupee
+|08C816| PLX
 
-#_08C817: LDA.l $7F58AA,X
-#_08C81B: CMP.b #$02
-#_08C81D: BNE .skip
+|08C817| LDA.l $7F58AA,X
+|08C81B| CMP.b #$02
+|08C81D| BNE .skip
 
-#_08C81F: LDA.b #$00
-#_08C821: STA.l $7F586C,X
+|08C81F| LDA.b #$00
+|08C821| STA.l $7F586C,X
 
 .skip
-#_08C825: DEX
+|08C825| DEX
 
-#_08C826: BPL .next
+|08C826| BPL .next
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08C828: LDX.b #$09
+|08C828| LDX.b #$09
 
 .next_check
-#_08C82A: LDA.l $7F586C,X
-#_08C82E: BNE .found_one
+|08C82A| LDA.l $7F586C,X
+|08C82E| BNE .found_one
 
-#_08C830: DEX
-#_08C831: BPL .next_check
+|08C830| DEX
+|08C831| BPL .next_check
 
-#_08C833: LDX.w $0FA0
+|08C833| LDX.w $0FA0
 
-#_08C836: STZ.w $0C4A,X
+|08C836| STZ.w $0C4A,X
 
-#_08C839: RTS
+|08C839| RTS
 
 .found_one
-#_08C83A: BRL Ancilla_RestoreIndex
+|08C83A| BRL Ancilla_RestoreIndex
 
 ;===================================================================================================
 
 HapinessPondRupees_ExecuteRupee:
-#_08C83D: LDA.b #$10
+|08C83D| LDA.b #$10
 
-#_08C83F: JSR AllocateOAMInRegionsADF
-#_08C842: PHX
+|08C83F| JSR AllocateOAMInRegionsADF
+|08C842| PHX
 
-#_08C843: LDY.w $0FA0
+|08C843| LDY.w $0FA0
 
-#_08C846: JSR HapinessPondRupees_GetState
-#_08C849: TYX
+|08C846| JSR HapinessPondRupees_GetState
+|08C849| TYX
 
-#_08C84A: LDA.w $0C54,X
-#_08C84D: BEQ .not_splashing
+|08C84A| LDA.w $0C54,X
+|08C84D| BEQ .not_splashing
 
-#_08C84F: LDA.b $11
-#_08C851: BNE .only_splash
+|08C84F| LDA.b $11
+|08C851| BNE .only_splash
 
-#_08C853: LDA.w $0C68,X
-#_08C856: BNE .only_splash
+|08C853| LDA.w $0C68,X
+|08C856| BNE .only_splash
 
-#_08C858: LDA.b #$06
-#_08C85A: STA.w $0C68,X
+|08C858| LDA.b #$06
+|08C85A| STA.w $0C68,X
 
-#_08C85D: INC.w $0C5E,X
+|08C85D| INC.w $0C5E,X
 
-#_08C860: LDA.w $0C5E,X
-#_08C863: CMP.b #$05
-#_08C865: BNE .only_splash
+|08C860| LDA.w $0C5E,X
+|08C863| CMP.b #$05
+|08C865| BNE .only_splash
 
-#_08C867: INC.w $0C54,X
-#_08C86A: BRL .finish_up
+|08C867| INC.w $0C54,X
+|08C86A| BRL .finish_up
 
 ;---------------------------------------------------------------------------------------------------
 
 .only_splash
-#_08C86D: JSR AncillaDraw_ObjectSplash
+|08C86D| JSR AncillaDraw_ObjectSplash
 
-#_08C870: BRA .finish_up
+|08C870| BRA .finish_up
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_splashing
-#_08C872: LDA.b $11
-#_08C874: BNE .just_draw
+|08C872| LDA.b $11
+|08C874| BNE .just_draw
 
-#_08C876: LDA.w $0C68,X
-#_08C879: BNE .just_draw
+|08C876| LDA.w $0C68,X
+|08C879| BNE .just_draw
 
-#_08C87B: LDA.w $0294,X
-#_08C87E: SEC
-#_08C87F: SBC.b #$02
-#_08C881: STA.w $0294,X
+|08C87B| LDA.w $0294,X
+|08C87E| SEC
+|08C87F| SBC.b #$02
+|08C881| STA.w $0294,X
 
-#_08C884: JSR AncillaMoveY
-#_08C887: JSR AncillaMoveX
-#_08C88A: JSR AncillaMoveZ
+|08C884| JSR AncillaMoveY
+|08C887| JSR AncillaMoveX
+|08C88A| JSR AncillaMoveZ
 
-#_08C88D: LDA.w $029E,X
-#_08C890: BPL .just_draw
+|08C88D| LDA.w $029E,X
+|08C890| BPL .just_draw
 
-#_08C892: CMP.b #$E4
-#_08C894: BCS .just_draw
+|08C892| CMP.b #$E4
+|08C894| BCS .just_draw
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08C896: LDA.b #$E4
-#_08C898: STA.w $029E,X
+|08C896| LDA.b #$E4
+|08C898| STA.w $029E,X
 
-#_08C89B: LDA.w $0BFA,X
-#_08C89E: CLC
-#_08C89F: ADC.b #$1E
-#_08C8A1: STA.w $0BFA,X
+|08C89B| LDA.w $0BFA,X
+|08C89E| CLC
+|08C89F| ADC.b #$1E
+|08C8A1| STA.w $0BFA,X
 
-#_08C8A4: LDA.w $0C0E,X
-#_08C8A7: ADC.b #$00
-#_08C8A9: STA.w $0C0E,X
+|08C8A4| LDA.w $0C0E,X
+|08C8A7| ADC.b #$00
+|08C8A9| STA.w $0C0E,X
 
-#_08C8AC: LDA.w $0C04,X
-#_08C8AF: CLC
-#_08C8B0: ADC.b #$FC
-#_08C8B2: STA.w $0C04,X
+|08C8AC| LDA.w $0C04,X
+|08C8AF| CLC
+|08C8B0| ADC.b #$FC
+|08C8B2| STA.w $0C04,X
 
-#_08C8B5: LDA.w $0C18,X
-#_08C8B8: ADC.b #$FF
-#_08C8BA: STA.w $0C18,X
+|08C8B5| LDA.w $0C18,X
+|08C8B8| ADC.b #$FF
+|08C8BA| STA.w $0C18,X
 
-#_08C8BD: STZ.w $0C5E,X
+|08C8BD| STZ.w $0C5E,X
 
-#_08C8C0: LDA.b #$06
-#_08C8C2: STA.w $0C68,X
+|08C8C0| LDA.b #$06
+|08C8C2| STA.w $0C68,X
 
-#_08C8C5: LDA.b #$28 ; SFX2.28
-#_08C8C7: JSR Ancilla_SFX2_Pan
+|08C8C5| LDA.b #$28 ; SFX2.28
+|08C8C7| JSR Ancilla_SFX2_Pan
 
-#_08C8CA: INC.w $0C54,X
+|08C8CA| INC.w $0C54,X
 
-#_08C8CD: BRA .only_splash
+|08C8CD| BRA .only_splash
 
 ;---------------------------------------------------------------------------------------------------
 
 .just_draw
-#_08C8CF: LDA.b #$02
-#_08C8D1: STA.w $0BF0,X
+|08C8CF| LDA.b #$02
+|08C8D1| STA.w $0BF0,X
 
-#_08C8D4: LDA.b #$00
-#_08C8D6: STA.w $0C7C,X
+|08C8D4| LDA.b #$00
+|08C8D6| STA.w $0C7C,X
 
-#_08C8D9: JSR AncillaDraw_WishPondItem
+|08C8D9| JSR AncillaDraw_WishPondItem
 
 ;---------------------------------------------------------------------------------------------------
 
 .finish_up
-#_08C8DC: TXY
+|08C8DC| TXY
 
-#_08C8DD: PLX
+|08C8DD| PLX
 
-#_08C8DE: JSR HapinessPondRupees_SaveState
+|08C8DE| JSR HapinessPondRupees_SaveState
 
-#_08C8E1: RTS
+|08C8E1| RTS
 
 ;===================================================================================================
 
 HapinessPondRupees_GetState:
-#_08C8E2: LDA.l $7F5824,X
-#_08C8E6: STA.w $0BFA,Y
+|08C8E2| LDA.l $7F5824,X
+|08C8E6| STA.w $0BFA,Y
 
-#_08C8E9: LDA.l $7F5830,X
-#_08C8ED: STA.w $0C0E,Y
+|08C8E9| LDA.l $7F5830,X
+|08C8ED| STA.w $0C0E,Y
 
-#_08C8F0: LDA.l $7F583C,X
-#_08C8F4: STA.w $0C04,Y
+|08C8F0| LDA.l $7F583C,X
+|08C8F4| STA.w $0C04,Y
 
-#_08C8F7: LDA.l $7F5848,X
-#_08C8FB: STA.w $0C18,Y
+|08C8F7| LDA.l $7F5848,X
+|08C8FB| STA.w $0C18,Y
 
-#_08C8FE: LDA.l $7F5854,X
-#_08C902: STA.w $029E,Y
+|08C8FE| LDA.l $7F5854,X
+|08C902| STA.w $029E,Y
 
-#_08C905: LDA.l $7F5800,X
-#_08C909: STA.w $0C22,Y
+|08C905| LDA.l $7F5800,X
+|08C909| STA.w $0C22,Y
 
-#_08C90C: LDA.l $7F580C,X
-#_08C910: STA.w $0C2C,Y
+|08C90C| LDA.l $7F580C,X
+|08C910| STA.w $0C2C,Y
 
-#_08C913: LDA.l $7F5818,X
-#_08C917: STA.w $0294,Y
+|08C913| LDA.l $7F5818,X
+|08C917| STA.w $0294,Y
 
-#_08C91A: LDA.l $7F5886,X
-#_08C91E: STA.w $0C36,Y
+|08C91A| LDA.l $7F5886,X
+|08C91E| STA.w $0C36,Y
 
-#_08C921: LDA.l $7F5892,X
-#_08C925: STA.w $0C40,Y
+|08C921| LDA.l $7F5892,X
+|08C925| STA.w $0C40,Y
 
-#_08C928: LDA.l $7F589E,X
-#_08C92C: STA.w $02A8,Y
+|08C928| LDA.l $7F589E,X
+|08C92C| STA.w $02A8,Y
 
-#_08C92F: LDA.l $7F587A,X
-#_08C933: STA.w $0C5E,Y
+|08C92F| LDA.l $7F587A,X
+|08C933| STA.w $0C5E,Y
 
-#_08C936: LDA.l $7F58AA,X
-#_08C93A: STA.w $0C54,Y
+|08C936| LDA.l $7F58AA,X
+|08C93A| STA.w $0C54,Y
 
-#_08C93D: LDA.l $7F5860,X
-#_08C941: BEQ .dont_dec
+|08C93D| LDA.l $7F5860,X
+|08C941| BEQ .dont_dec
 
-#_08C943: DEC A
+|08C943| DEC A
 
 .dont_dec
-#_08C944: STA.w $0C68,Y
+|08C944| STA.w $0C68,Y
 
-#_08C947: RTS
+|08C947| RTS
 
 ;===================================================================================================
 
 HapinessPondRupees_SaveState:
-#_08C948: LDA.w $0BFA,Y
-#_08C94B: STA.l $7F5824,X
+|08C948| LDA.w $0BFA,Y
+|08C94B| STA.l $7F5824,X
 
-#_08C94F: LDA.w $0C0E,Y
-#_08C952: STA.l $7F5830,X
+|08C94F| LDA.w $0C0E,Y
+|08C952| STA.l $7F5830,X
 
-#_08C956: LDA.w $0C04,Y
-#_08C959: STA.l $7F583C,X
+|08C956| LDA.w $0C04,Y
+|08C959| STA.l $7F583C,X
 
-#_08C95D: LDA.w $0C18,Y
-#_08C960: STA.l $7F5848,X
+|08C95D| LDA.w $0C18,Y
+|08C960| STA.l $7F5848,X
 
-#_08C964: LDA.w $029E,Y
-#_08C967: STA.l $7F5854,X
+|08C964| LDA.w $029E,Y
+|08C967| STA.l $7F5854,X
 
-#_08C96B: LDA.w $0C22,Y
-#_08C96E: STA.l $7F5800,X
+|08C96B| LDA.w $0C22,Y
+|08C96E| STA.l $7F5800,X
 
-#_08C972: LDA.w $0C2C,Y
-#_08C975: STA.l $7F580C,X
+|08C972| LDA.w $0C2C,Y
+|08C975| STA.l $7F580C,X
 
-#_08C979: LDA.w $0294,Y
-#_08C97C: STA.l $7F5818,X
+|08C979| LDA.w $0294,Y
+|08C97C| STA.l $7F5818,X
 
-#_08C980: LDA.w $0C36,Y
-#_08C983: STA.l $7F5886,X
+|08C980| LDA.w $0C36,Y
+|08C983| STA.l $7F5886,X
 
-#_08C987: LDA.w $0C40,Y
-#_08C98A: STA.l $7F5892,X
+|08C987| LDA.w $0C40,Y
+|08C98A| STA.l $7F5892,X
 
-#_08C98E: LDA.w $02A8,Y
-#_08C991: STA.l $7F589E,X
+|08C98E| LDA.w $02A8,Y
+|08C991| STA.l $7F589E,X
 
-#_08C995: LDA.w $0C5E,Y
-#_08C998: STA.l $7F587A,X
+|08C995| LDA.w $0C5E,Y
+|08C998| STA.l $7F587A,X
 
-#_08C99C: LDA.w $0C68,Y
-#_08C99F: STA.l $7F5860,X
+|08C99C| LDA.w $0C68,Y
+|08C99F| STA.l $7F5860,X
 
-#_08C9A3: LDA.w $0C54,Y
-#_08C9A6: STA.l $7F58AA,X
+|08C9A3| LDA.w $0C54,Y
+|08C9A6| STA.l $7F58AA,X
 
-#_08C9AA: RTS
+|08C9AA| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_ObjectSplash
 
 .char
-#_08C9AB: db $C0, $FF
-#_08C9AD: db $E7, $FF
-#_08C9AF: db $AF, $BF
-#_08C9B1: db $80, $80
-#_08C9B3: db $83, $83
+|08C9AB| db $C0, $FF
+|08C9AD| db $E7, $FF
+|08C9AF| db $AF, $BF
+|08C9B1| db $80, $80
+|08C9B3| db $83, $83
 
 .prop
-#_08C9B5: db $00, $FF
-#_08C9B7: db $00, $FF
-#_08C9B9: db $40, $00
-#_08C9BB: db $40, $00
-#_08C9BD: db $C0, $80
+|08C9B5| db $00, $FF
+|08C9B7| db $00, $FF
+|08C9B9| db $40, $00
+|08C9BB| db $40, $00
+|08C9BD| db $C0, $80
 
 .offset_x
-#_08C9BF: dw   0,   0
-#_08C9C3: dw  -6,   0
-#_08C9C7: dw -13,  -8
-#_08C9CB: dw -17,  -4
-#_08C9CF: dw -17,  -4
+|08C9BF| dw   0,   0
+|08C9C3| dw  -6,   0
+|08C9C7| dw -13,  -8
+|08C9CB| dw -17,  -4
+|08C9CF| dw -17,  -4
 
 .offset_y
-#_08C9D3: dw   0,   0
-#_08C9D7: dw   0,   0
-#_08C9DB: dw  11,  -3
-#_08C9DF: dw  15,  -7
-#_08C9E3: dw  15,  -7
+|08C9D3| dw   0,   0
+|08C9D7| dw   0,   0
+|08C9DB| dw  11,  -3
+|08C9DF| dw  15,  -7
+|08C9E3| dw  15,  -7
 
 .size
-#_08C9E7: db $02, $FF
-#_08C9E9: db $02, $FF
-#_08C9EB: db $00, $00
-#_08C9ED: db $00, $00
-#_08C9EF: db $00, $00
+|08C9E7| db $02, $FF
+|08C9E9| db $02, $FF
+|08C9EB| db $00, $00
+|08C9ED| db $00, $00
+|08C9EF| db $00, $00
 
-pool off
+endpool
 
 ;===================================================================================================
 
 Ancilla_TransmuteToSplash:
-#_08C9F1: LDA.b #$3D ; ANCILLA 3D
-#_08C9F3: STA.w $0C4A,X
+|08C9F1| LDA.b #$3D ; ANCILLA 3D
+|08C9F3| STA.w $0C4A,X
 
-#_08C9F6: STZ.w $0C5E,X
+|08C9F6| STZ.w $0C5E,X
 
-#_08C9F9: LDA.b #$06
-#_08C9FB: STA.w $0C68,X
+|08C9F9| LDA.b #$06
+|08C9FB| STA.w $0C68,X
 
-#_08C9FE: LDA.w $0BFA,X
-#_08CA01: CLC
-#_08CA02: ADC.b #$0C
-#_08CA04: STA.w $0BFA,X
+|08C9FE| LDA.w $0BFA,X
+|08CA01| CLC
+|08CA02| ADC.b #$0C
+|08CA04| STA.w $0BFA,X
 
-#_08CA07: LDA.w $0C0E,X
-#_08CA0A: ADC.b #$00
-#_08CA0C: STA.w $0C0E,X
+|08CA07| LDA.w $0C0E,X
+|08CA0A| ADC.b #$00
+|08CA0C| STA.w $0C0E,X
 
-#_08CA0F: LDA.w $0C04,X
-#_08CA12: CLC
-#_08CA13: ADC.b #$F8
-#_08CA15: STA.w $0C04,X
+|08CA0F| LDA.w $0C04,X
+|08CA12| CLC
+|08CA13| ADC.b #$F8
+|08CA15| STA.w $0C04,X
 
-#_08CA18: LDA.w $0C18,X
-#_08CA1B: ADC.b #$FF
-#_08CA1D: STA.w $0C18,X
+|08CA18| LDA.w $0C18,X
+|08CA1B| ADC.b #$FF
+|08CA1D| STA.w $0C18,X
 
-#_08CA20: LDA.b #$28 ; SFX2.28
-#_08CA22: JSR Ancilla_SFX2_Pan
+|08CA20| LDA.b #$28 ; SFX2.28
+|08CA22| JSR Ancilla_SFX2_Pan
 
 ;===================================================================================================
 
 Ancilla3D_ItemSplash:
-#_08CA25: LDA.b #$08
-#_08CA27: JSR AllocateOAMInRegionsADF
+|08CA25| LDA.b #$08
+|08CA27| JSR AllocateOAMInRegionsADF
 
-#_08CA2A: LDA.b $11
-#_08CA2C: BNE AncillaDraw_ObjectSplash
+|08CA2A| LDA.b $11
+|08CA2C| BNE AncillaDraw_ObjectSplash
 
-#_08CA2E: LDA.w $0C68,X
-#_08CA31: BNE AncillaDraw_ObjectSplash
+|08CA2E| LDA.w $0C68,X
+|08CA31| BNE AncillaDraw_ObjectSplash
 
-#_08CA33: LDA.b #$06
-#_08CA35: STA.w $0C68,X
+|08CA33| LDA.b #$06
+|08CA35| STA.w $0C68,X
 
-#_08CA38: INC.w $0C5E,X
+|08CA38| INC.w $0C5E,X
 
-#_08CA3B: LDA.w $0C5E,X
-#_08CA3E: CMP.b #$05
-#_08CA40: BNE AncillaDraw_ObjectSplash
+|08CA3B| LDA.w $0C5E,X
+|08CA3E| CMP.b #$05
+|08CA40| BNE AncillaDraw_ObjectSplash
 
-#_08CA42: STZ.w $0C4A,X
+|08CA42| STZ.w $0C4A,X
 
-#_08CA45: RTS
+|08CA45| RTS
 
 ;===================================================================================================
 
 AncillaDraw_ObjectSplash:
-#_08CA46: JSR Ancilla_PrepOAMCoord
+|08CA46| JSR Ancilla_PrepOAMCoord
 
-#_08CA49: REP #$20
+|08CA49| REP #$20
 
-#_08CA4B: LDA.b $00
-#_08CA4D: STA.b $04
+|08CA4B| LDA.b $00
+|08CA4D| STA.b $04
 
-#_08CA4F: LDA.b $02
-#_08CA51: STA.b $06
+|08CA4F| LDA.b $02
+|08CA51| STA.b $06
 
-#_08CA53: SEP #$20
+|08CA53| SEP #$20
 
-#_08CA55: PHX
+|08CA55| PHX
 
-#_08CA56: LDY.b #$00
+|08CA56| LDY.b #$00
 
-#_08CA58: STZ.b $0C
+|08CA58| STZ.b $0C
 
-#_08CA5A: LDA.w $0C5E,X
-#_08CA5D: ASL A
-#_08CA5E: TAX
+|08CA5A| LDA.w $0C5E,X
+|08CA5D| ASL A
+|08CA5E| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
 .next
-#_08CA5F: LDA.w .char,X
-#_08CA62: CMP.b #$FF
-#_08CA64: BEQ .skip
+|08CA5F| LDA.w .char,X
+|08CA62| CMP.b #$FF
+|08CA64| BEQ .skip
 
-#_08CA66: PHX
+|08CA66| PHX
 
-#_08CA67: TXA
-#_08CA68: ASL A
-#_08CA69: TAX
+|08CA67| TXA
+|08CA68| ASL A
+|08CA69| TAX
 
-#_08CA6A: REP #$20
+|08CA6A| REP #$20
 
-#_08CA6C: LDA.w .offset_x,X
-#_08CA6F: CLC
-#_08CA70: ADC.b $04
-#_08CA72: STA.b $00
+|08CA6C| LDA.w .offset_x,X
+|08CA6F| CLC
+|08CA70| ADC.b $04
+|08CA72| STA.b $00
 
-#_08CA74: LDA.w .offset_y,X
-#_08CA77: CLC
-#_08CA78: ADC.b $06
-#_08CA7A: STA.b $02
+|08CA74| LDA.w .offset_y,X
+|08CA77| CLC
+|08CA78| ADC.b $06
+|08CA7A| STA.b $02
 
-#_08CA7C: SEP #$20
+|08CA7C| SEP #$20
 
-#_08CA7E: PLX
+|08CA7E| PLX
 
-#_08CA7F: JSR Ancilla_SetOAM_XY
+|08CA7F| JSR Ancilla_SetOAM_XY
 
-#_08CA82: LDA.w .char,X
-#_08CA85: STA.b ($90),Y
+|08CA82| LDA.w .char,X
+|08CA85| STA.b ($90),Y
 
-#_08CA87: INY
+|08CA87| INY
 
-#_08CA88: LDA.w .prop,X
-#_08CA8B: ORA.b #$24
-#_08CA8D: STA.b ($90),Y
+|08CA88| LDA.w .prop,X
+|08CA8B| ORA.b #$24
+|08CA8D| STA.b ($90),Y
 
-#_08CA8F: INY
-#_08CA90: PHY
+|08CA8F| INY
+|08CA90| PHY
 
-#_08CA91: TYA
-#_08CA92: SEC
-#_08CA93: SBC.b #$04
-#_08CA95: LSR A
-#_08CA96: LSR A
-#_08CA97: TAY
+|08CA91| TYA
+|08CA92| SEC
+|08CA93| SBC.b #$04
+|08CA95| LSR A
+|08CA96| LSR A
+|08CA97| TAY
 
-#_08CA98: LDA.w .size,X
-#_08CA9B: STA.b ($92),Y
+|08CA98| LDA.w .size,X
+|08CA9B| STA.b ($92),Y
 
-#_08CA9D: PLY
+|08CA9D| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08CA9E: INX
+|08CA9E| INX
 
-#_08CA9F: INC.b $0C
+|08CA9F| INC.b $0C
 
-#_08CAA1: LDA.b $0C
-#_08CAA3: CMP.b #$02
-#_08CAA5: BNE .next
+|08CAA1| LDA.b $0C
+|08CAA3| CMP.b #$02
+|08CAA5| BNE .next
 
-#_08CAA7: PLX
+|08CAA7| PLX
 
-#_08CAA8: RTS
+|08CAA8| RTS
 
 ;===================================================================================================
 
 MilestoneItemReceiptIDs:
 .ether
-#_08CAA9: db $10 ; ITEMGET 10
+|08CAA9| db $10 ; ITEMGET 10
 
 .green_pendant
-#_08CAAA: db $37 ; ITEMGET 37
+|08CAAA| db $37 ; ITEMGET 37
 
 .blue_pendant
-#_08CAAB: db $39 ; ITEMGET 39
+|08CAAB| db $39 ; ITEMGET 39
 
 .red_pendant
-#_08CAAC: db $38 ; ITEMGET 38
+|08CAAC| db $38 ; ITEMGET 38
 
 .heart_container
-#_08CAAD: db $26 ; ITEMGET 26
+|08CAAD| db $26 ; ITEMGET 26
 
 .bombos
-#_08CAAE: db $0F ; ITEMGET 0F
+|08CAAE| db $0F ; ITEMGET 0F
 
 .crystal
-#_08CAAF: db $20 ; ITEMGET 20
+|08CAAF| db $20 ; ITEMGET 20
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla29_MilestoneItemReceipt:
-#_08CAB0: LDA.w $0C5E,X
-#_08CAB3: CMP.w MilestoneItemReceiptIDs_ether
-#_08CAB6: BEQ .medallion
+|08CAB0| LDA.w $0C5E,X
+|08CAB3| CMP.w MilestoneItemReceiptIDs.ether
+|08CAB6| BEQ .medallion
 
-#_08CAB8: CMP.w MilestoneItemReceiptIDs_bombos
-#_08CABB: BEQ .medallion
+|08CAB8| CMP.w MilestoneItemReceiptIDs.bombos
+|08CABB| BEQ .medallion
 
-#_08CABD: LDA.w $0403
-#_08CAC0: AND.b #$40
-#_08CAC2: BNE .terminate
+|08CABD| LDA.w $0403
+|08CAC0| AND.b #$40
+|08CAC2| BNE .terminate
 
-#_08CAC4: LDA.w $0403
-#_08CAC7: AND.b #$80
-#_08CAC9: BEQ .exit
+|08CAC4| LDA.w $0403
+|08CAC7| AND.b #$80
+|08CAC9| BEQ .exit
 
-#_08CACB: LDA.w $04C2
-#_08CACE: BEQ .time_up
+|08CACB| LDA.w $04C2
+|08CACE| BEQ .time_up
 
-#_08CAD0: CMP.b #$01
-#_08CAD2: BNE .tick_timer
+|08CAD0| CMP.b #$01
+|08CAD2| BNE .tick_timer
 
-#_08CAD4: LDY.b #$23
+|08CAD4| LDY.b #$23
 
-#_08CAD6: LDA.w $0C5E,X
-#_08CAD9: CMP.w MilestoneItemReceiptIDs_crystal
-#_08CADC: BNE .not_crystal
+|08CAD6| LDA.w $0C5E,X
+|08CAD9| CMP.w MilestoneItemReceiptIDs.crystal
+|08CADC| BNE .not_crystal
 
-#_08CADE: LDA.b #$0F ; SFX1.0F
-#_08CAE0: STA.w $012D
+|08CADE| LDA.b #$0F ; SFX1.0F
+|08CAE0| STA.w $012D
 
-#_08CAE3: LDY.b #$28
+|08CAE3| LDY.b #$28
 
 .not_crystal
-#_08CAE5: TYA
-#_08CAE6: STA.b $72
+|08CAE5| TYA
+|08CAE6| STA.b $72
 
-#_08CAE8: PHX
+|08CAE8| PHX
 
-#_08CAE9: JSL WriteTo4BPPBuffer_item_gfx
+|08CAE9| JSL WriteTo4BPPBuffer_item_gfx
 
-#_08CAED: PLX
+|08CAED| PLX
 
 .tick_timer
-#_08CAEE: DEC.w $04C2
+|08CAEE| DEC.w $04C2
 
 .exit
-#_08CAF1: RTS
+|08CAF1| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .terminate
-#_08CAF2: STZ.w $0C4A,X
+|08CAF2| STZ.w $0C4A,X
 
-#_08CAF5: RTS
+|08CAF5| RTS
 
 .medallion
-#_08CAF6: LDA.w $0394,X
-#_08CAF9: BEQ .no_misc_palette
+|08CAF6| LDA.w $0394,X
+|08CAF9| BEQ .no_misc_palette
 
-#_08CAFB: DEC.w $0394,X
+|08CAFB| DEC.w $0394,X
 
-#_08CAFE: RTS
+|08CAFE| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .time_up
-#_08CAFF: LDA.w $039F,X
-#_08CB02: BNE .no_misc_palette
+|08CAFF| LDA.w $039F,X
+|08CB02| BNE .no_misc_palette
 
-#_08CB04: LDA.w $0C5E,X
-#_08CB07: CMP.w MilestoneItemReceiptIDs_crystal
-#_08CB0A: BNE .no_misc_palette
+|08CB04| LDA.w $0C5E,X
+|08CB07| CMP.w MilestoneItemReceiptIDs.crystal
+|08CB0A| BNE .no_misc_palette
 
-#_08CB0C: LDA.b #$01
-#_08CB0E: STA.w $039F,X
+|08CB0C| LDA.b #$01
+|08CB0E| STA.w $039F,X
 
-#_08CB11: PHX
+|08CB11| PHX
 
-#_08CB12: LDA.b #$04
-#_08CB14: STA.w $0AB1
+|08CB12| LDA.b #$04
+|08CB14| STA.w $0AB1
 
-#_08CB17: LDA.b #$02
-#_08CB19: STA.w $0AA9
+|08CB17| LDA.b #$02
+|08CB19| STA.w $0AA9
 
-#_08CB1C: JSL PaletteLoad_SpriteEnvironment_Underworld
+|08CB1C| JSL PaletteLoad_SpriteEnvironment_Underworld
 
-#_08CB20: INC.b $15
+|08CB20| INC.b $15
 
-#_08CB22: PLX
+|08CB22| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_misc_palette
-#_08CB23: LDA.w $0C5E,X
-#_08CB26: CMP.w MilestoneItemReceiptIDs_crystal
-#_08CB29: BNE .no_sparkle
+|08CB23| LDA.w $0C5E,X
+|08CB26| CMP.w MilestoneItemReceiptIDs.crystal
+|08CB29| BNE .no_sparkle
 
-#_08CB2B: JSR AncillaAdd_OccasionalSparkle
+|08CB2B| JSR AncillaAdd_OccasionalSparkle
 
 .no_sparkle
-#_08CB2E: LDA.b $11
-#_08CB30: BNE .just_draw
+|08CB2E| LDA.b $11
+|08CB30| BNE .just_draw
 
-#_08CB32: LDA.w $029E,X
-#_08CB35: CMP.b #$18
-#_08CB37: BCS .no_collision
+|08CB32| LDA.w $029E,X
+|08CB35| CMP.b #$18
+|08CB37| BCS .no_collision
 
-#_08CB39: LDY.b #$02
-#_08CB3B: JSR Ancilla_CheckLinkCollision
-#_08CB3E: BCC .no_collision
+|08CB39| LDY.b #$02
+|08CB3B| JSR Ancilla_CheckLinkCollision
+|08CB3E| BCC .no_collision
 
-#_08CB40: LDA.w $037E
-#_08CB43: BNE .no_collision
+|08CB40| LDA.w $037E
+|08CB43| BNE .no_collision
 
-#_08CB45: LDA.b $4D
-#_08CB47: BNE .no_collision
+|08CB45| LDA.b $4D
+|08CB47| BNE .no_collision
 
-#_08CB49: STZ.w $0C4A,X
+|08CB49| STZ.w $0C4A,X
 
-#_08CB4C: LDA.b $5D
-#_08CB4E: CMP.b #$19 ; LINKSTATE 19
-#_08CB50: BEQ .using_medallion
+|08CB4C| LDA.b $5D
+|08CB4E| CMP.b #$19 ; LINKSTATE 19
+|08CB50| BEQ .using_medallion
 
-#_08CB52: CMP.b #$1A ; LINKSTATE 1A
-#_08CB54: BNE .not_medallion
+|08CB52| CMP.b #$1A ; LINKSTATE 1A
+|08CB54| BNE .not_medallion
 
 .using_medallion
-#_08CB56: STZ.w $0112
-#_08CB59: STZ.w $03EF
+|08CB56| STZ.w $0112
+|08CB59| STZ.w $03EF
 
-#_08CB5C: LDA.b #$00 ; LINKSTATE 00
-#_08CB5E: STA.b $5D
+|08CB5C| LDA.b #$00 ; LINKSTATE 00
+|08CB5E| STA.b $5D
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_medallion
-#_08CB60: LDA.b #$03
-#_08CB62: STA.w $02E9
+|08CB60| LDA.b #$03
+|08CB62| STA.w $02E9
 
-#_08CB65: PHX
+|08CB65| PHX
 
-#_08CB66: LDA.w $0C5E,X
-#_08CB69: TAY
+|08CB66| LDA.w $0C5E,X
+|08CB69| TAY
 
-#_08CB6A: JSL GrantItemReceipt
+|08CB6A| JSL GrantItemReceipt
 
-#_08CB6E: PLX
+|08CB6E| PLX
 
-#_08CB6F: RTS
+|08CB6F| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_collision
-#_08CB70: LDA.w $0C54,X
-#_08CB73: BEQ .not_grounded
+|08CB70| LDA.w $0C54,X
+|08CB73| BEQ .not_grounded
 
-#_08CB75: CMP.b #$02
-#_08CB77: BEQ .just_draw
+|08CB75| CMP.b #$02
+|08CB77| BEQ .just_draw
 
-#_08CB79: LDA.w $0294,X
-#_08CB7C: SEC
-#_08CB7D: SBC.b #$01
-#_08CB7F: STA.w $0294,X
+|08CB79| LDA.w $0294,X
+|08CB7C| SEC
+|08CB7D| SBC.b #$01
+|08CB7F| STA.w $0294,X
 
 .not_grounded
-#_08CB82: JSR AncillaMoveZ
+|08CB82| JSR AncillaMoveZ
 
-#_08CB85: LDA.w $029E,X
-#_08CB88: CMP.b #$F8
-#_08CB8A: BCC .just_draw
+|08CB85| LDA.w $029E,X
+|08CB88| CMP.b #$F8
+|08CB8A| BCC .just_draw
 
-#_08CB8C: INC.w $0C54,X
+|08CB8C| INC.w $0C54,X
 
-#_08CB8F: LDA.b #$18
-#_08CB91: STA.w $0294,X
+|08CB8F| LDA.b #$18
+|08CB91| STA.w $0294,X
 
-#_08CB94: STZ.w $029E,X
+|08CB94| STZ.w $029E,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .just_draw
-#_08CB97: JSR Ancilla_PrepOAMCoord_adjusted
+|08CB97| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08CB9A: REP #$20
+|08CB9A| REP #$20
 
-#_08CB9C: LDA.w $029E,X
-#_08CB9F: AND.w #$00FF
-#_08CBA2: STA.b $72
+|08CB9C| LDA.w $029E,X
+|08CB9F| AND.w #$00FF
+|08CBA2| STA.b $72
 
-#_08CBA4: LDA.b $00
-#_08CBA6: STA.b $06
+|08CBA4| LDA.b $00
+|08CBA6| STA.b $06
 
-#_08CBA8: SEC
-#_08CBA9: SBC.b $72
-#_08CBAB: STA.b $00
+|08CBA8| SEC
+|08CBA9| SBC.b $72
+|08CBAB| STA.b $00
 
-#_08CBAD: SEP #$20
+|08CBAD| SEP #$20
 
-#_08CBAF: JSR AncillaDraw_ItemReceipt
+|08CBAF| JSR AncillaDraw_ItemReceipt
 
-#_08CBB2: PHX
+|08CBB2| PHX
 
-#_08CBB3: DEC.w $03B1,X
-#_08CBB6: BPL .delay_ripple
+|08CBB3| DEC.w $03B1,X
+|08CBB6| BPL .delay_ripple
 
-#_08CBB8: LDA.b #$09
-#_08CBBA: STA.w $03B1,X
+|08CBB8| LDA.b #$09
+|08CBBA| STA.w $03B1,X
 
-#_08CBBD: INC.w $0385,X
+|08CBBD| INC.w $0385,X
 
-#_08CBC0: LDA.w $0385,X
-#_08CBC3: CMP.b #$03
-#_08CBC5: BNE .delay_ripple
+|08CBC0| LDA.w $0385,X
+|08CBC3| CMP.b #$03
+|08CBC5| BNE .delay_ripple
 
-#_08CBC7: STZ.w $0385,X
+|08CBC7| STZ.w $0385,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay_ripple
-#_08CBCA: LDA.w $0385,X
-#_08CBCD: STA.b $72
+|08CBCA| LDA.w $0385,X
+|08CBCD| STA.b $72
 
-#_08CBCF: LDA.w $029E,X
-#_08CBD2: CMP.b #$00
-#_08CBD4: BNE .airborne
+|08CBCF| LDA.w $029E,X
+|08CBD2| CMP.b #$00
+|08CBD4| BNE .airborne
 
-#_08CBD6: LDX.b #$00
+|08CBD6| LDX.b #$00
 
-#_08CBD8: LDA.b $A0
-#_08CBDA: CMP.b #$06 ; ROOM 0006
-#_08CBDC: BNE .no_water_draw
+|08CBD8| LDA.b $A0
+|08CBDA| CMP.b #$06 ; ROOM 0006
+|08CBDC| BNE .no_water_draw
 
-#_08CBDE: LDA.b $A1
-#_08CBE0: CMP.b #$00
-#_08CBE2: BNE .no_water_draw
+|08CBDE| LDA.b $A1
+|08CBE0| CMP.b #$00
+|08CBE2| BNE .no_water_draw
 
-#_08CBE4: LDA.b $72
-#_08CBE6: CLC
-#_08CBE7: ADC.b #$04
-#_08CBE9: TAX
+|08CBE4| LDA.b $72
+|08CBE6| CLC
+|08CBE7| ADC.b #$04
+|08CBE9| TAX
 
-#_08CBEA: BRA .no_water_draw
+|08CBEA| BRA .no_water_draw
 
 .airborne
-#_08CBEC: LDX.b #$01
+|08CBEC| LDX.b #$01
 
-#_08CBEE: CMP.b #$20
-#_08CBF0: BCC .no_water_draw
+|08CBEE| CMP.b #$20
+|08CBF0| BCC .no_water_draw
 
-#_08CBF2: INX
+|08CBF2| INX
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_water_draw
-#_08CBF3: REP #$20
+|08CBF3| REP #$20
 
-#_08CBF5: LDA.b $06
-#_08CBF7: CLC
-#_08CBF8: ADC.w #$000C
-#_08CBFB: STA.b $00
+|08CBF5| LDA.b $06
+|08CBF7| CLC
+|08CBF8| ADC.w #$000C
+|08CBFB| STA.b $00
 
-#_08CBFD: SEP #$20
+|08CBFD| SEP #$20
 
-#_08CBFF: LDA.b #$20
-#_08CC01: STA.b $04
+|08CBFF| LDA.b #$20
+|08CC01| STA.b $04
 
-#_08CC03: JSR AncillaDraw_Shadow
+|08CC03| JSR AncillaDraw_Shadow
 
-#_08CC06: PLX
+|08CC06| PLX
 
-#_08CC07: RTS
+|08CC07| RTS
 
 ;===================================================================================================
 
 ItemReceipt_TransmuteToRisingCrystal:
-#_08CC08: LDA.b #$3E ; ANCILLA 3E
-#_08CC0A: STA.w $0C4A,X
+|08CC08| LDA.b #$3E ; ANCILLA 3E
+|08CC0A| STA.w $0C4A,X
 
-#_08CC0D: STZ.w $0C22,X
-#_08CC10: STZ.w $0C2C,X
-#_08CC13: STZ.w $0C36,X
+|08CC0D| STZ.w $0C22,X
+|08CC10| STZ.w $0C2C,X
+|08CC13| STZ.w $0C36,X
 
 ;===================================================================================================
 
 Ancilla3E_RisingCrystal:
-#_08CC16: STZ.w $029E,X
+|08CC16| STZ.w $029E,X
 
-#_08CC19: JSR AncillaAdd_OccasionalSparkle
+|08CC19| JSR AncillaAdd_OccasionalSparkle
 
-#_08CC1C: LDA.w $0C22,X
-#_08CC1F: CLC
-#_08CC20: ADC.b #$FF
-#_08CC22: CMP.b #$F0
-#_08CC24: BCS .positive
+|08CC1C| LDA.w $0C22,X
+|08CC1F| CLC
+|08CC20| ADC.b #$FF
+|08CC22| CMP.b #$F0
+|08CC24| BCS .positive
 
-#_08CC26: LDA.b #$F0
+|08CC26| LDA.b #$F0
 
 .positive
-#_08CC28: STA.w $0C22,X
+|08CC28| STA.w $0C22,X
 
-#_08CC2B: JSR AncillaMoveY
+|08CC2B| JSR AncillaMoveY
 
-#_08CC2E: LDA.w $0BFA,X
-#_08CC31: STA.b $00
+|08CC2E| LDA.w $0BFA,X
+|08CC31| STA.b $00
 
-#_08CC33: LDA.w $0C0E,X
-#_08CC36: STA.b $01
+|08CC33| LDA.w $0C0E,X
+|08CC36| STA.b $01
 
-#_08CC38: REP #$20
+|08CC38| REP #$20
 
-#_08CC3A: LDA.b $00
-#_08CC3C: SEC
-#_08CC3D: SBC.w $0122
-#_08CC40: CMP.w #$0049
-#_08CC43: BCS .not_in_position
+|08CC3A| LDA.b $00
+|08CC3C| SEC
+|08CC3D| SBC.w $0122
+|08CC40| CMP.w #$0049
+|08CC43| BCS .not_in_position
 
-#_08CC45: LDA.w #$0049
-#_08CC48: CLC
-#_08CC49: ADC.w $0122
-#_08CC4C: STA.b $00
-
-;---------------------------------------------------------------------------------------------------
-
-#_08CC4E: SEP #$20
-
-#_08CC50: LDA.b $00
-#_08CC52: STA.w $0BFA,X
-
-#_08CC55: LDA.b $01
-#_08CC57: STA.w $0C0E,X
-
-#_08CC5A: LDA.b $11
-#_08CC5C: BNE .not_in_position
-
-#_08CC5E: PHX
-
-#_08CC5F: LDA.w $040C
-#_08CC62: LSR A
-#_08CC63: TAX
-
-#_08CC64: LDA.l $7EF37A
-#_08CC68: ORA.l RoomTagPrizeChecks,X
-#_08CC6C: STA.l $7EF37A
-
-#_08CC70: LDA.b #$18
-#_08CC72: STA.b $11
-#_08CC74: STZ.b $B0
+|08CC45| LDA.w #$0049
+|08CC48| CLC
+|08CC49| ADC.w $0122
+|08CC4C| STA.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08CC76: REP #$20
+|08CC4E| SEP #$20
 
-#_08CC78: LDX.b #$00
+|08CC50| LDA.b $00
+|08CC52| STA.w $0BFA,X
 
-#_08CC7A: LDA.w #$0000 ; RGB: #000000
+|08CC55| LDA.b $01
+|08CC57| STA.w $0C0E,X
+
+|08CC5A| LDA.b $11
+|08CC5C| BNE .not_in_position
+
+|08CC5E| PHX
+
+|08CC5F| LDA.w $040C
+|08CC62| LSR A
+|08CC63| TAX
+
+|08CC64| LDA.l $7EF37A
+|08CC68| ORA.l RoomTagPrizeChecks,X
+|08CC6C| STA.l $7EF37A
+
+|08CC70| LDA.b #$18
+|08CC72| STA.b $11
+|08CC74| STZ.b $B0
+
+;---------------------------------------------------------------------------------------------------
+
+|08CC76| REP #$20
+
+|08CC78| LDX.b #$00
+
+|08CC7A| LDA.w #$0000 ; RGB: #000000
 
 .next_color
-#_08CC7D: STA.l $7EC340,X
-#_08CC81: STA.l $7EC360,X
-#_08CC85: STA.l $7EC380,X
-#_08CC89: STA.l $7EC3A0,X
-#_08CC8D: STA.l $7EC3C0,X
-#_08CC91: STA.l $7EC3E0,X
+|08CC7D| STA.l $7EC340,X
+|08CC81| STA.l $7EC360,X
+|08CC85| STA.l $7EC380,X
+|08CC89| STA.l $7EC3A0,X
+|08CC8D| STA.l $7EC3C0,X
+|08CC91| STA.l $7EC3E0,X
 
-#_08CC95: INX
-#_08CC96: INX
-#_08CC97: CPX.b #$20
-#_08CC99: BNE .next_color
+|08CC95| INX
+|08CC96| INX
+|08CC97| CPX.b #$20
+|08CC99| BNE .next_color
 
-#_08CC9B: STA.l $7EC007
-#_08CC9F: STA.l $7EC009
+|08CC9B| STA.l $7EC007
+|08CC9F| STA.l $7EC009
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08CCA3: SEP #$20
+|08CCA3| SEP #$20
 
-#_08CCA5: PLX
+|08CCA5| PLX
 
 .not_in_position
-#_08CCA6: SEP #$20
+|08CCA6| SEP #$20
 
-#_08CCA8: JSR Ancilla_PrepOAMCoord_adjusted
+|08CCA8| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08CCAB: REP #$20
+|08CCAB| REP #$20
 
-#_08CCAD: LDA.b $00
-#_08CCAF: STA.b $06
+|08CCAD| LDA.b $00
+|08CCAF| STA.b $06
 
-#_08CCB1: SEP #$20
+|08CCB1| SEP #$20
 
-#_08CCB3: JSR AncillaDraw_ItemReceipt
+|08CCB3| JSR AncillaDraw_ItemReceipt
 
-#_08CCB6: RTS
+|08CCB6| RTS
 
 ;===================================================================================================
 
 AncillaAdd_OccasionalSparkle:
-#_08CCB7: LDA.b $1A
-#_08CCB9: AND.b #$07
-#_08CCBB: BNE .exit
+|08CCB7| LDA.b $1A
+|08CCB9| AND.b #$07
+|08CCBB| BNE .exit
 
-#_08CCBD: PHX
+|08CCBD| PHX
 
-#_08CCBE: JSL AncillaAdd_SwordChargeSparkle
+|08CCBE| JSL AncillaAdd_SwordChargeSparkle
 
-#_08CCC2: PLX
+|08CCC2| PLX
 
 .exit
-#_08CCC3: RTS
+|08CCC3| RTS
 
 ;===================================================================================================
 
 Ancilla43_GanonsTowerCutscene:
-#_08CCC4: LDA.w $0C54,X
-#_08CCC7: BNE .not_first_state
+|08CCC4| LDA.w $0C54,X
+|08CCC7| BNE .not_first_state
 
-#_08CCC9: LDA.w $0C22,X
-#_08CCCC: CLC
-#_08CCCD: ADC.b #$FF
-#_08CCCF: CMP.b #$F0
-#_08CCD1: BCS .not_max_crystal_speed
+|08CCC9| LDA.w $0C22,X
+|08CCCC| CLC
+|08CCCD| ADC.b #$FF
+|08CCCF| CMP.b #$F0
+|08CCD1| BCS .not_max_crystal_speed
 
-#_08CCD3: LDA.b #$F0
+|08CCD3| LDA.b #$F0
 
 .not_max_crystal_speed
-#_08CCD5: STA.w $0C22,X
+|08CCD5| STA.w $0C22,X
 
-#_08CCD8: JSR AncillaMoveY
+|08CCD8| JSR AncillaMoveY
 
-#_08CCDB: LDA.w $0BFA,X
-#_08CCDE: STA.b $00
+|08CCDB| LDA.w $0BFA,X
+|08CCDE| STA.b $00
 
-#_08CCE0: LDA.w $0C0E,X
-#_08CCE3: STA.b $01
+|08CCE0| LDA.w $0C0E,X
+|08CCE3| STA.b $01
 
-#_08CCE5: LDA.w $0C04,X
-#_08CCE8: STA.b $02
+|08CCE5| LDA.w $0C04,X
+|08CCE8| STA.b $02
 
-#_08CCEA: LDA.w $0C18,X
-#_08CCED: STA.b $03
+|08CCEA| LDA.w $0C18,X
+|08CCED| STA.b $03
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08CCEF: REP #$20
+|08CCEF| REP #$20
 
-#_08CCF1: LDA.b $00
-#_08CCF3: SEC
-#_08CCF4: SBC.w $0122
+|08CCF1| LDA.b $00
+|08CCF3| SEC
+|08CCF4| SBC.w $0122
 
-#_08CCF7: CMP.w #$0038
-#_08CCFA: BCS .crystals_not_together
+|08CCF7| CMP.w #$0038
+|08CCFA| BCS .crystals_not_together
 
-#_08CCFC: LDA.w #$0038
-#_08CCFF: CLC
-#_08CD00: ADC.w $0122
-#_08CD03: STA.b $00
+|08CCFC| LDA.w #$0038
+|08CCFF| CLC
+|08CD00| ADC.w $0122
+|08CD03| STA.b $00
 
-#_08CD05: CLC
-#_08CD06: ADC.w #$0008
-#_08CD09: STA.l $7F5810
+|08CD05| CLC
+|08CD06| ADC.w #$0008
+|08CD09| STA.l $7F5810
 
-#_08CD0D: LDA.b $02
-#_08CD0F: CLC
-#_08CD10: ADC.w #$0008
-#_08CD13: STA.l $7F580E
+|08CD0D| LDA.b $02
+|08CD0F| CLC
+|08CD10| ADC.w #$0008
+|08CD13| STA.l $7F580E
 
-#_08CD17: SEP #$20
+|08CD17| SEP #$20
 
-#_08CD19: LDA.b $00
-#_08CD1B: STA.w $0BFA,X
+|08CD19| LDA.b $00
+|08CD1B| STA.w $0BFA,X
 
-#_08CD1E: LDA.b $01
-#_08CD20: STA.w $0C0E,X
+|08CD1E| LDA.b $01
+|08CD20| STA.w $0C0E,X
 
-#_08CD23: INC.w $0C54,X
+|08CD23| INC.w $0C54,X
 
-#_08CD26: LDA.b #$05 ; SFX1.05
-#_08CD28: STA.w $012D
+|08CD26| LDA.b #$05 ; SFX1.05
+|08CD28| STA.w $012D
 
-#_08CD2B: LDA.b #$F1 ; SONG F1 - fade
-#_08CD2D: STA.w $012C
+|08CD2B| LDA.b #$F1 ; SONG F1 - fade
+|08CD2D| STA.w $012C
 
-#_08CD30: REP #$20
+|08CD30| REP #$20
 
-#_08CD32: LDA.w #$0139 ; MESSAGE 0139
-#_08CD35: STA.w $1CF0
+|08CD32| LDA.w #$0139 ; MESSAGE 0139
+|08CD35| STA.w $1CF0
 
-#_08CD38: SEP #$20
+|08CD38| SEP #$20
 
-#_08CD3A: JSL PrepAndDisplayMessage
+|08CD3A| JSL PrepAndDisplayMessage
 
-#_08CD3E: BRA .draw_single_crystal_prep
+|08CD3E| BRA .draw_single_crystal_prep
 
 ;---------------------------------------------------------------------------------------------------
 
 .crystals_not_together
-#_08CD40: SEP #$20
+|08CD40| SEP #$20
 
 .not_first_state
-#_08CD42: LDA.w $0C54,X
-#_08CD45: CMP.b #$01
-#_08CD47: BNE .not_expansive
+|08CD42| LDA.w $0C54,X
+|08CD45| CMP.b #$01
+|08CD47| BNE .not_expansive
 
-#_08CD49: LDA.b $11
-#_08CD4B: BNE .not_expansive
+|08CD49| LDA.b $11
+|08CD4B| BNE .not_expansive
 
-#_08CD4D: LDA.b #$10
-#_08CD4F: STA.w $0C2C,X
+|08CD4D| LDA.b #$10
+|08CD4F| STA.w $0C2C,X
 
-#_08CD52: LDA.w $0C04,X
-#_08CD55: STA.b $72
+|08CD52| LDA.w $0C04,X
+|08CD55| STA.b $72
 
-#_08CD57: LDA.w $0C18,X
-#_08CD5A: STA.b $73
+|08CD57| LDA.w $0C18,X
+|08CD5A| STA.b $73
 
-#_08CD5C: LDA.l $7F5808
-#_08CD60: STA.w $0C04,X
+|08CD5C| LDA.l $7F5808
+|08CD60| STA.w $0C04,X
 
-#_08CD63: STZ.w $0C18,X
+|08CD63| STZ.w $0C18,X
 
-#_08CD66: JSR AncillaMoveX
+|08CD66| JSR AncillaMoveX
 
-#_08CD69: LDA.w $0C04,X
-#_08CD6C: STA.l $7F5808
+|08CD69| LDA.w $0C04,X
+|08CD6C| STA.l $7F5808
 
-#_08CD70: LDA.b $72
-#_08CD72: STA.w $0C04,X
+|08CD70| LDA.b $72
+|08CD72| STA.w $0C04,X
 
-#_08CD75: LDA.b $73
-#_08CD77: STA.w $0C18,X
+|08CD75| LDA.b $73
+|08CD77| STA.w $0C18,X
 
-#_08CD7A: LDA.l $7F5808
-#_08CD7E: CMP.b #$30
-#_08CD80: BCC .not_expansive
+|08CD7A| LDA.l $7F5808
+|08CD7E| CMP.b #$30
+|08CD80| BCC .not_expansive
 
-#_08CD82: LDA.b #$30
-#_08CD84: STA.l $7F5808
+|08CD82| LDA.b #$30
+|08CD84| STA.l $7F5808
 
-#_08CD88: INC.w $0C54,X
+|08CD88| INC.w $0C54,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_expansive
-#_08CD8B: LDA.b $11
-#_08CD8D: BNE GTCutscene_AnimateCrystals
+|08CD8B| LDA.b $11
+|08CD8D| BNE GTCutscene_AnimateCrystals
 
-#_08CD8F: LDA.w $0C54,X
-#_08CD92: BNE .draw_multiple
+|08CD8F| LDA.w $0C54,X
+|08CD92| BNE .draw_multiple
 
 ;---------------------------------------------------------------------------------------------------
 
 .draw_single_crystal_prep
-#_08CD94: LDY.b #$00
+|08CD94| LDY.b #$00
 
-#_08CD96: BRL GTCutscene_DrawSingleCrystal
+|08CD96| BRL GTCutscene_DrawSingleCrystal
 
 ;---------------------------------------------------------------------------------------------------
 
 .draw_multiple
-#_08CD99: CMP.b #$01
-#_08CD9B: BEQ GTCutscene_AnimateCrystals
+|08CD99| CMP.b #$01
+|08CD9B| BEQ GTCutscene_AnimateCrystals
 
-#_08CD9D: CMP.b #$03
-#_08CD9F: BEQ .final_rotation
+|08CD9D| CMP.b #$03
+|08CD9F| BEQ .final_rotation
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08CDA1: LDA.l $7F5812
-#_08CDA5: DEC A
-#_08CDA6: STA.l $7F5812
+|08CDA1| LDA.l $7F5812
+|08CDA5| DEC A
+|08CDA6| STA.l $7F5812
 
-#_08CDAA: BNE GTCutscene_AnimateCrystals
+|08CDAA| BNE GTCutscene_AnimateCrystals
 
-#_08CDAC: LDA.b #$05
-#_08CDAE: STA.w $04C6
+|08CDAC| LDA.b #$05
+|08CDAE| STA.w $04C6
 
-#_08CDB1: STZ.b $B0
-#_08CDB3: STZ.b $C8
+|08CDB1| STZ.b $B0
+|08CDB3| STZ.b $C8
 
-#_08CDB5: INC.w $0C54,X
+|08CDB5| INC.w $0C54,X
 
-#_08CDB8: BRA GTCutscene_AnimateCrystals
+|08CDB8| BRA GTCutscene_AnimateCrystals
 
 ;---------------------------------------------------------------------------------------------------
 
 .final_rotation
-#_08CDBA: LDA.b #$30
-#_08CDBC: STA.w $0C2C,X
+|08CDBA| LDA.b #$30
+|08CDBC| STA.w $0C2C,X
 
-#_08CDBF: LDA.w $0C04,X
-#_08CDC2: STA.b $72
+|08CDBF| LDA.w $0C04,X
+|08CDC2| STA.b $72
 
-#_08CDC4: LDA.w $0C18,X
-#_08CDC7: STA.b $73
+|08CDC4| LDA.w $0C18,X
+|08CDC7| STA.b $73
 
-#_08CDC9: LDA.l $7F5808
-#_08CDCD: STA.w $0C04,X
+|08CDC9| LDA.l $7F5808
+|08CDCD| STA.w $0C04,X
 
-#_08CDD0: STZ.w $0C18,X
+|08CDD0| STZ.w $0C18,X
 
-#_08CDD3: JSR AncillaMoveX
+|08CDD3| JSR AncillaMoveX
 
-#_08CDD6: LDA.w $0C04,X
-#_08CDD9: STA.l $7F5808
+|08CDD6| LDA.w $0C04,X
+|08CDD9| STA.l $7F5808
 
-#_08CDDD: LDA.b $72
-#_08CDDF: STA.w $0C04,X
+|08CDDD| LDA.b $72
+|08CDDF| STA.w $0C04,X
 
-#_08CDE2: LDA.b $73
-#_08CDE4: STA.w $0C18,X
+|08CDE2| LDA.b $73
+|08CDE4| STA.w $0C18,X
 
-#_08CDE7: LDA.l $7F5808
-#_08CDEB: CMP.b #$F0
-#_08CDED: BCC GTCutscene_AnimateCrystals
+|08CDE7| LDA.l $7F5808
+|08CDEB| CMP.b #$F0
+|08CDED| BCC GTCutscene_AnimateCrystals
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08CDEF: PHX
+|08CDEF| PHX
 
-#_08CDF0: LDA.b #$00
-#_08CDF2: STA.w $0AB1
+|08CDF0| LDA.b #$00
+|08CDF2| STA.w $0AB1
 
-#_08CDF5: LDA.b #$02
-#_08CDF7: STA.w $0AA9
+|08CDF5| LDA.b #$02
+|08CDF7| STA.w $0AA9
 
-#_08CDFA: JSL PaletteLoad_SpriteEnvironment_Underworld
+|08CDFA| JSL PaletteLoad_SpriteEnvironment_Underworld
 
-#_08CDFE: INC.b $15
+|08CDFE| INC.b $15
 
-#_08CE00: PLX
+|08CE00| PLX
 
-#_08CE01: STZ.w $0C4A,X
+|08CE01| STZ.w $0C4A,X
 
-#_08CE04: RTS
+|08CE04| RTS
 
 ;===================================================================================================
 
 GTCutscene_AnimateCrystals:
-#_08CE05: LDY.b #$00
+|08CE05| LDY.b #$00
 
-#_08CE07: LDA.w $0C54,X
-#_08CE0A: STA.b $72
+|08CE07| LDA.w $0C54,X
+|08CE0A| STA.b $72
 
-#_08CE0C: BEQ .sparkle_a_not
+|08CE0C| BEQ .sparkle_a_not
 
-#_08CE0E: JSR GTCutscene_SparkleALot
+|08CE0E| JSR GTCutscene_SparkleALot
 
 .sparkle_a_not
-#_08CE11: LDX.b #$06
+|08CE11| LDX.b #$06
 
 .next_crystal
-#_08CE13: LDA.b $11
-#_08CE15: BNE .no_rotate
+|08CE13| LDA.b $11
+|08CE15| BNE .no_rotate
 
-#_08CE17: LDA.b $72
-#_08CE19: CMP.b #$01
-#_08CE1B: BEQ .no_rotate
+|08CE17| LDA.b $72
+|08CE19| CMP.b #$01
+|08CE1B| BEQ .no_rotate
 
-#_08CE1D: LDA.b $1A
-#_08CE1F: AND.b #$01
-#_08CE21: BNE .no_rotate
+|08CE1D| LDA.b $1A
+|08CE1F| AND.b #$01
+|08CE21| BNE .no_rotate
 
-#_08CE23: LDA.l $7F5800,X
-#_08CE27: INC A
-#_08CE28: AND.b #$3F
-#_08CE2A: STA.l $7F5800,X
+|08CE23| LDA.l $7F5800,X
+|08CE27| INC A
+|08CE28| AND.b #$3F
+|08CE2A| STA.l $7F5800,X
 
 .no_rotate
-#_08CE2E: LDA.l $7F5808
-#_08CE32: STA.b $08
+|08CE2E| LDA.l $7F5808
+|08CE32| STA.b $08
 
-#_08CE34: LDA.l $7F5800,X
+|08CE34| LDA.l $7F5800,X
 
-#_08CE38: JSR Ancilla_GetRadialProjection
+|08CE38| JSR Ancilla_GetRadialProjection
 
-#_08CE3B: REP #$20
+|08CE3B| REP #$20
 
-#_08CE3D: PHY
+|08CE3D| PHY
 
-#_08CE3E: LDA.b $00
-#_08CE40: LDY.b $02
-#_08CE42: BEQ .positive_y
+|08CE3E| LDA.b $00
+|08CE40| LDY.b $02
+|08CE42| BEQ .positive_y
 
-#_08CE44: EOR.w #$FFFF
-#_08CE47: INC A
+|08CE44| EOR.w #$FFFF
+|08CE47| INC A
 
 .positive_y
-#_08CE48: CLC
-#_08CE49: ADC.l $7F5810
-#_08CE4D: CLC
-#_08CE4E: ADC.w #$FFF8
-#_08CE51: SEC
-#_08CE52: SBC.w $0122
-#_08CE55: STA.b $00
+|08CE48| CLC
+|08CE49| ADC.l $7F5810
+|08CE4D| CLC
+|08CE4E| ADC.w #$FFF8
+|08CE51| SEC
+|08CE52| SBC.w $0122
+|08CE55| STA.b $00
 
-#_08CE57: LDA.b $04
+|08CE57| LDA.b $04
 
-#_08CE59: LDY.b $06
-#_08CE5B: BEQ .positive_x
+|08CE59| LDY.b $06
+|08CE5B| BEQ .positive_x
 
-#_08CE5D: EOR.w #$FFFF
-#_08CE60: INC A
+|08CE5D| EOR.w #$FFFF
+|08CE60| INC A
 
 .positive_x
-#_08CE61: CLC
-#_08CE62: ADC.l $7F580E
-#_08CE66: CLC
-#_08CE67: ADC.w #$FFF8
-#_08CE6A: SEC
-#_08CE6B: SBC.w $011E
-#_08CE6E: STA.b $02
+|08CE61| CLC
+|08CE62| ADC.l $7F580E
+|08CE66| CLC
+|08CE67| ADC.w #$FFF8
+|08CE6A| SEC
+|08CE6B| SBC.w $011E
+|08CE6E| STA.b $02
 
-#_08CE70: PLY
+|08CE70| PLY
 
-#_08CE71: SEP #$20
+|08CE71| SEP #$20
 
-#_08CE73: LDA.b $00
-#_08CE75: STA.l $7F5817,X
+|08CE73| LDA.b $00
+|08CE75| STA.l $7F5817,X
 
-#_08CE79: LDA.b $01
-#_08CE7B: STA.l $7F581F,X
+|08CE79| LDA.b $01
+|08CE7B| STA.l $7F581F,X
 
-#_08CE7F: LDA.b $02
-#_08CE81: STA.l $7F5827,X
+|08CE7F| LDA.b $02
+|08CE81| STA.l $7F5827,X
 
-#_08CE85: LDA.b $03
-#_08CE87: STA.l $7F582F,X
+|08CE85| LDA.b $03
+|08CE87| STA.l $7F582F,X
 
-#_08CE8B: PHX
+|08CE8B| PHX
 
-#_08CE8C: JSR AncillaDraw_GTCutsceneCrystal
+|08CE8C| JSR AncillaDraw_GTCutsceneCrystal
 
-#_08CE8F: PLX
-#_08CE90: DEX
+|08CE8F| PLX
+|08CE90| DEX
 
-#_08CE91: BPL .next_crystal
+|08CE91| BPL .next_crystal
 
 ;===================================================================================================
 
 GTCutscene_DrawSingleCrystal:
-#_08CE93: LDX.w $0FA0
+|08CE93| LDX.w $0FA0
 
-#_08CE96: PHY
-#_08CE97: JSR Ancilla_PrepOAMCoord_adjusted
-#_08CE9A: PLY
+|08CE96| PHY
+|08CE97| JSR Ancilla_PrepOAMCoord.adjusted
+|08CE9A| PLY
 
-#_08CE9B: LDA.b $00
-#_08CE9D: STA.l $7F581E
+|08CE9B| LDA.b $00
+|08CE9D| STA.l $7F581E
 
-#_08CEA1: LDA.b $01
-#_08CEA3: STA.l $7F5826
+|08CEA1| LDA.b $01
+|08CEA3| STA.l $7F5826
 
-#_08CEA7: LDA.b $02
-#_08CEA9: STA.l $7F582E
+|08CEA7| LDA.b $02
+|08CEA9| STA.l $7F582E
 
-#_08CEAD: LDA.b $03
-#_08CEAF: STA.l $7F5836
+|08CEAD| LDA.b $03
+|08CEAF| STA.l $7F5836
 
-#_08CEB3: JSR AncillaDraw_GTCutsceneCrystal
+|08CEB3| JSR AncillaDraw_GTCutsceneCrystal
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08CEB6: LDX.w $0FA0
+|08CEB6| LDX.w $0FA0
 
-#_08CEB9: LDA.w $0C54,X
-#_08CEBC: BNE .skip_sparkle
+|08CEB9| LDA.w $0C54,X
+|08CEBC| BNE .skip_sparkle
 
-#_08CEBE: JSR AncillaAdd_OccasionalSparkle
+|08CEBE| JSR AncillaAdd_OccasionalSparkle
 
-#_08CEC1: BRA .exit
+|08CEC1| BRA .exit
 
 .skip_sparkle
-#_08CEC3: LDA.b $11
-#_08CEC5: BNE .exit
+|08CEC3| LDA.b $11
+|08CEC5| BNE .exit
 
-#_08CEC7: JSR GTCutscene_ActivateSparkle
+|08CEC7| JSR GTCutscene_ActivateSparkle
 
-#_08CECA: LDX.w $0FA0
+|08CECA| LDX.w $0FA0
 
 .exit
-#_08CECD: RTS
+|08CECD| RTS
 
 ;===================================================================================================
 
 AncillaDraw_GTCutsceneCrystal:
-#_08CECE: JSR Ancilla_SetOAM_XY_safe
+|08CECE| JSR Ancilla_SetOAM_XY_safe
 
-#_08CED1: LDA.b #$24
-#_08CED3: STA.b ($90),Y
+|08CED1| LDA.b #$24
+|08CED3| STA.b ($90),Y
 
-#_08CED5: INY
+|08CED5| INY
 
-#_08CED6: LDA.b #$3C
-#_08CED8: STA.b ($90),Y
+|08CED6| LDA.b #$3C
+|08CED8| STA.b ($90),Y
 
-#_08CEDA: INY
-#_08CEDB: PHY
+|08CEDA| INY
+|08CEDB| PHY
 
-#_08CEDC: TYA
-#_08CEDD: SEC
-#_08CEDE: SBC.b #$04
-#_08CEE0: LSR A
-#_08CEE1: LSR A
-#_08CEE2: TAY
+|08CEDC| TYA
+|08CEDD| SEC
+|08CEDE| SBC.b #$04
+|08CEE0| LSR A
+|08CEE1| LSR A
+|08CEE2| TAY
 
-#_08CEE3: LDA.b #$02
-#_08CEE5: ORA.b $75
-#_08CEE7: STA.b ($92),Y
+|08CEE3| LDA.b #$02
+|08CEE5| ORA.b $75
+|08CEE7| STA.b ($92),Y
 
-#_08CEE9: PLY
+|08CEE9| PLY
 
-#_08CEEA: RTS
+|08CEEA| RTS
 
 ;===================================================================================================
 
 GTCutscene_ActivateSparkle:
-#_08CEEB: LDX.b #$17
+|08CEEB| LDX.b #$17
 
 .next_check
-#_08CEED: LDA.l $7F5837,X
-#_08CEF1: CMP.b #$FF
-#_08CEF3: BEQ .activate_it
+|08CEED| LDA.l $7F5837,X
+|08CEF1| CMP.b #$FF
+|08CEF3| BEQ .activate_it
 
-#_08CEF5: DEX
-#_08CEF6: BPL .next_check
+|08CEF5| DEX
+|08CEF6| BPL .next_check
 
-#_08CEF8: BRA .exit
+|08CEF8| BRA .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .activate_it
-#_08CEFA: PHX
+|08CEFA| PHX
 
-#_08CEFB: LDA.b #$00
-#_08CEFD: STA.l $7F5837,X
+|08CEFB| LDA.b #$00
+|08CEFD| STA.l $7F5837,X
 
-#_08CF01: LDA.b #$04
-#_08CF03: STA.l $7F58AF,X
+|08CF01| LDA.b #$04
+|08CF03| STA.l $7F58AF,X
 
-#_08CF07: JSL GetRandomNumber
-#_08CF0B: STA.b $08
+|08CF07| JSL GetRandomNumber
+|08CF0B| STA.b $08
 
-#_08CF0D: LSR A
-#_08CF0E: LSR A
-#_08CF0F: LSR A
-#_08CF10: LSR A
-#_08CF11: STA.b $09
+|08CF0D| LSR A
+|08CF0E| LSR A
+|08CF0F| LSR A
+|08CF10| LSR A
+|08CF11| STA.b $09
 
-#_08CF13: LDA.b $08
-#_08CF15: AND.b #$0F
-#_08CF17: STA.b $08
+|08CF13| LDA.b $08
+|08CF15| AND.b #$0F
+|08CF17| STA.b $08
 
-#_08CF19: TXA
-#_08CF1A: AND.b #$07
-#_08CF1C: TAX
+|08CF19| TXA
+|08CF1A| AND.b #$07
+|08CF1C| TAX
 
-#_08CF1D: LDA.l $7F5817,X
-#_08CF21: CLC
-#_08CF22: ADC.b $08
-#_08CF24: STA.b $00
+|08CF1D| LDA.l $7F5817,X
+|08CF21| CLC
+|08CF22| ADC.b $08
+|08CF24| STA.b $00
 
-#_08CF26: LDA.l $7F581F,X
-#_08CF2A: ADC.b #$00
-#_08CF2C: STA.b $01
+|08CF26| LDA.l $7F581F,X
+|08CF2A| ADC.b #$00
+|08CF2C| STA.b $01
 
-#_08CF2E: LDA.l $7F5827,X
-#_08CF32: CLC
-#_08CF33: ADC.b $09
-#_08CF35: STA.b $02
+|08CF2E| LDA.l $7F5827,X
+|08CF32| CLC
+|08CF33| ADC.b $09
+|08CF35| STA.b $02
 
-#_08CF37: LDA.l $7F582F,X
-#_08CF3B: ADC.b #$00
-#_08CF3D: STA.b $03
+|08CF37| LDA.l $7F582F,X
+|08CF3B| ADC.b #$00
+|08CF3D| STA.b $03
 
-#_08CF3F: PLX
+|08CF3F| PLX
 
-#_08CF40: LDA.b $00
-#_08CF42: STA.l $7F584F,X
+|08CF40| LDA.b $00
+|08CF42| STA.l $7F584F,X
 
-#_08CF46: LDA.b $01
-#_08CF48: STA.l $7F5867,X
+|08CF46| LDA.b $01
+|08CF48| STA.l $7F5867,X
 
-#_08CF4C: LDA.b $02
-#_08CF4E: STA.l $7F587F,X
+|08CF4C| LDA.b $02
+|08CF4E| STA.l $7F587F,X
 
-#_08CF52: LDA.b $03
-#_08CF54: STA.l $7F5897,X
+|08CF52| LDA.b $03
+|08CF54| STA.l $7F5897,X
 
 .exit
-#_08CF58: RTS
+|08CF58| RTS
 
 ;===================================================================================================
 
 GTCutscene_SparkleALot:
-#_08CF59: LDX.b #$17
+|08CF59| LDX.b #$17
 
 .next
-#_08CF5B: LDA.l $7F5837,X
-#_08CF5F: CMP.b #$FF
-#_08CF61: BEQ .skip
+|08CF5B| LDA.l $7F5837,X
+|08CF5F| CMP.b #$FF
+|08CF61| BEQ .skip
 
-#_08CF63: LDA.l $7F58AF,X
-#_08CF67: DEC A
-#_08CF68: STA.l $7F58AF,X
-#_08CF6C: BPL .active
+|08CF63| LDA.l $7F58AF,X
+|08CF67| DEC A
+|08CF68| STA.l $7F58AF,X
+|08CF6C| BPL .active
 
-#_08CF6E: LDA.b #$04
-#_08CF70: STA.l $7F58AF,X
+|08CF6E| LDA.b #$04
+|08CF70| STA.l $7F58AF,X
 
-#_08CF74: LDA.l $7F5837,X
-#_08CF78: INC A
-#_08CF79: STA.l $7F5837,X
+|08CF74| LDA.l $7F5837,X
+|08CF78| INC A
+|08CF79| STA.l $7F5837,X
 
-#_08CF7D: CMP.b #$03
-#_08CF7F: BNE .active
+|08CF7D| CMP.b #$03
+|08CF7F| BNE .active
 
-#_08CF81: LDA.b #$FF
-#_08CF83: STA.l $7F5837,X
-#_08CF87: BRA .skip
+|08CF81| LDA.b #$FF
+|08CF83| STA.l $7F5837,X
+|08CF87| BRA .skip
 
 ;---------------------------------------------------------------------------------------------------
 
 .active
-#_08CF89: PHX
+|08CF89| PHX
 
-#_08CF8A: LDA.l $7F584F,X
-#_08CF8E: STA.b $00
+|08CF8A| LDA.l $7F584F,X
+|08CF8E| STA.b $00
 
-#_08CF90: LDA.l $7F5867,X
-#_08CF94: STA.b $01
+|08CF90| LDA.l $7F5867,X
+|08CF94| STA.b $01
 
-#_08CF96: LDA.l $7F587F,X
-#_08CF9A: STA.b $02
+|08CF96| LDA.l $7F587F,X
+|08CF9A| STA.b $02
 
-#_08CF9C: LDA.l $7F5897,X
-#_08CFA0: STA.b $03
+|08CF9C| LDA.l $7F5897,X
+|08CFA0| STA.b $03
 
-#_08CFA2: LDA.l $7F5837,X
-#_08CFA6: TAX
+|08CFA2| LDA.l $7F5837,X
+|08CFA6| TAX
 
-#_08CFA7: JSR Ancilla_SetOAM_XY
+|08CFA7| JSR Ancilla_SetOAM_XY
 
-#_08CFAA: LDA.w Ancilla3C_SpinAttackChargeSparkle_char,X
-#_08CFAD: STA.b ($90),Y
+|08CFAA| LDA.w Ancilla3C_SpinAttackChargeSparkle.char,X
+|08CFAD| STA.b ($90),Y
 
-#_08CFAF: INY
+|08CFAF| INY
 
-#_08CFB0: LDA.w Ancilla3C_SpinAttackChargeSparkle_prop,X
-#_08CFB3: ORA.b #$30
-#_08CFB5: STA.b ($90),Y
+|08CFB0| LDA.w Ancilla3C_SpinAttackChargeSparkle.prop,X
+|08CFB3| ORA.b #$30
+|08CFB5| STA.b ($90),Y
 
-#_08CFB7: INY
-#_08CFB8: PHY
+|08CFB7| INY
+|08CFB8| PHY
 
-#_08CFB9: TYA
-#_08CFBA: SEC
-#_08CFBB: SBC.b #$04
-#_08CFBD: LSR A
-#_08CFBE: LSR A
-#_08CFBF: TAY
+|08CFB9| TYA
+|08CFBA| SEC
+|08CFBB| SBC.b #$04
+|08CFBD| LSR A
+|08CFBE| LSR A
+|08CFBF| TAY
 
-#_08CFC0: LDA.b #$00
-#_08CFC2: STA.b ($92),Y
+|08CFC0| LDA.b #$00
+|08CFC2| STA.b ($92),Y
 
-#_08CFC4: PLY
-#_08CFC5: PLX
+|08CFC4| PLY
+|08CFC5| PLX
 
 .skip
-#_08CFC6: DEX
-#_08CFC7: BPL .next
+|08CFC6| DEX
+|08CFC7| BPL .next
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08CFC9: RTS
+|08CFC9| RTS
 
 ;===================================================================================================
 
 FluteBounce:
-#_08CFCA: db  24
-#_08CFCB: db  16
-#_08CFCC: db  10
-#_08CFCD: db   0
+|08CFCA| db  24
+|08CFCB| db  16
+|08CFCC| db  10
+|08CFCD| db   0
 
 ;===================================================================================================
 
 Ancilla36_Flute:
-#_08CFCE: LDA.b $11
-#_08CFD0: BNE .no_collision_check
+|08CFCE| LDA.b $11
+|08CFD0| BNE .no_collision_check
 
-#_08CFD2: LDA.w $0C54,X
-#_08CFD5: CMP.b #$03
-#_08CFD7: BEQ .check_collision
+|08CFD2| LDA.w $0C54,X
+|08CFD5| CMP.b #$03
+|08CFD7| BEQ .check_collision
 
-#_08CFD9: LDA.w $0294,X
-#_08CFDC: SEC
-#_08CFDD: SBC.b #$02
-#_08CFDF: STA.w $0294,X
+|08CFD9| LDA.w $0294,X
+|08CFDC| SEC
+|08CFDD| SBC.b #$02
+|08CFDF| STA.w $0294,X
 
-#_08CFE2: JSR AncillaMoveX
-#_08CFE5: JSR AncillaMoveZ
+|08CFE2| JSR AncillaMoveX
+|08CFE5| JSR AncillaMoveZ
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08CFE8: LDA.w $029E,X
-#_08CFEB: BPL .no_collision_check
+|08CFE8| LDA.w $029E,X
+|08CFEB| BPL .no_collision_check
 
-#_08CFED: CMP.b #$F0
-#_08CFEF: BCC .no_collision_check
+|08CFED| CMP.b #$F0
+|08CFEF| BCC .no_collision_check
 
-#_08CFF1: INC.w $0C54,X
+|08CFF1| INC.w $0C54,X
 
-#_08CFF4: LDY.w $0C54,X
+|08CFF4| LDY.w $0C54,X
 
-#_08CFF7: LDA.w FluteBounce,Y
-#_08CFFA: STA.w $0294,X
+|08CFF7| LDA.w FluteBounce,Y
+|08CFFA| STA.w $0294,X
 
-#_08CFFD: STZ.w $029E,X
+|08CFFD| STZ.w $029E,X
 
 .no_collision_check
-#_08D000: BRA AncillaDraw_Flute
+|08D000| BRA AncillaDraw_Flute
 
 ;---------------------------------------------------------------------------------------------------
 
 .check_collision
-#_08D002: LDY.b #$02
-#_08D004: JSR Ancilla_CheckLinkCollision
-#_08D007: BCC AncillaDraw_Flute
+|08D002| LDY.b #$02
+|08D004| JSR Ancilla_CheckLinkCollision
+|08D007| BCC AncillaDraw_Flute
 
-#_08D009: LDA.w $037E
-#_08D00C: BNE AncillaDraw_Flute
+|08D009| LDA.w $037E
+|08D00C| BNE AncillaDraw_Flute
 
-#_08D00E: LDA.b $4D
-#_08D010: BNE AncillaDraw_Flute
+|08D00E| LDA.b $4D
+|08D010| BNE AncillaDraw_Flute
 
-#_08D012: PHX
+|08D012| PHX
 
-#_08D013: STZ.w $0C4A,X
+|08D013| STZ.w $0C4A,X
 
-#_08D016: STZ.w $02E9
+|08D016| STZ.w $02E9
 
-#_08D019: LDY.b #$14 ; ITEMGET 14
-#_08D01B: JSL GrantItemReceipt
+|08D019| LDY.b #$14 ; ITEMGET 14
+|08D01B| JSL GrantItemReceipt
 
-#_08D01F: PLX
+|08D01F| PLX
 
-#_08D020: RTS
+|08D020| RTS
 
 ;===================================================================================================
 
 AncillaDraw_Flute:
-#_08D021: JSR Ancilla_PrepOAMCoord_adjusted
+|08D021| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08D024: REP #$20
+|08D024| REP #$20
 
-#_08D026: LDA.w $029E,X
-#_08D029: AND.w #$00FF
-#_08D02C: CMP.w #$0080
-#_08D02F: BCC .positive_z
+|08D026| LDA.w $029E,X
+|08D029| AND.w #$00FF
+|08D02C| CMP.w #$0080
+|08D02F| BCC .positive_z
 
-#_08D031: ORA.w #$FF00
+|08D031| ORA.w #$FF00
 
 .positive_z
-#_08D034: EOR.w #$FFFF
-#_08D037: INC A
+|08D034| EOR.w #$FFFF
+|08D037| INC A
 
-#_08D038: CLC
-#_08D039: ADC.b $00
-#_08D03B: STA.b $00
+|08D038| CLC
+|08D039| ADC.b $00
+|08D03B| STA.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D03D: SEP #$20
+|08D03D| SEP #$20
 
-#_08D03F: PHX
+|08D03F| PHX
 
-#_08D040: LDY.b #$00
-#_08D042: JSR Ancilla_SetOAM_XY
+|08D040| LDY.b #$00
+|08D042| JSR Ancilla_SetOAM_XY
 
-#_08D045: LDA.b #$24
-#_08D047: STA.b ($90),Y
+|08D045| LDA.b #$24
+|08D047| STA.b ($90),Y
 
-#_08D049: INY
+|08D049| INY
 
-#_08D04A: LDA.b #$04
-#_08D04C: ORA.b $65
-#_08D04E: STA.b ($90),Y
+|08D04A| LDA.b #$04
+|08D04C| ORA.b $65
+|08D04E| STA.b ($90),Y
 
-#_08D050: LDA.b #$02
-#_08D052: STA.b ($92)
+|08D050| LDA.b #$02
+|08D052| STA.b ($92)
 
-#_08D054: PLX
+|08D054| PLX
 
-#_08D055: LDY.b #$01
+|08D055| LDY.b #$01
 
-#_08D057: LDA.b ($90),Y
-#_08D059: CMP.b #$F0
-#_08D05B: BNE EXIT_08D060
+|08D057| LDA.b ($90),Y
+|08D059| CMP.b #$F0
+|08D05B| BNE EXIT_08D060
 
-#_08D05D: STZ.w $0C4A,X
+|08D05D| STZ.w $0C4A,X
 
 ;---------------------------------------------------------------------------------------------------
 
 #EXIT_08D060:
-#_08D060: RTS
+|08D060| RTS
 
 ;===================================================================================================
 
 Ancilla37_WeathervaneExplosion:
-#_08D061: REP #$20
+|08D061| REP #$20
 
-#_08D063: LDA.l $7F58B6
-#_08D067: DEC A
-#_08D068: STA.l $7F58B6
+|08D063| LDA.l $7F58B6
+|08D067| DEC A
+|08D068| STA.l $7F58B6
 
-#_08D06C: BNE .proceed_to_exit
+|08D06C| BNE .proceed_to_exit
 
-#_08D06E: SEP #$20
+|08D06E| SEP #$20
 
-#_08D070: INC A
-#_08D071: STA.l $7F58B6
+|08D070| INC A
+|08D071| STA.l $7F58B6
 
-#_08D075: LDA.l $7F58B8
-#_08D079: BNE .continue
+|08D075| LDA.l $7F58B8
+|08D079| BNE .continue
 
-#_08D07B: INC A
-#_08D07C: STA.l $7F58B8
+|08D07B| INC A
+|08D07C| STA.l $7F58B8
 
-#_08D080: LDA.b #$F3 ; SONG F3 - max volume
-#_08D082: STA.w $012C
+|08D080| LDA.b #$F3 ; SONG F3 - max volume
+|08D082| STA.w $012C
 
-#_08D085: BRA .continue
+|08D085| BRA .continue
 
 .proceed_to_exit
-#_08D087: SEP #$20
+|08D087| SEP #$20
 
-#_08D089: BRA EXIT_08D060
+|08D089| BRA EXIT_08D060
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08D08B: DEC.w $0394,X
+|08D08B| DEC.w $0394,X
 
-#_08D08E: LDA.w $0394,X
-#_08D091: BNE .proceed_to_exit
+|08D08E| LDA.w $0394,X
+|08D091| BNE .proceed_to_exit
 
-#_08D093: INC A
-#_08D094: STA.w $0394,X
+|08D093| INC A
+|08D094| STA.w $0394,X
 
-#_08D097: LDA.w $039F,X
-#_08D09A: BNE .already_BOOMed
+|08D097| LDA.w $039F,X
+|08D09A| BNE .already_BOOMed
 
-#_08D09C: INC A
-#_08D09D: STA.w $039F,X
+|08D09C| INC A
+|08D09D| STA.w $039F,X
 
-#_08D0A0: LDA.b #$0C ; SFX2.0C
-#_08D0A2: JSR Ancilla_SFX2_Near
+|08D0A0| LDA.b #$0C ; SFX2.0C
+|08D0A2| JSR Ancilla_SFX2_Near
 
 ;---------------------------------------------------------------------------------------------------
 
 .already_BOOMed
-#_08D0A5: LDA.w $0C54,X
-#_08D0A8: BNE .not_first_step
+|08D0A5| LDA.w $0C54,X
+|08D0A8| BNE .not_first_step
 
-#_08D0AA: DEC.w $03B1,X
-#_08D0AD: BPL .not_first_step
+|08D0AA| DEC.w $03B1,X
+|08D0AD| BPL .not_first_step
 
-#_08D0AF: LDA.b #$01
-#_08D0B1: STA.w $0C54,X
+|08D0AF| LDA.b #$01
+|08D0B1| STA.w $0C54,X
 
-#_08D0B4: PHX
+|08D0B4| PHX
 
-#_08D0B5: JSL AlterWeathervane
+|08D0B5| JSL AlterWeathervane
 
-#_08D0B9: LDY.b #$00
-#_08D0BB: LDA.b #$38 ; ANCILLA 38
-#_08D0BD: JSL AncillaAdd_CutsceneDuck
+|08D0B9| LDY.b #$00
+|08D0BB| LDA.b #$38 ; ANCILLA 38
+|08D0BD| JSL AncillaAdd_CutsceneDuck
 
-#_08D0C1: PLX
+|08D0C1| PLX
 
 .not_first_step
-#_08D0C2: TXA
-#_08D0C3: STA.l $7F5878
+|08D0C2| TXA
+|08D0C3| STA.l $7F5878
 
-#_08D0C7: LDA.b #$00
-#_08D0C9: STA.l $7F5879
+|08D0C7| LDA.b #$00
+|08D0C9| STA.l $7F5879
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D0CD: LDX.b #$0B
+|08D0CD| LDX.b #$0B
 
 .next
-#_08D0CF: LDA.l $7F586C,X
-#_08D0D3: CMP.b #$FF
-#_08D0D5: BNE .dont_skip
+|08D0CF| LDA.l $7F586C,X
+|08D0D3| CMP.b #$FF
+|08D0D5| BNE .dont_skip
 
-#_08D0D7: BRL .skip
+|08D0D7| BRL .skip
 
 .dont_skip
-#_08D0DA: LDA.l $7F5860,X
-#_08D0DE: DEC A
-#_08D0DF: STA.l $7F5860,X
+|08D0DA| LDA.l $7F5860,X
+|08D0DE| DEC A
+|08D0DF| STA.l $7F5860,X
 
-#_08D0E3: BPL .delay_char_toggle
+|08D0E3| BPL .delay_char_toggle
 
-#_08D0E5: LDA.b #$01
-#_08D0E7: STA.l $7F5860,X
+|08D0E5| LDA.b #$01
+|08D0E7| STA.l $7F5860,X
 
-#_08D0EB: LDA.l $7F586C,X
-#_08D0EF: EOR.b #$01
-#_08D0F1: STA.l $7F586C,X
+|08D0EB| LDA.l $7F586C,X
+|08D0EF| EOR.b #$01
+|08D0F1| STA.l $7F586C,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay_char_toggle
-#_08D0F5: PHX
+|08D0F5| PHX
 
-#_08D0F6: LDA.l $7F5878
-#_08D0FA: TAY
+|08D0F6| LDA.l $7F5878
+|08D0FA| TAY
 
-#_08D0FB: LDA.l $7F586C,X
-#_08D0FF: STA.w $0C5E,Y
+|08D0FB| LDA.l $7F586C,X
+|08D0FF| STA.w $0C5E,Y
 
-#_08D102: LDA.l $7F5824,X
-#_08D106: STA.w $0BFA,Y
+|08D102| LDA.l $7F5824,X
+|08D106| STA.w $0BFA,Y
 
-#_08D109: LDA.l $7F5830,X
-#_08D10D: STA.w $0C0E,Y
+|08D109| LDA.l $7F5830,X
+|08D10D| STA.w $0C0E,Y
 
-#_08D110: LDA.l $7F583C,X
-#_08D114: STA.w $0C04,Y
+|08D110| LDA.l $7F583C,X
+|08D114| STA.w $0C04,Y
 
-#_08D117: LDA.l $7F5848,X
-#_08D11B: STA.w $0C18,Y
+|08D117| LDA.l $7F5848,X
+|08D11B| STA.w $0C18,Y
 
-#_08D11E: LDA.l $7F5854,X
-#_08D122: STA.w $029E,Y
+|08D11E| LDA.l $7F5854,X
+|08D122| STA.w $029E,Y
 
-#_08D125: LDA.l $7F5800,X
-#_08D129: STA.w $0C22,Y
+|08D125| LDA.l $7F5800,X
+|08D129| STA.w $0C22,Y
 
-#_08D12C: LDA.l $7F580C,X
-#_08D130: STA.w $0C2C,Y
+|08D12C| LDA.l $7F580C,X
+|08D130| STA.w $0C2C,Y
 
-#_08D133: LDA.l $7F5818,X
-#_08D137: SEC
-#_08D138: SBC.b #$01
-#_08D13A: STA.l $7F5818,X
-#_08D13E: STA.w $0294,Y
+|08D133| LDA.l $7F5818,X
+|08D137| SEC
+|08D138| SBC.b #$01
+|08D13A| STA.l $7F5818,X
+|08D13E| STA.w $0294,Y
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D141: TYX
+|08D141| TYX
 
-#_08D142: JSR AncillaMoveY
-#_08D145: JSR AncillaMoveX
-#_08D148: JSR AncillaMoveZ
+|08D142| JSR AncillaMoveY
+|08D145| JSR AncillaMoveX
+|08D148| JSR AncillaMoveZ
 
-#_08D14B: STZ.b $74
+|08D14B| STZ.b $74
 
-#_08D14D: LDA.w $029E,X
-#_08D150: CMP.b #$F0
-#_08D152: BCC .not_buried
+|08D14D| LDA.w $029E,X
+|08D150| CMP.b #$F0
+|08D152| BCC .not_buried
 
-#_08D154: LDA.b #$FF
-#_08D156: STA.b $74
+|08D154| LDA.b #$FF
+|08D156| STA.b $74
 
 .not_buried
-#_08D158: JSR AncillaDraw_WeathervaneExplosionWoodDebris
-#_08D15B: PLX
+|08D158| JSR AncillaDraw_WeathervaneExplosionWoodDebris
+|08D15B| PLX
 
-#_08D15C: LDA.b $74
-#_08D15E: BPL .dont_deactivate
+|08D15C| LDA.b $74
+|08D15E| BPL .dont_deactivate
 
-#_08D160: STA.l $7F586C,X
+|08D160| STA.l $7F586C,X
 
 .dont_deactivate
-#_08D164: LDA.l $7F5878
-#_08D168: TAY
+|08D164| LDA.l $7F5878
+|08D168| TAY
 
-#_08D169: LDA.w $0BFA,Y
-#_08D16C: STA.l $7F5824,X
+|08D169| LDA.w $0BFA,Y
+|08D16C| STA.l $7F5824,X
 
-#_08D170: LDA.w $0C0E,Y
-#_08D173: STA.l $7F5830,X
+|08D170| LDA.w $0C0E,Y
+|08D173| STA.l $7F5830,X
 
-#_08D177: LDA.w $0C04,Y
-#_08D17A: STA.l $7F583C,X
+|08D177| LDA.w $0C04,Y
+|08D17A| STA.l $7F583C,X
 
-#_08D17E: LDA.w $0C18,Y
-#_08D181: STA.l $7F5848,X
+|08D17E| LDA.w $0C18,Y
+|08D181| STA.l $7F5848,X
 
-#_08D185: LDA.w $029E,Y
-#_08D188: STA.l $7F5854,X
+|08D185| LDA.w $029E,Y
+|08D188| STA.l $7F5854,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08D18C: DEX
-#_08D18D: BMI .done_loop
+|08D18C| DEX
+|08D18D| BMI .done_loop
 
-#_08D18F: BRL .next
+|08D18F| BRL .next
 
 ;---------------------------------------------------------------------------------------------------
 
 .done_loop
-#_08D192: LDA.l $7F5878
-#_08D196: TAY
+|08D192| LDA.l $7F5878
+|08D196| TAY
 
-#_08D197: LDX.b #$0B
+|08D197| LDX.b #$0B
 
 .next_active_check
-#_08D199: LDA.l $7F586C,X
-#_08D19D: CMP.b #$FF
-#_08D19F: BNE .exit
+|08D199| LDA.l $7F586C,X
+|08D19D| CMP.b #$FF
+|08D19F| BNE .exit
 
-#_08D1A1: DEX
-#_08D1A2: BPL .next_active_check
+|08D1A1| DEX
+|08D1A2| BPL .next_active_check
 
-#_08D1A4: TYX
-#_08D1A5: STZ.w $0C4A,X
+|08D1A4| TYX
+|08D1A5| STZ.w $0C4A,X
 
 .exit
-#_08D1A8: TYX
+|08D1A8| TYX
 
-#_08D1A9: RTS
+|08D1A9| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_WeathervaneExplosionWoodDebris
 
 .char
-#_08D1AA: db $4E, $4F
+|08D1AA| db $4E, $4F
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_WeathervaneExplosionWoodDebris:
-#_08D1AC: JSR Ancilla_PrepOAMCoord
+|08D1AC| JSR Ancilla_PrepOAMCoord
 
-#_08D1AF: REP #$20
+|08D1AF| REP #$20
 
-#_08D1B1: LDA.w $029E,X
-#_08D1B4: AND.w #$00FF
-#_08D1B7: CMP.w #$0080
-#_08D1BA: BCC .positive_z
+|08D1B1| LDA.w $029E,X
+|08D1B4| AND.w #$00FF
+|08D1B7| CMP.w #$0080
+|08D1BA| BCC .positive_z
 
-#_08D1BC: ORA.w #$FF00
+|08D1BC| ORA.w #$FF00
 
 .positive_z
-#_08D1BF: EOR.w #$FFFF
-#_08D1C2: INC A
+|08D1BF| EOR.w #$FFFF
+|08D1C2| INC A
 
-#_08D1C3: CLC
-#_08D1C4: ADC.b $00
-#_08D1C6: STA.b $00
+|08D1C3| CLC
+|08D1C4| ADC.b $00
+|08D1C6| STA.b $00
 
-#_08D1C8: SEP #$20
+|08D1C8| SEP #$20
 
-#_08D1CA: LDA.w $0C5E,X
-#_08D1CD: STA.b $72
+|08D1CA| LDA.w $0C5E,X
+|08D1CD| STA.b $72
 
-#_08D1CF: BMI .exit
+|08D1CF| BMI .exit
 
-#_08D1D1: PHX
+|08D1D1| PHX
 
-#_08D1D2: LDA.l $7F5879
-#_08D1D6: TAY
+|08D1D2| LDA.l $7F5879
+|08D1D6| TAY
 
-#_08D1D7: JSR Ancilla_SetOAM_XY
+|08D1D7| JSR Ancilla_SetOAM_XY
 
-#_08D1DA: LDX.b $72
+|08D1DA| LDX.b $72
 
-#_08D1DC: LDA.w .char,X
-#_08D1DF: STA.b ($90),Y
+|08D1DC| LDA.w .char,X
+|08D1DF| STA.b ($90),Y
 
-#_08D1E1: INY
+|08D1E1| INY
 
-#_08D1E2: LDA.b #$3C
-#_08D1E4: STA.b ($90),Y
+|08D1E2| LDA.b #$3C
+|08D1E4| STA.b ($90),Y
 
-#_08D1E6: INY
-#_08D1E7: TYA
-#_08D1E8: STA.l $7F5879
+|08D1E6| INY
+|08D1E7| TYA
+|08D1E8| STA.l $7F5879
 
-#_08D1EC: SEC
-#_08D1ED: SBC.b #$04
+|08D1EC| SEC
+|08D1ED| SBC.b #$04
 
-#_08D1EF: LSR A
-#_08D1F0: LSR A
-#_08D1F1: TAY
+|08D1EF| LSR A
+|08D1F0| LSR A
+|08D1F1| TAY
 
-#_08D1F2: LDA.b #$00
-#_08D1F4: STA.b ($92),Y
+|08D1F2| LDA.b #$00
+|08D1F4| STA.b ($92),Y
 
-#_08D1F6: PLX
+|08D1F6| PLX
 
 .exit
-#_08D1F7: RTS
+|08D1F7| RTS
 
 ;===================================================================================================
 
 pool Ancilla38_CutsceneDuck CutsceneDuck_Draw
 
 .hflip
-#_08D1F8: db $40, $00
+|08D1F8| db $40, $00
 
 .swirl
-#_08D1FA: db $1C, $3C
+|08D1FA| db $1C, $3C
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla38_CutsceneDuck:
-#_08D1FC: LDA.b $1A
-#_08D1FE: AND.b #$1F
-#_08D200: BNE .skip_sfx
+|08D1FC| LDA.b $1A
+|08D1FE| AND.b #$1F
+|08D200| BNE .skip_sfx
 
-#_08D202: LDA.b #$1E ; SFX3.1E
-#_08D204: JSR Ancilla_SFX3_Pan
+|08D202| LDA.b #$1E ; SFX3.1E
+|08D204| JSR Ancilla_SFX3_Pan
 
 .skip_sfx
-#_08D207: DEC.w $039F,X
-#_08D20A: BPL .delay
+|08D207| DEC.w $039F,X
+|08D20A| BPL .delay
 
-#_08D20C: LDA.b #$03
-#_08D20E: STA.w $039F,X
+|08D20C| LDA.b #$03
+|08D20E| STA.w $039F,X
 
-#_08D211: LDA.w $0380,X
-#_08D214: EOR.b #$01
-#_08D216: STA.w $0380,X
+|08D211| LDA.w $0380,X
+|08D214| EOR.b #$01
+|08D216| STA.w $0380,X
 
 .delay
-#_08D219: DEC.w $03B1,X
+|08D219| DEC.w $03B1,X
 
-#_08D21C: LDA.w $03B1,X
-#_08D21F: BEQ .movement
+|08D21C| LDA.w $03B1,X
+|08D21F| BEQ .movement
 
-#_08D221: BRL CutsceneDuck_Draw
+|08D221| BRL CutsceneDuck_Draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .movement
-#_08D224: LDA.b #$01
-#_08D226: STA.w $03B1,X
+|08D224| LDA.b #$01
+|08D226| STA.w $03B1,X
 
-#_08D229: LDA.w $0385,X
-#_08D22C: BNE .swirl_around
+|08D229| LDA.w $0385,X
+|08D22C| BNE .swirl_around
 
-#_08D22E: DEC.w $0C5E,X
-#_08D231: BMI .init_swirling
+|08D22E| DEC.w $0C5E,X
+|08D231| BMI .init_swirling
 
-#_08D233: LDY.b #$FF
-#_08D235: LDA.w $0C54,X
-#_08D238: BEQ .accelerate_descent
+|08D233| LDY.b #$FF
+|08D235| LDA.w $0C54,X
+|08D238| BEQ .accelerate_descent
 
-#_08D23A: LDY.b #$01
+|08D23A| LDY.b #$01
 
 .accelerate_descent
-#_08D23C: TYA
-#_08D23D: CLC
-#_08D23E: ADC.w $0294,X
-#_08D241: STA.w $0294,X
+|08D23C| TYA
+|08D23D| CLC
+|08D23E| ADC.w $0294,X
+|08D241| STA.w $0294,X
 
-#_08D244: BPL .positive_z
+|08D244| BPL .positive_z
 
-#_08D246: EOR.b #$FF
-#_08D248: INC A
+|08D246| EOR.b #$FF
+|08D248| INC A
 
 .positive_z
-#_08D249: CMP.b #$0C
-#_08D24B: BCC .dont_flip_swirl
+|08D249| CMP.b #$0C
+|08D24B| BCC .dont_flip_swirl
 
-#_08D24D: LDA.w $0C54,X
-#_08D250: EOR.b #$01
-#_08D252: STA.w $0C54,X
+|08D24D| LDA.w $0C54,X
+|08D250| EOR.b #$01
+|08D252| STA.w $0C54,X
 
 .dont_flip_swirl
-#_08D255: BRL CutsceneDuck_Draw
+|08D255| BRL CutsceneDuck_Draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .init_swirling
-#_08D258: STZ.w $0C5E,X
-#_08D25B: STZ.w $0C54,X
+|08D258| STZ.w $0C5E,X
+|08D25B| STZ.w $0C54,X
 
-#_08D25E: LDA.w .swirl
-#_08D261: STA.w $0C2C,X
+|08D25E| LDA.w .swirl
+|08D261| STA.w $0C2C,X
 
-#_08D264: LDA.b #$F0
-#_08D266: STA.w $0294,X
+|08D264| LDA.b #$F0
+|08D266| STA.w $0294,X
 
-#_08D269: INC.w $0385,X
+|08D269| INC.w $0385,X
 
-#_08D26C: LDA.b #$03
-#_08D26E: STA.w $0C54,X
+|08D26C| LDA.b #$03
+|08D26E| STA.w $0C54,X
 
 .swirl_around
-#_08D271: LDY.b #$FF
+|08D271| LDY.b #$FF
 
-#_08D273: LDA.w $0C54,X
-#_08D276: AND.b #$01
-#_08D278: BNE .accelerate_left
+|08D273| LDA.w $0C54,X
+|08D276| AND.b #$01
+|08D278| BNE .accelerate_left
 
-#_08D27A: LDY.b #$01
+|08D27A| LDY.b #$01
 
 .accelerate_left
-#_08D27C: TYA
-#_08D27D: CLC
-#_08D27E: ADC.w $0C2C,X
-#_08D281: STA.w $0C2C,X
+|08D27C| TYA
+|08D27D| CLC
+|08D27E| ADC.w $0C2C,X
+|08D281| STA.w $0C2C,X
 
-#_08D284: BPL .positive_x_a
+|08D284| BPL .positive_x_a
 
-#_08D286: EOR.b #$FF
-#_08D288: INC A
+|08D286| EOR.b #$FF
+|08D288| INC A
 
 .positive_x_a
-#_08D289: CMP.b #$00
-#_08D28B: BNE .not_maxed_swirl
+|08D289| CMP.b #$00
+|08D28B| BNE .not_maxed_swirl
 
-#_08D28D: INC.w $0385,X
+|08D28D| INC.w $0385,X
 
-#_08D290: LDY.w $0385,X
-#_08D293: CPY.b #$07
-#_08D295: BNE .not_maxed_swirl
+|08D290| LDY.w $0385,X
+|08D293| CPY.b #$07
+|08D295| BNE .not_maxed_swirl
 
-#_08D297: PHA
+|08D297| PHA
 
-#_08D298: LDA.b #$01
-#_08D29A: STA.w $03A9,X
+|08D298| LDA.b #$01
+|08D29A| STA.w $03A9,X
 
-#_08D29D: PLA
+|08D29D| PLA
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_maxed_swirl
-#_08D29E: LDY.w $03A9,X
-#_08D2A1: CMP.w .swirl,Y
-#_08D2A4: BCC .not_max_x
+|08D29E| LDY.w $03A9,X
+|08D2A1| CMP.w .swirl,Y
+|08D2A4| BCC .not_max_x
 
-#_08D2A6: LDA.w $0C54,X
-#_08D2A9: AND.b #$03
-#_08D2AB: EOR.b #$03
-#_08D2AD: STA.b $00
+|08D2A6| LDA.w $0C54,X
+|08D2A9| AND.b #$03
+|08D2AB| EOR.b #$03
+|08D2AD| STA.b $00
 
-#_08D2AF: LDA.w $0C54,X
-#_08D2B2: AND.b #$FC
-#_08D2B4: ORA.b $00
-#_08D2B6: STA.w $0C54,X
+|08D2AF| LDA.w $0C54,X
+|08D2B2| AND.b #$FC
+|08D2B4| ORA.b $00
+|08D2B6| STA.w $0C54,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_max_x
-#_08D2B9: LDY.b #$03
+|08D2B9| LDY.b #$03
 
-#_08D2BB: LDA.w $0C2C,X
-#_08D2BE: BPL .positive_x_b
+|08D2BB| LDA.w $0C2C,X
+|08D2BE| BPL .positive_x_b
 
-#_08D2C0: EOR.b #$FF
-#_08D2C2: INC A
+|08D2C0| EOR.b #$FF
+|08D2C2| INC A
 
-#_08D2C3: LDY.b #$02
+|08D2C3| LDY.b #$02
 
 .positive_x_b
-#_08D2C5: STA.b $00
+|08D2C5| STA.b $00
 
-#_08D2C7: TYA
-#_08D2C8: STA.w $0C72,X
+|08D2C7| TYA
+|08D2C8| STA.w $0C72,X
 
-#_08D2CB: LDY.w $03A9,X
+|08D2CB| LDY.w $03A9,X
 
-#_08D2CE: LDA.w .swirl,Y
-#_08D2D1: SEC
-#_08D2D2: SBC.b $00
-#_08D2D4: LSR A
-#_08D2D5: STA.b $00
+|08D2CE| LDA.w .swirl,Y
+|08D2D1| SEC
+|08D2D2| SBC.b $00
+|08D2D4| LSR A
+|08D2D5| STA.b $00
 
-#_08D2D7: LDA.w $0C54,X
-#_08D2DA: AND.b #$02
-#_08D2DC: BEQ .descending
+|08D2D7| LDA.w $0C54,X
+|08D2DA| AND.b #$02
+|08D2DC| BEQ .descending
 
-#_08D2DE: LDA.b $00
-#_08D2E0: EOR.b #$FF
-#_08D2E2: INC A
-#_08D2E3: STA.b $00
+|08D2DE| LDA.b $00
+|08D2E0| EOR.b #$FF
+|08D2E2| INC A
+|08D2E3| STA.b $00
 
 .descending
-#_08D2E5: LDA.b $00
-#_08D2E7: STA.w $0294,X
+|08D2E5| LDA.b $00
+|08D2E7| STA.w $0294,X
 
 ;===================================================================================================
 
 CutsceneDuck_Draw:
-#_08D2EA: JSR AncillaMoveX
-#_08D2ED: JSR AncillaMoveZ
+|08D2EA| JSR AncillaMoveX
+|08D2ED| JSR AncillaMoveZ
 
-#_08D2F0: LDY.w $0380,X
+|08D2F0| LDY.w $0380,X
 
-#_08D2F3: LDA.w .vram_offset+1,Y
-#_08D2F6: STA.w $0AF4
+|08D2F3| LDA.w .vram_offset+1,Y
+|08D2F6| STA.w $0AF4
 
-#_08D2F9: JSR Ancilla_PrepOAMCoord
+|08D2F9| JSR Ancilla_PrepOAMCoord
 
-#_08D2FC: LDA.w $0C72,X
-#_08D2FF: AND.b #$01
-#_08D301: TAY
+|08D2FC| LDA.w $0C72,X
+|08D2FF| AND.b #$01
+|08D301| TAY
 
-#_08D302: LDA.w .hflip,Y
-#_08D305: STA.b $08
+|08D302| LDA.w .hflip,Y
+|08D305| STA.b $08
 
 ;===================================================================================================
 
-#_08D307: REP #$20
+|08D307| REP #$20
 
-#_08D309: LDA.w $029E,X
-#_08D30C: AND.w #$00FF
-#_08D30F: CMP.w #$0080
-#_08D312: BCC .z_is_positive
+|08D309| LDA.w $029E,X
+|08D30C| AND.w #$00FF
+|08D30F| CMP.w #$0080
+|08D312| BCC .z_is_positive
 
-#_08D314: ORA.w #$FF00
+|08D314| ORA.w #$FF00
 
 .z_is_positive
-#_08D317: EOR.w #$FFFF
-#_08D31A: INC A
-#_08D31B: STA.b $04
+|08D317| EOR.w #$FFFF
+|08D31A| INC A
+|08D31B| STA.b $04
 
-#_08D31D: LDA.b $00
-#_08D31F: STA.b $0A
+|08D31D| LDA.b $00
+|08D31F| STA.b $0A
 
-#_08D321: SEC
-#_08D322: SBC.b $04
-#_08D324: STA.b $04
+|08D321| SEC
+|08D322| SBC.b $04
+|08D324| STA.b $04
 
-#_08D326: LDA.b $02
-#_08D328: STA.b $06
+|08D326| LDA.b $02
+|08D328| STA.b $06
 
-#_08D32A: SEP #$20 ; okay
+|08D32A| SEP #$20 ; okay
 
-#_08D32C: PHX
+|08D32C| PHX
 
-#_08D32D: LDY.b #$00
+|08D32D| LDY.b #$00
 
-#_08D32F: REP #$20
+|08D32F| REP #$20
 
-#_08D331: LDA.w .offset_y
-#_08D334: AND.w #$00FF
-#_08D337: CLC
-#_08D338: ADC.b $04
-#_08D33A: STA.b $00
+|08D331| LDA.w .offset_y
+|08D334| AND.w #$00FF
+|08D337| CLC
+|08D338| ADC.b $04
+|08D33A| STA.b $00
 
-#_08D33C: LDA.w .offset_x
-#_08D33F: AND.w #$00FF
-#_08D342: CLC
-#_08D343: ADC.b $06
-#_08D345: STA.b $02
-
-;---------------------------------------------------------------------------------------------------
-
-#_08D347: SEP #$20
-
-#_08D349: JSR Ancilla_SetOAM_XY
-
-#_08D34C: LDA.w .char
-#_08D34F: STA.b ($90),Y
-
-#_08D351: INY
-
-#_08D352: LDA.w .prop
-#_08D355: ORA.b #$30
-#_08D357: ORA.b $08
-#_08D359: STA.b ($90),Y
-
-#_08D35B: INY
-#_08D35C: PHY
-
-#_08D35D: TYA
-#_08D35E: SEC
-#_08D35F: SBC.b #$04
-#_08D361: LSR A
-#_08D362: LSR A
-#_08D363: TAY
-
-#_08D364: LDA.b #$02
-#_08D366: STA.b ($92),Y
-
-#_08D368: PLY
-
-#_08D369: REP #$20
-
-#_08D36B: LDA.b $0A
-#_08D36D: CLC
-#_08D36E: ADC.w #$0030
-#_08D371: STA.b $00
-
-#_08D373: LDA.b $06
-#_08D375: STA.b $02
+|08D33C| LDA.w .offset_x
+|08D33F| AND.w #$00FF
+|08D342| CLC
+|08D343| ADC.b $06
+|08D345| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D377: SEP #$20
+|08D347| SEP #$20
 
-#_08D379: LDA.b #$30
-#_08D37B: STA.b $04
+|08D349| JSR Ancilla_SetOAM_XY
 
-#_08D37D: LDX.b #$01
-#_08D37F: JSR AncillaDraw_Shadow
+|08D34C| LDA.w .char
+|08D34F| STA.b ($90),Y
 
-#_08D382: PLX
+|08D351| INY
 
-#_08D383: REP #$20
+|08D352| LDA.w .prop
+|08D355| ORA.b #$30
+|08D357| ORA.b $08
+|08D359| STA.b ($90),Y
 
-#_08D385: LDA.b $06
-#_08D387: BMI .exit
+|08D35B| INY
+|08D35C| PHY
 
-#_08D389: CMP.w #$00F8
-#_08D38C: BCC .exit
+|08D35D| TYA
+|08D35E| SEC
+|08D35F| SBC.b #$04
+|08D361| LSR A
+|08D362| LSR A
+|08D363| TAY
+
+|08D364| LDA.b #$02
+|08D366| STA.b ($92),Y
+
+|08D368| PLY
+
+|08D369| REP #$20
+
+|08D36B| LDA.b $0A
+|08D36D| CLC
+|08D36E| ADC.w #$0030
+|08D371| STA.b $00
+
+|08D373| LDA.b $06
+|08D375| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D38E: SEP #$20
+|08D377| SEP #$20
 
-#_08D390: STZ.w $0C4A,X
+|08D379| LDA.b #$30
+|08D37B| STA.b $04
 
-#_08D393: STZ.b $11
+|08D37D| LDX.b #$01
+|08D37F| JSR AncillaDraw_Shadow
 
-#_08D395: LDA.b #$03
-#_08D397: STA.l $7EF34C
+|08D382| PLX
+
+|08D383| REP #$20
+
+|08D385| LDA.b $06
+|08D387| BMI .exit
+
+|08D389| CMP.w #$00F8
+|08D38C| BCC .exit
+
+;---------------------------------------------------------------------------------------------------
+
+|08D38E| SEP #$20
+
+|08D390| STZ.w $0C4A,X
+
+|08D393| STZ.b $11
+
+|08D395| LDA.b #$03
+|08D397| STA.l $7EF34C
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08D39B: SEP #$20
+|08D39B| SEP #$20
 
-#_08D39D: RTS
+|08D39D| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_LinkPoof
 
 .char
-#_08D39E: db $86
-#_08D39F: db $A9
-#_08D3A0: db $9B
+|08D39E| db $86
+|08D39F| db $A9
+|08D3A0| db $9B
 
 .size
-#_08D3A1: db $02
-#_08D3A2: db $00
-#_08D3A3: db $00
+|08D3A1| db $02
+|08D3A2| db $00
+|08D3A3| db $00
 
 .prop
-#_08D3A4: db $00, $FF, $FF, $FF
-#_08D3A8: db $40, $00, $C0, $80
-#_08D3AC: db $00, $40, $80, $C0
+|08D3A4| db $00, $FF, $FF, $FF
+|08D3A8| db $40, $00, $C0, $80
+|08D3AC| db $00, $40, $80, $C0
 
 .offset_y
-#_08D3B0: dw   0,   0,   0,   0
-#_08D3B8: dw   0,   0,   8,   8
-#_08D3C0: dw  -4,  -4,  12,  12
+|08D3B0| dw   0,   0,   0,   0
+|08D3B8| dw   0,   0,   8,   8
+|08D3C0| dw  -4,  -4,  12,  12
 
 .offset_x
-#_08D3C8: dw   0,   0,   0,   0
-#_08D3D0: dw   0,   8,   0,   8
-#_08D3D8: dw  -4,  12,  -4,  12
+|08D3C8| dw   0,   0,   0,   0
+|08D3D0| dw   0,   8,   0,   8
+|08D3D8| dw  -4,  12,  -4,  12
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla23_LinkPoof:
-#_08D3E0: DEC.w $03B1,X
-#_08D3E3: BPL AncillaDraw_LinkPoof
+|08D3E0| DEC.w $03B1,X
+|08D3E3| BPL AncillaDraw_LinkPoof
 
-#_08D3E5: LDA.b #$07
-#_08D3E7: STA.w $03B1,X
+|08D3E5| LDA.b #$07
+|08D3E7| STA.w $03B1,X
 
-#_08D3EA: LDA.w $0C5E,X
-#_08D3ED: INC A
-#_08D3EE: STA.w $0C5E,X
+|08D3EA| LDA.w $0C5E,X
+|08D3ED| INC A
+|08D3EE| STA.w $0C5E,X
 
-#_08D3F1: CMP.b #$03
-#_08D3F3: BNE AncillaDraw_LinkPoof
+|08D3F1| CMP.b #$03
+|08D3F3| BNE AncillaDraw_LinkPoof
 
-#_08D3F5: STZ.w $0C4A,X
+|08D3F5| STZ.w $0C4A,X
 
-#_08D3F8: STZ.w $02E1
-#_08D3FB: STZ.b $50
+|08D3F8| STZ.w $02E1
+|08D3FB| STZ.b $50
 
-#_08D3FD: LDA.w $0C54,X
-#_08D400: BNE .exit
+|08D3FD| LDA.w $0C54,X
+|08D400| BNE .exit
 
-#_08D402: STZ.b $2E
-#_08D404: STZ.b $4B
+|08D402| STZ.b $2E
+|08D404| STZ.b $4B
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D406: LDY.b #$00
+|08D406| LDY.b #$00
 
-#_08D408: LDA.b $8A
-#_08D40A: AND.b #$40
-#_08D40C: BEQ .light_world
+|08D408| LDA.b $8A
+|08D40A| AND.b #$40
+|08D40C| BEQ .light_world
 
-#_08D40E: INY
+|08D40E| INY
 
 .light_world
-#_08D40F: STY.w $02E0
-#_08D412: STY.b $56
-#_08D414: BEQ .link_colors
+|08D40F| STY.w $02E0
+|08D412| STY.b $56
+|08D414| BEQ .link_colors
 
 .bunny_colors
-#_08D416: JSL RefreshEquipmentPalettes_bunny
+|08D416| JSL RefreshEquipmentPalettes_bunny
 
-#_08D41A: BRA .exit
+|08D41A| BRA .exit
 
 .link_colors
-#_08D41C: JSL RefreshEquipmentPalettes_sword_and_mail
+|08D41C| JSL RefreshEquipmentPalettes_sword_and_mail
 
 .exit
-#_08D420: RTS
+|08D420| RTS
 
 ;===================================================================================================
 
 AncillaDraw_LinkPoof:
-#_08D421: LDA.w $0FB3
-#_08D424: BEQ .use_default_oam_slots
+|08D421| LDA.w $0FB3
+|08D424| BEQ .use_default_oam_slots
 
-#_08D426: LDA.w $0C7C,X
-#_08D429: BEQ .use_default_oam_slots
+|08D426| LDA.w $0C7C,X
+|08D429| BEQ .use_default_oam_slots
 
-#_08D42B: LDA.w $035F
-#_08D42E: BEQ .use_hardcoded_oam_slots
+|08D42B| LDA.w $035F
+|08D42E| BEQ .use_hardcoded_oam_slots
 
-#_08D430: LDA.b $1A
-#_08D432: AND.b #$01
-#_08D434: BNE .use_default_oam_slots
+|08D430| LDA.b $1A
+|08D432| AND.b #$01
+|08D434| BNE .use_default_oam_slots
 
 ;---------------------------------------------------------------------------------------------------
 
 .use_hardcoded_oam_slots
-#_08D436: REP #$20
+|08D436| REP #$20
 
-; !HARDCODED oam allocation
-#_08D438: LDA.w #$00D0
-#_08D43B: PHA
+; [HARDCODED] oam allocation
+|08D438| LDA.w #$00D0
+|08D43B| PHA
 
-#_08D43C: CLC
-#_08D43D: ADC.w #$0800
-#_08D440: STA.b $90
+|08D43C| CLC
+|08D43D| ADC.w #$0800
+|08D440| STA.b $90
 
-#_08D442: PLA
-#_08D443: LSR A
-#_08D444: LSR A
-#_08D445: CLC
-#_08D446: ADC.w #$0A20
-#_08D449: STA.b $92
+|08D442| PLA
+|08D443| LSR A
+|08D444| LSR A
+|08D445| CLC
+|08D446| ADC.w #$0A20
+|08D449| STA.b $92
 
-#_08D44B: SEP #$20
+|08D44B| SEP #$20
 
 ;---------------------------------------------------------------------------------------------------
 
 .use_default_oam_slots
-#_08D44D: JSR Ancilla_PrepOAMCoord
+|08D44D| JSR Ancilla_PrepOAMCoord
 
-#_08D450: REP #$20
+|08D450| REP #$20
 
-#_08D452: LDA.b $00
-#_08D454: STA.b $04
+|08D452| LDA.b $00
+|08D454| STA.b $04
 
-#_08D456: LDA.b $02
-#_08D458: STA.b $06
+|08D456| LDA.b $02
+|08D458| STA.b $06
 
-#_08D45A: SEP #$20
+|08D45A| SEP #$20
 
-#_08D45C: PHX
+|08D45C| PHX
 
-#_08D45D: LDY.w $0C5E,X
+|08D45D| LDY.w $0C5E,X
 
-#_08D460: LDA.w .size,Y
-#_08D463: STA.b $08
+|08D460| LDA.w .size,Y
+|08D463| STA.b $08
 
-#_08D465: LDA.w .char,Y
-#_08D468: STA.b $0C
+|08D465| LDA.w .char,Y
+|08D468| STA.b $0C
 
-#_08D46A: TYA
-#_08D46B: ASL A
-#_08D46C: ASL A
-#_08D46D: STA.b $0E
+|08D46A| TYA
+|08D46B| ASL A
+|08D46C| ASL A
+|08D46D| STA.b $0E
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D46F: LDY.b #$00
-#_08D471: STY.b $0A
+|08D46F| LDY.b #$00
+|08D471| STY.b $0A
 
 .next
-#_08D473: LDA.b $0E
-#_08D475: CLC
-#_08D476: ADC.b $0A
-#_08D478: ASL A
-#_08D479: TAX
+|08D473| LDA.b $0E
+|08D475| CLC
+|08D476| ADC.b $0A
+|08D478| ASL A
+|08D479| TAX
 
-#_08D47A: REP #$20
+|08D47A| REP #$20
 
-#_08D47C: LDA.b $04
-#_08D47E: CLC
-#_08D47F: ADC.w .offset_y,X
-#_08D482: STA.b $00
+|08D47C| LDA.b $04
+|08D47E| CLC
+|08D47F| ADC.w .offset_y,X
+|08D482| STA.b $00
 
-#_08D484: LDA.b $06
-#_08D486: CLC
-#_08D487: ADC.w .offset_x,X
-#_08D48A: STA.b $02
-
-;---------------------------------------------------------------------------------------------------
-
-#_08D48C: SEP #$20
-
-#_08D48E: JSR Ancilla_SetOAM_XY
-
-#_08D491: LDA.b $0C
-#_08D493: STA.b ($90),Y
-
-#_08D495: INY
-
-#_08D496: TXA
-#_08D497: LSR A
-#_08D498: TAX
-
-#_08D499: LDA.w .prop,X
-#_08D49C: ORA.b #$04
-#_08D49E: ORA.b $65
-#_08D4A0: STA.b ($90),Y
+|08D484| LDA.b $06
+|08D486| CLC
+|08D487| ADC.w .offset_x,X
+|08D48A| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D4A2: INY
-#_08D4A3: PHY
+|08D48C| SEP #$20
 
-#_08D4A4: TYA
-#_08D4A5: SEC
-#_08D4A6: SBC.b #$04
-#_08D4A8: LSR A
-#_08D4A9: LSR A
-#_08D4AA: TAY
+|08D48E| JSR Ancilla_SetOAM_XY
 
-#_08D4AB: LDA.b $08
-#_08D4AD: STA.b ($92),Y
+|08D491| LDA.b $0C
+|08D493| STA.b ($90),Y
 
-#_08D4AF: PLY
+|08D495| INY
+
+|08D496| TXA
+|08D497| LSR A
+|08D498| TAX
+
+|08D499| LDA.w .prop,X
+|08D49C| ORA.b #$04
+|08D49E| ORA.b $65
+|08D4A0| STA.b ($90),Y
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D4B0: CMP.b #$02
-#_08D4B2: BEQ .exit
+|08D4A2| INY
+|08D4A3| PHY
 
-#_08D4B4: INC.b $0A
+|08D4A4| TYA
+|08D4A5| SEC
+|08D4A6| SBC.b #$04
+|08D4A8| LSR A
+|08D4A9| LSR A
+|08D4AA| TAY
 
-#_08D4B6: LDA.b $0A
-#_08D4B8: CMP.b #$04
-#_08D4BA: BNE .next
+|08D4AB| LDA.b $08
+|08D4AD| STA.b ($92),Y
+
+|08D4AF| PLY
+
+;---------------------------------------------------------------------------------------------------
+
+|08D4B0| CMP.b #$02
+|08D4B2| BEQ .exit
+
+|08D4B4| INC.b $0A
+
+|08D4B6| LDA.b $0A
+|08D4B8| CMP.b #$04
+|08D4BA| BNE .next
 
 .exit
-#_08D4BC: PLX
+|08D4BC| PLX
 
-#_08D4BD: RTS
+|08D4BD| RTS
 
 ;===================================================================================================
 
 Ancilla40_DwarfPoof:
-#_08D4BE: DEC.w $03B1,X
-#_08D4C1: BPL .draw
+|08D4BE| DEC.w $03B1,X
+|08D4C1| BPL .draw
 
-#_08D4C3: LDA.b #$07
-#_08D4C5: STA.w $03B1,X
+|08D4C3| LDA.b #$07
+|08D4C5| STA.w $03B1,X
 
-#_08D4C8: LDA.w $0C5E,X
-#_08D4CB: INC A
-#_08D4CC: STA.w $0C5E,X
+|08D4C8| LDA.w $0C5E,X
+|08D4CB| INC A
+|08D4CC| STA.w $0C5E,X
 
-#_08D4CF: CMP.b #$03
-#_08D4D1: BNE .draw
+|08D4CF| CMP.b #$03
+|08D4D1| BNE .draw
 
-#_08D4D3: STZ.w $0C4A,X
-#_08D4D6: STZ.w $02F9
+|08D4D3| STZ.w $0C4A,X
+|08D4D6| STZ.w $02F9
 
-#_08D4D9: RTS
+|08D4D9| RTS
 
 .draw
-#_08D4DA: BRL AncillaDraw_LinkPoof
+|08D4DA| BRL AncillaDraw_LinkPoof
 
 ;===================================================================================================
 
 pool Ancilla3F_BushPoof
 
 .char
-#_08D4DD: db $86, $87, $96, $97
-#_08D4E1: db $A9, $A9, $A9, $A9
-#_08D4E5: db $8A, $8B, $9A, $9B
-#_08D4E9: db $9B, $9B, $9B, $9B
+|08D4DD| db $86, $87, $96, $97
+|08D4E1| db $A9, $A9, $A9, $A9
+|08D4E5| db $8A, $8B, $9A, $9B
+|08D4E9| db $9B, $9B, $9B, $9B
 
 .prop
-#_08D4ED: db $00, $00, $00, $00
-#_08D4F1: db $00, $40, $80, $C0
-#_08D4F5: db $00, $00, $00, $00
-#_08D4F9: db $C0, $80, $40, $00
+|08D4ED| db $00, $00, $00, $00
+|08D4F1| db $00, $40, $80, $C0
+|08D4F5| db $00, $00, $00, $00
+|08D4F9| db $C0, $80, $40, $00
 
 .offset_y_low
-#_08D4FD: db   0,   0,   8,   8
-#_08D501: db   0,   0,   8,   8
-#_08D505: db   0,   0,   8,   8
-#_08D509: db  -2,  -2,  10,  10
+|08D4FD| db   0,   0,   8,   8
+|08D501| db   0,   0,   8,   8
+|08D505| db   0,   0,   8,   8
+|08D509| db  -2,  -2,  10,  10
 
 .offset_y_high
-#_08D50D: db   0,   0,   0,   0
-#_08D511: db   0,   0,   0,   0
-#_08D515: db   0,   0,   0,   0
-#_08D519: db  -1,  -1,   0,   0
+|08D50D| db   0,   0,   0,   0
+|08D511| db   0,   0,   0,   0
+|08D515| db   0,   0,   0,   0
+|08D519| db  -1,  -1,   0,   0
 
 .offset_x_low
-#_08D51D: db   0,   8,   0,   8
-#_08D521: db   0,   8,   0,   8
-#_08D525: db   0,   8,   0,   8
-#_08D529: db  -2,  10,  -2,  10
+|08D51D| db   0,   8,   0,   8
+|08D521| db   0,   8,   0,   8
+|08D525| db   0,   8,   0,   8
+|08D529| db  -2,  10,  -2,  10
 
 .offset_x_high
-#_08D52D: db   0,   0,   0,   0
-#_08D531: db   0,   0,   0,   0
-#_08D535: db   0,   0,   0,   0
-#_08D539: db  -1,   0,  -1,   0
+|08D52D| db   0,   0,   0,   0
+|08D531| db   0,   0,   0,   0
+|08D535| db   0,   0,   0,   0
+|08D539| db  -1,   0,  -1,   0
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla3F_BushPoof:
-#_08D53D: LDA.w $0C68,X
-#_08D540: BNE .draw
+|08D53D| LDA.w $0C68,X
+|08D540| BNE .draw
 
-#_08D542: LDA.b #$07
-#_08D544: STA.w $0C68,X
+|08D542| LDA.b #$07
+|08D544| STA.w $0C68,X
 
-#_08D547: INC.w $0C5E,X
+|08D547| INC.w $0C5E,X
 
-#_08D54A: LDA.w $0C5E,X
-#_08D54D: CMP.b #$04
-#_08D54F: BNE .draw
+|08D54A| LDA.w $0C5E,X
+|08D54D| CMP.b #$04
+|08D54F| BNE .draw
 
-#_08D551: STZ.w $0C4A,X
+|08D551| STZ.w $0C4A,X
 
-#_08D554: RTS
+|08D554| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .draw
-#_08D555: LDA.b #$10
-#_08D557: JSL AllocateOAMInRegionC
+|08D555| LDA.b #$10
+|08D557| JSL AllocateOAMInRegionC
 
-#_08D55B: JSR Ancilla_PrepOAMCoord
+|08D55B| JSR Ancilla_PrepOAMCoord
 
-#_08D55E: LDA.b $00
-#_08D560: STA.b $06
+|08D55E| LDA.b $00
+|08D560| STA.b $06
 
-#_08D562: LDA.b $01
-#_08D564: STA.b $07
-#_08D566: STZ.b $08
+|08D562| LDA.b $01
+|08D564| STA.b $07
+|08D566| STZ.b $08
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D568: LDY.b #$00
+|08D568| LDY.b #$00
 
-#_08D56A: LDA.w $0C5E,X
-#_08D56D: ASL A
-#_08D56E: ASL A
-#_08D56F: TAX
+|08D56A| LDA.w $0C5E,X
+|08D56D| ASL A
+|08D56E| ASL A
+|08D56F| TAX
 
 .next
-#_08D570: LDA.b $06
-#_08D572: CLC
-#_08D573: ADC.w .offset_y_low,X
-#_08D576: STA.b $00
+|08D570| LDA.b $06
+|08D572| CLC
+|08D573| ADC.w .offset_y_low,X
+|08D576| STA.b $00
 
-#_08D578: LDA.b $07
-#_08D57A: ADC.w .offset_y_high,X
-#_08D57D: STA.b $01
+|08D578| LDA.b $07
+|08D57A| ADC.w .offset_y_high,X
+|08D57D| STA.b $01
 
-#_08D57F: LDA.b $04
-#_08D581: CLC
-#_08D582: ADC.w .offset_x_low,X
-#_08D585: STA.b $02
+|08D57F| LDA.b $04
+|08D581| CLC
+|08D582| ADC.w .offset_x_low,X
+|08D585| STA.b $02
 
-#_08D587: LDA.b $05
-#_08D589: ADC.w .offset_x_high,X
-#_08D58C: STA.b $03
+|08D587| LDA.b $05
+|08D589| ADC.w .offset_x_high,X
+|08D58C| STA.b $03
 
-#_08D58E: JSR Ancilla_SetOAM_XY
+|08D58E| JSR Ancilla_SetOAM_XY
 
-#_08D591: LDA.w .char,X
-#_08D594: STA.b ($90),Y
+|08D591| LDA.w .char,X
+|08D594| STA.b ($90),Y
 
-#_08D596: INY
+|08D596| INY
 
-#_08D597: LDA.w .prop,X
-#_08D59A: ORA.b #$04
-#_08D59C: ORA.b $65
-#_08D59E: STA.b ($90),Y
+|08D597| LDA.w .prop,X
+|08D59A| ORA.b #$04
+|08D59C| ORA.b $65
+|08D59E| STA.b ($90),Y
 
-#_08D5A0: INY
-#_08D5A1: PHY
+|08D5A0| INY
+|08D5A1| PHY
 
-#_08D5A2: TYA
-#_08D5A3: SEC
-#_08D5A4: SBC.b #$04
-#_08D5A6: LSR A
-#_08D5A7: LSR A
-#_08D5A8: TAY
+|08D5A2| TYA
+|08D5A3| SEC
+|08D5A4| SBC.b #$04
+|08D5A6| LSR A
+|08D5A7| LSR A
+|08D5A8| TAY
 
-#_08D5A9: LDA.b #$00
-#_08D5AB: STA.b ($92),Y
+|08D5A9| LDA.b #$00
+|08D5AB| STA.b ($92),Y
 
-#_08D5AD: PLY
+|08D5AD| PLY
 
-#_08D5AE: INX
+|08D5AE| INX
 
-#_08D5AF: INC.b $08
+|08D5AF| INC.b $08
 
-#_08D5B1: LDA.b $08
-#_08D5B3: CMP.b #$04
-#_08D5B5: BNE .next
+|08D5B1| LDA.b $08
+|08D5B3| CMP.b #$04
+|08D5B5| BNE .next
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D5B7: BRL Ancilla_RestoreIndex
+|08D5B7| BRL Ancilla_RestoreIndex
 
 ;===================================================================================================
 
 pool Ancilla26_SwordSwingSparkle
 
 .char
-#_08D5BA: db $B7, $B7, $FF
-#_08D5BD: db $80, $80, $B7
-#_08D5C0: db $83, $83, $80
-#_08D5C3: db $83, $FF, $FF
+|08D5BA| db $B7, $B7, $FF
+|08D5BD| db $80, $80, $B7
+|08D5C0| db $83, $83, $80
+|08D5C3| db $83, $FF, $FF
 
-#_08D5C6: db $B7, $B7, $FF
-#_08D5C9: db $80, $80, $B7
-#_08D5CC: db $83, $83, $80
-#_08D5CF: db $83, $FF, $FF
+|08D5C6| db $B7, $B7, $FF
+|08D5C9| db $80, $80, $B7
+|08D5CC| db $83, $83, $80
+|08D5CF| db $83, $FF, $FF
 
-#_08D5D2: db $B7, $B7, $FF
-#_08D5D5: db $80, $80, $B7
-#_08D5D8: db $83, $83, $80
-#_08D5DB: db $83, $FF, $FF
+|08D5D2| db $B7, $B7, $FF
+|08D5D5| db $80, $80, $B7
+|08D5D8| db $83, $83, $80
+|08D5DB| db $83, $FF, $FF
 
-#_08D5DE: db $B7, $B7, $FF
-#_08D5E1: db $80, $80, $B7
-#_08D5E4: db $83, $83, $80
-#_08D5E7: db $83, $FF, $FF
+|08D5DE| db $B7, $B7, $FF
+|08D5E1| db $80, $80, $B7
+|08D5E4| db $83, $83, $80
+|08D5E7| db $83, $FF, $FF
 
 ;---------------------------------------------------------------------------------------------------
 
 .prop
-#_08D5EA: db $00, $00, $FF
-#_08D5ED: db $00, $00, $00
-#_08D5F0: db $80, $80, $00
-#_08D5F3: db $80, $FF, $FF
+|08D5EA| db $00, $00, $FF
+|08D5ED| db $00, $00, $00
+|08D5F0| db $80, $80, $00
+|08D5F3| db $80, $FF, $FF
 
-#_08D5F6: db $00, $00, $FF
-#_08D5F9: db $00, $00, $00
-#_08D5FC: db $80, $80, $00
-#_08D5FF: db $80, $FF, $FF
+|08D5F6| db $00, $00, $FF
+|08D5F9| db $00, $00, $00
+|08D5FC| db $80, $80, $00
+|08D5FF| db $80, $FF, $FF
 
-#_08D602: db $00, $00, $FF
-#_08D605: db $00, $00, $00
-#_08D608: db $80, $80, $00
-#_08D60B: db $80, $FF, $FF
+|08D602| db $00, $00, $FF
+|08D605| db $00, $00, $00
+|08D608| db $80, $80, $00
+|08D60B| db $80, $FF, $FF
 
-#_08D60E: db $00, $00, $FF
-#_08D611: db $00, $00, $00
-#_08D614: db $80, $80, $00
-#_08D617: db $80, $FF, $FF
+|08D60E| db $00, $00, $FF
+|08D611| db $00, $00, $00
+|08D614| db $80, $80, $00
+|08D617| db $80, $FF, $FF
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_y
-#_08D61A: db -22, -18,  -1
-#_08D61D: db -22, -18, -17
-#_08D620: db -22, -18, -17
-#_08D623: db -17,  -1,  -1
+|08D61A| db -22, -18,  -1
+|08D61D| db -22, -18, -17
+|08D620| db -22, -18, -17
+|08D623| db -17,  -1,  -1
 
-#_08D626: db  35,  40,  -1
-#_08D629: db  35,  40,  37
-#_08D62C: db  35,  40,  37
-#_08D62F: db  37,  -1,  -1
+|08D626| db  35,  40,  -1
+|08D629| db  35,  40,  37
+|08D62C| db  35,  40,  37
+|08D62F| db  37,  -1,  -1
 
-#_08D632: db   2,   7,  -1
-#_08D635: db   2,   7,  19
-#_08D638: db   2,   7,  19
-#_08D63B: db  19,  -1,  -1
+|08D632| db   2,   7,  -1
+|08D635| db   2,   7,  19
+|08D638| db   2,   7,  19
+|08D63B| db  19,  -1,  -1
 
-#_08D63E: db   2,   7,  -1
-#_08D641: db   2,   7,  19
-#_08D644: db   2,   7,  19
-#_08D647: db  19,  -1,  -1
+|08D63E| db   2,   7,  -1
+|08D641| db   2,   7,  19
+|08D644| db   2,   7,  19
+|08D647| db  19,  -1,  -1
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_x
-#_08D64A: db   5,  10,  -1
-#_08D64D: db   5,  10,  -4
-#_08D650: db   5,  10,  -4
-#_08D653: db  -4,  -1,  -1
+|08D64A| db   5,  10,  -1
+|08D64D| db   5,  10,  -4
+|08D650| db   5,  10,  -4
+|08D653| db  -4,  -1,  -1
 
-#_08D656: db   0,   5,  -1
-#_08D659: db   0,   5,  14
-#_08D65C: db   0,   5,  14
-#_08D65F: db  14,  -1,  -1
+|08D656| db   0,   5,  -1
+|08D659| db   0,   5,  14
+|08D65C| db   0,   5,  14
+|08D65F| db  14,  -1,  -1
 
-#_08D662: db -23, -27,  -1
-#_08D665: db -23, -27, -22
-#_08D668: db -23, -27, -22
-#_08D66B: db -22,  -1,  -1
+|08D662| db -23, -27,  -1
+|08D665| db -23, -27, -22
+|08D668| db -23, -27, -22
+|08D66B| db -22,  -1,  -1
 
-#_08D66E: db  32,  35,  -1
-#_08D671: db  32,  35,  30
-#_08D674: db  32,  35,  30
-#_08D677: db  30,  -1,  -1
+|08D66E| db  32,  35,  -1
+|08D671| db  32,  35,  30
+|08D674| db  32,  35,  30
+|08D677| db  30,  -1,  -1
 
 ;---------------------------------------------------------------------------------------------------
 
 .group_offset
-#_08D67A: db $00
-#_08D67B: db $0C
-#_08D67C: db $18
-#_08D67D: db $24
+|08D67A| db $00
+|08D67B| db $0C
+|08D67C| db $18
+|08D67D| db $24
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla26_SwordSwingSparkle:
-#_08D67E: DEC.w $03B1,X
-#_08D681: BPL .draw
+|08D67E| DEC.w $03B1,X
+|08D681| BPL .draw
 
-#_08D683: LDA.b #$00
-#_08D685: STA.w $03B1,X
+|08D683| LDA.b #$00
+|08D685| STA.w $03B1,X
 
-#_08D688: INC.w $0C5E,X
+|08D688| INC.w $0C5E,X
 
-#_08D68B: LDA.w $0C5E,X
-#_08D68E: CMP.b #$04
-#_08D690: BNE .draw
+|08D68B| LDA.w $0C5E,X
+|08D68E| CMP.b #$04
+|08D690| BNE .draw
 
-#_08D692: STZ.w $0C4A,X
+|08D692| STZ.w $0C4A,X
 
-#_08D695: RTS
+|08D695| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .draw
-#_08D696: PHX
+|08D696| PHX
 
-#_08D697: LDA.b $20
-#_08D699: STA.w $0BFA,X
+|08D697| LDA.b $20
+|08D699| STA.w $0BFA,X
 
-#_08D69C: LDA.b $21
-#_08D69E: STA.w $0C0E,X
+|08D69C| LDA.b $21
+|08D69E| STA.w $0C0E,X
 
-#_08D6A1: LDA.b $22
-#_08D6A3: STA.w $0C04,X
+|08D6A1| LDA.b $22
+|08D6A3| STA.w $0C04,X
 
-#_08D6A6: LDA.b $23
-#_08D6A8: STA.w $0C18,X
+|08D6A6| LDA.b $23
+|08D6A8| STA.w $0C18,X
 
-#_08D6AB: JSR Ancilla_PrepOAMCoord
-
-;---------------------------------------------------------------------------------------------------
-
-#_08D6AE: REP #$20
-
-#_08D6B0: LDA.b $00
-#_08D6B2: STA.b $04
-
-#_08D6B4: LDA.b $02
-#_08D6B6: STA.b $06
-
-#_08D6B8: SEP #$20
-
-#_08D6BA: LDA.b #$02
-#_08D6BC: STA.b $08
-
-#_08D6BE: LDY.w $0C72,X
-
-#_08D6C1: LDA.w $0C5E,X
-#_08D6C4: ASL A
-#_08D6C5: CLC
-#_08D6C6: ADC.w $0C5E,X
-#_08D6C9: CLC
-#_08D6CA: ADC.w .group_offset,Y
-#_08D6CD: TAX
+|08D6AB| JSR Ancilla_PrepOAMCoord
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D6CE: LDY.b #$00
+|08D6AE| REP #$20
+
+|08D6B0| LDA.b $00
+|08D6B2| STA.b $04
+
+|08D6B4| LDA.b $02
+|08D6B6| STA.b $06
+
+|08D6B8| SEP #$20
+
+|08D6BA| LDA.b #$02
+|08D6BC| STA.b $08
+
+|08D6BE| LDY.w $0C72,X
+
+|08D6C1| LDA.w $0C5E,X
+|08D6C4| ASL A
+|08D6C5| CLC
+|08D6C6| ADC.w $0C5E,X
+|08D6C9| CLC
+|08D6CA| ADC.w .group_offset,Y
+|08D6CD| TAX
+
+;---------------------------------------------------------------------------------------------------
+
+|08D6CE| LDY.b #$00
 
 .next
-#_08D6D0: LDA.w .char,X
-#_08D6D3: CMP.b #$FF
-#_08D6D5: BEQ .skip
+|08D6D0| LDA.w .char,X
+|08D6D3| CMP.b #$FF
+|08D6D5| BEQ .skip
 
-#_08D6D7: REP #$20
+|08D6D7| REP #$20
 
-#_08D6D9: LDA.w .offset_y,X
-#_08D6DC: AND.w #$00FF
-#_08D6DF: CMP.w #$0080
-#_08D6E2: BCC .positive_y
+|08D6D9| LDA.w .offset_y,X
+|08D6DC| AND.w #$00FF
+|08D6DF| CMP.w #$0080
+|08D6E2| BCC .positive_y
 
-#_08D6E4: ORA.w #$FF00
+|08D6E4| ORA.w #$FF00
 
 .positive_y
-#_08D6E7: CLC
-#_08D6E8: ADC.b $04
-#_08D6EA: STA.b $00
+|08D6E7| CLC
+|08D6E8| ADC.b $04
+|08D6EA| STA.b $00
 
-#_08D6EC: LDA.w .offset_x,X
-#_08D6EF: AND.w #$00FF
-#_08D6F2: CMP.w #$0080
-#_08D6F5: BCC .positive_x
+|08D6EC| LDA.w .offset_x,X
+|08D6EF| AND.w #$00FF
+|08D6F2| CMP.w #$0080
+|08D6F5| BCC .positive_x
 
-#_08D6F7: ORA.w #$FF00
+|08D6F7| ORA.w #$FF00
 
 .positive_x
-#_08D6FA: CLC
-#_08D6FB: ADC.b $06
-#_08D6FD: STA.b $02
+|08D6FA| CLC
+|08D6FB| ADC.b $06
+|08D6FD| STA.b $02
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D6FF: SEP #$20
+|08D6FF| SEP #$20
 
-#_08D701: JSR Ancilla_SetOAM_XY
+|08D701| JSR Ancilla_SetOAM_XY
 
-#_08D704: LDA.w .char,X
-#_08D707: STA.b ($90),Y
+|08D704| LDA.w .char,X
+|08D707| STA.b ($90),Y
 
-#_08D709: INY
+|08D709| INY
 
-#_08D70A: LDA.w .prop,X
-#_08D70D: ORA.b #$04
-#_08D70F: ORA.b $65
-#_08D711: STA.b ($90),Y
+|08D70A| LDA.w .prop,X
+|08D70D| ORA.b #$04
+|08D70F| ORA.b $65
+|08D711| STA.b ($90),Y
 
-#_08D713: INY
-#_08D714: PHY
+|08D713| INY
+|08D714| PHY
 
-#_08D715: TYA
-#_08D716: SEC
-#_08D717: SBC.b #$04
-#_08D719: LSR A
-#_08D71A: LSR A
-#_08D71B: TAY
+|08D715| TYA
+|08D716| SEC
+|08D717| SBC.b #$04
+|08D719| LSR A
+|08D71A| LSR A
+|08D71B| TAY
 
-#_08D71C: LDA.b #$00
-#_08D71E: STA.b ($92),Y
+|08D71C| LDA.b #$00
+|08D71E| STA.b ($92),Y
 
-#_08D720: PLY
+|08D720| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08D721: INX
+|08D721| INX
 
-#_08D722: DEC.b $08
-#_08D724: BPL .next
+|08D722| DEC.b $08
+|08D724| BPL .next
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D726: PLX
+|08D726| PLX
 
-#_08D727: RTS
+|08D727| RTS
 
 ;===================================================================================================
 
 pool Ancilla2A_SpinAttackSparkleA
 
 .timer
-#_08D728: db   4
-#_08D729: db   2
-#_08D72A: db   3
-#_08D72B: db   3
-#_08D72C: db   2
-#_08D72D: db   1
+|08D728| db   4
+|08D729| db   2
+|08D72A| db   3
+|08D72B| db   3
+|08D72C| db   2
+|08D72D| db   1
 
 .char
-#_08D72E: db $92, $FF, $FF, $FF
-#_08D732: db $8C, $8C, $8C, $8C
-#_08D736: db $D6, $D6, $D6, $D6
-#_08D73A: db $93, $93, $93, $93
-#_08D73E: db $D6, $D6, $D6, $D6
-#_08D742: db $D7, $FF, $FF, $FF
-#_08D746: db $80, $FF, $FF, $FF
+|08D72E| db $92, $FF, $FF, $FF
+|08D732| db $8C, $8C, $8C, $8C
+|08D736| db $D6, $D6, $D6, $D6
+|08D73A| db $93, $93, $93, $93
+|08D73E| db $D6, $D6, $D6, $D6
+|08D742| db $D7, $FF, $FF, $FF
+|08D746| db $80, $FF, $FF, $FF
 
 .prop
-#_08D74A: db $22, $FF, $FF, $FF
-#_08D74E: db $22, $62, $A2, $E2
-#_08D752: db $24, $64, $A4, $E4
-#_08D756: db $22, $62, $A2, $E2
-#_08D75A: db $22, $62, $A2, $E2
-#_08D75E: db $22, $FF, $FF, $FF
-#_08D762: db $22, $FF, $FF, $FF
+|08D74A| db $22, $FF, $FF, $FF
+|08D74E| db $22, $62, $A2, $E2
+|08D752| db $24, $64, $A4, $E4
+|08D756| db $22, $62, $A2, $E2
+|08D75A| db $22, $62, $A2, $E2
+|08D75E| db $22, $FF, $FF, $FF
+|08D762| db $22, $FF, $FF, $FF
 
 .offset_y
-#_08D766: dw  -4,   0,   0,   0
-#_08D76E: dw  -8,  -8,   0,   0
-#_08D776: dw  -8,  -8,   0,   0
-#_08D77E: dw  -8,  -8,   0,   0
-#_08D786: dw  -8,  -8,   0,   0
-#_08D78E: dw  -4,   0,   0,   0
-#_08D796: dw  -4,   0,   0,   0
+|08D766| dw  -4,   0,   0,   0
+|08D76E| dw  -8,  -8,   0,   0
+|08D776| dw  -8,  -8,   0,   0
+|08D77E| dw  -8,  -8,   0,   0
+|08D786| dw  -8,  -8,   0,   0
+|08D78E| dw  -4,   0,   0,   0
+|08D796| dw  -4,   0,   0,   0
 
 .offset_x
-#_08D79E: dw  -4,   0,   0,   0
-#_08D7A6: dw  -8,   0,  -8,   0
-#_08D7AE: dw  -8,   0,  -8,   0
-#_08D7B6: dw  -8,   0,  -8,   0
-#_08D7BE: dw  -8,   0,  -8,   0
-#_08D7C6: dw  -4,   0,   0,   0
-#_08D7CE: dw  -4,   0,   0,   0
+|08D79E| dw  -4,   0,   0,   0
+|08D7A6| dw  -8,   0,  -8,   0
+|08D7AE| dw  -8,   0,  -8,   0
+|08D7B6| dw  -8,   0,  -8,   0
+|08D7BE| dw  -8,   0,  -8,   0
+|08D7C6| dw  -4,   0,   0,   0
+|08D7CE| dw  -4,   0,   0,   0
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla2A_SpinAttackSparkleA:
-#_08D7D6: LDA.b $11
-#_08D7D8: BNE .just_draw
+|08D7D6| LDA.b $11
+|08D7D8| BNE .just_draw
 
-#_08D7DA: DEC.w $03B1,X
-#_08D7DD: BPL .just_draw
+|08D7DA| DEC.w $03B1,X
+|08D7DD| BPL .just_draw
 
-#_08D7DF: STZ.w $03B1,X
+|08D7DF| STZ.w $03B1,X
 
-#_08D7E2: LDA.w $0C68,X
-#_08D7E5: BNE .just_draw
+|08D7E2| LDA.w $0C68,X
+|08D7E5| BNE .just_draw
 
-#_08D7E7: LDA.w $0C5E,X
-#_08D7EA: INC A
-#_08D7EB: STA.w $0C5E,X
+|08D7E7| LDA.w $0C5E,X
+|08D7EA| INC A
+|08D7EB| STA.w $0C5E,X
 
-#_08D7EE: TAY
+|08D7EE| TAY
 
-#_08D7EF: LDA.w .timer,Y
-#_08D7F2: STA.w $0C68,X
+|08D7EF| LDA.w .timer,Y
+|08D7F2| STA.w $0C68,X
 
-#_08D7F5: CPY.b #$05
-#_08D7F7: BNE .just_draw
+|08D7F5| CPY.b #$05
+|08D7F7| BNE .just_draw
 
-#_08D7F9: LDA.w $0C54,X
-#_08D7FC: BNE .add_beam
+|08D7F9| LDA.w $0C54,X
+|08D7FC| BNE .add_beam
 
-#_08D7FE: BRL SpinAttackSparkleA_TransmuteToNextSpark
+|08D7FE| BRL SpinAttackSparkleA_TransmuteToNextSpark
 
 .add_beam
-#_08D801: JSL AncillaAdd_SwordBeam
+|08D801| JSL AncillaAdd_SwordBeam
 
-#_08D805: RTS
+|08D805| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .just_draw
-#_08D806: LDA.w $0C5E,X
-#_08D809: BEQ .exit
+|08D806| LDA.w $0C5E,X
+|08D809| BEQ .exit
 
-#_08D80B: JSR Ancilla_PrepOAMCoord
+|08D80B| JSR Ancilla_PrepOAMCoord
 
-#_08D80E: REP #$20
+|08D80E| REP #$20
 
-#_08D810: LDA.b $00
-#_08D812: STA.b $06
+|08D810| LDA.b $00
+|08D812| STA.b $06
 
-#_08D814: LDA.b $02
-#_08D816: STA.b $08
+|08D814| LDA.b $02
+|08D816| STA.b $08
 
-#_08D818: SEP #$20
+|08D818| SEP #$20
 
-#_08D81A: PHX
+|08D81A| PHX
 
-#_08D81B: LDY.b #$00
-#_08D81D: STY.b $04
+|08D81B| LDY.b #$00
+|08D81D| STY.b $04
 
-#_08D81F: LDA.w $0C5E,X
-#_08D822: DEC A
-#_08D823: ASL A
-#_08D824: ASL A
-#_08D825: TAX
+|08D81F| LDA.w $0C5E,X
+|08D822| DEC A
+|08D823| ASL A
+|08D824| ASL A
+|08D825| TAX
 
 ;===================================================================================================
 
 #AncillaDraw_SpinningSpark:
 .next
-#_08D826: LDA.w .char,X
-#_08D829: CMP.b #$FF
-#_08D82B: BEQ .skip
+|08D826| LDA.w .char,X
+|08D829| CMP.b #$FF
+|08D82B| BEQ .skip
 
-#_08D82D: REP #$20
+|08D82D| REP #$20
 
-#_08D82F: PHX
+|08D82F| PHX
 
-#_08D830: TXA
-#_08D831: ASL A
-#_08D832: TAX
+|08D830| TXA
+|08D831| ASL A
+|08D832| TAX
 
-#_08D833: LDA.b $06
-#_08D835: CLC
-#_08D836: ADC.w .offset_y,X
-#_08D839: STA.b $00
+|08D833| LDA.b $06
+|08D835| CLC
+|08D836| ADC.w .offset_y,X
+|08D839| STA.b $00
 
-#_08D83B: LDA.b $08
-#_08D83D: CLC
-#_08D83E: ADC.w .offset_x,X
-#_08D841: STA.b $02
+|08D83B| LDA.b $08
+|08D83D| CLC
+|08D83E| ADC.w .offset_x,X
+|08D841| STA.b $02
 
-#_08D843: PLX
+|08D843| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D844: SEP #$20
+|08D844| SEP #$20
 
-#_08D846: JSR Ancilla_SetOAM_XY
+|08D846| JSR Ancilla_SetOAM_XY
 
-#_08D849: LDA.w .char,X
-#_08D84C: STA.b ($90),Y
+|08D849| LDA.w .char,X
+|08D84C| STA.b ($90),Y
 
-#_08D84E: INY
+|08D84E| INY
 
-#_08D84F: LDA.w .prop,X
-#_08D852: AND.b #$CF
-#_08D854: ORA.b $65
-#_08D856: STA.b ($90),Y
+|08D84F| LDA.w .prop,X
+|08D852| AND.b #$CF
+|08D854| ORA.b $65
+|08D856| STA.b ($90),Y
 
-#_08D858: INY
-#_08D859: PHY
+|08D858| INY
+|08D859| PHY
 
-#_08D85A: TYA
-#_08D85B: SEC
-#_08D85C: SBC.b #$04
-#_08D85E: LSR A
-#_08D85F: LSR A
-#_08D860: TAY
+|08D85A| TYA
+|08D85B| SEC
+|08D85C| SBC.b #$04
+|08D85E| LSR A
+|08D85F| LSR A
+|08D860| TAY
 
-#_08D861: LDA.b #$00
-#_08D863: STA.b ($92),Y
+|08D861| LDA.b #$00
+|08D863| STA.b ($92),Y
 
-#_08D865: PLY
+|08D865| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08D866: INX
+|08D866| INX
 
-#_08D867: INC.b $04
+|08D867| INC.b $04
 
-#_08D869: LDA.b $04
-#_08D86B: AND.b #$03
-#_08D86D: BNE .next
+|08D869| LDA.b $04
+|08D86B| AND.b #$03
+|08D86D| BNE .next
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D86F: PLX
+|08D86F| PLX
 
 .exit
-#_08D870: RTS
+|08D870| RTS
 
 ;===================================================================================================
 
 pool SpinAttackSparkleA_TransmuteToNextSpark
 
 .rotation
-#_08D871: db $21, $20, $1F, $1E ; up
-#_08D875: db $03, $02, $01, $00 ; down
-#_08D879: db $12, $11, $10, $0F ; left
-#_08D87D: db $31, $30, $2F, $2E ; right
+|08D871| db $21, $20, $1F, $1E ; up
+|08D875| db $03, $02, $01, $00 ; down
+|08D879| db $12, $11, $10, $0F ; left
+|08D87D| db $31, $30, $2F, $2E ; right
 
 .offset_y
-#_08D881: dw  28 ; up
-#_08D883: dw  -2 ; down
-#_08D885: dw  24 ; left
-#_08D887: dw   6 ; right
+|08D881| dw  28 ; up
+|08D883| dw  -2 ; down
+|08D885| dw  24 ; left
+|08D887| dw   6 ; right
 
 .offset_x
-#_08D889: dw  -3 ; up
-#_08D88B: dw  21 ; down
-#_08D88D: dw  25 ; left
-#_08D88F: dw  -8 ; right
+|08D889| dw  -3 ; up
+|08D88B| dw  21 ; down
+|08D88D| dw  25 ; left
+|08D88F| dw  -8 ; right
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 SpinAttackSparkleA_TransmuteToNextSpark:
-#_08D891: LDA.b #$2B ; ANCILLA 2B
-#_08D893: STA.w $0C4A,X
+|08D891| LDA.b #$2B ; ANCILLA 2B
+|08D893| STA.w $0C4A,X
 
-#_08D896: LDA.b $2F
-#_08D898: ASL A
-#_08D899: TAY
+|08D896| LDA.b $2F
+|08D898| ASL A
+|08D899| TAY
 
-#_08D89A: LDA.w .rotation+0,Y
-#_08D89D: STA.l $7F5800
+|08D89A| LDA.w .rotation+0,Y
+|08D89D| STA.l $7F5800
 
-#_08D8A1: LDA.w .rotation+1,Y
-#_08D8A4: STA.l $7F5801
+|08D8A1| LDA.w .rotation+1,Y
+|08D8A4| STA.l $7F5801
 
-#_08D8A8: LDA.w .rotation+2,Y
-#_08D8AB: STA.l $7F5802
+|08D8A8| LDA.w .rotation+2,Y
+|08D8AB| STA.l $7F5802
 
-#_08D8AF: LDA.w .rotation+3,Y
-#_08D8B2: STA.l $7F5803
-#_08D8B6: STA.l $7F5804
-
-;---------------------------------------------------------------------------------------------------
-
-#_08D8BA: LDA.b #$02
-#_08D8BC: STA.w $03B1,X
-
-#_08D8BF: LDA.b #$4C
-#_08D8C1: STA.w $0C5E,X
-
-#_08D8C4: LDA.b #$08
-#_08D8C6: STA.w $039F,X
-
-#_08D8C9: STZ.w $0C54,X
-#_08D8CC: STZ.w $0385,X
-
-#_08D8CF: LDA.b #$FF
-#_08D8D1: STA.w $03A4,X
-
-#_08D8D4: LDA.b #$14
-#_08D8D6: STA.l $7F5808
+|08D8AF| LDA.w .rotation+3,Y
+|08D8B2| STA.l $7F5803
+|08D8B6| STA.l $7F5804
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D8DA: LDY.b $2F
+|08D8BA| LDA.b #$02
+|08D8BC| STA.w $03B1,X
 
-#_08D8DC: REP #$20
+|08D8BF| LDA.b #$4C
+|08D8C1| STA.w $0C5E,X
 
-#_08D8DE: LDA.b $20
-#_08D8E0: CLC
-#_08D8E1: ADC.w #$000C
-#_08D8E4: STA.l $7F5810
+|08D8C4| LDA.b #$08
+|08D8C6| STA.w $039F,X
 
-#_08D8E8: LDA.b $22
-#_08D8EA: CLC
-#_08D8EB: ADC.w #$0008
-#_08D8EE: STA.l $7F580E
+|08D8C9| STZ.w $0C54,X
+|08D8CC| STZ.w $0385,X
 
-#_08D8F2: LDA.b $20
-#_08D8F4: CLC
-#_08D8F5: ADC.w .offset_y,Y
-#_08D8F8: STA.b $00
+|08D8CF| LDA.b #$FF
+|08D8D1| STA.w $03A4,X
 
-#_08D8FA: LDA.b $22
-#_08D8FC: CLC
-#_08D8FD: ADC.w .offset_x,Y
-#_08D900: STA.b $02
+|08D8D4| LDA.b #$14
+|08D8D6| STA.l $7F5808
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D902: SEP #$20
+|08D8DA| LDY.b $2F
 
-#_08D904: LDA.b $00
-#_08D906: STA.w $0BFA,X
+|08D8DC| REP #$20
 
-#_08D909: LDA.b $01
-#_08D90B: STA.w $0C0E,X
+|08D8DE| LDA.b $20
+|08D8E0| CLC
+|08D8E1| ADC.w #$000C
+|08D8E4| STA.l $7F5810
 
-#_08D90E: LDA.b $02
-#_08D910: STA.w $0C04,X
+|08D8E8| LDA.b $22
+|08D8EA| CLC
+|08D8EB| ADC.w #$0008
+|08D8EE| STA.l $7F580E
 
-#_08D913: LDA.b $03
-#_08D915: STA.w $0C18,X
+|08D8F2| LDA.b $20
+|08D8F4| CLC
+|08D8F5| ADC.w .offset_y,Y
+|08D8F8| STA.b $00
 
-#_08D918: BRA Ancilla2B_SpinAttackSparkleB
+|08D8FA| LDA.b $22
+|08D8FC| CLC
+|08D8FD| ADC.w .offset_x,Y
+|08D900| STA.b $02
+
+;---------------------------------------------------------------------------------------------------
+
+|08D902| SEP #$20
+
+|08D904| LDA.b $00
+|08D906| STA.w $0BFA,X
+
+|08D909| LDA.b $01
+|08D90B| STA.w $0C0E,X
+
+|08D90E| LDA.b $02
+|08D910| STA.w $0C04,X
+
+|08D913| LDA.b $03
+|08D915| STA.w $0C18,X
+
+|08D918| BRA Ancilla2B_SpinAttackSparkleB
 
 ;===================================================================================================
 
 pool Ancilla2B_SpinAttackSparkleB
 
 .char
-#_08D91A: db $D7, $B7, $80, $83
+|08D91A| db $D7, $B7, $80, $83
 
 .extra_char
-#_08D91E: db $B7, $80, $83
+|08D91E| db $B7, $80, $83
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla2B_SpinAttackSparkleB:
-#_08D921: LDA.w $0385,X
-#_08D924: BEQ .continue
+|08D921| LDA.w $0385,X
+|08D924| BEQ .continue
 
-#_08D926: BRL SpinAttackSparkleB_Closer
+|08D926| BRL SpinAttackSparkleB_Closer
 
 .continue
-#_08D929: PHX
+|08D929| PHX
 
-#_08D92A: LDA.b #$02
-#_08D92C: STA.b $73
+|08D92A| LDA.b #$02
+|08D92C| STA.b $73
 
-#_08D92E: LDA.b $11
-#_08D930: BNE .no_ai
+|08D92E| LDA.b $11
+|08D930| BNE .no_ai
 
-#_08D932: LDY.b #$00
+|08D932| LDY.b #$00
 
-#_08D934: LDA.w $0C5E,X
-#_08D937: SEC
-#_08D938: SBC.b #$03
-#_08D93A: STA.w $0C5E,X
+|08D934| LDA.w $0C5E,X
+|08D937| SEC
+|08D938| SBC.b #$03
+|08D93A| STA.w $0C5E,X
 
-#_08D93D: CMP.b #$0D
-#_08D93F: BCS .dont_run_closer
+|08D93D| CMP.b #$0D
+|08D93F| BCS .dont_run_closer
 
-#_08D941: PLX
+|08D941| PLX
 
-#_08D942: LDA.b #$01
-#_08D944: STA.w $03B1,X
-#_08D947: STA.w $0385,X
+|08D942| LDA.b #$01
+|08D944| STA.w $03B1,X
+|08D947| STA.w $0385,X
 
-#_08D94A: STZ.w $0C5E,X
+|08D94A| STZ.w $0C5E,X
 
-#_08D94D: BRL SpinAttackSparkleB_Closer
+|08D94D| BRL SpinAttackSparkleB_Closer
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_run_closer
-#_08D950: CMP.b #$42
-#_08D952: BCS .not_four
+|08D950| CMP.b #$42
+|08D952| BCS .not_four
 
-#_08D954: LDY.b #$03
-#_08D956: BRA .set_count
+|08D954| LDY.b #$03
+|08D956| BRA .set_count
 
 .not_four
-#_08D958: CMP.b #$46
-#_08D95A: BNE .not_two
+|08D958| CMP.b #$46
+|08D95A| BNE .not_two
 
-#_08D95C: LDY.b #$01
+|08D95C| LDY.b #$01
 
 .not_two
-#_08D95E: CMP.b #$43
-#_08D960: BNE .set_count
+|08D95E| CMP.b #$43
+|08D960| BNE .set_count
 
-#_08D962: LDY.b #$02
+|08D962| LDY.b #$02
 
 .set_count
-#_08D964: TYA
-#_08D965: STA.w $0C54,X
+|08D964| TYA
+|08D965| STA.w $0C54,X
 
-#_08D968: DEC.w $03B1,X
-#_08D96B: BPL .no_ai
+|08D968| DEC.w $03B1,X
+|08D96B| BPL .no_ai
 
-#_08D96D: LDA.b #$04
-#_08D96F: STA.b $73
+|08D96D| LDA.b #$04
+|08D96F| STA.b $73
 
-#_08D971: LDA.b #$02
-#_08D973: STA.w $03B1,X
+|08D971| LDA.b #$02
+|08D973| STA.w $03B1,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_ai
-#_08D976: LDY.b #$00
+|08D976| LDY.b #$00
 
-#_08D978: LDA.w $0C54,X
-#_08D97B: TAX
+|08D978| LDA.w $0C54,X
+|08D97B| TAX
 
 .next_spark
-#_08D97C: STX.b $72
+|08D97C| STX.b $72
 
-#_08D97E: LDA.b $11
-#_08D980: BNE .no_rotate
+|08D97E| LDA.b $11
+|08D980| BNE .no_rotate
 
-#_08D982: LDA.l $7F5800,X
-#_08D986: CLC
-#_08D987: ADC.b #$04
-#_08D989: AND.b #$3F
-#_08D98B: STA.l $7F5800,X
+|08D982| LDA.l $7F5800,X
+|08D986| CLC
+|08D987| ADC.b #$04
+|08D989| AND.b #$3F
+|08D98B| STA.l $7F5800,X
 
 .no_rotate
-#_08D98F: PHX
-#_08D990: PHY
+|08D98F| PHX
+|08D990| PHY
 
-#_08D991: LDA.l $7F5808
-#_08D995: STA.b $08
+|08D991| LDA.l $7F5808
+|08D995| STA.b $08
 
-#_08D997: LDA.l $7F5800,X
-#_08D99B: JSR Ancilla_GetRadialProjection
-#_08D99E: JSL Sparkle_PrepOAMFromRadial
+|08D997| LDA.l $7F5800,X
+|08D99B| JSR Ancilla_GetRadialProjection
+|08D99E| JSL Sparkle_PrepOAMFromRadial
 
-#_08D9A2: PLY
+|08D9A2| PLY
 
-#_08D9A3: JSR Ancilla_SetOAM_XY
+|08D9A3| JSR Ancilla_SetOAM_XY
 
-#_08D9A6: LDX.b $72
+|08D9A6| LDX.b $72
 
-#_08D9A8: LDA.w .char,X
-#_08D9AB: STA.b ($90),Y
+|08D9A8| LDA.w .char,X
+|08D9AB| STA.b ($90),Y
 
-#_08D9AD: INY
+|08D9AD| INY
 
-#_08D9AE: LDA.b $73
-#_08D9B0: ORA.b $65
-#_08D9B2: STA.b ($90),Y
+|08D9AE| LDA.b $73
+|08D9B0| ORA.b $65
+|08D9B2| STA.b ($90),Y
 
-#_08D9B4: INY
-#_08D9B5: PHY
+|08D9B4| INY
+|08D9B5| PHY
 
-#_08D9B6: TYA
-#_08D9B7: SEC
-#_08D9B8: SBC.b #$04
-#_08D9BA: LSR A
-#_08D9BB: LSR A
-#_08D9BC: TAY
+|08D9B6| TYA
+|08D9B7| SEC
+|08D9B8| SBC.b #$04
+|08D9BA| LSR A
+|08D9BB| LSR A
+|08D9BC| TAY
 
-#_08D9BD: LDA.b #$00
-#_08D9BF: STA.b ($92),Y
+|08D9BD| LDA.b #$00
+|08D9BF| STA.b ($92),Y
 
-#_08D9C1: PLY
-#_08D9C2: PLX
-#_08D9C3: DEX
-#_08D9C4: BPL .next_spark
+|08D9C1| PLY
+|08D9C2| PLX
+|08D9C3| DEX
+|08D9C4| BPL .next_spark
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08D9C6: PLX
-#_08D9C7: PHX
+|08D9C6| PLX
+|08D9C7| PHX
 
-#_08D9C8: LDA.b $11
-#_08D9CA: BNE .skip_extra_logic
+|08D9C8| LDA.b $11
+|08D9CA| BNE .skip_extra_logic
 
-#_08D9CC: DEC.w $039F,X
-#_08D9CF: BPL .delay_extra
+|08D9CC| DEC.w $039F,X
+|08D9CF| BPL .delay_extra
 
-#_08D9D1: LDA.b #$00
-#_08D9D3: STA.w $039F,X
+|08D9D1| LDA.b #$00
+|08D9D3| STA.w $039F,X
 
-#_08D9D6: LDA.w $03A4,X
-#_08D9D9: INC A
-#_08D9DA: AND.b #$03
-#_08D9DC: STA.w $03A4,X
+|08D9D6| LDA.w $03A4,X
+|08D9D9| INC A
+|08D9DA| AND.b #$03
+|08D9DC| STA.w $03A4,X
 
-#_08D9DF: CMP.b #$03
-#_08D9E1: BNE .skip_extra_logic
+|08D9DF| CMP.b #$03
+|08D9E1| BNE .skip_extra_logic
 
-#_08D9E3: LDA.l $7F5804
-#_08D9E7: CLC
-#_08D9E8: ADC.b #$09
-#_08D9EA: AND.b #$3F
-#_08D9EC: STA.l $7F5804
+|08D9E3| LDA.l $7F5804
+|08D9E7| CLC
+|08D9E8| ADC.b #$09
+|08D9EA| AND.b #$3F
+|08D9EC| STA.l $7F5804
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_extra_logic
-#_08D9F0: LDA.w $03A4,X
-#_08D9F3: STA.b $72
+|08D9F0| LDA.w $03A4,X
+|08D9F3| STA.b $72
 
-#_08D9F5: CMP.b #$03
-#_08D9F7: BEQ .delay_extra
+|08D9F5| CMP.b #$03
+|08D9F7| BEQ .delay_extra
 
-#_08D9F9: PHY
+|08D9F9| PHY
 
-#_08D9FA: LDA.l $7F5808
-#_08D9FE: STA.b $08
+|08D9FA| LDA.l $7F5808
+|08D9FE| STA.b $08
 
-#_08DA00: LDA.l $7F5804
-#_08DA04: JSR Ancilla_GetRadialProjection
-#_08DA07: JSL Sparkle_PrepOAMFromRadial
+|08DA00| LDA.l $7F5804
+|08DA04| JSR Ancilla_GetRadialProjection
+|08DA07| JSL Sparkle_PrepOAMFromRadial
 
-#_08DA0B: PLY
+|08DA0B| PLY
 
-#_08DA0C: JSR Ancilla_SetOAM_XY
+|08DA0C| JSR Ancilla_SetOAM_XY
 
-#_08DA0F: LDX.b $72
+|08DA0F| LDX.b $72
 
-#_08DA11: LDA.w .extra_char,X
-#_08DA14: STA.b ($90),Y
+|08DA11| LDA.w .extra_char,X
+|08DA14| STA.b ($90),Y
 
-#_08DA16: INY
+|08DA16| INY
 
-#_08DA17: LDA.b #$04
-#_08DA19: ORA.b $65
-#_08DA1B: STA.b ($90),Y
+|08DA17| LDA.b #$04
+|08DA19| ORA.b $65
+|08DA1B| STA.b ($90),Y
 
-#_08DA1D: INY
-#_08DA1E: TYA
-#_08DA1F: SEC
-#_08DA20: SBC.b #$04
+|08DA1D| INY
+|08DA1E| TYA
+|08DA1F| SEC
+|08DA20| SBC.b #$04
 
-#_08DA22: LSR A
-#_08DA23: LSR A
-#_08DA24: TAY
+|08DA22| LSR A
+|08DA23| LSR A
+|08DA24| TAY
 
-#_08DA25: LDA.b #$00
-#_08DA27: STA.b ($92),Y
+|08DA25| LDA.b #$00
+|08DA27| STA.b ($92),Y
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay_extra
-#_08DA29: PLX
-#_08DA2A: PHX
+|08DA29| PLX
+|08DA2A| PHX
 
-#_08DA2B: LDA.w $0C5E,X
-#_08DA2E: TAX
+|08DA2B| LDA.w $0C5E,X
+|08DA2E| TAX
 
-#_08DA2F: CPX.b #$07
-#_08DA31: BNE .exit
+|08DA2F| CPX.b #$07
+|08DA31| BNE .exit
 
-#_08DA33: LDY.b #$03
+|08DA33| LDY.b #$03
 
-#_08DA35: LDA.b #$01
-#_08DA37: STA.b ($92),Y
+|08DA35| LDA.b #$01
+|08DA37| STA.b ($92),Y
 
 .exit
-#_08DA39: PLX
+|08DA39| PLX
 
-#_08DA3A: RTS
+|08DA3A| RTS
 
 ;===================================================================================================
 
 Sparkle_PrepOAMFromRadial:
-#_08DA3B: REP #$20
+|08DA3B| REP #$20
 
-#_08DA3D: LDA.b $00
+|08DA3D| LDA.b $00
 
-#_08DA3F: LDY.b $02
-#_08DA41: BEQ .positive_y
+|08DA3F| LDY.b $02
+|08DA41| BEQ .positive_y
 
-#_08DA43: EOR.w #$FFFF
-#_08DA46: INC A
+|08DA43| EOR.w #$FFFF
+|08DA46| INC A
 
 .positive_y
-#_08DA47: CLC
-#_08DA48: ADC.l $7F5810
-#_08DA4C: CLC
-#_08DA4D: ADC.w #$FFFC
-#_08DA50: SEC
-#_08DA51: SBC.b $E8
-#_08DA53: STA.b $00
+|08DA47| CLC
+|08DA48| ADC.l $7F5810
+|08DA4C| CLC
+|08DA4D| ADC.w #$FFFC
+|08DA50| SEC
+|08DA51| SBC.b $E8
+|08DA53| STA.b $00
 
-#_08DA55: LDA.b $04
+|08DA55| LDA.b $04
 
-#_08DA57: LDY.b $06
-#_08DA59: BEQ .positive_x
+|08DA57| LDY.b $06
+|08DA59| BEQ .positive_x
 
-#_08DA5B: EOR.w #$FFFF
-#_08DA5E: INC A
+|08DA5B| EOR.w #$FFFF
+|08DA5E| INC A
 
 .positive_x
-#_08DA5F: CLC
-#_08DA60: ADC.l $7F580E
-#_08DA64: CLC
-#_08DA65: ADC.w #$FFFC
-#_08DA68: SEC
-#_08DA69: SBC.b $E2
-#_08DA6B: STA.b $02
+|08DA5F| CLC
+|08DA60| ADC.l $7F580E
+|08DA64| CLC
+|08DA65| ADC.w #$FFFC
+|08DA68| SEC
+|08DA69| SBC.b $E2
+|08DA6B| STA.b $02
 
-#_08DA6D: SEP #$20
+|08DA6D| SEP #$20
 
-#_08DA6F: RTL
+|08DA6F| RTL
 
 ;===================================================================================================
 
 SpinAttackSparkleB_Closer:
-#_08DA70: DEC.w $03B1,X
-#_08DA73: BPL .delay
+|08DA70| DEC.w $03B1,X
+|08DA73| BPL .delay
 
-#_08DA75: LDA.b #$01
-#_08DA77: STA.w $03B1,X
+|08DA75| LDA.b #$01
+|08DA77| STA.w $03B1,X
 
-#_08DA7A: LDA.w $0C5E,X
-#_08DA7D: INC A
-#_08DA7E: STA.w $0C5E,X
+|08DA7A| LDA.w $0C5E,X
+|08DA7D| INC A
+|08DA7E| STA.w $0C5E,X
 
-#_08DA81: CMP.b #$03
-#_08DA83: BNE .delay
+|08DA81| CMP.b #$03
+|08DA83| BNE .delay
 
-#_08DA85: STZ.w $0C4A,X
+|08DA85| STZ.w $0C4A,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay
-#_08DA88: JSR Ancilla_PrepOAMCoord
+|08DA88| JSR Ancilla_PrepOAMCoord
 
-#_08DA8B: REP #$20
+|08DA8B| REP #$20
 
-#_08DA8D: LDA.b $00
-#_08DA8F: STA.b $06
+|08DA8D| LDA.b $00
+|08DA8F| STA.b $06
 
-#_08DA91: LDA.b $02
-#_08DA93: STA.b $08
+|08DA91| LDA.b $02
+|08DA93| STA.b $08
 
-#_08DA95: SEP #$20
+|08DA95| SEP #$20
 
-#_08DA97: PHX
+|08DA97| PHX
 
-#_08DA98: LDY.b #$00
-#_08DA9A: STY.b $04
+|08DA98| LDY.b #$00
+|08DA9A| STY.b $04
 
-#_08DA9C: LDA.w $0C5E,X
-#_08DA9F: CLC
-#_08DAA0: ADC.b #$04
+|08DA9C| LDA.w $0C5E,X
+|08DA9F| CLC
+|08DAA0| ADC.b #$04
 
-#_08DAA2: ASL A
-#_08DAA3: ASL A
-#_08DAA4: TAX
+|08DAA2| ASL A
+|08DAA3| ASL A
+|08DAA4| TAX
 
-#_08DAA5: BRL AncillaDraw_SpinningSpark
+|08DAA5| BRL AncillaDraw_SpinningSpark
 
 ;===================================================================================================
 
 pool Ancilla30_ByrnaWindupSpark
 
 .char
-#_08DAA8: db $92, $FF, $FF, $FF
-#_08DAAC: db $8C, $8C, $8C, $8C
-#_08DAB0: db $D6, $D6, $D6, $D6
-#_08DAB4: db $93, $93, $93, $93
+|08DAA8| db $92, $FF, $FF, $FF
+|08DAAC| db $8C, $8C, $8C, $8C
+|08DAB0| db $D6, $D6, $D6, $D6
+|08DAB4| db $93, $93, $93, $93
 
 .prop
-#_08DAB8: db $22, $FF, $FF, $FF
-#_08DABC: db $22, $62, $A2, $E2
-#_08DAC0: db $24, $64, $A4, $E4
-#_08DAC4: db $22, $62, $A2, $E2
+|08DAB8| db $22, $FF, $FF, $FF
+|08DABC| db $22, $62, $A2, $E2
+|08DAC0| db $24, $64, $A4, $E4
+|08DAC4| db $22, $62, $A2, $E2
 
 .offset_y
-#_08DAC8: dw  -4,   0,   0,   0
-#_08DAD0: dw  -8,  -8,   0,   0
-#_08DAD8: dw  -8,  -8,   0,   0
-#_08DAE0: dw  -8,  -8,   0,   0
+|08DAC8| dw  -4,   0,   0,   0
+|08DAD0| dw  -8,  -8,   0,   0
+|08DAD8| dw  -8,  -8,   0,   0
+|08DAE0| dw  -8,  -8,   0,   0
 
 .offset_x
-#_08DAE8: dw  -4,   0,   0,   0
-#_08DAF0: dw  -8,   0,  -8,   0
-#_08DAF8: dw  -8,   0,  -8,   0
-#_08DB00: dw  -8,   0,  -8,   0
+|08DAE8| dw  -4,   0,   0,   0
+|08DAF0| dw  -8,   0,  -8,   0
+|08DAF8| dw  -8,   0,  -8,   0
+|08DB00| dw  -8,   0,  -8,   0
 
 .offset_link_y
-#_08DB08: dw   5,   0,  -3,  -6
-#_08DB10: dw  -8,  -3,  12,  28
-#_08DB18: dw   5,   0,   8,  16
-#_08DB20: dw   5,   0,   8,  16
+|08DB08| dw   5,   0,  -3,  -6
+|08DB10| dw  -8,  -3,  12,  28
+|08DB18| dw   5,   0,   8,  16
+|08DB20| dw   5,   0,   8,  16
 
 .offset_link_x
-#_08DB28: dw   3,   1,   0,   0
-#_08DB30: dw  13,  16,  12,  12
-#_08DB38: dw  24,   7,  -4, -10
-#_08DB40: dw  -8,   9,  22,  26
+|08DB28| dw   3,   1,   0,   0
+|08DB30| dw  13,  16,  12,  12
+|08DB38| dw  24,   7,  -4, -10
+|08DB40| dw  -8,   9,  22,  26
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla30_ByrnaWindupSpark:
-#_08DB48: LDA.b $11
-#_08DB4A: BNE .delay
+|08DB48| LDA.b $11
+|08DB4A| BNE .delay
 
-#_08DB4C: DEC.w $03B1,X
-#_08DB4F: BPL .delay
+|08DB4C| DEC.w $03B1,X
+|08DB4F| BPL .delay
 
-#_08DB51: LDA.b #$01
-#_08DB53: STA.w $03B1,X
+|08DB51| LDA.b #$01
+|08DB53| STA.w $03B1,X
 
-#_08DB56: LDA.w $0C5E,X
-#_08DB59: INC A
-#_08DB5A: STA.w $0C5E,X
+|08DB56| LDA.w $0C5E,X
+|08DB59| INC A
+|08DB5A| STA.w $0C5E,X
 
-#_08DB5D: CMP.b #$11
-#_08DB5F: BNE .delay
+|08DB5D| CMP.b #$11
+|08DB5F| BNE .delay
 
-#_08DB61: BRL ByrnaWindupSpark_TransmuteToNormal
+|08DB61| BRL ByrnaWindupSpark_TransmuteToNormal
 
 .delay
-#_08DB64: LDA.w $0C5E,X
-#_08DB67: BNE .active
+|08DB64| LDA.w $0C5E,X
+|08DB67| BNE .active
 
-#_08DB69: BRL .exit
+|08DB69| BRL .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .active
-#_08DB6C: LDA.b $2F
-#_08DB6E: ASL A
-#_08DB6F: ASL A
-#_08DB70: STA.b $00
+|08DB6C| LDA.b $2F
+|08DB6E| ASL A
+|08DB6F| ASL A
+|08DB70| STA.b $00
 
-#_08DB72: LDA.w $0300
-#_08DB75: CMP.b #$02
-#_08DB77: BNE .not_final_pose
+|08DB72| LDA.w $0300
+|08DB75| CMP.b #$02
+|08DB77| BNE .not_final_pose
 
-#_08DB79: TAY
+|08DB79| TAY
 
-#_08DB7A: LDA.w $039F,X
-#_08DB7D: DEC A
-#_08DB7E: BPL .not_final_chars
+|08DB7A| LDA.w $039F,X
+|08DB7D| DEC A
+|08DB7E| BPL .not_final_chars
 
-#_08DB80: LDA.b #$00
-#_08DB82: LDY.b #$03
+|08DB80| LDA.b #$00
+|08DB82| LDY.b #$03
 
 .not_final_chars
-#_08DB84: STA.w $039F,X
+|08DB84| STA.w $039F,X
 
-#_08DB87: TYA
+|08DB87| TYA
 
 .not_final_pose
-#_08DB88: ASL A
-#_08DB89: CLC
-#_08DB8A: ADC.b $00
-#_08DB8C: TAY
+|08DB88| ASL A
+|08DB89| CLC
+|08DB8A| ADC.b $00
+|08DB8C| TAY
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08DB8D: REP #$20
+|08DB8D| REP #$20
 
-#_08DB8F: LDA.w .offset_link_y,Y
-#_08DB92: CLC
-#_08DB93: ADC.b $20
-#_08DB95: STA.b $00
+|08DB8F| LDA.w .offset_link_y,Y
+|08DB92| CLC
+|08DB93| ADC.b $20
+|08DB95| STA.b $00
 
-#_08DB97: LDA.w .offset_link_x,Y
-#_08DB9A: CLC
-#_08DB9B: ADC.b $22
-#_08DB9D: STA.b $02
+|08DB97| LDA.w .offset_link_x,Y
+|08DB9A| CLC
+|08DB9B| ADC.b $22
+|08DB9D| STA.b $02
 
-#_08DB9F: SEP #$20
+|08DB9F| SEP #$20
 
-#_08DBA1: LDA.b $00
-#_08DBA3: STA.w $0BFA,X
+|08DBA1| LDA.b $00
+|08DBA3| STA.w $0BFA,X
 
-#_08DBA6: LDA.b $01
-#_08DBA8: STA.w $0C0E,X
+|08DBA6| LDA.b $01
+|08DBA8| STA.w $0C0E,X
 
-#_08DBAB: LDA.b $02
-#_08DBAD: STA.w $0C04,X
+|08DBAB| LDA.b $02
+|08DBAD| STA.w $0C04,X
 
-#_08DBB0: LDA.b $03
-#_08DBB2: STA.w $0C18,X
+|08DBB0| LDA.b $03
+|08DBB2| STA.w $0C18,X
 
-#_08DBB5: JSR Ancilla_PrepOAMCoord
+|08DBB5| JSR Ancilla_PrepOAMCoord
 
-#_08DBB8: REP #$20
+|08DBB8| REP #$20
 
-#_08DBBA: LDA.b $00
-#_08DBBC: STA.b $06
+|08DBBA| LDA.b $00
+|08DBBC| STA.b $06
 
-#_08DBBE: LDA.b $02
-#_08DBC0: STA.b $08
+|08DBBE| LDA.b $02
+|08DBC0| STA.b $08
 
-#_08DBC2: SEP #$20
+|08DBC2| SEP #$20
 
-#_08DBC4: PHX
+|08DBC4| PHX
 
-#_08DBC5: STZ.b $0A
+|08DBC5| STZ.b $0A
 
-#_08DBC7: LDA.w $0C5E,X
-#_08DBCA: DEC A
-#_08DBCB: AND.b #$0F
-#_08DBCD: BEQ .start_oam
+|08DBC7| LDA.w $0C5E,X
+|08DBCA| DEC A
+|08DBCB| AND.b #$0F
+|08DBCD| BEQ .start_oam
 
-#_08DBCF: CMP.b #$0F
-#_08DBD1: BEQ .use_last_group
+|08DBCF| CMP.b #$0F
+|08DBD1| BEQ .use_last_group
 
-#_08DBD3: AND.b #$01
-#_08DBD5: INC A
-#_08DBD6: STA.b $0A
+|08DBD3| AND.b #$01
+|08DBD5| INC A
+|08DBD6| STA.b $0A
 
-#_08DBD8: BRA .start_oam
+|08DBD8| BRA .start_oam
 
 .use_last_group
-#_08DBDA: LDA.b #$03
-#_08DBDC: STA.b $0A
+|08DBDA| LDA.b #$03
+|08DBDC| STA.b $0A
 
 .start_oam
-#_08DBDE: LDA.b $0A
-#_08DBE0: ASL A
-#_08DBE1: ASL A
-#_08DBE2: TAX
+|08DBDE| LDA.b $0A
+|08DBE0| ASL A
+|08DBE1| ASL A
+|08DBE2| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08DBE3: LDY.b #$00
-#_08DBE5: STY.b $04
+|08DBE3| LDY.b #$00
+|08DBE5| STY.b $04
 
 .next_object
-#_08DBE7: LDA.w .char,X
-#_08DBEA: CMP.b #$FF
-#_08DBEC: BEQ .skip
+|08DBE7| LDA.w .char,X
+|08DBEA| CMP.b #$FF
+|08DBEC| BEQ .skip
 
-#_08DBEE: REP #$20
+|08DBEE| REP #$20
 
-#_08DBF0: PHX
+|08DBF0| PHX
 
-#_08DBF1: TXA
-#_08DBF2: ASL A
-#_08DBF3: TAX
+|08DBF1| TXA
+|08DBF2| ASL A
+|08DBF3| TAX
 
-#_08DBF4: LDA.b $06
-#_08DBF6: CLC
-#_08DBF7: ADC.w .offset_y,X
-#_08DBFA: STA.b $00
+|08DBF4| LDA.b $06
+|08DBF6| CLC
+|08DBF7| ADC.w .offset_y,X
+|08DBFA| STA.b $00
 
-#_08DBFC: LDA.b $08
-#_08DBFE: CLC
-#_08DBFF: ADC.w .offset_x,X
-#_08DC02: STA.b $02
+|08DBFC| LDA.b $08
+|08DBFE| CLC
+|08DBFF| ADC.w .offset_x,X
+|08DC02| STA.b $02
 
-#_08DC04: PLX
+|08DC04| PLX
 
-#_08DC05: SEP #$20
+|08DC05| SEP #$20
 
-#_08DC07: JSR Ancilla_SetOAM_XY
+|08DC07| JSR Ancilla_SetOAM_XY
 
-#_08DC0A: LDA.w .char,X
-#_08DC0D: STA.b ($90),Y
+|08DC0A| LDA.w .char,X
+|08DC0D| STA.b ($90),Y
 
-#_08DC0F: INY
+|08DC0F| INY
 
-#_08DC10: LDA.w .prop,X
-#_08DC13: AND.b #$CF
-#_08DC15: ORA.b $65
-#_08DC17: STA.b ($90),Y
+|08DC10| LDA.w .prop,X
+|08DC13| AND.b #$CF
+|08DC15| ORA.b $65
+|08DC17| STA.b ($90),Y
 
-#_08DC19: INY
-#_08DC1A: PHY
+|08DC19| INY
+|08DC1A| PHY
 
-#_08DC1B: TYA
-#_08DC1C: SEC
-#_08DC1D: SBC.b #$04
-#_08DC1F: LSR A
-#_08DC20: LSR A
-#_08DC21: TAY
+|08DC1B| TYA
+|08DC1C| SEC
+|08DC1D| SBC.b #$04
+|08DC1F| LSR A
+|08DC20| LSR A
+|08DC21| TAY
 
-#_08DC22: LDA.b #$00
-#_08DC24: STA.b ($92),Y
+|08DC22| LDA.b #$00
+|08DC24| STA.b ($92),Y
 
-#_08DC26: PLY
+|08DC26| PLY
 
 .skip
-#_08DC27: INX
+|08DC27| INX
 
-#_08DC28: INC.b $04
+|08DC28| INC.b $04
 
-#_08DC2A: LDA.b $04
-#_08DC2C: AND.b #$03
-#_08DC2E: BNE .next_object
+|08DC2A| LDA.b $04
+|08DC2C| AND.b #$03
+|08DC2E| BNE .next_object
 
-#_08DC30: PLX
+|08DC30| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08DC31: RTS
+|08DC31| RTS
 
 ;===================================================================================================
 
 pool ByrnaWindupSpark_TransmuteToNormal
 
 .rotation
-#_08DC32: db $34, $33, $32, $31 ; up
-#_08DC36: db $16, $15, $14, $13 ; down
-#_08DC3A: db $2A, $29, $28, $27 ; left
-#_08DC3E: db $10, $0F, $0E, $0D ; right
+|08DC32| db $34, $33, $32, $31 ; up
+|08DC36| db $16, $15, $14, $13 ; down
+|08DC3A| db $2A, $29, $28, $27 ; left
+|08DC3E| db $10, $0F, $0E, $0D ; right
 
-pool off
+endpool
 
 ;===================================================================================================
 
 ByrnaMagicCost:
-#_08DC42: db $04, $02, $01
+|08DC42| db $04, $02, $01
 
 ;===================================================================================================
 
 ByrnaWindupSpark_TransmuteToNormal:
-#_08DC45: LDA.b #$31 ; ANCILLA 31
-#_08DC47: STA.w $0C4A,X
+|08DC45| LDA.b #$31 ; ANCILLA 31
+|08DC47| STA.w $0C4A,X
 
-#_08DC4A: LDA.b $2F
-#_08DC4C: ASL A
-#_08DC4D: TAY
+|08DC4A| LDA.b $2F
+|08DC4C| ASL A
+|08DC4D| TAY
 
-#_08DC4E: LDA.w .rotation+0,Y
-#_08DC51: STA.l $7F5800
+|08DC4E| LDA.w .rotation+0,Y
+|08DC51| STA.l $7F5800
 
-#_08DC55: LDA.w .rotation+1,Y
-#_08DC58: STA.l $7F5801
+|08DC55| LDA.w .rotation+1,Y
+|08DC58| STA.l $7F5801
 
-#_08DC5C: LDA.w .rotation+2,Y
-#_08DC5F: STA.l $7F5802
+|08DC5C| LDA.w .rotation+2,Y
+|08DC5F| STA.l $7F5802
 
-#_08DC63: LDA.w .rotation+3,Y
-#_08DC66: STA.l $7F5803
+|08DC63| LDA.w .rotation+3,Y
+|08DC66| STA.l $7F5803
 
-#_08DC6A: LDA.b #$17
-#_08DC6C: STA.w $03B1,X
+|08DC6A| LDA.b #$17
+|08DC6C| STA.w $03B1,X
 
-#_08DC6F: STZ.w $0394,X
-#_08DC72: STZ.w $0C5E,X
+|08DC6F| STZ.w $0394,X
+|08DC72| STZ.w $0C5E,X
 
-#_08DC75: LDA.b #$08
-#_08DC77: STA.w $039F,X
+|08DC75| LDA.b #$08
+|08DC77| STA.w $039F,X
 
-#_08DC7A: STZ.w $0C54,X
-#_08DC7D: STZ.w $0385,X
+|08DC7A| STZ.w $0C54,X
+|08DC7D| STZ.w $0385,X
 
-#_08DC80: LDA.b #$02
-#_08DC82: STA.w $03A4,X
+|08DC80| LDA.b #$02
+|08DC82| STA.w $03A4,X
 
-#_08DC85: LDA.b #$15
-#_08DC87: STA.w $0C68,X
+|08DC85| LDA.b #$15
+|08DC87| STA.w $0C68,X
 
-#_08DC8A: DEC A
-#_08DC8B: STA.l $7F5808
+|08DC8A| DEC A
+|08DC8B| STA.l $7F5808
 
-#_08DC8F: LDA.b #$30 ; SFX3.30
-#_08DC91: JSR Ancilla_SFX3_Near
+|08DC8F| LDA.b #$30 ; SFX3.30
+|08DC91| JSR Ancilla_SFX3_Near
 
 ;===================================================================================================
 
 Ancilla31_ByrnaSpark:
-#_08DC94: PHX
+|08DC94| PHX
 
-#_08DC95: LDA.b #$02
-#_08DC97: STA.b $73
+|08DC95| LDA.b #$02
+|08DC97| STA.b $73
 
-#_08DC99: LDA.b $11
-#_08DC9B: BEQ .continue
+|08DC99| LDA.b $11
+|08DC9B| BEQ .continue
 
-#_08DC9D: BRL ByrnaSpark_Animate
+|08DC9D| BRL ByrnaSpark_Animate
 
 .continue
-#_08DCA0: LDA.w $0303
-#_08DCA3: CMP.b #$0D
-#_08DCA5: BNE .terminate
+|08DCA0| LDA.w $0303
+|08DCA3| CMP.b #$0D
+|08DCA5| BNE .terminate
 
-#_08DCA7: LDA.b #$01
-#_08DCA9: STA.w $037B
+|08DCA7| LDA.b #$01
+|08DCA9| STA.w $037B
 
-#_08DCAC: DEC.w $03B1,X
+|08DCAC| DEC.w $03B1,X
 
-#_08DCAF: LDA.w $03B1,X
-#_08DCB2: BNE .keep_sparkling
+|08DCAF| LDA.w $03B1,X
+|08DCB2| BNE .keep_sparkling
 
-#_08DCB4: LDA.b #$01
-#_08DCB6: STA.w $03B1,X
+|08DCB4| LDA.b #$01
+|08DCB6| STA.w $03B1,X
 
-#_08DCB9: LDA.l $7EF37B
-#_08DCBD: TAY
+|08DCB9| LDA.l $7EF37B
+|08DCBD| TAY
 
-#_08DCBE: LDA.w ByrnaMagicCost,Y
-#_08DCC1: STA.b $00
+|08DCBE| LDA.w ByrnaMagicCost,Y
+|08DCC1| STA.b $00
 
-#_08DCC3: LDA.l $7EF36E
-#_08DCC7: BEQ .terminate
+|08DCC3| LDA.l $7EF36E
+|08DCC7| BEQ .terminate
 
-#_08DCC9: SEC
-#_08DCCA: SBC.b $00
-#_08DCCC: CMP.b #$80
-#_08DCCE: BCS .terminate
+|08DCC9| SEC
+|08DCCA| SBC.b $00
+|08DCCC| CMP.b #$80
+|08DCCE| BCS .terminate
 
-#_08DCD0: STA.b $00
+|08DCD0| STA.b $00
 
-#_08DCD2: DEC.w $0394,X
-#_08DCD5: BPL .delay_sap
+|08DCD2| DEC.w $0394,X
+|08DCD5| BPL .delay_sap
 
-#_08DCD7: LDA.b #$17
-#_08DCD9: STA.w $0394,X
+|08DCD7| LDA.b #$17
+|08DCD9| STA.w $0394,X
 
-#_08DCDC: LDA.b $00
-#_08DCDE: STA.l $7EF36E
+|08DCDC| LDA.b $00
+|08DCDE| STA.l $7EF36E
 
 .delay_sap
-#_08DCE2: BIT.b $F4
-#_08DCE4: BVC .keep_sparkling
+|08DCE2| BIT.b $F4
+|08DCE4| BVC .keep_sparkling
 
 ;---------------------------------------------------------------------------------------------------
 
 .terminate
-#_08DCE6: PLX
+|08DCE6| PLX
 
-#_08DCE7: STZ.w $037B
+|08DCE7| STZ.w $037B
 
-#_08DCEA: STZ.w $0C4A,X
+|08DCEA| STZ.w $0C4A,X
 
-#_08DCED: STZ.w $0373
+|08DCED| STZ.w $0373
 
-#_08DCF0: RTS
+|08DCF0| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .keep_sparkling
-#_08DCF1: LDA.w $0C54,X
-#_08DCF4: CMP.b #$03
-#_08DCF6: BEQ .all_sparks
+|08DCF1| LDA.w $0C54,X
+|08DCF4| CMP.b #$03
+|08DCF6| BEQ .all_sparks
 
-#_08DCF8: LDY.b #$00
+|08DCF8| LDY.b #$00
 
-#_08DCFA: INC.w $0C5E,X
+|08DCFA| INC.w $0C5E,X
 
-#_08DCFD: LDA.w $0C5E,X
-#_08DD00: CMP.b #$04
-#_08DD02: BCC .not_all_sparks
+|08DCFD| LDA.w $0C5E,X
+|08DD00| CMP.b #$04
+|08DD02| BCC .not_all_sparks
 
-#_08DD04: LDY.b #$03
-#_08DD06: BRA .set_spark_count
+|08DD04| LDY.b #$03
+|08DD06| BRA .set_spark_count
 
 .not_all_sparks
-#_08DD08: CMP.b #$02
-#_08DD0A: BNE .not_two
+|08DD08| CMP.b #$02
+|08DD0A| BNE .not_two
 
-#_08DD0C: LDY.b #$01
+|08DD0C| LDY.b #$01
 
 .not_two
-#_08DD0E: CMP.b #$03
-#_08DD10: BNE .set_spark_count
+|08DD0E| CMP.b #$03
+|08DD10| BNE .set_spark_count
 
-#_08DD12: LDY.b #$02
+|08DD12| LDY.b #$02
 
 .set_spark_count
-#_08DD14: TYA
-#_08DD15: STA.w $0C54,X
+|08DD14| TYA
+|08DD15| STA.w $0C54,X
 
 .all_sparks
-#_08DD18: DEC.w $03A4,X
-#_08DD1B: BPL ByrnaSpark_Animate
+|08DD18| DEC.w $03A4,X
+|08DD1B| BPL ByrnaSpark_Animate
 
-#_08DD1D: LDA.b #$02
-#_08DD1F: STA.w $03A4,X
+|08DD1D| LDA.b #$02
+|08DD1F| STA.w $03A4,X
 
-#_08DD22: LDA.b #$04
-#_08DD24: STA.b $73
+|08DD22| LDA.b #$04
+|08DD24| STA.b $73
 
 ;===================================================================================================
 
 ByrnaSpark_Animate:
-#_08DD26: REP #$20
+|08DD26| REP #$20
 
-#_08DD28: LDA.b $24
-#_08DD2A: AND.w #$00FF
-#_08DD2D: CMP.w #$0080
-#_08DD30: BCC .positive_z
+|08DD28| LDA.b $24
+|08DD2A| AND.w #$00FF
+|08DD2D| CMP.w #$0080
+|08DD30| BCC .positive_z
 
-#_08DD32: ORA.w #$FF00
+|08DD32| ORA.w #$FF00
 
 .positive_z
-#_08DD35: CMP.w #$FFFF
-#_08DD38: BNE .nonzero_z
+|08DD35| CMP.w #$FFFF
+|08DD38| BNE .nonzero_z
 
-#_08DD3A: LDA.w #$0000
+|08DD3A| LDA.w #$0000
 
 .nonzero_z
-#_08DD3D: EOR.w #$FFFF
-#_08DD40: INC A
-#_08DD41: CLC
-#_08DD42: ADC.b $20
-#_08DD44: CLC
-#_08DD45: ADC.w #$000C
-#_08DD48: STA.l $7F5810
+|08DD3D| EOR.w #$FFFF
+|08DD40| INC A
+|08DD41| CLC
+|08DD42| ADC.b $20
+|08DD44| CLC
+|08DD45| ADC.w #$000C
+|08DD48| STA.l $7F5810
 
-#_08DD4C: LDA.b $22
-#_08DD4E: CLC
-#_08DD4F: ADC.w #$0008
-#_08DD52: STA.l $7F580E
+|08DD4C| LDA.b $22
+|08DD4E| CLC
+|08DD4F| ADC.w #$0008
+|08DD52| STA.l $7F580E
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08DD56: SEP #$20
+|08DD56| SEP #$20
 
-#_08DD58: LDA.w $0C68,X
-#_08DD5B: BNE .skip_sfx
+|08DD58| LDA.w $0C68,X
+|08DD5B| BNE .skip_sfx
 
-#_08DD5D: LDA.b #$15
-#_08DD5F: STA.w $0C68,X
+|08DD5D| LDA.b #$15
+|08DD5F| STA.w $0C68,X
 
-#_08DD62: LDA.b #$30 ; SFX3.30
-#_08DD64: JSR Ancilla_SFX3_Near
+|08DD62| LDA.b #$30 ; SFX3.30
+|08DD64| JSR Ancilla_SFX3_Near
 
 .skip_sfx
-#_08DD67: STX.b $74
+|08DD67| STX.b $74
 
-#_08DD69: LDY.b #$00
+|08DD69| LDY.b #$00
 
-#_08DD6B: LDA.w $0C54,X
-#_08DD6E: TAX
+|08DD6B| LDA.w $0C54,X
+|08DD6E| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_object
-#_08DD6F: STX.b $72
+|08DD6F| STX.b $72
 
-#_08DD71: LDA.b $11
-#_08DD73: BNE .dont_inc_sparkle
+|08DD71| LDA.b $11
+|08DD73| BNE .dont_inc_sparkle
 
-#_08DD75: LDA.l $7F5800,X
-#_08DD79: CLC
-#_08DD7A: ADC.b #$03
-#_08DD7C: AND.b #$3F
-#_08DD7E: STA.l $7F5800,X
+|08DD75| LDA.l $7F5800,X
+|08DD79| CLC
+|08DD7A| ADC.b #$03
+|08DD7C| AND.b #$3F
+|08DD7E| STA.l $7F5800,X
 
 .dont_inc_sparkle
-#_08DD82: PHX
-#_08DD83: PHY
+|08DD82| PHX
+|08DD83| PHY
 
-#_08DD84: LDA.l $7F5808
-#_08DD88: STA.b $08
+|08DD84| LDA.l $7F5808
+|08DD88| STA.b $08
 
-#_08DD8A: LDA.l $7F5800,X
-#_08DD8E: JSR Ancilla_GetRadialProjection
-#_08DD91: JSL Sparkle_PrepOAMFromRadial
+|08DD8A| LDA.l $7F5800,X
+|08DD8E| JSR Ancilla_GetRadialProjection
+|08DD91| JSL Sparkle_PrepOAMFromRadial
 
-#_08DD95: PLY
+|08DD95| PLY
 
-#_08DD96: JSR Ancilla_SetOAM_XY
+|08DD96| JSR Ancilla_SetOAM_XY
 
-#_08DD99: LDX.b $72
+|08DD99| LDX.b $72
 
-#_08DD9B: LDA.w Ancilla2B_SpinAttackSparkleB_char,X
-#_08DD9E: STA.b ($90),Y
+|08DD9B| LDA.w Ancilla2B_SpinAttackSparkleB.char,X
+|08DD9E| STA.b ($90),Y
 
-#_08DDA0: INY
+|08DDA0| INY
 
-#_08DDA1: LDA.b $73
-#_08DDA3: ORA.b $65
-#_08DDA5: STA.b ($90),Y
+|08DDA1| LDA.b $73
+|08DDA3| ORA.b $65
+|08DDA5| STA.b ($90),Y
 
-#_08DDA7: INY
-#_08DDA8: PHY
+|08DDA7| INY
+|08DDA8| PHY
 
-#_08DDA9: TYA
-#_08DDAA: SEC
-#_08DDAB: SBC.b #$04
-#_08DDAD: LSR A
-#_08DDAE: LSR A
-#_08DDAF: TAY
+|08DDA9| TYA
+|08DDAA| SEC
+|08DDAB| SBC.b #$04
+|08DDAD| LSR A
+|08DDAE| LSR A
+|08DDAF| TAY
 
-#_08DDB0: LDA.b #$00
-#_08DDB2: STA.b ($92),Y
-
-;---------------------------------------------------------------------------------------------------
-
-#_08DDB4: REP #$20
-
-#_08DDB6: LDA.b $00
-#_08DDB8: CLC
-#_08DDB9: ADC.b $E8
-#_08DDBB: STA.b $04
-
-#_08DDBD: LDA.b $02
-#_08DDBF: CLC
-#_08DDC0: ADC.b $E2
-#_08DDC2: STA.b $06
-
-#_08DDC4: SEP #$20
-
-#_08DDC6: LDX.b $74
-
-#_08DDC8: LDA.b $04
-#_08DDCA: STA.w $0BFA,X
-
-#_08DDCD: LDA.b $05
-#_08DDCF: STA.w $0C0E,X
-
-#_08DDD2: LDA.b $06
-#_08DDD4: STA.w $0C04,X
-
-#_08DDD7: LDA.b $07
-#_08DDD9: STA.w $0C18,X
-
-#_08DDDC: STZ.w $0C72,X
-
-#_08DDDF: JSR Ancilla_CheckSpriteCollision
-
-#_08DDE2: PLY
-
-#_08DDE3: PLX
-#_08DDE4: DEX
-#_08DDE5: BPL .next_object
+|08DDB0| LDA.b #$00
+|08DDB2| STA.b ($92),Y
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08DDE7: PLX
+|08DDB4| REP #$20
 
-#_08DDE8: RTS
+|08DDB6| LDA.b $00
+|08DDB8| CLC
+|08DDB9| ADC.b $E8
+|08DDBB| STA.b $04
+
+|08DDBD| LDA.b $02
+|08DDBF| CLC
+|08DDC0| ADC.b $E2
+|08DDC2| STA.b $06
+
+|08DDC4| SEP #$20
+
+|08DDC6| LDX.b $74
+
+|08DDC8| LDA.b $04
+|08DDCA| STA.w $0BFA,X
+
+|08DDCD| LDA.b $05
+|08DDCF| STA.w $0C0E,X
+
+|08DDD2| LDA.b $06
+|08DDD4| STA.w $0C04,X
+
+|08DDD7| LDA.b $07
+|08DDD9| STA.w $0C18,X
+
+|08DDDC| STZ.w $0C72,X
+
+|08DDDF| JSR Ancilla_CheckSpriteCollision
+
+|08DDE2| PLY
+
+|08DDE3| PLX
+|08DDE4| DEX
+|08DDE5| BPL .next_object
+
+;---------------------------------------------------------------------------------------------------
+
+|08DDE7| PLX
+
+|08DDE8| RTS
 
 ;===================================================================================================
 
 Ancilla0C_SwordBeam_bounce:
-#_08DDE9: JSL Ancilla0C_SwordBeam
+|08DDE9| JSL Ancilla0C_SwordBeam
 
-#_08DDED: RTS
+|08DDED| RTS
 
 ;===================================================================================================
 
 Ancilla0D_SpinAttackFullChargeSpark:
-#_08DDEE: LDA.b #$04
-#_08DDF0: JSR AllocateOAMInRegionsADF
+|08DDEE| LDA.b #$04
+|08DDF0| JSR AllocateOAMInRegionsADF
 
-#_08DDF3: TYA
-#_08DDF4: STA.w $0C86,X
+|08DDF3| TYA
+|08DDF4| STA.w $0C86,X
 
-#_08DDF7: JSL Ancilla0D_SpinAttackFullChargeSpark_long
+|08DDF7| JSL Ancilla0D_SpinAttackFullChargeSpark_long
 
-#_08DDFB: RTS
+|08DDFB| RTS
 
 ;===================================================================================================
 
 pool Ancilla27_Duck CutsceneDuck_Draw
 
 .char
-#_08DDFC: db $0E, $00, $02
+|08DDFC| db $0E, $00, $02
 
 .prop
-#_08DDFF: db $22, $2E, $2E
+|08DDFF| db $22, $2E, $2E
 
 .offset_y
-#_08DE02: db   0,  12,  20
+|08DE02| db   0,  12,  20
 
 .offset_x
-#_08DE05: db   0,  -9,  -9
+|08DE05| db   0,  -9,  -9
 
 .vram_offset
-#_08DE08: db $00, $20, $40, $E0
+|08DE08| db $00, $20, $40, $E0
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla27_Duck:
-#_08DE0C: LDA.b $11
-#_08DE0E: BEQ .continue
+|08DE0C| LDA.b $11
+|08DE0E| BEQ .continue
 
-#_08DE10: BRL .animate
+|08DE10| BRL .animate
 
 .continue
-#_08DE13: LDA.w $0C68,X
-#_08DE16: BEQ .seek_link
+|08DE13| LDA.w $0C68,X
+|08DE16| BEQ .seek_link
 
-#_08DE18: REP #$20
+|08DE18| REP #$20
 
-#_08DE1A: LDA.b $20
-#_08DE1C: SEC
-#_08DE1D: SBC.w #$0008
-#_08DE20: STA.b $00
+|08DE1A| LDA.b $20
+|08DE1C| SEC
+|08DE1D| SBC.w #$0008
+|08DE20| STA.b $00
 
-#_08DE22: LDA.w #$FFF0
-#_08DE25: CLC
-#_08DE26: ADC.b $E2
-#_08DE28: STA.b $02
+|08DE22| LDA.w #$FFF0
+|08DE25| CLC
+|08DE26| ADC.b $E2
+|08DE28| STA.b $02
 
-#_08DE2A: SEP #$20
+|08DE2A| SEP #$20
 
-#_08DE2C: LDA.b $00
-#_08DE2E: STA.w $0BFA,X
+|08DE2C| LDA.b $00
+|08DE2E| STA.w $0BFA,X
 
-#_08DE31: LDA.b $01
-#_08DE33: STA.w $0C0E,X
+|08DE31| LDA.b $01
+|08DE33| STA.w $0C0E,X
 
-#_08DE36: LDA.b $02
-#_08DE38: STA.w $0C04,X
+|08DE36| LDA.b $02
+|08DE38| STA.w $0C04,X
 
-#_08DE3B: LDA.b $03
-#_08DE3D: STA.w $0C18,X
+|08DE3B| LDA.b $03
+|08DE3D| STA.w $0C18,X
 
-#_08DE40: RTS
+|08DE40| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .seek_link
-#_08DE41: DEC.w $0394,X
-#_08DE44: BPL .delay_flap_sfx
+|08DE41| DEC.w $0394,X
+|08DE44| BPL .delay_flap_sfx
 
-#_08DE46: LDA.b #$28
-#_08DE48: STA.w $0394,X
+|08DE46| LDA.b #$28
+|08DE48| STA.w $0394,X
 
-#_08DE4B: LDA.b #$1E ; SFX3.1E
-#_08DE4D: JSR Ancilla_SFX3_Pan
+|08DE4B| LDA.b #$1E ; SFX3.1E
+|08DE4D| JSR Ancilla_SFX3_Pan
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay_flap_sfx
-#_08DE50: LDY.w $0385,X
-#_08DE53: BNE .swoop_down
+|08DE50| LDY.w $0385,X
+|08DE53| BNE .swoop_down
 
-#_08DE55: LDA.w $0C54,X
-#_08DE58: BEQ .maintain_altitude
+|08DE55| LDA.w $0C54,X
+|08DE58| BEQ .maintain_altitude
 
-#_08DE5A: INC.w $0FC1
+|08DE5A| INC.w $0FC1
 
 .swoop_down
-#_08DE5D: LDA.w $0294,X
-#_08DE60: CLC
-#_08DE61: ADC.b #$FF
-#_08DE63: STA.w $0294,X
+|08DE5D| LDA.w $0294,X
+|08DE60| CLC
+|08DE61| ADC.b #$FF
+|08DE63| STA.w $0294,X
 
-#_08DE66: JSR AncillaMoveZ
+|08DE66| JSR AncillaMoveZ
 
 .maintain_altitude
-#_08DE69: JSR AncillaMoveX
+|08DE69| JSR AncillaMoveX
 
-#_08DE6C: LDA.w $0385,X
-#_08DE6F: BEQ .picking_up
+|08DE6C| LDA.w $0385,X
+|08DE6F| BEQ .picking_up
 
-#_08DE71: BRL .dropping_off
+|08DE71| BRL .dropping_off
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_pick_up
-#_08DE74: BRL .continue_from_pickup
+|08DE74| BRL .continue_from_pickup
 
 .picking_up
-#_08DE77: LDY.b #$01
-#_08DE79: JSR Ancilla_CheckLinkCollision
-#_08DE7C: BCC .dont_pick_up
+|08DE77| LDY.b #$01
+|08DE79| JSR Ancilla_CheckLinkCollision
+|08DE7C| BCC .dont_pick_up
 
-#_08DE7E: LDA.b $10
-#_08DE80: CMP.b #$0F
-#_08DE82: BEQ .dont_pick_up
+|08DE7E| LDA.b $10
+|08DE80| CMP.b #$0F
+|08DE82| BEQ .dont_pick_up
 
-#_08DE84: LDA.b $1B
-#_08DE86: BNE .continue_the_pick
+|08DE84| LDA.b $1B
+|08DE86| BNE .continue_the_pick
 
-#_08DE88: LDA.b $5D
-#_08DE8A: CMP.b #$0A ; LINKSTATE 0A
-#_08DE8C: BEQ .dont_pick_up
+|08DE88| LDA.b $5D
+|08DE8A| CMP.b #$0A ; LINKSTATE 0A
+|08DE8C| BEQ .dont_pick_up
 
-#_08DE8E: CMP.b #$09 ; LINKSTATE 09
-#_08DE90: BEQ .dont_pick_up
+|08DE8E| CMP.b #$09 ; LINKSTATE 09
+|08DE90| BEQ .dont_pick_up
 
-#_08DE92: CMP.b #$08 ; LINKSTATE 08
-#_08DE94: BEQ .dont_pick_up
+|08DE92| CMP.b #$08 ; LINKSTATE 08
+|08DE94| BEQ .dont_pick_up
 
-#_08DE96: LDA.b $5B
-#_08DE98: CMP.b #$02
-#_08DE9A: BEQ .dont_pick_up
+|08DE96| LDA.b $5B
+|08DE98| CMP.b #$02
+|08DE9A| BEQ .dont_pick_up
 
-#_08DE9C: LDA.w $02DA
-#_08DE9F: ORA.w $037E
-#_08DEA2: ORA.w $03EF
-#_08DEA5: ORA.w $037B
-#_08DEA8: BNE .dont_pick_up
+|08DE9C| LDA.w $02DA
+|08DE9F| ORA.w $037E
+|08DEA2| ORA.w $03EF
+|08DEA5| ORA.w $037B
+|08DEA8| BNE .dont_pick_up
 
-#_08DEAA: BIT.w $0308
-#_08DEAD: BMI .dont_pick_up
+|08DEAA| BIT.w $0308
+|08DEAD| BMI .dont_pick_up
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08DEAF: PHX
+|08DEAF| PHX
 
-#_08DEB0: LDX.b #$04
+|08DEB0| LDX.b #$04
 
 .next_ancilla_delete
-#_08DEB2: LDA.w $0C4A,X
-#_08DEB5: CMP.b #$2A ; ANCILLA 2A
-#_08DEB7: BEQ .delete_ancilla
+|08DEB2| LDA.w $0C4A,X
+|08DEB5| CMP.b #$2A ; ANCILLA 2A
+|08DEB7| BEQ .delete_ancilla
 
-#_08DEB9: CMP.b #$1F ; ANCILLA 1F
-#_08DEBB: BEQ .delete_ancilla
+|08DEB9| CMP.b #$1F ; ANCILLA 1F
+|08DEBB| BEQ .delete_ancilla
 
-#_08DEBD: CMP.b #$30 ; ANCILLA 30
-#_08DEBF: BEQ .delete_ancilla
+|08DEBD| CMP.b #$30 ; ANCILLA 30
+|08DEBF| BEQ .delete_ancilla
 
-#_08DEC1: CMP.b #$31 ; ANCILLA 31
-#_08DEC3: BEQ .delete_ancilla
+|08DEC1| CMP.b #$31 ; ANCILLA 31
+|08DEC3| BEQ .delete_ancilla
 
-#_08DEC5: CMP.b #$41 ; ANCILLA 41
-#_08DEC7: BNE .dont_delete_ancilla
+|08DEC5| CMP.b #$41 ; ANCILLA 41
+|08DEC7| BNE .dont_delete_ancilla
 
 .delete_ancilla
-#_08DEC9: STZ.w $0C4A,X
+|08DEC9| STZ.w $0C4A,X
 
 .dont_delete_ancilla
-#_08DECC: DEX
-#_08DECD: BPL .next_ancilla_delete
+|08DECC| DEX
+|08DECD| BPL .next_ancilla_delete
 
-#_08DECF: PLX
+|08DECF| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08DED0: LDA.l $7EF3CC
-#_08DED4: CMP.b #$09 ; FOLLOWER 09
-#_08DED6: BNE .continue_the_pick
+|08DED0| LDA.l $7EF3CC
+|08DED4| CMP.b #$09 ; FOLLOWER 09
+|08DED6| BNE .continue_the_pick
 
-#_08DED8: LDA.b #$00
-#_08DEDA: STA.l $7EF3CC
-#_08DEDE: STA.w $02F9
+|08DED8| LDA.b #$00
+|08DEDA| STA.l $7EF3CC
+|08DEDE| STA.w $02F9
 
 .continue_the_pick
-#_08DEE1: REP #$20
+|08DEE1| REP #$20
 
-#_08DEE3: STZ.w $0308
-#_08DEE6: STZ.w $011A
-#_08DEE9: STZ.w $011C
+|08DEE3| STZ.w $0308
+|08DEE6| STZ.w $011A
+|08DEE9| STZ.w $011C
 
-#_08DEEC: SEP #$20
+|08DEEC| SEP #$20
 
-#_08DEEE: JSL ResetLinkProperties_A
+|08DEEE| JSL ResetLinkProperties_A
 
-#_08DEF2: STZ.w $0345
-#_08DEF5: STZ.w $03F8
+|08DEF2| STZ.w $0345
+|08DEF5| STZ.w $03F8
 
-#_08DEF8: LDA.b #$0C
-#_08DEFA: STA.b $4B
+|08DEF8| LDA.b #$0C
+|08DEFA| STA.b $4B
 
-#_08DEFC: LDA.b #$00 ; LINKSTATE 00
-#_08DEFE: STA.b $5D
+|08DEFC| LDA.b #$00 ; LINKSTATE 00
+|08DEFE| STA.b $5D
 
-#_08DF00: INC A
-#_08DF01: STA.w $02DA
-#_08DF04: STA.w $02E4
-#_08DF07: STA.w $037B
-#_08DF0A: STA.w $02F9
+|08DF00| INC A
+|08DF01| STA.w $02DA
+|08DF04| STA.w $02E4
+|08DF07| STA.w $037B
+|08DF0A| STA.w $02F9
 
-#_08DF0D: INC A
-#_08DF0E: STA.w $0C54,X
+|08DF0D| INC A
+|08DF0E| STA.w $0C54,X
 
-#_08DF11: INC.w $0FC1
+|08DF11| INC.w $0FC1
 
-#_08DF14: STZ.w $0373
+|08DF14| STZ.w $0373
 
-#_08DF17: LDA.b $1B
-#_08DF19: BEQ .continue_from_pickup
+|08DF17| LDA.b $1B
+|08DF19| BEQ .continue_from_pickup
 
-#_08DF1B: STA.w $03FD
+|08DF1B| STA.w $03FD
 
 .continue_from_pickup
-#_08DF1E: BRA .animate
+|08DF1E| BRA .animate
 
 ;---------------------------------------------------------------------------------------------------
 
 .dropping_off
-#_08DF20: LDA.w $0C04,X
-#_08DF23: STA.b $00
+|08DF20| LDA.w $0C04,X
+|08DF23| STA.b $00
 
-#_08DF25: LDA.w $0C18,X
-#_08DF28: STA.b $01
+|08DF25| LDA.w $0C18,X
+|08DF28| STA.b $01
 
-#_08DF2A: LDA.w $0C54,X
-#_08DF2D: BEQ .dont_freeze_npcs
+|08DF2A| LDA.w $0C54,X
+|08DF2D| BEQ .dont_freeze_npcs
 
-#_08DF2F: INC.w $0FC1
+|08DF2F| INC.w $0FC1
 
 .dont_freeze_npcs
-#_08DF32: REP #$20
+|08DF32| REP #$20
 
-#_08DF34: LDA.b $00
-#_08DF36: BMI .delay_dropoff
+|08DF34| LDA.b $00
+|08DF36| BMI .delay_dropoff
 
-#_08DF38: CMP.b $22
-#_08DF3A: BCC .delay_dropoff
+|08DF38| CMP.b $22
+|08DF3A| BCC .delay_dropoff
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08DF3C: SEP #$20
+|08DF3C| SEP #$20
 
-#_08DF3E: LDA.w $0C54,X
-#_08DF41: BEQ .animate
+|08DF3E| LDA.w $0C54,X
+|08DF41| BEQ .animate
 
-#_08DF43: STZ.w $0C54,X
+|08DF43| STZ.w $0C54,X
 
-#_08DF46: STZ.b $4B
+|08DF46| STZ.b $4B
 
-#_08DF48: STZ.w $02F9
-#_08DF4B: STZ.w $02DA
+|08DF48| STZ.w $02F9
+|08DF4B| STZ.w $02DA
 
-#_08DF4E: STZ.w $0C22,X
+|08DF4E| STZ.w $0C22,X
 
-#_08DF51: STZ.w $02E4
-#_08DF54: STZ.w $037B
-#_08DF57: STZ.w $03FD
+|08DF51| STZ.w $02E4
+|08DF54| STZ.w $037B
+|08DF57| STZ.w $03FD
 
-#_08DF5A: LDA.b #$90
-#_08DF5C: STA.w $031F
+|08DF5A| LDA.b #$90
+|08DF5C| STA.w $031F
 
-#_08DF5F: JSL InitializeFollower
+|08DF5F| JSL InitializeFollower
 
-#_08DF63: BRA .animate
+|08DF63| BRA .animate
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay_dropoff
-#_08DF65: LDA.b $22
-#_08DF67: SEC
-#_08DF68: SBC.b $00
-#_08DF6A: CMP.w #$0030
-#_08DF6D: BCS .animate
+|08DF65| LDA.b $22
+|08DF67| SEC
+|08DF68| SBC.b $00
+|08DF6A| CMP.w #$0030
+|08DF6D| BCS .animate
 
-#_08DF6F: LDY.b #$03
+|08DF6F| LDY.b #$03
 
-#_08DF71: SEP #$20
+|08DF71| SEP #$20
 
-#_08DF73: BRA .set_vram_offset
+|08DF73| BRA .set_vram_offset
 
 ;---------------------------------------------------------------------------------------------------
 
 .animate
-#_08DF75: SEP #$20
+|08DF75| SEP #$20
 
-#_08DF77: DEC.w $039F,X
-#_08DF7A: BPL .delay_step
+|08DF77| DEC.w $039F,X
+|08DF7A| BPL .delay_step
 
-#_08DF7C: LDA.b #$03
-#_08DF7E: STA.w $039F,X
+|08DF7C| LDA.b #$03
+|08DF7E| STA.w $039F,X
 
-#_08DF81: INC.w $0380,X
+|08DF81| INC.w $0380,X
 
-#_08DF84: LDA.w $0380,X
-#_08DF87: CMP.b #$03
-#_08DF89: BNE .delay_step
+|08DF84| LDA.w $0380,X
+|08DF87| CMP.b #$03
+|08DF89| BNE .delay_step
 
-#_08DF8B: STZ.w $0380,X
+|08DF8B| STZ.w $0380,X
 
 .delay_step
-#_08DF8E: LDY.w $0380,X
+|08DF8E| LDY.w $0380,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .set_vram_offset
-#_08DF91: LDA.w .vram_offset+0,Y
-#_08DF94: STA.w $0AF4
+|08DF91| LDA.w .vram_offset+0,Y
+|08DF94| STA.w $0AF4
 
-#_08DF97: JSR Ancilla_PrepOAMCoord
+|08DF97| JSR Ancilla_PrepOAMCoord
 
-#_08DF9A: REP #$20
+|08DF9A| REP #$20
 
-#_08DF9C: LDA.w $029E,X
-#_08DF9F: AND.w #$00FF
-#_08DFA2: BEQ .positive_altitiude
+|08DF9C| LDA.w $029E,X
+|08DF9F| AND.w #$00FF
+|08DFA2| BEQ .positive_altitiude
 
-#_08DFA4: ORA.w #$FF00
+|08DFA4| ORA.w #$FF00
 
 .positive_altitiude
-#_08DFA7: STA.b $04
-#_08DFA9: STA.b $72
+|08DFA7| STA.b $04
+|08DFA9| STA.b $72
 
-#_08DFAB: LDA.b $00
-#_08DFAD: STA.b $0A
+|08DFAB| LDA.b $00
+|08DFAD| STA.b $0A
 
-#_08DFAF: CLC
-#_08DFB0: ADC.b $04
-#_08DFB2: STA.b $04
+|08DFAF| CLC
+|08DFB0| ADC.b $04
+|08DFB2| STA.b $04
 
-#_08DFB4: LDA.b $02
-#_08DFB6: STA.b $06
+|08DFB4| LDA.b $02
+|08DFB6| STA.b $06
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08DFB8: SEP #$20
+|08DFB8| SEP #$20
 
-#_08DFBA: PHX
+|08DFBA| PHX
 
-#_08DFBB: LDA.w $0C54,X
+|08DFBB| LDA.w $0C54,X
 
-#_08DFBE: INC A
-#_08DFBF: STA.b $08
+|08DFBE| INC A
+|08DFBF| STA.b $08
 
-#_08DFC1: LDY.b #$00
-#_08DFC3: TYX
+|08DFC1| LDY.b #$00
+|08DFC3| TYX
 
 .next_object
-#_08DFC4: REP #$20
+|08DFC4| REP #$20
 
-#_08DFC6: LDA.w .offset_y,X
-#_08DFC9: AND.w #$00FF
-#_08DFCC: CMP.w #$0080
-#_08DFCF: BCC .positive_y
+|08DFC6| LDA.w .offset_y,X
+|08DFC9| AND.w #$00FF
+|08DFCC| CMP.w #$0080
+|08DFCF| BCC .positive_y
 
-#_08DFD1: ORA.w #$FF00
+|08DFD1| ORA.w #$FF00
 
 .positive_y
-#_08DFD4: CLC
-#_08DFD5: ADC.b $04
-#_08DFD7: STA.b $00
+|08DFD4| CLC
+|08DFD5| ADC.b $04
+|08DFD7| STA.b $00
 
-#_08DFD9: LDA.w .offset_x,X
-#_08DFDC: AND.w #$00FF
-#_08DFDF: CMP.w #$0080
-#_08DFE2: BCC .positive_x
+|08DFD9| LDA.w .offset_x,X
+|08DFDC| AND.w #$00FF
+|08DFDF| CMP.w #$0080
+|08DFE2| BCC .positive_x
 
-#_08DFE4: ORA.w #$FF00
+|08DFE4| ORA.w #$FF00
 
 .positive_x
-#_08DFE7: CLC
-#_08DFE8: ADC.b $06
-#_08DFEA: STA.b $02
+|08DFE7| CLC
+|08DFE8| ADC.b $06
+|08DFEA| STA.b $02
 
-#_08DFEC: SEP #$20
+|08DFEC| SEP #$20
 
-#_08DFEE: JSR Ancilla_SetOAM_XY
+|08DFEE| JSR Ancilla_SetOAM_XY
 
-#_08DFF1: LDA.w .char,X
-#_08DFF4: STA.b ($90),Y
+|08DFF1| LDA.w .char,X
+|08DFF4| STA.b ($90),Y
 
-#_08DFF6: INY
+|08DFF6| INY
 
-#_08DFF7: LDA.w .prop,X
-#_08DFFA: ORA.b #$30
-#_08DFFC: STA.b ($90),Y
+|08DFF7| LDA.w .prop,X
+|08DFFA| ORA.b #$30
+|08DFFC| STA.b ($90),Y
 
-#_08DFFE: INY
-#_08DFFF: PHY
+|08DFFE| INY
+|08DFFF| PHY
 
-#_08E000: TYA
-#_08E001: SEC
-#_08E002: SBC.b #$04
-#_08E004: LSR A
-#_08E005: LSR A
-#_08E006: TAY
+|08E000| TYA
+|08E001| SEC
+|08E002| SBC.b #$04
+|08E004| LSR A
+|08E005| LSR A
+|08E006| TAY
 
-#_08E007: LDA.b #$02
-#_08E009: STA.b ($92),Y
+|08E007| LDA.b #$02
+|08E009| STA.b ($92),Y
 
-#_08E00B: PLY
+|08E00B| PLY
 
-#_08E00C: INX
-#_08E00D: CPX.b $08
-#_08E00F: BNE .next_object
+|08E00C| INX
+|08E00D| CPX.b $08
+|08E00F| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E011: REP #$20
+|08E011| REP #$20
 
-#_08E013: LDA.b $0A
-#_08E015: CLC
-#_08E016: ADC.w #$001C
-#_08E019: STA.b $00
+|08E013| LDA.b $0A
+|08E015| CLC
+|08E016| ADC.w #$001C
+|08E019| STA.b $00
 
-#_08E01B: LDA.b $06
-#_08E01D: STA.b $02
+|08E01B| LDA.b $06
+|08E01D| STA.b $02
 
-#_08E01F: SEP #$20
+|08E01F| SEP #$20
 
-#_08E021: LDA.b #$30
-#_08E023: STA.b $04
+|08E021| LDA.b #$30
+|08E023| STA.b $04
 
-#_08E025: LDX.b #$01
-#_08E027: JSR AncillaDraw_Shadow
+|08E025| LDX.b #$01
+|08E027| JSR AncillaDraw_Shadow
 
-#_08E02A: LDX.w $0FA0
+|08E02A| LDX.w $0FA0
 
-#_08E02D: LDA.w $0C54,X
-#_08E030: BEQ .no_link_shadow
+|08E02D| LDA.w $0C54,X
+|08E030| BEQ .no_link_shadow
 
-#_08E032: REP #$20
+|08E032| REP #$20
 
-#_08E034: LDA.b $0A
-#_08E036: CLC
-#_08E037: ADC.w #$001C
-#_08E03A: STA.b $00
+|08E034| LDA.b $0A
+|08E036| CLC
+|08E037| ADC.w #$001C
+|08E03A| STA.b $00
 
-#_08E03C: LDA.b $06
-#_08E03E: CLC
-#_08E03F: ADC.w #$FFF9
-#_08E042: STA.b $02
+|08E03C| LDA.b $06
+|08E03E| CLC
+|08E03F| ADC.w #$FFF9
+|08E042| STA.b $02
 
-#_08E044: SEP #$20
+|08E044| SEP #$20
 
-#_08E046: LDA.b #$30
-#_08E048: STA.b $04
+|08E046| LDA.b #$30
+|08E048| STA.b $04
 
-#_08E04A: LDX.b #$01
-#_08E04C: JSR AncillaDraw_Shadow
+|08E04A| LDX.b #$01
+|08E04C| JSR AncillaDraw_Shadow
 
 .no_link_shadow
-#_08E04F: PLX
+|08E04F| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E050: REP #$20
+|08E050| REP #$20
 
-#_08E052: LDA.b $06
-#_08E054: BMI .exit
+|08E052| LDA.b $06
+|08E054| BMI .exit
 
-#_08E056: CMP.w #$0130
-#_08E059: BCC .exit
+|08E056| CMP.w #$0130
+|08E059| BCC .exit
 
-#_08E05B: SEP #$20
+|08E05B| SEP #$20
 
-#_08E05D: STZ.w $0C4A,X
+|08E05D| STZ.w $0C4A,X
 
-#_08E060: LDA.w $0385,X
-#_08E063: BNE .exit
+|08E060| LDA.w $0385,X
+|08E063| BNE .exit
 
-#_08E065: LDA.w $0C54,X
-#_08E068: BEQ .exit
+|08E065| LDA.w $0C54,X
+|08E068| BEQ .exit
 
-#_08E06A: LDA.b #$0A
-#_08E06C: STA.b $11
+|08E06A| LDA.b #$0A
+|08E06C| STA.b $11
 
-#_08E06E: LDA.b $10
-#_08E070: STA.w $010C
+|08E06E| LDA.b $10
+|08E070| STA.w $010C
 
-#_08E073: LDA.b #$0E
-#_08E075: STA.b $10
+|08E073| LDA.b #$0E
+|08E075| STA.b $10
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08E077: SEP #$20
+|08E077| SEP #$20
 
-#_08E079: RTS
+|08E079| RTS
 
 ;===================================================================================================
 
 pool AncillaAdd_SomariaBlock
 
 .offset_y
-#_08E07A: dw  -8 ; up
-#_08E07C: dw  31 ; down
-#_08E07E: dw  17 ; left
-#_08E080: dw  17 ; right
+|08E07A| dw  -8 ; up
+|08E07C| dw  31 ; down
+|08E07E| dw  17 ; left
+|08E080| dw  17 ; right
 
 .offset_x
-#_08E082: dw   8 ; up
-#_08E084: dw   8 ; down
-#_08E086: dw  -8 ; left
-#_08E088: dw  23 ; right
+|08E082| dw   8 ; up
+|08E084| dw   8 ; down
+|08E086| dw  -8 ; left
+|08E088| dw  23 ; right
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaAdd_SomariaBlock:
-#_08E08A: PHB
-#_08E08B: PHK
-#_08E08C: PLB
+|08E08A| PHB
+|08E08B| PHK
+|08E08C| PLB
 
-#_08E08D: JSR AddAncilla_bank08
-#_08E090: BCC .spawn_the_block
+|08E08D| JSR AddAncilla_bank08
+|08E090| BCC .spawn_the_block
 
-#_08E092: BRL .refund
+|08E092| BRL .refund
 
 ;---------------------------------------------------------------------------------------------------
 
 .spawn_the_block
-#_08E095: PHX
+|08E095| PHX
 
-#_08E096: STX.b $00
+|08E096| STX.b $00
 
-#_08E098: LDX.b #$04
+|08E098| LDX.b #$04
 
 ; Look for a somaria block
 .next_block_check
-#_08E09A: CPX.b $00
-#_08E09C: BEQ .skip
+|08E09A| CPX.b $00
+|08E09C| BEQ .skip
 
-#_08E09E: LDA.w $0C4A,X
-#_08E0A1: CMP.b #$2C ; ANCILLA 2C
-#_08E0A3: BNE .skip
+|08E09E| LDA.w $0C4A,X
+|08E0A1| CMP.b #$2C ; ANCILLA 2C
+|08E0A3| BNE .skip
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E0A5: STX.b $02
+|08E0A5| STX.b $02
 
-#_08E0A7: LDA.w $02EC
-#_08E0AA: DEC A
-#_08E0AB: CMP.b $02
-#_08E0AD: BNE .not_closest_carryable
+|08E0A7| LDA.w $02EC
+|08E0AA| DEC A
+|08E0AB| CMP.b $02
+|08E0AD| BNE .not_closest_carryable
 
-#_08E0AF: STZ.w $02EC
+|08E0AF| STZ.w $02EC
 
 .not_closest_carryable
-#_08E0B2: JSL AncillaAdd_ExplodingSomariaBlock
+|08E0B2| JSL AncillaAdd_ExplodingSomariaBlock
 
-#_08E0B6: PLX
+|08E0B6| PLX
 
-#_08E0B7: STZ.w $0C4A,X
+|08E0B7| STZ.w $0C4A,X
 
-#_08E0BA: STZ.w $0646
+|08E0BA| STZ.w $0646
 
-#_08E0BD: LDA.b $5E
-#_08E0BF: CMP.b #$12
-#_08E0C1: BNE .dont_reset_speed
+|08E0BD| LDA.b $5E
+|08E0BF| CMP.b #$12
+|08E0C1| BNE .dont_reset_speed
 
-#_08E0C3: STZ.b $48
-#_08E0C5: STZ.b $5E
+|08E0C3| STZ.b $48
+|08E0C5| STZ.b $5E
 
 .dont_reset_speed
-#_08E0C7: BRL .exit
+|08E0C7| BRL .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08E0CA: DEX
-#_08E0CB: BPL .next_block_check
+|08E0CA| DEX
+|08E0CB| BPL .next_block_check
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E0CD: PLX
+|08E0CD| PLX
 
-#_08E0CE: LDA.b #$2A ; SFX3.2A
-#_08E0D0: JSR Ancilla_SFX3_Near
+|08E0CE| LDA.b #$2A ; SFX3.2A
+|08E0D0| JSR Ancilla_SFX3_Near
 
-#_08E0D3: STZ.w $0C54,X
+|08E0D3| STZ.w $0C54,X
 
-#_08E0D6: STZ.w $0C22,X
-#_08E0D9: STZ.w $0C2C,X
+|08E0D6| STZ.w $0C22,X
+|08E0D9| STZ.w $0C2C,X
 
-#_08E0DC: STZ.w $0C5E,X
+|08E0DC| STZ.w $0C5E,X
 
-#_08E0DF: STZ.w $03B1,X
-#_08E0E2: STZ.w $039F,X
-#_08E0E5: STZ.w $03A4,X
-#_08E0E8: STZ.w $03C5,X
+|08E0DF| STZ.w $03B1,X
+|08E0E2| STZ.w $039F,X
+|08E0E5| STZ.w $03A4,X
+|08E0E8| STZ.w $03C5,X
 
-#_08E0EB: LDA.b #$0C
-#_08E0ED: STA.w $0394,X
+|08E0EB| LDA.b #$0C
+|08E0ED| STA.w $0394,X
 
-#_08E0F0: LDA.b #$12
-#_08E0F2: STA.w $0C68,X
+|08E0F0| LDA.b #$12
+|08E0F2| STA.w $0C68,X
 
-#_08E0F5: STZ.w $0385,X
-#_08E0F8: STZ.w $029E,X
+|08E0F5| STZ.w $0385,X
+|08E0F8| STZ.w $029E,X
 
-#_08E0FB: STZ.w $0380,X
-#_08E0FE: STZ.w $03EA,X
+|08E0FB| STZ.w $0380,X
+|08E0FE| STZ.w $03EA,X
 
-#_08E101: STZ.w $0BF0,X
+|08E101| STZ.w $0BF0,X
 
-#_08E104: LDA.b #$09
-#_08E106: STA.w $03A9,X
+|08E104| LDA.b #$09
+|08E106| STA.w $03A9,X
 
-#_08E109: STZ.w $03D5,X
+|08E109| STZ.w $03D5,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E10C: LDA.b $2F
-#_08E10E: LSR A
-#_08E10F: STA.w $0C72,X
+|08E10C| LDA.b $2F
+|08E10E| LSR A
+|08E10F| STA.w $0C72,X
 
-#_08E112: JSL Ancilla_CheckInitialTileCollision_Class2
-#_08E116: BCC .space_to_spawn
+|08E112| JSL Ancilla_CheckInitialTileCollision_Class2
+|08E116| BCC .space_to_spawn
 
-#_08E118: REP #$20
+|08E118| REP #$20
 
-#_08E11A: LDA.b $20
-#_08E11C: CLC
-#_08E11D: ADC.w #$0010
-#_08E120: STA.b $00
+|08E11A| LDA.b $20
+|08E11C| CLC
+|08E11D| ADC.w #$0010
+|08E120| STA.b $00
 
-#_08E122: LDA.b $22
-#_08E124: CLC
-#_08E125: ADC.w #$0008
-#_08E128: STA.b $02
+|08E122| LDA.b $22
+|08E124| CLC
+|08E125| ADC.w #$0008
+|08E128| STA.b $02
 
-#_08E12A: SEP #$20
+|08E12A| SEP #$20
 
-#_08E12C: LDA.b $00
-#_08E12E: STA.w $0BFA,X
+|08E12C| LDA.b $00
+|08E12E| STA.w $0BFA,X
 
-#_08E131: LDA.b $01
-#_08E133: STA.w $0C0E,X
+|08E131| LDA.b $01
+|08E133| STA.w $0C0E,X
 
-#_08E136: LDA.b $02
-#_08E138: STA.w $0C04,X
+|08E136| LDA.b $02
+|08E138| STA.w $0C04,X
 
-#_08E13B: LDA.b $03
-#_08E13D: STA.w $0C18,X
+|08E13B| LDA.b $03
+|08E13D| STA.w $0C18,X
 
-#_08E140: BRA .exit
+|08E140| BRA .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .space_to_spawn
-#_08E142: LDY.b $2F
+|08E142| LDY.b $2F
 
-#_08E144: LDA.b $20
-#_08E146: CLC
-#_08E147: ADC.w .offset_y+0,Y
-#_08E14A: STA.w $0BFA,X
+|08E144| LDA.b $20
+|08E146| CLC
+|08E147| ADC.w .offset_y+0,Y
+|08E14A| STA.w $0BFA,X
 
-#_08E14D: LDA.b $21
-#_08E14F: ADC.w .offset_y+1,Y
-#_08E152: STA.w $0C0E,X
+|08E14D| LDA.b $21
+|08E14F| ADC.w .offset_y+1,Y
+|08E152| STA.w $0C0E,X
 
-#_08E155: LDA.b $22
-#_08E157: CLC
-#_08E158: ADC.w .offset_x+0,Y
-#_08E15B: STA.w $0C04,X
+|08E155| LDA.b $22
+|08E157| CLC
+|08E158| ADC.w .offset_x+0,Y
+|08E15B| STA.w $0C04,X
 
-#_08E15E: LDA.b $23
-#_08E160: ADC.w .offset_x+1,Y
-#_08E163: STA.w $0C18,X
+|08E15E| LDA.b $23
+|08E160| ADC.w .offset_x+1,Y
+|08E163| STA.w $0C18,X
 
-#_08E166: JSR SomariaBlock_CheckForTransitTile
+|08E166| JSR SomariaBlock_CheckForTransitTile
 
-#_08E169: BRA .exit
+|08E169| BRA .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .refund
-#_08E16B: LDX.b #$04
-#_08E16D: JSL RefundMagic
+|08E16B| LDX.b #$04
+|08E16D| JSL RefundMagic
 
 .exit
-#_08E171: PLB
+|08E171| PLB
 
-#_08E172: RTL
+|08E172| RTL
 
 ;===================================================================================================
 
 pool SomariaBlock_CheckForTransitTile
 
 .offset_y
-#_08E173: dw -16, -16, -16,  16,  16,  16
-#_08E17F: dw  -8,   0,   8,  -8,   0,   8
+|08E173| dw -16, -16, -16,  16,  16,  16
+|08E17F| dw  -8,   0,   8,  -8,   0,   8
 
 .offset_x
-#_08E18B: dw  -8,   0,   8,  -8,   0,   8
-#_08E197: dw -16, -16, -16,  16,  16,  16
+|08E18B| dw  -8,   0,   8,  -8,   0,   8
+|08E197| dw -16, -16, -16,  16,  16,  16
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 SomariaBlock_CheckForTransitTile:
-#_08E1A3: LDA.w $03F4
-#_08E1A6: BEQ .exit
+|08E1A3| LDA.w $03F4
+|08E1A6| BEQ .exit
 
-#_08E1A8: LDY.b #$16
+|08E1A8| LDY.b #$16
 
 .next
-#_08E1AA: LDA.w $0BFA,X
-#_08E1AD: CLC
-#_08E1AE: ADC.w .offset_y+0,Y
-#_08E1B1: STA.b $00
-#_08E1B3: STA.b $72
+|08E1AA| LDA.w $0BFA,X
+|08E1AD| CLC
+|08E1AE| ADC.w .offset_y+0,Y
+|08E1B1| STA.b $00
+|08E1B3| STA.b $72
 
-#_08E1B5: LDA.w $0C0E,X
-#_08E1B8: ADC.w .offset_y+1,Y
-#_08E1BB: STA.b $01
-#_08E1BD: STA.b $73
+|08E1B5| LDA.w $0C0E,X
+|08E1B8| ADC.w .offset_y+1,Y
+|08E1BB| STA.b $01
+|08E1BD| STA.b $73
 
-#_08E1BF: LDA.w $0C04,X
-#_08E1C2: CLC
-#_08E1C3: ADC.w .offset_x+0,Y
-#_08E1C6: STA.b $02
-#_08E1C8: STA.b $74
+|08E1BF| LDA.w $0C04,X
+|08E1C2| CLC
+|08E1C3| ADC.w .offset_x+0,Y
+|08E1C6| STA.b $02
+|08E1C8| STA.b $74
 
-#_08E1CA: LDA.w $0C18,X
-#_08E1CD: ADC.w .offset_x+1,Y
-#_08E1D0: STA.b $03
-#_08E1D2: STA.b $75
+|08E1CA| LDA.w $0C18,X
+|08E1CD| ADC.w .offset_x+1,Y
+|08E1D0| STA.b $03
+|08E1D2| STA.b $75
 
-#_08E1D4: PHY
+|08E1D4| PHY
 
-#_08E1D5: LDA.w $0280,X
-#_08E1D8: PHA
+|08E1D5| LDA.w $0280,X
+|08E1D8| PHA
 
-#_08E1D9: JSR Ancilla_CheckTileCollision_targeted
+|08E1D9| JSR Ancilla_CheckTileCollision_targeted
 
-#_08E1DC: PLA
-#_08E1DD: STA.w $0280,X
+|08E1DC| PLA
+|08E1DD| STA.w $0280,X
 
-#_08E1E0: PLY
+|08E1E0| PLY
 
-#_08E1E1: LDA.w $03E4,X
-#_08E1E4: CMP.b #$B6 ; TILETYPE B6
-#_08E1E6: BEQ .node
+|08E1E1| LDA.w $03E4,X
+|08E1E4| CMP.b #$B6 ; TILETYPE B6
+|08E1E6| BEQ .node
 
-#_08E1E8: CMP.b #$BC ; TILETYPE BC
-#_08E1EA: BEQ .node
+|08E1E8| CMP.b #$BC ; TILETYPE BC
+|08E1EA| BEQ .node
 
-#_08E1EC: DEY
-#_08E1ED: DEY
-#_08E1EE: BPL .next
+|08E1EC| DEY
+|08E1ED| DEY
+|08E1EE| BPL .next
 
-#_08E1F0: BRA .exit
+|08E1F0| BRA .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .node
-#_08E1F2: LDA.b $72
-#_08E1F4: STA.w $0BFA,X
+|08E1F2| LDA.b $72
+|08E1F4| STA.w $0BFA,X
 
-#_08E1F7: LDA.b $73
-#_08E1F9: STA.w $0C0E,X
+|08E1F7| LDA.b $73
+|08E1F9| STA.w $0C0E,X
 
-#_08E1FC: LDA.b $74
-#_08E1FE: STA.w $0C04,X
+|08E1FC| LDA.b $74
+|08E1FE| STA.w $0C04,X
 
-#_08E201: LDA.b $75
-#_08E203: STA.w $0C18,X
+|08E201| LDA.b $75
+|08E203| STA.w $0C18,X
 
-#_08E206: JSL AncillaAdd_SomariaPlatformPoof
+|08E206| JSL AncillaAdd_SomariaPlatformPoof
 
 .exit
-#_08E20A: RTS
+|08E20A| RTS
 
 ;===================================================================================================
 
 Ancilla_CheckBasicSpriteCollision:
-#_08E20B: LDY.b #$0F
+|08E20B| LDY.b #$0F
 
 .next_sprite
-#_08E20D: TYA
-#_08E20E: EOR.b $1A
-#_08E210: AND.b #$03
+|08E20D| TYA
+|08E20E| EOR.b $1A
+|08E210| AND.b #$03
 
-#_08E212: ORA.w $0F00,Y
-#_08E215: ORA.w $0EF0,Y
-#_08E218: BNE .skip
+|08E212| ORA.w $0F00,Y
+|08E215| ORA.w $0EF0,Y
+|08E218| BNE .skip
 
-#_08E21A: LDA.w $0DD0,Y
-#_08E21D: CMP.b #$09
-#_08E21F: BCC .skip
+|08E21A| LDA.w $0DD0,Y
+|08E21D| CMP.b #$09
+|08E21F| BCC .skip
 
-#_08E221: LDA.w $0CAA,Y
-#_08E224: AND.b #$02
-#_08E226: BNE .sprite_ignores_priority
+|08E221| LDA.w $0CAA,Y
+|08E224| AND.b #$02
+|08E226| BNE .sprite_ignores_priority
 
-#_08E228: LDA.w $0280,X
-#_08E22B: BNE .skip
+|08E228| LDA.w $0280,X
+|08E22B| BNE .skip
 
 .sprite_ignores_priority
-#_08E22D: LDA.w $0C7C,X
-#_08E230: CMP.w $0F20,Y
-#_08E233: BNE .skip
+|08E22D| LDA.w $0C7C,X
+|08E230| CMP.w $0F20,Y
+|08E233| BNE .skip
 
 ; Crystal switch v Somaria block
-#_08E235: LDA.w $0C4A,X
-#_08E238: CMP.b #$2C ; ANCILLA 2C
-#_08E23A: BNE .not_somaria_block
+|08E235| LDA.w $0C4A,X
+|08E238| CMP.b #$2C ; ANCILLA 2C
+|08E23A| BNE .not_somaria_block
 
-#_08E23C: LDA.w $0E20,Y
-#_08E23F: CMP.b #$1E ; SPRITE 1E
-#_08E241: BEQ .skip
+|08E23C| LDA.w $0E20,Y
+|08E23F| CMP.b #$1E ; SPRITE 1E
+|08E241| BEQ .skip
 
-#_08E243: CMP.b #$90 ; SPRITE 90
-#_08E245: BEQ .skip
+|08E243| CMP.b #$90 ; SPRITE 90
+|08E245| BEQ .skip
 
 .not_somaria_block
-#_08E247: JSR Ancilla_CheckBasicSpriteCollision_Single
+|08E247| JSR Ancilla_CheckBasicSpriteCollision_Single
 
 .skip
-#_08E24A: DEY
-#_08E24B: BPL .next_sprite
+|08E24A| DEY
+|08E24B| BPL .next_sprite
 
-#_08E24D: CLC
+|08E24D| CLC
 
-#_08E24E: RTS
+|08E24E| RTS
 
 ;===================================================================================================
 
 Ancilla_CheckBasicSpriteCollision_Single:
-#_08E24F: JSR Ancilla_SetupBasicHitBox
+|08E24F| JSR Ancilla_SetupBasicHitbox
 
-#_08E252: PHY
-#_08E253: PHX
+|08E252| PHY
+|08E253| PHX
 
-#_08E254: TYX
-#_08E255: JSL SetupSpriteHitBox_long
+|08E254| TYX
+|08E255| JSL SetupSpriteHitbox_long
 
-#_08E259: PLX
-#_08E25A: PLY
+|08E259| PLX
+|08E25A| PLY
 
-#_08E25B: JSL CheckIfHitBoxesOverlap_long
-#_08E25F: BCC .fail
+|08E25B| JSL CheckIfHitboxesOverlap_long
+|08E25F| BCC .fail
 
-#_08E261: LDA.w $0E20,Y
-#_08E264: CMP.b #$92 ; SPRITE 92
-#_08E266: BNE .not_king_helma
+|08E261| LDA.w $0E20,Y
+|08E264| CMP.b #$92 ; SPRITE 92
+|08E266| BNE .not_king_helma
 
-#_08E268: LDA.w $0DB0,Y
-#_08E26B: CMP.b #$03
-#_08E26D: BCC .success
+|08E268| LDA.w $0DB0,Y
+|08E26B| CMP.b #$03
+|08E26D| BCC .success
 
 .not_king_helma
-#_08E26F: LDA.w $0E20,Y
-#_08E272: CMP.b #$80 ; SPRITE 80
-#_08E274: BNE .dont_reverse_fire_snake
+|08E26F| LDA.w $0E20,Y
+|08E272| CMP.b #$80 ; SPRITE 80
+|08E274| BNE .dont_reverse_fire_snake
 
-#_08E276: LDA.w $0F10,Y
-#_08E279: BNE .dont_reverse_fire_snake
+|08E276| LDA.w $0F10,Y
+|08E279| BNE .dont_reverse_fire_snake
 
-#_08E27B: LDA.b #$18
-#_08E27D: STA.w $0F10,Y
+|08E27B| LDA.b #$18
+|08E27D| STA.w $0F10,Y
 
-#_08E280: LDA.w $0DE0,Y
-#_08E283: EOR.b #$01
-#_08E285: STA.w $0DE0,Y
+|08E280| LDA.w $0DE0,Y
+|08E283| EOR.b #$01
+|08E285| STA.w $0DE0,Y
 
 .dont_reverse_fire_snake
-#_08E288: LDA.w $0BA0,Y
-#_08E28B: BNE .fail
+|08E288| LDA.w $0BA0,Y
+|08E28B| BNE .fail
 
-#_08E28D: LDA.w $0C04,X
-#_08E290: SEC
-#_08E291: SBC.b #$08
-#_08E293: STA.b $04
+|08E28D| LDA.w $0C04,X
+|08E290| SEC
+|08E291| SBC.b #$08
+|08E293| STA.b $04
 
-#_08E295: LDA.w $0C18,X
-#_08E298: SBC.b #$00
-#_08E29A: STA.b $05
+|08E295| LDA.w $0C18,X
+|08E298| SBC.b #$00
+|08E29A| STA.b $05
 
-#_08E29C: LDA.w $0BFA,X
-#_08E29F: SEC
-#_08E2A0: SBC.b #$08
-#_08E2A2: PHP
+|08E29C| LDA.w $0BFA,X
+|08E29F| SEC
+|08E2A0| SBC.b #$08
+|08E2A2| PHP
 
-#_08E2A3: SEC
-#_08E2A4: SBC.w $029E,X
-#_08E2A7: STA.b $06
+|08E2A3| SEC
+|08E2A4| SBC.w $029E,X
+|08E2A7| STA.b $06
 
-#_08E2A9: LDA.w $0C0E,X
-#_08E2AC: SBC.b #$00
+|08E2A9| LDA.w $0C0E,X
+|08E2AC| SBC.b #$00
 
-#_08E2AE: PLP
-#_08E2AF: SBC.b #$00
-#_08E2B1: STA.b $07
+|08E2AE| PLP
+|08E2AF| SBC.b #$00
+|08E2B1| STA.b $07
 
-#_08E2B3: LDA.b #$50
+|08E2B3| LDA.b #$50
 
-#_08E2B5: PHY
-#_08E2B6: PHX
+|08E2B5| PHY
+|08E2B6| PHX
 
-#_08E2B7: TYX
-#_08E2B8: JSL ProjectSpriteSpeedTowardsLocation_long
+|08E2B7| TYX
+|08E2B8| JSL ProjectSpriteSpeedTowardsLocation_long
 
-#_08E2BC: PLX
-#_08E2BD: PLY
+|08E2BC| PLX
+|08E2BD| PLY
 
-#_08E2BE: LDA.b $00
-#_08E2C0: EOR.b #$FF
-#_08E2C2: STA.w $0F30,Y
+|08E2BE| LDA.b $00
+|08E2C0| EOR.b #$FF
+|08E2C2| STA.w $0F30,Y
 
-#_08E2C5: LDA.b $01
-#_08E2C7: EOR.b #$FF
-#_08E2C9: STA.w $0F40,Y
+|08E2C5| LDA.b $01
+|08E2C7| EOR.b #$FF
+|08E2C9| STA.w $0F40,Y
 
-#_08E2CC: PHX
+|08E2CC| PHX
 
-#_08E2CD: LDA.w $0C4A,X
+|08E2CD| LDA.w $0C4A,X
 
-#_08E2D0: TYX
-#_08E2D1: JSL CheckAncillaDamageToSprite
+|08E2D0| TYX
+|08E2D1| JSL CheckAncillaDamageToSprite
 
-#_08E2D5: PLX
+|08E2D5| PLX
 
 ;---------------------------------------------------------------------------------------------------
 
 .success
-#_08E2D6: PLA
-#_08E2D7: PLA
+|08E2D6| PLA
+|08E2D7| PLA
 
-#_08E2D8: SEC
+|08E2D8| SEC
 
-#_08E2D9: RTS
+|08E2D9| RTS
 
 .fail
-#_08E2DA: CLC
+|08E2DA| CLC
 
-#_08E2DB: RTS
+|08E2DB| RTS
 
 ;===================================================================================================
 
-Ancilla_SetupBasicHitBox:
-#_08E2DC: LDA.w $0C04,X
-#_08E2DF: SEC
-#_08E2E0: SBC.b #$08
-#_08E2E2: STA.b $00
+Ancilla_SetupBasicHitbox:
+|08E2DC| LDA.w $0C04,X
+|08E2DF| SEC
+|08E2E0| SBC.b #$08
+|08E2E2| STA.b $00
 
-#_08E2E4: LDA.w $0C18,X
-#_08E2E7: SBC.b #$00
-#_08E2E9: STA.b $08
+|08E2E4| LDA.w $0C18,X
+|08E2E7| SBC.b #$00
+|08E2E9| STA.b $08
 
-#_08E2EB: LDA.w $0BFA,X
-#_08E2EE: SEC
-#_08E2EF: SBC.b #$08
-#_08E2F1: PHP
+|08E2EB| LDA.w $0BFA,X
+|08E2EE| SEC
+|08E2EF| SBC.b #$08
+|08E2F1| PHP
 
-#_08E2F2: SEC
-#_08E2F3: SBC.w $029E,X
-#_08E2F6: STA.b $01
+|08E2F2| SEC
+|08E2F3| SBC.w $029E,X
+|08E2F6| STA.b $01
 
-#_08E2F8: LDA.w $0C0E,X
-#_08E2FB: SBC.b #$00
+|08E2F8| LDA.w $0C0E,X
+|08E2FB| SBC.b #$00
 
-#_08E2FD: PLP
-#_08E2FE: SBC.b #$00
-#_08E300: STA.b $09
+|08E2FD| PLP
+|08E2FE| SBC.b #$00
+|08E300| STA.b $09
 
-#_08E302: LDA.b #$0F
-#_08E304: STA.b $02
+|08E302| LDA.b #$0F
+|08E304| STA.b $02
 
-#_08E306: LDA.b #$0F
-#_08E308: STA.b $03
+|08E306| LDA.b #$0F
+|08E308| STA.b $03
 
 ;---------------------------------------------------------------------------------------------------
 
 #EXIT_08E30A:
-#_08E30A: RTS
+|08E30A| RTS
 
 ;===================================================================================================
 ; TODO verify table size
 pool AncillaDraw_SomariaBlock
 
 .prop
-#_08E30B: db $00, $40, $80, $C0
-#_08E30F: db $00, $40, $80, $C0
-#_08E313: db $00, $40, $80, $C0
+|08E30B| db $00, $40, $80, $C0
+|08E30F| db $00, $40, $80, $C0
+|08E313| db $00, $40, $80, $C0
 
 .offset_y
-#_08E317: dw  -8,  -8,   0,   0
-#_08E31F: dw   0,   0,   0,   0
-#_08E327: dw   0,   0,   0,   0
+|08E317| dw  -8,  -8,   0,   0
+|08E31F| dw   0,   0,   0,   0
+|08E327| dw   0,   0,   0,   0
 
 .offset_x
-#_08E32F: dw  -8,   0,  -8,   0
-#_08E337: dw   0,   0,   0,   0
-#_08E33F: dw   0,   0,   0,   0
+|08E32F| dw  -8,   0,  -8,   0
+|08E337| dw   0,   0,   0,   0
+|08E33F| dw   0,   0,   0,   0
 
-pool off
+endpool
 
 ;===================================================================================================
 
 pool Ancilla2C_SomariaBlock
 
 .node_offset_y
-#_08E347: dw  -8,   8,   0,   0
-#_08E34F: dw   0,   0,   0,   0
-#_08E357: dw  -8,   8,  -8,   8
+|08E347| dw  -8,   8,   0,   0
+|08E34F| dw   0,   0,   0,   0
+|08E357| dw  -8,   8,  -8,   8
 
 .node_offset_x
-#_08E35F: dw   0,   0,  -8,   8
-#_08E367: dw   0,   0,   0,   0
-#_08E36F: dw   8,  -8,  -8,   8
+|08E35F| dw   0,   0,  -8,   8
+|08E367| dw   0,   0,   0,   0
+|08E36F| dw   8,  -8,  -8,   8
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla2C_SomariaBlock:
-#_08E377: DEC.w $0394,X
-#_08E37A: BPL EXIT_08E30A
+|08E377| DEC.w $0394,X
+|08E37A| BPL EXIT_08E30A
 
-#_08E37C: STZ.w $0394,X
+|08E37C| STZ.w $0394,X
 
-#_08E37F: LDA.w $03C5,X
-#_08E382: BNE .bouncing
+|08E37F| LDA.w $03C5,X
+|08E382| BNE .bouncing
 
-#_08E384: LDA.b $11
-#_08E386: BEQ .continue
+|08E384| LDA.b $11
+|08E386| BEQ .continue
 
-#_08E388: CMP.b #$08
-#_08E38A: BEQ .continue
+|08E388| CMP.b #$08
+|08E38A| BEQ .continue
 
-#_08E38C: CMP.b #$10
-#_08E38E: BNE .skip_lift
+|08E38C| CMP.b #$10
+|08E38E| BNE .skip_lift
 
 .continue
-#_08E390: JSR Ancilla_HandleLiftLogic
-#_08E393: BRA .handle_lift_logic
+|08E390| JSR Ancilla_HandleLiftLogic
+|08E393| BRA .handle_lift_logic
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_lift
-#_08E395: TXA
-#_08E396: INC A
-#_08E397: CMP.w $02EC
-#_08E39A: BNE .handle_lift_logic
+|08E395| TXA
+|08E396| INC A
+|08E397| CMP.w $02EC
+|08E39A| BNE .handle_lift_logic
 
-#_08E39C: LDA.w $0380,X
-#_08E39F: BEQ .handle_lift_logic
+|08E39C| LDA.w $0380,X
+|08E39F| BEQ .handle_lift_logic
 
-#_08E3A1: CMP.b #$03
-#_08E3A3: BEQ .assert_holditude
+|08E3A1| CMP.b #$03
+|08E3A3| BEQ .assert_holditude
 
-#_08E3A5: LDY.b #$03
-#_08E3A7: JSR Ancilla_LatchLinkCoordinates
-#_08E3AA: JSR Ancilla_LatchAltitudeAboveLink
+|08E3A5| LDY.b #$03
+|08E3A7| JSR Ancilla_LatchLinkCoordinates
+|08E3AA| JSR Ancilla_LatchAltitudeAboveLink
 
-#_08E3AD: LDA.b #$03
-#_08E3AF: STA.w $0380,X
+|08E3AD| LDA.b #$03
+|08E3AF| STA.w $0380,X
 
 .assert_holditude
-#_08E3B2: JSR Ancilla_LatchCarriedPosition
+|08E3B2| JSR Ancilla_LatchCarriedPosition
 
 ;---------------------------------------------------------------------------------------------------
 
 .handle_lift_logic
-#_08E3B5: LDA.b $1B
-#_08E3B7: BEQ .no_trigger
+|08E3B5| LDA.b $1B
+|08E3B7| BEQ .no_trigger
 
-#_08E3B9: LDA.w $0380,X
-#_08E3BC: BNE .bouncing
+|08E3B9| LDA.w $0380,X
+|08E3BC| BNE .bouncing
 
-#_08E3BE: BIT.w $0308
-#_08E3C1: BMI .bouncing
+|08E3BE| BIT.w $0308
+|08E3C1| BMI .bouncing
 
-#_08E3C3: LDA.w $029E,X
-#_08E3C6: BEQ .run_trigger
+|08E3C3| LDA.w $029E,X
+|08E3C6| BEQ .run_trigger
 
-#_08E3C8: CMP.b #$FF
-#_08E3CA: BEQ .run_trigger
+|08E3C8| CMP.b #$FF
+|08E3CA| BEQ .run_trigger
 
 ;---------------------------------------------------------------------------------------------------
 
 .bouncing
-#_08E3CC: TXA
-#_08E3CD: INC A
-#_08E3CE: CMP.w $02EC
-#_08E3D1: BNE .no_trigger
+|08E3CC| TXA
+|08E3CD| INC A
+|08E3CE| CMP.w $02EC
+|08E3D1| BNE .no_trigger
 
-#_08E3D3: STZ.w $0646
+|08E3D3| STZ.w $0646
 
 .no_trigger
-#_08E3D6: BRL .tile_collision_logic
+|08E3D6| BRL .tile_collision_logic
 
 ;---------------------------------------------------------------------------------------------------
 
 .run_trigger
-#_08E3D9: LDA.w $03F4
-#_08E3DC: BEQ .no_transit_tiles
+|08E3D9| LDA.w $03F4
+|08E3DC| BEQ .no_transit_tiles
 
-#_08E3DE: LDA.b $1A
-#_08E3E0: AND.b #$03
-#_08E3E2: ASL A
-#_08E3E3: TAY
+|08E3DE| LDA.b $1A
+|08E3E0| AND.b #$03
+|08E3E2| ASL A
+|08E3E3| TAY
 
 .next_node_check
-#_08E3E4: LDA.w $0BFA,X
-#_08E3E7: CLC
-#_08E3E8: ADC.w .node_offset_y+0,Y
-#_08E3EB: STA.b $00
-#_08E3ED: STA.b $72
+|08E3E4| LDA.w $0BFA,X
+|08E3E7| CLC
+|08E3E8| ADC.w .node_offset_y+0,Y
+|08E3EB| STA.b $00
+|08E3ED| STA.b $72
 
-#_08E3EF: LDA.w $0C0E,X
-#_08E3F2: ADC.w .node_offset_y+1,Y
-#_08E3F5: STA.b $01
-#_08E3F7: STA.b $73
+|08E3EF| LDA.w $0C0E,X
+|08E3F2| ADC.w .node_offset_y+1,Y
+|08E3F5| STA.b $01
+|08E3F7| STA.b $73
 
-#_08E3F9: LDA.w $0C04,X
-#_08E3FC: CLC
-#_08E3FD: ADC.w .node_offset_x+0,Y
-#_08E400: STA.b $02
-#_08E402: STA.b $74
+|08E3F9| LDA.w $0C04,X
+|08E3FC| CLC
+|08E3FD| ADC.w .node_offset_x+0,Y
+|08E400| STA.b $02
+|08E402| STA.b $74
 
-#_08E404: LDA.w $0C18,X
-#_08E407: ADC.w .node_offset_x+1,Y
-#_08E40A: STA.b $03
-#_08E40C: STA.b $75
+|08E404| LDA.w $0C18,X
+|08E407| ADC.w .node_offset_x+1,Y
+|08E40A| STA.b $03
+|08E40C| STA.b $75
 
-#_08E40E: PHY
+|08E40E| PHY
 
-#_08E40F: LDA.w $0280,X
-#_08E412: PHA
+|08E40F| LDA.w $0280,X
+|08E412| PHA
 
-#_08E413: JSR Ancilla_CheckTileCollision_targeted
+|08E413| JSR Ancilla_CheckTileCollision_targeted
 
-#_08E416: PLA
-#_08E417: STA.w $0280,X
+|08E416| PLA
+|08E417| STA.w $0280,X
 
-#_08E41A: PLY
+|08E41A| PLY
 
-#_08E41B: LDA.w $03E4,X
-#_08E41E: CMP.b #$B6 ; TILETYPE B6
-#_08E420: BEQ .valid_node
+|08E41B| LDA.w $03E4,X
+|08E41E| CMP.b #$B6 ; TILETYPE B6
+|08E420| BEQ .valid_node
 
-#_08E422: CMP.b #$BC ; TILETYPE BC
-#_08E424: BEQ .valid_node
+|08E422| CMP.b #$BC ; TILETYPE BC
+|08E424| BEQ .valid_node
 
-#_08E426: TYA
-#_08E427: CLC
-#_08E428: ADC.b #$08
-#_08E42A: TAY
+|08E426| TYA
+|08E427| CLC
+|08E428| ADC.b #$08
+|08E42A| TAY
 
-#_08E42B: CPY.b #$18
-#_08E42D: BCS .tile_collision_logic
+|08E42B| CPY.b #$18
+|08E42D| BCS .tile_collision_logic
 
-#_08E42F: BRA .next_node_check
+|08E42F| BRA .next_node_check
 
 ;---------------------------------------------------------------------------------------------------
 
 .valid_node
-#_08E431: LDA.b $72
-#_08E433: STA.w $0BFA,X
+|08E431| LDA.b $72
+|08E433| STA.w $0BFA,X
 
-#_08E436: LDA.b $73
-#_08E438: STA.w $0C0E,X
+|08E436| LDA.b $73
+|08E438| STA.w $0C0E,X
 
-#_08E43B: LDA.b $74
-#_08E43D: STA.w $0C04,X
+|08E43B| LDA.b $74
+|08E43D| STA.w $0C04,X
 
-#_08E440: LDA.b $75
-#_08E442: STA.w $0C18,X
+|08E440| LDA.b $75
+|08E442| STA.w $0C18,X
 
-#_08E445: JSL AncillaAdd_SomariaPlatformPoof
+|08E445| JSL AncillaAdd_SomariaPlatformPoof
 
-#_08E449: TXA
-#_08E44A: INC A
-#_08E44B: CMP.w $02EC
-#_08E44E: BNE .exit
+|08E449| TXA
+|08E44A| INC A
+|08E44B| CMP.w $02EC
+|08E44E| BNE .exit
 
-#_08E450: STZ.w $02EC
+|08E450| STZ.w $02EC
 
 .exit
-#_08E453: RTS
+|08E453| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_transit_tiles
-#_08E454: JSR SomariaBlock_CheckForSwitch
-#_08E457: BCS .tile_collision_logic
+|08E454| JSR SomariaBlock_CheckForSwitch
+|08E457| BCS .tile_collision_logic
 
-#_08E459: LDA.w $029E,X
-#_08E45C: BEQ .set_trigger
+|08E459| LDA.w $029E,X
+|08E45C| BEQ .set_trigger
 
-#_08E45E: CMP.b #$FF
-#_08E460: BNE .tile_collision_logic
+|08E45E| CMP.b #$FF
+|08E460| BNE .tile_collision_logic
 
 .set_trigger
-#_08E462: INC.w $0646
+|08E462| INC.w $0646
 
 ;---------------------------------------------------------------------------------------------------
 
 .tile_collision_logic
-#_08E465: JSR Ancilla_LatchYCoordToZ
+|08E465| JSR Ancilla_LatchYCoordToZ
 
-#_08E468: LDA.w $0C72,X
-#_08E46B: STA.b $74
+|08E468| LDA.w $0C72,X
+|08E46B| STA.b $74
 
-#_08E46D: LDA.w $0280,X
-#_08E470: STA.b $75
+|08E46D| LDA.w $0280,X
+|08E470| STA.b $75
 
-#_08E472: STZ.w $0280,X
+|08E472| STZ.w $0280,X
 
-#_08E475: JSR Ancilla_CheckTileCollision_Class2
+|08E475| JSR Ancilla_CheckTileCollision_Class2
 
-#_08E478: PHP
+|08E478| PHP
 
-#_08E479: LDA.b $1B
-#_08E47B: BEQ .dont_layer_swap
+|08E479| LDA.b $1B
+|08E47B| BEQ .dont_layer_swap
 
-#_08E47D: LDA.w $0385,X
-#_08E480: BEQ .dont_layer_swap
+|08E47D| LDA.w $0385,X
+|08E480| BEQ .dont_layer_swap
 
-#_08E482: LDA.w $03E4,X
-#_08E485: CMP.b #$1C ; TILETYPE 1C
-#_08E487: BNE .dont_layer_swap
+|08E482| LDA.w $03E4,X
+|08E485| CMP.b #$1C ; TILETYPE 1C
+|08E487| BNE .dont_layer_swap
 
-#_08E489: LDA.b #$01
-#_08E48B: STA.w $03D5,X
+|08E489| LDA.b #$01
+|08E48B| STA.w $03D5,X
 
 .dont_layer_swap
-#_08E48E: PLP
-#_08E48F: BCC .no_tile_collision
+|08E48E| PLP
+|08E48F| BCC .no_tile_collision
 
 ;---------------------------------------------------------------------------------------------------
 
 .run_wall_bounce_logic
-#_08E491: BIT.w $0308
-#_08E494: BPL .not_held
+|08E491| BIT.w $0308
+|08E494| BPL .not_held
 
-#_08E496: LDA.w $0309
-#_08E499: BEQ .no_tile_collision
+|08E496| LDA.w $0309
+|08E499| BEQ .no_tile_collision
 
 .not_held
-#_08E49B: LDA.b $75
-#_08E49D: BNE .end_tile_collision_logic
+|08E49B| LDA.b $75
+|08E49D| BNE .end_tile_collision_logic
 
-#_08E49F: LDA.w $0BF0,X
-#_08E4A2: BNE .end_tile_collision_logic
+|08E49F| LDA.w $0BF0,X
+|08E4A2| BNE .end_tile_collision_logic
 
-#_08E4A4: LDA.w $029E,X
-#_08E4A7: BEQ .end_tile_collision_logic
+|08E4A4| LDA.w $029E,X
+|08E4A7| BEQ .end_tile_collision_logic
 
-#_08E4A9: LDA.b #$01
-#_08E4AB: STA.w $0BF0,X
+|08E4A9| LDA.b #$01
+|08E4AB| STA.w $0BF0,X
 
-#_08E4AE: LDA.b #$04
-#_08E4B0: STA.b $0E
+|08E4AE| LDA.b #$04
+|08E4B0| STA.b $0E
 
-#_08E4B2: LDA.w $0C72,X
-#_08E4B5: CMP.b #$01
-#_08E4B7: BNE .small_bounce
+|08E4B2| LDA.w $0C72,X
+|08E4B5| CMP.b #$01
+|08E4B7| BNE .small_bounce
 
-#_08E4B9: LDA.b #$10
-#_08E4BB: STA.b $0E
+|08E4B9| LDA.b #$10
+|08E4BB| STA.b $0E
 
-#_08E4BD: LDY.b #$F0
-#_08E4BF: BRA .bounce_continue
+|08E4BD| LDY.b #$F0
+|08E4BF| BRA .bounce_continue
 
 .small_bounce
-#_08E4C1: LDY.b #$FC
+|08E4C1| LDY.b #$FC
 
 ;---------------------------------------------------------------------------------------------------
 
 .bounce_continue
-#_08E4C3: LDA.w $0C22,X
-#_08E4C6: BEQ .zero_y_speed
-#_08E4C8: BPL .bounce_up
+|08E4C3| LDA.w $0C22,X
+|08E4C6| BEQ .zero_y_speed
+|08E4C8| BPL .bounce_up
 
-#_08E4CA: LDY.b $0E
+|08E4CA| LDY.b $0E
 
 .bounce_up
-#_08E4CC: TYA
-#_08E4CD: STA.w $0C22,X
+|08E4CC| TYA
+|08E4CD| STA.w $0C22,X
 
 .zero_y_speed
-#_08E4D0: LDY.b #$FC
+|08E4D0| LDY.b #$FC
 
-#_08E4D2: LDA.w $0C2C,X
-#_08E4D5: BEQ .zero_x_speed
-#_08E4D7: BPL .bounce_left
+|08E4D2| LDA.w $0C2C,X
+|08E4D5| BEQ .zero_x_speed
+|08E4D7| BPL .bounce_left
 
-#_08E4D9: LDY.b #$04
+|08E4D9| LDY.b #$04
 
 .bounce_left
-#_08E4DB: TYA
-#_08E4DC: STA.w $0C2C,X
+|08E4DB| TYA
+|08E4DC| STA.w $0C2C,X
 
 .zero_x_speed
-#_08E4DF: LDA.w $0C72,X
-#_08E4E2: CMP.b #$01
-#_08E4E4: BNE .end_tile_collision_logic
+|08E4DF| LDA.w $0C72,X
+|08E4E2| CMP.b #$01
+|08E4E4| BNE .end_tile_collision_logic
 
-#_08E4E6: INC A
-#_08E4E7: STA.w $0385,X
+|08E4E6| INC A
+|08E4E7| STA.w $0385,X
 
-#_08E4EA: LDA.b #$FC
-#_08E4EC: STA.w $0C22,X
+|08E4EA| LDA.b #$FC
+|08E4EC| STA.w $0C22,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .end_tile_collision_logic
-#_08E4EF: BRL SomariaBlock_HandleDamage
+|08E4EF| BRL SomariaBlock_HandleDamage
 
 .no_tile_collision
-#_08E4F2: BIT.w $0308
-#_08E4F5: BMI .end_tile_collision_logic
+|08E4F2| BIT.w $0308
+|08E4F5| BMI .end_tile_collision_logic
 
-#_08E4F7: LDA.w $029E,X
-#_08E4FA: BEQ .not_airborne
+|08E4F7| LDA.w $029E,X
+|08E4FA| BEQ .not_airborne
 
-#_08E4FC: CMP.b #$FF
-#_08E4FE: BNE .end_tile_collision_logic
+|08E4FC| CMP.b #$FF
+|08E4FE| BNE .end_tile_collision_logic
 
 .not_airborne
-#_08E500: LDA.b #$10
-#_08E502: STA.w $0C72,X
+|08E500| LDA.b #$10
+|08E502| STA.w $0C72,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E505: LDA.w $0280,X
-#_08E508: PHA
+|08E505| LDA.w $0280,X
+|08E508| PHA
 
-#_08E509: JSR Ancilla_CheckTileCollision
+|08E509| JSR Ancilla_CheckTileCollision
 
-#_08E50C: PLA
-#_08E50D: STA.w $0280,X
+|08E50C| PLA
+|08E50D| STA.w $0280,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E510: LDA.w $03E4,X
+|08E510| LDA.w $03E4,X
 
-#_08E513: CMP.b #$26 ; TILETYPE 26
-#_08E515: BEQ .staircase_boundary
+|08E513| CMP.b #$26 ; TILETYPE 26
+|08E515| BEQ .staircase_boundary
 
-#_08E517: CMP.b #$0C ; TILETYPE 0C
-#_08E519: BEQ .overlay_mask
+|08E517| CMP.b #$0C ; TILETYPE 0C
+|08E519| BEQ .overlay_mask
 
-#_08E51B: CMP.b #$1C ; TILETYPE 1C
-#_08E51D: BEQ .overlay_mask
+|08E51B| CMP.b #$1C ; TILETYPE 1C
+|08E51D| BEQ .overlay_mask
 
-#_08E51F: CMP.b #$20 ; TILETYPE 20
-#_08E521: BEQ .pit
+|08E51F| CMP.b #$20 ; TILETYPE 20
+|08E521| BEQ .pit
 
-#_08E523: CMP.b #$08 ; TILETYPE 08
-#_08E525: BEQ .deep_water
+|08E523| CMP.b #$08 ; TILETYPE 08
+|08E525| BEQ .deep_water
 
-#_08E527: CMP.b #$68 ; TILETYPE 68
-#_08E529: BEQ .conveyor
+|08E527| CMP.b #$68 ; TILETYPE 68
+|08E529| BEQ .conveyor
 
-#_08E52B: CMP.b #$69 ; TILETYPE 69
-#_08E52D: BEQ .conveyor
+|08E52B| CMP.b #$69 ; TILETYPE 69
+|08E52D| BEQ .conveyor
 
-#_08E52F: CMP.b #$6A ; TILETYPE 6A
-#_08E531: BEQ .conveyor
+|08E52F| CMP.b #$6A ; TILETYPE 6A
+|08E531| BEQ .conveyor
 
-#_08E533: CMP.b #$6B ; TILETYPE 6B
-#_08E535: BEQ .conveyor
+|08E533| CMP.b #$6B ; TILETYPE 6B
+|08E535| BEQ .conveyor
 
-#_08E537: CMP.b #$B6 ; TILETYPE B6
-#_08E539: BEQ .somaria_node_or_path
+|08E537| CMP.b #$B6 ; TILETYPE B6
+|08E539| BEQ .somaria_node_or_path
 
-#_08E53B: CMP.b #$BC ; TILETYPE BC
-#_08E53D: BEQ .somaria_node_or_path
+|08E53B| CMP.b #$BC ; TILETYPE BC
+|08E53D| BEQ .somaria_node_or_path
 
-#_08E53F: AND.b #$F0
-#_08E541: CMP.b #$B0
-#_08E543: BNE .somaria_node_or_path
+|08E53F| AND.b #$F0
+|08E541| CMP.b #$B0
+|08E543| BNE .somaria_node_or_path
 
 ;---------------------------------------------------------------------------------------------------
 
 .pit
-#_08E545: BRL SomariaBlock_HandlePitLogic
+|08E545| BRL SomariaBlock_HandlePitLogic
 
 ;---------------------------------------------------------------------------------------------------
 
 .staircase_boundary
-#_08E548: BRL .run_wall_bounce_logic
+|08E548| BRL .run_wall_bounce_logic
 
 ;---------------------------------------------------------------------------------------------------
 
 .conveyor
-#_08E54B: BRL SomariaBlock_HandleConveyor
+|08E54B| BRL SomariaBlock_HandleConveyor
 
 ;---------------------------------------------------------------------------------------------------
 
 .somaria_node_or_path
-#_08E54E: STZ.w $0C68,X
+|08E54E| STZ.w $0C68,X
 
-#_08E551: LDA.w $0385,X
-#_08E554: ORA.w $03C5,X
-#_08E557: BNE .am_airborne
+|08E551| LDA.w $0385,X
+|08E554| ORA.w $03C5,X
+|08E557| BNE .am_airborne
 
-#_08E559: LDA.b #$02
-#_08E55B: STA.w $0C68,X
+|08E559| LDA.b #$02
+|08E55B| STA.w $0C68,X
 
 .am_airborne
-#_08E55E: BRL SomariaBlock_HandleDamage
+|08E55E| BRL SomariaBlock_HandleDamage
 
 ;===================================================================================================
 
 .deep_water
-#_08E561: TXA
-#_08E562: INC A
-#_08E563: CMP.w $02EC
-#_08E566: BNE .dont_reset_water
+|08E561| TXA
+|08E562| INC A
+|08E563| CMP.w $02EC
+|08E566| BNE .dont_reset_water
 
-#_08E568: STZ.w $02EC
+|08E568| STZ.w $02EC
 
 .dont_reset_water
-#_08E56B: LDA.w $0C68,X
-#_08E56E: BNE .am_airborne
+|08E56B| LDA.w $0C68,X
+|08E56E| BNE .am_airborne
 
-#_08E570: LDA.w $0BFA,X
-#_08E573: CLC
-#_08E574: ADC.b #$E8
-#_08E576: STA.w $0BFA,X
+|08E570| LDA.w $0BFA,X
+|08E573| CLC
+|08E574| ADC.b #$E8
+|08E576| STA.w $0BFA,X
 
-#_08E579: LDA.w $0C0E,X
-#_08E57C: ADC.b #$FF
-#_08E57E: STA.w $0C0E,X
+|08E579| LDA.w $0C0E,X
+|08E57C| ADC.b #$FF
+|08E57E| STA.w $0C0E,X
 
-#_08E581: BRL Ancilla_TransmuteToSplash
+|08E581| BRL Ancilla_TransmuteToSplash
 
 ;===================================================================================================
 
 .overlay_mask
-#_08E584: LDA.w $046C
-#_08E587: CMP.b #$03
-#_08E589: BEQ .layer_2_moving_floor
+|08E584| LDA.w $046C
+|08E587| CMP.b #$03
+|08E589| BEQ .layer_2_moving_floor
 
-#_08E58B: LDA.w $0C7C,X
-#_08E58E: BNE SomariaBlock_HandleDamage
+|08E58B| LDA.w $0C7C,X
+|08E58E| BNE SomariaBlock_HandleDamage
 
-#_08E590: LDA.w $029E,X
-#_08E593: BEQ SomariaBlock_HandleDamage
+|08E590| LDA.w $029E,X
+|08E593| BEQ SomariaBlock_HandleDamage
 
-#_08E595: CMP.b #$FF
-#_08E597: BEQ SomariaBlock_HandleDamage
+|08E595| CMP.b #$FF
+|08E597| BEQ SomariaBlock_HandleDamage
 
-#_08E599: LDA.b #$01
-#_08E59B: STA.w $0C7C,X
+|08E599| LDA.b #$01
+|08E59B| STA.w $0C7C,X
 
-#_08E59E: BRL SomariaBlock_HandleDamage
+|08E59E| BRL SomariaBlock_HandleDamage
 
 ;---------------------------------------------------------------------------------------------------
 
 .layer_2_moving_floor
-#_08E5A1: LDA.w $0BFA,X
-#_08E5A4: CLC
-#_08E5A5: ADC.w $0310
-#_08E5A8: STA.b $72
+|08E5A1| LDA.w $0BFA,X
+|08E5A4| CLC
+|08E5A5| ADC.w $0310
+|08E5A8| STA.b $72
 
-#_08E5AA: LDA.w $0C0E,X
-#_08E5AD: ADC.w $0311
-#_08E5B0: STA.b $73
+|08E5AA| LDA.w $0C0E,X
+|08E5AD| ADC.w $0311
+|08E5B0| STA.b $73
 
-#_08E5B2: LDA.w $0C04,X
-#_08E5B5: CLC
-#_08E5B6: ADC.w $0312
-#_08E5B9: STA.w $0C04,X
+|08E5B2| LDA.w $0C04,X
+|08E5B5| CLC
+|08E5B6| ADC.w $0312
+|08E5B9| STA.w $0C04,X
 
-#_08E5BC: LDA.w $0C18,X
-#_08E5BF: ADC.w $0313
-#_08E5C2: STA.w $0C18,X
+|08E5BC| LDA.w $0C18,X
+|08E5BF| ADC.w $0313
+|08E5C2| STA.w $0C18,X
 
-#_08E5C5: BRA SomariaBlock_HandleDamage
+|08E5C5| BRA SomariaBlock_HandleDamage
 
 ;===================================================================================================
 
 SomariaBlock_HandleConveyor:
-#_08E5C7: JSR Ancilla_ApplyConveyor
+|08E5C7| JSR Ancilla_ApplyConveyor
 
-#_08E5CA: BRA SomariaBlock_HandleDamage
+|08E5CA| BRA SomariaBlock_HandleDamage
 
 ;===================================================================================================
 
 SomariaBlock_HandlePitLogic:
-#_08E5CC: LDA.w $0308
-#_08E5CF: BMI SomariaBlock_HandleDamage
+|08E5CC| LDA.w $0308
+|08E5CF| BMI SomariaBlock_HandleDamage
 
-#_08E5D1: TXA
-#_08E5D2: INC A
-#_08E5D3: CMP.w $02EC
-#_08E5D6: BNE .dont_reset
+|08E5D1| TXA
+|08E5D2| INC A
+|08E5D3| CMP.w $02EC
+|08E5D6| BNE .dont_reset
 
-#_08E5D8: STZ.w $02EC
+|08E5D8| STZ.w $02EC
 
 .dont_reset
-#_08E5DB: LDA.w $0C68,X
-#_08E5DE: BNE SomariaBlock_HandleDamage
+|08E5DB| LDA.w $0C68,X
+|08E5DE| BNE SomariaBlock_HandleDamage
 
-#_08E5E0: LDA.b $5E
-#_08E5E2: CMP.b #$12
-#_08E5E4: BNE Ancilla_DeleteSelf
+|08E5E0| LDA.b $5E
+|08E5E2| CMP.b #$12
+|08E5E4| BNE Ancilla_DeleteSelf
 
-#_08E5E6: STZ.b $5E
-#_08E5E8: STZ.b $48
+|08E5E6| STZ.b $5E
+|08E5E8| STZ.b $48
 
 ;===================================================================================================
 
 Ancilla_DeleteSelf:
-#_08E5EA: STZ.w $0C4A,X
+|08E5EA| STZ.w $0C4A,X
 
-#_08E5ED: RTS
+|08E5ED| RTS
 
 ;===================================================================================================
 
 SomariaBlock_HandleDamage:
-#_08E5EE: LDA.b $75
-#_08E5F0: ORA.w $0280,X
-#_08E5F3: STA.b $75
+|08E5EE| LDA.b $75
+|08E5F0| ORA.w $0280,X
+|08E5F3| STA.b $75
 
-#_08E5F5: LDA.w $0308
-#_08E5F8: BMI .dont_fizzle
+|08E5F5| LDA.w $0308
+|08E5F8| BMI .dont_fizzle
 
-#_08E5FA: DEC.w $03A9,X
+|08E5FA| DEC.w $03A9,X
 
-#_08E5FD: LDA.w $03A9,X
-#_08E600: BNE .dont_fizzle
+|08E5FD| LDA.w $03A9,X
+|08E600| BNE .dont_fizzle
 
-#_08E602: INC.w $03A9,X
+|08E602| INC.w $03A9,X
 
-#_08E605: STZ.w $0280,X
+|08E605| STZ.w $0280,X
 
-#_08E608: JSR Ancilla_CheckBasicSpriteCollision
-#_08E60B: BCC .dont_fizzle
+|08E608| JSR Ancilla_CheckBasicSpriteCollision
+|08E60B| BCC .dont_fizzle
 
-#_08E60D: LDA.b #$07
-#_08E60F: STA.w $03A9,X
+|08E60D| LDA.b #$07
+|08E60F| STA.w $03A9,X
 
-#_08E612: LDA.w $0C54,X
-#_08E615: INC A
-#_08E616: STA.w $0C54,X
+|08E612| LDA.w $0C54,X
+|08E615| INC A
+|08E616| STA.w $0C54,X
 
-#_08E619: CMP.b #$05
-#_08E61B: BNE .dont_fizzle
+|08E619| CMP.b #$05
+|08E61B| BNE .dont_fizzle
 
-#_08E61D: BRL SomariaBlock_FizzleAway
+|08E61D| BRL SomariaBlock_FizzleAway
 
 .dont_fizzle
-#_08E620: LDA.b $74
-#_08E622: STA.w $0C72,X
+|08E620| LDA.b $74
+|08E622| STA.w $0C72,X
 
-#_08E625: LDA.b $75
-#_08E627: STA.w $0280,X
+|08E625| LDA.b $75
+|08E627| STA.w $0280,X
 
-#_08E62A: JSR Ancilla_SetYFrom_DP72
+|08E62A| JSR Ancilla_SetYFrom_DP72
 
 ;===================================================================================================
 
 AncillaDraw_SomariaBlock:
-#_08E62D: TXY
-#_08E62E: INY
-#_08E62F: CPY.w $02EC
-#_08E632: BNE .not_special_oam_slots
+|08E62D| TXY
+|08E62E| INY
+|08E62F| CPY.w $02EC
+|08E632| BNE .not_special_oam_slots
 
-#_08E634: LDA.w $0308
-#_08E637: BPL .not_special_oam_slots
+|08E634| LDA.w $0308
+|08E637| BPL .not_special_oam_slots
 
-#_08E639: LDA.w $0380,X
-#_08E63C: CMP.b #$03
-#_08E63E: BEQ .not_special_oam_slots
+|08E639| LDA.w $0380,X
+|08E63C| CMP.b #$03
+|08E63E| BEQ .not_special_oam_slots
 
-#_08E640: LDA.b $2F
-#_08E642: BNE .not_special_oam_slots
+|08E640| LDA.b $2F
+|08E642| BNE .not_special_oam_slots
 
-#_08E644: LDA.w $0C90,X
-#_08E647: JSR AllocateOAMInRegionsBE
+|08E644| LDA.w $0C90,X
+|08E647| JSR AllocateOAMInRegionsBE
 
-#_08E64A: BRA .prep_coord
+|08E64A| BRA .prep_coord
 
 .not_special_oam_slots
-#_08E64C: LDA.w $0FB3
-#_08E64F: BEQ .prep_coord
+|08E64C| LDA.w $0FB3
+|08E64F| BEQ .prep_coord
 
-#_08E651: LDA.w $0C7C,X
-#_08E654: BEQ .prep_coord
+|08E651| LDA.w $0C7C,X
+|08E654| BEQ .prep_coord
 
-#_08E656: LDA.w $0385,X
-#_08E659: BNE .airborne_slots
+|08E656| LDA.w $0385,X
+|08E659| BNE .airborne_slots
 
-#_08E65B: TXY
-#_08E65C: INY
-#_08E65D: CPY.w $02EC
-#_08E660: BNE .prep_coord
+|08E65B| TXY
+|08E65C| INY
+|08E65D| CPY.w $02EC
+|08E660| BNE .prep_coord
 
-#_08E662: LDA.w $0308
-#_08E665: BPL .prep_coord
+|08E662| LDA.w $0308
+|08E665| BPL .prep_coord
 
 ;---------------------------------------------------------------------------------------------------
 
 .airborne_slots
-#_08E667: REP #$20
+|08E667| REP #$20
 
-; !HARDCODED and shoulda been a single LDA
-#_08E669: LDA.w #$00D0
-#_08E66C: CLC
-#_08E66D: ADC.w #$0800
-#_08E670: STA.b $90
+; [HARDCODED] and shoulda been a single LDA
+|08E669| LDA.w #$00D0
+|08E66C| CLC
+|08E66D| ADC.w #$0800
+|08E670| STA.b $90
 
-#_08E672: LDA.w #$0034
-#_08E675: CLC
-#_08E676: ADC.w #$0A20
-#_08E679: STA.b $92
+|08E672| LDA.w #$0034
+|08E675| CLC
+|08E676| ADC.w #$0A20
+|08E679| STA.b $92
 
-#_08E67B: SEP #$20
+|08E67B| SEP #$20
 
 ;---------------------------------------------------------------------------------------------------
 
 .prep_coord
-#_08E67D: JSR Ancilla_PrepOAMCoord_adjusted
+|08E67D| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08E680: REP #$20
+|08E680| REP #$20
 
-#_08E682: LDA.w $029E,X
-#_08E685: AND.w #$00FF
-#_08E688: CMP.w #$0080
-#_08E68B: BCC .positive_z
+|08E682| LDA.w $029E,X
+|08E685| AND.w #$00FF
+|08E688| CMP.w #$0080
+|08E68B| BCC .positive_z
 
-#_08E68D: ORA.w #$FF00
+|08E68D| ORA.w #$FF00
 
 .positive_z
-#_08E690: STA.b $04
-#_08E692: BEQ .not_max_priority
+|08E690| STA.b $04
+|08E692| BEQ .not_max_priority
 
-#_08E694: CMP.w #$FFFF
-#_08E697: BEQ .not_max_priority
+|08E694| CMP.w #$FFFF
+|08E697| BEQ .not_max_priority
 
-#_08E699: LDA.w $0380,X
-#_08E69C: AND.w #$00FF
-#_08E69F: CMP.w #$0003
-#_08E6A2: BEQ .not_max_priority
+|08E699| LDA.w $0380,X
+|08E69C| AND.w #$00FF
+|08E69F| CMP.w #$0003
+|08E6A2| BEQ .not_max_priority
 
-#_08E6A4: LDA.w $0280,X
-#_08E6A7: AND.w #$00FF
-#_08E6AA: BEQ .not_max_priority
+|08E6A4| LDA.w $0280,X
+|08E6A7| AND.w #$00FF
+|08E6AA| BEQ .not_max_priority
 
-#_08E6AC: LDA.w #$3000
-#_08E6AF: STA.b $64
+|08E6AC| LDA.w #$3000
+|08E6AF| STA.b $64
 
 .not_max_priority
-#_08E6B1: LDA.w #$0000
-#_08E6B4: CLC
-#_08E6B5: ADC.b $04
+|08E6B1| LDA.w #$0000
+|08E6B4| CLC
+|08E6B5| ADC.b $04
 
-#_08E6B7: EOR.w #$FFFF
-#_08E6BA: INC A
+|08E6B7| EOR.w #$FFFF
+|08E6BA| INC A
 
-#_08E6BB: CLC
-#_08E6BC: ADC.b $00
-#_08E6BE: STA.b $04
-
-;---------------------------------------------------------------------------------------------------
-
-#_08E6C0: LDA.b $02
-#_08E6C2: STA.b $06
-
-#_08E6C4: SEP #$20
-
-#_08E6C6: STZ.b $08
-
-#_08E6C8: PHX
-
-#_08E6C9: LDA.b #$02
-#_08E6CB: STA.b $72
-
-#_08E6CD: LDA.w $03A4,X
-#_08E6D0: ASL A
-#_08E6D1: ASL A
-#_08E6D2: TAX
+|08E6BB| CLC
+|08E6BC| ADC.b $00
+|08E6BE| STA.b $04
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E6D3: LDY.b #$00
+|08E6C0| LDA.b $02
+|08E6C2| STA.b $06
+
+|08E6C4| SEP #$20
+
+|08E6C6| STZ.b $08
+
+|08E6C8| PHX
+
+|08E6C9| LDA.b #$02
+|08E6CB| STA.b $72
+
+|08E6CD| LDA.w $03A4,X
+|08E6D0| ASL A
+|08E6D1| ASL A
+|08E6D2| TAX
+
+;---------------------------------------------------------------------------------------------------
+
+|08E6D3| LDY.b #$00
 
 .next_object
-#_08E6D5: REP #$20
+|08E6D5| REP #$20
 
-#_08E6D7: STZ.b $74
+|08E6D7| STZ.b $74
 
-#_08E6D9: PHX
+|08E6D9| PHX
 
-#_08E6DA: TXA
-#_08E6DB: ASL A
-#_08E6DC: TAX
+|08E6DA| TXA
+|08E6DB| ASL A
+|08E6DC| TAX
 
-#_08E6DD: LDA.b $04
-#_08E6DF: CLC
-#_08E6E0: ADC.w .offset_y,X
-#_08E6E3: STA.b $00
+|08E6DD| LDA.b $04
+|08E6DF| CLC
+|08E6E0| ADC.w .offset_y,X
+|08E6E3| STA.b $00
 
-#_08E6E5: LDA.b $06
-#_08E6E7: CLC
-#_08E6E8: ADC.w .offset_x,X
-#_08E6EB: STA.b $02
+|08E6E5| LDA.b $06
+|08E6E7| CLC
+|08E6E8| ADC.w .offset_x,X
+|08E6EB| STA.b $02
 
-#_08E6ED: PLX
+|08E6ED| PLX
 
-#_08E6EE: SEP #$20
+|08E6EE| SEP #$20
 
-#_08E6F0: JSR Ancilla_SetOAM_XY_safe
+|08E6F0| JSR Ancilla_SetOAM_XY_safe
 
-#_08E6F3: LDA.b #$E9
-#_08E6F5: STA.b ($90),Y
+|08E6F3| LDA.b #$E9
+|08E6F5| STA.b ($90),Y
 
-#_08E6F7: INY
+|08E6F7| INY
 
-#_08E6F8: LDA.w .prop,X
-#_08E6FB: AND.b #$CF
-#_08E6FD: ORA.b $72
-#_08E6FF: ORA.b $65
-#_08E701: STA.b ($90),Y
+|08E6F8| LDA.w .prop,X
+|08E6FB| AND.b #$CF
+|08E6FD| ORA.b $72
+|08E6FF| ORA.b $65
+|08E701| STA.b ($90),Y
 
-#_08E703: INY
-#_08E704: PHY
+|08E703| INY
+|08E704| PHY
 
-#_08E705: TYA
-#_08E706: SEC
-#_08E707: SBC.b #$04
-#_08E709: LSR A
-#_08E70A: LSR A
-#_08E70B: TAY
+|08E705| TYA
+|08E706| SEC
+|08E707| SBC.b #$04
+|08E709| LSR A
+|08E70A| LSR A
+|08E70B| TAY
 
-#_08E70C: LDA.b #$00
-#_08E70E: ORA.b $75
-#_08E710: STA.b ($92),Y
+|08E70C| LDA.b #$00
+|08E70E| ORA.b $75
+|08E710| STA.b ($92),Y
 
-#_08E712: PLY
+|08E712| PLY
 
-#_08E713: INX
+|08E713| INX
 
-#_08E714: INC.b $08
+|08E714| INC.b $08
 
-#_08E716: LDA.b $08
-#_08E718: AND.b #$03
-#_08E71A: BNE .next_object
+|08E716| LDA.b $08
+|08E718| AND.b #$03
+|08E71A| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E71C: PLX
+|08E71C| PLX
 
-#_08E71D: LDA.w $0380,X
-#_08E720: CMP.b #$03
-#_08E722: BEQ .exit
+|08E71D| LDA.w $0380,X
+|08E720| CMP.b #$03
+|08E722| BEQ .exit
 
-#_08E724: LDY.b #$01
+|08E724| LDY.b #$01
 
 .next_object_check
-#_08E726: LDA.b ($90),Y
-#_08E728: CMP.b #$F0
-#_08E72A: BNE .not_off_screen
+|08E726| LDA.b ($90),Y
+|08E728| CMP.b #$F0
+|08E72A| BNE .not_off_screen
 
-#_08E72C: INY ; +4
-#_08E72D: INY
-#_08E72E: INY
-#_08E72F: INY
-#_08E730: CPY.b #$11
-#_08E732: BNE .next_object_check
+|08E72C| INY ; +4
+|08E72D| INY
+|08E72E| INY
+|08E72F| INY
+|08E730| CPY.b #$11
+|08E732| BNE .next_object_check
 
-#_08E734: BRA .terminate
+|08E734| BRA .terminate
 
 .not_off_screen
-#_08E736: LDY.b #$00
+|08E736| LDY.b #$00
 
 .next_oam_check
-#_08E738: LDA.b ($92),Y
-#_08E73A: AND.b #$01
-#_08E73C: BEQ .exit
+|08E738| LDA.b ($92),Y
+|08E73A| AND.b #$01
+|08E73C| BEQ .exit
 
-#_08E73E: INY
-#_08E73F: CPY.b #$04
-#_08E741: BNE .next_oam_check
+|08E73E| INY
+|08E73F| CPY.b #$04
+|08E741| BNE .next_oam_check
 
 .terminate
-#_08E743: STZ.w $0646
+|08E743| STZ.w $0646
 
-#_08E746: STZ.w $0C4A,X
+|08E746| STZ.w $0C4A,X
 
-#_08E749: TXA
-#_08E74A: INC A
-#_08E74B: CMP.w $02EC
-#_08E74E: BNE .exit
+|08E749| TXA
+|08E74A| INC A
+|08E74B| CMP.w $02EC
+|08E74E| BNE .exit
 
-#_08E750: STZ.w $02EC
+|08E750| STZ.w $02EC
 
-#_08E753: LDA.w $0308
-#_08E756: AND.b #$80
-#_08E758: BEQ .exit
+|08E753| LDA.w $0308
+|08E756| AND.b #$80
+|08E758| BEQ .exit
 
-#_08E75A: STZ.w $0308
+|08E75A| STZ.w $0308
 
 .exit
-#_08E75D: RTS
+|08E75D| RTS
 
 ;===================================================================================================
 
 pool SomariaBlock_CheckForSwitch
 
 .offset_y
-#_08E75E: dw  -4 ; up
-#_08E760: dw   4 ; down
-#_08E762: dw   0 ; left
-#_08E764: dw   0 ; right
+|08E75E| dw  -4 ; up
+|08E760| dw   4 ; down
+|08E762| dw   0 ; left
+|08E764| dw   0 ; right
 
 .offset_x
-#_08E766: dw   0 ; up
-#_08E768: dw   0 ; down
-#_08E76A: dw  -4 ; left
-#_08E76C: dw   4 ; right
+|08E766| dw   0 ; up
+|08E768| dw   0 ; down
+|08E76A| dw  -4 ; left
+|08E76C| dw   4 ; right
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 SomariaBlock_CheckForSwitch:
-#_08E76E: STZ.w $0646
+|08E76E| STZ.w $0646
 
-#_08E771: STZ.w $03DB,X
+|08E771| STZ.w $03DB,X
 
-#_08E774: LDY.b #$06
+|08E774| LDY.b #$06
 
 .next_check
-#_08E776: LDA.w $0BFA,X
-#_08E779: CLC
-#_08E77A: ADC.w .offset_y+0,Y
-#_08E77D: STA.b $00
-#_08E77F: STA.b $72
+|08E776| LDA.w $0BFA,X
+|08E779| CLC
+|08E77A| ADC.w .offset_y+0,Y
+|08E77D| STA.b $00
+|08E77F| STA.b $72
 
-#_08E781: LDA.w $0C0E,X
-#_08E784: ADC.w .offset_y+1,Y
-#_08E787: STA.b $01
-#_08E789: STA.b $73
+|08E781| LDA.w $0C0E,X
+|08E784| ADC.w .offset_y+1,Y
+|08E787| STA.b $01
+|08E789| STA.b $73
 
-#_08E78B: LDA.w $0C04,X
-#_08E78E: CLC
-#_08E78F: ADC.w .offset_x+0,Y
-#_08E792: STA.b $02
-#_08E794: STA.b $74
+|08E78B| LDA.w $0C04,X
+|08E78E| CLC
+|08E78F| ADC.w .offset_x+0,Y
+|08E792| STA.b $02
+|08E794| STA.b $74
 
-#_08E796: LDA.w $0C18,X
-#_08E799: ADC.w .offset_x+1,Y
-#_08E79C: STA.b $03
-#_08E79E: STA.b $75
+|08E796| LDA.w $0C18,X
+|08E799| ADC.w .offset_x+1,Y
+|08E79C| STA.b $03
+|08E79E| STA.b $75
 
-#_08E7A0: PHY
+|08E7A0| PHY
 
-#_08E7A1: LDA.w $0280,X
-#_08E7A4: PHA
+|08E7A1| LDA.w $0280,X
+|08E7A4| PHA
 
-#_08E7A5: JSR Ancilla_CheckTileCollision_targeted
+|08E7A5| JSR Ancilla_CheckTileCollision_targeted
 
-#_08E7A8: PLA
-#_08E7A9: STA.w $0280,X
+|08E7A8| PLA
+|08E7A9| STA.w $0280,X
 
-#_08E7AC: PLY
+|08E7AC| PLY
 
-#_08E7AD: LDA.w $03E4,X
-#_08E7B0: CMP.b #$23 ; TILETYPE 23
-#_08E7B2: BEQ .valid_switch
+|08E7AD| LDA.w $03E4,X
+|08E7B0| CMP.b #$23 ; TILETYPE 23
+|08E7B2| BEQ .valid_switch
 
-#_08E7B4: CMP.b #$24 ; TILETYPE 24
-#_08E7B6: BEQ .valid_switch
+|08E7B4| CMP.b #$24 ; TILETYPE 24
+|08E7B6| BEQ .valid_switch
 
-#_08E7B8: CMP.b #$25 ; TILETYPE 25
-#_08E7BA: BEQ .valid_switch
+|08E7B8| CMP.b #$25 ; TILETYPE 25
+|08E7BA| BEQ .valid_switch
 
-; !WTF star tiles that are active on load count too
-#_08E7BC: CMP.b #$3B ; TILETYPE 3B
-#_08E7BE: BNE .not_star_tile
+; [WTF] star tiles that are active on load count too
+|08E7BC| CMP.b #$3B ; TILETYPE 3B
+|08E7BE| BNE .not_star_tile
 
 .valid_switch
-#_08E7C0: INC.w $03DB,X
+|08E7C0| INC.w $03DB,X
 
 .not_star_tile
-#_08E7C3: DEY
-#_08E7C4: DEY
-#_08E7C5: BPL .next_check
+|08E7C3| DEY
+|08E7C4| DEY
+|08E7C5| BPL .next_check
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E7C7: LDA.w $03DB,X
-#_08E7CA: CMP.b #$04
-#_08E7CC: BNE .fail
+|08E7C7| LDA.w $03DB,X
+|08E7CA| CMP.b #$04
+|08E7CC| BNE .fail
 
 .succeed
-#_08E7CE: CLC
+|08E7CE| CLC
 
-#_08E7CF: RTS
+|08E7CF| RTS
 
 .fail
-#_08E7D0: SEC
+|08E7D0| SEC
 
-#_08E7D1: RTS
+|08E7D1| RTS
 
 ;===================================================================================================
 
 pool SomariaBlock_HandlePlayerInteraction
 
 .push_speed_positive
-#_08E7D2: db  16
+|08E7D2| db  16
 
 .push_speed_negative
-#_08E7D3: db -16
+|08E7D3| db -16
 
 ;---------------------------------------------------------------------------------------------------
 
 .launch_speed_y
-#_08E7D4: db -40
-#_08E7D5: db  40
-#_08E7D6: db   0
-#_08E7D7: db   0
+|08E7D4| db -40
+|08E7D5| db  40
+|08E7D6| db   0
+|08E7D7| db   0
 
 ; TODO verify
 .unused_a
-#_08E7D8: db -32
-#_08E7D9: db  32
-#_08E7DA: db   0
-#_08E7DB: db   0
+|08E7D8| db -32
+|08E7D9| db  32
+|08E7DA| db   0
+|08E7DB| db   0
 
-#_08E7DC: db -16
-#_08E7DD: db  16
-#_08E7DE: db   0
-#_08E7DF: db   0
+|08E7DC| db -16
+|08E7DD| db  16
+|08E7DE| db   0
+|08E7DF| db   0
 
-#_08E7E0: db  -8
-#_08E7E1: db   8
-#_08E7E2: db   0
-#_08E7E3: db   0
+|08E7E0| db  -8
+|08E7E1| db   8
+|08E7E2| db   0
+|08E7E3| db   0
 
 ;---------------------------------------------------------------------------------------------------
 
 .launch_speed_x
-#_08E7E4: db   0
-#_08E7E5: db   0
-#_08E7E6: db -40
-#_08E7E7: db  40
+|08E7E4| db   0
+|08E7E5| db   0
+|08E7E6| db -40
+|08E7E7| db  40
 
 .unused_b
-#_08E7E8: db   0
-#_08E7E9: db   0
-#_08E7EA: db -32
-#_08E7EB: db  32
+|08E7E8| db   0
+|08E7E9| db   0
+|08E7EA| db -32
+|08E7EB| db  32
 
-#_08E7EC: db   0
-#_08E7ED: db   0
-#_08E7EE: db -16
-#_08E7EF: db  16
+|08E7EC| db   0
+|08E7ED| db   0
+|08E7EE| db -16
+|08E7EF| db  16
 
-#_08E7F0: db   0
-#_08E7F1: db   0
-#_08E7F2: db  -8
-#_08E7F3: db   8
+|08E7F0| db   0
+|08E7F1| db   0
+|08E7F2| db  -8
+|08E7F3| db   8
 
 ;---------------------------------------------------------------------------------------------------
 
 .rebound_speed_z
-#_08E7F4: db  48
-#_08E7F5: db  24
-#_08E7F6: db  16
-#_08E7F7: db   8
+|08E7F4| db  48
+|08E7F5| db  24
+|08E7F6| db  16
+|08E7F7| db   8
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 SomariaBlock_HandlePlayerInteraction:
-#_08E7F8: PHB
-#_08E7F9: PHK
-#_08E7FA: PLB
+|08E7F8| PHB
+|08E7F9| PHK
+|08E7FA| PLB
 
-#_08E7FB: STX.w $0FA0
+|08E7FB| STX.w $0FA0
 
-#_08E7FE: LDA.w $0394,X
-#_08E801: BNE .no_do_somaria
+|08E7FE| LDA.w $0394,X
+|08E801| BNE .no_do_somaria
 
-#_08E803: LDA.w $03C5,X
-#_08E806: BEQ .not_dash_airborne
+|08E803| LDA.w $03C5,X
+|08E806| BEQ .not_dash_airborne
 
-#_08E808: BRL .punt_continue
+|08E808| BRL .punt_continue
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_dash_airborne
-#_08E80B: LDA.b $4D
-#_08E80D: BNE .no_do_somaria
+|08E80B| LDA.b $4D
+|08E80D| BNE .no_do_somaria
 
-#_08E80F: LDA.w $0308
-#_08E812: AND.b #$01
-#_08E814: BNE .no_do_somaria
+|08E80F| LDA.w $0308
+|08E812| AND.b #$01
+|08E814| BNE .no_do_somaria
 
-#_08E816: LDA.w $029E,X
-#_08E819: BEQ .grounded
+|08E816| LDA.w $029E,X
+|08E819| BEQ .grounded
 
-#_08E81B: CMP.b #$FF
-#_08E81D: BNE .no_do_somaria
+|08E81B| CMP.b #$FF
+|08E81D| BNE .no_do_somaria
 
 .grounded
-#_08E81F: LDA.w $0380,X
-#_08E822: BNE .no_do_somaria
+|08E81F| LDA.w $0380,X
+|08E822| BNE .no_do_somaria
 
-#_08E824: LDA.w $0385,X
-#_08E827: BNE .no_do_somaria
+|08E824| LDA.w $0385,X
+|08E827| BNE .no_do_somaria
 
-#_08E829: LDA.b $F0
-#_08E82B: AND.b #$0F
-#_08E82D: BNE .pressing_dpad
+|08E829| LDA.b $F0
+|08E82B| AND.b #$0F
+|08E82D| BNE .pressing_dpad
 
-#_08E82F: STA.w $039F,X
+|08E82F| STA.w $039F,X
 
-#_08E832: STA.b $48
+|08E832| STA.b $48
 
-#_08E834: LDA.b #$FF
-#_08E836: STA.w $038A,X
+|08E834| LDA.b #$FF
+|08E836| STA.w $038A,X
 
-#_08E839: LDA.w $0372
-#_08E83C: BNE .check_link_collision
+|08E839| LDA.w $0372
+|08E83C| BNE .check_link_collision
 
-#_08E83E: STZ.b $5E
+|08E83E| STZ.b $5E
 
 .no_do_somaria
-#_08E840: BRL .exit_a
+|08E840| BRL .exit_a
 
 ;---------------------------------------------------------------------------------------------------
 
 .pressing_dpad
-#_08E843: CMP.w $039F,X
-#_08E846: BNE .input_mismatch
+|08E843| CMP.w $039F,X
+|08E846| BNE .input_mismatch
 
-#_08E848: LDA.b $5E
-#_08E84A: CMP.b #$12
-#_08E84C: BNE .check_link_collision
+|08E848| LDA.b $5E
+|08E84A| CMP.b #$12
+|08E84C| BNE .check_link_collision
 
-#_08E84E: LDA.b #$81
-#_08E850: TSB.b $48
-#_08E852: BRA .check_link_collision
+|08E84E| LDA.b #$81
+|08E850| TSB.b $48
+|08E852| BRA .check_link_collision
 
 .input_mismatch
-#_08E854: STA.w $039F,X
+|08E854| STA.w $039F,X
 
-#_08E857: STZ.b $5E
+|08E857| STZ.b $5E
 
 ;---------------------------------------------------------------------------------------------------
 
 .check_link_collision
-#_08E859: LDY.b #$04
-#_08E85B: JSR Ancilla_CheckLinkCollision
-#_08E85E: BCC .no_do_somaria
+|08E859| LDY.b #$04
+|08E85B| JSR Ancilla_CheckLinkCollision
+|08E85E| BCC .no_do_somaria
 
-#_08E860: LDA.w $0C7C,X
-#_08E863: CMP.b $EE
-#_08E865: BNE .no_do_somaria
+|08E860| LDA.w $0C7C,X
+|08E863| CMP.b $EE
+|08E865| BNE .no_do_somaria
 
-#_08E867: LDA.w $0372
-#_08E86A: BEQ .no_punt
+|08E867| LDA.w $0372
+|08E86A| BEQ .no_punt
 
-#_08E86C: LDA.w $02F1
-#_08E86F: CMP.b #$40
-#_08E871: BEQ .no_punt
+|08E86C| LDA.w $02F1
+|08E86F| CMP.b #$40
+|08E871| BEQ .no_punt
 
-#_08E873: TXA
-#_08E874: INC A
-#_08E875: CMP.w $02EC
-#_08E878: BNE .disable_nearitude
+|08E873| TXA
+|08E874| INC A
+|08E875| CMP.w $02EC
+|08E878| BNE .disable_nearitude
 
-#_08E87A: STZ.w $02EC
+|08E87A| STZ.w $02EC
 
 ;---------------------------------------------------------------------------------------------------
 
 .disable_nearitude
-#_08E87D: JSL CancelDash_long
+|08E87D| JSL CancelDash_long
 
-#_08E881: LDA.b #$32 ; SFX3.32
-#_08E883: JSR Ancilla_SFX3_Pan
+|08E881| LDA.b #$32 ; SFX3.32
+|08E883| JSR Ancilla_SFX3_Pan
 
-#_08E886: BRL .init_dash_bouncing
+|08E886| BRL .init_dash_bouncing
 
 ;---------------------------------------------------------------------------------------------------
 
 .no_punt
-#_08E889: STZ.w $0C2C,X
-#_08E88C: STZ.w $0C22,X
+|08E889| STZ.w $0C2C,X
+|08E88C| STZ.w $0C22,X
 
-#_08E88F: LDA.b $F0
-#_08E891: AND.b #$0F
-#_08E893: STA.w $039F,X
+|08E88F| LDA.b $F0
+|08E891| AND.b #$0F
+|08E893| STA.w $039F,X
 
-#_08E896: AND.b #$03
-#_08E898: BEQ .pushing_left_or_right
+|08E896| AND.b #$03
+|08E898| BEQ .pushing_left_or_right
 
-#_08E89A: LDY.w .push_speed_positive
+|08E89A| LDY.w .push_speed_positive
 
-#_08E89D: AND.b #$01
-#_08E89F: BNE .pushing_right
+|08E89D| AND.b #$01
+|08E89F| BNE .pushing_right
 
-#_08E8A1: LDY.w .push_speed_negative
+|08E8A1| LDY.w .push_speed_negative
 
 .pushing_right
-#_08E8A4: TYA
-#_08E8A5: STA.w $0C2C,X
+|08E8A4| TYA
+|08E8A5| STA.w $0C2C,X
 
-#_08E8A8: LDY.b #$02
-#_08E8AA: CMP.w .push_speed_positive
-#_08E8AD: BNE .set_direction
+|08E8A8| LDY.b #$02
+|08E8AA| CMP.w .push_speed_positive
+|08E8AD| BNE .set_direction
 
-#_08E8AF: INY
-#_08E8B0: BRA .set_direction
+|08E8AF| INY
+|08E8B0| BRA .set_direction
 
 .pushing_left_or_right
-#_08E8B2: LDY.w .push_speed_positive
+|08E8B2| LDY.w .push_speed_positive
 
-#_08E8B5: LDA.b $F0
-#_08E8B7: AND.b #$08
-#_08E8B9: BEQ .upward_push
+|08E8B5| LDA.b $F0
+|08E8B7| AND.b #$08
+|08E8B9| BEQ .upward_push
 
-#_08E8BB: LDY.w .push_speed_negative
+|08E8BB| LDY.w .push_speed_negative
 
 .upward_push
-#_08E8BE: TYA
-#_08E8BF: STA.w $0C22,X
+|08E8BE| TYA
+|08E8BF| STA.w $0C22,X
 
-#_08E8C2: LDY.b #$00
-#_08E8C4: CMP.w .push_speed_positive
-#_08E8C7: BNE .set_direction
+|08E8C2| LDY.b #$00
+|08E8C4| CMP.w .push_speed_positive
+|08E8C7| BNE .set_direction
 
-#_08E8C9: INY
+|08E8C9| INY
 
 ;---------------------------------------------------------------------------------------------------
 
 .set_direction
-#_08E8CA: TYA
-#_08E8CB: STA.w $0C72,X
+|08E8CA| TYA
+|08E8CB| STA.w $0C72,X
 
-#_08E8CE: LDA.b $27
-#_08E8D0: BEQ .no_recoil
+|08E8CE| LDA.b $27
+|08E8D0| BEQ .no_recoil
 
-#_08E8D2: LDA.b $28
-#_08E8D4: BNE .yes_recoil
+|08E8D2| LDA.b $28
+|08E8D4| BNE .yes_recoil
 
 .no_recoil
-#_08E8D6: JSR Ancilla_CheckTileCollision_Class2
-#_08E8D9: BCS .no_tile_collision_here
+|08E8D6| JSR Ancilla_CheckTileCollision_Class2
+|08E8D9| BCS .no_tile_collision_here
 
-#_08E8DB: JSR AncillaMoveY
-#_08E8DE: JSR AncillaMoveX
+|08E8DB| JSR AncillaMoveY
+|08E8DE| JSR AncillaMoveX
 
-#_08E8E1: LDA.w $0308
-#_08E8E4: AND.b #$80
-#_08E8E6: BNE .no_tile_collision_here
+|08E8E1| LDA.w $0308
+|08E8E4| AND.b #$80
+|08E8E6| BNE .no_tile_collision_here
 
-#_08E8E8: INC.w $038A,X
+|08E8E8| INC.w $038A,X
 
-#_08E8EB: LDA.w $038A,X
-#_08E8EE: AND.b #$07
-#_08E8F0: BNE .no_tile_collision_here
+|08E8EB| LDA.w $038A,X
+|08E8EE| AND.b #$07
+|08E8F0| BNE .no_tile_collision_here
 
-#_08E8F2: LDA.b #$22 ; SFX2.22
-#_08E8F4: JSR Ancilla_SFX2_Pan
+|08E8F2| LDA.b #$22 ; SFX2.22
+|08E8F4| JSR Ancilla_SFX2_Pan
 
 .no_tile_collision_here
-#_08E8F7: LDA.b #$81
-#_08E8F9: STA.b $48
+|08E8F7| LDA.b #$81
+|08E8F9| STA.b $48
 
-#_08E8FB: LDA.b #$12
-#_08E8FD: STA.b $5E
+|08E8FB| LDA.b #$12
+|08E8FD| STA.b $5E
 
 .yes_recoil
-#_08E8FF: JSL CancelHookshot
+|08E8FF| JSL AbortMovement
 
 .exit_a
-#_08E903: PLB
+|08E903| PLB
 
-#_08E904: RTL
+|08E904| RTL
 
 ;---------------------------------------------------------------------------------------------------
 
 .init_dash_bouncing
-#_08E905: LDA.b $2F
-#_08E907: LSR A
-#_08E908: STA.w $0C72,X
+|08E905| LDA.b $2F
+|08E907| LSR A
+|08E908| STA.w $0C72,X
 
-#_08E90B: TAY
+|08E90B| TAY
 
-#_08E90C: LDA.w .launch_speed_y,Y
-#_08E90F: STA.w $0C22,X
+|08E90C| LDA.w .launch_speed_y,Y
+|08E90F| STA.w $0C22,X
 
-#_08E912: LDA.w .launch_speed_x,Y
-#_08E915: STA.w $0C2C,X
+|08E912| LDA.w .launch_speed_x,Y
+|08E915| STA.w $0C2C,X
 
-#_08E918: LDA.w .rebound_speed_z
-#_08E91B: STA.w $0294,X
+|08E918| LDA.w .rebound_speed_z
+|08E91B| STA.w $0294,X
 
-#_08E91E: LDA.b #$01
-#_08E920: STA.w $03C5,X
+|08E91E| LDA.b #$01
+|08E920| STA.w $03C5,X
 
-#_08E923: STZ.w $029E,X
+|08E923| STZ.w $029E,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .punt_continue
-#_08E926: LDA.w $0294,X
-#_08E929: SEC
-#_08E92A: SBC.b #$02
-#_08E92C: STA.w $0294,X
+|08E926| LDA.w $0294,X
+|08E929| SEC
+|08E92A| SBC.b #$02
+|08E92C| STA.w $0294,X
 
-#_08E92F: JSR AncillaMoveY
-#_08E932: JSR AncillaMoveX
-#_08E935: JSR AncillaMoveZ
+|08E92F| JSR AncillaMoveY
+|08E932| JSR AncillaMoveX
+|08E935| JSR AncillaMoveZ
 
-#_08E938: LDA.w $029E,X
-#_08E93B: BEQ .hit_ground_running
+|08E938| LDA.w $029E,X
+|08E93B| BEQ .hit_ground_running
 
-#_08E93D: CMP.b #$FC
-#_08E93F: BCC .exit_b
+|08E93D| CMP.b #$FC
+|08E93F| BCC .exit_b
 
 .hit_ground_running
-#_08E941: LDA.b #$21 ; SFX2.21
-#_08E943: JSR Ancilla_SFX2_Pan
+|08E941| LDA.b #$21 ; SFX2.21
+|08E943| JSR Ancilla_SFX2_Pan
 
-#_08E946: STZ.w $029E,X
+|08E946| STZ.w $029E,X
 
-#_08E949: LDA.w $03C5,X
-#_08E94C: INC A
-#_08E94D: STA.w $03C5,X
+|08E949| LDA.w $03C5,X
+|08E94C| INC A
+|08E94D| STA.w $03C5,X
 
-#_08E950: CMP.b #$04
-#_08E952: BNE .max_bounces
+|08E950| CMP.b #$04
+|08E952| BNE .max_bounces
 
-#_08E954: STZ.w $0BF0,X
-#_08E957: STZ.w $03C5,X
-#_08E95A: BRA .exit_b
+|08E954| STZ.w $0BF0,X
+|08E957| STZ.w $03C5,X
+|08E95A| BRA .exit_b
 
 ;---------------------------------------------------------------------------------------------------
 
 .max_bounces
-#_08E95C: TAY
-#_08E95D: DEY
+|08E95C| TAY
+|08E95D| DEY
 
-#_08E95E: LDA.w .rebound_speed_z,Y
-#_08E961: STA.w $0294,X
+|08E95E| LDA.w .rebound_speed_z,Y
+|08E961| STA.w $0294,X
 
-#_08E964: LDA.b $2F
-#_08E966: LSR A
-#_08E967: STA.b $00
+|08E964| LDA.b $2F
+|08E966| LSR A
+|08E967| STA.b $00
 
-#_08E969: TYA
-#_08E96A: ASL A
-#_08E96B: ASL A
-#_08E96C: CLC
-#_08E96D: ADC.b $00
-#_08E96F: TAY ; !USELESS
+|08E969| TYA
+|08E96A| ASL A
+|08E96B| ASL A
+|08E96C| CLC
+|08E96D| ADC.b $00
+|08E96F| TAY ; [USELESS]
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E970: LDY.b #$00
+|08E970| LDY.b #$00
 
-#_08E972: LDA.w $0C22,X
-#_08E975: BPL .y_is_positive
+|08E972| LDA.w $0C22,X
+|08E975| BPL .y_is_positive
 
-#_08E977: LDY.b #$01
+|08E977| LDY.b #$01
 
-#_08E979: EOR.b #$FF
-#_08E97B: INC A
+|08E979| EOR.b #$FF
+|08E97B| INC A
 
 .y_is_positive
-#_08E97C: LSR A
+|08E97C| LSR A
 
-#_08E97D: CPY.b #$01
-#_08E97F: BNE .restore_y_sign
+|08E97D| CPY.b #$01
+|08E97F| BNE .restore_y_sign
 
-#_08E981: EOR.b #$FF
-#_08E983: INC A
+|08E981| EOR.b #$FF
+|08E983| INC A
 
 .restore_y_sign
-#_08E984: STA.w $0C22,X
+|08E984| STA.w $0C22,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08E987: LDY.b #$00
+|08E987| LDY.b #$00
 
-#_08E989: LDA.w $0C2C,X
-#_08E98C: BPL .x_is_positive
+|08E989| LDA.w $0C2C,X
+|08E98C| BPL .x_is_positive
 
-#_08E98E: LDY.b #$01
+|08E98E| LDY.b #$01
 
-#_08E990: EOR.b #$FF
-#_08E992: INC A
+|08E990| EOR.b #$FF
+|08E992| INC A
 
 .x_is_positive
-#_08E993: LSR A
+|08E993| LSR A
 
-#_08E994: CPY.b #$01
-#_08E996: BNE .restore_x_sign
+|08E994| CPY.b #$01
+|08E996| BNE .restore_x_sign
 
-#_08E998: EOR.b #$FF
-#_08E99A: INC A
+|08E998| EOR.b #$FF
+|08E99A| INC A
 
 .restore_x_sign
-#_08E99B: STA.w $0C2C,X
+|08E99B| STA.w $0C2C,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit_b
-#_08E99E: PLB
+|08E99E| PLB
 
-#_08E99F: RTL
+|08E99F| RTL
 
 ;===================================================================================================
 
 pool Ancilla2D_SomariaBlockFizz
 
 .offset_y
-#_08E9A0: dw  -4,  -1,  -4
-#_08E9A6: dw  -4,  -4,  -4
+|08E9A0| dw  -4,  -1,  -4
+|08E9A6| dw  -4,  -4,  -4
 
 .offset_x
-#_08E9AC: dw  -4,  -1,  -8
-#_08E9B2: dw   0,  -6,  -2
+|08E9AC| dw  -4,  -1,  -8
+|08E9B2| dw   0,  -6,  -2
 
 .char
-#_08E9B8: db $92, $FF, $F9
-#_08E9BB: db $F9, $F9, $F9
+|08E9B8| db $92, $FF, $F9
+|08E9BB| db $F9, $F9, $F9
 
 .prop
-#_08E9BE: db $06, $FF, $86
-#_08E9C1: db $C6, $86, $C6
+|08E9BE| db $06, $FF, $86
+|08E9C1| db $C6, $86, $C6
 
-pool off
+endpool
 
 ;===================================================================================================
 
 SomariaBlock_FizzleAway:
-#_08E9C4: LDA.b $5E
-#_08E9C6: CMP.b #$12
-#_08E9C8: BNE .dont_reset_speed
+|08E9C4| LDA.b $5E
+|08E9C6| CMP.b #$12
+|08E9C8| BNE .dont_reset_speed
 
-#_08E9CA: STZ.b $48
-#_08E9CC: STZ.b $5E
+|08E9CA| STZ.b $48
+|08E9CC| STZ.b $5E
 
 .dont_reset_speed
-#_08E9CE: STZ.w $0646
+|08E9CE| STZ.w $0646
 
-#_08E9D1: LDA.b #$2D ; ANCILLA 2D
-#_08E9D3: STA.w $0C4A,X
+|08E9D1| LDA.b #$2D ; ANCILLA 2D
+|08E9D3| STA.w $0C4A,X
 
-#_08E9D6: STZ.w $03B1,X
+|08E9D6| STZ.w $03B1,X
 
-#_08E9D9: STZ.w $0C54,X
-#_08E9DC: STZ.w $0C5E,X
+|08E9D9| STZ.w $0C54,X
+|08E9DC| STZ.w $0C5E,X
 
-#_08E9DF: STZ.w $039F,X
-#_08E9E2: STZ.w $03A4,X
+|08E9DF| STZ.w $039F,X
+|08E9E2| STZ.w $03A4,X
 
-#_08E9E5: STZ.w $03EA,X
+|08E9E5| STZ.w $03EA,X
 
-#_08E9E8: TXA
-#_08E9E9: INC A
-#_08E9EA: CMP.w $02EC
-#_08E9ED: BNE Ancilla2D_SomariaBlockFizz
+|08E9E8| TXA
+|08E9E9| INC A
+|08E9EA| CMP.w $02EC
+|08E9ED| BNE Ancilla2D_SomariaBlockFizz
 
-#_08E9EF: STZ.w $02EC
+|08E9EF| STZ.w $02EC
 
-#_08E9F2: LDA.w $0308
-#_08E9F5: AND.b #$80
-#_08E9F7: STA.w $0308
+|08E9F2| LDA.w $0308
+|08E9F5| AND.b #$80
+|08E9F7| STA.w $0308
 
 ;===================================================================================================
 
 Ancilla2D_SomariaBlockFizz:
-#_08E9FA: DEC.w $03B1,X
-#_08E9FD: BPL .continue
+|08E9FA| DEC.w $03B1,X
+|08E9FD| BPL .continue
 
-#_08E9FF: LDA.b #$03
-#_08EA01: STA.w $03B1,X
+|08E9FF| LDA.b #$03
+|08EA01| STA.w $03B1,X
 
-#_08EA04: LDA.w $0C5E,X
-#_08EA07: INC A
-#_08EA08: STA.w $0C5E,X
+|08EA04| LDA.w $0C5E,X
+|08EA07| INC A
+|08EA08| STA.w $0C5E,X
 
-#_08EA0B: CMP.b #$03
-#_08EA0D: BNE .continue
+|08EA0B| CMP.b #$03
+|08EA0D| BNE .continue
 
-#_08EA0F: STZ.w $0C4A,X
+|08EA0F| STZ.w $0C4A,X
 
-#_08EA12: RTS
+|08EA12| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08EA13: JSR Ancilla_PrepOAMCoord_adjusted
+|08EA13| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08EA16: LDY.b #$00
+|08EA16| LDY.b #$00
 
-#_08EA18: LDA.w $029E,X
-#_08EA1B: CMP.b #$FF
-#_08EA1D: BNE .not_underground
+|08EA18| LDA.w $029E,X
+|08EA1B| CMP.b #$FF
+|08EA1D| BNE .not_underground
 
-#_08EA1F: LDA.b #$00
+|08EA1F| LDA.b #$00
 
 .not_underground
-#_08EA21: STA.b $04
-#_08EA23: BPL .positive_z
+|08EA21| STA.b $04
+|08EA23| BPL .positive_z
 
-#_08EA25: LDY.b #$FF
+|08EA25| LDY.b #$FF
 
 .positive_z
-#_08EA27: STY.b $05
+|08EA27| STY.b $05
 
-#_08EA29: REP #$20
+|08EA29| REP #$20
 
-#_08EA2B: LDA.b $04
-#_08EA2D: EOR.w #$FFFF
-#_08EA30: INC A
-#_08EA31: CLC
-#_08EA32: ADC.b $00
-#_08EA34: STA.b $04
+|08EA2B| LDA.b $04
+|08EA2D| EOR.w #$FFFF
+|08EA30| INC A
+|08EA31| CLC
+|08EA32| ADC.b $00
+|08EA34| STA.b $04
 
-#_08EA36: LDA.b $02
-#_08EA38: STA.b $06
+|08EA36| LDA.b $02
+|08EA38| STA.b $06
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EA3A: SEP #$20
+|08EA3A| SEP #$20
 
-#_08EA3C: PHX
+|08EA3C| PHX
 
-#_08EA3D: LDA.w $0C5E,X
-#_08EA40: ASL A
-#_08EA41: TAX
+|08EA3D| LDA.w $0C5E,X
+|08EA40| ASL A
+|08EA41| TAX
 
-#_08EA42: LDY.b #$00
-#_08EA44: STY.b $08
+|08EA42| LDY.b #$00
+|08EA44| STY.b $08
 
 .next_object
-#_08EA46: LDA.w .char,X
-#_08EA49: CMP.b #$FF
-#_08EA4B: BEQ .skip
+|08EA46| LDA.w .char,X
+|08EA49| CMP.b #$FF
+|08EA4B| BEQ .skip
 
-#_08EA4D: REP #$20
+|08EA4D| REP #$20
 
-#_08EA4F: PHX
+|08EA4F| PHX
 
-#_08EA50: TXA
-#_08EA51: ASL A
-#_08EA52: TAX
+|08EA50| TXA
+|08EA51| ASL A
+|08EA52| TAX
 
-#_08EA53: LDA.b $04
-#_08EA55: CLC
-#_08EA56: ADC.w .offset_y,X
-#_08EA59: STA.b $00
+|08EA53| LDA.b $04
+|08EA55| CLC
+|08EA56| ADC.w .offset_y,X
+|08EA59| STA.b $00
 
-#_08EA5B: LDA.b $06
-#_08EA5D: CLC
-#_08EA5E: ADC.w .offset_x,X
-#_08EA61: STA.b $02
+|08EA5B| LDA.b $06
+|08EA5D| CLC
+|08EA5E| ADC.w .offset_x,X
+|08EA61| STA.b $02
 
-#_08EA63: PLX
+|08EA63| PLX
 
-#_08EA64: SEP #$20
+|08EA64| SEP #$20
 
-#_08EA66: JSR Ancilla_SetOAM_XY
+|08EA66| JSR Ancilla_SetOAM_XY
 
-#_08EA69: LDA.w .char,X
-#_08EA6C: STA.b ($90),Y
+|08EA69| LDA.w .char,X
+|08EA6C| STA.b ($90),Y
 
-#_08EA6E: INY
+|08EA6E| INY
 
-#_08EA6F: LDA.w .prop,X
-#_08EA72: AND.b #$CF
-#_08EA74: ORA.b $65
-#_08EA76: STA.b ($90),Y
+|08EA6F| LDA.w .prop,X
+|08EA72| AND.b #$CF
+|08EA74| ORA.b $65
+|08EA76| STA.b ($90),Y
 
-#_08EA78: INY
-#_08EA79: PHY
+|08EA78| INY
+|08EA79| PHY
 
-#_08EA7A: TYA
-#_08EA7B: SEC
-#_08EA7C: SBC.b #$04
-#_08EA7E: LSR A
-#_08EA7F: LSR A
-#_08EA80: TAY
+|08EA7A| TYA
+|08EA7B| SEC
+|08EA7C| SBC.b #$04
+|08EA7E| LSR A
+|08EA7F| LSR A
+|08EA80| TAY
 
-#_08EA81: LDA.b #$00
-#_08EA83: STA.b ($92),Y
+|08EA81| LDA.b #$00
+|08EA83| STA.b ($92),Y
 
-#_08EA85: PLY
+|08EA85| PLY
 
 .skip
-#_08EA86: INX
+|08EA86| INX
 
-#_08EA87: INC.b $08
+|08EA87| INC.b $08
 
-#_08EA89: LDA.b $08
-#_08EA8B: CMP.b #$02
-#_08EA8D: BNE .next_object
+|08EA89| LDA.b $08
+|08EA8B| CMP.b #$02
+|08EA8D| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EA8F: PLX
+|08EA8F| PLX
 
-#_08EA90: RTS
+|08EA90| RTS
 
 ;===================================================================================================
 
 pool Ancilla39_SomariaPlatformPoof
 
 .direction
-#_08EA91: db $01 ; up
-#_08EA92: db $00 ; down
-#_08EA93: db $03 ; left
-#_08EA94: db $02 ; right
+|08EA91| db $01 ; up
+|08EA92| db $00 ; down
+|08EA93| db $03 ; left
+|08EA94| db $02 ; right
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla39_SomariaPlatformPoof:
-#_08EA95: DEC.w $03B1,X
-#_08EA98: BMI .continue
+|08EA95| DEC.w $03B1,X
+|08EA98| BMI .continue
 
-#_08EA9A: RTS
+|08EA9A| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08EA9B: STZ.w $0C4A,X
+|08EA9B| STZ.w $0C4A,X
 
-#_08EA9E: LDA.w $0BFA,X
-#_08EAA1: STA.b $72
+|08EA9E| LDA.w $0BFA,X
+|08EAA1| STA.b $72
 
-#_08EAA3: LDA.w $0C0E,X
-#_08EAA6: STA.b $73
+|08EAA3| LDA.w $0C0E,X
+|08EAA6| STA.b $73
 
-#_08EAA8: LDA.w $0C04,X
-#_08EAAB: STA.b $74
+|08EAA8| LDA.w $0C04,X
+|08EAAB| STA.b $74
 
-#_08EAAD: LDA.w $0C18,X
-#_08EAB0: STA.b $75
+|08EAAD| LDA.w $0C18,X
+|08EAB0| STA.b $75
 
-#_08EAB2: LDA.w $0C7C,X
-#_08EAB5: STA.b $BD
+|08EAB2| LDA.w $0C7C,X
+|08EAB5| STA.b $BD
 
-#_08EAB7: PHX
+|08EAB7| PHX
 
-#_08EAB8: LDA.b #$ED ; SPRITE ED
-#_08EABA: JSL SpawnSpriteDynamically
-#_08EABE: BPL .free_slot
+|08EAB8| LDA.b #$ED ; SPRITE ED
+|08EABA| JSL SpawnSpriteDynamically
+|08EABE| BPL .free_slot
 
-#_08EAC0: BRL .just_draw
+|08EAC0| BRL .just_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .free_slot
-#_08EAC3: STZ.w $02F5
+|08EAC3| STZ.w $02F5
 
-#_08EAC6: LDA.b $72
-#_08EAC8: AND.b #$F8
-#_08EACA: ORA.b #$04
-#_08EACC: STA.w $0D00,Y
-#_08EACF: STA.b $72
+|08EAC6| LDA.b $72
+|08EAC8| AND.b #$F8
+|08EACA| ORA.b #$04
+|08EACC| STA.w $0D00,Y
+|08EACF| STA.b $72
 
-#_08EAD1: LDA.b $73
-#_08EAD3: STA.w $0D20,Y
+|08EAD1| LDA.b $73
+|08EAD3| STA.w $0D20,Y
 
-#_08EAD6: LDA.b $74
-#_08EAD8: AND.b #$F8
-#_08EADA: ORA.b #$04
-#_08EADC: STA.w $0D10,Y
-#_08EADF: STA.b $74
+|08EAD6| LDA.b $74
+|08EAD8| AND.b #$F8
+|08EADA| ORA.b #$04
+|08EADC| STA.w $0D10,Y
+|08EADF| STA.b $74
 
-#_08EAE1: LDA.b $75
-#_08EAE3: STA.w $0D30,Y
+|08EAE1| LDA.b $75
+|08EAE3| STA.w $0D30,Y
 
-#_08EAE6: LDA.b $BD
-#_08EAE8: CMP.b #$01
+|08EAE6| LDA.b $BD
+|08EAE8| CMP.b #$01
 
-#_08EAEA: REP #$30
+|08EAEA| REP #$30
 
-#_08EAEC: STZ.b $06
+|08EAEC| STZ.b $06
 
-#_08EAEE: BCC .lower_layer
+|08EAEE| BCC .lower_layer
 
-#_08EAF0: LDA.w #$1000
-#_08EAF3: STA.b $06
+|08EAF0| LDA.w #$1000
+|08EAF3| STA.b $06
 
 ;---------------------------------------------------------------------------------------------------
 
 .lower_layer
-#_08EAF5: LDA.b $74
-#_08EAF7: AND.w #$01FF
-#_08EAFA: LSR A
-#_08EAFB: LSR A
-#_08EAFC: LSR A
-#_08EAFD: STA.b $04
+|08EAF5| LDA.b $74
+|08EAF7| AND.w #$01FF
+|08EAFA| LSR A
+|08EAFB| LSR A
+|08EAFC| LSR A
+|08EAFD| STA.b $04
 
-#_08EAFF: LDA.b $72
-#_08EB01: AND.w #$01F8
-#_08EB04: ASL A
-#_08EB05: ASL A
-#_08EB06: ASL A
-#_08EB07: CLC
-#_08EB08: ADC.b $04
-#_08EB0A: CLC
-#_08EB0B: ADC.b $06
-#_08EB0D: TAX
+|08EAFF| LDA.b $72
+|08EB01| AND.w #$01F8
+|08EB04| ASL A
+|08EB05| ASL A
+|08EB06| ASL A
+|08EB07| CLC
+|08EB08| ADC.b $04
+|08EB0A| CLC
+|08EB0B| ADC.b $06
+|08EB0D| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EB0E: STZ.b $06
+|08EB0E| STZ.b $06
 
-#_08EB10: LDA.l $7F1FC0,X
-#_08EB14: AND.w #$00F0
-#_08EB17: CMP.w #$00B0
-#_08EB1A: BEQ .match
+|08EB10| LDA.l $7F1FC0,X
+|08EB14| AND.w #$00F0
+|08EB17| CMP.w #$00B0
+|08EB1A| BEQ .match
 
-#_08EB1C: INC.b $06
+|08EB1C| INC.b $06
 
-#_08EB1E: LDA.l $7F2040,X
-#_08EB22: AND.w #$00F0
-#_08EB25: CMP.w #$00B0
-#_08EB28: BEQ .match
+|08EB1E| LDA.l $7F2040,X
+|08EB22| AND.w #$00F0
+|08EB25| CMP.w #$00B0
+|08EB28| BEQ .match
 
-#_08EB2A: INC.b $06
+|08EB2A| INC.b $06
 
-#_08EB2C: LDA.l $7F1FFF,X
-#_08EB30: AND.w #$00F0
-#_08EB33: CMP.w #$00B0
-#_08EB36: BEQ .match
+|08EB2C| LDA.l $7F1FFF,X
+|08EB30| AND.w #$00F0
+|08EB33| CMP.w #$00B0
+|08EB36| BEQ .match
 
-#_08EB38: INC.b $06
+|08EB38| INC.b $06
 
 .match
-#_08EB3A: SEP #$30
+|08EB3A| SEP #$30
 
-#_08EB3C: LDX.b $06
+|08EB3C| LDX.b $06
 
-#_08EB3E: LDA.w .direction,X
-#_08EB41: STA.w $0DE0,Y
+|08EB3E| LDA.w .direction,X
+|08EB41| STA.w $0DE0,Y
 
-#_08EB44: LDA.b #$00
-#_08EB46: STA.w $0F20,Y
+|08EB44| LDA.b #$00
+|08EB46| STA.w $0F20,Y
 
-#_08EB49: BRA .exit
+|08EB49| BRA .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .just_draw
-#_08EB4B: JSR AncillaDraw_SomariaBlock
+|08EB4B| JSR AncillaDraw_SomariaBlock
 
 .exit
-#_08EB4E: PLX
+|08EB4E| PLX
 
-#_08EB4F: RTS
+|08EB4F| RTS
 
 ;===================================================================================================
 
 Ancilla2E_SomariaBlockFission:
-#_08EB50: DEC.w $03B1,X
-#_08EB53: BPL .delay_explosion
+|08EB50| DEC.w $03B1,X
+|08EB53| BPL .delay_explosion
 
-#_08EB55: LDA.b #$03
-#_08EB57: STA.w $03B1,X
+|08EB55| LDA.b #$03
+|08EB57| STA.w $03B1,X
 
-#_08EB5A: LDA.w $0C5E,X
-#_08EB5D: INC A
-#_08EB5E: STA.w $0C5E,X
+|08EB5A| LDA.w $0C5E,X
+|08EB5D| INC A
+|08EB5E| STA.w $0C5E,X
 
-#_08EB61: CMP.b #$02
-#_08EB63: BNE .delay_explosion
+|08EB61| CMP.b #$02
+|08EB63| BNE .delay_explosion
 
-#_08EB65: STZ.w $0C4A,X
+|08EB65| STZ.w $0C4A,X
 
-#_08EB68: PHX
+|08EB68| PHX
 
-#_08EB69: JSR SpawnSomariaBullets
+|08EB69| JSR SpawnSomariaBullets
 
-#_08EB6C: PLX
+|08EB6C| PLX
 
-#_08EB6D: RTS
+|08EB6D| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay_explosion
-#_08EB6E: JSR Ancilla_PrepOAMCoord_adjusted
+|08EB6E| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08EB71: LDY.b #$00
+|08EB71| LDY.b #$00
 
-#_08EB73: LDA.w $0380,X
-#_08EB76: CMP.b #$03
-#_08EB78: BNE .ignore_link_z
+|08EB73| LDA.w $0380,X
+|08EB76| CMP.b #$03
+|08EB78| BNE .ignore_link_z
 
-#_08EB7A: LDA.b $24
-#_08EB7C: CMP.b #$FF
-#_08EB7E: BNE .positive_link_z
+|08EB7A| LDA.b $24
+|08EB7C| CMP.b #$FF
+|08EB7E| BNE .positive_link_z
 
 .ignore_link_z
-#_08EB80: LDA.b #$00
+|08EB80| LDA.b #$00
 
 .positive_link_z
-#_08EB82: CLC
-#_08EB83: ADC.w $029E,X
-#_08EB86: STA.b $04
+|08EB82| CLC
+|08EB83| ADC.w $029E,X
+|08EB86| STA.b $04
 
-#_08EB88: BPL .positive_som_z
+|08EB88| BPL .positive_som_z
 
-#_08EB8A: LDY.b #$FF
+|08EB8A| LDY.b #$FF
 
 .positive_som_z
-#_08EB8C: STY.b $05
+|08EB8C| STY.b $05
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EB8E: REP #$20
+|08EB8E| REP #$20
 
-#_08EB90: LDA.b $04
-#_08EB92: EOR.w #$FFFF
-#_08EB95: INC A
+|08EB90| LDA.b $04
+|08EB92| EOR.w #$FFFF
+|08EB95| INC A
 
-#_08EB96: CLC
-#_08EB97: ADC.b $00
-#_08EB99: STA.b $04
+|08EB96| CLC
+|08EB97| ADC.b $00
+|08EB99| STA.b $04
 
-#_08EB9B: LDA.b $02
-#_08EB9D: STA.b $06
+|08EB9B| LDA.b $02
+|08EB9D| STA.b $06
 
 
-#_08EB9F: SEP #$20
+|08EB9F| SEP #$20
 
-#_08EBA1: PHX
+|08EBA1| PHX
 
-#_08EBA2: LDA.w $0C5E,X
-#_08EBA5: ASL A
-#_08EBA6: ASL A
-#_08EBA7: ASL A
-#_08EBA8: TAX
+|08EBA2| LDA.w $0C5E,X
+|08EBA5| ASL A
+|08EBA6| ASL A
+|08EBA7| ASL A
+|08EBA8| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EBA9: LDY.b #$00
-#_08EBAB: STY.b $08
+|08EBA9| LDY.b #$00
+|08EBAB| STY.b $08
 
 .next_object
-#_08EBAD: REP #$20
+|08EBAD| REP #$20
 
-#_08EBAF: PHX
+|08EBAF| PHX
 
-#_08EBB0: TXA
-#_08EBB1: ASL A
-#_08EBB2: TAX
+|08EBB0| TXA
+|08EBB1| ASL A
+|08EBB2| TAX
 
-#_08EBB3: LDA.b $04
-#_08EBB5: CLC
-#_08EBB6: ADC.l SomariaBlockFission_offset_y,X
-#_08EBBA: STA.b $00
+|08EBB3| LDA.b $04
+|08EBB5| CLC
+|08EBB6| ADC.l SomariaBlockFission.offset_y,X
+|08EBBA| STA.b $00
 
-#_08EBBC: LDA.b $06
-#_08EBBE: CLC
-#_08EBBF: ADC.l SomariaBlockFission_offset_x,X
-#_08EBC3: STA.b $02
+|08EBBC| LDA.b $06
+|08EBBE| CLC
+|08EBBF| ADC.l SomariaBlockFission.offset_x,X
+|08EBC3| STA.b $02
 
-#_08EBC5: PLX
+|08EBC5| PLX
 
-#_08EBC6: SEP #$20
+|08EBC6| SEP #$20
 
-#_08EBC8: JSR Ancilla_SetOAM_XY
+|08EBC8| JSR Ancilla_SetOAM_XY
 
-#_08EBCB: LDA.l SomariaBlockFission_char,X
-#_08EBCF: STA.b ($90),Y
+|08EBCB| LDA.l SomariaBlockFission.char,X
+|08EBCF| STA.b ($90),Y
 
-#_08EBD1: INY
+|08EBD1| INY
 
-#_08EBD2: LDA.l SomariaBlockFission_prop,X
-#_08EBD6: AND.b #$CF
-#_08EBD8: ORA.b $65
-#_08EBDA: STA.b ($90),Y
+|08EBD2| LDA.l SomariaBlockFission.prop,X
+|08EBD6| AND.b #$CF
+|08EBD8| ORA.b $65
+|08EBDA| STA.b ($90),Y
 
-#_08EBDC: INY
-#_08EBDD: PHY
+|08EBDC| INY
+|08EBDD| PHY
 
-#_08EBDE: TYA
-#_08EBDF: SEC
-#_08EBE0: SBC.b #$04
-#_08EBE2: LSR A
-#_08EBE3: LSR A
-#_08EBE4: TAY
+|08EBDE| TYA
+|08EBDF| SEC
+|08EBE0| SBC.b #$04
+|08EBE2| LSR A
+|08EBE3| LSR A
+|08EBE4| TAY
 
-#_08EBE5: LDA.b #$00
-#_08EBE7: STA.b ($92),Y
+|08EBE5| LDA.b #$00
+|08EBE7| STA.b ($92),Y
 
-#_08EBE9: PLY
+|08EBE9| PLY
 
-#_08EBEA: INX
+|08EBEA| INX
 
-#_08EBEB: INC.b $08
+|08EBEB| INC.b $08
 
-#_08EBED: LDA.b $08
-#_08EBEF: CMP.b #$08
-#_08EBF1: BNE .next_object
+|08EBED| LDA.b $08
+|08EBEF| CMP.b #$08
+|08EBF1| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EBF3: PLX
+|08EBF3| PLX
 
-#_08EBF4: RTS
+|08EBF4| RTS
 
 ;===================================================================================================
 
 pool Ancilla2F_LampFlame
 
 .char
-#_08EBF5: db $9C, $9C, $FF, $FF
-#_08EBF9: db $A4, $A5, $B2, $B3
-#_08EBFD: db $E3, $F3, $FF, $FF
+|08EBF5| db $9C, $9C, $FF, $FF
+|08EBF9| db $A4, $A5, $B2, $B3
+|08EBFD| db $E3, $F3, $FF, $FF
 
 .offset_y_low
-#_08EC01: db  -3,   0,   0,   0
-#_08EC05: db   0,   0,   8,   8
-#_08EC09: db   0,   8,   0,   0
+|08EC01| db  -3,   0,   0,   0
+|08EC05| db   0,   0,   8,   8
+|08EC09| db   0,   8,   0,   0
 
 .offset_y_high
-#_08EC0D: db  -1,   0,   0,   0
-#_08EC11: db   0,   0,   0,   0
-#_08EC15: db   0,   0,   0,   0
+|08EC0D| db  -1,   0,   0,   0
+|08EC11| db   0,   0,   0,   0
+|08EC15| db   0,   0,   0,   0
 
 .offset_x
-#_08EC19: db   4,  10,   0,   0
-#_08EC1D: db   1,   9,   2,   7
-#_08EC21: db   4,   4,   0,   0
+|08EC19| db   4,  10,   0,   0
+|08EC1D| db   1,   9,   2,   7
+|08EC21| db   4,   4,   0,   0
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla2F_LampFlame:
-#_08EC25: JSR Ancilla_PrepOAMCoord_adjusted
+|08EC25| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08EC28: LDA.b $00
-#_08EC2A: STA.b $06
+|08EC28| LDA.b $00
+|08EC2A| STA.b $06
 
-#_08EC2C: LDA.b $01
-#_08EC2E: STA.b $07
+|08EC2C| LDA.b $01
+|08EC2E| STA.b $07
 
-#_08EC30: LDY.b #$00
+|08EC30| LDY.b #$00
 
-#_08EC32: LDA.w $0C68,X
-#_08EC35: BNE .continue
+|08EC32| LDA.w $0C68,X
+|08EC35| BNE .continue
 
-#_08EC37: STZ.w $0C4A,X
+|08EC37| STZ.w $0C4A,X
 
-#_08EC3A: RTS
+|08EC3A| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08EC3B: AND.b #$F8
-#_08EC3D: LSR A
-#_08EC3E: TAX
+|08EC3B| AND.b #$F8
+|08EC3D| LSR A
+|08EC3E| TAX
 
 .next_object
-#_08EC3F: LDA.w .char,X
-#_08EC42: CMP.b #$FF
-#_08EC44: BEQ .skip
+|08EC3F| LDA.w .char,X
+|08EC42| CMP.b #$FF
+|08EC44| BEQ .skip
 
-#_08EC46: LDA.w .offset_y_low,X
-#_08EC49: CLC
-#_08EC4A: ADC.b $06
-#_08EC4C: STA.b $00
+|08EC46| LDA.w .offset_y_low,X
+|08EC49| CLC
+|08EC4A| ADC.b $06
+|08EC4C| STA.b $00
 
-#_08EC4E: LDA.b $07
-#_08EC50: ADC.w .offset_y_high,X
-#_08EC53: STA.b $01
+|08EC4E| LDA.b $07
+|08EC50| ADC.w .offset_y_high,X
+|08EC53| STA.b $01
 
-#_08EC55: LDA.w .offset_x,X
-#_08EC58: CLC
-#_08EC59: ADC.b $04
-#_08EC5B: STA.b $02
+|08EC55| LDA.w .offset_x,X
+|08EC58| CLC
+|08EC59| ADC.b $04
+|08EC5B| STA.b $02
 
-#_08EC5D: LDA.b $05
-#_08EC5F: ADC.b #$00
-#_08EC61: STA.b $03
+|08EC5D| LDA.b $05
+|08EC5F| ADC.b #$00
+|08EC61| STA.b $03
 
-#_08EC63: JSR Ancilla_SetOAM_XY
+|08EC63| JSR Ancilla_SetOAM_XY
 
-#_08EC66: LDA.w .char,X
-#_08EC69: STA.b ($90),Y
+|08EC66| LDA.w .char,X
+|08EC69| STA.b ($90),Y
 
-#_08EC6B: INY
+|08EC6B| INY
 
-#_08EC6C: LDA.b #$02
-#_08EC6E: ORA.b $65
-#_08EC70: STA.b ($90),Y
+|08EC6C| LDA.b #$02
+|08EC6E| ORA.b $65
+|08EC70| STA.b ($90),Y
 
-#_08EC72: INY
-#_08EC73: PHY
+|08EC72| INY
+|08EC73| PHY
 
-#_08EC74: TYA
-#_08EC75: SEC
-#_08EC76: SBC.b #$04
-#_08EC78: LSR A
-#_08EC79: LSR A
-#_08EC7A: TAY
+|08EC74| TYA
+|08EC75| SEC
+|08EC76| SBC.b #$04
+|08EC78| LSR A
+|08EC79| LSR A
+|08EC7A| TAY
 
-#_08EC7B: LDA.b #$00
-#_08EC7D: STA.b ($92),Y
+|08EC7B| LDA.b #$00
+|08EC7D| STA.b ($92),Y
 
-#_08EC7F: PLY
+|08EC7F| PLY
 
 .skip
-#_08EC80: INX
-#_08EC81: TXA
-#_08EC82: AND.b #$03
-#_08EC84: BNE .next_object
+|08EC80| INX
+|08EC81| TXA
+|08EC82| AND.b #$03
+|08EC84| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EC86: BRL Ancilla_RestoreIndex
+|08EC86| BRL Ancilla_RestoreIndex
 
 ;===================================================================================================
 
@@ -21414,2873 +21414,2873 @@ Ancilla2F_LampFlame:
 pool Ancilla41_WaterfallSplash
 
 .char
-#_08EC89: db $C0, $FF
-#_08EC8B: db $AC, $AC
-#_08EC8D: db $AE, $AE
-#_08EC8F: db $BF, $BF
+|08EC89| db $C0, $FF
+|08EC8B| db $AC, $AC
+|08EC8D| db $AE, $AE
+|08EC8F| db $BF, $BF
 
 .prop
-#_08EC91: db $84, $FF
-#_08EC93: db $84, $C4
-#_08EC95: db $84, $C4
-#_08EC97: db $84, $C4
+|08EC91| db $84, $FF
+|08EC93| db $84, $C4
+|08EC95| db $84, $C4
+|08EC97| db $84, $C4
 
 .size
-#_08EC99: db $02, $FF
-#_08EC9B: db $02, $02
-#_08EC9D: db $02, $02
-#_08EC9F: db $00, $00
+|08EC99| db $02, $FF
+|08EC9B| db $02, $02
+|08EC9D| db $02, $02
+|08EC9F| db $00, $00
 
 ;---------------------------------------------------------------------------------------------------
 
 .offset_y_low
-#_08ECA1: db  -4,   0
-#_08ECA3: db  -5,  -5
-#_08ECA5: db  -3,  -3
-#_08ECA7: db  12,  12
+|08ECA1| db  -4,   0
+|08ECA3| db  -5,  -5
+|08ECA5| db  -3,  -3
+|08ECA7| db  12,  12
 
 .offset_y_high
-#_08ECA9: db  -1,   0
-#_08ECAB: db  -1,  -1
-#_08ECAD: db  -1,  -1
-#_08ECAF: db   0,   0
+|08ECA9| db  -1,   0
+|08ECAB| db  -1,  -1
+|08ECAD| db  -1,  -1
+|08ECAF| db   0,   0
 
 .offset_x_low
-#_08ECB1: db   0,   0
-#_08ECB3: db  -4,   4
-#_08ECB5: db  -7,   7
-#_08ECB7: db  -9,  17
+|08ECB1| db   0,   0
+|08ECB3| db  -4,   4
+|08ECB5| db  -7,   7
+|08ECB7| db  -9,  17
 
 .offset_x_high
-#_08ECB9: db   0,   0
-#_08ECBB: db  -1,   0
-#_08ECBD: db  -1,   0
-#_08ECBF: db  -1,   0
+|08ECB9| db   0,   0
+|08ECBB| db  -1,   0
+|08ECBD| db  -1,   0
+|08ECBF| db  -1,   0
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla41_WaterfallSplash:
-#_08ECC1: LDY.b #$00
+|08ECC1| LDY.b #$00
 
-#_08ECC3: LDA.b $1B
-#_08ECC5: BNE .indoors
+|08ECC3| LDA.b $1B
+|08ECC5| BNE .indoors
 
-#_08ECC7: LDY.b #$01
+|08ECC7| LDY.b #$01
 
 .indoors
-#_08ECC9: JSR Ancilla_CheckForEntranceTrigger
-#_08ECCC: BCS .splish_splash
+|08ECC9| JSR Ancilla_CheckForEntranceTrigger
+|08ECCC| BCS .splish_splash
 
-#_08ECCE: STZ.w $0C4A,X
+|08ECCE| STZ.w $0C4A,X
 
-#_08ECD1: RTS
+|08ECD1| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .splish_splash
-#_08ECD2: LDA.b $11
-#_08ECD4: BNE .skip_sfx
+|08ECD2| LDA.b $11
+|08ECD4| BNE .skip_sfx
 
-#_08ECD6: LDA.b $1A
-#_08ECD8: AND.b #$07
-#_08ECDA: BNE .skip_sfx
+|08ECD6| LDA.b $1A
+|08ECD8| AND.b #$07
+|08ECDA| BNE .skip_sfx
 
-#_08ECDC: LDA.b #$1C ; SFX2.1C
-#_08ECDE: JSR Ancilla_SFX2_Near
+|08ECDC| LDA.b #$1C ; SFX2.1C
+|08ECDE| JSR Ancilla_SFX2_Near
 
 .skip_sfx
-#_08ECE1: LDA.b #$01
-#_08ECE3: STA.w $0351
+|08ECE1| LDA.b #$01
+|08ECE3| STA.w $0351
 
-; !WTF
-#_08ECE6: LDA.b $2E
-#_08ECE8: SEC
-#_08ECE9: SBC.b #$06
-#_08ECEB: BMI .dont_reset_anim
+; [WTF]
+|08ECE6| LDA.b $2E
+|08ECE8| SEC
+|08ECE9| SBC.b #$06
+|08ECEB| BMI .dont_reset_anim
 
-#_08ECED: STA.b $2E
+|08ECED| STA.b $2E
 
 .dont_reset_anim
-#_08ECEF: LDA.w $0C68,X
-#_08ECF2: BNE .anim_delay
+|08ECEF| LDA.w $0C68,X
+|08ECF2| BNE .anim_delay
 
-#_08ECF4: LDA.b #$02
-#_08ECF6: STA.w $0C68,X
+|08ECF4| LDA.b #$02
+|08ECF6| STA.w $0C68,X
 
-#_08ECF9: LDA.w $0C5E,X
-#_08ECFC: INC A
-#_08ECFD: AND.b #$03
-#_08ECFF: STA.w $0C5E,X
+|08ECF9| LDA.w $0C5E,X
+|08ECFC| INC A
+|08ECFD| AND.b #$03
+|08ECFF| STA.w $0C5E,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .anim_delay
-#_08ED02: LDA.b $1B
-#_08ED04: BEQ .set_y_coord
+|08ED02| LDA.b $1B
+|08ED04| BEQ .set_y_coord
 
-#_08ED06: LDA.b $20
-#_08ED08: CMP.b #$38
-#_08ED0A: BCS .set_y_coord
+|08ED06| LDA.b $20
+|08ED08| CMP.b #$38
+|08ED0A| BCS .set_y_coord
 
-#_08ED0C: LDA.b #$38
-#_08ED0E: STA.w $0BFA,X
+|08ED0C| LDA.b #$38
+|08ED0E| STA.w $0BFA,X
 
-#_08ED11: LDA.b #$0D
-#_08ED13: STA.w $0C0E,X
-#_08ED16: BRA .set_x_coord
+|08ED11| LDA.b #$0D
+|08ED13| STA.w $0C0E,X
+|08ED16| BRA .set_x_coord
 
 .set_y_coord
-#_08ED18: LDA.b $20
-#_08ED1A: STA.w $0BFA,X
+|08ED18| LDA.b $20
+|08ED1A| STA.w $0BFA,X
 
-#_08ED1D: LDA.b $21
-#_08ED1F: STA.w $0C0E,X
+|08ED1D| LDA.b $21
+|08ED1F| STA.w $0C0E,X
 
 .set_x_coord
-#_08ED22: LDA.b $22
-#_08ED24: STA.w $0C04,X
+|08ED22| LDA.b $22
+|08ED24| STA.w $0C04,X
 
-#_08ED27: LDA.b $23
-#_08ED29: STA.w $0C18,X
+|08ED27| LDA.b $23
+|08ED29| STA.w $0C18,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08ED2C: JSR Ancilla_PrepOAMCoord_adjusted
+|08ED2C| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08ED2F: LDA.b $24
-#_08ED31: BPL .positive_link_z
+|08ED2F| LDA.b $24
+|08ED31| BPL .positive_link_z
 
-#_08ED33: LDA.b #$00
+|08ED33| LDA.b #$00
 
 .positive_link_z
-#_08ED35: REP #$20
+|08ED35| REP #$20
 
-#_08ED37: AND.w #$00FF
-#_08ED3A: EOR.w #$FFFF
-#_08ED3D: INC A
+|08ED37| AND.w #$00FF
+|08ED3A| EOR.w #$FFFF
+|08ED3D| INC A
 
-#_08ED3E: CLC
-#_08ED3F: ADC.b $00
-#_08ED41: STA.b $00
-#_08ED43: STA.b $06
+|08ED3E| CLC
+|08ED3F| ADC.b $00
+|08ED41| STA.b $00
+|08ED43| STA.b $06
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08ED45: SEP #$20
+|08ED45| SEP #$20
 
-#_08ED47: LDA.w $0C5E,X
-#_08ED4A: ASL A
-#_08ED4B: TAX
+|08ED47| LDA.w $0C5E,X
+|08ED4A| ASL A
+|08ED4B| TAX
 
-#_08ED4C: LDY.b #$00
+|08ED4C| LDY.b #$00
 
 .next_object
-#_08ED4E: LDA.w .char,X
-#_08ED51: CMP.b #$FF
-#_08ED53: BEQ .skip
+|08ED4E| LDA.w .char,X
+|08ED51| CMP.b #$FF
+|08ED53| BEQ .skip
 
-#_08ED55: LDA.w .offset_y_low,X
-#_08ED58: CLC
-#_08ED59: ADC.b $06
-#_08ED5B: STA.b $00
+|08ED55| LDA.w .offset_y_low,X
+|08ED58| CLC
+|08ED59| ADC.b $06
+|08ED5B| STA.b $00
 
-#_08ED5D: LDA.w .offset_y_high,X
-#_08ED60: ADC.b $07
-#_08ED62: STA.b $01
+|08ED5D| LDA.w .offset_y_high,X
+|08ED60| ADC.b $07
+|08ED62| STA.b $01
 
-#_08ED64: LDA.w .offset_x_low,X
-#_08ED67: CLC
-#_08ED68: ADC.b $04
-#_08ED6A: STA.b $02
+|08ED64| LDA.w .offset_x_low,X
+|08ED67| CLC
+|08ED68| ADC.b $04
+|08ED6A| STA.b $02
 
-#_08ED6C: LDA.w .offset_x_high,X
-#_08ED6F: ADC.b $05
-#_08ED71: STA.b $03
+|08ED6C| LDA.w .offset_x_high,X
+|08ED6F| ADC.b $05
+|08ED71| STA.b $03
 
-#_08ED73: JSR Ancilla_SetOAM_XY
+|08ED73| JSR Ancilla_SetOAM_XY
 
-#_08ED76: LDA.w .char,X
-#_08ED79: STA.b ($90),Y
+|08ED76| LDA.w .char,X
+|08ED79| STA.b ($90),Y
 
-#_08ED7B: INY
+|08ED7B| INY
 
-#_08ED7C: LDA.w .prop,X
-#_08ED7F: ORA.b #$30
-#_08ED81: STA.b ($90),Y
+|08ED7C| LDA.w .prop,X
+|08ED7F| ORA.b #$30
+|08ED81| STA.b ($90),Y
 
-#_08ED83: INY
-#_08ED84: PHY
+|08ED83| INY
+|08ED84| PHY
 
-#_08ED85: TYA
-#_08ED86: SEC
-#_08ED87: SBC.b #$04
-#_08ED89: LSR A
-#_08ED8A: LSR A
-#_08ED8B: TAY
+|08ED85| TYA
+|08ED86| SEC
+|08ED87| SBC.b #$04
+|08ED89| LSR A
+|08ED8A| LSR A
+|08ED8B| TAY
 
-#_08ED8C: LDA.w .size,X
-#_08ED8F: STA.b ($92),Y
+|08ED8C| LDA.w .size,X
+|08ED8F| STA.b ($92),Y
 
-#_08ED91: PLY
+|08ED91| PLY
 
 .skip
-#_08ED92: INX
+|08ED92| INX
 
-#_08ED93: TXA
-#_08ED94: AND.b #$01
-#_08ED96: BNE .next_object
+|08ED93| TXA
+|08ED94| AND.b #$01
+|08ED96| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08ED98: BRL Ancilla_RestoreIndex
+|08ED98| BRL Ancilla_RestoreIndex
 
 ;===================================================================================================
 
 Gravestone_Move:
-#_08ED9B: PHB
-#_08ED9C: PHK
-#_08ED9D: PLB
+|08ED9B| PHB
+|08ED9C| PHK
+|08ED9D| PLB
 
-#_08ED9E: LDA.b $11
-#_08EDA0: BNE .exit
+|08ED9E| LDA.b $11
+|08EDA0| BNE .exit
 
-#_08EDA2: LDA.b #$F8
-#_08EDA4: STA.w $0C22,X
+|08EDA2| LDA.b #$F8
+|08EDA4| STA.w $0C22,X
 
-#_08EDA7: JSR AncillaMoveY
-#_08EDAA: JSR Gravestone_ActAsBarrier
+|08EDA7| JSR AncillaMoveY
+|08EDAA| JSR Gravestone_ActAsBarrier
 
-#_08EDAD: LDA.w $038A,X
-#_08EDB0: STA.b $00
+|08EDAD| LDA.w $038A,X
+|08EDB0| STA.b $00
 
-#_08EDB2: LDA.w $038F,X
-#_08EDB5: STA.b $01
+|08EDB2| LDA.w $038F,X
+|08EDB5| STA.b $01
 
-#_08EDB7: LDA.w $0BFA,X
-#_08EDBA: STA.b $02
+|08EDB7| LDA.w $0BFA,X
+|08EDBA| STA.b $02
 
-#_08EDBC: LDA.w $0C0E,X
-#_08EDBF: STA.b $03
+|08EDBC| LDA.w $0C0E,X
+|08EDBF| STA.b $03
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EDC1: REP #$20
+|08EDC1| REP #$20
 
-#_08EDC3: LDA.b $02
-#_08EDC5: CMP.b $00
+|08EDC3| LDA.b $02
+|08EDC5| CMP.b $00
 
-#_08EDC7: SEP #$20
-#_08EDC9: BCS .exit
+|08EDC7| SEP #$20
+|08EDC9| BCS .exit
 
-#_08EDCB: STZ.w $0C4A,X
+|08EDCB| STZ.w $0C4A,X
 
-#_08EDCE: STZ.w $03E9
+|08EDCE| STZ.w $03E9
 
-#_08EDD1: LDA.b $48
-#_08EDD3: AND.b #$FB
-#_08EDD5: STA.b $48
+|08EDD1| LDA.b $48
+|08EDD3| AND.b #$FB
+|08EDD5| STA.b $48
 
-#_08EDD7: LDA.w $03BA,X
-#_08EDDA: STA.b $72
+|08EDD7| LDA.w $03BA,X
+|08EDDA| STA.b $72
 
-#_08EDDC: LDA.w $03B6,X
-#_08EDDF: STA.b $73
+|08EDDC| LDA.w $03B6,X
+|08EDDF| STA.b $73
 
-#_08EDE1: REP #$20
+|08EDE1| REP #$20
 
-#_08EDE3: LDA.b $72
-#_08EDE5: STA.w $0698
+|08EDE3| LDA.b $72
+|08EDE5| STA.w $0698
 
 ;---------------------------------------------------------------------------------------------------
 ; TODO analyze
-#_08EDE8: LDY.b #$48
+|08EDE8| LDY.b #$48
 
-#_08EDEA: CMP.w #$0532
-#_08EDED: BEQ .no_update_change
+|08EDEA| CMP.w #$0532
+|08EDED| BEQ .no_update_change
 
-#_08EDEF: LDY.b #$60
-#_08EDF1: CMP.w #$0488
-#_08EDF4: BEQ .no_update_change
+|08EDEF| LDY.b #$60
+|08EDF1| CMP.w #$0488
+|08EDF4| BEQ .no_update_change
 
-#_08EDF6: LDY.b #$40
+|08EDF6| LDY.b #$40
 
 .no_update_change
-#_08EDF8: TYA
-#_08EDF9: AND.w #$00FF
-#_08EDFC: STA.w $0692
+|08EDF8| TYA
+|08EDF9| AND.w #$00FF
+|08EDFC| STA.w $0692
 
-#_08EDFF: SEP #$20
+|08EDFF| SEP #$20
 
-#_08EE01: PHX
-#_08EE02: JSL DoMap32Update_long
-#_08EE06: PLX
+|08EE01| PHX
+|08EE02| JSL BigMap16Update_long
+|08EE06| PLX
 
-#_08EE07: BRA .exit ; useless
+|08EE07| BRA .exit ; useless
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08EE09: PLB
+|08EE09| PLB
 
-#_08EE0A: RTL
+|08EE0A| RTL
 
 ;===================================================================================================
 
 pool Ancilla24_Gravestone
 
 .char
-#_08EE0B: db $C8, $C8, $D8, $D8
+|08EE0B| db $C8, $C8, $D8, $D8
 
 .prop
-#_08EE0F: db $00, $40, $00, $40
+|08EE0F| db $00, $40, $00, $40
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla24_Gravestone:
-#_08EE13: PHX
+|08EE13| PHX
 
-#_08EE14: JSR Ancilla_PrepOAMCoord_adjusted
+|08EE14| JSR Ancilla_PrepOAMCoord.adjusted
 
-#_08EE17: REP #$20
+|08EE17| REP #$20
 
-#_08EE19: LDA.b $02
-#_08EE1B: STA.b $06
+|08EE19| LDA.b $02
+|08EE1B| STA.b $06
 
-#_08EE1D: SEP #$20
+|08EE1D| SEP #$20
 
-#_08EE1F: LDA.b #$10
-#_08EE21: JSL AllocateOAMInRegionB
+|08EE1F| LDA.b #$10
+|08EE21| JSL AllocateOAMInRegionB
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EE25: LDY.b #$00
-#_08EE27: TYX
+|08EE25| LDY.b #$00
+|08EE27| TYX
 
 .next_object
-#_08EE28: JSR Ancilla_SetOAM_XY
+|08EE28| JSR Ancilla_SetOAM_XY
 
-#_08EE2B: LDA.w .char,X
-#_08EE2E: STA.b ($90),Y
+|08EE2B| LDA.w .char,X
+|08EE2E| STA.b ($90),Y
 
-#_08EE30: INY
+|08EE30| INY
 
-#_08EE31: LDA.w .prop,X
-#_08EE34: ORA.b #$3D
-#_08EE36: STA.b ($90),Y
+|08EE31| LDA.w .prop,X
+|08EE34| ORA.b #$3D
+|08EE36| STA.b ($90),Y
 
-#_08EE38: INY
-#_08EE39: PHY
+|08EE38| INY
+|08EE39| PHY
 
-#_08EE3A: TYA
-#_08EE3B: SEC
-#_08EE3C: SBC.b #$04
-#_08EE3E: LSR A
-#_08EE3F: LSR A
-#_08EE40: TAY
+|08EE3A| TYA
+|08EE3B| SEC
+|08EE3C| SBC.b #$04
+|08EE3E| LSR A
+|08EE3F| LSR A
+|08EE40| TAY
 
-#_08EE41: LDA.b #$02
-#_08EE43: STA.b ($92),Y
+|08EE41| LDA.b #$02
+|08EE43| STA.b ($92),Y
 
-#_08EE45: PLY
+|08EE45| PLY
 
-#_08EE46: INX
+|08EE46| INX
 
-#_08EE47: REP #$20
+|08EE47| REP #$20
 
-#_08EE49: LDA.b $02
-#_08EE4B: CLC
-#_08EE4C: ADC.w #$0010
-#_08EE4F: STA.b $02
+|08EE49| LDA.b $02
+|08EE4B| CLC
+|08EE4C| ADC.w #$0010
+|08EE4F| STA.b $02
 
-#_08EE51: CPX.b #$02
-#_08EE53: BNE .left_side
+|08EE51| CPX.b #$02
+|08EE53| BNE .left_side
 
-#_08EE55: LDA.b $00
-#_08EE57: CLC
-#_08EE58: ADC.w #$0008
-#_08EE5B: STA.b $00
+|08EE55| LDA.b $00
+|08EE57| CLC
+|08EE58| ADC.w #$0008
+|08EE5B| STA.b $00
 
-#_08EE5D: LDA.b $06
-#_08EE5F: STA.b $02
+|08EE5D| LDA.b $06
+|08EE5F| STA.b $02
 
 .left_side
-#_08EE61: SEP #$20
+|08EE61| SEP #$20
 
-#_08EE63: CPX.b #$04
-#_08EE65: BNE .next_object
+|08EE63| CPX.b #$04
+|08EE65| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EE67: PLX
+|08EE67| PLX
 
-#_08EE68: RTS
+|08EE68| RTS
 
 ;===================================================================================================
 
 Gravestone_ActAsBarrier:
-#_08EE69: LDA.w $0BFA,X
-#_08EE6C: STA.b $00
+|08EE69| LDA.w $0BFA,X
+|08EE6C| STA.b $00
 
-#_08EE6E: LDA.w $0C0E,X
-#_08EE71: STA.b $01
+|08EE6E| LDA.w $0C0E,X
+|08EE71| STA.b $01
 
-#_08EE73: LDA.w $0C04,X
-#_08EE76: STA.b $02
+|08EE73| LDA.w $0C04,X
+|08EE76| STA.b $02
 
-#_08EE78: LDA.w $0C18,X
-#_08EE7B: STA.b $03
-
-;---------------------------------------------------------------------------------------------------
-
-#_08EE7D: REP #$20
-
-#_08EE7F: LDA.b $00
-#_08EE81: CLC
-#_08EE82: ADC.w #$0018
-#_08EE85: STA.b $04
-
-#_08EE87: LDA.b $02
-#_08EE89: CLC
-#_08EE8A: ADC.w #$0020
-#_08EE8D: STA.b $06
-
-#_08EE8F: LDA.b $20
-#_08EE91: CLC
-#_08EE92: ADC.w #$0008
-#_08EE95: STA.b $08
+|08EE78| LDA.w $0C18,X
+|08EE7B| STA.b $03
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EE97: CMP.b $00
-#_08EE99: BCC .not_close
+|08EE7D| REP #$20
 
-#_08EE9B: CMP.b $04
-#_08EE9D: BCS .not_close
+|08EE7F| LDA.b $00
+|08EE81| CLC
+|08EE82| ADC.w #$0018
+|08EE85| STA.b $04
 
-#_08EE9F: LDA.b $22
-#_08EEA1: CLC
-#_08EEA2: ADC.w #$0008
-#_08EEA5: CMP.b $02
-#_08EEA7: BCC .not_close
+|08EE87| LDA.b $02
+|08EE89| CLC
+|08EE8A| ADC.w #$0020
+|08EE8D| STA.b $06
 
-#_08EEA9: CMP.b $06
-#_08EEAB: BCS .not_close
+|08EE8F| LDA.b $20
+|08EE91| CLC
+|08EE92| ADC.w #$0008
+|08EE95| STA.b $08
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EEAD: LDA.b $08
-#_08EEAF: SEC
-#_08EEB0: SBC.b $04
-#_08EEB2: BPL .link_below
+|08EE97| CMP.b $00
+|08EE99| BCC .not_close
 
-#_08EEB4: EOR.w #$FFFF
-#_08EEB7: INC A
+|08EE9B| CMP.b $04
+|08EE9D| BCS .not_close
+
+|08EE9F| LDA.b $22
+|08EEA1| CLC
+|08EEA2| ADC.w #$0008
+|08EEA5| CMP.b $02
+|08EEA7| BCC .not_close
+
+|08EEA9| CMP.b $06
+|08EEAB| BCS .not_close
+
+;---------------------------------------------------------------------------------------------------
+
+|08EEAD| LDA.b $08
+|08EEAF| SEC
+|08EEB0| SBC.b $04
+|08EEB2| BPL .link_below
+
+|08EEB4| EOR.w #$FFFF
+|08EEB7| INC A
 
 .link_below
-#_08EEB8: STA.b $0A
+|08EEB8| STA.b $0A
 
-#_08EEBA: CLC
-#_08EEBB: ADC.b $20
-#_08EEBD: STA.b $20
+|08EEBA| CLC
+|08EEBB| ADC.b $20
+|08EEBD| STA.b $20
 
-; !BUG technically u think, since it doesn't AND.w #$00FF
+; [BUG] technically u think, since it doesn't AND.w #$00FF
 ; though it probably never matters
-#_08EEBF: LDA.b $30
-#_08EEC1: CMP.w #$0080
-#_08EEC4: BCC .sign_correct
+|08EEBF| LDA.b $30
+|08EEC1| CMP.w #$0080
+|08EEC4| BCC .sign_correct
 
-#_08EEC6: ORA.w #$FF00
+|08EEC6| ORA.w #$FF00
 
 .sign_correct
-#_08EEC9: STA.b $08
+|08EEC9| STA.b $08
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08EECB: LDA.b $0A
-#_08EECD: CLC
-#_08EECE: ADC.b $08
-#_08EED0: AND.w #$00FF
-#_08EED3: STA.b $08
+|08EECB| LDA.b $0A
+|08EECD| CLC
+|08EECE| ADC.b $08
+|08EED0| AND.w #$00FF
+|08EED3| STA.b $08
 
-#_08EED5: LDA.b $30
-#_08EED7: AND.w #$FF00
-#_08EEDA: ORA.b $08
-#_08EEDC: STA.b $30
+|08EED5| LDA.b $30
+|08EED7| AND.w #$FF00
+|08EEDA| ORA.b $08
+|08EEDC| STA.b $30
 
-#_08EEDE: LDA.w #$0004
-#_08EEE1: TSB.b $48
+|08EEDE| LDA.w #$0004
+|08EEE1| TSB.b $48
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_close
-#_08EEE3: SEP #$20
+|08EEE3| SEP #$20
 
-#_08EEE5: LDA.b $2F
-#_08EEE7: BEQ .exit
+|08EEE5| LDA.b $2F
+|08EEE7| BEQ .exit
 
-#_08EEE9: LDA.b $48
-#_08EEEB: AND.b #$FB
-#_08EEED: STA.b $48
+|08EEE9| LDA.b $48
+|08EEEB| AND.b #$FB
+|08EEED| STA.b $48
 
 .exit
-#_08EEEF: RTS
+|08EEEF| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_SkullWoodsFlame
 
 .flame_offset_y_low
-#_08EEF0: db   0
-#_08EEF1: db   0
-#_08EEF2: db   0
-#_08EEF3: db  -3
+|08EEF0| db   0
+|08EEF1| db   0
+|08EEF2| db   0
+|08EEF3| db  -3
 
 .flame_offset_y_high
-#_08EEF4: db   0
-#_08EEF5: db   0
-#_08EEF6: db   0
-#_08EEF7: db  -1
+|08EEF4| db   0
+|08EEF5| db   0
+|08EEF6| db   0
+|08EEF7| db  -1
 
 .flame_char
-#_08EEF8: db $8E
-#_08EEF9: db $A0
-#_08EEFA: db $A2
-#_08EEFB: db $A4
+|08EEF8| db $8E
+|08EEF9| db $A0
+|08EEFA| db $A2
+|08EEFB| db $A4
 
 .flame_prop
-#_08EEFC: db $02
-#_08EEFD: db $02
-#_08EEFE: db $02
-#_08EEFF: db $00
+|08EEFC| db $02
+|08EEFD| db $02
+|08EEFE| db $02
+|08EEFF| db $00
 
-pool off
+endpool
 
 ;===================================================================================================
 
 pool AncillaDraw_SkullWoodsBlast
 
 .blast_char
-#_08EF00: db $86, $86, $86, $FF, $FF, $FF
-#_08EF06: db $86, $86, $86, $86, $86, $86
-#_08EF0C: db $8A, $8A, $8A, $8A, $8A, $8A
-#_08EF12: db $9B, $9B, $9B, $9B, $9B, $9B
+|08EF00| db $86, $86, $86, $FF, $FF, $FF
+|08EF06| db $86, $86, $86, $86, $86, $86
+|08EF0C| db $8A, $8A, $8A, $8A, $8A, $8A
+|08EF12| db $9B, $9B, $9B, $9B, $9B, $9B
 
 .blast_prop
-#_08EF18: db $00, $00, $00, $00, $00, $00
-#_08EF1E: db $00, $00, $00, $00, $00, $00
-#_08EF24: db $00, $00, $00, $00, $00, $00
-#_08EF2A: db $80, $40, $40, $80, $40, $00
+|08EF18| db $00, $00, $00, $00, $00, $00
+|08EF1E| db $00, $00, $00, $00, $00, $00
+|08EF24| db $00, $00, $00, $00, $00, $00
+|08EF2A| db $80, $40, $40, $80, $40, $00
 
 .blast_size
-#_08EF30: db $02, $02, $02, $02, $01, $01
-#_08EF36: db $02, $02, $02, $02, $02, $02
-#_08EF3C: db $02, $02, $02, $02, $02, $02
-#_08EF42: db $00, $00, $00, $00, $00, $00
+|08EF30| db $02, $02, $02, $02, $01, $01
+|08EF36| db $02, $02, $02, $02, $02, $02
+|08EF3C| db $02, $02, $02, $02, $02, $02
+|08EF42| db $00, $00, $00, $00, $00, $00
 
 .blast_offset_y
-#_08EF48: dw -31, -24, -22,  -1,  -1,  -1
-#_08EF54: dw -37, -32, -32, -23, -16, -14
-#_08EF60: dw -37, -32, -32, -23, -16, -14
-#_08EF6C: dw -35, -29, -28, -20, -13, -11
+|08EF48| dw -31, -24, -22,  -1,  -1,  -1
+|08EF54| dw -37, -32, -32, -23, -16, -14
+|08EF60| dw -37, -32, -32, -23, -16, -14
+|08EF6C| dw -35, -29, -28, -20, -13, -11
 
 .blast_offset_x
-#_08EF78: dw -13, -21, -10,  -1,  -1,  -1
-#_08EF84: dw -16, -27,  -4, -16,  -6, -25
-#_08EF90: dw -16, -27,  -4, -16,  -6, -25
-#_08EF9C: dw -13,  -5, -27, -11, -22,  -3
+|08EF78| dw -13, -21, -10,  -1,  -1,  -1
+|08EF84| dw -16, -27,  -4, -16,  -6, -25
+|08EF90| dw -16, -27,  -4, -16,  -6, -25
+|08EF9C| dw -13,  -5, -27, -11, -22,  -3
 
 ;---------------------------------------------------------------------------------------------------
 
 .blast_data_index
-#_08EFA8: db $00
-#_08EFA9: db $06
-#_08EFAA: db $0C
-#_08EFAB: db $12
+|08EFA8| db $00
+|08EFA9| db $06
+|08EFAA| db $0C
+|08EFAB| db $12
 
-pool off
+endpool
 
 ;===================================================================================================
 
 Ancilla34_SkullWoodsFire:
-#_08EFAC: LDA.l $7F0010
-#_08EFB0: BEQ .inactive
+|08EFAC| LDA.l $7F0010
+|08EFB0| BEQ .inactive
 
-#_08EFB2: LDA.w $0C5E,X
-#_08EFB5: CMP.b #$04
-#_08EFB7: BEQ .inactive
+|08EFB2| LDA.w $0C5E,X
+|08EFB5| CMP.b #$04
+|08EFB7| BEQ .inactive
 
-#_08EFB9: DEC.w $03B1,X
-#_08EFBC: BPL .inactive
+|08EFB9| DEC.w $03B1,X
+|08EFBC| BPL .inactive
 
-#_08EFBE: LDA.b #$05
-#_08EFC0: STA.w $03B1,X
+|08EFBE| LDA.b #$05
+|08EFC0| STA.w $03B1,X
 
-#_08EFC3: INC.w $0C5E,X
+|08EFC3| INC.w $0C5E,X
 
 .inactive
-#_08EFC6: LDX.b #$03
-#_08EFC8: LDY.b #$00
+|08EFC6| LDX.b #$03
+|08EFC8| LDY.b #$00
 
 ;===================================================================================================
 
 SkullWoodsFlame_DoNext:
-#_08EFCA: LDA.l $7F0008,X
-#_08EFCE: DEC A
-#_08EFCF: STA.l $7F0008,X
-#_08EFD3: BMI .reset_flame_index
+|08EFCA| LDA.l $7F0008,X
+|08EFCE| DEC A
+|08EFCF| STA.l $7F0008,X
+|08EFD3| BMI .reset_flame_index
 
 .only_flame_draw
-#_08EFD5: BRL AncillaDraw_SkullWoodsFlame
+|08EFD5| BRL AncillaDraw_SkullWoodsFlame
 
 ;---------------------------------------------------------------------------------------------------
 
 .reset_flame_index
-#_08EFD8: LDA.b #$05
-#_08EFDA: STA.l $7F0008,X
+|08EFD8| LDA.b #$05
+|08EFDA| STA.l $7F0008,X
 
-#_08EFDE: LDA.l $7F0000,X
-#_08EFE2: CMP.b #$80
-#_08EFE4: BEQ .only_flame_draw
+|08EFDE| LDA.l $7F0000,X
+|08EFE2| CMP.b #$80
+|08EFE4| BEQ .only_flame_draw
 
-#_08EFE6: INC A
-#_08EFE7: STA.l $7F0000,X
-#_08EFEB: BEQ .reset_control
+|08EFE6| INC A
+|08EFE7| STA.l $7F0000,X
+|08EFEB| BEQ .reset_control
 
-#_08EFED: CMP.b #$04
-#_08EFEF: BNE .only_flame_draw
+|08EFED| CMP.b #$04
+|08EFEF| BNE .only_flame_draw
 
-#_08EFF1: LDA.b #$00
-#_08EFF3: STA.l $7F0000,X
+|08EFF1| LDA.b #$00
+|08EFF3| STA.l $7F0000,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .reset_control
-#_08EFF7: REP #$20
+|08EFF7| REP #$20
 
-#_08EFF9: LDA.l $7F0018
-#_08EFFD: SEC
-#_08EFFE: SBC.w #$0008
-#_08F001: STA.l $7F0018
+|08EFF9| LDA.l $7F0018
+|08EFFD| SEC
+|08EFFE| SBC.w #$0008
+|08F001| STA.l $7F0018
 
-#_08F005: CMP.w #$00C8
-#_08F008: BCS .skip_sfx
+|08F005| CMP.w #$00C8
+|08F008| BCS .skip_sfx
 
-#_08F00A: LDA.w #$0098
-#_08F00D: SEC
-#_08F00E: SBC.b $E2
-#_08F010: STA.b $00
+|08F00A| LDA.w #$0098
+|08F00D| SEC
+|08F00E| SBC.b $E2
+|08F010| STA.b $00
 
-#_08F012: SEP #$20
+|08F012| SEP #$20
 
-#_08F014: LDA.l $7F0010
-#_08F018: CMP.b #$01
-#_08F01A: BEQ .skip_sfx
+|08F014| LDA.l $7F0010
+|08F018| CMP.b #$01
+|08F01A| BEQ .skip_sfx
 
-#_08F01C: LDA.b #$01
-#_08F01E: STA.l $7F0010
+|08F01C| LDA.b #$01
+|08F01E| STA.l $7F0010
 
-#_08F022: LDA.b $00
-#_08F024: JSR Ancilla_SetPanRelativeCoordinates
-#_08F027: ORA.b #$0C ; SFX2.0C
-#_08F029: STA.w $012E
+|08F022| LDA.b $00
+|08F024| JSR Ancilla_SetPanRelativeCoordinates
+|08F027| ORA.b #$0C ; SFX2.0C
+|08F029| STA.w $012E
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_sfx
-#_08F02C: REP #$20
+|08F02C| REP #$20
 
-#_08F02E: LDA.l $7F0018
-#_08F032: CMP.w #$00A8
-#_08F035: BCS .dont_terminate
+|08F02E| LDA.l $7F0018
+|08F032| CMP.w #$00A8
+|08F035| BCS .dont_terminate
 
-#_08F037: LDA.l $7F0000,X
-#_08F03B: AND.w #$FF00
-#_08F03E: ORA.w #$0080
-#_08F041: STA.l $7F0000,X
+|08F037| LDA.l $7F0000,X
+|08F03B| AND.w #$FF00
+|08F03E| ORA.w #$0080
+|08F041| STA.l $7F0000,X
 
 .dont_terminate
-#_08F045: PHX
+|08F045| PHX
 
-#_08F046: TXA
-#_08F047: ASL A
-#_08F048: TAX
+|08F046| TXA
+|08F047| ASL A
+|08F048| TAX
 
-#_08F049: LDA.l $7F001A
-#_08F04D: STA.l $7F0030,X
+|08F049| LDA.l $7F001A
+|08F04D| STA.l $7F0030,X
 
-#_08F051: LDA.l $7F0018
-#_08F055: STA.l $7F0020,X
+|08F051| LDA.l $7F0018
+|08F055| STA.l $7F0020,X
 
-#_08F059: PLX
+|08F059| PLX
 
-#_08F05A: SEP #$20
+|08F05A| SEP #$20
 
-#_08F05C: LDA.w $012E
-#_08F05F: BNE AncillaDraw_SkullWoodsFlame
+|08F05C| LDA.w $012E
+|08F05F| BNE AncillaDraw_SkullWoodsFlame
 
-#_08F061: LDA.l $7F001A
-#_08F065: SEC
-#_08F066: SBC.b $E2
+|08F061| LDA.l $7F001A
+|08F065| SEC
+|08F066| SBC.b $E2
 
-#_08F068: JSR Ancilla_SetPanRelativeCoordinates
-#_08F06B: ORA.b #$2A ; SFX2.2A
-#_08F06D: STA.w $012E
+|08F068| JSR Ancilla_SetPanRelativeCoordinates
+|08F06B| ORA.b #$2A ; SFX2.2A
+|08F06D| STA.w $012E
 
 ;===================================================================================================
 
 AncillaDraw_SkullWoodsFlame:
-#_08F070: SEP #$20
+|08F070| SEP #$20
 
-#_08F072: PHX
+|08F072| PHX
 
-#_08F073: LDA.l $7F0000,X
-#_08F077: BPL .continue_with_flame
+|08F073| LDA.l $7F0000,X
+|08F077| BPL .continue_with_flame
 
-#_08F079: BRL .skip_flame
+|08F079| BRL .skip_flame
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue_with_flame
-#_08F07C: PHY
+|08F07C| PHY
 
-#_08F07D: TAY
+|08F07D| TAY
 
-#_08F07E: LDA.w .flame_offset_y_low,Y
-#_08F081: STA.b $04
+|08F07E| LDA.w .flame_offset_y_low,Y
+|08F081| STA.b $04
 
-#_08F083: LDA.w .flame_offset_y_high,Y
-#_08F086: STA.b $05
+|08F083| LDA.w .flame_offset_y_high,Y
+|08F086| STA.b $05
 
-#_08F088: LDA.w .flame_char,Y
-#_08F08B: STA.b $06
+|08F088| LDA.w .flame_char,Y
+|08F08B| STA.b $06
 
-#_08F08D: LDA.w .flame_prop,Y
-#_08F090: STA.b $07
+|08F08D| LDA.w .flame_prop,Y
+|08F090| STA.b $07
 
-#_08F092: TXA
-#_08F093: ASL A
-#_08F094: TAX
-
-;---------------------------------------------------------------------------------------------------
-
-#_08F095: REP #$20
-
-#_08F097: LDA.l $7F0020,X
-#_08F09B: SEC
-#_08F09C: SBC.b $E8
-#_08F09E: CLC
-#_08F09F: ADC.b $04
-#_08F0A1: STA.b $00
-
-#_08F0A3: LDA.l $7F0030,X
-#_08F0A7: SEC
-#_08F0A8: SBC.b $E2
-#_08F0AA: STA.b $02
-#_08F0AC: CLC
-#_08F0AD: ADC.w #$0008
-#_08F0B0: STA.b $08
-
-#_08F0B2: SEP #$20
-
-#_08F0B4: PLY
-
-#_08F0B5: JSR Ancilla_SetOAM_XY
-
-#_08F0B8: LDA.b $06
-#_08F0BA: STA.b ($90),Y
-
-#_08F0BC: INY
-
-#_08F0BD: LDA.b #$32
-#_08F0BF: STA.b ($90),Y
-
-#_08F0C1: INY
-#_08F0C2: PHY
-
-#_08F0C3: TYA
-#_08F0C4: SEC
-#_08F0C5: SBC.b #$04
-#_08F0C7: LSR A
-#_08F0C8: LSR A
-#_08F0C9: TAY
-
-#_08F0CA: LDA.b $07
-#_08F0CC: STA.b ($92),Y
-
-#_08F0CE: PLY
-
-#_08F0CF: CMP.b #$02
-#_08F0D1: BEQ .skip_flame
+|08F092| TXA
+|08F093| ASL A
+|08F094| TAX
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F0D3: REP #$20
+|08F095| REP #$20
 
-#_08F0D5: LDA.b $08
-#_08F0D7: STA.b $02
+|08F097| LDA.l $7F0020,X
+|08F09B| SEC
+|08F09C| SBC.b $E8
+|08F09E| CLC
+|08F09F| ADC.b $04
+|08F0A1| STA.b $00
 
-#_08F0D9: SEP #$20
+|08F0A3| LDA.l $7F0030,X
+|08F0A7| SEC
+|08F0A8| SBC.b $E2
+|08F0AA| STA.b $02
+|08F0AC| CLC
+|08F0AD| ADC.w #$0008
+|08F0B0| STA.b $08
 
-#_08F0DB: JSR Ancilla_SetOAM_XY
+|08F0B2| SEP #$20
 
-#_08F0DE: LDA.b $06
-#_08F0E0: INC A
-#_08F0E1: STA.b ($90),Y
+|08F0B4| PLY
 
-#_08F0E3: INY
+|08F0B5| JSR Ancilla_SetOAM_XY
 
-#_08F0E4: LDA.b #$32
-#_08F0E6: STA.b ($90),Y
+|08F0B8| LDA.b $06
+|08F0BA| STA.b ($90),Y
 
-#_08F0E8: INY
-#_08F0E9: PHY
+|08F0BC| INY
 
-#_08F0EA: TYA
-#_08F0EB: SEC
-#_08F0EC: SBC.b #$04
-#_08F0EE: LSR A
-#_08F0EF: LSR A
-#_08F0F0: TAY
+|08F0BD| LDA.b #$32
+|08F0BF| STA.b ($90),Y
 
-#_08F0F1: LDA.b $07
-#_08F0F3: STA.b ($92),Y
+|08F0C1| INY
+|08F0C2| PHY
 
-#_08F0F5: PLY
+|08F0C3| TYA
+|08F0C4| SEC
+|08F0C5| SBC.b #$04
+|08F0C7| LSR A
+|08F0C8| LSR A
+|08F0C9| TAY
+
+|08F0CA| LDA.b $07
+|08F0CC| STA.b ($92),Y
+
+|08F0CE| PLY
+
+|08F0CF| CMP.b #$02
+|08F0D1| BEQ .skip_flame
+
+;---------------------------------------------------------------------------------------------------
+
+|08F0D3| REP #$20
+
+|08F0D5| LDA.b $08
+|08F0D7| STA.b $02
+
+|08F0D9| SEP #$20
+
+|08F0DB| JSR Ancilla_SetOAM_XY
+
+|08F0DE| LDA.b $06
+|08F0E0| INC A
+|08F0E1| STA.b ($90),Y
+
+|08F0E3| INY
+
+|08F0E4| LDA.b #$32
+|08F0E6| STA.b ($90),Y
+
+|08F0E8| INY
+|08F0E9| PHY
+
+|08F0EA| TYA
+|08F0EB| SEC
+|08F0EC| SBC.b #$04
+|08F0EE| LSR A
+|08F0EF| LSR A
+|08F0F0| TAY
+
+|08F0F1| LDA.b $07
+|08F0F3| STA.b ($92),Y
+
+|08F0F5| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_flame
-#_08F0F6: PLX
-#_08F0F7: DEX
-#_08F0F8: BMI AncillaDraw_SkullWoodsBlast
+|08F0F6| PLX
+|08F0F7| DEX
+|08F0F8| BMI AncillaDraw_SkullWoodsBlast
 
-#_08F0FA: BRL SkullWoodsFlame_DoNext
+|08F0FA| BRL SkullWoodsFlame_DoNext
 
 ;===================================================================================================
 
 AncillaDraw_SkullWoodsBlast:
-#_08F0FD: LDX.b #$03
+|08F0FD| LDX.b #$03
 
 .find_blast
-#_08F0FF: LDA.l $7F0000,X
-#_08F103: BPL .one_active
+|08F0FF| LDA.l $7F0000,X
+|08F103| BPL .one_active
 
-#_08F105: DEX
-#_08F106: BPL .find_blast
+|08F105| DEX
+|08F106| BPL .find_blast
 
-#_08F108: LDX.w $0FA0
-#_08F10B: STZ.w $0C4A,X
+|08F108| LDX.w $0FA0
+|08F10B| STZ.w $0C4A,X
 
-#_08F10E: RTS
+|08F10E| RTS
 
 .one_active
-#_08F10F: LDX.w $0FA0
+|08F10F| LDX.w $0FA0
 
-#_08F112: LDA.l $7F0010
-#_08F116: BEQ .exit
+|08F112| LDA.l $7F0010
+|08F116| BEQ .exit
 
-#_08F118: LDA.w $0C5E,X
-#_08F11B: CMP.b #$04
-#_08F11D: BEQ .exit
+|08F118| LDA.w $0C5E,X
+|08F11B| CMP.b #$04
+|08F11D| BEQ .exit
 
-#_08F11F: TAX
+|08F11F| TAX
 
-#_08F120: LDA.w .blast_data_index,X
-#_08F123: TAX
+|08F120| LDA.w .blast_data_index,X
+|08F123| TAX
 
-#_08F124: STZ.b $08
+|08F124| STZ.b $08
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_object
-#_08F126: LDA.w .blast_char,X
-#_08F129: CMP.b #$FF
-#_08F12B: BEQ .skip
+|08F126| LDA.w .blast_char,X
+|08F129| CMP.b #$FF
+|08F12B| BEQ .skip
 
-#_08F12D: PHX
+|08F12D| PHX
 
-#_08F12E: TXA
-#_08F12F: ASL A
-#_08F130: TAX
+|08F12E| TXA
+|08F12F| ASL A
+|08F130| TAX
 
-#_08F131: REP #$20
+|08F131| REP #$20
 
-#_08F133: LDA.w #$00C8
-#_08F136: SEC
-#_08F137: SBC.b $E8
-#_08F139: CLC
-#_08F13A: ADC.w .blast_offset_y,X
-#_08F13D: STA.b $00
+|08F133| LDA.w #$00C8
+|08F136| SEC
+|08F137| SBC.b $E8
+|08F139| CLC
+|08F13A| ADC.w .blast_offset_y,X
+|08F13D| STA.b $00
 
-#_08F13F: LDA.w #$00A8
-#_08F142: SEC
-#_08F143: SBC.b $E2
-#_08F145: CLC
-#_08F146: ADC.w .blast_offset_x,X
-#_08F149: STA.b $02
+|08F13F| LDA.w #$00A8
+|08F142| SEC
+|08F143| SBC.b $E2
+|08F145| CLC
+|08F146| ADC.w .blast_offset_x,X
+|08F149| STA.b $02
 
-#_08F14B: SEP #$20
+|08F14B| SEP #$20
 
-#_08F14D: PLX
+|08F14D| PLX
 
-#_08F14E: JSR Ancilla_SetOAM_XY
+|08F14E| JSR Ancilla_SetOAM_XY
 
-#_08F151: LDA.w .blast_char,X
-#_08F154: STA.b ($90),Y
+|08F151| LDA.w .blast_char,X
+|08F154| STA.b ($90),Y
 
-#_08F156: INY
+|08F156| INY
 
-#_08F157: LDA.w .blast_prop,X
-#_08F15A: ORA.b #$30
-#_08F15C: ORA.b #$02
-#_08F15E: STA.b ($90),Y
+|08F157| LDA.w .blast_prop,X
+|08F15A| ORA.b #$30
+|08F15C| ORA.b #$02
+|08F15E| STA.b ($90),Y
 
-#_08F160: INY
-#_08F161: PHY
+|08F160| INY
+|08F161| PHY
 
-#_08F162: TYA
-#_08F163: SEC
-#_08F164: SBC.b #$04
-#_08F166: LSR A
-#_08F167: LSR A
-#_08F168: TAY
+|08F162| TYA
+|08F163| SEC
+|08F164| SBC.b #$04
+|08F166| LSR A
+|08F167| LSR A
+|08F168| TAY
 
-#_08F169: LDA.w .blast_size,X
-#_08F16C: STA.b ($92),Y
+|08F169| LDA.w .blast_size,X
+|08F16C| STA.b ($92),Y
 
-#_08F16E: PLY
+|08F16E| PLY
 
 .skip
-#_08F16F: INX
+|08F16F| INX
 
-#_08F170: INC.b $08
+|08F170| INC.b $08
 
-#_08F172: LDA.b $08
-#_08F174: CMP.b #$06
-#_08F176: BNE .next_object
+|08F172| LDA.b $08
+|08F174| CMP.b #$06
+|08F176| BNE .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08F178: BRL Ancilla_RestoreIndex
+|08F178| BRL Ancilla_RestoreIndex
 
 ;===================================================================================================
 
 pool Ancilla3A_BigBombExplosion
 
 .offset_y
-#_08F17B: dw   0, -16, -24, -16
-#_08F183: dw   0,   0,  16,  24
-#_08F18B: dw  16
+|08F17B| dw   0, -16, -24, -16
+|08F183| dw   0,   0,  16,  24
+|08F18B| dw  16
 
 .offset_x
-#_08F18D: dw   0, -16,   0,  16
-#_08F195: dw -24,  24, -16,   0
-#_08F19D: dw  16
+|08F18D| dw   0, -16,   0,  16
+|08F195| dw -24,  24, -16,   0
+|08F19D| dw  16
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla3A_BigBombExplosion:
-#_08F19F: LDA.b $11
-#_08F1A1: BNE .just_draw
+|08F19F| LDA.b $11
+|08F1A1| BNE .just_draw
 
-#_08F1A3: DEC.w $039F,X
+|08F1A3| DEC.w $039F,X
 
-#_08F1A6: LDA.w $039F,X
-#_08F1A9: BNE .just_draw
+|08F1A6| LDA.w $039F,X
+|08F1A9| BNE .just_draw
 
-#_08F1AB: INC.w $0C5E,X
+|08F1AB| INC.w $0C5E,X
 
-#_08F1AE: LDA.w $0C5E,X
-#_08F1B1: CMP.b #$02
-#_08F1B3: BNE .skip_sfx
+|08F1AE| LDA.w $0C5E,X
+|08F1B1| CMP.b #$02
+|08F1B3| BNE .skip_sfx
 
-#_08F1B5: LDA.b #$0C ; SFX2.0C
-#_08F1B7: JSR Ancilla_SFX2_Pan
+|08F1B5| LDA.b #$0C ; SFX2.0C
+|08F1B7| JSR Ancilla_SFX2_Pan
 
 .skip_sfx
-#_08F1BA: LDA.w $0C5E,X
-#_08F1BD: CMP.b #$0B
-#_08F1BF: BNE .dont_terminate
+|08F1BA| LDA.w $0C5E,X
+|08F1BD| CMP.b #$0B
+|08F1BF| BNE .dont_terminate
 
-#_08F1C1: STZ.w $0C4A,X
+|08F1C1| STZ.w $0C4A,X
 
-#_08F1C4: RTS
+|08F1C4| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .dont_terminate
-#_08F1C5: TAY
-#_08F1C6: LDA.w Bomb_timer,Y
-#_08F1C9: STA.w $039F,X
+|08F1C5| TAY
+|08F1C6| LDA.w BombTimers,Y
+|08F1C9| STA.w $039F,X
 
 .just_draw
-#_08F1CC: LDA.b #$08
-#_08F1CE: STA.b $09
+|08F1CC| LDA.b #$08
+|08F1CE| STA.b $09
 
-#_08F1D0: LDA.b #$30
-#_08F1D2: STA.b $65
-#_08F1D4: STZ.b $64
+|08F1D0| LDA.b #$30
+|08F1D2| STA.b $65
+|08F1D4| STZ.b $64
 
-#_08F1D6: STZ.b $0A
+|08F1D6| STZ.b $0A
 
-#_08F1D8: LDA.b #$32
-#_08F1DA: STA.b $0B
+|08F1D8| LDA.b #$32
+|08F1DA| STA.b $0B
 
-#_08F1DC: LDA.w $0C5E,X
-#_08F1DF: TAY
+|08F1DC| LDA.w $0C5E,X
+|08F1DF| TAY
 
-#_08F1E0: LDA.w BombDraw_object_count,Y
-#_08F1E3: STA.b $08
+|08F1E0| LDA.w BombDraw.object_count,Y
+|08F1E3| STA.b $08
 
-#_08F1E5: LDA.w Bomb_anim_step,Y
-#_08F1E8: TAY
+|08F1E5| LDA.w BombAnimationSteps,Y
+|08F1E8| TAY
 
-#_08F1E9: LDA.w BombDraw_data_offset,Y
-#_08F1EC: ASL A
-#_08F1ED: TAY
+|08F1E9| LDA.w BombDraw.data_offset,Y
+|08F1EC| ASL A
+|08F1ED| TAY
 
-#_08F1EE: ASL A
-#_08F1EF: STA.b $04
-#_08F1F1: STZ.b $05
+|08F1EE| ASL A
+|08F1EF| STA.b $04
+|08F1F1| STZ.b $05
 
-#_08F1F3: TYA
-#_08F1F4: STA.w $0C54,X
+|08F1F3| TYA
+|08F1F4| STA.w $0C54,X
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F1F7: LDY.b #$00
+|08F1F7| LDY.b #$00
 
 .next_object
-#_08F1F9: PHX
-#_08F1FA: PHY
+|08F1F9| PHX
+|08F1FA| PHY
 
-#_08F1FB: LDA.w $0BFA,X
-#_08F1FE: STA.b $00
+|08F1FB| LDA.w $0BFA,X
+|08F1FE| STA.b $00
 
-#_08F200: LDA.w $0C0E,X
-#_08F203: STA.b $01
+|08F200| LDA.w $0C0E,X
+|08F203| STA.b $01
 
-#_08F205: LDA.w $0C04,X
-#_08F208: STA.b $02
+|08F205| LDA.w $0C04,X
+|08F208| STA.b $02
 
-#_08F20A: LDA.w $0C18,X
-#_08F20D: STA.b $03
+|08F20A| LDA.w $0C18,X
+|08F20D| STA.b $03
 
-#_08F20F: LDA.b $09
-#_08F211: ASL A
-#_08F212: TAY
+|08F20F| LDA.b $09
+|08F211| ASL A
+|08F212| TAY
 
-#_08F213: REP #$20
+|08F213| REP #$20
 
-#_08F215: LDA.b $00
-#_08F217: CLC
-#_08F218: ADC.w .offset_y,Y
-#_08F21B: SEC
-#_08F21C: SBC.b $E8
-#_08F21E: STA.b $00
+|08F215| LDA.b $00
+|08F217| CLC
+|08F218| ADC.w .offset_y,Y
+|08F21B| SEC
+|08F21C| SBC.b $E8
+|08F21E| STA.b $00
 
-#_08F220: LDA.b $02
-#_08F222: CLC
-#_08F223: ADC.w .offset_x,Y
-#_08F226: SEC
-#_08F227: SBC.b $E2
-#_08F229: STA.b $02
+|08F220| LDA.b $02
+|08F222| CLC
+|08F223| ADC.w .offset_x,Y
+|08F226| SEC
+|08F227| SBC.b $E2
+|08F229| STA.b $02
 
-#_08F22B: SEP #$20
+|08F22B| SEP #$20
 
-#_08F22D: PLY
+|08F22D| PLY
 
-#_08F22E: LDA.w $0C54,X
-#_08F231: TAX
+|08F22E| LDA.w $0C54,X
+|08F231| TAX
 
-#_08F232: LDA.b $01
-#_08F234: BNE .skip
+|08F232| LDA.b $01
+|08F234| BNE .skip
 
-#_08F236: LDA.b $03
-#_08F238: BNE .skip
+|08F236| LDA.b $03
+|08F238| BNE .skip
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F23A: PHX
-#_08F23B: PHY
+|08F23A| PHX
+|08F23B| PHY
 
-#_08F23C: LDA.b #$18
-#_08F23E: JSR AllocateOAMInRegionsADF
+|08F23C| LDA.b #$18
+|08F23E| JSR AllocateOAMInRegionsADF
 
-#_08F241: PLY
-#_08F242: PLX
+|08F241| PLY
+|08F242| PLX
 
-#_08F243: LDA.b $00
-#_08F245: STA.b $0C
+|08F243| LDA.b $00
+|08F245| STA.b $0C
 
-#_08F247: LDA.b $01
-#_08F249: STA.b $0D
+|08F247| LDA.b $01
+|08F249| STA.b $0D
 
-#_08F24B: LDA.b $02
-#_08F24D: STA.b $0E
+|08F24B| LDA.b $02
+|08F24D| STA.b $0E
 
-#_08F24F: LDA.b $03
-#_08F251: STA.b $0F
+|08F24F| LDA.b $03
+|08F251| STA.b $0F
 
-#_08F253: STZ.b $06
-#_08F255: STZ.b $07
+|08F253| STZ.b $06
+|08F255| STZ.b $07
 
-#_08F257: JSR AncillaDraw_Explosion
+|08F257| JSR AncillaDraw_Explosion
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip
-#_08F25A: PLX
+|08F25A| PLX
 
-#_08F25B: DEC.b $09
-#_08F25D: BPL .next_object
+|08F25B| DEC.b $09
+|08F25D| BPL .next_object
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F25F: LDA.w $0C5E,X
-#_08F262: CMP.b #$03
-#_08F264: BNE .exit
+|08F25F| LDA.w $0C5E,X
+|08F262| CMP.b #$03
+|08F264| BNE .exit
 
-#_08F266: LDA.w $039F,X
-#_08F269: CMP.b #$01
-#_08F26B: BNE .exit
+|08F266| LDA.w $039F,X
+|08F269| CMP.b #$01
+|08F26B| BNE .exit
 
-#_08F26D: LDA.w $0BFA,X
-#_08F270: STA.b $00
+|08F26D| LDA.w $0BFA,X
+|08F270| STA.b $00
 
-#_08F272: LDA.w $0C0E,X
-#_08F275: STA.b $01
+|08F272| LDA.w $0C0E,X
+|08F275| STA.b $01
 
-#_08F277: LDA.w $0C04,X
-#_08F27A: STA.b $02
+|08F277| LDA.w $0C04,X
+|08F27A| STA.b $02
 
-#_08F27C: LDA.w $0C18,X
-#_08F27F: STA.b $03
+|08F27C| LDA.w $0C18,X
+|08F27F| STA.b $03
 
-#_08F281: PHX
+|08F281| PHX
 
-#_08F282: JSL FindBombableThings
+|08F282| JSL FindBombableThings
 
-#_08F286: PLX
+|08F286| PLX
 
-#_08F287: LDA.b #$00
-#_08F289: STA.l $7EF3CC
+|08F287| LDA.b #$00
+|08F289| STA.l $7EF3CC
 
 .exit
-#_08F28D: RTS
+|08F28D| RTS
 
 ;===================================================================================================
 
 pool RevivalFairy
 
 .timer
-#_08F28E: db   0, 144
+|08F28E| db   0, 144
 
 .char
-#_08F290: db $4B, $4D, $49, $47, $49
+|08F290| db $4B, $4D, $49, $47, $49
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 RevivalFairy:
-#_08F295: PHB
-#_08F296: PHK
-#_08F297: PLB
+|08F295| PHB
+|08F296| PHK
+|08F297| PLB
 
-#_08F298: LDX.b #$00
+|08F298| LDX.b #$00
 
-#_08F29A: LDA.w $0C54,X
-#_08F29D: BEQ .emerging
+|08F29A| LDA.w $0C54,X
+|08F29D| BEQ .emerging
 
-#_08F29F: CMP.b #$03
-#_08F2A1: BNE .emerged
+|08F29F| CMP.b #$03
+|08F2A1| BNE .emerged
 
-#_08F2A3: BRL .finish_up
+|08F2A3| BRL .finish_up
 
 ;---------------------------------------------------------------------------------------------------
 
 .emerging
-#_08F2A6: DEC.w $039F,X
+|08F2A6| DEC.w $039F,X
 
-#_08F2A9: LDA.w $039F,X
-#_08F2AC: BNE .sprinkling
+|08F2A9| LDA.w $039F,X
+|08F2AC| BNE .sprinkling
 
-#_08F2AE: INC.w $0C54,X
+|08F2AE| INC.w $0C54,X
 
-#_08F2B1: LDY.w $0C54,X
+|08F2B1| LDY.w $0C54,X
 
-#_08F2B4: LDA.w .timer,Y
-#_08F2B7: STA.w $039F,X
+|08F2B4| LDA.w .timer,Y
+|08F2B7| STA.w $039F,X
 
-#_08F2BA: STZ.w $0380,X
-#_08F2BD: STZ.w $0294,X
+|08F2BA| STZ.w $0380,X
+|08F2BD| STZ.w $0294,X
 
-#_08F2C0: BRL .draw
+|08F2C0| BRL .draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .sprinkling
-#_08F2C3: JSR AncillaMoveZ
+|08F2C3| JSR AncillaMoveZ
 
-#_08F2C6: BRL .draw
+|08F2C6| BRL .draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .emerged
-#_08F2C9: CMP.b #$01
-#_08F2CB: BNE .fly_away_now
+|08F2C9| CMP.b #$01
+|08F2CB| BNE .fly_away_now
 
-#_08F2CD: DEC.w $039F,X
-#_08F2D0: LDA.w $039F,X
-#_08F2D3: BNE .busy_sprinkling
+|08F2CD| DEC.w $039F,X
+|08F2D0| LDA.w $039F,X
+|08F2D3| BNE .busy_sprinkling
 
-#_08F2D5: INC.w $0C54,X
+|08F2D5| INC.w $0C54,X
 
-#_08F2D8: STZ.w $0294,X
-#_08F2DB: STZ.w $0C2C,X
+|08F2D8| STZ.w $0294,X
+|08F2DB| STZ.w $0C2C,X
 
-#_08F2DE: BRL .draw
+|08F2DE| BRL .draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .busy_sprinkling
-#_08F2E1: CMP.b #$4F
-#_08F2E3: BEQ .do_sprinkle
+|08F2E1| CMP.b #$4F
+|08F2E3| BEQ .do_sprinkle
 
-#_08F2E5: CMP.b #$8F
-#_08F2E7: BNE .dont_sprinkle
+|08F2E5| CMP.b #$8F
+|08F2E7| BNE .dont_sprinkle
 
 .do_sprinkle
-#_08F2E9: INC.w $0385,X
+|08F2E9| INC.w $0385,X
 
-#_08F2EC: LDA.b #$31 ; SFX2.31
-#_08F2EE: JSR Ancilla_SFX2_Pan
+|08F2EC| LDA.b #$31 ; SFX2.31
+|08F2EE| JSR Ancilla_SFX2_Pan
 
 .dont_sprinkle
-#_08F2F1: LDA.w $0385,X
-#_08F2F4: BEQ .not_sprinkling
+|08F2F1| LDA.w $0385,X
+|08F2F4| BEQ .not_sprinkling
 
-#_08F2F6: DEC.w $0394,X
-#_08F2F9: BPL .not_sprinkling
+|08F2F6| DEC.w $0394,X
+|08F2F9| BPL .not_sprinkling
 
-#_08F2FB: LDA.b #$05
-#_08F2FD: STA.w $0394,X
+|08F2FB| LDA.b #$05
+|08F2FD| STA.w $0394,X
 
-#_08F300: INC.w $0C5E,X
+|08F300| INC.w $0C5E,X
 
-#_08F303: LDA.w $0C5E,X
-#_08F306: CMP.b #$03
-#_08F308: BNE .not_sprinkling
+|08F303| LDA.w $0C5E,X
+|08F306| CMP.b #$03
+|08F308| BNE .not_sprinkling
 
-#_08F30A: STZ.w $0C5E,X
-#_08F30D: STZ.w $0385,X
+|08F30A| STZ.w $0C5E,X
+|08F30D| STZ.w $0385,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_sprinkling
-#_08F310: LDY.b #$FF
+|08F310| LDY.b #$FF
 
-#_08F312: LDA.w $0380,X
-#_08F315: BEQ .descending
+|08F312| LDA.w $0380,X
+|08F315| BEQ .descending
 
-#_08F317: LDY.b #$01
+|08F317| LDY.b #$01
 
 .descending
-#_08F319: STY.b $00
+|08F319| STY.b $00
 
-#_08F31B: LDA.w $0294,X
-#_08F31E: CLC
-#_08F31F: ADC.b $00
-#_08F321: STA.w $0294,X
-#_08F324: BPL .positive_z
+|08F31B| LDA.w $0294,X
+|08F31E| CLC
+|08F31F| ADC.b $00
+|08F321| STA.w $0294,X
+|08F324| BPL .positive_z
 
-#_08F326: EOR.b #$FF
-#_08F328: INC A
+|08F326| EOR.b #$FF
+|08F328| INC A
 
 .positive_z
-#_08F329: CMP.b #$08
-#_08F32B: BNE .dont_toggle_z
+|08F329| CMP.b #$08
+|08F32B| BNE .dont_toggle_z
 
-#_08F32D: LDA.w $0380,X
-#_08F330: EOR.b #$01
-#_08F332: STA.w $0380,X
+|08F32D| LDA.w $0380,X
+|08F330| EOR.b #$01
+|08F332| STA.w $0380,X
 
 .dont_toggle_z
-#_08F335: JSR AncillaMoveZ
+|08F335| JSR AncillaMoveZ
 
-#_08F338: BRA .draw
+|08F338| BRA .draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .fly_away_now
-#_08F33A: CMP.b #$02
-#_08F33C: BNE .draw
+|08F33A| CMP.b #$02
+|08F33C| BNE .draw
 
-#_08F33E: LDA.w $0294,X
-#_08F341: CMP.b #$18
-#_08F343: BCS .at_max_z
+|08F33E| LDA.w $0294,X
+|08F341| CMP.b #$18
+|08F343| BCS .at_max_z
 
-#_08F345: CLC
-#_08F346: ADC.b #$01
-#_08F348: STA.w $0294,X
+|08F345| CLC
+|08F346| ADC.b #$01
+|08F348| STA.w $0294,X
 
 .at_max_z
-#_08F34B: LDA.w $0C2C,X
-#_08F34E: CMP.b #$10
-#_08F350: BCS .at_max_x
+|08F34B| LDA.w $0C2C,X
+|08F34E| CMP.b #$10
+|08F350| BCS .at_max_x
 
-#_08F352: CLC
-#_08F353: ADC.b #$01
-#_08F355: STA.w $0C2C,X
+|08F352| CLC
+|08F353| ADC.b #$01
+|08F355| STA.w $0C2C,X
 
 .at_max_x
-#_08F358: JSR AncillaMoveX
-#_08F35B: JSR AncillaMoveZ
+|08F358| JSR AncillaMoveX
+|08F35B| JSR AncillaMoveZ
 
 ;---------------------------------------------------------------------------------------------------
 
 .draw
-#_08F35E: LDA.b #$0C
-#_08F360: JSL AllocateOAMInRegionC
+|08F35E| LDA.b #$0C
+|08F360| JSL AllocateOAMInRegionC
 
-#_08F364: JSR Ancilla_PrepOAMCoord
+|08F364| JSR Ancilla_PrepOAMCoord
 
-#_08F367: PHX
+|08F367| PHX
 
-#_08F368: STZ.b $0A
+|08F368| STZ.b $0A
 
-#_08F36A: LDA.w $0C54,X
-#_08F36D: CMP.b #$01
-#_08F36F: BNE .am_not_sprinkling
+|08F36A| LDA.w $0C54,X
+|08F36D| CMP.b #$01
+|08F36F| BNE .am_not_sprinkling
 
-#_08F371: LDA.w $0385,X
-#_08F374: BEQ .am_not_sprinkling
+|08F371| LDA.w $0385,X
+|08F374| BEQ .am_not_sprinkling
 
-#_08F376: LDA.w $0C5E,X
-#_08F379: INC A
-#_08F37A: STA.b $0A
+|08F376| LDA.w $0C5E,X
+|08F379| INC A
+|08F37A| STA.b $0A
 
 .am_not_sprinkling
-#_08F37C: LDY.b #$00
+|08F37C| LDY.b #$00
 
-#_08F37E: REP #$20
+|08F37E| REP #$20
 
-#_08F380: LDA.w $029E,X
-#_08F383: AND.w #$00FF
-#_08F386: CMP.w #$0080
-#_08F389: BCC .positive_altitude
+|08F380| LDA.w $029E,X
+|08F383| AND.w #$00FF
+|08F386| CMP.w #$0080
+|08F389| BCC .positive_altitude
 
-#_08F38B: ORA.w #$FF00
+|08F38B| ORA.w #$FF00
 
 .positive_altitude
-#_08F38E: EOR.w #$FFFF
-#_08F391: INC A
-#_08F392: CLC
-#_08F393: ADC.b $00
-#_08F395: STA.b $00
+|08F38E| EOR.w #$FFFF
+|08F391| INC A
+|08F392| CLC
+|08F393| ADC.b $00
+|08F395| STA.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F397: SEP #$20
+|08F397| SEP #$20
 
-#_08F399: JSR Ancilla_SetOAM_XY
+|08F399| JSR Ancilla_SetOAM_XY
 
-#_08F39C: LDA.b $0A
-#_08F39E: BEQ .flapping
+|08F39C| LDA.b $0A
+|08F39E| BEQ .flapping
 
-#_08F3A0: DEC A
-#_08F3A1: CLC
-#_08F3A2: ADC.b #$02
-#_08F3A4: TAX
+|08F3A0| DEC A
+|08F3A1| CLC
+|08F3A2| ADC.b #$02
+|08F3A4| TAX
 
-#_08F3A5: BRA .set_char
+|08F3A5| BRA .set_char
 
 .flapping
-#_08F3A7: LDA.b $1A
-#_08F3A9: AND.b #$04
-#_08F3AB: LSR A
-#_08F3AC: LSR A
-#_08F3AD: TAX
+|08F3A7| LDA.b $1A
+|08F3A9| AND.b #$04
+|08F3AB| LSR A
+|08F3AC| LSR A
+|08F3AD| TAX
 
 .set_char
-#_08F3AE: LDA.w .char,X
-#_08F3B1: STA.b ($90),Y
+|08F3AE| LDA.w .char,X
+|08F3B1| STA.b ($90),Y
 
-#_08F3B3: INY
+|08F3B3| INY
 
-#_08F3B4: LDA.b #$74
-#_08F3B6: STA.b ($90),Y
+|08F3B4| LDA.b #$74
+|08F3B6| STA.b ($90),Y
 
-#_08F3B8: TYA
-#_08F3B9: SEC
-#_08F3BA: SBC.b #$03
-#_08F3BC: LSR A
-#_08F3BD: LSR A
-#_08F3BE: TAY
+|08F3B8| TYA
+|08F3B9| SEC
+|08F3BA| SBC.b #$03
+|08F3BC| LSR A
+|08F3BD| LSR A
+|08F3BE| TAY
 
-#_08F3BF: LDA.b #$02
-#_08F3C1: STA.b ($92),Y
+|08F3BF| LDA.b #$02
+|08F3C1| STA.b ($92),Y
 
-#_08F3C3: PLX
+|08F3C3| PLX
 
-#_08F3C4: LDY.b #$01
+|08F3C4| LDY.b #$01
 
-#_08F3C6: LDA.b ($90),Y
-#_08F3C8: CMP.b #$F0
-#_08F3CA: BNE .finish_up
+|08F3C6| LDA.b ($90),Y
+|08F3C8| CMP.b #$F0
+|08F3CA| BNE .finish_up
 
-#_08F3CC: LDA.b #$03
-#_08F3CE: STA.w $0C54,X
+|08F3CC| LDA.b #$03
+|08F3CE| STA.w $0C54,X
 
-#_08F3D1: INC.b $11
+|08F3D1| INC.b $11
 
-#_08F3D3: LDA.l $7EC211
-#_08F3D7: STA.b $1C
+|08F3D3| LDA.l $7EC211
+|08F3D7| STA.b $1C
 
 ;---------------------------------------------------------------------------------------------------
 
 .finish_up
-#_08F3D9: JSR RevivalFairy_Dust
-#_08F3DC: JSR RevivalFairy_MonitorHP
+|08F3D9| JSR RevivalFairy_Dust
+|08F3DC| JSR RevivalFairy_MonitorHP
 
-#_08F3DF: PLB
+|08F3DF| PLB
 
-#_08F3E0: RTL
+|08F3E0| RTL
 
 ;===================================================================================================
 
 RevivalFairy_Dust:
-#_08F3E1: LDA.w $0C54,X
-#_08F3E4: BNE .continue
+|08F3E1| LDA.w $0C54,X
+|08F3E4| BNE .continue
 
-#_08F3E6: RTS
+|08F3E6| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08F3E7: LDX.b #$02
+|08F3E7| LDX.b #$02
 
-#_08F3E9: LDA.w $0C54,X
-#_08F3EC: CMP.b #$02
-#_08F3EE: BEQ .exit
+|08F3E9| LDA.w $0C54,X
+|08F3EC| CMP.b #$02
+|08F3EE| BEQ .exit
 
-#_08F3F0: DEC.w $039F,X
-#_08F3F3: BPL .exit
+|08F3F0| DEC.w $039F,X
+|08F3F3| BPL .exit
 
-#_08F3F5: STZ.w $039F,X
+|08F3F5| STZ.w $039F,X
 
-#_08F3F8: LDA.b #$10
+|08F3F8| LDA.b #$10
 
-#_08F3FA: LDY.w $0FB3
-#_08F3FD: BNE .use_region_d
+|08F3FA| LDY.w $0FB3
+|08F3FD| BNE .use_region_d
 
-#_08F3FF: JSL AllocateOAMInRegionA
-#_08F403: BRA .oam_allocated
+|08F3FF| JSL AllocateOAMInRegionA
+|08F403| BRA .oam_allocated
 
 .use_region_d
-#_08F405: JSL AllocateOAMInRegionD
+|08F405| JSL AllocateOAMInRegionD
 
 ;---------------------------------------------------------------------------------------------------
 
 .oam_allocated
-#_08F409: DEC.w $03B1,X
-#_08F40C: BPL .just_draw
+|08F409| DEC.w $03B1,X
+|08F40C| BPL .just_draw
 
-#_08F40E: LDA.b #$03
-#_08F410: STA.w $03B1,X
+|08F40E| LDA.b #$03
+|08F410| STA.w $03B1,X
 
-#_08F413: LDY.b #$03
+|08F413| LDY.b #$03
 
-#_08F415: LDA.w PowderDraw_group_offset,Y
-#_08F418: STA.b $00
+|08F415| LDA.w PowderDraw.group_offset,Y
+|08F418| STA.b $00
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F41A: LDA.w $0C5E,X
-#_08F41D: INC A
-#_08F41E: CMP.b #$0A
-#_08F420: BNE .not_fully_sprinkled
+|08F41A| LDA.w $0C5E,X
+|08F41D| INC A
+|08F41E| CMP.b #$0A
+|08F420| BNE .not_fully_sprinkled
 
-#_08F422: LDA.b #$20
-#_08F424: STA.w $039F,X
+|08F422| LDA.b #$20
+|08F424| STA.w $039F,X
 
-#_08F427: INC.w $0C54,X
+|08F427| INC.w $0C54,X
 
-#_08F42A: LDA.b #$02
-#_08F42C: STA.w $0C5E,X
+|08F42A| LDA.b #$02
+|08F42C| STA.w $0C5E,X
 
-#_08F42F: BRA .exit
+|08F42F| BRA .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_fully_sprinkled
-#_08F431: STA.w $0C5E,X
+|08F431| STA.w $0C5E,X
 
-#_08F434: CLC
-#_08F435: ADC.b $00
-#_08F437: TAY
+|08F434| CLC
+|08F435| ADC.b $00
+|08F437| TAY
 
-#_08F438: LDA.w PowderDraw_anim_step,Y
-#_08F43B: STA.w $03C2,X
+|08F438| LDA.w PowderDraw.anim_step,Y
+|08F43B| STA.w $03C2,X
 
 .just_draw
-#_08F43E: JSR AncillaDraw_Powder
+|08F43E| JSR AncillaDraw_Powder
 
 .exit
-#_08F441: RTS
+|08F441| RTS
 
 ;===================================================================================================
 
 RevivalFairy_MonitorHP:
-#_08F442: LDA.l $7EF36C
-#_08F446: STA.b $00
+|08F442| LDA.l $7EF36C
+|08F446| STA.b $00
 
-#_08F448: LDA.l $7EF36D
-#_08F44C: CMP.b $00
+|08F448| LDA.l $7EF36D
+|08F44C| CMP.b $00
 
-#_08F44E: BEQ .at_max
+|08F44E| BEQ .at_max
 
-#_08F450: CMP.b #$38
-#_08F452: BNE .healing
+|08F450| CMP.b #$38
+|08F452| BNE .healing
 
 .at_max
-#_08F454: LDA.w $020A
-#_08F457: BNE .healing
+|08F454| LDA.w $020A
+|08F457| BNE .healing
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F459: LDY.b #$00 ; LINKSTATE 00
+|08F459| LDY.b #$00 ; LINKSTATE 00
 
 ; fake flippers
-#_08F45B: LDA.w $0345
-#_08F45E: BEQ .not_swimming
+|08F45B| LDA.w $0345
+|08F45E| BEQ .not_swimming
 
-#_08F460: LDY.b #$04 ; LINKSTATE 04
+|08F460| LDY.b #$04 ; LINKSTATE 04
 
-#_08F462: LDA.b #$04
-#_08F464: STA.w $0340
+|08F462| LDA.b #$04
+|08F464| STA.w $0340
 
-#_08F467: BRA .set_state
+|08F467| BRA .set_state
 
 .not_swimming
-#_08F469: LDA.b $56
-#_08F46B: BEQ .set_state
+|08F469| LDA.b $56
+|08F46B| BEQ .set_state
 
-#_08F46D: LDY.b #$17 ; LINKSTATE 17
+|08F46D| LDY.b #$17 ; LINKSTATE 17
 
-#_08F46F: LDA.b #$01
-#_08F471: STA.w $02E0
+|08F46F| LDA.b #$01
+|08F471| STA.w $02E0
 
 .set_state
-#_08F474: STY.b $5D
+|08F474| STY.b $5D
 
-#_08F476: STZ.b $4D
-#_08F478: STZ.w $036B
+|08F476| STZ.b $4D
+|08F478| STZ.w $036B
 
-#_08F47B: STZ.w $030D
-#_08F47E: STZ.w $030A
+|08F47B| STZ.w $030D
+|08F47E| STZ.w $030A
 
-#_08F481: STZ.b $24
-#_08F483: STZ.b $46
+|08F481| STZ.b $24
+|08F483| STZ.b $46
 
-#_08F485: STZ.w $0C4A
-#_08F488: STZ.w $0C4B
-#_08F48B: STZ.w $0C4C
-#_08F48E: STZ.w $0C4D
-#_08F491: STZ.w $0C4E
+|08F485| STZ.w $0C4A
+|08F488| STZ.w $0C4B
+|08F48B| STZ.w $0C4C
+|08F48E| STZ.w $0C4D
+|08F491| STZ.w $0C4E
 
-#_08F494: RTS
+|08F494| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .healing
-#_08F495: LDX.b #$01
+|08F495| LDX.b #$01
 
-#_08F497: LDA.w $0C54,X
-#_08F49A: BNE .link_floating
+|08F497| LDA.w $0C54,X
+|08F49A| BNE .link_floating
 
-#_08F49C: DEC.w $039F,X
+|08F49C| DEC.w $039F,X
 
-#_08F49F: LDA.w $039F,X
-#_08F4A2: BNE .delay_ascent
+|08F49F| LDA.w $039F,X
+|08F4A2| BNE .delay_ascent
 
-#_08F4A4: INC.w $039F,X
+|08F4A4| INC.w $039F,X
 
-#_08F4A7: LDA.b #$04
-#_08F4A9: STA.w $0294,X
+|08F4A7| LDA.b #$04
+|08F4A9| STA.w $0294,X
 
-#_08F4AC: JSR AncillaMoveZ
+|08F4AC| JSR AncillaMoveZ
 
-#_08F4AF: LDA.w $029E,X
-#_08F4B2: CMP.b #$10
-#_08F4B4: BCC .delay_ascent
+|08F4AF| LDA.w $029E,X
+|08F4B2| CMP.b #$10
+|08F4B4| BCC .delay_ascent
 
-#_08F4B6: INC.w $0C54,X
+|08F4B6| INC.w $0C54,X
 
-#_08F4B9: LDA.b #$02
-#_08F4BB: STA.w $0294,X
+|08F4B9| LDA.b #$02
+|08F4BB| STA.w $0294,X
 
 .delay_ascent
-#_08F4BE: BRA .float_link
+|08F4BE| BRA .float_link
 
 ;---------------------------------------------------------------------------------------------------
 
 .link_floating
-#_08F4C0: DEC.w $0380,X
-#_08F4C3: BPL .delay_bobbing
+|08F4C0| DEC.w $0380,X
+|08F4C3| BPL .delay_bobbing
 
-#_08F4C5: LDA.b #$20
-#_08F4C7: STA.w $0380,X
+|08F4C5| LDA.b #$20
+|08F4C7| STA.w $0380,X
 
-#_08F4CA: LDA.w $0294,X
-#_08F4CD: EOR.b #$FF
-#_08F4CF: INC A
+|08F4CA| LDA.w $0294,X
+|08F4CD| EOR.b #$FF
+|08F4CF| INC A
 
-#_08F4D0: STA.w $0294,X
+|08F4D0| STA.w $0294,X
 
 ;---------------------------------------------------------------------------------------------------
 
 .delay_bobbing
-#_08F4D3: JSR AncillaMoveZ
+|08F4D3| JSR AncillaMoveZ
 
 .float_link
-#_08F4D6: LDA.w $029E,X
-#_08F4D9: STA.b $24
+|08F4D6| LDA.w $029E,X
+|08F4D9| STA.b $24
 
-#_08F4DB: RTS
+|08F4DB| RTS
 
 ;===================================================================================================
 
 Animate_GAMEOVER_Letters:
-#_08F4DC: PHB
-#_08F4DD: PHK
-#_08F4DE: PLB
+|08F4DC| PHB
+|08F4DD| PHK
+|08F4DE| PLB
 
-#_08F4DF: JSR .main
+|08F4DF| JSR .main
 
-#_08F4E2: PLB
+|08F4E2| PLB
 
-#_08F4E3: RTL
+|08F4E3| RTL
 
 ;---------------------------------------------------------------------------------------------------
 
 .vector_low
-#_08F4E4: db GAMEOVER_Sweep>>0
-#_08F4E5: db GAMEOVER_Unfurl>>0
-#_08F4E6: db GAMEOVER_Stay>>0
+|08F4E4| db GAMEOVER_Sweep
+|08F4E5| db GAMEOVER_Unfurl
+|08F4E6| db GAMEOVER_Stay
 
 .vector_high
-#_08F4E7: db GAMEOVER_Sweep>>8
-#_08F4E8: db GAMEOVER_Unfurl>>8
-#_08F4E9: db GAMEOVER_Stay>>8
+|08F4E7| db >GAMEOVER_Sweep
+|08F4E8| db >GAMEOVER_Unfurl
+|08F4E9| db >GAMEOVER_Stay
 
 ;---------------------------------------------------------------------------------------------------
 
 .main
-#_08F4EA: LDX.w $0C4A
-#_08F4ED: BEQ .none_active
+|08F4EA| LDX.w $0C4A
+|08F4ED| BEQ .none_active
 
-#_08F4EF: DEX
+|08F4EF| DEX
 
-#_08F4F0: LDA.w .vector_low,X
-#_08F4F3: STA.b $00
+|08F4F0| LDA.w .vector_low,X
+|08F4F3| STA.b $00
 
-#_08F4F5: LDA.w .vector_high,X
-#_08F4F8: STA.b $01
+|08F4F5| LDA.w .vector_high,X
+|08F4F8| STA.b $01
 
-#_08F4FA: JMP.w ($0000)
+|08F4FA| JMP.w ($0000)
 
 .none_active
-#_08F4FD: INC.b $11
+|08F4FD| INC.b $11
 
-#_08F4FF: RTS
+|08F4FF| RTS
 
 ;===================================================================================================
 
 pool GAMEOVER_Sweep
 
 .target_x
-#_08F500: db $40 ; G
-#_08F501: db $50 ; A
-#_08F502: db $60 ; M
-#_08F503: db $70 ; E
+|08F500| db $40 ; G
+|08F501| db $50 ; A
+|08F502| db $60 ; M
+|08F503| db $70 ; E
 
-#_08F504: db $88 ; O
-#_08F505: db $98 ; V
-#_08F506: db $A8 ; E
-#_08F507: db $40 ; R
+|08F504| db $88 ; O
+|08F505| db $98 ; V
+|08F506| db $A8 ; E
+|08F507| db $40 ; R
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 GAMEOVER_Sweep:
-#_08F508: LDX.w $035F
-#_08F50B: STX.w $0FA0
+|08F508| LDX.w $035F
+|08F50B| STX.w $0FA0
 
-#_08F50E: LDY.b #$80
-#_08F510: CPX.b #$07
+|08F50E| LDY.b #$80
+|08F510| CPX.b #$07
 
-#_08F512: BNE .pointless
+|08F512| BNE .pointless
 
-#_08F514: LDY.b #$80
+|08F514| LDY.b #$80
 
 ;---------------------------------------------------------------------------------------------------
 
 .pointless
-#_08F516: TYA
-#_08F517: STA.w $0C2C,X
+|08F516| TYA
+|08F517| STA.w $0C2C,X
 
-#_08F51A: JSR AncillaMoveX
+|08F51A| JSR AncillaMoveX
 
-#_08F51D: LDA.w $0C18,X
-#_08F520: BNE .leftwards_ho
+|08F51D| LDA.w $0C18,X
+|08F520| BNE .leftwards_ho
 
-#_08F522: LDA.w $0C04,X
-#_08F525: CMP.w .target_x,X
-#_08F528: BCS .leftwards_ho
+|08F522| LDA.w $0C04,X
+|08F525| CMP.w .target_x,X
+|08F528| BCS .leftwards_ho
 
-#_08F52A: LDA.w .target_x,X
-#_08F52D: STA.w $0C04,X
+|08F52A| LDA.w .target_x,X
+|08F52D| STA.w $0C04,X
 
-#_08F530: INX
-#_08F531: STX.w $035F
+|08F530| INX
+|08F531| STX.w $035F
 
-#_08F534: CPX.b #$08
-#_08F536: BNE .leftwards_ho
+|08F534| CPX.b #$08
+|08F536| BNE .leftwards_ho
 
-#_08F538: LDA.b #$07
-#_08F53A: STA.w $035F
+|08F538| LDA.b #$07
+|08F53A| STA.w $035F
 
-#_08F53D: INC.w $0C4A
+|08F53D| INC.w $0C4A
 
-#_08F540: STZ.w $039D
+|08F540| STZ.w $039D
 
-#_08F543: LDA.b #$26 ; SFX3.26
-#_08F545: STA.w $012F
+|08F543| LDA.b #$26 ; SFX3.26
+|08F545| STA.w $012F
 
-#_08F548: BRA .proceed_to_draw
+|08F548| BRA .proceed_to_draw
 
 ;---------------------------------------------------------------------------------------------------
 
 .leftwards_ho
-#_08F54A: CPX.b #$07
-#_08F54C: BNE .proceed_to_draw
+|08F54A| CPX.b #$07
+|08F54C| BNE .proceed_to_draw
 
-#_08F54E: LDY.b #$06
-#_08F550: CPY.w $039D
-#_08F553: BEQ .not_moving_together
+|08F54E| LDY.b #$06
+|08F550| CPY.w $039D
+|08F553| BEQ .not_moving_together
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_follow
-#_08F555: LDA.w $0C04,X
-#_08F558: STA.w $0C04,Y
+|08F555| LDA.w $0C04,X
+|08F558| STA.w $0C04,Y
 
-#_08F55B: DEY
-#_08F55C: CPY.w $039D
-#_08F55F: BNE .next_follow
+|08F55B| DEY
+|08F55C| CPY.w $039D
+|08F55F| BNE .next_follow
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_moving_together
-#_08F561: LDA.w $0C18,X
-#_08F564: BNE .proceed_to_draw
+|08F561| LDA.w $0C18,X
+|08F564| BNE .proceed_to_draw
 
-#_08F566: LDA.w $0C04,X
+|08F566| LDA.w $0C04,X
 
-#_08F569: LDX.w $039D
+|08F569| LDX.w $039D
 
-#_08F56C: CMP.w .target_x,X
-#_08F56F: BCS .proceed_to_draw
+|08F56C| CMP.w .target_x,X
+|08F56F| BCS .proceed_to_draw
 
-#_08F571: DEC.w $039D
+|08F571| DEC.w $039D
 
 .proceed_to_draw
-#_08F574: BRL GAMEOVER_Stay
+|08F574| BRL GAMEOVER_Stay
 
 ;===================================================================================================
 
 pool GAMEOVER_Unfurl
 
 .target_x
-#_08F577: db $58 ; G
-#_08F578: db $60 ; A
-#_08F579: db $68 ; M
-#_08F57A: db $70 ; E
+|08F577| db $58 ; G
+|08F578| db $60 ; A
+|08F579| db $68 ; M
+|08F57A| db $70 ; E
 
-#_08F57B: db $88 ; O
-#_08F57C: db $90 ; V
-#_08F57D: db $98 ; E
-#_08F57E: db $A0 ; R
+|08F57B| db $88 ; O
+|08F57C| db $90 ; V
+|08F57D| db $98 ; E
+|08F57E| db $A0 ; R
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 GAMEOVER_Unfurl:
-#_08F57F: LDX.w $035F
-#_08F582: STX.w $0FA0
+|08F57F| LDX.w $035F
+|08F582| STX.w $0FA0
 
-#_08F585: LDA.b #$60
-#_08F587: STA.w $0C2C,X
+|08F585| LDA.b #$60
+|08F587| STA.w $0C2C,X
 
-#_08F58A: JSR AncillaMoveX
+|08F58A| JSR AncillaMoveX
 
-#_08F58D: LDY.w $039D
+|08F58D| LDY.w $039D
 
-#_08F590: LDA.w $0C04,X
-#_08F593: CMP.w .target_x,Y
-#_08F596: BCC .rightwards_ho
+|08F590| LDA.w $0C04,X
+|08F593| CMP.w .target_x,Y
+|08F596| BCC .rightwards_ho
 
-#_08F598: LDA.w .target_x,Y
-#_08F59B: STA.w $0C04,Y
+|08F598| LDA.w .target_x,Y
+|08F59B| STA.w $0C04,Y
 
-#_08F59E: INC.w $039D
+|08F59E| INC.w $039D
 
-#_08F5A1: LDA.w $039D
-#_08F5A4: CMP.b #$08
-#_08F5A6: BNE .rightwards_ho
+|08F5A1| LDA.w $039D
+|08F5A4| CMP.b #$08
+|08F5A6| BNE .rightwards_ho
 
-#_08F5A8: INC.b $11
-#_08F5AA: INC.w $0C4A
+|08F5A8| INC.b $11
+|08F5AA| INC.w $0C4A
 
-#_08F5AD: BRA .proceed_to_draw
+|08F5AD| BRA .proceed_to_draw
 
 .rightwards_ho
-#_08F5AF: LDA.w $039D
-#_08F5B2: DEC A
-#_08F5B3: STA.b $00
+|08F5AF| LDA.w $039D
+|08F5B2| DEC A
+|08F5B3| STA.b $00
 
-#_08F5B5: LDX.w $035F
-#_08F5B8: TXY
+|08F5B5| LDX.w $035F
+|08F5B8| TXY
 
 .next_follow
-#_08F5B9: LDA.w $0C04,X
-#_08F5BC: STA.w $0C04,Y
+|08F5B9| LDA.w $0C04,X
+|08F5BC| STA.w $0C04,Y
 
-#_08F5BF: DEY
-#_08F5C0: CPY.b $00
-#_08F5C2: BNE .next_follow
+|08F5BF| DEY
+|08F5C0| CPY.b $00
+|08F5C2| BNE .next_follow
 
 ;---------------------------------------------------------------------------------------------------
 
 .proceed_to_draw
-#_08F5C4: BRA GAMEOVER_Stay
+|08F5C4| BRA GAMEOVER_Stay
 
 ;===================================================================================================
 
 pool GAMEOVER_Stay
 
 .char
-#_08F5C6: db $40, $50 ; G
-#_08F5C8: db $41, $51 ; A
-#_08F5CA: db $42, $52 ; M
-#_08F5CC: db $43, $53 ; E
+|08F5C6| db $40, $50 ; G
+|08F5C8| db $41, $51 ; A
+|08F5CA| db $42, $52 ; M
+|08F5CC| db $43, $53 ; E
 
-#_08F5CE: db $44, $54 ; O
-#_08F5D0: db $45, $55 ; V
-#_08F5D2: db $43, $53 ; E
-#_08F5D4: db $46, $56 ; R
+|08F5CE| db $44, $54 ; O
+|08F5D0| db $45, $55 ; V
+|08F5D2| db $43, $53 ; E
+|08F5D4| db $46, $56 ; R
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 GAMEOVER_Stay:
-#_08F5D6: LDA.b #$00
-#_08F5D8: STA.b $90
+|08F5D6| LDA.b #$00
+|08F5D8| STA.b $90
 
-#_08F5DA: LDA.b #$08
-#_08F5DC: STA.b $91
+|08F5DA| LDA.b #$08
+|08F5DC| STA.b $91
 
-#_08F5DE: LDA.b #$20
-#_08F5E0: STA.b $92
+|08F5DE| LDA.b #$20
+|08F5E0| STA.b $92
 
-#_08F5E2: LDA.b #$0A
-#_08F5E4: STA.b $93
+|08F5E2| LDA.b #$0A
+|08F5E4| STA.b $93
 
-#_08F5E6: LDX.w $035F
-#_08F5E9: LDY.b #$00
+|08F5E6| LDX.w $035F
+|08F5E9| LDY.b #$00
 
 ;---------------------------------------------------------------------------------------------------
 
 .next_letter
-#_08F5EB: PHX
+|08F5EB| PHX
 
-#_08F5EC: LDA.b #$57
-#_08F5EE: STA.b $00
-#_08F5F0: STZ.b $01
+|08F5EC| LDA.b #$57
+|08F5EE| STA.b $00
+|08F5F0| STZ.b $01
 
-#_08F5F2: LDA.w $0C04,X
-#_08F5F5: STA.b $02
+|08F5F2| LDA.w $0C04,X
+|08F5F5| STA.b $02
 
-#_08F5F7: LDA.w $0C18,X
-#_08F5FA: STA.b $03
+|08F5F7| LDA.w $0C18,X
+|08F5FA| STA.b $03
 
-#_08F5FC: JSR Ancilla_SetOAM_XY
+|08F5FC| JSR Ancilla_SetOAM_XY
 
-#_08F5FF: TXA
-#_08F600: ASL A
-#_08F601: TAX
+|08F5FF| TXA
+|08F600| ASL A
+|08F601| TAX
 
-#_08F602: LDA.w .char+0,X
-#_08F605: STA.b ($90),Y
+|08F602| LDA.w .char+0,X
+|08F605| STA.b ($90),Y
 
-#_08F607: INY
+|08F607| INY
 
-#_08F608: LDA.b #$3C
-#_08F60A: STA.b ($90),Y
+|08F608| LDA.b #$3C
+|08F60A| STA.b ($90),Y
 
-#_08F60C: INY
+|08F60C| INY
 
-#_08F60D: LDA.b #$5F
-#_08F60F: STA.b $00
-#_08F611: STZ.b $01
+|08F60D| LDA.b #$5F
+|08F60F| STA.b $00
+|08F611| STZ.b $01
 
-#_08F613: JSR Ancilla_SetOAM_XY
+|08F613| JSR Ancilla_SetOAM_XY
 
-#_08F616: LDA.w .char+1,X
-#_08F619: STA.b ($90),Y
+|08F616| LDA.w .char+1,X
+|08F619| STA.b ($90),Y
 
-#_08F61B: INY
+|08F61B| INY
 
-#_08F61C: LDA.b #$3C
-#_08F61E: STA.b ($90),Y
+|08F61C| LDA.b #$3C
+|08F61E| STA.b ($90),Y
 
-#_08F620: INY
-#_08F621: PHY
+|08F620| INY
+|08F621| PHY
 
-#_08F622: TYA
-#_08F623: SEC
-#_08F624: SBC.b #$08
-#_08F626: LSR A
-#_08F627: LSR A
-#_08F628: TAY
+|08F622| TYA
+|08F623| SEC
+|08F624| SBC.b #$08
+|08F626| LSR A
+|08F627| LSR A
+|08F628| TAY
 
-#_08F629: LDA.b #$00
-#_08F62B: STA.b ($92),Y
+|08F629| LDA.b #$00
+|08F62B| STA.b ($92),Y
 
-#_08F62D: INY
+|08F62D| INY
 
-#_08F62E: STA.b ($92),Y
+|08F62E| STA.b ($92),Y
 
-#_08F630: PLY
-#_08F631: PLX
+|08F630| PLY
+|08F631| PLX
 
-#_08F632: DEX
-#_08F633: BPL .next_letter
+|08F632| DEX
+|08F633| BPL .next_letter
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F635: RTS
+|08F635| RTS
 
 ;===================================================================================================
 
 Ancilla_SetPanRelativeCoordinates:
-#_08F636: PHX
+|08F636| PHX
 
-#_08F637: LSR A ; /32
-#_08F638: LSR A
-#_08F639: LSR A
-#_08F63A: LSR A
-#_08F63B: LSR A
+|08F637| LSR A ; /32
+|08F638| LSR A
+|08F639| LSR A
+|08F63A| LSR A
+|08F63B| LSR A
 
-#_08F63C: TAX
+|08F63C| TAX
 
-#_08F63D: LDA.l AncillaPanValues,X
+|08F63D| LDA.l AncillaPanValues,X
 
-#_08F641: PLX
+|08F641| PLX
 
-#_08F642: RTS
+|08F642| RTS
 
 ;===================================================================================================
 
 AddAncilla_bank08:
-#_08F643: PHA
+|08F643| PHA
 
-#_08F644: JSL FindAncillaSlot
+|08F644| JSL FindAncillaSlot
 
-#_08F648: PLA
+|08F648| PLA
 
-#_08F649: TYX
-#_08F64A: BMI .fail
+|08F649| TYX
+|08F64A| BMI .fail
 
-#_08F64C: STA.w $0C4A,X
+|08F64C| STA.w $0C4A,X
 
-#_08F64F: TAY
+|08F64F| TAY
 
-#_08F650: LDA.w AncillaObjectAllocation,Y
-#_08F653: STA.w $0C90,X
+|08F650| LDA.w AncillaObjectAllocation,Y
+|08F653| STA.w $0C90,X
 
-#_08F656: LDA.b $EE
-#_08F658: STA.w $0C7C,X
+|08F656| LDA.b $EE
+|08F658| STA.w $0C7C,X
 
-#_08F65B: LDA.w $0476
-#_08F65E: STA.w $03CA,X
+|08F65B| LDA.w $0476
+|08F65E| STA.w $03CA,X
 
-#_08F661: STZ.w $0C22,X
-#_08F664: STZ.w $0C2C,X
+|08F661| STZ.w $0C22,X
+|08F664| STZ.w $0C2C,X
 
-#_08F667: STZ.w $0280,X
-#_08F66A: STZ.w $028A,X
+|08F667| STZ.w $0280,X
+|08F66A| STZ.w $028A,X
 
-#_08F66D: CLC
+|08F66D| CLC
 
-#_08F66E: RTS
+|08F66E| RTS
 
 .fail
-#_08F66F: SEC
+|08F66F| SEC
 
-#_08F670: RTS
+|08F670| RTS
 
 ;===================================================================================================
 ; Seems like it looks for a matching ancilla
 ;===================================================================================================
 UNREACHABLE_08F671:
-#_08F671: LDX.b #$05
+|08F671| LDX.b #$05
 
 .next_slot
-#_08F673: CMP.w $0C4A,X
-#_08F676: BEQ .found_match
+|08F673| CMP.w $0C4A,X
+|08F676| BEQ .found_match
 
-#_08F678: DEX
-#_08F679: BPL .next_slot
+|08F678| DEX
+|08F679| BPL .next_slot
 
-#_08F67B: CLC
+|08F67B| CLC
 
-#_08F67C: RTS
+|08F67C| RTS
 
 .found_match
-#_08F67D: SEC
+|08F67D| SEC
 
-#_08F67E: RTS
+|08F67E| RTS
 
 ;===================================================================================================
 
 AncillaPriorities:
-#_08F67F: db $20, $10, $30, $20
+|08F67F| db $20, $10, $30, $20
 
 ;===================================================================================================
 
 Ancilla_PrepOAMCoord:
-#_08F683: LDY.w $0C7C,X
+|08F683| LDY.w $0C7C,X
 
-#_08F686: LDA.w AncillaPriorities,Y
-#_08F689: STA.b $65
-#_08F68B: STZ.b $64
+|08F686| LDA.w AncillaPriorities,Y
+|08F689| STA.b $65
+|08F68B| STZ.b $64
 
-#_08F68D: LDA.w $0BFA,X
-#_08F690: STA.b $00
+|08F68D| LDA.w $0BFA,X
+|08F690| STA.b $00
 
-#_08F692: LDA.w $0C0E,X
-#_08F695: STA.b $01
+|08F692| LDA.w $0C0E,X
+|08F695| STA.b $01
 
-#_08F697: LDA.w $0C04,X
-#_08F69A: STA.b $02
+|08F697| LDA.w $0C04,X
+|08F69A| STA.b $02
 
-#_08F69C: LDA.w $0C18,X
-#_08F69F: STA.b $03
+|08F69C| LDA.w $0C18,X
+|08F69F| STA.b $03
 
-#_08F6A1: REP #$20
+|08F6A1| REP #$20
 
-#_08F6A3: LDA.b $00
-#_08F6A5: SEC
-#_08F6A6: SBC.b $E8
-#_08F6A8: STA.b $00
+|08F6A3| LDA.b $00
+|08F6A5| SEC
+|08F6A6| SBC.b $E8
+|08F6A8| STA.b $00
 
-#_08F6AA: LDA.b $02
-#_08F6AC: SEC
-#_08F6AD: SBC.b $E2
-#_08F6AF: STA.b $02
-#_08F6B1: STA.b $04
+|08F6AA| LDA.b $02
+|08F6AC| SEC
+|08F6AD| SBC.b $E2
+|08F6AF| STA.b $02
+|08F6B1| STA.b $04
 
-#_08F6B3: SEP #$20
+|08F6B3| SEP #$20
 
-#_08F6B5: RTS
+|08F6B5| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .adjusted
-#_08F6B6: LDY.w $0C7C,X
+|08F6B6| LDY.w $0C7C,X
 
-#_08F6B9: LDA.w AncillaPriorities,Y
-#_08F6BC: STA.b $65
-#_08F6BE: STZ.b $64
+|08F6B9| LDA.w AncillaPriorities,Y
+|08F6BC| STA.b $65
+|08F6BE| STZ.b $64
 
-#_08F6C0: LDA.w $0BFA,X
-#_08F6C3: STA.b $00
+|08F6C0| LDA.w $0BFA,X
+|08F6C3| STA.b $00
 
-#_08F6C5: LDA.w $0C0E,X
-#_08F6C8: STA.b $01
+|08F6C5| LDA.w $0C0E,X
+|08F6C8| STA.b $01
 
-#_08F6CA: LDA.w $0C04,X
-#_08F6CD: STA.b $02
+|08F6CA| LDA.w $0C04,X
+|08F6CD| STA.b $02
 
-#_08F6CF: LDA.w $0C18,X
-#_08F6D2: STA.b $03
+|08F6CF| LDA.w $0C18,X
+|08F6D2| STA.b $03
 
-#_08F6D4: REP #$20
+|08F6D4| REP #$20
 
-#_08F6D6: LDA.b $00
-#_08F6D8: SEC
-#_08F6D9: SBC.w $0122
-#_08F6DC: STA.b $00
+|08F6D6| LDA.b $00
+|08F6D8| SEC
+|08F6D9| SBC.w $0122
+|08F6DC| STA.b $00
 
-#_08F6DE: LDA.b $02
-#_08F6E0: SEC
-#_08F6E1: SBC.w $011E
-#_08F6E4: STA.b $02
-#_08F6E6: STA.b $04
+|08F6DE| LDA.b $02
+|08F6E0| SEC
+|08F6E1| SBC.w $011E
+|08F6E4| STA.b $02
+|08F6E6| STA.b $04
 
-#_08F6E8: SEP #$20
+|08F6E8| SEP #$20
 
-#_08F6EA: RTS
+|08F6EA| RTS
 
 ;===================================================================================================
 
 Ancilla_PrepOAMCoord_long:
-#_08F6EB: PHB
-#_08F6EC: PHK
-#_08F6ED: PLB
+|08F6EB| PHB
+|08F6EC| PHK
+|08F6ED| PLB
 
-#_08F6EE: JSR Ancilla_PrepOAMCoord
+|08F6EE| JSR Ancilla_PrepOAMCoord
 
-#_08F6F1: PLB
+|08F6F1| PLB
 
-#_08F6F2: RTL
+|08F6F2| RTL
 
 ;===================================================================================================
 
 Ancilla_SetOAM_XY:
-#_08F6F3: PHX
+|08F6F3| PHX
 
-#_08F6F4: LDX.b #$F0
+|08F6F4| LDX.b #$F0
 
-#_08F6F6: LDA.b $01
-#_08F6F8: BNE .off_screen
+|08F6F6| LDA.b $01
+|08F6F8| BNE .off_screen
 
-#_08F6FA: LDA.b $03
-#_08F6FC: BNE .off_screen
+|08F6FA| LDA.b $03
+|08F6FC| BNE .off_screen
 
-#_08F6FE: LDA.b $02
-#_08F700: STA.b ($90),Y
+|08F6FE| LDA.b $02
+|08F700| STA.b ($90),Y
 
-#_08F702: LDA.b $00
-#_08F704: CMP.b #$F0
-#_08F706: BCS .off_screen
+|08F702| LDA.b $00
+|08F704| CMP.b #$F0
+|08F706| BCS .off_screen
 
-#_08F708: TAX
+|08F708| TAX
 
 .off_screen
-#_08F709: INY
+|08F709| INY
 
-#_08F70A: TXA
-#_08F70B: STA.b ($90),Y
+|08F70A| TXA
+|08F70B| STA.b ($90),Y
 
-#_08F70D: INY
+|08F70D| INY
 
-#_08F70E: PLX
+|08F70E| PLX
 
-#_08F70F: RTS
+|08F70F| RTS
 
 ;===================================================================================================
 
 Ancilla_SetOAM_XY_long:
-#_08F710: JSR Ancilla_SetOAM_XY
+|08F710| JSR Ancilla_SetOAM_XY
 
-#_08F713: RTL
+|08F713| RTL
 
 ;===================================================================================================
 
 Ancilla_SetOAM_XY_safe:
-#_08F714: REP #$20
+|08F714| REP #$20
 
-#_08F716: LDA.b $02
-#_08F718: STA.b ($90),Y
+|08F716| LDA.b $02
+|08F718| STA.b ($90),Y
 
-#_08F71A: INY
+|08F71A| INY
 
-#_08F71B: CLC
-#_08F71C: ADC.w #$0080
-#_08F71F: CMP.w #$0180
-#_08F722: BCS .off_screen
+|08F71B| CLC
+|08F71C| ADC.w #$0080
+|08F71F| CMP.w #$0180
+|08F722| BCS .off_screen
 
-#_08F724: LDA.b $02
-#_08F726: AND.w #$0100
-#_08F729: STA.b $74
+|08F724| LDA.b $02
+|08F726| AND.w #$0100
+|08F729| STA.b $74
 
-#_08F72B: LDA.b $00
-#_08F72D: STA.b ($90),Y
+|08F72B| LDA.b $00
+|08F72D| STA.b ($90),Y
 
-#_08F72F: CLC
-#_08F730: ADC.w #$0010
-#_08F733: CMP.w #$0100
-#_08F736: BCC .on_screen
+|08F72F| CLC
+|08F730| ADC.w #$0010
+|08F733| CMP.w #$0100
+|08F736| BCC .on_screen
 
 .off_screen
-#_08F738: LDA.w #$00F0
-#_08F73B: STA.b ($90),Y
+|08F738| LDA.w #$00F0
+|08F73B| STA.b ($90),Y
 
 .on_screen
-#_08F73D: SEP #$20
+|08F73D| SEP #$20
 
-#_08F73F: INY
+|08F73F| INY
 
-#_08F740: RTS
+|08F740| RTS
 
 ;===================================================================================================
 
 pool Ancilla_CheckLinkCollision
 
 .offset_y
-#_08F741: dw  0
-#_08F743: dw  8
-#_08F745: dw  8
-#_08F747: dw  8
-#_08F749: dw  0
+|08F741| dw  0
+|08F743| dw  8
+|08F745| dw  8
+|08F747| dw  8
+|08F749| dw  0
 
 .offset_x
-#_08F74B: dw  0
-#_08F74D: dw  8
-#_08F74F: dw  8
-#_08F751: dw  8
-#_08F753: dw  0
+|08F74B| dw  0
+|08F74D| dw  8
+|08F74F| dw  8
+|08F751| dw  8
+|08F753| dw  0
 
 .height
-#_08F755: dw 20
-#_08F757: dw 20
-#_08F759: dw  8
-#_08F75B: dw 28
-#_08F75D: dw 14
+|08F755| dw 20
+|08F757| dw 20
+|08F759| dw  8
+|08F75B| dw 28
+|08F75D| dw 14
 
 .width
-#_08F75F: dw 20
-#_08F761: dw  3
-#_08F763: dw  8
-#_08F765: dw 24
-#_08F767: dw 14
+|08F75F| dw 20
+|08F761| dw  3
+|08F763| dw  8
+|08F765| dw 24
+|08F767| dw 14
 
 .offset_link_y
-#_08F769: dw 12
-#_08F76B: dw 12
-#_08F76D: dw 12
-#_08F76F: dw 12
-#_08F771: dw 12
+|08F769| dw 12
+|08F76B| dw 12
+|08F76D| dw 12
+|08F76F| dw 12
+|08F771| dw 12
 
 .offset_link_x
-#_08F773: dw  8
-#_08F775: dw  8
-#_08F777: dw  8
-#_08F779: dw 12
-#_08F77B: dw  8
+|08F773| dw  8
+|08F775| dw  8
+|08F777| dw  8
+|08F779| dw 12
+|08F77B| dw  8
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla_CheckLinkCollision:
-#_08F77D: TYA
-#_08F77E: ASL A
-#_08F77F: TAY
+|08F77D| TYA
+|08F77E| ASL A
+|08F77F| TAY
 
-#_08F780: LDA.w $0BFA,X
-#_08F783: STA.b $00
+|08F780| LDA.w $0BFA,X
+|08F783| STA.b $00
 
-#_08F785: LDA.w $0C0E,X
-#_08F788: STA.b $01
+|08F785| LDA.w $0C0E,X
+|08F788| STA.b $01
 
-#_08F78A: LDA.w $0C04,X
-#_08F78D: STA.b $02
+|08F78A| LDA.w $0C04,X
+|08F78D| STA.b $02
 
-#_08F78F: LDA.w $0C18,X
-#_08F792: STA.b $03
+|08F78F| LDA.w $0C18,X
+|08F792| STA.b $03
 
-#_08F794: STZ.b $0B
+|08F794| STZ.b $0B
 
-#_08F796: LDA.w $029E,X
-#_08F799: STA.b $0A
+|08F796| LDA.w $029E,X
+|08F799| STA.b $0A
 
-#_08F79B: BPL .positive_z
+|08F79B| BPL .positive_z
 
-#_08F79D: LDA.b #$FF
-#_08F79F: STA.b $0B
+|08F79D| LDA.b #$FF
+|08F79F| STA.b $0B
 
 ;---------------------------------------------------------------------------------------------------
 
 .positive_z
-#_08F7A1: REP #$20
+|08F7A1| REP #$20
 
-#_08F7A3: LDA.b $00
-#_08F7A5: CLC
-#_08F7A6: ADC.b $0A
-#_08F7A8: CLC
-#_08F7A9: ADC.w .offset_y,Y
-#_08F7AC: STA.b $00
+|08F7A3| LDA.b $00
+|08F7A5| CLC
+|08F7A6| ADC.b $0A
+|08F7A8| CLC
+|08F7A9| ADC.w .offset_y,Y
+|08F7AC| STA.b $00
 
-#_08F7AE: LDA.b $02
-#_08F7B0: CLC
-#_08F7B1: ADC.w .offset_x,Y
-#_08F7B4: STA.b $02
+|08F7AE| LDA.b $02
+|08F7B0| CLC
+|08F7B1| ADC.w .offset_x,Y
+|08F7B4| STA.b $02
 
-#_08F7B6: LDA.b $20
-#_08F7B8: CLC
-#_08F7B9: ADC.w .offset_link_y,Y
+|08F7B6| LDA.b $20
+|08F7B8| CLC
+|08F7B9| ADC.w .offset_link_y,Y
 
-#_08F7BC: SEC
-#_08F7BD: SBC.b $00
-#_08F7BF: STA.b $04
+|08F7BC| SEC
+|08F7BD| SBC.b $00
+|08F7BF| STA.b $04
 
-#_08F7C1: BPL .positive_y
+|08F7C1| BPL .positive_y
 
-#_08F7C3: EOR.w #$FFFF
-#_08F7C6: INC A
+|08F7C3| EOR.w #$FFFF
+|08F7C6| INC A
 
 .positive_y
-#_08F7C7: STA.b $08
+|08F7C7| STA.b $08
 
-#_08F7C9: CMP.w .height,Y
-#_08F7CC: BCS .no_collision
+|08F7C9| CMP.w .height,Y
+|08F7CC| BCS .no_collision
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F7CE: LDA.b $22
-#_08F7D0: CLC
-#_08F7D1: ADC.w .offset_link_x,Y
-#_08F7D4: SEC
-#_08F7D5: SBC.b $02
-#_08F7D7: STA.b $06
+|08F7CE| LDA.b $22
+|08F7D0| CLC
+|08F7D1| ADC.w .offset_link_x,Y
+|08F7D4| SEC
+|08F7D5| SBC.b $02
+|08F7D7| STA.b $06
 
-#_08F7D9: BPL .positive_x
+|08F7D9| BPL .positive_x
 
-#_08F7DB: EOR.w #$FFFF
-#_08F7DE: INC A
+|08F7DB| EOR.w #$FFFF
+|08F7DE| INC A
 
 .positive_x
-#_08F7DF: STA.b $0A
+|08F7DF| STA.b $0A
 
-#_08F7E1: CMP.w .width,Y
-#_08F7E4: BCS .no_collision
+|08F7E1| CMP.w .width,Y
+|08F7E4| BCS .no_collision
 
 ;---------------------------------------------------------------------------------------------------
 
 .collision
-#_08F7E6: SEP #$20
-#_08F7E8: SEC
+|08F7E6| SEP #$20
+|08F7E8| SEC
 
-#_08F7E9: RTS
+|08F7E9| RTS
 
 .no_collision
-#_08F7EA: SEP #$20
-#_08F7EC: CLC
+|08F7EA| SEP #$20
+|08F7EC| CLC
 
-#_08F7ED: RTS
+|08F7ED| RTS
 
 ;===================================================================================================
 
 Hookshot_CheckProximityToLink:
-#_08F7EE: REP #$20
+|08F7EE| REP #$20
 
-#_08F7F0: LDA.b $00
-#_08F7F2: CLC
-#_08F7F3: ADC.w #$0004
-#_08F7F6: STA.b $72
+|08F7F0| LDA.b $00
+|08F7F2| CLC
+|08F7F3| ADC.w #$0004
+|08F7F6| STA.b $72
 
-#_08F7F8: LDA.b $02
-#_08F7FA: CLC
-#_08F7FB: ADC.w #$0004
-#_08F7FE: STA.b $74
+|08F7F8| LDA.b $02
+|08F7FA| CLC
+|08F7FB| ADC.w #$0004
+|08F7FE| STA.b $74
 
-#_08F800: LDA.b $20
-#_08F802: SEC
-#_08F803: SBC.b $E8
-#_08F805: CLC
-#_08F806: ADC.w #$000C
+|08F800| LDA.b $20
+|08F802| SEC
+|08F803| SBC.b $E8
+|08F805| CLC
+|08F806| ADC.w #$000C
 
-#_08F809: SEC
-#_08F80A: SBC.b $72
+|08F809| SEC
+|08F80A| SBC.b $72
 
-#_08F80C: BPL .positive_y
+|08F80C| BPL .positive_y
 
-#_08F80E: EOR.w #$FFFF
-#_08F811: INC A
+|08F80E| EOR.w #$FFFF
+|08F811| INC A
 
 .positive_y
-#_08F812: CMP.w #$000C
-#_08F815: BCS .too_far
+|08F812| CMP.w #$000C
+|08F815| BCS .too_far
 
-#_08F817: LDA.b $22
-#_08F819: SEC
-#_08F81A: SBC.b $E2
-#_08F81C: CLC
-#_08F81D: ADC.w #$0008
-#_08F820: SEC
-#_08F821: SBC.b $74
+|08F817| LDA.b $22
+|08F819| SEC
+|08F81A| SBC.b $E2
+|08F81C| CLC
+|08F81D| ADC.w #$0008
+|08F820| SEC
+|08F821| SBC.b $74
 
-#_08F823: BPL .positive_x
+|08F823| BPL .positive_x
 
-#_08F825: EOR.w #$FFFF
-#_08F828: INC A
+|08F825| EOR.w #$FFFF
+|08F828| INC A
 
 .positive_x
-#_08F829: CMP.w #$000C
-#_08F82C: BCS .too_far
+|08F829| CMP.w #$000C
+|08F82C| BCS .too_far
 
 .close
-#_08F82E: SEP #$20
-#_08F830: SEC
+|08F82E| SEP #$20
+|08F830| SEC
 
-#_08F831: RTS
+|08F831| RTS
 
 .too_far
-#_08F832: SEP #$20
-#_08F834: CLC
+|08F832| SEP #$20
+|08F834| CLC
 
-#_08F835: RTS
+|08F835| RTS
 
 ;===================================================================================================
 
 pool Ancilla_CheckForEntranceTrigger
 
 .position_y
-#_08F836: dw $0D40, $0210, $0CFC, $0100
+|08F836| dw $0D40, $0210, $0CFC, $0100
 
 .position_x
-#_08F83E: dw $0D80, $0E68, $0130, $0F10
+|08F83E| dw $0D80, $0E68, $0130, $0F10
 
 .height
-#_08F846: dw $000B, $0020, $0010, $000C
+|08F846| dw $000B, $0020, $0010, $000C
 
 .width
-#_08F84E: dw $0010, $0010, $0010, $0010
+|08F84E| dw $0010, $0010, $0010, $0010
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 Ancilla_CheckForEntranceTrigger:
-#_08F856: TYA
-#_08F857: ASL A
-#_08F858: TAY
+|08F856| TYA
+|08F857| ASL A
+|08F858| TAY
 
-#_08F859: REP #$20
+|08F859| REP #$20
 
-#_08F85B: LDA.b $20
-#_08F85D: CLC
-#_08F85E: ADC.w #$000C
-#_08F861: SEC
-#_08F862: SBC.w .position_y,Y
+|08F85B| LDA.b $20
+|08F85D| CLC
+|08F85E| ADC.w #$000C
+|08F861| SEC
+|08F862| SBC.w .position_y,Y
 
-#_08F865: BPL .positive_y
+|08F865| BPL .positive_y
 
-#_08F867: EOR.w #$FFFF
-#_08F86A: INC A
+|08F867| EOR.w #$FFFF
+|08F86A| INC A
 
 .positive_y
-#_08F86B: CMP.w .height,Y
-#_08F86E: BCS .out_of_range
+|08F86B| CMP.w .height,Y
+|08F86E| BCS .out_of_range
 
-#_08F870: LDA.b $22
-#_08F872: CLC
-#_08F873: ADC.w #$0008
-#_08F876: SEC
-#_08F877: SBC.w .position_x,Y
+|08F870| LDA.b $22
+|08F872| CLC
+|08F873| ADC.w #$0008
+|08F876| SEC
+|08F877| SBC.w .position_x,Y
 
-#_08F87A: BPL .positive_x
+|08F87A| BPL .positive_x
 
-#_08F87C: EOR.w #$FFFF
-#_08F87F: INC A
+|08F87C| EOR.w #$FFFF
+|08F87F| INC A
 
 .positive_x
-#_08F880: CMP.w .width,Y
-#_08F883: BCS .out_of_range
+|08F880| CMP.w .width,Y
+|08F883| BCS .out_of_range
 
 .success
-#_08F885: SEP #$20
-#_08F887: SEC
+|08F885| SEP #$20
+|08F887| SEC
 
-#_08F888: RTS
+|08F888| RTS
 
 .out_of_range
-#_08F889: SEP #$20
-#_08F88B: CLC
+|08F889| SEP #$20
+|08F88B| CLC
 
-#_08F88C: RTS
+|08F88C| RTS
 
 ;===================================================================================================
 
 pool AncillaDraw_Shadow
 
 .char
-#_08F88D: db $6C, $6C
-#_08F88F: db $28, $28
-#_08F891: db $38, $FF
-#_08F893: db $C8, $C8
-#_08F895: db $D8, $D8
-#_08F897: db $D9, $D9
-#_08F899: db $DA, $DA
+|08F88D| db $6C, $6C
+|08F88F| db $28, $28
+|08F891| db $38, $FF
+|08F893| db $C8, $C8
+|08F895| db $D8, $D8
+|08F897| db $D9, $D9
+|08F899| db $DA, $DA
 
 .prop
-#_08F89B: db $28, $68
-#_08F89D: db $28, $68
-#_08F89F: db $28, $FF
-#_08F8A1: db $22, $22
-#_08F8A3: db $24, $64
-#_08F8A5: db $24, $64
-#_08F8A7: db $24, $64
+|08F89B| db $28, $68
+|08F89D| db $28, $68
+|08F89F| db $28, $FF
+|08F8A1| db $22, $22
+|08F8A3| db $24, $64
+|08F8A5| db $24, $64
+|08F8A7| db $24, $64
 
-pool off
+endpool
 
 ;---------------------------------------------------------------------------------------------------
 
 AncillaDraw_Shadow:
-#_08F8A9: CPX.b #$02
-#_08F8AB: BNE .big_shadow
+|08F8A9| CPX.b #$02
+|08F8AB| BNE .big_shadow
 
-#_08F8AD: REP #$20
+|08F8AD| REP #$20
 
-#_08F8AF: LDA.b $02
-#_08F8B1: CLC
-#_08F8B2: ADC.w #$0004
-#_08F8B5: STA.b $02
+|08F8AF| LDA.b $02
+|08F8B1| CLC
+|08F8B2| ADC.w #$0004
+|08F8B5| STA.b $02
 
-#_08F8B7: SEP #$20
+|08F8B7| SEP #$20
 
 ;---------------------------------------------------------------------------------------------------
 
 .big_shadow
-#_08F8B9: TXA
-#_08F8BA: ASL A
-#_08F8BB: TAX
+|08F8B9| TXA
+|08F8BA| ASL A
+|08F8BB| TAX
 
-#_08F8BC: STZ.b $74
-#_08F8BE: STZ.b $75
+|08F8BC| STZ.b $74
+|08F8BE| STZ.b $75
 
-#_08F8C0: JSR Ancilla_SetOAM_XY_safe
+|08F8C0| JSR Ancilla_SetOAM_XY_safe
 
-#_08F8C3: LDA.w .char+0,X
-#_08F8C6: STA.b ($90),Y
+|08F8C3| LDA.w .char+0,X
+|08F8C6| STA.b ($90),Y
 
-#_08F8C8: INY
+|08F8C8| INY
 
-#_08F8C9: LDA.w .prop+0,X
-#_08F8CC: AND.b #$CF
-#_08F8CE: ORA.b $04
-#_08F8D0: STA.b ($90),Y
+|08F8C9| LDA.w .prop+0,X
+|08F8CC| AND.b #$CF
+|08F8CE| ORA.b $04
+|08F8D0| STA.b ($90),Y
 
-#_08F8D2: INY
-#_08F8D3: PHY
+|08F8D2| INY
+|08F8D3| PHY
 
-#_08F8D4: TYA
-#_08F8D5: SEC
-#_08F8D6: SBC.b #$04
-#_08F8D8: LSR A
-#_08F8D9: LSR A
-#_08F8DA: TAY
+|08F8D4| TYA
+|08F8D5| SEC
+|08F8D6| SBC.b #$04
+|08F8D8| LSR A
+|08F8D9| LSR A
+|08F8DA| TAY
 
-#_08F8DB: LDA.b #$00
-#_08F8DD: ORA.b $75
-#_08F8DF: STA.b ($92),Y
+|08F8DB| LDA.b #$00
+|08F8DD| ORA.b $75
+|08F8DF| STA.b ($92),Y
 
-#_08F8E1: PLY
+|08F8E1| PLY
 
-#_08F8E2: REP #$20
+|08F8E2| REP #$20
 
-#_08F8E4: LDA.b $02
-#_08F8E6: CLC
-#_08F8E7: ADC.w #$0008
-#_08F8EA: STA.b $02
+|08F8E4| LDA.b $02
+|08F8E6| CLC
+|08F8E7| ADC.w #$0008
+|08F8EA| STA.b $02
 
-#_08F8EC: SEP #$20
+|08F8EC| SEP #$20
 
-#_08F8EE: LDA.w .char+1,X
-#_08F8F1: CMP.b #$FF
-#_08F8F3: BEQ .exit
+|08F8EE| LDA.w .char+1,X
+|08F8F1| CMP.b #$FF
+|08F8F3| BEQ .exit
 
-#_08F8F5: STZ.b $74
-#_08F8F7: STZ.b $75
+|08F8F5| STZ.b $74
+|08F8F7| STZ.b $75
 
-#_08F8F9: JSR Ancilla_SetOAM_XY_safe
+|08F8F9| JSR Ancilla_SetOAM_XY_safe
 
-#_08F8FC: LDA.w .char+1,X
-#_08F8FF: STA.b ($90),Y
+|08F8FC| LDA.w .char+1,X
+|08F8FF| STA.b ($90),Y
 
-#_08F901: INY
+|08F901| INY
 
-#_08F902: LDA.w .prop+1,X
-#_08F905: AND.b #$CF
-#_08F907: ORA.b $04
-#_08F909: STA.b ($90),Y
+|08F902| LDA.w .prop+1,X
+|08F905| AND.b #$CF
+|08F907| ORA.b $04
+|08F909| STA.b ($90),Y
 
-#_08F90B: INY
-#_08F90C: PHY
+|08F90B| INY
+|08F90C| PHY
 
-#_08F90D: TYA
-#_08F90E: SEC
-#_08F90F: SBC.b #$03
-#_08F911: LSR A
-#_08F912: LSR A
-#_08F913: TAY
+|08F90D| TYA
+|08F90E| SEC
+|08F90F| SBC.b #$03
+|08F911| LSR A
+|08F912| LSR A
+|08F913| TAY
 
-#_08F914: LDA.b #$00
-#_08F916: ORA.b $75
-#_08F918: STA.b ($92),Y
+|08F914| LDA.b #$00
+|08F916| ORA.b $75
+|08F918| STA.b ($92),Y
 
-#_08F91A: PLY
+|08F91A| PLY
 
 .exit
-#_08F91B: RTS
+|08F91B| RTS
 
 ;===================================================================================================
 
 AllocateOAMInRegionsBE:
-#_08F91C: LDY.w $0FB3
-#_08F91F: BNE .use_region_E
+|08F91C| LDY.w $0FB3
+|08F91F| BNE .use_region_E
 
 .use_region_B
-#_08F921: JSL AllocateOAMInRegionB
-#_08F925: BRA .exit
+|08F921| JSL AllocateOAMInRegionB
+|08F925| BRA .exit
 
 .use_region_E
-#_08F927: JSL AllocateOAMInRegionE
+|08F927| JSL AllocateOAMInRegionE
 
 .exit
-#_08F92B: RTS
+|08F92B| RTS
 
 ;===================================================================================================
 
 StepTowardsLink:
-#_08F92C: PHB
-#_08F92D: PHK
-#_08F92E: PLB
+|08F92C| PHB
+|08F92D| PHK
+|08F92E| PLB
 
 .get_closer
-#_08F92F: LDX.w $02D3
+|08F92F| LDX.w $02D3
 
-#_08F932: LDA.w $1A00,X
-#_08F935: STA.w $0C03
+|08F932| LDA.w $1A00,X
+|08F935| STA.w $0C03
 
-#_08F938: LDA.w $1A14,X
-#_08F93B: STA.w $0C17
+|08F938| LDA.w $1A14,X
+|08F93B| STA.w $0C17
 
-#_08F93E: LDA.w $1A28,X
-#_08F941: STA.w $0C0D
+|08F93E| LDA.w $1A28,X
+|08F941| STA.w $0C0D
 
-#_08F944: LDA.w $1A3C,X
-#_08F947: STA.w $0C21
+|08F944| LDA.w $1A3C,X
+|08F947| STA.w $0C21
 
-#_08F94A: LDX.b #$09
-#_08F94C: LDA.b #$18
-#_08F94E: JSR ProjectAncillaSpeedTowardsLink
+|08F94A| LDX.b #$09
+|08F94C| LDA.b #$18
+|08F94E| JSR ProjectAncillaSpeedTowardsLink
 
-#_08F951: LDA.b $00
-#_08F953: STA.w $0C22,X
+|08F951| LDA.b $00
+|08F953| STA.w $0C22,X
 
-#_08F956: LDA.b $01
-#_08F958: STA.w $0C2C,X
+|08F956| LDA.b $01
+|08F958| STA.w $0C2C,X
 
-#_08F95B: JSR AncillaMoveY
+|08F95B| JSR AncillaMoveY
 
-#_08F95E: PHX
-#_08F95F: JSR AncillaMoveX
-#_08F962: PLX
+|08F95E| PHX
+|08F95F| JSR AncillaMoveX
+|08F962| PLX
 
-#_08F963: LDA.w $0BFA,X
-#_08F966: STA.b $00
+|08F963| LDA.w $0BFA,X
+|08F966| STA.b $00
 
-#_08F968: LDA.w $0C0E,X
-#_08F96B: STA.b $01
+|08F968| LDA.w $0C0E,X
+|08F96B| STA.b $01
 
-#_08F96D: LDA.w $0C04,X
-#_08F970: STA.b $02
+|08F96D| LDA.w $0C04,X
+|08F970| STA.b $02
 
-#_08F972: LDA.w $0C18,X
-#_08F975: STA.b $03
+|08F972| LDA.w $0C18,X
+|08F975| STA.b $03
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08F977: REP #$20
+|08F977| REP #$20
 
-#_08F979: LDA.b $00
-#_08F97B: SEC
-#_08F97C: SBC.b $20
-#_08F97E: BPL .positive_y
+|08F979| LDA.b $00
+|08F97B| SEC
+|08F97C| SBC.b $20
+|08F97E| BPL .positive_y
 
-#_08F980: EOR.w #$FFFF
-#_08F983: INC A
+|08F980| EOR.w #$FFFF
+|08F983| INC A
 
 .positive_y
-#_08F984: CMP.w #$0002
-#_08F987: BCS .not_close_enough
+|08F984| CMP.w #$0002
+|08F987| BCS .not_close_enough
 
-#_08F989: LDA.b $02
-#_08F98B: SEC
-#_08F98C: SBC.b $22
-#_08F98E: BPL .positive_x
+|08F989| LDA.b $02
+|08F98B| SEC
+|08F98C| SBC.b $22
+|08F98E| BPL .positive_x
 
-#_08F990: EOR.w #$FFFF
-#_08F993: INC A
+|08F990| EOR.w #$FFFF
+|08F993| INC A
 
 .positive_x
-#_08F994: CMP.w #$0002
-#_08F997: BCC .exit
+|08F994| CMP.w #$0002
+|08F997| BCC .exit
 
 ;---------------------------------------------------------------------------------------------------
 
 .not_close_enough
-#_08F999: SEP #$20
+|08F999| SEP #$20
 
-#_08F99B: INC.w $02D3
+|08F99B| INC.w $02D3
 
-#_08F99E: LDX.w $02D3
-#_08F9A1: CPX.b #$12
-#_08F9A3: BEQ .exit
+|08F99E| LDX.w $02D3
+|08F9A1| CPX.b #$12
+|08F9A3| BEQ .exit
 
-#_08F9A5: LDA.b $00
-#_08F9A7: STA.w $1A00,X
+|08F9A5| LDA.b $00
+|08F9A7| STA.w $1A00,X
 
-#_08F9AA: LDA.b $01
-#_08F9AC: STA.w $1A14,X
+|08F9AA| LDA.b $01
+|08F9AC| STA.w $1A14,X
 
-#_08F9AF: LDA.b $02
-#_08F9B1: STA.w $1A28,X
+|08F9AF| LDA.b $02
+|08F9B1| STA.w $1A28,X
 
-#_08F9B4: LDA.b $03
-#_08F9B6: STA.w $1A3C,X
+|08F9B4| LDA.b $03
+|08F9B6| STA.w $1A3C,X
 
-#_08F9B9: LDY.b $EE
+|08F9B9| LDY.b $EE
 
-#_08F9BB: LDA.w AncillaPriorities,Y
-#_08F9BE: LSR A
-#_08F9BF: LSR A
-#_08F9C0: ORA.b #$01
-#_08F9C2: STA.w $1A64,X
+|08F9BB| LDA.w AncillaPriorities,Y
+|08F9BE| LSR A
+|08F9BF| LSR A
+|08F9C0| ORA.b #$01
+|08F9C2| STA.w $1A64,X
 
-#_08F9C5: BRL .get_closer
+|08F9C5| BRL .get_closer
 
 ;---------------------------------------------------------------------------------------------------
 
 .exit
-#_08F9C8: SEP #$20
+|08F9C8| SEP #$20
 
-#_08F9CA: PLB
+|08F9CA| PLB
 
-#_08F9CB: RTL
+|08F9CB| RTL
 
 ;===================================================================================================
 
 AllocateOAMInCustomRegion:
-#_08F9CC: PHA
-#_08F9CD: PHX
+|08F9CC| PHA
+|08F9CD| PHX
 
-#_08F9CE: REP #$20
+|08F9CE| REP #$20
 
-#_08F9D0: TYA
-#_08F9D1: AND.w #$00FF
-#_08F9D4: CLC
-#_08F9D5: ADC.b $90
+|08F9D0| TYA
+|08F9D1| AND.w #$00FF
+|08F9D4| CLC
+|08F9D5| ADC.b $90
 
-#_08F9D7: LDX.w $0FB3
-#_08F9DA: BEQ .ignore_layer
+|08F9D7| LDX.w $0FB3
+|08F9DA| BEQ .ignore_layer
 
-#_08F9DC: CMP.w #$0900
-#_08F9DF: BCS .upper_region
+|08F9DC| CMP.w #$0900
+|08F9DF| BCS .upper_region
 
-#_08F9E1: CMP.w #$08E0
-#_08F9E4: BCC .continue
+|08F9E1| CMP.w #$08E0
+|08F9E4| BCC .continue
 
-#_08F9E6: LDA.w #$0820
-#_08F9E9: BRA .set_region
+|08F9E6| LDA.w #$0820
+|08F9E9| BRA .set_region
 
 .upper_region
-#_08F9EB: CMP.w #$09D0
-#_08F9EE: BCC .continue
+|08F9EB| CMP.w #$09D0
+|08F9EE| BCC .continue
 
-#_08F9F0: LDA.w #$0940
-#_08F9F3: BRA .set_region
+|08F9F0| LDA.w #$0940
+|08F9F3| BRA .set_region
 
 ;---------------------------------------------------------------------------------------------------
 
 .ignore_layer
-#_08F9F5: CMP.w #$0990
-#_08F9F8: BCC .continue
+|08F9F5| CMP.w #$0990
+|08F9F8| BCC .continue
 
-#_08F9FA: LDA.w #$0820
+|08F9FA| LDA.w #$0820
 
 ;---------------------------------------------------------------------------------------------------
 
 .set_region
-#_08F9FD: STA.b $90
+|08F9FD| STA.b $90
 
-#_08F9FF: SEC
-#_08FA00: SBC.w #$0800
-#_08FA03: LSR A
-#_08FA04: LSR A
-#_08FA05: CLC
-#_08FA06: ADC.w #$0A20
-#_08FA09: STA.b $92
+|08F9FF| SEC
+|08FA00| SBC.w #$0800
+|08FA03| LSR A
+|08FA04| LSR A
+|08FA05| CLC
+|08FA06| ADC.w #$0A20
+|08FA09| STA.b $92
 
-#_08FA0B: LDY.b #$00
+|08FA0B| LDY.b #$00
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue
-#_08FA0D: SEP #$20
+|08FA0D| SEP #$20
 
-#_08FA0F: PLX
-#_08FA10: PLA
+|08FA0F| PLX
+|08FA10| PLA
 
-#_08FA11: RTS
+|08FA11| RTS
 
 ;===================================================================================================
 
 HitStars_UpdateOAMBufferPosition:
-#_08FA12: PHA
-#_08FA13: PHX
+|08FA12| PHA
+|08FA13| PHX
 
-#_08FA14: REP #$20
+|08FA14| REP #$20
 
-#_08FA16: TYA
-#_08FA17: AND.w #$00FF
-#_08FA1A: CLC
-#_08FA1B: ADC.b $90
+|08FA16| TYA
+|08FA17| AND.w #$00FF
+|08FA1A| CLC
+|08FA1B| ADC.b $90
 
-#_08FA1D: LDX.w $0FB3
-#_08FA20: BNE .exit
+|08FA1D| LDX.w $0FB3
+|08FA20| BNE .exit
 
-#_08FA22: CMP.w #$09D0
-#_08FA25: BCC .exit
+|08FA22| CMP.w #$09D0
+|08FA25| BCC .exit
 
-#_08FA27: LDA.w #$0820
-#_08FA2A: STA.b $90
+|08FA27| LDA.w #$0820
+|08FA2A| STA.b $90
 
-#_08FA2C: SEC
-#_08FA2D: SBC.w #$0800
+|08FA2C| SEC
+|08FA2D| SBC.w #$0800
 
-#_08FA30: LSR A
-#_08FA31: LSR A
+|08FA30| LSR A
+|08FA31| LSR A
 
-#_08FA32: CLC
-#_08FA33: ADC.w #$0A20
-#_08FA36: STA.b $92
+|08FA32| CLC
+|08FA33| ADC.w #$0A20
+|08FA36| STA.b $92
 
-#_08FA38: LDY.b #$00
+|08FA38| LDY.b #$00
 
 .exit
-#_08FA3A: SEP #$20
+|08FA3A| SEP #$20
 
-#_08FA3C: PLX
-#_08FA3D: PLA
+|08FA3C| PLX
+|08FA3D| PLA
 
-#_08FA3E: RTS
+|08FA3E| RTS
 
 ;===================================================================================================
 ; Returns with carry clear if the hookshot should bother checking tile
@@ -24288,137 +24288,137 @@ HitStars_UpdateOAMBufferPosition:
 ; Carry set when all should be ignored.
 ;===================================================================================================
 Hookshot_ShouldIEvenBotherWithTiles:
-#_08FA3F: PHX
-#_08FA40: PHY
+|08FA3F| PHX
+|08FA40| PHY
 
 ; Cache coordinates
-#_08FA41: LDA.w $0BFA,X
-#_08FA44: STA.b $00
+|08FA41| LDA.w $0BFA,X
+|08FA44| STA.b $00
 
-#_08FA46: LDA.w $0C0E,X
-#_08FA49: STA.b $01
+|08FA46| LDA.w $0C0E,X
+|08FA49| STA.b $01
 
-#_08FA4B: LDA.w $0C04,X
-#_08FA4E: STA.b $02
+|08FA4B| LDA.w $0C04,X
+|08FA4E| STA.b $02
 
-#_08FA50: LDA.w $0C18,X
-#_08FA53: STA.b $03
+|08FA50| LDA.w $0C18,X
+|08FA53| STA.b $03
 
-#_08FA55: LDA.b $1B
-#_08FA57: BNE Hookshot_CheckForTileAllowanceUnderworld
+|08FA55| LDA.b $1B
+|08FA57| BNE Hookshot_CheckForTileAllowanceUnderworld
 
 ;===================================================================================================
 
 Hookshot_CheckForTileAllowanceOverworld:
-#_08FA59: REP #$20
+|08FA59| REP #$20
 
 ; What direction is the hookshot moving?
-#_08FA5B: LDA.w $0C72,X
-#_08FA5E: AND.w #$0002
-#_08FA61: BNE .horizontal_direction
+|08FA5B| LDA.w $0C72,X
+|08FA5E| AND.w #$0002
+|08FA61| BNE .horizontal_direction
 
 ;---------------------------------------------------------------------------------------------------
 
 .vertical_direction
-#_08FA63: LDX.w $0700
+|08FA63| LDX.w $0700
 
-#_08FA66: LDA.b $00
-#_08FA68: SEC
-#_08FA69: SBC.l OverworldTransitionPositionY,X
-#_08FA6D: CMP.w #$0004
-#_08FA70: BCC Hookshot_DisallowTileCollision
+|08FA66| LDA.b $00
+|08FA68| SEC
+|08FA69| SBC.l OverworldTransitionPositionY,X
+|08FA6D| CMP.w #$0004
+|08FA70| BCC Hookshot_DisallowTileCollision
 
-#_08FA72: CMP.w $0716
-#_08FA75: BCS Hookshot_DisallowTileCollision
+|08FA72| CMP.w $0716
+|08FA75| BCS Hookshot_DisallowTileCollision
 
-#_08FA77: BRA Hookshot_AllowTileCollision
+|08FA77| BRA Hookshot_AllowTileCollision
 
 ;---------------------------------------------------------------------------------------------------
 
 .horizontal_direction
-#_08FA79: LDX.w $0700
+|08FA79| LDX.w $0700
 
-#_08FA7C: LDA.b $02
-#_08FA7E: SEC
-#_08FA7F: SBC.l OverworldTransitionPositionX,X
-#_08FA83: CMP.w #$0006
-#_08FA86: BCC Hookshot_DisallowTileCollision
+|08FA7C| LDA.b $02
+|08FA7E| SEC
+|08FA7F| SBC.l OverworldTransitionPositionX,X
+|08FA83| CMP.w #$0006
+|08FA86| BCC Hookshot_DisallowTileCollision
 
-#_08FA88: CMP.w $0716
-#_08FA8B: BCC Hookshot_AllowTileCollision
+|08FA88| CMP.w $0716
+|08FA8B| BCC Hookshot_AllowTileCollision
 
 ;===================================================================================================
 
 Hookshot_DisallowTileCollision:
-#_08FA8D: SEP #$20
+|08FA8D| SEP #$20
 
-#_08FA8F: PLY
-#_08FA90: PLX
+|08FA8F| PLY
+|08FA90| PLX
 
-#_08FA91: SEC
+|08FA91| SEC
 
-#_08FA92: RTS
+|08FA92| RTS
 
 ;===================================================================================================
 
 Hookshot_AllowTileCollision:
-#_08FA93: SEP #$20
+|08FA93| SEP #$20
 
-#_08FA95: PLY
-#_08FA96: PLX
+|08FA95| PLY
+|08FA96| PLX
 
-#_08FA97: CLC
+|08FA97| CLC
 
-#_08FA98: RTS
+|08FA98| RTS
 
 ;===================================================================================================
 
 Hookshot_CheckForTileAllowanceUnderworld:
-#_08FA99: REP #$20
+|08FA99| REP #$20
 
 ; Check direction
-#_08FA9B: LDA.w $0C72,X
-#_08FA9E: AND.w #$0002
-#_08FAA1: BNE .horizontal_direction
+|08FA9B| LDA.w $0C72,X
+|08FA9E| AND.w #$0002
+|08FAA1| BNE .horizontal_direction
 
 ;---------------------------------------------------------------------------------------------------
 ; This just checks if the hookshot is within the bounds of the super tile.
 ;---------------------------------------------------------------------------------------------------
 .vertical_direction
-#_08FAA3: LDA.b $00
-#_08FAA5: AND.w #$01FF
-#_08FAA8: CMP.w #$0004
-#_08FAAB: BCC Hookshot_DisallowTileCollision
+|08FAA3| LDA.b $00
+|08FAA5| AND.w #$01FF
+|08FAA8| CMP.w #$0004
+|08FAAB| BCC Hookshot_DisallowTileCollision
 
-#_08FAAD: CMP.w #$01E8
-#_08FAB0: BCS Hookshot_DisallowTileCollision
+|08FAAD| CMP.w #$01E8
+|08FAB0| BCS Hookshot_DisallowTileCollision
 
-#_08FAB2: BRA .continue_vertically
+|08FAB2| BRA .continue_vertically
 
 ;---------------------------------------------------------------------------------------------------
 ; This also checks if the hookshot is within the bounds of the super tile.
 ;---------------------------------------------------------------------------------------------------
 .horizontal_direction
-#_08FAB4: LDA.b $02
-#_08FAB6: AND.w #$01FF
-#_08FAB9: CMP.w #$0004
-#_08FABC: BCC Hookshot_DisallowTileCollision
+|08FAB4| LDA.b $02
+|08FAB6| AND.w #$01FF
+|08FAB9| CMP.w #$0004
+|08FABC| BCC Hookshot_DisallowTileCollision
 
-#_08FABE: CMP.w #$01F0
-#_08FAC1: BCS Hookshot_DisallowTileCollision
+|08FABE| CMP.w #$01F0
+|08FAC1| BCS Hookshot_DisallowTileCollision
 
 ; These BRAs are pretty pointless.
 ; There's no shared code.
 ; Should have just written the code directly after the above checks.
-#_08FAC3: BRA .continue_horizontally
+|08FAC3| BRA .continue_horizontally
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue_vertically
-#_08FAC5: SEP #$20
+|08FAC5| SEP #$20
 
-#_08FAC7: PLY
-#_08FAC8: PLX
+|08FAC7| PLY
+|08FAC8| PLX
 
 ; This calculation and the corresponding one below are weird.
 ; They make sure the hookshot's 9th bit matches Link's.
@@ -24428,902 +24428,902 @@ Hookshot_CheckForTileAllowanceUnderworld:
 ; But, it appears to have implications for when Link's position is out
 ; of sync with the rest of the game. Though, I can't produce any examples
 ; or scenarios of how this might occur.
-#_08FAC9: LDA.b $01
-#_08FACB: AND.b #$02
-#_08FACD: STA.b $01
+|08FAC9| LDA.b $01
+|08FACB| AND.b #$02
+|08FACD| STA.b $01
 
-#_08FACF: LDA.b $21
-#_08FAD1: AND.b #$02
-#_08FAD3: CMP.b $01
-#_08FAD5: BEQ .allow
+|08FACF| LDA.b $21
+|08FAD1| AND.b #$02
+|08FAD3| CMP.b $01
+|08FAD5| BEQ .allow
 
 ;---------------------------------------------------------------------------------------------------
 
 .disallow_vertical
-#_08FAD7: SEC
+|08FAD7| SEC
 
-#_08FAD8: RTS
+|08FAD8| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .continue_horizontally
-#_08FAD9: SEP #$20
+|08FAD9| SEP #$20
 
-#_08FADB: PLY
-#_08FADC: PLX
+|08FADB| PLY
+|08FADC| PLX
 
 ; See explanation above.
-#_08FADD: LDA.b $03
-#_08FADF: AND.b #$02
-#_08FAE1: STA.b $03
+|08FADD| LDA.b $03
+|08FADF| AND.b #$02
+|08FAE1| STA.b $03
 
-#_08FAE3: LDA.b $23
-#_08FAE5: AND.b #$02
-#_08FAE7: CMP.b $03
-#_08FAE9: BEQ .allow
+|08FAE3| LDA.b $23
+|08FAE5| AND.b #$02
+|08FAE7| CMP.b $03
+|08FAE9| BEQ .allow
 
 ;---------------------------------------------------------------------------------------------------
 
 .disallow_horizontal
-#_08FAEB: SEC
+|08FAEB| SEC
 
-#_08FAEC: RTS
+|08FAEC| RTS
 
 ;---------------------------------------------------------------------------------------------------
 
 .allow
-#_08FAED: CLC
+|08FAED| CLC
 
-#_08FAEE: RTS
+|08FAEE| RTS
 
 ;===================================================================================================
 ; TODO analyze
 ;===================================================================================================
 Ancilla_GetRadialProjection:
-#_08FAEF: PHX
+|08FAEF| PHX
 
-#_08FAF0: TAX
+|08FAF0| TAX
 
-#_08FAF1: LDA.l .multiplier_y,X
-#_08FAF5: STA.w WRMPYA
+|08FAF1| LDA.l .multiplier_y,X
+|08FAF5| STA.w WRMPYA
 
-#_08FAF8: LDA.b $08
-#_08FAFA: STA.w WRMPYB
+|08FAF8| LDA.b $08
+|08FAFA| STA.w WRMPYB
 
-#_08FAFD: LDA.l .meta_sign_y,X
-#_08FB01: STA.b $02
-#_08FB03: STZ.b $03
+|08FAFD| LDA.l .meta_sign_y,X
+|08FB01| STA.b $02
+|08FB03| STZ.b $03
 
-#_08FB05: LDA.w RDMPYL
-#_08FB08: ASL A
-#_08FB09: LDA.w RDMPYH
+|08FB05| LDA.w RDMPYL
+|08FB08| ASL A
+|08FB09| LDA.w RDMPYH
 
-#_08FB0C: ADC.b #$00
-#_08FB0E: STA.b $00
-#_08FB10: STZ.b $01
+|08FB0C| ADC.b #$00
+|08FB0E| STA.b $00
+|08FB10| STZ.b $01
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08FB12: LDA.l .multiplier_x,X
-#_08FB16: STA.w WRMPYA
+|08FB12| LDA.l .multiplier_x,X
+|08FB16| STA.w WRMPYA
 
-#_08FB19: LDA.b $08
-#_08FB1B: STA.w WRMPYB
+|08FB19| LDA.b $08
+|08FB1B| STA.w WRMPYB
 
-#_08FB1E: LDA.l .meta_sign_x,X
-#_08FB22: STA.b $06
-#_08FB24: STZ.b $07
+|08FB1E| LDA.l .meta_sign_x,X
+|08FB22| STA.b $06
+|08FB24| STZ.b $07
 
-#_08FB26: LDA.w RDMPYL
-#_08FB29: ASL A
-#_08FB2A: LDA.w RDMPYH
+|08FB26| LDA.w RDMPYL
+|08FB29| ASL A
+|08FB2A| LDA.w RDMPYH
 
-#_08FB2D: ADC.b #$00
-#_08FB2F: STA.b $04
-#_08FB31: STZ.b $05
+|08FB2D| ADC.b #$00
+|08FB2F| STA.b $04
+|08FB31| STZ.b $05
 
-#_08FB33: PLX
+|08FB33| PLX
 
-#_08FB34: RTS
+|08FB34| RTS
 
 ;===================================================================================================
 
 Ancilla_GetRadialProjection_long:
-#_08FB35: PHB
-#_08FB36: PHK
-#_08FB37: PLB
+|08FB35| PHB
+|08FB36| PHK
+|08FB37| PLB
 
-#_08FB38: JSR Ancilla_GetRadialProjection
+|08FB38| JSR Ancilla_GetRadialProjection
 
-#_08FB3B: PLB
+|08FB3B| PLB
 
-#_08FB3C: RTL
+|08FB3C| RTL
 
 ;===================================================================================================
 
 AllocateOAMInRegionsADF:
-#_08FB3D: LDY.w $0FB3
-#_08FB40: BNE .consider_layer
+|08FB3D| LDY.w $0FB3
+|08FB40| BNE .consider_layer
 
-#_08FB42: JSL AllocateOAMInRegionA
+|08FB42| JSL AllocateOAMInRegionA
 
-#_08FB46: RTS
+|08FB46| RTS
 
 .consider_layer
-#_08FB47: LDY.w $0C7C,X
-#_08FB4A: BNE .lower_layer
+|08FB47| LDY.w $0C7C,X
+|08FB4A| BNE .lower_layer
 
-#_08FB4C: JSL AllocateOAMInRegionD
+|08FB4C| JSL AllocateOAMInRegionD
 
-#_08FB50: RTS
+|08FB50| RTS
 
 .lower_layer
-#_08FB51: JSL AllocateOAMInRegionF
+|08FB51| JSL AllocateOAMInRegionF
 
-#_08FB55: RTS
+|08FB55| RTS
 
 ;===================================================================================================
 
 BeamHit_OAMAdjustments:
-#_08FB56: JSR BeamHit_GetCoords
+|08FB56| JSR BeamHit_GetCoords
 
-#_08FB59: LDY.b #$00
+|08FB59| LDY.b #$00
 
 .next
-#_08FB5B: PHY
+|08FB5B| PHY
 
-#_08FB5C: TYA
-#_08FB5D: LSR A
-#_08FB5E: LSR A
-#_08FB5F: TAY
+|08FB5C| TYA
+|08FB5D| LSR A
+|08FB5E| LSR A
+|08FB5F| TAY
 
-#_08FB60: LDA.b $0B
-#_08FB62: BPL .skip_x_bit
+|08FB60| LDA.b $0B
+|08FB62| BPL .skip_x_bit
 
-#_08FB64: LDA.b ($92),Y
-#_08FB66: AND.b #$02
+|08FB64| LDA.b ($92),Y
+|08FB66| AND.b #$02
 
 ;---------------------------------------------------------------------------------------------------
 
 .skip_x_bit
-#_08FB68: STA.b ($92),Y
+|08FB68| STA.b ($92),Y
 
-#_08FB6A: PLY
+|08FB6A| PLY
 
-#_08FB6B: LDX.b #$00
+|08FB6B| LDX.b #$00
 
-#_08FB6D: LDA.b ($90),Y
-#_08FB6F: SEC
-#_08FB70: SBC.b $07
-#_08FB72: BPL .positive_x
+|08FB6D| LDA.b ($90),Y
+|08FB6F| SEC
+|08FB70| SBC.b $07
+|08FB72| BPL .positive_x
 
-#_08FB74: DEX
+|08FB74| DEX
 
 .positive_x
-#_08FB75: CLC
-#_08FB76: ADC.b $02
-#_08FB78: STA.b $04
+|08FB75| CLC
+|08FB76| ADC.b $02
+|08FB78| STA.b $04
 
 ;---------------------------------------------------------------------------------------------------
 
-#_08FB7A: TXA
-#_08FB7B: ADC.b $03
-#_08FB7D: STA.b $05
+|08FB7A| TXA
+|08FB7B| ADC.b $03
+|08FB7D| STA.b $05
 
-#_08FB7F: JSR BeamHit_GetTopXBit
-#_08FB82: BCC .x_on_screen
+|08FB7F| JSR BeamHit_GetTopXBit
+|08FB82| BCC .x_on_screen
 
-#_08FB84: PHY
+|08FB84| PHY
 
-#_08FB85: TYA
-#_08FB86: LSR A
-#_08FB87: LSR A
-#_08FB88: TAY
+|08FB85| TYA
+|08FB86| LSR A
+|08FB87| LSR A
+|08FB88| TAY
 
-#_08FB89: LDA.b ($92),Y
-#_08FB8B: ORA.b #$01
-#_08FB8D: STA.b ($92),Y
+|08FB89| LDA.b ($92),Y
+|08FB8B| ORA.b #$01
+|08FB8D| STA.b ($92),Y
 
-#_08FB8F: PLY
+|08FB8F| PLY
 
 ;---------------------------------------------------------------------------------------------------
 
 .x_on_screen
-#_08FB90: LDX.b #$00
+|08FB90| LDX.b #$00
 
-#_08FB92: INY
+|08FB92| INY
 
-#_08FB93: LDA.b ($90),Y
-#_08FB95: SEC
-#_08FB96: SBC.b $06
-#_08FB98: BPL .positive_y
+|08FB93| LDA.b ($90),Y
+|08FB95| SEC
+|08FB96| SBC.b $06
+|08FB98| BPL .positive_y
 
-#_08FB9A: DEX
+|08FB9A| DEX
 
 .positive_y
-#_08FB9B: CLC
-#_08FB9C: ADC.b $00
-#_08FB9E: STA.b $09
+|08FB9B| CLC
+|08FB9C| ADC.b $00
+|08FB9E| STA.b $09
 
-#_08FBA0: TXA
-#_08FBA1: ADC.b $01
-#_08FBA3: STA.b $0A
+|08FBA0| TXA
+|08FBA1| ADC.b $01
+|08FBA3| STA.b $0A
 
-#_08FBA5: JSR BeamHit_CheckOffscreen_Y
-#_08FBA8: BCC .y_on_screen
+|08FBA5| JSR BeamHit_CheckOffscreen_Y
+|08FBA8| BCC .y_on_screen
 
-#_08FBAA: LDA.b #$F0
-#_08FBAC: STA.b ($90),Y
+|08FBAA| LDA.b #$F0
+|08FBAC| STA.b ($90),Y
 
 ;---------------------------------------------------------------------------------------------------
 
 .y_on_screen
-#_08FBAE: INY
-#_08FBAF: INY
-#_08FBB0: INY
+|08FBAE| INY
+|08FBAF| INY
+|08FBB0| INY
 
-#_08FBB1: DEC.b $08
-#_08FBB3: BPL .next
+|08FBB1| DEC.b $08
+|08FBB3| BPL .next
 
-#_08FBB5: BRL Ancilla_RestoreIndex
+|08FBB5| BRL Ancilla_RestoreIndex
 
 ;===================================================================================================
 
 BeamHit_GetCoords:
-#_08FBB8: STY.b $0B
+|08FBB8| STY.b $0B
 
-#_08FBBA: STA.b $08
+|08FBBA| STA.b $08
 
-#_08FBBC: LDA.w $0BFA,X
-#_08FBBF: STA.b $00
+|08FBBC| LDA.w $0BFA,X
+|08FBBF| STA.b $00
 
-#_08FBC1: SEC
-#_08FBC2: SBC.b $E8
-#_08FBC4: STA.b $06
+|08FBC1| SEC
+|08FBC2| SBC.b $E8
+|08FBC4| STA.b $06
 
-#_08FBC6: LDA.w $0C0E,X
-#_08FBC9: STA.b $01
+|08FBC6| LDA.w $0C0E,X
+|08FBC9| STA.b $01
 
-#_08FBCB: LDA.w $0C04,X
-#_08FBCE: STA.b $02
+|08FBCB| LDA.w $0C04,X
+|08FBCE| STA.b $02
 
-#_08FBD0: SEC
-#_08FBD1: SBC.b $E2
-#_08FBD3: STA.b $07
+|08FBD0| SEC
+|08FBD1| SBC.b $E2
+|08FBD3| STA.b $07
 
-#_08FBD5: LDA.w $0C18,X
-#_08FBD8: STA.b $03
+|08FBD5| LDA.w $0C18,X
+|08FBD8| STA.b $03
 
-#_08FBDA: RTS
+|08FBDA| RTS
 
 ;===================================================================================================
 
 BeamHit_GetTopXBit:
-#_08FBDB: REP #$20
+|08FBDB| REP #$20
 
-#_08FBDD: LDA.b $04
-#_08FBDF: SEC
-#_08FBE0: SBC.b $E2
-#_08FBE2: CMP.w #$0100
+|08FBDD| LDA.b $04
+|08FBDF| SEC
+|08FBE0| SBC.b $E2
+|08FBE2| CMP.w #$0100
 
-#_08FBE5: SEP #$20
+|08FBE5| SEP #$20
 
-#_08FBE7: RTS
+|08FBE7| RTS
 
 ;===================================================================================================
 
 BeamHit_CheckOffscreen_Y:
-#_08FBE8: REP #$20
+|08FBE8| REP #$20
 
-#_08FBEA: LDA.b $09
-#_08FBEC: PHA
+|08FBEA| LDA.b $09
+|08FBEC| PHA
 
-#_08FBED: CLC
-#_08FBEE: ADC.w #$0010
+|08FBED| CLC
+|08FBEE| ADC.w #$0010
 
-#_08FBF1: STA.b $09
-#_08FBF3: SEC
-#_08FBF4: SBC.b $E8
-#_08FBF6: CMP.w #$0100
+|08FBF1| STA.b $09
+|08FBF3| SEC
+|08FBF4| SBC.b $E8
+|08FBF6| CMP.w #$0100
 
-#_08FBF9: PLA
-#_08FBFA: STA.b $09
+|08FBF9| PLA
+|08FBFA| STA.b $09
 
-#_08FBFC: SEP #$20
+|08FBFC| SEP #$20
 
-#_08FBFE: RTS
+|08FBFE| RTS
 
 ;===================================================================================================
 
 QuakeChars:
 
 .group00_a
-#_08FBFF: db $00, $F0, $00
+|08FBFF| db $00, $F0, $00
 
 .group00_b
-#_08FC02: db $00, $F0, $01
+|08FC02| db $00, $F0, $01
 
 ;---------------------------------------------------------------------------------------------------
 
 .group01_a
-#_08FC05: db $00, $F0, $02
+|08FC05| db $00, $F0, $02
 
 .group01_b
-#_08FC08: db $00, $F0, $03
+|08FC08| db $00, $F0, $03
 
 ;---------------------------------------------------------------------------------------------------
 
 .group02_a
-#_08FC0B: db $00, $F0, $43
+|08FC0B| db $00, $F0, $43
 
 .group02_b
-#_08FC0E: db $00, $F0, $42
+|08FC0E| db $00, $F0, $42
 
 ;---------------------------------------------------------------------------------------------------
 
 .group03_a
-#_08FC11: db $00, $F0, $41
+|08FC11| db $00, $F0, $41
 
 .group03_b
-#_08FC14: db $00, $F0, $40
+|08FC14| db $00, $F0, $40
 
 ;---------------------------------------------------------------------------------------------------
 
 .group04_a
-#_08FC17: db $00, $F0, $40, $0E, $F8, $84
+|08FC17| db $00, $F0, $40, $0E, $F8, $84
 
 .group04_b
-#_08FC1D: db $1D, $F8, $44, $0D, $F9, $84
+|08FC1D| db $1D, $F8, $44, $0D, $F9, $84
 
 ;---------------------------------------------------------------------------------------------------
 
 .group05_a
-#_08FC23: db $1F, $F9, $44, $2F, $FC, $84
+|08FC23| db $1F, $F9, $44, $2F, $FC, $84
 
 .group05_b
-#_08FC29: db $31, $F5, $06, $3F, $FB, $44, $2F, $FC
-#_08FC31: db $84
+|08FC29| db $31, $F5, $06, $3F, $FB, $44, $2F, $FC
+|08FC31| db $84
 
 ;---------------------------------------------------------------------------------------------------
 
 .group06_a
-#_08FC32: db $24, $EF, $08, $31, $F5, $06, $3F, $FB
-#_08FC3A: db $44, $4E, $04, $08
+|08FC32| db $24, $EF, $08, $31, $F5, $06, $3F, $FB
+|08FC3A| db $44, $4E, $04, $08
 
 .group06_b
-#_08FC3E: db $16, $E1, $08, $24, $EF, $08, $4E, $04
-#_08FC46: db $08, $5D, $14, $08
+|08FC3E| db $16, $E1, $08, $24, $EF, $08, $4E, $04
+|08FC46| db $08, $5D, $14, $08
 
 ;---------------------------------------------------------------------------------------------------
 
 .group07_a
-#_08FC4A: db $07, $D2, $08, $17, $D3, $48, $16, $E1
-#_08FC52: db $08, $5D, $14, $08, $5D, $24, $48
+|08FC4A| db $07, $D2, $08, $17, $D3, $48, $16, $E1
+|08FC52| db $08, $5D, $14, $08, $5D, $24, $48
 
 .group07_b
-#_08FC59: db $F9, $C3, $08, $25, $C5, $48, $07, $D2
-#_08FC61: db $08, $17, $D3, $48, $5D, $24, $48, $5D
-#_08FC69: db $34, $08
+|08FC59| db $F9, $C3, $08, $25, $C5, $48, $07, $D2
+|08FC61| db $08, $17, $D3, $48, $5D, $24, $48, $5D
+|08FC69| db $34, $08
 
 ;---------------------------------------------------------------------------------------------------
 
 .group08_a
-#_08FC6B: db $EA, $B5, $08, $2F, $B6, $01, $F8, $C3
-#_08FC73: db $08, $24, $C4, $48, $5D, $34, $08, $6C
-#_08FC7B: db $43, $08
+|08FC6B| db $EA, $B5, $08, $2F, $B6, $01, $F8, $C3
+|08FC73| db $08, $24, $C4, $48, $5D, $34, $08, $6C
+|08FC7B| db $43, $08
 
 .group08_b
-#_08FC7D: db $DB, $A6, $08, $EA, $B5, $08, $2F, $B6
-#_08FC85: db $01, $3B, $C2, $81, $6C, $43, $08, $79
-#_08FC8D: db $50, $08
+|08FC7D| db $DB, $A6, $08, $EA, $B5, $08, $2F, $B6
+|08FC85| db $01, $3B, $C2, $81, $6C, $43, $08, $79
+|08FC8D| db $50, $08
 
 ;---------------------------------------------------------------------------------------------------
 
 .group09_a
-#_08FC8F: db $D4, $98, $C9, $DB, $A6, $08, $49, $B6
-#_08FC97: db $48, $3B, $C2, $81, $79, $50, $08
+|08FC8F| db $D4, $98, $C9, $DB, $A6, $08, $49, $B6
+|08FC97| db $48, $3B, $C2, $81, $79, $50, $08
 
 .group09_b
-#_08FC9E: db $D4, $88, $09, $D4, $98, $C9, $57, $A7
-#_08FCA6: db $48, $49, $B6, $48
+|08FC9E| db $D4, $88, $09, $D4, $98, $C9, $57, $A7
+|08FCA6| db $48, $49, $B6, $48
 
 ;---------------------------------------------------------------------------------------------------
 
 .group0A_a
-#_08FCAA: db $D4, $88, $09, $66, $98, $48, $57, $A7
-#_08FCB2: db $48
+|08FCAA| db $D4, $88, $09, $66, $98, $48, $57, $A7
+|08FCB2| db $48
 
 .group0A_b
-#_08FCB3: db $66, $98, $48, $57, $A7, $48
+|08FCB3| db $66, $98, $48, $57, $A7, $48
 
 ;---------------------------------------------------------------------------------------------------
 
 .group0B_a
-#_08FCB9: db $70, $8C, $48, $66, $98, $48
+|08FCB9| db $70, $8C, $48, $66, $98, $48
 
 .group0B_b
-#_08FCBF: db $70, $8C, $48
+|08FCBF| db $70, $8C, $48
 
 ;---------------------------------------------------------------------------------------------------
 
 .group0C_a
-#_08FCC2: db $F3, $F0, $00
+|08FCC2| db $F3, $F0, $00
 
 .group0C_b
-#_08FCC5: db $F3, $F0, $01
+|08FCC5| db $F3, $F0, $01
 
 ;---------------------------------------------------------------------------------------------------
 
 .group0D_a
-#_08FCC8: db $F3, $F0, $02
+|08FCC8| db $F3, $F0, $02
 
 .group0D_b
-#_08FCCB: db $F3, $F0, $03
+|08FCCB| db $F3, $F0, $03
 
 ;---------------------------------------------------------------------------------------------------
 
 .group0E_a
-#_08FCCE: db $F5, $F0, $43
+|08FCCE| db $F5, $F0, $43
 
 .group0E_b
-#_08FCD1: db $F5, $F0, $42
+|08FCD1| db $F5, $F0, $42
 
 ;---------------------------------------------------------------------------------------------------
 
 .group0F_a
-#_08FCD4: db $F5, $F0, $41
+|08FCD4| db $F5, $F0, $41
 
 .group0F_b
-#_08FCD7: db $F5, $F0, $40, $E8, $F6, $04
+|08FCD7| db $F5, $F0, $40, $E8, $F6, $04
 
 ;---------------------------------------------------------------------------------------------------
 
 .group10_a
-#_08FCDD: db $DA, $EE, $08, $E8, $F6, $04, $D8, $F9
-#_08FCE5: db $C4
+|08FCDD| db $DA, $EE, $08, $E8, $F6, $04, $D8, $F9
+|08FCE5| db $C4
 
 .group10_b
-#_08FCE6: db $D3, $DF, $C9, $DA, $EE, $08, $C7, $F9
-#_08FCEE: db $04, $D8, $F9, $C4
+|08FCE6| db $D3, $DF, $C9, $DA, $EE, $08, $C7, $F9
+|08FCEE| db $04, $D8, $F9, $C4
 
 ;---------------------------------------------------------------------------------------------------
 
 .group11_a
-#_08FCF2: db $D0, $D3, $07, $D3, $DF, $C9, $C7, $F9
-#_08FCFA: db $04, $B9, $02, $48
+|08FCF2| db $D0, $D3, $07, $D3, $DF, $C9, $C7, $F9
+|08FCFA| db $04, $B9, $02, $48
 
 .group11_b
-#_08FCFE: db $D0, $D3, $06, $B9, $02, $48, $BA, $12
-#_08FD06: db $08
+|08FCFE| db $D0, $D3, $06, $B9, $02, $48, $BA, $12
+|08FD06| db $08
 
 ;---------------------------------------------------------------------------------------------------
 
 .group12_a
-#_08FD07: db $D0, $D3, $05, $BA, $12, $08, $C8, $21
-#_08FD0F: db $08
+|08FD07| db $D0, $D3, $05, $BA, $12, $08, $C8, $21
+|08FD0F| db $08
 
 .group12_b
-#_08FD10: db $D0, $D3, $07, $CA, $22, $08, $CA, $31
-#_08FD18: db $88
+|08FD10| db $D0, $D3, $07, $CA, $22, $08, $CA, $31
+|08FD18| db $88
 
 ;---------------------------------------------------------------------------------------------------
 
 .group13_a
-#_08FD19: db $D0, $D3, $06, $CA, $31, $88, $BB, $40
-#_08FD21: db $88
+|08FD19| db $D0, $D3, $06, $CA, $31, $88, $BB, $40
+|08FD21| db $88
 
 .group13_b
-#_08FD22: db $D0, $D3, $07, $BB, $40, $88, $AB, $49
-#_08FD2A: db $C4
+|08FD22| db $D0, $D3, $07, $BB, $40, $88, $AB, $49
+|08FD2A| db $C4
 
 ;---------------------------------------------------------------------------------------------------
 
 .group14_a
-#_08FD2B: db $D0, $D3, $05, $9B, $49, $04, $AB, $49
-#_08FD33: db $C4
+|08FD2B| db $D0, $D3, $05, $9B, $49, $04, $AB, $49
+|08FD33| db $C4
 
 .group14_b
-#_08FD34: db $C4, $CB, $08, $D0, $D3, $06, $9B, $49
-#_08FD3C: db $04, $8C, $4D, $C4
+|08FD34| db $C4, $CB, $08, $D0, $D3, $06, $9B, $49
+|08FD3C| db $04, $8C, $4D, $C4
 
 ;---------------------------------------------------------------------------------------------------
 
 .group15_a
-#_08FD40: db $B5, $BD, $08, $C4, $CB, $08, $80, $4C
-#_08FD48: db $04, $8C, $4D, $C4
+|08FD40| db $B5, $BD, $08, $C4, $CB, $08, $80, $4C
+|08FD48| db $04, $8C, $4D, $C4
 
 .group15_b
-#_08FD4C: db $A6, $AE, $08, $B5, $BD, $08, $80, $4C
-#_08FD54: db $04
+|08FD4C| db $A6, $AE, $08, $B5, $BD, $08, $80, $4C
+|08FD54| db $04
 
 ;---------------------------------------------------------------------------------------------------
 
 .group16_a
-#_08FD55: db $97, $9F, $08, $A6, $AE, $08
+|08FD55| db $97, $9F, $08, $A6, $AE, $08
 
 .group16_b
-#_08FD5B: db $88, $91, $08, $97, $9F, $08
+|08FD5B| db $88, $91, $08, $97, $9F, $08
 
 ;---------------------------------------------------------------------------------------------------
 
 .group17_a
-#_08FD61: db $88, $91, $08
+|08FD61| db $88, $91, $08
 
 .group17_b
-#_08FD64: db $00, $FB, $0A
+|08FD64| db $00, $FB, $0A
 
 ;---------------------------------------------------------------------------------------------------
 
 .group18_a
-#_08FD67: db $00, $FB, $0B
+|08FD67| db $00, $FB, $0B
 
 .group18_b
-#_08FD6A: db $02, $FD, $0C
+|08FD6A| db $02, $FD, $0C
 
 ;---------------------------------------------------------------------------------------------------
 
 .group19_a
-#_08FD6D: db $01, $FD, $0D
+|08FD6D| db $01, $FD, $0D
 
 .group19_b
-#_08FD70: db $00, $FD, $8D
+|08FD70| db $00, $FD, $8D
 
 ;---------------------------------------------------------------------------------------------------
 
 .group1A_a
-#_08FD73: db $01, $FD, $8C
+|08FD73| db $01, $FD, $8C
 
 .group1A_b
-#_08FD76: db $01, $FD, $8B
+|08FD76| db $01, $FD, $8B
 
 ;---------------------------------------------------------------------------------------------------
 
 .group1B_a
-#_08FD79: db $01, $FD, $8A, $FA, $0C, $89
+|08FD79| db $01, $FD, $8A, $FA, $0C, $89
 
 .group1B_b
-#_08FD7F: db $FA, $0C, $89, $F6, $1C, $C9
+|08FD7F| db $FA, $0C, $89, $F6, $1C, $C9
 
 ;---------------------------------------------------------------------------------------------------
 
 .group1C_a
-#_08FD85: db $F6, $1C, $49, $F8, $2C, $89
+|08FD85| db $F6, $1C, $49, $F8, $2C, $89
 
 .group1C_b
-#_08FD8B: db $F8, $2C, $89, $F6, $38, $02
+|08FD8B| db $F8, $2C, $89, $F6, $38, $02
 
 ;---------------------------------------------------------------------------------------------------
 
 .group1D_a
-#_08FD91: db $F6, $38, $02, $E9, $46, $48, $05, $46
-#_08FD99: db $08
+|08FD91| db $F6, $38, $02, $E9, $46, $48, $05, $46
+|08FD99| db $08
 
 .group1D_b
-#_08FD9A: db $E9, $46, $48, $05, $46, $08, $DA, $55
-#_08FDA2: db $48, $13, $55, $08
+|08FD9A| db $E9, $46, $48, $05, $46, $08, $DA, $55
+|08FDA2| db $48, $13, $55, $08
 
 ;---------------------------------------------------------------------------------------------------
 
 .group1E_a
-#_08FDA6: db $DA, $55, $48, $13, $55, $08, $CC, $63
-#_08FDAE: db $48, $21, $65, $08
+|08FDA6| db $DA, $55, $48, $13, $55, $08, $CC, $63
+|08FDAE| db $48, $21, $65, $08
 
 .group1E_b
-#_08FDB2: db $CC, $63, $48, $21, $65, $08, $BE, $71
-#_08FDBA: db $48, $2F, $73, $08
+|08FDB2| db $CC, $63, $48, $21, $65, $08, $BE, $71
+|08FDBA| db $48, $2F, $73, $08
 
 ;---------------------------------------------------------------------------------------------------
 
 .group1F_a
-#_08FDBE: db $BE, $71, $48, $2F, $73, $08
+|08FDBE| db $BE, $71, $48, $2F, $73, $08
 
 .group20_a
-#_08FDC4: db $A0, $70, $20
+|08FDC4| db $A0, $70, $20
 
 .group20_b
-#_08FDC7: db $A0, $70, $21
+|08FDC7| db $A0, $70, $21
 
 ;---------------------------------------------------------------------------------------------------
 
 .group21_a
-#_08FDCA: db $A0, $70, $66
+|08FDCA| db $A0, $70, $66
 
 .group21_b
-#_08FDCD: db $A0, $70, $22
+|08FDCD| db $A0, $70, $22
 
 ;---------------------------------------------------------------------------------------------------
 
 .group22_a
-#_08FDD0: db $A0, $70, $23
+|08FDD0| db $A0, $70, $23
 
 .group22_b
-#_08FDD3: db $A0, $70, $63
+|08FDD3| db $A0, $70, $63
 
 ;---------------------------------------------------------------------------------------------------
 
 .group23_a
-#_08FDD6: db $A0, $70, $62
+|08FDD6| db $A0, $70, $62
 
 .group23_b
-#_08FDD9: db $A0, $70, $26
+|08FDD9| db $A0, $70, $26
 
 ;---------------------------------------------------------------------------------------------------
 
 .group24_a
-#_08FDDC: db $A0, $70, $27, $AA, $7C, $28
+|08FDDC| db $A0, $70, $27, $AA, $7C, $28
 
 .group24_b
-#_08FDE2: db $AA, $7C, $28, $B8, $8B, $28
+|08FDE2| db $AA, $7C, $28, $B8, $8B, $28
 
 ;---------------------------------------------------------------------------------------------------
 
 .group25_a
-#_08FDE8: db $B8, $8B, $28, $C5, $9A, $A1
+|08FDE8| db $B8, $8B, $28, $C5, $9A, $A1
 
 .group25_b
-#_08FDEE: db $C5, $9A, $A1, $D4, $8C, $68
+|08FDEE| db $C5, $9A, $A1, $D4, $8C, $68
 
 ;---------------------------------------------------------------------------------------------------
 
 .group26_a
-#_08FDF4: db $D4, $8C, $68, $E3, $7E, $68
+|08FDF4| db $D4, $8C, $68, $E3, $7E, $68
 
 .group26_b
-#_08FDFA: db $E3, $7E, $68
+|08FDFA| db $E3, $7E, $68
 
 ;---------------------------------------------------------------------------------------------------
 
 .group27_a
-#_08FDFD: db $ED, $7D, $C5
+|08FDFD| db $ED, $7D, $C5
 
 .group27_b
-#_08FE00: db $90, $60, $2A
+|08FE00| db $90, $60, $2A
 
 ;---------------------------------------------------------------------------------------------------
 
 .group28_a
-#_08FE03: db $90, $60, $2B
+|08FE03| db $90, $60, $2B
 
 .group28_b
-#_08FE06: db $90, $60, $2C
+|08FE06| db $90, $60, $2C
 
 ;---------------------------------------------------------------------------------------------------
 
 .group29_a
-#_08FE09: db $90, $60, $2D
+|08FE09| db $90, $60, $2D
 
 .group29_b
-#_08FE0C: db $89, $52, $29, $90, $60, $2A
+|08FE0C| db $89, $52, $29, $90, $60, $2A
 
 ;---------------------------------------------------------------------------------------------------
 
 .group2A_a
-#_08FE12: db $85, $42, $E9, $89, $52, $29
+|08FE12| db $85, $42, $E9, $89, $52, $29
 
 .group2A_b
-#_08FE18: db $87, $32, $29, $85, $42, $E9
+|08FE18| db $87, $32, $29, $85, $42, $E9
 
 ;---------------------------------------------------------------------------------------------------
 
 .group2B_a
-#_08FE1E: db $7E, $22, $28, $8D, $22, $68, $87, $32
-#_08FE26: db $29
+|08FE1E| db $7E, $22, $28, $8D, $22, $68, $87, $32
+|08FE26| db $29
 
 .group2B_b
-#_08FE27: db $96, $12, $A9, $6F, $13, $28, $7E, $22
-#_08FE2F: db $28, $8D, $22, $68
+|08FE27| db $96, $12, $A9, $6F, $13, $28, $7E, $22
+|08FE2F| db $28, $8D, $22, $68
 
 ;---------------------------------------------------------------------------------------------------
 
 .group2C_a
-#_08FE33: db $9C, $02, $68, $66, $04, $E9, $96, $12
-#_08FE3B: db $A9, $6F, $13, $28
+|08FE33| db $9C, $02, $68, $66, $04, $E9, $96, $12
+|08FE3B| db $A9, $6F, $13, $28
 
 .group2C_b
-#_08FE3F: db $A5, $F2, $A9, $5F, $F5, $28, $9C, $02
-#_08FE47: db $68, $66, $04, $E9
+|08FE3F| db $A5, $F2, $A9, $5F, $F5, $28, $9C, $02
+|08FE47| db $68, $66, $04, $E9
 
 ;---------------------------------------------------------------------------------------------------
 
 .group2D_a
-#_08FE4B: db $60, $70, $60
+|08FE4B| db $60, $70, $60
 
 .group2D_b
-#_08FE4E: db $60, $70, $61
+|08FE4E| db $60, $70, $61
 
 ;---------------------------------------------------------------------------------------------------
 
 .group2E_a
-#_08FE51: db $60, $70, $26
+|08FE51| db $60, $70, $26
 
 .group2E_b
-#_08FE54: db $60, $70, $62
+|08FE54| db $60, $70, $62
 
 ;---------------------------------------------------------------------------------------------------
 
 .group2F_a
-#_08FE57: db $60, $70, $63
+|08FE57| db $60, $70, $63
 
 .group2F_b
-#_08FE5A: db $60, $70, $23
+|08FE5A| db $60, $70, $23
 
 ;---------------------------------------------------------------------------------------------------
 
 .group30_a
-#_08FE5D: db $60, $70, $22
+|08FE5D| db $60, $70, $22
 
 .group30_b
-#_08FE60: db $60, $70, $66
+|08FE60| db $60, $70, $66
 
 ;---------------------------------------------------------------------------------------------------
 
 .group31_a
-#_08FE63: db $55, $6F, $E8, $60, $70, $67
+|08FE63| db $55, $6F, $E8, $60, $70, $67
 
 .group31_b
-#_08FE69: db $46, $68, $24, $55, $6F, $E8
+|08FE69| db $46, $68, $24, $55, $6F, $E8
 
 ;---------------------------------------------------------------------------------------------------
 
 .group32_a
-#_08FE6F: db $46, $68, $24, $36, $6C, $E4
+|08FE6F| db $46, $68, $24, $36, $6C, $E4
 
 .group32_b
-#_08FE75: db $28, $64, $28, $26, $6B, $24, $36, $6C
-#_08FE7D: db $E4
+|08FE75| db $28, $64, $28, $26, $6B, $24, $36, $6C
+|08FE7D| db $E4
 
 ;---------------------------------------------------------------------------------------------------
 
 .group33_a
-#_08FE7E: db $19, $55, $28, $28, $64, $28, $26, $6B
-#_08FE86: db $24, $16, $6E, $E4
+|08FE7E| db $19, $55, $28, $28, $64, $28, $26, $6B
+|08FE86| db $24, $16, $6E, $E4
 
 .group33_b
-#_08FE8A: db $0B, $46, $28, $19, $55, $28, $07, $6C
-#_08FE92: db $24, $16, $6E, $E4
+|08FE8A| db $0B, $46, $28, $19, $55, $28, $07, $6C
+|08FE92| db $24, $16, $6E, $E4
 
 ;---------------------------------------------------------------------------------------------------
 
 .group34_a
-#_08FE96: db $0B, $46, $28, $07, $6C, $24
+|08FE96| db $0B, $46, $28, $07, $6C, $24
 
 .group34_b
-#_08FE9C: db $70, $70, $2A
+|08FE9C| db $70, $70, $2A
 
 ;---------------------------------------------------------------------------------------------------
 
 .group35_a
-#_08FE9F: db $70, $70, $2B
+|08FE9F| db $70, $70, $2B
 
 .group35_b
-#_08FEA2: db $70, $70, $2C
+|08FEA2| db $70, $70, $2C
 
 ;---------------------------------------------------------------------------------------------------
 
 .group36_a
-#_08FEA5: db $70, $70, $2D
+|08FEA5| db $70, $70, $2D
 
 .group36_b
-#_08FEA8: db $70, $70, $2A, $6C, $7D, $29
+|08FEA8| db $70, $70, $2A, $6C, $7D, $29
 
 ;---------------------------------------------------------------------------------------------------
 
 .group37_a
-#_08FEAE: db $6C, $7D, $29, $72, $8C, $28
+|08FEAE| db $6C, $7D, $29, $72, $8C, $28
 
 .group37_b
-#_08FEB4: db $72, $8C, $28, $7C, $9C, $29
+|08FEB4| db $72, $8C, $28, $7C, $9C, $29
 
 ;---------------------------------------------------------------------------------------------------
 
 .group38_a
-#_08FEBA: db $7C, $9C, $29, $7B, $AC, $E9
+|08FEBA| db $7C, $9C, $29, $7B, $AC, $E9
 
 .group38_b
-#_08FEC0: db $7B, $AC, $E9, $75, $B6, $E4, $84, $BB
-#_08FEC8: db $28
+|08FEC0| db $7B, $AC, $E9, $75, $B6, $E4, $84, $BB
+|08FEC8| db $28
 
 ;---------------------------------------------------------------------------------------------------
 
 .group39_a
-#_08FEC9: db $75, $B6, $E4, $84, $BB, $28, $67, $BD
-#_08FED1: db $68, $92, $CA, $28
+|08FEC9| db $75, $B6, $E4, $84, $BB, $28, $67, $BD
+|08FED1| db $68, $92, $CA, $28
 
 .group39_b
-#_08FED5: db $67, $BD, $68, $92, $CA, $28, $5F, $CC
-#_08FEDD: db $69, $9A, $D9, $29
+|08FED5| db $67, $BD, $68, $92, $CA, $28, $5F, $CC
+|08FEDD| db $69, $9A, $D9, $29
 
 ;---------------------------------------------------------------------------------------------------
 
 .group3A_a
-#_08FEE1: db $5F, $CC, $69, $9A, $D9, $29, $60, $DC
-#_08FEE9: db $E9, $9A, $E8, $E9
+|08FEE1| db $5F, $CC, $69, $9A, $D9, $29, $60, $DC
+|08FEE9| db $E9, $9A, $E8, $E9
 
 .group3A_b
-#_08FEED: db $60, $DC, $E9, $9A, $E8, $E9
+|08FEED| db $60, $DC, $E9, $9A, $E8, $E9
 
 ;---------------------------------------------------------------------------------------------------
 
 .group3B_a
-#_08FEF3: db $85, $F2, $29, $8D, $F2, $2E, $31, $F4
-#_08FEFB: db $28
+|08FEF3| db $85, $F2, $29, $8D, $F2, $2E, $31, $F4
+|08FEFB| db $28
 
 .group3B_b
 
 ;===================================================================================================
 
 InitialQuakeBoltPointers:
-#_08FEFC: dw QuakeChars_group00_a, QuakeChars_group00_b
-#_08FF00: dw QuakeChars_group01_a, QuakeChars_group01_b
-#_08FF04: dw QuakeChars_group02_a, QuakeChars_group02_b
-#_08FF08: dw QuakeChars_group03_a, QuakeChars_group03_b
-#_08FF0C: dw QuakeChars_group04_a, QuakeChars_group04_b
-#_08FF10: dw QuakeChars_group05_a, QuakeChars_group05_b
-#_08FF14: dw QuakeChars_group06_a, QuakeChars_group06_b
-#_08FF18: dw QuakeChars_group07_a, QuakeChars_group07_b
-#_08FF1C: dw QuakeChars_group08_a, QuakeChars_group08_b
-#_08FF20: dw QuakeChars_group09_a, QuakeChars_group09_b
-#_08FF24: dw QuakeChars_group0A_a, QuakeChars_group0A_b
-#_08FF28: dw QuakeChars_group0B_a, QuakeChars_group0B_b
-#_08FF2C: dw QuakeChars_group0C_a, QuakeChars_group0C_b
-#_08FF30: dw QuakeChars_group0D_a, QuakeChars_group0D_b
-#_08FF34: dw QuakeChars_group0E_a, QuakeChars_group0E_b
-#_08FF38: dw QuakeChars_group0F_a, QuakeChars_group0F_b
-#_08FF3C: dw QuakeChars_group10_a, QuakeChars_group10_b
-#_08FF40: dw QuakeChars_group11_a, QuakeChars_group11_b
-#_08FF44: dw QuakeChars_group12_a, QuakeChars_group12_b
-#_08FF48: dw QuakeChars_group13_a, QuakeChars_group13_b
-#_08FF4C: dw QuakeChars_group14_a, QuakeChars_group14_b
-#_08FF50: dw QuakeChars_group15_a, QuakeChars_group15_b
-#_08FF54: dw QuakeChars_group16_a, QuakeChars_group16_b
-#_08FF58: dw QuakeChars_group17_a, QuakeChars_group17_b
-#_08FF5C: dw QuakeChars_group18_a, QuakeChars_group18_b
-#_08FF60: dw QuakeChars_group19_a, QuakeChars_group19_b
-#_08FF64: dw QuakeChars_group1A_a, QuakeChars_group1A_b
-#_08FF68: dw QuakeChars_group1B_a, QuakeChars_group1B_b
-#_08FF6C: dw QuakeChars_group1C_a, QuakeChars_group1C_b
-#_08FF70: dw QuakeChars_group1D_a, QuakeChars_group1D_b
-#_08FF74: dw QuakeChars_group1E_a, QuakeChars_group1E_b
-#_08FF78: dw QuakeChars_group1F_a, QuakeChars_group20_a
+|08FEFC| dw QuakeChars.group00_a, QuakeChars.group00_b
+|08FF00| dw QuakeChars.group01_a, QuakeChars.group01_b
+|08FF04| dw QuakeChars.group02_a, QuakeChars.group02_b
+|08FF08| dw QuakeChars.group03_a, QuakeChars.group03_b
+|08FF0C| dw QuakeChars.group04_a, QuakeChars.group04_b
+|08FF10| dw QuakeChars.group05_a, QuakeChars.group05_b
+|08FF14| dw QuakeChars.group06_a, QuakeChars.group06_b
+|08FF18| dw QuakeChars.group07_a, QuakeChars.group07_b
+|08FF1C| dw QuakeChars.group08_a, QuakeChars.group08_b
+|08FF20| dw QuakeChars.group09_a, QuakeChars.group09_b
+|08FF24| dw QuakeChars.group0A_a, QuakeChars.group0A_b
+|08FF28| dw QuakeChars.group0B_a, QuakeChars.group0B_b
+|08FF2C| dw QuakeChars.group0C_a, QuakeChars.group0C_b
+|08FF30| dw QuakeChars.group0D_a, QuakeChars.group0D_b
+|08FF34| dw QuakeChars.group0E_a, QuakeChars.group0E_b
+|08FF38| dw QuakeChars.group0F_a, QuakeChars.group0F_b
+|08FF3C| dw QuakeChars.group10_a, QuakeChars.group10_b
+|08FF40| dw QuakeChars.group11_a, QuakeChars.group11_b
+|08FF44| dw QuakeChars.group12_a, QuakeChars.group12_b
+|08FF48| dw QuakeChars.group13_a, QuakeChars.group13_b
+|08FF4C| dw QuakeChars.group14_a, QuakeChars.group14_b
+|08FF50| dw QuakeChars.group15_a, QuakeChars.group15_b
+|08FF54| dw QuakeChars.group16_a, QuakeChars.group16_b
+|08FF58| dw QuakeChars.group17_a, QuakeChars.group17_b
+|08FF5C| dw QuakeChars.group18_a, QuakeChars.group18_b
+|08FF60| dw QuakeChars.group19_a, QuakeChars.group19_b
+|08FF64| dw QuakeChars.group1A_a, QuakeChars.group1A_b
+|08FF68| dw QuakeChars.group1B_a, QuakeChars.group1B_b
+|08FF6C| dw QuakeChars.group1C_a, QuakeChars.group1C_b
+|08FF70| dw QuakeChars.group1D_a, QuakeChars.group1D_b
+|08FF74| dw QuakeChars.group1E_a, QuakeChars.group1E_b
+|08FF78| dw QuakeChars.group1F_a, QuakeChars.group20_a
 
 ;---------------------------------------------------------------------------------------------------
 
 SpreadQuakeBoltPointers:
-#_08FF7C: dw QuakeChars_group20_a, QuakeChars_group20_b
-#_08FF80: dw QuakeChars_group21_a, QuakeChars_group21_b
-#_08FF84: dw QuakeChars_group22_a, QuakeChars_group22_b
-#_08FF88: dw QuakeChars_group23_a, QuakeChars_group23_b
-#_08FF8C: dw QuakeChars_group24_a, QuakeChars_group24_b
-#_08FF90: dw QuakeChars_group25_a, QuakeChars_group25_b
-#_08FF94: dw QuakeChars_group26_a, QuakeChars_group26_b
-#_08FF98: dw QuakeChars_group27_a, QuakeChars_group27_b
-#_08FF9C: dw QuakeChars_group28_a, QuakeChars_group28_b
-#_08FFA0: dw QuakeChars_group29_a, QuakeChars_group29_b
-#_08FFA4: dw QuakeChars_group2A_a, QuakeChars_group2A_b
-#_08FFA8: dw QuakeChars_group2B_a, QuakeChars_group2B_b
-#_08FFAC: dw QuakeChars_group2C_a, QuakeChars_group2C_b
-#_08FFB0: dw QuakeChars_group2D_a, QuakeChars_group2D_b
-#_08FFB4: dw QuakeChars_group2E_a, QuakeChars_group2E_b
-#_08FFB8: dw QuakeChars_group2F_a, QuakeChars_group2F_b
-#_08FFBC: dw QuakeChars_group30_a, QuakeChars_group30_b
-#_08FFC0: dw QuakeChars_group31_a, QuakeChars_group31_b
-#_08FFC4: dw QuakeChars_group32_a, QuakeChars_group32_b
-#_08FFC8: dw QuakeChars_group33_a, QuakeChars_group33_b
-#_08FFCC: dw QuakeChars_group34_a, QuakeChars_group34_b
-#_08FFD0: dw QuakeChars_group35_a, QuakeChars_group35_b
-#_08FFD4: dw QuakeChars_group36_a, QuakeChars_group36_b
-#_08FFD8: dw QuakeChars_group37_a, QuakeChars_group37_b
-#_08FFDC: dw QuakeChars_group38_a, QuakeChars_group38_b
-#_08FFE0: dw QuakeChars_group39_a, QuakeChars_group39_b
-#_08FFE4: dw QuakeChars_group3A_a, QuakeChars_group3A_b
-#_08FFE8: dw QuakeChars_group3B_a, QuakeChars_group3B_b
+|08FF7C| dw QuakeChars.group20_a, QuakeChars.group20_b
+|08FF80| dw QuakeChars.group21_a, QuakeChars.group21_b
+|08FF84| dw QuakeChars.group22_a, QuakeChars.group22_b
+|08FF88| dw QuakeChars.group23_a, QuakeChars.group23_b
+|08FF8C| dw QuakeChars.group24_a, QuakeChars.group24_b
+|08FF90| dw QuakeChars.group25_a, QuakeChars.group25_b
+|08FF94| dw QuakeChars.group26_a, QuakeChars.group26_b
+|08FF98| dw QuakeChars.group27_a, QuakeChars.group27_b
+|08FF9C| dw QuakeChars.group28_a, QuakeChars.group28_b
+|08FFA0| dw QuakeChars.group29_a, QuakeChars.group29_b
+|08FFA4| dw QuakeChars.group2A_a, QuakeChars.group2A_b
+|08FFA8| dw QuakeChars.group2B_a, QuakeChars.group2B_b
+|08FFAC| dw QuakeChars.group2C_a, QuakeChars.group2C_b
+|08FFB0| dw QuakeChars.group2D_a, QuakeChars.group2D_b
+|08FFB4| dw QuakeChars.group2E_a, QuakeChars.group2E_b
+|08FFB8| dw QuakeChars.group2F_a, QuakeChars.group2F_b
+|08FFBC| dw QuakeChars.group30_a, QuakeChars.group30_b
+|08FFC0| dw QuakeChars.group31_a, QuakeChars.group31_b
+|08FFC4| dw QuakeChars.group32_a, QuakeChars.group32_b
+|08FFC8| dw QuakeChars.group33_a, QuakeChars.group33_b
+|08FFCC| dw QuakeChars.group34_a, QuakeChars.group34_b
+|08FFD0| dw QuakeChars.group35_a, QuakeChars.group35_b
+|08FFD4| dw QuakeChars.group36_a, QuakeChars.group36_b
+|08FFD8| dw QuakeChars.group37_a, QuakeChars.group37_b
+|08FFDC| dw QuakeChars.group38_a, QuakeChars.group38_b
+|08FFE0| dw QuakeChars.group39_a, QuakeChars.group39_b
+|08FFE4| dw QuakeChars.group3A_a, QuakeChars.group3A_b
+|08FFE8| dw QuakeChars.group3B_a, QuakeChars.group3B_b
 
 ;===================================================================================================
 ; FREE ROM: 0x14
 ;===================================================================================================
 NULL_08FFEC:
-#_08FFEC: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
-#_08FFF4: db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
-#_08FFFC: db $FF, $FF, $FF, $FF
+|08FFEC| db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
+|08FFF4| db $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF
+|08FFFC| db $FF, $FF, $FF, $FF
 
 ;===================================================================================================

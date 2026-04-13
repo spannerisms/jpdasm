@@ -161,7 +161,7 @@ SFX2 - queued via $012E | Table: ARAM $1820, ROM $1A:8BD0
 
 ID          ARAM      ROM         Name
 ----------------------------------------------------------------------------------------------------
-     00     $0020     -------     Undefined; when queued value of $40, $C0, $80
+     00     $0020     -------     Undefined; when queued value of $40, $80, $C0
 SFX2.01     $2614     $1A99C4     Slash
 SFX2.02     $2625     $1A99D5     Slash
 SFX2.03     $2634     $1A99E4     Slash
@@ -193,7 +193,7 @@ SFX2.1C     $2301     $1A96B1     Mire shallow water
 SFX2.1D     $22BB     $1A966B     Lifting object
 SFX2.1E     $2577     $1A9927     Cutting grass
 SFX2.1F     $22E9     $1A9699     Item breaking
-SFX2.20     $22DA     $1A968A     Item falling in pit
+SFX2.20     $22DA     $1A968A     Link jumping / item falling in pit
 SFX2.21     $22CF     $1A967F     Bomb hitting ground / General thud
 SFX2.22     $2107     $1A94B7     Pushing object / Armos bounce
 SFX2.23     $22B1     $1A9661     Boots dust
@@ -232,10 +232,10 @@ SFX3 - queued via $012F |  Table: ARAM $191C, ROM $1A:8CCC
 
 ID          ARAM      ROM         Name
 ----------------------------------------------------------------------------------------------------
-     00     $003C     -------     Undefined; when queued value of $40, $C0, $80
+     00     $003C     -------     Undefined; when queued value of $40, $80, $C0
 SFX3.01     $1A18     $1A8DC8     Sword beam
 SFX3.02     $254E     $1A98FE     TR opening
-SFX3.03     $224A     $1A95FA     Pyramid hole
+SFX3.03     $224A     $1A95FA     Bonk / Pyramid hole
 SFX3.04     $220E     $1A95BE     Angry soldier
 SFX3.05     $25B7     $1A9967     Lynel shot / Javelin toss
 SFX3.06     $21F5     $1A95A5     Swoosh

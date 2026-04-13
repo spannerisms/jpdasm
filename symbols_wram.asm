@@ -131,13 +131,13 @@ POSXH           = $7E0023
 POSZ            = $7E0024
 POSZH           = $7E0025
 
-; Direction Link is pushing
+; Directions held
 ; .... udlr
 ;   u - up
 ;   d - down
 ;   l - left
 ;   r - right
-PUSHDIR         = $7E0026
+MOVEDIR         = $7E0026
 
 ; Link's recoil
 ; By themselves, these do not do much
@@ -187,7 +187,7 @@ UNUSED_37       = $7E0037
 
 ; Tile act bitfield used by outer slopes.
 ; The high byte is technically written when the bitfield is flagged,
-; but it's always ORing in 0x00. It is otherwise unused. TODO verify
+; but it's always ORing in 0x00. It is otherwise unused.
 ; SEE TILE ACT NOTES
 ; .... ssss
 TACTSLOPEO      = $7E0038
@@ -208,10 +208,10 @@ BYFLAG          = $7E003A
 ;   d - prevents sword swing; only set by unused routine
 AFLAG           = $7E003B
 
-; Timer for B button
+; Animation handler for sword
 ; ssss tttt
 ;   s - spin attack in action; set to 0x9
-;   t - sword swing timer
+;   t - sword swing step
 ;       0x00 - No swing
 ;      —0x08 - Sword swing
 ;       0x09 - Sword primed
@@ -282,7 +282,7 @@ JUMPING         = $7E004D
 ;   0x00 - Shallow water/Nothing
 ;   0x01 - Normal door
 ;   0x02 - Shutter doors/All others - zeros DOORWAY
-;   0x03 - Layer doors? TODO
+;   0x03 - Layer swap doors
 ;   0x04 - Lower layer shutters - zeros DOORWAY
 TRANSLAND       = $7E004E
 
@@ -300,7 +300,7 @@ FSHFSH          = $7E004F
 STRAFE          = $7E0050
 
 ; Target Y coordinate Link should fall to
-; TODO other stuff too???
+; Cache's coordinates for slope detection and spiral stairs
 TARGETY         = $7E0051
 TARGETYH        = $7E0052
 TARGETX         = $7E0053
@@ -448,9 +448,8 @@ SCRAP76         = $7E0076
 ; Never really used, but zeroed by some uses of SCRAP76.
 SCRAP77         = $7E0077
 
-; TODO
 ; Seems to flag non-north hops in the overworld.
-; Messes with camera scroll.
+; Tells camera scrolls to not change a height of $FFFF to $0000.
 ; Kept in sync with NOHURT
 JUMPSCROLL      = $7E0078
 
@@ -481,8 +480,7 @@ UNUSED_83       = $7E0083
 OWTMAPI         = $7E0084
 OWTMAPIH        = $7E0085
 
-; Used to index $0500 and tilemap
-; TODO look at 02E9F7
+; Offset of next row/column to load when scrolling
 OWMAPDIX        = $7E0086
 OWMAPDIXH       = $7E0087
 OWMAPDIY        = $7E0088
@@ -537,7 +535,7 @@ UNUSED_9F       = $7E009F
 
 ; Room ID for underworld
 ; Copied to $0483
-; There are only 2 "maps", so $A1 is only expected to be 0 or 1
+; $A1 is only expected to be 0 or 1
 ROOM            = $7E00A0
 ROOMH           = $7E00A1
 
@@ -693,7 +691,8 @@ COLTYPEH        = $7E00ED
 ; Mostly behaves as an indicator of which layer Link is on
 ;   0x00 - Upper layer (BG2)
 ;   0x01 - Lower layer (BG1)
-;   TODO other values
+;   0x02 - Jumping
+;   0x03 - Lower layer spiral stairs
 LAYER           = $7E00EE
 
 ; .... ..sl
@@ -778,7 +777,7 @@ SUBCACHE        = $7E010D
 ENTRANCE        = $7E010E
 ENTRANCEH       = $7E010F
 
-; Contains the current room ID * 3
+; Contains the current room ID*3
 ROOMX3          = $7E0110
 ROOMX3H         = $7E0111
 
@@ -1135,9 +1134,8 @@ UNUSED_7E02D5   = $7E02D5
 ; Zeroed by followers; never read.
 JUNK_7E02D6     = $7E02D6
 
-; TODO
-; Seems to be something with overriding properties.
-FLWREPRI        = $7E02D7
+; Animation step for the follower's tall grass/shallow water puddle
+FLWRTUFT        = $7E02D7
 
 ; Holds ID of item receipt items.
 RECEIPTID       = $7E02D8
@@ -1396,7 +1394,10 @@ IFRAMES         = $7E031F
 TACTMASK0C      = $7E0320
 TACTMASK0CH     = $7E0321
 
-; TODO some bitfield flagging interaction with mask0C?
+; Flags standing on a layer mask 0C tile
+; .... ..vh
+;   v - vertical
+;   h - horizontal
 MASK0CON        = $7E0322
 
 ; Copies DIR for use during Link's OAM routines.
@@ -1513,8 +1514,7 @@ DEBUGROD        = $7E034B
 TACTMASK1C      = $7E034C
 TACTMASK1CH     = $7E034D
 
-; TODO
-; Something with Link's OAM priority and somaria platform.
+; Increases Link's OAM priority, but only when in the unused LINKSTATE 05
 SOMPRI          = $7E034E
 
 ; Non zero when stroking while swimming
@@ -1577,8 +1577,7 @@ ZAP             = $7E0360
 ; FREE RAM: 0x01
 UNUSED_7E0361   = $7E0361
 
-; Something with hopping; often takes value of SPEEDZ
-; TODO
+; Special cache for SPEEDZ
 HOPVZ2          = $7E0362
 HOPVZ2H         = $7E0363
 
@@ -1949,16 +1948,21 @@ UNUSED_7E03FF   = $7E03FF
 
 ;---------------------------------------------------------------------------------------------------
 
-; Doors unlocked in a given room
-; High byte is the main one used and sent to SRAM.
-; It is copied to the low byte for no reason when loading a room.
-UNLOCKED2       = $7E0400
+; Used for 16-bit access to UNLOCKED, but never holds a value of its own.
+; Always expected to have $00.
+DOORFLAG        = $7E0400
+
+; Doors opened in a room
+; abcd ....
+;   a - door 0
+;   b - door 1
+;   c - door 2
+;   d - door 3
 UNLOCKED        = $7E0401
 
-; Doors opened (not necessarily unlocked) in a given room
-; Not a very consistent reference.
-; Definitely flags the TR eye door and some shutters
-OPENED          = $7E0402
+; Used for 16-bit access to TAKEN, but never holds a value of its own.
+; Always expected to have $00.
+RMFLGCUR        = $7E0402
 
 ; Items taken in a room
 ; Bit 7 prevents damage from bombs and spikes
@@ -2024,10 +2028,9 @@ UPINCSTEP       = $7E0412
 ; FREE RAM: 0x01
 UNUSED_7E0413   = $7E0413
 
-; TODO
-; Background stuff
-BGACT           = $7E0414
-BGACTH          = $7E0415
+; Underworld subscreen behavior
+UWBGSUB         = $7E0414
+UWBGSUBH        = $7E0415
 
 ; Designates which vector to follow when updating the overworld tilemap
 ; High byte seems unused
@@ -2045,12 +2048,12 @@ MAPPANVCTH      = $7E0417
 TRANDIR         = $7E0418
 TRANDIRH        = $7E0419
 
-; Flags for room tags to move a wall
-; Also flags moving floor TODO
+; Flag for room tags to move a wall.
+; Enables the moving floor overlord.
 MVWALL          = $7E041A
 MVWALLH         = $7E041B
 
-; Seems to be a subpixel for moving walls and floors
+; Subpixel for moving walls and floors
 MWSUBL          = $7E041C
 MWSUBH          = $7E041D
 
@@ -2072,8 +2075,8 @@ BG1OFFVH        = $7E0425
 UNUSED_7E0426   = $7E0426
 UNUSED_7E0427   = $7E0427
 
-; TODO something with scrolling bg1
-UNKNOWN_7E0428  = $7E0428
+; Flags scroll override for BG1
+BG1SCROV        = $7E0428
 
 ; FREE RAM: 0x01
 UNUSED_7E0429   = $7E0429
@@ -2118,29 +2121,29 @@ STRXIRFSD       = $7E043A
 STRXIRFSDH      = $7E043B
 
 ; Indexes all sorts of inter-room stairs
-; MultiLayer North Stairs A
-STRXMLNS        = $7E043C
-STRXMLNSH       = $7E043D
+; MultiLayer North Stairs (EG0)
+STRXMLNS0       = $7E043C
+STRXMLNS0H      = $7E043D
 
-; MultiLayer North Stairs B
-STRXMLNSB       = $7E043E
-STRXMLNSBH      = $7E043F
+; MultiLayer North Stairs (separate layers)
+STRXMLNS1       = $7E043E
+STRXMLNS1H      = $7E043F
 
-; Merged (Combined) Layer North A
-STRXCLNSA       = $7E0440
-STRXCLNSAH      = $7E0441
+; Merged (Combined) Layer North (merged layer)
+STRXCLNS2       = $7E0440
+STRXCLNS2H      = $7E0441
 
-; Merged (Combined) Layer North B
-STRXCLNSB       = $7E0442
-STRXCLNSBH      = $7E0443
+; Merged (Combined) Layer North (swim layer)
+STRXCLNSS       = $7E0442
+STRXCLNSSH      = $7E0443
 
-; Water Hop Stairs A
-STRXWHSA        = $7E0444
-STRXWHSAH       = $7E0445
+; Water Hop Ladder North
+STRXWHLN        = $7E0444
+STRXWHLNH       = $7E0445
 
-; Water Hop Stairs B
-STRXWHSB        = $7E0446
-STRXWHSBH       = $7E0447
+; Water Hop Ladder South
+STRXWHLS        = $7E0446
+STRXWHLSH       = $7E0447
 
 ; Most North Stairs Kinda
 STRXMNSK        = $7E0448
@@ -2224,8 +2227,8 @@ SHUTTERH        = $7E0469
 FLOOR1          = $7E046A
 FLOOR1H         = $7E046B
 
-; TODO "collision"
-BG1FX           = $7E046C
+; Underworld layer coupling
+LAYCPL          = $7E046C
 
 ; FREE RAM: 0x03
 UNUSED_7E046D   = $7E046D
@@ -2331,17 +2334,17 @@ LOCKXH          = $7E0499
 
 ; Hooray! Stairs!!!!
 
-; MultiLayer South A
-STRXMLSA        = $7E049A
-STRXMLSAH       = $7E049B
+; MultiLayer South (EG0)
+STRXMLS0        = $7E049A
+STRXMLS0H       = $7E049B
 
-; MultiLayer South B
-STRXMLSB        = $7E049C
-STRXMLSBH       = $7E049D
+; MultiLayer South (separate layers)
+STRXMLS1        = $7E049C
+STRXMLS1H       = $7E049D
 
-; MultiLayer South C
-STRXMLSC        = $7E049E
-STRXMLSCH       = $7E049F
+; MultiLayer South (merged layers)
+STRXMLS2        = $7E049E
+STRXMLS2H       = $7E049F
 
 ; Timer used to display the floor number on HUD. Counts up to 0x00C0
 FLOORTIME       = $7E04A0
@@ -2370,8 +2373,8 @@ RESPAWN         = $7E04AA
 RESPAWNH        = $7E04AB
 
 ; Index for map16 tile change buffes on overworld
-M16CHINDX       = $7E04AC
-M16CHINDXH      = $7E04AD
+M16CHX          = $7E04AC
+M16CHXH         = $7E04AD
 
 ; Merged (Combined) Layer South B
 STRXCLSS        = $7E04AE
@@ -2726,18 +2729,19 @@ WTRMAXY         = $7E068A
 WTRMAXYH        = $7E068B
 
 ; Flags open doors during transitions
-DOOROPEN2       = $7E068C
-DOOROPEN        = $7E068D
+; Referenced with low byte, but all data expected in high byte
+OPENED          = $7E068C
+OPENEDH         = $7E068D
 
-; Tile map position of door
-DOORTM          = $7E068E
-DOORTMH         = $7E068F
+; Collision map position of door
+DOORPOS         = $7E068E
+DOORPOSH        = $7E068F
 
 ; Timer for opening doors
 DOORTIME        = $7E0690
 DOORTIMEH       = $7E0691
 
-; Used as an index for updating doors in the underworld or tile32 on the overworld.
+; Used as an index for updating doors in the underworld or Map32 on the overworld.
 UPDATE32ID      = $7E0692
 UPDATE32IDH     = $7E0693
 
@@ -2749,7 +2753,7 @@ DOORINDEXH      = $7E0695
 ENTRTMAP        = $7E0696
 ENTRTMAPH       = $7E0697
 
-; Tilemap location of new tile32 objects, such as from graves/rocks
+; Tilemap location of new Map32 objects, such as from graves/rocks
 REPLTMAP        = $7E0698
 REPLTMAPH       = $7E0699
 
@@ -3635,7 +3639,7 @@ ANC7LAYER       = $7E0C83
 ANC8LAYER       = $7E0C84
 ANC9LAYER       = $7E0C85
 
-; OAM region offset of ancillae, but it's never used
+; Written to with low byte of ($90) (probably a mistake) during ancilla execution, but never read
 ; Slots 6+ avoid it for some reason...?
 ANC0OAMR        = $7E0C86
 ANC1OAMR        = $7E0C87
@@ -4328,23 +4332,23 @@ SPRD_0E90       = $7E0E9D
 SPRE_0E90       = $7E0E9E
 SPRF_0E90       = $7E0E9F
 
-; TODO
-SPR0_0EA0       = $7E0EA0
-SPR1_0EA0       = $7E0EA1
-SPR2_0EA0       = $7E0EA2
-SPR3_0EA0       = $7E0EA3
-SPR4_0EA0       = $7E0EA4
-SPR5_0EA0       = $7E0EA5
-SPR6_0EA0       = $7E0EA6
-SPR7_0EA0       = $7E0EA7
-SPR8_0EA0       = $7E0EA8
-SPR9_0EA0       = $7E0EA9
-SPRA_0EA0       = $7E0EAA
-SPRB_0EA0       = $7E0EAB
-SPRC_0EA0       = $7E0EAC
-SPRD_0EA0       = $7E0EAD
-SPRE_0EA0       = $7E0EAE
-SPRF_0EA0       = $7E0EAF
+; sprite knockback timer
+SPR0_KNBTM      = $7E0EA0
+SPR1_KNBTM      = $7E0EA1
+SPR2_KNBTM      = $7E0EA2
+SPR3_KNBTM      = $7E0EA3
+SPR4_KNBTM      = $7E0EA4
+SPR5_KNBTM      = $7E0EA5
+SPR6_KNBTM      = $7E0EA6
+SPR7_KNBTM      = $7E0EA7
+SPR8_KNBTM      = $7E0EA8
+SPR9_KNBTM      = $7E0EA9
+SPRA_KNBTM      = $7E0EAA
+SPRB_KNBTM      = $7E0EAB
+SPRC_KNBTM      = $7E0EAC
+SPRD_KNBTM      = $7E0EAD
+SPRE_KNBTM      = $7E0EAE
+SPRF_KNBTM      = $7E0EAF
 
 ; TODO
 SPR0_0EB0       = $7E0EB0
@@ -4769,20 +4773,20 @@ OAMEL           = $7E0FE9
 OAMFH           = $7E0FEA
 OAMFL           = $7E0FEB
 
-; Used to find backup regions for OAM regions
+; Cycled through for last-resort flickering in OAM regions
 ; High byte unused but always written 0
-OAMBKAH         = $7E0FEC
-OAMBKAL         = $7E0FED
-OAMBKBH         = $7E0FEE
-OAMBKBL         = $7E0FEF
-OAMBKCH         = $7E0FF0
-OAMBKCL         = $7E0FF1
-OAMBKDH         = $7E0FF2
-OAMBKDL         = $7E0FF3
-OAMBKEH         = $7E0FF4
-OAMBKEL         = $7E0FF5
-OAMBKFH         = $7E0FF6
-OAMBKFL         = $7E0FF7
+OAMFLKAH        = $7E0FEC
+OAMFLKAL        = $7E0FED
+OAMFLKBH        = $7E0FEE
+OAMFLKBL        = $7E0FEF
+OAMFLKCH        = $7E0FF0
+OAMFLKCL        = $7E0FF1
+OAMFLKDH        = $7E0FF2
+OAMFLKDL        = $7E0FF3
+OAMFLKEH        = $7E0FF4
+OAMFLKEL        = $7E0FF5
+OAMFLKFH        = $7E0FF6
+OAMFLKFL        = $7E0FF7
 
 ; Used as a fallback search index for garnish creation.
 ; Also counts the number of armos knights left alive.
@@ -4823,110 +4827,110 @@ ROOMSTRIPES     = $7E1100
 ;---------------------------------------------------------------------------------------------------
 
 ; Door types TODO
-DOOR0TYPE       = $7E1980
-DOOR0DIRT       = $7E1981
-DOOR1TYPE       = $7E1982
-DOOR1DIRT       = $7E1983
-DOOR2TYPE       = $7E1984
-DOOR2DIRT       = $7E1985
-DOOR3TYPE       = $7E1986
-DOOR3DIRT       = $7E1987
-DOOR4TYPE       = $7E1988
-DOOR4DIRT       = $7E1989
-DOOR5TYPE       = $7E198A
-DOOR5DIRT       = $7E198B
-DOOR6TYPE       = $7E198C
-DOOR6DIRT       = $7E198D
-DOOR7TYPE       = $7E198E
-DOOR7DIRT       = $7E198F
-DOOR8TYPE       = $7E1990
-DOOR8DIRT       = $7E1991
-DOOR9TYPE       = $7E1992
-DOOR9DIRT       = $7E1993
-DOORATYPE       = $7E1994
-DOORADIRT       = $7E1995
-DOORBTYPE       = $7E1996
-DOORBDIRT       = $7E1997
-DOORCTYPE       = $7E1998
-DOORCDIRT       = $7E1999
-DOORDTYPE       = $7E199A
-DOORDDIRT       = $7E199B
-DOORETYPE       = $7E199C
-DOOREDIRT       = $7E199D
-DOORFTYPE       = $7E199E
-DOORFDIRT       = $7E199F
+DOOR0ATYPE      = $7E1980
+DOOR0ADIRT      = $7E1981
+DOOR1ATYPE      = $7E1982
+DOOR1ADIRT      = $7E1983
+DOOR2ATYPE      = $7E1984
+DOOR2ADIRT      = $7E1985
+DOOR3ATYPE      = $7E1986
+DOOR3ADIRT      = $7E1987
+DOOR4ATYPE      = $7E1988
+DOOR4ADIRT      = $7E1989
+DOOR5ATYPE      = $7E198A
+DOOR5ADIRT      = $7E198B
+DOOR6ATYPE      = $7E198C
+DOOR6ADIRT      = $7E198D
+DOOR7ATYPE      = $7E198E
+DOOR7ADIRT      = $7E198F
+DOOR0BTYPE      = $7E1990
+DOOR0BDIRT      = $7E1991
+DOOR1BTYPE      = $7E1992
+DOOR1BDIRT      = $7E1993
+DOOR2BTYPE      = $7E1994
+DOOR2BDIRT      = $7E1995
+DOOR3BTYPE      = $7E1996
+DOOR3BDIRT      = $7E1997
+DOOR4BTYPE      = $7E1998
+DOOR4BDIRT      = $7E1999
+DOOR5BTYPE      = $7E199A
+DOOR5BDIRT      = $7E199B
+DOOR6BTYPE      = $7E199C
+DOOR6BDIRT      = $7E199D
+DOOR7BTYPE      = $7E199E
+DOOR7BDIRT      = $7E199F
 
-; Door tile map location
-DOOR0TMAPL      = $7E19A0
-DOOR0TMAPH      = $7E19A1
-DOOR1TMAPL      = $7E19A2
-DOOR1TMAPH      = $7E19A3
-DOOR2TMAPL      = $7E19A4
-DOOR2TMAPH      = $7E19A5
-DOOR3TMAPL      = $7E19A6
-DOOR3TMAPH      = $7E19A7
-DOOR4TMAPL      = $7E19A8
-DOOR4TMAPH      = $7E19A9
-DOOR5TMAPL      = $7E19AA
-DOOR5TMAPH      = $7E19AB
-DOOR6TMAPL      = $7E19AC
-DOOR6TMAPH      = $7E19AD
-DOOR7TMAPL      = $7E19AE
-DOOR7TMAPH      = $7E19AF
-DOOR8TMAPL      = $7E19B0
-DOOR8TMAPH      = $7E19B1
-DOOR9TMAPL      = $7E19B2
-DOOR9TMAPH      = $7E19B3
-DOORATMAPL      = $7E19B4
-DOORATMAPH      = $7E19B5
-DOORBTMAPL      = $7E19B6
-DOORBTMAPH      = $7E19B7
-DOORCTMAPL      = $7E19B8
-DOORCTMAPH      = $7E19B9
-DOORDTMAPL      = $7E19BA
-DOORDTMAPH      = $7E19BB
-DOORETMAPL      = $7E19BC
-DOORETMAPH      = $7E19BD
-DOORFTMAPL      = $7E19BE
-DOORFTMAPH      = $7E19BF
+; Door tile map location. Also caches door data temporarily.
+DOOR0ATMAPL     = $7E19A0
+DOOR0ATMAPH     = $7E19A1
+DOOR1ATMAPL     = $7E19A2
+DOOR1ATMAPH     = $7E19A3
+DOOR2ATMAPL     = $7E19A4
+DOOR2ATMAPH     = $7E19A5
+DOOR3ATMAPL     = $7E19A6
+DOOR3ATMAPH     = $7E19A7
+DOOR4ATMAPL     = $7E19A8
+DOOR4ATMAPH     = $7E19A9
+DOOR5ATMAPL     = $7E19AA
+DOOR5ATMAPH     = $7E19AB
+DOOR6ATMAPL     = $7E19AC
+DOOR6ATMAPH     = $7E19AD
+DOOR7ATMAPL     = $7E19AE
+DOOR7ATMAPH     = $7E19AF
+DOOR0BTMAPL     = $7E19B0
+DOOR0BTMAPH     = $7E19B1
+DOOR1BTMAPL     = $7E19B2
+DOOR1BTMAPH     = $7E19B3
+DOOR2BTMAPL     = $7E19B4
+DOOR2BTMAPH     = $7E19B5
+DOOR3BTMAPL     = $7E19B6
+DOOR3BTMAPH     = $7E19B7
+DOOR4BTMAPL     = $7E19B8
+DOOR4BTMAPH     = $7E19B9
+DOOR5BTMAPL     = $7E19BA
+DOOR5BTMAPH     = $7E19BB
+DOOR6BTMAPL     = $7E19BC
+DOOR6BTMAPH     = $7E19BD
+DOOR7BTMAPL     = $7E19BE
+DOOR7BTMAPH     = $7E19BF
 
 ; Door direction
 ;   0x00 - North
 ;   0x01 - South
 ;   0x02 - West
 ;   0x03 - East
-DOOR0DIR        = $7E19C0
-DOOR0DIRH       = $7E19C1
-DOOR1DIR        = $7E19C2
-DOOR1DIRH       = $7E19C3
-DOOR2DIR        = $7E19C4
-DOOR2DIRH       = $7E19C5
-DOOR3DIR        = $7E19C6
-DOOR3DIRH       = $7E19C7
-DOOR4DIR        = $7E19C8
-DOOR4DIRH       = $7E19C9
-DOOR5DIR        = $7E19CA
-DOOR5DIRH       = $7E19CB
-DOOR6DIR        = $7E19CC
-DOOR6DIRH       = $7E19CD
-DOOR7DIR        = $7E19CE
-DOOR7DIRH       = $7E19CF
-DOOR8DIR        = $7E19D0
-DOOR8DIRH       = $7E19D1
-DOOR9DIR        = $7E19D2
-DOOR9DIRH       = $7E19D3
-DOORADIR        = $7E19D4
-DOORADIRH       = $7E19D5
-DOORBDIR        = $7E19D6
-DOORBDIRH       = $7E19D7
-DOORCDIR        = $7E19D8
-DOORCDIRH       = $7E19D9
-DOORDDIR        = $7E19DA
-DOORDDIRH       = $7E19DB
-DOOREDIR        = $7E19DC
-DOOREDIRH       = $7E19DD
-DOORFDIR        = $7E19DE
-DOORFDIRH       = $7E19DF
+DOOR0ADIR       = $7E19C0
+DOOR0ADIRH      = $7E19C1
+DOOR1ADIR       = $7E19C2
+DOOR1ADIRH      = $7E19C3
+DOOR2ADIR       = $7E19C4
+DOOR2ADIRH      = $7E19C5
+DOOR3ADIR       = $7E19C6
+DOOR3ADIRH      = $7E19C7
+DOOR4ADIR       = $7E19C8
+DOOR4ADIRH      = $7E19C9
+DOOR5ADIR       = $7E19CA
+DOOR5ADIRH      = $7E19CB
+DOOR6ADIR       = $7E19CC
+DOOR6ADIRH      = $7E19CD
+DOOR7ADIR       = $7E19CE
+DOOR7ADIRH      = $7E19CF
+DOOR0BDIR       = $7E19D0
+DOOR0BDIRH      = $7E19D1
+DOOR1BDIR       = $7E19D2
+DOOR1BDIRH      = $7E19D3
+DOOR2BDIR       = $7E19D4
+DOOR2BDIRH      = $7E19D5
+DOOR3BDIR       = $7E19D6
+DOOR3BDIRH      = $7E19D7
+DOOR4BDIR       = $7E19D8
+DOOR4BDIRH      = $7E19D9
+DOOR5BDIR       = $7E19DA
+DOOR5BDIRH      = $7E19DB
+DOOR6BDIR       = $7E19DC
+DOOR6BDIRH      = $7E19DD
+DOOR7BDIR       = $7E19DE
+DOOR7BDIRH      = $7E19DF
 
 ; Index for exit mod doors in the following array
 EXITI           = $7E19E0
@@ -5946,14 +5950,14 @@ POTLIFT         = $7EF580
 
 ;---------------------------------------------------------------------------------------------------
 
-; Caches the tilemap location of changed map16 tiles on the overworld
-M16CHTMAPX      = $7EF800
+; Caches the tilemap location of changed map16 objects on the overworld
+M16CHOFF        = $7EF800
 
 ; Locations of push blocks in underworld
 PUSHBLOCKS      = $7EF940
 
-; Caches the tile of changed map16 tiles on the overworld
-M16CHTILES      = $7EFA00
+; Caches the ID of changed map16 objects on the overworld
+M16CHOBJ        = $7EFA00
 
 ; Locations of torches in underworld
 TORCHES         = $7EFB40
@@ -6115,8 +6119,8 @@ UNUSED_7F5A58   = $7F5A58
 
 ;---------------------------------------------------------------------------------------------------
 
-; Used when decompressing text characters
-TEXTDECOMP      = $7F5B00
+; Contains offsets locating each character
+CHRDATAOFF      = $7F5B00
 
 ;---------------------------------------------------------------------------------------------------
 
@@ -7265,7 +7269,7 @@ RACETIMEDD      = $7FFE07
 
 ; Used for drawing beamos lasers/lanmo rubble
 SPR_7FFE00      = $7FFE00
-SPR_7FFE80      = $7FFE00
+SPR_7FFE80      = $7FFE80
 SPR_7FFF00      = $7FFF00
 
 ;===================================================================================================

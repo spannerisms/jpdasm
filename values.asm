@@ -1,5 +1,5 @@
 ;===================================================================================================
-; Followers
+; FOLLOWER XX - Followers
 ;===================================================================================================
 ; 00 - No follower
 ; 01 - Zelda
@@ -18,7 +18,7 @@
 ; 0E - Master Sword telepathy
 
 ;===================================================================================================
-; Dungeon IDs
+; DUNGEON XX - Dungeon IDs
 ;===================================================================================================
 ; 00 - Sewers
 ; 02 - Hyrule Castle
@@ -37,7 +37,7 @@
 ; FF - Cave
 
 ;===================================================================================================
-; Overworld screens
+; OW XX - Overworld screens
 ;===================================================================================================
 ; 00 - Lost Woods
 ; 01 - Lost Woods
@@ -118,7 +118,7 @@
 ; 4C - West Dark Death Mountain
 ; 4D - East Dark Death Mountain
 ; 4E - East Dark Death Mountain
-; 4F - Lake of Bad Omens
+; 4F - Lake of Ill Omen
 ; 50 - Skull Woods Alcove
 ; 51 - North of Outcasts
 ; 52 - Dark Northwest Pond
@@ -184,7 +184,7 @@
 ; BE - Garbage overlay that scrolls
 
 ;===================================================================================================
-; Sprites
+; SPRITE XX - Sprites
 ;===================================================================================================
 ; 00 - RAVEN
 ; 01 - VULTURE
@@ -444,7 +444,7 @@
 ; FF - UNDEFINED
 
 ;===================================================================================================
-; Overlords
+; OVERLORD XX - Overlords
 ;===================================================================================================
 ; 01 - POSITION TARGET
 ; 02 - FULL ROOM CANNONS
@@ -474,7 +474,7 @@
 ; 1A - BAD SWITCH BOMB
 
 ;===================================================================================================
-; Ancillae
+; ANCILLA XX - Ancillae
 ;===================================================================================================
 ; 01 - SOMARIA BULLET
 ; 02 - FIRE ROD SHOT
@@ -545,7 +545,7 @@
 ; 43 - GANONS TOWER CUTSCENE
 
 ;===================================================================================================
-; Garnish
+; GARNISH XX - Garnish
 ;===================================================================================================
 ; 01 - FIRE SNAKE TAIL
 ; 02 - MOTHULA BEAM TRAIL
@@ -571,46 +571,7 @@
 ; 16 - THROWN ITEM DEBRIS
 
 ;===================================================================================================
-; Text commands
-;===================================================================================================
-; F6 - SCROLL
-; F7 - ROW1
-; F8 - ROW2
-; F9 - ROW3
-; FA - PAUSE
-; FB - END
-; FC - SPEED
-; FD - KANJI
-; FE - EXTCMD
-
-; FE 67 - NEXTIMAGE
-; FE 68 - CHOOSE_2_LOW
-; FE 69 - CHOOSEITEM
-; FE 6A - PLAYERNAME
-; FE 6B - WINDOWTYPE
-; FE 6C - PRINTBCD
-; FE 6D - WINDOWPOS
-; FE 6E - SCROLLSPEED
-; FE 6F - CHOOSE_B
-; FE 70 - CRASH
-; FE 71 - CHOOSE_3
-; FE 72 - CHOOSE_2_HIGH
-; FE 73 - UNKNOWN
-; FE 74 - UNKNOWN
-; FE 75 - UNKNOWN
-; FE 76 - UNKNOWN
-; FE 77 - SETCOL
-; FE 78 - WAIT
-; FE 79 - SFX
-; FE 7A - TEXTSPEED
-; FE 7B - UNKNOWN
-; FE 7C - UNKNOWN
-; FE 7D - CLEARBUFFER
-; FE 7E - PAUSEFORINPUT
-; FE 7F - END
-
-;===================================================================================================
-; Item receipts
+; ITEMGET - Item receipts
 ;===================================================================================================
 ; 00 - FIGHTER SWORD
 ; 01 - MASTER SWORD
@@ -699,7 +660,7 @@
 ; 04 - Ledge
 
 ;===================================================================================================
-; Tile types
+; TILETYPE XX - Tile types
 ;===================================================================================================
 ; 00 - Nothing (standard floor)
 ; 01 - Collision
@@ -945,17 +906,517 @@
 ; F1 - Door 1 bottom
 ; F2 - Door 2 bottom
 ; F3 - Door 3 bottom
-; F4 - Door X bottom? (unused)
-; F5 - Door X bottom? (unused)
-; F6 - Door X bottom? (unused)
-; F7 - Door X bottom? (unused)
+; F4 - Door 4 bottom
+; F5 - Door 5 bottom
+; F6 - Door 6 bottom
+; F7 - Door 7 bottom
 ; F8 - Door 0 top
 ; F9 - Door 1 top
 ; FA - Door 2 top
 ; FB - Door 3 top
-; FC - Door X top? (unused)
-; FD - Door X top? (unused)
-; FE - Door X top? (unused)
-; FF - Door X top? (unused)
+; FC - Door 4 top
+; FD - Door 5 top
+; FE - Door 6 top
+; FF - Door 7 top
 
 ;===================================================================================================
+; OBJ XXX - Room objects
+;===================================================================================================
+; 000 - Ceiling ↔
+; 001 - Wall (upper, north) ↔
+; 002 - Wall (upper, south) ↔
+; 003 - Wall (lower, north) ↔
+; 004 - Wall (lower, south) ↔
+; 005 - Wall columns (north) ↔
+; 006 - Wall columns (south) ↔
+; 007 - Deep wall (north) ↔
+; 008 - Deep wall (south) ↔
+; 009 - Diagonal wall A ◤ (upper) ↔
+; 00A - Diagonal wall A ◣ (upper) ↔
+; 00B - Diagonal wall A ◥ (upper) ↔
+; 00C - Diagonal wall A ◢ (upper) ↔
+; 00D - Diagonal wall B ◤ (upper) ↔
+; 00E - Diagonal wall B ◣ (upper) ↔
+; 00F - Diagonal wall B ◥ (upper) ↔
+; 010 - Diagonal wall B ◢ (upper) ↔
+; 011 - Diagonal wall C ◤ (upper) ↔
+; 012 - Diagonal wall C ◣ (upper) ↔
+; 013 - Diagonal wall C ◥ (upper) ↔
+; 014 - Diagonal wall C ◢ (upper) ↔
+; 015 - Diagonal wall A ◤ (lower) ↔
+; 016 - Diagonal wall A ◣ (lower) ↔
+; 017 - Diagonal wall A ◥ (lower) ↔
+; 018 - Diagonal wall A ◢ (lower) ↔
+; 019 - Diagonal wall B ◤ (lower) ↔
+; 01A - Diagonal wall B ◣ (lower) ↔
+; 01B - Diagonal wall B ◥ (lower) ↔
+; 01C - Diagonal wall B ◢ (lower) ↔
+; 01D - Diagonal wall C ◤ (lower) ↔
+; 01E - Diagonal wall C ◣ (lower) ↔
+; 01F - Diagonal wall C ◥ (lower) ↔
+; 020 - Diagonal wall C ◢ (lower) ↔
+; 021 - Platform stairs ↔
+; 022 - Rail ↔
+; 023 - Pit edge ┏━┓ A (north) ↔
+; 024 - Pit edge ┏━┓ B (north) ↔
+; 025 - Pit edge ┏━┓ C (north) ↔
+; 026 - Pit edge ┏━┓ D (north) ↔
+; 027 - Pit edge ┏━┓ E (north) ↔
+; 028 - Pit edge ┗━┛ (south) ↔
+; 029 - Pit edge ━━━ (south) ↔
+; 02A - Pit edge ━━━ (north) ↔
+; 02B - Pit edge ━━┛ (south) ↔
+; 02C - Pit edge ┗━━ (south) ↔
+; 02D - Pit edge ━━┓ (north) ↔
+; 02E - Pit edge ┏━━ (north) ↔
+; 02F - Rail wall (north) ↔
+; 030 - Rail wall (south) ↔
+; 031 - Nothing
+; 032 - Nothing
+; 033 - Carpet ↔
+; 034 - Carpet trim ↔
+; 035 - 	TODO: WEIRD DOOR OBJECT NEEDS INVESTIGATION
+; 036 - Drapes (north) ↔
+; 037 - Drapes (west, odd) ↔
+; 038 - Statues ↔
+; 039 - Columns ↔
+; 03A - Wall decors (north) ↔
+; 03B - Wall decors (south) ↔
+; 03C - Chairs in pairs ↔
+; 03D - Tall torches ↔
+; 03E - Supports (north) ↔
+; 03F - Water edge ┏━┓ (concave) ↔
+; 040 - Water edge ┗━┛ (concave) ↔
+; 041 - Water edge ┏━┓ (convex) ↔
+; 042 - Water edge ┗━┛ (convex) ↔
+; 043 - Water edge ┏━┛ (concave) ↔
+; 044 - Water edge ┗━┓ (concave) ↔
+; 045 - Water edge ┗━┓ (convex) ↔
+; 046 - Water edge ┏━┛ (convex) ↔
+; 047 - 	TODO: NEEDS IN GAME CHECKING
+; 048 - 	TODO: NEEDS IN GAME CHECKING
+; 049 - 	TODO: NEEDS IN GAME CHECKING
+; 04A - 	TODO: NEEDS IN GAME CHECKING
+; 04B - Supports (south) ↔
+; 04C - Bar ↔
+; 04D - Shelf A ↔
+; 04E - Shelf B ↔
+; 04F - Shelf C ↔
+; 050 - Somaria path ↔
+; 051 - Cannon hole (lower, north) ↔
+; 052 - Cannon hole (lower, south) ↔
+; 053 - Pipe path ↔
+; 054 - Nothing
+; 055 - Wall torches (north) ↔
+; 056 - Wall torches (south) ↔
+; 057 - Nothing
+; 058 - Nothing
+; 059 - Nothing
+; 05A - Nothing
+; 05B - Cannon hole (upper, north) ↔
+; 05C - Cannon hole (upper, south) ↔
+; 05D - Thick rail ↔
+; 05E - Blocks ↔
+; 05F - Long rail ↔
+; 060 - Ceiling ↕
+; 061 - Wall (upper, west) ↕
+; 062 - Wall (upper, east) ↕
+; 063 - Wall (lower, west) ↕
+; 064 - Wall (lower, east) ↕
+; 065 - Wall columns (west) ↕
+; 066 - Wall columns (east) ↕
+; 067 - Deep wall (west) ↕
+; 068 - Deep wall (east) ↕
+; 069 - Rail ↕
+; 06A - Pit edge (west) ↕
+; 06B - Pit edge (east) ↕
+; 06C - Rail wall (west) ↕
+; 06D - Rail wall (east) ↕
+; 06E - Nothing
+; 06F - Nothing
+; 070 - Carpet ↕
+; 071 - Carpet trim ↕
+; 072 - Nothing
+; 073 - Drapes (west) ↕
+; 074 - Drapes (east) ↕
+; 075 - Columns ↕
+; 076 - Wall decors (west) ↕
+; 077 - Wall decors (east) ↕
+; 078 - Supports (west) ↕
+; 079 - Water edge (west) ↕
+; 07A - Water edge (east) ↕
+; 07B - Supports (east) ↕
+; 07C - Somaria path ↕
+; 07D - Pipe path ↕
+; 07E - Nothing
+; 07F - Wall torches (west) ↕
+; 080 - Wall torches (east) ↕
+; 081 - Wall decors tight A (west) ↕
+; 082 - Wall decors tight A (east) ↕
+; 083 - Wall decors tight B (west) ↕
+; 084 - Wall decors tight B (east) ↕
+; 085 - Cannon hole (west) ↕
+; 086 - Cannon hole (east) ↕
+; 087 - Tall torches ↕
+; 088 - Thick rail ↕
+; 089 - Blocks ↕
+; 08A - Long rail ↕
+; 08B - Jump ledge (west) ↕
+; 08C - Jump ledge (east) ↕
+; 08D - Rug trim (west) ↕
+; 08E - Rug trim (east) ↕
+; 08F - Bar ↕
+; 090 - Wall flair (west) ↕
+; 091 - Wall flair (east) ↕
+; 092 - Blue pegs ↕
+; 093 - Orange pegs ↕
+; 094 - Invisible floor ↕
+; 095 - Line of pots ↕
+; 096 - Hammer pegs ↕
+; 097 - Nothing
+; 098 - Nothing
+; 099 - Nothing
+; 09A - Nothing
+; 09B - Nothing
+; 09C - Nothing
+; 09D - Nothing
+; 09E - Nothing
+; 09F - Nothing
+; 0A0 - Diagonal ceiling A ◤
+; 0A1 - Diagonal ceiling A ◣
+; 0A2 - Diagonal ceiling A ◥
+; 0A3 - Diagonal ceiling A ◢
+; 0A4 - Pit ⇲
+; 0A5 - Diagonal layer 2 mask A ◤
+; 0A6 - Diagonal layer 2 mask A ◣
+; 0A7 - Diagonal layer 2 mask A ◥
+; 0A8 - Diagonal layer 2 mask A ◢
+; 0A9 - Diagonal layer 2 mask B ◤			TODO: VERIFY
+; 0AA - Diagonal layer 2 mask B ◣			TODO: VERIFY
+; 0AB - Diagonal layer 2 mask B ◥			TODO: VERIFY
+; 0AC - Diagonal layer 2 mask B ◢			TODO: VERIFY
+; 0AD - Nothing
+; 0AE - Nothing
+; 0AF - Nothing
+; 0B0 - Jump ledge (north) ↔
+; 0B1 - Jump ledge (south) ↔
+; 0B2 - Rug ↔
+; 0B3 - Rug trim (north) ↔
+; 0B4 - Rug trim (south) ↔
+; 0B5 - Archery game curtains ↔
+; 0B6 - Wall flair (north) ↔
+; 0B7 - Wall flair (south) ↔
+; 0B8 - Blue pegs ↔
+; 0B9 - Orange pegs ↔
+; 0BA - Invisible floor ↔
+; 0BB - Fake pressure plates ↔
+; 0BC - Line of pots ↔
+; 0BD - Hammer pegs ↔
+; 0BE - Nothing
+; 0BF - Nothing
+; 0C0 - Ceiling (large) ⇲
+; 0C1 - Chest platform (tall) ⇲
+; 0C2 - Layer 2 pit mask (large) ⇲
+; 0C3 - Layer 2 pit mask (medium) ⇲
+; 0C4 - Floor 1 ⇲
+; 0C5 - Floor 3 ⇲
+; 0C6 - Layer 2 mask (large) ⇲
+; 0C7 - Floor 4 ⇲
+; 0C8 - Water floor ⇲ 
+; 0C9 - Flood water (medium) ⇲ 
+; 0CA - Conveyor floor ⇲ 
+; 0CB - Nothing
+; 0CC - Nothing
+; 0CD - Moving wall (west) ⇲
+; 0CE - Moving wall (east) ⇲
+; 0CF - Nothing
+; 0D0 - Nothing
+; 0D1 - Icy floor A ⇲
+; 0D2 - Icy floor B ⇲
+; 0D3 - Moving wall flag	TODO: WTF IS THIS?
+; 0D4 - Moving wall flag	TODO: WTF IS THIS?
+; 0D5 - Moving wall flag	TODO: WTF IS THIS?
+; 0D6 - Moving wall flag	TODO: WTF IS THIS?
+; 0D7 - Layer 2 mask (medium) ⇲
+; 0D8 - Flood water (large) ⇲
+; 0D9 - Layer 2 swim mask ⇲
+; 0DA - Flood water B (large) ⇲
+; 0DB - Floor 2 ⇲
+; 0DC - Chest platform (short) ⇲
+; 0DD - Table / rock ⇲
+; 0DE - Spike blocks ⇲
+; 0DF - Spiked floor ⇲
+; 0E0 - Floor 7 ⇲
+; 0E1 - Tiled floor ⇲
+; 0E2 - Rupee floor ⇲
+; 0E3 - Conveyor upwards ⇲
+; 0E4 - Conveyor downwards ⇲
+; 0E5 - Conveyor leftwards ⇲
+; 0E6 - Conveyor rightwards ⇲
+; 0E7 - Heavy current water ⇲
+; 0E8 - Floor 10 ⇲
+; 0E9 - Nothing
+; 0EA - Nothing
+; 0EB - Nothing
+; 0EC - Nothing
+; 0ED - Nothing
+; 0EE - Nothing
+; 0EF - Nothing
+; 0F0 - Nothing
+; 0F1 - Nothing
+; 0F2 - Nothing
+; 0F3 - Nothing
+; 0F4 - Nothing
+; 0F5 - Nothing
+; 0F6 - Nothing
+; 0F7 - Nothing
+; 100 - Corner (upper, concave) ▛
+; 101 - Corner (upper, concave) ▙
+; 102 - Corner (upper, concave) ▜
+; 103 - Corner (upper, concave) ▟
+; 104 - Corner (upper, convex) ▟
+; 105 - Corner (upper, convex) ▜
+; 106 - Corner (upper, convex) ▙
+; 107 - Corner (upper, convex) ▛
+; 108 - Corner (lower, concave) ▛
+; 109 - Corner (lower, concave) ▙
+; 10A - Corner (lower, concave) ▜
+; 10B - Corner (lower, concave) ▟
+; 10C - Corner (lower, convex) ▟
+; 10D - Corner (lower, convex) ▜
+; 10E - Corner (lower, convex) ▙
+; 10F - Corner (lower, convex) ▛
+; 110 - Kinked corner north (lower) ▜
+; 111 - Kinked corner south (lower) ▟
+; 112 - Kinked corner north (lower) ▛
+; 113 - Kinked corner south (lower) ▙
+; 114 - Kinked corner west (lower) ▙
+; 115 - Kinked corner west (lower) ▛
+; 116 - Kinked corner east (lower) ▟
+; 117 - Kinked corner east (lower) ▜
+; 118 - Deep corner (concave) ▛
+; 119 - Deep corner (concave) ▙
+; 11A - Deep corner (concave) ▜
+; 11B - Deep corner (concave) ▟
+; 11C - Large brazier
+; 11D - Statue
+; 11E - Star tile (disabled)
+; 11F - Star tile (enabled)
+; 120 - Small torch (lit)
+; 121 - Barrel
+; 122 - 	TODO: NEEDS IN GAME CHECKING
+; 123 - Table
+; 124 - Fairy statue
+; 125 - 	TODO: NEEDS IN GAME CHECKING
+; 126 - 	TODO: NEEDS IN GAME CHECKING
+; 127 - Chair
+; 128 - Bed
+; 129 - Fireplace
+; 12A - Mario portrait
+; 12B - 	TODO: NEEDS IN GAME CHECKING
+; 12C - 	TODO: NEEDS IN GAME CHECKING
+; 12D - Interroom stairs (up)
+; 12E - Interroom stairs (down)
+; 12F - Interroom stairs B (down)
+; 130 - Intraroom stairs north (EG0)
+; 131 - Intraroom stairs north (separate layers)
+; 132 - Intraroom stairs north (merged layers)
+; 133 - Intraroom stairs north (swim layer)
+; 134 - Block
+; 135 - Water ladder (north)
+; 136 - Water ladder (south)	TODO: NEEDS IN GAME VERIFICATION
+; 137 - Dam floodgate
+; 138 - Interroom spiral stairs up (upper)
+; 139 - Interroom spiral stairs down (upper)
+; 13A - Interroom spiral stairs up (lower)
+; 13B - Interroom spiral stairs down (lower)
+; 13C - Sanctuary wall (north)
+; 13D - 	TODO: NEEDS IN GAME CHECKING
+; 13E - Pew
+; 13F - Magic bat altar
+; 200 - Waterfall face (empty)
+; 201 - Waterfall face (short)
+; 202 - Waterfall face (long)
+; 203 - Somaria path endpoint
+; 204 - Somaria path intersection ╋
+; 205 - Somaria path corner ┏
+; 206 - Somaria path corner ┗
+; 207 - Somaria path corner ┓
+; 208 - Somaria path corner ┛
+; 209 - Somaria path intersection ┳
+; 20A - Somaria path intersection ┻
+; 20B - Somaria path intersection ┣
+; 20C - Somaria path intersection ┫
+; 20D - 	TODO: NEEDS IN GAME CHECKING
+; 20E - Somaria path 2-way endpoint
+; 20F - Somaria path crossover
+; 210 - Babasu hole (north)
+; 211 - Babasu hole (south)
+; 212 - 9 blue rupees
+; 213 - Telepathy tile
+; 214 - Warp door	TODO: NEEDS IN GAME VERIFICATION THAT THIS IS USELESS
+; 215 - Kholdstare's shell
+; 216 - Hammer peg
+; 217 - Prison cell
+; 218 - Big key lock
+; 219 - Chest
+; 21A - Chest (open)
+; 21B - Intraroom stairs south (EG0)
+; 21C - Intraroom stairs south (separate layers)
+; 21D - Intraroom stairs south (merged layers)
+; 21E - Interroom straight stairs up (north, upper)
+; 29F - Interroom straight stairs down (north, upper)
+; 220 - Interroom straight stairs up (south, upper)
+; 221 - Interroom straight stairs down (south, upper)
+; 222 - Deep corner (convex) ▟
+; 223 - Deep corner (convex) ▜
+; 224 - Deep corner (convex) ▙
+; 225 - Deep corner (convex) ▛
+; 226 - Interroom straight stairs up (north, lower)
+; 227 - Interroom straight stairs down (north, lower)
+; 228 - Interroom straight stairs up (south, lower)
+; 229 - Interroom straight stairs down (south, lower)
+; 22A - Lamp cones
+; 22B - 	TODO: NEEDS IN GAME CHECKING
+; 22C - Liftable large block
+; 22D - Agahnim's altar
+; 22E - Agahnim's boss room
+; 22F - Pot
+; 230 - 	TODO: NEEDS IN GAME CHECKING
+; 231 - Big chest
+; 232 - Big chest (open)
+; 233 - Intraroom stairs south (swim layer)
+; 234 - 	TODO: NEEDS IN GAME CHECKING
+; 235 - 	TODO: NEEDS IN GAME CHECKING
+; 236 - 	TODO: NEEDS IN GAME CHECKING
+; 237 - 	TODO: NEEDS IN GAME CHECKING
+; 238 - 	TODO: NEEDS IN GAME CHECKING
+; 239 - 	TODO: NEEDS IN GAME CHECKING
+; 23A - Pipe end (south)
+; 23B - Pipe end (north)
+; 23C - Pipe end (east)
+; 23D - Pipe end (west)
+; 23E - Pipe corner ▛
+; 23F - Pipe corner ▙
+; 240 - Pipe corner ▜
+; 241 - Pipe corner ▟
+; 242 - Pipe-rock intersection ⯊
+; 243 - Pipe-rock intersection ⯋
+; 244 - Pipe-rock intersection ◖
+; 245 - Pipe-rock intersection ◗
+; 246 - Pipe crossover
+; 247 - Bombable floor
+; 248 - Fake bombable floor
+; 249 - 	TODO: NEEDS IN GAME CHECKING
+; 24A - Warp tile
+; 24B - Tool rack
+; 24C - Furnace
+; 24D - Tub (wide)
+; 24E - Anvil
+; 24F - Warp tile (disabled)
+; 250 - Pressure plate
+; 251 - 	TODO: NEEDS IN GAME CHECKING
+; 252 - Blue peg
+; 253 - Orange peg
+; 254 - Fortune teller room
+; 255 - 	TODO: NEEDS IN GAME CHECKING
+; 256 - Bar corner ▛
+; 257 - Bar corner ▙
+; 258 - Bar corner ▜
+; 259 - Bar corner ▟
+; 25A - Decorative bowl
+; 25B - Tub (tall)
+; 25C - Bookcase
+; 25D - Range
+; 25E - Suitcase
+; 25F - Bar bottles
+; 260 - Arrow game hole (west)
+; 261 - Arrow game hole (east)
+; 262 - Vitreous goo graphics
+; 263 - Fake pressure plate
+; 264 - Medusa head
+; 265 - 4-way shooter block
+; 266 - Pit
+; 267 - Wall crack (north)
+; 268 - Wall crack (south)
+; 269 - Wall crack (west)
+; 26A - Wall crack (east)
+; 26B - Large decor
+; 26C - Water grate (north)
+; 26D - Water grate (south)
+; 26E - Water grate (west)
+; 26F - Water grate (east)
+; 270 - Window sunlight
+; 271 - Floor sunlight
+; 272 - Trinexx's shell
+; 273 - Layer 2 mask (full)
+; 274 - Boss entrance
+; 275 - Minigame chest
+; 276 - Ganon door
+; 277 - Triforce wall ornament
+; 278 - Triforce floor tiles
+; 279 - Freezor hole
+; 27A - Pile of bones
+; 27B - Vitreous goo damage
+; 27C - Arrow tile ↑
+; 27D - Arrow tile ↓
+; 27E - Arrow tile →
+; 27F - Nothing
+
+;===================================================================================================
+; DOORTYPE XX - Doors
+;===================================================================================================
+; 00 - Normal door
+; 02 - Normal door (lower layer)
+; 04 - Exit (lower layer)
+; 06 - Unused cave exit (lower layer)
+; 08 - Waterfall door
+; 0A - Fancy dungeon exit
+; 0C - Fancy dungeon exit (lower layer)
+; 0E - Cave exit
+; 10 - Lit cave exit (lower layer)
+; 12 - Exit marker
+; 14 - Dungeon swap marker
+; 16 - Layer swap marker
+; 18 - Double sided shutter door
+; 1A - Eye watch door
+; 1C - Small key door
+; 1E - Big key door
+; 20 - Small key stairs (upwards)
+; 22 - Small key stairs (downwards)
+; 24 - Small key stairs (upwards; lower layer)
+; 26 - Small key stairs (downwards; lower layer)
+; 28 - Dash wall
+; 2A - Bombable cave exit
+; 2C - Unopenable, double-sided big key door
+; 2E - Bombable door
+; 30 - Exploding wall
+; 32 - Curtain door
+; 34 - Unusable bottom-sided shutter door
+; 36 - Bottom-sided shutter door
+; 38 - Top-sided shutter door
+; 3A - Unusable normal door (lower layer)
+; 3C - Unusable normal door (lower layer)
+; 3E - Unusable normal door (lower layer)
+; 40 - Normal door (lower layer; used with one-sided shutters)
+; 42 - Unused double-sided shutter
+; 44 - Double-sided shutter (lower layer)
+; 46 - Explicit room door
+; 48 - Bottom-sided shutter door (lower layer)
+; 4A - Top-sided shutter door (lower layer)
+; 4C - Unusable normal door (lower layer)
+
+; These ones seem to be graphics only
+; 4E - Unusable normal door (lower layer)
+; 50 - Unusable normal door (lower layer)
+; 52 - Unusable bombed-open door (lower layer)
+; 54 - Unusable glitchy door (lower layer)
+; 56 - Unusable glitchy door (lower layer)
+; 58 - Unusable normal door (lower layer)
+; 5A - Unusable glitchy/stairs up (lower layer)
+; 5C - Unusable glitchy/stairs up (lower layer)
+; 5E - Unusable glitchy/stairs up (lower layer)
+; 60 - Unusable glitchy/stairs up (lower layer)
+; 62 - Unusable glitchy/stairs down (lower layer)
+; 64 - Unusable glitchy/stairs up (lower layer)
+; 66 - Unusable glitchy/stairs down (lower layer)

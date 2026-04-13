@@ -505,7 +505,7 @@ T6VBRV          = $02AD
 T7VBRC          = $02AE
 T7VBRV          = $02AF
 
-; Vibrato delay and gradient wait
+; Vibrato delay and wait
 T0VBRWT         = $02B0
 T0VBRGD         = $02B1
 T1VBRWT         = $02B2
@@ -651,7 +651,7 @@ T6VOLF          = $032D
 T7VOLTG         = $032E
 T7VOLF          = $032F
 
-; Panning
+; Panning (00 right, 0A middle, 14 left)
 ; high byte is TxPANS AND 0x1F
 T0PANL          = $0330
 T0PAN           = $0331

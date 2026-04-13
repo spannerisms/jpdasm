@@ -1,0 +1,31 @@
+[FUTABA:assemble]
+
+assembly:
+	entry              = main.asm
+	type               = disassembly
+	output             = alttp_reasm.sfc
+	addsymbols         = standard
+
+header:
+	autofill           = false
+	checksum           = false
+	mapmode            = lorom
+	fastrom            = false
+	title              = ZELDA NO DENSETSU
+	romsize            = 1MB
+	ramsize            = 8KB
+	version            = 0
+	region             = Japan
+	extended           = false
+
+debug: 
+	overflow           = error
+	tokens             = aggressive
+
+disassembly:
+	crc                = 3322EFFC
+	md5                = 03A63945398191337E896E5771F77173
+	diff               = alttp.sfc
+
+
+
