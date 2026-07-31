@@ -7,3 +7,12 @@ bin/gfx/*.3bpp
 bin/gfx/*.4bpp
 bin/brr/*.brr
 resources/music/*.log
+
+# --- english translation: US-ROM-derived assets (regenerate, don't commit) ---
+bin/gfx/us_*.2bpp
+bin/gfx/us_*.2bppc
+bin/gfx/us_*.3bppc
+bin/gfx/us_*.bin
+
+# --- battery saves from testing the build (not source) ---
+*.srm
