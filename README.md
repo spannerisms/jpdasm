@@ -2,6 +2,8 @@
 
 Full disassembly of the Japanese 1.0 version of the game by kan/spannerisms.
 
+For a disassembly of the US version, see [usdasm](https://github.com/spannerisms/usdasm).
+
 ---
 
 ## Completeness
